@@ -3,12 +3,10 @@ all : kiwix
 clean : clean_kiwix clean_moulin
 
 clean_kiwix :
-	rm -rf ./kiwix
-	mkdir ./kiwix
+	rm -rf ./kiwix/*
 
 clean_moulin :
-	rm -rf ./moulin
-	mkdir ./moulin
+	rm -rf ./moulin/*
 
 kiwix : kiwix_chrome kiwix_components
 
