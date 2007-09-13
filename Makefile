@@ -1,4 +1,4 @@
-SUBDIRS           ?= components
+SUBDIRS           ?= components indexer
 SUBDIR_TARGETS    ?= $(SUBDIRS)
 RECURSIVE_TARGETS ?= all clean
 
@@ -10,11 +10,3 @@ $(RECURSIVE_TARGETS:=_recursive):
 	@for dir in $(SUBDIRS); do \
 	  $(MAKE) -C $$dir $(subst _recursive,,$@) || exit 1; \
 	done
-
-# shortcut for "make -C <dir>"
-ifdef SUBDIR_TARGETS
-$(SUBDIR_TARGETS):
-	@$(MAKE) -C $@
-endif
-
-.PHONY: $(RECURSIVE_TARGETS:=_recursive) $(SUBDIR_TARGETS)
