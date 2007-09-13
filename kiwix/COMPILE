@@ -1,0 +1,6 @@
+To compile KiwixComponent :
+ - under linux : use the makefile to link against the gecko sdk 1.8.0.4. Type 'make install' to install the component in the <components> directory. 
+   For later versions of xulrunner you need to insert the directory into the mozilla build system. Download the full sources of mozilla and see e.g. http://books.mozdev.org/html/mozilla-chp-8-sect-2.html section 8.2.6.1.
+ - under windows : you have to link against the gecko sdk 1.8.0.4 for windows (msvc), using visual C++ 6.
+  See e.g. http://developer.mozilla.org/en/docs/Creating_XPCOM_Components:Setting_up_the_Gecko_SDK
+ - under mac OS X : you have to compile the componenent inside the mozilla build system. Download the full sources of mozilla and see e.g. http://books.mozdev.org/html/mozilla-chp-8-sect-2.html section 8.2.6.1.

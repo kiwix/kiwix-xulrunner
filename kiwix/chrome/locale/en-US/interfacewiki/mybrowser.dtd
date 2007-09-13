@@ -1,0 +1,17 @@
+<!ENTITY mybrowser.title   "Kiwix 0.5 - Wikipedia browser">
+<!ENTITY mybrowser.back    "Back">
+<!ENTITY mybrowser.forward "Forward">
+<!ENTITY mybrowser.reload  "Reload">
+<!ENTITY mybrowser.stop    "Stop">
+<!ENTITY mybrowser.goto    "Go">
+<!ENTITY mybrowser.home    "Home">
+<!ENTITY mybrowser.console "Console">
+<!ENTITY mybrowser.showSearch    "Show search results">
+<!ENTITY mybrowser.showHisto    "Show history">
+<!ENTITY mybrowser.print "Print this page">
+<!ENTITY mybrowser.searchBar "Enter your search query here">
+<!ENTITY mybrowser.searchButton "Go searching">
+<!ENTITY mybrowser.findin "Find a word in this page">
+<!ENTITY mybrowser.vocabulary "Click on a word to add it to your search query">
+<!ENTITY mybrowser.results "Search results">
+
