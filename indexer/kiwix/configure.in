@@ -23,7 +23,7 @@ if test ! x$HAVE_PKG = x ; then
 fi
 
 CXXFLAGS="$CXXFLAGS -ggdb $GLIB_CXXFLAGS"
-LIBS="$LIBS $GLIB_LIBS /usr/local/lib/libz.a"
+LIBS="$LIBS $GLIB_LIBS /usr/lib/libz.a"
 CFLAGS=$CXXFLAGS
 
 AC_CONFIG_FILES([
