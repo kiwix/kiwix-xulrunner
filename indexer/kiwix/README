@@ -1,0 +1,18 @@
+Procédure d'utilisation de KiwixBuilder -- création d'index pour Kiwix 0.5
+
+Compiler les sources :
+ décompresser l'archive kiwixbuilder.tgz, puis dans le répertoire kiwixbuilder : 
+ > ./configure && make
+
+L'exécutable se trouve dans le répertoire src :
+ > src/kiwixbuilder
+
+ Il prend en paramètre un chemin relatif ou absolu vers la racine de l'arborescence html.
+ L'indexation opère sur tous les sous-répertoire à la recherche de fichiers d'extension .html ou .html.gz. Les .html.gz doivent contenir du html compressé au format gzip.
+ Une fois l'indexation terminée, les fichiers d'index sont placés à la racine de l'arborescence. Il suffit de déplacer cette arborescence dans le répertoire html de kiwix 0.5
+
+Modification éventuelle des sources : 
+
+ src/wordindex.c ; ligne 9 : tableau des mots à ne pas indexer
+ src/filenameindex.c ; ligne 6 : PREFIX_IMAGE et PREFIX_TEMPLATE peuvent éventuellement servir à éliminer certains fichier en fonction de leur préfixe.
+ src/dirpaser.c ; ligne 45 : éventuellement modifier le filtre sur les suffixes de fichiers : actuellement seuls les fichiers terminant par .html ou .html.gz sont indexés.
