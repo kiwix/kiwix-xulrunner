@@ -1,4 +1,4 @@
-SUBDIRS           ?= components indexer build
+SUBDIRS           ?= components indexer data_test build
 SUBDIR_TARGETS    ?= $(SUBDIRS)
 RECURSIVE_TARGETS ?= all clean
 
