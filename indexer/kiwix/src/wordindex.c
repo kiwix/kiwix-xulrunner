@@ -409,7 +409,8 @@ void wikiBuildWordArticleMap( const gchar *root ) {
   	    / wordMapGetFromIndex(wmArticle, w)->nbOccurence);
   	}
   	elementCounterSort(wordCounter);
-  	
+
+  	/* BECAUSE THIS CODE WAS SEGFAULTING
   	printf( "Id %d : %s \n", i, fniGetFromIdx( fniArticle, i ) );
   	printf( "  %s %d %s %d %s %d\n\n", wordMapGetFromIndex( wmArticle,
           elementCounterGetElement(wordCounter,0) )->word,
@@ -419,6 +420,7 @@ void wikiBuildWordArticleMap( const gchar *root ) {
   	  wordMapGetFromIndex( wmArticle, elementCounterGetElement(wordCounter,2) )->word,
   	  elementCounterGetCount(wordCounter,2) );
          articleMapAddVocabulary( amArticle, i, wordCounter );
+	*/
   }
   elementCounterDelete( wordCounter );
 
