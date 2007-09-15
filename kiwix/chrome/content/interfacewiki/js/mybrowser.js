@@ -17,11 +17,11 @@
     Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA */
 
 // Minimal specific vocabulary size for giving top of it
-var MIN_VOCSPE_SIZE = 800;
+var MIN_VOCSPE_SIZE = 0;
 // Factor by which font is magnified by pressing ctrl+'+'
 var zoomFactor = 1.3;
 // Home url
-var homeUrl = "art/d/w.html";
+var homeUrl = "index.html";
 // Maximal number of search results returned
 var NB_SEARCH_RETURN = 25;
 // Score upon which the first search result is opened automatically
