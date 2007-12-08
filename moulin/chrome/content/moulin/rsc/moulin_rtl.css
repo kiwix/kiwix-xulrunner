@@ -1,0 +1,23 @@
+
+/* Right to left specific css */
+/*
+** keep the whitespace in front of the ^=, hides rule from konqueror
+** this is css3, the validator doesn't like it when validating as css2
+*/
+
+
+#bodyContent a.external, #bodyContent a[href ^="gopher://"], #bodyContent a[href ^="https://"],
+.link-https, #bodyContent a[href ^="mailto:"],
+.link-mailto, #bodyContent a[href ^="news://"], #bodyContent a[href ^="ftp://"],
+.link-ftp, #bodyContent a[href ^="irc://"], #bodyContent a[href ^="http://"],
+.link-irc {
+	padding-right:auto;
+	background:none;
+	color:green;
+}
+
+#column-content #content{
+	margin-right: 0;
+	border-right: 0;
+	border-bottom: 0;
+}

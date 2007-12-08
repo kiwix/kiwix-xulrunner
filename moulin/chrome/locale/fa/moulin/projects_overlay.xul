@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE window SYSTEM "chrome://moulin/locale/moulin.dtd">
+<overlay xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+<menupopup id="searchpopup">
+<menuitem dir="&moulin.dir;" class="menuitem-iconic" image="chrome://moulin/locale/projects/media_list.png" label="&project.media;" value="media" oncommand="UIChangeSearchEngine (this.value);" />
+<menuitem dir="&moulin.dir;" class="menuitem-iconic" image="chrome://moulin/locale/projects/encyclopedia_list.png" label="&project.encyclopedia;" value="encyclopedia" oncommand="UIChangeSearchEngine (this.value);" />
+<menuitem dir="&moulin.dir;" class="menuitem-iconic" image="chrome://moulin/locale/projects/quote_list.png" label="&project.quote;" value="quote"  oncommand="UIChangeSearchEngine (this.value);" />
+<menuitem dir="&moulin.dir;" class="menuitem-iconic" image="chrome://moulin/locale/projects/books_list.png" label="&project.books;" value="books"  oncommand="UIChangeSearchEngine (this.value);" />
+<menuitem dir="&moulin.dir;" class="menuitem-iconic" image="chrome://moulin/locale/projects/source_list.png" label="&project.source;" value="source"  oncommand="UIChangeSearchEngine (this.value);" />
+</menupopup>
+</overlay>

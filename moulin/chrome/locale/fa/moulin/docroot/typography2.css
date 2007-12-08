@@ -1,0 +1,173 @@
+/* hicksdesign.co.uk */
+
+/* Eric Meyers Reset CSS rules */
+html, body, div, span,
+applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+dd, dl, dt, li, ol, ul,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-weight: inherit;
+	font-style: inherit;
+	font-size: 100%;
+	line-height: 1.5;
+	font-family: inherit;
+	text-align: right;
+	vertical-align: baseline;
+}
+a img, :link img, :visited img {
+	border: 0;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+ol, ul {
+	list-style: none;
+}
+q:before, q:after,
+blockquote:before, blockquote:after {
+	content: "";
+}
+
+body { 
+    font-size: 75%; /* for IE */
+    font-family: Lucida Grande, Lucida Sans Unicode, Bitstream Vera Sans, Geneva, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    color: #333;
+    }
+    
+html>body { 
+	font-size: 12px; 
+	line-height: 18px;	
+} /* for the rest */
+
+/*typography*/
+
+a {
+	font-weight: bold;
+	color: #0164e5;
+	}
+a:link {
+	}
+a:visited {
+	}
+a:active {
+	}
+a:hover {
+	text-decoration: underline;
+	}
+	
+table, thead, tbody, tr, th, td {font-size:1em}
+
+
+h1 {
+	font-size:24px;
+	font-weight:normal;
+	margin:0.5em 0 0.7em 0;
+}
+
+h2 {
+	font-size:16px;
+	font-weight:bold;
+	margin:18px 0 2px 0;
+	color: #000;
+}
+
+#search h2 {
+	font-size:16px;
+	font-weight:bold;
+	margin:auto;
+	color: white;
+}
+
+
+.big {
+	margin-top: 0;
+	font-size: 24px;
+}
+
+h3 {
+	font-size:14px;
+	font-weight:bold;
+	margin:16px 0 2px 0;
+	color: #000;
+}
+
+h4 {
+	font-size:13px;
+	color: #000;
+	margin:0.5em 0;
+	font-weight:bold;
+}
+
+p {
+	font-size:1em;
+	margin:0 0 1.5em 0;
+}
+
+h5, h6 {
+	font-size:1em;
+	font-weight:bold;
+	margin:1.5em 0 0 0;
+}
+
+.sidenote {
+	font-size:0.8333em;
+}
+.footnote {
+	border-top:0.08333em solid #000;
+	margin-top:2.25em;
+	padding-top:0.667em;
+}
+
+ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+.relnote {
+	list-style-type: disc;
+}
+
+ol, ul {
+	font-size: 1em;
+	margin: 1em 0 1em 2em;
+}
+
+li {
+	line-height: 1.8em;
+}
+
+li > p {
+	margin-top: 0.2em;
+	}
+pre {
+	font-family: monaco, courier, monospace;
+	}
+strong, b {
+	font-weight: bold;
+	}
+em {
+	font-style: italic;
+}
+h1,
+#preview h2 {
+	text-indent: -999em;
+	overflow: hidden;
+	margin: 0;
+	height: 0;
+}
+
+.small {
+	font-size: 0.8em;
+}
+
+

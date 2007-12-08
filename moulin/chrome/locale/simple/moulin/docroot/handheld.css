@@ -1,0 +1,123 @@
+/*
+** MediaWiki 'monobook' style sheet for CSS2-capable browsers.
+** Copyright Gabriel Wicke - http://wikidev.net/
+** License: GPL (http://www.gnu.org/copyleft/gpl.html)
+**
+** Loosely based on http://www.positioniseverything.net/ordered-floats.html by Big John
+** and the Plone 2.0 styles, see http://plone.org/ (Alexander Limi,Joe Geldart & Tom Croucher,
+** Michael Zeltner and Geir Bækholt)
+** All you guys rock :)
+*/
+
+/**
+ * Stylesheet for handhelds.  All rules not marked media-specific are shared
+ * with main.css and should be updated in tandem.  The rules can't be in the
+ * same file because old browsers like IE5 won't obey @media rules.
+ *
+ * Rules that are handheld-specific are given @media rules in case old browsers
+ * don't recognize the media attribute and load this file anyway.
+ */
+
+#content a {
+	text-decoration: none;
+	color: #002bb8;
+	background: none;
+}
+#content a:visited {
+	color: #5a3696;
+}
+#content a:active {
+	color: #faa700;
+}
+#content a:hover {
+	text-decoration: underline;
+}
+#content a.stub {
+	color: #772233;
+}
+#content a.new, #p-personal a.new {
+	color: #ba0000;
+}
+#content a.new:visited, #p-personal a.new:visited {
+	color: #a55858;
+}
+
+#content img {
+	border: none;
+	vertical-align: middle;
+}
+#content p img {
+	margin: 0;
+	display:inline;
+}
+
+hr {
+	height: 1px;
+	color: #aaa;
+	background-color: #aaa;
+	border: 0;
+	margin: .2em 0 .2em 0;
+}
+
+#content h1, #content h2, #content h3, #content h4, #content h5, #content h6 {
+	color: black;
+	background: none;
+	font-weight: normal;
+	margin: 0;
+	padding-top: .5em;
+	padding-bottom: .17em;
+	border-bottom: 1px solid #aaa;
+}
+#content h1 { font-size: 188%; }
+#content h1 .editsection { font-size: 53%; }
+#content h2 { font-size: 150%; }
+#content h2 .editsection { font-size: 67%; }
+#content h3, #content h4, #content h5, #content h6 {
+	border-bottom: none;
+	font-weight: bold;
+}
+#content h3 { font-size: 132%; }
+#content h3 .editsection { font-size: 76%; font-weight: normal; }
+#content h4 { font-size: 116%; }
+#content h4 .editsection { font-size: 86%; font-weight: normal; }
+#content h5 { font-size: 100%; }
+#content h5 .editsection { font-weight: normal; }
+#content h6 { font-size: 80%;  }
+#content h6 .editsection { font-size: 125%; font-weight: normal; }
+
+#content .editsection {
+	float: right;
+	margin-left: 5px;
+}
+
+#content ul {
+	line-height: 1.5em;
+	list-style-type: square;
+	margin: .3em 0 0 .5em;
+	padding: 0;
+	list-style-image: url(bullet.gif);
+}
+#content ol {
+	line-height: 1.5em;
+	margin: .3em 0 0 .2em;
+	padding: 0;
+	list-style-image: none;
+}
+#content li {
+	margin-bottom: .1em;
+}
+#content dt {
+	font-weight: bold;
+	margin-bottom: .1em;
+}
+#content dl {
+	margin-top: .2em;
+	margin-bottom: .5em;
+}
+#content dd {
+	line-height: 1.5em;
+	margin-left: 2em;
+	margin-bottom: .1em;
+}
+
+span.mw-headline * { display:inline; }

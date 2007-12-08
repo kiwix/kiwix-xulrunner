@@ -1,0 +1,10 @@
+
+#goforward { list-style-image : url(img/back60.png); }
+#goforward:hover { list-style-image : url(img/back60_fade.png); }
+
+#goback { list-style-image : url(img/forward60.png); }
+#goback:hover { list-style-image : url(img/forward60_fade.png); }
+
+#search { margin-right:-15px; }
+
+#print { margin-left:auto; }

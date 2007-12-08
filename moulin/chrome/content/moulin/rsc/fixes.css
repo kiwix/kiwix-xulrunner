@@ -1,0 +1,250 @@
+#siteNotice {
+    margin-top:5px;
+    padding-left: 4px;
+    text-align: center;
+    background: transparent;
+}
+
+
+body {
+font-size: 75%;
+font-family: Tahoma, Roya,  sans-serif;
+}
+
+#content {
+    background: #F8FCFF; /* a light blue */
+}
+
+.ns-0 * #content {
+    background: white;
+}
+
+
+/* Fix infobox margin */
+.infobox {
+   margin-left: 0;
+   margin-right: 1em;
+}
+
+/* Fix infobox margin EOF! */
+
+/* Partial solution for bug# 33 */
+
+.ns-0 * #content ul{  /* for unnumbered lists (Bullet lists) */
+display: table;
+}
+
+.ns-0 * #content ol{ /* for numbered lists */
+display: table;
+}
+/* End of partial solution */
+
+/* Solution for ordered and unordered lists in firefox having float:left on its left side */
+
+html>body DIV#bodyContent ol, html>body DIV#bodyContent ul {
+
+display:table;
+
+/*border:1px solid transparent;*/
+
+}
+
+html>body DIV#bodyContent hr {
+
+direction:ltr;
+
+}
+
+DIV#bodyContent {
+margin-left:10px;
+}
+/* End of fixing firefox ol and li */
+
+/* خرفستر زدایی طبق ویکی‌پدیا:ویکی‌پروژه سی‌اس‌اس/۱۲ */
+OL.references{
+margin-left:10px;
+}
+/* پایان خرفستر زدایی */
+
+#mytabs li {
+    background: #F8FCFF;
+}
+
+.ns-0 * #mytabs li {
+    background: white;
+}
+
+#mytabs li a {
+    background-color: #F8FCFF;
+}
+
+.ns-0 * #mytabs li a {
+    background-color: white;
+}
+
+#p-cactions li {
+    background: #F8FCFF;
+}
+
+.ns-0 * #p-cactions li {
+    background: white;
+}
+
+#p-cactions li a {
+    background-color: #F8FCFF;
+}
+
+.ns-0 * #p-cactions li a {
+    background-color: white;
+}
+
+/* Display "From Wikipedia, the free encyclopedia" */
+#siteSub {
+    display: inline;
+    font-size: 100%;
+    font-weight: normal;
+}
+
+/* Bold 'edit this page' link to encourage newcomers */
+#ca-edit a { font-weight: bold !important; }
+
+/* Display "User $1, you are already logged in!"
+   ([[MediaWiki:Alreadyloggedin]]) in red and bold */
+div.alreadyloggedin { color: red; font-weight: bold; }
+
+/* Do not print edit link in templates using Template:Ed */
+@media print { .editlink { display: none } }
+
+#column-one {
+    padding-top:185px;
+}
+
+#p-logo,
+#p-logo a,
+#p-logo a:hover {
+  height: 180px;
+}
+
+/*The following line patches a "horizontal scrollbar" bug in Firefox.*/
+html>body DIV#p-logo {margin-right:1px;}
+
+/* Changing the font for textboxes and buttons to default font-family 
+input, select, textbox {
+
+ font-family: Tahoma, Roya, sans-serif;
+
+font-size: 75%; }*/
+/*To Display poems justified in IE*/
+.b { /* verse container */
+  text-align: justify;
+  text-align-last: justify; /* for IE */
+  border: 0;
+}
+
+.beyt {
+  white-space: nowrap; 
+}
+
+.plainlinksneverexpand a.external.text:after {
+ display: none !important
+}
+ /* Standard Navigationsleisten, aka box hiding thingy from .de.  Documentation at [[Wikipedia:NavFrame]]. */
+ 
+ div.Boxmerge,
+ div.NavFrame {
+         margin: 0px;
+         padding: 2px;
+         border: 1px solid #aaaaaa;
+         text-align: center;
+         border-collapse: collapse;
+         font-size: 95%;
+ }
+ div.Boxmerge div.NavFrame {
+         border-style: none;
+         border-style: hidden;
+ }
+ div.NavFrame + div.NavFrame {
+         border-top-style: none;
+         border-top-style: hidden;
+ }
+ div.NavPic {
+         background-color: #ffffff;
+         margin: 0px;
+         padding: 2px;
+         float: left;
+ }
+ div.NavFrame div.NavHead {
+         height: 1.6em;
+         font-weight: bold;
+         font-size: 100%;
+         background-color: #efefef;
+         position:relative;
+ }
+ div.NavFrame p {
+         font-size: 100%;
+ }
+ div.NavFrame div.NavContent {
+         font-size: 100%;
+ }
+ div.NavFrame div.NavContent p {
+         font-size: 100%;
+ }
+ div.NavEnd {
+         margin: 0px;
+         padding: 0px;
+         line-height: 1px;
+         clear: both;
+ }
+ a.NavToggle {
+         position:absolute;
+         top:0px;
+         left:3px;
+         font-weight:normal;
+         font-size:smaller;
+ }
+ 
+ #coordinates {  
+  position:absolute;
+  z-index:1;
+  border:none;
+  background:none;
+left:30px;
+  top:3.7em;
+  float:left;
+  margin:0.0em;
+  padding:0.0em;
+  line-height:1.5em;
+  text-align:right;
+  text-indent:0;
+  font-size:85%;
+  text-transform:none;
+  white-space:nowrap;
+ }
+ 
+ li.FA {
+   list-style-image: url("http://upload.wikimedia.org/wikipedia/en/6/60/LinkFA-star.png");
+ }
+
+/*تصاویری که در ویکی‌انبار هستند، توضیحاتشان انگلیسی و چپ به راست است*/
+DIV#shared-image-desc, DIV#shared-image-desc TABLE {
+direction:ltr;
+}
+
+/* راست‌چین کردن جعبه مربوط به کارکترهای ویژه که گاهی اوقات(نظیر صفحهٔ بارگذاری) چپ‌چین می‌شود. */
+#editpage-specialchars {  
+  text-align:right;
+ }
+
+/* پررنگ‌تر کردن پیوندهای دیده شده */
+A:visited {
+color:#3A0592;
+}
+A.new:visited {
+color:#BB2211;
+}
+
+/* برای این که تمام عبارت [شماره] در مورد منابع، در یک سطر دیده شود: */
+.reference{
+white-space:nowrap;
+}
+

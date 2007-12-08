@@ -1,0 +1,96 @@
+
+#nav-toolbar {
+	background-image: url(img/background.png);
+	height:77px !important;
+    padding:0;
+    margin: 0;
+}
+
+#nav-toolbar image:hover {
+	cursor: pointer;
+}
+
+#searchbox {
+	width:167px;
+	-moz-appearance: none !important;
+	border:0;
+	background-color: transparent;
+	background-image: url(img/searchfield.png);
+	background-repeat:no-repeat;
+	background-position: 0px 0px;
+	width:167px;
+}
+
+#searchbar {
+	-moz-appearance: none !important;
+	border:0;
+	background-color: transparent;
+	background-repeat:no-repeat;
+	color: -moz-FieldText;
+	width:165px;
+	overflow:hidden;
+	font-size: 20px;
+	margin-right: -55px;
+}
+
+#searchgo {
+	width: 14px;
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+
+#gohome { background-image: url(img/moulin.png); }
+#goback { background-image: url(img/arrowtoleft.png); }
+#goforward { background-image: url(img/arrowtoright.png); }
+#search { background-image: url('chrome://moulin/locale/projects/encyclopedia_list.png'); }
+#searchgo { background-image: url(img/search.png); }
+#print { background-image: url(img/printer.png); }
+#sizeup { background-image: url(img/textplus.png); }
+#sizedown { background-image: url(img/textminus.png); }
+#findin { background-image: url(img/searchinpage.png); }
+#fullscreen { background-image: url(img/fullscreen.png); }
+#sidebar { background-image: url(img/sidebar.png); }
+/*#nav-toolbar .button-text { display:none; }*/
+
+/* right to left secific */
+window.rtl * #goforward { background-image: url(img/arrowtoleft.png); }
+window.rtl * #goback { background-image: url(img/arrowtoright.png); }
+
+#nav-toolbar image {
+	width: 51px;
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
+image#searchgo {
+	width: 18px;
+	margin-right: 0px;
+}
+image#searchgo:hover { cursor: pointer; }
+
+image#print {
+	width: 60px;
+}
+
+image#search {
+	position: absolute;
+	background-repeat: no-repeat;
+	background-position: center center;
+	width: 25px;
+	height: 25px;
+	margin-left: 0px;
+}
+
+#searchbox[dir='ltr'] image#search {
+	margin-left: 5px;
+}
+
+#searchbar[dir='ltr'] {
+	margin-left: -60px;
+}
+
+#searchbox[dir='ltr'] image#searchgo {
+	margin-left:60px;
+}
+
+

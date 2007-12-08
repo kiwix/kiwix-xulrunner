@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--  moulin - offline wikipedia distro
+    Copyright (C) 2006-2007, Kunnafoni Foundation and contributors
+    
+    Contributor(s):
+        reg <reg@nurv.fr>
+
+    This program is free software; you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation; either version 2 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program; if not, write to the Free Software
+    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA -->
+
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<?xml-stylesheet href="chrome://moulin/skin/moulin.css" type="text/css"?>
+<!DOCTYPE window SYSTEM "chrome://moulin/locale/moulin.dtd">
+<window	xmlns:html="http://www.w3.org/1999/xhtml" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+		id = "moulin"
+		title = "&moulin.title;"
+		titlemodifier = "&moulin.title;"
+		titlemenuseparator = " - "
+		contenttitlesetting="true"
+		width   = "800"
+		height  = "600"
+		sizemode="normal"
+		screenX ="10"
+		screenY ="10"
+		class="&moulin.dir;"
+		onload  = "initializeBrowser (); UINavGoHome ();"
+		onclose="return UIDoOnClose ();">
+<script LANGUAGE="JavaScript" type="text/javascript" src="chrome://moulin/content/js/global.js"/>
+<script LANGUAGE="JavaScript" type="text/javascript" src="chrome://moulin/content/js/logger.js"/>
+<script LANGUAGE="JavaScript" type="text/javascript" src="chrome://moulin/content/js/yaml.js"/>
+<script type="application/x-javascript" src="chrome://global/content/printUtils.js"/>
+<script type="application/x-javascript" src="chrome://global/content/findUtils.js"/>
+<script LANGUAGE="JavaScript" type="text/javascript" src="chrome://moulin/content/js/moulin_ui.js"/>
+<script LANGUAGE="JavaScript" type="text/javascript" src="chrome://moulin/content/js/moulin_browser.js"/>
+<script LANGUAGE="JavaScript" type="text/javascript" src="chrome://moulin/content/js/bookmarks.js"/>
+<script LANGUAGE="JavaScript" type="text/javascript" src="chrome://moulin/content/js/md5.js"/>
+<script LANGUAGE="JavaScript" type="text/javascript" src="chrome://moulin/content/js/notes.js"/>
+
+<stringbundleset id="strbundles">
+<stringbundle id="strings" src="chrome://moulin/locale/moulin.properties"/>
+</stringbundleset>
+
+<keyset>
+	<key id="copy-key" key="C" modifiers="control" oncommand="UICopySelection ();" />
+	<key id="find-key" key="F" modifiers="control" oncommand="UIFindInPage ();" />
+	<key id="home-key" key="H" modifiers="control" oncommand="UINavGoHome ();" />
+	<key id="search-key" key="L" modifiers="control" oncommand="UIFocusOnSearch ();" />
+	<key id="search-key" key="K" modifiers="control" oncommand="UIFocusOnSearch ();" />
+	<key id="zoomin-key" key="+" modifiers="control" oncommand="UITextBigger ();" />
+	<key id="zoomout-key" key="-" modifiers="control" oncommand="UITextSmaller ();" />
+    <key id="print-key" key="P" modifiers="control" oncommand="UIPrintPage ();" />
+	<key id="selectall-key" key="A" modifiers="control" oncommand="UISelectAll ();"/>
+</keyset>
+
+<popupset>
+  <menupopup id="searchpopup" position="&moulin.position;" dir="&moulin.dir;">
+<!-- this menu filled by XUL Overlay at chrome://moulin/locale/projects_overlay.xul -->
+  </menupopup>
+</popupset>
+
+<hbox id="nav-toolbar" dir="&moulin.dir;">
+    <image id="gohome" label="&moulin.home;" tooltiptext="&moulin.home;" onclick="javascript:UINavGoHome ();" class="moulin-tb" />
+    <image id="goback" label="&moulin.back;" onclick="javascript:UINavBack ();" tooltiptext="&moulin.back;" class="moulin-tb" />
+    <image id="goforward" label="&moulin.forward;" onclick="javascript:UINavForward ();" tooltiptext="&moulin.forward;" class="moulin-tb" />
+    <hbox dir="&moulin.dir;" id="searchbox">
+	    <image id="search" label="&moulin.search;" tooltiptext="&moulin.search;" class="moulin-tb" popup="searchpopup" />
+	    <textbox id="searchbar" value="" multiline="false" tooltiptext="&moulin.search;" type="autocomplete" onchange="UINavSearch ();" style="direction: &moulin.dir;;" dir="&moulin.dir;" />
+	    <image id="searchgo" label="&moulin.search;" tooltiptext="&moulin.search;" class="moulin-tb" onclick="javascript:UINavSearch ();" />
+    </hbox>
+    <image id="print" label="&moulin.print;" onclick="javascript:UIPrintPage ();" tooltiptext="&moulin.print;" class="moulin-tb" />
+    <image id="sizeup" label="&moulin.sizeUp;" onclick="javascript:UITextBigger ();" tooltiptext="&moulin.sizeUp;" class="moulin-tb" />
+    <image id="sizedown" label="&moulin.sizeDown;" onclick="javascript:UITextSmaller ();" tooltiptext="&moulin.sizeDown;" class="moulin-tb" />
+    <image id="findin" label="&moulin.searchInPage;" onclick="javascript:UIFindInPage ();" tooltiptext="&moulin.searchInPage;" class="moulin-tb" />
+    <image id="fullscreen" label="&moulin.toggleFullscreen;" onclick="javascript:UIToggleFullScreen ();" tooltiptext="&moulin.toggleFullscreen;" class="moulin-tb" />
+    <image id="sidebar" label="&moulin.toggleSidebar;" onclick="javascript:UIToggleSideBar ();" tooltiptext="&moulin.toggleSidebar;" class="moulin-tb" />
+</hbox>
+<hbox flex="1" dir="&moulin.dir;">
+	<vbox id="moulin-sidebar" hidden="true">
+	<button label="&moulin.loadbmk;" tooltiptext="&moulin.loadbmk;" oncommand="UILoadExternalBookmarkFile ();" />
+	<button label="&moulin.exportbmk;" tooltiptext="&moulin.exportbmk;" oncommand="UIExportCurrentSetToFile ();" />
+	<button label="&moulin.mark;" tooltiptext="&moulin.mark;" oncommand="bookmarkCurrentPage ();" />
+	<button label="&moulin.unmark;" tooltiptext="&moulin.unmark;" oncommand="removeCurrentBookmark ();" />
+
+	<label value="&moulin.bmkLabel;" />
+	<listbox id="bookmarkListBox" flex="1" dir="&moulin.dir;">
+	</listbox>
+	
+	<label value="&moulin.notesLabel;" />
+	<textbox id="notesTextBox" onchange="saveNotes(null);" multiline="true" flex="1" dir="&moulin.dir;" />
+	</vbox>
+	
+	<splitter state="collapsed" collapse="none" resizeafter="farthest">
+	</splitter>
+	
+	<browser flex="5" id="content-browser" src="" type="content-primary"/>
+</hbox>
+</window>

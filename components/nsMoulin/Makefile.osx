@@ -1,0 +1,35 @@
+CXX   = c++ -isysroot /Developer/SDKs/MacOSX10.4u.sdk
+
+GECKO_SDK = /Volumes/Hobbes/gecko-sdk
+
+LDFLAGS  :=   -lxpcomglue_s -lxpcom -lnspr4 -lplds4 -lplc4 -lmozjs
+CXXFLAGS := -Wno-ctor-dtor-privacy -Wno-non-virtual-dtor -fno-rtti
+GECKO_DEFS := -DMOZILLA_STRICT_API
+
+nsIMoulin.h: nsIMoulin.idl
+	$(GECKO_SDK)/bin/xpidl -m header -I $(GECKO_SDK)/idl nsIMoulin.idl
+
+moulin.xpt: nsIMoulin.idl
+	$(GECKO_SDK)/bin/xpidl -m typelib -I $(GECKO_SDK)/idl -o moulin nsIMoulin.idl
+
+universal: i386 ppc
+	lipo -create -output moulin.dylib moulin-ppc.dylib moulin-i386.dylib
+	rm moulin-ppc.dylib
+	rm moulin-i386.dylib
+
+i386: nsIMoulin.h moulin.cpp
+	 $(CXX) -arch i386 -Os -c -o moulin-i386.o $(GECKO_DEFS) -I $(GECKO_SDK)-i386/include  -I /Volumes/Hobbes/mozilla/mozilla/obj-xulrunner/i386/xpcom -I /usr/include moulin.cpp $(CXXFLAGS)
+	 $(CXX) -arch i386 -dynamiclib -o moulin-i386.dylib $(GECKO_DEFS) moulin-i386.o -L$(GECKO_SDK)-i386/lib -L/Volumes/Hobbes/mozilla/mozilla/obj-xulrunner/i386/dist/lib -Wl,-executable_path,/Library/Frameworks/XUL.framework/Versions/Current $(LDFLAGS) -framework CoreFoundation -framework XUL /usr/lib/libbz2.dylib /usr/lib/libz.dylib
+	chmod +x moulin-i386.dylib
+	rm moulin-i386.o
+
+ppc: nsIMoulin.h moulin.cpp
+	 $(CXX) -arch ppc -Os -c -o moulin-ppc.o $(GECKO_DEFS) -I $(GECKO_SDK)-ppc/include -I /Volumes/Hobbes/mozilla/mozilla/obj-xulrunner/ppc/xpcom -I /usr/include moulin.cpp $(CXXFLAGS)
+	 $(CXX) -arch ppc -dynamiclib -o moulin-ppc.dylib $(GECKO_DEFS) moulin-ppc.o -L$(GECKO_SDK)-ppc/lib -L/Volumes/Hobbes/mozilla/mozilla/obj-xulrunner/ppc/dist/lib -Wl,-executable_path,/Library/Frameworks/XUL.framework/Versions/Current $(LDFLAGS) -framework CoreFoundation -framework XUL /usr/lib/libbz2.dylib /usr/lib/libz.dylib
+	chmod +x moulin-ppc.dylib
+	rm moulin-ppc.o
+
+clean:
+	rm moulin.dylib
+	rm nsIMoulin.h
+	rm moulin.xpt

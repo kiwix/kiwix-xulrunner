@@ -1,0 +1,17 @@
+html[dir='ltr'] * #nav a {	float: left; }
+html[dir='ltr'] * #footer p { float: left; text-align:left; }
+html[dir='ltr'] * #content .leftcol,
+html[dir='ltr'] * .content .leftcol { float: left; width: 420px; }
+html[dir='ltr'] * #content * { text-align: left; } 
+
+html[dir='ltr'] * #nav2 a {	float: left; }
+
+html[dir='ltr'] * .content div ul li { text-align: left; }
+
+html[dir='ltr'] * .search-nav a { float: left; }
+html[dir='ltr'] * .search-nav { text-align: left; }
+
+html[dir='ltr'] * .project-header { text-align: left; float: left; }
+
+html[dir='ltr'] * #content .rightcol,
+html[dir='ltr'] * .content .rightcol { float: right; text-align: left; padding-left: 4px; width: 239px; }
