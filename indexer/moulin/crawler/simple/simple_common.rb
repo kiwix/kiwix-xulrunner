@@ -13,8 +13,8 @@ INCLUDED_PROJECTS = [
 {:url => "http://simple.wikibooks.org/wiki/", :internal => "moulin://books/simple/"},
 {:url => "http://simple.wikiquote.org/wiki/Category:", :internal => "moulin://quote-category/simple/"},
 {:url => "http://simple.wikiquote.org/wiki/", :internal => "moulin://quote/simple/"},
-{:url => "http://simple.wiktionary.org/wiki/Category:", :internal => "moulin://source-category/simple/"},
-{:url => "http://simple.wiktionary.org/wiki/", :internal => "moulin://source/simple/"}
+{:url => "http://simple.wiktionary.org/wiki/Category:", :internal => "moulin://dictionary-category/simple/"},
+{:url => "http://simple.wiktionary.org/wiki/", :internal => "moulin://dictionary/simple/"}
 ]
 
 EXCLUDED_NS = [
