@@ -1,4 +1,2 @@
-content moulin content/moulin/
-locale moulin fa locale/fa/moulin/
-locale moulin simple locale/simple/moulin/
+content moulin content/moulin/locale moulin [[[LANG]]] locale/[[[LANG]]]/moulin/
 skin moulin new skin/new/overlay chrome://moulin/content/moulin.xul chrome://moulin/locale/projects_overlay.xul
