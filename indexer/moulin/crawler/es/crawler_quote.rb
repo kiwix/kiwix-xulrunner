@@ -10,7 +10,7 @@ MASTER = "quote"
 NAMESPAC= {:id => 0, :name => nil}
 UNIQID  = Time.now.to_i
 UNIQFD  = "/home/reg/var/#{LANG}/#{PROJECT}_#{UNIQID}"
-MDWKFD  = "/var/www/reg/wiki"
+MDWKFD  = "/var/www/reg.kiwix.org/wiki"
 DBICON  = "DBI:Mysql:reg_#{LANG}_#{PROJECT}"
 DBIUSER = "reg"
 DBIPASS = "reg"

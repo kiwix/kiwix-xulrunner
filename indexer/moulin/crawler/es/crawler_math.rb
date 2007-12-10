@@ -6,7 +6,7 @@ puts "#{Time.now.to_s} Starting..."
 
 LANG = "es"
 
-$IMAGES_FOLDER = "/var/www/reg/wiki/images/#{LANG}"
+$IMAGES_FOLDER = "/var/www/reg.kiwix.org/wiki/images/#{LANG}"
 $BLOCK_SIZE	= 5242880 # 5MB
 $DATA_PATH	= "/home/reg/var/#{LANG}/_math/"
 INDEX_SCHEMA= "CREATE TABLE windex (
