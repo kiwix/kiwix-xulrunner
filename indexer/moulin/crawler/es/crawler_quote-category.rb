@@ -16,7 +16,7 @@ DBIUSER = "reg"
 DBIPASS = "reg"
 BLOCK_SIZE	= 10485760 # 10MB
 
-require 'simple_common.rb'
+require 'es_common.rb'
 
 require '../crawler.rb'
 
