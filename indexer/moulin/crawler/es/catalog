@@ -1,0 +1,15 @@
+project_codes:encyclopedia,dictionary,books,quote,source,university
+encyclopedia:Wikipedia
+dictionary:Wikcionario
+books:Wikilibros
+quote:Wikiquote
+source:Wikisource
+university:Wikiversidad
+encyclopedia-category:Wikipedia Categoría
+encyclopedia-portal:Wikipedia Portal
+encyclopedia-appendix:Wikipedia Anexo
+dictionary-category:Wikcionario Categoría
+books-category:Wikilibros Categoría
+quote-category:Wikiquote Categoría
+source-category:Wikisource Categoría
+university-category:Wikiversidad Categoría

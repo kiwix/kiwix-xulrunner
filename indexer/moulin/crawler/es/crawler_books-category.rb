@@ -6,7 +6,7 @@ STARTTIME = Time.now
 LANG    = "es"
 RTL     = false
 PROJECT = "books-category"
-MASTER = "books"
+MASTER	= "books"
 NAMESPAC= {:id => 14, :name => :NSCategory}
 UNIQID  = Time.now.to_i
 UNIQFD  = "/home/reg/var/#{LANG}/#{PROJECT}_#{UNIQID}"
