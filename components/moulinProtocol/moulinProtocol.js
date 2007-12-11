@@ -430,7 +430,7 @@ function fetchDBDetails( dataDB, articleName ) {
 	.getService(Components.interfaces.mozIStorageService);
 	L.info ("Querying DB: " + dataDB.path);
 	var mDBConn = storageService.openDatabase(dataDB);
-	var statement = mDBConn.createStatement("SELECT a.title, a.archive, a.startoff, b.title, b.archive, b.startoff, a.id, a.redirect FROM windex a, windex b WHERE b.id = (a.id + 1) AND a.title = ?1;");
+	var statement = mDBConn.createStatement(" SELECT a.title, a.archive, a.startoff, b.archive, b.startoff, a.id, a.redirect, (SELECT id from windex ORDER BY id DESC LIMIT 0,1) as last FROM windex a, windex b WHERE (b.id = (a.id + 1) OR (b.id = a.id AND a.id = last)) AND a.title = ?1;");
 	statement.bindUTF8StringParameter(0, articleName);
 	result.nbOccur = 0;
 	while (statement.executeStep()) {
@@ -438,9 +438,14 @@ function fetchDBDetails( dataDB, articleName ) {
 		result.articleName = statement.getUTF8String(0).replace(/_/g, " ");
 		result.aarchive = statement.getUTF8String(1);
 		result.astartoff = statement.getInt32(2);
-		result.barchive = statement.getUTF8String(4);
-		result.bstartoff = statement.getInt32(5);
-		result.redirect = statement.getUTF8String(7).replace(/ /g, "_");
+		result.barchive = statement.getUTF8String(3);
+		result.bstartoff = statement.getInt32(4);
+		result.id = statement.getInt32(5);
+		result.redirect = statement.getUTF8String(6).replace(/ /g, "_");
+		result.last = statement.getInt32(7);
+		if (result.id == result.last) {
+			result.barchive = result.aarchive + 1;
+		}
 	}
 	return result;
 }
