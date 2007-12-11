@@ -1,7 +1,7 @@
 
 # 
 LOCALIZED_STRINGS = {
-    :NSCategory => {:raw => "Categoría", :url => "Categoría"},
+    :NSCategory => {:raw => "Categoría", :url => "Categor%C3%ADa"},
 	:NSImage	=> {:raw => "Imagen", :url => "Imagen"},
 	:NSPortal	=> {:raw => "Portal", :url => "Portal"},
 	:NSAppendix	=> {:raw => "Anexo", :url => "Anexo"},
