@@ -7,7 +7,7 @@ LANG    = "es"
 RTL     = false
 PROJECT = "encyclopedia-portal"
 MASTER = "encyclopedia"
-NAMESPAC= {:id => 14, :name => :NSCategory}
+NAMESPAC= {:id => 14, :name => :NSPortal}
 UNIQID  = Time.now.to_i
 UNIQFD  = "/home/reg/var/#{LANG}/#{PROJECT}_#{UNIQID}"
 MDWKFD  = "/var/www/reg.kiwix.org/wiki"

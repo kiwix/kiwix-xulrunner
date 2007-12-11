@@ -2,7 +2,9 @@
 # 
 LOCALIZED_STRINGS = {
     :NSCategory => {:raw => "Categoría", :url => "Categoría"},
-	:NSImage	=> {:raw => "Imagen", :url => "Imagen"}
+	:NSImage	=> {:raw => "Imagen", :url => "Imagen"},
+	:NSPortal	=> {:raw => "Portal", :url => "Portal"},
+	:NSAppendix	=> {:raw => "Anexo", :url => "Anexo"},
     }
 
 # transform external links to other projects to internal links
