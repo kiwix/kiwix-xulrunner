@@ -11,14 +11,13 @@
 }
 
 #searchbox {
-	width:167px;
 	-moz-appearance: none !important;
 	border:0;
 	background-color: transparent;
 	background-image: url(img/searchfield.png);
 	background-repeat:no-repeat;
 	background-position: 0px 0px;
-	width:167px;
+	width:240px;
 }
 
 #searchbar {
@@ -27,7 +26,7 @@
 	background-color: transparent;
 	background-repeat:no-repeat;
 	color: -moz-FieldText;
-	width:165px;
+	width:238px;
 	overflow:hidden;
 	font-size: 20px;
 	margin-right: -55px;
@@ -91,6 +90,14 @@ image#search {
 
 #searchbox[dir='ltr'] image#searchgo {
 	margin-left:60px;
+}
+
+#moulin-sidebar {
+	background-color: #da913e;
+}
+
+hbox[dir='rtl'] #moulin-sidebar label {
+	text-align: right;	
 }
 
 
