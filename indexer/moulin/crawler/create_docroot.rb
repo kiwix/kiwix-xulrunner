@@ -59,8 +59,8 @@ File.readlines("catalog").each do |l|
 end
 
 projects.each do |project, title|
-	tconfig = config
-	tindex	= index
+	tconfig = String.new config
+	tindex	= String.new index
 	master = project.split("-")[0]
 	[
 		{:s => "PROJECT", :r => project},
@@ -73,7 +73,7 @@ projects.each do |project, title|
 	end
 
 	Dir.mkdir("#{DOCROOT}/#{LANG}/#{project}") if not File.exists?("#{DOCROOT}/#{LANG}/#{project}")
-
+	
 	File.open("#{DOCROOT}/#{LANG}/#{project}/config.php", "w") { |f| f.write tconfig }
 	File.open("#{DOCROOT}/#{LANG}/#{project}/index.php", "w") { |f| f.write tindex }
 
