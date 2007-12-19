@@ -1,6 +1,7 @@
 <!ENTITY moulin.title		"مولن  - ویکی پدیا آفلاین">
-<!ENTITY moulin.back		"صفحه بعدی">
-<!ENTITY moulin.forward		"صفحه پيشين">
+<!-- please, on RTL ; invert texts for back and forward -->
+<!ENTITY moulin.back		"صفحه پيشين">
+<!ENTITY moulin.forward		"صفحه بعدی">
 <!ENTITY moulin.reload		"بارگذاری مجدد">
 <!ENTITY moulin.stop		"ایست ">
 <!ENTITY moulin.go			"برو">
