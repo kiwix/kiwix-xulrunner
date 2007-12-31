@@ -1,0 +1,36 @@
+DEPTH		= ../../..
+topsrcdir	= @top_srcdir@
+srcdir		= @srcdir@
+VPATH		= @srcdir@
+
+include $(DEPTH)/config/autoconf.mk
+
+IS_COMPONENT 	= 1
+MODULE 	= nsMoulin
+LIBRARY_NAME 	= nsMoulin
+
+XPI_NAME 	= nsMoulin
+
+# The REQUIRES section tells make which modules your 
+# components uses. This causes the relevant subdirectories
+# of /mozilla/$(MOZ_OBJDIR)/dist/include/ to be added to the
+# C++ compiler's include path. If you're including Mozilla
+# headers and the compiler isn't finding them, it could well
+# mean that you haven't listed all of the necessary modules here.
+REQUIRES	= xpcom \
+		  string \
+		  $(NULL)
+
+LOCAL_INCLUDES  = -I/c/mozilla-build/teem/include
+
+# The .cpp source files to be compiled
+CPPSRCS	= moulin.cpp \
+		  $(NULL)
+include $(topsrcdir)/config/rules.mk
+
+EXTRA_DSO_LDOPTS += \
+  $(XPCOM_GLUE_LDOPTS) \
+  $(NSPR_LIBS) \
+  $(NULL) \
+  /c/mozilla-build/teem/lib/static/bz2.lib \
+  /c/mozilla-build/teem/lib/static/z.lib

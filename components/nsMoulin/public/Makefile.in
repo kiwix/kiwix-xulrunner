@@ -1,0 +1,22 @@
+DEPTH		= ../../..
+topsrcdir	= @top_srcdir@
+srcdir		= @srcdir@
+VPATH		= @srcdir@
+
+include $(DEPTH)/config/autoconf.mk
+
+MODULE		= nsMoulin
+XPIDL_MODULE	= nsMoulin
+
+XPI_NAME 	= nsMoulin
+
+# The files under EXPORTS are copied directly to
+# /mozilla/$(MOZ_OBJDIR)/dist/include/firstxpcom
+# and are thus accessible from other modules
+#EXPORTS       = \
+#		myHeader.h \
+#		$(NULL)
+
+XPIDLSRCS	= nsIMoulin.idl
+
+include $(topsrcdir)/config/rules.mk
