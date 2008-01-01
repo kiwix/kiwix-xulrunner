@@ -2,8 +2,8 @@
 
 usage	=<<END
 
-Usage:	./launcher.rb <lang>
-Ex:		./launcher.rb es
+Usage:	./create_docroot.rb <lang>
+Ex:		./create_docroot.rb es
 END
 
 config	=<<END
@@ -27,6 +27,20 @@ $wgUploadPath		= "/wiki/images/".$wgLanguageCode;
 $wgMathPath         = $wgUploadPath;
 $wgMathDirectory    = $wgUploadDirectory;
 $wgTmpDirectory     = $wgUploadDirectory;
+
+$wgExtraNamespaces = array(
+	//100 => "Portal",
+);
+
+//$wgNamespacesWithSubpages[100] = true;
+
+?>
+END
+
+configsub =<<END
+<?php
+
+    include("../[[[LANG]]]/[[[MASTER]]]/config.php");
 
 ?>
 END
@@ -59,9 +73,13 @@ File.readlines("catalog").each do |l|
 end
 
 projects.each do |project, title|
-	tconfig = String.new config
-	tindex	= String.new index
 	master = project.split("-")[0]
+	if (project == master)
+		tconfig = String.new config
+	else
+		tconfig = String.new configsub
+	end
+	tindex	= String.new index
 	[
 		{:s => "PROJECT", :r => project},
 		{:s => "MASTER", :r => master},
