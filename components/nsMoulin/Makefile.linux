@@ -2,7 +2,7 @@ all: build
 CXX    = c++
 CPPFLAGS += -fno-rtti -fno-exceptions -shared -D_POSIX_ -O3
 TEST_DEFINES = -D_POSIX_
-GECKO_SDK_PATH = /media/Hobbes/mozilla/xulrunner-sdk-1.9/sdk
+GECKO_SDK_PATH = ../../gecko_sdk/1.9/linux
 GECKO_DEFINES   = -DXPCOM_GLUE -DMOZILLA_STRICT_API
 GECKO_IDL_INCLUDES = -I $(GECKO_SDK_PATH)/idl
 GECKO_INCLUDES = -I  $(GECKO_SDK_PATH)/include
