@@ -61,7 +61,7 @@ end
 def html_for( title, pi )
 	result = ""
 	if not (NAMESPAC[:name].nil?)
-		ftitle = "#{LOCALIZED_STRINGS[NAMESPAC[:name]][:raw]}:#{title}"
+		ftitle = "#{NAMESPAC[:name]}:#{title}"
 	else
 		ftitle = title
 	end	
@@ -70,7 +70,8 @@ def html_for( title, pi )
 	File.open( "/tmp/moulin-title_#{UNIQID}", "w+" ) { |f| f.write ftitle }
 	
 	# process the wikipedia
-	result = %x[CRAWLER="y" MLLANG="#{LANG}" MLPROJECT="#{PROJECT}" /usr/bin/php -f #{MDWKFD}/cmd.php /tmp/moulin-title_#{UNIQID}]
+	result = %x[CRAWLER="y" MLLANG="#{LANG}" MLPROJECT="#{PROJECT}" /usr/local/bin/php -f #{MDWKFD}/cmd.php /tmp/moulin-title_#{UNIQID}]
+	File.delete("/tmp/moulin-title_#{UNIQID}")
 	
 	#transform html
 	# exclude the top and left frames
@@ -87,15 +88,13 @@ def html_for( title, pi )
 	# correct links to math images
 	result.gsub!( Regexp.new("/wiki/images/#{LANG}/[a-z0-9]{1}/[a-z0-9]{1}/[a-z0-9]{1}/([a-z0-9]*)\.png"), "moulin-image://#{LANG}/" << '\1' )
 	
-	# Transform category-links
-	result.gsub!(Regexp.new("href=\"moulin://#{MASTER}/#{LANG}/#{LOCALIZED_STRINGS[:NSCategory][:url]}\:([^<\"]*)\""), "href=\"moulin://#{MASTER}-category/#{LANG}/" << '\1' << "\"") unless LOCALIZED_STRINGS[:NSCategory].nil?
-	
-	# Transform portal-links
-	result.gsub!(Regexp.new("href=\"moulin://#{MASTER}/#{LANG}/#{LOCALIZED_STRINGS[:NSPortal][:url]}\:([^<\"]*)\""), "href=\"moulin://#{MASTER}-portal/#{LANG}/" << '\1' << "\"") unless LOCALIZED_STRINGS[:NSPortal].nil?
+	INCLUDED_NS.each do |ns|
+		result.gsub!(Regexp.new("href=\"moulin://#{MASTER}/#{LANG}/#{ns[:url]}\:([^<\"]*)\""), "href=\"moulin://#{MASTER}-#{ns[:ns]}/#{LANG}/" << '\1' << "\"")
+	end
 
 	# remove links to not-included namespaces
 	EXCLUDED_NS.each do |ns|
-	result.gsub!(Regexp.new("<a href=\"moulin://#{MASTER}/#{LANG}/#{ns[:url]}\:([^<\"]*)\" title=\"[^\"><]*\">([^<]*)<\/a>"), '\2' )	
+		result.gsub!(Regexp.new("<a href=\"moulin://#{MASTER}/#{LANG}/#{ns[:url]}\:([^<\"]*)\" title=\"[^\"><]*\">([^<]*)<\/a>"), '\2' )	
 	end	
 
 	# tranform links to online projects to in-moulin
@@ -108,7 +107,7 @@ def html_for( title, pi )
 
 	#remove Image names
 	result.gsub!(Regexp.new("\<span\>#{LOCALIZED_STRINGS[:NSImage][:raw]}\:([^<]*)\.(png|jpg|bmp|svg|gif)</span>"), "") unless LOCALIZED_STRINGS[:NSImage].nil?
-	return result
+	return result.chomp
 end
 
 def redir_for( latest )
@@ -122,8 +121,9 @@ def redir_for( latest )
     
     if s.length > 0
 		r = s.first.to_s
-		r.gsub!(Regexp.new("^#{LOCALIZED_STRINGS[:NSCategory][:raw]}\:(.*)" ), "moulin://#{MASTER}-category/#{LANG}/" + '\1') unless LOCALIZED_STRINGS[:NSCategory].nil?
-		r.gsub!(Regexp.new("^#{LOCALIZED_STRINGS[:NSPortal][:raw]}\:(.*)" ), "moulin://#{MASTER}-portal/#{LANG}/" + '\1') unless LOCALIZED_STRINGS[:NSPortal].nil?
+		INCLUDED_NS.each do |ns|
+			r.gsub!(Regexp.new("^#{ns[:raw]}\:(.*)" ), "moulin://#{MASTER}-#{ns[:ns]}/#{LANG}/" + '\1')
+		end
     	return r
     else
     	return false

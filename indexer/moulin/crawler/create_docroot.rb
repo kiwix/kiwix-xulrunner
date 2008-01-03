@@ -28,6 +28,9 @@ $wgMathPath         = $wgUploadPath;
 $wgMathDirectory    = $wgUploadDirectory;
 $wgTmpDirectory     = $wgUploadDirectory;
 
+// only for dictionary
+//$wgCapitalLinks = false;
+
 $wgExtraNamespaces = array(
 	//100 => "Portal",
 );

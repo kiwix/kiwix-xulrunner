@@ -1,15 +1,8 @@
 #!/usr/bin/ruby
 
-=begin
-WARNING !
-BDB:SQLITE may crash on huge imports (~ 20K)
-If it crashes, comment the $index.do line and uncomment
-the puts one ; redirect output to a file or pipe to sqlite3 client.
-=end
-
 require 'dbi'
 
-puts "#{Time.now.to_s} Starting..."
+#puts "#{Time.now.to_s} Starting..."
 
 LANG = "es"
 
@@ -42,19 +35,18 @@ def recurs_browse( folder )
 		file =  "#{d.path}/#{f}"
 		md5 = f.gsub('.png','')
 		if file =~ /^.*\.png$/ and not $all_md5.include? md5
-			#puts f
-			content = File.open( file ).read
-			startoff = $data.pos
-			$data.write( content )
-			rq = "INSERT INTO windex (title, archive, startoff) VALUES ( \"#{md5}\", \"#{$archive}\", #{startoff} );"
-			#$index.do( rq )
-			puts rq
-			$all_md5 << md5
-			if $data.pos > $BLOCK_SIZE then
-				$data.close
-				$archive += 1
-				$data = File.open( "#{$DATA_PATH}#{$archive}", "w+" )
-			end
+#		  puts f
+    	   content = File.open( file ).read
+    	   startoff = $data.pos
+    	   $data.write( content )
+			puts "INSERT INTO windex (title, archive, startoff) VALUES ( \"#{md5}\", \"#{$archive}\", #{startoff} );"
+    	   #$index.do( "INSERT INTO windex (title, archive, startoff) VALUES ( \"#{md5}\", \"#{$archive}\", #{startoff} );" )
+    	   $all_md5 << md5
+    	   if $data.pos > $BLOCK_SIZE then
+    	   	$data.close
+    	   	$archive += 1
+    	   	$data	= File.open( "#{$DATA_PATH}#{$archive}", "w+" )
+    	   end
 		end
 		recurs_browse( file ) if File.directory? file			
 	end
@@ -65,5 +57,5 @@ recurs_browse( $IMAGES_FOLDER )
 $data.close
 $index.disconnect
 
-puts "#{Time.now.to_s} Done."
+#puts "#{Time.now.to_s} Done."
 
