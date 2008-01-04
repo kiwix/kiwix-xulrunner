@@ -8,7 +8,7 @@ RTL     = false
 PROJECT = "university-department"
 MASTER = "university"
 NAMESPAC= {:id => 108, :name => "Département"}
-UNIQID  = Time.now.to_i
+UNIQID  = Time.now.strftime "%Y-%m-%d"
 UNIQFD  = "/home/reg/var/#{LANG}/#{PROJECT}_#{UNIQID}"
 MDWKFD  = "/var/www/reg.kiwix.org/wiki"
 DBICON  = "DBI:Mysql:reg_#{LANG}_university"

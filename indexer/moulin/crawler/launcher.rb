@@ -22,8 +22,12 @@ File.readlines("catalog").each do |l|
 end
 
 projects.each do |project|
-	Thread.new {
-		puts "Starting #{LANG}:#{project}"
-		system("./crawler_#{project}.rb >> ../logs/#{LANG}/#{project}.log")
-	}
+	puts "Starting #{LANG}:#{project}:"
+	(0..8).each do |i|
+		Thread.new {
+			cmd = "./crawler_#{project}.rb #{i} 9 100000 >> ../logs/#{LANG}/#{project}_#{i}.log"
+			puts cmd
+			system(cmd)
+		}
+	end
 end

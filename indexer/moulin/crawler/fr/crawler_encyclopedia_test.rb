@@ -8,7 +8,7 @@ RTL     = false
 PROJECT = "encyclopedia"
 MASTER = "encyclopedia"
 NAMESPAC= {:id => 0, :name => nil}
-UNIQID  = Time.now.to_i
+UNIQID  = Time.now.strftime "%Y-%m-%d"
 UNIQFD  = "/home/reg/var/#{LANG}/#{PROJECT}_#{UNIQID}"
 MDWKFD  = "/var/www/reg.kiwix.org/wiki"
 DBICON  = "DBI:Mysql:reg_#{LANG}_encyclopedia"
@@ -29,8 +29,9 @@ EXCLUDED_NS << {:raw => "Discussion Référence", :url => "Discussion_R%C3%A9f%C
 
 require "../crawler.rb"
 
-html = html_for("Eddie_Izzard", 1)
-File.open("/var/www/reg.kiwix.org/test.html", "w") { |f| f.write html }
+#html = html_for("Eddie_Izzard", 1)
+#File.open("/var/www/reg.kiwix.org/test.html", "w") { |f| f.write html }
 #puts html
+hello()
 
 puts "Duration: #{(Time.now - STARTTIME) /60} mn."

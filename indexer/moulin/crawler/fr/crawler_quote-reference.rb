@@ -8,7 +8,7 @@ RTL     = false
 PROJECT = "quote-reference"
 MASTER = "quote"
 NAMESPAC= {:id => 104, :name => "Référence"}
-UNIQID  = Time.now.to_i
+UNIQID  = Time.now.strftime "%Y-%m-%d"
 UNIQFD  = "/home/reg/var/#{LANG}/#{PROJECT}_#{UNIQID}"
 MDWKFD  = "/var/www/reg.kiwix.org/wiki"
 DBICON  = "DBI:Mysql:reg_#{LANG}_quote"

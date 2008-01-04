@@ -16,23 +16,50 @@ INDEX_SCHEMA= "CREATE TABLE windex (
 );"
 
 # create uniq folder to store datas
-Dir.mkdir( UNIQFD )
+if not File.exists?( UNIQFD )
+	Dir.mkdir( UNIQFD )
+end
 
 # move to mediawiki's place
 Dir.chdir( MDWKFD )
 
 # Check DB connection
 begin
-	INDEXDB = DBI.connect( "DBI:SQLite3:#{UNIQFD}/index.db" )
     DBH = DBI.connect(DBICON, DBIUSER, DBIPASS)
 rescue => e
-     puts "Unable to connect to Database: #{e.to_s}"
+     puts "Unable to connect to Database: #{e.to_s}\nexiting."
      exit
 end
 
-TOTAL_ARTICLES = DBH.select_one("SELECT COUNT(*) FROM page WHERE page_namespace=#{NAMESPAC[:id]}")[0].to_i
+TOTAL_ARTICLES	= DBH.select_one("SELECT COUNT(*) FROM page WHERE page_namespace=#{NAMESPAC[:id]}")[0].to_i
+SPLIT_MIN		= (ARGV[2].nil?) ? TOTAL_ARTICLES : ARGV[2].to_i
+
+if ARGV.length >= 3 && TOTAL_ARTICLES > SPLIT_MIN
+	SPLIT_INDEX		= ARGV[0].to_i
+	NB_SPLIT		= ARGV[1].to_i
+else
+	SPLIT_INDEX		= 0
+	NB_SPLIT		= 1
+end
+NB_IN_SPLIT		= TOTAL_ARTICLES / NB_SPLIT
+START_INDEX		= SPLIT_INDEX * NB_IN_SPLIT
+
+if File.exists?("#{UNIQFD}/run.#{SPLIT_INDEX}")
+	puts "running this part ; exiting"
+	exit
+end
+
+File.open("#{UNIQFD}/run.#{SPLIT_INDEX}", "w") {|f| f.write Time.now.to_s }
+
+begin
+	INDEXDB = DBI.connect( "DBI:SQLite3:#{UNIQFD}/index_#{SPLIT_INDEX}.db" )
+rescue => e
+	puts "SQLite DB is locked ; you're processing the same thing."
+	exit
+end
 
 def hello
+	puts "spliting in #{NB_SPLIT} parts ; starting at #{SPLIT_INDEX} ; LIMIT #{START_INDEX},#{NB_IN_SPLIT} of #{TOTAL_ARTICLES}"
     process_articles()
 end
 
@@ -137,15 +164,20 @@ def redir_for( latest )
 #    return text
 end
 
+def next_archive (archive)
+	a = archive.split("-")
+	return "#{a[1]}-{a[1].next}"
+end
+
 # article processing loop
 def process_articles
-    archive	= 0
+    archive	= "#{SPLIT_INDEX}-0"
     data	= File.open( "#{UNIQFD}/#{archive}", "w+" )
     
     INDEXDB.do( INDEX_SCHEMA )
     pi = 0
     
-    res = DBH.execute("SELECT page_title, page_is_redirect, page_latest FROM page WHERE page_namespace=#{NAMESPAC[:id]} ORDER BY page_title ASC")
+    res = DBH.execute("SELECT page_title, page_is_redirect, page_latest FROM page WHERE page_namespace=#{NAMESPAC[:id]} ORDER BY page_title ASC LIMIT #{START_INDEX},#{NB_IN_SPLIT}")
     while not res.nil? and row = res.fetch do
 	    if pi % 100 == 0
     		GC.start
@@ -176,14 +208,14 @@ def process_articles
 	end
     	if data.pos > BLOCK_SIZE then
     		data.close
-    		#Thread.new{ system("/bin/bzip2 #{UNIQFD}/#{archive}") }
-    		archive += 1
+    		Thread.new{ system("/bin/bzip2 #{UNIQFD}/#{archive}") }
+    		archive = next_archive(archive)
     		data	= File.open( "#{UNIQFD}/#{archive}", "w+" )
     	end
 	pi = pi.next
     end
     
-    #Thread.new{ system("/bin/bzip2 #{UNIQFD}/#{archive}") }
+    Thread.new{ system("/bin/bzip2 #{UNIQFD}/#{archive}") }
     
     res.finish
     data.close

@@ -8,7 +8,7 @@ RTL     = false
 PROJECT = "books"
 MASTER = "books"
 NAMESPAC= {:id => 0, :name => nil}
-UNIQID  = Time.now.to_i
+UNIQID  = Time.now.strftime "%Y-%m-%d"
 UNIQFD  = "/home/reg/var/#{LANG}/#{PROJECT}_#{UNIQID}"
 MDWKFD  = "/var/www/reg.kiwix.org/wiki"
 DBICON  = "DBI:Mysql:reg_#{LANG}_books"

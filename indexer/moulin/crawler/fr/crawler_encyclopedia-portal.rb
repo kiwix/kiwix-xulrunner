@@ -8,7 +8,7 @@ RTL     = false
 PROJECT = "encyclopedia-portal"
 MASTER = "encyclopedia"
 NAMESPAC= {:id => 100, :name => "Portail"}
-UNIQID  = Time.now.to_i
+UNIQID  = Time.now.strftime "%Y-%m-%d"
 UNIQFD  = "/home/reg/var/#{LANG}/#{PROJECT}_#{UNIQID}"
 MDWKFD  = "/var/www/reg.kiwix.org/wiki"
 DBICON  = "DBI:Mysql:reg_#{LANG}_encyclopedia"
