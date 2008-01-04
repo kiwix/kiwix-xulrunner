@@ -11,7 +11,7 @@ NAMESPAC= {:id => 104, :name => "Référence"}
 UNIQID  = Time.now.to_i
 UNIQFD  = "/home/reg/var/#{LANG}/#{PROJECT}_#{UNIQID}"
 MDWKFD  = "/var/www/reg.kiwix.org/wiki"
-DBICON  = "DBI:Mysql:reg_#{LANG}_#{PROJECT}"
+DBICON  = "DBI:Mysql:reg_#{LANG}_encyclopedia"
 DBIUSER = "reg"
 DBIPASS = "reg"
 BLOCK_SIZE	= 10485760 # 10MB

@@ -67,11 +67,11 @@ def html_for( title, pi )
 	end	
 	puts "#{pi}: #{ftitle}\n"
 	
-	File.open( "/tmp/moulin-title_#{UNIQID}", "w+" ) { |f| f.write ftitle }
+	title_file = "/tmp/moulin_#{PROJECT}-title_#{UNIQID}"
+	File.open( title_file, "w+" ) { |f| f.write ftitle }
 	
 	# process the wikipedia
-	result = %x[CRAWLER="y" MLLANG="#{LANG}" MLPROJECT="#{PROJECT}" /usr/local/bin/php -f #{MDWKFD}/cmd.php /tmp/moulin-title_#{UNIQID}]
-	File.delete("/tmp/moulin-title_#{UNIQID}")
+	result = %x[CRAWLER="y" MLLANG="#{LANG}" MLPROJECT="#{PROJECT}" /usr/local/bin/php -f #{MDWKFD}/cmd.php #{title_file}]
 	
 	#transform html
 	# exclude the top and left frames
@@ -107,6 +107,10 @@ def html_for( title, pi )
 
 	#remove Image names
 	result.gsub!(Regexp.new("\<span\>#{LOCALIZED_STRINGS[:NSImage][:raw]}\:([^<]*)\.(png|jpg|bmp|svg|gif)</span>"), "") unless LOCALIZED_STRINGS[:NSImage].nil?
+
+	# remove temp file
+	File.delete(title_file) if File.exists?(title_file)
+
 	return result.chomp
 end
 
