@@ -105,4 +105,5 @@
 	
 	<browser flex="5" id="content-browser" src="" type="content-primary"/>
 </hbox>
+	<findbar browserid="content-browser" id="FindToolbar"/>
 </window>

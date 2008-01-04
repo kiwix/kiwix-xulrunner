@@ -36,6 +36,7 @@ moulinUI.textZoomFactor		= 1.3;
 moulinUI.searchEngine		= 'encyclopedia';
 moulinUI.winIsFullScreen	= false;
 moulinUI.sideBarIsVisible	= false;
+var gFindBar				= null; // findbar binding
 
 /* UI functions */
 
@@ -47,6 +48,7 @@ function UIInitElements () {
 	moulinUI.sideBar			= UIGetSideBar ();
 	moulinUI.bookmarkListBox	= UIGetBookmarkListBox ();
 	moulinUI.notesTextBox		= UIGetNotesTextBox ();
+	gFindBar					= document.getElementById("FindToolbar");
 }
 
 function UIGetBrowser () {
@@ -129,16 +131,8 @@ function UINavForward () {
  * Opens the Find in Page dialog.
  */
 function UIFindInPage () {
-	if (!moulinUI.findInPageDatas) {
-		moulinUI.findInPageDatas = new nsFindInstData ();
-		moulinUI.findInPageDatas.browser = moulinUI.browser;
-	}
-
-	var lastSearch	= ""; // should set it as current selection ; how ?
-	var bLastWord	= lastSearch.lastIndexOf (" ", lastSearch.length);
-	moulinUI.findInPageDatas.webBrowserFind.searchString = lastSearch
-	.substring (bLastWord+1, lastSearch.length);
-	findInPage (moulinUI.findInPageDatas);
+	// calls the Findbar bindings.
+	return gFindBar.onFindCommand();
 }
 
 /*
