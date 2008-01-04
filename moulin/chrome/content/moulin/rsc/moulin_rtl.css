@@ -11,9 +11,8 @@
 .link-mailto, #bodyContent a[href ^="news://"], #bodyContent a[href ^="ftp://"],
 .link-ftp, #bodyContent a[href ^="irc://"], #bodyContent a[href ^="http://"],
 .link-irc {
-	padding-right:auto;
-	background:none;
-	color:green;
+	background: url(chrome://moulin/content/img/external-rtl.png) center left no-repeat !important;
+	padding-left: 13px !important;
 }
 
 #column-content #content{
