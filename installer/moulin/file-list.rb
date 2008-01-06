@@ -29,6 +29,7 @@ $content = String.new
 # internal variables
 $dirs = []
 $files = []
+$formats = []
 
 # retrieves source path.
 def welcome
@@ -110,17 +111,15 @@ $out.puts "
 ; 
 ; 
 ; 
-; UNINSTALLATION PART
+; EXTRACT STUB
 ; 
 ; 
 ;
 "
 	$files.each do |f|
-		$out.puts "\tDelete \"#{f[2]}\""
+		$out.puts "\tCopyFiles `raw-format` `#{f[1]}\\format`" if f[2] =~ /datas.*format/
+		$out.puts "\tnsexec::exectolog `\"$EXEDIR\\bunzip2.exe\" \"#{f[2]}\"`" if f[2] =~ /datas.*[0-9]\.(bz2|gz)/
 	end
-    $dirs.reverse_each do |d|
-		$out.puts "\tRMDir \"#{d}\""
-    end
     bye()
 end
 
@@ -132,11 +131,11 @@ def recurs_display(dir)
 		wdd	= wd.slice(0, (wd.length - (f.length + 1)))
 		if (File.ftype(fp) == "directory")
 			$dirs << "#{$copy_dest_path}#{wd}"
-			#$out.puts "\tCreateDirectory `#{$copy_dest_path}#{wd}`"
 			recurs_display(fp)
 		else
 			$files << ["#{$copy_source_path}#{wd}", "#{$copy_dest_path}#{wdd}", "#{$copy_dest_path}#{wd}"]
-			#$out.puts "\t\tCopyFiles `#{$copy_source_path}#{wd}` `#{$copy_dest_path}#{wdd}`"
+			
+			$formats << ["raw-format", "#{$copy_dest_path}#{wdd}\\format", "#{$copy_dest_path}#{wd}"] if fp =~ /datas.*format/
 		end
 	end
 end
