@@ -17,11 +17,11 @@
     Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA */
 
 // Minimal specific vocabulary size for giving top of it
-var MIN_VOCSPE_SIZE = 0;
+var MIN_VOCSPE_SIZE = 800;
 // Factor by which font is magnified by pressing ctrl+'+'
 var zoomFactor = 1.3;
 // Home url
-var homeUrl = "index.html";
+var homeUrl = "art/d/w.html";
 // Maximal number of search results returned
 var NB_SEARCH_RETURN = 25;
 // Score upon which the first search result is opened automatically
@@ -219,9 +219,9 @@ const listener = {
 // listener for catching external links
 function initRoot() {
 
-  var wikisearch = Components.classes["@linterweb.com/wikicomponent"].getService();
-  wikisearch = wikisearch.QueryInterface(Components.interfaces.iWikiSearch);
-  rootPath = wikisearch.getRootPath();
+  var root = Components.classes["@mozilla.org/file/directory_service;1"].getService(Components.interfaces.nsIProperties).get("resource:app", Components.interfaces.nsIFile);
+  root.append("html");
+  var rootPath = root.path;
   var dls = Components.classes["@mozilla.org/docloaderservice;1"].
   getService(Components.interfaces.nsIWebProgress);
   dls.addProgressListener(listener,
