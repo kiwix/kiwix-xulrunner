@@ -16,50 +16,23 @@ INDEX_SCHEMA= "CREATE TABLE windex (
 );"
 
 # create uniq folder to store datas
-if not File.exists?( UNIQFD )
-	Dir.mkdir( UNIQFD )
-end
+Dir.mkdir( UNIQFD ) unless File.exists?( UNIQFD )
 
 # move to mediawiki's place
 Dir.chdir( MDWKFD )
 
 # Check DB connection
 begin
+	INDEXDB = DBI.connect( "DBI:SQLite3:#{UNIQFD}/index.db" )
     DBH = DBI.connect(DBICON, DBIUSER, DBIPASS)
 rescue => e
-     puts "Unable to connect to Database: #{e.to_s}\nexiting."
+     puts "Unable to connect to Database: #{e.to_s}"
      exit
 end
 
-TOTAL_ARTICLES	= DBH.select_one("SELECT COUNT(*) FROM page WHERE page_namespace=#{NAMESPAC[:id]}")[0].to_i
-SPLIT_MIN		= (ARGV[2].nil?) ? TOTAL_ARTICLES : ARGV[2].to_i
-
-if ARGV.length >= 3 && TOTAL_ARTICLES > SPLIT_MIN
-	SPLIT_INDEX		= ARGV[0].to_i
-	NB_SPLIT		= ARGV[1].to_i
-else
-	SPLIT_INDEX		= 0
-	NB_SPLIT		= 1
-end
-NB_IN_SPLIT		= TOTAL_ARTICLES / NB_SPLIT
-START_INDEX		= SPLIT_INDEX * NB_IN_SPLIT
-
-if File.exists?("#{UNIQFD}/run.#{SPLIT_INDEX}")
-	puts "running this part ; exiting"
-	exit
-end
-
-File.open("#{UNIQFD}/run.#{SPLIT_INDEX}", "w") {|f| f.write Time.now.to_s }
-
-begin
-	INDEXDB = DBI.connect( "DBI:SQLite3:#{UNIQFD}/index_#{SPLIT_INDEX}.db" )
-rescue => e
-	puts "SQLite DB is locked ; you're processing the same thing."
-	exit
-end
+TOTAL_ARTICLES = DBH.select_one("SELECT COUNT(*) FROM page WHERE page_namespace=#{NAMESPAC[:id]}")[0].to_i
 
 def hello
-	puts "spliting in #{NB_SPLIT} parts ; starting at #{SPLIT_INDEX} ; LIMIT #{START_INDEX},#{NB_IN_SPLIT} of #{TOTAL_ARTICLES}"
     process_articles()
 end
 
@@ -108,6 +81,9 @@ def html_for( title, pi )
 	result.gsub!( /<div id=\"siteNotice\">.*<h1 class=\"firstHeading\">/m, '<h1 class="firstHeading">' )
 	# Remove the Images links
 	#result.gsub!( /<a href=\"[^"><]*\" class=\"new\" title=\"Image:[^"><]*\">Image\:[^<]*<\/a>/, '' )
+
+	#remove links and image to decorative images (like category illus)
+	result.gsub!( /<a href=\"[^"><]*\" title=\"#{LOCALIZED_STRINGS[:NSImage][:raw]}\:([^<]*)\.(png|jpg|bmp|svg|gif)\">#{LOCALIZED_STRINGS[:NSImage][:raw]}\:([^<]*)\.(png|jpg|bmp|svg|gif)<\/a>/, '' )
 	# Remove the links to the article in other-languages + footer
 	result.gsub!( /<div id=\"p-lang\" class=\"portlet\">.*/m, '' )
 	# Remove the links to non-existent articles
@@ -164,20 +140,15 @@ def redir_for( latest )
 #    return text
 end
 
-def next_archive (archive)
-	a = archive.split("-")
-	return "#{a[1]}-{a[1].next}"
-end
-
 # article processing loop
 def process_articles
-    archive	= "#{SPLIT_INDEX}-0"
+    archive	= 0
     data	= File.open( "#{UNIQFD}/#{archive}", "w+" )
     
     INDEXDB.do( INDEX_SCHEMA )
     pi = 0
     
-    res = DBH.execute("SELECT page_title, page_is_redirect, page_latest FROM page WHERE page_namespace=#{NAMESPAC[:id]} ORDER BY page_title ASC LIMIT #{START_INDEX},#{NB_IN_SPLIT}")
+    res = DBH.execute("SELECT page_title, page_is_redirect, page_latest FROM page WHERE page_namespace=#{NAMESPAC[:id]} ORDER BY page_title ASC")
     while not res.nil? and row = res.fetch do
 	    if pi % 100 == 0
     		GC.start
@@ -209,7 +180,7 @@ def process_articles
     	if data.pos > BLOCK_SIZE then
     		data.close
     		Thread.new{ system("/bin/bzip2 #{UNIQFD}/#{archive}") }
-    		archive = next_archive(archive)
+    		archive += 1
     		data	= File.open( "#{UNIQFD}/#{archive}", "w+" )
     	end
 	pi = pi.next
