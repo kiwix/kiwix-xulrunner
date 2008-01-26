@@ -1,2 +1,3 @@
 content moulin content/moulin/locale moulin [[[LANG]]] locale/[[[LANG]]]/moulin/
+locale global [[[LANG]]] locale/[[[LANG]]]/global/
 skin moulin new skin/new/overlay chrome://moulin/content/moulin.xul chrome://moulin/locale/projects_overlay.xul

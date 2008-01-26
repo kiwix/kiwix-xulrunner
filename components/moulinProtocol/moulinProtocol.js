@@ -371,10 +371,14 @@ function extractMoulinURI(path) {
 	var tmp = path.substr(2, path.length); // now should be like encyclopedia/fr/whatever
 	sepI = tmp.indexOf("/");
 	var project = tmp.slice(0, sepI);
+	/* reg tmp workaround bug in Jan 2008 arabic datas */
+	if (project == 'encyclopedia-')
+		project = 'encyclopedia-portal';
+
 	tmp = tmp.substr(sepI + 1, tmp.length); // now should be like fr/whatever
 	sepI = tmp.indexOf("/");
 	var lang = tmp.slice(0, sepI);
-	var articleName = tmp.substr(sepI + 1, tmp.length).replace(/ /g, "_");;
+	var articleName = tmp.substr(sepI + 1, tmp.length).replace(/ /g, "_");
 	var project_domain = (project == "encyclopedia") ? "wikipedia" : "wiki"+project;
 	var sharp = articleName.indexOf ("#");
 	if (sharp != -1) {
@@ -424,13 +428,13 @@ function getContentOfFile(fileName, startoffset, length) {
 }
 
 // returns DB details such as redirect, archives and offsets
-function fetchDBDetails( dataDB, articleName ) {
+function fetchDBDetails( dataDB, articleName, retry ) {
 	var result = {};
 	var storageService = Components.classes["@mozilla.org/storage/service;1"]
 	.getService(Components.interfaces.mozIStorageService);
 	L.info ("Querying DB: " + dataDB.path);
 	var mDBConn = storageService.openDatabase(dataDB);
-	var statement = mDBConn.createStatement(" SELECT a.title, a.archive, a.startoff, b.archive, b.startoff, a.id, a.redirect, (SELECT id from windex ORDER BY id DESC LIMIT 0,1) as last FROM windex a, windex b WHERE (b.id = (a.id + 1) OR (b.id = a.id AND a.id = last)) AND a.title = ?1;");
+	var statement = mDBConn.createStatement("SELECT a.title, a.archive, a.startoff, b.archive, b.startoff, a.id, a.redirect, (SELECT id from windex ORDER BY id DESC LIMIT 0,1) as last FROM windex a, windex b WHERE (b.id = (a.id + 1) OR (b.id = a.id AND a.id = last)) AND a.title = ?1;");
 	statement.bindUTF8StringParameter(0, articleName);
 	result.nbOccur = 0;
 	while (statement.executeStep()) {
@@ -447,6 +451,8 @@ function fetchDBDetails( dataDB, articleName ) {
 			result.barchive = result.aarchive + 1;
 		}
 	}
+	if (result.nbOccur == 0 && !retry)
+		return fetchDBDetails( dataDB, articleName.capitalize (), true );
 	return result;
 }
 
@@ -559,3 +565,10 @@ var Url = {
 		return string;
 	}
 }
+
+String.prototype.capitalize = function(){
+    return this.replace(/^./, function(a){
+        return a.charAt(0).toUpperCase();
+    });
+};
+

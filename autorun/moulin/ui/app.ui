@@ -10,7 +10,7 @@
    </rect>
   </property>
   <property name="windowTitle" >
-   <string>ویکی پدیا آفلاین</string>
+   <string>Wikimedia by moulin</string>
   </property>
   <property name="windowIcon" >
    <iconset resource="../src/autorun.qrc" >:/resource1/moulin.xpm</iconset>
@@ -47,7 +47,7 @@
     <enum>Qt::RightToLeft</enum>
    </property>
    <property name="text" >
-    <string>بر روی سي دی نگاه کنيد</string>
+    <string>Launch moulin from here</string>
    </property>
   </widget>
   <widget class="QPushButton" name="pushButton_install" >
@@ -63,7 +63,7 @@
     <enum>Qt::RightToLeft</enum>
    </property>
    <property name="text" >
-    <string>نصب بر روی ديسک</string>
+    <string>Install moulin to your Hard Drive</string>
    </property>
   </widget>
   <widget class="QPushButton" name="pushButton_quit" >
@@ -79,7 +79,7 @@
     <enum>Qt::RightToLeft</enum>
    </property>
    <property name="text" >
-    <string>خارج شويد</string>
+    <string>Quit this menu</string>
    </property>
   </widget>
  </widget>

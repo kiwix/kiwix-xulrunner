@@ -13,17 +13,17 @@ DIR		= ARGV[1]
 BUILD	= ARGV[2] == 'build' or false
 
 droot	= "../moulin_base_#{LANG}" 
-Dir.mkdir(droot)
+Dir.mkdir(droot) unless File.exists?(droot)
 
-Dir.mkdir("#{droot}/installer")
-Dir.mkdir("#{droot}/autorun")
-Dir.mkdir("#{droot}/moulin")
-Dir.mkdir("#{droot}/moulin/datas")
-Dir.mkdir("#{droot}/moulin/components")
-Dir.mkdir("#{droot}/moulin/defaults")
-Dir.mkdir("#{droot}/moulin/defaults/preferences")
-Dir.mkdir("#{droot}/moulin/chrome")
-Dir.mkdir("#{droot}/moulin/chrome/locale")
+Dir.mkdir("#{droot}/installer")						unless File.exists?("#{droot}/installer")
+Dir.mkdir("#{droot}/autorun")						unless File.exists?("#{droot}/autorun")
+Dir.mkdir("#{droot}/moulin")						unless File.exists?("#{droot}/moulin")
+Dir.mkdir("#{droot}/moulin/datas")					unless File.exists?("#{droot}/moulin/datas")
+Dir.mkdir("#{droot}/moulin/components")				unless File.exists?("#{droot}/moulin/components")
+Dir.mkdir("#{droot}/moulin/defaults")				unless File.exists?("#{droot}/moulin/defaults")
+Dir.mkdir("#{droot}/moulin/defaults/preferences")	unless File.exists?("#{droot}/moulin/defaults/preferences")
+Dir.mkdir("#{droot}/moulin/chrome")					unless File.exists?("#{droot}/moulin/chrome")
+Dir.mkdir("#{droot}/moulin/chrome/locale")			unless File.exists?("#{droot}/moulin/chrome/locale")
 
 # datas
 system("rsync -a binrsc/datas/#{LANG} #{droot}/moulin/datas/")

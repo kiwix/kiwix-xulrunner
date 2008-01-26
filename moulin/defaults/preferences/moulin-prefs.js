@@ -16,3 +16,16 @@ pref("moulin.datas.language", "[[[moulin.datas.language]]]");
 pref("moulin.ui.language", "[[[moulin.ui.language]]]");
 pref("moulin.project", "encyclopedia");
 pref("moulin.dir", "[[[moulin.dir]]]");
+
+// Type Ahead Find
+pref("accessibility.typeaheadfind", true);
+pref("accessibility.typeaheadfind.autostart", true);
+pref("accessibility.typeaheadfind.casesensitive", 0);
+pref("accessibility.typeaheadfind.linksonly", true);
+pref("accessibility.typeaheadfind.startlinksonly", false);
+pref("accessibility.typeaheadfind.timeout", 4000);
+pref("accessibility.typeaheadfind.enabletimeout", true);
+pref("accessibility.typeaheadfind.soundURL", "beep");
+pref("accessibility.typeaheadfind.enablesound", true);
+pref("accessibility.typeaheadfind.prefillwithselection", true);
+pref("accessibility.typeaheadfind.flashBar", 0);
