@@ -22,6 +22,9 @@
 /*
  * Mini Logger to output stuff to JS Console.
  */
+var stime = 0;
+var etime = 0;
+
 function L () {};
 
 L.info = function (str) {
@@ -135,7 +138,7 @@ function GetSearchResults (project) {
 					items: [] };
 	
 	var dataDB = moulinSearchNFO.datarootFD.clone ();
-	//L.info ('pro '+project);
+
 	dataDB.append (project);
 	dataDB.append ("index.db");
     
@@ -146,26 +149,26 @@ function GetSearchResults (project) {
 	var words = moulinSearchNFO.query.split(" ");
 	var splittedrequest = "";
 	for (i=0;i<words.length;i++) {
-		splittedrequest += " stdtitle LIKE \"%"+words[i]+"%\" AND";
+		splittedrequest += " title LIKE \"%"+words[i]+"%\" AND";
 	}
 	splittedrequest += " 1";
+
 	request += splittedrequest + ";";
 	//L.info(request);
 	var statement = mDBConn.createStatement (request);
 	//statement.bindUTF8StringParameter (0, "%" + moulinSearchNFO.query + "%");
-	//var nbOfResults = 0;
+
 	while (statement.executeStep ()) {
 		results.total = statement.getInt32 (0);
 	}
-	
 	
 	/* fetching the X asked results
 	 */
 	// we fetch from 0 to limit for each project except the one specified.
 	if (moulinSearchNFO.currentProject == project) {
-		var limit = { start:moulinSearchNFO.sqlIndex, nbr:moulinSearchNFO.sqlLimit };
+		var limit = { start:moulinSearchNFO.sqlIndex, nbr:moulinSearchNFO.sqlLimit + 1};
 	} else {
-		var limit = { start:0, nbr:moulinSearchNFO.sqlLimit };
+		var limit = { start:0, nbr:moulinSearchNFO.sqlLimit + 1 };
 	}
 	statement = mDBConn.createStatement ("SELECT title FROM windex WHERE"+splittedrequest+" LIMIT ?2, ?3;");
 	//statement.bindUTF8StringParameter (0, splittedrequest);
@@ -181,6 +184,8 @@ function GetSearchResults (project) {
 		result.title = enctitle.replace (/_/g, " ");
 		results.items.push (result);
 	}
+
+//	results.total	= (results.items.length == moulinSearchNFO.sqlLimit) ? moulinSearchNFO.sqlLimit : (results.items.length < moulinSearchNFO.sqlLimit) ? results.items.length : parseInt (moulinSearchNFO.sqlLimit) + 1;
 	return results;
 }
 
@@ -361,6 +366,9 @@ MoulinChannel.prototype.open = function () {
 // based on that in Venkman.
 MoulinChannel.prototype.asyncOpen = function (streamListener, context) {
 	
+	stime 	= new Date ();
+	stime	= stime.getTime();
+
 	this.streamListener = streamListener;
 	this.context = context;
   
@@ -422,6 +430,9 @@ MoulinChannel.prototype.asyncOpen = function (streamListener, context) {
 	dataStringUTF8 = globalReplace(dataStringUTF8, {var:"NBRESULTS", value: moulinSearchNFO.grandTotal});
 	
 	try {
+	etime 	= new Date ();
+	etime	= etime.getTime();
+	L.info("total search time: " + (etime - stime));
 		this.respond (dataStringUTF8);
 	} catch (ex) {
 		dump ("error aopen");

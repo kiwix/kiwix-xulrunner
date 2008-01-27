@@ -22,6 +22,8 @@
 /*
  * Mini Logger to output stuff to JS Console.
  */
+var stime	= 0;
+var etime	= 0;
 function L () {};
 
 L.info = function (str) {
@@ -95,6 +97,9 @@ function moulinch_open()
 MoulinChannel.prototype.asyncOpen =
 function moulinch_aopen (streamListener, context)
 {
+	stime 	= new Date ();
+	stime	= stime.getTime();
+
 	this.streamListener = streamListener;
 	this.context = context;
   
@@ -246,6 +251,9 @@ function moulinch_aopen (streamListener, context)
  	file.initWithPath("/tmp/current.html");
 		writeToFile (file, dataString);*/
 
+	etime 	= new Date ();
+	etime	= etime.getTime();
+	L.info("total time: " + (etime - stime));
 		this.respond(dataStringEncoded);
 	} catch(ex) {
 		dump("error aopen: "+ex);
@@ -430,27 +438,47 @@ function getContentOfFile(fileName, startoffset, length) {
 // returns DB details such as redirect, archives and offsets
 function fetchDBDetails( dataDB, articleName, retry ) {
 	var result = {};
+
 	var storageService = Components.classes["@mozilla.org/storage/service;1"]
 	.getService(Components.interfaces.mozIStorageService);
-	L.info ("Querying DB: " + dataDB.path);
+
+	//L.info ("Querying DB: " + dataDB.path);
+
 	var mDBConn = storageService.openDatabase(dataDB);
-	var statement = mDBConn.createStatement("SELECT a.title, a.archive, a.startoff, b.archive, b.startoff, a.id, a.redirect, (SELECT id from windex ORDER BY id DESC LIMIT 0,1) as last FROM windex a, windex b WHERE (b.id = (a.id + 1) OR (b.id = a.id AND a.id = last)) AND a.title = ?1;");
+	var statement = mDBConn.createStatement("SELECT id, title, archive, startoff, redirect FROM windex WHERE title = ?1;");
 	statement.bindUTF8StringParameter(0, articleName);
+
 	result.nbOccur = 0;
 	while (statement.executeStep()) {
 		result.nbOccur++;
-		result.articleName = statement.getUTF8String(0).replace(/_/g, " ");
-		result.aarchive = statement.getUTF8String(1);
-		result.astartoff = statement.getInt32(2);
-		result.barchive = statement.getUTF8String(3);
-		result.bstartoff = statement.getInt32(4);
-		result.id = statement.getInt32(5);
-		result.redirect = statement.getUTF8String(6).replace(/ /g, "_");
-		result.last = statement.getInt32(7);
-		if (result.id == result.last) {
-			result.barchive = result.aarchive + 1;
-		}
+		result.id = statement.getInt32(0);
+		result.articleName = statement.getUTF8String(1).replace(/_/g, " ");
+		result.aarchive = statement.getUTF8String(2);
+		result.astartoff = statement.getInt32(3);
+		result.redirect = statement.getUTF8String(4).replace(/ /g, "_");
 	}
+
+	/*
+	 * 2 different request is speedier than one request.
+	 */
+	statement.reset();
+
+	var bid	= result.id + 1;
+
+	statement = mDBConn.createStatement("SELECT archive, startoff FROM windex WHERE id = ?1;");
+	statement.bindInt32Parameter(0, bid);
+
+	var resultb = false;
+	while (statement.executeStep()) {
+		resultb	= true;
+		result.barchive = statement.getUTF8String(0);
+		result.bstartoff = statement.getInt32(1);
+	}
+	
+	if (!resultb) {
+		result.barchive = result.aarchive + 1;
+	}
+
 	if (result.nbOccur == 0 && !retry)
 		return fetchDBDetails( dataDB, articleName.capitalize (), true );
 	return result;
