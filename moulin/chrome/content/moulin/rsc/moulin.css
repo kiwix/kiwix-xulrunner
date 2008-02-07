@@ -75,3 +75,9 @@ a[href^='http://reg.kiwix.org'] {
 div.floatleft, div.floatright, div.floatnone {
 	display:none;
 }
+
+#footer {
+	padding: 1.5em 0;
+	border-top: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+}
