@@ -53,7 +53,7 @@
 
 <keyset>
 	<key id="copy-key" key="C" modifiers="control" oncommand="UICopySelection ();" />
-	<key id="find-key" key="F" modifiers="control" oncommand="UIFindInPage ();" />
+	<key id="find-key" key="F" modifiers="control" oncommand="UIFindInPage (gFindBar.FIND_NORMAL);" />
 	<key id="home-key" key="H" modifiers="control" oncommand="UINavGoHome ();" />
 	<key id="search-key" key="L" modifiers="control" oncommand="UIFocusOnSearch ();" />
 	<key id="search-key" key="K" modifiers="control" oncommand="UIFocusOnSearch ();" />
@@ -62,6 +62,12 @@
     <key id="print-key" key="P" modifiers="control" oncommand="UIPrintPage ();" />
 	<key id="selectall-key" key="A" modifiers="control" oncommand="UISelectAll ();"/>
 </keyset>
+
+<menubar id="sample-menubar">
+    <menu id="edit-menu" label="">
+    </menu>
+</menubar>
+
 
 <popupset>
   <menupopup id="searchpopup" position="&moulin.position;" dir="&moulin.dir;">
@@ -81,16 +87,16 @@
     <image id="print" label="&moulin.print;" onclick="javascript:UIPrintPage ();" tooltiptext="&moulin.print;" class="moulin-tb" />
     <image id="sizeup" label="&moulin.sizeUp;" onclick="javascript:UITextBigger ();" tooltiptext="&moulin.sizeUp;" class="moulin-tb" />
     <image id="sizedown" label="&moulin.sizeDown;" onclick="javascript:UITextSmaller ();" tooltiptext="&moulin.sizeDown;" class="moulin-tb" />
-    <image id="findin" label="&moulin.searchInPage;" onclick="javascript:UIFindInPage ();" tooltiptext="&moulin.searchInPage;" class="moulin-tb" />
+    <image id="findin" label="&moulin.searchInPage;" onclick="javascript:UIFindInPage (gFindBar.FIND_NORMAL);" tooltiptext="&moulin.searchInPage;" class="moulin-tb" />
     <image id="fullscreen" label="&moulin.toggleFullscreen;" onclick="javascript:UIToggleFullScreen ();" tooltiptext="&moulin.toggleFullscreen;" class="moulin-tb" />
     <image id="sidebar" label="&moulin.toggleSidebar;" onclick="javascript:UIToggleSideBar ();" tooltiptext="&moulin.toggleSidebar;" class="moulin-tb" />
 </hbox>
 <hbox flex="1" dir="&moulin.dir;">
 	<vbox id="moulin-sidebar" hidden="true">
-	<button label="&moulin.loadbmk;" tooltiptext="&moulin.loadbmk;" oncommand="UILoadExternalBookmarkFile ();" />
-	<button label="&moulin.exportbmk;" tooltiptext="&moulin.exportbmk;" oncommand="UIExportCurrentSetToFile ();" />
-	<button label="&moulin.mark;" tooltiptext="&moulin.mark;" oncommand="bookmarkCurrentPage ();" />
-	<button label="&moulin.unmark;" tooltiptext="&moulin.unmark;" oncommand="removeCurrentBookmark ();" />
+	<image id="loadbmk" label="&moulin.loadbmk;" tooltiptext="&moulin.loadbmk;" onclick="javascript:UILoadExternalBookmarkFile ();" class="moulin-tb" />
+	<image id="exportbmk" label="&moulin.exportbmk;" tooltiptext="&moulin.exportbmk;" onclick="javascript:UIExportCurrentSetToFile ();" class="moulin-tb" />
+	<image id="markpage" label="&moulin.mark;" tooltiptext="&moulin.mark;" onclick="javascript:bookmarkCurrentPage ();" class="moulin-tb" />
+	<image id="unmarkpage" label="&moulin.unmark;" tooltiptext="&moulin.unmark;" onclick="javascript:removeCurrentBookmark ();" class="moulin-tb" />
 
 	<label value="&moulin.bmkLabel;" />
 	<listbox id="bookmarkListBox" flex="1" dir="&moulin.dir;">

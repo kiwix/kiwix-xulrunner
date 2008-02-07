@@ -22,8 +22,6 @@
 /*
  * Mini Logger to output stuff to JS Console.
  */
-var stime	= 0;
-var etime	= 0;
 function L () {};
 
 L.info = function (str) {
@@ -95,168 +93,20 @@ function moulinch_open()
 // based on that in Venkman.
 
 MoulinChannel.prototype.asyncOpen =
-function moulinch_aopen (streamListener, context)
+function moulinch_aopen (streamListener, context, directURI)
 {
-	stime 	= new Date ();
-	stime	= stime.getTime();
-
 	this.streamListener = streamListener;
 	this.context = context;
-  
-	var prompt = Components.classes["@mozilla.org/network/default-prompt;1"].createInstance(Components.interfaces.nsIPrompt);
-	var moulinComp = Components.classes["@kunnafoni.org/cpp_nsMoulin;1"].createInstance(Components.interfaces.nsIMoulin);
 	
-	var path = Url.decode(this.URI.path);
-	//prompt.alert("d", path);
-	extractedPath = extractMoulinURI(path);
-	var project	= extractedPath.project;
-	var lang	= extractedPath.lang;
-	var articleName	= extractedPath.articleName;
-	var project_domain	= extractedPath.project_domain;
-
-	// we have `project`, `lang` and `articleName` to search DB
-	//prompt.alert("ddd", articleName);
-	
-	var docrootFD = Components.classes["@mozilla.org/file/directory_service;1"].getService(Components.interfaces.nsIProperties).get("resource:app", Components.interfaces.nsIFile);
-	var datarootFD = docrootFD.clone ();
-	var todocrootpath = "chrome/locale/"+lang+"/moulin/docroot";
-	for each (var i in todocrootpath.split("/")) { docrootFD.append(i); }
-	var todataspath = "datas/"+lang;
-	for each (var i in todataspath.split("/")) { datarootFD.append(i); }
-
-    // get projects list
-	var moulinNFO = {};
-    moulinNFO.catalogFD = datarootFD.clone ();
-    moulinNFO.catalogFD.append("catalog");
-    moulinNFO.catalogFormat = parseFormat(getFileContent(moulinNFO.catalogFD.path));
-
-	datarootFD.append(project);
-	dataDB = datarootFD.clone();
-	dataDB.append("index.db");
-	dataFormat = datarootFD.clone();
-	dataFormat.append("format");
-	
-	dataBaseResult = fetchDBDetails(dataDB, articleName);
-	while (dataBaseResult.redirect != "" && dataBaseResult.redirect != dataBaseResult.articleName) { // should prevent an infinite loop ?
-		//prompt.alert("redirect", "redirecting "+dataBaseResult.articleName+" to "+Url.encode(dataBaseResult.redirect).replace("moulin%3A//", "moulin://"));
-		if (dataBaseResult.redirect.indexOf("moulin://") == 0) {
-			break;
-		}
-		dataBaseResult = fetchDBDetails(dataDB, dataBaseResult.redirect);
-	}
-
-	if (dataBaseResult.redirect != "") {
-		// shouldn't happen.
-		//prompt.alert("Redirection", "Requested article ("+dataBaseResult.articleName+") point to "+dataBaseResult.redirect+" in the database.");
-	}
-	
-	if (dataBaseResult.nbOccur == 0 || dataBaseResult.nbOccur == "0") {
-		// not found in DB ; should send the error page.
-		//prompt.alert("Database Error", "Requested article ("+dataBaseResult.articleName+") couldn't be found in the database.");
-		L.info("Article Not found in Database ("+articleName+")");
-		errorFile = docrootFD.clone();
-		errorFile.append("error.html");
-		dataString = getFileContent(errorFile.path);
-		this.respond(dataString);
-		return;
-	}
-
-	if (dataBaseResult.aarchive != dataBaseResult.barchive)
-		length = -1;
-	else
-		length = dataBaseResult.bstartoff - dataBaseResult.astartoff;
-		
-	// load project-specific configuration
-	format = parseFormat(getFileContent(dataFormat.path));
-	
-	// overwrite nsIChannel settings
-	if (!format.extension)
-		format.extension = "";
-	if (format.type)
-		this.contentType = format.type;
-	if (format.charset)
-		this.contentCharset = format.charset;
-	this.contentLength = length;
-	
-	if (format.header) {
-		var headerFile = docrootFD.clone();
-		headerFile.append(format.header);
-	}
-	if (format.footer) {
-		var footerFile = docrootFD.clone();
-		footerFile.append(format.footer);
-	}
-	
-	archivefile = datarootFD.clone();
-	archivefile.append(dataBaseResult.aarchive+format.extension);
-
-	var dataString = new String();
-	if (format.header) {
-	   if (!format.newcharset) {
-            var converter = Components.classes["@mozilla.org/intl/scriptableunicodeconverter"].createInstance(Components.interfaces.nsIScriptableUnicodeConverter);
-	       	converter.charset =  format.charset;
-    		var pageTitle = converter.ConvertFromUnicode(dataBaseResult.articleName);
-        } else { pageTitle = dataBaseResult.articleName }
-		dataString += globalReplace(getFileContent(headerFile.path), {var:"TITLE", value:pageTitle});
-    }
-
-	//	CrossNamespace redirection
-	if (dataBaseResult.redirect.indexOf("moulin://") == 0) {
-		var uri = Components.classes["@mozilla.org/network/simple-uri;1"].createInstance (Components.interfaces.nsIURI);
-		uri.spec = dataBaseResult.redirect;
-		var uriParts = extractedPath = extractMoulinURI(uri.path);
-//		L.info(uriParts.project);
-		var converter = Components.classes["@mozilla.org/intl/scriptableunicodeconverter"]
-						.createInstance	(Components.interfaces.nsIScriptableUnicodeConverter);
-		converter.charset =  format.charset;
-		redirectFile = docrootFD.clone();
-		redirectFile.append("redirect.html");
-		dataString = globalReplace(getFileContent(redirectFile.path),
-					{var:"TITLE", value: converter.ConvertFromUnicode(dataBaseResult.articleName)}, 
-					{var:"NEWTITLE", value: moulinNFO.catalogFormat[uriParts.project] + ": " + converter.ConvertFromUnicode(dataBaseResult.articleName)}, 
-					{var:"REDIRECT_URL", value: Url.encode(dataBaseResult.redirect).replace("moulin%3A//", "moulin://")},
-					{var:"PROJECT_DOMAIN", value:project_domain});
-		this.respond(dataString);
-		return;
-	}
-	
-	if (format.compression.match(/bzip2/i)) {
-		dataString += moulinComp.retrieveBzip2Content(archivefile.path, dataBaseResult.astartoff, length);
-	} else if (format.compression.match(/gzip/i)) {
-		dataString += moulinComp.retrieveGzipContent(archivefile.path, dataBaseResult.astartoff, length);
-	} else { // no compression
-		try {
-		dataString += getContentOfFile(archivefile.path, dataBaseResult.astartoff, length);
-		}catch(e) { prompt.alert("ff", e); }
-	}
-
-	if (format.newcharset) {
-		var converter = Components.classes["@mozilla.org/intl/scriptableunicodeconverter"].createInstance(Components.interfaces.nsIScriptableUnicodeConverter);
-		converter.charset =  format.newcharset;
-		var dataStringEncoded = converter.ConvertFromUnicode(dataString);
-		var pageTitleEncoded = converter.ConvertFromUnicode(pageTitle);
-	} else {
-		var dataStringEncoded = dataString;
-		var pageTitleEncoded = pageTitle;
-	}
-	
-	if (format.footer)
-		dataStringEncoded += globalReplace(getFileContent(footerFile.path), {var:"TITLE", value:pageTitleEncoded}, {var:"PROJECT_DOMAIN", value:project_domain});
-	
-	// some ugly fix while we cant generate new datas. pumbaa we miss you !
-	dataStringEncoded = globalReplace2(dataStringEncoded, {var:"&lt;/div&gt;", value:""});
+	var moulin_datas= moulinDatasFromURL (this.URI);
+	this.type		= moulin_datas.type;
+	this.charset	= moulin_datas.charset;
+	this.length		= moulin_datas.data.length;
 	
 	try {
-	/*var file = Components.classes["@mozilla.org/file/local;1"].createInstance(Components.interfaces.nsILocalFile);
- 	file.initWithPath("/tmp/current.html");
-		writeToFile (file, dataString);*/
-
-	etime 	= new Date ();
-	etime	= etime.getTime();
-	L.info("total time: " + (etime - stime));
-		this.respond(dataStringEncoded);
-	} catch(ex) {
-		dump("error aopen: "+ex);
+		this.respond(moulin_datas.data);
+	} catch(e) {
+		L.info("error: "+e.toString ());
 	}
 }
 
@@ -599,4 +449,165 @@ String.prototype.capitalize = function(){
         return a.charAt(0).toUpperCase();
     });
 };
+
+function moulinDatasFromURL (uri)
+{
+	var contentType, contentLength, contentCharset;
+
+	var moulinComp = Components.classes["@kunnafoni.org/cpp_nsMoulin;1"].createInstance(Components.interfaces.nsIMoulin);
+
+	var path = Url.decode(uri.path);
+	//prompt.alert("d", path);
+	extractedPath = extractMoulinURI(path);
+	var project	= extractedPath.project;
+	var lang	= extractedPath.lang;
+	var articleName	= extractedPath.articleName;
+	var project_domain	= extractedPath.project_domain;
+
+	// we have `project`, `lang` and `articleName` to search DB
+	//prompt.alert("ddd", articleName);
+	
+	var docrootFD = Components.classes["@mozilla.org/file/directory_service;1"].getService(Components.interfaces.nsIProperties).get("resource:app", Components.interfaces.nsIFile);
+	var datarootFD = docrootFD.clone ();
+	var todocrootpath = "chrome/locale/"+lang+"/moulin/docroot";
+	for each (var i in todocrootpath.split("/")) { docrootFD.append(i); }
+	var todataspath = "datas/"+lang;
+	for each (var i in todataspath.split("/")) { datarootFD.append(i); }
+
+    // get projects list
+	var moulinNFO = {};
+    moulinNFO.catalogFD = datarootFD.clone ();
+    moulinNFO.catalogFD.append("catalog");
+    moulinNFO.catalogFormat = parseFormat(getFileContent(moulinNFO.catalogFD.path));
+
+	datarootFD.append(project);
+	dataDB = datarootFD.clone();
+	dataDB.append("index.db");
+	dataFormat = datarootFD.clone();
+	dataFormat.append("format");
+	
+	dataBaseResult = fetchDBDetails(dataDB, articleName);
+	while (dataBaseResult.redirect != "" && dataBaseResult.redirect != dataBaseResult.articleName) { // should prevent an infinite loop ?
+		//prompt.alert("redirect", "redirecting "+dataBaseResult.articleName+" to "+Url.encode(dataBaseResult.redirect).replace("moulin%3A//", "moulin://"));
+		if (dataBaseResult.redirect.indexOf("moulin://") == 0) {
+			break;
+		}
+		dataBaseResult = fetchDBDetails(dataDB, dataBaseResult.redirect);
+	}
+
+	if (dataBaseResult.redirect != "") {
+		// shouldn't happen.
+		//prompt.alert("Redirection", "Requested article ("+dataBaseResult.articleName+") point to "+dataBaseResult.redirect+" in the database.");
+	}
+	
+	if (dataBaseResult.nbOccur == 0 || dataBaseResult.nbOccur == "0") {
+		// not found in DB ; should send the error page.
+		//prompt.alert("Database Error", "Requested article ("+dataBaseResult.articleName+") couldn't be found in the database.");
+		L.info("Article Not found in Database ("+articleName+")");
+		errorFile = docrootFD.clone();
+		errorFile.append("error.html");
+		dataString = getFileContent(errorFile.path);
+		return dataString;
+	}
+
+	if (dataBaseResult.aarchive != dataBaseResult.barchive)
+		length = -1;
+	else
+		length = dataBaseResult.bstartoff - dataBaseResult.astartoff;
+		
+	// load project-specific configuration
+	format = parseFormat(getFileContent(dataFormat.path));
+	
+	// overwrite nsIChannel settings
+	if (!format.extension)
+		format.extension = "";
+	if (format.type)
+		contentType = format.type;
+	if (format.charset)
+		contentCharset = format.charset;
+	contentLength = length;
+	
+	if (format.header) {
+		var headerFile = docrootFD.clone();
+		headerFile.append(format.header);
+	}
+	if (format.footer) {
+		var footerFile = docrootFD.clone();
+		footerFile.append(format.footer);
+	}
+	
+	archivefile = datarootFD.clone();
+	archivefile.append(dataBaseResult.aarchive+format.extension);
+
+	var dataString = new String();
+	if (format.header) {
+	   if (!format.newcharset) {
+            var converter = Components.classes["@mozilla.org/intl/scriptableunicodeconverter"].createInstance(Components.interfaces.nsIScriptableUnicodeConverter);
+	       	converter.charset =  format.charset;
+    		var pageTitle = converter.ConvertFromUnicode(dataBaseResult.articleName);
+        } else { pageTitle = dataBaseResult.articleName }
+		dataString += globalReplace(getFileContent(headerFile.path), {var:"TITLE", value:pageTitle});
+    }
+
+	//	CrossNamespace redirection
+	if (dataBaseResult.redirect.indexOf("moulin://") == 0) {
+		var uri = Components.classes["@mozilla.org/network/simple-uri;1"].createInstance (Components.interfaces.nsIURI);
+		uri.spec = dataBaseResult.redirect;
+		var uriParts = extractedPath = extractMoulinURI(uri.path);
+//		L.info(uriParts.project);
+		var converter = Components.classes["@mozilla.org/intl/scriptableunicodeconverter"]
+						.createInstance	(Components.interfaces.nsIScriptableUnicodeConverter);
+		converter.charset =  format.charset;
+		redirectFile = docrootFD.clone();
+		redirectFile.append("redirect.html");
+		dataString = globalReplace(getFileContent(redirectFile.path),
+					{var:"TITLE", value: converter.ConvertFromUnicode(dataBaseResult.articleName)}, 
+					{var:"NEWTITLE", value: moulinNFO.catalogFormat[uriParts.project] + ": " + converter.ConvertFromUnicode(dataBaseResult.articleName)}, 
+					{var:"REDIRECT_URL", value: Url.encode(dataBaseResult.redirect).replace("moulin%3A//", "moulin://")},
+					{var:"PROJECT_DOMAIN", value:project_domain});
+		return dataString;
+	}
+	
+	if (format.compression.match(/bzip2/i)) {
+		dataString += moulinComp.retrieveBzip2Content(archivefile.path, dataBaseResult.astartoff, length);
+	} else if (format.compression.match(/gzip/i)) {
+		dataString += moulinComp.retrieveGzipContent(archivefile.path, dataBaseResult.astartoff, length);
+	} else { // no compression
+		try {
+		dataString += getContentOfFile(archivefile.path, dataBaseResult.astartoff, length);
+		}catch(e) { prompt.alert("ff", e); }
+	}
+
+	if (format.newcharset) {
+		var converter = Components.classes["@mozilla.org/intl/scriptableunicodeconverter"].createInstance(Components.interfaces.nsIScriptableUnicodeConverter);
+		converter.charset =  format.newcharset;
+		var dataStringEncoded = converter.ConvertFromUnicode(dataString);
+		var pageTitleEncoded = converter.ConvertFromUnicode(pageTitle);
+	} else {
+		var dataStringEncoded = dataString;
+		var pageTitleEncoded = pageTitle;
+	}
+	
+	if (format.footer)
+		dataStringEncoded += globalReplace(getFileContent(footerFile.path), {var:"TITLE", value:pageTitleEncoded}, {var:"PROJECT_DOMAIN", value:project_domain});
+	
+	// some ugly fix while we cant generate new datas. pumbaa we miss you !
+	dataStringEncoded = globalReplace2(dataStringEncoded, {var:"&lt;/div&gt;", value:""});
+	
+	/*var file = Components.classes["@mozilla.org/file/local;1"].createInstance(Components.interfaces.nsILocalFile);
+ 	file.initWithPath("/tmp/current.html");
+		writeToFile (file, dataString);*/
+
+	var redirectInline	= /<span class="redirectText"><a href=\"(.*)\" .*<\/span>/gi;
+	var redirDatas		= redirectInline.exec(dataStringEncoded);
+	if (redirDatas != null) {
+		L.info("hidden redirection to: "+redirDatas[1]);
+		var myURI = Components.classes["@mozilla.org/network/simple-uri;1"]
+    		 .createInstance (Components.interfaces.nsIURI);
+		myURI.spec = redirDatas[1];
+		return moulinDatasFromURL (myURI);
+	}
+
+	return {type:contentType, charset:contentCharset, data:dataStringEncoded};
+}
 

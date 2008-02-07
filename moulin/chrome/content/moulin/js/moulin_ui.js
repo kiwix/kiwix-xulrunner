@@ -32,6 +32,7 @@
 var moulinUI = {};
 moulinUI.macResizeInterval	= null;
 moulinUI.findInPageDatas	= null;
+moulinUI.findBarOpened		= false;
 moulinUI.textZoomFactor		= 1.3;
 moulinUI.searchEngine		= 'encyclopedia';
 moulinUI.winIsFullScreen	= false;
@@ -130,9 +131,15 @@ function UINavForward () {
 /*
  * Opens the Find in Page dialog.
  */
-function UIFindInPage () {
+function UIFindInPage (aMode) {
 	// calls the Findbar bindings.
-	return gFindBar.onFindCommand();
+	if (moulinUI.findBarOpened) {
+		moulinUI.findBarOpened	= false;
+		return gFindBar.close();	
+	} else {
+		moulinUI.findBarOpened	= true;
+		return gFindBar.startFind(aMode);
+	}
 }
 
 /*
@@ -280,8 +287,8 @@ function UIToggleSideBar () {
 function UIChangeSearchEngine (project) {
 	try {
 		moulinUI.searchEngineButton
-		.style.backgroundImage = 'url(chrome://moulin/locale/projects/'+project+'_list.png)';
-		//.setAttribute('image', 'chrome://moulin/locale/projects/'+project+'_list.png');
+		.style.backgroundImage = 'url(chrome://moulin/content/projects/'+project+'_list.png)';
+		//.setAttribute('image', 'chrome://moulin/content/projects/'+project+'_list.png');
 		moulinUI.searchEngine = project;
 	} catch (e) {
 		L.error ("can't change search engine:" + e.toString ());

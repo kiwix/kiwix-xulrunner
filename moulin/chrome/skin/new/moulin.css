@@ -44,7 +44,7 @@ findbar {
 #gohome { background-image: url(img/moulin.png); }
 #goback { background-image: url(img/arrowtoleft.png); }
 #goforward { background-image: url(img/arrowtoright.png); }
-#search { background-image: url('chrome://moulin/locale/projects/encyclopedia_list.png'); }
+#search { background-image: url('chrome://moulin/content/projects/encyclopedia_list.png'); }
 #searchgo { background-image: url(img/search.png); }
 #print { background-image: url(img/printer.png); }
 #sizeup { background-image: url(img/textplus.png); }
@@ -52,6 +52,11 @@ findbar {
 #findin { background-image: url(img/searchinpage.png); }
 #fullscreen { background-image: url(img/fullscreen.png); }
 #sidebar { background-image: url(img/sidebar.png); }
+
+#markpage { background-image: url(chrome://moulin/locale/skin/mark_page.png); }
+#unmarkpage { background-image: url(chrome://moulin/locale/skin//unmark_page.png); }
+#loadbmk { background-image: url(chrome://moulin/locale/skin//load_bookmark.png); }
+#exportbmk { background-image: url(chrome://moulin/locale/skin//export_bookmark.png); }
 /*#nav-toolbar .button-text { display:none; }*/
 
 /* right to left secific */
@@ -103,4 +108,53 @@ hbox[dir='rtl'] #moulin-sidebar label {
 	text-align: right;	
 }
 
+#moulin-sidebar image {
+	width:202px;
+	height:34px;
+	background-repeat: no-repeat;
+	cursor: pointer;
+	margin-right: -.3em;
+}
 
+hbox label {
+	font-size: 1.5em;
+	color: #333333;
+	direction: ltr;
+	text-decoration: underline;
+
+}
+
+listbox * label { 
+	direction: ltr;
+	font-size: 1.2em;
+	color: #333333;
+	text-decoration: none;
+	background-color: #cccccc;
+	padding-right: .3em;
+}
+
+#moulin-sidebar { padding-left: .3em; padding-right: .3em;}
+
+menubar {
+	display:none;
+}
+
+#searchpopup * image {
+	width: auto;
+	height: auto;
+}
+
+#searchpopup * label {
+	padding-right: .5em;
+	font-size: 1.5em;
+	color: #333333;
+	direction: rtl;
+}
+
+textbox {
+	direction: rtl;
+}
+
+#moulin-sidebar {
+	width: 208px;
+}

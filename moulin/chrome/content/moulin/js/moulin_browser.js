@@ -186,10 +186,12 @@ function initializeBrowser () {
 	//loadNotes(null);
 	InitializeNotes ();
 
+/*
 	// resize main window on mac to 'refresh' display since it's buggy.
 	if (moulinNFO.OS.type == 'mac')	{
 		moulinUI.macResizeInterval = setInterval (UIResizeWindows, 1000); //0.5s
 	}
+*/
 	
 	// display info message at first run
 	//AlertOnFirstRun ();
@@ -199,12 +201,12 @@ function initializeBrowser () {
 }
 
 function GetRunMode () {
-	var install_file = Components.classes["@mozilla.org/file/directory_service;1"].getService(Components.interfaces.nsIProperties).get("resource:app", Components.interfaces.nsIFile);
-	install_file.append("installed");
-	if (install_file.exists ()) {
-		return 'install';
-	} else {
+	var live_file = Components.classes["@mozilla.org/file/directory_service;1"].getService(Components.interfaces.nsIProperties).get("resource:app", Components.interfaces.nsIFile);
+	live_file.append("live");
+	if (live_file.exists ()) {
 		return 'live';
+	} else {
+		return 'install';
 	}
 }
 

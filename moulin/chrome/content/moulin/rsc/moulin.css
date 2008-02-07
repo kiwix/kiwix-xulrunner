@@ -56,3 +56,22 @@ h3#siteSub, .notice { display: none; }
 
 a.image, div.floatleft span a, a[title$='.jpg'], a[title$='.png'], a[title$='.svg'], a[title$='.gif'] { display:none; }
 
+a[href$='.png'],
+a[href$='.PNG'],
+a[href$='.jpg'],
+a[href$='.JPG'],
+a[href$='.svg'],
+a[href$='.SVG'],
+a[href$='.gif'],
+a[href$='.GIF'],
+a[href$='.bmp'],
+a[href$='.BMP'],
+a[href$='.jpeg'],
+a[href$='.JPEG'],
+a[href^='http://reg.kiwix.org'] {
+	display:none;
+}
+
+div.floatleft, div.floatright, div.floatnone {
+	display:none;
+}

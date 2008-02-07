@@ -12,7 +12,7 @@ LANG	= ARGV[0]
 DIR		= ARGV[1]
 BUILD	= ARGV[2] == 'build' or false
 
-droot	= "../moulin_base_#{LANG}" 
+droot	= "../moulin_base/#{LANG}" 
 Dir.mkdir(droot) unless File.exists?(droot)
 
 Dir.mkdir("#{droot}/installer")						unless File.exists?("#{droot}/installer")
@@ -24,6 +24,9 @@ Dir.mkdir("#{droot}/moulin/defaults")				unless File.exists?("#{droot}/moulin/de
 Dir.mkdir("#{droot}/moulin/defaults/preferences")	unless File.exists?("#{droot}/moulin/defaults/preferences")
 Dir.mkdir("#{droot}/moulin/chrome")					unless File.exists?("#{droot}/moulin/chrome")
 Dir.mkdir("#{droot}/moulin/chrome/locale")			unless File.exists?("#{droot}/moulin/chrome/locale")
+
+# Live file
+system("touch #{droot}/moulin/live")
 
 # datas
 system("rsync -a binrsc/datas/#{LANG} #{droot}/moulin/datas/")
@@ -63,7 +66,7 @@ system("cp moulin/application.ini #{droot}/moulin/")
 system("cp moulin/COPYING #{droot}/moulin/")
 
 # preferences
-system("cp moulin/defaults/installed #{droot}/moulin/defaults/")
+#system("cp moulin/defaults/installed #{droot}/moulin/defaults/")
 src	= File.readlines("moulin/defaults/preferences/moulin-prefs.js").join
 ['general.useragent.locale', 'moulin.datas.language', 'moulin.ui.language'].each do |pr|
 	src.gsub!("[[[#{pr}]]]", LANG)
@@ -80,6 +83,9 @@ system("rsync -a moulin/chrome/skin #{droot}/moulin/chrome/")
 
 # locale
 system("rsync -C -a moulin/chrome/locale/#{LANG} #{droot}/moulin/chrome/locale/")
+
+# Help page
+system("mv #{droot}/moulin/chrome/locale/#{LANG}/moulin/docroot/help.html #{droot}/")
 
 # chrome.manifest
 src = File.readlines("moulin/chrome/chrome.manifest").join

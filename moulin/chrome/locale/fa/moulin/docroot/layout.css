@@ -1,12 +1,4 @@
-/* real CSS styles for well behaved browsers */
-/* hicksdesign.co.uk */
-
-/* Grid system: 85px/15px */
-
-/* import CSS for compliant browsers */
-/* ------------------------------------------------------- */
 @import url(typography2.css);
-
 
 /* stops the nasty horizontal shift with centered layouts in moz etc */
 html { margin-bottom: 1px; }
@@ -16,7 +8,6 @@ body {
 	background-color: #f2f2f2 !important; 
 	padding: 0 0 20px 0;
 	}
-
 
 /* positioning */
 
@@ -43,7 +34,7 @@ body {
 #content,
 #footer,
 .content {
-	width: 674px;
+	width: 704px;
 	clear: both;
 	margin: 0 auto;
 	position: relative;
@@ -109,7 +100,6 @@ body {
 	background-color: #990000;
 }
 
-
 #content, .content {
 	margin: 0 auto;
 }
@@ -155,7 +145,6 @@ body {
 	border-left: 0 !important;
 	}
 
-
 /* misc styles */
 
 img {
@@ -189,13 +178,21 @@ img .inline {
 #search p { color:white; }
 input, select { color: black; }
 
-#nav2 {
+#nav2 ul {
 	margin: 0 0 0 0;
-	width:745px;
+	width:735px;
 	background-color: #ddd;
 	background-repeat: repeat-x;
 	background-position: 0% -1.3em;
 	padding-right:35px;
+}
+
+#nav2 ul:after {
+    content: "."; 
+    display: block; 
+    height: 0; 
+    clear: both; 
+    visibility: hidden;
 }
 
 #nav2 a {
@@ -206,7 +203,7 @@ input, select { color: black; }
 	text-align: center;
 	color: #990000;
 	font-size: 13px;
-	padding:0 20px 0 20px;
+	padding:0 10px 0 10px;
 }
 
 #nav2 a:hover, #nav2 li.n2-root a {
@@ -250,23 +247,13 @@ input, select { color: black; }
 	font-weight: bold;
 }
 
-li.projectlist a {
-	font-size: 1.5em;
-	text-decoration: none;
-	color: black;
-}
-li.projectlist img {
-	border: 0;
-	display: inline;
-	vertical-align: middle;
-}
-
 #content h3 a,
 .content h3 a { 	
 	text-decoration: none;
 	font-size:14px;
 	font-weight:bold;
 	margin:16px 0 2px 0;
+
 	color: #000;
 }
 
@@ -277,7 +264,7 @@ li.projectlist img {
 
 .search-nav, .project-header {
 	margin: 0px 0 0px 0;
-	width:745px;
+	width:735px;
 	height:2em;
 	background-color: #ddd;
 	background-repeat: repeat-x;
@@ -285,7 +272,7 @@ li.projectlist img {
 }
 
 .project-header {
-	width: 740px;
+	width: 730px;
 	line-height: 2em;
 	background-color: #ddd;
 	color: #333;
@@ -308,7 +295,7 @@ li.projectlist img {
 	color: #333;
 }
 
-.project-header.unselected:hover {
+div.project-header.unselected:hover {
 	cursor: pointer;
 }
 
@@ -342,20 +329,60 @@ li.projectlist img {
 
 #content .rightcol,
 .content .rightcol {
-	padding-right:5px;
+	margin-top:30px;
+	padding-top:;
+	padding-right:10px;	
 	width: 239px;
 	float: left;
+	border-right: solid 1px #e0e0e0;
 /*	background-color: blue;*/
 }
 
+#content .rightcol h2 {
+	margin-top:0;
+}
+
+#content .rightcol * {
+	padding-left:5px;
+}
+
+#content .leftcol ul,
+.content .leftcol ul,
 #content .rightcol ul,
-.content .rightcol ul {
+body#autres.home #content ul {
 	list-style-type: none;
 	margin-right:0;
+	margin:0;
+	padding:0;
+}
+
+#content .leftcol ul li a,
+#content .rightcol ul li a,
+body#autres.home #content ul li a {
+	font-size: 1.5em;
+	text-decoration: none;
+	color: black;
+}
+
+#content .leftcol ul li img,
+#content .rightcol ul li img,
+body#autres.home #content ul li img {
+	border: 0;
+	display: inline;
+	vertical-align: middle;
 }
 
 .rightcol a { font-weight: normal; }
 .leftcol a { text-decoration: none; }
+
+#content .leftcol div > img + p,
+#content .rightcol div > img + p {
+	padding-top: 10px;
+}
+
+#content .leftcol div > img {
+	padding-left: 10px;
+}
 
 #content ul li img,
 .content ul li img { vertical-align: middle; display: inline; }
@@ -363,3 +390,108 @@ li.projectlist img {
 .hidden {
 	display: none;
 }
+
+sup {
+	font-size: 90%; vertical-align: 15%;
+}
+
+#content p a { font-weight: normal; }
+
+body#help div.section {
+	border-bottom: 1px solid #dedede;
+}
+
+body#help #content div#whatcanidowith {
+	border-top: 1px solid #dedede;
+}
+
+body#help #content div#caniinstall {
+	border-bottom: 0;
+}
+
+body#wikipedia #nav2 ul a[title="ویکی پدیا"],
+body#wikipedia.selection #nav2 ul a[title="انتخاب موضوعی"],
+body#autres.wikibooks #nav2 ul a[title="ویکی‎نَسک"],
+body#autres.wikibooks.selection #nav2 ul a[title="آثار کاربران"],
+body#autres.wikiquote #nav2 ul a[title="ویکی‌گفتاورد"],
+body#autres.wikiquote.selection #nav2 ul a[title="انتخاب موضوعی"],
+{
+	color: #333;
+}
+
+/* from mdw */
+
+ol li {
+	list-style-type: decimal;
+}
+
+dt {
+	font-weight: bold;
+	margin-bottom: .1em;
+}
+dl {
+	margin-top: .2em;
+	margin-bottom: .5em;
+}
+dd {
+	line-height: 1.5em;
+	margin-left: 2em;
+	margin-bottom: .1em;
+}
+
+hr {
+	height: 1px;
+	color: #aaa;
+	background-color: #aaa;
+	border: 0;
+	margin: .2em 0 .2em 0;
+}
+
+#toc,
+.toc,
+.mw-warning {
+	border: 1px solid #aaa;
+	background-color: #f9f9f9;
+	padding: 5px;
+	font-size: 95%;
+}
+#toc h2,
+.toc h2 {
+	display: inline;
+	border: none;
+	padding: 0;
+	font-size: 100%;
+	font-weight: bold;
+}
+#toc #toctitle,
+.toc #toctitle,
+#toc .toctitle,
+.toc .toctitle {
+	text-align: center;
+}
+#toc ul,
+.toc ul {
+	list-style-type: none;
+	list-style-image: none;
+	margin-left: 0;
+	padding-left: 0;
+	text-align: right;
+}
+#toc ul ul,
+.toc ul ul {
+	margin: 0 0 0 2em;
+}
+#toc .toctoggle,
+.toc .toctoggle {
+	font-size: 94%;
+}
+#footer {
+	background-color: white;
+	border-top: 1px solid #fabd23;
+	border-bottom: 1px solid #fabd23;
+	margin: .6em 0 1em 0;
+	padding: .8em 0 .8em 0;
+	text-align: center;
+	font-size: 90%;
+}
+/* end mdw */

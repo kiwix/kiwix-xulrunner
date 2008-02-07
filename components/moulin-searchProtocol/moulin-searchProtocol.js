@@ -22,8 +22,6 @@
 /*
  * Mini Logger to output stuff to JS Console.
  */
-var stime = 0;
-var etime = 0;
 
 function L () {};
 
@@ -366,9 +364,6 @@ MoulinChannel.prototype.open = function () {
 // based on that in Venkman.
 MoulinChannel.prototype.asyncOpen = function (streamListener, context) {
 	
-	stime 	= new Date ();
-	stime	= stime.getTime();
-
 	this.streamListener = streamListener;
 	this.context = context;
   
@@ -404,7 +399,7 @@ MoulinChannel.prototype.asyncOpen = function (streamListener, context) {
 	moulinSearchNFO.grandTotal		= 0;
 	moulinSearchNFO.SubProjectsDatas= [];
 //	moulinSearchNFO.totalByProject	= [];
-	L.info ('moulinSearchNFO.currentProject: '+moulinSearchNFO.currentProject);
+//	L.info ('moulinSearchNFO.currentProject: '+moulinSearchNFO.currentProject);
 
 	if (moulinSearchNFO.currentProject == "media") {
 		var dataStringUTF8 = "";
@@ -430,12 +425,9 @@ MoulinChannel.prototype.asyncOpen = function (streamListener, context) {
 	dataStringUTF8 = globalReplace(dataStringUTF8, {var:"NBRESULTS", value: moulinSearchNFO.grandTotal});
 	
 	try {
-	etime 	= new Date ();
-	etime	= etime.getTime();
-	L.info("total search time: " + (etime - stime));
 		this.respond (dataStringUTF8);
-	} catch (ex) {
-		dump ("error aopen");
+	} catch (e) {
+		L.info ("error: "+e.toString ());
 	}
 }
 

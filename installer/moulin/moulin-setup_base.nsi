@@ -149,7 +149,7 @@ Section
 ;  CopyFiles `..\moulin\sample` `$INSTDIR`
 
 	
-	CopyFiles `..\moulin\defaults\installed` `$INSTDIR`
+	Delete "$INSTDIR\live"
 	AddSize 512000 ; 500MB
 SectionEnd
 

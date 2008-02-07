@@ -187,7 +187,7 @@ static NS_METHOD nsMoulinRegistrationProc(nsIComponentManager *aCompMgr,
                                           const char *componentType,
                                           const nsModuleComponentInfo *info)
  {
-    printf("moulin component loaded\n");
+//    PR_fprintf(PR_STDOUT, "moulin component loaded\n");
     return NS_OK;
  }
 

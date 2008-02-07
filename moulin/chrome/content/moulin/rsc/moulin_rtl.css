@@ -20,3 +20,8 @@
 	border-right: 0;
 	border-bottom: 0;
 }
+
+body {
+    font-size: 75%;
+    letter-spacing: 0.001em;
+}
