@@ -158,3 +158,100 @@ textbox {
 #moulin-sidebar {
 	width: 208px;
 }
+
+#moulin-sidebar * {
+	border: 0;
+}
+
+listbox#bookmarkListBox {
+	-moz-appearance: none !important;
+	background-color: #da913e;
+	background-image:url(img/list_bg.png);
+	border: 1px solid #da913e;
+	-moz-outline-color: #da913e !important;
+	-moz-outline-width: 0 !important;
+}
+
+#bmkLabel {
+    margin: 0;
+    padding: 0;
+    width: 202px;
+    height: 28px;
+    background-image: url(chrome://moulin/locale/skin/bookmarks.png);
+    color: transparent;
+}
+
+#bookmarkVBox {
+	margin:0;
+	padding:0;
+/*	margin-right: -2px;*/
+	width:202px;
+	background-color: #da913e;
+	background-image:url(img/list_bg_rtl.png);
+	background-repeat: repeat-y;
+    border: 0;
+    background-position: bottom right;
+}
+
+#bookmarkVBox ul {
+    height:15em;
+	margin: 0;
+	padding: 0;
+    margin-bottom: 7px;
+    margin-right: 6px;
+    padding-bottom: 2px;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+
+#bookmarkVBox li {
+	list-style-type: none;
+	color: white;
+	padding:.1em;
+	padding-right: .4em;
+	font-size: 1.2em;
+}
+
+#bookmarkVBox li:hover {
+	cursor: pointer;
+	color: #333333;
+}
+
+#notesLabel {
+    margin: 0;
+    padding: 0;
+    width: 202px;
+    height: 28px;
+    background-image: url(chrome://moulin/locale/skin/notes.png);
+    color: transparent;
+}
+
+#notesTextBox {
+	-moz-appearance: none !important;
+	border:0;
+	background-color: transparent;
+	background-image:url(img/list_bg_rtl.png);
+	background-repeat: repeat-y;
+    background-position: bottom right;
+
+	color: -moz-FieldText;
+	color: white;
+	
+	width: 202px;
+
+	margin: 0;
+	padding: 0;
+
+    padding-bottom: 7.5px;
+   	padding-right: 6px;
+/*	margin-right: -2px;*/
+	padding-top: 0px;
+   	padding-left: .5em
+
+	font-size: 1.2em;
+}
+
+#notesTextBox.linuxmargin, #bookmarkVBox.linuxmargin {
+	margin-right: -2px;
+}
+

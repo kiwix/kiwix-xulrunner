@@ -156,6 +156,11 @@ function DisplayBookmarkSet (set) {
 
 function UIEmptyBookmarkListBox () {
 	L.info ('emptying bookmark list');
+	while (moulinUI.bookmarkListBox.firstChild) {
+		moulinUI.bookmarkListBox.removeChild(moulinUI.bookmarkListBox.firstChild);
+	}
+
+/*
 	var l = moulinUI.bookmarkListBox.getRowCount ();
 	for (var i=l -1; i>=0; i--) {
 //		L.info ('removing from '+moulinUI.bookmarkListBox+' at '+i);
@@ -164,7 +169,7 @@ function UIEmptyBookmarkListBox () {
 		} catch (e) {
 			L.error ('error deleting bookmark: '+e);
 		}
-	}
+	}*/
 }
 
 function UILoadExternalBookmarkFile () {
@@ -227,7 +232,6 @@ function AddBookmarkToDatasource (title, uri) {
  * removes bookmark from current set
  */
 function RemoveBookmarkFromDatasource (title, uri) {
-	
 	if (BookmarkNFO.currentSet.items.some (BookmarkNFO.itemInSet, {'title':title, 'uri':uri})) {
 		try { 
 			BookmarkNFO.currentSet.removeBookmark (title, uri);
@@ -245,10 +249,12 @@ function RemoveBookmarkFromDatasource (title, uri) {
  */
 function CreateBookmarkItem (aLabel, aURI, aTooltip) {
 	const XUL_NS = "http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul";
-	var listItem = document.createElementNS (XUL_NS, "listitem");
+	const HTML_NS= "http://www.w3.org/1999/xhtml";
+	//var listItem = document.createElementNS (XUL_NS, "listitem");
+	var listItem = document.createElementNS (HTML_NS, "li");
 	listItem.setAttribute ("tooltiptext", aTooltip.toString ());
 	listItem.setAttribute ("onclick", "onBookmarkItemClicked (this);");
-	listItem.setAttribute ("label", aLabel.toString ());
+	listItem.innerHTML = aLabel.toString ();
 	listItem.setAttribute ("value", aURI.toString ());
 	return listItem;
 }
@@ -265,11 +271,12 @@ function AddBookmarkLine (aLabel, aURI) {
  * removes a bookmark from the listbox
  */
 function RemoveBookmarkLine (aLabel, aURI) {
-	var nbTotal = moulinUI.bookmarkListBox.getRowCount ();
+	var nbTotal = moulinUI.bookmarkListBox.childNodes.length;
+
 	for (var i = 0; i <= nbTotal; i++) {
-		var item = moulinUI.bookmarkListBox.getItemAtIndex (i);
-		if (item.getAttribute ('label') == aLabel && item.getAttribute ('value') == aURI) {
-			moulinUI.bookmarkListBox.removeItemAt (i);
+		var item = moulinUI.bookmarkListBox.childNodes [i];
+		if (item.innerHTML == aLabel && item.getAttribute ('value') == aURI) {
+			moulinUI.bookmarkListBox.removeChild (item);
 			return true;	
 		}
 	}
@@ -302,11 +309,13 @@ function bookmarkCurrentPage () {
  * Called by the "unmark" button ; removes from set if exist then from the box
  */
 function removeCurrentBookmark () {
-	var selectedItem = moulinUI.bookmarkListBox.selectedItem;
+	var title	= moulinUI.browser.contentTitle;
+	var uri		= moulinUI.browser.currentURI;
+/*	var selectedItem = moulinUI.bookmarkListBox.selectedItem;
 	var title = selectedItem.getAttribute ('label');
-	var uri = selectedItem.getAttribute ('value');
-	if (RemoveBookmarkFromDatasource (title, uri)) {
-		RemoveBookmarkLine (title, uri);
+	var uri = selectedItem.getAttribute ('value');*/
+	if (RemoveBookmarkFromDatasource (title, uri.spec)) {
+		RemoveBookmarkLine (title, uri.spec);
 	}
 }
 

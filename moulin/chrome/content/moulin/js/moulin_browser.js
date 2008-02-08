@@ -192,6 +192,14 @@ function initializeBrowser () {
 		moulinUI.macResizeInterval = setInterval (UIResizeWindows, 1000); //0.5s
 	}
 */
+	// Gecko bug ; different behavior on linux.
+	if (moulinNFO.OS.type == 'unix')	{
+		var nb = document.getElementById('notesTextBox');
+		nb.className = "linuxmargin";
+		var bb = document.getElementById('bookmarkVBox');
+		bb.className = "linuxmargin";
+	}
+	
 	
 	// display info message at first run
 	//AlertOnFirstRun ();

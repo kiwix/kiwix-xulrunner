@@ -98,16 +98,16 @@
 	<image id="markpage" label="&moulin.mark;" tooltiptext="&moulin.mark;" onclick="javascript:bookmarkCurrentPage ();" class="moulin-tb" />
 	<image id="unmarkpage" label="&moulin.unmark;" tooltiptext="&moulin.unmark;" onclick="javascript:removeCurrentBookmark ();" class="moulin-tb" />
 
-	<label value="&moulin.bmkLabel;" />
-	<listbox id="bookmarkListBox" flex="1" dir="&moulin.dir;">
-	</listbox>
-	
-	<label value="&moulin.notesLabel;" />
-	<textbox id="notesTextBox" onchange="saveNotes(null);" multiline="true" flex="1" dir="&moulin.dir;" />
+	<label id="bmkLabel" value="&moulin.bmkLabel;" />
+
+	<vbox id="bookmarkVBox" flex="1" dir="&moulin.dir;">
+	<html:ul id="bookmarkListBox" dir="&moulin.dir;" flex="1">
+	</html:ul>
 	</vbox>
 	
-	<splitter state="collapsed" collapse="none" resizeafter="farthest">
-	</splitter>
+	<label id="notesLabel" value="&moulin.notesLabel;" />
+	<textbox id="notesTextBox" onchange="saveNotes(null);" multiline="true" flex="1" dir="&moulin.dir;" />
+	</vbox>
 	
 	<browser flex="5" id="content-browser" src="" type="content-primary"/>
 </hbox>
