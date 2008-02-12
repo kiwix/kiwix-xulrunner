@@ -24,7 +24,7 @@ namespace WikiMoulin {
 		{
 			Process proc = new Process ();
 			proc.StartInfo.FileName = s_cmd;
-			proc.StartInfo.Arguments = "-uroot fa_quote";
+			proc.StartInfo.Arguments = "-ureg -preg reg_fa_quote";
 			proc.StartInfo.CreateNoWindow = true;
 			proc.StartInfo.UseShellExecute = false;
 			proc.StartInfo.RedirectStandardInput = true;

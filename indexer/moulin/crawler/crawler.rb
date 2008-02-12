@@ -82,8 +82,9 @@ def html_for( title, pi )
 	# Remove the Images links
 	#result.gsub!( /<a href=\"[^"><]*\" class=\"new\" title=\"Image:[^"><]*\">Image\:[^<]*<\/a>/, '' )
 
-	#remove links and image to decorative images (like category illus)
-	result.gsub!( /<a href=\"[^"><]*\" title=\"#{LOCALIZED_STRINGS[:NSImage][:raw]}\:([^<]*)\.(png|jpg|bmp|svg|gif)\">#{LOCALIZED_STRINGS[:NSImage][:raw]}\:([^<]*)\.(png|jpg|bmp|svg|gif)<\/a>/, '' )
+	# (2008-02-04)remove links and image to decorative images (like category illus)	
+	#result.gsub!( /<a href=\"[^"><]*\" title=\"#{LOCALIZED_STRINGS[:NSImage][:raw]}\:([^<]*)\.(png|jpg|bmp|svg|gif)\">#{LOCALIZED_STRINGS[:NSImage][:raw]}\:([^<]*)\.(png|jpg|bmp|svg|gif)<\/a>/, '' )
+
 	# Remove the links to the article in other-languages + footer
 	result.gsub!( /<div id=\"p-lang\" class=\"portlet\">.*/m, '' )
 	# Remove the links to non-existent articles

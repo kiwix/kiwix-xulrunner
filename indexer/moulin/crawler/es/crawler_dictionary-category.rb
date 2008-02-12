@@ -7,18 +7,21 @@ LANG    = "es"
 RTL     = false
 PROJECT = "dictionary-category"
 MASTER = "dictionary"
-NAMESPAC= {:id => 14, :name => :NSCategory}
+NAMESPAC= {:id => 14, :name => "Categoría"}
 UNIQID  = Time.now.to_i
 UNIQFD  = "/home/reg/var/#{LANG}/#{PROJECT}_#{UNIQID}"
 MDWKFD  = "/var/www/reg.kiwix.org/wiki"
-DBICON  = "DBI:Mysql:reg_#{LANG}_dictionary"
+DBICON  = "DBI:Mysql:reg_#{LANG}_#{MASTER}"
 DBIUSER = "reg"
 DBIPASS = "reg"
 BLOCK_SIZE	= 10485760 # 10MB
 
-require 'es_common.rb'
+require "./#{LANG}_common.rb"
 
-require '../crawler.rb'
+#INCLUDED_NS << {:raw => "Portal", :url => "Portal", :ms => "portal"}
+#EXCLUDED_NS << {:raw => "Portal Discussion", :url => "Portal Discussion"}
+
+require "../crawler.rb"
 
 hello()
 

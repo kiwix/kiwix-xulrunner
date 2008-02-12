@@ -6,19 +6,23 @@ STARTTIME = Time.now
 LANG    = "es"
 RTL     = false
 PROJECT = "books-category"
-MASTER	= "books"
-NAMESPAC= {:id => 14, :name => :NSCategory}
+MASTER = "books"
+NAMESPAC= {:id => 14, :name => "Categoría"}
 UNIQID  = Time.now.to_i
 UNIQFD  = "/home/reg/var/#{LANG}/#{PROJECT}_#{UNIQID}"
 MDWKFD  = "/var/www/reg.kiwix.org/wiki"
-DBICON  = "DBI:Mysql:reg_#{LANG}_books"
+DBICON  = "DBI:Mysql:reg_#{LANG}_#{MASTER}"
 DBIUSER = "reg"
 DBIPASS = "reg"
 BLOCK_SIZE	= 10485760 # 10MB
 
-require 'es_common.rb'
+require "./#{LANG}_common.rb"
 
-require '../crawler.rb'
+#INCLUDED_NS << {:raw => "Portal", :url => "Portal", :ms => "portal"}
+EXCLUDED_NS << {:raw => "Wikiversidad", :url => "Wikiversidad"}
+EXCLUDED_NS << {:raw => "Wikiversidad Discusión", :url => "Wikiversidad_Discusi%C3%B3n"}
+
+require "../crawler.rb"
 
 hello()
 

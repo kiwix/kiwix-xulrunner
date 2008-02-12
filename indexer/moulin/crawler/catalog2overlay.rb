@@ -36,7 +36,7 @@ END
 out = String.new
 out << OVERLAY_HEAD
 projects.each do |p|
-	out << "<menuitem dir=\"&moulin.dir;\" class=\"menuitem-iconic\" image=\"chrome://moulin/locale/projects/#{p}_list.png\" label=\"&project.#{p};\" value=\"#{p}\" oncommand=\"UIChangeSearchEngine (this.value);\" />\n"
+	out << "<menuitem dir=\"&moulin.dir;\" class=\"menuitem-iconic\" image=\"chrome://moulin/content/projects/#{p}_list.png\" label=\"&project.#{p};\" value=\"#{p}\" oncommand=\"UIChangeSearchEngine (this.value);\" />\n"
 	
 end
 out << OVERLAY_FOOT

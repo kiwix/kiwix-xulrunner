@@ -7,18 +7,26 @@ LANG    = "es"
 RTL     = false
 PROJECT = "encyclopedia-appendix"
 MASTER = "encyclopedia"
-NAMESPAC= {:id => 14, :name => :NSAppendix}
+NAMESPAC= {:id => 104, :name => "Anexo"}
 UNIQID  = Time.now.to_i
 UNIQFD  = "/home/reg/var/#{LANG}/#{PROJECT}_#{UNIQID}"
 MDWKFD  = "/var/www/reg.kiwix.org/wiki"
-DBICON  = "DBI:Mysql:reg_#{LANG}_encyclopedia"
+DBICON  = "DBI:Mysql:reg_#{LANG}_#{MASTER}"
 DBIUSER = "reg"
 DBIPASS = "reg"
 BLOCK_SIZE	= 10485760 # 10MB
 
-require 'es_common.rb'
+require "./#{LANG}_common.rb"
 
-require '../crawler.rb'
+INCLUDED_NS << {:raw => "Portal", :url => "Portal", :ms => "portal"}
+INCLUDED_NS << {:raw => "Anexo", :url => "Anexo", :ms => "appendix"}
+
+EXCLUDED_NS << {:raw => "Portal Discusión", :url => "Portal_Discusi%C3%B3n"}
+EXCLUDED_NS << {:raw => "Wikiproyecto", :url => "Wikiproyecto"}
+EXCLUDED_NS << {:raw => "Wikiproyecto Discusión", :url => "Wikiproyecto_Discusi%C3%B3n"}
+EXCLUDED_NS << {:raw => "Anexo Discusión", :url => "Anexo_Discusi%C3%B3n"}
+
+require "../crawler.rb"
 
 hello()
 

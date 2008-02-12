@@ -6,8 +6,15 @@ LOCALIZED_STRINGS = {
 	:NSImage	=> {:raw => "تصویر", :url => "%D8%AA%D8%B5%D9%88%DB%8C%D8%B1"}
     }
 
+# only projects-wide NS to include
+INCLUDED_NS = [
+	{:raw => "رده", :url => "%D8%B1%D8%AF%D9%87", :ns => "category"},
+]
+
+
 # transform external links to other projects to internal links
 INCLUDED_PROJECTS = [
+{:url => "http://fa.wikipedia.org/wiki/%D8%AF%D8%B1%DA%AF%D8%A7%D9%87:", :internal => "moulin://encyclopedia-portal/fa/"},
 {:url => "http://fa.wikipedia.org/wiki/%D8%B1%D8%AF%D9%87:", :internal => "moulin://encyclopedia-category/fa/"},
 {:url => "http://fa.wikipedia.org/wiki/", :internal => "moulin://encyclopedia/fa/"},
 {:url => "http://fa.wikibooks.org/wiki/%D8%B1%D8%AF%D9%87:", :internal => "moulin://books-category/fa/"},

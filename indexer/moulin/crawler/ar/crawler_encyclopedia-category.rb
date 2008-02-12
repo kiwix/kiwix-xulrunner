@@ -18,7 +18,7 @@ BLOCK_SIZE	= 10485760 # 10MB
 
 require "./#{LANG}_common.rb"
 
-INCLUDED_NS << {:raw => "بوابة", :url => "%D8%A8%D9%88%D8%A7%D8%A8%D8%A9", :ms => "portal"}
+INCLUDED_NS << {:raw => "بوابة", :url => "%D8%A8%D9%88%D8%A7%D8%A8%D8%A9", :ns => "portal"}
 EXCLUDED_NS << {:raw => "نقاش البوابة", :url => "%D9%86%D9%82%D8%A7%D8%B4+%D8%A7%D9%84%D8%A8%D9%88%D8%A7%D8%A8%D8%A9"}
 
 require "../crawler.rb"

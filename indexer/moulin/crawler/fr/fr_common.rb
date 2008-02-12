@@ -44,8 +44,8 @@ EXCLUDED_NS = [
 {:raw => "Wikipédia", :url => "Wikip%C3%A9dia"},	#encyclopedia
 {:raw => "Discussion Wikipédia", :url => "Discussion_Wikip%C3%A9dia"},	#encyclopedia_TALK
 
-{:raw => "Wiktionaire", :url => "Wiktionaire"},	#dictionary
-{:raw => "Discussion Wiktionaire", :url => "Discussion_Wiktionaire"},	#dictionary_TALK
+{:raw => "Wiktionnaire", :url => "Wiktionnaire"},	#dictionary
+{:raw => "Discussion Wiktionnaire", :url => "Discussion_Wiktionnaire"},	#dictionary_TALK
 {:raw => "Wikilivres", :url => "Wikilivres"},	#books
 {:raw => "Discussion Wikilivres", :url => "Discussion_Wikilivres"},	#books_TALK
 {:raw => "Wikiquote", :url => "Wikiquote"},	#quote

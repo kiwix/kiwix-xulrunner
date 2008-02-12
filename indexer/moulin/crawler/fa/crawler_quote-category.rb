@@ -7,17 +7,21 @@ LANG    = "fa"
 RTL     = true
 PROJECT = "quote-category"
 MASTER = "quote"
-NAMESPAC= {:id => 14, :name => :NSCategory}
+NAMESPAC= {:id => 14, :name => "رده"}
 UNIQID  = Time.now.to_i
-UNIQFD  = "/var/moulin/#{LANG}/#{PROJECT}_#{UNIQID}"
-MDWKFD  = "/var/www/wiki"
-DBICON  = "DBI:Mysql:#{LANG}_quote"
-DBIUSER = "root"
-DBIPASS = ""
+UNIQFD  = "/home/reg/var/#{LANG}/#{PROJECT}_#{UNIQID}"
+MDWKFD  = "/var/www/reg.kiwix.org/wiki"
+DBICON  = "DBI:Mysql:reg_#{LANG}_#{MASTER}"
+DBIUSER = "reg"
+DBIPASS = "reg"
 BLOCK_SIZE	= 10485760 # 10MB
 
-require 'fa_common.rb'
-require '../crawler_rss.rb'
+require "./#{LANG}_common.rb"
+
+#INCLUDED_NS << {:raw => "Portal", :url => "Portal", :ms => "portal"}
+#EXCLUDED_NS << {:raw => "Portal Discussion", :url => "Portal Discussion"}
+
+require "../crawler.rb"
 
 hello()
 

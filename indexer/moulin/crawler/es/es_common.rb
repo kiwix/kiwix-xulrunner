@@ -7,6 +7,11 @@ LOCALIZED_STRINGS = {
 	:NSAppendix	=> {:raw => "Anexo", :url => "Anexo"},
     }
 
+# only projects-wide NS to include
+INCLUDED_NS = [
+	{:raw => "Categoría", :url => "Categor%C3%ADa", :ns => "category"},
+]
+
 # transform external links to other projects to internal links
 INCLUDED_PROJECTS = [
 {:url => "http://es.wikipedia.org/wiki/Categoría:", :internal => "moulin://encyclopedia-category/es/"},
@@ -27,36 +32,36 @@ INCLUDED_PROJECTS = [
 
 EXCLUDED_NS = [
 {:raw => "Media", :url => "Media"},	#MEDIA
-{:raw => "Special", :url => "Special"},	#SPECIAL	
-{:raw => "Discusión", :url => "Discusión"},	#TALK
+{:raw => "Especial", :url => "Especial"},	#SPECIAL	
+{:raw => "Discusión", :url => "Discusi%C3%B3n"},	#TALK
 {:raw => "Usuario", :url => "Usuario"},	#USER
-{:raw => "Usuario Discusión", :url => "Usuario Discusión"},	#USER_TALK
+{:raw => "Usuario Discusión", :url => "Usuario_Discusi%C3%B3n"},	#USER_TALK
 {:raw => "Wikipedia", :url => "Wikipedia"},	#encyclopedia
-{:raw => "Wikipedia Discusión", :url => "Wikipedia Discusión"},	#encyclopedia_TALK
+{:raw => "Wikipedia Discusión", :url => "Wikipedia_Discusi%C3%B3n"},	#encyclopedia_TALK
 {:raw => "Wikilibros", :url => "Wikilibros"},	#books
-{:raw => "Wikilibros Discusión", :url => "Wikilibros Discusión"},	#books_TALK
+{:raw => "Wikilibros Discusión", :url => "Wikilibros_Discusi%C3%B3n"},	#books_TALK
 {:raw => "Wikcionario", :url => "Wikcionario"},	#dictionary
-{:raw => "Wikcionario Discusión", :url => "Wikcionario Discusión"},	#dictionary_TALK
+{:raw => "Wikcionario Discusión", :url => "Wikcionario_Discusi%C3%B3n"},	#dictionary_TALK
 {:raw => "Wikiquote", :url => "Wikiquote"},	#quote
-{:raw => "Wikiquote Discusión", :url => "Wikiquote Discusión"},	#quote_TALK
+{:raw => "Wikiquote Discusión", :url => "Wikiquote_Discusi%C3%B3n"},	#quote_TALK
 {:raw => "Wikisource", :url => "Wikisource"},	#quote
-{:raw => "Wikisource Discusión", :url => "Wikisource Discusión"},	#source_TALK
+{:raw => "Wikisource Discusión", :url => "Wikisource_Discusi%C3%B3n"},	#source_TALK
 {:raw => "Wikiversidad", :url => "Wikiversidad"},	#quote
-{:raw => "Wikiversidad Discusión", :url => "Wikiversidad Discusión"},	#source_TALK
+{:raw => "Wikiversidad Discusión", :url => "Wikiversidad_Discusi%C3%B3n"},	#source_TALK
 {:raw => "Imagen", :url => "Imagen"},	#IMAGE
-{:raw => "Imagen Discusión", :url => "Image Discusión"},	#IMAGE_TALK
+{:raw => "Imagen Discusión", :url => "Image_Discusi%C3%B3n"},	#IMAGE_TALK
 {:raw => "MediaWiki", :url => "MediaWiki"},	#MEDIAWIKI
-{:raw => "MediaWiki Discusión", :url => "MediaWiki Discusión"},	#MEDIAWIKI_TALK
+{:raw => "MediaWiki Discusión", :url => "MediaWiki_Discusi%C3%B3n"},	#MEDIAWIKI_TALK
 {:raw => "Plantilla", :url => "Plantilla"},	#TEMPLATE
-{:raw => "Plantilla Discusión", :url => "Plantilla Discusión"},	#TEMPLATE_TALK 
+{:raw => "Plantilla Discusión", :url => "Plantilla_Discusi%C3%B3n"},	#TEMPLATE_TALK 
 {:raw => "Ayuda", :url => "Ayuda"},	#HELP
-{:raw => "Ayuda Discusión", :url => "Ayuda Discusión"},	#HELP_TALK 
-{:raw => "Categoría Discusión", :url => "Categoría Discusión"},	#CATEGORY_TALK
+{:raw => "Ayuda Discusión", :url => "Ayuda_Discusi%C3%B3n"},	#HELP_TALK 
+{:raw => "Categoría Discusión", :url => "Categor%C3%ADa_Discusi%C3%B3n"},	#CATEGORY_TALK
 
 {:raw => "Wikiproyecto", :url => "Wikiproyecto"},	#WIKIPEDIA ES PROYECTO
-{:raw => "Wikiproyecto Discusión", :url => "Wikiproyecto Discusión"},	#PROYECTO_TALK 
+{:raw => "Wikiproyecto Discusión", :url => "Wikiproyecto_Discusi%C3%B3n"},	#PROYECTO_TALK 
 
 {:raw => "Wikiversidad", :url => "Wikiversidad"},	#WIKIBOOKS ES WIKIVERSIDAD
-{:raw => "Wikiversidad Discusión", :url => "Wikiversidad Discusión"}	#WIKIVERSIDAD_TALK
+{:raw => "Wikiversidad Discusión", :url => "Wikiversidad_Discusi%C3%B3n"}	#WIKIVERSIDAD_TALK
 ]
 
