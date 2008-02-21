@@ -81,3 +81,14 @@ div.floatleft, div.floatright, div.floatnone {
 	border-top: 1px solid #ccc;
 	border-bottom: 1px solid #ccc;
 }
+
+#bodyContent a.external, #bodyContent a[href ^="gopher://"], #bodyContent a[href ^="https://"],
+.link-https, #bodyContent a[href ^="mailto:"],
+.link-mailto, #bodyContent a[href ^="news://"], #bodyContent a[href ^="ftp://"],
+.link-ftp, #bodyContent a[href ^="irc://"], #bodyContent a[href ^="http://"],
+.link-irc, .plainlinksneverexpand a.external {
+	background: url(chrome://moulin/content/img/external.png) center right no-repeat !important;
+	padding-right: 13px !important;
+}
+
+
