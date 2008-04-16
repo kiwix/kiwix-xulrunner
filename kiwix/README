@@ -1,0 +1,37 @@
+
+
+      - Kiwix 0.5 -
+
+
+Presentation ___________________________
+
+Kiwix is a free portable wikipedia offline reader, for linux, windows and mac os X.
+
+
+Installation ___________________________
+
+ * Windows : no installation. Run kiwix.exe
+ * Linux : copy kiwix-installer-linux in your home directory and execute it. On most distributions, you may not execute kiwix.sh neither kiwix-installer-linux from the cdrom device.
+ * Max OS X : install the mac os package kiwix.macosx.pkg. The cd must be available during the installation. It's volume name has to be Kiwix-0.5
+
+
+Legal and disclaimer ____________________
+
+ Kiwix is a free portable offline reader for wikipedia
+ Copyright (c) 2007, Fabien Coulon for Linterweb (France), Emmanuel Engelhart
+
+ This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA */
+
+  This program comes with a copy of the GNU General Public License in file COPYING
