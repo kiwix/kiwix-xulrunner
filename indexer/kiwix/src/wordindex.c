@@ -216,15 +216,24 @@ void wordMapSave( wordMap *wm, const gchar *filename ) {
 
 void wordMapSaveIndex( wordMap *wm, const gchar *filename ) {
 
-  intOffset *offset = gg_malloc( wm->size * sizeof( intOffset ) );
+  intOffset *offset;
   gint i,j;
   FILE* out = fopen( filename, "w" );
   if ( !out ) { printf( "Fatal : Can't write to %s\n", 	filename ); exit(1); }
+
+  if ( wm->size > 0 )
+    offset = gg_malloc( wm->size * sizeof( intOffset ) );
+  else
+    offset = gg_malloc( sizeof( intOffset ) );
   
   offset[0] = wm->size * sizeof( intOffset );
   for ( i = 1 ; i < wm->size ; i++ ) 
     offset[i] = offset[i-1] + wm->index[i-1]->topArticle * ARTICLE_CODE_SIZE + sizeof( intIndex );
-  fwrite( offset, sizeof( intOffset ), wm->size, out );
+
+  if ( wm->size > 0 )
+    fwrite( offset, sizeof( intOffset ), wm->size, out );
+  else
+    fwrite( offset, sizeof( intOffset ), 1, out );
   
   for ( i = 0 ; i < wm->size ; i++ ) {
   
