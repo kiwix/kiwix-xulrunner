@@ -151,6 +151,11 @@ int wordMap::parseWord( const char* word ) {
 
 void wordMap::wordCompletion( const char *word, char *result, int maxlen ) {
 
+  if ( map == NULL ) {
+    *result = 0;
+    return;
+  }
+
   char *c = result;
   char *maxc = c+maxlen;
   int len = strlen(word);
