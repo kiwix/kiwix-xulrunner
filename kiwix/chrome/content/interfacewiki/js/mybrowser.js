@@ -221,7 +221,7 @@ function initRoot() {
 
   var root = Components.classes["@mozilla.org/file/directory_service;1"].getService(Components.interfaces.nsIProperties).get("resource:app", Components.interfaces.nsIFile);
   root.append("html");
-  var rootPath = root.path;
+  rootPath = root.path;
   var dls = Components.classes["@mozilla.org/docloaderservice;1"].
   getService(Components.interfaces.nsIWebProgress);
   dls.addProgressListener(listener,
