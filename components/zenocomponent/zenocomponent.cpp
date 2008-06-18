@@ -197,6 +197,8 @@ NS_IMETHODIMP Zeno::GetArticle(nsIURI *url, char **contentType, nsACString & _re
 	}
 
 	_retval = nsDependentCString(buffer, i);
+
+	NS_Free(buffer);
     }
 
     return NS_OK;

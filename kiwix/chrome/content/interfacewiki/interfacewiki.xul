@@ -53,7 +53,7 @@
 	<key id="selectall-key" key="A" modifiers="control" oncommand="selectall();"/>
 </keyset>
 
-<popup id="wk-searchpopup">
+<popup id="wk-searchpopup" ignorekeys="true">
 	<listbox id="wk-searchpopuplist">
 		<listitem id="wk-searchpopuplistI0"/> 
 		<listitem id="wk-searchpopuplistI1"/> 
