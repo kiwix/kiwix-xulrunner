@@ -12,6 +12,7 @@ kiwix : kiwix_chrome kiwix_components
 
 kiwix_chrome : kiwix_dir
 	cp -r ../kiwix/* kiwix/
+	for i in `find kiwix -name ".svn"` ; do rm -rf $$i ; done
 
 kiwix_components : kiwix_dir
 	rm -rf ./kiwix/components
