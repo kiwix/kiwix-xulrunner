@@ -119,9 +119,19 @@ NS_IMETHODIMP Zeno::GetArticle(nsIURI *url, char **contentType, nsACString & _re
 		// independently. Now the examples .zeno files are iso-8859-1(5)
 		// encoded and needs a title encoded the same way :/
 	        sscanf(tmp + i + 1, "%2x", &decode1);
-	        sscanf(tmp + i + 4, "%2x", &decode2);
-		title[j] = ((decode1 & 0x3) << 6) | (decode2 & 0x3F);
-		i += 5;
+		switch (decode1) {
+			case 0x20:
+			case 0x28:
+			case 0x29:
+				title[j] = decode1;
+				i += 2;
+				break;
+			default:
+			        sscanf(tmp + i + 4, "%2x", &decode2);
+				title[j] = ((decode1 & 0x3) << 6) | (decode2 & 0x3F);
+				i += 5;
+				break;
+		}
 	        break;
 	    default:
 	        title[j] = c;
