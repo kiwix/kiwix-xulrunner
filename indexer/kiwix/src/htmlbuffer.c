@@ -80,35 +80,6 @@ void htmlGetNextWord( htmlBuffer *buffer, gchar *word, gint maxlen ) {
   Utf8toAscii( word );
 }
 
-gint htmlBufLoad( htmlBuffer *buffer, char* fileName ) {
-
-  gchar* curs;
-  FILE *in = NULL;
-  gzFile zin = NULL;
-
-  if ( g_str_has_suffix( fileName, ".gz" ) )
-    zin = gzopen( fileName, "r" );
-  else in = fopen( fileName, "r" );
-  if (!in && !zin) {
-  	printf( "Warning : Cannot open file %s\n", fileName );
-  	buffer->fileLength = buffer->bufLength = 0;
-  	return 1;
-  }
-  	
-  if (in) buffer->fileLength = fread( buffer->buffer, 1, HTML_BUFFER_SIZE, in );
-  else buffer->fileLength = gzread( zin, buffer->buffer, HTML_BUFFER_SIZE );
-  buffer->bufLength = buffer->fileLength;
-  if ( buffer->fileLength >= HTML_BUFFER_SIZE ) {
- 	printf( " Fatal : Found file %s greater than %d octets, change constant HTML_BUFFER_SIZE in src/htmlbuffer.h\n", 
-   	  fileName, HTML_BUFFER_SIZE );
-   	exit(1);
-  }
-  buffer->curs = buffer->buffer;
-  buffer->inTag = 0;
-  if (in) fclose(in); else gzclose(zin);
-  return 0;
-}
-
 void htmlReset( htmlBuffer *buffer, gchar *beginMarker, gchar *endMarker ) {
 
   gchar* curs;
@@ -135,16 +106,6 @@ int  htmlCheckBadMarkers( htmlBuffer *buffer ) {
     htmlFindNextTag(buffer);
   } while ( (!BUF_EOF) && !strpatternlowcase( buffer->curs, TITLE_BAD_TAG ) );
   return BUF_EOF;
-}
-
-void htmlResetBody( htmlBuffer *buffer ) {
-	
-  htmlReset( buffer, TEXT_MARKER_BEGIN, TEXT_MARKER_END );
-}
-
-void htmlResetTitle( htmlBuffer *buffer ) {
-
-  htmlReset( buffer, TITLE_MARKER_BEGIN, TITLE_MARKER_END );
 }
 
 /*

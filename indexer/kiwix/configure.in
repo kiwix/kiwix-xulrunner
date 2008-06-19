@@ -21,10 +21,16 @@ if test ! x$HAVE_PKG = x ; then
   GLIB_CXXFLAGS=`$HAVE_PKG glib-2.0 --cflags`
   GLIB_LIBS=`$HAVE_PKG glib-2.0 --libs`
 fi
-
 CXXFLAGS="$CXXFLAGS -ggdb $GLIB_CXXFLAGS"
-LIBS="$LIBS $GLIB_LIBS /usr/lib/libz.a"
+LIBS="$GLIB_LIBS $LIBS"
+
+AC_CHECK_LIB([z], [gzread])
+
 CFLAGS=$CXXFLAGS
+
+AC_LANG(C++)
+
+AC_CHECK_LIB([zeno], [main])
 
 AC_CONFIG_FILES([
 	Makefile src/Makefile

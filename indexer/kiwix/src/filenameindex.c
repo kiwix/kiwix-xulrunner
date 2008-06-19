@@ -1,5 +1,4 @@
 #include "filenameindex.h"
-#include "dirparser.h"
 #include "htmlbuffer.h"
 #include "utils.h"
 
@@ -62,26 +61,25 @@ gint fniGetFromSuffix( Fni* fni, const gchar *suffix ) {
   return -1;
 }
 
-void wikiFniBuild( const gchar *root ) {
+void wikiFniBuild( backend_struct * backend ) {
 
   const gchar *path;
   static htmlBuffer buffer;
 
-  dirParserInit( root );
   fniArticle = fniNew();
   /*  fniImage = fniNew();
       fniTemplate = fniNew(); */
 
-  while (path = dirParserGetNext()) {
+  while (path = backend->parserGetNext()) {
     
     if (g_strrstr(path, PREFIX_IMAGE)) 
       /*      fniPush( fniImage, cutRoot( root, path ) ) */;
     else if (g_strrstr(path, PREFIX_TEMPLATE)) 
       /*      fniPush( fniTemplate, cutRoot( root, path ) )*/;
     else {
-  	htmlBufLoad( &buffer, path );
-        if ( htmlCheckBadMarkers( &buffer ) )
-         	fniPush( fniArticle, cutRoot( root, path ) );
+  	backend->htmlBufLoad( &buffer, path );
+        if ( htmlCheckBadMarkers( &buffer ) ) 
+         	fniPush( fniArticle, path );
     }
   }
   fniArticle->titles = malloc( fniArticle->maxidx * sizeof(char*) );

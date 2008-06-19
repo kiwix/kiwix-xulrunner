@@ -4,6 +4,7 @@
 #include <glib.h>
 #include <glib/gstdio.h>
 #include "utils.h"
+#include "backend/backend.h"
 
 typedef struct {
 	GArray *table;
@@ -28,7 +29,7 @@ const gchar *fniGetTitleFromIdx( Fni* fni, gint idx );
 
 void fniSetTitle( Fni* fni, gint idx, const char *title );
 
-void wikiFniBuild( const gchar *root );
+void wikiFniBuild( backend_struct * backend );
 
 /* void wikiNormalize( const gchar *root, const gchar *dest ); */
 

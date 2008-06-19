@@ -3,6 +3,7 @@
 
 #include "utils.h"
 #include "common.h"
+#include "backend/backend.h"
 
 typedef struct SwordMapEntry {
 
@@ -37,6 +38,6 @@ typedef struct {
 extern wordMap* wmArticle;
 extern articleMap* amArticle;
 
-void wikiBuildWordArticleMap( const gchar *root );
+void wikiBuildWordArticleMap( backend_struct * backend );
 
 #endif /*WORDINDEX_H_*/

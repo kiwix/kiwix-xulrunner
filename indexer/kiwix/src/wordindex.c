@@ -99,7 +99,7 @@ wordMapEntry* wordMapGetFromWordCreate( wordMap *wm, const gchar *word ) {
   static int cword = 0;
   gint hack = wordMapGetHack( word );
   wordMapEntry* we = wordMapEntryGetFromWord( wm->entry[ hack ], word );
-  
+
   if ( we ) return we;
   wm->entry[hack] = wordMapEntryNew( word, wm->entry[hack] );
   return wm->entry[hack];
@@ -335,7 +335,7 @@ void articleMapAddVocabulary( articleMap *am, gint idx, elementCounter *counter 
   am->index[idx].topWord = j;
 }
 
-void wikiBuildWordArticleMap( const gchar *root ) {
+void wikiBuildWordArticleMap( backend_struct * backend ) {
 
   int i,j;
   gchar rootedFileName[512];
@@ -344,18 +344,16 @@ void wikiBuildWordArticleMap( const gchar *root ) {
   gchar word[96];
   elementCounter *wordCounter = elementCounterNew(ARTICLE_MAX_WORD);
 
-  pathFileName = g_stpcpy( rootedFileName, root );
-  *pathFileName++ = '/';
+  pathFileName = g_stpcpy( rootedFileName, backend->savePrefix() );
 
   wmArticle = wordMapNew();
  
   for ( i = 0 ; i < fniArticle->maxidx ; i++ ) {
   	
     gint inTitle = 1;
-    g_stpcpy( pathFileName, fniGetFromIdx( fniArticle, i ) );
-    htmlBufLoad( &buffer, rootedFileName );
+    backend->htmlBufLoad( &buffer, fniGetFromIdx( fniArticle, i ) );
 
-     htmlResetTitle( &buffer );
+     backend->resetTitle( &buffer );
      while ( !htmlEobuf( &buffer ) ) {
    	
        wordMapEntry *wme;
@@ -368,12 +366,11 @@ void wikiBuildWordArticleMap( const gchar *root ) {
          wme->lastArticleOccurence = i;
        }
        if (( htmlEobuf( &buffer ) )&&( inTitle )) {
-         htmlResetBody( &buffer );
+         backend->resetBody( &buffer );
          inTitle = 0;
        }
      }
   }
-  printf("polom\n");
   wordMapClean( wmArticle, (gint)(MAX_WORD_ARTICLE_OCCURENCE*fniArticle->maxidx) );
   wordMapSerialize( wmArticle );
   
@@ -382,14 +379,11 @@ void wikiBuildWordArticleMap( const gchar *root ) {
   	
   	int w,j;
   	char title[512];
-  	char *ctitle = title;
-   	g_stpcpy( pathFileName, fniGetFromIdx( fniArticle, i ) );
-  	htmlBufLoad( &buffer, rootedFileName );
+  	backend->htmlBufLoad( &buffer, fniGetFromIdx( fniArticle, i ) );
         elementCounterReset( wordCounter );
     
-        htmlResetTitle( &buffer );
-        htmlGetUntilNextTag( &buffer, title, 512 );
-        Utf8toAsciiNoCase( title );
+        backend->resetTitle( &buffer );
+	backend->getTitle( i, &buffer, title, 512 );
         fniSetTitle( fniArticle, i, title );
         while ( !htmlEobuf( &buffer ) ) {
     
@@ -402,7 +396,7 @@ void wikiBuildWordArticleMap( const gchar *root ) {
           }
         }
        
-        htmlResetBody( &buffer ); 
+        backend->resetBody( &buffer ); 
         while ( !htmlEobuf( &buffer ) ) {
   	
           wordMapEntry *wme;
@@ -419,17 +413,7 @@ void wikiBuildWordArticleMap( const gchar *root ) {
   	}
   	elementCounterSort(wordCounter);
 
-  	/* BECAUSE THIS CODE WAS SEGFAULTING
-  	printf( "Id %d : %s \n", i, fniGetFromIdx( fniArticle, i ) );
-  	printf( "  %s %d %s %d %s %d\n\n", wordMapGetFromIndex( wmArticle,
-          elementCounterGetElement(wordCounter,0) )->word,
-  	  elementCounterGetCount(wordCounter,0),
-  	  wordMapGetFromIndex( wmArticle, elementCounterGetElement(wordCounter,1) )->word,
-  	  elementCounterGetCount(wordCounter,1),
-  	  wordMapGetFromIndex( wmArticle, elementCounterGetElement(wordCounter,2) )->word,
-  	  elementCounterGetCount(wordCounter,2) );
          articleMapAddVocabulary( amArticle, i, wordCounter );
-	*/
   }
   elementCounterDelete( wordCounter );
 
