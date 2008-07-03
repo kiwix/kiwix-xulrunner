@@ -32,13 +32,16 @@ static gboolean zenoParserInit( const gchar * root ) {
 	return TRUE;
 }
 
+static gchar next[1024];
+
 static const gchar * zenoParserGetNext() {
 
 	if ( zenoindex >= zenocount ) return NULL;
 
 	zeno::Article a = zenofile->getArticle( zenoindex++ );
 	std::string s = a.getUrl().toUtf8();
-	return g_strdup(s.c_str());
+	g_strlcpy(next, s.c_str(), 1024);
+	return next;
 }
 
 static gint zenoParserGetCurrentIndex() {
