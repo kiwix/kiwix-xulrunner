@@ -72,6 +72,8 @@ void gg_free( void *ptr ) {
 
 WikiSearch::WikiSearch() {
 
+#if 0
+
   /* Open services for getting our absolute path */
 
     searchEngine = NULL;
@@ -112,6 +114,9 @@ WikiSearch::WikiSearch() {
     searchEngine = new engine();
     searchEngine->load( rootPath );
     res = NULL;
+
+#endif
+
 }
 
 WikiSearch::~WikiSearch() {
@@ -133,6 +138,25 @@ char *allocStr( const char *c ) {
   char *rt = (char*)NS_Alloc( strlen(c)+1 );
   strcpy( rt, c );
   return rt;
+}
+
+/* void init (in AUTF8String path); */
+NS_IMETHODIMP WikiSearch::Init(const nsACString & givenRoot)
+{
+    const char * path_s;
+
+    NS_CStringGetData(givenRoot, &path_s);
+
+    printf("given path = %s\n", path_s);
+
+    strcpy( rootPath, path_s );
+    printf( "root = %s\n", rootPath );
+
+    searchEngine = new engine();
+    searchEngine->load( rootPath );
+    res = NULL;
+
+    return NS_OK;
 }
 
 NS_IMETHODIMP WikiSearch::GetRootPath(char **_retval) {

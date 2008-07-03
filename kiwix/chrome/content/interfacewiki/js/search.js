@@ -22,6 +22,10 @@ function rechercheXpcom(motR){
 	var result0;
 	var wikisearch = Components.classes["@linterweb.com/wikicomponent"].getService();
 	wikisearch = wikisearch.QueryInterface(Components.interfaces.iWikiSearch);
+	var corpus = corpusgetactive();
+	var indexroot = corpus.getAttribute("indexroot");
+	if (! indexroot) indexroot = corpus.getAttribute("root");
+	wikisearch.init(indexroot);
 	resCount = wikisearch.search(motR);
         if ( resCount > NB_SEARCH_RETURN ) resCount = NB_SEARCH_RETURN;
         if ( resCount == 0 ) setVisible( "wk-noresult", false );

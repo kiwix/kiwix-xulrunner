@@ -39,6 +39,7 @@
 <script LANGUAGE="JavaScript" type="text/javascript" src="js/search.js"/>
 <script type="application/x-javascript" src="chrome://global/content/printUtils.js"/>
 <script type="application/x-javascript" src="chrome://global/content/findUtils.js"/>
+<script type="application/x-javascript" src="js/corpus.js"/>
 <keyset>
 	<key id="paste-key" keycode="VK_ENTER" oncommand="enter()"/>
 	<key id="paste-key" keycode="VK_RETURN" oncommand="enter()"/>
@@ -97,6 +98,8 @@
                 <menupopup id="settingsmenu" onpopupshown="checkautomatic();">
  		   <menuitem label="Configure external browser" oncommand="setbrowser();"/>
  		   <menuitem id="itemautomatic" label="Automatic search (by clicking on links)" oncommand="setautomatic();"/>
+                   <menuitem label="Manage corpus" oncommand="window.open('chrome://interfacewiki/content/corpus.xul',
+				'Corpus', 'chrome,width=800,height=400');" />
                 </menupopup>
                 </menu>
 	</menupopup>

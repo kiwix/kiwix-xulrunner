@@ -25,6 +25,12 @@
 #include "nsEmbedString.h"
 #include "nsIURI.h"
 
+#include "nsIServiceManager.h"
+#include "nsIFile.h"
+#include "nsCOMPtr.h"
+#include "nsIProperties.h"
+#include "nsDirectoryServiceDefs.h"
+
 #include <zeno/files.h>
 #include <zeno/article.h>
   
@@ -45,7 +51,7 @@ private:
 
 protected:
   /* additional members */
-  zeno::Files * zenofiles;
+  std::map<std::string, zeno::Files *> zenopaths;
 };
 
 /* Implementation file */
@@ -54,15 +60,53 @@ NS_IMPL_ISUPPORTS1(Zeno, iZeno)
 Zeno::Zeno()
 {
   /* member initializers and constructor code */
+    nsresult rv;
+    nsIServiceManager* servMan;
+    rv = NS_GetServiceManager(&servMan);
+    if (NS_FAILED(rv)) return;
+    nsIProperties* directoryService;
+    rv = servMan->GetServiceByContractID( NS_DIRECTORY_SERVICE_CONTRACTID, NS_GET_IID(nsIProperties), (void**)&directoryService);
+    if (NS_FAILED(rv)) return;
 
-    zenofiles = new zeno::Files("."); // FIXME
+    nsIFile *theFile;
+    rv = directoryService->Get("ProfD", NS_GET_IID(nsIFile), (void**)&theFile);
+    if (NS_FAILED(rv)) return;
+
+    nsEmbedCString toadd("zenopaths");
+    theFile->AppendNative(toadd);
+
+    nsEmbedCString path;
+    theFile->GetNativePath(path);
+
+    NS_RELEASE(servMan);
+    NS_RELEASE(directoryService);
+    NS_RELEASE(theFile);
+
+    printf(" -=-=-=- profile dir: %s -=-=-=-\n", path.get());
+
+    char buffer[1024];
+    char zenoname[1024];
+    char zenopath[1024];
+    FILE * tmp = fopen(path.get(), "r");
+    while(fgets(buffer, 1024, tmp)) {
+      sscanf(buffer, "%s %s", zenoname, zenopath);
+      zenopaths[zenoname] = new zeno::Files(zenopath);
+    }
+    fclose(tmp);
+
 }
 
 Zeno::~Zeno()
 {
   /* destructor code */
 
-    if (zenofiles) delete zenofiles;
+    std::map<std::string, zeno::Files *>::iterator it;
+
+    for(it = zenopaths.begin();it != zenopaths.end();it++) {
+        delete it->second;
+    }
+
+    zenopaths.clear();
 }
 
 /* ACString getArticle (in nsIURI url, out string contentType); */
@@ -73,8 +117,10 @@ NS_IMETHODIMP Zeno::GetArticle(nsIURI *url, char **contentType, nsACString & _re
     const char * tmp = host.get();		// tmp + i == //Wikipedia/-/Hauptseite
     char ns;
     char title[1024];
+    char zenoname[1024];
 
     unsigned int i = 0;
+    unsigned int j;
     unsigned int n = strlen(tmp);
 
     // default content type
@@ -86,6 +132,15 @@ NS_IMETHODIMP Zeno::GetArticle(nsIURI *url, char **contentType, nsACString & _re
 
     // to fetch an article, we need its namespace and title...
     while((i < n) and (tmp[i] == '/')) i++;	// tmp + i == Wikipedia/-/Hauptseite
+
+    j = 0;
+    while((i < n) and (tmp[i] != '/')) {
+        zenoname[j] = tmp[i];
+        i++;
+	j++;
+    }
+    zenoname[j] = 0;
+
     while((i < n) and (tmp[i] != '/')) i++;	// tmp + i == /-/Hauptseite
 
     while((i < n) and (tmp[i] == '/')) i++;	// tmp + i == -/Hauptseite
@@ -103,8 +158,8 @@ NS_IMETHODIMP Zeno::GetArticle(nsIURI *url, char **contentType, nsACString & _re
     i++;					// tmp + i == Hauptseite
 
     // title, we need to replace + by space and decode the url
-    unsigned int j = 0;
-    while((i < n) and (tmp[i] != '/'))
+    j = 0;
+    while(i < n)
     {
         char c = tmp[i];
 	int decode1;
@@ -142,10 +197,16 @@ NS_IMETHODIMP Zeno::GetArticle(nsIURI *url, char **contentType, nsACString & _re
     }
     title[j] = 0;
 
+    printf("zenoname: %s\n", zenoname);
     printf("title: %s\n", title);
+    printf("ns: %c\n", ns);
+
+    if (zenopaths.count(zenoname) == 0) return NS_OK;
     
     // now that we have the namespace and the title, we're ready to fetch the article
-    zeno::Article article = zenofiles->getArticle(ns, zeno::QUnicodeString(title));
+    zeno::Article article = zenopaths[zenoname]->getArticle(ns, zeno::QUnicodeString(title));
+
+    printf(" --- %d --- \n", article.getDataLen());
 
     // if there's no data in article, return (btw, getDataLen gives compressed data size)
     if (article.getDataLen() == 0) return NS_OK;

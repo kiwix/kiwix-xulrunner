@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+
+<window
+    id="corpus-edit-window"
+    title="Edit corpus"
+    onload="corpuseditload();"
+    xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+	<script type="application/x-javascript" src="js/corpus.js"/>
+
+	<grid>
+		<columns>
+			<column flex="1"/>
+			<column flex="2"/>
+		</columns>
+		<rows>
+			<row>
+				<label for="corpus-name" value="Corpus name"/>
+				<textbox id="corpus-name" />
+			</row>
+			<row>
+				<label for="corpus-format" value="Format"/>
+				<menulist id="corpus-format">
+					<menupopup>
+						<menuitem label="Html" value="html"/>
+						<menuitem label="Zeno" value="zeno"/>
+					</menupopup>
+				</menulist>
+			</row>
+			<row>
+				<label for="corpus-root" value="Root"/>
+				<textbox id="corpus-root" />
+			</row>
+			<row>
+				<label for="corpus-home" value="Home"/>
+				<textbox id="corpus-home" />
+			</row>
+			<row>
+				<label for="corpus-index-root" value="Index root"/>
+				<textbox id="corpus-index-root" />
+			</row>
+		</rows>
+	</grid>
+	<hbox>
+		<spacer flex="1"/>
+		<button icon="save" label="Save" onclick="savecorpus();"/>
+	</hbox>
+</window>

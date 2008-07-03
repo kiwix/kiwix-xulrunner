@@ -229,7 +229,19 @@ function initRoot() {
                           nsIWebProgress.NOTIFY_STATE |
                           nsIWebProgress.NOTIFY_STATE_DOCUMENT);
   searchPopupClose();
-  getBrowser().setAttribute( "homepage", "file://"+rootPath+'/'+homeUrl );
+
+  var corpus = corpusgetactive();
+
+  var homepage;
+  if (corpus.getAttribute("format") == "html") {
+    homepage = "file://";
+  } else {
+    homepage = "zeno://";
+  }
+
+  homepage += corpus.getAttribute("root") + "/" + corpus.getAttribute("home");
+
+  getBrowser().setAttribute( "homepage", homepage);
 }
 
 // Rend visible ou invisible un block
@@ -285,7 +297,19 @@ function forward() {
 function goTo(url){
 	try{
 		var browser = document.getElementById("wk-browser");
-		browser.loadURI("file://"+rootPath+'/'+url, null, null);
+
+		var corpus = corpusgetactive();
+		var uri;
+		if (corpus.getAttribute("format") == "html") {
+			uri = "file://";
+		} else {
+			uri = "zeno://";
+		}
+
+		uri += corpus.getAttribute("root") + "/" + url;
+
+		//browser.loadURI("file://"+rootPath+'/'+url, null, null);
+		browser.loadURI(uri, null, null);
 	}catch(e){
 		ajouterErreur(e);
 		return false;
@@ -564,6 +588,10 @@ function searchInput(){
   var word = text.substring(text.lastIndexOf(' ', text.length)+1, text.length);
   var wikisearch = Components.classes["@linterweb.com/wikicomponent"].getService();
   wikisearch = wikisearch.QueryInterface(Components.interfaces.iWikiSearch);
+  var corpus = corpusgetactive();
+  var indexroot = corpus.getAttribute("indexroot");
+  if (! indexroot) indexroot = corpus.getAttribute("root");
+  wikisearch.init(indexroot);
   var nCompl = wikisearch.completionStart(word);
   if ( nCompl < 1 ) {
    searchPopupClose();
