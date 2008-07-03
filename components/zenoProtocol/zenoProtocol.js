@@ -86,7 +86,11 @@ function zenoch_aopen (streamListener, context, directURI)
 	this.charset	= "UTF-8";
 	this.contentLength	= data.length;
 
-	this.respond(data);
+	if (data.length == 0) {
+		throw 0x80520012;
+	} else {
+		this.respond(data);
+	}
 }
 
 ZenoChannel.prototype.respond =
