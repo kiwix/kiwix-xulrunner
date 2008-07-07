@@ -1,0 +1,26 @@
+CXX = @CXX@
+CPPFLAGS           = -fno-rtti -fno-exceptions -shared -D_POSIX_ -O3
+DEFINES            = -D_POSIX_
+
+GECKO_SDK_PATH     = @GECKO_SDK_PATH@
+GECKO_DEFINES      = @GECKO_DEFINES@
+GECKO_IDL_INCLUDES = @GECKO_IDL_INCLUDES@
+GECKO_INCLUDES     = @GECKO_INCLUDES@
+GECKO_LDFLAGS      = @GECKO_LDFLAGS@
+
+all: IZeno.so IZeno.xpt
+
+IZeno.h: IZeno.idl
+	$(GECKO_SDK_PATH)/bin/xpidl -m header $(GECKO_IDL_INCLUDES) IZeno.idl
+
+IZeno.xpt: IZeno.idl
+	$(GECKO_SDK_PATH)/bin/xpidl -m typelib $(GECKO_IDL_INCLUDES) IZeno.idl
+
+IZeno.so: zenocomponent.cpp IZeno.h
+	$(CXX) -o IZeno.so $(GECKO_DEFINES) $(GECKO_INCLUDES) \
+		$(CPPFLAGS) $(CXXFLAGS) zenocomponent.cpp /usr/local/lib/libzeno.a /usr/local/lib/cxxtools.a \
+		$(GECKO_LDFLAGS)
+	chmod +x IZeno.so
+
+clean:
+	rm -f *.o *.xpt *.so test

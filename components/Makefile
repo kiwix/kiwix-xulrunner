@@ -1,4 +1,4 @@
-SUBDIRS           ?= kiwixcomponent
+SUBDIRS           ?= kiwixcomponent zenocomponent
 SUBDIR_TARGETS    ?= $(SUBDIRS)
 RECURSIVE_TARGETS ?= all clean
 

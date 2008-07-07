@@ -19,6 +19,9 @@ kiwix_components : kiwix_dir
 	mkdir ./kiwix/components
 	cp ../components/kiwixcomponent/IWikiComponent.xpt ./kiwix/components/
 	cp ../components/kiwixcomponent/IWikiComponent.so ./kiwix/components/
+	if test -e ../components/zenocomponent/IZeno.xpt ; then cp ../components/zenocomponent/IZeno.xpt ./kiwix/components/ ; fi
+	if test -e ../components/zenocomponent/IZeno.so ; then cp ../components/zenocomponent/IZeno.so ./kiwix/components/ ; fi
+	cp ../components/zenoProtocol/zenoProtocol.js ./kiwix/components/
 
 kiwix_dir:
 	if test ! -d kiwix ; then mkdir kiwix ; fi
