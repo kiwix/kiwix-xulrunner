@@ -18,7 +18,7 @@ IZeno.xpt: IZeno.idl
 
 IZeno.so: zenocomponent.cpp IZeno.h
 	$(CXX) -o IZeno.so $(GECKO_DEFINES) $(GECKO_INCLUDES) \
-		$(CPPFLAGS) $(CXXFLAGS) zenocomponent.cpp /usr/local/lib/libzeno.a /usr/local/lib/cxxtools.a \
+		$(CPPFLAGS) $(CXXFLAGS) zenocomponent.cpp @LIBS@ \
 		$(GECKO_LDFLAGS)
 	chmod +x IZeno.so
 

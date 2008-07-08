@@ -66,7 +66,7 @@ function corpusload() {
 		var file = Components.classes["@mozilla.org/file/directory_service;1"]
 			.getService(Components.interfaces.nsIProperties)
 			.get("ProfD", Components.interfaces.nsIFile);
-		file.append("totototo.xml");
+		file.append("corpora.xml");
 		var fileContents = "";
 		var fstream = Components.classes["@mozilla.org/network/file-input-stream;1"]
 			.createInstance(Components.interfaces.nsIFileInputStream);
@@ -161,7 +161,7 @@ function corpussave(doc) {
 	var file = Components.classes["@mozilla.org/file/directory_service;1"]
 		.getService(Components.interfaces.nsIProperties)
 		.get("ProfD", Components.interfaces.nsIFile);
-	file.append("totototo.xml");
+	file.append("corpora.xml");
 	output.init(file, 0x02 | 0x08 | 0x20, 0664, 0);
 	serializer.serializeToStream(doc, output, "");
 	output.close();
