@@ -21,8 +21,15 @@ if test ! x$HAVE_PKG = x ; then
   GLIB_CXXFLAGS=`$HAVE_PKG glib-2.0 --cflags`
   GLIB_LIBS=`$HAVE_PKG glib-2.0 --libs`
 fi
-CXXFLAGS="$CXXFLAGS -ggdb $GLIB_CXXFLAGS"
+
+PWD=`pwd`
+
+ZENO_CXXFLAGS="-I$PWD/../../../extern/zeno/tntzenoreader/include/"
+ZENO_LDFLAGS="-L$PWD/../../../extern/zeno/tntzenoreader/src/zenolib/.libs/"
+
+CXXFLAGS="$CXXFLAGS -ggdb $GLIB_CXXFLAGS $ZENO_CXXFLAGS"
 LIBS="$GLIB_LIBS $LIBS"
+LDFLAGS="$LDFLAGS $ZENO_LDFLAGS"
 
 AC_CHECK_LIB([z], [gzread])
 
