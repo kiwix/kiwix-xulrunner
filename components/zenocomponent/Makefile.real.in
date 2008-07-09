@@ -1,6 +1,8 @@
 CXX = @CXX@
 CPPFLAGS           = -fno-rtti -fno-exceptions -shared -D_POSIX_ -O3
 DEFINES            = -D_POSIX_
+CXXFLAGS           = @CXXFLAGS@
+LDFLAGS            = @LDFLAGS@
 
 GECKO_SDK_PATH     = @GECKO_SDK_PATH@
 GECKO_DEFINES      = @GECKO_DEFINES@
@@ -19,7 +21,7 @@ IZeno.xpt: IZeno.idl
 IZeno.so: zenocomponent.cpp IZeno.h
 	$(CXX) -o IZeno.so $(GECKO_DEFINES) $(GECKO_INCLUDES) \
 		$(CPPFLAGS) $(CXXFLAGS) zenocomponent.cpp @LIBS@ \
-		$(GECKO_LDFLAGS)
+		$(LDFLAGS) $(GECKO_LDFLAGS)
 	chmod +x IZeno.so
 
 clean:

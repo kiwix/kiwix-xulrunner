@@ -35,7 +35,26 @@ AC_SUBST(GECKO_LDFLAGS)
 
 AC_LANG(C++)
 
-AC_CHECK_LIB([zeno], [main], [LIBS="-Wl,-Bstatic -lzeno -lcxxtools -Wl,-Bdynamic $LIBS"], [AC_MSG_ERROR([libzeno is missing, please install it])])
+libzeno_found="no"
+AC_CHECK_LIB([zeno], [main], [
+	LIBS="-Wl,-Bstatic -lzeno -lcxxtools -Wl,-Bdynamic $LIBS"
+	libzeno_found="yes"
+])
+
+if test ! "x$libzeno_found" = "xyes" ; then 
+	PWD=`pwd`
+
+	ZENO_CXXFLAGS="-I$PWD/../../../extern/zeno/tntzenoreader/include/"
+	ZENO_LDFLAGS="-L$PWD/../../../extern/zeno/tntzenoreader/src/zenolib/.libs/"
+
+	AC_CHECK_LIB([zeno], [main], [
+		LIBS="-Wl,-Bstatic -lzeno -lcxxtools -Wl,-Bdynamic $LIBS"
+		libzeno_found="yes"
+
+		CXXFLAGS="$ZENO_CXXFLAGS $CXXFLAGS"
+		LDFLAGS="$ZENO_LDFLAGS $LDFLAGS"
+	])
+fi
 
 AC_CONFIG_FILES([
 	Makefile.real
