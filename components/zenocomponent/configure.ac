@@ -47,12 +47,16 @@ if test ! "x$libzeno_found" = "xyes" ; then
 	ZENO_CXXFLAGS="-I$PWD/../../../extern/zeno/tntzenoreader/include/"
 	ZENO_LDFLAGS="-L$PWD/../../../extern/zeno/tntzenoreader/src/zenolib/.libs/"
 
+	CXXTOOLS_CXXFLAGS="-I$PWD/../../../extern/zeno/cxxtools/include/"
+	TNT_CXXFLAGS="-I$PWD/../../../extern/zeno/tntnet/framework/common/"
+
+	CXXFLAGS="$ZENO_CXXFLAGS $CXXTOOLS_CXXFLAGS $TNT_CXXFLAGS $CXXFLAGS"
+	LDFLAGS="$ZENO_LDFLAGS $LDFLAGS"
+
 	AC_CHECK_LIB([zeno], [main], [
 		LIBS="-Wl,-Bstatic -lzeno -lcxxtools -Wl,-Bdynamic $LIBS"
 		libzeno_found="yes"
 
-		CXXFLAGS="$ZENO_CXXFLAGS $CXXFLAGS"
-		LDFLAGS="$ZENO_LDFLAGS $LDFLAGS"
 	])
 fi
 
