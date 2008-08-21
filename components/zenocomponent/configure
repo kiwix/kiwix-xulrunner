@@ -624,6 +624,7 @@ CXX
 CXXFLAGS
 ac_ct_CXX
 HAVE_PKG
+XPIDL
 GECKO_SDK_PATH
 GECKO_DEFINES
 GECKO_IDL_INCLUDES
@@ -3048,10 +3049,110 @@ if test ! "x$HAVE_PKG" = "x" ; then
 fi
 
 if test "x$libxul_pkgconfig_ok" = "xyes" ; then
-	GECKO_SDK_PATH=`pkg-config --variable=sdkdir libxul`
-	GECKO_IDL_INCLUDES="-I `pkg-config --variable=idldir libxul`/`pkg-config --variable=includetype libxul`"
 	GECKO_INCLUDES=`pkg-config --cflags libxul`
 	GECKO_LDFLAGS=`pkg-config --libs libxul`
+
+	GECKO_SDK_PATH="`pkg-config --variable=sdkdir libxul`/bin"
+	# Extract the first word of ""xpidl"", so it can be a program name with args.
+set dummy "xpidl"; ac_word=$2
+{ echo "$as_me:$LINENO: checking for $ac_word" >&5
+echo $ECHO_N "checking for $ac_word... $ECHO_C" >&6; }
+if test "${ac_cv_path_XPIDL+set}" = set; then
+  echo $ECHO_N "(cached) $ECHO_C" >&6
+else
+  case $XPIDL in
+  [\\/]* | ?:[\\/]*)
+  ac_cv_path_XPIDL="$XPIDL" # Let the user override the test with a path.
+  ;;
+  *)
+  as_save_IFS=$IFS; IFS=$PATH_SEPARATOR
+for as_dir in $GECKO_SDK_PATH
+do
+  IFS=$as_save_IFS
+  test -z "$as_dir" && as_dir=.
+  for ac_exec_ext in '' $ac_executable_extensions; do
+  if { test -f "$as_dir/$ac_word$ac_exec_ext" && $as_test_x "$as_dir/$ac_word$ac_exec_ext"; }; then
+    ac_cv_path_XPIDL="$as_dir/$ac_word$ac_exec_ext"
+    echo "$as_me:$LINENO: found $as_dir/$ac_word$ac_exec_ext" >&5
+    break 2
+  fi
+done
+done
+IFS=$as_save_IFS
+
+  ;;
+esac
+fi
+XPIDL=$ac_cv_path_XPIDL
+if test -n "$XPIDL"; then
+  { echo "$as_me:$LINENO: result: $XPIDL" >&5
+echo "${ECHO_T}$XPIDL" >&6; }
+else
+  { echo "$as_me:$LINENO: result: no" >&5
+echo "${ECHO_T}no" >&6; }
+fi
+
+
+	if test "x$XPIDL"  = "x" ; then
+		GECKO_SDK_PATH=`pkg-config --variable=libdir libxul`
+		# Extract the first word of ""xpidl"", so it can be a program name with args.
+set dummy "xpidl"; ac_word=$2
+{ echo "$as_me:$LINENO: checking for $ac_word" >&5
+echo $ECHO_N "checking for $ac_word... $ECHO_C" >&6; }
+if test "${ac_cv_path_XPIDL+set}" = set; then
+  echo $ECHO_N "(cached) $ECHO_C" >&6
+else
+  case $XPIDL in
+  [\\/]* | ?:[\\/]*)
+  ac_cv_path_XPIDL="$XPIDL" # Let the user override the test with a path.
+  ;;
+  *)
+  as_save_IFS=$IFS; IFS=$PATH_SEPARATOR
+for as_dir in $GECKO_SDK_PATH
+do
+  IFS=$as_save_IFS
+  test -z "$as_dir" && as_dir=.
+  for ac_exec_ext in '' $ac_executable_extensions; do
+  if { test -f "$as_dir/$ac_word$ac_exec_ext" && $as_test_x "$as_dir/$ac_word$ac_exec_ext"; }; then
+    ac_cv_path_XPIDL="$as_dir/$ac_word$ac_exec_ext"
+    echo "$as_me:$LINENO: found $as_dir/$ac_word$ac_exec_ext" >&5
+    break 2
+  fi
+done
+done
+IFS=$as_save_IFS
+
+  ;;
+esac
+fi
+XPIDL=$ac_cv_path_XPIDL
+if test -n "$XPIDL"; then
+  { echo "$as_me:$LINENO: result: $XPIDL" >&5
+echo "${ECHO_T}$XPIDL" >&6; }
+else
+  { echo "$as_me:$LINENO: result: no" >&5
+echo "${ECHO_T}no" >&6; }
+fi
+
+
+		if test "x$XPIDL"  = "x" ; then
+			{ { echo "$as_me:$LINENO: error: Can't find xpidl" >&5
+echo "$as_me: error: Can't find xpidl" >&2;}
+   { (exit 1); exit 1; }; }
+		fi
+	fi
+
+
+	IDLPATH=`pkg-config --variable=idldir libxul`
+	if test ! -e "$IDLPATH/nsISupports.idl" ; then
+		IDLPATH="$IDLPATH/`pkg-config --variable=includetype libxul`"
+		if test ! -e "$IDLPATH/nsISupports.idl" ; then
+			{ { echo "$as_me:$LINENO: error: Can't find idl directory" >&5
+echo "$as_me: error: Can't find idl directory" >&2;}
+   { (exit 1); exit 1; }; }
+		fi
+	fi
+	GECKO_IDL_INCLUDES="-I $IDLPATH"
 else
 	GECKO_SDK_PATH="../../gecko_sdk/1.8"
 	GECKO_DEFINES="-DXPCOM_BUILD -DXPCOM_GLUE -DMOZILLA_STRICT_API"
@@ -3132,7 +3233,7 @@ fi
 echo "${ECHO_T}$ac_cv_lib_zeno_main" >&6; }
 if test $ac_cv_lib_zeno_main = yes; then
 
-	LIBS="-Wl,-Bstatic -lzeno -lcxxtools -Wl,-Bdynamic $LIBS"
+	LIBS="-Wl,-Bstatic -lzeno -lcxxtools -lbz2 -Wl,-Bdynamic $LIBS"
 	libzeno_found="yes"
 
 fi
@@ -3143,6 +3244,12 @@ if test ! "x$libzeno_found" = "xyes" ; then
 
 	ZENO_CXXFLAGS="-I$PWD/../../../extern/zeno/tntzenoreader/include/"
 	ZENO_LDFLAGS="-L$PWD/../../../extern/zeno/tntzenoreader/src/zenolib/.libs/"
+
+	CXXTOOLS_CXXFLAGS="-I$PWD/../../../extern/zeno/cxxtools/include/"
+	TNT_CXXFLAGS="-I$PWD/../../../extern/zeno/tntnet/framework/common/"
+
+	CXXFLAGS="$ZENO_CXXFLAGS $CXXTOOLS_CXXFLAGS $TNT_CXXFLAGS $CXXFLAGS"
+	LDFLAGS="$ZENO_LDFLAGS $LDFLAGS"
 
 	{ echo "$as_me:$LINENO: checking for main in -lzeno" >&5
 echo $ECHO_N "checking for main in -lzeno... $ECHO_C" >&6; }
@@ -3204,8 +3311,6 @@ if test $ac_cv_lib_zeno_main = yes; then
 		LIBS="-Wl,-Bstatic -lzeno -lcxxtools -Wl,-Bdynamic $LIBS"
 		libzeno_found="yes"
 
-		CXXFLAGS="$ZENO_CXXFLAGS $CXXFLAGS"
-		LDFLAGS="$ZENO_LDFLAGS $LDFLAGS"
 
 fi
 
@@ -3889,6 +3994,7 @@ CXX!$CXX$ac_delim
 CXXFLAGS!$CXXFLAGS$ac_delim
 ac_ct_CXX!$ac_ct_CXX$ac_delim
 HAVE_PKG!$HAVE_PKG$ac_delim
+XPIDL!$XPIDL$ac_delim
 GECKO_SDK_PATH!$GECKO_SDK_PATH$ac_delim
 GECKO_DEFINES!$GECKO_DEFINES$ac_delim
 GECKO_IDL_INCLUDES!$GECKO_IDL_INCLUDES$ac_delim
@@ -3898,7 +4004,7 @@ LIBOBJS!$LIBOBJS$ac_delim
 LTLIBOBJS!$LTLIBOBJS$ac_delim
 _ACEOF
 
-  if test `sed -n "s/.*$ac_delim\$/X/p" conf$$subs.sed | grep -c X` = 55; then
+  if test `sed -n "s/.*$ac_delim\$/X/p" conf$$subs.sed | grep -c X` = 56; then
     break
   elif $ac_last_try; then
     { { echo "$as_me:$LINENO: error: could not make $CONFIG_STATUS" >&5

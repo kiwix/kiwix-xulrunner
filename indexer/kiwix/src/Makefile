@@ -38,7 +38,7 @@ subdir = src
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/acinclude.m4 \
-	$(top_srcdir)/configure.in
+	$(top_srcdir)/configure.ac
 am__configure_deps = $(am__aclocal_m4_deps) $(CONFIGURE_DEPENDENCIES) \
 	$(ACLOCAL_M4)
 mkinstalldirs = $(SHELL) $(top_srcdir)/mkinstalldirs
@@ -76,13 +76,13 @@ AUTOMAKE = ${SHELL} /home/guillaume/projects/kiwix/moulinkiwix/indexer/kiwix/mis
 AWK = mawk
 CC = gcc
 CCDEPMODE = depmode=gcc3
-CFLAGS = -g -O2 -ggdb -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include  
+CFLAGS = -g -O2 -ggdb -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include   -I/home/guillaume/projects/kiwix/moulinkiwix/indexer/kiwix/../../../extern/zeno/tntzenoreader/include/
 CPPFLAGS = 
 CXX = g++
 CXXDEPMODE = depmode=gcc3
-CXXFLAGS = -g -O2 -ggdb -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include  
+CXXFLAGS = -g -O2 -ggdb -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include   -I/home/guillaume/projects/kiwix/moulinkiwix/indexer/kiwix/../../../extern/zeno/tntzenoreader/include/
 CYGPATH_W = echo
-DEFS = -DPACKAGE_NAME=\"kiwixnormalizer\" -DPACKAGE_TARNAME=\"kiwixnormalizer\" -DPACKAGE_VERSION=\"0.1\" -DPACKAGE_STRING=\"kiwixnormalizer\ 0.1\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE=\"kiwixnormalizer\" -DVERSION=\"0.1\" -DHAVE_LIBZ=1 -DHAVE_LIBZENO=1
+DEFS = 
 DEPDIR = .deps
 ECHO_C = 
 ECHO_N = -n
@@ -94,7 +94,7 @@ INSTALL_DATA = ${INSTALL} -m 644
 INSTALL_PROGRAM = ${INSTALL}
 INSTALL_SCRIPT = ${INSTALL}
 INSTALL_STRIP_PROGRAM = $(install_sh) -c -s
-LDFLAGS = 
+LDFLAGS =  -L/home/guillaume/projects/kiwix/moulinkiwix/indexer/kiwix/../../../extern/zeno/tntzenoreader/src/zenolib/.libs/
 LIBOBJS = 
 LIBS = -lzeno -lz -lglib-2.0   
 LTLIBOBJS = 

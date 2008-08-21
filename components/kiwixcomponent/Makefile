@@ -5,9 +5,18 @@ DEFINES            = -D_POSIX_
 HAVE_XUL_CONFIG    := $(shell pkg-config libxul && echo "ok")
 
 ifeq ($(HAVE_XUL_CONFIG),ok)
+GECKO_SDK_PATH     := $(shell pkg-config --variable=libdir libxul)
+ifeq ($(GECKO_SDK_PATH),)
 GECKO_SDK_PATH     := $(shell pkg-config --variable=sdkdir libxul)
+endif
 GECKO_XPIDL        := $(shell if test -e "${GECKO_SDK_PATH}/xpidl" ; then echo "${GECKO_SDK_PATH}/xpidl" ; else echo "${GECKO_SDK_PATH}/bin/xpidl" ; fi)
+GECKO_IDL_PATH     := $(shell pkg-config --variable=idldir libxul)
+NSISUPPORTS        := $(shell if test -e "${GECKO_IDL_PATH}/nsISupports.idl" ; then echo "ok" ; fi)
+ifeq ($(NSISUPPORTS),ok)
+GECKO_IDL_INCLUDES := -I $(shell pkg-config --variable=idldir libxul)
+else
 GECKO_IDL_INCLUDES := -I $(shell pkg-config --variable=idldir libxul)/$(shell pkg-config --variable=includetype libxul)
+endif
 GECKO_INCLUDES     := $(shell pkg-config --cflags libxul)
 GECKO_LDFLAGS      := $(shell pkg-config --libs libxul)
 else

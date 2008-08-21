@@ -174,6 +174,9 @@ NS_IMETHODIMP Zeno::GetArticle(nsIURI *url, char **contentType, nsACString & _re
 		// independently. Now the examples .zeno files are iso-8859-1(5)
 		// encoded and needs a title encoded the same way :/
 	        sscanf(tmp + i + 1, "%2x", &decode1);
+		title[j] = decode1;
+		i += 2;
+#if 0
 		switch (decode1) {
 			case 0x20:
 			case 0x28:
@@ -187,6 +190,7 @@ NS_IMETHODIMP Zeno::GetArticle(nsIURI *url, char **contentType, nsACString & _re
 				i += 5;
 				break;
 		}
+#endif
 	        break;
 	    default:
 	        title[j] = c;
@@ -225,6 +229,7 @@ NS_IMETHODIMP Zeno::GetArticle(nsIURI *url, char **contentType, nsACString & _re
 	// made optional
         std::string content = article.getData();
         const char * iso_content = content.c_str();
+#if 0
         char * utf8_content;
 
         n = strlen(iso_content);
@@ -254,6 +259,9 @@ NS_IMETHODIMP Zeno::GetArticle(nsIURI *url, char **contentType, nsACString & _re
 	_retval = nsDependentCString(utf8_content, j + 1);
 
         NS_Free(utf8_content);
+#endif
+
+	_retval = nsDependentCString(iso_content, strlen(iso_content));
     }
     else
     {

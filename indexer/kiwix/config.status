@@ -551,8 +551,8 @@ s,@AMTAR@,|#_!!_#|${SHELL} /home/guillaume/projects/kiwix/moulinkiwix/indexer/ki
 s,@am__tar@,|#_!!_#|${AMTAR} chof - "$$tardir",g
 s,@am__untar@,|#_!!_#|${AMTAR} xf -,g
 s,@CC@,|#_!!_#|gcc,g
-s,@CFLAGS@,|#_!!_#|-g -O2 -ggdb -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include  ,g
-s,@LDFLAGS@,|#_!!_#|,g
+s,@CFLAGS@,|#_!!_#|-g -O2 -ggdb -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include   -I/home/guillaume/projects/kiwix/moulinkiwix/indexer/kiwix/../../../extern/zeno/tntzenoreader/include/,g
+s,@LDFLAGS@,|#_!!_#| -L/home/guillaume/projects/kiwix/moulinkiwix/indexer/kiwix/../../../extern/zeno/tntzenoreader/src/zenolib/.libs/,g
 s,@CPPFLAGS@,|#_!!_#|,g
 s,@ac_ct_CC@,|#_!!_#|gcc,g
 s,@EXEEXT@,|#_!!_#|,g
@@ -567,7 +567,7 @@ s,@CCDEPMODE@,|#_!!_#|depmode=gcc3,g
 s,@am__fastdepCC_TRUE@,|#_!!_#|,g
 s,@am__fastdepCC_FALSE@,|#_!!_#|#,g
 s,@CXX@,|#_!!_#|g++,g
-s,@CXXFLAGS@,|#_!!_#|-g -O2 -ggdb -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include  ,g
+s,@CXXFLAGS@,|#_!!_#|-g -O2 -ggdb -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include   -I/home/guillaume/projects/kiwix/moulinkiwix/indexer/kiwix/../../../extern/zeno/tntzenoreader/include/,g
 s,@ac_ct_CXX@,|#_!!_#|g++,g
 s,@CXXDEPMODE@,|#_!!_#|depmode=gcc3,g
 s,@am__fastdepCXX_TRUE@,|#_!!_#|,g

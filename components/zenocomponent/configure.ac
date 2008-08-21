@@ -15,10 +15,28 @@ if test ! "x$HAVE_PKG" = "x" ; then
 fi
 
 if test "x$libxul_pkgconfig_ok" = "xyes" ; then
-	GECKO_SDK_PATH=`pkg-config --variable=sdkdir libxul`
-	GECKO_IDL_INCLUDES="-I `pkg-config --variable=idldir libxul`/`pkg-config --variable=includetype libxul`"
 	GECKO_INCLUDES=`pkg-config --cflags libxul`
 	GECKO_LDFLAGS=`pkg-config --libs libxul`
+
+	GECKO_SDK_PATH="`pkg-config --variable=sdkdir libxul`/bin"
+	AC_PATH_PROG([XPIDL], "xpidl", [], $GECKO_SDK_PATH)
+	if test "x$XPIDL"  = "x" ; then
+		GECKO_SDK_PATH=`pkg-config --variable=libdir libxul`
+		AC_PATH_PROG([XPIDL], "xpidl", [], $GECKO_SDK_PATH)
+		if test "x$XPIDL"  = "x" ; then
+			AC_MSG_ERROR([Can't find xpidl])
+		fi
+	fi
+	AC_SUBST(XPIDL)
+
+	IDLPATH=`pkg-config --variable=idldir libxul`
+	if test ! -e "$IDLPATH/nsISupports.idl" ; then
+		IDLPATH="$IDLPATH/`pkg-config --variable=includetype libxul`"
+		if test ! -e "$IDLPATH/nsISupports.idl" ; then
+			AC_MSG_ERROR([Can't find idl directory])
+		fi
+	fi
+	GECKO_IDL_INCLUDES="-I $IDLPATH"
 else
 	GECKO_SDK_PATH="../../gecko_sdk/1.8"
 	GECKO_DEFINES="-DXPCOM_BUILD -DXPCOM_GLUE -DMOZILLA_STRICT_API"
@@ -37,7 +55,7 @@ AC_LANG(C++)
 
 libzeno_found="no"
 AC_CHECK_LIB([zeno], [main], [
-	LIBS="-Wl,-Bstatic -lzeno -lcxxtools -Wl,-Bdynamic $LIBS"
+	LIBS="-Wl,-Bstatic -lzeno -lcxxtools -lbz2 -Wl,-Bdynamic $LIBS"
 	libzeno_found="yes"
 ])
 
