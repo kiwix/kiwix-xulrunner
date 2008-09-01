@@ -353,7 +353,10 @@ CorpusInstaller.prototype.install = function() {
 
 	this.indexroot = file.path;
 
-	file.append("pouki.zeno");
+	var tmp = this.url.split("/");
+	var filename = tmp[tmp.length - 1];
+
+	file.append(filename);
 	var uri2 = ios.newFileURI(file);
 
 	// Observer for download
@@ -419,7 +422,7 @@ function corpusbuild() {
 		itemroot.appendChild(document.createTextNode("Root: " + corpusroot));
 
 		var itemhome = document.createElement("description");
-		itemhome.appendChild(document.createTextNode("Home: " + corpushome));
+		itemhome.appendChild(document.createTextNode("Home: " + decodeURI(corpushome)));
 
 		var itemhbox = document.createElement("hbox");
 		itemhbox.appendChild(itemformat);
@@ -533,7 +536,7 @@ function savecorpus() {
 	corpus.setAttribute("name", corpusname);
 	corpus.setAttribute("format", corpusformat);
 	corpus.setAttribute("root", corpusroot);
-	corpus.setAttribute("home", corpushome);
+	corpus.setAttribute("home", encodeURI(corpushome));
 	if (corpusindexroot) corpus.setAttribute("indexroot", corpusindexroot);
 	else corpus.removeAttribute("indexroot");
 
@@ -570,7 +573,7 @@ function corpuseditload() {
 		document.getElementById("corpus-name").value = corpus.getAttribute("name");
 		document.getElementById("corpus-format").value = corpus.getAttribute("format");
 		document.getElementById("corpus-root").value = corpus.getAttribute("root");
-		document.getElementById("corpus-home").value = corpus.getAttribute("home");
+		document.getElementById("corpus-home").value = decodeURI(corpus.getAttribute("home"));
 		document.getElementById("corpus-index-root").value = corpus.getAttribute("indexroot");
 	}
 }
