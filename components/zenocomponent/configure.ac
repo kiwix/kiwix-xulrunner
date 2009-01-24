@@ -1,10 +1,16 @@
-AC_INIT(zenocomponent, 0.1)
+# initialisation
+AC_INIT(zenocomponent, 0.1, kelson@kiwix.org)
 
+# Determine a C compiler to use
 AC_PROG_CC
+
+# Determine a C++ compiler to use
 AC_PROG_CXX
 
+# Set current language to C
 AC_LANG(C)
 
+# check if the 'pkg-config' binary exists
 AC_CHECK_TOOL(HAVE_PKG, pkg-config)
 
 libxul_pkgconfig_ok="no"
@@ -38,48 +44,75 @@ if test "x$libxul_pkgconfig_ok" = "xyes" ; then
 	fi
 	GECKO_IDL_INCLUDES="-I $IDLPATH"
 else
-	GECKO_SDK_PATH="../../gecko_sdk/1.8"
-	GECKO_DEFINES="-DXPCOM_BUILD -DXPCOM_GLUE -DMOZILLA_STRICT_API"
-	GECKO_IDL_INCLUDES="-I $(GECKO_SDK_PATH)/idl"
-	GECKO_INCLUDES="-I $(GECKO_SDK_PATH)/include"
-	GECKO_LDFLAGS="-L $(GECKO_SDK_PATH)/lib -lxpcomglue -lnspr4 -lplds4 -lembed_base_s -lz"
+	geckopath="../../gecko_sdk/1.8"
+	AC_ARG_WITH([gecko-sdk], AC_HELP_STRING([--with-gecko-sdk=somepath], [provide Gecko SDK path]), [geckopath=$withval])
+
+	GECKO_SDK_PATH="${geckopath}"
+
+	GECKO_INCLUDES="-I ${GECKO_SDK_PATH}/include/xpcom"
+	GECKO_INCLUDES="${GECKO_INCLUDES} -I ${GECKO_SDK_PATH}/include/string"
+	GECKO_INCLUDES="${GECKO_INCLUDES} -I ${GECKO_SDK_PATH}/include/nspr"
+	GECKO_INCLUDES="${GECKO_INCLUDES} -I ${GECKO_SDK_PATH}/include/necko"
+
+	GECKO_DEFINES="-DXP_UNIX"
+	GECKO_IDL_INCLUDES="-I ${GECKO_SDK_PATH}/idl"
+
+	GECKO_LDFLAGS="-L${GECKO_SDK_PATH}/lib"
+
+	case $build in
+		*darwin*)
+			GECKO_LDFLAGS="${GECKO_LDFLAGS} -L${GECKO_SDK_PATH}/bin -Wl,-executable_path,${GECKO_SDK_PATH}/bin"
+			;;
+	esac
+
+	GECKO_LDFLAGS="${GECKO_LDFLAGS} -lxpcomglue_s -lxpcom -lnspr4"
+	XPIDL="${GECKO_SDK_PATH}/bin/xpidl"
+
+	case $build in
+		*darwin*)
+			GECKO_DEFINES="${GECKO_DEFINES} -DXP_MACOSX"
+			;;
+	esac
 fi
 
-AC_SUBST(GECKO_SDK_PATH)
+case $build in
+	*darwin*)
+		CPPFLAGS="-fno-rtti -D_POSIX_ -O3"
+		CXXFLAGS="${CXXFLAGS} -dynamiclib"
+		LIBEXT="dylib"
+		;;
+	*)
+		CPPFLAGS="-fno-rtti -shared -D_POSIX_ -O3 -fPIC"
+		LIBEXT="so"
+		;;
+esac
+
 AC_SUBST(GECKO_DEFINES)
 AC_SUBST(GECKO_IDL_INCLUDES)
 AC_SUBST(GECKO_INCLUDES)
 AC_SUBST(GECKO_LDFLAGS)
+AC_SUBST(XPIDL)
+AC_SUBST(LIBEXT)
 
+# Set current language to C++
 AC_LANG(C++)
 
-libzeno_found="no"
+# Check if zenolib is installed
 AC_CHECK_LIB([zeno], [main], [
-	LIBS="-Wl,-Bstatic -lzeno -lcxxtools -lbz2 -Wl,-Bdynamic $LIBS"
-	libzeno_found="yes"
+	case $build in
+		*darwin*)
+			LIBS="-lzeno -lz -lbz2 $LIBS"
+			;;
+		*)
+			LIBS="-lzeno -lbz2 $LIBS"
+			;;
+	esac
+], [
+	AC_MSG_ERROR([zeno not found])
 ])
 
-if test ! "x$libzeno_found" = "xyes" ; then 
-	PWD=`pwd`
-
-	ZENO_CXXFLAGS="-I$PWD/../../../extern/zeno/tntzenoreader/include/"
-	ZENO_LDFLAGS="-L$PWD/../../../extern/zeno/tntzenoreader/src/zenolib/.libs/"
-
-	CXXTOOLS_CXXFLAGS="-I$PWD/../../../extern/zeno/cxxtools/include/"
-	TNT_CXXFLAGS="-I$PWD/../../../extern/zeno/tntnet/framework/common/"
-
-	CXXFLAGS="$ZENO_CXXFLAGS $CXXTOOLS_CXXFLAGS $TNT_CXXFLAGS $CXXFLAGS"
-	LDFLAGS="$ZENO_LDFLAGS $LDFLAGS"
-
-	AC_CHECK_LIB([zeno], [main], [
-		LIBS="-Wl,-Bstatic -lzeno -lcxxtools -Wl,-Bdynamic $LIBS"
-		libzeno_found="yes"
-
-	])
-fi
-
 AC_CONFIG_FILES([
-	Makefile.real
+	Makefile
 ])
 AC_OUTPUT
 

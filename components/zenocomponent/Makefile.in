@@ -1,17 +1,15 @@
 CXX = @CXX@
-CPPFLAGS           = -fno-rtti -fno-exceptions -shared -D_POSIX_ -O3
-DEFINES            = -D_POSIX_
+CPPFLAGS           = @CPPFLAGS@
 CXXFLAGS           = @CXXFLAGS@
 LDFLAGS            = @LDFLAGS@
 
-GECKO_SDK_PATH     = @GECKO_SDK_PATH@
 GECKO_DEFINES      = @GECKO_DEFINES@
 GECKO_IDL_INCLUDES = @GECKO_IDL_INCLUDES@
 GECKO_INCLUDES     = @GECKO_INCLUDES@
 GECKO_LDFLAGS      = @GECKO_LDFLAGS@
 XPIDL=@XPIDL@
 
-all: IZeno.so IZeno.xpt
+all: IZeno.@LIBEXT@ IZeno.xpt
 
 IZeno.h: IZeno.idl
 	$(XPIDL) -m header $(GECKO_IDL_INCLUDES) IZeno.idl
@@ -19,11 +17,11 @@ IZeno.h: IZeno.idl
 IZeno.xpt: IZeno.idl
 	$(XPIDL) -m typelib $(GECKO_IDL_INCLUDES) IZeno.idl
 
-IZeno.so: zenocomponent.cpp IZeno.h
-	$(CXX) -o IZeno.so $(GECKO_DEFINES) $(GECKO_INCLUDES) \
+IZeno.@LIBEXT@: zenocomponent.cpp IZeno.h
+	$(CXX) -o IZeno.@LIBEXT@ $(GECKO_DEFINES) $(GECKO_INCLUDES) \
 		$(CPPFLAGS) $(CXXFLAGS) zenocomponent.cpp @LIBS@ \
 		$(LDFLAGS) $(GECKO_LDFLAGS)
-	chmod +x IZeno.so
+	chmod +x IZeno.@LIBEXT@
 
 clean:
-	rm -f *.o *.xpt *.so test
+	rm -f *.o *.xpt *.@LIBEXT@ test
