@@ -1,7 +1,7 @@
 content interfacewiki content/interfacewiki/
 locale interfacewiki en-US locale/en-US/interfacewiki/
+locale interfacewiki fr-FR locale/fr-FR/interfacewiki/
 skin interfacewiki classicBlue skin/classicBlue/
-skin interfacewiki toon skin/toon/
-skin interfacewiki oceanBlue skin/oceanBlue/
-skin interfacewiki explorer skin/explorer/
-
+skin interfacewiki kiwix0.7 skin/kiwix0.7/
+content branding branding/
+locale branding en-US locale/branding/
