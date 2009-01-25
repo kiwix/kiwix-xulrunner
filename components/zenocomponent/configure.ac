@@ -104,7 +104,7 @@ AC_CHECK_LIB([zeno], [main], [
 			LIBS="-lzeno -lz -lbz2 $LIBS"
 			;;
 		*)
-			LIBS="-lzeno -lbz2 $LIBS"
+			LIBS=" -Wl,-Bstatic -lbz2 -Wl,-Bdynamic -lzeno $LIBS"
 			;;
 	esac
 ], [
