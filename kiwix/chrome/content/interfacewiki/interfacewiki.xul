@@ -179,8 +179,6 @@
 	<image id="wk-book" collapsed="true"/>
 	<label id="wk-addressbar" crop="end" style="width: 400px;"/>
 	<spacer flex="1"/>
-	<label value="Software developed by" style="margin-top: 3px;"/>
-        <image style="cursor:pointer; list-style-image : url(img/logo.png); margin:0; border:outset 1px; margin-bottom:2px;" onclick="openlinterweb();"/>
 </hbox>
 	
 </window>
