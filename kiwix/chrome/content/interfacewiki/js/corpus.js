@@ -163,10 +163,36 @@ CorpusList.prototype.getItemAtIndex = function(idx) {
 }
 
 CorpusList.prototype.appendItem = function() {
-	corpus = this.dom.createElement("corpus");
+	var corpus = this.dom.createElement("corpus");
 	this.dom.firstChild.appendChild(corpus);
 
 	return corpus;
+}
+
+CorpusList.prototype.getIndexByName = function(name) {
+	var corpora = this.dom.firstChild.childNodes;
+	var n = corpora.length;
+	var idx = -1;
+	for(var i = 0;i < n;i++) {
+		if (corpora[i].getAttribute("name") == name) {
+			idx = i;
+		}
+	}
+
+	return idx;
+}
+
+CorpusList.prototype.getItemByName = function(name) {
+	var corpora = this.dom.firstChild.childNodes;
+	var n = corpora.length;
+	var active = null;
+	for(var i = 0;i < n;i++) {
+		if (corpora[i].getAttribute("name") == name) {
+			active = corpora[i];
+		}
+	}
+
+	return active;
 }
 
 CorpusList.prototype.getItemByUrl = function(url) {
@@ -182,6 +208,10 @@ CorpusList.prototype.getItemByUrl = function(url) {
 	return active;
 }
 
+CorpusList.prototype.length = function() {
+	return this.dom.firstChild.childNodes.length;
+}
+
 CorpusList.prototype.QueryInterface = function(aIID) {
 	if (aIID.equals(Components.interfaces.nsIWebProgressListener) ||
 			aIID.equals(Components.interfaces.nsISupportsWeakReference) ||
@@ -192,7 +222,7 @@ CorpusList.prototype.QueryInterface = function(aIID) {
 
 CorpusList.prototype.onStateChange = function(aProgress, aRequest, aFlag, aStatus) {
 	var nsIWPL = Components.interfaces.nsIWebProgressListener;
-	if (aFlag & nsIWPL.STATE_STOP) { this.load(); corpusbuild(); alert("Corpus list updated"); }
+	if (aFlag & nsIWPL.STATE_STOP) { this.load(); alert("Corpus list updated"); }
 	return 0;
 }
 
@@ -220,36 +250,50 @@ function actionremove() {
 	corpusbuild();
 }
 
-function list2radio() {
+function actioncancel() {
 	var corpuslist = document.getElementById('corpuslist');
-	var corpusradio = document.getElementById('corpusradio');
+	var cl = new CorpusList("corpora.xml");
+	
+	var mainWindow = window.QueryInterface(Components.interfaces.nsIInterfaceRequestor)
+                  .getInterface(Components.interfaces.nsIWebNavigation)
+                  .QueryInterface(Components.interfaces.nsIDocShellTreeItem)
+                  .rootTreeItem
+                  .QueryInterface(Components.interfaces.nsIInterfaceRequestor)
+                  .getInterface(Components.interfaces.nsIDOMWindow);
+	mainWindow.opener.installers[corpuslist.selectedIndex - cl.length()].pers.cancelSave();
+	mainWindow.opener.installers.splice(corpuslist.selectedIndex - cl.length(), 1);
+	corpusbuild();
+}
 
-	corpusradio.selectedIndex = corpuslist.selectedIndex;
+function list2radio() {
+
+	var corpuslist = document.getElementById('corpuslist');
+
+	var cl = new CorpusList("corpora.xml");
 
 	var actions = document.getElementById("corpusactions");
+	if (actions) actions.parentNode.removeChild(actions);
 
-	if (!actions) {
-		actions = document.createElement("hbox");
+	actions = document.createElement("hbox");
 
-		var spacer = document.createElement("spacer");
-		spacer.setAttribute("flex", "1");
+	var spacer = document.createElement("spacer");
+	spacer.setAttribute("flex", "1");
+	actions.appendChild(spacer);
 
-		var edit = document.createElement("button");
-		edit.setAttribute("label", "Edit");
-		edit.addEventListener("click", actionedit, false);
+	var l10n = document.getElementById("cm-strings");
 
-		var remove = document.createElement("button");
-		remove.setAttribute("label", "Remove");
-		remove.setAttribute("icon", "remove");
-		remove.addEventListener("click", actionremove, false);
+	var edit = document.createElement("button");
+	edit.setAttribute("label", l10n.getString('kiwix.cm.edit'));
+	edit.addEventListener("click", actionedit, false);
 
-		actions.appendChild(spacer);
-		actions.appendChild(edit);
-		actions.appendChild(remove);
-		actions.setAttribute("id", "corpusactions");
-	} else {
-		actions = actions.parentNode.removeChild(actions);
-	}
+	var remove = document.createElement("button");
+	remove.setAttribute("label", l10n.getString('kiwix.cm.remove'));
+	remove.setAttribute("icon", "remove");
+	remove.addEventListener("click", actionremove, false);
+
+	actions.appendChild(edit);
+	actions.appendChild(remove);
+	actions.setAttribute("id", "corpusactions");
 
 	var ele = corpuslist.selectedItem.firstChild;
 	ele.appendChild(actions);
@@ -263,34 +307,32 @@ function corpusedit(idx) {
 	}
 }
 
-function CorpusInstaller(url, name, description, format, home, root) {
-	this.url = url;
-	this.name = name;
-	this.description = description;
-	this.format = format;
-	this.home = home;
-	this.root = root;
-
-	this.richlistitem = document.createElement("richlistitem");
-	var box = document.createElement("vbox");
-	this.richlistitem.appendChild(box);
-	var desc = document.createElement("description");
-	desc.setAttribute("style", "font-weight : bold");
-	box.appendChild(desc);
-	desc.appendChild(document.createTextNode(name));
-	var desc = document.createElement("description");
-	box.appendChild(desc);
-	desc.appendChild(document.createTextNode(description));
-
-	this.hbox = document.createElement("hbox");
-
-	var installbutton = document.createElement("button");
-	installbutton.setAttribute("label", "Install");
-	installbutton.addEventListener("click", (function(i) { return function() { i.install(); }; })(this), false);
-	this.hbox.appendChild(installbutton);
-	box.appendChild(this.hbox);
+function CorpusInstaller(source) {
+	this.url = source.getAttribute("url");
+	this.name = source.getAttribute("name")
+	this.description = source.getAttribute("description")
+	this.format = source.getAttribute("format");
+	this.home = source.getAttribute("home");
+	this.root = source.getAttribute("root");
+	this.progress = false;
+	this.installState = 0;
 
 	this.stateIsRequest = false;
+
+	var mainWindow = window.QueryInterface(Components.interfaces.nsIInterfaceRequestor)
+                  .getInterface(Components.interfaces.nsIWebNavigation)
+                  .QueryInterface(Components.interfaces.nsIDocShellTreeItem)
+                  .rootTreeItem
+                  .QueryInterface(Components.interfaces.nsIInterfaceRequestor)
+                  .getInterface(Components.interfaces.nsIDOMWindow);
+	var installers = mainWindow.installers;
+
+	for(var i = 0;i < installers.length;i++) {
+		var icorpus = installers[i];
+		if (icorpus.name == this.name) throw i;
+	}
+
+	installers[installers.length] = this;
 }
 
 CorpusInstaller.prototype.getListItem = function() {
@@ -307,7 +349,7 @@ CorpusInstaller.prototype.QueryInterface = function(aIID) {
 
 CorpusInstaller.prototype.onStateChange = function(aProgress, aRequest, aFlag, aStatus) {
 	var nsIWPL = Components.interfaces.nsIWebProgressListener;
-	if (aFlag & nsIWPL.STATE_STOP) this.postInstall();
+	if ((aFlag & nsIWPL.STATE_STOP) && (aStatus == 0)) this.postInstall();
 	return 0;
 }
 
@@ -316,30 +358,20 @@ CorpusInstaller.prototype.onLocationChange = function(aProgress, aRequest, aLoca
 }
 
 CorpusInstaller.prototype.onProgressChange = function(a,b,cur,max,e,f) {
-	this.progress.value = parseInt((100 * cur) / max);
+	if (this.progress) this.progress.value = parseInt((100 * cur) / max);
 }
 
 CorpusInstaller.prototype.onStatusChange = function(a,b,c,d){}
 CorpusInstaller.prototype.onSecurityChange = function(a,b,c){}
 CorpusInstaller.prototype.onLinkIconAvailable = function(a){} 
 
-CorpusInstaller.prototype.install = function() {
+CorpusInstaller.prototype.install = function(path) {
 	var destlist = new CorpusList("corpora.xml");
-	var exists = destlist.getItemByUrl(this.url);
+	var exists = destlist.getItemByName(this.name);
 	if (exists != null) {
 		var c = confirm('This corpus is already installed\ndo you want to update it?');
 		if (c == false) return;
 	}
-
-	while (this.hbox.hasChildNodes()) this.hbox.removeChild(this.hbox.lastChild);
-
-	var desc = document.createElement("description");
-	desc.appendChild(document.createTextNode("Downloading"));
-	this.hbox.appendChild(desc);
-
-	this.progress = document.createElement("progressmeter");
-	this.progress.setAttribute("mode", "determined");
-	this.hbox.appendChild(this.progress);
 
 	// Create URI from which we want to download file
 	var ios = Components.classes["@mozilla.org/network/io-service;1"].
@@ -347,16 +379,17 @@ CorpusInstaller.prototype.install = function() {
 	var uri1 = ios.newURI(this.url, null, null);
 
 	// Set to where we want to save downloaded file (user's desktop)
-	var file = Components.classes["@mozilla.org/file/directory_service;1"].
-		getService(Components.interfaces.nsIProperties).
-		get("Desk", Components.interfaces.nsIFile);
+	var file = Components.classes['@mozilla.org/file/local;1'].
+		createInstance(Components.interfaces.nsILocalFile);
+	file.initWithPath(path);
 
-	this.indexroot = file.path;
+	this.indexroot = path;
 
 	var tmp = this.url.split("/");
 	var filename = tmp[tmp.length - 1];
 
 	file.append(filename);
+	this.filepath = file.path;
 	var uri2 = ios.newFileURI(file);
 
 	// Observer for download
@@ -367,14 +400,26 @@ CorpusInstaller.prototype.install = function() {
 		nsIWBP.PERSIST_FLAGS_BYPASS_CACHE |
 		nsIWBP.PERSIST_FLAGS_AUTODETECT_APPLY_CONVERSION;
 
-	pers.progressListener = this;
+	this.pers = pers;
+	this.pers.progressListener = this;
 	pers.saveURI(uri1, null, null, null, null, uri2);
+
+	this.installState = 1;
+}
+
+CorpusInstaller.prototype.cancel = function() {
+
+  if (this.installState == 1) this.pers.cancelSave();
+  this.listitem.parentNode.removeChild(this.listitem);
+  this.installState = 2;
 }
 
 CorpusInstaller.prototype.postInstall = function() {
 	var corpuslist = new CorpusList("corpora.xml");
-	var corpus = corpuslist.getItemByUrl(this.url);
+	var corpus = corpuslist.getItemByName(this.name);
+	var update = true;
 	if (corpus == null) {
+		update = false;
 		corpus = corpuslist.appendItem();
 	}
 
@@ -382,12 +427,41 @@ CorpusInstaller.prototype.postInstall = function() {
 	corpus.setAttribute("format", this.format);
 	corpus.setAttribute("root", this.root);
 	corpus.setAttribute("home", this.home);
-	corpus.setAttribute("indexroot", this.indexroot);
 	corpus.setAttribute("url", this.url);
+
+	var minitar = Components.classes["@linterweb.com/minitar"].createInstance(Components.interfaces.iMiniTar);
+	this.indexroot = minitar.untar(this.filepath);
+	corpus.setAttribute("indexroot", this.indexroot);
 
 	corpuslist.save();
 
-	corpusbuild();
+	var mainWindow = window.QueryInterface(Components.interfaces.nsIInterfaceRequestor)
+                  .getInterface(Components.interfaces.nsIWebNavigation)
+                  .QueryInterface(Components.interfaces.nsIDocShellTreeItem)
+                  .rootTreeItem
+                  .QueryInterface(Components.interfaces.nsIInterfaceRequestor)
+                  .getInterface(Components.interfaces.nsIDOMWindow);
+	var idx = -1;
+	for(var i = 0;i < mainWindow.installers.length;i++) {
+		var icorpus = mainWindow.installers[i];
+		if (icorpus.name == this.name) idx = i;
+	}
+
+	this.installState = 2;
+	var richlistbox = document.getElementById("wk-corpuslist");
+	var isvisible = (this.listitem.parentNode.selectedItem == this.listitem);
+	this.listitem.parentNode.removeChild(this.listitem);
+	var newitem;
+	if (update) {
+		newitem = richlistbox.getItemAtIndex(corpuslist.getIndexByName(this.name));
+	} else {
+		newitem = addListCorpus(this.name,
+			"javascript:goTo('zeno://" + this.root + "/" + this.home.replace(/\+/g, "%2B") + "')");
+	}
+	if (isvisible) {
+		richlistbox.selectedItem = newitem;
+		goTo("zeno://" + this.root + "/" + this.home.replace(/\+/g, "%2B"));
+	}
 }
 
 function corpusbuild() {
@@ -397,6 +471,7 @@ function corpusbuild() {
 		richlistbox.removeChild(richlistbox.firstChild);
 	}
 
+	// Corpus already present
 	var cl = new CorpusList("corpora.xml");
 	var dom = cl.dom;
 
@@ -411,9 +486,9 @@ function corpusbuild() {
 		var corpusindexroot = corpus.getAttribute("indexroot");
 		var corpusselected = corpus.getAttribute("selected");
 
-		var itemname = document.createElement("radio");
+		var itemname = document.createElement("label");
 		itemname.setAttribute("style", "font-weight : bold");
-		itemname.setAttribute("label", corpusname);
+		itemname.setAttribute("value", corpusname);
 
 		var itemformat = document.createElement("description");
 		itemformat.appendChild(document.createTextNode("Format: " + corpusformat));
@@ -438,6 +513,7 @@ function corpusbuild() {
 		var itemvbox = document.createElement("vbox");
 		itemvbox.appendChild(itemname);
 		itemvbox.appendChild(itemhbox);
+		itemvbox.setAttribute("flex", 1);
 
 		var richlistitem = document.createElement("richlistitem");
 		richlistitem.appendChild(itemvbox);
@@ -448,52 +524,18 @@ function corpusbuild() {
 			richlistbox.selectedIndex = i;
 		}
 	}
+}
 
-	var rl = new CorpusList("remotelist.xml");
-	dom = rl.dom;
-	var corpuslist = dom.firstChild.firstChild;
-	var remotelist = document.getElementById("remotelist");
-
-	while (remotelist.hasChildNodes()) remotelist.removeChild(remotelist.lastChild);
-
-	while (corpuslist != null) {
-		if (corpuslist.tagName == "corpus") {
-			var corpusname = '';
-			var corpusdescription = '';
-			var corpusurl = '';
-			var corpusformat = '';
-			var corpushome = '';
-			var corpusroot = '';
-
-			var childs = corpuslist.childNodes;
-			for(var i = 0;i < childs.length;i++) {
-				switch(childs[i].tagName) {
-					case 'name':
-						corpusname = childs[i].firstChild.data;
-						break;
-					case 'description':
-						corpusdescription = childs[i].firstChild.data;
-						break;
-					case 'url':
-						corpusurl = childs[i].firstChild.data;
-						break;
-					case 'format':
-						corpusformat = childs[i].firstChild.data;
-						break;
-					case 'home':
-						corpushome = childs[i].firstChild.data;
-						break;
-					case 'root':
-						corpusroot = childs[i].firstChild.data;
-						break;
-				}
-			}
-
-			var corpusinstaller = new CorpusInstaller(corpusurl, corpusname, corpusdescription,
-				corpusformat, corpushome, corpusroot);
-			remotelist.appendChild(corpusinstaller.getListItem());
-		}
-		corpuslist = corpuslist.nextSibling;
+function corpusclose() {
+	var mainWindow = window.QueryInterface(Components.interfaces.nsIInterfaceRequestor)
+                  .getInterface(Components.interfaces.nsIWebNavigation)
+                  .QueryInterface(Components.interfaces.nsIDocShellTreeItem)
+                  .rootTreeItem
+                  .QueryInterface(Components.interfaces.nsIInterfaceRequestor)
+                  .getInterface(Components.interfaces.nsIDOMWindow);
+	for(var i = 0;i < mainWindow.opener.installers.length;i++) {
+		var corpus = mainWindow.opener.installers[i];
+		corpus.progress = false;
 	}
 }
 
@@ -548,22 +590,6 @@ function savecorpus() {
 	window.close();
 }
 
-function corpussaveselected() {
-	var selected = document.getElementById("corpuslist").selectedIndex;
-
-	var cl = new CorpusList("corpora.xml");
-	cl.setSelected(selected);
-	cl.save();
-
-	window.close();
-}
-
-function corpusgetactive() {
-	var cl = new CorpusList("corpora.xml");
-
-	return cl.getSelectedItem();
-}
-
 function corpuseditload() {
 	if (typeof window.arguments[1] != 'undefined') {
 		var idx = window.arguments[1];
@@ -578,9 +604,30 @@ function corpuseditload() {
 	}
 }
 
-function remotecorpusupdate() {
-	url = document.getElementById("remotecorpusurl").value;
+function remoteInstall() {
+/*
+        var prefs = Components.classes["@mozilla.org/preferences-service;1"].
+          getService().QueryInterface(Components.interfaces.nsIPrefBranch);
 
-	var rl = new CorpusList("remotelist.xml");
-	rl.update(url);
+	var mainWindow = window.QueryInterface(Components.interfaces.nsIInterfaceRequestor)
+                  .getInterface(Components.interfaces.nsIWebNavigation)
+                  .QueryInterface(Components.interfaces.nsIDocShellTreeItem)
+                  .rootTreeItem
+                  .QueryInterface(Components.interfaces.nsIInterfaceRequestor)
+                  .getInterface(Components.interfaces.nsIDOMWindow);
+
+	var browser;
+	try {
+	  browser = mainWindow.opener.getBrowser();
+	  browser.loadURI(prefs.getCharPref("corpus.url"));
+	  window.close();
+        } catch(someerror) {
+	  browser = mainWindow.getBrowser();
+	  browser.loadURI(prefs.getCharPref("corpus.url"));
+        }
+*/
+  var prefs = Components.classes["@mozilla.org/preferences-service;1"].
+    getService().QueryInterface(Components.interfaces.nsIPrefBranch);
+
+  goTo(prefs.getCharPref("corpus.url"));
 }

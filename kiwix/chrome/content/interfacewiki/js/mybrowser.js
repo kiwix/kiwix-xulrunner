@@ -20,26 +20,14 @@
 var MIN_VOCSPE_SIZE = 800;
 // Factor by which font is magnified by pressing ctrl+'+'
 var zoomFactor = 1.3;
-// Home url
-var homeUrl = "art/d/w.html";
 // Maximal number of search results returned
 var NB_SEARCH_RETURN = 25;
 // Score upon which the first search result is opened automatically
 var AUTO_OPEN_SCORE = 20;
 // List of past search queries
 var listHisto = new Array;
-// List of vocspe words
-var vocSpeList = new Array;
-// index in listVocSpe
-var iVocSpeList = 0;
-// Is the history side bar shown ?
-var isHistoAffich = false;
-// Is the search side bar shown ?
-var isSearchAffich = false;
 // Is the completion popup shown ?
 var popupIsOpen = false;
-// Absolute path to the html directory
-var rootPath;
 // does the completion popup have the focus ?
 var focusPopup=false;
 // structure for the find in page dialog
@@ -49,12 +37,251 @@ var bAutomaticSearch=true;
 var bNextAutomaticSearch=false;
 var bNoAutoOpen=false;
 
-function selectSkin( name ) {
+var searchEngines = new Array();
+var sidebars = [ "wk-blockResult", "wk-blockHistory", "wk-blockCorpuslist" ];
 
- if (confirm("To change the skin, the application has to be restarted. Shall I restart ?")) {
+function corpusgetactive() {
+	var cl = new CorpusList("corpora.xml");
+
+	return cl.getSelectedItem();
+}
+
+function corpussetactive(corpusname) {
+	var cl = new CorpusList("corpora.xml");
+
+	var idx = cl.getIndexByName(corpusname);
+
+	cl.setSelected(idx);
+	cl.save();
+
+	var corpus = cl.getItemAtIndex(idx);
+	var homepage = "zeno://" + corpus.getAttribute("root") + "/" + corpus.getAttribute("home").replace(/\+/g, "%2B");
+	getBrowser().setAttribute( "homepage", homepage);
+}
+
+function startInstall(i) {
+
+  var path = document.getElementById("iw-destination").value;
+
+  var savepath = document.getElementById("iw-save").checked;
+  if (savepath) {
+    var prefs = Components.classes["@mozilla.org/preferences-service;1"].
+      getService(Components.interfaces.nsIPrefBranch);
+
+    prefs.setCharPref("corpus.destination", path);
+  }
+
+  var mainWindow = window.QueryInterface(Components.interfaces.nsIInterfaceRequestor)
+    .getInterface(Components.interfaces.nsIWebNavigation)
+    .QueryInterface(Components.interfaces.nsIDocShellTreeItem)
+    .rootTreeItem
+    .QueryInterface(Components.interfaces.nsIInterfaceRequestor)
+    .getInterface(Components.interfaces.nsIDOMWindow);
+  var installer = mainWindow.installers[i];
+  installer.install(path);
+  installerWizard(i);
+}
+
+function cancelInstall(i) {
+  var mainWindow = window.QueryInterface(Components.interfaces.nsIInterfaceRequestor)
+    .getInterface(Components.interfaces.nsIWebNavigation)
+    .QueryInterface(Components.interfaces.nsIDocShellTreeItem)
+    .rootTreeItem
+    .QueryInterface(Components.interfaces.nsIInterfaceRequestor)
+    .getInterface(Components.interfaces.nsIDOMWindow);
+  var installer = mainWindow.installers[i];
+  installer.cancel();
+  document.getElementById('wk-deck').selectedIndex = 0;
+}
+
+function installerWizard(i) {
+
+  var mainWindow = window.QueryInterface(Components.interfaces.nsIInterfaceRequestor)
+    .getInterface(Components.interfaces.nsIWebNavigation)
+    .QueryInterface(Components.interfaces.nsIDocShellTreeItem)
+    .rootTreeItem
+    .QueryInterface(Components.interfaces.nsIInterfaceRequestor)
+    .getInterface(Components.interfaces.nsIDOMWindow);
+  var installer = mainWindow.installers[i];
+  var prefs = Components.classes["@mozilla.org/preferences-service;1"].
+    getService(Components.interfaces.nsIPrefBranch);
+
+  document.getElementById('wk-deck').selectedIndex = 1;
+  document.getElementById('iw-corpusname').value = installer.name;
+
+  var actions = document.getElementById('iw-actions');
+  while(actions.childNodes.length > 1) actions.removeChild(actions.lastChild);
+
+  var l10n = document.getElementById("wk-strings");
+
+  switch(installer.installState) {
+    case 1:
+      var cancel = document.createElement('button');
+      cancel.setAttribute("onclick", "cancelInstall(" + i + ")");
+      cancel.setAttribute("label", l10n.getString("kiwix.iw.cancel"));
+      cancel.setAttribute("icon", "cancel");
+      actions.appendChild(cancel);
+
+      document.getElementById('iw-pages').selectedIndex = 1;
+      break;
+    case 0:
+    default:
+      var start = document.createElement('button');
+      start.setAttribute("onclick", "startInstall(" + i + ")");
+      start.setAttribute("label", l10n.getString("kiwix.iw.install"));
+      start.setAttribute("icon", "apply");
+      actions.appendChild(start);
+
+      var cancel = document.createElement('button');
+      cancel.setAttribute("onclick", "cancelInstall(" + i + ")");
+      cancel.setAttribute("label", l10n.getString("kiwix.iw.cancel"));
+      cancel.setAttribute("icon", "cancel");
+      actions.appendChild(cancel);
+
+      var installpath = prefs.getCharPref("corpus.destination");
+      if (installpath == "") {
+        var file = Components.classes["@mozilla.org/file/directory_service;1"].
+          getService(Components.interfaces.nsIProperties).
+          get("Desk", Components.interfaces.nsIFile);
+
+        document.getElementById("iw-destination").value = file.path;
+      } else {
+        document.getElementById("iw-destination").value = installpath;
+      }
+
+      document.getElementById("iw-save").removeAttribute("checked");
+
+      document.getElementById('iw-pages').selectedIndex = 0;
+      break;
+  }
+}
+
+function corpusInstall(source) {
+  var richlistbox = document.getElementById("wk-corpuslist");
+
+  var mainWindow = window.QueryInterface(Components.interfaces.nsIInterfaceRequestor)
+    .getInterface(Components.interfaces.nsIWebNavigation)
+    .QueryInterface(Components.interfaces.nsIDocShellTreeItem)
+    .rootTreeItem
+    .QueryInterface(Components.interfaces.nsIInterfaceRequestor)
+    .getInterface(Components.interfaces.nsIDOMWindow);
+  var installer;
+  var i;
+  try {
+    installer = new CorpusInstaller(source);
+    i = mainWindow.installers.length - 1;
+    richlistbox.selectedItem = addListCorpusInstaller(i);
+  } catch(j) {
+    i = j;
+    installer = mainWindow.installers[j];
+    if (installer.installState == 2) {
+      var afteritem = richlistbox.lastChild;
+      var k = mainWindow.installers.length - 1;
+      while(k > i) {
+        if (mainWindow.installers[k].installState != 2) afteritem = mainWindow.installers[k].listitem;
+        k--;
+      }
+
+      richlistbox.insertBefore(installer.listitem, afteritem);
+
+      installer.installState = 0;
+    } 
+    richlistbox.selectedItem = installer.listitem;
+  }
+
+  affichCorpuslist();
+  installerWizard(i);
+}
+
+function removeCorpus() {
+
+  var mainWindow = window.QueryInterface(Components.interfaces.nsIInterfaceRequestor)
+    .getInterface(Components.interfaces.nsIWebNavigation)
+    .QueryInterface(Components.interfaces.nsIDocShellTreeItem)
+    .rootTreeItem
+    .QueryInterface(Components.interfaces.nsIInterfaceRequestor)
+    .getInterface(Components.interfaces.nsIDOMWindow);
+  var richlistbox = document.getElementById("wk-corpuslist");
+  var i = richlistbox.selectedIndex;
+  var n = richlistbox.itemCount;
+  var pos = new Array();
+  var k = 0;
+
+  for(var j = 0;j < mainWindow.installers.length;j++) {
+    if (mainWindow.installers[j].installState != 2) {
+      pos[k] = j;
+      k++;
+    }
+  }
+
+  if (i < (n - k)) {
+    var corpuslist = document.getElementById('wk-corpuslist');
+
+    var cl = new CorpusList("corpora.xml");
+    cl.remove(corpuslist.selectedIndex);
+    cl.save();
+
+    corpuslist.removeItemAt(corpuslist.selectedIndex);
+  } else {
+    cancelInstall(pos[(i + k) - n]);
+  }
+}
+
+function browseDest() {
+
+  var fp = Components.classes["@mozilla.org/filepicker;1"].
+    createInstance(Components.interfaces.nsIFilePicker);
+  var file = Components.classes['@mozilla.org/file/local;1'].
+    createInstance(Components.interfaces.nsILocalFile);
+  file.initWithPath(document.getElementById("iw-destination").value);
+
+  fp.init(window, "Choose installation directory", fp.modeOpen | fp.modeGetFolder);
+  fp.displayDirectory = file;
+  var ret = fp.show();
+  if (ret == fp.returnOK) {
+    document.getElementById("iw-destination").value = fp.file.path;
+  }
+}
+
+function getSearchEngine(corpus) {
+  var wikisearch = null;
+
+  if (typeof searchEngines[corpus.getAttribute("name")] == "undefined") {
+    if (typeof Components.classes["@linterweb.com/wikicomponent"] != "undefined") {
+      wikisearch = Components.classes["@linterweb.com/wikicomponent"].createInstance();
+      wikisearch = wikisearch.QueryInterface(Components.interfaces.iWikiSearch);
+    }
+
+    if (wikisearch == null) {
+      if (typeof Components.classes["@linterweb.com/minicomponent"] == "undefined") {
+        return null;
+      }
+      wikisearch = Components.classes["@linterweb.com/minicomponent"].createInstance();
+      wikisearch = wikisearch.QueryInterface(Components.interfaces.iMiniSearch);
+    }
+
+    var indexroot = corpus.getAttribute("indexroot");
+    if (! indexroot) indexroot = corpus.getAttribute("root");
+    wikisearch.init(indexroot);
+
+    searchEngines[corpus.getAttribute("name")] = wikisearch;
+  } else {
+    wikisearch = searchEngines[corpus.getAttribute("name")];
+  }
+
+  return wikisearch;
+}
+
+
+function selectSkin( name ) {
 
  var prefs = Components.classes["@mozilla.org/preferences-service;1"].
       getService(Components.interfaces.nsIPrefBranch);
+
+ if (name == prefs.getCharPref('general.skins.selectedSkin')) return;
+
+ if (confirm("To change the skin, the application has to be restarted. Shall I restart ?")) {
+
  prefs.setCharPref('general.skins.selectedSkin', name);
  document.getElementById("clipmenu").hidePopup();
  var window = document.getElementById("mybrowser");
@@ -71,40 +298,6 @@ function getBrowser() {
 
 const nsIWebProgress = Components.interfaces.nsIWebProgress;
 const nsIWebProgressListener = Components.interfaces.nsIWebProgressListener;
-
-function MouseOver(aEvent) {
-
-  var link = aEvent.target;
-
-  if (link instanceof HTMLAnchorElement) {
-
-    if (link.href.indexOf("http://",0)==0) {
-     document.getElementById("wk-addressbar").value = link.href;
-     setVisible('wk-earth', false);
-    }
-    if (link.href.indexOf("file://",0)==0) {
-     document.getElementById("wk-addressbar").value = link.innerHTML;
-     setVisible('wk-book', false);
-    }
-    if (link.href.indexOf("license://",0)==0) {
-     document.getElementById("wk-addressbar").value = 
-        "Full text of license : "+link.href.substring(10,link.href.length);
-     setVisible('wk-book', false);
-    }
-  }
-}
-
-function MouseOut(aEvent) {
-
-  var link = aEvent.target;
-
-  if (link instanceof HTMLAnchorElement) {
-
-    document.getElementById("wk-addressbar").value = "";
-    setVisible('wk-earth', true);
-    setVisible('wk-book', true);
-  }
-}
 
 function MouseScroll(aEvent) {
 
@@ -169,37 +362,27 @@ function Activate(aEvent)
 }
 
 function RemoveListener(aEvent) {
-  aEvent.target.ownerDocument.removeEventListener("mouseover", MouseOver, true);
   aEvent.target.ownerDocument.removeEventListener("DOMMouseScroll", Activate, true);
   aEvent.target.ownerDocument.removeEventListener("DOMActivate", Activate, true);
   aEvent.target.ownerDocument.removeEventListener("unload", RemoveListener, false);
 }
 
 const listener = {
-  
+ 
   onStateChange: function osc(aWP, aRequest, aStateFlags, aStatus) {
-
-    for ( var i = 0 ; i < iVocSpeList ; i++ ) {
-
-      var label = document.getElementById( "vocspelink_"+vocSpeList[i] );
-      label.setAttribute( "class", "vocspe-label" );
-    }
 
     if ( bNextAutomaticSearch && (aStateFlags & nsIWebProgressListener.STATE_STOP)) {
 
       bNextAutomaticSearch = false;
       document.getElementById("wk-recherche").value = getBrowser().contentTitle;
-      recherche();      
+      recherche();
     }
 
     if (aStateFlags & nsIWebProgressListener.STATE_STOP) {
       Components.utils.reportError("STATE_STOP");
       var myDocument = aWP.DOMWindow.document;
-      myDocument.addEventListener("mouseover", MouseOver, true);
-      myDocument.addEventListener("mouseout", MouseOut, true);
       myDocument.addEventListener("DOMMouseScroll", MouseScroll, true);
       myDocument.addEventListener("DOMActivate", Activate, true);
-      myDocument.addEventListener("onchange", Transition, true);
       myDocument.addEventListener("unload", RemoveListener, false);
     }
   },
@@ -219,9 +402,31 @@ const listener = {
 // listener for catching external links
 function initRoot() {
 
-  var root = Components.classes["@mozilla.org/file/directory_service;1"].getService(Components.interfaces.nsIProperties).get("resource:app", Components.interfaces.nsIFile);
-  root.append("html");
-  rootPath = root.path;
+  var prefs = Components.classes["@mozilla.org/preferences-service;1"].
+      getService(Components.interfaces.nsIPrefBranch);
+
+  var selectedSkin = prefs.getCharPref('general.skins.selectedSkin');
+  var skinmenu = document.getElementById("skinmenu");
+  var skins = Components.classes["@mozilla.org/file/directory_service;1"].getService(Components.interfaces.nsIProperties).get("AChrom", Components.interfaces.nsIFile);
+  skins.append("skin");
+  dump("skin dir = " + skins.path + "\n");
+  var skin_ls = skins.directoryEntries;
+  while(skin_ls.hasMoreElements()) {
+    var skin = skin_ls.getNext();
+    skin.QueryInterface(Components.interfaces.nsIFile);
+    var skintest = skin.clone();
+    skintest.append("interfacewiki.css");
+    if (skintest.exists()) {
+      var skinname = skin.path.substr(skins.path.length + 1);
+      var menuitem = document.createElement("menuitem");
+      menuitem.setAttribute("label", skinname);
+      menuitem.setAttribute("type", "radio");
+      if (skinname == selectedSkin) menuitem.setAttribute("checked", true);
+      menuitem.addEventListener("command", (function(s) { return function() { selectSkin(s); }; })(skinname), false);
+      skinmenu.appendChild(menuitem);
+    }
+  }
+
   var dls = Components.classes["@mozilla.org/docloaderservice;1"].
   getService(Components.interfaces.nsIWebProgress);
   dls.addProgressListener(listener,
@@ -233,24 +438,27 @@ function initRoot() {
   var corpus = corpusgetactive();
 
   var homepage;
-  if (corpus.getAttribute("format") == "html") {
-    homepage = "file://";
+  if (typeof corpus == "undefined") {
+    homepage = prefs.getCharPref("corpus.url");
   } else {
-    homepage = "zeno://";
+    if (corpus.getAttribute("format") == "html") {
+      homepage = "file://";
+    } else {
+      homepage = "zeno://";
+    }
+    homepage += corpus.getAttribute("root") + "/" + corpus.getAttribute("home").replace(/\+/g, "%2B");
   }
 
-  homepage += corpus.getAttribute("root") + "/" + corpus.getAttribute("home");
-
   getBrowser().setAttribute( "homepage", homepage);
-}
 
-// Rend visible ou invisible un block
-function visible(idVisible){
-	var objet = document.getElementById(idVisible);
-	if(objet.collapsed)
-		 setVisible(idVisible, false);
-	else
-		 setVisible(idVisible, true);
+  var mainWindow = window.QueryInterface(Components.interfaces.nsIInterfaceRequestor)
+    .getInterface(Components.interfaces.nsIWebNavigation)
+    .QueryInterface(Components.interfaces.nsIDocShellTreeItem)
+    .rootTreeItem
+    .QueryInterface(Components.interfaces.nsIInterfaceRequestor)
+    .getInterface(Components.interfaces.nsIDOMWindow);
+  mainWindow.document.addEventListener("KiwixEvent", function(e) { corpusInstall(e.target); }, false, true);
+  mainWindow.installers = new Array();
 }
 
 function setVisible(idVisible, booleanVisible){
@@ -295,24 +503,35 @@ function forward() {
 
 // Affiche une page dont l'url est transmise
 function goTo(url){
-	try{
-		var browser = document.getElementById("wk-browser");
+	document.getElementById('wk-deck').selectedIndex = 0;
 
-		var corpus = corpusgetactive();
+	try {
+		var browser = document.getElementById("wk-browser");
 		var uri;
-		if (corpus.getAttribute("format") == "html") {
-			uri = "file://";
+		var pos = url.indexOf("://", 0);
+
+		if (pos != -1) {
+			if (url.substr(0, pos) == "zeno") {
+				var pos2 = url.indexOf("/", pos + 3);
+				var corpusname = url.substring(pos + 3, pos2);
+				corpussetactive(corpusname);
+			}
+			uri = url;
 		} else {
-			uri = "zeno://";
+			var corpus = corpusgetactive();
+			if (corpus.getAttribute("format") == "html") {
+				uri = "file://";
+			} else {
+				uri = "zeno://";
+			}
+
+			uri += corpus.getAttribute("root") + "/" + url;
 		}
 
-		uri += corpus.getAttribute("root") + "/" + url;
-
-		//browser.loadURI("file://"+rootPath+'/'+url, null, null);
-		browser.loadURI(uri, null, null);
-	}catch(e){
-		ajouterErreur(e);
-		return false;
+		browser.loadURI(uri.replace(/\+/g, "%2B"), null, null);
+	} catch(e) {
+		//ajouterErreur(e);
+		//return false;
 		dump(e);
 	}
 }
@@ -320,32 +539,88 @@ function goTo(url){
 function openLicensePage(name) {
 
   var browser = document.getElementById("wk-browser");
-  browser.loadURI("chrome://interfacewiki/locale/licenses/"+name+"/index.html", null, null); 
+  browser.loadURI("chrome://interfacewiki/locale/licenses/"+name+"/index.html", null, null);
 }
 
 function deleteListHistory() {
 
  var desc = document.getElementById("wk-history");
- while ( desc.hasChildNodes() )        
+ while ( desc.hasChildNodes() )
    desc.removeChild( desc.lastChild );
 }
 
 // Efface le contenu de la liste
 function deleteList(){
 
-        iVocSpeList = 0;
-
-        var desc = document.getElementById("wk-vocspe1");
-        while ( desc.hasChildNodes() )        
-          desc.removeChild( desc.lastChild );
-
-        desc = document.getElementById("wk-vocspe2");
-        while ( desc.hasChildNodes() )        
-          desc.removeChild( desc.lastChild );
-
 	desc = document.getElementById("wk-resultat");
-        while ( desc.hasChildNodes() )        
+        while ( desc.hasChildNodes() )
           desc.removeChild( desc.lastChild );
+}
+
+function addListCorpusInstaller(i) {
+  var mainWindow = window.QueryInterface(Components.interfaces.nsIInterfaceRequestor)
+            .getInterface(Components.interfaces.nsIWebNavigation)
+            .QueryInterface(Components.interfaces.nsIDocShellTreeItem)
+            .rootTreeItem
+            .QueryInterface(Components.interfaces.nsIInterfaceRequestor)
+            .getInterface(Components.interfaces.nsIDOMWindow);
+  var corpus = mainWindow.installers[i];
+
+  if (corpus.installState == 2) return;
+
+  var richlistbox = document.getElementById("wk-corpuslist");
+
+  var stack = document.createElement("stack");
+  stack.setAttribute("flex", 1);
+
+  var progress = document.createElement("progressmeter");
+  progress.setAttribute("mode", "determined");
+  corpus.progress = progress;
+  stack.appendChild(progress);
+
+  var label = document.createElement("label");
+  label.setAttribute("value", corpus.name);
+  label.setAttribute("style", "background: transparent");
+  stack.appendChild(label);
+
+  var richlistitem = document.createElement("richlistitem");
+  richlistitem.appendChild(stack);
+  richlistitem.setAttribute("onclick", "javascript:installerWizard(" + i + ")");
+  
+  richlistbox.insertBefore(richlistitem, richlistbox.lastChild);
+
+  corpus.listitem = richlistitem;
+
+  return richlistitem;
+}
+
+function addListCorpus(title, action) {
+  var mainWindow = window.QueryInterface(Components.interfaces.nsIInterfaceRequestor)
+            .getInterface(Components.interfaces.nsIWebNavigation)
+            .QueryInterface(Components.interfaces.nsIDocShellTreeItem)
+            .rootTreeItem
+            .QueryInterface(Components.interfaces.nsIInterfaceRequestor)
+            .getInterface(Components.interfaces.nsIDOMWindow);
+
+  var richlistbox = document.getElementById("wk-corpuslist");
+
+  var label = document.createElement("label");
+  label.setAttribute("value", title);
+  
+  var richlistitem = document.createElement("richlistitem");
+  richlistitem.appendChild(label);
+  richlistitem.setAttribute("onclick", action);
+
+  var i = 0;
+  while((i < mainWindow.installers.length) && (mainWindow.installers[i].installState == 2)) i++;
+
+  if (i == mainWindow.installers.length) {
+    richlistbox.insertBefore(richlistitem, richlistbox.lastChild);
+  } else {
+    richlistbox.insertBefore(richlistitem, mainWindow.installers[i].listitem);
+  }
+
+  return richlistitem;
 }
 
 // Adds an entry in the history list (page is the title, chemin is the command to execute)
@@ -355,19 +630,29 @@ function addListHistory(page, chemin){
 
 	// create a new richlist item
 	var li = document.createElement("richlistitem");
-	
+
 	// set label of the richlist item
 	var titre = document.createElement("label");
-	titre.setAttribute("style", "color:#000; cursor:pointer; paddin-top: 3px; font-size: 15px;");
+	titre.setAttribute("style", "color:#000; cursor:pointer; font-size: 15px;");
 	titre.setAttribute("value", page);
 	titre.setAttribute("flex", "0");
-	titre.setAttribute("crop", "end");	
-	
+	titre.setAttribute("crop", "end");
+
 	li.setAttribute("onclick", chemin );
 	li.setAttribute("flex", "0");
 	li.setAttribute("style", "cursor:pointer;");
 
 	li.appendChild( titre );
+	l.appendChild( li );
+}
+
+function addBackground(list) {
+	// get the richlist
+	var l = document.getElementById(list);
+
+	// create a new richlist item
+	var li = document.createElement("richlistitem");
+	li.setAttribute("flex", "1");
 	l.appendChild( li );
 }
 
@@ -427,85 +712,106 @@ function addword( mot ) {
   recherche();
 }
 
-function searchword( mot ) {
+function isVisible( id ) {
 
-  var label = document.getElementById( "vocspelink_"+mot );
-  var finder = getBrowser().webBrowserFind;
-  finder.searchString = mot;
-  finder.wrapFind = true;
-  if ( ! finder.findNext() )
-    label.setAttribute( "class", "vocspe-label-greyed" );
-  else label.setAttribute( "class", "vocspe-label" );
+  return ! document.getElementById( id ).collapsed;
 }
 
-// adds the word <mot> in the list of related vocabulary
-function addVocSpe( mot ) {
+function collapseSidebars() {
 
-  vocSpeList[iVocSpeList++] = mot;
-  var desc1 = document.getElementById("wk-vocspe1");
-  var desc2 = document.getElementById("wk-vocspe2");
-  var entry = document.createElement( "hbox" );
-  var label = document.createElement( "label" );
-  label.setAttribute( "value", mot );
-  label.setAttribute( "onclick", "javascript:addword('"+mot+"');" );
-  label.setAttribute( "class", "vocspe-label" );
-
-  entry.appendChild( label );
-  var button = document.createElement( "label" );
-  button.setAttribute( "value", ">" );
-  button.setAttribute( "onclick", "javascript:searchword('"+mot+"');" );
-  button.setAttribute( "id", "vocspelink_"+mot );
-  button.setAttribute( "class", "vocspe-label" );
-  entry.appendChild( button );
-  if ( desc1.childNodes.length > desc2.childNodes.length ) 
-    desc2.appendChild(entry);
-  else desc1.appendChild(entry);
+  for(var i = 0;i < sidebars.length;i++) {
+    setVisible(sidebars[i], true);
+  }
 }
 
 // Affichage de l'historique des recherches
 function affichHisto(){
-	if(!isHistoAffich){
-		isHistoAffich = true;
-		isSearchAffich = false;
-		deleteListHistory();
-		setVisible('wk-blockResult', true);
-		setVisible('wk-blockHistory', false);
-		for(var cle in listHisto){
-			addListHistory(cle, listHisto[cle]);
-		}
-	}else{
-		isHistoAffich = false;
-		isSearchAffich = true;
-		setVisible('wk-blockResult', true);
-		setVisible('wk-blockHistory', true);
-	}
-   textfocus();
+
+  var visible = isVisible( 'wk-blockHistory' );
+  collapseSidebars();
+
+  if ( ! visible ){
+    deleteListHistory();
+    setVisible( 'wk-blockHistory', false );
+    for(var cle in listHisto){
+      addListHistory(cle, listHisto[cle]);
+    }
+    addBackground('wk-history');
+  }
+  textfocus();
 }
 
 // Show search result bar
 function affichSearch(){
 
-  if ( isSearchAffich )
-    setVisible('wk-blockResult', true);
-  else {
-    setVisible('wk-blockResult', false);
-    setVisible('wk-blockHistory', true);
-    isHistoAffich=false;
+  var visible = isVisible( 'wk-blockResult' );
+  collapseSidebars();
+
+  if ( ! visible ) {
+    setVisible( 'wk-blockResult', false );
   }
-  isSearchAffich = !isSearchAffich;
+  textfocus();
+}
+
+function affichCorpuslist() {
+
+  if ( isVisible( 'wk-blockCorpuslist' )) return;
+
+  collapseSidebars();
+  setVisible( 'wk-blockCorpuslist', false );
+
+  var richlistbox = document.getElementById("wk-corpuslist");
+  while(richlistbox.hasChildNodes()) richlistbox.removeChild(richlistbox.lastChild);
+
+  addBackground('wk-corpuslist');
+
+  // Corpus being installed
+  var mainWindow = window.QueryInterface(Components.interfaces.nsIInterfaceRequestor)
+            .getInterface(Components.interfaces.nsIWebNavigation)
+            .QueryInterface(Components.interfaces.nsIDocShellTreeItem)
+            .rootTreeItem
+            .QueryInterface(Components.interfaces.nsIInterfaceRequestor)
+            .getInterface(Components.interfaces.nsIDOMWindow);
+  for(var i = 0;i < mainWindow.installers.length;i++) {
+    if (mainWindow.installers[i].installState != 2) {
+      richlistbox.insertBefore(mainWindow.installers[i].listitem, richlistbox.lastChild);
+    }
+  }
+
+  var cl = new CorpusList("corpora.xml");
+  var dom = cl.dom;
+  
+  var c = dom.firstChild.childNodes;
+  var n = c.length;
+  for(var i = 0;i < n;i++) {
+    var corpus = c[i];
+    var scheme = "zeno://";
+    if (corpus.getAttribute("format") == "html") scheme = "file://";
+
+    addListCorpus(
+      corpus.getAttribute("name"),
+      "javascript:goTo('" + scheme + corpus.getAttribute("root") + "/" +
+        corpus.getAttribute("home").replace(/\+/g, "%2B") + "');");
+  }
+
+  richlistbox.selectedIndex = cl.getSelected();
+
+  setVisible( 'wk-blockCorpuslist', false );
   textfocus();
 }
 
 // close search result bar
 function closeSearch(){
-	isSearchAffich = false;
 	setVisible('wk-blockResult', true);
 }
 
 // close history bar
 function closeHistory(){
-	isHistoAffich = false;
 	setVisible('wk-blockHistory', true);
+}
+
+function closeCorpuslist() {
+	setVisible('wk-blockCorpuslist', true);
 }
 
 // do a search query on word <mot>, put it in the text search bar
@@ -519,16 +825,16 @@ function rechercheHistory(mot){
 function recherche(){
   searchPopupClose();
   var mot = document.getElementById("wk-recherche").value;
-//  mot = mot.toLowerCase();
-	
+
   deleteList();
-  rechercheXpcom(mot);
+  var searchok = rechercheXpcom(mot);
+  if (! searchok) return false;
   listHisto[mot] = "javascript:rechercheHistory('"+mot+"');";
-  isHistoAffich = false;
+
+  if (isVisible('wk-blockResult')) return true;
+
+  collapseSidebars();
   setVisible('wk-blockResult', false);
-  setVisible('wk-blockHistory', true);
-  document.getElementById("wk-labelSearchHistory").value = "Results";
-  isHistoAffich = false;
   return true;
 }
 
@@ -586,12 +892,12 @@ function searchInput(){
   var textbox = document.getElementById("wk-recherche");
   var text = textbox.value;
   var word = text.substring(text.lastIndexOf(' ', text.length)+1, text.length);
-  var wikisearch = Components.classes["@linterweb.com/wikicomponent"].getService();
-  wikisearch = wikisearch.QueryInterface(Components.interfaces.iWikiSearch);
+
   var corpus = corpusgetactive();
-  var indexroot = corpus.getAttribute("indexroot");
-  if (! indexroot) indexroot = corpus.getAttribute("root");
-  wikisearch.init(indexroot);
+
+  var wikisearch = getSearchEngine(corpus);
+  if (wikisearch == null) return;
+
   var nCompl = wikisearch.completionStart(word);
   if ( nCompl < 1 ) {
    searchPopupClose();
@@ -672,6 +978,7 @@ function selectall() {
 function gohome() {
 
   getBrowser().goHome();
+  affichCorpuslist();
 }
 
 function openexternal() {
@@ -697,7 +1004,7 @@ function ajouterErreur(e){
 }
 
 function afficher(a){
-	alert(a);
+	//alert(a);
 }
 
 function openlinterweb() {
@@ -708,6 +1015,16 @@ function openlinterweb() {
   var ioService = Components.classes["@mozilla.org/network/io-service;1"].
                   getService(Components.interfaces.nsIIOService);
   extps.loadUrl(ioService.newURI("http://www.linterweb.fr/", null, null) );
+}
+
+function openwikiwix() {
+
+  var extps = Components.
+  classes["@mozilla.org/uriloader/external-protocol-service;1"].
+  getService(Components.interfaces.nsIExternalProtocolService);
+  var ioService = Components.classes["@mozilla.org/network/io-service;1"].
+  getService(Components.interfaces.nsIIOService);
+  extps.loadUrl(ioService.newURI("http://www.wikiwix.com/", null, null) );
 }
 
 function openwikipedia() {
@@ -730,16 +1047,17 @@ function setbrowser() {
    prefs.setCharPref("network.protocol-handler.app.http", newname );
 }
 
-
 function setautomatic() {
- 
+
   bAutomaticSearch = ! bAutomaticSearch;
 }
 
 function checkautomatic() {
 
+  var l10n = document.getElementById("wk-strings");
+
   item = document.getElementById( "itemautomatic" );
-  if ( bAutomaticSearch ) 
-    item.setAttribute( "label", "Disable automatic search (by clicking on links)" );
-  else item.setAttribute( "label", "Enable automatic search (by clicking on links)" );
+  if ( bAutomaticSearch )
+    item.setAttribute( "label", l10n.getString("kiwix.wk.autosearchenabled"));
+  else item.setAttribute( "label", l10n.getString("kiwix.wk.autosearchdisabled"));
 }

@@ -20,12 +20,10 @@ function rechercheXpcom(motR){
 
 	var resCount;
 	var result0;
-	var wikisearch = Components.classes["@linterweb.com/wikicomponent"].getService();
-	wikisearch = wikisearch.QueryInterface(Components.interfaces.iWikiSearch);
 	var corpus = corpusgetactive();
-	var indexroot = corpus.getAttribute("indexroot");
-	if (! indexroot) indexroot = corpus.getAttribute("root");
-	wikisearch.init(indexroot);
+	var wikisearch = getSearchEngine(corpus);
+	if (wikisearch == null) return false;
+
 	resCount = wikisearch.search(motR);
         if ( resCount > NB_SEARCH_RETURN ) resCount = NB_SEARCH_RETURN;
         if ( resCount == 0 ) setVisible( "wk-noresult", false );
@@ -39,16 +37,6 @@ function rechercheXpcom(motR){
          var chemin = "javascript:goTo('"+wikisearch.getResult(i)+"')";
 	 addList(page, chemin, score );
         }
-        var j = 0;
-        for ( var i = 0 ; (i < 25) && (j < 8); i++ ) {
-
-          var word = wikisearch.getVocSpe(i);
-          if (( word.length > 5 )
-             &&(document.getElementById("wk-recherche").value.indexOf(word,0))==-1) {
-            addVocSpe( word );
-            j++;
-          }
-        } 
+        addBackground('wk-resultat');
 	return true;
 }
-
