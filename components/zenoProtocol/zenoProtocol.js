@@ -100,13 +100,12 @@ function zenoch_respond (str)
     		createInstance(Components.interfaces.nsIStorageStream);
     var binaryStream = Components.classes["@mozilla.org/binaryoutputstream;1"].
                 createInstance(Components.interfaces.nsIBinaryOutputStream);
-    storageStream.init(512, 65536, null);
+    storageStream.init(512, this.contentLength, null);
     binaryStream.setOutputStream(storageStream);
     binaryStream.writeBytes(str, this.contentLength);
     this.stringStream = storageStream.newInputStream(0);
 
     this.streamListener.onStartRequest (this, this.context);
-
     this.streamListener.onDataAvailable (this, this.context, this.stringStream, 0, this.contentLength);
     this.streamListener.onStopRequest (this, this.context, Components.results.NS_OK);
 
@@ -129,6 +128,7 @@ ZenoProtocolHandler.prototype.allowPort = function zeno_allowport (aPort, aSchem
 ZenoProtocolHandler.prototype.newURI =
 function zeno_newuri (spec, charset, baseURI)
 {
+
 	//L.info("asking newURI ("+spec.toString()+")");
     var uri = Components.classes["@mozilla.org/network/simple-uri;1"]
     		 .createInstance (Components.interfaces.nsIURI);
@@ -148,6 +148,7 @@ function zeno_newuri (spec, charset, baseURI)
 	        uri.spec = spec;
             }
 	} 
+    uri.spec = uri.spec.replace(/\+/g, "%2B");
     return uri;
 }
 
