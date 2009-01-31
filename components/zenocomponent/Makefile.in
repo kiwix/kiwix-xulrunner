@@ -1,4 +1,4 @@
-CXX = @CXX@
+CXX                = @CXX@
 CPPFLAGS           = @CPPFLAGS@
 CXXFLAGS           = @CXXFLAGS@
 LDFLAGS            = @LDFLAGS@
@@ -7,7 +7,7 @@ GECKO_DEFINES      = @GECKO_DEFINES@
 GECKO_IDL_INCLUDES = @GECKO_IDL_INCLUDES@
 GECKO_INCLUDES     = @GECKO_INCLUDES@
 GECKO_LDFLAGS      = @GECKO_LDFLAGS@
-XPIDL=@XPIDL@
+XPIDL              = @XPIDL@
 
 all: IZeno.@LIBEXT@ IZeno.xpt
 
@@ -24,4 +24,4 @@ IZeno.@LIBEXT@: zenocomponent.cpp IZeno.h
 	chmod +x IZeno.@LIBEXT@
 
 clean:
-	rm -f *.o *.xpt *.@LIBEXT@ test
+	rm -f *.o *.~ *.xpt *.@LIBEXT@ test
