@@ -1,1 +1,1 @@
-../../components/zenoProtocol.js
+../../components/zenoProtocol/zenoProtocol.js
