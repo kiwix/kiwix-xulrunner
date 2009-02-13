@@ -1,0 +1,28 @@
+CXX                = @CXX@
+CPPFLAGS           = @CPPFLAGS@
+CXXFLAGS           = @CXXFLAGS@
+LDFLAGS            = @LDFLAGS@
+
+GECKO_DEFINES      = @GECKO_DEFINES@
+GECKO_IDL_INCLUDES = @GECKO_IDL_INCLUDES@
+GECKO_INCLUDES     = @GECKO_INCLUDES@
+GECKO_LDFLAGS      = @GECKO_LDFLAGS@
+XPIDL              = @XPIDL@
+
+all: xapianAccessor.@LIBEXT@ xapianAccessor.xpt
+
+xapianAccessor.h: IXapianAccessor.idl
+	$(XPIDL) -m header $(GECKO_IDL_INCLUDES) IXapianAccessor.idl
+
+xapianAccessor.xpt: IXapianAccessor.idl
+	$(XPIDL) -m typelib $(GECKO_IDL_INCLUDES) IXapianAccessor.idl
+	mv IXapianAccessor.xpt xapianAccessor.xpt
+
+xapianAccessor.@LIBEXT@: xapianAccessor.cpp IXapianAccessor.h
+	$(CXX) -o xapianAccessor.@LIBEXT@ $(GECKO_DEFINES) $(GECKO_INCLUDES) \
+		$(CPPFLAGS) $(CXXFLAGS) xapianAccessor.cpp @LIBS@ \
+		$(LDFLAGS) $(GECKO_LDFLAGS)
+	chmod +x xapianAccessor.@LIBEXT@
+
+clean:
+	rm -f *.o *~ *.xpt *.@LIBEXT@
