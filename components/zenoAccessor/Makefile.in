@@ -11,7 +11,7 @@ XPIDL              = @XPIDL@
 
 all: zenoAccessor.@LIBEXT@ zenoAccessor.xpt
 
-zenoAccessor.h: IZenoAccessor.idl
+IZenoAccessor.h: IZenoAccessor.idl
 	$(XPIDL) -m header $(GECKO_IDL_INCLUDES) IZenoAccessor.idl
 
 zenoAccessor.xpt: IZenoAccessor.idl
