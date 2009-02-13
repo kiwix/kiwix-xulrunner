@@ -1,5 +1,5 @@
 # initialisation
-AC_INIT(zenocomponent, 0.1, kelson@kiwix.org)
+AC_INIT(zenoAccessor, 0.1, kelson@kiwix.org)
 
 # Determine a C compiler to use
 AC_PROG_CC
