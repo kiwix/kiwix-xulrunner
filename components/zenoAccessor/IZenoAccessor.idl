@@ -7,5 +7,6 @@ interface nsACString;
 interface IZenoAccessor : nsISupports
 {
   ACString loadFile(in string path);
+  boolean getNextArticle(out string url, out string content);
   ACString getContent(in nsIURI url, out string contentType);
 };

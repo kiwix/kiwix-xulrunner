@@ -16,7 +16,11 @@
 
 #include <zeno/file.h>
 #include <zeno/article.h>
-  
+
+#include <string>
+
+using namespace std;
+
 class ZenoAccessor : public IZenoAccessor {
 
 public:
@@ -30,6 +34,9 @@ private:
 
 protected:
   zeno::File* zenoFileHandler;
+  zeno::size_type firstArticleOffset;
+  zeno::size_type lastArticleOffset;
+  zeno::size_type currentArticleOffset;
 };
 
 /* Implementation file */
@@ -51,6 +58,45 @@ ZenoAccessor::~ZenoAccessor() {
 NS_IMETHODIMP ZenoAccessor::LoadFile(const char *path, nsACString &_retval) {
   try {    
     this->zenoFileHandler = new zeno::File(path);
+
+    if (this->zenoFileHandler != NULL) {
+      this->firstArticleOffset = this->zenoFileHandler->getNamespaceBeginOffset('0');
+      this->lastArticleOffset = this->zenoFileHandler->getNamespaceEndOffset('0');
+      this->currentArticleOffset = this->firstArticleOffset;
+    }
+  }
+  catch(...) { }
+}
+
+/* List articles for a namespace */
+NS_IMETHODIMP ZenoAccessor::GetNextArticle(char **url, char **content, PRBool *retVal) {
+  try {
+    zeno::Article currentArticle;
+    
+    /* get next non redirect article */
+    do {
+      currentArticle = this->zenoFileHandler->getArticle(this->currentArticleOffset);
+    } while (currentArticle.getRedirectFlag() && 
+	     this->currentArticleOffset != this->lastArticleOffset && 
+	     this->currentArticleOffset++);
+    
+    /* returned values*/
+    string urlStr = currentArticle.getUrl().getValue();
+    *url = (char*) NS_Alloc(urlStr.length()+1);
+    strcpy(*url, urlStr.c_str());
+
+    string contentStr = currentArticle.getData();
+    *content = (char*) NS_Alloc(contentStr.length()+1);
+    strcpy(*content, contentStr.c_str());
+
+    /* increment the offset and set returned value */
+    if (this->currentArticleOffset != this->lastArticleOffset) {
+      this->currentArticleOffset++;
+      *retVal = PR_TRUE;
+    } else {
+      this->currentArticleOffset = this->firstArticleOffset;
+      *retVal = PR_FALSE;
+    }
   }
   catch(...) { }
 }
