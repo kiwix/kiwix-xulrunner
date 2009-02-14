@@ -1,5 +1,5 @@
 # initialisation
-AC_INIT(zenocomponent, 0.1, kelson@kiwix.org)
+AC_INIT(xapianAccessor, 0.1, kelson@kiwix.org)
 
 # Determine a C compiler to use
 AC_PROG_CC
@@ -98,27 +98,13 @@ AC_SUBST(LIBEXT)
 # Set current language to C++
 AC_LANG(C++)
 
-# Check if zenolib is installed
-AC_CHECK_LIB([zeno], [main], [
-	case $build in
-		*darwin*)
-			LIBS="-lzeno -lz -lbz2 $LIBS"
-			;;
-		*)
-
-			;;
-	esac
-], [
-	AC_MSG_ERROR([zeno not found])
-])
-
 # Check if xapian is installed
 AC_PATH_PROG(XAPIAN_CONFIG, xapian-config, no)
 if test "$XAPIAN_CONFIG" = "no" ; then
    AC_MSG_ERROR([Cannot find xapian-config command in $PATH.])
    exit 1
 else
-	LIBS=" -lxapian $LIBS"
+	LIBS=" -Wl,-Bstatic -Wl,-Bdynamic -lxapian $LIBS"
 fi
 
 AC_CONFIG_FILES([

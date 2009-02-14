@@ -11,7 +11,7 @@ XPIDL              = @XPIDL@
 
 all: xapianAccessor.@LIBEXT@ xapianAccessor.xpt
 
-xapianAccessor.h: IXapianAccessor.idl
+IXapianAccessor.h: IXapianAccessor.idl
 	$(XPIDL) -m header $(GECKO_IDL_INCLUDES) IXapianAccessor.idl
 
 xapianAccessor.xpt: IXapianAccessor.idl
@@ -19,8 +19,8 @@ xapianAccessor.xpt: IXapianAccessor.idl
 	mv IXapianAccessor.xpt xapianAccessor.xpt
 
 xapianAccessor.@LIBEXT@: xapianAccessor.cpp IXapianAccessor.h
-	$(CXX) -o xapianAccessor.@LIBEXT@ $(GECKO_DEFINES) $(GECKO_INCLUDES) \
-		$(CPPFLAGS) $(CXXFLAGS) xapianAccessor.cpp @LIBS@ \
+	$(CXX) -I./ -o xapianAccessor.@LIBEXT@ $(GECKO_DEFINES) $(GECKO_INCLUDES) \
+		$(CPPFLAGS) $(CXXFLAGS) xapianAccessor.cpp xapian/htmlparse.cc xapian/myhtmlparse.cc @LIBS@ \
 		$(LDFLAGS) $(GECKO_LDFLAGS)
 	chmod +x xapianAccessor.@LIBEXT@
 

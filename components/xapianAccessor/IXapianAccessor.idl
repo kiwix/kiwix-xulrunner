@@ -6,5 +6,7 @@ interface nsACString;
 [scriptable, uuid(9EF75262-FA0D-11DD-A24C-006455D89593)]
 interface IXapianAccessor : nsISupports
 {
-  ACString createDb(in string zenoFilePath, in string xapianDirectoryPath);
+  boolean openDatabase(in string xapianDirectoryPath);
+  boolean closeDatabase();
+  boolean addArticleToDatabase(in string url, in string content);
 };
