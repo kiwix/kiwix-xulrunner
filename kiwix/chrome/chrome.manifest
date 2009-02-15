@@ -1,7 +1,12 @@
-content interfacewiki content/interfacewiki/
-locale interfacewiki en-US locale/en-US/interfacewiki/
-locale interfacewiki fr-FR locale/fr-FR/interfacewiki/
-skin interfacewiki classicBlue skin/classicBlue/
-skin interfacewiki kiwix0.7 skin/kiwix0.7/
-content branding branding/
-locale branding en-US locale/branding/
+#content packagename uri/to/files/ [flags]
+content main content/main/
+content branding content/branding/
+
+#locale packagename localename uri/to/files/ [flags]
+locale main en-US locale/en-US/main/
+locale main fr-FR locale/fr-FR/main/
+locale branding en-US locale/en-US/branding/
+locale branding fr-FR locale/fr-FR/branding/
+
+#skin packagename skinname uri/to/files/ [flags]
+skin main default skin/default/
