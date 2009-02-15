@@ -20,7 +20,7 @@ xapianAccessor.xpt: IXapianAccessor.idl
 
 xapianAccessor.@LIBEXT@: xapianAccessor.cpp IXapianAccessor.h
 	$(CXX) -I./ -o xapianAccessor.@LIBEXT@ $(GECKO_DEFINES) $(GECKO_INCLUDES) \
-		$(CPPFLAGS) $(CXXFLAGS) xapianAccessor.cpp xapian/htmlparse.cc xapian/myhtmlparse.cc @LIBS@ \
+		$(CPPFLAGS) $(CXXFLAGS) splitString.cpp xapianAccessor.cpp xapian/htmlparse.cc xapian/myhtmlparse.cc @LIBS@ \
 		$(LDFLAGS) $(GECKO_LDFLAGS)
 	chmod +x xapianAccessor.@LIBEXT@
 

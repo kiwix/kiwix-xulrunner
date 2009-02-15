@@ -3,7 +3,7 @@
 #include "IXapianAccessor.h"
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
+#include <string>
 
 #include "nsXPCOM.h"
 #include "nsEmbedString.h"
@@ -21,6 +21,8 @@
 #include <xapian.h>
 #include <xapian/myhtmlparse.h>
 
+#include "splitString.h"
+
 using namespace std;
 
 class XapianAccessor : public IXapianAccessor {
@@ -35,7 +37,8 @@ private:
   ~XapianAccessor();
 
   MyHtmlParser htmlParser;
-  Xapian::WritableDatabase database;
+  Xapian::WritableDatabase writableDatabase;
+  Xapian::Database readableDatabase;
   Xapian::Stem stemmer;
   Xapian::TermGenerator indexer;
 };
@@ -50,23 +53,40 @@ XapianAccessor::XapianAccessor() {}
 XapianAccessor::~XapianAccessor() {
 }
 
-/* Open Xapian database */
-NS_IMETHODIMP XapianAccessor::OpenDatabase(const char* directory, PRBool *retVal) {
+/* Open Xapian writable database */
+NS_IMETHODIMP XapianAccessor::OpenWritableDatabase(const char* directory, PRBool *retVal) {
+  *retVal = PR_TRUE;
+
   try {
-    this->database = Xapian::WritableDatabase(directory, Xapian::DB_CREATE_OR_OVERWRITE);
+      this->writableDatabase = Xapian::WritableDatabase(directory, Xapian::DB_CREATE_OR_OVERWRITE);
+  } catch (...) {
+    *retVal = PR_FALSE;
+  }
+}
+
+/* Close Xapian writable database */
+NS_IMETHODIMP XapianAccessor::CloseWritableDatabase(PRBool *retVal) {
+  try {
+    this->writableDatabase.flush();
   } catch(...) {
   }
 
   *retVal = PR_TRUE;
 }
 
-/* Open Xapian database */
-NS_IMETHODIMP XapianAccessor::CloseDatabase( PRBool *retVal) {
-  try {
-    this->database.flush();
-  } catch(...) {
-  }
+/* Open Xapian readbale database */
+NS_IMETHODIMP XapianAccessor::OpenReadableDatabase(const char* directory, PRBool *retVal) {
+  *retVal = PR_TRUE;
 
+  try {
+    this->readableDatabase = Xapian::Database(directory);
+  } catch (...) {
+    *retVal = PR_FALSE;
+  }
+}
+
+/* Close Xapian writable database */
+NS_IMETHODIMP XapianAccessor::CloseReadableDatabase(PRBool *retVal) {
   *retVal = PR_TRUE;
 }
 
@@ -78,34 +98,59 @@ NS_IMETHODIMP XapianAccessor::AddArticleToDatabase(const char *url, const char *
     this->htmlParser.parse_html(content, "UTF-8", true);
   } catch(...) {
   }
-
-  /*
-  std::cout << "Title:" << this->htmlParser.title << "\n";
-  std::cout << "Keywords:" << this->htmlParser.keywords << "\n";
-  std::cout << "Dump:" << this->htmlParser.dump << "\n";
-  std::cout << "Sample:" << this->htmlParser.sample << "\n";
-  */
-
-  // Put the data in the document
+  
+  /* Put the data in the document */
   Xapian::Document document;
   document.set_data(this->htmlParser.title);
   
-  // Index the title
+  /* Index the title */
   indexer.set_document(document);
   if (!this->htmlParser.title.empty()) {
     indexer.index_text(this->htmlParser.title, 2);
     indexer.increase_termpos(100);
   }
   
-  // Index the content
+  /* Index the content */
   if (!this->htmlParser.dump.empty()) {
     indexer.index_text(this->htmlParser.dump);
   }
-
-  // add to the database
-  this->database.add_document(document);
-
+  
+  /* add to the database */
+  this->writableDatabase.add_document(document);
+  
   *retVal = PR_TRUE;
+}
+
+/* Search strings in the database */
+NS_IMETHODIMP XapianAccessor::Search(const char *search, PRBool *retVal) {
+
+  /* Create the enquire object */
+  Xapian::Enquire enquire(this->readableDatabase);
+  
+  /* Create the query term vector */
+  std::vector<std::string> queryTerms = split(search, " ");
+
+  /* Create query object */
+  Xapian::Query query(Xapian::Query::OP_OR, queryTerms.begin(), queryTerms.end());
+
+  /* Set the query in the enquire object */
+  enquire.set_query(query);
+
+  cout << "Performing query `" <<
+         query.get_description() << "'" << endl;
+
+  
+  /* Get the results */
+  Xapian::MSet matches = enquire.get_mset(0, 10);
+
+  Xapian::MSetIterator i;
+  for (i = matches.begin(); i != matches.end(); ++i) {
+    cout << "Document ID " << *i << "\t";
+    cout << i.get_percent() << "% ";
+    Xapian::Document doc = i.get_document();
+    cout << "[" << doc.get_data() << "]" << endl;
+  }
+
 }
 
 NS_GENERIC_FACTORY_CONSTRUCTOR(XapianAccessor)

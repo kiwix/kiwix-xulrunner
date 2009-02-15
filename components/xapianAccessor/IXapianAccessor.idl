@@ -6,7 +6,12 @@ interface nsACString;
 [scriptable, uuid(9EF75262-FA0D-11DD-A24C-006455D89593)]
 interface IXapianAccessor : nsISupports
 {
-  boolean openDatabase(in string xapianDirectoryPath);
-  boolean closeDatabase();
+  boolean openWritableDatabase(in string xapianDirectoryPath);
+  boolean closeWritableDatabase();
+
+  boolean openReadableDatabase(in string xapianDirectoryPath);
+  boolean closeReadableDatabase();
+
   boolean addArticleToDatabase(in string url, in string content);
+  boolean search(in string search);
 };
