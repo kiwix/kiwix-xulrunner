@@ -18,3 +18,8 @@ pref("app.update.nagTimer.restart", 1800);
 pref("app.update.timer", 600000);
 pref("app.update.showInstalledUI", true);
 pref("app.update.incompatible.mode", 0);
+
+pref("javascript.options.showInConsole", true);
+pref("browser.dom.window.dump.enabled", true);
+//pref("javascript.options.strict", true);
+pref("extensions.logging.enabled", true);
