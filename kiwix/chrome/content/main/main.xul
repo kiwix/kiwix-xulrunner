@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<?xml-stylesheet href="chrome://main/content/default.css" type="text/css"?>
+<?xml-stylesheet href="chrome://main/skin/main.css" type="text/css"?>
+<!DOCTYPE window [
+<!ENTITY % wikiDTD SYSTEM "chrome://main/locale/main.dtd">
+%wikiDTD;
+<!ENTITY % findBarDTD SYSTEM "chrome://global/locale/findbar.dtd" >
+%findBarDTD;
+]>
+<window	xmlns:html="http://www.w3.org/1999/xhtml" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+	id      = "main"
+	title   = "&main.title;"
+	width   = "800"
+	height  = "600"
+	screenX = "10"
+	screenY = "10"
+        context = "clipmenu"
+	onload  = "initRoot(); gohome();">
+
+<script LANGUAGE="JavaScript" type="text/javascript" src="js/main.js"/>
+<script LANGUAGE="JavaScript" type="text/javascript" src="js/search.js"/>
+<script type="application/x-javascript" src="chrome://global/content/printUtils.js"/>
+<script type="application/x-javascript" src="chrome://global/content/findUtils.js"/>
+<script type="application/x-javascript" src="js/corpus.js"/>
+
+<keyset>
+	<key id="paste-key" keycode="VK_ENTER" oncommand="enter()"/>
+	<key id="paste-key" keycode="VK_RETURN" oncommand="enter()"/>
+	<key id="copy-key" key="C" modifiers="control" oncommand="copy()"/>
+	<key id="find-key" key="F" modifiers="control" oncommand="findin()"/>
+	<key id="home-key" key="H" modifiers="control" oncommand="gohome()"/>
+	<key id="search-key" key="L" modifiers="control" oncommand="textfocus()"/>
+	<key id="search-key" key="K" modifiers="control" oncommand="textfocus()"/>
+	<key id="zoomin-key" key="+" modifiers="control" oncommand="zoomin()"/>
+	<key id="zoomout-key" key="-" modifiers="control" oncommand="zoomout()"/>
+	<key id="esc-key" keycode="VK_ESCAPE" oncommand="searchPopupClose();"/>
+	<key id="selectall-key" key="A" modifiers="control" oncommand="selectall();"/>
+</keyset>
+
+<popup id="wk-searchpopup" ignorekeys="true">
+	<listbox id="wk-searchpopuplist">
+		<listitem id="wk-searchpopuplistI0"/> 
+		<listitem id="wk-searchpopuplistI1"/> 
+		<listitem id="wk-searchpopuplistI2"/> 
+		<listitem id="wk-searchpopuplistI3"/> 
+		<listitem id="wk-searchpopuplistI4"/> 
+		<listitem id="wk-searchpopuplistI5"/> 
+		<listitem id="wk-searchpopuplistI6"/> 
+		<listitem id="wk-searchpopuplistI7"/> 
+		<listitem id="wk-searchpopuplistI8"/> 
+		<listitem id="wk-searchpopuplistI9"/> 
+		<listitem id="wk-searchpopuplistI10"/> 
+		<listitem id="wk-searchpopuplistI11"/> 
+	</listbox>
+</popup>
+
+<popupset>
+	<menupopup id="clipmenu">
+		<menuitem label="Copy" accesskey="C" key="copy-key" oncommand="copy();"/>
+		<menuitem label="Select All" accesskey="A" key="selectall-key" oncommand="selectall();"/>
+		<menuitem label="Find..." accesskey="F" key="find-key" oncommand="findin();"/>
+		<menuseparator/>
+		<menuitem label="Home" accesskey="H" key="home-key" oncommand="gohome();"/>
+		<menuitem label="Open in external browser" accesskey="E" key="external-key" oncommand="openexternal();"/>
+		<menuseparator/>
+                <menu label="Select skins">
+                <menupopup id="skinmenu">
+                   <menuitem label="Ocean Blue" oncommand="selectSkin('oceanBlue');"/>
+                   <menuitem label="Classic Blue" oncommand="selectSkin('classicBlue');"/>
+                   <menuitem label="Toon" oncommand="selectSkin('toon');"/>
+                   <menuitem label="Explorer" oncommand="selectSkin('explorer');"/>
+                </menupopup>
+                </menu>
+                <menu label="Zoom">
+                <menupopup id="zoommenu">
+                   <menuitem label="Zoom in" key="zoomin-key" oncommand="zoomin();"/>
+                   <menuitem label="Zoom out" key="zoomout-key" oncommand="zoomout();"/>
+                </menupopup>
+                </menu>
+                <menu label="Settings" >
+                <menupopup id="settingsmenu" onpopupshown="checkautomatic();">
+ 		   <menuitem label="Configure external browser" oncommand="setbrowser();"/>
+ 		   <menuitem id="itemautomatic" label="Automatic search (by clicking on links)" oncommand="setautomatic();"/>
+                   <menuitem label="Manage corpus" oncommand="window.open('chrome://interfacewiki/content/corpus.xul',
+				'Corpus', 'chrome,width=800,height=400');" />
+                </menupopup>
+                </menu>
+	</menupopup>
+</popupset>
+
+<hbox id="wk-buttontopbox">
+  <image id="wk-precedent" onclick="back();" tooltiptext="&main.back;"/>
+  <image id="wk-suivant" onclick="forward();" tooltiptext="&main.forward;"/>
+  <image id="wk-home" onclick="gohome();" tooltiptext="&main.home;"/>
+  <image id="wk-search"	onclick="affichSearch();" tooltiptext="&main.showSearch;"/>
+  <image id="wk-favorit"	onclick="affichHisto();" tooltiptext="&main.showHisto;"/>
+  <image id="wk-print"	onclick="print()" tooltiptext="&main.print;"/>
+  <spacer flex="1" />
+  <image id="wk-imageWikipedia" onclick="openwikipedia();"/>
+</hbox>
+
+<grid id="wk-gridApplication" flex="1">
+  <columns>
+    <column/>
+    <column flex="1"/>
+    <column/>
+  </columns>
+  <rows>	
+		<row flex="1">
+			<image id="wk-imageMilieuGauche"/>	
+			<hbox flex="1">
+				<vbox id="wk-blockResult" collapsed="true">
+					<hbox flex="0" class="sidebar-title">
+						<label flex="1" class="lab-titre" value="Related vocabulary"/>
+						<image flex="0" class="img-close" onclick="closeSearch()"/> 
+					</hbox>
+					<hbox>
+						<vbox id="wk-vocspe1" style="font-size:smaller; color:#024;"/>
+						<vbox id="wk-vocspe2" style="font-size:smaller; color:#024;"/>
+					</hbox>
+					<hbox class="sidebar-title">
+						<label flex="1" class="lab-titre" value="Results"/>
+						<image class="img-close" onclick="closeSearch()" style="display:none;"/> 
+					</hbox>
+                                        <label value="No results" collapsed="TRUE" id="wk-noresult"/>
+					<richlistbox flex="1" id="wk-resultat"/>
+				</vbox>
+				<vbox id="wk-blockHistory" collapsed="true">
+					<hbox class="sidebar-title">
+						<label flex="1" class="lab-titre" value="History"/>
+						<image class="img-close" onclick="closeHistory()"/> 
+					</hbox>
+					<richlistbox flex="1" id="wk-history"/>
+				</vbox>
+				<vbox flex="1">
+					<hbox id="wk-blockSearch">
+						<description id="wk-descriptionSearch" value="Search"/>
+						<textbox id="wk-recherche" flex="1" oninput="searchInput();" onkeydown="textkeydown(event);" tooltiptext="&main.searchBar;"/>
+						<image id="wk-search-button" onclick="recherche();" tooltiptext="&main.searchButton;"/>
+						<image id="wk-searchin-button" onclick="findin();" tooltiptext="&main.findin;"/>
+					</hbox>
+					<browser flex="1" id="wk-browser" src="" type="content-primary"/>
+				</vbox>
+			</hbox>
+			<image id="wk-imageMilieuDroite"/>
+		</row>
+	</rows>
+</grid>
+	
+<hbox id="wk-statusbar">
+	<image id="wk-earth" collapsed="true"/>
+	<image id="wk-book" collapsed="true"/>
+	<label id="wk-addressbar" crop="end" style="width: 400px;"/>
+	<spacer flex="1"/>
+</hbox>
+	
+</window>
