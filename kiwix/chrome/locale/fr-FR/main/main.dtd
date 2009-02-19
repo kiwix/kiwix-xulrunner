@@ -1,16 +1,30 @@
-<!ENTITY main.title        "Kiwix">
-<!ENTITY main.back         "Back">
-<!ENTITY main.forward      "Forward">
-<!ENTITY main.reload       "Reload">
-<!ENTITY main.stop         "Stop">
-<!ENTITY main.goto         "Go">
-<!ENTITY main.home         "Home">
-<!ENTITY main.console      "Console">
-<!ENTITY main.showSearch   "Show search results">
-<!ENTITY main.showHisto    "Show history">
-<!ENTITY main.print        "Print this page">
-<!ENTITY main.searchBar    "Enter your search query here">
-<!ENTITY main.searchButton "Go searching">
-<!ENTITY main.findin       "Find a word in this page">
-<!ENTITY main.vocabulary   "Click on a word to add it to your search query">
-<!ENTITY main.results      "Search results">
+<!-- Window -->
+<!ENTITY main.title             "Kiwix">
+
+<!-- Menu -->
+<!ENTITY main.file              "Fichier">
+<!ENTITY main.file.accesskey    "F">
+<!ENTITY main.addFile           "Add file">
+<!ENTITY main.addFile.accesskey "A">
+<!ENTITY main.quit              "Quitter">
+<!ENTITY main.quit.accesskey    "Q">
+<!ENTITY main.help              "Aide">
+<!ENTITY main.help.accesskey    "e">
+<!ENTITY main.about             "À propos de Kiwix">
+<!ENTITY main.about.accesskey   "p">
+
+<!-- Buttons -->
+<!ENTITY main.back           "Back">
+<!ENTITY main.next           "Next">
+<!ENTITY main.home           "Home">
+
+<!ENTITY main.goto           "Go">
+<!ENTITY main.console        "Console">
+<!ENTITY main.showSearch     "Show search results">
+<!ENTITY main.showHisto      "Show history">
+<!ENTITY main.print          "Print this page">
+<!ENTITY main.searchBar      "Enter your search query here">
+<!ENTITY main.searchButton   "Go searching">
+<!ENTITY main.findin         "Find a word in this page">
+<!ENTITY main.vocabulary     "Click on a word to add it to your search query">
+<!ENTITY main.results        "Search results">

@@ -1,3 +1,14 @@
+<!-- Menu -->
+<!ENTITY main.file            "Fichier">
+<!ENTITY main.file.accesskey  "F">
+<!ENTITY main.quit            "Quitter">
+<!ENTITY main.quit.accesskey  "Q">
+<!ENTITY main.help            "Aide">
+<!ENTITY main.help.accesskey  "e">
+<!ENTITY main.about           "À propos de Kiwix">
+<!ENTITY main.about.accesskey "p">
+
+
 <!ENTITY main.title        "Kiwix">
 <!ENTITY main.back         "Back">
 <!ENTITY main.forward      "Forward">
