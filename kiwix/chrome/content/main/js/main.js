@@ -1,21 +1,3 @@
-
-/* Kiwix 0.5 - a XUL/XPCOM based offline reader for Wikipedia
-    Copyright (C) 2006-2007, LinterWeb (France), Emmanuel Engelhart
-
-    This program is free software; you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation; either version 2 of the License, or
-    (at your option) any later version.
-
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License
-    along with this program; if not, write to the Free Software
-    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA */
-
 // Minimal specific vocabulary size for giving top of it
 var MIN_VOCSPE_SIZE = 800;
 // Factor by which font is magnified by pressing ctrl+'+'
@@ -49,19 +31,34 @@ var bAutomaticSearch=true;
 var bNextAutomaticSearch=false;
 var bNoAutoOpen=false;
 
-function selectSkin( name ) {
+/* Quit Kiwix */
+function quitKiwix() {
+    var forceQuit = 1;
+    var appStartup = Components.classes['@mozilla.org/toolkit/app-startup;1'].
+    getService(Components.interfaces.nsIAppStartup);
 
- if (confirm("To change the skin, the application has to be restarted. Shall I restart ?")) {
+    // eAttemptQuit will try to close each XUL window, but the XUL window can cancel the quit
+    // process if there is unsaved data. eForceQuit will quit no matter what.
+    var quitSeverity = forceQuit ? Components.interfaces.nsIAppStartup.eForceQuit :
+	Components.interfaces.nsIAppStartup.eAttemptQuit;
+    appStartup.quit(quitSeverity);
+}
 
- var prefs = Components.classes["@mozilla.org/preferences-service;1"].
-      getService(Components.interfaces.nsIPrefBranch);
- prefs.setCharPref('general.skins.selectedSkin', name);
- document.getElementById("clipmenu").hidePopup();
- var window = document.getElementById("mybrowser");
- Components.classes["@mozilla.org/chrome/chrome-registry;1"]
-           .getService(Components.interfaces.nsIXULChromeRegistry)
-           .reloadChrome();
- }
+
+/* Unused change skin function */
+function changeSkin(name) {
+    
+    if (confirm("To change the skin, the application has to be restarted. Shall I restart ?")) {
+
+	var prefs = Components.classes["@mozilla.org/preferences-service;1"].
+	    getService(Components.interfaces.nsIPrefBranch);
+	prefs.setCharPref('general.skins.selectedSkin', name);
+	document.getElementById("clipmenu").hidePopup();
+	var window = document.getElementById("mybrowser");
+	Components.classes["@mozilla.org/chrome/chrome-registry;1"]
+	    .getService(Components.interfaces.nsIXULChromeRegistry)
+	    .reloadChrome();
+    }
 }
 
 function getBrowser() {
@@ -188,7 +185,7 @@ const listener = {
     if ( bNextAutomaticSearch && (aStateFlags & nsIWebProgressListener.STATE_STOP)) {
 
       bNextAutomaticSearch = false;
-      document.getElementById("wk-recherche").value = getBrowser().contentTitle;
+      document.getElementById("textbox-search").value = getBrowser().contentTitle;
       recherche();      
     }
 
@@ -244,7 +241,7 @@ function visible(idVisible){
 function setVisible(idVisible, booleanVisible){
 	var objet = document.getElementById(idVisible);
 	objet.collapsed = booleanVisible;
-	document.getElementById("wk-recherche").focus();
+	document.getElementById("textbox-search").focus();
 }
 
 // Retour en arriere dans le navigateur
@@ -398,7 +395,7 @@ function addList(page, chemin, score){
 // adds the word <mot> in the search text bar
 function addword( mot ) {
 
-  var searchbar = document.getElementById("wk-recherche");
+  var searchbar = document.getElementById("textbox-search");
   searchbar.value += ' '+mot;
   recherche();
 }
@@ -486,7 +483,7 @@ function closeHistory(){
 
 // do a search query on word <mot>, put it in the text search bar
 function rechercheHistory(mot){
-	document.getElementById("wk-recherche").value = mot;
+	document.getElementById("textbox-search").value = mot;
 	recherche(mot);
 	return true;
 }
@@ -494,7 +491,7 @@ function rechercheHistory(mot){
 // do a search query
 function recherche(){
   searchPopupClose();
-  var mot = document.getElementById("wk-recherche").value;
+  var mot = document.getElementById("textbox-search").value;
 //  mot = mot.toLowerCase();
 	
   deleteList();
@@ -516,7 +513,7 @@ function findin() {
     findInstData = new nsFindInstData();
     findInstData.browser = getBrowser();
   }
-  var lastSearch = document.getElementById("wk-recherche").value;
+  var lastSearch = document.getElementById("texbox-search").value;
   var bLastWord = lastSearch.lastIndexOf( " ", lastSearch.length );
   findInstData.webBrowserFind.searchString = lastSearch.substring( bLastWord+1, lastSearch.length );
   findInPage( findInstData );
@@ -548,7 +545,7 @@ function searchPopupClose() {
 
 function autoComplete(mot) {
 
-  var textbox = document.getElementById("wk-recherche");
+  var textbox = document.getElementById("textbox-search");
   var text = textbox.value;
   var begin = text.substring(0, text.lastIndexOf(' ', text.length)+1);
   textbox.value = begin+mot;
@@ -558,7 +555,7 @@ function autoComplete(mot) {
 } 
 
 function searchInput(){
-  var textbox = document.getElementById("wk-recherche");
+  var textbox = document.getElementById("textbox-search");
   var text = textbox.value;
   var word = text.substring(text.lastIndexOf(' ', text.length)+1, text.length);
   var wikisearch = Components.classes["@linterweb.com/wikicomponent"].getService();
@@ -601,7 +598,7 @@ function popupSelect() {
 
 function textfocus() {
 
-  document.getElementById("wk-recherche").focus();
+  document.getElementById("textbox-search").focus();
 }
 
 function popupfocus() {
@@ -691,26 +688,24 @@ function openwikipedia() {
   extps.loadUrl(ioService.newURI("http://en.wikipedia.org/", null, null) );
 }
 
-function setbrowser() {
 
- var prefs = Components.classes["@mozilla.org/preferences-service;1"].
-      getService().QueryInterface(Components.interfaces.nsIPrefBranch);
- var name = prefs.getCharPref("network.protocol-handler.app.http" );
- var newname = prompt('Enter the path to your external browser',name);
- if ( newname != null ) 
-   prefs.setCharPref("network.protocol-handler.app.http", newname );
+function setbrowser() {
+    var prefs = Components.classes["@mozilla.org/preferences-service;1"].
+	getService().QueryInterface(Components.interfaces.nsIPrefBranch);
+    var name = prefs.getCharPref("network.protocol-handler.app.http" );
+    var newname = prompt('Enter the path to your external browser',name);
+    if ( newname != null ) 
+	prefs.setCharPref("network.protocol-handler.app.http", newname );
 }
 
 
 function setautomatic() {
- 
-  bAutomaticSearch = ! bAutomaticSearch;
+    bAutomaticSearch = ! bAutomaticSearch;
 }
 
 function checkautomatic() {
-
-  item = document.getElementById( "itemautomatic" );
-  if ( bAutomaticSearch ) 
-    item.setAttribute( "label", "Disable automatic search (by clicking on links)" );
-  else item.setAttribute( "label", "Enable automatic search (by clicking on links)" );
+    item = document.getElementById( "itemautomatic" );
+    if ( bAutomaticSearch ) 
+	item.setAttribute( "label", "Disable automatic search (by clicking on links)" );
+    else item.setAttribute( "label", "Enable automatic search (by clicking on links)" );
 }
