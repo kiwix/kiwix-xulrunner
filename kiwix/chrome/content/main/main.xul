@@ -94,14 +94,6 @@
 		<menuitem label="Home" accesskey="H" key="home-key" oncommand="gohome();"/>
 		<menuitem label="Open in external browser" accesskey="E" key="external-key" oncommand="openexternal();"/>
 		<menuseparator/>
-                <menu label="Select skins">
-                <menupopup id="skinmenu">
-                   <menuitem label="Ocean Blue" oncommand="selectSkin('oceanBlue');"/>
-                   <menuitem label="Classic Blue" oncommand="selectSkin('classicBlue');"/>
-                   <menuitem label="Toon" oncommand="selectSkin('toon');"/>
-                   <menuitem label="Explorer" oncommand="selectSkin('explorer');"/>
-                </menupopup>
-                </menu>
                 <menu label="Zoom">
                 <menupopup id="zoommenu">
                    <menuitem label="Zoom in" key="zoomin-key" oncommand="zoomin();"/>
