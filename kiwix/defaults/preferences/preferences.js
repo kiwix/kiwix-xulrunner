@@ -7,6 +7,9 @@ pref("general.skins.selectedSkin", "default");
 /* Charset */
 pref("intl.charset.default", "UTF-8");
 
+pref("intl.locale.matchOS", true);
+pref("network.protocol-handler.warn-external.http", false);
+
 /* Debug preferences */
 pref("javascript.options.showInConsole", true);
 pref("browser.dom.window.dump.enabled", true);
