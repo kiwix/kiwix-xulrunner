@@ -14,15 +14,16 @@
 <!ENTITY main.about.accesskey   "p">
 
 <!-- Buttons -->
-<!ENTITY main.back           "Back">
-<!ENTITY main.next           "Next">
-<!ENTITY main.home           "Home">
+<!ENTITY main.back              "Article précédent">
+<!ENTITY main.next              "Article suivant">
+<!ENTITY main.home              "Page d'accueil">
+<!ENTITY main.print             "Imprimer">
 
 <!ENTITY main.goto           "Go">
 <!ENTITY main.console        "Console">
 <!ENTITY main.showSearch     "Show search results">
 <!ENTITY main.showHisto      "Show history">
-<!ENTITY main.print          "Print this page">
+
 <!ENTITY main.searchBar      "Enter your search query here">
 <!ENTITY main.searchButton   "Go searching">
 <!ENTITY main.findin         "Find a word in this page">
