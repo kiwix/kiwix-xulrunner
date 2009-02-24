@@ -14,9 +14,6 @@
 #include "nsCOMPtr.h"
 #include "nsIProperties.h"
 #include "nsDirectoryServiceDefs.h"
-
-#include <zeno/file.h>
-#include <zeno/article.h>
   
 #include <xapian.h>
 #include <xapian/myhtmlparse.h>
