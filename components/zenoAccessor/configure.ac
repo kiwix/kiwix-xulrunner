@@ -13,6 +13,10 @@ AC_LANG(C)
 # check if the 'pkg-config' binary exists
 AC_CHECK_TOOL(HAVE_PKG, pkg-config)
 
+# extern
+CPPFLAGS="${CPPFLAGS} -I../../../extern/tntzenoreader/include/  -I../../../extern/cxxtools/include/"
+LDFLAGS="${LDFLAGS} -L../../../extern/tntzenoreader/src/zenolib/.libs/ -L../../../extern/cxxtools/src/.libs/"
+
 libxul_pkgconfig_ok="no"
 if test ! "x$HAVE_PKG" = "x" ; then
 	if `$HAVE_PKG libxul --exists` ; then
@@ -77,12 +81,12 @@ fi
 
 case $build in
 	*darwin*)
-		CPPFLAGS="-fno-rtti -D_POSIX_ -O3"
+		CPPFLAGS="${CPPFLAGS} -fno-rtti -D_POSIX_ -O3"
 		CXXFLAGS="${CXXFLAGS} -dynamiclib"
 		LIBEXT="dylib"
 		;;
 	*)
-		CPPFLAGS="-fno-rtti -shared -D_POSIX_ -O3 -fPIC"
+		CPPFLAGS="${CPPFLAGS} -fno-rtti -shared -D_POSIX_ -O3 -fPIC"
 		CXXFLAGS="${CXXFLAGS} -fPIC"
 		LIBEXT="so"
 		;;
@@ -105,7 +109,7 @@ AC_CHECK_LIB([zeno], [main], [
 			LIBS="-lzeno -lz -lbz2 $LIBS"
 			;;
 		*)
-			LIBS=" -Wl,-Bstatic -lz -lbz2 -Wl,-Bdynamic -lzeno $LIBS"
+			LIBS=" -Wl,-Bstatic -lzeno -lz -lbz2 -lcxxtools -Wl,-Bdynamic  $LIBS"
 			;;
 	esac
 ], [
