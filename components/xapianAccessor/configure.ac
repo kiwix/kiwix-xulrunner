@@ -77,12 +77,12 @@ fi
 
 case $build in
 	*darwin*)
-		CPPFLAGS="-fno-rtti -D_POSIX_ -O3"
+		CPPFLAGS="${CPPFLAGS} -fno-rtti -D_POSIX_ -O3"
 		CXXFLAGS="${CXXFLAGS} -dynamiclib"
 		LIBEXT="dylib"
 		;;
 	*)
-		CPPFLAGS="-fno-rtti -shared -D_POSIX_ -O3 -fPIC"
+		CPPFLAGS="${CPPFLAGS} -fno-rtti -shared -D_POSIX_ -O3 -fPIC"
 		CXXFLAGS="${CXXFLAGS} -fPIC"
 		LIBEXT="so"
 		;;
@@ -98,13 +98,17 @@ AC_SUBST(LIBEXT)
 # Set current language to C++
 AC_LANG(C++)
 
+# extern
+CPPFLAGS="${CPPFLAGS} -I../../../extern/xapian-core-1.0.10/include/"
+LDFLAGS="${LDFLAGS} -L../../../extern/xapian-core-1.0.10/.libs/"
+
 # Check if xapian is installed
-AC_PATH_PROG(XAPIAN_CONFIG, xapian-config, no)
+AC_PATH_PROG(XAPIAN_CONFIG, xapian-config, no, [$PATH:../../../extern/xapian-core-1.0.10/])
 if test "$XAPIAN_CONFIG" = "no" ; then
    AC_MSG_ERROR([Cannot find xapian-config command in $PATH.])
    exit 1
 else
-	LIBS=" -Wl,-Bstatic -Wl,-Bdynamic -lxapian $LIBS"
+	LIBS=" -Wl,-Bstatic -lxapian -Wl,-Bdynamic $LIBS"
 fi
 
 AC_CONFIG_FILES([
