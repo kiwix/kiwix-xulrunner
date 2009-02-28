@@ -1,3 +1,5 @@
+EXPORTED_SYMBOLS = ["settings"];
+
 var settings = {
 
     /* Constructor */
