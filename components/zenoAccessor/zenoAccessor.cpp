@@ -68,6 +68,12 @@ NS_IMETHODIMP ZenoAccessor::LoadFile(const char *path, nsACString &_retval) {
   catch(...) { }
 }
 
+/* Reset the cursor for GetNextArticle() */
+NS_IMETHODIMP ZenoAccessor::Reset(PRBool *retVal) {
+  this->currentArticleOffset = this->firstArticleOffset;
+  *retVal = PR_TRUE;
+}
+
 /* List articles for a namespace */
 NS_IMETHODIMP ZenoAccessor::GetNextArticle(char **url, char **content, PRBool *retVal) {
   try {
