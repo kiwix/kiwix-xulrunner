@@ -10,3 +10,6 @@ locale branding fr-FR locale/fr-FR/branding/
 
 #skin packagename skinname uri/to/files/ [flags]
 skin main default skin/default/
+
+#resource aliasname uri/to/files/
+resource modules modules/

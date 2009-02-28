@@ -1,13 +1,37 @@
 <!-- Window -->
 <!ENTITY main.title             "Kiwix">
 
-<!-- Menu -->
+<!-- File menu -->
 <!ENTITY main.file              "Fichier">
 <!ENTITY main.file.accesskey    "F">
 <!ENTITY main.addFile           "Add file">
 <!ENTITY main.addFile.accesskey "A">
+<!ENTITY main.print             "Print">
+<!ENTITY main.print.accesskey   "P">
 <!ENTITY main.quit              "Quitter">
 <!ENTITY main.quit.accesskey    "Q">
+
+<!-- Edit menu -->
+<!ENTITY main.edit              "Édition">
+<!ENTITY main.edit.accesskey    "n">
+<!ENTITY main.search            "Recherche">
+<!ENTITY main.search.accesskey  "c">
+<!ENTITY main.selectall           "Tout sélectionner">
+<!ENTITY main.selectall.accesskey "T">
+<!ENTITY main.copy                "Copier">
+<!ENTITY main.copy.accesskey      "C">
+
+<!-- Display menu -->
+<!ENTITY main.display           "Affichage">
+<!ENTITY main.display.accesskey "A">
+<!ENTITY main.zoom              "Zoom">
+<!ENTITY main.zoom.accesskey    "">
+<!ENTITY main.zoomin            "Zoom +">
+<!ENTITY main.zoomin.accesskey  "">
+<!ENTITY main.zoomout           "Zoom -">
+<!ENTITY main.zoomout.accesskey "">
+
+<!-- Help menu -->
 <!ENTITY main.help              "Aide">
 <!ENTITY main.help.accesskey    "e">
 <!ENTITY main.about             "À propos de Kiwix">
@@ -25,7 +49,4 @@
 <!ENTITY main.showHisto      "Show history">
 
 <!ENTITY main.searchBar      "Enter your search query here">
-<!ENTITY main.searchButton   "Go searching">
-<!ENTITY main.findin         "Find a word in this page">
-<!ENTITY main.vocabulary     "Click on a word to add it to your search query">
 <!ENTITY main.results        "Search results">

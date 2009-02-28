@@ -1,3 +1,28 @@
+/* Global variables */
+var searchInPageObject = null;            /* Object for the find in page dialog window */
+
+/* Open the "find in page" dialog window */
+function searchInPage() {
+    if (!searchInPageObject) {
+	searchInPageObject = new nsFindInstData();
+	searchInPageObject.browser = getHtmlRenderer();
+    }
+    
+    var searchPattern = '';
+    var lastWord = searchPattern.lastIndexOf(" ", searchPattern.length);
+    searchInPageObject.webBrowserFind.searchString = searchPattern.substring( lastWord+1, searchPattern.length );
+    findInPage(searchInPageObject);
+}
+
+/* Return the homepage of a ZIM file */
+function getZimFileHomePageUrl() {
+    var url = new Object();
+    var content = new Object();
+    //zenoAccessor.getNextArticle(url, content);
+    //return url;
+}
+
+/* Launch the indexation of a ZIM file */
 function indexZenoFile(zenoFilePath, xapianDirectory) {
     /* Create the zeno accessor */
     zenoAccessor = Components.classes["@kiwix.org/zenoAccessor"].getService();
@@ -25,6 +50,7 @@ function indexZenoFile(zenoFilePath, xapianDirectory) {
     xapianAccessor.closeWritableDatabase();
 }
 
+/* Search a pattern in the index */
 function searchInIndex(query, xapianDirectory){
     xapianDirectory = '/tmp/xapian/';
     zenoFilePath = '/var/www/dumps/kiwix_0.5.zeno';

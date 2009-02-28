@@ -11,11 +11,13 @@
 	id      = "main"
 	title   = "&main.title;"
         context = "clipmenu"
-	onload  = "initRoot(); gohome();">
+	onload  = "init()">
 
 <!-- Custom Javascript scripts -->
-<script language="javaScript" type="text/javascript" src="js/main.js"/>
+<script language="javaScript" type="text/javascript" src="resource://modules/settings.jsm"/>
+<script language="javaScript" type="text/javascript" src="js/gui.js"/>
 <script language="javaScript" type="text/javascript" src="js/search.js"/>
+<script language="javaScript" type="text/javascript" src="js/tools.js"/>
 
 <!-- Global Javascript scripts -->
 <script type="application/x-javascript" src="chrome://global/content/printUtils.js"/>
@@ -23,18 +25,8 @@
 
 <!-- Keyset -->
 <keyset>
-  <key id="quit-key" modifiers="control" key="Q" oncommand="quitKiwix()"/>
-  <key id="paste-key" keycode="VK_ENTER" oncommand="enter()"/>
-  <key id="paste-key" keycode="VK_RETURN" oncommand="enter()"/>
-  <key id="copy-key" key="C" modifiers="control" oncommand="copy()"/>
-  <key id="find-key" key="F" modifiers="control" oncommand="findin()"/>
-  <key id="home-key" key="H" modifiers="control" oncommand="gohome()"/>
-  <key id="search-key" key="L" modifiers="control" oncommand="textfocus()"/>
-  <key id="search-key" key="K" modifiers="control" oncommand="textfocus()"/>
-  <key id="zoomin-key" key="+" modifiers="control" oncommand="zoomin()"/>
-  <key id="zoomout-key" key="-" modifiers="control" oncommand="zoomout()"/>
-  <key id="esc-key" keycode="VK_ESCAPE" oncommand="searchPopupClose();"/>
-  <key id="selectall-key" key="A" modifiers="control" oncommand="selectall();"/>
+  <key id="quit-key" key="Q" modifiers="control" oncommand="quitKiwix()"/>
+  <key id="search-key" key="F" modifiers="control" oncommand="searchInPage()"/>
 </keyset>
 
 <!-- Menu bar -->
@@ -42,10 +34,34 @@
   <menu id="menu-file" label="&main.file;" accesskey="&main.file.accesskey;">
     <menupopup id="file-popup">
       <menuitem id="file-add" label="&main.addFile;" key="addFile-key"
-		accesskey="&main.addFile.accesskey;" oncommand="addFile()"/>
+		accesskey="&main.addFile.accesskey;" oncommand="addFile();goHome()"/>
+      <menuitem id="file-print" label="&main.print;" key="print-key" class="menuitem-iconic" 
+		accesskey="&main.print.accesskey;" oncommand="print()"/>
       <menuseparator/>
       <menuitem id="file-quit" label="&main.quit;" key="quit-key" class="menuitem-iconic" 
 		accesskey="&main.quit.accesskey;" oncommand="quitKiwix()"/>
+    </menupopup>
+  </menu>
+  <menu id="menu-edit" label="&main.edit;" accesskey="&main.edit.accesskey;">
+    <menupopup id="edit-popup">
+      <menuitem id="edit-search" label="&main.search;" key="search-key"
+		accesskey="&main.search.accesskey;" oncommand="searchInPage()"/>
+      <menuitem id="edit-selectall" label="&main.selectall;" key="selectall-key"
+		accesskey="&main.selectall.accesskey;" oncommand="selectAll()"/>
+      <menuitem id="edit-copy" label="&main.copy;" key="copy-key"
+		accesskey="&main.copy.accesskey;" oncommand="copySelectedContent()"/>
+    </menupopup>
+  </menu>
+  <menu id="menu-display" label="&main.display;" accesskey="&main.display.accesskey;">
+    <menupopup id="display-popup">
+      <menu label="&main.zoom;" >
+	<menupopup id="menu-zoom">
+	  <menuitem id="display-zoomin" label="&main.zoomin;" class="menuitem-iconic" 
+		    accesskey="&main.zoomin.accesskey;" oncommand="zoomIn()"/>
+	  <menuitem id="display-zoomout" label="&main.zoomout;" class="menuitem-iconic" 
+		    accesskey="&main.zoomout.accesskey;" oncommand="zoomOut()"/>
+	</menupopup>
+      </menu>
     </menupopup>
   </menu>
   <menu id="menu-help" label="&main.help;" accesskey="&main.help.accesskey;">
@@ -58,97 +74,31 @@
 
 <!-- Tool bar -->
 <toolbox>
-  <toolbar id="toolbar">
-    <toolbarbutton id="button-back" />
-    <toolbarbutton id="button-next" />
-    <toolbarbutton id="button-home" />
+  <toolbar id="tool-bar">
+    <toolbarbutton id="button-back" oncommand="pageBack()"/>
+    <toolbarbutton id="button-next" oncommand="pageNext()"/>
+    <toolbarbutton id="button-home" oncommand="goHome()"/>
     <textbox id="textbox-search" flex="1" oninput="searchInput();" 
 	     onkeydown="textkeydown(event);" tooltiptext="&main.searchBar;"/>
     <toolbarbutton id="button-search" />
   </toolbar>
 </toolbox>
 
-<popup id="wk-searchpopup" ignorekeys="true">
-	<listbox id="wk-searchpopuplist">
-		<listitem id="wk-searchpopuplistI0"/> 
-		<listitem id="wk-searchpopuplistI1"/> 
-		<listitem id="wk-searchpopuplistI2"/> 
-		<listitem id="wk-searchpopuplistI3"/> 
-		<listitem id="wk-searchpopuplistI4"/> 
-		<listitem id="wk-searchpopuplistI5"/> 
-		<listitem id="wk-searchpopuplistI6"/> 
-		<listitem id="wk-searchpopuplistI7"/> 
-		<listitem id="wk-searchpopuplistI8"/> 
-		<listitem id="wk-searchpopuplistI9"/> 
-		<listitem id="wk-searchpopuplistI10"/> 
-		<listitem id="wk-searchpopuplistI11"/> 
-	</listbox>
-</popup>
-
-<popupset>
-	<menupopup id="clipmenu">
-		<menuitem label="Copy" accesskey="C" key="copy-key" oncommand="copy();"/>
-		<menuitem label="Select All" accesskey="A" key="selectall-key" oncommand="selectall();"/>
-		<menuitem label="Find..." accesskey="F" key="find-key" oncommand="findin();"/>
-		<menuseparator/>
-		<menuitem label="Home" accesskey="H" key="home-key" oncommand="gohome();"/>
-		<menuitem label="Open in external browser" accesskey="E" key="external-key" oncommand="openexternal();"/>
-		<menuseparator/>
-                <menu label="Zoom">
-                <menupopup id="zoommenu">
-                   <menuitem label="Zoom in" key="zoomin-key" oncommand="zoomin();"/>
-                   <menuitem label="Zoom out" key="zoomout-key" oncommand="zoomout();"/>
-                </menupopup>
-                </menu>
-                <menu label="Settings" >
-                <menupopup id="settingsmenu" onpopupshown="checkautomatic();">
- 		   <menuitem label="Configure external browser" oncommand="setbrowser();"/>
- 		   <menuitem id="itemautomatic" label="Automatic search (by clicking on links)" oncommand="setautomatic();"/>
-                   <menuitem label="Manage corpus" oncommand="window.open('chrome://interfacewiki/content/corpus.xul',
-				'Corpus', 'chrome,width=800,height=400');" />
-                </menupopup>
-                </menu>
-	</menupopup>
-</popupset>
-
 <!-- Search results side bar -->
-<vbox id="wk-blockResult" collapsed="true">
-  <hbox flex="0" class="sidebar-title">
-    <label flex="1" class="lab-titre" value="Related vocabulary"/>
-    <image flex="0" class="img-close" onclick="closeSearch()"/> 
-  </hbox>
-  <hbox>
-    <vbox id="wk-vocspe1" style="font-size:smaller; color:#024;"/>
-    <vbox id="wk-vocspe2" style="font-size:smaller; color:#024;"/>
-  </hbox>
-  <hbox class="sidebar-title">
-    <label flex="1" class="lab-titre" value="Results"/>
-    <image class="img-close" onclick="closeSearch()" style="display:none;"/> 
-  </hbox>
-  <label value="No results" collapsed="TRUE" id="wk-noresult"/>
-  <richlistbox flex="1" id="wk-resultat"/>
+<vbox id="results-sidebar" collapsed="true">
+  <richlistbox flex="1" id="results-list"/>
 </vbox>
-
-<!-- History side bar -->
-<vbox id="wk-blockHistory" collapsed="true">
-  <hbox class="sidebar-title">
-    <label flex="1" class="lab-titre" value="History"/>
-    <image class="img-close" onclick="closeHistory()"/> 
-  </hbox>
-  <richlistbox flex="1" id="wk-history"/>
-</vbox>
-
 
 <!-- Rendering space -->
 <vbox flex="1">
-  <browser flex="1" id="wk-browser" src="" type="content-primary"/>
+  <browser flex="1" id="html-renderer" src="" type="content-primary"/>
 </vbox>
 
 <!-- Status bar -->
-<hbox id="wk-statusbar">
-	<image id="wk-earth" collapsed="true"/>
-	<image id="wk-book" collapsed="true"/>
-	<label id="wk-addressbar" crop="end" style="width: 400px;"/>
+<hbox id="status-bar">
+	<image id="earth" collapsed="true"/>
+	<image id="book" collapsed="true"/>
+	<label id="address-bar" crop="end" flex="1"/>
 	<spacer flex="1"/>
 </hbox>
 	

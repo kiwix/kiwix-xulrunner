@@ -1,13 +1,37 @@
 <!-- Window -->
 <!ENTITY main.title             "Kiwix">
 
-<!-- Menu -->
+<!-- File menu -->
 <!ENTITY main.file              "File">
 <!ENTITY main.file.accesskey    "F">
 <!ENTITY main.addFile           "Add file">
 <!ENTITY main.addFile.accesskey "A">
+<!ENTITY main.print             "Print">
+<!ENTITY main.print.accesskey   "P">
 <!ENTITY main.quit              "Quit">
 <!ENTITY main.quit.accesskey    "Q">
+
+<!-- Edit menu -->
+<!ENTITY main.edit                "Edit">
+<!ENTITY main.edit.accesskey      "E">
+<!ENTITY main.search              "Search">
+<!ENTITY main.search.accesskey    "S">
+<!ENTITY main.selectall           "Select all">
+<!ENTITY main.selectall.accesskey "a">
+<!ENTITY main.copy                "Copy">
+<!ENTITY main.copy.accesskey      "C">
+
+<!-- Display menu -->
+<!ENTITY main.display           "Display">
+<!ENTITY main.display.accesskey "D">
+<!ENTITY main.zoom              "Zoom">
+<!ENTITY main.zoom.accesskey    "">
+<!ENTITY main.zoomin            "Zoom in">
+<!ENTITY main.zoomin.accesskey  "">
+<!ENTITY main.zoomout           "Zoom out">
+<!ENTITY main.zoomout.accesskey "">
+
+<!-- Help menu -->
 <!ENTITY main.help              "Help">
 <!ENTITY main.help.accesskey    "H">
 <!ENTITY main.about             "About">
