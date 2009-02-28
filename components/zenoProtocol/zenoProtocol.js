@@ -1,8 +1,12 @@
+
+
 const Cc = Components.classes;
 const Ci = Components.interfaces;
 const Cr = Components.results;
 
-var zenoFile = '/var/www/dumps/kiwix_0.5.zeno';
+
+/* Global variables */
+var currentZimFilePath = null;
 var zenoAccessor = null;
 
 /*** ZenoprotocolHandler ***/
@@ -10,6 +14,11 @@ var zenoAccessor = null;
 function ZenoprotocolHandler() {}
 
 ZenoprotocolHandler.prototype = {
+
+
+
+
+
     defaultPort: -1,
     protocolFlags: Ci.nsIProtocolHandler.URI_NORELATIVE,
     allowPort: function(port, scheme) { return false; },
@@ -22,7 +31,7 @@ ZenoprotocolHandler.prototype = {
 	//L.info("asking newURI ("+spec.toString()+")");
     var uri = Components.classes["@mozilla.org/network/simple-uri;1"]
     		 .createInstance (Components.interfaces.nsIURI);
-   	// handle anchor links
+    // handle anchor links
     if (baseURI instanceof Components.interfaces.nsIURI && spec.indexOf ("#") == 0) {
 		var sh = baseURI.spec.indexOf ("#");
 		if (sh != -1) {
@@ -47,6 +56,7 @@ ZenoprotocolHandler.prototype = {
         var channel = new PipeChannel(URI);
         return channel.QueryInterface(Ci.nsIChannel);
     },
+
     QueryInterface: function(iid) {
         if(!iid.equals(Ci.nsIProtocolHandler) && !iid.equals
 (Ci.nsISupports)) throw Cr.NS_ERROR_NO_INTERFACE;
@@ -54,6 +64,10 @@ ZenoprotocolHandler.prototype = {
     }
 
 }
+
+
+
+
 
 /**********************************************************************/
 /*** PipeChannel ***/
@@ -71,13 +85,14 @@ var PipeChannel = function(URI) {
 
 }
 
-PipeChannel.prototype = {
-  QueryInterface: function(iid){
-    if (iid.equals(Ci.nsIChannel) || iid.equals(Ci.nsIRequest) ||
-iid.equals(Ci.nsISupports))
-      return this;
-    throw Cr.NS_NOINTERFACE;
-  },
+
+    PipeChannel.prototype = {
+	QueryInterface: function(iid){
+	    if (iid.equals(Ci.nsIChannel) || iid.equals(Ci.nsIRequest) ||
+		iid.equals(Ci.nsISupports))
+		return this;
+	    throw Cr.NS_NOINTERFACE;
+	},
 
   get LOAD_NORMAL() {return this.request.LOAD_NORMAL},
   get LOAD_BACKGROUND() {return this.request.LOAD_BACKGROUND},
@@ -139,12 +154,16 @@ val},
                 .alert(null, 'Error message.', 'Error message.');
             return;
         }
+
+	/* Load the settings java code module */
+	Components.utils.import("resource://modules/settings.jsm");
 	
 	/* load the zeno file if necessary */
-	if (zenoAccessor == null) {
+	if (zenoAccessor == null || currentZimFilePath != settings.zimFilePath()) {
 	    zenoAccessor = Components.classes["@kiwix.org/zenoAccessor"].getService();
 	    zenoAccessor = zenoAccessor.QueryInterface(Components.interfaces.IZenoAccessor);
-	    zenoAccessor.loadFile(zenoFile);
+	    zenoAccessor.loadFile(settings.zimFilePath());
+	    currentZimFilePath = settings.zimFilePath();
 	}
 
 	var contentType = new Object();
@@ -219,3 +238,4 @@ ZenoprotocolModule.canUnload = function(compMgr) {
 function NSGetModule(compMgr, fileSpec) {
   return ZenoprotocolModule;
 }
+
