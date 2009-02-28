@@ -89,7 +89,7 @@ NS_IMETHODIMP ZenoAccessor::GetNextArticle(char **url, char **content, PRBool *r
     *content = (char*) NS_Alloc(contentStr.length()+1);
     strcpy(*content, contentStr.c_str());
 
-    /* increment the offset and set returned value */
+    /* Set returned value */
     if (this->currentArticleOffset != this->lastArticleOffset) {
       this->currentArticleOffset++;
       *retVal = PR_TRUE;
@@ -141,6 +141,12 @@ NS_IMETHODIMP ZenoAccessor::GetContent(nsIURI *urlObject, char **contentType, ns
 
   /* Extract the content from the zeno file */
   zeno::Article article = zenoFileHandler->getArticle(ns[0], zeno::QUnicodeString(title));
+  
+  /* redirection handling */
+  unsigned int redirectionCount = 0;
+  while (article.getRedirectFlag() && redirectionCount++ < 5) {
+    article = article.getRedirectArticle();
+  }
 
   /* Get the data length */
   unsigned int contentLength = article.getDataLen();
