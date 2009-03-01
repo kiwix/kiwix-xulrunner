@@ -1,58 +1,45 @@
 <!-- Window -->
-<!ENTITY main.title             "Kiwix">
+<!ENTITY main.title               "Kiwix">
 
 <!-- File menu -->
-<!ENTITY main.file              "File">
-<!ENTITY main.file.accesskey    "F">
-<!ENTITY main.addFile           "Add file">
-<!ENTITY main.addFile.accesskey "A">
-<!ENTITY main.print             "Print">
-<!ENTITY main.print.accesskey   "P">
-<!ENTITY main.quit              "Quit">
-<!ENTITY main.quit.accesskey    "Q">
+<!ENTITY main.file                "File">
+<!ENTITY main.file.accesskey      "F">
+<!ENTITY main.openFile            "Open file...">
+<!ENTITY main.openFile.accesskey  "O">
+<!ENTITY main.print               "Print...">
+<!ENTITY main.print.accesskey     "P">
+<!ENTITY main.quit                "Quit">
+<!ENTITY main.quit.accesskey      "Q">
 
 <!-- Edit menu -->
 <!ENTITY main.edit                "Edit">
 <!ENTITY main.edit.accesskey      "E">
-<!ENTITY main.search              "Search">
-<!ENTITY main.search.accesskey    "S">
+<!ENTITY main.find                "Search in page...">
+<!ENTITY main.find.accesskey      "S">
 <!ENTITY main.selectall           "Select all">
 <!ENTITY main.selectall.accesskey "a">
 <!ENTITY main.copy                "Copy">
-<!ENTITY main.copy.accesskey      "C">
+<!ENTITY main.copy.accesskey      "p">
 
 <!-- Display menu -->
-<!ENTITY main.display           "Display">
-<!ENTITY main.display.accesskey "D">
-<!ENTITY main.zoom              "Zoom">
-<!ENTITY main.zoom.accesskey    "">
-<!ENTITY main.zoomin            "Zoom in">
-<!ENTITY main.zoomin.accesskey  "">
-<!ENTITY main.zoomout           "Zoom out">
-<!ENTITY main.zoomout.accesskey "">
+<!ENTITY main.display             "Display">
+<!ENTITY main.display.accesskey   "D">
+<!ENTITY main.zoom                "Zoom">
+<!ENTITY main.zoom.accesskey      "">
+<!ENTITY main.zoomin              "Zoom in">
+<!ENTITY main.zoomin.accesskey    "">
+<!ENTITY main.zoomout             "Zoom out">
+<!ENTITY main.zoomout.accesskey   "">
 
 <!-- Help menu -->
-<!ENTITY main.help              "Help">
-<!ENTITY main.help.accesskey    "H">
-<!ENTITY main.about             "About">
-<!ENTITY main.about.accesskey   "A">
+<!ENTITY main.help                "Help">
+<!ENTITY main.help.accesskey      "H">
+<!ENTITY main.about               "About">
+<!ENTITY main.about.accesskey     "A">
 
-<!-- Buttons -->
-<!ENTITY main.back              "Back">
-<!ENTITY main.forward           "Forward">
-<!ENTITY main.home              "Home">
-<!ENTITY main.print             "Print">
-
-<!ENTITY main.reload       "Reload">
-<!ENTITY main.goto         "Go">
-
-<!ENTITY main.console      "Console">
-<!ENTITY main.showSearch   "Show search results">
-<!ENTITY main.showHisto    "Show history">
-
-<!ENTITY main.searchBar    "Enter your search query here">
-<!ENTITY main.searchButton "Go searching">
-<!ENTITY main.findin       "Find a word in this page">
-<!ENTITY main.vocabulary   "Click on a word to add it to your search query">
-<!ENTITY main.results      "Search results">
-
+<!-- Tool bar -->
+<!ENTITY main.back                "Back">
+<!ENTITY main.forward             "Forward">
+<!ENTITY main.home                "Home">
+<!ENTITY main.print               "Print">
+<!ENTITY main.searchBar           "Search bar">

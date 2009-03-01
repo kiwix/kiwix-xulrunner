@@ -26,15 +26,19 @@
 <!-- Keyset -->
 <keyset>
   <key id="quit-key" key="Q" modifiers="control" oncommand="quitKiwix()"/>
-  <key id="search-key" key="F" modifiers="control" oncommand="searchInPage()"/>
+  <key id="find-key" key="F" modifiers="control" oncommand="find()"/>
+  <key id="open-file-key" key="O" modifiers="control" oncommand="openFile();goHome()"/>
+  <key id="print-key" key="P" modifiers="control" oncommand="print()"/>
+  <key id="selectall" key="A" modifiers="control" oncommand="selectAll()"/>
+  <key id="copy" key="C" modifiers="control" oncommand="copySelectedContent()"/>
 </keyset>
 
 <!-- Menu bar -->
 <menubar id="menu-bar">
   <menu id="menu-file" label="&main.file;" accesskey="&main.file.accesskey;">
     <menupopup id="file-popup">
-      <menuitem id="file-add" label="&main.addFile;" key="addFile-key"
-		accesskey="&main.addFile.accesskey;" oncommand="addFile();goHome()"/>
+      <menuitem id="file-open" label="&main.openFile;" key="open-file-key" class="menuitem-iconic"
+		accesskey="&main.openFile.accesskey;" oncommand="openFile();goHome()"/>
       <menuitem id="file-print" label="&main.print;" key="print-key" class="menuitem-iconic" 
 		accesskey="&main.print.accesskey;" oncommand="print()"/>
       <menuseparator/>
@@ -44,11 +48,11 @@
   </menu>
   <menu id="menu-edit" label="&main.edit;" accesskey="&main.edit.accesskey;">
     <menupopup id="edit-popup">
-      <menuitem id="edit-search" label="&main.search;" key="search-key"
-		accesskey="&main.search.accesskey;" oncommand="searchInPage()"/>
-      <menuitem id="edit-selectall" label="&main.selectall;" key="selectall-key"
+      <menuitem id="edit-find" label="&main.find;" key="find-key" class="menuitem-iconic"
+		accesskey="&main.find.accesskey;" oncommand="find()"/>
+      <menuitem id="edit-selectall" label="&main.selectall;" key="selectall-key" class="menuitem-iconic"
 		accesskey="&main.selectall.accesskey;" oncommand="selectAll()"/>
-      <menuitem id="edit-copy" label="&main.copy;" key="copy-key"
+      <menuitem id="edit-copy" label="&main.copy;" key="copy-key" class="menuitem-iconic"
 		accesskey="&main.copy.accesskey;" oncommand="copySelectedContent()"/>
     </menupopup>
   </menu>

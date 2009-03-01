@@ -1,17 +1,17 @@
 /* Global variables */
-var searchInPageObject = null;            /* Object for the find in page dialog window */
+var findInPageObject = null;            /* Object for the find in page dialog window */
 
 /* Open the "find in page" dialog window */
-function searchInPage() {
-    if (!searchInPageObject) {
-	searchInPageObject = new nsFindInstData();
-	searchInPageObject.browser = getHtmlRenderer();
+function find() {
+    if (!findInPageObject) {
+	findInPageObject = new nsFindInstData();
+	findInPageObject.browser = getHtmlRenderer();
     }
     
     var searchPattern = '';
     var lastWord = searchPattern.lastIndexOf(" ", searchPattern.length);
-    searchInPageObject.webBrowserFind.searchString = searchPattern.substring( lastWord+1, searchPattern.length );
-    findInPage(searchInPageObject);
+    findInPageObject.webBrowserFind.searchString = searchPattern.substring( lastWord+1, searchPattern.length );
+    findInPage(findInPageObject);
 }
 
 /* Return the homepage of a ZIM file */

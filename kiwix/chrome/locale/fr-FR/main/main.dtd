@@ -1,52 +1,45 @@
 <!-- Window -->
-<!ENTITY main.title             "Kiwix">
+<!ENTITY main.title               "Kiwix">
 
 <!-- File menu -->
-<!ENTITY main.file              "Fichier">
-<!ENTITY main.file.accesskey    "F">
-<!ENTITY main.addFile           "Add file">
-<!ENTITY main.addFile.accesskey "A">
-<!ENTITY main.print             "Print">
-<!ENTITY main.print.accesskey   "P">
-<!ENTITY main.quit              "Quitter">
-<!ENTITY main.quit.accesskey    "Q">
+<!ENTITY main.file                "Fichier">
+<!ENTITY main.file.accesskey      "F">
+<!ENTITY main.openFile            "Ouvrir un fichier...">
+<!ENTITY main.openFile.accesskey  "O">
+<!ENTITY main.print               "Imprimer">
+<!ENTITY main.print.accesskey     "p">
+<!ENTITY main.quit                "Quitter">
+<!ENTITY main.quit.accesskey      "Q">
 
 <!-- Edit menu -->
-<!ENTITY main.edit              "Édition">
-<!ENTITY main.edit.accesskey    "n">
-<!ENTITY main.search            "Recherche">
-<!ENTITY main.search.accesskey  "c">
+<!ENTITY main.edit                "Édition">
+<!ENTITY main.edit.accesskey      "n">
+<!ENTITY main.find                "Rechercher...">
+<!ENTITY main.find.accesskey      "c">
 <!ENTITY main.selectall           "Tout sélectionner">
 <!ENTITY main.selectall.accesskey "T">
 <!ENTITY main.copy                "Copier">
-<!ENTITY main.copy.accesskey      "C">
+<!ENTITY main.copy.accesskey      "p">
 
 <!-- Display menu -->
-<!ENTITY main.display           "Affichage">
-<!ENTITY main.display.accesskey "A">
-<!ENTITY main.zoom              "Zoom">
-<!ENTITY main.zoom.accesskey    "">
-<!ENTITY main.zoomin            "Zoom +">
-<!ENTITY main.zoomin.accesskey  "">
-<!ENTITY main.zoomout           "Zoom -">
-<!ENTITY main.zoomout.accesskey "">
+<!ENTITY main.display             "Affichage">
+<!ENTITY main.display.accesskey   "A">
+<!ENTITY main.zoom                "Zoom">
+<!ENTITY main.zoom.accesskey      "">
+<!ENTITY main.zoomin              "Zoom +">
+<!ENTITY main.zoomin.accesskey    "">
+<!ENTITY main.zoomout             "Zoom -">
+<!ENTITY main.zoomout.accesskey   "">
 
 <!-- Help menu -->
-<!ENTITY main.help              "Aide">
-<!ENTITY main.help.accesskey    "e">
-<!ENTITY main.about             "À propos de Kiwix">
-<!ENTITY main.about.accesskey   "p">
+<!ENTITY main.help                "Aide">
+<!ENTITY main.help.accesskey      "e">
+<!ENTITY main.about               "À propos de Kiwix">
+<!ENTITY main.about.accesskey     "p">
 
-<!-- Buttons -->
-<!ENTITY main.back              "Article précédent">
-<!ENTITY main.next              "Article suivant">
-<!ENTITY main.home              "Page d'accueil">
-<!ENTITY main.print             "Imprimer">
-
-<!ENTITY main.goto           "Go">
-<!ENTITY main.console        "Console">
-<!ENTITY main.showSearch     "Show search results">
-<!ENTITY main.showHisto      "Show history">
-
-<!ENTITY main.searchBar      "Enter your search query here">
-<!ENTITY main.results        "Search results">
+<!-- Tool bar -->
+<!ENTITY main.back                "Article précédent">
+<!ENTITY main.next                "Article suivant">
+<!ENTITY main.home                "Page d'accueil">
+<!ENTITY main.print               "Imprimer">
+<!ENTITY main.searchBar           "Barre de recherche">

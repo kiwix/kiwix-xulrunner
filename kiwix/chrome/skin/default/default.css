@@ -1,6 +1,26 @@
 /* Menuitems */
+#file-open {
+    list-style-image: url('img/fileopen.png');
+}
+
+#file-print {
+    list-style-image: url('img/print.png');
+}
+
 #file-quit {
     list-style-image: url('img/quit.png');
+}
+
+#edit-find {
+    list-style-image: url('img/find.png');
+}
+
+#edit-selectall {
+    list-style-image: url('img/selectall.png');
+}
+
+#edit-copy {
+    list-style-image: url('img/copy.png');
 }
 
 #help-about {
@@ -39,6 +59,7 @@
     width: 100%;
 }
 
+/* main window*/
 #main {
   width: 1000px;
   height: 800px;
@@ -46,107 +67,4 @@
   padding: 0;
   -moz-appearance: none; 
   background-color: #D2D2D2;
-}
-
-/* test saying "no results" */
-#wk-noresult {
-  color:#aaa;
-}
-
-/* Title labels of the side bar */
-.sidebar-title {
-  font-size: 14px;
-}
-
-/* Score colored bar behind answers. Do not specify the width field ! */
-.score-slide {
-  margin:0.5px 0px 0.5px 0px; 
-  height:10px; 
-  background-color:#bfd8ee;
-}
-
-/* Text of answers */
-.answer-label {
-  color:#000; width:170px; cursor:pointer; padding-top: 3px; font-size: 15px;
-}
-
-/* Related vocabulary text */
-.vocspe-label {
-  cursor:pointer;
-}
-
-#wk-addressbar {
-  margin-top: 3px;
-  width: 70%;
-}
-
-#wk-browser {
-  border: #FFFFFF solid;
-  border-width: 0px;
-  margin: 0px;
-  padding: 0px;
-}
-
-#wk-blockSearch {
-  -moz-appearance: none; 
-  background-color: white;
-  margin: 0px 0px 5px 0px;
-}
-
-#wk-blockResult {
-  border-right: 1px solid #000000;
-  margin-right: 5px;
-}
-
-#wk-blockHistory {
-  border-right: 1px solid #000000;
-  margin-right: 5px;
-}
-
-#wk-resultat {
-  width: 200px;
-}
-
-#wk-history {
-  width: 200px;
-}
-
-#wk-recherche {
-  font-size: 14px;
-  -moz-appearance: none; 
-  -moz-border-radius: 3px;
-  padding-top: 3px;
-  border: solid 1px #000000;
-}
-
-.lab-titre {
-  font-size: 14px;	
-  padding-top: 6px;
-  margin-left: 0px;
-  padding-left: 0px;
-  font-weight: bold; 
-}
-
-#wk-gridApplication{
-  background: #D2D2D2;
-  margin: 0;
-  -moz-appearance: none; 
-  background-color: white;
-}
-
-#wk-descriptionSearch{
-  font-size: 14px;	
-  padding-top: 6px;
-  margin-left: 0px;
-  padding-left: 0px;
-  font-weight: bold; 
-}
-
-#wk-imageWikipedia {
-  cursor: pointer;
-}
-
-vbox {
-  -moz-appearance: none; 
-  background-color: white;
 }
