@@ -31,6 +31,9 @@
   <key id="print-key" key="P" modifiers="control" oncommand="print()"/>
   <key id="selectall" key="A" modifiers="control" oncommand="selectAll()"/>
   <key id="copy" key="C" modifiers="control" oncommand="copySelectedContent()"/>
+  <key id="zoomin" key="+" modifiers="control" oncommand="zoomIn()"/>
+  <key id="zoomin" key="-" modifiers="control" oncommand="zoomOut()"/>
+  <key id="zoomorig" key="0" modifiers="control" oncommand="zoomOriginal()"/>
 </keyset>
 
 <!-- Menu bar -->
@@ -58,12 +61,15 @@
   </menu>
   <menu id="menu-display" label="&main.display;" accesskey="&main.display.accesskey;">
     <menupopup id="display-popup">
-      <menu label="&main.zoom;" >
+      <menu label="&main.zoom;" accesskey="&main.zoom.accesskey;">
 	<menupopup id="menu-zoom">
 	  <menuitem id="display-zoomin" label="&main.zoomin;" class="menuitem-iconic" 
 		    accesskey="&main.zoomin.accesskey;" oncommand="zoomIn()"/>
 	  <menuitem id="display-zoomout" label="&main.zoomout;" class="menuitem-iconic" 
 		    accesskey="&main.zoomout.accesskey;" oncommand="zoomOut()"/>
+	  <menuseparator/>
+	  <menuitem id="display-zoomorig" label="&main.zoomorig;" class="menuitem-iconic" 
+		    accesskey="&main.zoomorig.accesskey;" oncommand="zoomOriginal()"/>
 	</menupopup>
       </menu>
     </menupopup>

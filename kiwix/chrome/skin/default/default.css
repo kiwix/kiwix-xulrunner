@@ -23,6 +23,18 @@
     list-style-image: url('img/copy.png');
 }
 
+#display-zoomin {
+    list-style-image: url('img/zoomin.png');
+}
+
+#display-zoomout {
+    list-style-image: url('img/zoomout.png');
+}
+
+#display-zoomorig {
+    list-style-image: url('img/zoomorig.png');
+}
+
 #help-about {
     list-style-image: url('img/about.png');
 }

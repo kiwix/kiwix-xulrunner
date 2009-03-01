@@ -25,11 +25,13 @@
 <!ENTITY main.display             "Display">
 <!ENTITY main.display.accesskey   "D">
 <!ENTITY main.zoom                "Zoom">
-<!ENTITY main.zoom.accesskey      "">
-<!ENTITY main.zoomin              "Zoom in">
-<!ENTITY main.zoomin.accesskey    "">
-<!ENTITY main.zoomout             "Zoom out">
-<!ENTITY main.zoomout.accesskey   "">
+<!ENTITY main.zoom.accesskey      "Z">
+<!ENTITY main.zoomin              "Magnify">
+<!ENTITY main.zoomin.accesskey    "M">
+<!ENTITY main.zoomout             "Reduce">
+<!ENTITY main.zoomout.accesskey   "R">
+<!ENTITY main.zoomorig            "Original size">
+<!ENTITY main.zoomorig.accesskey  "O">
 
 <!-- Help menu -->
 <!ENTITY main.help                "Help">

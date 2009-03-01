@@ -14,14 +14,6 @@ function find() {
     findInPage(findInPageObject);
 }
 
-/* Return the homepage of a ZIM file */
-function getZimFileHomePageUrl() {
-    var url = new Object();
-    var content = new Object();
-    //zenoAccessor.getNextArticle(url, content);
-    //return url;
-}
-
 /* Launch the indexation of a ZIM file */
 function indexZenoFile(zenoFilePath, xapianDirectory) {
     /* Create the zeno accessor */
