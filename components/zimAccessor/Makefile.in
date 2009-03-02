@@ -9,20 +9,20 @@ GECKO_INCLUDES     = @GECKO_INCLUDES@
 GECKO_LDFLAGS      = @GECKO_LDFLAGS@
 XPIDL              = @XPIDL@
 
-all: zenoAccessor.@LIBEXT@ zenoAccessor.xpt
+all: zimAccessor.@LIBEXT@ zimAccessor.xpt
 
-IZenoAccessor.h: IZenoAccessor.idl
-	$(XPIDL) -m header $(GECKO_IDL_INCLUDES) IZenoAccessor.idl
+IZimAccessor.h: IZimAccessor.idl
+	$(XPIDL) -m header $(GECKO_IDL_INCLUDES) IZimAccessor.idl
 
-zenoAccessor.xpt: IZenoAccessor.idl
-	$(XPIDL) -m typelib $(GECKO_IDL_INCLUDES) IZenoAccessor.idl
-	mv IZenoAccessor.xpt zenoAccessor.xpt
+zimAccessor.xpt: IZimAccessor.idl
+	$(XPIDL) -m typelib $(GECKO_IDL_INCLUDES) IZimAccessor.idl
+	mv IZimAccessor.xpt zimAccessor.xpt
 
-zenoAccessor.@LIBEXT@: zenoAccessor.cpp IZenoAccessor.h
-	$(CXX) -o zenoAccessor.@LIBEXT@ $(GECKO_DEFINES) $(GECKO_INCLUDES) \
-		$(CPPFLAGS) $(CXXFLAGS) zenoAccessor.cpp @LIBS@ \
+zimAccessor.@LIBEXT@: zimAccessor.cpp IZimAccessor.h
+	$(CXX) -o zimAccessor.@LIBEXT@ $(GECKO_DEFINES) $(GECKO_INCLUDES) \
+		$(CPPFLAGS) $(CXXFLAGS) zimAccessor.cpp @LIBS@ \
 		$(LDFLAGS) $(GECKO_LDFLAGS)
-	chmod +x zenoAccessor.@LIBEXT@
+	chmod +x zimAccessor.@LIBEXT@
 
 clean:
 	rm -f *.o *~ *.xpt *.@LIBEXT@

@@ -14,7 +14,7 @@ AC_LANG(C)
 AC_CHECK_TOOL(HAVE_PKG, pkg-config)
 
 # extern
-CPPFLAGS="${CPPFLAGS} -I../../../extern/tntzenoreader/include/  -I../../../extern/cxxtools/include/"
+CPPFLAGS="${CPPFLAGS} -I../../../extern/zimlib/include/  -I../../../extern/cxxtools/include/"
 LDFLAGS="${LDFLAGS} -L../../../extern/zimlib/src/.libs/ -L../../../extern/cxxtools/src/.libs/ -L../../../extern/zlib-1.2.3/ -L../../../extern/bzip2-1.0.5/"
 
 libxul_pkgconfig_ok="no"
