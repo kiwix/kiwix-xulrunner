@@ -7,13 +7,13 @@ const Cr = Components.results;
 
 /* Global variables */
 var currentZimFilePath = null;
-var zenoAccessor = null;
+var zimAccessor = null;
 
-/*** ZenoprotocolHandler ***/
+/*** ZimprotocolHandler ***/
 
-function ZenoprotocolHandler() {}
+function ZimprotocolHandler() {}
 
-ZenoprotocolHandler.prototype = {
+ZimprotocolHandler.prototype = {
 
 
 
@@ -40,9 +40,9 @@ ZenoprotocolHandler.prototype = {
 		} else
 		   	uri.spec = baseURI.spec+spec;
 	} else {
-            var prefix = spec.indexOf("zeno://");
+            var prefix = spec.indexOf("zim://");
 	    if (prefix == -1) {
-	        uri.spec = "zeno://" + spec;
+	        uri.spec = "zim://" + spec;
 	    } else {
 	        uri.spec = spec;
             }
@@ -158,16 +158,16 @@ val},
 	/* Load the settings java code module */
 	Components.utils.import("resource://modules/settings.jsm");
 	
-	/* load the zeno file if necessary */
-	if (zenoAccessor == null || currentZimFilePath != settings.zimFilePath()) {
-	    zenoAccessor = Components.classes["@kiwix.org/zenoAccessor"].getService();
-	    zenoAccessor = zenoAccessor.QueryInterface(Components.interfaces.IZenoAccessor);
-	    zenoAccessor.loadFile(settings.zimFilePath());
+	/* load the zim file if necessary */
+	if (zimAccessor == null || currentZimFilePath != settings.zimFilePath()) {
+	    zimAccessor = Components.classes["@kiwix.org/zimAccessor"].getService();
+	    zimAccessor = zimAccessor.QueryInterface(Components.interfaces.IZimAccessor);
+	    zimAccessor.loadFile(settings.zimFilePath());
 	    currentZimFilePath = settings.zimFilePath();
 	}
 
 	var contentType = new Object();
-	result = zenoAccessor.getContent(this.URI, contentType);
+	result = zimAccessor.getContent(this.URI, contentType);
 
         this.pipe.outputStream.write(result,result.length);
         this.pipe.outputStream.close();
@@ -187,12 +187,12 @@ val},
 }
 
 /**********************************************************************/
-/*** ZenoprotocolHandlerFactory ***/
+/*** ZimprotocolHandlerFactory ***/
 
-var ZenoprotocolHandlerFactory = {
+var ZimprotocolHandlerFactory = {
   createInstance: function(outer, iid) {
     if(outer != null) throw Cr.NS_ERROR_NO_AGGREGATION;
-    return (new ZenoprotocolHandler()).QueryInterface(iid);
+    return (new ZimprotocolHandler()).QueryInterface(iid);
   },
 
   QueryInterface: function(iid) {
@@ -204,38 +204,38 @@ throw Cr.NS_ERROR_NO_INTERFACE;
 }
 
 /**********************************************************************/
-/*** ZenoprotocolModule ***/
+/*** ZimprotocolModule ***/
 
-var ZenoprotocolModule = new Object();
+var ZimprotocolModule = new Object();
 
-ZenoprotocolModule.registerSelf = function(compMgr, fileSpec, location, type) {
+ZimprotocolModule.registerSelf = function(compMgr, fileSpec, location, type) {
   compMgr = compMgr.QueryInterface(Ci.nsIComponentRegistrar);
   compMgr.registerFactoryLocation(Components.ID("{ee042780-dcf9-11dd-8733-0002a5d5c51b}"),
-                                  "Zeno protocol handler",
-                                  "@mozilla.org/network/protocol;1?name=zeno",
+                                  "Zim protocol handler",
+                                  "@mozilla.org/network/protocol;1?name=zim",
                                   fileSpec, location, type);
 
 }
 
-ZenoprotocolModule.unregisterSelf = function(compMgr, location, loaderStr) {
+ZimprotocolModule.unregisterSelf = function(compMgr, location, loaderStr) {
   compMgr = compMgr.QueryInterface(Ci.nsIComponentRegistrar);
   compMgr.unregisterFactoryLocation(Components.ID("{ee042780-dcf9-11dd-8733-0002a5d5c51b}"), location);
 
 }
 
-ZenoprotocolModule.getClassObject = function(compMgr, cid, iid) {
+ZimprotocolModule.getClassObject = function(compMgr, cid, iid) {
   if(!iid.equals(Ci.nsIFactory)) throw Cr.NS_ERROR_NOT_IMPLEMENTED;
-  if(cid.equals(Components.ID("{ee042780-dcf9-11dd-8733-0002a5d5c51b}"))) return ZenoprotocolHandlerFactory;
+  if(cid.equals(Components.ID("{ee042780-dcf9-11dd-8733-0002a5d5c51b}"))) return ZimprotocolHandlerFactory;
   throw Cr.NS_ERROR_NO_INTERFACE;
 
 }
 
-ZenoprotocolModule.canUnload = function(compMgr) {
+ZimprotocolModule.canUnload = function(compMgr) {
   return true;
 
 }
 
 function NSGetModule(compMgr, fileSpec) {
-  return ZenoprotocolModule;
+  return ZimprotocolModule;
 }
 
