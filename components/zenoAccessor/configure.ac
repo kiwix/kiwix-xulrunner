@@ -15,7 +15,7 @@ AC_CHECK_TOOL(HAVE_PKG, pkg-config)
 
 # extern
 CPPFLAGS="${CPPFLAGS} -I../../../extern/tntzenoreader/include/  -I../../../extern/cxxtools/include/"
-LDFLAGS="${LDFLAGS} -L../../../extern/tntzenoreader/src/zenolib/.libs/ -L../../../extern/cxxtools/src/.libs/ -L../../../extern/zlib-1.2.3/ -L../../../extern/bzip2-1.0.5/"
+LDFLAGS="${LDFLAGS} -L../../../extern/zimlib/src/.libs/ -L../../../extern/cxxtools/src/.libs/ -L../../../extern/zlib-1.2.3/ -L../../../extern/bzip2-1.0.5/"
 
 libxul_pkgconfig_ok="no"
 if test ! "x$HAVE_PKG" = "x" ; then
@@ -103,13 +103,13 @@ AC_SUBST(LIBEXT)
 AC_LANG(C++)
 
 # Check if zenolib is installed
-AC_CHECK_LIB([zeno], [main], [
+AC_CHECK_LIB([zim], [main], [
 	case $build in
 		*darwin*)
 			LIBS="-lzeno -lz -lbz2 $LIBS"
 			;;
 		*)
-			LIBS=" -Wl,-Bstatic -lzeno -lz -lbz2 -lcxxtools -Wl,-Bdynamic  $LIBS"
+			LIBS=" -Wl,-Bstatic -lzim -lz -lbz2 -lcxxtools -Wl,-Bdynamic  $LIBS"
 			;;
 	esac
 ], [
