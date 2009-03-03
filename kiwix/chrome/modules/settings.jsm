@@ -22,6 +22,9 @@ var settings = {
 	this.settingsFile.initWithPath(settingsDirectory.path);
 	this.settingsFile.appendRelativePath("prefs.js");
 
+	/* Save the settings directory path */
+	this.rootPath = settingsDirectory.path;
+
 	/* Read the file */
 	try {
 	    this.settingsService.readUserPrefs(this.settingsFile);
@@ -37,6 +40,11 @@ var settings = {
 	} else {
 	    this.rootBranch.removeObserver("", this);
 	}
+    },
+
+    /* Return the path of the user profile */
+    getRootPath: function() {
+    	return this.rootPath + "/";
     },
 
     /* Observer */

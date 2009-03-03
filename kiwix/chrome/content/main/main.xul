@@ -27,7 +27,7 @@
 <keyset>
   <key id="quit-key" key="Q" modifiers="control" oncommand="quitKiwix()"/>
   <key id="find-key" key="F" modifiers="control" oncommand="find()"/>
-  <key id="open-file-key" key="O" modifiers="control" oncommand="openFile();goHome()"/>
+  <key id="open-file-key" key="O" modifiers="control" oncommand="manageNewZimFile()"/>
   <key id="print-key" key="P" modifiers="control" oncommand="print()"/>
   <key id="selectall" key="A" modifiers="control" oncommand="selectAll()"/>
   <key id="copy" key="C" modifiers="control" oncommand="copySelectedContent()"/>
@@ -41,7 +41,7 @@
   <menu id="menu-file" label="&main.file;" accesskey="&main.file.accesskey;">
     <menupopup id="file-popup">
       <menuitem id="file-open" label="&main.openFile;" key="open-file-key" class="menuitem-iconic"
-		accesskey="&main.openFile.accesskey;" oncommand="openFile();goHome()"/>
+		accesskey="&main.openFile.accesskey;" oncommand="manageNewZimFile()"/>
       <menuitem id="file-print" label="&main.print;" key="print-key" class="menuitem-iconic" 
 		accesskey="&main.print.accesskey;" oncommand="print()"/>
       <menuseparator/>
@@ -88,9 +88,9 @@
     <toolbarbutton id="button-back" oncommand="pageBack()"/>
     <toolbarbutton id="button-next" oncommand="pageNext()"/>
     <toolbarbutton id="button-home" oncommand="goHome()"/>
-    <textbox id="textbox-search" flex="1" oninput="searchInput();" 
-	     onkeydown="textkeydown(event);" tooltiptext="&main.searchBar;"/>
-    <toolbarbutton id="button-search" />
+    <textbox id="textbox-search" flex="1" tooltiptext="&main.searchBar;"
+	     onkeypress="if(event.keyCode == 13) { searchInIndex(getSearchBox().value, getSearchIndexDirectory()) }"/>
+    <toolbarbutton id="button-search" oncommand="searchInIndex(getSearchBox().value, getSearchIndexDirectory())"/>
   </toolbar>
 </toolbox>
 

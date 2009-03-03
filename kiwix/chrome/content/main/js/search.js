@@ -14,26 +14,63 @@ function find() {
     findInPage(findInPageObject);
 }
 
+/* Returns the directory path where the search index is stored */
+function getSearchIndexDirectory() {
+    return settings.getRootPath() + "indexes/";
+}
+
+/* Return true if there is already a search index */
+function existsSearchIndex() {
+    var indexDirectorypath = getSearchIndexDirectory();
+    if (isDirectory(indexDirectorypath)) {
+	return true;
+    }
+    return false;
+}
+
+/* Show a dialog box to ask if the user want to index the ZIM file now */
+function doYouWantToIndexNow() {
+    if (confirm('Do you want to index your ZIM file now?')) {
+	indexZimFile(settings.zimFilePath(), getSearchIndexDirectory());
+	activateGuiSearchComponents();
+    } else {
+    }
+}
+
 /* Launch the indexation of a ZIM file */
-function indexZenoFile(zenoFilePath, xapianDirectory) {
-    /* Create the zeno accessor */
-    zenoAccessor = Components.classes["@kiwix.org/zenoAccessor"].getService();
-    zenoAccessor = zenoAccessor.QueryInterface(Components.interfaces.IZenoAccessor);
+function indexZimFile(zimFilePath, xapianDirectory) {
+
+
+ 
+    var thread = Components.classes["@mozilla.org/thread-manager;1"]
+	.getService(Components.interfaces.nsIThreadManager)
+	.newThread(0);
+    thread.dispatch(backgroundTask, thread.DISPATCH_NORMAL);
+    
+    return;
+
+
+
+
+
+    /* Create the zim accessor */
+    zimAccessor = Components.classes["@kiwix.org/zimAccessor"].getService();
+    zimAccessor = zimAccessor.QueryInterface(Components.interfaces.IZimAccessor);
     
     /* Create the xapian accessor */
     xapianAccessor = Components.classes["@kiwix.org/xapianAccessor"].getService();
     xapianAccessor = xapianAccessor.QueryInterface(Components.interfaces.IXapianAccessor);
     
-    /* Load the zeno file */
-    zenoAccessor.loadFile(zenoFilePath);
+    /* Load the zim file */
+    zimAccessor.loadFile(zimFilePath);
     
     /* Open the xapian writable database */
     xapianAccessor.openWritableDatabase(xapianDirectory);
     
-    /* Add each article of the zeno file in the xapian database */
+    /* Add each article of the zim file in the xapian database */
     var url = new Object();
     var content = new Object();
-    while (zenoAccessor.getNextArticle(url, content)) {
+    while (zimAccessor.getNextArticle(url, content)) {
 	dump(url.value + '\n');
 	xapianAccessor.addArticleToDatabase(url.value, content.value);
     }
@@ -42,55 +79,58 @@ function indexZenoFile(zenoFilePath, xapianDirectory) {
     xapianAccessor.closeWritableDatabase();
 }
 
+backgroundTask = {
+   run: function() {
+	var zimFilePath = settings.zimFilePath();
+	var xapianDirectory = getSearchIndexDirectory();
+
+	/* Create the zim accessor */
+	zimAccessor = Components.classes["@kiwix.org/zimAccessor"].getService();
+	zimAccessor = zimAccessor.QueryInterface(Components.interfaces.IZimAccessor);
+	
+	/* Create the xapian accessor */
+	xapianAccessor = Components.classes["@kiwix.org/xapianAccessor"].getService();
+	xapianAccessor = xapianAccessor.QueryInterface(Components.interfaces.IXapianAccessor);
+	
+	/* Load the zim file */
+	zimAccessor.loadFile(zimFilePath);
+	
+	/* Open the xapian writable database */
+	xapianAccessor.openWritableDatabase(xapianDirectory);
+	
+	/* Add each article of the zim file in the xapian database */
+	var url = new Object();
+	var content = new Object();
+	while (zimAccessor.getNextArticle(url, content)) {
+	    dump(url.value + '\n');
+	    xapianAccessor.addArticleToDatabase(url.value, content.value);
+	}
+	
+	/* Close the xapian writable databse */
+	xapianAccessor.closeWritableDatabase();
+	// perform work here that doesn't touch the DOM or anything else that isn't thread safe
+    }
+}
+
 /* Search a pattern in the index */
 function searchInIndex(query, xapianDirectory){
-    xapianDirectory = '/tmp/xapian/';
-    zenoFilePath = '/var/www/dumps/kiwix_0.5.zeno';
-    
-    indexZenoFile(zenoFilePath, xapianDirectory);
-
     /* Create the xapian accessor */
     xapianAccessor = Components.classes["@kiwix.org/xapianAccessor"].getService();
     xapianAccessor = xapianAccessor.QueryInterface(Components.interfaces.IXapianAccessor);
 
-    dump("titi\n");
-
     /* Open the xapian readable database */
     xapianAccessor.openReadableDatabase(xapianDirectory);
 
-    dump("titdi\n");
-
     /* Make a search */
-    xapianAccessor.search(query);    
-    
-    dump("titdidddddddddd\n");
+    xapianAccessor.search(query);
 
     /* Close the xapian readable databse */
     xapianAccessor.closeReadableDatabase();
-    
-    return;
-
-	/*
-	var resCount;
-	var result0;
-	var corpus = corpusgetactive();
-	var wikisearch = getSearchEngine(corpus);
-	if (wikisearch == null) return false;
-
-	resCount = wikisearch.search(motR);
-        if ( resCount > NB_SEARCH_RETURN ) resCount = NB_SEARCH_RETURN;
-        if ( resCount == 0 ) setVisible( "wk-noresult", false );
-        for ( var i = 0 ; i < resCount ; i++ ) {
-         var score = wikisearch.getScore(i);
-         if (( i == 0 )&&( score > AUTO_OPEN_SCORE )&&( !bNoAutoOpen )) 
-               goTo(wikisearch.getResult(i));
-         bNoAutoOpen = false;
-         if ( score < 2 ) break;
-         var page = wikisearch.getTitle(i);
-         var chemin = "javascript:goTo('"+wikisearch.getResult(i)+"')";
-	 addList(page, chemin, score );
-        }
-        addBackground('wk-resultat');
-	return true;
-	*/
 }
+ function backgroundTask() {
+   // Perform a small amount of work
+ 
+
+ }
+ 
+
