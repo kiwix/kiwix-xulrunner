@@ -55,7 +55,9 @@ ZimAccessor::~ZimAccessor() {
 }
 
 /* Load zim file */
-NS_IMETHODIMP ZimAccessor::LoadFile(const char *path, nsACString &_retval) {
+NS_IMETHODIMP ZimAccessor::LoadFile(const char *path, PRBool *retVal) {
+  *retVal = PR_TRUE;
+
   try {    
     this->zimFileHandler = new zim::File(path);
 
@@ -63,9 +65,18 @@ NS_IMETHODIMP ZimAccessor::LoadFile(const char *path, nsACString &_retval) {
       this->firstArticleOffset = this->zimFileHandler->getNamespaceBeginOffset('0');
       this->lastArticleOffset = this->zimFileHandler->getNamespaceEndOffset('0');
       this->currentArticleOffset = this->firstArticleOffset;
+    } else {
+      *retVal = PR_FALSE;
     }
+  } catch(...) {
+    *retVal = PR_FALSE;
   }
-  catch(...) { }
+}
+
+/* Reset the cursor for GetNextArticle() */
+NS_IMETHODIMP ZimAccessor::Reset(PRBool *retVal) {
+  this->currentArticleOffset = this->firstArticleOffset;
+  *retVal = PR_TRUE;
 }
 
 /* List articles for a namespace */

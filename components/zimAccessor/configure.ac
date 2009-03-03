@@ -1,5 +1,5 @@
 # initialisation
-AC_INIT(zenoAccessor, 0.1, kelson@kiwix.org)
+AC_INIT(zimAccessor, 0.1, kelson@kiwix.org)
 
 # Determine a C compiler to use
 AC_PROG_CC
@@ -102,18 +102,18 @@ AC_SUBST(LIBEXT)
 # Set current language to C++
 AC_LANG(C++)
 
-# Check if zenolib is installed
+# Check if zimlib is installed
 AC_CHECK_LIB([zim], [main], [
 	case $build in
 		*darwin*)
-			LIBS="-lzeno -lz -lbz2 $LIBS"
+			LIBS="-lzim -lz -lbz2 $LIBS"
 			;;
 		*)
 			LIBS=" -Wl,-Bstatic -lzim -lz -lbz2 -lcxxtools -Wl,-Bdynamic  $LIBS"
 			;;
 	esac
 ], [
-	AC_MSG_ERROR([zeno not found])
+	AC_MSG_ERROR([zim not found])
 ])
 
 AC_CONFIG_FILES([
