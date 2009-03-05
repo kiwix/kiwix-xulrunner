@@ -39,44 +39,61 @@
     list-style-image: url('img/about.png');
 }
 
-/* toolbar */
+/* Tool bar */
 #toolbar {
-    height: 40px;
+    height: 30px;
 }
 
 /* Buttons */
 #button-back {
     list-style-image: url('img/back.png');
-    width: 38px;
+    width: 40px;
+    height: 28px;
 }
 
 #button-next {
     list-style-image: url('img/next.png');
-    width: 38px;
+    width: 40px;
+    height: 28px;
 }
 
 #button-home {
     list-style-image: url('img/home.png');
-    width: 38px;
+    width: 40px;
+    height: 28px;
 }
 
 #button-search {
     list-style-image: url('img/search.png');
-    width: 38px;
+    width: 40px;
+    height: 28px;
 }
 
-/* textbox search */
-#texbox-search {
-    max-height: 32px;
+/* Textbox search */
+#textbox-search {
+    margin: 6px;
     width: 100%;
 }
 
-/* main window*/
+/* Main window*/
 #main {
-  width: 1000px;
-  height: 800px;
-  margin: 0;
-  padding: 0;
-  -moz-appearance: none; 
-  background-color: #D2D2D2;
+    width: 1000px;
+    height: 800px;
+    margin: 0;
+    padding: 0;
+}
+
+/* Status bar */
+#status-bar {
+    height: 23px;
+    margin: 0px;
+    padding-top: 5px;
+}
+
+#earth-icon {
+    list-style-image: url('img/earth.png');
+}
+
+#book-icon {
+    list-style-image: url('img/book.png');
 }

@@ -32,7 +32,7 @@
   <key id="selectall" key="A" modifiers="control" oncommand="selectAll()"/>
   <key id="copy" key="C" modifiers="control" oncommand="copySelectedContent()"/>
   <key id="zoomin" key="+" modifiers="control" oncommand="zoomIn()"/>
-  <key id="zoomin" key="-" modifiers="control" oncommand="zoomOut()"/>
+  <key id="zoomout" key="-" modifiers="control" oncommand="zoomOut()"/>
   <key id="zoomorig" key="0" modifiers="control" oncommand="zoomOriginal()"/>
 </keyset>
 
@@ -63,15 +63,17 @@
     <menupopup id="display-popup">
       <menu label="&main.zoom;" accesskey="&main.zoom.accesskey;">
 	<menupopup id="menu-zoom">
-	  <menuitem id="display-zoomin" label="&main.zoomin;" class="menuitem-iconic" 
+	  <menuitem id="display-zoomin" label="&main.zoomin;" key="zoomin" class="menuitem-iconic" 
 		    accesskey="&main.zoomin.accesskey;" oncommand="zoomIn()"/>
-	  <menuitem id="display-zoomout" label="&main.zoomout;" class="menuitem-iconic" 
+	  <menuitem id="display-zoomout" label="&main.zoomout;" key="zoomout" class="menuitem-iconic" 
 		    accesskey="&main.zoomout.accesskey;" oncommand="zoomOut()"/>
 	  <menuseparator/>
-	  <menuitem id="display-zoomorig" label="&main.zoomorig;" class="menuitem-iconic" 
+	  <menuitem id="display-zoomorig" label="&main.zoomorig;" key="zoomorig" class="menuitem-iconic" 
 		    accesskey="&main.zoomorig.accesskey;" oncommand="zoomOriginal()"/>
 	</menupopup>
       </menu>
+      <menuitem id="display-statusbar" label="&main.statusbar;" type="checkbox" checked="true"
+		accesskey="&main.statusbar.accesskey;" oncommand="changeStatusBarVisibilityStatus()"/>
     </menupopup>
   </menu>
   <menu id="menu-help" label="&main.help;" accesskey="&main.help.accesskey;">
@@ -106,10 +108,11 @@
 
 <!-- Status bar -->
 <hbox id="status-bar">
-	<image id="earth" collapsed="true"/>
-	<image id="book" collapsed="true"/>
+	<image id="earth-icon" collapsed="true"/>
+	<image id="book-icon" collapsed="true"/>
 	<label id="address-bar" crop="end" flex="1"/>
 	<spacer flex="1"/>
+	<progressmeter id="progress-bar" mode="determined"/>
 </hbox>
 	
 </window>

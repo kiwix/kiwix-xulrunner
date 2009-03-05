@@ -32,6 +32,8 @@
 <!ENTITY main.zoomout.accesskey   "R">
 <!ENTITY main.zoomorig            "Original size">
 <!ENTITY main.zoomorig.accesskey  "O">
+<!ENTITY main.statusbar           "Status bar">
+<!ENTITY main.statusbar.accesskey "S">
 
 <!-- Help menu -->
 <!ENTITY main.help                "Help">

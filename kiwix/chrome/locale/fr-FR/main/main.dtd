@@ -32,6 +32,8 @@
 <!ENTITY main.zoomout.accesskey   "R">
 <!ENTITY main.zoomorig            "Normal">
 <!ENTITY main.zoomorig.accesskey  "N">
+<!ENTITY main.statusbar           "Barre d'état">
+<!ENTITY main.statusbar.accesskey "B">
 
 <!-- Help menu -->
 <!ENTITY main.help                "Aide">

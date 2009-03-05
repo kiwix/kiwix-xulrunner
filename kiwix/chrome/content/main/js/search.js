@@ -37,52 +37,59 @@ function doYouWantToIndexNow() {
     }
 }
 
+/* Proxyfy an object */
+function proxyfyObject(obj, iid, sync) {
+    var flags;
+
+    if (sync || sync == undefined) {
+        flags = Components.interfaces.nsIProxyObjectManager.INVOKE_SYNC | 
+	    Components.interfaces.nsIProxyObjectManager.FORCE_PROXY_CREATION;
+    } else {
+        flags = Components.interfaces.nsIProxyObjectManager.INVOKE_ASYNC | 
+            Components.interfaces.nsIProxyObjectManager.FORCE_PROXY_CREATION;
+    }
+
+    var proxyManager = Components.classes["@mozilla.org/xpcomproxy;1"].
+	getService(Components.interfaces.nsIProxyObjectManager);
+    var threadManager = Components.classes["@mozilla.org/thread-manager;1"].
+	getService(Components.interfaces.nsIThreadManager);
+
+    return proxyManager.getProxyForObject(threadManager.mainThread, iid, obj, flags);
+}
+
+/* Observer object */
+var myObserver = {
+    observe : function (subject, topic, data) {
+	getProgressBar().value = data;
+    }
+  }
+
+var proxiedObserver;
+
 /* Launch the indexation of a ZIM file */
 function indexZimFile(zimFilePath, xapianDirectory) {
+    var ObserverService = Components.classes["@mozilla.org/observer-service;1"].
+	getService(Components.interfaces.nsIObserverService);
+    ObserverService.addObserver(myObserver, "indexation", false);
+    
+    proxiedObserver = proxyfyObject(ObserverService, Components.interfaces.nsIObserverService);
 
+    var threadManager = Components.classes["@mozilla.org/thread-manager;1"].
+    	getService(Components.interfaces.nsIThreadManager);
+    var newThread = threadManager.newThread(0);
 
- 
-    var thread = Components.classes["@mozilla.org/thread-manager;1"]
-	.getService(Components.interfaces.nsIThreadManager)
-	.newThread(0);
-    thread.dispatch(backgroundTask, thread.DISPATCH_NORMAL);
+    newThread.dispatch(backgroundTask, newThread.DISPATCH_NORMAL);
     
     return;
-
-
-
-
-
-    /* Create the zim accessor */
-    zimAccessor = Components.classes["@kiwix.org/zimAccessor"].getService();
-    zimAccessor = zimAccessor.QueryInterface(Components.interfaces.IZimAccessor);
-    
-    /* Create the xapian accessor */
-    xapianAccessor = Components.classes["@kiwix.org/xapianAccessor"].getService();
-    xapianAccessor = xapianAccessor.QueryInterface(Components.interfaces.IXapianAccessor);
-    
-    /* Load the zim file */
-    zimAccessor.loadFile(zimFilePath);
-    
-    /* Open the xapian writable database */
-    xapianAccessor.openWritableDatabase(xapianDirectory);
-    
-    /* Add each article of the zim file in the xapian database */
-    var url = new Object();
-    var content = new Object();
-    while (zimAccessor.getNextArticle(url, content)) {
-	dump(url.value + '\n');
-	xapianAccessor.addArticleToDatabase(url.value, content.value);
-    }
-    
-    /* Close the xapian writable databse */
-    xapianAccessor.closeWritableDatabase();
 }
 
 backgroundTask = {
    run: function() {
+
+    
 	var zimFilePath = settings.zimFilePath();
 	var xapianDirectory = getSearchIndexDirectory();
+	var progressBar = getProgressBar();
 
 	/* Create the zim accessor */
 	zimAccessor = Components.classes["@kiwix.org/zimAccessor"].getService();
@@ -101,8 +108,10 @@ backgroundTask = {
 	/* Add each article of the zim file in the xapian database */
 	var url = new Object();
 	var content = new Object();
+	var i =0;
 	while (zimAccessor.getNextArticle(url, content)) {
 	    dump(url.value + '\n');
+	    proxiedObserver.notifyObservers(this, "indexation", i++/20);
 	    xapianAccessor.addArticleToDatabase(url.value, content.value);
 	}
 	
@@ -114,6 +123,7 @@ backgroundTask = {
 
 /* Search a pattern in the index */
 function searchInIndex(query, xapianDirectory){
+    return;
     /* Create the xapian accessor */
     xapianAccessor = Components.classes["@kiwix.org/xapianAccessor"].getService();
     xapianAccessor = xapianAccessor.QueryInterface(Components.interfaces.IXapianAccessor);
