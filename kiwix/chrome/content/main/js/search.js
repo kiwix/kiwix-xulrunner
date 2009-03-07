@@ -81,6 +81,7 @@ function indexZimFile(zimFilePath, xapianDirectory) {
 		isIndexing(true);
 		progressBar.collapsed = false;
 	    } else if (topic == "stopIndexing") {
+		alert("End of the indexation.")
 		progressBar.collapsed = true;
 		isIndexing(false);
 		activateGuiSearchComponents();

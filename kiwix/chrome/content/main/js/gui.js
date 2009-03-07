@@ -227,7 +227,7 @@ function manageNewZimFile() {
 	    goHome();
 
 	    /* Ask to index */
-	    doYouWantToIndexNow();
+	    manageIndexZimFile();
 	}
     } else {
 	return false;
