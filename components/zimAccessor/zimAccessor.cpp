@@ -79,6 +79,14 @@ NS_IMETHODIMP ZimAccessor::Reset(PRBool *retVal) {
   *retVal = PR_TRUE;
 }
 
+/* Get the count of articles which can be indexed/displayed */
+NS_IMETHODIMP ZimAccessor::GetArticleCount(PRUint32 *count, PRBool *retVal) {
+  try {
+    *count = this->zimFileHandler->getNamespaceCount('0');
+  } catch(...) { }
+  *retVal = PR_TRUE;
+}
+
 /* List articles for a namespace */
 NS_IMETHODIMP ZimAccessor::GetNextArticle(char **url, char **content, PRBool *retVal) {
   try {

@@ -8,6 +8,7 @@ interface IZimAccessor : nsISupports
 {
   boolean loadFile(in string path);
   boolean getNextArticle(out string url, out string content);
+  boolean getArticleCount(out PRUint32 count);
   boolean reset();
   ACString getContent(in nsIURI url, out string contentType);
 };
