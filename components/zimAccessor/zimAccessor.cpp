@@ -71,20 +71,25 @@ NS_IMETHODIMP ZimAccessor::LoadFile(const char *path, PRBool *retVal) {
   } catch(...) {
     *retVal = PR_FALSE;
   }
+  return NS_OK;
 }
 
 /* Reset the cursor for GetNextArticle() */
 NS_IMETHODIMP ZimAccessor::Reset(PRBool *retVal) {
-  this->currentArticleOffset = this->firstArticleOffset;
   *retVal = PR_TRUE;
+  this->currentArticleOffset = this->firstArticleOffset;
+  return NS_OK;
 }
 
 /* Get the count of articles which can be indexed/displayed */
 NS_IMETHODIMP ZimAccessor::GetArticleCount(PRUint32 *count, PRBool *retVal) {
-  try {
-    *count = this->zimFileHandler->getNamespaceCount('0');
-  } catch(...) { }
   *retVal = PR_TRUE;
+  if (this->zimFileHandler != NULL) {
+    *count = this->zimFileHandler->getNamespaceCount('0');
+  } else {
+    *retVal = PR_FALSE;
+  }
+  return NS_OK;
 }
 
 /* List articles for a namespace */
@@ -118,6 +123,7 @@ NS_IMETHODIMP ZimAccessor::GetNextArticle(char **url, char **content, PRBool *re
     }
   }
   catch(...) { }
+  return NS_OK;
 }
 
 /* Get a content from a zim file */

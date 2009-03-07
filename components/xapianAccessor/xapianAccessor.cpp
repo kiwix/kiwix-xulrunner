@@ -68,6 +68,7 @@ NS_IMETHODIMP XapianAccessor::OpenWritableDatabase(const char* directory, PRBool
   } catch (...) {
     *retVal = PR_FALSE;
   }
+  return NS_OK;
 }
 
 /* Close Xapian writable database */
@@ -78,6 +79,7 @@ NS_IMETHODIMP XapianAccessor::CloseWritableDatabase(PRBool *retVal) {
   }
 
   *retVal = PR_TRUE;
+  return NS_OK;
 }
 
 /* Open Xapian readable database */
@@ -89,11 +91,13 @@ NS_IMETHODIMP XapianAccessor::OpenReadableDatabase(const char* directory, PRBool
   } catch (...) {
     *retVal = PR_FALSE;
   }
+  return NS_OK;
 }
 
 /* Close Xapian writable database */
 NS_IMETHODIMP XapianAccessor::CloseReadableDatabase(PRBool *retVal) {
   *retVal = PR_TRUE;
+  return NS_OK;
 }
 
 /* Create xapian db from zeno file */
@@ -132,6 +136,7 @@ NS_IMETHODIMP XapianAccessor::AddArticleToDatabase(const char *url, const char *
   this->writableDatabase.add_document(document);
   
   *retVal = PR_TRUE;
+  return NS_OK;
 }
 
 /* Search strings in the database */
@@ -179,6 +184,7 @@ NS_IMETHODIMP XapianAccessor::Search(const char *search, PRBool *retVal) {
   this->resultOffset = this->results.begin();
 
   *retVal = PR_TRUE;
+  return NS_OK;
 }
 
 /* Reset the results */
@@ -186,6 +192,7 @@ NS_IMETHODIMP XapianAccessor::Reset(PRBool *retVal) {
   this->results.clear();
   this->resultOffset = this->results.begin();
   *retVal = PR_TRUE;
+  return NS_OK;
 }
 
 /* Get next result */
@@ -212,6 +219,7 @@ NS_IMETHODIMP XapianAccessor::GetNextResult(char **url, char **title, PRUint32 *
 
     *retVal = PR_TRUE;
   }
+  return NS_OK;
 }
 
 NS_GENERIC_FACTORY_CONSTRUCTOR(XapianAccessor)
