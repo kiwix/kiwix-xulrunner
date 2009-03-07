@@ -31,9 +31,11 @@ function existsSearchIndex() {
 /* Show a dialog box to ask if the user want to index the ZIM file now */
 function doYouWantToIndexNow() {
     if (confirm('Do you want to index your ZIM file now?')) {
+	/* index the ZIM file */
 	indexZimFile(settings.zimFilePath(), getSearchIndexDirectory());
+
+	/* make the search textbox editable */
 	activateGuiSearchComponents();
-    } else {
     }
 }
 
@@ -57,68 +59,95 @@ function proxyfyObject(obj, iid, sync) {
     return proxyManager.getProxyForObject(threadManager.mainThread, iid, obj, flags);
 }
 
-/* Observer object */
-var myObserver = {
-    observe : function (subject, topic, data) {
-	getProgressBar().value = data;
-    }
-  }
-
-var proxiedObserver;
-
 /* Launch the indexation of a ZIM file */
 function indexZimFile(zimFilePath, xapianDirectory) {
+    var progressBar = getProgressBar();
+    var proxiedZimIndexerObserver;
+
+    /* ZIM indexer observer */
+    var zimIndexerObserver = {
+	observe : function (subject, topic, data) {
+	    if (topic == "indexingProgress") {
+		progressBar.value = data;
+	    } else if (topic == "startIndexing") {
+		progressBar.collapsed = false;
+	    } else if (topic = "stopIndexing") {
+		progressBar.collapsed = true;
+	    }
+	}
+    }
+    
+    /* ZIM indexing task */
+    zimIndexerTask = {
+	run: function() {
+	    var zimFilePath = settings.zimFilePath();
+	    var xapianDirectory = getSearchIndexDirectory();
+	    var progressBar = getProgressBar();
+
+	    /* show the indexing progress bar */
+	    proxiedZimIndexerObserver.notifyObservers(this, "startIndexing", "");
+	    
+	    /* Create the zim accessor */
+	    zimAccessor = Components.classes["@kiwix.org/zimAccessor"].getService();
+	    zimAccessor = zimAccessor.QueryInterface(Components.interfaces.IZimAccessor);
+	    
+	    /* Create the xapian accessor */
+	    xapianAccessor = Components.classes["@kiwix.org/xapianAccessor"].getService();
+	    xapianAccessor = xapianAccessor.QueryInterface(Components.interfaces.IXapianAccessor);
+	    
+	    /* Load the zim file */
+	    zimAccessor.loadFile(zimFilePath);
+	    
+	    /* Open the xapian writable database */
+	    xapianAccessor.openWritableDatabase(xapianDirectory);
+
+	    /* Get the total number of article */
+	    var articleCountObject = new Object();
+	    zimAccessor.getArticleCount(articleCountObject);
+	    var articleCount = articleCountObject.value;
+
+	    /* Add each article of the zim file in the xapian database */
+	    var url = new Object();
+	    var content = new Object();
+	    var articleCounter = 0;
+	    var currentProgressBarPosition = 0;
+	    var newProgressBarPosition = 0;
+
+	    while (zimAccessor.getNextArticle(url, content)) {
+		dump(url.value + "\n");
+		currentProgressBarPosition = articleCounter++ / articleCount * 100 + 1;
+		if (currentProgressBarPosition > newProgressBarPosition + 1) {
+		    newProgressBarPosition = currentProgressBarPosition;
+		    proxiedZimIndexerObserver.notifyObservers(this, "indexingProgress", newProgressBarPosition);
+		}
+		xapianAccessor.addArticleToDatabase(url.value, content.value);
+	    }
+	    
+	    /* Close the xapian writable databse */
+	    xapianAccessor.closeWritableDatabase();
+
+	    /* Hide the indexing progress bar */
+	    proxiedZimIndexerObserver.notifyObservers(this, "stopIndexing", "");
+	}
+    }
+
+    /* Create the observer service and add listener*/
     var ObserverService = Components.classes["@mozilla.org/observer-service;1"].
 	getService(Components.interfaces.nsIObserverService);
-    ObserverService.addObserver(myObserver, "indexation", false);
+    ObserverService.addObserver(zimIndexerObserver, "indexingProgress", false);
+    ObserverService.addObserver(zimIndexerObserver, "stopIndexing", false);
+    ObserverService.addObserver(zimIndexerObserver, "startIndexing", false);
     
-    proxiedObserver = proxyfyObject(ObserverService, Components.interfaces.nsIObserverService);
+    /* Proxyfy the observer */
+    proxiedZimIndexerObserver = proxyfyObject(ObserverService, Components.interfaces.nsIObserverService);
 
+    /* Create an launch the indexing thread */
     var threadManager = Components.classes["@mozilla.org/thread-manager;1"].
     	getService(Components.interfaces.nsIThreadManager);
     var newThread = threadManager.newThread(0);
-
-    newThread.dispatch(backgroundTask, newThread.DISPATCH_NORMAL);
+    newThread.dispatch(zimIndexerTask, newThread.DISPATCH_NORMAL);
     
     return;
-}
-
-backgroundTask = {
-   run: function() {
-
-    
-	var zimFilePath = settings.zimFilePath();
-	var xapianDirectory = getSearchIndexDirectory();
-	var progressBar = getProgressBar();
-
-	/* Create the zim accessor */
-	zimAccessor = Components.classes["@kiwix.org/zimAccessor"].getService();
-	zimAccessor = zimAccessor.QueryInterface(Components.interfaces.IZimAccessor);
-	
-	/* Create the xapian accessor */
-	xapianAccessor = Components.classes["@kiwix.org/xapianAccessor"].getService();
-	xapianAccessor = xapianAccessor.QueryInterface(Components.interfaces.IXapianAccessor);
-	
-	/* Load the zim file */
-	zimAccessor.loadFile(zimFilePath);
-	
-	/* Open the xapian writable database */
-	xapianAccessor.openWritableDatabase(xapianDirectory);
-	
-	/* Add each article of the zim file in the xapian database */
-	var url = new Object();
-	var content = new Object();
-	var i =0;
-	while (zimAccessor.getNextArticle(url, content)) {
-	    dump(url.value + '\n');
-	    proxiedObserver.notifyObservers(this, "indexation", i++/20);
-	    xapianAccessor.addArticleToDatabase(url.value, content.value);
-	}
-	
-	/* Close the xapian writable databse */
-	xapianAccessor.closeWritableDatabase();
-	// perform work here that doesn't touch the DOM or anything else that isn't thread safe
-    }
 }
 
 /* Search a pattern in the index */
@@ -137,10 +166,3 @@ function searchInIndex(query, xapianDirectory){
     /* Close the xapian readable databse */
     xapianAccessor.closeReadableDatabase();
 }
- function backgroundTask() {
-   // Perform a small amount of work
- 
-
- }
- 
-

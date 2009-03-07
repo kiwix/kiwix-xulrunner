@@ -112,7 +112,7 @@
 	<image id="book-icon" collapsed="true"/>
 	<label id="address-bar" crop="end" flex="1"/>
 	<spacer flex="1"/>
-	<progressmeter id="progress-bar" mode="determined"/>
+	<progressmeter id="progress-bar" mode="determined" collapsed="true"/>
 </hbox>
 	
 </window>
