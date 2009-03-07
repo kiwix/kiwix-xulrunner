@@ -7,11 +7,12 @@ interface nsACString;
 interface IXapianAccessor : nsISupports
 {
   boolean openWritableDatabase(in string xapianDirectoryPath);
+  boolean addArticleToDatabase(in string url, in string content);
   boolean closeWritableDatabase();
 
   boolean openReadableDatabase(in string xapianDirectoryPath);
-  boolean closeReadableDatabase();
-
-  boolean addArticleToDatabase(in string url, in string content);
   boolean search(in string search);
+  boolean reset();
+  boolean getNextResult(out string url, out string title, out PRUint32 score);
+  boolean closeReadableDatabase();
 };

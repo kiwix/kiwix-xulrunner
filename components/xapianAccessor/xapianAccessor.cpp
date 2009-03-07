@@ -22,6 +22,13 @@
 
 using namespace std;
 
+struct Result
+{
+  string url;
+  string title;
+  int score;
+}; 
+
 class XapianAccessor : public IXapianAccessor {
 
 public:
@@ -38,6 +45,8 @@ private:
   Xapian::Database readableDatabase;
   Xapian::Stem stemmer;
   Xapian::TermGenerator indexer;
+  std::vector<Result> results;
+  std::vector<Result>::iterator resultOffset;
 };
 
 /* Implementation file */
@@ -71,7 +80,7 @@ NS_IMETHODIMP XapianAccessor::CloseWritableDatabase(PRBool *retVal) {
   *retVal = PR_TRUE;
 }
 
-/* Open Xapian readbale database */
+/* Open Xapian readable database */
 NS_IMETHODIMP XapianAccessor::OpenReadableDatabase(const char* directory, PRBool *retVal) {
   *retVal = PR_TRUE;
 
@@ -98,13 +107,20 @@ NS_IMETHODIMP XapianAccessor::AddArticleToDatabase(const char *url, const char *
   
   /* Put the data in the document */
   Xapian::Document document;
-  document.set_data(this->htmlParser.title);
+  document.add_value(0, this->htmlParser.title);
+  document.set_data(url);
+  indexer.set_document(document);
   
   /* Index the title */
-  indexer.set_document(document);
   if (!this->htmlParser.title.empty()) {
     indexer.index_text(this->htmlParser.title, 2);
     indexer.increase_termpos(100);
+  }
+
+  /* Index the keywords */
+  if (!this->htmlParser.keywords.empty()) {
+    indexer.increase_termpos(50);
+    indexer.index_text(this->htmlParser.keywords);
   }
   
   /* Index the content */
@@ -121,6 +137,10 @@ NS_IMETHODIMP XapianAccessor::AddArticleToDatabase(const char *url, const char *
 /* Search strings in the database */
 NS_IMETHODIMP XapianAccessor::Search(const char *search, PRBool *retVal) {
 
+  /* Reset the results */
+  this->results.clear();
+  this->resultOffset = this->results.begin();
+
   /* Create the enquire object */
   Xapian::Enquire enquire(this->readableDatabase);
   
@@ -135,19 +155,63 @@ NS_IMETHODIMP XapianAccessor::Search(const char *search, PRBool *retVal) {
 
   cout << "Performing query `" <<
          query.get_description() << "'" << endl;
-
   
   /* Get the results */
   Xapian::MSet matches = enquire.get_mset(0, 10);
 
   Xapian::MSetIterator i;
   for (i = matches.begin(); i != matches.end(); ++i) {
-    cout << "Document ID " << *i << "\t";
-    cout << i.get_percent() << "% ";
     Xapian::Document doc = i.get_document();
-    cout << "[" << doc.get_data() << "]" << endl;
+
+    Result result;
+    result.url = doc.get_data();
+    result.title = doc.get_value(0);
+    result.score = i.get_percent();
+
+    this->results.push_back(result);
+
+    cout << "Document ID " << *i << "   \t";
+    cout << i.get_percent() << "% ";
+    cout << "\t[" << doc.get_data() << "] - " << doc.get_value(0) << endl;
   }
 
+  /* Set the cursor to the begining */
+  this->resultOffset = this->results.begin();
+
+  *retVal = PR_TRUE;
+}
+
+/* Reset the results */
+NS_IMETHODIMP XapianAccessor::Reset(PRBool *retVal) {
+  this->results.clear();
+  this->resultOffset = this->results.begin();
+  *retVal = PR_TRUE;
+}
+
+/* Get next result */
+NS_IMETHODIMP XapianAccessor::GetNextResult(char **url, char **title, PRUint32 *score, PRBool *retVal) {
+  *retVal = PR_FALSE;
+
+  if (this->resultOffset != this->results.end()) {
+
+    /* url */
+    string urlStr = this->resultOffset->url;
+    *url = (char*) NS_Alloc(urlStr.length()+1);
+    strcpy(*url, urlStr.c_str());
+
+    /* title */
+    string titleStr = this->resultOffset->title;
+    *title = (char*) NS_Alloc(titleStr.length()+1);
+    strcpy(*title, titleStr.c_str());
+
+    /* score */
+    *score =  this->resultOffset->score;
+
+    /* increment the cursor for the next call */
+    this->resultOffset++;
+
+    *retVal = PR_TRUE;
+  }
 }
 
 NS_GENERIC_FACTORY_CONSTRUCTOR(XapianAccessor)
