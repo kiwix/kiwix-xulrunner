@@ -91,20 +91,24 @@
     <toolbarbutton id="button-next" oncommand="pageNext()"/>
     <toolbarbutton id="button-home" oncommand="goHome()"/>
     <textbox id="textbox-search" flex="1" tooltiptext="&main.searchBar;"
-	     onkeypress="if(event.keyCode == 13) { searchInIndex(getSearchBox().value, getSearchIndexDirectory()) }"/>
-    <toolbarbutton id="button-search" oncommand="searchInIndex(getSearchBox().value, getSearchIndexDirectory())"/>
+	     onkeypress="if(event.keyCode == 13) { manageSearchInIndex() }"/>
+    <toolbarbutton id="button-search"/>
   </toolbar>
 </toolbox>
 
-<!-- Search results side bar -->
-<vbox id="results-sidebar" collapsed="true">
-  <richlistbox flex="1" id="results-list"/>
-</vbox>
+<hbox flex="1">
 
-<!-- Rendering space -->
-<vbox flex="1">
-  <browser flex="1" id="html-renderer" src="" type="content-primary"/>
-</vbox>
+  <!-- Search results side bar -->
+  <vbox id="results-bar" collapsed="true">
+    <richlistbox flex="1" id="results-list"/>
+  </vbox>
+  
+  <!-- Rendering space -->
+  <vbox flex="1">
+    <browser flex="1" id="html-renderer" src="" type="content-primary"/>
+  </vbox>
+
+</hbox>
 
 <!-- Status bar -->
 <hbox id="status-bar">

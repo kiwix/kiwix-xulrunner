@@ -83,6 +83,11 @@
     padding: 0;
 }
 
+/* Results bar */
+#results-bar {
+    width: 200px;
+}
+
 /* Status bar */
 #status-bar {
     height: 23px;
@@ -96,4 +101,8 @@
 
 #book-icon {
     list-style-image: url('img/book.png');
+}
+
+#progress-bar {
+    width: url('200px');
 }

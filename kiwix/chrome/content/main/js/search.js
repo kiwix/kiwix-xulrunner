@@ -1,5 +1,6 @@
 /* Global variables */
 var findInPageObject = null;            /* Object for the find in page dialog window */
+var _isIndexing = false;
 
 /* Open the "find in page" dialog window */
 function find() {
@@ -14,7 +15,16 @@ function find() {
     findInPage(findInPageObject);
 }
 
-/* Returns the directory path where the search index is stored */
+/* Return true if an indexing process runs currently */
+function isIndexing(value) {
+    if (value != undefined) {
+	_isIndexing = value;
+    }
+
+    return _isIndexing;
+}
+
+/* Return the directory path where the search index is stored */
 function getSearchIndexDirectory() {
     return settings.getRootPath() + "indexes/";
 }
@@ -29,13 +39,11 @@ function existsSearchIndex() {
 }
 
 /* Show a dialog box to ask if the user want to index the ZIM file now */
-function doYouWantToIndexNow() {
-    if (confirm('Do you want to index your ZIM file now?')) {
-	/* index the ZIM file */
+function manageIndexZimFile() {
+    if (isIndexing()) {
+	alert("An indexing process is already running.");
+    } else if (confirm('Do you want to index your ZIM file now?')) {
 	indexZimFile(settings.zimFilePath(), getSearchIndexDirectory());
-
-	/* make the search textbox editable */
-	activateGuiSearchComponents();
     }
 }
 
@@ -70,9 +78,12 @@ function indexZimFile(zimFilePath, xapianDirectory) {
 	    if (topic == "indexingProgress") {
 		progressBar.value = data;
 	    } else if (topic == "startIndexing") {
+		isIndexing(true);
 		progressBar.collapsed = false;
-	    } else if (topic = "stopIndexing") {
+	    } else if (topic == "stopIndexing") {
 		progressBar.collapsed = true;
+		isIndexing(false);
+		activateGuiSearchComponents();
 	    }
 	}
     }
@@ -95,7 +106,7 @@ function indexZimFile(zimFilePath, xapianDirectory) {
 	    xapianAccessor = Components.classes["@kiwix.org/xapianAccessor"].getService();
 	    xapianAccessor = xapianAccessor.QueryInterface(Components.interfaces.IXapianAccessor);
 	    
-	    /* Load the zim file */
+	    /* Load the ZIM file */
 	    zimAccessor.loadFile(zimFilePath);
 	    
 	    /* Open the xapian writable database */
@@ -106,7 +117,7 @@ function indexZimFile(zimFilePath, xapianDirectory) {
 	    zimAccessor.getArticleCount(articleCountObject);
 	    var articleCount = articleCountObject.value;
 
-	    /* Add each article of the zim file in the xapian database */
+	    /* Add each article of the ZIM file in the xapian database */
 	    var url = new Object();
 	    var content = new Object();
 	    var articleCounter = 0;
@@ -114,7 +125,7 @@ function indexZimFile(zimFilePath, xapianDirectory) {
 	    var newProgressBarPosition = 0;
 
 	    while (zimAccessor.getNextArticle(url, content)) {
-		dump(url.value + "\n");
+		dump("Indexing " + url.value + "...\n");
 		currentProgressBarPosition = articleCounter++ / articleCount * 100 + 1;
 		if (currentProgressBarPosition > newProgressBarPosition + 1) {
 		    newProgressBarPosition = currentProgressBarPosition;
@@ -123,7 +134,7 @@ function indexZimFile(zimFilePath, xapianDirectory) {
 		xapianAccessor.addArticleToDatabase(url.value, content.value);
 	    }
 	    
-	    /* Close the xapian writable databse */
+	    /* Close the xapian writable database */
 	    xapianAccessor.closeWritableDatabase();
 
 	    /* Hide the indexing progress bar */
@@ -152,7 +163,6 @@ function indexZimFile(zimFilePath, xapianDirectory) {
 
 /* Search a pattern in the index */
 function searchInIndex(query, xapianDirectory){
-    return;
     /* Create the xapian accessor */
     xapianAccessor = Components.classes["@kiwix.org/xapianAccessor"].getService();
     xapianAccessor = xapianAccessor.QueryInterface(Components.interfaces.IXapianAccessor);
@@ -163,6 +173,33 @@ function searchInIndex(query, xapianDirectory){
     /* Make a search */
     xapianAccessor.search(query);
 
+    /* Get the result */
+    var url = new Object();
+    var title = new Object();
+    var score = new Object();
+
+    /* Display the first result (best score) */
+    xapianAccessor.getNextResult(url, title, score);
+    loadArticle("zim://" + url.value);
+
+    /* Empty the results list */
+    emptyResultsList();
+
+    /* Display all the results in the results sidebar */
+    changeResultsBarVisibilityStatus();
+    while (xapianAccessor.getNextResult(url, title, score)) {
+	var urlValue = url.value;
+	var titleValue = title.value;
+	var scoreValue = score.value;
+	addResultToList(urlValue, titleValue, scoreValue);
+    }
+
     /* Close the xapian readable databse */
     xapianAccessor.closeReadableDatabase();
+}
+
+/* Function called by clicking on the search button */
+function manageSearchInIndex() {
+    return searchInIndex(getSearchBox().value, getSearchIndexDirectory());
+
 }
