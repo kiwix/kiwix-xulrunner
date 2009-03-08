@@ -83,7 +83,7 @@ function mouseOver(aEvent) {
     var url = aEvent.target;
 
     if (url instanceof HTMLAnchorElement) {
-	document.getElementById("address-bar").value = url.href;
+	document.getElementById("address-bar").value = url.href.replace(":///", "://");
 	
 	if (isInternalUrl(url)) {
 	    document.getElementById('book-icon').collapsed = false;
@@ -131,6 +131,15 @@ function zoomIn() {
 /* Zoom out (smaller font) */
 function zoomOut() {
     getHtmlRenderer().markupDocumentViewer.textZoom /= _zoomFactor;
+}
+
+/* Start or end Fullscreen */
+function changeFullScreenStatus() {
+    if (document.getElementById('display-fullscreen').getAttribute('checked')) {
+	setTimeout('window.fullScreen = true;', 1); 
+    } else {
+	setTimeout('window.fullScreen = false;', 1); 
+    }
 }
 
 /* Make the status bar (in)visible */

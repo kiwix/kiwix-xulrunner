@@ -1,49 +1,51 @@
 <!-- Window -->
-<!ENTITY main.title               "Kiwix">
+<!ENTITY main.title                "Kiwix">
 
 <!-- File menu -->
-<!ENTITY main.file                "File">
-<!ENTITY main.file.accesskey      "F">
-<!ENTITY main.openFile            "Open file...">
-<!ENTITY main.openFile.accesskey  "O">
-<!ENTITY main.print               "Print...">
-<!ENTITY main.print.accesskey     "P">
-<!ENTITY main.quit                "Quit">
-<!ENTITY main.quit.accesskey      "Q">
+<!ENTITY main.file                 "File">
+<!ENTITY main.file.accesskey       "F">
+<!ENTITY main.openFile             "Open file...">
+<!ENTITY main.openFile.accesskey   "O">
+<!ENTITY main.print                "Print...">
+<!ENTITY main.print.accesskey      "P">
+<!ENTITY main.quit                 "Quit">
+<!ENTITY main.quit.accesskey       "Q">
 
 <!-- Edit menu -->
-<!ENTITY main.edit                "Edit">
-<!ENTITY main.edit.accesskey      "E">
-<!ENTITY main.find                "Search in page...">
-<!ENTITY main.find.accesskey      "S">
-<!ENTITY main.selectall           "Select all">
-<!ENTITY main.selectall.accesskey "a">
-<!ENTITY main.copy                "Copy">
-<!ENTITY main.copy.accesskey      "p">
+<!ENTITY main.edit                 "Edit">
+<!ENTITY main.edit.accesskey       "E">
+<!ENTITY main.find                 "Search in page...">
+<!ENTITY main.find.accesskey       "S">
+<!ENTITY main.selectall            "Select all">
+<!ENTITY main.selectall.accesskey  "a">
+<!ENTITY main.copy                 "Copy">
+<!ENTITY main.copy.accesskey       "p">
 
 <!-- Display menu -->
-<!ENTITY main.display             "Display">
-<!ENTITY main.display.accesskey   "D">
-<!ENTITY main.zoom                "Zoom">
-<!ENTITY main.zoom.accesskey      "Z">
-<!ENTITY main.zoomin              "Magnify">
-<!ENTITY main.zoomin.accesskey    "M">
-<!ENTITY main.zoomout             "Reduce">
-<!ENTITY main.zoomout.accesskey   "R">
-<!ENTITY main.zoomorig            "Original size">
-<!ENTITY main.zoomorig.accesskey  "O">
-<!ENTITY main.statusbar           "Status bar">
-<!ENTITY main.statusbar.accesskey "S">
+<!ENTITY main.display              "Display">
+<!ENTITY main.display.accesskey    "D">
+<!ENTITY main.zoom                 "Zoom">
+<!ENTITY main.zoom.accesskey       "Z">
+<!ENTITY main.zoomin               "Magnify">
+<!ENTITY main.zoomin.accesskey     "M">
+<!ENTITY main.zoomout              "Reduce">
+<!ENTITY main.zoomout.accesskey    "R">
+<!ENTITY main.zoomorig             "Original size">
+<!ENTITY main.zoomorig.accesskey   "O">
+<!ENTITY main.statusbar            "Status bar">
+<!ENTITY main.statusbar.accesskey  "S">
+<!ENTITY main.fullscreen           "Full screen">
+<!ENTITY main.fullscreen.accesskey "F">
 
 <!-- Help menu -->
-<!ENTITY main.help                "Help">
-<!ENTITY main.help.accesskey      "H">
-<!ENTITY main.about               "About">
-<!ENTITY main.about.accesskey     "A">
+<!ENTITY main.help                 "Help">
+<!ENTITY main.help.accesskey       "H">
+<!ENTITY main.about                "About">
+<!ENTITY main.about.accesskey      "A">
 
 <!-- Tool bar -->
-<!ENTITY main.back                "Back">
-<!ENTITY main.forward             "Forward">
-<!ENTITY main.home                "Home">
-<!ENTITY main.print               "Print">
-<!ENTITY main.searchBar           "Search bar">
+<!ENTITY main.back                 "Back">
+<!ENTITY main.forward              "Forward">
+<!ENTITY main.home                 "Home">
+<!ENTITY main.print                "Print">
+<!ENTITY main.searchBar            "Search bar">

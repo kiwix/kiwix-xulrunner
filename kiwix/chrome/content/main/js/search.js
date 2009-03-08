@@ -164,6 +164,9 @@ function indexZimFile(zimFilePath, xapianDirectory) {
 
 /* Search a pattern in the index */
 function searchInIndex(query, xapianDirectory){
+    /* Empty the results list */
+    emptyResultsList();
+
     /* Create the xapian accessor */
     xapianAccessor = Components.classes["@kiwix.org/xapianAccessor"].getService();
     xapianAccessor = xapianAccessor.QueryInterface(Components.interfaces.IXapianAccessor);
@@ -181,10 +184,9 @@ function searchInIndex(query, xapianDirectory){
 
     /* Display the first result (best score) */
     xapianAccessor.getNextResult(url, title, score);
-    loadArticle("zim://" + url.value);
-
-    /* Empty the results list */
-    emptyResultsList();
+    if (url.value.length) {
+	loadArticle("zim://" + url.value);
+    }
 
     /* Display all the results in the results sidebar */
     changeResultsBarVisibilityStatus();

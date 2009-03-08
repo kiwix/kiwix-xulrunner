@@ -11,7 +11,8 @@
 	id      = "main"
 	title   = "&main.title;"
         context = "clipmenu"
-	onload  = "init()">
+	onload  = "init()"
+	>
 
 <!-- Custom Javascript scripts -->
 <script language="javaScript" type="text/javascript" src="resource://modules/settings.jsm"/>
@@ -74,6 +75,8 @@
       </menu>
       <menuitem id="display-statusbar" label="&main.statusbar;" type="checkbox" checked="true"
 		accesskey="&main.statusbar.accesskey;" oncommand="changeStatusBarVisibilityStatus()"/>
+      <menuitem id="display-fullscreen" label="&main.fullscreen;" type="checkbox" checked="false"
+		accesskey="&main.fullscreen.accesskey;" oncommand="changeFullScreenStatus()"/>
     </menupopup>
   </menu>
   <menu id="menu-help" label="&main.help;" accesskey="&main.help.accesskey;">
@@ -102,6 +105,11 @@
   <vbox id="results-bar" collapsed="true">
     <richlistbox flex="1" id="results-list"/>
   </vbox>
+  
+  <!-- splitter to make the sidebar resizeable -->
+  <splitter>
+    <grippy />
+  </splitter>
   
   <!-- Rendering space -->
   <vbox flex="1">
