@@ -1,13 +1,20 @@
 #!/bin/sh
 
-if [ -f /usr/bin/xulrunner ]
+# Get the path of the xulrunner install of the system
+XULRUNNER=`whereis xulrunner | cut -d" " -f2`
+
+# If no xulrunner installed, take a look to the current directory
+if [ ! "$XULRUNNER" ]
 then
-    XULRUNNER_BIN=/usr/bin/xulrunner
+    XULRUNNER=`find ./ -name xulrunner`
 fi
 
-if [ -f xulrunner-linux/xulrunner ]
+# Ff no result print a message
+if [ ! "$XULRUNNER" ] || [ ! -f "$XULRUNNER" ]
 then
-    XULRUNNER_BIN=xulrunner-linux/xulrunner
+    echo "'xulrunner' is not installed, you have to install it to use Kiwix."
+    exit;
 fi
 
-exec $XULRUNNER_BIN application.ini
+# Otherwise, launch Kiwix
+exec $XULRUNNER application.ini
