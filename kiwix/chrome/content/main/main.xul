@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
-<?xml-stylesheet href="chrome://main/skin/default.css" type="text/css"?>
+<?xml-stylesheet href="chrome://main/skin/main.css" type="text/css"?>
 <!DOCTYPE window [
 <!ENTITY % wikiDTD SYSTEM "chrome://main/locale/main.dtd">
 %wikiDTD;
@@ -10,7 +10,6 @@
 <window	xmlns:html="http://www.w3.org/1999/xhtml" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
 	id      = "main"
 	title   = "&main.title;"
-        context = "clipmenu"
 	onload  = "init()"
 	>
 
@@ -108,7 +107,7 @@
   
   <!-- splitter to make the sidebar resizeable -->
   <splitter>
-    <grippy />
+    <grippy/>
   </splitter>
   
   <!-- Rendering space -->
@@ -120,11 +119,11 @@
 
 <!-- Status bar -->
 <hbox id="status-bar">
-	<image id="earth-icon" collapsed="true"/>
-	<image id="book-icon" collapsed="true"/>
-	<label id="address-bar" crop="end" flex="1"/>
-	<spacer flex="1"/>
-	<progressmeter id="progress-bar" mode="determined" collapsed="true"/>
+  <image id="earth-icon" collapsed="true"/>
+  <image id="book-icon" collapsed="true"/>
+  <label id="address-bar" crop="end" flex="1"/>
+  <spacer flex="1"/>
+  <progressmeter id="progress-bar" mode="determined" collapsed="true"/>
 </hbox>
 	
 </window>
