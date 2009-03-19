@@ -260,24 +260,23 @@ function addResultToList(url, title, score) {
     /* get the result list object */
     var resultsList = getResultsList();
 
-    var slideWidth = 200;
-
     /* create the scoreslide */
+    var slideWidth = score;
+
     var scoreslide = document.createElement("hbox");
     scoreslide.setAttribute("flex", "0");
+    
     var scoreslidef = document.createElement("box");
-    var slideWidth = score*2; if ( slideWidth > 180 ) slideWidth = 180;
-    scoreslidef.setAttribute("class", "score-slide" );
-    scoreslidef.setAttribute("style", "cursor:pointer; width:"+slideWidth+"px;");
+    scoreslidef.setAttribute("style", "cursor: pointer; width: "+slideWidth+"px; background-color: #EEEEEE");
     scoreslide.appendChild(scoreslidef);
     
     /* set label of the richlist item */
     var titre = document.createElement("label");
-    titre.setAttribute("class", "answer-label");
     titre.setAttribute("value", title);
     titre.setAttribute("tooltiptext", title);
     titre.setAttribute("flex", "0");
     titre.setAttribute("crop", "end");
+    titre.setAttribute("style", "cursor: pointer;");
 
     /* create the stack */
     var titrescore = document.createElement("stack");
@@ -289,7 +288,7 @@ function addResultToList(url, title, score) {
     var li = document.createElement("richlistitem");
     li.setAttribute("onclick", "loadArticle('zim://" + url + "')");
     li.setAttribute("flex", "0");
-    li.setAttribute("style", "cursor:pointer;");
+    li.setAttribute("style", "cursor: pointer;");
     li.appendChild(titrescore);
 
     /* add the item to the list */

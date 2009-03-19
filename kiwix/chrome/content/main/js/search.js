@@ -182,7 +182,7 @@ function searchInIndex(query, xapianDirectory){
     xapianAccessor.openReadableDatabase(xapianDirectory);
 
     /* Make a search */
-    xapianAccessor.search(query);
+    xapianAccessor.search(query, 30);
 
     /* Get the result */
     var url = new Object();
