@@ -255,14 +255,14 @@ function emptyResultsList() {
 }
 
 /* Add a list item to the results list */
-function addResultToList(url, title, score){
+function addResultToList(url, title, score) {
     
-    // get the result list object
+    /* get the result list object */
     var resultsList = getResultsList();
 
     var slideWidth = 200;
 
-    // create the scoreslide
+    /* create the scoreslide */
     var scoreslide = document.createElement("hbox");
     scoreslide.setAttribute("flex", "0");
     var scoreslidef = document.createElement("box");
@@ -271,7 +271,7 @@ function addResultToList(url, title, score){
     scoreslidef.setAttribute("style", "cursor:pointer; width:"+slideWidth+"px;");
     scoreslide.appendChild(scoreslidef);
     
-    // set label of the richlist item
+    /* set label of the richlist item */
     var titre = document.createElement("label");
     titre.setAttribute("class", "answer-label");
     titre.setAttribute("value", title);
@@ -279,21 +279,26 @@ function addResultToList(url, title, score){
     titre.setAttribute("flex", "0");
     titre.setAttribute("crop", "end");
 
-    // create the stack
+    /* create the stack */
     var titrescore = document.createElement("stack");
     titrescore.setAttribute("flex", "0");
     titrescore.appendChild(scoreslide);
     titrescore.appendChild(titre);
 
-    // create a new richlist item
+    /* create a new richlist item */
     var li = document.createElement("richlistitem");
     li.setAttribute("onclick", "loadArticle('zim://" + url + "')");
     li.setAttribute("flex", "0");
     li.setAttribute("style", "cursor:pointer;");
     li.appendChild(titrescore);
 
-    // add the item to the list
+    /* add the item to the list */
     resultsList.appendChild(li);
 
     return true;
+}
+
+/* Display the about dialog box */
+function showAbout() {
+    var win = window.openDialog('about.xul','','resizable=no,scrollbars=no,modal,fullscreen=no,width=350,height=400,chrome=yes');
 }

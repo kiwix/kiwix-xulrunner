@@ -17,4 +17,4 @@ then
 fi
 
 # Otherwise, launch Kiwix
-exec $XULRUNNER application.ini
+exec $XULRUNNER application.ini $1
