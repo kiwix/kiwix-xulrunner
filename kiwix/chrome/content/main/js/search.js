@@ -122,12 +122,16 @@ function indexZimFile(zimFilePath, xapianDirectory) {
 	    var url = new Object();
 	    var content = new Object();
 	    var articleCounter = 0;
-	    var currentProgressBarPosition = 0;
-	    var newProgressBarPosition = 0;
+	    var progressBarPadding = 5;
+	    var currentProgressBarPosition = progressBarPadding;
+	    var newProgressBarPosition = currentProgressBarPosition;
+
+	    /* Default start value */
+	    proxiedZimIndexerObserver.notifyObservers(this, "indexingProgress", newProgressBarPosition);
 
 	    while (zimAccessor.getNextArticle(url, content)) {
 		dump("Indexing " + url.value + "...\n");
-		currentProgressBarPosition = articleCounter++ / articleCount * 100 + 1;
+		currentProgressBarPosition = articleCounter++ / articleCount * (100 - progressBarPadding) + 1;
 		if (currentProgressBarPosition > newProgressBarPosition + 1) {
 		    newProgressBarPosition = currentProgressBarPosition;
 		    proxiedZimIndexerObserver.notifyObservers(this, "indexingProgress", newProgressBarPosition);
@@ -137,6 +141,9 @@ function indexZimFile(zimFilePath, xapianDirectory) {
 	    
 	    /* Close the xapian writable database */
 	    xapianAccessor.closeWritableDatabase();
+
+	    /* Fill the progress bar */
+	    proxiedZimIndexerObserver.notifyObservers(this, "indexingProgress", 100);
 
 	    /* Hide the indexing progress bar */
 	    proxiedZimIndexerObserver.notifyObservers(this, "stopIndexing", "");
