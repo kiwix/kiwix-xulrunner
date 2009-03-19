@@ -140,7 +140,7 @@ NS_IMETHODIMP XapianAccessor::AddArticleToDatabase(const char *url, const char *
 }
 
 /* Search strings in the database */
-NS_IMETHODIMP XapianAccessor::Search(const char *search, PRBool *retVal) {
+NS_IMETHODIMP XapianAccessor::Search(const char *search, PRUint32 resultsCount, PRBool *retVal) {
 
   /* Reset the results */
   this->results.clear();
@@ -162,7 +162,7 @@ NS_IMETHODIMP XapianAccessor::Search(const char *search, PRBool *retVal) {
          query.get_description() << "'" << endl;
   
   /* Get the results */
-  Xapian::MSet matches = enquire.get_mset(0, 10);
+  Xapian::MSet matches = enquire.get_mset(0, resultsCount);
 
   Xapian::MSetIterator i;
   for (i = matches.begin(); i != matches.end(); ++i) {

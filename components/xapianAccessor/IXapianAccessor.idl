@@ -11,7 +11,7 @@ interface IXapianAccessor : nsISupports
   boolean closeWritableDatabase();
 
   boolean openReadableDatabase(in string xapianDirectoryPath);
-  boolean search(in string search);
+  boolean search(in string search, in PRUint32 resultsCount);
   boolean reset();
   boolean getNextResult(out string url, out string title, out PRUint32 score);
   boolean closeReadableDatabase();
