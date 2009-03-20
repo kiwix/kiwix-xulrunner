@@ -41,7 +41,7 @@ function existsSearchIndex() {
 /* Show a dialog box to ask if the user want to index the ZIM file now */
 function manageIndexZimFile() {
     if (isIndexing()) {
-	alert("An indexing process is already running.");
+	displayErrorDialog("An indexing process is already running.");
     } else if (confirm('Do you want to index your ZIM file now?')) {
 	indexZimFile(settings.zimFilePath(), getSearchIndexDirectory());
     }
@@ -81,7 +81,7 @@ function indexZimFile(zimFilePath, xapianDirectory) {
 		isIndexing(true);
 		progressBar.collapsed = false;
 	    } else if (topic == "stopIndexing") {
-		alert("End of the indexation.")
+		displayErrorDialog("End of the indexation.", "Information")
 		progressBar.collapsed = true;
 		isIndexing(false);
 		activateGuiSearchComponents();
@@ -182,34 +182,47 @@ function searchInIndex(query, xapianDirectory){
     xapianAccessor.openReadableDatabase(xapianDirectory);
 
     /* Make a search */
-    xapianAccessor.search(query, 30);
+    xapianAccessor.search(query, 29);
 
     /* Get the result */
     var url = new Object();
     var title = new Object();
     var score = new Object();
 
-    /* Display the first result (best score) */
+    /* Try to get the first result */
     xapianAccessor.getNextResult(url, title, score);
-    if (url.value.length) {
+
+    if (url.value != null) {
+	/* Display the first result (best score) */
 	loadArticle("zim://" + url.value);
-    }
 
-    /* Display all the results in the results sidebar */
-    changeResultsBarVisibilityStatus();
-    while (xapianAccessor.getNextResult(url, title, score)) {
-	var urlValue = url.value;
-	var titleValue = title.value;
-	var scoreValue = score.value;
-	addResultToList(urlValue, titleValue, scoreValue);
-    }
-
+	/* Display all the results in the results sidebar */
+	changeResultsBarVisibilityStatus(true);
+	do {
+	    addResultToList(url.value, title.value, score.value);
+	} while (xapianAccessor.getNextResult(url, title, score));
+    } else {
+	changeResultsBarVisibilityStatus(false);
+	displayErrorDialog("No results for this query.", "Information");
+    }	
+    
     /* Close the xapian readable databse */
     xapianAccessor.closeReadableDatabase();
 }
 
 /* Function called by clicking on the search button */
 function manageSearchInIndex() {
-    return searchInIndex(getSearchBox().value, getSearchIndexDirectory());
+    var stringToSearch = getSearchBox().value;
+    
+    if (stringToSearch == "") {
+	displayErrorDialog("You have to enter a text to search.");
+    } else {
+	/* Make the search and display results */
+	searchInIndex(getSearchBox().value, getSearchIndexDirectory());
+    }
 
+    /* Clear search textbox */
+    getSearchBox().value = "";
+
+    return true;
 }

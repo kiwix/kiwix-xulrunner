@@ -51,7 +51,7 @@ function loadZimFile(zimFilePath) {
 
     /* Load the zim file */
     if (!zimAccessor.loadFile(zimFilePath)) {
-	alert("Unable to load '" + zimFilePath + ". Are you sure this is ZIM file?");
+	displayErrorDialog("Unable to load '" + zimFilePath + ". Are you sure this is ZIM file?");
 	return undefined;
     }
 
@@ -94,7 +94,7 @@ function print() {
     try{
 	PrintUtils.print();
     } catch(exception) {
-	alert(exception);
+	displayErrorDialog(exception);
 	return false;
     }
     return true;

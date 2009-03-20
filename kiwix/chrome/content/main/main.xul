@@ -2,8 +2,8 @@
 <?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
 <?xml-stylesheet href="chrome://main/skin/main.css" type="text/css"?>
 <!DOCTYPE window [
-<!ENTITY % wikiDTD SYSTEM "chrome://main/locale/main.dtd">
-%wikiDTD;
+<!ENTITY % mainDTD SYSTEM "chrome://main/locale/main.dtd">
+%mainDTD;
 ]>
 <window	xmlns:html="http://www.w3.org/1999/xhtml" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
 	id      = "main"

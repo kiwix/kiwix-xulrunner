@@ -55,8 +55,11 @@ function desactivateGuiSearchComponents() {
 }
 
 /* Change result side bar visibility status */
-function changeResultsBarVisibilityStatus() {
-    getResultsBar().collapsed = false;
+function changeResultsBarVisibilityStatus(visible) {
+    if (visible == undefined) {
+	visible = getResultsBar().collapsed;
+    }
+    getResultsBar().collapsed = !visible;
 }
 
 /* Allowing zoom function by combining mouse & ctrl */
@@ -107,6 +110,7 @@ function openUrl(aEvent) {
     var url = aEvent.target;
 
     if (url instanceof HTMLAnchorElement) {
+	changeResultsBarVisibilityStatus(false);
 	clearStatusBar();
     }
 }
@@ -192,7 +196,7 @@ function pageBack() {
 	htmlRenderer.stop();
 	htmlRenderer.goBack();
     } catch (exception) {
-	alert(exception);
+	displayErrorDialog(exception);
 	return false;
     }
     return true;
@@ -205,7 +209,7 @@ function pageNext() {
 	htmlRenderer.stop();
 	htmlRenderer.goForward();
     } catch (exception) {
-	alert(exception);
+	displayErrorDialog(exception);
 	return false;
     }
     return true;
@@ -257,41 +261,41 @@ function emptyResultsList() {
 /* Add a list item to the results list */
 function addResultToList(url, title, score) {
     
-    /* get the result list object */
+    /* Get the result list object */
     var resultsList = getResultsList();
 
-    /* create the scoreslide */
+    /* Create the scoreslide */
     var slideWidth = score;
 
     var scoreslide = document.createElement("hbox");
     scoreslide.setAttribute("flex", "0");
-    
+
     var scoreslidef = document.createElement("box");
-    scoreslidef.setAttribute("style", "cursor: pointer; width: "+slideWidth+"px; background-color: #EEEEEE");
+    scoreslidef.setAttribute("style", "cursor: pointer; -moz-border-radius: 7px; width: "+slideWidth+"px; background-color: #EEEEEE");
     scoreslide.appendChild(scoreslidef);
     
-    /* set label of the richlist item */
+    /* Set label of the richlist item */
     var titre = document.createElement("label");
     titre.setAttribute("value", title);
-    titre.setAttribute("tooltiptext", title);
+    titre.setAttribute("tooltiptext", title + " - " + score + "%");
     titre.setAttribute("flex", "0");
     titre.setAttribute("crop", "end");
     titre.setAttribute("style", "cursor: pointer;");
 
-    /* create the stack */
+    /* Create the stack */
     var titrescore = document.createElement("stack");
     titrescore.setAttribute("flex", "0");
     titrescore.appendChild(scoreslide);
     titrescore.appendChild(titre);
 
-    /* create a new richlist item */
+    /* Create a new richlist item */
     var li = document.createElement("richlistitem");
     li.setAttribute("onclick", "loadArticle('zim://" + url + "')");
     li.setAttribute("flex", "0");
-    li.setAttribute("style", "cursor: pointer;");
+    li.setAttribute("style", "cursor: pointer; padding: 2px;");
     li.appendChild(titrescore);
 
-    /* add the item to the list */
+    /* Add the item to the list */
     resultsList.appendChild(li);
 
     return true;
@@ -300,4 +304,18 @@ function addResultToList(url, title, score) {
 /* Display the about dialog box */
 function showAbout() {
     var win = window.openDialog('about.xul','','resizable=no,scrollbars=no,modal,fullscreen=no,width=350,height=400,chrome=yes');
+}
+
+/* Display an error dialog box like alert() */
+function displayErrorDialog(message, title) {
+    var promptService = Components.classes["@mozilla.org/embedcomp/prompt-service;1"]
+	.getService(Components.interfaces.nsIPromptService);
+
+    /* Default title */
+    if (title == undefined) {
+	title = "Error"
+    }
+
+    promptService.alert(window, title, message);
+
 }
