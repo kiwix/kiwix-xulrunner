@@ -196,20 +196,18 @@ NS_IMETHODIMP XapianAccessor::Reset(PRBool *retVal) {
 }
 
 /* Get next result */
-NS_IMETHODIMP XapianAccessor::GetNextResult(char **url, char **title, PRUint32 *score, PRBool *retVal) {
+NS_IMETHODIMP XapianAccessor::GetNextResult( nsACString &url, nsACString &title, PRUint32 *score, PRBool *retVal) {
   *retVal = PR_FALSE;
 
   if (this->resultOffset != this->results.end()) {
 
     /* url */
-    string urlStr = this->resultOffset->url;
-    *url = (char*) NS_Alloc(urlStr.length()+1);
-    strcpy(*url, urlStr.c_str());
+    url = nsDependentCString(this->resultOffset->url.c_str(), 
+			       this->resultOffset->url.length());
 
     /* title */
-    string titleStr = this->resultOffset->title;
-    *title = (char*) NS_Alloc(titleStr.length()+1);
-    strcpy(*title, titleStr.c_str());
+    title = nsDependentCString(this->resultOffset->title.c_str(), 
+			       this->resultOffset->title.length());
 
     /* score */
     *score =  this->resultOffset->score;
