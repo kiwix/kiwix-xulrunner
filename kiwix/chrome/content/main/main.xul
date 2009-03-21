@@ -11,6 +11,9 @@
 	onload  = "init()"
 	>
 
+<!-- Properties -->
+<stringbundle id="properties" src="chrome://main/locale/main.properties"/>
+
 <!-- Custom Javascript scripts -->
 <script language="javaScript" type="text/javascript" src="resource://modules/settings.jsm"/>
 <script language="javaScript" type="text/javascript" src="js/gui.js"/>

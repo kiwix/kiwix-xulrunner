@@ -42,7 +42,7 @@ function existsSearchIndex() {
 function manageIndexZimFile() {
     if (isIndexing()) {
 	displayErrorDialog("An indexing process is already running.");
-    } else if (confirm('Do you want to index your ZIM file now?')) {
+    } else if (displayConfirmDialog(getProperty("indexZimFileConfirm"))) {
 	indexZimFile(settings.zimFilePath(), getSearchIndexDirectory());
     }
 }
@@ -182,7 +182,7 @@ function searchInIndex(query, xapianDirectory){
     xapianAccessor.openReadableDatabase(xapianDirectory);
 
     /* Make a search */
-    xapianAccessor.search(query, 29);
+    xapianAccessor.search(query, 28);
 
     /* Get the result */
     var url = new Object();
@@ -212,13 +212,13 @@ function searchInIndex(query, xapianDirectory){
 
 /* Function called by clicking on the search button */
 function manageSearchInIndex() {
-    var stringToSearch = getSearchBox().value;
-    
+    var stringToSearch = getSearchBox().value.toLowerCase();
+
     if (stringToSearch == "") {
 	displayErrorDialog("You have to enter a text to search.");
     } else {
 	/* Make the search and display results */
-	searchInIndex(getSearchBox().value, getSearchIndexDirectory());
+	searchInIndex(stringToSearch, getSearchIndexDirectory());
     }
 
     /* Clear search textbox */

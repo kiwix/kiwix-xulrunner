@@ -9,19 +9,20 @@ function quitKiwix() {
     appStartup.quit(quitSeverity);
 }
 
-/* Unused change skin function */
-/* TODO: adapt to the new XUL file and localize */
-function changeSkin(name) {
-    if (confirm("To change the skin, the application has to be restarted. Shall I restart ?")) {
-	var prefs = Components.classes["@mozilla.org/preferences-service;1"].
-	    getService(Components.interfaces.nsIPrefBranch);
-	prefs.setCharPref('general.skins.selectedSkin', name);
+/* Return the properties object */
+function getProperties() {
+    return document.getElementById("properties");
+}
 
-	var window = document.getElementById("mybrowser");
-	Components.classes["@mozilla.org/chrome/chrome-registry;1"]
-	    .getService(Components.interfaces.nsIXULChromeRegistry)
-	    .reloadChrome();
+/* Return the value of a specific property */
+function getProperty(name, parameter1) {
+    var message = getProperties().getString(name);
+
+    if (parameter1 != undefined) {
+	message.replace("%1", parameter1)
     }
+
+    return message;
 }
 
 /* initialization function */
@@ -51,7 +52,7 @@ function loadZimFile(zimFilePath) {
 
     /* Load the zim file */
     if (!zimAccessor.loadFile(zimFilePath)) {
-	displayErrorDialog("Unable to load '" + zimFilePath + ". Are you sure this is ZIM file?");
+	displayErrorDialog(getProperty("loadZimFileError", zimFilePath));
 	return undefined;
     }
 

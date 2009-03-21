@@ -316,6 +316,20 @@ function displayErrorDialog(message, title) {
 	title = "Error"
     }
 
-    promptService.alert(window, title, message);
+    return promptService.alert(window, title, message);
+
+}
+
+/* Display a confirm dialog box like confirm() */
+function displayConfirmDialog(message, title) {
+    var promptService = Components.classes["@mozilla.org/embedcomp/prompt-service;1"]
+	.getService(Components.interfaces.nsIPromptService);
+
+    /* Default title */
+    if (title == undefined) {
+	title = "Confirm"
+    }
+
+    return promptService.confirm(window, title, message);
 
 }
