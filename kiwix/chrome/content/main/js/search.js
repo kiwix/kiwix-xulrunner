@@ -1,6 +1,6 @@
 /* Global variables */
 var findInPageObject = null;            /* Object for the find in page dialog window */
-var _isIndexing = false;
+var _isIndexing = false;                /* To know if a ZIM file is currently indexing */
 
 /* Open the "find in page" dialog window */
 function find() {
@@ -27,7 +27,18 @@ function isIndexing(value) {
 /* Return the directory path where the search index is stored */
 function getSearchIndexDirectory(zimFilePath) {
     var fileSize = getFileSize(zimFilePath);
-    return settings.getRootPath() + fileSize + "index/";
+    return settings.getRootPath() + getSearchIndexDirectoryName(zimFilePath);
+}
+
+/* Return the name of the search index directory */
+function getSearchIndexDirectoryName(zimFilePath) {
+    var fileSize = getFileSize(zimFilePath);
+    return fileSize + "index/";
+}
+
+/* Return the tmp directory path where the search index is build */
+function getTmpSearchIndexDirectory() {
+    return settings.getRootPath() + "tmpindex/";
 }
 
 /* Return true if there is already a search index */
@@ -43,6 +54,8 @@ function existsSearchIndex(zimFilePath) {
 function manageIndexZimFile() {
     if (isIndexing()) {
 	displayErrorDialog(getProperty("alreadyIndexingError"));
+    } else if (settings.zimFilePath() == undefined) {
+	displayErrorDialog(getProperty("noActiveZimFile"));
     } else if (displayConfirmDialog(getProperty("indexZimFileConfirm"))) {
 	indexZimFile(settings.zimFilePath(), getSearchIndexDirectory(settings.zimFilePath()));
     }
@@ -94,11 +107,19 @@ function indexZimFile(zimFilePath, xapianDirectory) {
     zimIndexerTask = {
 	run: function() {
 	    var zimFilePath = settings.zimFilePath();
+	    var xapianTmpDirectory = getTmpSearchIndexDirectory();
+	    var xapianDirectoryName = getSearchIndexDirectoryName(zimFilePath);
 	    var xapianDirectory = getSearchIndexDirectory(zimFilePath);
 	    var progressBar = getProgressBar();
+	    var settingsRootPath = settings.getRootPath();
 
 	    /* show the indexing progress bar */
 	    proxiedZimIndexerObserver.notifyObservers(this, "startIndexing", "");
+
+	    /* Remove the xapian tmp directory */
+	    if (isFile(xapianTmpDirectory)) {
+		deleteFile(xapianTmpDirectory);
+	    }
 	    
 	    /* Create the zim accessor */
 	    zimAccessor = Components.classes["@kiwix.org/zimAccessor"].getService();
@@ -112,7 +133,7 @@ function indexZimFile(zimFilePath, xapianDirectory) {
 	    zimAccessor.loadFile(zimFilePath);
 	    
 	    /* Open the xapian writable database */
-	    xapianAccessor.openWritableDatabase(xapianDirectory);
+	    xapianAccessor.openWritableDatabase(xapianTmpDirectory);
 
 	    /* Get the total number of article */
 	    var articleCountObject = new Object();
@@ -143,6 +164,9 @@ function indexZimFile(zimFilePath, xapianDirectory) {
 	    /* Close the xapian writable database */
 	    xapianAccessor.closeWritableDatabase();
 
+	    /* Move the xapian tmp directory to the well named xapian directory */
+	    moveFile(xapianTmpDirectory, settingsRootPath, xapianDirectoryName); 
+	   
 	    /* Fill the progress bar */
 	    proxiedZimIndexerObserver.notifyObservers(this, "indexingProgress", 100);
 

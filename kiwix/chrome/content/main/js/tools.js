@@ -1,5 +1,12 @@
 /* Quit Kiwix */
 function quitKiwix() {
+    /* Check if an indexing process is currently running */
+    if (isIndexing()) {
+	if (!displayConfirmDialog(getProperty("abortIndexingConfirm"))) {
+	    return;
+	}
+    }
+
     var forceQuit = 1;
     var appStartup = Components.classes['@mozilla.org/toolkit/app-startup;1'].
     getService(Components.interfaces.nsIAppStartup);
@@ -41,7 +48,8 @@ function init() {
     goHome();
 
     /* Check if there is a search index */
-    if (existsSearchIndex(settings.zimFilePath())) {
+    if (settings.zimFilePath() != undefined &&
+	existsSearchIndex(settings.zimFilePath())) {
 	activateGuiSearchComponents();
     } else {
 	desactivateGuiSearchComponents();
@@ -130,5 +138,36 @@ function getFileSize(path) {
     if (fileService instanceof Components.interfaces.nsILocalFile) {
 	fileService.initWithPath(path);
 	return fileService.fileSize;
+    }
+}
+
+/* Delete a file or a directory */
+function deleteFile(path) {
+    var fileService = Components.classes["@mozilla.org/file/local;1"].createInstance();
+    if (fileService instanceof Components.interfaces.nsILocalFile) {
+	fileService.initWithPath(path);
+	return fileService.remove(true);
+    }
+}
+
+/* Move a file or a directory */
+function moveFile(filePath, newDirectory, newName) {
+    var fileService = Components.classes["@mozilla.org/file/local;1"].createInstance();
+    var directoryService = Components.classes["@mozilla.org/file/local;1"].createInstance();
+
+    if (fileService instanceof Components.interfaces.nsILocalFile &&
+	directoryService instanceof Components.interfaces.nsILocalFile) {
+	fileService.initWithPath(filePath);
+	directoryService.initWithPath(newDirectory);
+	return fileService.moveTo(directoryService, newName);
+    }
+}
+
+/* Check if a file exists*/
+function isFile(filePath) {
+    var fileService = Components.classes["@mozilla.org/file/local;1"].createInstance();
+    if (fileService instanceof Components.interfaces.nsILocalFile) {
+	fileService.initWithPath(filePath);
+	return fileService.exists();
     }
 }
