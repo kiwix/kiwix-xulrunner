@@ -1,12 +1,12 @@
 #!/bin/sh
 
-# Get the path of the xulrunner install of the system
-XULRUNNER=`whereis xulrunner | cut -d" " -f2`
+# Take a look to the current directory
+XULRUNNER=`find ./ -name xulrunner`
 
-# If no xulrunner installed, take a look to the current directory
+# If no xulrunner, get the path of the xulrunner install of the system
 if [ ! "$XULRUNNER" ]
 then
-    XULRUNNER=`find ./ -name xulrunner`
+    XULRUNNER=`whereis xulrunner | cut -d" " -f2`
 fi
 
 # Ff no result print a message
