@@ -113,6 +113,13 @@ function openUrl(aEvent) {
 	changeResultsBarVisibilityStatus(false);
 	clearStatusBar();
     }
+
+    /* Open with extern browser if not an internal link */
+    if (url.href.indexOf("zim://",0) != 0) {
+	openUrlWithExternalBrowser(url);
+	aEvent.preventDefault();
+	aEvent.stopPropagation();
+    }
 }
 
 /* Clear the status bar */

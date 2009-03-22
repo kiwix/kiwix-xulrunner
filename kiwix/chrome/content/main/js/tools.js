@@ -114,11 +114,15 @@ function print() {
 }
 
 /* Load the page with the external browser */
-function openUrlWithExternalBrowser() {
+function openUrlWithExternalBrowser(url) {
+    var ioService = Components.classes["@mozilla.org/network/io-service;1"].
+	getService(Components.interfaces.nsIIOService);
+    var resolvedUrl = ioService.newURI(url.href, null, null);
     var externalProtocolService = Components.
 	classes["@mozilla.org/uriloader/external-protocol-service;1"].
 	getService(Components.interfaces.nsIExternalProtocolService);
-    externalProtocolService.loadUrl(getHtmlRenderer().currentURI );
+    
+    externalProtocolService.loadURI(resolvedUrl, null);
 }
 
 /* Check if a directory exists */
