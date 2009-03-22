@@ -107,9 +107,7 @@
   </vbox>
   
   <!-- splitter to make the sidebar resizeable -->
-  <splitter>
-    <grippy/>
-  </splitter>
+  <splitter />
   
   <!-- Rendering space -->
   <vbox flex="1">

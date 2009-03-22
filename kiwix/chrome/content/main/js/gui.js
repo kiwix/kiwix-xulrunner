@@ -234,13 +234,16 @@ function manageNewZimFile() {
 	/* Try to open the ZIM file */
 	var zimAccessor = loadZimFile(fp.file.path);
 	if (zimAccessor != undefined) {
-	    settings.zimFilePath(fp.file.path);
+	    var zimFilePath = fp.file.path;
+	    settings.zimFilePath(zimFilePath);
 
 	    /* Load the ZIM file welcome page */
 	    goHome();
 
-	    /* Ask to index */
-	    manageIndexZimFile();
+	    /* Ask to index if this files has not already an index */
+	    if (!existsSearchIndex(zimFilePath)) {
+		manageIndexZimFile();
+	    }
 	}
     } else {
 	return false;
@@ -313,7 +316,7 @@ function displayErrorDialog(message, title) {
 
     /* Default title */
     if (title == undefined) {
-	title = "Error"
+	title = getProperty("error");
     }
 
     return promptService.alert(window, title, message);
@@ -327,7 +330,7 @@ function displayConfirmDialog(message, title) {
 
     /* Default title */
     if (title == undefined) {
-	title = "Confirm"
+	title = getProperty("confirm");
     }
 
     return promptService.confirm(window, title, message);

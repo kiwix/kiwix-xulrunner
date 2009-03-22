@@ -25,13 +25,14 @@ function isIndexing(value) {
 }
 
 /* Return the directory path where the search index is stored */
-function getSearchIndexDirectory() {
-    return settings.getRootPath() + "indexes/";
+function getSearchIndexDirectory(zimFilePath) {
+    var fileSize = getFileSize(zimFilePath);
+    return settings.getRootPath() + fileSize + "index/";
 }
 
 /* Return true if there is already a search index */
-function existsSearchIndex() {
-    var indexDirectorypath = getSearchIndexDirectory();
+function existsSearchIndex(zimFilePath) {
+    var indexDirectorypath = getSearchIndexDirectory(zimFilePath);
     if (isDirectory(indexDirectorypath)) {
 	return true;
     }
@@ -41,9 +42,9 @@ function existsSearchIndex() {
 /* Show a dialog box to ask if the user want to index the ZIM file now */
 function manageIndexZimFile() {
     if (isIndexing()) {
-	displayErrorDialog("An indexing process is already running.");
+	displayErrorDialog(getProperty("alreadyIndexingError"));
     } else if (displayConfirmDialog(getProperty("indexZimFileConfirm"))) {
-	indexZimFile(settings.zimFilePath(), getSearchIndexDirectory());
+	indexZimFile(settings.zimFilePath(), getSearchIndexDirectory(settings.zimFilePath()));
     }
 }
 
@@ -81,7 +82,7 @@ function indexZimFile(zimFilePath, xapianDirectory) {
 		isIndexing(true);
 		progressBar.collapsed = false;
 	    } else if (topic == "stopIndexing") {
-		displayErrorDialog("End of the indexation.", "Information")
+		displayErrorDialog(getProperty("endOfIndexing"), getProperty("information"))
 		progressBar.collapsed = true;
 		isIndexing(false);
 		activateGuiSearchComponents();
@@ -93,7 +94,7 @@ function indexZimFile(zimFilePath, xapianDirectory) {
     zimIndexerTask = {
 	run: function() {
 	    var zimFilePath = settings.zimFilePath();
-	    var xapianDirectory = getSearchIndexDirectory();
+	    var xapianDirectory = getSearchIndexDirectory(zimFilePath);
 	    var progressBar = getProgressBar();
 
 	    /* show the indexing progress bar */
@@ -192,7 +193,7 @@ function searchInIndex(query, xapianDirectory){
     /* Try to get the first result */
     xapianAccessor.getNextResult(url, title, score);
 
-    if (url.value != null) {
+    if (url.value != "") {
 	/* Display the first result (best score) */
 	loadArticle("zim://" + url.value);
 
@@ -203,7 +204,7 @@ function searchInIndex(query, xapianDirectory){
 	} while (xapianAccessor.getNextResult(url, title, score));
     } else {
 	changeResultsBarVisibilityStatus(false);
-	displayErrorDialog("No results for this query.", "Information");
+	displayErrorDialog(getProperty("noResultsError"), getProperty("information"));
     }	
     
     /* Close the xapian readable databse */
@@ -215,10 +216,10 @@ function manageSearchInIndex() {
     var stringToSearch = getSearchBox().value.toLowerCase();
 
     if (stringToSearch == "") {
-	displayErrorDialog("You have to enter a text to search.");
+	displayErrorDialog(getProperty("emptySearchStringError"));
     } else {
 	/* Make the search and display results */
-	searchInIndex(stringToSearch, getSearchIndexDirectory());
+	searchInIndex(stringToSearch, getSearchIndexDirectory(settings.zimFilePath()));
     }
 
     /* Clear search textbox */

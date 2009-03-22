@@ -15,11 +15,15 @@ function getProperties() {
 }
 
 /* Return the value of a specific property */
-function getProperty(name, parameter1) {
+function getProperty(name, parameter1, parameter2) {
     var message = getProperties().getString(name);
 
     if (parameter1 != undefined) {
 	message.replace("%1", parameter1)
+    }
+
+    if (parameter2 != undefined) {
+	message.replace("%2", parameter2)
     }
 
     return message;
@@ -37,7 +41,7 @@ function init() {
     goHome();
 
     /* Check if there is a search index */
-    if (existsSearchIndex()) {
+    if (existsSearchIndex(settings.zimFilePath())) {
 	activateGuiSearchComponents();
     } else {
 	desactivateGuiSearchComponents();
@@ -103,10 +107,10 @@ function print() {
 
 /* Load the page with the external browser */
 function openUrlWithExternalBrowser() {
-    var extps = Components.
+    var externalProtocolService = Components.
 	classes["@mozilla.org/uriloader/external-protocol-service;1"].
 	getService(Components.interfaces.nsIExternalProtocolService);
-    extps.loadUrl(getHtmlRenderer().currentURI );
+    externalProtocolService.loadUrl(getHtmlRenderer().currentURI );
 }
 
 /* Check if a directory exists */
@@ -118,4 +122,13 @@ function isDirectory(path) {
 	return true;
     }
     return false;
+}
+
+/* Return the size of a file */
+function getFileSize(path) {
+    var fileService = Components.classes["@mozilla.org/file/local;1"].createInstance();
+    if (fileService instanceof Components.interfaces.nsILocalFile) {
+	fileService.initWithPath(path);
+	return fileService.fileSize;
+    }
 }
