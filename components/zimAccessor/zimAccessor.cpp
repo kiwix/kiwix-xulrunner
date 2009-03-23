@@ -127,7 +127,8 @@ NS_IMETHODIMP ZimAccessor::GetNextArticle(char **url, char **content, PRBool *re
 }
 
 /* Get a content from a zim file */
-NS_IMETHODIMP ZimAccessor::GetContent(nsIURI *urlObject, char **contentType, nsACString &_retval) {
+NS_IMETHODIMP ZimAccessor::GetContent(nsIURI *urlObject, nsACString &content, PRUint32 *contentLength, 
+				      nsACString &contentType, PRBool *retVal) {
 
   /* Convert the URL object to char* string */
   nsEmbedCString urlString;
@@ -167,24 +168,14 @@ NS_IMETHODIMP ZimAccessor::GetContent(nsIURI *urlObject, char **contentType, nsA
   /* Extract the content from the zim file */
   zim::Article article = zimFileHandler->getArticle(ns[0], zim::QUnicodeString(title));
 
-  /* Get the data length */
-  unsigned int contentLength = article.getDataLen();
-
   /* Get the content mime-type */
-  const char *mimeType = article.getMimeType().c_str();
-  *contentType = (char*) NS_Alloc(strlen(mimeType) + 1);
-  strcpy(*contentType, mimeType);
+  contentType =  nsDependentCString(article.getMimeType().c_str(), article.getMimeType().size()); 
 
   /* Get the data */
-  std::string contentString = article.getData();
-  std::string::size_type contentStringSize = contentString.size();
-  char *content = (char *) NS_Alloc(contentStringSize + 1);
-  unsigned inc = 0;
-  for(inc = 0; inc < contentStringSize; inc++) {
-    content[inc] = contentString[inc];
-  }
-  _retval = nsDependentCString(content, contentStringSize);
-  NS_Free(content);
+  content = nsDependentCString(article.getData().c_str(), article.getData().size());
+
+  /* Get the data length */
+  *contentLength = article.getData().size();
 
   return NS_OK;
 }
