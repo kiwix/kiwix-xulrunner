@@ -73,8 +73,9 @@ ZimprotocolHandler.prototype = {
 /*** PipeChannel ***/
 
 var PipeChannel = function(URI) {
-  this.pipe = Cc["@mozilla.org/pipe;1"].createInstance(Ci.nsIPipe);
-  this.pipe.init(true,true,0,0,null);
+    this.pipe = Cc["@mozilla.org/pipe;1"].createInstance(Ci.nsIPipe);
+    const PR_UINT32_MAX = Math.pow(2, 32) - 1;
+  this.pipe.init(true,true,0, PR_UINT32_MAX,null);
   this.inputStreamChannel = Cc["@mozilla.org/network/input-stream-channel;1"].createInstance(Ci.nsIInputStreamChannel);
   this.inputStreamChannel.setURI(URI);
   this.inputStreamChannel.contentStream = this.pipe.inputStream;
@@ -166,10 +167,12 @@ val},
 	    currentZimFilePath = settings.zimFilePath();
 	}
 
+	var content = new Object();
+	var contentLength = new Object();
 	var contentType = new Object();
-	result = zimAccessor.getContent(this.URI, contentType);
-
-        this.pipe.outputStream.write(result,result.length);
+	zimAccessor.getContent(this.URI, content, contentLength, contentType);
+	
+        this.pipe.outputStream.write(content.value, contentLength.value);
         this.pipe.outputStream.close();
     } catch(err) {
       if (err.result != Cr.NS_BINDING_ABORTED) {
@@ -211,7 +214,7 @@ var ZimprotocolModule = new Object();
 ZimprotocolModule.registerSelf = function(compMgr, fileSpec, location, type) {
   compMgr = compMgr.QueryInterface(Ci.nsIComponentRegistrar);
   compMgr.registerFactoryLocation(Components.ID("{ee042780-dcf9-11dd-8733-0002a5d5c51b}"),
-                                  "Zim protocol handler",
+                                  "ZIM protocol handler",
                                   "@mozilla.org/network/protocol;1?name=zim",
                                   fileSpec, location, type);
 
