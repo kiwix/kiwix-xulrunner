@@ -8,8 +8,6 @@ for DIR in `find ./ -executable -type d -name xulrunner`; do
     export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$DIR;
 done
 
-echo $LD_LIBRARY_PATH
-
 # If no xulrunner, get the path of the xulrunner install of the system
 if [ ! "$XULRUNNER" ]
 then
@@ -24,5 +22,4 @@ then
 fi
 
 # Otherwise, launch Kiwix
-echo $XULRUNNER
-$XULRUNNER application.ini $1
+exec $XULRUNNER application.ini $1
