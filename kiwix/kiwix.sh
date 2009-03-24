@@ -3,8 +3,15 @@
 # Take a look to the current directory
 XULRUNNER=`find ./ -executable -type f -name xulrunner`
 
+# Try to update $LD_LIBRARY_PATH
+for DIR in `find ./ -executable -type d -name xulrunner`; do
+    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$DIR;
+done
+
+echo $LD_LIBRARY_PATH
+
 # If no xulrunner, get the path of the xulrunner install of the system
-if [ !"$XULRUNNER" ]
+if [ ! "$XULRUNNER" ]
 then
     XULRUNNER=`whereis xulrunner | cut -d" " -f2`
 fi
@@ -17,4 +24,5 @@ then
 fi
 
 # Otherwise, launch Kiwix
-exec $XULRUNNER application.ini $1
+echo $XULRUNNER
+$XULRUNNER application.ini $1
