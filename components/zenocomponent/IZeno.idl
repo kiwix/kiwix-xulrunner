@@ -1,9 +1,0 @@
-#include "nsISupports.idl"
-
-interface nsIURI;
-
-[scriptable, uuid(b49b9ee3-f333-4e29-9898-4b598f4dc024)]
-interface iZeno : nsISupports
-{
- ACString   getArticle(in nsIURI url, out string contentType);
-};
