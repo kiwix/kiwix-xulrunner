@@ -55,11 +55,22 @@ function desactivateGuiSearchComponents() {
 }
 
 /* Change result side bar visibility status */
-function changeResultsBarVisibilityStatus(visible) {
+function changeResultsBarVisibilityStatus(visible, save) {
     if (visible == undefined) {
-	visible = getResultsBar().collapsed;
+	visible = document.getElementById('display-resultsbar').getAttribute('checked');
+    } else {
+	document.getElementById('display-resultsbar').setAttribute('checked', visible);
     }
-    getResultsBar().collapsed = !visible;
+
+    if (visible) {
+	document.getElementById('results-bar').collapsed = false;
+    } else {
+	document.getElementById('results-bar').collapsed = true;
+    }
+
+    if (save) {
+	settings.displayResultsBar(visible);
+    }
 }
 
 /* Allowing zoom function by combining mouse & ctrl */
@@ -145,20 +156,40 @@ function zoomOut() {
 }
 
 /* Start or end Fullscreen */
-function changeFullScreenStatus() {
-    if (document.getElementById('display-fullscreen').getAttribute('checked')) {
+function changeFullScreenStatus(fullScreen, save) {
+    if (fullScreen == undefined) {
+	fullScreen = document.getElementById('display-fullscreen').getAttribute('checked');
+    } else {
+	document.getElementById('display-fullscreen').setAttribute('checked', fullScreen);
+    }
+    
+    if (fullScreen) {
 	setTimeout('window.fullScreen = true;', 1); 
     } else {
 	setTimeout('window.fullScreen = false;', 1); 
     }
+    
+    if (save) {
+	settings.displayFullScreen(fullScreen);
+    }
 }
 
 /* Make the status bar (in)visible */
-function changeStatusBarVisibilityStatus() {
-    if (document.getElementById('display-statusbar').getAttribute('checked')) {
+function changeStatusBarVisibilityStatus(visible, save) {
+    if (visible == undefined) {
+	visible = document.getElementById('display-statusbar').getAttribute('checked');
+    } else {
+	document.getElementById('display-statusbar').setAttribute('checked', visible);
+    }
+
+    if (visible) {
 	document.getElementById('status-bar').collapsed = false;
     } else {
 	document.getElementById('status-bar').collapsed = true;
+    }
+
+    if (save) {
+	settings.displayStatusBar(visible);
     }
 }
 
@@ -327,7 +358,6 @@ function displayErrorDialog(message, title) {
     }
 
     return promptService.alert(window, title, message);
-
 }
 
 /* Display a confirm dialog box like confirm() */
@@ -341,5 +371,4 @@ function displayConfirmDialog(message, title) {
     }
 
     return promptService.confirm(window, title, message);
-
 }

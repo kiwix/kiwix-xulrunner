@@ -73,18 +73,22 @@ var settings = {
 	if (value != undefined) {
 	    this.rootBranch.setIntPref(name, value);
 	}
-	return this.rootBranch.getIntPref(name);
+	if (this.rootBranch.prefHasUserValue(name) == true) { return this.rootBranch.getIntPref(name); }
     },
 
     boolSettingParameter: function(name, value) {
 	if (value != undefined) {
+	    value = (value == "true" || value == true) ? true : false;
 	    this.rootBranch.setBoolPref(name, value);
 	}
-	return this.rootBranch.getBoolPref(name);
+	if (this.rootBranch.prefHasUserValue(name) == true) { return this.rootBranch.getBoolPref(name); }
     },
     
     /* Multiple accessor functions */
-    zimFilePath: function(value) { return this.charSettingParameter("zimFilePath", value); }
+    zimFilePath: function(value) { return this.charSettingParameter("zimFilePath", value); },
+    displayStatusBar: function(value) { return this.boolSettingParameter("displayStatusBar", value); },
+    displayFullScreen: function(value) { return this.boolSettingParameter("displayFullScreen", value); },
+    displayResultsBar: function(value) { return this.boolSettingParameter("displayResultsBar", value); }
 }
 
 /* Create the settings object */

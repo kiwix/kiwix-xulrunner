@@ -74,9 +74,11 @@
 	</menupopup>
       </menu>
       <menuitem id="display-statusbar" label="&main.statusbar;" type="checkbox" checked="true"
-		accesskey="&main.statusbar.accesskey;" oncommand="changeStatusBarVisibilityStatus()"/>
+		accesskey="&main.statusbar.accesskey;" oncommand="changeStatusBarVisibilityStatus(undefined, true)"/>
+      <menuitem id="display-resultsbar" label="&main.resultsbar;" type="checkbox" checked="false"
+		accesskey="&main.resultsbar.accesskey;" oncommand="changeResultsBarVisibilityStatus(undefined, true)"/>
       <menuitem id="display-fullscreen" label="&main.fullscreen;" type="checkbox" checked="false"
-		accesskey="&main.fullscreen.accesskey;" oncommand="changeFullScreenStatus()"/>
+		accesskey="&main.fullscreen.accesskey;" oncommand="changeFullScreenStatus(undefined, true)"/>
     </menupopup>
   </menu>
   <menu id="menu-help" label="&main.help;" accesskey="&main.help.accesskey;">

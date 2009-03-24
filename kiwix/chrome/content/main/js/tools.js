@@ -7,6 +7,9 @@ function quitKiwix() {
 	}
     }
 
+    /* Save settings */
+    settings.save();
+
     var forceQuit = 1;
     var appStartup = Components.classes['@mozilla.org/toolkit/app-startup;1'].
     getService(Components.interfaces.nsIAppStartup);
@@ -43,6 +46,11 @@ function init() {
     getHtmlRenderer().addEventListener("mouseover", mouseOver, true);
     getHtmlRenderer().addEventListener("mouseout", mouseOut, true);
     getHtmlRenderer().addEventListener("DOMActivate", openUrl, true);
+
+    /* Apply GUI settings */
+    if (settings.displayStatusBar() != undefined) { changeStatusBarVisibilityStatus(settings.displayStatusBar()); }
+    if (settings.displayFullScreen() != undefined) { changeFullScreenStatus(settings.displayFullScreen()); }
+    if (settings.displayResultsBar() != undefined) { changeResultsBarVisibilityStatus(settings.displayResultsBar()); }
 
     /* Load the welcome page of the ZIM file */
     goHome();
