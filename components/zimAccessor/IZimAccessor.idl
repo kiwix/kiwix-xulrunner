@@ -8,7 +8,7 @@ interface nsAUTF8String;
 interface IZimAccessor : nsISupports
 {
   boolean loadFile(in string path);
-  boolean getNextArticle(out string url, out string content);
+  boolean getNextArticle(out ACString url, out ACString content);
   boolean getArticleCount(out PRUint32 count);
   boolean reset();
   boolean getContent(in nsIURI url, out ACString content, out PRUint32 contentLength, out ACString contentType);

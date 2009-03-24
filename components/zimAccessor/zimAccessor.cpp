@@ -93,7 +93,7 @@ NS_IMETHODIMP ZimAccessor::GetArticleCount(PRUint32 *count, PRBool *retVal) {
 }
 
 /* List articles for a namespace */
-NS_IMETHODIMP ZimAccessor::GetNextArticle(char **url, char **content, PRBool *retVal) {
+NS_IMETHODIMP ZimAccessor::GetNextArticle(nsACString &url, nsACString &content, PRBool *retVal) {
   try {
     zim::Article currentArticle;
     
@@ -105,13 +105,8 @@ NS_IMETHODIMP ZimAccessor::GetNextArticle(char **url, char **content, PRBool *re
 	     this->currentArticleOffset++);
     
     /* returned values*/
-    string urlStr = currentArticle.getUrl().getValue();
-    *url = (char*) NS_Alloc(urlStr.length()+1);
-    strcpy(*url, urlStr.c_str());
-
-    string contentStr = currentArticle.getData();
-    *content = (char*) NS_Alloc(contentStr.length()+1);
-    strcpy(*content, contentStr.c_str());
+    url = nsDependentCString(currentArticle.getUrl().getValue().c_str(), currentArticle.getUrl().getValue().size());
+    content = nsDependentCString(currentArticle.getData().c_str(), currentArticle.getData().size());
 
     /* increment the offset and set returned value */
     if (this->currentArticleOffset != this->lastArticleOffset) {
@@ -169,7 +164,7 @@ NS_IMETHODIMP ZimAccessor::GetContent(nsIURI *urlObject, nsACString &content, PR
   zim::Article article = zimFileHandler->getArticle(ns[0], zim::QUnicodeString(title));
 
   /* Get the content mime-type */
-  contentType =  nsDependentCString(article.getMimeType().c_str(), article.getMimeType().size()); 
+  contentType = nsDependentCString(article.getMimeType().c_str(), article.getMimeType().size()); 
 
   /* Get the data */
   content = nsDependentCString(article.getData().c_str(), article.getData().size());
