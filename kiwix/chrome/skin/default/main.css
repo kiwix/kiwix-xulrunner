@@ -108,3 +108,8 @@
 #progress-bar {
     width: 200px;
 }
+
+#progress-bar-label {
+    margin-top: 3px;
+    text-align: center;
+}

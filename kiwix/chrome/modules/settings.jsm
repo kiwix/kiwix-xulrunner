@@ -1,6 +1,6 @@
-EXPORTED_SYMBOLS = ["settings"];
+var EXPORTED_SYMBOLS = [ "settings" ];
 
-var settings = {
+let settings = {
 
     /* Constructor */
     register: function() {

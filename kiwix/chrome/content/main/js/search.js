@@ -84,6 +84,7 @@ function proxyfyObject(obj, iid, sync) {
 /* Launch the indexation of a ZIM file */
 function indexZimFile(zimFilePath, xapianDirectory) {
     var progressBar = getProgressBar();
+    var progressBarLabel = getProgressBarLabel();
     var proxiedZimIndexerObserver;
 
     /* ZIM indexer observer */
@@ -91,12 +92,13 @@ function indexZimFile(zimFilePath, xapianDirectory) {
 	observe : function (subject, topic, data) {
 	    if (topic == "indexingProgress") {
 		progressBar.value = data;
+		progressBarLabel.value = getProperty("indexing") + " (" + Math.round(data) + "%)";
 	    } else if (topic == "startIndexing") {
 		isIndexing(true);
-		progressBar.collapsed = false;
+		changeProgressBarVisibilityStatus(true);
 	    } else if (topic == "stopIndexing") {
 		displayErrorDialog(getProperty("endOfIndexing"), getProperty("information"))
-		progressBar.collapsed = true;
+		changeProgressBarVisibilityStatus(false);
 		isIndexing(false);
 		activateGuiSearchComponents();
 	    }

@@ -26,6 +26,11 @@ function getProgressBar() {
     return document.getElementById("progress-bar");
 }
 
+/* Return the Progress meter label */
+function getProgressBarLabel() {
+    return document.getElementById("progress-bar-label");
+}
+
 /* Return the results side bar */
 function getResultsBar() {
     return document.getElementById("results-bar");
@@ -201,8 +206,10 @@ function changeProgressBarVisibilityStatus(visible) {
 
     if (visible) {
         getProgressBar().collapsed = false;
+        getProgressBarLabel().collapsed = false;
     } else {
 	getProgressBar().collapsed = true;
+        getProgressBarLabel().collapsed = true;
     }
     return;
 }
