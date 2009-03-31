@@ -114,7 +114,7 @@
   </vbox>
   
   <!-- splitter to make the sidebar resizeable -->
-  <splitter />
+
   
   <!-- Rendering space -->
   <vbox flex="1">

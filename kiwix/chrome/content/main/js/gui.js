@@ -68,9 +68,17 @@ function changeResultsBarVisibilityStatus(visible, save) {
 	document.getElementById('display-resultsbar').setAttribute('checked', visible);
     }
 
+    var resultsBar = document.getElementById('results-bar');
     if (visible) {
-	document.getElementById('results-bar').collapsed = false;
+	var splitter = document.createElement('splitter');
+	splitter.setAttribute('id', 'results-splitter');
+	resultsBar.collapsed = false;
+	resultsBar.parentNode.insertBefore(splitter, resultsBar.nextSibling);
     } else {
+	var splitter = document.getElementById('results-splitter');
+	if (splitter != null) {
+	    splitter.parentNode.removeChild(splitter);
+	}
 	document.getElementById('results-bar').collapsed = true;
     }
 
