@@ -21,6 +21,11 @@ function getSearchButton() {
     return document.getElementById("button-search");
 }
 
+/* Return the label "masking" the search button and textbox */
+function getSearchLabel() {
+    return document.getElementById("search-label");
+}
+
 /* Return the Progress meter object */
 function getProgressBar() {
     return document.getElementById("progress-bar");
@@ -43,20 +48,16 @@ function getResultsList() {
 
 /* Activate Search GUI elements */
 function activateGuiSearchComponents() {
+    getSearchLabel().collapsed = true;
     getSearchBox().disabled = false;
-    var searchButton = getSearchButton();
-    searchButton.disabled = false;
-    searchButton.removeEventListener("click", manageIndexZimFile, true);
-    searchButton.addEventListener("click", manageSearchInIndex, true);
+    getSearchButton().disabled = false;
 }
 
 /* Desactivate Search GUI elements */
 function desactivateGuiSearchComponents() {
+    getSearchLabel().collapsed = false;
     getSearchBox().disabled = true;
-    var searchButton = getSearchButton();
-    searchButton.disabled = true;
-    searchButton.addEventListener("click", manageIndexZimFile, true);
-    searchButton.removeEventListener("click", manageSearchInIndex, true);
+    getSearchButton().disabled = true;
 }
 
 /* Change result side bar visibility status */

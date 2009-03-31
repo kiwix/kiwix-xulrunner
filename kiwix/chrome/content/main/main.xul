@@ -95,9 +95,14 @@
     <toolbarbutton id="button-back" oncommand="pageBack()"/>
     <toolbarbutton id="button-next" oncommand="pageNext()"/>
     <toolbarbutton id="button-home" oncommand="goHome()"/>
-    <textbox id="textbox-search" flex="1" tooltiptext="&main.searchBar;"
-	     onkeypress="if(event.keyCode == 13) { manageSearchInIndex() }"/>
-    <toolbarbutton id="button-search"/>
+    <stack flex="1">
+      <hbox>
+	<textbox id="textbox-search" flex="1" tooltiptext="&main.searchBar;"
+		 onkeypress="if(event.keyCode == 13) { manageSearchInIndex() }"/>
+	<toolbarbutton id="button-search" onclick="manageSearchInIndex()"/>
+      </hbox>
+      <label id="search-label" style="margin: 0px;" collapsed="true" onclick="manageIndexZimFile()"/>
+    </stack>
   </toolbar>
 </toolbox>
 
