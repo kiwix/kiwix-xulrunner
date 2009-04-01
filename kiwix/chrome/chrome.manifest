@@ -5,6 +5,7 @@ content branding content/branding/
 #locale packagename localename uri/to/files/ [flags]
 locale main en-US locale/en-US/main/
 locale main fr-FR locale/fr-FR/main/
+locale main es-ES locale/es-ES/main/
 locale branding en-US locale/en-US/branding/
 locale branding fr-FR locale/fr-FR/branding/
 

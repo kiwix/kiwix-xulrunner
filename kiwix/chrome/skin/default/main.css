@@ -90,6 +90,15 @@
     width: 200px;
 }
 
+#results-list {
+    margin-left: 0px;
+}
+
+.results-button {
+    margin: 0px;
+    -moz-box-flex: 1;
+}
+
 /* Status bar */
 #status-bar {
     height: 23px;

@@ -32,6 +32,8 @@
 <!ENTITY main.zoomout.accesskey    "R">
 <!ENTITY main.zoomorig             "Normal">
 <!ENTITY main.zoomorig.accesskey   "N">
+<!ENTITY main.language             "Langue">
+<!ENTITY main.language.accesskey   "L">
 <!ENTITY main.statusbar            "Barre d'état">
 <!ENTITY main.statusbar.accesskey  "B">
 <!ENTITY main.resultsbar           "Resultats">

@@ -306,6 +306,15 @@ function manageNewZimFile() {
     return true;
 }
 
+/* Manage the change of the locale with the GUI */
+function manageChangeLocale(locale) {
+    if ((settings.locale() != locale) && 
+	!(settings.locale() == undefined && locale == "en-US")) {
+	settings.locale(locale);
+	restart();
+    }
+}
+
 /* Empty the results list */
 function emptyResultsList() {
     var resultsList = getResultsList();
@@ -387,4 +396,38 @@ function displayConfirmDialog(message, title) {
     }
 
     return promptService.confirm(window, title, message);
+}
+
+/* Fill the languages-menu with all available languages */
+function populateLanguagesMenu() {
+    /* Query available and selected locales */
+    var chromeRegisteryService = Components.classes["@mozilla.org/chrome/chrome-registry;1"].getService();
+    var xulChromeRegistery = chromeRegisteryService.QueryInterface(Components.interfaces.nsIXULChromeRegistry);
+    var toolkitChromeRegistery = chromeRegisteryService.QueryInterface(Components.interfaces.nsIToolkitChromeRegistry);
+    
+    /* Get informations about locales */
+    var selectedLocale = settings.locale() || xulChromeRegistery.getSelectedLocale("main");
+    var availableLocales = toolkitChromeRegistery.getLocalesForPackage("main");
+    
+    /* Render locale menu items */
+    var languagesMenu = document.getElementById("menu-languages");
+    
+    /* Go through the locale list an update the GUI */
+    while(availableLocales.hasMore()) {
+	var locale = availableLocales.getNext();
+	var menuItem = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
+						"menuitem");
+
+	menuItem.setAttribute("type", "radio");
+	menuItem.setAttribute("value", locale);
+	menuItem.setAttribute("label", locale);
+	menuItem.setAttribute("onclick", "manageChangeLocale(this.value)");
+	
+	/* If this the current locale, check and apply it. */
+	if (locale == selectedLocale) {
+	    menuItem.setAttribute('checked', true);
+	}
+	
+	languagesMenu.appendChild(menuItem);
+    }
 }

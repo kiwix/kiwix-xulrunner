@@ -1,3 +1,16 @@
+/* Restart Kiwix */
+function restart() {
+    if (displayConfirmDialog(getProperty("restartConfirm"))) {
+	/* Save settings */
+	settings.save();
+
+	var applicationStartup = Components.classes["@mozilla.org/toolkit/app-startup;1"]
+	    .getService(Components.interfaces.nsIAppStartup);
+	applicationStartup.quit(Components.interfaces.nsIAppStartup.eRestart |
+				Components.interfaces.nsIAppStartup.eAttemptQuit);
+    }
+}
+
 /* Quit Kiwix */
 function quitKiwix() {
     /* Check if an indexing process is currently running */
@@ -52,6 +65,9 @@ function init() {
     if (settings.displayFullScreen() != undefined) { changeFullScreenStatus(settings.displayFullScreen()); }
     if (settings.displayResultsBar() != undefined) { changeResultsBarVisibilityStatus(settings.displayResultsBar()); }
 
+    /* Populates localization languages to the menu-languages */
+    populateLanguagesMenu();
+
     /* Load the welcome page of the ZIM file */
     goHome();
 
@@ -67,8 +83,8 @@ function init() {
 /* try a ZIM file */
 function loadZimFile(zimFilePath) {
     /* Create the zim accessor */
-    zimAccessor = Components.classes["@kiwix.org/zimAccessor"].getService();
-    zimAccessor = zimAccessor.QueryInterface(Components.interfaces.IZimAccessor);
+    var zimAccessorService = Components.classes["@kiwix.org/zimAccessor"].getService();
+    var zimAccessor = zimAccessorService.QueryInterface(Components.interfaces.IZimAccessor);
 
     /* Load the zim file */
     if (!zimAccessor.loadFile(zimFilePath)) {

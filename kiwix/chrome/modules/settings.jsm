@@ -86,9 +86,11 @@ let settings = {
     
     /* Multiple accessor functions */
     zimFilePath: function(value) { return this.charSettingParameter("zimFilePath", value); },
+    locale: function(value) { return this.charSettingParameter("general.useragent.locale", value); },
     displayStatusBar: function(value) { return this.boolSettingParameter("displayStatusBar", value); },
     displayFullScreen: function(value) { return this.boolSettingParameter("displayFullScreen", value); },
     displayResultsBar: function(value) { return this.boolSettingParameter("displayResultsBar", value); }
+    
 }
 
 /* Create the settings object */

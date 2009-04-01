@@ -73,6 +73,10 @@
 		    accesskey="&main.zoomorig.accesskey;" oncommand="zoomOriginal()"/>
 	</menupopup>
       </menu>
+      <menu label="&main.language;" accesskey="&main.language.accesskey;">
+	<menupopup id="menu-languages">
+	</menupopup>
+      </menu>
       <menuitem id="display-statusbar" label="&main.statusbar;" type="checkbox" checked="true"
 		accesskey="&main.statusbar.accesskey;" oncommand="changeStatusBarVisibilityStatus(undefined, true)"/>
       <menuitem id="display-resultsbar" label="&main.resultsbar;" type="checkbox" checked="false"
@@ -110,11 +114,27 @@
 
   <!-- Search results side bar -->
   <vbox id="results-bar" collapsed="true">
-    <richlistbox flex="1" id="results-list"/>
-  </vbox>
-  
-  <!-- splitter to make the sidebar resizeable -->
+    <richlistbox flex="1" id="results-list">
 
+      <!--
+      <richlistitem>
+	 <button label="WP1 (5)" class="results-button"/>
+      </richlistitem>
+
+      <richlistitem flex="1">
+      </richlistitem>
+
+      <richlistitem>
+	<button label="WP1 en (2)" class="results-button"/>
+      </richlistitem>
+
+      <richlistitem>
+	<button label="WP1 de (10)" class="results-button"/>
+      </richlistitem>
+      -->
+
+    </richlistbox>
+  </vbox>
   
   <!-- Rendering space -->
   <vbox flex="1">

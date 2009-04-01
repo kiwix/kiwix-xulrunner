@@ -7,7 +7,13 @@ pref("general.skins.selectedSkin", "default");
 /* Charset */
 pref("intl.charset.default", "UTF-8");
 
-pref("intl.locale.matchOS", true);
+/* Don't inherit OS locale */
+pref("intl.locale.matchOS", "false");
+
+/* Choose own fallback locale; later it can be overridden by the user */
+pref("general.useragent.locale", "en-US");
+
+/* Warn for http */
 pref("network.protocol-handler.warn-external.http", false);
 
 /* Debug preferences */
