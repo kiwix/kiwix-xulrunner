@@ -16,6 +16,7 @@
 
 #include <zim/file.h>
 #include <zim/article.h>
+#include <zim/fileiterator.h>
 
 #include <string>
 
@@ -100,13 +101,13 @@ NS_IMETHODIMP ZimAccessor::GetNextArticle(nsACString &url, nsACString &content, 
     /* get next non redirect article */
     do {
       currentArticle = this->zimFileHandler->getArticle(this->currentArticleOffset);
-    } while (currentArticle.getRedirectFlag() && 
+    } while (currentArticle.isRedirect() && 
 	     this->currentArticleOffset != this->lastArticleOffset && 
 	     this->currentArticleOffset++);
     
     /* returned values*/
     url = nsDependentCString(currentArticle.getUrl().getValue().c_str(), currentArticle.getUrl().getValue().size());
-    content = nsDependentCString(currentArticle.getData().c_str(), currentArticle.getData().size());
+    content = nsDependentCString(currentArticle.getData().data(), currentArticle.getData().size());
 
     /* increment the offset and set returned value */
     if (this->currentArticleOffset != this->lastArticleOffset) {
@@ -161,16 +162,23 @@ NS_IMETHODIMP ZimAccessor::GetContent(nsIURI *urlObject, nsACString &content, PR
   title[titleOffset] = 0;
 
   /* Extract the content from the zim file */
-  zim::Article article = zimFileHandler->getArticle(ns[0], zim::QUnicodeString(title));
+  zim::File::const_iterator articleIterator = zimFileHandler->find(ns[0], zim::QUnicodeString(title));
 
-  /* Get the content mime-type */
-  contentType = nsDependentCString(article.getMimeType().c_str(), article.getMimeType().size()); 
+  std::cout << articleIterator.getIndex() << std::endl;
 
-  /* Get the data */
-  content = nsDependentCString(article.getData().c_str(), article.getData().size());
+  try {
+    zim::Article article = zimFileHandler->getArticle(articleIterator.getIndex());
 
-  /* Get the data length */
-  *contentLength = article.getData().size();
+    /* Get the content mime-type */
+    contentType = nsDependentCString(article.getMimeType().data(), article.getMimeType().size()); 
+    
+    /* Get the data */
+    content = nsDependentCString(article.getData().data(), article.getData().size());
+    
+    /* Get the data length */
+    *contentLength = article.getData().size();
+  } catch(...) {
+  }
 
   return NS_OK;
 }
