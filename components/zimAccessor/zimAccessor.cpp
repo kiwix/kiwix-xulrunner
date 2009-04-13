@@ -63,8 +63,8 @@ NS_IMETHODIMP ZimAccessor::LoadFile(const char *path, PRBool *retVal) {
     this->zimFileHandler = new zim::File(path);
 
     if (this->zimFileHandler != NULL) {
-      this->firstArticleOffset = this->zimFileHandler->getNamespaceBeginOffset('0');
-      this->lastArticleOffset = this->zimFileHandler->getNamespaceEndOffset('0');
+      this->firstArticleOffset = this->zimFileHandler->getNamespaceBeginOffset('A');
+      this->lastArticleOffset = this->zimFileHandler->getNamespaceEndOffset('A');
       this->currentArticleOffset = this->firstArticleOffset;
     } else {
       *retVal = PR_FALSE;
@@ -86,7 +86,7 @@ NS_IMETHODIMP ZimAccessor::Reset(PRBool *retVal) {
 NS_IMETHODIMP ZimAccessor::GetArticleCount(PRUint32 *count, PRBool *retVal) {
   *retVal = PR_TRUE;
   if (this->zimFileHandler != NULL) {
-    *count = this->zimFileHandler->getNamespaceCount('0');
+    *count = this->zimFileHandler->getNamespaceCount('A');
   } else {
     *retVal = PR_FALSE;
   }
