@@ -162,21 +162,17 @@ NS_IMETHODIMP ZimAccessor::GetContent(nsIURI *urlObject, nsACString &content, PR
   title[titleOffset] = 0;
 
   /* Extract the content from the zim file */
-  zim::File::const_iterator articleIterator = zimFileHandler->find(ns[0], zim::QUnicodeString(title));
-
-  std::cout << articleIterator.getIndex() << std::endl;
-
   try {
-    zim::Article article = zimFileHandler->getArticle(articleIterator.getIndex());
+    zim::Article article = zimFileHandler->getArticle(zimFileHandler->find(ns[0], zim::QUnicodeString(title)).getIndex());
 
     /* Get the content mime-type */
     contentType = nsDependentCString(article.getMimeType().data(), article.getMimeType().size()); 
     
     /* Get the data */
-    content = nsDependentCString(article.getData().data(), article.getData().size());
+    content = nsDependentCString(article.getData().data(), article.getArticleSize());
     
     /* Get the data length */
-    *contentLength = article.getData().size();
+    *contentLength = article.getArticleSize();
   } catch(...) {
   }
 
