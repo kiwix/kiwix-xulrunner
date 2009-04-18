@@ -105,8 +105,15 @@ function getZimFileHomePageUrl() {
 
     /* Try to load the ZIM file and retrieve the home page */
     var zimAccessor = loadZimFile(settings.zimFilePath());
+
     if (zimAccessor != undefined) {
 	var url = new Object();
+
+	zimAccessor.getMainPageUrl(url);
+	if (url.value != undefined && url.value != '') {
+	    return "zim://" + url.value;
+	}
+
 	var content = new Object();
 	zimAccessor.reset();
 	zimAccessor.getNextArticle(url, content);
