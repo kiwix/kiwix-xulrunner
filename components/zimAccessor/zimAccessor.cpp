@@ -93,6 +93,22 @@ NS_IMETHODIMP ZimAccessor::GetArticleCount(PRUint32 *count, PRBool *retVal) {
   return NS_OK;
 }
 
+NS_IMETHODIMP ZimAccessor::GetMainPageUrl(nsACString &url, PRBool *retVal) {
+  *retVal = PR_TRUE;
+
+  if (this->zimFileHandler != NULL) {
+    if (this->zimFileHandler->getFileheader().hasMainPage()) {
+      zim::Article article = zimFileHandler->getArticle(this->zimFileHandler->getFileheader().getMainPage());
+      url = nsDependentCString(article.getUrl().getValue().c_str(), article.getUrl().getValue().size());
+    } else {
+      *retVal = PR_FALSE;
+    }
+  } else {
+    *retVal = PR_FALSE;
+  }
+  return NS_OK;
+}
+
 /* List articles for a namespace */
 NS_IMETHODIMP ZimAccessor::GetNextArticle(nsACString &url, nsACString &content, PRBool *retVal) {
   try {
