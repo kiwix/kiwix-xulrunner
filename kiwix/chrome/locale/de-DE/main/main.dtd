@@ -5,7 +5,7 @@
 <!ENTITY main.file                 "Datei">
 <!ENTITY main.file.accesskey       "D">
 <!ENTITY main.openFile             "Datei öffnen...">
-<!Entity main.openFile.accesskey   "O">
+<!ENTITY main.openFile.accesskey   "O">
 <!ENTITY main.print                "Drucken...">
 <!ENTITY main.print.accesskey      "r">
 <!ENTITY main.quit                 "Schliessen">
@@ -44,8 +44,8 @@
 <!-- Help menu -->
 <!ENTITY main.help                 "Hilfe">
 <!ENTITY main.help.accesskey       "H">
-<!ENTITY main.about                "Über">
-<!ENTITY main.about.accesskey      "U">
+<!ENTITY main.about                "Info">
+<!ENTITY main.about.accesskey      "I">
 
 <!-- Tool bar -->
 <!ENTITY main.back                 "Rückwärts">
