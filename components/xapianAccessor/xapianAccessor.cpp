@@ -20,6 +20,8 @@
 
 #include "splitString.h"
 
+#include <unac.h>
+
 using namespace std;
 
 struct Result
@@ -28,6 +30,21 @@ struct Result
   string title;
   int score;
 }; 
+
+/* Remove accent */
+std::string removeAccents(const char *text) { 
+  char* out = 0;
+  size_t out_length = 0;
+  std::string textWithoutAccent;
+
+  if (!unac_string("UTF8", text, size_t(strlen(text)), &out, &out_length)) {
+    textWithoutAccent = out;
+    free(out);
+  } else {
+    textWithoutAccent = text;
+  }
+  return textWithoutAccent;
+}
 
 class XapianAccessor : public IXapianAccessor {
 
@@ -53,7 +70,9 @@ private:
 NS_IMPL_ISUPPORTS1(XapianAccessor, IXapianAccessor)
 
 /* Constructor */
-XapianAccessor::XapianAccessor() {}
+XapianAccessor::XapianAccessor() {
+  stemmer = Xapian::Stem("english");
+}
 
 /* Destructor */
 XapianAccessor::~XapianAccessor() {
@@ -108,6 +127,10 @@ NS_IMETHODIMP XapianAccessor::AddArticleToDatabase(const char *url, const char *
     this->htmlParser.parse_html(content, "UTF-8", true);
   } catch(...) {
   }
+
+  /* Set the stemmer */
+  /* TODO, autodetect the language */
+  indexer.set_stemmer(stemmer);
   
   /* Put the data in the document */
   Xapian::Document document;
@@ -117,19 +140,17 @@ NS_IMETHODIMP XapianAccessor::AddArticleToDatabase(const char *url, const char *
   
   /* Index the title */
   if (!this->htmlParser.title.empty()) {
-    indexer.index_text(this->htmlParser.title, 5);
-    indexer.increase_termpos(100);
+    indexer.index_text(removeAccents(this->htmlParser.title.c_str()), 50);
   }
 
   /* Index the keywords */
   if (!this->htmlParser.keywords.empty()) {
-    indexer.increase_termpos(50);
-    indexer.index_text(this->htmlParser.keywords);
+    indexer.index_text(removeAccents(this->htmlParser.keywords.c_str()), 3);
   }
   
   /* Index the content */
   if (!this->htmlParser.dump.empty()) {
-    indexer.index_text(this->htmlParser.dump);
+    indexer.index_text(removeAccents(this->htmlParser.dump.c_str()));
   }
   
   /* add to the database */
@@ -152,8 +173,8 @@ NS_IMETHODIMP XapianAccessor::Search(const nsACString &search, PRUint32 resultsC
   /* Create the query term vector */
   const char *csearch;
   NS_CStringGetData(search, &csearch, NULL);
-  std::vector<std::string> queryTerms = split(csearch, " ");
-
+  std::vector<std::string> queryTerms = split(removeAccents(csearch), " ");
+  
   /* Create query object */
   Xapian::Query query(Xapian::Query::OP_OR, queryTerms.begin(), queryTerms.end());
 
