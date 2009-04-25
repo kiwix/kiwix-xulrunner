@@ -70,10 +70,12 @@ function changeResultsBarVisibilityStatus(visible, save) {
 
     var resultsBar = document.getElementById('results-bar');
     if (visible) {
-	var splitter = document.createElement('splitter');
-	splitter.setAttribute('id', 'results-splitter');
+	if (!document.getElementById('results-splitter')) {
+	    var splitter = document.createElement('splitter');
+	    splitter.setAttribute('id', 'results-splitter');
+	    resultsBar.parentNode.insertBefore(splitter, resultsBar.nextSibling);
+	}
 	resultsBar.collapsed = false;
-	resultsBar.parentNode.insertBefore(splitter, resultsBar.nextSibling);
     } else {
 	var splitter = document.getElementById('results-splitter');
 	if (splitter != null) {
