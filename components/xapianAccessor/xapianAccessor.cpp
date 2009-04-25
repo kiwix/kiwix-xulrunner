@@ -117,7 +117,7 @@ NS_IMETHODIMP XapianAccessor::AddArticleToDatabase(const char *url, const char *
   
   /* Index the title */
   if (!this->htmlParser.title.empty()) {
-    indexer.index_text(this->htmlParser.title, 2);
+    indexer.index_text(this->htmlParser.title, 5);
     indexer.increase_termpos(100);
   }
 
@@ -140,7 +140,7 @@ NS_IMETHODIMP XapianAccessor::AddArticleToDatabase(const char *url, const char *
 }
 
 /* Search strings in the database */
-NS_IMETHODIMP XapianAccessor::Search(const char *search, PRUint32 resultsCount, PRBool *retVal) {
+NS_IMETHODIMP XapianAccessor::Search(const nsACString &search, PRUint32 resultsCount, PRBool *retVal) {
 
   /* Reset the results */
   this->results.clear();
@@ -150,7 +150,9 @@ NS_IMETHODIMP XapianAccessor::Search(const char *search, PRUint32 resultsCount, 
   Xapian::Enquire enquire(this->readableDatabase);
   
   /* Create the query term vector */
-  std::vector<std::string> queryTerms = split(search, " ");
+  const char *csearch;
+  NS_CStringGetData(search, &csearch, NULL);
+  std::vector<std::string> queryTerms = split(csearch, " ");
 
   /* Create query object */
   Xapian::Query query(Xapian::Query::OP_OR, queryTerms.begin(), queryTerms.end());
@@ -196,7 +198,7 @@ NS_IMETHODIMP XapianAccessor::Reset(PRBool *retVal) {
 }
 
 /* Get next result */
-NS_IMETHODIMP XapianAccessor::GetNextResult( nsACString &url, nsACString &title, PRUint32 *score, PRBool *retVal) {
+NS_IMETHODIMP XapianAccessor::GetNextResult(nsACString &url, nsACString &title, PRUint32 *score, PRBool *retVal) {
   *retVal = PR_FALSE;
 
   if (this->resultOffset != this->results.end()) {
