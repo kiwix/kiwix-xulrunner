@@ -229,7 +229,6 @@ function searchInIndex(query, xapianDirectory){
 	    addResultToList(url.value, title.value, score.value);
 	} while (xapianAccessor.getNextResult(url, title, score));
     } else {
-	changeResultsBarVisibilityStatus(false);
 	displayErrorDialog(getProperty("noResultsError"), getProperty("information"));
     }	
     
