@@ -61,11 +61,9 @@ function desactivateGuiSearchComponents() {
 }
 
 /* Change result side bar visibility status */
-function changeResultsBarVisibilityStatus(visible, save) {
+function changeResultsBarVisibilityStatus(visible) {
     if (visible == undefined) {
-	visible = document.getElementById('display-resultsbar').getAttribute('checked');
-    } else {
-	document.getElementById('display-resultsbar').setAttribute('checked', visible);
+	visible = !settings.displayResultsBar();
     }
 
     var resultsBar = document.getElementById('results-bar');
@@ -84,9 +82,8 @@ function changeResultsBarVisibilityStatus(visible, save) {
 	document.getElementById('results-bar').collapsed = true;
     }
 
-    if (save) {
-	settings.displayResultsBar(visible);
-    }
+    document.getElementById('display-resultsbar').setAttribute('checked', visible)
+    settings.displayResultsBar(visible);
 }
 
 /* Allowing zoom function by combining mouse & ctrl */
@@ -137,7 +134,6 @@ function openUrl(aEvent) {
     var url = aEvent.target;
 
     if (url instanceof HTMLAnchorElement) {
-	changeResultsBarVisibilityStatus(false);
 	clearStatusBar();
     }
 

@@ -35,6 +35,8 @@
   <key id="zoomin" key="+" modifiers="control" oncommand="zoomIn()"/>
   <key id="zoomout" key="-" modifiers="control" oncommand="zoomOut()"/>
   <key id="zoomorig" key="0" modifiers="control" oncommand="zoomOriginal()"/>
+  <key id="change-results-bar-visibility-status" key="R" modifiers="control" 
+       oncommand="changeResultsBarVisibilityStatus()"/>
 </keyset>
 
 <!-- Menu bar -->
@@ -80,7 +82,8 @@
       <menuitem id="display-statusbar" label="&main.statusbar;" type="checkbox" checked="true"
 		accesskey="&main.statusbar.accesskey;" oncommand="changeStatusBarVisibilityStatus(undefined, true)"/>
       <menuitem id="display-resultsbar" label="&main.resultsbar;" type="checkbox" checked="false"
-		accesskey="&main.resultsbar.accesskey;" oncommand="changeResultsBarVisibilityStatus(undefined, true)"/>
+		accesskey="&main.resultsbar.accesskey;" key="change-results-bar-visibility-status"
+		oncommand="changeResultsBarVisibilityStatus()"/>
       <menuitem id="display-fullscreen" label="&main.fullscreen;" type="checkbox" checked="false"
 		accesskey="&main.fullscreen.accesskey;" oncommand="changeFullScreenStatus(undefined, true)"/>
     </menupopup>
@@ -114,6 +117,12 @@
 
   <!-- Search results side bar -->
   <vbox id="results-bar" collapsed="true">
+
+    <hbox>
+      <label flex="1" class="results-title" value="&main.results.title;"/>
+      <toolbarbutton id="results-close-button" oncommand="changeResultsBarVisibilityStatus(false)"/>
+    </hbox>
+
     <richlistbox flex="1" id="results-list">
 
       <!--

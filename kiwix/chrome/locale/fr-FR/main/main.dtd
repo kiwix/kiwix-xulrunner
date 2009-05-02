@@ -53,3 +53,6 @@
 <!ENTITY main.home                 "Page d'accueil">
 <!ENTITY main.print                "Imprimer">
 <!ENTITY main.searchBar            "Barre de recherche">
+
+<!-- Results bar -->
+<!ENTITY main.results.title        "Resultats">

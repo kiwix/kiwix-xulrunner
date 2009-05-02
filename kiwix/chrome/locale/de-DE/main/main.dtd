@@ -53,3 +53,6 @@
 <!ENTITY main.home                 "Home">
 <!ENTITY main.print                "Drucken">
 <!ENTITY main.searchBar            "Suchleiste">
+
+<!-- Results bar -->
+<!ENTITY main.results.title        "Ergebnisse">
