@@ -46,6 +46,19 @@ std::string removeAccents(const char *text) {
   return textWithoutAccent;
 }
 
+/* Count word */
+unsigned int countWords(const string &text) {
+  unsigned int numWords = 0;
+  for(int i=0; i<text.size();) {
+      while(text[i] != ' ')
+	i++;
+
+      numWords++;
+      i++;
+    }
+  return numWords;
+}
+
 class XapianAccessor : public IXapianAccessor {
 
 public:
@@ -140,7 +153,8 @@ NS_IMETHODIMP XapianAccessor::AddArticleToDatabase(const char *url, const char *
   
   /* Index the title */
   if (!this->htmlParser.title.empty()) {
-    indexer.index_text(removeAccents(this->htmlParser.title.c_str()), 50);
+    indexer.index_text(removeAccents(this->htmlParser.title.c_str()), 
+		       ((this->htmlParser.dump.size() / 100) + 1) / countWords(this->htmlParser.title) );
   }
 
   /* Index the keywords */
