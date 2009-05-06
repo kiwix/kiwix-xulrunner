@@ -137,6 +137,11 @@ function openUrl(aEvent) {
 	clearStatusBar();
     }
 
+    /* Return in case of javascript */
+    if (url.href.indexOf("javascript:",0) == 0) {
+	return;
+    }
+
     /* Open with extern browser if not an internal link */
     if (url.href.indexOf("zim://",0) != 0) {
 	openUrlWithExternalBrowser(url);
