@@ -2,54 +2,57 @@
 <!ENTITY main.title                "Kiwix">
 
 <!-- File menu -->
-<!ENTITY main.file                 "File">
+<!ENTITY main.file                 "Fichero">
 <!ENTITY main.file.accesskey       "F">
-<!ENTITY main.openFile             "Open file...">
-<!ENTITY main.openFile.accesskey   "O">
-<!ENTITY main.print                "Print...">
-<!ENTITY main.print.accesskey      "P">
-<!ENTITY main.quit                 "Quit">
-<!ENTITY main.quit.accesskey       "Q">
+<!ENTITY main.openFile             "Abrir fichero...">
+<!ENTITY main.openFile.accesskey   "A">
+<!ENTITY main.print                "Imprimir...">
+<!ENTITY main.print.accesskey      "I">
+<!ENTITY main.quit                 "Salir">
+<!ENTITY main.quit.accesskey       "S">
 
 <!-- Edit menu -->
-<!ENTITY main.edit                 "Edit">
+<!ENTITY main.edit                 "Editar">
 <!ENTITY main.edit.accesskey       "E">
-<!ENTITY main.find                 "Search in page...">
-<!ENTITY main.find.accesskey       "S">
-<!ENTITY main.selectall            "Select all">
-<!ENTITY main.selectall.accesskey  "a">
-<!ENTITY main.copy                 "Copy">
-<!ENTITY main.copy.accesskey       "p">
+<!ENTITY main.find                 "Buscar página...">
+<!ENTITY main.find.accesskey       "B">
+<!ENTITY main.selectall            "Eligir todo">
+<!ENTITY main.selectall.accesskey  "e">
+<!ENTITY main.copy                 "Copiar">
+<!ENTITY main.copy.accesskey       "C">
 
 <!-- Display menu -->
 <!ENTITY main.display              "Display">
 <!ENTITY main.display.accesskey    "D">
 <!ENTITY main.zoom                 "Zoom">
 <!ENTITY main.zoom.accesskey       "Z">
-<!ENTITY main.zoomin               "Magnify">
-<!ENTITY main.zoomin.accesskey     "M">
-<!ENTITY main.zoomout              "Reduce">
+<!ENTITY main.zoomin               "Aumentar">
+<!ENTITY main.zoomin.accesskey     "A">
+<!ENTITY main.zoomout              "Reducir">
 <!ENTITY main.zoomout.accesskey    "R">
-<!ENTITY main.zoomorig             "Original size">
+<!ENTITY main.zoomorig             "Formato original">
 <!ENTITY main.zoomorig.accesskey   "O">
-<!ENTITY main.language             "Language">
+<!ENTITY main.language             "Lengua">
 <!ENTITY main.language.accesskey   "L">
-<!ENTITY main.statusbar            "Status bar">
-<!ENTITY main.statusbar.accesskey  "S">
-<!ENTITY main.resultsbar           "Results bar">
+<!ENTITY main.statusbar            "Barra de estado">
+<!ENTITY main.statusbar.accesskey  "B">
+<!ENTITY main.resultsbar           "Barra de resultados">
 <!ENTITY main.resultsbar.accesskey "R">
-<!ENTITY main.fullscreen           "Full screen">
+<!ENTITY main.fullscreen           "Full Screen">
 <!ENTITY main.fullscreen.accesskey "F">
 
 <!-- Help menu -->
-<!ENTITY main.help                 "Help">
+<!ENTITY main.help                 "Ayuda">
 <!ENTITY main.help.accesskey       "H">
-<!ENTITY main.about                "About">
+<!ENTITY main.about                "Acerca de">
 <!ENTITY main.about.accesskey      "A">
 
 <!-- Tool bar -->
-<!ENTITY main.back                 "Back">
-<!ENTITY main.forward              "Forward">
+<!ENTITY main.back                 "Detrás">
+<!ENTITY main.forward              "Adelante">
 <!ENTITY main.home                 "Home">
-<!ENTITY main.print                "Print">
-<!ENTITY main.searchBar            "Search bar">
+<!ENTITY main.print                "Imprimir">
+<!ENTITY main.searchBar            "Barra de investigación">
+
+<!-- Results bar -->
+<!ENTITY main.results.title        "Resultatos">
