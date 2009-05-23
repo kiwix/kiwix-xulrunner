@@ -106,7 +106,7 @@ function indexZimFile(zimFilePath, xapianDirectory) {
     }
     
     /* ZIM indexing task */
-    zimIndexerTask = {
+    var zimIndexerTask = {
 	run: function() {
 	    var zimFilePath = settings.zimFilePath();
 	    var xapianTmpDirectory = getTmpSearchIndexDirectory();
@@ -122,47 +122,25 @@ function indexZimFile(zimFilePath, xapianDirectory) {
 	    if (isFile(xapianTmpDirectory)) {
 		deleteFile(xapianTmpDirectory);
 	    }
-	    
-	    /* Create the zim accessor */
-	    zimAccessor = Components.classes["@kiwix.org/zimAccessor"].getService();
-	    zimAccessor = zimAccessor.QueryInterface(Components.interfaces.IZimAccessor);
-	    
-	    /* Create the xapian accessor */
-	    xapianAccessor = Components.classes["@kiwix.org/xapianAccessor"].getService();
-	    xapianAccessor = xapianAccessor.QueryInterface(Components.interfaces.IXapianAccessor);
-	    
+
+	    /* Create the ZIM Xapian Indexer */
+	    zimXapianIndexer = Components.classes["@kiwix.org/zimXapianIndexer"].getService();
+	    zimXapianIndexer = zimXapianIndexer.QueryInterface(Components.interfaces.IZimXapianIndexer);
+
 	    /* Load the ZIM file */
-	    zimAccessor.loadFile(zimFilePath);
-	    
-	    /* Open the xapian writable database */
-	    xapianAccessor.openWritableDatabase(xapianTmpDirectory);
-
-	    /* Get the total number of article */
-	    var articleCountObject = new Object();
-	    zimAccessor.getArticleCount(articleCountObject);
-	    var articleCount = articleCountObject.value;
-
-	    /* Add each article of the ZIM file in the xapian database */
-	    var url = new Object();
-	    var content = new Object();
-	    var articleCounter = 0;
-	    var progressBarPadding = 5;
-	    var currentProgressBarPosition = progressBarPadding;
-	    var newProgressBarPosition = currentProgressBarPosition;
+	    zimXapianIndexer.startIndexing(zimFilePath, xapianTmpDirectory);
 
 	    /* Default start value */
-	    proxiedZimIndexerObserver.notifyObservers(this, "indexingProgress", newProgressBarPosition);
-
-	    while (zimAccessor.getNextArticle(url, content)) {
-		dump("Indexing " + url.value + "...\n");
-		currentProgressBarPosition = articleCounter++ / articleCount * (100 - progressBarPadding) + 1;
-		if (currentProgressBarPosition > newProgressBarPosition + 1) {
-		    newProgressBarPosition = currentProgressBarPosition;
-		    proxiedZimIndexerObserver.notifyObservers(this, "indexingProgress", newProgressBarPosition);
-		}
-		xapianAccessor.addArticleToDatabase(url.value, content.value);
-	    }
+	    var currentProgressBarPosition = 0;
+	    proxiedZimIndexerObserver.notifyObservers(this, "indexingProgress", currentProgressBarPosition);
 	    
+	    /* Add each article of the ZIM file in the xapian database */
+	    while (zimXapianIndexer.indexNextPercent()) {
+		dump("Indexing " + currentProgressBarPosition + "%...\n");
+		proxiedZimIndexerObserver.notifyObservers(this, "indexingProgress", currentProgressBarPosition);
+		currentProgressBarPosition += 1;
+	    }
+
 	    /* Close the xapian writable database */
 	    xapianAccessor.closeWritableDatabase();
 
