@@ -1,0 +1,28 @@
+CXX                = @CXX@
+CPPFLAGS           = @CPPFLAGS@
+CXXFLAGS           = @CXXFLAGS@
+LDFLAGS            = @LDFLAGS@
+
+GECKO_DEFINES      = @GECKO_DEFINES@
+GECKO_IDL_INCLUDES = @GECKO_IDL_INCLUDES@
+GECKO_INCLUDES     = @GECKO_INCLUDES@
+GECKO_LDFLAGS      = @GECKO_LDFLAGS@
+XPIDL              = @XPIDL@
+
+all: zimXapianIndexer.@LIBEXT@ zimXapianIndexer.xpt
+
+IZimXapianIndexer.h: IZimXapianIndexer.idl
+	$(XPIDL) -m header $(GECKO_IDL_INCLUDES) IZimXapianIndexer.idl
+
+zimXapianIndexer.xpt: IZimXapianIndexer.idl
+	$(XPIDL) -m typelib $(GECKO_IDL_INCLUDES) IZimXapianIndexer.idl
+	mv IZimXapianIndexer.xpt zimXapianIndexer.xpt
+
+zimXapianIndexer.@LIBEXT@: zimXapianIndexer.cpp IZimXapianIndexer.h
+	$(CXX) -o zimXapianIndexer.@LIBEXT@ $(GECKO_DEFINES) $(GECKO_INCLUDES) \
+		$(CPPFLAGS) $(CXXFLAGS) zimXapianIndexer.cpp xapian/htmlparse.cc xapian/myhtmlparse.cc @LIBS@ \
+		$(LDFLAGS) $(GECKO_LDFLAGS)
+	chmod +x zimXapianIndexer.@LIBEXT@
+
+clean:
+	rm -f *.o *~ *.xpt *.@LIBEXT@
