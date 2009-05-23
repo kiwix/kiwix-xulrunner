@@ -142,7 +142,8 @@ NS_IMETHODIMP ZimXapianIndexer::IndexNextPercent(PRBool *retVal) {
   *retVal = PR_TRUE;
   unsigned int thresholdOffset = this->currentArticleOffset + this->stepSize;
 
-  while(this->currentArticleOffset < thresholdOffset) {
+  while(this->currentArticleOffset < thresholdOffset && 
+	this->currentArticleOffset < this->lastArticleOffset) {
 
     /* get next non redirect article */
     do {
@@ -151,49 +152,52 @@ NS_IMETHODIMP ZimXapianIndexer::IndexNextPercent(PRBool *retVal) {
 	     currentArticle.isRedirect() && 
 	     this->currentArticleOffset != this->lastArticleOffset);
 
-    /* Index the content */
-     this->htmlParser.reset();
+    if (!currentArticle.isRedirect()) {
 
-     try {
-       this->htmlParser.parse_html(currentArticle.getData().data(), "UTF-8", true);
-     } catch(...) {
-     }
-
-     /* Set the stemmer */
-     /* TODO, autodetect the language */
-     //indexer.set_stemmer(stemmer);
-     
-     /* Put the data in the document */
-     Xapian::Document document;
-     document.add_value(0, this->htmlParser.title);
-     document.set_data(currentArticle.getUrl().getValue().c_str());
-     indexer.set_document(document);
-     
-     /* Debug output */
-     std::cout << "Indexing " << currentArticle.getUrl().getValue() << "..."<< std::endl;
-
-     /* Index the title */
-     if (!this->htmlParser.title.empty()) {
-       indexer.index_text(removeAccents(this->htmlParser.title.c_str()), 
-			  ((this->htmlParser.dump.size() / 100) + 1) / countWords(this->htmlParser.title) );
-     }
-     
-     /* Index the keywords */
-     if (!this->htmlParser.keywords.empty()) {
-       indexer.index_text(removeAccents(this->htmlParser.keywords.c_str()), 3);
-     }
-     
-     /* Index the content */
-     if (!this->htmlParser.dump.empty()) {
-       indexer.index_text(removeAccents(this->htmlParser.dump.c_str()));
-     }
-     
-     /* add to the database */
-     this->writableDatabase.add_document(document);
+      /* Index the content */
+      this->htmlParser.reset();
+      
+      try {
+	this->htmlParser.parse_html(currentArticle.getData().data(), "UTF-8", true);
+      } catch(...) {
+      }
+      
+      /* Set the stemmer */
+      /* TODO, autodetect the language */
+      //indexer.set_stemmer(stemmer);
+      
+      /* Put the data in the document */
+      Xapian::Document document;
+      document.add_value(0, this->htmlParser.title);
+      document.set_data(currentArticle.getUrl().getValue().c_str());
+      indexer.set_document(document);
+      
+      /* Debug output */
+      std::cout << "Indexing " << currentArticle.getUrl().getValue() << "..."<< std::endl;
+      
+      /* Index the title */
+      if (!this->htmlParser.title.empty()) {
+	indexer.index_text(removeAccents(this->htmlParser.title.c_str()), 
+			   ((this->htmlParser.dump.size() / 100) + 1) / countWords(this->htmlParser.title) );
+      }
+      
+      /* Index the keywords */
+      if (!this->htmlParser.keywords.empty()) {
+	indexer.index_text(removeAccents(this->htmlParser.keywords.c_str()), 3);
+      }
+      
+      /* Index the content */
+      if (!this->htmlParser.dump.empty()) {
+	indexer.index_text(removeAccents(this->htmlParser.dump.c_str()));
+      }
+      
+      /* add to the database */
+      this->writableDatabase.add_document(document);
+    }
   }
   
   /* increment the offset and set returned value */
-  if (this->currentArticleOffset != this->lastArticleOffset) {
+  if (this->currentArticleOffset < this->lastArticleOffset) {
     this->currentArticleOffset++;
     *retVal = PR_TRUE;
   } else {

@@ -140,9 +140,7 @@ function indexZimFile(zimFilePath, xapianDirectory) {
 		proxiedZimIndexerObserver.notifyObservers(this, "indexingProgress", currentProgressBarPosition);
 		currentProgressBarPosition += 1;
 	    }
-
-	    /* Close the xapian writable database */
-	    xapianAccessor.closeWritableDatabase();
+	    dump("Indexing finished");
 
 	    /* Move the xapian tmp directory to the well named xapian directory */
 	    moveFile(xapianTmpDirectory, settingsRootPath, xapianDirectoryName); 
