@@ -179,7 +179,14 @@ NS_IMETHODIMP ZimAccessor::GetContent(nsIURI *urlObject, nsACString &content, PR
 
   /* Extract the content from the zim file */
   try {
-    zim::Article article = zimFileHandler->getArticle(zimFileHandler->find(ns[0], zim::QUnicodeString(title)).getIndex());
+    zim::File::const_iterator iterator = zimFileHandler->find(ns[0], zim::QUnicodeString(title));
+    zim::Article article = zimFileHandler->getArticle(iterator.getIndex());
+
+    /* If redirect */
+    unsigned int loopCounter = 0;
+    while (article.isRedirect() && loopCounter++<42) {
+      article = article.getRedirectArticle();
+    }
 
     /* Get the content mime-type */
     contentType = nsDependentCString(article.getMimeType().data(), article.getMimeType().size()); 
