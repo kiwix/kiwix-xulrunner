@@ -42,11 +42,11 @@ function getProperty(name, parameter1, parameter2) {
     var message = getProperties().getString(name);
 
     if (parameter1 != undefined) {
-	message.replace("%1", parameter1)
+	message = message.replace("%1", parameter1)
     }
-
+    
     if (parameter2 != undefined) {
-	message.replace("%2", parameter2)
+	message = message.replace("%2", parameter2)
     }
 
     return message;
