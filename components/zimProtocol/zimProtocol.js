@@ -43,9 +43,6 @@ ZimprotocolHandler.prototype = {
 	    }
 	} 
 	
-	/* Handle namespace */
-	dump(uri.spec + "\n");
-	
 	uri.spec = uri.spec.replace(/\+/g, "%2B");
 	return uri;
     },
