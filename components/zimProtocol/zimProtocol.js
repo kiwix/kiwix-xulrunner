@@ -33,7 +33,7 @@ ZimprotocolHandler.prototype = {
 	    var prefix = spec.indexOf("zim://");
 	    if (prefix == -1) {
 
-		if (spec[1] != '/') {
+		if (spec[1] != '/' && spec[0] != '/') {
 		    spec = 'A/' + spec;
 		}
 
