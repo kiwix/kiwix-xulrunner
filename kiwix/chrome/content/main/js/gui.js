@@ -294,13 +294,20 @@ function manageNewZimFile() {
 	    var zimFilePath = fp.file.path;
 	    settings.zimFilePath(zimFilePath);
 
-	    /* Load the ZIM file welcome page */
-	    goHome();
+	    /* Clear the results bar */
+	    emptyResultsList();
 
 	    /* Ask to index if this files has not already an index */
 	    if (!existsSearchIndex(zimFilePath)) {
+		desactivateGuiSearchComponents();
 		manageIndexZimFile();
+		changeResultsBarVisibilityStatus(false);
+	    } else {
+		activateGuiSearchComponents();
 	    }
+
+	    /* Load the ZIM file welcome page */
+	    goHome();
 	}
     } else {
 	return false;
