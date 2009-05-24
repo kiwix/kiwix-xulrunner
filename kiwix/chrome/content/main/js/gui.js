@@ -361,7 +361,10 @@ function addResultToList(url, title, score) {
     /* Create the stack */
     var titrescore = document.createElement("stack");
     titrescore.setAttribute("flex", "0");
-    titrescore.appendChild(scoreslide);
+    
+    /* Generates color problems, todo */
+    //titrescore.appendChild(scoreslide);
+    
     titrescore.appendChild(titre);
 
     /* Create a new richlist item */
