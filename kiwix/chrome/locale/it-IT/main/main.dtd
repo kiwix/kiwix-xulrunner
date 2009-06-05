@@ -1,0 +1,59 @@
+<!-- Window -->
+<!ENTITY main.title                "Kiwix">
+
+<!-- File menu -->
+<!ENTITY main.file                 "File">
+<!ENTITY main.file.accesskey       "F">
+<!ENTITY main.openFile             "Apri...">
+<!ENTITY main.openFile.accesskey   "A">
+<!ENTITY main.print                "Stampa...">
+<!ENTITY main.print.accesskey      "m">
+<!ENTITY main.quit                 "Esci">
+<!ENTITY main.quit.accesskey       "E">
+
+<!-- Edit menu -->
+<!ENTITY main.edit                 "Modifica">
+<!ENTITY main.edit.accesskey       "M">
+<!ENTITY main.find                 "Trova nella pagina...">
+<!ENTITY main.find.accesskey       "v">
+<!ENTITY main.selectall            "Seleziona tutto">
+<!ENTITY main.selectall.accesskey  "a">
+<!ENTITY main.copy                 "Copia">
+<!ENTITY main.copy.accesskey       "p">
+
+<!-- Display menu -->
+<!ENTITY main.display              "Visualizza">
+<!ENTITY main.display.accesskey    "V">
+<!ENTITY main.zoom                 "Dimensione testo">
+<!ENTITY main.zoom.accesskey       "m">
+<!ENTITY main.zoomin               "Aumenta">
+<!ENTITY main.zoomin.accesskey     "A">
+<!ENTITY main.zoomout              "Diminuisci">
+<!ENTITY main.zoomout.accesskey    "D">
+<!ENTITY main.zoomorig             "Originale">
+<!ENTITY main.zoomorig.accesskey   "O">
+<!ENTITY main.language             "Lingua">
+<!ENTITY main.language.accesskey   "L">
+<!ENTITY main.statusbar            "Barra di stato">
+<!ENTITY main.statusbar.accesskey  "s">
+<!ENTITY main.resultsbar           "Barra dei risultati">
+<!ENTITY main.resultsbar.accesskey "r">
+<!ENTITY main.fullscreen           "A tutto schermo">
+<!ENTITY main.fullscreen.accesskey "u">
+
+<!-- Help menu -->
+<!ENTITY main.help                 "Aiuto">
+<!ENTITY main.help.accesskey       "i">
+<!ENTITY main.about                "Informazioni">
+<!ENTITY main.about.accesskey      "n">
+
+<!-- Tool bar -->
+<!ENTITY main.back                 "Indietro">
+<!ENTITY main.forward              "Avanti">
+<!ENTITY main.home                 "Pagina iniziale">
+<!ENTITY main.print                "Stampa">
+<!ENTITY main.searchBar            "Barra di ricerca">
+
+<!-- Results bar -->
+<!ENTITY main.results.title        "Risultati">
+

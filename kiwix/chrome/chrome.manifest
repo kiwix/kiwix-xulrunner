@@ -7,6 +7,7 @@ locale main de-DE locale/de-DE/main/
 locale main en-US locale/en-US/main/
 locale main es-ES locale/es-ES/main/
 locale main fr-FR locale/fr-FR/main/
+locale main it-IT locale/it-IT/main/
 
 locale branding en-US locale/en-US/branding/
 locale branding fr-FR locale/fr-FR/branding/
