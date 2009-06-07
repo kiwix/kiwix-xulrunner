@@ -1,3 +1,6 @@
+Kiwix 0.8 beta3
+* Rewrite the buggy MD5 code
+
 Kiwix 0.8 beta2
 * GUI in Italian (ID: 2799146)
 * 32 bits support for large ZIM file (ID: 2801839)
