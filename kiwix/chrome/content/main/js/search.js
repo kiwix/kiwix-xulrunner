@@ -26,14 +26,15 @@ function isIndexing(value) {
 
 /* Return the directory path where the search index is stored */
 function getSearchIndexDirectory(zimFilePath) {
-    var fileSize = getFileSize(zimFilePath);
     return settings.getRootPath() + getSearchIndexDirectoryName(zimFilePath);
 }
 
 /* Return the name of the search index directory */
 function getSearchIndexDirectoryName(zimFilePath) {
-    var fileSize = getFileSize(zimFilePath);
-    return fileSize + "index/";
+    var zimAccessor = loadZimFile(zimFilePath);
+    var zimId = new Object();
+    zimAccessor.getId(zimId);
+    return MD5(zimId.value) + ".index/";
 }
 
 /* Return the tmp directory path where the search index is build */

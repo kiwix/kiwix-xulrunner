@@ -168,6 +168,7 @@ function isDirectory(path) {
 }
 
 /* Return the size of a file */
+/* TODO: Buggy with large files and 32 bits */
 function getFileSize(path) {
     var fileService = Components.classes["@mozilla.org/file/local;1"].createInstance();
     if (fileService instanceof Components.interfaces.nsILocalFile) {

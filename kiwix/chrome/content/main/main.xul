@@ -19,6 +19,7 @@
 <script language="javaScript" type="text/javascript" src="js/gui.js"/>
 <script language="javaScript" type="text/javascript" src="js/search.js"/>
 <script language="javaScript" type="text/javascript" src="js/tools.js"/>
+<script language="javaScript" type="text/javascript" src="js/md5.js"/>
 
 <!-- Global Javascript scripts -->
 <script type="application/x-javascript" src="chrome://global/content/printUtils.js"/>
