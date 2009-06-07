@@ -54,6 +54,9 @@ function getProperty(name, parameter1, parameter2) {
 
 /* initialization function */
 function init() {
+    /* Populates localization languages to the menu-languages */
+    populateLanguagesMenu();
+
     /* Add mouse scroll listener to allow zoon in/out with the mouse for examle */
     getHtmlRenderer().addEventListener("DOMMouseScroll", mouseScroll, false);
     getHtmlRenderer().addEventListener("mouseover", mouseOver, true);
@@ -64,9 +67,6 @@ function init() {
     if (settings.displayStatusBar() != undefined) { changeStatusBarVisibilityStatus(settings.displayStatusBar()); }
     if (settings.displayFullScreen() != undefined) { changeFullScreenStatus(settings.displayFullScreen()); }
     if (settings.displayResultsBar() != undefined) { changeResultsBarVisibilityStatus(settings.displayResultsBar()); }
-
-    /* Populates localization languages to the menu-languages */
-    populateLanguagesMenu();
 
     /* Load the welcome page of the ZIM file */
     goHome();
