@@ -93,6 +93,20 @@ NS_IMETHODIMP ZimAccessor::GetArticleCount(PRUint32 *count, PRBool *retVal) {
   return NS_OK;
 }
 
+/* Return the UID of the ZIM file */
+NS_IMETHODIMP ZimAccessor::GetId(nsACString &id, PRBool *retVal) {
+  *retVal = PR_TRUE;
+
+  if (this->zimFileHandler != NULL) {
+    id = nsDependentCString(this->zimFileHandler->getFileheader().getUuid().data, 
+			    this->zimFileHandler->getFileheader().getUuid().size());
+  } else {
+    *retVal = PR_FALSE;
+  }
+  return NS_OK;
+}
+
+/* Return the welcome page URL */
 NS_IMETHODIMP ZimAccessor::GetMainPageUrl(nsACString &url, PRBool *retVal) {
   *retVal = PR_TRUE;
 
