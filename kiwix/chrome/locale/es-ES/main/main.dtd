@@ -2,9 +2,9 @@
 <!ENTITY main.title                "Kiwix">
 
 <!-- File menu -->
-<!ENTITY main.file                 "Fichero">
-<!ENTITY main.file.accesskey       "F">
-<!ENTITY main.openFile             "Abrir fichero...">
+<!ENTITY main.file                 "Archivo">
+<!ENTITY main.file.accesskey       "A">
+<!ENTITY main.openFile             "Abrir...">
 <!ENTITY main.openFile.accesskey   "A">
 <!ENTITY main.print                "Imprimir...">
 <!ENTITY main.print.accesskey      "I">
@@ -14,16 +14,16 @@
 <!-- Edit menu -->
 <!ENTITY main.edit                 "Editar">
 <!ENTITY main.edit.accesskey       "E">
-<!ENTITY main.find                 "Buscar página...">
+<!ENTITY main.find                 "Buscar en página...">
 <!ENTITY main.find.accesskey       "B">
-<!ENTITY main.selectall            "Eligir todo">
+<!ENTITY main.selectall            "Seleccionar todo">
 <!ENTITY main.selectall.accesskey  "e">
 <!ENTITY main.copy                 "Copiar">
 <!ENTITY main.copy.accesskey       "C">
 
 <!-- Display menu -->
-<!ENTITY main.display              "Display">
-<!ENTITY main.display.accesskey    "D">
+<!ENTITY main.display              "Pantalla">
+<!ENTITY main.display.accesskey    "P">
 <!ENTITY main.zoom                 "Zoom">
 <!ENTITY main.zoom.accesskey       "Z">
 <!ENTITY main.zoomin               "Aumentar">
@@ -32,14 +32,14 @@
 <!ENTITY main.zoomout.accesskey    "R">
 <!ENTITY main.zoomorig             "Formato original">
 <!ENTITY main.zoomorig.accesskey   "O">
-<!ENTITY main.language             "Lengua">
+<!ENTITY main.language             "Idioma">
 <!ENTITY main.language.accesskey   "L">
 <!ENTITY main.statusbar            "Barra de estado">
 <!ENTITY main.statusbar.accesskey  "B">
 <!ENTITY main.resultsbar           "Barra de resultados">
 <!ENTITY main.resultsbar.accesskey "R">
-<!ENTITY main.fullscreen           "Full Screen">
-<!ENTITY main.fullscreen.accesskey "F">
+<!ENTITY main.fullscreen           "Pantalla completa">
+<!ENTITY main.fullscreen.accesskey "c">
 
 <!-- Help menu -->
 <!ENTITY main.help                 "Ayuda">
@@ -50,9 +50,10 @@
 <!-- Tool bar -->
 <!ENTITY main.back                 "Detrás">
 <!ENTITY main.forward              "Adelante">
-<!ENTITY main.home                 "Home">
+<!ENTITY main.home                 "Inicio">
 <!ENTITY main.print                "Imprimir">
-<!ENTITY main.searchBar            "Barra de investigación">
+<!ENTITY main.searchBar            "Barra de navegación">
 
 <!-- Results bar -->
-<!ENTITY main.results.title        "Resultatos">
+<!ENTITY main.results.title        "Resultados">
+
