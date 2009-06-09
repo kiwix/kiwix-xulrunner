@@ -6,9 +6,10 @@
 %mainDTD;
 ]>
 <window	xmlns:html="http://www.w3.org/1999/xhtml" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
-	id      = "main"
-	title   = "&main.title;"
-	onload  = "init()"
+	id        = "main"
+	title     = "&main.title;"
+	onload    = "init();"
+	onunload  = "saveWindowGeometry(this.outerWidth, this.outerHeight, this.screenX, this.screenY);"
 	>
 
 <!-- Properties -->

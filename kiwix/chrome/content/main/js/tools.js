@@ -54,6 +54,10 @@ function getProperty(name, parameter1, parameter2) {
 
 /* initialization function */
 function init() {
+
+    /* Set the size and position of the window */
+    configureWindowGeometry(this);
+
     /* Populates localization languages to the menu-languages */
     populateLanguagesMenu();
 

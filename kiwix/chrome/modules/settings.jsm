@@ -89,7 +89,11 @@ let settings = {
     locale: function(value) { return this.charSettingParameter("general.useragent.locale", value); },
     displayStatusBar: function(value) { return this.boolSettingParameter("displayStatusBar", value); },
     displayFullScreen: function(value) { return this.boolSettingParameter("displayFullScreen", value); },
-    displayResultsBar: function(value) { return this.boolSettingParameter("displayResultsBar", value); }
+    displayResultsBar: function(value) { return this.boolSettingParameter("displayResultsBar", value); },
+    windowWidth: function(value) { return this.intSettingParameter("windowWidth", value); },
+    windowHeight: function(value) { return this.intSettingParameter("windowHeight", value); },
+    windowX: function(value) { return this.intSettingParameter("windowX", value); },
+    windowY: function(value) { return this.intSettingParameter("windowY", value); }
     
 }
 

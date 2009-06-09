@@ -179,7 +179,7 @@ function searchInIndex(query, xapianDirectory){
     emptyResultsList();
 
     /* Create the xapian accessor */
-    xapianAccessor = Components.classes["@kiwix.org/xapianAccessor"].getService();
+    var xapianAccessor = Components.classes["@kiwix.org/xapianAccessor"].getService();
     xapianAccessor = xapianAccessor.QueryInterface(Components.interfaces.IXapianAccessor);
 
     /* Open the xapian readable database */

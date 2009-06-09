@@ -1,6 +1,11 @@
 /* Global variables */
 var _zoomFactor = 1.2;           /* Factor by which font is magnified or reduced with zoomIn() & zommOut() */
 
+/* Return the window object */
+function getWindow() {
+    return document.getElementById("main");
+}
+
 /* Return the HTML rendering object */
 function getHtmlRenderer() {
     return document.getElementById("html-renderer");  
@@ -44,6 +49,25 @@ function getResultsBar() {
 /* Return the list of results */
 function getResultsList() {
     return document.getElementById("results-list");
+}
+
+/* Save window geometry */
+function saveWindowGeometry(width, height, x, y) {
+    settings.windowWidth(width);
+    settings.windowHeight(height);
+    settings.windowX(x);
+    settings.windowY(y);
+}
+
+/* Compute position and size of the window */
+function configureWindowGeometry(window) {
+    var width = settings.windowWidth() || screen.width / 100 * 80;
+    var height = settings.windowHeight() || screen.height / 100 * 80;
+    var x = settings.windowX() || (screen.width - width) / 2;
+    var y = settings.windowY() || (screen.height - height) / 2;
+
+    window.resizeTo(width, height);
+    window.moveTo(x, y);
 }
 
 /* Activate Search GUI elements */
