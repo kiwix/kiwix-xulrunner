@@ -26,9 +26,9 @@ ZimprotocolHandler.prototype = {
 	    var sh = baseURI.spec.indexOf ("#");
 	    if (sh != -1) {
 		var nb = baseURI.spec.substr (0, sh);
-		uri.spec = nb+spec; 
+	    	uri.spec = nb+spec;
 	    } else
-		uri.spec = baseURI.spec+spec;
+	    	uri.spec = baseURI.spec+spec;
 	} else {
 	    var prefix = spec.indexOf("zim://");
 	    if (prefix == -1) {
@@ -145,11 +145,18 @@ PipeChannel.prototype = {
 		zimAccessor.loadFile(settings.zimFilePath());
 		currentZimFilePath = settings.zimFilePath();
 	    }
-	    
+
+	    /* Remove local anchor */
+	    var uri = Components.classes["@mozilla.org/network/simple-uri;1"];
+	    uri = this.URI;
+	    if (uri.spec.indexOf("#") != -1) {
+		uri.spec = uri.spec.substr(0, uri.spec.indexOf("#"));
+	    }
+
 	    var content = new Object();
 	    var contentLength = new Object();
 	    var contentType = new Object();
-	    zimAccessor.getContent(this.URI, content, contentLength, contentType);
+	    zimAccessor.getContent(uri, content, contentLength, contentType);
 	    
 	    this.pipe.outputStream.write(content.value, contentLength.value);
 	    this.pipe.outputStream.close();
