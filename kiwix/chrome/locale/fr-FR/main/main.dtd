@@ -1,58 +1,64 @@
 <!-- Window -->
-<!ENTITY main.title                "Kiwix">
+<!ENTITY main.title                   "Kiwix">
 
 <!-- File menu -->
-<!ENTITY main.file                 "Fichier">
-<!ENTITY main.file.accesskey       "F">
-<!ENTITY main.openFile             "Ouvrir un fichier...">
-<!ENTITY main.openFile.accesskey   "O">
-<!ENTITY main.print                "Imprimer">
-<!ENTITY main.print.accesskey      "p">
-<!ENTITY main.quit                 "Quitter">
-<!ENTITY main.quit.accesskey       "Q">
+<!ENTITY main.file                    "Fichier">
+<!ENTITY main.file.accesskey          "F">
+<!ENTITY main.openFile                "Ouvrir un fichier...">
+<!ENTITY main.openFile.accesskey      "O">
+<!ENTITY main.print                   "Imprimer">
+<!ENTITY main.print.accesskey         "p">
+<!ENTITY main.quit                    "Quitter">
+<!ENTITY main.quit.accesskey          "Q">
 
 <!-- Edit menu -->
-<!ENTITY main.edit                 "Édition">
-<!ENTITY main.edit.accesskey       "n">
-<!ENTITY main.find                 "Rechercher...">
-<!ENTITY main.find.accesskey       "c">
-<!ENTITY main.selectall            "Tout sélectionner">
-<!ENTITY main.selectall.accesskey  "T">
-<!ENTITY main.copy                 "Copier">
-<!ENTITY main.copy.accesskey       "p">
+<!ENTITY main.edit                    "Édition">
+<!ENTITY main.edit.accesskey          "n">
+<!ENTITY main.find                    "Rechercher...">
+<!ENTITY main.find.accesskey          "c">
+<!ENTITY main.selectall               "Tout sélectionner">
+<!ENTITY main.selectall.accesskey     "T">
+<!ENTITY main.copy                    "Copier">
+<!ENTITY main.copy.accesskey          "p">
 
 <!-- Display menu -->
-<!ENTITY main.display              "Affichage">
-<!ENTITY main.display.accesskey    "A">
-<!ENTITY main.zoom                 "Zoom">
-<!ENTITY main.zoom.accesskey       "Z">
-<!ENTITY main.zoomin               "Agrandir">
-<!ENTITY main.zoomin.accesskey     "A">
-<!ENTITY main.zoomout              "Réduire">
-<!ENTITY main.zoomout.accesskey    "R">
-<!ENTITY main.zoomorig             "Normal">
-<!ENTITY main.zoomorig.accesskey   "N">
-<!ENTITY main.language             "Langue">
-<!ENTITY main.language.accesskey   "L">
-<!ENTITY main.statusbar            "Barre d'état">
-<!ENTITY main.statusbar.accesskey  "B">
-<!ENTITY main.resultsbar           "Resultats">
-<!ENTITY main.resultsbar.accesskey "R">
-<!ENTITY main.fullscreen           "Plein écran">
-<!ENTITY main.fullscreen.accesskey "P">
+<!ENTITY main.display                 "Affichage">
+<!ENTITY main.display.accesskey       "A">
+<!ENTITY main.zoom                    "Zoom">
+<!ENTITY main.zoom.accesskey          "Z">
+<!ENTITY main.zoomin                  "Agrandir">
+<!ENTITY main.zoomin.accesskey        "A">
+<!ENTITY main.zoomout                 "Réduire">
+<!ENTITY main.zoomout.accesskey       "R">
+<!ENTITY main.zoomorig                "Normal">
+<!ENTITY main.zoomorig.accesskey      "N">
+<!ENTITY main.language                "Langue">
+<!ENTITY main.language.accesskey      "L">
+<!ENTITY main.statusbar               "Barre d'état">
+<!ENTITY main.statusbar.accesskey     "B">
+<!ENTITY main.resultsbar              "Resultats">
+<!ENTITY main.resultsbar.accesskey    "R">
+<!ENTITY main.fullscreen              "Plein écran">
+<!ENTITY main.fullscreen.accesskey    "P">
+
+<!-- Tools menu -->
+<!ENTITY main.tools                   "Outils">
+<!ENTITY main.tools.accesskey         "O">
+<!ENTITY main.randomArticle           "Article au hasard">
+<!ENTITY main.randomArticle.accesskey "A">
 
 <!-- Help menu -->
-<!ENTITY main.help                 "Aide">
-<!ENTITY main.help.accesskey       "e">
-<!ENTITY main.about                "À propos de Kiwix">
-<!ENTITY main.about.accesskey      "p">
+<!ENTITY main.help                    "Aide">
+<!ENTITY main.help.accesskey          "e">
+<!ENTITY main.about                   "À propos de Kiwix">
+<!ENTITY main.about.accesskey         "p">
 
 <!-- Tool bar -->
-<!ENTITY main.back                 "Article précédent">
-<!ENTITY main.next                 "Article suivant">
-<!ENTITY main.home                 "Page d'accueil">
-<!ENTITY main.print                "Imprimer">
-<!ENTITY main.searchBar            "Barre de recherche">
+<!ENTITY main.back                    "Article précédent">
+<!ENTITY main.next                    "Article suivant">
+<!ENTITY main.home                    "Page d'accueil">
+<!ENTITY main.print                   "Imprimer">
+<!ENTITY main.searchBar               "Barre de recherche">
 
 <!-- Results bar -->
-<!ENTITY main.results.title        "Resultats">
+<!ENTITY main.results.title           "Resultats">

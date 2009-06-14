@@ -90,6 +90,12 @@
 		accesskey="&main.fullscreen.accesskey;" oncommand="changeFullScreenStatus(undefined, true)"/>
     </menupopup>
   </menu>
+  <menu id="menu-tools" label="&main.tools;" accesskey="&main.tools.accesskey;">
+    <menupopup id="tools-popup">
+      <menuitem id="toold-randomArticle" label="&main.randomArticle;" key="randome-article-key"
+		accesskey="&main.randomArticle.accesskey;" oncommand="loadRandomArticle()"/>
+    </menupopup>
+  </menu>
   <menu id="menu-help" label="&main.help;" accesskey="&main.help.accesskey;">
     <menupopup id="help-popup">
       <menuitem id="help-about" label="&main.about;" class="menuitem-iconic" 

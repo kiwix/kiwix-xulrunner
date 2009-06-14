@@ -127,6 +127,28 @@ function getZimFileHomePageUrl() {
     return undefined;
 }
 
+/* Load a ramdom page */
+function loadRandomArticle() {
+    /* Security check */
+    if (settings.zimFilePath() == undefined) {
+	return;
+    }
+
+    /* Try to load the ZIM file and retrieve the home page */
+    var zimAccessor = loadZimFile(settings.zimFilePath());
+
+    if (zimAccessor != undefined) {
+	var url = new Object();
+
+	zimAccessor.getRandomPageUrl(url);
+	if (url.value != undefined && url.value != '') {
+	    url.value = "zim://" + url.value;
+	}
+
+	getHtmlRenderer().loadURI(url.value);
+    }
+}
+
 /* Got the welcome page of the current zim file */
 function goHome() {
     var homeUrl = getZimFileHomePageUrl();

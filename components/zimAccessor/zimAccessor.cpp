@@ -14,6 +14,7 @@
 #include "nsIProperties.h"
 #include "nsDirectoryServiceDefs.h"
 
+#include <zim/zim.h>
 #include <zim/file.h>
 #include <zim/article.h>
 #include <zim/fileiterator.h>
@@ -38,6 +39,7 @@ protected:
   zim::size_type firstArticleOffset;
   zim::size_type lastArticleOffset;
   zim::size_type currentArticleOffset;
+  zim::size_type articleCount;
 };
 
 /* Implementation file */
@@ -66,12 +68,16 @@ NS_IMETHODIMP ZimAccessor::LoadFile(const char *path, PRBool *retVal) {
       this->firstArticleOffset = this->zimFileHandler->getNamespaceBeginOffset('A');
       this->lastArticleOffset = this->zimFileHandler->getNamespaceEndOffset('A');
       this->currentArticleOffset = this->firstArticleOffset;
+      this->articleCount = this->zimFileHandler->getNamespaceCount('A');
     } else {
       *retVal = PR_FALSE;
     }
   } catch(...) {
     *retVal = PR_FALSE;
   }
+
+  srand(time(NULL));
+
   return NS_OK;
 }
 
@@ -86,7 +92,7 @@ NS_IMETHODIMP ZimAccessor::Reset(PRBool *retVal) {
 NS_IMETHODIMP ZimAccessor::GetArticleCount(PRUint32 *count, PRBool *retVal) {
   *retVal = PR_TRUE;
   if (this->zimFileHandler != NULL) {
-    *count = this->zimFileHandler->getNamespaceCount('A');
+    *count = this->articleCount;
   } else {
     *retVal = PR_FALSE;
   }
@@ -100,6 +106,26 @@ NS_IMETHODIMP ZimAccessor::GetId(nsACString &id, PRBool *retVal) {
   if (this->zimFileHandler != NULL) {
     id = nsDependentCString(this->zimFileHandler->getFileheader().getUuid().data, 
 			    this->zimFileHandler->getFileheader().getUuid().size());
+  } else {
+    *retVal = PR_FALSE;
+  }
+  return NS_OK;
+}
+
+/* Return a random article URL */
+NS_IMETHODIMP ZimAccessor::GetRandomPageUrl(nsACString &url, PRBool *retVal) {
+  *retVal = PR_TRUE;
+
+  if (this->zimFileHandler != NULL) {
+    if (this->zimFileHandler->getFileheader().hasMainPage()) {
+      zim::size_type idx = this->firstArticleOffset + 
+	(zim::size_type)((double)rand() / ((double)RAND_MAX + 1) * this->articleCount); 
+
+      zim::Article article = zimFileHandler->getArticle(idx);
+      url = nsDependentCString(article.getUrl().getValue().c_str(), article.getUrl().getValue().size());
+    } else {
+      *retVal = PR_FALSE;
+    }
   } else {
     *retVal = PR_FALSE;
   }
