@@ -1,6 +1,9 @@
+Kiwix 0.8 beta4
+* Random page feature (ID: 2799134)
+
 Kiwix 0.8 beta3
 * Rewrite the buggy MD5 code
-* Improvment of the GUI Spanish translation
+* Improvement of the GUI Spanish translation
 * Remember the window geometry (ID: 1671235)
 * Use xapian-core-1.0.13
 
