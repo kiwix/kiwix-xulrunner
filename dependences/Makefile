@@ -13,6 +13,8 @@ download:
 	svn co http://svn.openzim.org/svnroot/trunk/zimlib zimlib ; fi
 	wget -c	http://ftp.de.debian.org/debian/pool/main/u/unac/unac_1.8.0.orig.tar.gz
 	if [ ! -d unac-1.8.0.orig ]; then tar -xvzf unac_1.8.0.orig.tar.gz ; fi
+	wget -c	ftp://ftp.mozilla.org/pub/mozilla.org/xulrunner/releases/1.9.0.7/sdk/xulrunner-1.9.0.7.en-US.linux-i686.sdk.tar.bz2
+	if [ ! -d xulrunner ]; then tar -xvjf xulrunner*.tar.bz2 ; fi
 
 compile:
 	cd bzip2-1.0.5 ; sed -i "s/CFLAGS=/CFLAGS=-fPIC /" Makefile ; make ; make Makefile-libbz2_so ; cd ..
@@ -24,4 +26,4 @@ compile:
 	cd unac-1.8.0.orig ; mv builder.in builder ; sed -i -e 's/@UNICODE_VERSION@/4\.0\.0/' builder ; perl ./builder -source -database=UnicodeData-4.0.0.txt ; gcc -DUNAC_VERSION="42" -fPIC -c unac.c ; ar cr libunac.a unac.o ; ranlib libunac.a ; cd ..
 
 clean:
-	rm -rf zlib* bzip* unac* cxxtools zimlib xapian* *~ *.tmp
+	rm -rf zlib* bzip* unac* cxxtools zimlib xapian* *~ *.tmp xulrunner*
