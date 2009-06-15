@@ -18,7 +18,7 @@ cd ../zimXapianIndexer ; ./autogen.sh ; ./configure ; make clean all
 
 # Copy the kiwix directory
 cd /tmp
-cp -r -L /tmp/moulinkiwix/kiwix .
+cp -r -L /tmp/moulinkiwix/kiwix ./kiwix
 
 # Remove svn stuff
 for i in `find ./kiwix -name ".svn"` ; do rm -rf $i ; done
@@ -26,7 +26,7 @@ for i in `find ./kiwix -name ".svn"` ; do rm -rf $i ; done
 # Download and copy xulrunner
 wget http://releases.mozilla.org/pub/mozilla.org/xulrunner/releases/1.9.0.11/runtimes/xulrunner-1.9.0.11.en-US.linux-i686.tar.bz2
 tar -xvjf xulrunner-1.9.0.11.en-US.linux-i686.tar.bz2
-mv ./xulrunner ./kiwix/
+mv ./xulrunner/ ./kiwix/
 
 # Download the firefox en copy the locales JAR
 rm firefox-3.5b99.tar.bz2
