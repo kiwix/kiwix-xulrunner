@@ -15,9 +15,9 @@
 <!ENTITY main.edit                    "Editar">
 <!ENTITY main.edit.accesskey          "E">
 <!ENTITY main.find                    "Buscar en página...">
-<!ENTITY main.find.accesskey          "B">
+<!ENTITY main.find.accesskey          "u">
 <!ENTITY main.selectall               "Seleccionar todo">
-<!ENTITY main.selectall.accesskey     "e">
+<!ENTITY main.selectall.accesskey     "a">
 <!ENTITY main.copy                    "Copiar">
 <!ENTITY main.copy.accesskey          "C">
 
@@ -27,19 +27,19 @@
 <!ENTITY main.zoom                    "Zoom">
 <!ENTITY main.zoom.accesskey          "Z">
 <!ENTITY main.zoomin                  "Aumentar">
-<!ENTITY main.zoomin.accesskey        "A">
-<!ENTITY main.zoomout                 "Reducir">
-<!ENTITY main.zoomout.accesskey       "R">
-<!ENTITY main.zoomorig                "Formato original">
-<!ENTITY main.zoomorig.accesskey      "O">
+<!ENTITY main.zoomin.accesskey        "u">
+<!ENTITY main.zoomout                 "Disminuir">
+<!ENTITY main.zoomout.accesskey       "D">
+<!ENTITY main.zoomorig                "Normal">
+<!ENTITY main.zoomorig.accesskey      "N">
 <!ENTITY main.language                "Idioma">
-<!ENTITY main.language.accesskey      "L">
+<!ENTITY main.language.accesskey      "I">
 <!ENTITY main.statusbar               "Barra de estado">
 <!ENTITY main.statusbar.accesskey     "B">
 <!ENTITY main.resultsbar              "Barra de resultados">
-<!ENTITY main.resultsbar.accesskey    "R">
+<!ENTITY main.resultsbar.accesskey    "r">
 <!ENTITY main.fullscreen              "Pantalla completa">
-<!ENTITY main.fullscreen.accesskey    "c">
+<!ENTITY main.fullscreen.accesskey    "l">
 
 <!-- Tools menu -->
 <!ENTITY main.tools                   "Herramientas">
@@ -49,7 +49,7 @@
 
 <!-- Help menu -->
 <!ENTITY main.help                    "Ayuda">
-<!ENTITY main.help.accesskey          "H">
+<!ENTITY main.help.accesskey          "y">
 <!ENTITY main.about                   "Acerca de">
 <!ENTITY main.about.accesskey         "A">
 
