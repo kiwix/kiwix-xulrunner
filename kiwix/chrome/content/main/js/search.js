@@ -151,6 +151,13 @@ function indexZimFile(zimFilePath, xapianDirectory) {
 
 	    /* Hide the indexing progress bar */
 	    proxiedZimIndexerObserver.notifyObservers(this, "stopIndexing", "");
+	
+            /* Remove the observer */
+            proxiedZimIndexerObserver.removeObserver(zimIndexerObserver, "indexingProgress");
+            proxiedZimIndexerObserver.removeObserver(zimIndexerObserver, "stopIndexing");
+            proxiedZimIndexerObserver.removeObserver(zimIndexerObserver, "startIndexing");
+	    zimIndexerObserver = null;		
+            proxiedZimIndexerObserver = null;
 	}
     }
 
@@ -169,12 +176,12 @@ function indexZimFile(zimFilePath, xapianDirectory) {
     	getService(Components.interfaces.nsIThreadManager);
     var newThread = threadManager.newThread(0);
     newThread.dispatch(zimIndexerTask, newThread.DISPATCH_NORMAL);
-    
+     
     return;
 }
 
 /* Search a pattern in the index */
-function searchInIndex(query, xapianDirectory){
+function searchInIndex(query, xapianDirectory) {
     /* Empty the results list */
     emptyResultsList();
 
