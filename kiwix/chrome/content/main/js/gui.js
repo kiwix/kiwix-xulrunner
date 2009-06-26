@@ -75,6 +75,7 @@ function activateGuiSearchComponents() {
     getSearchLabel().collapsed = true;
     getSearchBox().disabled = false;
     getSearchButton().disabled = false;
+    getSearchButton().style.listStyleImage = "url('chrome://main/skin/img/search.png')";
 }
 
 /* Desactivate Search GUI elements */
@@ -82,6 +83,7 @@ function desactivateGuiSearchComponents() {
     getSearchLabel().collapsed = false;
     getSearchBox().disabled = true;
     getSearchButton().disabled = true;
+    getSearchButton().style.listStyleImage = "url('chrome://main/skin/img/search_gray.png')";
 }
 
 /* Change result side bar visibility status */
