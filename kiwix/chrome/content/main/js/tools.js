@@ -154,9 +154,12 @@ function goHome() {
     var homeUrl = getZimFileHomePageUrl();
     
     if (homeUrl != undefined && homeUrl != "") {
-	getHtmlRenderer().setAttribute( "homepage", homeUrl);
-	getHtmlRenderer().goHome();
+	getHtmlRenderer().setAttribute("homepage", homeUrl);
+    } else {
+	getHtmlRenderer().setAttribute("homepage", "chrome://main/locale/welcome.html");	
     }
+
+    getHtmlRenderer().goHome();
 }
 
 /* Open the "print" dialog windows */
