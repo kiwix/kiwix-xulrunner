@@ -155,11 +155,10 @@ function goHome() {
     
     if (homeUrl != undefined && homeUrl != "") {
 	getHtmlRenderer().setAttribute("homepage", homeUrl);
+	getHtmlRenderer().goHome();
     } else {
-	getHtmlRenderer().setAttribute("homepage", "chrome://main/locale/help.html");	
+	showHelp();
     }
-
-    getHtmlRenderer().goHome();
 }
 
 /* Open the "print" dialog windows */

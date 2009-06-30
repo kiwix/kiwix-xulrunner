@@ -35,6 +35,10 @@
     list-style-image: url('img/zoomorig.png');
 }
 
+#help-help {
+    list-style-image: url('img/help.png');
+}
+
 #help-about {
     list-style-image: url('img/about.png');
 }

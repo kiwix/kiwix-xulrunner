@@ -98,6 +98,9 @@
   </menu>
   <menu id="menu-help" label="&main.help;" accesskey="&main.help.accesskey;">
     <menupopup id="help-popup">
+      <menuitem id="help-help" label="&main.help;" class="menuitem-iconic" 
+		accesskey="&main.help.accesskey;" oncommand="showHelp()"/>
+      <menuseparator/>
       <menuitem id="help-about" label="&main.about;" class="menuitem-iconic" 
 		accesskey="&main.about.accesskey;" oncommand="showAbout()"/>
     </menupopup>

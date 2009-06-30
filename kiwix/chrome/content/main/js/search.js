@@ -205,7 +205,7 @@ function searchInIndex(query, xapianDirectory) {
 
     if (url.value != "") {
 	/* Display the first result (best score) */
-	loadArticle("zim://" + url.value);
+	loadContent("zim://" + url.value);
 
 	/* Display all the results in the results sidebar */
 	changeResultsBarVisibilityStatus(true);

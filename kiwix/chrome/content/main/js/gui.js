@@ -12,7 +12,7 @@ function getHtmlRenderer() {
 }
 
 /* Load an url in the HTML rendere */
-function loadArticle(url) {
+function loadContent(url) {
     return getHtmlRenderer().loadURI(url, null, null);
 }
 
@@ -395,7 +395,7 @@ function addResultToList(url, title, score) {
 
     /* Create a new richlist item */
     var li = document.createElement("richlistitem");
-    li.setAttribute("onclick", "loadArticle('zim://" + url + "')");
+    li.setAttribute("onclick", "loadContent('zim://" + url + "')");
     li.setAttribute("flex", "0");
     li.setAttribute("style", "cursor: pointer; padding: 2px;");
     li.appendChild(titrescore);
@@ -409,6 +409,11 @@ function addResultToList(url, title, score) {
 /* Display the about dialog box */
 function showAbout() {
     var win = window.openDialog('about.xul','','resizable=no,scrollbars=no,modal,fullscreen=no,width=350,height=400,chrome=yes');
+}
+
+/* Display the help */
+function showHelp() {
+    loadContent("chrome://main/locale/help.html");
 }
 
 /* Display an error dialog box like alert() */
