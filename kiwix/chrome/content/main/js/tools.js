@@ -156,7 +156,7 @@ function goHome() {
     if (homeUrl != undefined && homeUrl != "") {
 	getHtmlRenderer().setAttribute("homepage", homeUrl);
     } else {
-	getHtmlRenderer().setAttribute("homepage", "chrome://main/locale/welcome.html");	
+	getHtmlRenderer().setAttribute("homepage", "chrome://main/locale/help.html");	
     }
 
     getHtmlRenderer().goHome();
