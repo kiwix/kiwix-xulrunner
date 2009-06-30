@@ -21,3 +21,9 @@ pref("javascript.options.showInConsole", true);
 pref("browser.dom.window.dump.enabled", true);
 pref("javascript.options.strict", true);
 pref("extensions.logging.enabled", true);
+
+/* Caching strategy */
+pref("browser.cache.disk.enable", true);
+pref("browser.cache.disk.capacity", 50000);
+pref("browser.cache.memory.enable", true);
+pref("browser.cache.memory.capacity", 32768);

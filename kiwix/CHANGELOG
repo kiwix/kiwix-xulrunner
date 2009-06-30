@@ -3,6 +3,7 @@ Kiwix 0.8 RC1
 * Bug fix by the indexing process observer (ID: 2811642)
 * Add a gray version of the search buttion image for the unavailability case
 * Creation of the software "welcome pages"
+* Add a cache strategy
 
 Kiwix 0.8 beta4
 * Random page feature (ID: 2799134)
