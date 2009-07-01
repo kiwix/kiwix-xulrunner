@@ -337,7 +337,7 @@ function pageBack() {
 	activateNextButton();
 
 	/* desactivate if necessary the back button */
-	if (htmlRenderer.sessionHistory.index == 1) {
+	if (htmlRenderer.sessionHistory.index <= 1) {
 	    desactivateBackButton();
 	}
     } catch (exception) {
@@ -358,7 +358,7 @@ function pageNext() {
 	activateBackButton();
 
 	/* desactivate if necessary the next button */
-	if (htmlRenderer.sessionHistory.index == (htmlRenderer.sessionHistory.count-2)) {
+	if (htmlRenderer.sessionHistory.index >= (htmlRenderer.sessionHistory.count-2)) {
 	    desactivateNextButton();
 	}
     } catch (exception) {
@@ -409,6 +409,9 @@ function manageNewZimFile() {
 	    activateHomeButton();
 	    desactivateBackButton();
 	    desactivateNextButton();
+
+	    /* Purge the history */
+	    getHtmlRenderer().sessionHistory.PurgeHistory(getHtmlRenderer().sessionHistory.count);
 	}
     } else {
 	return false;
