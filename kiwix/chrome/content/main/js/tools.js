@@ -81,7 +81,19 @@ function init() {
 	activateGuiSearchComponents();
     } else {
 	desactivateGuiSearchComponents();
+	desactivateHomeButton();
     }
+
+    /* Activate (or not) the Home button */
+    if (getZimFileHomePageUrl()) {
+	activateHomeButton();
+    } else {
+	desactivateHomeButton();
+    }
+
+    /* Desactivate back/next buttons */
+    desactivateBackButton();
+    desactivateNextButton();
 }
 
 /* try a ZIM file */
@@ -156,6 +168,9 @@ function goHome() {
     if (homeUrl != undefined && homeUrl != "") {
 	getHtmlRenderer().setAttribute("homepage", homeUrl);
 	getHtmlRenderer().goHome();
+	
+	/* activate if necessary the back button */
+	activateBackButton();
     } else {
 	showHelp();
     }

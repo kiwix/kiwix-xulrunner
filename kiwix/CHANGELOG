@@ -1,7 +1,7 @@
 Kiwix 0.8 RC1
 * Small improvements of the Spanish translations&shortcuts
 * Bug fix by the indexing process observer (ID: 2811642)
-* Add a gray version of the search buttion image for the unavailability case
+* Add a gray version of the buttons
 * First version of a software help
 * Add a cache strategy
 

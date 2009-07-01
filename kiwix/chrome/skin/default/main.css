@@ -50,19 +50,16 @@
 
 /* Buttons */
 #button-back {
-    list-style-image: url('img/back.png');
     width: 40px;
     height: 28px;
 }
 
 #button-next {
-    list-style-image: url('img/next.png');
     width: 40px;
     height: 28px;
 }
 
 #button-home {
-    list-style-image: url('img/home.png');
     width: 40px;
     height: 28px;
 }

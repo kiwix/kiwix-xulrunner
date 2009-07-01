@@ -26,6 +26,21 @@ function getSearchButton() {
     return document.getElementById("button-search");
 }
 
+/* Return the Home button object */
+function getHomeButton() {
+    return document.getElementById("button-home");
+}
+
+/* Return the Back button object */
+function getBackButton() {
+    return document.getElementById("button-back");
+}
+
+/* Return the Next button object */
+function getNextButton() {
+    return document.getElementById("button-next");
+}
+
 /* Return the label "masking" the search button and textbox */
 function getSearchLabel() {
     return document.getElementById("search-label");
@@ -84,6 +99,42 @@ function desactivateGuiSearchComponents() {
     getSearchBox().disabled = true;
     getSearchButton().disabled = true;
     getSearchButton().style.listStyleImage = "url('chrome://main/skin/img/search_gray.png')";
+}
+
+/* Activate home button */
+function activateHomeButton() {
+    getHomeButton().disabled = false;
+    getHomeButton().style.listStyleImage = "url('chrome://main/skin/img/home.png')";    
+}
+
+/* Desactivate home button */
+function desactivateHomeButton() {
+    getHomeButton().disabled = true;
+    getHomeButton().style.listStyleImage = "url('chrome://main/skin/img/home_gray.png')";    
+}
+
+/* Activate back button */
+function activateBackButton() {
+    getBackButton().disabled = false;
+    getBackButton().style.listStyleImage = "url('chrome://main/skin/img/back.png')";    
+}
+
+/* Desactivate back button */
+function desactivateBackButton() {
+    getBackButton().disabled = true;
+    getBackButton().style.listStyleImage = "url('chrome://main/skin/img/back_gray.png')";    
+}
+
+/* Activate next button */
+function activateNextButton() {
+    getNextButton().disabled = false;
+    getNextButton().style.listStyleImage = "url('chrome://main/skin/img/next.png')";    
+}
+
+/* Desactivate next button */
+function desactivateNextButton() {
+    getNextButton().disabled = true;
+    getNextButton().style.listStyleImage = "url('chrome://main/skin/img/next_gray.png')";    
 }
 
 /* Change result side bar visibility status */
@@ -174,6 +225,9 @@ function openUrl(aEvent) {
 	aEvent.preventDefault();
 	aEvent.stopPropagation();
     }
+
+    var htmlRenderer = getHtmlRenderer();
+    activateBackButton();
 }
 
 /* Clear the status bar */
@@ -278,6 +332,14 @@ function pageBack() {
 	var htmlRenderer = getHtmlRenderer();
 	htmlRenderer.stop();
 	htmlRenderer.goBack();
+	
+	/* activate if necessary the next button */
+	activateNextButton();
+
+	/* desactivate if necessary the back button */
+	if (htmlRenderer.sessionHistory.index == 1) {
+	    desactivateBackButton();
+	}
     } catch (exception) {
 	displayErrorDialog(exception);
 	return false;
@@ -291,6 +353,14 @@ function pageNext() {
 	var htmlRenderer = getHtmlRenderer();
 	htmlRenderer.stop();
 	htmlRenderer.goForward();
+
+	/* activate if necessary the back button */
+	activateBackButton();
+
+	/* desactivate if necessary the next button */
+	if (htmlRenderer.sessionHistory.index == (htmlRenderer.sessionHistory.count-2)) {
+	    desactivateNextButton();
+	}
     } catch (exception) {
 	displayErrorDialog(exception);
 	return false;
@@ -334,6 +404,11 @@ function manageNewZimFile() {
 
 	    /* Load the ZIM file welcome page */
 	    goHome();
+
+	    /* Activate the Home button and desactivate the next/back buttons */
+	    activateHomeButton();
+	    desactivateBackButton();
+	    desactivateNextButton();
 	}
     } else {
 	return false;
