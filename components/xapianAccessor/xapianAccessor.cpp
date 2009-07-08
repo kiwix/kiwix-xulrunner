@@ -153,18 +153,18 @@ NS_IMETHODIMP XapianAccessor::AddArticleToDatabase(const char *url, const char *
   
   /* Index the title */
   if (!this->htmlParser.title.empty()) {
-    indexer.index_text(removeAccents(this->htmlParser.title.c_str()), 
+    indexer.index_text_without_positions(removeAccents(this->htmlParser.title.c_str()), 
 		       ((this->htmlParser.dump.size() / 100) + 1) / countWords(this->htmlParser.title) );
   }
 
   /* Index the keywords */
   if (!this->htmlParser.keywords.empty()) {
-    indexer.index_text(removeAccents(this->htmlParser.keywords.c_str()), 3);
+    indexer.index_text_without_positions(removeAccents(this->htmlParser.keywords.c_str()), 3);
   }
   
   /* Index the content */
   if (!this->htmlParser.dump.empty()) {
-    indexer.index_text(removeAccents(this->htmlParser.dump.c_str()));
+    indexer.index_text_without_positions(removeAccents(this->htmlParser.dump.c_str()));
   }
   
   /* add to the database */
