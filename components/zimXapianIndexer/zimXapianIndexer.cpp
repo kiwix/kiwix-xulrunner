@@ -141,6 +141,7 @@ NS_IMETHODIMP ZimXapianIndexer::StartIndexing(const char *zimFilePath,
 NS_IMETHODIMP ZimXapianIndexer::IndexNextPercent(PRBool *retVal) {
   *retVal = PR_TRUE;
   unsigned int thresholdOffset = this->currentArticleOffset + this->stepSize;
+  size_t found;
 
   while(this->currentArticleOffset < thresholdOffset && 
 	this->currentArticleOffset < this->lastArticleOffset) {
@@ -162,37 +163,44 @@ NS_IMETHODIMP ZimXapianIndexer::IndexNextPercent(PRBool *retVal) {
       } catch(...) {
       }
       
-      /* Set the stemmer */
-      /* TODO, autodetect the language */
-      //indexer.set_stemmer(stemmer);
+      /* if content does not have the noindex meta tag */
+      found=this->htmlParser.dump.find("NOINDEX");
       
-      /* Put the data in the document */
-      Xapian::Document document;
-      document.add_value(0, this->htmlParser.title);
-      document.set_data(currentArticle.getUrl().getValue().c_str());
-      indexer.set_document(document);
-      
-      /* Debug output */
-      std::cout << "Indexing " << currentArticle.getUrl().getValue() << "..."<< std::endl;
-      
-      /* Index the title */
-      if (!this->htmlParser.title.empty()) {
-	indexer.index_text_without_positions(removeAccents(this->htmlParser.title.c_str()), 
-			   ((this->htmlParser.dump.size() / 100) + 1) / countWords(this->htmlParser.title) );
+      if (found == string::npos) {
+
+	/* Set the stemmer */
+	/* TODO, autodetect the language */
+	//indexer.set_stemmer(stemmer);
+	
+	/* Put the data in the document */
+	Xapian::Document document;
+	document.add_value(0, this->htmlParser.title);
+	document.set_data(currentArticle.getUrl().getValue().c_str());
+	indexer.set_document(document);
+	
+	/* Debug output */
+	std::cout << "Indexing " << currentArticle.getUrl().getValue() << "..." << std::endl;
+	
+	/* Index the title */
+	if (!this->htmlParser.title.empty()) {
+	  indexer.index_text_without_positions(removeAccents(this->htmlParser.title.c_str()), 
+					       ((this->htmlParser.dump.size() / 100) + 1) / 
+					       countWords(this->htmlParser.title) );
+	}
+	
+	/* Index the keywords */
+	if (!this->htmlParser.keywords.empty()) {
+	  indexer.index_text_without_positions(removeAccents(this->htmlParser.keywords.c_str()), 3);
+	}
+	
+	/* Index the content */
+	if (!this->htmlParser.dump.empty()) {
+	  indexer.index_text_without_positions(removeAccents(this->htmlParser.dump.c_str()));
+	}
+	
+	/* add to the database */
+	this->writableDatabase.add_document(document);
       }
-      
-      /* Index the keywords */
-      if (!this->htmlParser.keywords.empty()) {
-	indexer.index_text_without_positions(removeAccents(this->htmlParser.keywords.c_str()), 3);
-      }
-      
-      /* Index the content */
-      if (!this->htmlParser.dump.empty()) {
-	indexer.index_text_without_positions(removeAccents(this->htmlParser.dump.c_str()));
-      }
-      
-      /* add to the database */
-      this->writableDatabase.add_document(document);
     }
   }
   
