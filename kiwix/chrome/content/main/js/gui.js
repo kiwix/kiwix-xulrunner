@@ -224,10 +224,12 @@ function openUrl(aEvent) {
 	openUrlWithExternalBrowser(url);
 	aEvent.preventDefault();
 	aEvent.stopPropagation();
+	
+	/* Purge the history of the last entry */
+	getHtmlRenderer().sessionHistory.PurgeHistory(1);
+    } else {
+	activateBackButton();
     }
-
-    var htmlRenderer = getHtmlRenderer();
-    activateBackButton();
 }
 
 /* Clear the status bar */
