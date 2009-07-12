@@ -1,5 +1,6 @@
 Kiwix 0.8 rc1
 * high reducing of the xapian index disk usage
+* improvement of the history management
 
 Kiwix 0.8 beta5
 * Small improvements of the Spanish translations&shortcuts

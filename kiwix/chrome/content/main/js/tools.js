@@ -164,13 +164,18 @@ function loadRandomArticle() {
 /* Got the welcome page of the current zim file */
 function goHome() {
     var homeUrl = getZimFileHomePageUrl();
+    var htmlRenderer = getHtmlRenderer();
     
     if (homeUrl != undefined && homeUrl != "") {
-	getHtmlRenderer().setAttribute("homepage", homeUrl);
-	getHtmlRenderer().goHome();
+	htmlRenderer.setAttribute("homepage", homeUrl);
+	htmlRenderer.goHome();
 	
 	/* activate if necessary the back button */
-	activateBackButton();
+	if (htmlRenderer.sessionHistory.count > 1) {
+	    activateBackButton();
+	} else {
+	    htmlRenderer.sessionHistory.PurgeHistory(htmlRenderer.sessionHistory.count);
+	}
     } else {
 	showHelp();
     }
