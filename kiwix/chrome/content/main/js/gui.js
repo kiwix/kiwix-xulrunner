@@ -545,7 +545,7 @@ function populateLanguagesMenu() {
 	menuItem.setAttribute("type", "radio");
 	menuItem.setAttribute("value", locale);
 	menuItem.setAttribute("label", locale);
-	menuItem.setAttribute("onclick", "manageChangeLocale(this.value)");
+	menuItem.setAttribute("oncommand", "manageChangeLocale(this.value)");
 	
 	/* If this the current locale, check and apply it. */
 	if (locale == selectedLocale) {
