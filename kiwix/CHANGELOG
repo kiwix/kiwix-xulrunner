@@ -2,6 +2,7 @@ Kiwix 0.8 rc1
 * High reducing of the xapian index disk usage
 * Improvement of the history management
 * Ignore now, by indexing, HTML pages with the NOINDEX meta tag
+* French translation of the software help
 
 Kiwix 0.8 beta5
 * Small improvements of the Spanish translations&shortcuts
