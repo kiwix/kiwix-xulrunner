@@ -24,6 +24,9 @@ cp -r -L /tmp/moulinkiwix/kiwix ./kiwix
 # Remove svn stuff
 for i in `find ./kiwix -name ".svn"` ; do rm -rf $i ; done
 
+# Replace logger
+mv ./kiwix/chrome/content/main/js/logger_rlz.js ./kiwix/chrome/content/main/js/logger.js
+
 # Download and copy xulrunner
 wget http://releases.mozilla.org/pub/mozilla.org/xulrunner/releases/1.9.0.11/runtimes/xulrunner-1.9.0.11.en-US.linux-i686.tar.bz2
 tar -xvjf xulrunner-1.9.0.11.en-US.linux-i686.tar.bz2

@@ -20,7 +20,7 @@
 
 <!-- Custom Javascript scripts -->
 <script language="javaScript" type="text/javascript" src="resource://modules/settings.jsm"/>
-<!--<script language="javaScript" type="text/javascript" src="js/logger.js"/>-->
+<script language="javaScript" type="text/javascript" src="js/logger.js"/>
 <script language="javaScript" type="text/javascript" src="js/gui.js"/>
 <script language="javaScript" type="text/javascript" src="js/search.js"/>
 <script language="javaScript" type="text/javascript" src="js/tools.js"/>
