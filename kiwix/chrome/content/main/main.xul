@@ -7,9 +7,12 @@
 ]>
 <window	xmlns:html="http://www.w3.org/1999/xhtml" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
 	id        = "main"
-	title     = "&main.title;"
 	onload    = "init();"
 	onunload  = "saveWindowGeometry(this.outerWidth, this.outerHeight, this.screenX, this.screenY);"
+    title = "&main.title;"
+	titlemodifier = "&main.title;"
+	titlemenuseparator = " - "
+    contenttitlesetting = "true"
 	>
 
 <!-- Properties -->
@@ -17,6 +20,7 @@
 
 <!-- Custom Javascript scripts -->
 <script language="javaScript" type="text/javascript" src="resource://modules/settings.jsm"/>
+<!--<script language="javaScript" type="text/javascript" src="js/logger.js"/>-->
 <script language="javaScript" type="text/javascript" src="js/gui.js"/>
 <script language="javaScript" type="text/javascript" src="js/search.js"/>
 <script language="javaScript" type="text/javascript" src="js/tools.js"/>
