@@ -3,7 +3,9 @@
 <?xml-stylesheet href="chrome://main/skin/main.css" type="text/css"?>
 <!DOCTYPE window [
 <!ENTITY % mainDTD SYSTEM "chrome://main/locale/main.dtd">
+<!ENTITY % brandDTD SYSTEM "chrome://branding/locale/brand.dtd">
 %mainDTD;
+%brandDTD;
 ]>
 <window	xmlns:html="http://www.w3.org/1999/xhtml" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
 	id        = "main"
@@ -17,6 +19,7 @@
 
 <!-- Properties -->
 <stringbundle id="properties" src="chrome://main/locale/main.properties"/>
+<stringbundle id="brandproperties" src="chrome://branding/locale/brand.properties"/>
 
 <!-- Custom Javascript scripts -->
 <script language="javaScript" type="text/javascript" src="resource://modules/settings.jsm"/>

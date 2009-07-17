@@ -2,14 +2,16 @@
 <?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
 <?xml-stylesheet href="chrome://main/skin/about.css" type="text/css"?>
 <!DOCTYPE window [
-<!ENTITY % wikiDTD SYSTEM "chrome://main/locale/main.dtd">
-%wikiDTD;
+<!ENTITY % mainDTD SYSTEM "chrome://main/locale/main.dtd">
+<!ENTITY % brandDTD SYSTEM "chrome://branding/locale/brand.dtd">
 <!ENTITY % findBarDTD SYSTEM "chrome://global/locale/findbar.dtd" >
+%mainDTD;
+%brandDTD;
 %findBarDTD;
 ]>
 <window	xmlns:html="http://www.w3.org/1999/xhtml" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
 	id      = "about"
-	title   = "About"
+	title   = "&main.about;"
 	>
 
 <!-- Custom Javascript scripts -->

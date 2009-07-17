@@ -1,5 +1,5 @@
 <!-- Window -->
-<!ENTITY main.title                   "Kiwix">
+<!ENTITY main.title                   "&brand.brandShortName;">
 
 <!-- File menu -->
 <!ENTITY main.file                    "Archivo">
@@ -50,7 +50,7 @@
 <!-- Help menu -->
 <!ENTITY main.help                    "Ayuda">
 <!ENTITY main.help.accesskey          "y">
-<!ENTITY main.about                   "Acerca de">
+<!ENTITY main.about                   "Acerca de &brand.brandShortName;">
 <!ENTITY main.about.accesskey         "A">
 
 <!-- Tool bar -->

@@ -1,4 +1,4 @@
-<!ENTITY  brandShortName        "Kiwix">
-<!ENTITY  brandFullName         "Kiwix">
-<!ENTITY  vendorShortName       "Kiwix">
-<!ENTITY  releaseBaseURL        "http://www.kiwix.org/">
+<!ENTITY  brand.brandShortName        "Kiwix">
+<!ENTITY  brand.brandFullName         "Kiwix">
+<!ENTITY  brand.vendorShortName       "Kiwix">
+<!ENTITY  brand.releaseBaseURL        "http://www.kiwix.org/">

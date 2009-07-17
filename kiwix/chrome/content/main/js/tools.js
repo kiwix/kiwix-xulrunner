@@ -1,6 +1,6 @@
 /* Restart Kiwix */
 function restart() {
-    if (displayConfirmDialog(getProperty("restartConfirm"))) {
+    if (displayConfirmDialog(getProperty("restartConfirm", getProperty("brand.brandShortName")))) {
 	/* Save settings */
 	settings.save();
 
@@ -33,13 +33,20 @@ function quitKiwix() {
 }
 
 /* Return the properties object */
-function getProperties() {
-    return document.getElementById("properties");
+function getProperties(brand) {
+    var pid = "properties";
+    if (brand == true) { pid  = "brand" + pid; }
+    return document.getElementById(pid);
 }
 
 /* Return the value of a specific property */
 function getProperty(name, parameter1, parameter2) {
-    var message = getProperties().getString(name);
+    var brand   = false;
+    if (name.indexOf("brand.", 0) == 0) {
+        name = name.substring("brand.".length);
+        brand = true;
+    }
+    var message = getProperties(brand).getString(name);
 
     if (parameter1 != undefined) {
 	message = message.replace("%1", parameter1)
