@@ -1,72 +1,80 @@
 /* Menuitems */
 #file-open {
-    list-style-image: url('img/fileopen.png');
+    list-style-image: url("moz-icon://stock/gtk-open?size=menu");
 }
 
 #file-print {
-    list-style-image: url('img/print.png');
+    list-style-image: url("moz-icon://stock/gtk-print?size=toolbar");
 }
 
 #file-quit {
-    list-style-image: url('img/quit.png');
+    list-style-image: url("moz-icon://stock/gtk-quit?size=menu");
 }
 
 #edit-find {
-    list-style-image: url('img/find.png');
+    list-style-image: url("moz-icon://stock/gtk-find?size=menu");
 }
 
 #edit-selectall {
-    list-style-image: url('img/selectall.png');
+    list-style-image: url("moz-icon://stock/gtk-select-all?size=menu");
 }
 
 #edit-copy {
-    list-style-image: url('img/copy.png');
+    list-style-image: url("moz-icon://stock/gtk-copy?size=menu");
 }
 
 #display-zoomin {
-    list-style-image: url('img/zoomin.png');
+    list-style-image: url("moz-icon://stock/gtk-zoom-in?size=menu");
 }
 
 #display-zoomout {
-    list-style-image: url('img/zoomout.png');
+    list-style-image: url("moz-icon://stock/gtk-zoom-out?size=menu");
 }
 
 #display-zoomorig {
-    list-style-image: url('img/zoomorig.png');
+    list-style-image: url("moz-icon://stock/gtk-zoom-100?size=menu");
 }
 
 #help-help {
-    list-style-image: url('img/help.png');
+    list-style-image: url("moz-icon://stock/gtk-help?size=menu");
 }
 
 #help-about {
-    list-style-image: url('img/about.png');
+    list-style-image: url("moz-icon://stock/gtk-about?size=menu");
 }
 
 /* Tool bar */
 #toolbar {
-    height: 30px;
+
 }
 
 /* Buttons */
 #button-back {
-    width: 40px;
-    height: 28px;
+    list-style-image: url("moz-icon://stock/gtk-go-back?size=toolbar");
+}
+#button-back.disabled {
+    list-style-image: url("moz-icon://stock/gtk-go-back?size=toolbar&state=disabled");
 }
 
 #button-next {
-    width: 40px;
-    height: 28px;
+    list-style-image: url("moz-icon://stock/gtk-go-forward?size=toolbar");
+}
+#button-next.disabled {
+    list-style-image: url("moz-icon://stock/gtk-go-forward?size=toolbar&state=disabled");
 }
 
 #button-home {
-    width: 40px;
-    height: 28px;
+    list-style-image: url("moz-icon://stock/gtk-home?size=toolbar");
+}
+#button-home.disabled {
+    list-style-image: url("moz-icon://stock/gtk-home?size=toolbar&state=disabled");
 }
 
 #button-search {
-    width: 40px;
-    height: 28px;
+    list-style-image: url("moz-icon://stock/gtk-find?size=toolbar");
+}
+#button-search.disabled {
+    list-style-image: url("moz-icon://stock/gtk-find?size=toolbar&state=disabled");
 }
 
 /* Textbox search */
@@ -94,9 +102,7 @@
 }
 
 #results-close-button {
-    width: 20px;
-    height: 20px;
-    list-style-image: url('img/close.png');
+    list-style-image: url("moz-icon://stock/gtk-close?size=menu");
 }
 
 .results-button {
@@ -106,7 +112,7 @@
 
 /* Status bar */
 #status-bar {
-    height: 23px;
+    height: auto;
     margin: 0px;
     padding-top: 5px;
 }

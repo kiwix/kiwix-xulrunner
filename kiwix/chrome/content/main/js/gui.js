@@ -90,7 +90,7 @@ function activateGuiSearchComponents() {
     getSearchLabel().collapsed = true;
     getSearchBox().disabled = false;
     getSearchButton().disabled = false;
-    getSearchButton().style.listStyleImage = "url('chrome://main/skin/img/search.png')";
+    getSearchButton().className = "";
 }
 
 /* Desactivate Search GUI elements */
@@ -98,43 +98,43 @@ function desactivateGuiSearchComponents() {
     getSearchLabel().collapsed = false;
     getSearchBox().disabled = true;
     getSearchButton().disabled = true;
-    getSearchButton().style.listStyleImage = "url('chrome://main/skin/img/search_gray.png')";
+    getSearchButton().className = "disabled";
 }
 
 /* Activate home button */
 function activateHomeButton() {
-    getHomeButton().disabled = false;
-    getHomeButton().style.listStyleImage = "url('chrome://main/skin/img/home.png')";    
+    getHomeButton().disabled = false; 
+    getHomeButton().className = "";  
 }
 
 /* Desactivate home button */
 function desactivateHomeButton() {
     getHomeButton().disabled = true;
-    getHomeButton().style.listStyleImage = "url('chrome://main/skin/img/home_gray.png')";    
+    getHomeButton().className = "disabled";
 }
 
 /* Activate back button */
 function activateBackButton() {
     getBackButton().disabled = false;
-    getBackButton().style.listStyleImage = "url('chrome://main/skin/img/back.png')";    
+    getBackButton().className = "";
 }
 
 /* Desactivate back button */
 function desactivateBackButton() {
     getBackButton().disabled = true;
-    getBackButton().style.listStyleImage = "url('chrome://main/skin/img/back_gray.png')";    
+    getBackButton().className = "disabled";
 }
 
 /* Activate next button */
 function activateNextButton() {
     getNextButton().disabled = false;
-    getNextButton().style.listStyleImage = "url('chrome://main/skin/img/next.png')";    
+    getNextButton().className = "";
 }
 
 /* Desactivate next button */
 function desactivateNextButton() {
     getNextButton().disabled = true;
-    getNextButton().style.listStyleImage = "url('chrome://main/skin/img/next_gray.png')";    
+    getNextButton().className = "disabled";
 }
 
 /* Change result side bar visibility status */
