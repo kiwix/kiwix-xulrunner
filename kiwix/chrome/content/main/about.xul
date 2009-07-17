@@ -18,11 +18,11 @@
 <script language="javaScript" type="text/javascript" src="resource://modules/settings.jsm"/>
 
 <!-- Log -->
-<image id="log" src="./img/logo.png" style="width: 300px; height: 300px"/>
-
-<textbox class="plain" style="background-color: transparent;" flex="1" multiline="true" readonly="true" DOMAttrModified="if(event.attrName == 'value') this.value = event.newValue; return true;" value="Authors:"/>
-<textbox class="plain" style="background-color: transparent;" flex="1" multiline="true" readonly="true" DOMAttrModified="if(event.attrName == 'value') this.value = event.newValue; return true;" value="Emmanuel Engelhart &lt;kelson@kiwix.org&gt;"/>
-<textbox class="plain" style="background-color: transparent;" flex="1" multiline="true" readonly="true" DOMAttrModified="if(event.attrName == 'value') this.value = event.newValue; return true;" value="Guillaume Duhamel &lt;gduhamel@linterweb.com&gt;"/>
-<textbox class="plain" style="background-color: transparent;" flex="1" multiline="true" readonly="true" DOMAttrModified="if(event.attrName == 'value') this.value = event.newValue; return true;" value="Fabien Coullon &lt;fcoulon@linterweb.com&gt;"/>
-<textbox class="plain" style="background-color: transparent;" flex="1" multiline="true" readonly="true" DOMAttrModified="if(event.attrName == 'value') this.value = event.newValue; return true;" value="Renaud Gaudin &lt;rgaudin@gmail.com&gt;"/>
+<hbox style="padding: 0;">
+<spacer flex="1"/><image id="log" src="chrome://branding/locale/logo.png" style="width: 200px; height: 200px; padding: 40px;"/><spacer flex="1"/>
+</hbox>
+<textbox class="plain" style="background-color: transparent; font-weight:bold; text-align: center; padding:0;" readonly="true" value="&brand.brandFullName;"/>
+<textbox class="plain" style="background-color: transparent; text-align: center; margin-bottom: 20px;" readonly="true" value="&brand.brandFullName; &brand.version; (&brand.subVersion;)"/>
+<browser id="credits" type="text/html" src="chrome://branding/locale/credits.html" flex="1" style="margin-top: 10px; margin-bottom: 10px;" />
+<textbox class="plain" style="background-color: transparent; text-align: center;" readonly="true" value="&brand.copyright;"/>
 </window>

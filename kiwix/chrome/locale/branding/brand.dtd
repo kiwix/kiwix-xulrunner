@@ -1,4 +1,7 @@
 <!ENTITY  brand.brandShortName        "Kiwix">
 <!ENTITY  brand.brandFullName         "Kiwix">
 <!ENTITY  brand.vendorShortName       "Kiwix">
+<!ENTITY  brand.copyright             "© 2006-2009 Kiwix Project and contributors.">
+<!ENTITY  brand.version               "0.8">
+<!ENTITY  brand.subVersion            "rc1">
 <!ENTITY  brand.releaseBaseURL        "http://www.kiwix.org/">
