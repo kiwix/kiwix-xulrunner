@@ -122,7 +122,7 @@
 }
 
 #book-icon {
-    list-style-image: url('img/book.png');
+    list-style-image: url("moz-icon://stock/gtk-floppy?size=menu");
 }
 
 #progress-bar {

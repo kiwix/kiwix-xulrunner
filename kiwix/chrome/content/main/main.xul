@@ -172,8 +172,10 @@
 
 <!-- Status bar -->
 <hbox id="status-bar">
+  <vbox>
   <image id="earth-icon" collapsed="true"/>
   <image id="book-icon" collapsed="true"/>
+  </vbox>
   <label id="address-bar" crop="end" flex="1"/>
   <spacer flex="1"/>
   <stack>
