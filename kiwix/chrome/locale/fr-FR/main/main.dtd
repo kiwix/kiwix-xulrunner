@@ -1,5 +1,6 @@
 <!-- Window -->
 <!ENTITY main.title                   "&brand.brandShortName;">
+<!ENTITY main.cssdirection            "ltr">
 
 <!-- File menu -->
 <!ENTITY main.file                    "Fichier">

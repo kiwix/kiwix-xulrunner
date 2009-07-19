@@ -1,0 +1,65 @@
+<!-- Window -->
+<!ENTITY main.title                   "&brand.brandShortName;">
+<!ENTITY main.cssdirection            "rtl">
+
+<!-- File menu -->
+<!ENTITY main.file                    "ملف">
+<!ENTITY main.file.accesskey          "م">
+<!ENTITY main.openFile                "فتح ملف...">
+<!ENTITY main.openFile.accesskey      "ف">
+<!ENTITY main.print                   "طباعة...">
+<!ENTITY main.print.accesskey         "ط">
+<!ENTITY main.quit                    "خروج">
+<!ENTITY main.quit.accesskey          "خ">
+
+<!-- Edit menu -->
+<!ENTITY main.edit                    "تحرير">
+<!ENTITY main.edit.accesskey          "ت">
+<!ENTITY main.find                    "بحث في الصفحة...">
+<!ENTITY main.find.accesskey          "ب">
+<!ENTITY main.selectall               "تحديد الكل">
+<!ENTITY main.selectall.accesskey     "ح">
+<!ENTITY main.copy                    "نسخ">
+<!ENTITY main.copy.accesskey          "ن">
+
+<!-- Display menu -->
+<!ENTITY main.display                 "عرض">
+<!ENTITY main.display.accesskey       "ع">
+<!ENTITY main.zoom                    "تكبير/تصغير">
+<!ENTITY main.zoom.accesskey          "ت">
+<!ENTITY main.zoomin                  "تكبير">
+<!ENTITY main.zoomin.accesskey        "ك">
+<!ENTITY main.zoomout                 "تصغير">
+<!ENTITY main.zoomout.accesskey       "ص">
+<!ENTITY main.zoomorig                "الحجم الأصلي">
+<!ENTITY main.zoomorig.accesskey      "ح">
+<!ENTITY main.language                "اللغة">
+<!ENTITY main.language.accesskey      "ل">
+<!ENTITY main.statusbar               "شريط الحالة">
+<!ENTITY main.statusbar.accesskey     "ح">
+<!ENTITY main.resultsbar              "شريط النتائج">
+<!ENTITY main.resultsbar.accesskey    "ن">
+<!ENTITY main.fullscreen              "ملئ الشاشة">
+<!ENTITY main.fullscreen.accesskey    "م">
+
+<!-- Tools menu -->
+<!ENTITY main.tools                   "أدوات">
+<!ENTITY main.tools.accesskey         "ا">
+<!ENTITY main.randomArticle           "مقالة عشوائية">
+<!ENTITY main.randomArticle.accesskey "ع">
+
+<!-- Help menu -->
+<!ENTITY main.help                    "مساعدة">
+<!ENTITY main.help.accesskey          "س">
+<!ENTITY main.about                   "حول &brand.brandShortName;">
+<!ENTITY main.about.accesskey         "ح">
+
+<!-- Tool bar -->
+<!ENTITY main.back                    "السابق">
+<!ENTITY main.forward                 "التالي">
+<!ENTITY main.home                    "صفحة البداية">
+<!ENTITY main.print                   "طباعة">
+<!ENTITY main.searchBar               "شريط البحث">
+
+<!-- Results bar -->
+<!ENTITY main.results.title           "النتائج">
