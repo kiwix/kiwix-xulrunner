@@ -33,29 +33,35 @@ tar -xvjf xulrunner-1.9.0.11.en-US.linux-i686.tar.bz2
 mv ./xulrunner/ ./kiwix/
 
 # Download the firefox en copy the locales JAR
-rm firefox-3.5rc1.tar.bz2
-wget -c http://releases.mozilla.org/pub/mozilla.org/firefox/releases/latest-3.5/linux-i686/it/firefox-3.5rc1.tar.bz2
+rm firefox-3.5.tar.bz2
+wget -c http://releases.mozilla.org/pub/mozilla.org/firefox/releases/3.5/linux-i686/it/firefox-3.5.tar.bz2
 rm -rf ./firefox
-tar -xvjf firefox-3.5rc1.tar.bz2
+tar -xvjf firefox-3.5.tar.bz2
 cp ./firefox/chrome/it.* ./kiwix/xulrunner/chrome/
 
-rm firefox-3.5rc1.tar.bz2
-wget -c http://releases.mozilla.org/pub/mozilla.org/firefox/releases/latest-3.5/linux-i686/fr/firefox-3.5rc1.tar.bz2
+rm firefox-3.5.tar.bz2
+wget -c http://releases.mozilla.org/pub/mozilla.org/firefox/releases/3.5/linux-i686/fr/firefox-3.5.tar.bz2
 rm -rf ./firefox
-tar -xvjf firefox-3.5rc1.tar.bz2
+tar -xvjf firefox-3.5.tar.bz2
 cp ./firefox/chrome/fr.* ./kiwix/xulrunner/chrome/
 
-rm firefox-3.5rc1.tar.bz2
-wget -c http://releases.mozilla.org/pub/mozilla.org/firefox/releases/latest-3.5/linux-i686/es-ES/firefox-3.5rc1.tar.bz2
+rm firefox-3.5.tar.bz2
+wget -c http://releases.mozilla.org/pub/mozilla.org/firefox/releases/3.5/linux-i686/es-ES/firefox-3.5.tar.bz2
 rm -rf ./firefox
-tar -xvjf firefox-3.5rc1.tar.bz2
+tar -xvjf firefox-3.5.tar.bz2
 cp ./firefox/chrome/es-ES.* ./kiwix/xulrunner/chrome/
 
-rm firefox-3.5rc1.tar.bz2
-wget -c http://releases.mozilla.org/pub/mozilla.org/firefox/releases/latest-3.5/linux-i686/de/firefox-3.5rc1.tar.bz2
+rm firefox-3.5.tar.bz2
+wget -c http://releases.mozilla.org/pub/mozilla.org/firefox/releases/3.5/linux-i686/de/firefox-3.5.tar.bz2
 rm -rf ./firefox
-tar -xvjf firefox-3.5rc1.tar.bz2
+tar -xvjf firefox-3.5.tar.bz2
 cp ./firefox/chrome/de.* ./kiwix/xulrunner/chrome/
+
+rm firefox-3.5.tar.bz2
+wget -c http://releases.mozilla.org/pub/mozilla.org/firefox/releases/3.5/linux-i686/ar/firefox-3.5.tar.bz2
+rm -rf ./firefox
+tar -xvjf firefox-3.5.tar.bz2
+cp ./firefox/chrome/ar.* ./kiwix/xulrunner/chrome/
 
 # Tar & clean
 rm kiwix.tar.bz2
