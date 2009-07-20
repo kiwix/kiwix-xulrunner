@@ -5,6 +5,7 @@ Kiwix 0.8 rc1
 * French/Spanish/German translation of the software help
 * Fixed language switch menu (ID: 2822178)
 * Arabic localization
+* Use now mainly xulrunner icon set
 
 Kiwix 0.8 beta5
 * Small improvements of the Spanish translations&shortcuts
