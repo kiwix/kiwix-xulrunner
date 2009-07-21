@@ -91,14 +91,16 @@
 
 /* Results bar */
 #results-bar {
-    margin-top: 3px;
+    margin: 0px;
     min-width: 150px;
     max-width: 450px;
     width: 200px;
+    border-width: 10px;
 }
 
 #results-list {
-    margin-left: 0px;
+    border-width: 10px;
+    margin: 0px;
 }
 
 #results-close-button {
@@ -107,7 +109,16 @@
 
 .results-button {
     margin: 0px;
-    -moz-box-flex: 1;
+}
+
+#results-bar-header {
+    padding: 2px 0px 2px 0px; 
+    vertical-align:bottom
+}
+
+.results-title {
+    margin: 0px;
+    padding: 4px 0px 0px 2px;
 }
 
 /* Status bar */

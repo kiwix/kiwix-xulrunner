@@ -137,7 +137,7 @@
   <!-- Search results side bar -->
   <vbox id="results-bar" collapsed="true">
 
-    <hbox>
+    <hbox id="results-bar-header">
       <label flex="1" class="results-title" value="&main.results.title;"/>
       <toolbarbutton id="results-close-button" oncommand="changeResultsBarVisibilityStatus(false)"/>
     </hbox>
