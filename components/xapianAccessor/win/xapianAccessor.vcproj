@@ -41,7 +41,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="&quot;..\gecko-sdk\include&quot;;&quot;..\..\..\dependences\win\xulrunner-sdk\include\xpcom&quot;;&quot;..\..\..\dependences\win\xulrunner-sdk\include\nspr&quot;;&quot;..\..\..\dependences\win\xulrunner-sdk\include\string&quot;;&quot;..\..\..\dependences\win\xulrunner-sdk\include\necko&quot;;&quot;..\..\..\dependences\win\xapian-core-1.0.14\include&quot;"
+				AdditionalIncludeDirectories="&quot;..\gecko-sdk\include&quot;;&quot;..\..\..\dependences\win\xulrunner-sdk\include\xpcom&quot;;&quot;..\..\..\dependences\win\xulrunner-sdk\include\nspr&quot;;&quot;..\..\..\dependences\win\xulrunner-sdk\include\string&quot;;&quot;..\..\..\dependences\win\xulrunner-sdk\include\necko&quot;;&quot;..\..\..\dependences\win\xapian-core-1.0.14\include&quot;;..\"
 				PreprocessorDefinitions="WIN32;_WINDOWS;_USRDLL;XP_WIN;XP_WIN32"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
@@ -180,11 +180,11 @@
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
-				RelativePath=".\splitString.cpp"
+				RelativePath="..\splitString.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\xapianAccessor.cpp"
+				RelativePath="..\xapianAccessor.cpp"
 				>
 			</File>
 		</Filter>
@@ -194,7 +194,7 @@
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
 			<File
-				RelativePath=".\splitString.h"
+				RelativePath="..\splitString.h"
 				>
 			</File>
 		</Filter>
