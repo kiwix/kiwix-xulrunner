@@ -41,11 +41,11 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="&quot;..\gecko-sdk\include&quot;;&quot;..\..\..\dependences\win\xulrunner-sdk\include\xpcom&quot;;&quot;..\..\..\dependences\win\xulrunner-sdk\include\nspr&quot;;&quot;..\..\..\dependences\win\xulrunner-sdk\include\string&quot;;&quot;..\..\..\dependences\win\xulrunner-sdk\include\necko&quot;;&quot;..\..\..\dependences\win\xapian-core-1.0.14\include&quot;;..\"
+				AdditionalIncludeDirectories="&quot;..\gecko-sdk\include&quot;;&quot;..\..\..\dependences\win\xulrunner-sdk\include\xpcom&quot;;&quot;..\..\..\dependences\win\xulrunner-sdk\include\nspr&quot;;&quot;..\..\..\dependences\win\xulrunner-sdk\include\string&quot;;&quot;..\..\..\dependences\win\xulrunner-sdk\include\necko&quot;;&quot;..\..\..\dependences\win\xapian-core-1.0.14\include&quot;;..\;..\..\..\dependences\win\packages\unac"
 				PreprocessorDefinitions="WIN32;_WINDOWS;_USRDLL;XP_WIN;XP_WIN32"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
-				RuntimeLibrary="3"
+				RuntimeLibrary="2"
 				UsePrecompiledHeader="0"
 				WarningLevel="3"
 				Detect64BitPortabilityProblems="true"
@@ -62,10 +62,12 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="nspr4.lib xpcom.lib xpcomglue_s.lib"
+				AdditionalDependencies="ws2_32.lib nspr4.lib xpcom.lib xpcomglue_s.lib iconv.lib zdll.lib libunac.lib libapi.lib libbackend.lib libcommon.lib libexpand.lib libflint.lib libflintbtreecheck.lib libinmemory.lib liblanguages.lib libmatcher.lib libmulti.lib libquartz.lib libquartzbtreecheck.lib libqueryparser.lib libtest.lib libunicode.lib libremote.lib libnet.lib"
 				LinkIncremental="2"
-				AdditionalLibraryDirectories="..\gecko-sdk\lib"
-				GenerateDebugInformation="true"
+				AdditionalLibraryDirectories="&quot;..\gecko-sdk\lib&quot;;&quot;..\..\..\dependences\win\xulrunner-sdk\lib&quot;;&quot;..\..\..\dependences\win\xapian-core-1.0.14\win32\Release\libs&quot;;&quot;..\..\..\dependences\win\zlib123-dll\lib&quot;;..\..\..\dependences\win\packages\unac;..\..\..\dependences\win\packages\windows\iconv\iconv\lib"
+				IgnoreAllDefaultLibraries="false"
+				IgnoreDefaultLibraryNames="LIBCMT"
+				GenerateDebugInformation="false"
 				SubSystem="2"
 				RandomizedBaseAddress="1"
 				DataExecutionPrevention="0"
@@ -180,6 +182,14 @@
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
+				RelativePath="..\xapian\htmlparse.cc"
+				>
+			</File>
+			<File
+				RelativePath="..\xapian\myhtmlparse.cc"
+				>
+			</File>
+			<File
 				RelativePath="..\splitString.cpp"
 				>
 			</File>
@@ -193,6 +203,18 @@
 			Filter="h;hpp;hxx;hm;inl;inc;xsd"
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
+			<File
+				RelativePath="..\xapian\htmlparse.h"
+				>
+			</File>
+			<File
+				RelativePath="..\xapian\myhtmlparse.h"
+				>
+			</File>
+			<File
+				RelativePath="..\xapian\namedentities.h"
+				>
+			</File>
 			<File
 				RelativePath="..\splitString.h"
 				>
