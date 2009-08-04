@@ -16,6 +16,7 @@
 	titlemenuseparator = " - "
 	contenttitlesetting = "true"
 	style = "direction: &main.cssdirection;"
+	langdir = "&main.cssdirection;"
 	>
 
 <!-- Properties -->
@@ -118,9 +119,9 @@
 <!-- Tool bar -->
 <toolbox>
   <toolbar id="tool-bar">
+    <toolbarbutton id="button-home" oncommand="goHome()"/>
     <toolbarbutton id="button-back" oncommand="pageBack()"/>
     <toolbarbutton id="button-next" oncommand="pageNext()"/>
-    <toolbarbutton id="button-home" oncommand="goHome()"/>
     <stack flex="1">
       <hbox>
 	<textbox id="textbox-search" flex="1" tooltiptext="&main.searchBar;"

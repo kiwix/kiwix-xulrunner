@@ -56,6 +56,11 @@
 #button-back {
     list-style-image: url("chrome://main/skin/icon/go-back24.png");
 }
+
+window[langdir=rtl] #button-back {
+    list-style-image: url("chrome://main/skin/icon/go-forward24.png");
+}
+
 #button-back.disabled {
     opacity: 0.2;
 }
@@ -63,6 +68,11 @@
 #button-next {
     list-style-image: url("chrome://main/skin/icon/go-forward24.png");
 }
+
+window[langdir=rtl] #button-next {
+    list-style-image: url("chrome://main/skin/icon/go-back24.png");
+}
+
 #button-next.disabled {
     opacity: 0.2;
 }
