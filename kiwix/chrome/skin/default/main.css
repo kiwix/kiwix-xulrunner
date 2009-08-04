@@ -1,46 +1,50 @@
 /* Menuitems */
 #file-open {
-    list-style-image: url("moz-icon://stock/gtk-open?size=menu");
+    list-style-image: url("chrome://main/skin/icon/open16.png");
 }
 
 #file-print {
-    list-style-image: url("moz-icon://stock/gtk-print?size=toolbar");
+    list-style-image: url("chrome://main/skin/icon/print24.png");
 }
 
 #file-quit {
-    list-style-image: url("moz-icon://stock/gtk-quit?size=menu");
+    list-style-image: url("chrome://main/skin/icon/quit16.png");
 }
 
 #edit-find {
-    list-style-image: url("moz-icon://stock/gtk-find?size=menu");
+    list-style-image: url("chrome://main/skin/icon/find16.png");
 }
 
 #edit-selectall {
-    list-style-image: url("moz-icon://stock/gtk-select-all?size=menu");
+    list-style-image: url("chrome://main/skin/icon/select-all16.png");
 }
 
 #edit-copy {
-    list-style-image: url("moz-icon://stock/gtk-copy?size=menu");
+    list-style-image: url("chrome://main/skin/icon/copy16.png");
 }
 
 #display-zoomin {
-    list-style-image: url("moz-icon://stock/gtk-zoom-in?size=menu");
+    list-style-image: url("chrome://main/skin/icon/zoom-in16.png");
 }
 
 #display-zoomout {
-    list-style-image: url("moz-icon://stock/gtk-zoom-out?size=menu");
+    list-style-image: url("chrome://main/skin/icon/zoom-out16.png");
 }
 
 #display-zoomorig {
-    list-style-image: url("moz-icon://stock/gtk-zoom-100?size=menu");
+    list-style-image: url("chrome://main/skin/icon/zoom-10016.png");
+}
+
+#toold-randomArticle {
+    list-style-image: url("chrome://main/skin/icon/jump-to16.png");
 }
 
 #help-help {
-    list-style-image: url("moz-icon://stock/gtk-help?size=menu");
+    list-style-image: url("chrome://main/skin/icon/help16.png");
 }
 
 #help-about {
-    list-style-image: url("moz-icon://stock/gtk-about?size=menu");
+    list-style-image: url("chrome://main/skin/icon/about16.png");
 }
 
 /* Tool bar */
@@ -50,31 +54,31 @@
 
 /* Buttons */
 #button-back {
-    list-style-image: url("moz-icon://stock/gtk-go-back?size=toolbar");
+    list-style-image: url("chrome://main/skin/icon/go-back24.png");
 }
 #button-back.disabled {
-    list-style-image: url("moz-icon://stock/gtk-go-back?size=toolbar&state=disabled");
+    opacity: 0.2;
 }
 
 #button-next {
-    list-style-image: url("moz-icon://stock/gtk-go-forward?size=toolbar");
+    list-style-image: url("chrome://main/skin/icon/go-forward24.png");
 }
 #button-next.disabled {
-    list-style-image: url("moz-icon://stock/gtk-go-forward?size=toolbar&state=disabled");
+    opacity: 0.2;
 }
 
 #button-home {
-    list-style-image: url("moz-icon://stock/gtk-home?size=toolbar");
+    list-style-image: url("chrome://main/skin/icon/home24.png");
 }
 #button-home.disabled {
-    list-style-image: url("moz-icon://stock/gtk-home?size=toolbar&state=disabled");
+    opacity: 0.2;
 }
 
 #button-search {
-    list-style-image: url("moz-icon://stock/gtk-find?size=toolbar");
+    list-style-image: url("chrome://main/skin/icon/find24.png");
 }
 #button-search.disabled {
-    list-style-image: url("moz-icon://stock/gtk-find?size=toolbar&state=disabled");
+    opacity: 0.2;
 }
 
 /* Textbox search */
@@ -102,7 +106,7 @@
 }
 
 #results-close-button {
-    list-style-image: url("moz-icon://stock/gtk-close?size=menu");
+    list-style-image: url("chrome://main/skin/icon/close12.png");
 }
 
 .results-button {
@@ -123,14 +127,15 @@
     height: auto;
     margin: 0px;
     padding-top: 5px;
+    padding-left: 5px;
 }
 
 #earth-icon {
-    list-style-image: url('img/earth.png');
+    list-style-image: url("chrome://main/skin/icon/external16.png");
 }
 
 #book-icon {
-    list-style-image: url("moz-icon://stock/gtk-floppy?size=menu");
+    list-style-image: url("chrome://main/skin/icon/floppy16.png");
 }
 
 #progress-bar {

@@ -100,7 +100,7 @@
   </menu>
   <menu id="menu-tools" label="&main.tools;" accesskey="&main.tools.accesskey;">
     <menupopup id="tools-popup">
-      <menuitem id="toold-randomArticle" label="&main.randomArticle;" key="randome-article-key"
+      <menuitem id="toold-randomArticle" label="&main.randomArticle;" key="randome-article-key" class="menuitem-iconic" 
 		accesskey="&main.randomArticle.accesskey;" oncommand="loadRandomArticle()"/>
     </menupopup>
   </menu>
