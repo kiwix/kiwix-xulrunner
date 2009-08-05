@@ -183,7 +183,7 @@ function mouseScroll(aEvent) {
 
 /* Return true if the URL is internal */
 function isInternalUrl(url) {
-    if (url.href.indeOf("zim://", 0)==0 || url.href.indexOf("javascript:", 0)==0) {
+    if (url.href.indexOf("zim://", 0)==0 || url.href.indexOf("javascript:", 0)==0) {
 	return true;
     } else {
 	return false;
