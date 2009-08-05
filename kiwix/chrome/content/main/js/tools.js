@@ -101,6 +101,7 @@ function init() {
     /* Desactivate back/next buttons */
     desactivateBackButton();
     desactivateNextButton();
+
 }
 
 /* try a ZIM file */

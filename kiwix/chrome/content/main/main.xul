@@ -10,7 +10,7 @@
 <window	xmlns:html="http://www.w3.org/1999/xhtml" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
 	id        = "main"
 	onload    = "init();"
-	onunload  = "saveWindowGeometry(this.outerWidth, this.outerHeight, this.screenX, this.screenY);"
+	onunload  = "saveWindowGeometry(this.outerWidth, this.outerHeight, this.screenX, this.screenY, this.windowState);"
 	title = "&main.title;"
 	titlemodifier = "&main.title;"
 	titlemenuseparator = " - "

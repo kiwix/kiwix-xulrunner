@@ -68,7 +68,11 @@ function getResultsList() {
 }
 
 /* Save window geometry */
-function saveWindowGeometry(width, height, x, y) {
+function saveWindowGeometry(width, height, x, y, windowState) {
+    maximized = (windowState == 1);
+    settings.windowMaximized(maximized);
+    if (maximized)
+        return;
     settings.windowWidth(width);
     settings.windowHeight(height);
     settings.windowX(x);
@@ -79,11 +83,14 @@ function saveWindowGeometry(width, height, x, y) {
 function configureWindowGeometry(window) {
     var width = settings.windowWidth() || screen.width / 100 * 80;
     var height = settings.windowHeight() || screen.height / 100 * 80;
-    var x = settings.windowX() || (screen.width - width) / 2;
-    var y = settings.windowY() || (screen.height - height) / 2;
+    var x = (settings.windowX() != undefined) ? settings.windowX() : (screen.width - width) / 2;
+    var y = (settings.windowY() != undefined) ? settings.windowY() : (screen.height - height) / 2;
 
     window.resizeTo(width, height);
     window.moveTo(x, y);
+    if (settings.windowMaximized()) {
+        setTimeout('window.maximize();', 1);
+    }
 }
 
 /* Activate Search GUI elements */

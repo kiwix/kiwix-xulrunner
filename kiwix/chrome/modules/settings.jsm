@@ -93,7 +93,8 @@ let settings = {
     windowWidth: function(value) { return this.intSettingParameter("windowWidth", value); },
     windowHeight: function(value) { return this.intSettingParameter("windowHeight", value); },
     windowX: function(value) { return this.intSettingParameter("windowX", value); },
-    windowY: function(value) { return this.intSettingParameter("windowY", value); }
+    windowY: function(value) { return this.intSettingParameter("windowY", value); },
+    windowMaximized: function(value) { return this.boolSettingParameter("windowMaximized", value); }
     
 }
 
