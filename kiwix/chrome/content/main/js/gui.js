@@ -183,7 +183,7 @@ function mouseScroll(aEvent) {
 
 /* Return true if the URL is internal */
 function isInternalUrl(url) {
-    if (url.href.indexOf("zim://", 0)==0) {
+    if (url.href.indexOf("zim://", 0)==0 || url.href.indexOf("javascript:", 0)==0) {
 	return true;
     } else {
 	return false;
@@ -193,16 +193,21 @@ function isInternalUrl(url) {
 /* Update the status bar if mouse is over a link */
 function mouseOver(aEvent) {
     var url = aEvent.target;
-
-    if (url instanceof HTMLAnchorElement) {
-	document.getElementById("address-bar").value = url.href.replace(":///", "://");
-	
-	if (isInternalUrl(url)) {
-	    document.getElementById('book-icon').collapsed = false;
-	} else {
-	    document.getElementById('earth-icon').collapsed = false;
-	}
+    
+    if (url instanceof HTMLSpanElement) {
+        url = url.parentNode;
     }
+    if (url instanceof HTMLAnchorElement) {
+        L.error(url);
+	    document.getElementById("address-bar").value = url.href.replace(":///", "://");
+	        
+	    if (isInternalUrl(url)) {
+	        document.getElementById('book-icon').collapsed = false;
+	    } else {
+	        document.getElementById('earth-icon').collapsed = false;
+	    }
+    }
+
 }
 
 /* Update the status bar if mouse is out of a link */
