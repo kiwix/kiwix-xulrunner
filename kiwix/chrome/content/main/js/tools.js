@@ -76,7 +76,7 @@ function init() {
 
     /* Apply GUI settings */
     if (settings.displayStatusBar() != undefined) { changeStatusBarVisibilityStatus(settings.displayStatusBar()); }
-    if (settings.displayFullScreen() != undefined) { changeFullScreenStatus(settings.displayFullScreen()); }
+    if (settings.displayFullScreen() != undefined) { if (settings.displayFullScreen()) { UIToggleFullScreen(); } }
     if (settings.displayResultsBar() != undefined) { changeResultsBarVisibilityStatus(settings.displayResultsBar()); }
 
     /* Load the welcome page of the ZIM file */

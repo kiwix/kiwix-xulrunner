@@ -95,8 +95,8 @@
       <menuitem id="display-resultsbar" label="&main.resultsbar;" type="checkbox" checked="false"
 		accesskey="&main.resultsbar.accesskey;" key="change-results-bar-visibility-status"
 		oncommand="changeResultsBarVisibilityStatus()"/>
-      <menuitem id="display-fullscreen" label="&main.fullscreen;" type="checkbox" checked="false"
-		accesskey="&main.fullscreen.accesskey;" oncommand="changeFullScreenStatus(undefined, true)"/>
+      <menuitem id="display-fullscreen" label="&main.fullscreen;" checked="false" class="menuitem-iconic" 
+		accesskey="&main.fullscreen.accesskey;" oncommand="UIToggleFullScreen(true)"/>
     </menupopup>
   </menu>
   <menu id="menu-tools" label="&main.tools;" accesskey="&main.tools.accesskey;">
@@ -119,9 +119,13 @@
 <!-- Tool bar -->
 <toolbox>
   <toolbar id="tool-bar">
-    <toolbarbutton id="button-home" oncommand="goHome()"/>
-    <toolbarbutton id="button-back" oncommand="pageBack()"/>
-    <toolbarbutton id="button-next" oncommand="pageNext()"/>
+    <toolbarbutton id="button-home" oncommand="goHome()" tooltiptext="&main.home;"/>
+    <toolbarbutton id="button-back" oncommand="pageBack()" tooltiptext="&main.back;"/>
+    <toolbarbutton id="button-next" oncommand="pageNext()" tooltiptext="&main.forward;"/>
+    <toolbarbutton id="button-sizeup" oncommand="zoomIn()" tooltiptext="&main.zoomin;"/>
+    <toolbarbutton id="button-sizedown" oncommand="zoomOut()" tooltiptext="&main.zoomout;"/>
+    <toolbarbutton id="button-fullscreen" oncommand="UIToggleFullScreen(true)" tooltiptext="&main.fullscreen;"/>
+    <toolbarbutton id="button-print" oncommand="print()" tooltiptext="&main.print;"/>
     <stack flex="1">
       <hbox>
 	<textbox id="textbox-search" flex="1" tooltiptext="&main.searchBar;"

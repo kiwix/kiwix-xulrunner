@@ -15,7 +15,7 @@
 <!-- Edit menu -->
 <!ENTITY main.edit                    "Édition">
 <!ENTITY main.edit.accesskey          "n">
-<!ENTITY main.find                    "Rechercher...">
+<!ENTITY main.find                    "Chercher dans la page...">
 <!ENTITY main.find.accesskey          "c">
 <!ENTITY main.selectall               "Tout sélectionner">
 <!ENTITY main.selectall.accesskey     "T">
@@ -55,9 +55,9 @@
 <!ENTITY main.about.accesskey         "p">
 
 <!-- Tool bar -->
-<!ENTITY main.back                    "Article précédent">
-<!ENTITY main.next                    "Article suivant">
-<!ENTITY main.home                    "Page d'accueil">
+<!ENTITY main.back                    "Précédente">
+<!ENTITY main.forward                 "Suivante">
+<!ENTITY main.home                    "Retour Accueil">
 <!ENTITY main.print                   "Imprimer">
 <!ENTITY main.searchBar               "Barre de recherche">
 

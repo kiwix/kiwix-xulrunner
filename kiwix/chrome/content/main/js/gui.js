@@ -1,5 +1,6 @@
 /* Global variables */
 var _zoomFactor = 1.2;           /* Factor by which font is magnified or reduced with zoomIn() & zommOut() */
+var winIsFullScreen = false;
 
 /* Return the window object */
 function getWindow() {
@@ -254,24 +255,33 @@ function zoomOut() {
     getHtmlRenderer().markupDocumentViewer.textZoom /= _zoomFactor;
 }
 
-/* Start or end Fullscreen */
-function changeFullScreenStatus(fullScreen, save) {
-    if (fullScreen == undefined) {
-	fullScreen = document.getElementById('display-fullscreen').getAttribute('checked');
-    } else {
-	document.getElementById('display-fullscreen').setAttribute('checked', fullScreen);
+/*
+ * Enable/Disable fullscreen mode. Acts as window maximizer on mac.
+ */
+function UIToggleFullScreen (save) {
+
+	winIsFullScreen = !winIsFullScreen;
+	
+	// Update window state (1s delay for startup)
+	setTimeout('window.fullScreen = '+winIsFullScreen+';', 1); 
+	
+	// save preference for restore on restart
+	if (save) {
+	settings.displayFullScreen(winIsFullScreen);
     }
     
-    if (fullScreen) {
-	setTimeout('window.fullScreen = true;', 1); 
-    } else {
-	setTimeout('window.fullScreen = false;', 1); 
-    }
+    // UI Updates
+    try {
+        d = document.getElementById('button-fullscreen');
+        d.className = (winIsFullScreen) ? 'fullscreen' : 'normal';
+    } catch (e) {}
+    try {
+        d = document.getElementById('display-fullscreen');
+        d.className = (winIsFullScreen) ? 'menuitem-iconic fullscreen' : 'menuitem-iconic normal';
+    } catch (e) {}
     
-    if (save) {
-	settings.displayFullScreen(fullScreen);
-    }
 }
+
 
 /* Make the status bar (in)visible */
 function changeStatusBarVisibilityStatus(visible, save) {

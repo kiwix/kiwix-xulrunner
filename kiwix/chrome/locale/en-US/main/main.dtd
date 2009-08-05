@@ -7,7 +7,7 @@
 <!ENTITY main.file.accesskey          "F">
 <!ENTITY main.openFile                "Open file...">
 <!ENTITY main.openFile.accesskey      "O">
-<!ENTITY main.print                   "Print...">
+<!ENTITY main.print                   "Print">
 <!ENTITY main.print.accesskey         "P">
 <!ENTITY main.quit                    "Quit">
 <!ENTITY main.quit.accesskey          "Q">
@@ -58,7 +58,6 @@
 <!ENTITY main.back                    "Back">
 <!ENTITY main.forward                 "Forward">
 <!ENTITY main.home                    "Home">
-<!ENTITY main.print                   "Print">
 <!ENTITY main.searchBar               "Search bar">
 
 <!-- Results bar -->

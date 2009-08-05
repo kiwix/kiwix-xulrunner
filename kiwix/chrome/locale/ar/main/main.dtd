@@ -7,7 +7,7 @@
 <!ENTITY main.file.accesskey          "م">
 <!ENTITY main.openFile                "فتح ملف...">
 <!ENTITY main.openFile.accesskey      "ف">
-<!ENTITY main.print                   "طباعة...">
+<!ENTITY main.print                   "طباعة">
 <!ENTITY main.print.accesskey         "ط">
 <!ENTITY main.quit                    "خروج">
 <!ENTITY main.quit.accesskey          "خ">

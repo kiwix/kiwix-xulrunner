@@ -56,11 +56,9 @@
 #button-back {
     list-style-image: url("chrome://main/skin/icon/go-back24.png");
 }
-
-window[langdir=rtl] #button-back {
+window[langdir="rtl"] #button-back {
     list-style-image: url("chrome://main/skin/icon/go-forward24.png");
 }
-
 #button-back.disabled {
     opacity: 0.2;
 }
@@ -68,11 +66,9 @@ window[langdir=rtl] #button-back {
 #button-next {
     list-style-image: url("chrome://main/skin/icon/go-forward24.png");
 }
-
-window[langdir=rtl] #button-next {
+window[langdir="rtl"] #button-next {
     list-style-image: url("chrome://main/skin/icon/go-back24.png");
 }
-
 #button-next.disabled {
     opacity: 0.2;
 }
@@ -89,6 +85,26 @@ window[langdir=rtl] #button-next {
 }
 #button-search.disabled {
     opacity: 0.2;
+}
+
+#button-sizeup {
+    list-style-image: url("chrome://main/skin/icon/zoom-in24.png");
+}
+
+#button-sizedown {
+    list-style-image: url("chrome://main/skin/icon/zoom-out24.png");
+}
+
+#button-fullscreen, #button-fullscreen.normal, #display-fullscreen, #display-fullscreen.normal {
+    list-style-image: url("chrome://main/skin/icon/fullscreen24.png");
+}
+
+#button-fullscreen.fullscreen, #display-fullscreen.fullscreen {
+    list-style-image: url("chrome://main/skin/icon/leave-fullscreen24.png");
+}
+
+#button-print {
+    list-style-image: url("chrome://main/skin/icon/print24.png");
 }
 
 /* Textbox search */

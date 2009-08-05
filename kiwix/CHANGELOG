@@ -2,6 +2,7 @@ Kiwix 0.8 rc2
 * Use xapian-core-1.0.14
 * Fix the "no icons available" issue (ID: 2830824)
 * Fixed toolbar icons with RTL languages
+* Improved toolbar UI (added icons & tooltip)
  
 Kiwix 0.8 rc1
 * High reducing of the xapian index disk usage
