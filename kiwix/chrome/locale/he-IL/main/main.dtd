@@ -1,0 +1,67 @@
+<!-- Window -->
+<!ENTITY main.title                   "קיוויקס">
+<!ENTITY main.cssdirection            "rtl">
+
+<!-- File menu -->
+<!ENTITY main.file                    "קובץ">
+<!ENTITY main.file.accesskey          "F">
+<!ENTITY main.openFile                "פתח קובץ...">
+<!ENTITY main.openFile.accesskey      "O">
+<!ENTITY main.print                   "הדפסה...">
+<!ENTITY main.print.accesskey         "P">
+<!ENTITY main.quit                    "יציאה">
+<!ENTITY main.quit.accesskey          "Q">
+
+<!-- Edit menu -->
+<!ENTITY main.edit                    "עריכה">
+<!ENTITY main.edit.accesskey          "E">
+<!ENTITY main.find                    "חיפוש בדף...">
+<!ENTITY main.find.accesskey          "S">
+<!ENTITY main.selectall               "בחר הכל">
+<!ENTITY main.selectall.accesskey     "a">
+<!ENTITY main.copy                    "העתקה">
+<!ENTITY main.copy.accesskey          "p">
+
+<!-- Display menu -->
+<!ENTITY main.display                 "תצוגה">
+<!ENTITY main.display.accesskey       "D">
+<!ENTITY main.zoom                    "גודל">
+<!ENTITY main.zoom.accesskey          "Z">
+<!ENTITY main.zoomin                  "הגדלה">
+<!ENTITY main.zoomin.accesskey        "M">
+<!ENTITY main.zoomout                 "הקטנה">
+<!ENTITY main.zoomout.accesskey       "R">
+<!ENTITY main.zoomorig                "גודל מקורי">
+<!ENTITY main.zoomorig.accesskey      "O">
+<!ENTITY main.language                "שפה">
+<!ENTITY main.language.accesskey      "L">
+<!ENTITY main.statusbar               "שורת מצב">
+<!ENTITY main.statusbar.accesskey     "S">
+<!ENTITY main.resultsbar              "אזור תוצאות">
+<!ENTITY main.resultsbar.accesskey    "R">
+<!ENTITY main.fullscreen              "מסך מלא">
+<!ENTITY main.fullscreen.accesskey    "F">
+
+<!-- Tools menu -->
+<!ENTITY main.tools                   "כלים">
+<!ENTITY main.tools.accesskey         "T">
+<!ENTITY main.randomArticle           "מאמר אקראי">
+<!ENTITY main.randomArticle.accesskey "R">
+
+<!-- Help menu -->
+<!ENTITY main.help                    "עזרה">
+<!ENTITY main.help.accesskey          "H">
+<!ENTITY main.about                   "אודות">
+<!ENTITY main.about.accesskey         "A">
+
+<!-- Tool bar -->
+<!ENTITY main.back                    "אחורה">
+<!ENTITY main.forward                 "קדימה">
+<!ENTITY main.home                    "דף הבית">
+<!ENTITY main.print                   "הדפסה">
+<!ENTITY main.searchBar               "שורת חיפוש">
+<!ENTITY main.search                  "Search">
+<!ENTITY main.noSearchBar             "Search requires an indexed Zim file">
+
+<!-- Results bar -->
+<!ENTITY main.results.title           "תוצאות">
