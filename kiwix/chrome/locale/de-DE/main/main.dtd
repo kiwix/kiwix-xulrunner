@@ -60,6 +60,8 @@
 <!ENTITY main.home                    "Home">
 <!ENTITY main.print                   "Drucken">
 <!ENTITY main.searchBar               "Suchleiste">
+<!ENTITY main.search                  "Suche">
+<!ENTITY main.noSearchBar             "Suche erfordert eine indexierte Zim Akte">
 
 <!-- Results bar -->
 <!ENTITY main.results.title           "Ergebnisse">

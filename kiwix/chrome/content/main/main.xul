@@ -130,9 +130,9 @@
       <hbox>
 	<textbox id="textbox-search" flex="1" tooltiptext="&main.searchBar;"
 		 onkeypress="if(event.keyCode == 13) { manageSearchInIndex() }"/>
-	<toolbarbutton id="button-search" onclick="manageSearchInIndex()"/>
+	<toolbarbutton id="button-search" onclick="manageSearchInIndex()" tooltiptext="&main.search;" />
       </hbox>
-      <label id="search-label" style="margin: 0px;" collapsed="true" onclick="manageIndexZimFile()"/>
+      <label id="search-label" style="margin: 0px;" collapsed="true" onclick="manageIndexZimFile()" tooltiptext="&main.noSearchBar;"/>
     </stack>
   </toolbar>
 </toolbox>

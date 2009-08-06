@@ -59,7 +59,9 @@
 <!ENTITY main.forward                 "Adelante">
 <!ENTITY main.home                    "Inicio">
 <!ENTITY main.print                   "Imprimir">
-<!ENTITY main.searchBar               "Barra de navegación">
+<!ENTITY main.searchBar               "Barra de la búsqueda">
+<!ENTITY main.search                  "Buscar">
+<!ENTITY main.noSearchBar             "La búsqueda requiere un archivo puesto en un índice de Zim">
 
 <!-- Results bar -->
 <!ENTITY main.results.title           "Resultados">

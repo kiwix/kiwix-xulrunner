@@ -60,6 +60,8 @@
 <!ENTITY main.home                    "Retour Accueil">
 <!ENTITY main.print                   "Imprimer">
 <!ENTITY main.searchBar               "Barre de recherche">
+<!ENTITY main.search                  "Rechercher">
+<!ENTITY main.noSearchBar             "La recherche nécessite un fichier Zim indexé">
 
 <!-- Results bar -->
 <!ENTITY main.results.title           "Resultats">

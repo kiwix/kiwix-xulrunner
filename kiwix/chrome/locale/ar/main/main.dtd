@@ -60,6 +60,8 @@
 <!ENTITY main.home                    "صفحة البداية">
 <!ENTITY main.print                   "طباعة">
 <!ENTITY main.searchBar               "شريط البحث">
+<!ENTITY main.search                  "البحث">
+<!ENTITY main.noSearchBar             "يتطلب البحث عن الملفات وفهرستها Zim">
 
 <!-- Results bar -->
 <!ENTITY main.results.title           "النتائج">

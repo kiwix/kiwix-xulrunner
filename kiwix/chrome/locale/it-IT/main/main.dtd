@@ -60,6 +60,8 @@
 <!ENTITY main.home                    "Pagina iniziale">
 <!ENTITY main.print                   "Stampa">
 <!ENTITY main.searchBar               "Barra di ricerca">
+<!ENTITY main.search                  "Ricercar">
+<!ENTITY main.noSearchBar             "La ricerca richiede una lima spostata ad incrementi di Zim">
 
 <!-- Results bar -->
 <!ENTITY main.results.title           "Risultati">

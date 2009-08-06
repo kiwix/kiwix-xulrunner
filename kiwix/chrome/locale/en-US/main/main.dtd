@@ -59,6 +59,8 @@
 <!ENTITY main.forward                 "Forward">
 <!ENTITY main.home                    "Home">
 <!ENTITY main.searchBar               "Search bar">
+<!ENTITY main.search                  "Search">
+<!ENTITY main.noSearchBar             "Search requires an indexed Zim file">
 
 <!-- Results bar -->
 <!ENTITY main.results.title           "Results">
