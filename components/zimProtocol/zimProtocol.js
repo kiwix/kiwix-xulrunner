@@ -147,8 +147,7 @@ PipeChannel.prototype = {
 	    }
 
 	    /* Remove local anchor */
-	    var uri = Components.classes["@mozilla.org/network/simple-uri;1"];
-	    uri = this.URI;
+	    var uri = this.URI.clone();
 	    if (uri.spec.indexOf("#") != -1) {
 		uri.spec = uri.spec.substr(0, uri.spec.indexOf("#"));
 	    }
