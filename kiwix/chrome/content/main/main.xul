@@ -26,10 +26,11 @@
 <!-- Custom Javascript scripts -->
 <script language="javaScript" type="text/javascript" src="resource://modules/settings.jsm"/>
 <script language="javaScript" type="text/javascript" src="js/logger.js"/>
-<script language="javaScript" type="text/javascript" src="js/gui.js"/>
 <script language="javaScript" type="text/javascript" src="js/search.js"/>
 <script language="javaScript" type="text/javascript" src="js/tools.js"/>
 <script language="javaScript" type="text/javascript" src="js/md5.js"/>
+<script language="javaScript" type="text/javascript" src="js/gui.js"/>
+<script language="javaScript" type="text/javascript" src="js/bookmarks.js"/>
 
 <!-- Global Javascript scripts -->
 <script type="application/x-javascript" src="chrome://global/content/printUtils.js"/>
@@ -126,6 +127,8 @@
     <toolbarbutton id="button-sizedown" oncommand="zoomOut()" tooltiptext="&main.zoomout;"/>
     <toolbarbutton id="button-fullscreen" oncommand="UIToggleFullScreen(true)" tooltiptext="&main.fullscreen;"/>
     <toolbarbutton id="button-print" oncommand="print()" tooltiptext="&main.print;"/>
+    <toolbarbutton id="button-bookmarks" oncommand="UIToggleBookmarksBar()" tooltiptext="&main.bookmarks;"/>
+    <toolbarbutton id="button-searchs" oncommand="changeResultsBarVisibilityStatus()" tooltiptext="&main.resultsbar;"/>
     <stack flex="1">
       <hbox>
 	<textbox id="textbox-search" flex="1" tooltiptext="&main.searchBar;"
@@ -144,30 +147,36 @@
 
     <hbox id="results-bar-header">
       <label flex="1" class="results-title" value="&main.results.title;"/>
-      <toolbarbutton id="results-close-button" oncommand="changeResultsBarVisibilityStatus(false)"/>
     </hbox>
 
     <richlistbox flex="1" id="results-list">
 
-      <!--
-      <richlistitem>
-	 <button label="WP1 (5)" class="results-button"/>
-      </richlistitem>
-
-      <richlistitem flex="1">
-      </richlistitem>
-
-      <richlistitem>
-	<button label="WP1 en (2)" class="results-button"/>
-      </richlistitem>
-
-      <richlistitem>
-	<button label="WP1 de (10)" class="results-button"/>
-      </richlistitem>
-      -->
-
     </richlistbox>
   </vbox>
+  
+  <!-- bookmarks side bar -->
+  <vbox id="bookmarks-bar" hidden="true">
+   
+    <toolbar id="bookmarks-toolbar">
+	    <toolbarbutton id="bookmarks-new-button" tooltiptext="&main.newbmk;" oncommand="javascript:UICreateNewBookmarkSet ();" />
+	    <toolbarbutton id="bookmarks-load-button" tooltiptext="&main.loadbmk;" oncommand="javascript:UILoadExternalBookmarkFile ();" />
+	    <toolbarbutton id="bookmarks-reload-button" tooltiptext="&main.reload;" oncommand="javascript:UIResetBookmarkSet ();" />
+	    <toolbarbutton id="bookmarks-mark-button" tooltiptext="&main.mark;" oncommand="javascript:bookmarkCurrentPage ();" />
+	    <toolbarbutton id="bookmarks-unmark-button" tooltiptext="&main.unmark;" oncommand="javascript:removeCurrentBookmark ();" />
+	</toolbar>
+    <menulist id="bookmarks-sets-list">
+        <menupopup id="bookmarks-sets">
+            <menuitem label="&main.defaultset;" value="default" oncommand="UIBookmarkSetSwitch(this.value);"/>
+            <menuitem label="niang" value="/home/reg/Desktop/test.xml" oncommand="UIBookmarkSetSwitch(this.value);" />
+        </menupopup>
+  </menulist>
+
+	<listbox flex="1" id="bookmarks-list">
+    </listbox>
+	
+	<label id="notesLabel" value="&main.notesLabel;" />
+	<textbox id="notesTextBox" onchange="UISaveCurrentNote(null);" multiline="true" flex="1" dir="&main.cssdirection;" disabled="true" />
+	</vbox>
   
   <!-- Rendering space -->
   <vbox flex="1">

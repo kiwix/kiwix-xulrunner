@@ -27,3 +27,7 @@ pref("browser.cache.disk.enable", true);
 pref("browser.cache.disk.capacity", 50000);
 pref("browser.cache.memory.enable", true);
 pref("browser.cache.memory.capacity", 32768);
+
+/* Privacy */
+pref("kiwix.removeprofileonclose", true);
+pref("kiwix.removeprofileonclose.confirm", false);

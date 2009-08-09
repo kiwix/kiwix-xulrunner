@@ -107,6 +107,14 @@ window[langdir="rtl"] #button-next {
     list-style-image: url("chrome://main/skin/icon/print24.png");
 }
 
+#button-bookmarks {
+    list-style-image: url("chrome://main/skin/icon/bookmarks24.png");
+}
+
+#button-searchs {
+    list-style-image: url("chrome://main/skin/icon/searchs24.png");
+}
+
 /* Textbox search */
 #textbox-search {
     margin: 6px;
@@ -146,6 +154,39 @@ window[langdir="rtl"] #button-next {
 .results-title {
     margin: 0px;
     padding: 4px 0px 0px 2px;
+}
+
+/* Bookmarks bar */
+
+#bookmarks-bar {
+    margin: 0px;
+    min-width: 150px;
+    max-width: 450px;
+    width: 200px;
+}
+
+#bookmarks-toolbar {
+    -moz-appearance: none;
+}
+
+#bookmarks-load-button {
+    list-style-image: url("chrome://main/skin/icon/open24.png");
+}
+
+#bookmarks-new-button {
+    list-style-image: url("chrome://main/skin/icon/new24.png");
+}
+
+#bookmarks-mark-button {
+    list-style-image: url("chrome://main/skin/icon/add24.png");
+}
+
+#bookmarks-unmark-button {
+    list-style-image: url("chrome://main/skin/icon/remove24.png");
+}
+
+#bookmarks-reload-button {
+    list-style-image: url("chrome://main/skin/icon/reload24.png");
 }
 
 /* Status bar */

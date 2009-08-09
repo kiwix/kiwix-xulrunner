@@ -1,6 +1,12 @@
 /* Global variables */
-var _zoomFactor = 1.2;           /* Factor by which font is magnified or reduced with zoomIn() & zommOut() */
-var winIsFullScreen = false;
+var _zoomFactor         = 1.2;      /* Factor by which font is magnified or reduced with zoomIn() & zommOut() */
+var _winIsFullScreen    = false;    /* Stores fullscreen state*/
+var _platform			= GuessOS ();
+var _applicationFD      = GetApplicationFolder ();
+var _runMode		    = GetRunMode ();
+var _firstRun		    = GetFirstRun ();
+var _cleanOnClose	    = GetCleanOnClose ();
+var _firstSideBar	    = true;
 
 /* Return the window object */
 function getWindow() {
@@ -67,9 +73,34 @@ function getResultsList() {
     return document.getElementById("results-list");
 }
 
+/* Return the bookmarks side bar */
+function getBookmarksBar() {
+    return document.getElementById("bookmarks-bar");
+}
+
+/* Return the list of bookmarks */
+function getBookmarksList() {
+    return document.getElementById("bookmarks-list");
+}
+
+/* Return Notes text box */
+function getNotesBox() {
+    return document.getElementById("notesTextBox");
+}
+
+/* Return Bookmarks Sets menulist */
+function GetBookmarksSetsList() {
+    return document.getElementById('bookmarks-sets-list');
+}
+
+/* Return Bookmarks Sets menupopup */
+function getBookmarksSetsPopup() {
+    return document.getElementById('bookmarks-sets');
+}
+
 /* Save window geometry */
 function saveWindowGeometry(width, height, x, y, windowState) {
-    maximized = (windowState == 1);
+    var maximized = (windowState == 1);
     settings.windowMaximized(maximized);
     if (maximized)
         return;
@@ -147,8 +178,14 @@ function desactivateNextButton() {
 
 /* Change result side bar visibility status */
 function changeResultsBarVisibilityStatus(visible) {
+
     if (visible == undefined) {
 	visible = !settings.displayResultsBar();
+    }
+    
+    // hide bookmarks if visible
+    if (visible && !getBookmarksBar().hidden) {
+        UIToggleBookmarksBar();
     }
 
     var resultsBar = document.getElementById('results-bar');
@@ -167,7 +204,7 @@ function changeResultsBarVisibilityStatus(visible) {
 	document.getElementById('results-bar').collapsed = true;
     }
 
-    document.getElementById('display-resultsbar').setAttribute('checked', visible)
+    document.getElementById('display-resultsbar').setAttribute('checked', visible);
     settings.displayResultsBar(visible);
 }
 
@@ -272,26 +309,40 @@ function zoomOut() {
  */
 function UIToggleFullScreen (save) {
 
-	winIsFullScreen = !winIsFullScreen;
+	_winIsFullScreen = !_winIsFullScreen;
 	
 	// Update window state (1s delay for startup)
-	setTimeout('window.fullScreen = '+winIsFullScreen+';', 1); 
+	setTimeout('window.fullScreen = '+ _winIsFullScreen +';', 1); 
 	
 	// save preference for restore on restart
 	if (save) {
-	settings.displayFullScreen(winIsFullScreen);
+	settings.displayFullScreen(_winIsFullScreen);
     }
     
     // UI Updates
     try {
         d = document.getElementById('button-fullscreen');
-        d.className = (winIsFullScreen) ? 'fullscreen' : 'normal';
+        d.className = (_winIsFullScreen) ? 'fullscreen' : 'normal';
     } catch (e) {}
     try {
         d = document.getElementById('display-fullscreen');
-        d.className = (winIsFullScreen) ? 'menuitem-iconic fullscreen' : 'menuitem-iconic normal';
+        d.className = (_winIsFullScreen) ? 'menuitem-iconic fullscreen' : 'menuitem-iconic normal';
     } catch (e) {}
     
+}
+
+/*
+ * Display/Hide the Bookmarks&Notes sidebar.
+ */
+function UIToggleBookmarksBar () {
+    var bar = getBookmarksBar();
+	if (bar.hidden) {
+    	WarnOnSideBar ();
+	    changeResultsBarVisibilityStatus(false);
+	}
+
+	bar.hidden  = !bar.hidden;
+	settings.displayBookmarksBar(!bar.hidden);
 }
 
 
@@ -530,6 +581,7 @@ function displayErrorDialog(message, title) {
 
     return promptService.alert(window, title, message);
 }
+
 
 /* Display a confirm dialog box like confirm() */
 function displayConfirmDialog(message, title) {

@@ -1,3 +1,6 @@
+const nsIWebProgress = Components.interfaces.nsIWebProgress;
+const nsIWebProgressListener = Components.interfaces.nsIWebProgressListener;
+
 /* Restart Kiwix */
 function restart() {
     if (displayConfirmDialog(getProperty("restartConfirm", getProperty("brand.brandShortName")))) {
@@ -73,11 +76,19 @@ function init() {
     getHtmlRenderer().addEventListener("mouseover", mouseOver, true);
     getHtmlRenderer().addEventListener("mouseout", mouseOut, true);
     getHtmlRenderer().addEventListener("DOMActivate", openUrl, true);
+    
+    // register WebProgress listener
+	var dls = Components.classes ["@mozilla.org/docloaderservice;1"]
+	.getService (nsIWebProgress);
+	dls.addProgressListener (UIBrowserProgressListener,
+							nsIWebProgress.NOTIFY_LOCATION |
+							nsIWebProgress.NOTIFY_STATE_DOCUMENT);
 
     /* Apply GUI settings */
     if (settings.displayStatusBar() != undefined) { changeStatusBarVisibilityStatus(settings.displayStatusBar()); }
     if (settings.displayFullScreen() != undefined) { if (settings.displayFullScreen()) { UIToggleFullScreen(); } }
     if (settings.displayResultsBar() != undefined) { changeResultsBarVisibilityStatus(settings.displayResultsBar()); }
+    if (settings.displayBookmarksBar() === true) { UIToggleBookmarksBar(); }
 
     /* Load the welcome page of the ZIM file */
     goHome();
@@ -101,6 +112,9 @@ function init() {
     /* Desactivate back/next buttons */
     desactivateBackButton();
     desactivateNextButton();
+    
+    /* Initialize Bookmarks */
+    InitializeBookmarks();
 
 }
 
@@ -262,4 +276,112 @@ function isFile(filePath) {
 	fileService.initWithPath(filePath);
 	return fileService.exists();
     }
+}
+
+/* Event Listener */
+const UIBrowserProgressListener = {
+
+	onStateChange: function osc (aWP, aRequest, aStateFlags, aStatus) {
+	},
+
+	onLocationChange: function olc (wp,request,location) {
+    	UISaveCurrentNote ();
+		UIBookmarkFocus (location.spec);
+	},
+	
+	QueryInterface: function qi (aIID) {
+    	if (aIID.equals(nsIWebProgressListener) ||
+			aIID.equals(Components.interfaces.nsISupports) ||
+			aIID.equals(Components.interfaces.nsISupportsWeakReference)) {
+			return this;
+		}
+    	throw Components.results.NS_ERROR_NO_INTERFACE;
+	}
+};
+
+/* LiveMode */
+function GetRunMode () {
+	var live_file = Components.classes["@mozilla.org/file/directory_service;1"].getService(Components.interfaces.nsIProperties).get("resource:app", Components.interfaces.nsIFile);
+	live_file.append("live");
+	if (live_file.exists ()) {
+		return 'live';
+	} else {
+		return 'install';
+	}
+}
+
+function GetFirstRun () {
+	var first_file = Components.classes["@mozilla.org/file/directory_service;1"]
+	                     .getService (Components.interfaces.nsIProperties)
+	                     .get ("ProfD", Components.interfaces.nsIFile);
+
+	first_file.append ("moulin_"+_runMode+".launched");
+	if (first_file.exists ()) {
+		return false;
+	} else {
+		L.info ("first run ; creating "+first_file.path);
+		first_file.create (Components.interfaces.nsIFile.NORMAL_FILE_TYPE, 0600);
+		return true;
+	}
+}
+
+function GetCleanOnClose () {
+	var prefs = Components.classes["@mozilla.org/preferences-service;1"].getService(Components.interfaces.nsIPrefBranch);
+	var removeOnClosePref = prefs.getBoolPref("kiwix.removeprofileonclose");
+	return (removeOnClosePref && _runMode == 'live');
+}
+
+function AlertOnFirstRun () {
+	return true;
+}
+
+function WarnOnSideBar () {
+
+	if (_runMode == 'live' && _firstRun && _firstSideBar) {
+		_firstSideBar = false;
+
+		var strbundle			= document.getElementById ("strings");
+		var welcomeAlertTitle	= strbundle.getString ("welcomeAlertTitle");	
+		var welcomeAlert		= strbundle.getString ("welcomeAlert");	
+
+		var prompt = Components.classes["@mozilla.org/network/default-prompt;1"].createInstance(Components.interfaces.nsIPrompt);
+		prompt.alert (welcomeAlertTitle, welcomeAlert);
+	}
+}
+
+/* Returns path application is running from */
+function GetApplicationFolder () {
+	try {
+		return Components.classes ["@mozilla.org/file/directory_service;1"]
+		.getService (Components.interfaces.nsIProperties)
+		.get ("resource:app", Components.interfaces.nsIFile);
+	} catch (e) {
+		L.error ("can't get app folder:" + e.toString ());
+		return false;
+	}
+}
+/*
+ * return [win|mac|unix] depending on the platform running.
+ * usefull to trick mac specificities.
+ */
+function GuessOS () {
+    var runtime = Components.classes ["@mozilla.org/xre/app-info;1"]
+    .getService(Components.interfaces.nsIXULRuntime);
+    var tmp = runtime.OS;
+	var platform = {};
+    
+    if (tmp.match(/^win/i)) { // send condoleances
+        platform.type = "win";
+        platform.string = tmp;
+        return platform;
+    }
+    if (tmp.match(/^darwin/i)) { // send freedom speech
+        platform.type = "mac";
+        platform.string = tmp;
+        return platform;
+    } else { // send drivers
+        platform.type = "unix";
+        platform.string = tmp;
+    }
+    return platform;
 }

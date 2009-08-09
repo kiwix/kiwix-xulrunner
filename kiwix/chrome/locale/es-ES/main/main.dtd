@@ -62,7 +62,18 @@
 <!ENTITY main.searchBar               "Barra de la búsqueda">
 <!ENTITY main.search                  "Buscar">
 <!ENTITY main.noSearchBar             "La búsqueda requiere un archivo puesto en un índice de Zim">
+<!ENTITY main.bookmarks               "Bookmarks">
 
 <!-- Results bar -->
 <!ENTITY main.results.title           "Resultados">
+
+<!-- Bookmarks Bar -->
+<!ENTITY main.bmkLabel	    "Bookmarks:">
+<!ENTITY main.notesLabel	"Bookmark notes:">
+<!ENTITY main.loadbmk		"Import Bookmark Set">
+<!ENTITY main.newbmk	    "Create new Bookmark Set">
+<!ENTITY main.mark		    "Mark this page">
+<!ENTITY main.unmark		"Unmark selected">
+<!ENTITY main.reload		"Reset Bookmark Set">
+<!ENTITY main.defaultset    "Default Set">
 
