@@ -1,0 +1,75 @@
+<!-- Window -->
+<!ENTITY main.title                   "中文维基">
+<!ENTITY main.cssdirection            "ltr">
+
+<!-- File menu -->
+<!ENTITY main.file                    "文件">
+<!ENTITY main.file.accesskey          "F">
+<!ENTITY main.openFile                "打开文件...">
+<!ENTITY main.openFile.accesskey      "O">
+<!ENTITY main.print                   "打印...">
+<!ENTITY main.print.accesskey         "P">
+<!ENTITY main.quit                    "退出">
+<!ENTITY main.quit.accesskey          "Q">
+
+<!-- Edit menu -->
+<!ENTITY main.edit                    "编辑">
+<!ENTITY main.edit.accesskey          "E">
+<!ENTITY main.find                    "在页面中搜索...">
+<!ENTITY main.find.accesskey          "S">
+<!ENTITY main.selectall               "全选">
+<!ENTITY main.selectall.accesskey     "a">
+<!ENTITY main.copy                    "复制">
+<!ENTITY main.copy.accesskey          "p">
+
+<!-- Display menu -->
+<!ENTITY main.display                 "显示">
+<!ENTITY main.display.accesskey       "D">
+<!ENTITY main.zoom                    "缩放">
+<!ENTITY main.zoom.accesskey          "Z">
+<!ENTITY main.zoomin                  "放大">
+<!ENTITY main.zoomin.accesskey        "M">
+<!ENTITY main.zoomout                 "缩小">
+<!ENTITY main.zoomout.accesskey       "R">
+<!ENTITY main.zoomorig                "原始大小">
+<!ENTITY main.zoomorig.accesskey      "O">
+<!ENTITY main.language                "语言">
+<!ENTITY main.language.accesskey      "L">
+<!ENTITY main.statusbar               "状态栏">
+<!ENTITY main.statusbar.accesskey     "S">
+<!ENTITY main.resultsbar              "结果栏">
+<!ENTITY main.resultsbar.accesskey    "R">
+<!ENTITY main.fullscreen              "全屏">
+<!ENTITY main.fullscreen.accesskey    "F">
+
+<!-- Tools menu -->
+<!ENTITY main.tools                   "工具">
+<!ENTITY main.tools.accesskey         "T">
+<!ENTITY main.randomArticle           "随机页面">
+<!ENTITY main.randomArticle.accesskey "R">
+
+<!-- Help menu -->
+<!ENTITY main.help                    "帮助">
+<!ENTITY main.help.accesskey          "H">
+<!ENTITY main.about                   "关于中文维基">
+<!ENTITY main.about.accesskey         "A">
+
+<!-- Tool bar -->
+<!ENTITY main.back                    "后退">
+<!ENTITY main.forward                 "前进">
+<!ENTITY main.home                    "主页">
+<!ENTITY main.searchBar               "搜索栏">
+<!ENTITY main.bookmarks               "Bookmarks">
+
+<!-- Results bar -->
+<!ENTITY main.results.title           "结果">
+
+<!-- Bookmarks Bar -->
+<!ENTITY main.bmkLabel                "Bookmarks:">
+<!ENTITY main.notesLabel              "Bookmark notes:">
+<!ENTITY main.loadbmk                 "Import Bookmark Set">
+<!ENTITY main.newbmk                  "Create new Bookmark Set">
+<!ENTITY main.mark                    "Mark this page">
+<!ENTITY main.unmark                  "Unmark selected">
+<!ENTITY main.reload                  "Reset Bookmark Set">
+<!ENTITY main.defaultset              "Default Set">
