@@ -69,6 +69,18 @@ rm -rf ./firefox
 tar -xvjf firefox-3.5.tar.bz2
 cp ./firefox/chrome/he.* ./kiwix/xulrunner/chrome/
 
+rm firefox-3.5.tar.bz2
+wget -c http://releases.mozilla.org/pub/mozilla.org/firefox/releases/3.5/linux-i686/fa/firefox-3.5.tar.bz2
+rm -rf ./firefox
+tar -xvjf firefox-3.5.tar.bz2
+cp ./firefox/chrome/fa.* ./kiwix/xulrunner/chrome/
+
+rm firefox-3.5.tar.bz2
+wget -c http://releases.mozilla.org/pub/mozilla.org/firefox/releases/3.5/linux-i686/zh-CN/firefox-3.5.tar.bz2
+rm -rf ./firefox
+tar -xvjf firefox-3.5.tar.bz2
+cp ./firefox/chrome/zh-CN.* ./kiwix/xulrunner/chrome/
+
 # Tar & clean
 rm kiwix.tar.bz2
 tar -cvjf kiwix.tar.bz2 ./kiwix
