@@ -1,0 +1,77 @@
+<!-- Window -->
+<!ENTITY main.title                   "&brand.brandShortName;">
+<!ENTITY main.cssdirection            "rtl">
+
+<!-- File menu -->
+<!ENTITY main.file                    "فایل">
+<!ENTITY main.file.accesskey          "F">
+<!ENTITY main.openFile                "...باز کردن فایل">
+<!ENTITY main.openFile.accesskey      "O">
+<!ENTITY main.print                   "پرینت">
+<!ENTITY main.print.accesskey         "P">
+<!ENTITY main.quit                    "خروج">
+<!ENTITY main.quit.accesskey          "Q">
+
+<!-- Edit menu -->
+<!ENTITY main.edit                    "ویرایش">
+<!ENTITY main.edit.accesskey          "E">
+<!ENTITY main.find                    "...جستجو در صفحه">
+<!ENTITY main.find.accesskey          "S">
+<!ENTITY main.selectall               "انتخاب همه">
+<!ENTITY main.selectall.accesskey     "a">
+<!ENTITY main.copy                    "کپی">
+<!ENTITY main.copy.accesskey          "p">
+
+<!-- Display menu -->
+<!ENTITY main.display                 "نمایش">
+<!ENTITY main.display.accesskey       "D">
+<!ENTITY main.zoom                    "زوم">
+<!ENTITY main.zoom.accesskey          "Z">
+<!ENTITY main.zoomin                  "افزایش اندازه">
+<!ENTITY main.zoomin.accesskey        "M">
+<!ENTITY main.zoomout                 "کاهش اندازه">
+<!ENTITY main.zoomout.accesskey       "R">
+<!ENTITY main.zoomorig                "اندازه اصلی">
+<!ENTITY main.zoomorig.accesskey      "O">
+<!ENTITY main.language                "زبان">
+<!ENTITY main.language.accesskey      "L">
+<!ENTITY main.statusbar               "نوار وضعیت">
+<!ENTITY main.statusbar.accesskey     "S">
+<!ENTITY main.resultsbar              "نوار نتایج">
+<!ENTITY main.resultsbar.accesskey    "R">
+<!ENTITY main.fullscreen              "تمام صفحه">
+<!ENTITY main.fullscreen.accesskey    "F">
+
+<!-- Tools menu -->
+<!ENTITY main.tools                   "ابزارها">
+<!ENTITY main.tools.accesskey         "T">
+<!ENTITY main.randomArticle           "مقاله تصادفی">
+<!ENTITY main.randomArticle.accesskey "R">
+
+<!-- Help menu -->
+<!ENTITY main.help                    "کمک">
+<!ENTITY main.help.accesskey          "H">
+<!ENTITY main.about                   "درباره علامت تجاری.نام کوتاه تجاری;">
+<!ENTITY main.about.accesskey         "A">
+
+<!-- Tool bar -->
+<!ENTITY main.back                    "عقب">
+<!ENTITY main.forward                 "جلو">
+<!ENTITY main.home                    "خانه">
+<!ENTITY main.searchBar               "نوار جستجو">
+<!ENTITY main.search                  "جستجو">
+<!ENTITY main.noSearchBar             "جستجو نیاز به یک فایل ZIM فهرست بندی شده دارد">
+<!ENTITY main.bookmarks               "Bookmarks">
+
+<!-- Results bar -->
+<!ENTITY main.results.title           "یافته ها">
+
+<!-- Bookmarks Bar -->
+<!ENTITY main.bmkLabel                "Bookmarks:">
+<!ENTITY main.notesLabel              "Bookmark notes:">
+<!ENTITY main.loadbmk                 "Import Bookmark Set">
+<!ENTITY main.newbmk                  "Create new Bookmark Set">
+<!ENTITY main.mark                    "Mark this page">
+<!ENTITY main.unmark                  "Unmark selected">
+<!ENTITY main.reload                  "Reset Bookmark Set">
+<!ENTITY main.defaultset              "Default Set">
