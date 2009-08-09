@@ -68,12 +68,12 @@
 <!ENTITY main.results.title           "Resultats de recherche">
 
 <!-- Bookmarks Bar -->
-<!ENTITY main.bmkLabel	    "Marques pages:">
-<!ENTITY main.notesLabel	"Notes du marque page :">
-<!ENTITY main.loadbmk		"Importer un jeu de marques-pages">
-<!ENTITY main.newbmk	    "Créer un nouveau jeu de marques-pages">
-<!ENTITY main.mark		    "Marquer cette page">
-<!ENTITY main.unmark		"Supprimer le marque page séléctionné">
-<!ENTITY main.reload		"Supprimer tous les marques pages de ce jeu">
-<!ENTITY main.defaultset    "Mes marques pages">
+<!ENTITY main.bmkLabel                "Marques pages:">
+<!ENTITY main.notesLabel              "Notes du marque page :">
+<!ENTITY main.loadbmk                 "Importer un jeu de marques-pages">
+<!ENTITY main.newbmk                  "Créer un nouveau jeu de marques-pages">
+<!ENTITY main.mark                    "Marquer cette page">
+<!ENTITY main.unmark                  "Supprimer le marque page séléctionné">
+<!ENTITY main.reload                  "Supprimer tous les marques pages de ce jeu">
+<!ENTITY main.defaultset              "Mes marques pages">
 

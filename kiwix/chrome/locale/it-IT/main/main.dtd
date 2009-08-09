@@ -68,12 +68,11 @@
 <!ENTITY main.results.title           "Risultati">
 
 <!-- Bookmarks Bar -->
-<!ENTITY main.bmkLabel	    "Bookmarks:">
-<!ENTITY main.notesLabel	"Bookmark notes:">
-<!ENTITY main.loadbmk		"Import Bookmark Set">
-<!ENTITY main.newbmk	    "Create new Bookmark Set">
-<!ENTITY main.mark		    "Mark this page">
-<!ENTITY main.unmark		"Unmark selected">
-<!ENTITY main.reload		"Reset Bookmark Set">
-<!ENTITY main.defaultset    "Default Set">
-
+<!ENTITY main.bmkLabel                "Bookmarks:">
+<!ENTITY main.notesLabel              "Bookmark notes:">
+<!ENTITY main.loadbmk                 "Import Bookmark Set">
+<!ENTITY main.newbmk                  "Create new Bookmark Set">
+<!ENTITY main.mark                    "Mark this page">
+<!ENTITY main.unmark                  "Unmark selected">
+<!ENTITY main.reload                  "Reset Bookmark Set">
+<!ENTITY main.defaultset              "Default Set">

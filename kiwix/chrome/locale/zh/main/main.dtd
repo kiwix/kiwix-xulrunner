@@ -59,6 +59,8 @@
 <!ENTITY main.forward                 "前进">
 <!ENTITY main.home                    "主页">
 <!ENTITY main.searchBar               "搜索栏">
+<!ENTITY main.search                  "Search">
+<!ENTITY main.noSearchBar             "Search requires an indexed Zim file">
 <!ENTITY main.bookmarks               "Bookmarks">
 
 <!-- Results bar -->
