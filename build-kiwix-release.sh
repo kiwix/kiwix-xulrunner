@@ -42,6 +42,13 @@ wget http://releases.mozilla.org/pub/mozilla.org/xulrunner/releases/1.9.0.13/run
 tar -xvjf xulrunner-1.9.0.13.en-US.linux-i686.tar.bz2
 mv ./xulrunner/ ./kiwix/
 
+# Additional dynlib symlinks
+cd ./xulrunner
+ln -s libplc4.so libplc4.so.0d 
+ln -s libnspr4.so libnspr4.so.0d  
+ln -s libplds4.so libplds4.so.0d 
+cd ..
+
 # Download the firefox en copy the locales JAR
 getFirefoxLocalization de
 getFirefoxLocalization it
