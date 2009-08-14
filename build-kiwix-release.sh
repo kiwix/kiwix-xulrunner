@@ -7,13 +7,13 @@ function getFirefoxLocalization {
     rm -rf ./firefox
     tar -xvjf firefox-3.5.tar.bz2
     cp ./firefox/chrome/$CODE.* ./kiwix/xulrunner/chrome/
-
 } 
 
 # Go the the /tmp directory
 cd /tmp
 
 # Download code
+rm -rf moulinkiwix
 svn co https://kiwix.svn.sourceforge.net/svnroot/kiwix/moulinkiwix moulinkiwix
 
 # Get and compile the dependences
@@ -43,11 +43,11 @@ tar -xvjf xulrunner-1.9.0.13.en-US.linux-i686.tar.bz2
 mv ./xulrunner/ ./kiwix/
 
 # Additional dynlib symlinks
-cd ./xulrunner
+cd ./kiwix/xulrunner
 ln -s libplc4.so libplc4.so.0d 
 ln -s libnspr4.so libnspr4.so.0d  
 ln -s libplds4.so libplds4.so.0d 
-cd ..
+cd ../..
 
 # Download the firefox en copy the locales JAR
 getFirefoxLocalization de
