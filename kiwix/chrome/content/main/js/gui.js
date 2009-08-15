@@ -1,12 +1,23 @@
 /* Global variables */
-var _zoomFactor         = 1.2;      /* Factor by which font is magnified or reduced with zoomIn() & zommOut() */
-var _winIsFullScreen    = false;    /* Stores fullscreen state*/
-var _platform			= GuessOS ();
-var _applicationFD      = GetApplicationFolder ();
+var _zoomFactor             = 1.2;      /* Factor by which font is magnified or reduced with zoomIn() & zommOut() */
+var _winIsFullScreen        = false;    /* Stores fullscreen state*/
+var _platform		    = GuessOS ();
+var _applicationFD          = GetApplicationFolder ();
 var _runMode		    = GetRunMode ();
 var _firstRun		    = GetFirstRun ();
 var _cleanOnClose	    = GetCleanOnClose ();
 var _firstSideBar	    = true;
+
+var _languagesHash           = Array();
+_languagesHash['fr-FR']      = "Français";
+_languagesHash['de-DE']      = "Deutsch";
+_languagesHash['en-US']      = "English";
+_languagesHash['zh']         = "中文";
+_languagesHash['es-ES']      = "Español";
+_languagesHash['it-IT']      = "Italiano";
+_languagesHash['ar']         = "العربية";
+_languagesHash['fa']         = "فارسی";
+_languagesHash['he-IL']      = "עברית";
 
 /* Return the window object */
 function getWindow() {
@@ -613,12 +624,13 @@ function populateLanguagesMenu() {
     /* Go through the locale list an update the GUI */
     while(availableLocales.hasMore()) {
 	var locale = availableLocales.getNext();
+	var label = _languagesHash[locale] == undefined ? locale : _languagesHash[locale];
 	var menuItem = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
 						"menuitem");
 
 	menuItem.setAttribute("type", "radio");
 	menuItem.setAttribute("value", locale);
-	menuItem.setAttribute("label", locale);
+	menuItem.setAttribute("label", label);
 	menuItem.setAttribute("oncommand", "manageChangeLocale(this.value)");
 	
 	/* If this the current locale, check and apply it. */
