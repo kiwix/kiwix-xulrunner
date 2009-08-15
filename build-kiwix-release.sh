@@ -49,6 +49,9 @@ ln -s libnspr4.so libnspr4.so.0d
 ln -s libplds4.so libplds4.so.0d 
 cd ../..
 
+# Create the kiwix binary
+mv ./kiwix/xulrunner/xulrunner-stub ./kiwix/kiwix
+
 # Download the firefox en copy the locales JAR
 getFirefoxLocalization de
 getFirefoxLocalization it
