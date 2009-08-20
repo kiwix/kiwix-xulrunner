@@ -78,11 +78,11 @@ function init() {
     getHtmlRenderer().addEventListener("DOMActivate", openUrl, true);
     
     // register WebProgress listener
-	var dls = Components.classes ["@mozilla.org/docloaderservice;1"]
+    var dls = Components.classes ["@mozilla.org/docloaderservice;1"]
 	.getService (nsIWebProgress);
-	dls.addProgressListener (UIBrowserProgressListener,
-							nsIWebProgress.NOTIFY_LOCATION |
-							nsIWebProgress.NOTIFY_STATE_DOCUMENT);
+    dls.addProgressListener (UIBrowserProgressListener,
+			     nsIWebProgress.NOTIFY_LOCATION |
+			     nsIWebProgress.NOTIFY_STATE_DOCUMENT);
 
     /* Apply GUI settings */
     if (settings.displayStatusBar() != undefined) { changeStatusBarVisibilityStatus(settings.displayStatusBar()); }
@@ -137,7 +137,7 @@ function loadZimFile(zimFilePath) {
 /* TODO: as long as the welcome page is not saved in the ZIM file, this will return the first page */
 function getZimFileHomePageUrl() {
     /* Security check */
-    if (settings.zimFilePath() == undefined) {
+    if (settings.zimFilePath() == undefined || settings.zimFilePath() == "") {
 	return;
     }
 
@@ -156,6 +156,9 @@ function getZimFileHomePageUrl() {
 	zimAccessor.reset();
 	zimAccessor.getNextArticle(url, content);
 	return "zim://" + url.value;
+    } else {
+	/* File as moved or was deleted */
+	settings.zimFilePath("");
     }
 
     return undefined;
