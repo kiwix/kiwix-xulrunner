@@ -14,8 +14,8 @@ AC_LANG(C)
 AC_CHECK_TOOL(HAVE_PKG, pkg-config)
 
 # extern
-CPPFLAGS="${CPPFLAGS} -I../../dependences/zimlib/include/  -I../../dependences/cxxtools/include/ -I../../dependences/xapian-core-1.0.14/include/ -I../../dependences/unac-1.8.0.orig/"
-LDFLAGS="${LDFLAGS} -L../../dependences/zimlib/src/.libs/ -L../../dependences/cxxtools/src/.libs/ -L../../dependences/zlib-1.2.3/ -L../../dependences/bzip2-1.0.5/ -L../../dependences/xapian-core-1.0.14/.libs/ -L../../dependences/unac-1.8.0.orig"
+CPPFLAGS="${CPPFLAGS} -I../../dependences/zimlib/include/  -I../../dependences/cxxtools/include/ -I../../dependences/xapian-core-1.0.15/include/ -I../../dependences/unac-1.8.0.orig/"
+LDFLAGS="${LDFLAGS} -L../../dependences/zimlib/src/.libs/ -L../../dependences/cxxtools/src/.libs/ -L../../dependences/zlib-1.2.3/ -L../../dependences/bzip2-1.0.5/ -L../../dependences/xapian-core-1.0.15/.libs/ -L../../dependences/unac-1.8.0.orig"
 
 libxul_pkgconfig_ok="no"
 if test ! "x$HAVE_PKG" = "x" ; then
@@ -117,7 +117,7 @@ AC_CHECK_LIB([zim], [main], [
 ])
 
 # Check if xapian is installed
-AC_PATH_PROG(XAPIAN_CONFIG, xapian-config, no, [$PATH:../../dependences/xapian-core-1.0.14/])
+AC_PATH_PROG(XAPIAN_CONFIG, xapian-config, no, [$PATH:../../dependences/xapian-core-1.0.15/])
 if test "$XAPIAN_CONFIG" = "no" ; then
    AC_MSG_ERROR([Cannot find xapian-config command in $PATH.])
    exit 1
