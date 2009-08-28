@@ -31,3 +31,7 @@ pref("browser.cache.memory.capacity", 32768);
 /* Privacy */
 pref("kiwix.removeprofileonclose", true);
 pref("kiwix.removeprofileonclose.confirm", false);
+
+/* Download Manager (for Save Page) */
+pref("browser.download.manager.closeWhenDone", true);
+pref("browser.download.manager.showWhenStarting", false);

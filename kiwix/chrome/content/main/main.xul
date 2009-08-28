@@ -10,7 +10,7 @@
 <window	xmlns:html="http://www.w3.org/1999/xhtml" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
 	id        = "main"
 	onload    = "init();"
-	onunload  = "saveWindowGeometry(this.outerWidth, this.outerHeight, this.screenX, this.screenY, this.windowState);"
+	onunload  = "saveWindowGeometry(this.outerWidth, this.outerHeight, this.screenX, this.screenY, this.windowState); UIDoOnClose ();"
 	title = "&main.title;"
 	titlemodifier = "&main.title;"
 	titlemenuseparator = " - "
@@ -31,6 +31,7 @@
 <script language="javaScript" type="text/javascript" src="js/md5.js"/>
 <script language="javaScript" type="text/javascript" src="js/gui.js"/>
 <script language="javaScript" type="text/javascript" src="js/bookmarks.js"/>
+<script language="javaScript" type="text/javascript" src="js/contentAreaUtils.js"/>
 
 <!-- Global Javascript scripts -->
 <script type="application/x-javascript" src="chrome://global/content/printUtils.js"/>
@@ -41,6 +42,7 @@
   <key id="quit-key" key="Q" modifiers="control" oncommand="quitKiwix()"/>
   <key id="find-key" key="F" modifiers="control" oncommand="find()"/>
   <key id="open-file-key" key="O" modifiers="control" oncommand="manageNewZimFile()"/>
+  <key id="save-file-key" key="S" modifiers="control" oncommand="saveDocument(window.content.document)"/>
   <key id="print-key" key="P" modifiers="control" oncommand="print()"/>
   <key id="selectall" key="A" modifiers="control" oncommand="selectAll()"/>
   <key id="copy" key="C" modifiers="control" oncommand="copySelectedContent()"/>
@@ -57,6 +59,8 @@
     <menupopup id="file-popup">
       <menuitem id="file-open" label="&main.openFile;" key="open-file-key" class="menuitem-iconic"
 		accesskey="&main.openFile.accesskey;" oncommand="manageNewZimFile()"/>
+    <menuitem id="file-save" label="&main.saveFile;" key="save-file-key" class="menuitem-iconic"
+		accesskey="&main.saveFile.accesskey;" oncommand="saveDocument(window.content.document);"/>
       <menuitem id="file-print" label="&main.print;" key="print-key" class="menuitem-iconic" 
 		accesskey="&main.print.accesskey;" oncommand="print()"/>
       <menuseparator/>
@@ -167,7 +171,6 @@
     <menulist id="bookmarks-sets-list">
         <menupopup id="bookmarks-sets">
             <menuitem label="&main.defaultset;" value="default" oncommand="UIBookmarkSetSwitch(this.value);"/>
-            <menuitem label="niang" value="/home/reg/Desktop/test.xml" oncommand="UIBookmarkSetSwitch(this.value);" />
         </menupopup>
   </menulist>
 

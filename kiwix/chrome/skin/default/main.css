@@ -3,6 +3,10 @@
     list-style-image: url("chrome://main/skin/icon/open16.png");
 }
 
+#file-save {
+    list-style-image: url("chrome://main/skin/icon/saveas16.png");
+}
+
 #file-print {
     list-style-image: url("chrome://main/skin/icon/print24.png");
 }

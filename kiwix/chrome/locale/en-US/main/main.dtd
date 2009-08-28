@@ -7,6 +7,8 @@
 <!ENTITY main.file.accesskey          "F">
 <!ENTITY main.openFile                "Open file...">
 <!ENTITY main.openFile.accesskey      "O">
+<!ENTITY main.saveFile                "Save Page as...">
+<!ENTITY main.saveFile.accesskey      "S">
 <!ENTITY main.print                   "Print">
 <!ENTITY main.print.accesskey         "P">
 <!ENTITY main.quit                    "Quit">
