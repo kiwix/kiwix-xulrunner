@@ -74,7 +74,7 @@ protected:
   zim::Article currentArticle;
 
   unsigned int articleCount;
-  unsigned int stepSize;
+  float stepSize;
   
   Xapian::WritableDatabase writableDatabase;
   Xapian::Stem stemmer;
@@ -88,9 +88,9 @@ NS_IMPL_ISUPPORTS1(ZimXapianIndexer, IZimXapianIndexer)
 /* Constructor */
 ZimXapianIndexer::ZimXapianIndexer() 
 : zimFileHandler(NULL), 
+  stemmer(Xapian::Stem("english")),
   articleCount(0), 
-  stepSize(0),
-  stemmer(Xapian::Stem("english")) {
+  stepSize(0) {
 }
 
 /* Destructor */
@@ -131,7 +131,7 @@ NS_IMETHODIMP ZimXapianIndexer::StartIndexing(const char *zimFilePath,
 
   /* Compute few things */
   this->articleCount = this->zimFileHandler->getNamespaceCount('A');
-  this->stepSize = this->articleCount / 100;
+  this->stepSize = (float)this->articleCount / (float)100;
 
   return NS_OK;
 
@@ -140,7 +140,7 @@ NS_IMETHODIMP ZimXapianIndexer::StartIndexing(const char *zimFilePath,
 /* Index next percent */
 NS_IMETHODIMP ZimXapianIndexer::IndexNextPercent(PRBool *retVal) {
   *retVal = PR_TRUE;
-  unsigned int thresholdOffset = this->currentArticleOffset + this->stepSize;
+  float thresholdOffset = this->currentArticleOffset + this->stepSize;
   size_t found;
 
   while(this->currentArticleOffset < thresholdOffset && 
@@ -154,7 +154,7 @@ NS_IMETHODIMP ZimXapianIndexer::IndexNextPercent(PRBool *retVal) {
 	     this->currentArticleOffset != this->lastArticleOffset);
 
     if (!currentArticle.isRedirect()) {
-
+      
       /* Index the content */
       this->htmlParser.reset();
       
