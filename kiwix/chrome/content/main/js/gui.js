@@ -559,7 +559,7 @@ function addResultToList(url, title, score) {
 
     /* Create a new richlist item */
     var li = document.createElement("richlistitem");
-    li.setAttribute("onclick", "loadContent('zim://" + url + "')");
+    li.setAttribute("url", url);
     li.setAttribute("flex", "0");
     li.setAttribute("style", "cursor: pointer; padding: 2px;");
     li.appendChild(titrescore);
