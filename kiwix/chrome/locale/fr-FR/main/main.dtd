@@ -7,6 +7,8 @@
 <!ENTITY main.file.accesskey          "F">
 <!ENTITY main.openFile                "Ouvrir un fichier...">
 <!ENTITY main.openFile.accesskey      "O">
+<!ENTITY main.saveFile                "Enregister la page sous...">
+<!ENTITY main.saveFile.accesskey      "S">
 <!ENTITY main.print                   "Imprimer">
 <!ENTITY main.print.accesskey         "p">
 <!ENTITY main.quit                    "Quitter">
@@ -76,4 +78,3 @@
 <!ENTITY main.unmark                  "Supprimer le marque page séléctionné">
 <!ENTITY main.reload                  "Supprimer tous les marques pages de ce jeu">
 <!ENTITY main.defaultset              "Mes marques pages">
-
