@@ -59,19 +59,19 @@
 <!ENTITY main.forward                 "前进">
 <!ENTITY main.home                    "主页">
 <!ENTITY main.searchBar               "搜索栏">
-<!ENTITY main.search                  "Search">
-<!ENTITY main.noSearchBar             "Search requires an indexed Zim file">
-<!ENTITY main.bookmarks               "Bookmarks">
+<!ENTITY main.search                  "搜索">
+<!ENTITY main.noSearchBar             "搜索需要已建立索引的Zim文件">
+<!ENTITY main.bookmarks               "书签">
 
 <!-- Results bar -->
 <!ENTITY main.results.title           "结果">
 
 <!-- Bookmarks Bar -->
-<!ENTITY main.bmkLabel                "Bookmarks:">
-<!ENTITY main.notesLabel              "Bookmark notes:">
-<!ENTITY main.loadbmk                 "Import Bookmark Set">
-<!ENTITY main.newbmk                  "Create new Bookmark Set">
-<!ENTITY main.mark                    "Mark this page">
-<!ENTITY main.unmark                  "Unmark selected">
-<!ENTITY main.reload                  "Reset Bookmark Set">
-<!ENTITY main.defaultset              "Default Set">
+<!ENTITY main.bmkLabel                "书签:">
+<!ENTITY main.notesLabel              "书签笔记:">
+<!ENTITY main.loadbmk                 "导入书签组">
+<!ENTITY main.newbmk                  "创建新的书签组">
+<!ENTITY main.mark                    "标记本页">
+<!ENTITY main.unmark                  "取消标记">
+<!ENTITY main.reload                  "重新设定书签组">
+<!ENTITY main.defaultset              "缺省书签组">
