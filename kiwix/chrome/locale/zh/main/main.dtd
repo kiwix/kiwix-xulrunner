@@ -7,6 +7,8 @@
 <!ENTITY main.file.accesskey          "F">
 <!ENTITY main.openFile                "打开文件...">
 <!ENTITY main.openFile.accesskey      "O">
+<!ENTITY main.saveFile                "页面保存为...">
+<!ENTITY main.saveFile.accesskey      "S">
 <!ENTITY main.print                   "打印...">
 <!ENTITY main.print.accesskey         "P">
 <!ENTITY main.quit                    "退出">
