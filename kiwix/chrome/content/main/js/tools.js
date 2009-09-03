@@ -183,6 +183,7 @@ function loadRandomArticle() {
 	}
 
 	getHtmlRenderer().loadURI(url.value);
+	activateBackButton();
     }
 }
 
