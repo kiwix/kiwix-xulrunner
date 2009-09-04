@@ -7,6 +7,7 @@ Kiwix 0.9 alpha1
 * Introduction of kiwix-compact.sh (ID: 2834599)
 * Translate ISO code in the language sub-menu (ID: 2834600)
 * Save Page as file (ID: 175508)
+* kiwix.sh check for current path (ID: 2850487)
 
 Kiwix 0.8 rc3
 * Small improvement by the kiwix.sh launcher (should work now under Slackware (see https://sourceforge.net/forum/message.php?msg_id=7561932)

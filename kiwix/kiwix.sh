@@ -1,10 +1,13 @@
 #!/bin/sh
 
+# Binary dir
+BINARY_DIR=`dirname $0`
+
 # Take a look to the current directory
-XULRUNNER=`find ./ -type f -name xulrunner`
+XULRUNNER=`find $BINARY_DIR -type f -name xulrunner`
 
 # Try to update $LD_LIBRARY_PATH
-for DIR in `find ./ -type d -name xulrunner`; do
+for DIR in `find $BINARY_DIR -type d -name xulrunner`; do
     export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$DIR;
 done
 
@@ -22,4 +25,4 @@ then
 fi
 
 # Otherwise, launch Kiwix
-exec $XULRUNNER application.ini $1
+exec $XULRUNNER $BINARY_DIR/application.ini $1
