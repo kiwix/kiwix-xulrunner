@@ -12,6 +12,7 @@ locale main ar    locale/ar/main/
 locale main he-IL locale/he-IL/main/
 locale main zh	  locale/zh/main/
 locale main fa	  locale/fa/main/
+locale main pt-PT locale/pt-PT/main/
 
 locale branding en-US locale/branding/
 locale branding fr-FR locale/branding/
@@ -22,6 +23,7 @@ locale branding ar    locale/branding/
 locale branding he-IL locale/branding/
 locale branding zh    locale/branding/
 locale branding fa    locale/branding/
+locale branding pt-PT locale/branding/
 
 #skin packagename skinname uri/to/files/ [flags]
 skin main default skin/default/

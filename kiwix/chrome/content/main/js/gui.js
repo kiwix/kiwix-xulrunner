@@ -18,6 +18,7 @@ _languagesHash['it-IT']      = "Italiano";
 _languagesHash['ar']         = "العربية";
 _languagesHash['fa']         = "فارسی";
 _languagesHash['he-IL']      = "עברית";
+_languagesHash['pt-PT']      = "Português";
 
 /* Return the window object */
 function getWindow() {
