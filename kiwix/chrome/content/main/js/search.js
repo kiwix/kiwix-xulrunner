@@ -207,7 +207,14 @@ function searchInIndex(query, xapianDirectory) {
     if (url.value != "") {
 	/* Display the first result (best score) if its accuracy is high*/
 	if (score.value > _loadPageScoreThreshold) {
-	    loadContent("zim://" + url.value);
+
+	    /* Check if the Levenshtein distance is not too bad */
+	    var distance = computeLevenshteinDistance(query.toLowerCase(), 
+						      title.value.toLowerCase());
+	    var threshold = query.length;
+	    if (distance < threshold) {
+		loadContent("zim://" + url.value);
+	    }
 	}
 
 	/* Display all the results in the results sidebar */

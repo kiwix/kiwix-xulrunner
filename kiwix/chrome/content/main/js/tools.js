@@ -273,7 +273,7 @@ function moveFile(filePath, newDirectory, newName) {
     }
 }
 
-/* Check if a file exists*/
+/* Check if a file exists */
 function isFile(filePath) {
     var fileService = Components.classes["@mozilla.org/file/local;1"].createInstance();
     if (fileService instanceof Components.interfaces.nsILocalFile) {
@@ -302,6 +302,71 @@ const UIBrowserProgressListener = {
     	throw Components.results.NS_ERROR_NO_INTERFACE;
 	}
 };
+
+/* Calculate Levenshtein distance between two strings */
+function computeLevenshteinDistance (s1, s2) {
+    if (s1 == s2) {
+        return 0;
+    }
+
+    s1 = s1.replace(" ", "");
+    s2 = s2.replace(" ", "");
+
+    var s1_len = s1.length;
+    var s2_len = s2.length;
+    if (s1_len === 0) {
+        return s2_len;
+    }
+    if (s2_len === 0) {
+        return s1_len;
+    }
+
+    /* begin static */
+    var split = false;
+    try{
+        split=!('0')[0];
+    } catch (e){
+        split=true; /* Earlier IE may not support access by string index */
+    }
+
+    /* end static */
+    if (split){
+        s1 = s1.split('');
+        s2 = s2.split('');
+    }
+
+    var v0 = new Array(s1_len+1);
+    var v1 = new Array(s1_len+1);
+
+    var s1_idx=0, s2_idx=0, cost=0;
+    for (s1_idx=0; s1_idx<s1_len+1; s1_idx++) {
+        v0[s1_idx] = s1_idx;
+    }
+
+    var char_s1='', char_s2='';
+    for (s2_idx=1; s2_idx<=s2_len; s2_idx++) {
+        v1[0] = s2_idx;
+        char_s2 = s2[s2_idx - 1];
+
+        for (s1_idx=0; s1_idx<s1_len;s1_idx++) {
+            char_s1 = s1[s1_idx];
+            cost = (char_s1 == char_s2) ? 0 : 1;
+            var m_min = v0[s1_idx+1] + 1;
+            var b = v1[s1_idx] + 1;
+            var c = v0[s1_idx] + cost;
+            if (b < m_min) {
+                m_min = b; }
+            if (c < m_min) {
+                m_min = c; }
+            v1[s1_idx+1] = m_min;
+        }
+        var v_tmp = v0;
+        v0 = v1;
+        v1 = v_tmp;
+    }
+
+    return v0[s1_len];
+}
 
 /* LiveMode */
 function GetRunMode () {
@@ -364,6 +429,7 @@ function GetApplicationFolder () {
 		return false;
 	}
 }
+
 /*
  * return [win|mac|unix] depending on the platform running.
  * usefull to trick mac specificities.
