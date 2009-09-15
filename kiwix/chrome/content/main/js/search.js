@@ -1,6 +1,7 @@
 /* Global variables */
 var findInPageObject = null;            /* Object for the find in page dialog window */
 var _isIndexing = false;                /* To know if a ZIM file is currently indexing */
+var _loadPageScoreThreshold = 90;       /* Only first result with a high score are loaded */ 
 
 /* Open the "find in page" dialog window */
 function find() {
@@ -204,8 +205,10 @@ function searchInIndex(query, xapianDirectory) {
     xapianAccessor.getNextResult(url, title, score);
 
     if (url.value != "") {
-	/* Display the first result (best score) */
-	loadContent("zim://" + url.value);
+	/* Display the first result (best score) if its accuracy is high*/
+	if (score.value > _loadPageScoreThreshold) {
+	    loadContent("zim://" + url.value);
+	}
 
 	/* Display all the results in the results sidebar */
 	changeResultsBarVisibilityStatus(true);

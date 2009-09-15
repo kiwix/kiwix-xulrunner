@@ -320,7 +320,6 @@ function zoomOut() {
  * Enable/Disable fullscreen mode. Acts as window maximizer on mac.
  */
 function UIToggleFullScreen (save) {
-
 	_winIsFullScreen = !_winIsFullScreen;
 	
 	// Update window state (1s delay for startup)
@@ -328,8 +327,8 @@ function UIToggleFullScreen (save) {
 	
 	// save preference for restore on restart
 	if (save) {
-	settings.displayFullScreen(_winIsFullScreen);
-    }
+	    settings.displayFullScreen(_winIsFullScreen);
+	}
     
     // UI Updates
     try {
