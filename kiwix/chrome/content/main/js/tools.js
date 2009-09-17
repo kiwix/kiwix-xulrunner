@@ -95,6 +95,7 @@ function init() {
 
     /* Check if there is a search index */
     if (settings.zimFilePath() != undefined &&
+	settings.zimFilePath() != "" &&
 	existsSearchIndex(settings.zimFilePath())) {
 	activateGuiSearchComponents();
     } else {
@@ -137,7 +138,8 @@ function loadZimFile(zimFilePath) {
 /* TODO: as long as the welcome page is not saved in the ZIM file, this will return the first page */
 function getZimFileHomePageUrl() {
     /* Security check */
-    if (settings.zimFilePath() == undefined || settings.zimFilePath() == "") {
+    if (settings.zimFilePath() == undefined || 
+	settings.zimFilePath() == "") {
 	return;
     }
 
@@ -167,7 +169,8 @@ function getZimFileHomePageUrl() {
 /* Load a ramdom page */
 function loadRandomArticle() {
     /* Security check */
-    if (settings.zimFilePath() == undefined) {
+    if (settings.zimFilePath() == undefined ||
+	settings.zimFilePath() == "") {
 	return;
     }
 
@@ -191,7 +194,7 @@ function loadRandomArticle() {
 function goHome() {
     var homeUrl = getZimFileHomePageUrl();
     var htmlRenderer = getHtmlRenderer();
-    
+
     if (homeUrl != undefined && homeUrl != "") {
 	htmlRenderer.setAttribute("homepage", homeUrl);
 	htmlRenderer.goHome();
