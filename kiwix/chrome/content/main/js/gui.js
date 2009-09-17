@@ -249,6 +249,9 @@ function mouseOver(aEvent) {
     }
 
     if (url instanceof HTMLAnchorElement) {
+	/* To be sure that nothing else is already displayed */
+	clearStatusBar();
+
 	document.getElementById("address-bar").value = url.href.replace(":///", "://");
 	
 	if (isInternalUrl(url)) {
