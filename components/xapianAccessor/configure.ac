@@ -99,11 +99,11 @@ AC_SUBST(LIBEXT)
 AC_LANG(C++)
 
 # extern
-CPPFLAGS="${CPPFLAGS} -I../../dependences/xapian-core-1.0.15/include/ -I../../dependences/unac-1.8.0.orig/"
-LDFLAGS="${LDFLAGS} -L../../dependences/xapian-core-1.0.15/.libs/ -L../../dependences/unac-1.8.0.orig/"
+CPPFLAGS="${CPPFLAGS} -I../../dependences/xapian-core-1.0.16/include/ -I../../dependences/unac-1.8.0.orig/"
+LDFLAGS="${LDFLAGS} -L../../dependences/xapian-core-1.0.16/.libs/ -L../../dependences/unac-1.8.0.orig/"
 
 # Check if xapian is installed
-AC_PATH_PROG(XAPIAN_CONFIG, xapian-config, no, [$PATH:../../dependences/xapian-core-1.0.15/])
+AC_PATH_PROG(XAPIAN_CONFIG, xapian-config, no, [$PATH:../../dependences/xapian-core-1.0.16/])
 if test "$XAPIAN_CONFIG" = "no" ; then
    AC_MSG_ERROR([Cannot find xapian-config command in $PATH.])
    exit 1

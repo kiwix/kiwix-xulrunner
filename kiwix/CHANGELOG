@@ -1,5 +1,5 @@
 Kiwix 0.9 alpha1
-* Use xapian-core-1.0.15
+* Use xapian-core-1.0.16
 * Hebrew localization
 * Portuguese localization
 * Chinese localization
