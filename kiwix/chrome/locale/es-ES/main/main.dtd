@@ -7,6 +7,8 @@
 <!ENTITY main.file.accesskey          "A">
 <!ENTITY main.openFile                "Abrir...">
 <!ENTITY main.openFile.accesskey      "A">
+<!ENTITY main.saveFile                "Guardar página como...">
+<!ENTITY main.saveFile.accesskey      "S">
 <!ENTITY main.print                   "Imprimir...">
 <!ENTITY main.print.accesskey         "I">
 <!ENTITY main.quit                    "Salir">
@@ -62,17 +64,17 @@
 <!ENTITY main.searchBar               "Barra de la búsqueda">
 <!ENTITY main.search                  "Buscar">
 <!ENTITY main.noSearchBar             "La búsqueda requiere un archivo puesto en un índice de Zim">
-<!ENTITY main.bookmarks               "Bookmarks">
+<!ENTITY main.bookmarks               "Marcadores">
 
 <!-- Results bar -->
 <!ENTITY main.results.title           "Resultados">
 
 <!-- Bookmarks Bar -->
-<!ENTITY main.bmkLabel                "Bookmarks:">
-<!ENTITY main.notesLabel              "Bookmark notes:">
-<!ENTITY main.loadbmk                 "Import Bookmark Set">
-<!ENTITY main.newbmk                  "Create new Bookmark Set">
-<!ENTITY main.mark                    "Mark this page">
-<!ENTITY main.unmark                  "Unmark selected">
-<!ENTITY main.reload                  "Reset Bookmark Set">
-<!ENTITY main.defaultset              "Default Set">
+<!ENTITY main.bmkLabel                "Favoritos:">
+<!ENTITY main.notesLabel              "Notas de Favoritos:">
+<!ENTITY main.loadbmk                 "Importar Favoritos">
+<!ENTITY main.newbmk                  "Crear Favoritos">
+<!ENTITY main.mark                    "Marcar esta página">
+<!ENTITY main.unmark                  "Desmarcar esta página">
+<!ENTITY main.reload                  "Borrar Favoritos">
+<!ENTITY main.defaultset              "Predeterminado">
