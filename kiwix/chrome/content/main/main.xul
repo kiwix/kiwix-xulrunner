@@ -61,7 +61,11 @@
     <menupopup id="file-popup">
       <menuitem id="file-open" label="&main.openFile;" key="open-file-key" class="menuitem-iconic"
 		accesskey="&main.openFile.accesskey;" oncommand="manageNewZimFile()"/>
-    <menuitem id="file-save" label="&main.saveFile;" key="save-file-key" class="menuitem-iconic"
+      <menu label="&main.lastOpen;" id="menu-lastopen-top">
+	<menupopup id="menu-lastopen">
+	</menupopup>
+      </menu>
+      <menuitem id="file-save" label="&main.saveFile;" key="save-file-key" class="menuitem-iconic"
 		accesskey="&main.saveFile.accesskey;" oncommand="saveDocument(window.content.document);"/>
       <menuitem id="file-print" label="&main.print;" key="print-key" class="menuitem-iconic" 
 		accesskey="&main.print.accesskey;" oncommand="print()"/>

@@ -1,7 +1,8 @@
 var EXPORTED_SYMBOLS = [ "library" ];
 
 /* Define the Book class */
-function Book(path) {
+function Book(id, path) {
+        this.id = id;
         this.path = path;
 }
 
@@ -69,8 +70,9 @@ let library = {
         var len = root.childNodes.length;
 
 	for (var i=0; i<len; i++) {
+	    var id = root.childNodes[i].getAttribute('id');
 	    var path = root.childNodes[i].getAttribute('path');
-	    this.addBook(path);
+	    this.addBook(id, path);
     	}
     },
 
@@ -106,6 +108,7 @@ let library = {
 	for (var i=0 ; i<len ; i++) {
 	    var book = this.books[i];
             var bookNode = doc.createElement("book");
+	    bookNode.setAttribute("id", book.id);
 	    bookNode.setAttribute("path", book.path);
 	    root.appendChild(bookNode);
 	}
@@ -125,9 +128,18 @@ let library = {
     },
 
     /* Add a book to the library */
-    addBook: function(path) {
-    	var book = new Book(path);
+    addBook: function(id, path) {
+	/* Verify if the book is not in already in the list */
+	var len = this.books.length >>> 0;
+	for (var i=0 ; i<len ; i++) {
+	    if (this.books[i].id == id) {
+	       books.splice(i, 1);
+	    }
+	}
+
+    	var book = new Book(id, path);
 	this.books.push(book);
+	this.writeToFile();
     },
 
     /* Accessor the the file path */

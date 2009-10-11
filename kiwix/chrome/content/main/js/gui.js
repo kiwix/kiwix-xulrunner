@@ -458,52 +458,69 @@ function pageNext() {
 }
 
 /* Open and add ZIM file to the manager */
-function manageNewZimFile() {
-    /* Create the file picker object */
-    var nsIFilePicker = Components.interfaces.nsIFilePicker;
-    var fp = Components.classes["@mozilla.org/filepicker;1"].createInstance(nsIFilePicker);
-    fp.init(window, "Select a File", nsIFilePicker.modeOpen);
+function manageNewZimFile(zimFilePath) {
 
-    /* Add filters */
-    fp.appendFilter("ZIM files","*.zim");
-
-    /* Show the dialog and get the file path */
-    var res = fp.show();
-
-    /* Get the file path */
-    if (res == nsIFilePicker.returnOK) {
-
-	/* Try to open the ZIM file */
-	var zimAccessor = loadZimFile(fp.file.path);
-	if (zimAccessor != undefined) {
-	    var zimFilePath = fp.file.path;
-	    settings.zimFilePath(zimFilePath);
-
-	    /* Clear the results bar */
-	    emptyResultsList();
-
-	    /* Ask to index if this files has not already an index */
-	    if (!existsSearchIndex(zimFilePath)) {
-		desactivateGuiSearchComponents();
-		manageIndexZimFile();
-		changeResultsBarVisibilityStatus(false);
-	    } else {
-		activateGuiSearchComponents();
-	    }
-
-	    /* Load the ZIM file welcome page */
-	    goHome();
-
-	    /* Activate the Home button and desactivate the next/back buttons */
-	    activateHomeButton();
-	    desactivateBackButton();
-	    desactivateNextButton();
-
-	    /* Purge the history */
+    /* Display file picker if no file path given */
+    if (zimFilePath == undefined) {
+	/* Create the file picker object */
+	var nsIFilePicker = Components.interfaces.nsIFilePicker;
+	var fp = Components.classes["@mozilla.org/filepicker;1"].createInstance(nsIFilePicker);
+	fp.init(window, "Select a File", nsIFilePicker.modeOpen);
+	
+	/* Add filters */
+	fp.appendFilter("ZIM files","*.zim");
+	
+	/* Show the dialog and get the file path */
+	var res = fp.show();
+	
+	/* Get the file path */
+	if (res == nsIFilePicker.returnOK) {
+	    zimFilePath = fp.file.path; 
+	} else {
+	    return false;
+	}
+    }
+	
+    /* Try to open the ZIM file */
+    var zimAccessor = loadZimFile(zimFilePath);
+    if (zimAccessor != undefined) {
+	settings.zimFilePath(zimFilePath);
+	
+	/* Clear the results bar */
+	emptyResultsList();
+	
+	/* Ask to index if this files has not already an index */
+	if (!existsSearchIndex(zimFilePath)) {
+	    desactivateGuiSearchComponents();
+	    manageIndexZimFile();
+	    changeResultsBarVisibilityStatus(false);
+	} else {
+	    activateGuiSearchComponents();
+	}
+	
+	/* Load the ZIM file welcome page */
+	goHome();
+	
+	/* Activate the Home button and desactivate the next/back buttons */
+	activateHomeButton();
+	desactivateBackButton();
+	desactivateNextButton();
+	
+	/* Purge the history */
+	if (getHtmlRenderer().sessionHistory.count > 0) {
 	    getHtmlRenderer().sessionHistory.PurgeHistory(getHtmlRenderer().sessionHistory.count);
 	}
-    } else {
-	return false;
+
+	/* Get the MD5 id */
+	var zimId = new Object();
+	zimAccessor.getId(zimId);
+	var id = hex_md5(zimId.value);
+	
+	/* Add the file to the library */
+	library.addBook(id, zimFilePath);
+
+	/* Update the last open menu */
+	populateLastOpenMenu();
     }
 
     return true;
@@ -642,5 +659,38 @@ function populateLanguagesMenu() {
 	}
 	
 	languagesMenu.appendChild(menuItem);
+    }
+}
+
+/* Fill the lastopen-menu with all available languages */
+function populateLastOpenMenu() {
+    /* Render locale menu items */
+    var lastOpenMenuTop = document.getElementById("menu-lastopen-top");
+    var lastOpenMenu = document.getElementById("menu-lastopen");
+
+    /* Remove the child nodes */
+    while (lastOpenMenu.firstChild) {
+	lastOpenMenu.removeChild(lastOpenMenu.firstChild);
+    };
+
+    /* Get the number of books */
+    var len = library.books.length >>> 0;
+
+    /* Disable the menu if no book */
+    if (len == 0) {
+	lastOpenMenuTop.disabled = true;
+    } else {/* Go through the book list an update the GUI */
+	lastOpenMenuTop.disabled = false;
+
+	for (var i=len-1 ; i>=0 ; i--) {
+	    var book = library.books[i];
+	    var label = book.path;
+	    var menuItem = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
+						    "menuitem");
+	    
+	    menuItem.setAttribute("label", label);
+	    menuItem.setAttribute("oncommand", "manageNewZimFile('" + book.path + "');");
+	    lastOpenMenu.appendChild(menuItem);
+	}
     }
 }

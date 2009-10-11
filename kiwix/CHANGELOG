@@ -1,4 +1,6 @@
 Kiwix 0.9 alpha1
+* New "Recently open" menu
+* Introduction of the library
 * Use xapian-core-1.0.16
 * Hebrew localization
 * Portuguese localization

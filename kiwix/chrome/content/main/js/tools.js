@@ -71,6 +71,9 @@ function init() {
     /* Populates localization languages to the menu-languages */
     populateLanguagesMenu();
 
+    /* Populates the last open menu */
+    populateLastOpenMenu();
+
     /* Add mouse scroll listener to allow zoon in/out with the mouse for examle */
     getHtmlRenderer().addEventListener("DOMMouseScroll", mouseScroll, false);
     getHtmlRenderer().addEventListener("mouseover", mouseOver, true);
