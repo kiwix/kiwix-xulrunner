@@ -8,17 +8,17 @@ var _firstRun		    = GetFirstRun ();
 var _cleanOnClose	    = GetCleanOnClose ();
 var _firstSideBar	    = true;
 
-var _languagesHash           = Array();
-_languagesHash['fr-FR']      = "Français";
-_languagesHash['de-DE']      = "Deutsch";
-_languagesHash['en-US']      = "English";
-_languagesHash['zh']         = "中文";
-_languagesHash['es-ES']      = "Español";
-_languagesHash['it-IT']      = "Italiano";
-_languagesHash['ar']         = "العربية";
-_languagesHash['fa']         = "فارسی";
-_languagesHash['he-IL']      = "עברית";
-_languagesHash['pt-PT']      = "Português";
+var _languagesHash          = Array();
+_languagesHash['fr-FR']     = "Français";
+_languagesHash['de-DE']     = "Deutsch";
+_languagesHash['en-US']     = "English";
+_languagesHash['zh']        = "中文";
+_languagesHash['es-ES']     = "Español";
+_languagesHash['it-IT']     = "Italiano";
+_languagesHash['ar']        = "العربية";
+_languagesHash['fa']        = "فارسی";
+_languagesHash['he-IL']     = "עברית";
+_languagesHash['pt-PT']     = "Português";
 
 /* Return the window object */
 function getWindow() {
@@ -252,7 +252,7 @@ function mouseOver(aEvent) {
 	/* To be sure that nothing else is already displayed */
 	clearStatusBar();
 
-	document.getElementById("address-bar").value = url.href.replace(":///", "://");
+	document.getElementById("address-bar").value = decodeUrl(url.href.replace(":///", "://"));
 	
 	if (isInternalUrl(url)) {
 	    document.getElementById('book-icon').collapsed = false;
