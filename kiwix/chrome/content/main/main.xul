@@ -25,6 +25,7 @@
 
 <!-- Custom Javascript scripts -->
 <script language="javaScript" type="text/javascript" src="resource://modules/settings.jsm"/>
+<script language="javaScript" type="text/javascript" src="resource://modules/library.jsm"/>
 <script language="javaScript" type="text/javascript" src="js/logger.js"/>
 <script language="javaScript" type="text/javascript" src="js/search.js"/>
 <script language="javaScript" type="text/javascript" src="js/tools.js"/>
@@ -32,6 +33,7 @@
 <script language="javaScript" type="text/javascript" src="js/gui.js"/>
 <script language="javaScript" type="text/javascript" src="js/bookmarks.js"/>
 <script language="javaScript" type="text/javascript" src="js/contentAreaUtils.js"/>
+<script language="javaScript" type="text/javascript" src="js/library.js"/>
 
 <!-- Global Javascript scripts -->
 <script type="application/x-javascript" src="chrome://global/content/printUtils.js"/>
