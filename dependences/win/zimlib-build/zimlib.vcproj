@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="Windows-1252"?>
 <VisualStudioProject
 	ProjectType="Visual C++"
-	Version="9,00"
+	Version="9.00"
 	Name="zimlib"
 	ProjectGUID="{F6BC44E5-92AB-4A9F-8BAB-C47F51207233}"
 	RootNamespace="zimlib"
@@ -43,11 +43,11 @@
 				Name="VCCLCompilerTool"
 				Optimization="0"
 				AdditionalIncludeDirectories="..\include;&quot;..\..\zlib123-dll\include&quot;;..\..\packages\windows\iconv\iconv\;..\..\packages\windows\iconv\iconv\windows;..\..\bzip2\include"
-				PreprocessorDefinitions="WIN32;_DEBUG"
+				PreprocessorDefinitions="WIN32"
 				RuntimeLibrary="0"
 				UsePrecompiledHeader="0"
 				WarningLevel="3"
-				DebugInformationFormat="3"
+				DebugInformationFormat="0"
 			/>
 			<Tool
 				Name="VCManagedResourceCompilerTool"
