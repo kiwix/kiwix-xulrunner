@@ -60,6 +60,9 @@
 			/>
 			<Tool
 				Name="VCLibrarianTool"
+				LinkLibraryDependencies="true"
+				AdditionalDependencies="libbz2.lib zlib.lib"
+				AdditionalLibraryDirectories="../../bzip2//;../../zlib123-dll/"
 			/>
 			<Tool
 				Name="VCALinkTool"
