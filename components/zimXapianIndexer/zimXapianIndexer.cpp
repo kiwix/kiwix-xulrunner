@@ -46,7 +46,7 @@ std::string removeAccents(const char *text) {
 unsigned int countWords(const string &text) {
   unsigned int numWords = 1;
   for(int i=0; i<text.size();) {
-    while(text[i] != ' ' && i<text.size()) {
+    while(i<text.size() && text[i] != ' ') {
       i++;
     }
     numWords++;
