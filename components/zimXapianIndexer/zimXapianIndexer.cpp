@@ -159,7 +159,8 @@ NS_IMETHODIMP ZimXapianIndexer::IndexNextPercent(PRBool *retVal) {
       this->htmlParser.reset();
       
       try {
-	this->htmlParser.parse_html(currentArticle.getData().data(), "UTF-8", true);
+		string content (currentArticle.getData().data(), currentArticle.getData().size());
+		  this->htmlParser.parse_html(content, "UTF-8", true);
       } catch(...) {
       }
       
