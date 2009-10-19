@@ -76,8 +76,6 @@ NS_IMETHODIMP ZimAccessor::LoadFile(const char *path, PRBool *retVal) {
     *retVal = PR_FALSE;
   }
 
-  srand(time(NULL));
-
   return NS_OK;
 }
 
