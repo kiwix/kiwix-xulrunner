@@ -8,5 +8,6 @@ interface nsAUTF8String;
 interface IZimXapianIndexer : nsISupports
 {
   boolean startIndexing(in string zimFilePath, in string xapianDirectoryPath);
+  boolean stopIndexing();
   boolean indexNextPercent();
 };

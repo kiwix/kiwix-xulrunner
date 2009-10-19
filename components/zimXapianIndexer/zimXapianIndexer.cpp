@@ -98,6 +98,7 @@ ZimXapianIndexer::~ZimXapianIndexer() {
   if (this->zimFileHandler != NULL) {
     delete this->zimFileHandler;
   }
+  //this->writableDatabase.~WritableDatabase();
 }
 
 /* Start indexing */
@@ -160,7 +161,7 @@ NS_IMETHODIMP ZimXapianIndexer::IndexNextPercent(PRBool *retVal) {
       
       try {
 		string content (currentArticle.getData().data(), currentArticle.getData().size());
-		  this->htmlParser.parse_html(content, "UTF-8", true);
+		this->htmlParser.parse_html(content, "UTF-8", true);
       } catch(...) {
       }
       
@@ -204,19 +205,27 @@ NS_IMETHODIMP ZimXapianIndexer::IndexNextPercent(PRBool *retVal) {
       }
     }
   }
-  
+
+  /* Write Xapian DB to the disk */
+  this->writableDatabase.flush();
+
   /* increment the offset and set returned value */
   if (this->currentArticleOffset < this->lastArticleOffset) {
     this->currentArticleOffset++;
     *retVal = PR_TRUE;
   } else {
     this->currentArticleOffset = this->firstArticleOffset;
+	this->writableDatabase.~WritableDatabase();
     *retVal = PR_FALSE;
   }
 
-  /* Write Xapian DB to the disk */
-  this->writableDatabase.flush();
+  return NS_OK;
+}
 
+/* Stop indexing. TODO: using it crashs the soft under windows. Have to do it in indexNextPercent() */
+NS_IMETHODIMP ZimXapianIndexer::StopIndexing(PRBool *retVal) {
+  *retVal = PR_TRUE;
+  //this->writableDatabase.~WritableDatabase();
   return NS_OK;
 }
 
@@ -232,3 +241,4 @@ static const nsModuleComponentInfo components[] =
 };
 
 NS_IMPL_NSGETMODULE(nsZimXapianIndexer, components)
+
