@@ -1,5 +1,8 @@
 #! /bin/sh
 
+# Regenerate the files autoconf / automake
+libtoolize --force --automake
+
 # Remove old cache files
 rm -f config.cache
 rm -f config.log
@@ -10,3 +13,5 @@ aclocal
 # Generate the configure script based on configure.in
 autoconf
 
+# Generate the Makefile.in
+automake -a --foreign
