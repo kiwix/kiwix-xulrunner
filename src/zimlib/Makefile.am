@@ -1,3 +1,1 @@
-SUBDIRS = \
-	src \
-	include
+SUBDIRS = src
