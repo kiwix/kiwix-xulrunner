@@ -201,27 +201,51 @@ function searchInIndex(query, xapianDirectory) {
     var title = new Object();
     var score = new Object();
 
+    /* Build the result array */
+    var results = new Array;
+    while (xapianAccessor.getNextResult(url, title, score)) {
+	var result = new Array;
+	result.push(url.value);
+	result.push(title.value);
+	result.push(score.value);
+	results.push(result);
+    }
+
     /* Try to get the first result */
     xapianAccessor.getNextResult(url, title, score);
 
-    if (url.value != "") {
+    if (results.length > 0) {
+	var firstUrl = results[0][0];
+	var firstTitle = results[0][1];
+	var firstScore = results[0][2];
+	var secondTitle = results[1][1];
+	var thirdTitle = results[2][1];
+
 	/* Display the first result (best score) if its accuracy is high*/
-	if (score.value > _loadPageScoreThreshold) {
+	if (firstScore > _loadPageScoreThreshold) {
 
 	    /* Check if the Levenshtein distance is not too bad */
 	    var distance = computeLevenshteinDistance(query.toLowerCase(), 
-						      title.value.toLowerCase());
+						      firstTitle.toLowerCase());
 	    var threshold = query.length;
 	    if (distance < threshold) {
-		loadContent("zim://" + url.value);
+		loadContent("zim://" + firstUrl);
+	    }
+
+	    /* Last chance */
+	    else if (firstTitle.toLowerCase().indexOf(query.toLowerCase()) > -1 &&
+		     secondTitle.toLowerCase().indexOf(query.toLowerCase()) == -1 &&
+		     thirdTitle.toLowerCase().indexOf(query.toLowerCase()) == -1
+		     ) {
+		loadContent("zim://" + firstUrl);
 	    }
 	}
 
 	/* Display all the results in the results sidebar */
 	changeResultsBarVisibilityStatus(true);
-	do {
-	    addResultToList(url.value, title.value, score.value);
-	} while (xapianAccessor.getNextResult(url, title, score));
+	for (var index=0; index<results.length; index++) {
+	    addResultToList(results[index][0], results[index][1], results[index][2]);
+	};
     } else {
 	displayErrorDialog(getProperty("noResultsError"), getProperty("information"));
     }	
