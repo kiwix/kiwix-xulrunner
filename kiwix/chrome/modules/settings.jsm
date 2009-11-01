@@ -44,7 +44,7 @@ let settings = {
 
     /* Return the path of the user profile */
     getRootPath: function() {
-    	return this.rootPath + "/";
+    	return this.rootPath;
     },
 
     /* Observer */

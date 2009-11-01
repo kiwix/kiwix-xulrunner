@@ -378,7 +378,9 @@ function computeLevenshteinDistance (s1, s2) {
 function decodeUrl (text) {
     var string = "";
     var i = 0;
-    var c = c1 = c2 = 0;
+    var c = 0;
+    var c1 = 0;
+    var c2 = 0;
     var utftext = unescape(text);
     
     while ( i < utftext.length ) {
@@ -404,6 +406,15 @@ function decodeUrl (text) {
     }
     
     return string;
+}
+
+/* Merge two path, this is essential for the compatibility between nix & win */
+function appendToPath(path, file) {
+    var dir = Components.classes["@mozilla.org/file/local;1"] 
+                       .createInstance(Components.interfaces.nsILocalFile);
+    dir.initWithPath(path);
+    dir.append(file);
+    return dir.path;
 }
 
 /* LiveMode */

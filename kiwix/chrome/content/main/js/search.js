@@ -27,7 +27,7 @@ function isIndexing(value) {
 
 /* Return the directory path where the search index is stored */
 function getSearchIndexDirectory(zimFilePath) {
-    return settings.getRootPath() + getSearchIndexDirectoryName(zimFilePath);
+    return appendToPath(settings.getRootPath(), getSearchIndexDirectoryName(zimFilePath));
 }
 
 /* Return the name of the search index directory */
@@ -35,12 +35,12 @@ function getSearchIndexDirectoryName(zimFilePath) {
     var zimAccessor = loadZimFile(zimFilePath);
     var zimId = new Object();
     zimAccessor.getId(zimId);
-    return hex_md5(zimId.value) + ".index/";
+    return hex_md5(zimId.value) + ".index";
 }
 
 /* Return the tmp directory path where the search index is build */
 function getTmpSearchIndexDirectory() {
-    return settings.getRootPath() + "tmpindex/";
+    return appendToPath(settings.getRootPath(), "tmpindex");
 }
 
 /* Return true if there is already a search index */
@@ -218,8 +218,6 @@ function searchInIndex(query, xapianDirectory) {
 	var firstUrl = results[0][0];
 	var firstTitle = results[0][1];
 	var firstScore = results[0][2];
-	var secondTitle = results[1][1];
-	var thirdTitle = results[2][1];
 
 	/* Display the first result (best score) if its accuracy is high*/
 	if (firstScore > _loadPageScoreThreshold) {
@@ -233,10 +231,17 @@ function searchInIndex(query, xapianDirectory) {
 	    }
 
 	    /* Last chance */
-	    else if (firstTitle.toLowerCase().indexOf(query.toLowerCase()) > -1 &&
-		     secondTitle.toLowerCase().indexOf(query.toLowerCase()) == -1 &&
-		     thirdTitle.toLowerCase().indexOf(query.toLowerCase()) == -1
-		     ) {
+	    else if (results.length > 1) {
+		var secondTitle = results[1][1];
+		
+		if (firstTitle.toLowerCase().indexOf(query.toLowerCase()) > -1 &&
+		    secondTitle.toLowerCase().indexOf(query.toLowerCase()) == -1) {
+		    loadContent("zim://" + firstUrl);
+		}
+	    }
+
+	    /* If only one result load it */
+	    else {
 		loadContent("zim://" + firstUrl);
 	    }
 	}
