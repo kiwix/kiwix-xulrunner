@@ -220,20 +220,28 @@ NS_IMETHODIMP ZimAccessor::GetContent(nsIURI *urlObject, nsACString &content, PR
     zim::File::const_iterator iterator = zimFileHandler->find(ns[0], zim::QUnicodeString(title));
     zim::Article article = zimFileHandler->getArticle(iterator.getIndex());
 
-    /* If redirect */
-    unsigned int loopCounter = 0;
-    while (article.isRedirect() && loopCounter++<42) {
-      article = article.getRedirectArticle();
+    if ( title == article.getTitle().getValue()) {
+      /* If redirect */
+      unsigned int loopCounter = 0;
+      while (article.isRedirect() && loopCounter++<42) {
+	article = article.getRedirectArticle();
+      }
+      
+      /* Get the content mime-type */
+      contentType = nsDependentCString(article.getMimeType().data(), article.getMimeType().size()); 
+      
+      /* Get the data */
+      content = nsDependentCString(article.getData().data(), article.getArticleSize());
+      
+      /* Get the data length */
+      *contentLength = article.getArticleSize();
+      
+      /* Set return value */
+      *retVal = PR_TRUE;
+    } else {
+      /* The found article is not the good one */
+      *retVal = PR_FALSE;
     }
-
-    /* Get the content mime-type */
-    contentType = nsDependentCString(article.getMimeType().data(), article.getMimeType().size()); 
-    
-    /* Get the data */
-    content = nsDependentCString(article.getData().data(), article.getArticleSize());
-    
-    /* Get the data length */
-    *contentLength = article.getArticleSize();
   } catch(...) {
   }
 
