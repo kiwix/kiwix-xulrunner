@@ -53,6 +53,7 @@ ZimprotocolHandler.prototype = {
     },
 
     QueryInterface: function(iid) {
+
         if(!iid.equals(Ci.nsIProtocolHandler) && !iid.equals(Ci.nsISupports)) 
 	    throw Cr.NS_ERROR_NO_INTERFACE;
         return this;
@@ -126,45 +127,40 @@ PipeChannel.prototype = {
     asyncOpen: function(listener, context) {
 	this.channel.asyncOpen(listener, context);
 	
-	try {
-	    if(false/* some reason to abort */) {
-		this.request.cancel(Cr.NS_BINDING_FAILED);
-		Cc["@mozilla.org/embedcomp/prompt-service;1"]
-		    .getService(Ci.nsIPromptService)
-		    .alert(null, 'Error message.', 'Error message.');
-		return;
-	    }
-
-	    /* Load the settings java code module */
-	    Components.utils.import("resource://modules/settings.jsm");
+	if(false/* some reason to abort */) {
+	    this.request.cancel(Cr.NS_BINDING_FAILED);
+	    Cc["@mozilla.org/embedcomp/prompt-service;1"]
+		.getService(Ci.nsIPromptService)
+		.alert(null, 'Error message.', 'Error message.');
+	    return;
+	}
 	
-	    /* load the zim file if necessary */
-	    if (zimAccessor == null || currentZimFilePath != settings.zimFilePath()) {
-		zimAccessor = Components.classes["@kiwix.org/zimAccessor"].getService();
-		zimAccessor = zimAccessor.QueryInterface(Components.interfaces.IZimAccessor);
-		zimAccessor.loadFile(settings.zimFilePath());
-		currentZimFilePath = settings.zimFilePath();
-	    }
+	/* Load the settings java code module */
+	Components.utils.import("resource://modules/settings.jsm");
+	
+	/* load the zim file if necessary */
+	if (zimAccessor == null || currentZimFilePath != settings.zimFilePath()) {
+	    zimAccessor = Components.classes["@kiwix.org/zimAccessor"].getService();
+	    zimAccessor = zimAccessor.QueryInterface(Components.interfaces.IZimAccessor);
+	    zimAccessor.loadFile(settings.zimFilePath());
+	    currentZimFilePath = settings.zimFilePath();
+	}
+	
+	/* Remove local anchor */
+	var uri = this.URI.clone();
+	if (uri.spec.indexOf("#") != -1) {
+	    uri.spec = uri.spec.substr(0, uri.spec.indexOf("#"));
+	}
+	
+	var content = new Object();
+	var contentLength = new Object();
+	var contentType = new Object();
 
-	    /* Remove local anchor */
-	    var uri = this.URI.clone();
-	    if (uri.spec.indexOf("#") != -1) {
-		uri.spec = uri.spec.substr(0, uri.spec.indexOf("#"));
-	    }
-
-	    var content = new Object();
-	    var contentLength = new Object();
-	    var contentType = new Object();
-	    if (zimAccessor.getContent(uri, content, contentLength, contentType)) {
-		this.pipe.outputStream.write(content.value, contentLength.value);
-		this.pipe.outputStream.close();
-	    } else {
-		throw("Unable to load article.");
-	    }
-	} catch(err) {
-	    if (err.result != Cr.NS_BINDING_ABORTED) {
-		Components.utils.reportError(err);
-	    }
+	if (zimAccessor.getContent(uri, content, contentLength, contentType)) {
+	    this.pipe.outputStream.write(content.value, contentLength.value);
+	    this.pipe.outputStream.close();
+	} else {
+	    throw("Unable to load article.");
 	}
     },
     
