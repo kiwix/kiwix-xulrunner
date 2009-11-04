@@ -33,10 +33,12 @@ function getHtmlRenderer() {
 /* Load an url in the HTML render element */
 function loadContent(url) {
     try {
-	return getHtmlRenderer().loadURI(url, null, null);
+	getHtmlRenderer().loadURI(url, null, null);
     } catch(e) {
 	displayErrorDialog(getProperty("loadArticleError"));
+	return false;
     }
+    return true;
 }
 
 /* Return the Search input box object */
@@ -296,12 +298,12 @@ function openUrl(aEvent) {
 	
 	/* Purge the history of the last entry */
 	getHtmlRenderer().sessionHistory.PurgeHistory(1);
-    } else {
-	activateBackButton();
+    } else { /* If the a ZIM url */
+	if (loadContent(url.href)) {
+	    activateBackButton();
+	}
     }
 
-    /* If the a ZIM url */
-    loadContent(url.href);
 
     return;
 }
