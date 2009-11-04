@@ -155,10 +155,12 @@ PipeChannel.prototype = {
 	    var content = new Object();
 	    var contentLength = new Object();
 	    var contentType = new Object();
-	    zimAccessor.getContent(uri, content, contentLength, contentType);
-	    
-	    this.pipe.outputStream.write(content.value, contentLength.value);
-	    this.pipe.outputStream.close();
+	    if (zimAccessor.getContent(uri, content, contentLength, contentType)) {
+		this.pipe.outputStream.write(content.value, contentLength.value);
+		this.pipe.outputStream.close();
+	    } else {
+		throw("Unable to load article.");
+	    }
 	} catch(err) {
 	    if (err.result != Cr.NS_BINDING_ABORTED) {
 		Components.utils.reportError(err);
