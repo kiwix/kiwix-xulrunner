@@ -3,6 +3,9 @@ AC_INIT([kiwix], [0.9])
 # Init. of automake
 AM_INIT_AUTOMAKE
 
+# Check if cl.exe is there and use cccl if yes
+AC_CHECK_FILE(cl.exe, CC=cccl; LD=cccl,)
+
 # Determine a C compiler
 AC_PROG_CC
 
@@ -27,6 +30,9 @@ AC_ARG_WITH(dependences, [  --with-dependences      download and compile depende
 
 if test [ ! "$WITH_DEPENDENCES" ]
 then
+	# Configuration of the libxul
+	PKG_CHECK_MODULES(libxul, libxul >= 0.1)
+
 	# Configuration for alternative zlib location
 	AC_ARG_WITH(zlib, [  --with-zlib=DIR         alternate location for zlib],
 			  CPPFLAGS="${CPPFLAGS} -I${withval}"; LDFLAGS="-L${withval} ${LDFLAGS}")
@@ -50,6 +56,20 @@ then
 	# Check the libunac
 	AC_CHECK_HEADER([unac.h],, [AC_MSG_ERROR([[cannot find unac header]])])
 	AC_CHECK_LIB([unac], [unac_string],, [AC_MSG_ERROR([[cannot find unac]])])
+
+	# Configuration for alternative xapianlib location
+	XAPIAN_CONFIG_PATH="$PATH"
+	AC_ARG_WITH(unac, [  --with-xapian=DIR         alternate location for Xapian library],
+			  XAPIAN_CONFIG_PATH="${withval}")
+
+	AC_CHECK_TOOL(HAVE_XAPIAN_CONFIG, xapian-config,, $XAPIAN_CONFIG_PATH)
+	if test [ ! "$HAVE_XAPIAN_CONFIG" ]
+	then 
+	     AC_MSG_ERROR([[cannot find xapian-config]])
+	else
+	     CPPFLAGS="${CPPFLAGS} "`xapian-config --cxxflags`;
+	     LDFLAGS="${LDFLAGS} "`xapian-config --libs`;
+	fi
 else
 	# Check if the 'wget' binary exists
 	AC_CHECK_TOOL(HAVE_WGET, wget)
