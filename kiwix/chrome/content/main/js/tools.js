@@ -188,7 +188,7 @@ function loadRandomArticle() {
 	    url.value = "zim://" + url.value;
 	}
 
-	getHtmlRenderer().loadURI(url.value);
+	loadContent(url.value);
 	activateBackButton();
     }
 }

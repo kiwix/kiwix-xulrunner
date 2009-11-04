@@ -30,9 +30,13 @@ function getHtmlRenderer() {
     return document.getElementById("html-renderer");  
 }
 
-/* Load an url in the HTML rendere */
+/* Load an url in the HTML render element */
 function loadContent(url) {
-    return getHtmlRenderer().loadURI(url, null, null);
+    try {
+	return getHtmlRenderer().loadURI(url, null, null);
+    } catch(e) {
+	displayErrorDialog(getProperty("loadArticleError"));
+    }
 }
 
 /* Return the Search input box object */
@@ -295,6 +299,11 @@ function openUrl(aEvent) {
     } else {
 	activateBackButton();
     }
+
+    /* If the a ZIM url */
+    loadContent(url.href);
+
+    return;
 }
 
 /* Clear the status bar */
