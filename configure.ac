@@ -14,6 +14,8 @@ AC_PROG_CXX
 
 # Determine libtool
 AC_PROG_LIBTOOL
+AC_PROG_RANLIB
+AC_PROG_MAKE_SET
 
 # Set current language to C++
 AC_LANG(C++)
@@ -32,6 +34,21 @@ if test [ ! "$WITH_DEPENDENCES" ]
 then
 	# Configuration of the libxul
 	PKG_CHECK_MODULES(libxul, libxul >= 0.1)
+	LIBXUL_CFLAGS=`pkg-config --cflags libxul`
+	LIBXUL_LDFLAGS=`pkg-config --libs libxul`
+
+	# Xulrunner paths
+	XULRUNNER_SDK_PATH=`pkg-config --variable=sdkdir libxul`
+	XULRUNNER_IDL_PATH=`pkg-config --variable=idldir libxul`
+
+	# Configuration of xpidl
+	AC_CHECK_TOOL(HAVE_XPIDL, "xpidl", [], $XULRUNNER_SDK_PATH/bin)
+	if test [ "$HAVE_XPIDL" ]
+	then 
+		AC_PATH_PROG([XPIDL], "xpidl", [], $XULRUNNER_SDK_PATH/bin)
+	else
+		AC_MSG_ERROR([[cannot find xpidl]])
+	fi
 
 	# Configuration for alternative zlib location
 	AC_ARG_WITH(zlib, [  --with-zlib=DIR         alternate location for zlib],
@@ -56,6 +73,8 @@ then
 	# Check the libunac
 	AC_CHECK_HEADER([unac.h],, [AC_MSG_ERROR([[cannot find unac header]])])
 	AC_CHECK_LIB([unac], [unac_string],, [AC_MSG_ERROR([[cannot find unac]])])
+	LIBUNAC_CFLAGS=""
+	LIBUNAC_LDFLAGS="-lunac"
 
 	# Configuration for alternative xapianlib location
 	XAPIAN_CONFIG_PATH="$PATH"
@@ -67,8 +86,8 @@ then
 	then 
 	     AC_MSG_ERROR([[cannot find xapian-config]])
 	else
-	     CPPFLAGS="${CPPFLAGS} "`xapian-config --cxxflags`;
-	     LDFLAGS="${LDFLAGS} "`xapian-config --libs`;
+	     LIBXAPIAN_CFLAGS=`xapian-config --cxxflags`;
+	     LIBXAPIAN_LDFLAGS=`xapian-config --ltlibs`;
 	fi
 else
 	# Check if the 'wget' binary exists
@@ -78,6 +97,20 @@ else
 	     AC_MSG_ERROR([[cannot find wget]])
 	fi
 fi
+
+# Special Flags for XPCOM components
+XPCOM_CFLAGS=" -fno-rtti -D_POSIX_ -O3 -fPIC "
+XPCOM_LDFLAGS=" -Xcompiler -shared -Wl,-rpath-link,$XULRUNNER_SDK_PATH/bin "
+
+# Export variables
+AC_SUBST(LIBXUL_CFLAGS)
+AC_SUBST(LIBXUL_LDFLAGS)
+AC_SUBST(XPCOM_CFLAGS)
+AC_SUBST(XPCOM_LDFLAGS)
+AC_SUBST(LIBXAPIAN_CFLAGS)
+AC_SUBST(LIBXAPIAN_LDFLAGS)
+AC_SUBST(LIBUNAC_CFLAGS)
+AC_SUBST(LIBUNAC_LDFLAGS)
 
 # Check the existence of stat64 (to handle file >2GB) in the libc
 AC_CHECK_FUNCS([stat64])
@@ -91,7 +124,20 @@ AC_CONFIG_FILES([
   src/Makefile
   src/zimlib/Makefile
   src/zimlib/src/Makefile
+  src/components/xapianAccessor/Makefile
   ])
 
 # Generate the Makefiles
 AC_OUTPUT
+
+# Generation of the XPCOM header files
+if test [ "$HAVE_XPIDL" ]
+then 
+     cd src/components/xapianAccessor ; $XPIDL -m header -I $XULRUNNER_IDL_PATH/stable IXapianAccessor.idl ; cd ../../..
+fi
+
+# Generation of the XPCOM xpt files
+if test [ "$HAVE_XPIDL" ]
+then 
+     cd src/components/xapianAccessor ; $XPIDL -m typelib -I $XULRUNNER_IDL_PATH/stable IXapianAccessor.idl ; mv IXapianAccessor.xpt xapianAccessor.xpt ; cd ../../..
+fi
