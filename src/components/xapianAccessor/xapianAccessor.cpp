@@ -76,8 +76,6 @@ XapianAccessor::~XapianAccessor() {
 NS_IMETHODIMP XapianAccessor::OpenReadableDatabase(const char* directory, PRBool *retVal) {
   *retVal = PR_TRUE;
 
-  std::cout << "open database" << std::endl;
-
   try {
     this->readableDatabase = Xapian::Database(directory);
   } catch (...) {
@@ -95,25 +93,18 @@ NS_IMETHODIMP XapianAccessor::CloseReadableDatabase(PRBool *retVal) {
 
 /* Search strings in the database */
 NS_IMETHODIMP XapianAccessor::Search(const nsACString &search, PRUint32 resultsCount, PRBool *retVal) {
-
-  std::cout << "search..." << std::endl;
-
   /* Reset the results */
   this->results.clear();
   this->resultOffset = this->results.begin();
 
   /* Create the enquire object */
   Xapian::Enquire enquire(this->readableDatabase);
-  
-  std::cout << "enquired." << std::endl;
 
   /* Create the query term vector */
   const char *csearch;
   NS_CStringGetData(search, &csearch, NULL);
   std::vector<std::string> queryTerms = split(removeAccents(csearch), " ");
   
-  std::cout << "splitted." << std::endl;
-
   /* Create query object */
   Xapian::Query query(Xapian::Query::OP_OR, queryTerms.begin(), queryTerms.end());
 
