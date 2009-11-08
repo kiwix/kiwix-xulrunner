@@ -30,22 +30,14 @@ struct Result
 
 /* Remove accent */
 std::string removeAccents(const char *text) { 
-  char* out = (char*)malloc(42);
+  char* out = 0;
   size_t out_length = 0;
   std::string textWithoutAccent;
-  string version = unac_version();
-  std::cout << "prepare..." << version << std::endl;
-  unac_string("UTF8", "42", 2, &out, &out_length);
-  std::cout << "prepare..." << std::endl;
 
   if (!unac_string("UTF8", text, size_t(strlen(text)), &out, &out_length)) {
-
-    std::cout << "done..." << std::endl;
-
     textWithoutAccent = out;
     free(out);
   } else {
-    std::cout << "done..." << std::endl;
     textWithoutAccent = text;
   }
   return textWithoutAccent;
