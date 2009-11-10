@@ -20,8 +20,15 @@ AC_PROG_MAKE_SET
 # Set current language to C++
 AC_LANG(C++)
 
+# Current path
+CURRENT_PATH=`pwd`
+
 # Check if the 'pkg-config' binary exists
 AC_CHECK_TOOL(HAVE_PKG_CONFIG, pkg-config)
+if test [ ! "$HAVE_PKG_CONFIG" ]
+then 
+	AC_MSG_ERROR([[cannot find pkg-config]])
+fi
 
 # Check if their is a Perl binary
 AC_CHECK_TOOL(HAVE_PERL, perl)
@@ -32,20 +39,38 @@ AC_ARG_WITH(dependences, [  --with-dependences      download and compile depende
 
 if test [ ! "$WITH_DEPENDENCES" ]
 then
-	# Configuration of the libxul
-	PKG_CHECK_MODULES(libxul, libxul >= 0.1)
-	LIBXUL_CFLAGS=`pkg-config --cflags libxul`
-	LIBXUL_LDFLAGS=`pkg-config --libs libxul`
+	# Configuration for alternative zlib location
+	AC_ARG_WITH(gecko-sdk, [  --with-gecko-sdk=DIR    alternate location for gecko SDK], 
+			       GECKO_SDK_PATH=`cd ${withval}; pwd`)
 
-	# Xulrunner paths
-	XULRUNNER_SDK_PATH=`pkg-config --variable=sdkdir libxul`
-	XULRUNNER_IDL_PATH=`pkg-config --variable=idldir libxul`
+	# Check for in standard way
+	if test [ "$GECKO_SDK_PATH" ]
+	then
+		LIBXUL_CFLAGS="-I${GECKO_SDK_PATH}/sdk/include -fshort-wchar"
+		LIBXUL_LDFLAGS="-L${GECKO_SDK_PATH}/sdk/lib -lxpcomglue_s -lxul -lxpcom -lplds4 -lplc4 -lnspr4 -lpthread -ldl"
+		GECKO_SDK_PATH=${GECKO_SDK_PATH}
+		GECKO_IDL_PATH=${GECKO_SDK_PATH}/idl
+	else
+		# Configuration of the libxul
+		HAVE_LIBXUL=`pkg-config --exists libxul; echo $(( ($?+1)%2 ))`
+		if test [ "$HAVE_LIBXUL" ]
+		then				
+			LIBXUL_CFLAGS=`pkg-config --cflags libxul`
+			LIBXUL_LDFLAGS=`pkg-config --libs libxul`		
+		else
+			AC_MSG_ERROR([[cannot find libxul]])
+		fi
+
+		# Gecko paths
+		GECKO_SDK_PATH=`pkg-config --variable=sdkdir libxul`
+		GECKO_IDL_PATH=`pkg-config --variable=idldir libxul`/stable
+	fi
 
 	# Configuration of xpidl
-	AC_CHECK_TOOL(HAVE_XPIDL, "xpidl", [], $XULRUNNER_SDK_PATH/bin)
+	AC_CHECK_TOOL(HAVE_XPIDL, "xpidl", [], $GECKO_SDK_PATH/bin)
 	if test [ "$HAVE_XPIDL" ]
 	then 
-		AC_PATH_PROG([XPIDL], "xpidl", [], $XULRUNNER_SDK_PATH/bin)
+		AC_PATH_PROG([XPIDL], "xpidl", [], $GECKO_SDK_PATH/bin)
 	else
 		AC_MSG_ERROR([[cannot find xpidl]])
 	fi
@@ -78,7 +103,7 @@ then
 
 	# Configuration for alternative xapianlib location
 	XAPIAN_CONFIG_PATH="$PATH"
-	AC_ARG_WITH(unac, [  --with-xapian=DIR         alternate location for Xapian library],
+	AC_ARG_WITH(unac, [  --with-xapian=DIR       alternate location for Xapian library],
 			  XAPIAN_CONFIG_PATH="${withval}")
 
 	AC_CHECK_TOOL(HAVE_XAPIAN_CONFIG, xapian-config,, $XAPIAN_CONFIG_PATH)
@@ -98,9 +123,12 @@ else
 	fi
 fi
 
+# debug
+AC_ARG_WITH(debug, [  --with-debug-symbols    add debug symbols], CFLAGS="${CFLAGS} -g "; CXXFLAGS="${CXXFLAGS} -g ")
+
 # Special Flags for XPCOM components
 XPCOM_CFLAGS=" -fno-rtti -D_POSIX_ -O3 -fPIC "
-XPCOM_LDFLAGS=" -Xcompiler -shared -Wl,-rpath-link,$XULRUNNER_SDK_PATH/bin "
+XPCOM_LDFLAGS=" -Xcompiler -shared -Wl,-rpath-link,$GECKO_SDK_PATH/bin "
 
 # Export variables
 AC_SUBST(LIBXUL_CFLAGS)
@@ -133,11 +161,11 @@ AC_OUTPUT
 # Generation of the XPCOM header files
 if test [ "$HAVE_XPIDL" ]
 then 
-     cd src/components/xapianAccessor ; $XPIDL -m header -I $XULRUNNER_IDL_PATH/stable IXapianAccessor.idl ; cd ../../..
+     cd src/components/xapianAccessor ; $XPIDL -m header -I $GECKO_IDL_PATH IXapianAccessor.idl ; cd ../../..
 fi
 
 # Generation of the XPCOM xpt files
 if test [ "$HAVE_XPIDL" ]
 then 
-     cd src/components/xapianAccessor ; $XPIDL -m typelib -I $XULRUNNER_IDL_PATH/stable IXapianAccessor.idl ; mv IXapianAccessor.xpt xapianAccessor.xpt ; cd ../../..
+     cd src/components/xapianAccessor ; $XPIDL -m typelib -I $GECKO_IDL_PATH IXapianAccessor.idl ; mv IXapianAccessor.xpt xapianAccessor.xpt ; cd ../../..
 fi
