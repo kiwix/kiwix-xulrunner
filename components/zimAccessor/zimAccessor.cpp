@@ -217,10 +217,14 @@ NS_IMETHODIMP ZimAccessor::GetContent(nsIURI *urlObject, nsACString &content, PR
 
   /* Extract the content from the zim file */
   try {
-    zim::File::const_iterator iterator = zimFileHandler->find(ns[0], zim::QUnicodeString(title));
-    zim::Article article = zimFileHandler->getArticle(iterator.getIndex());
+    std::pair<bool, zim::File::const_iterator> resultPair = zimFileHandler->findx(ns[0], zim::QUnicodeString(title));
 
-    if ( title == article.getTitle().getValue()) {
+    /* Test if the article was found */
+    if (resultPair.first == true) {
+
+      /* Get the article */
+      zim::Article article = zimFileHandler->getArticle(resultPair.second.getIndex());
+
       /* If redirect */
       unsigned int loopCounter = 0;
       while (article.isRedirect() && loopCounter++<42) {
