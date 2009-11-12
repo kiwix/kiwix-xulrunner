@@ -27,4 +27,5 @@ libzim_la_SOURCES = \
 include_HEADERS = \
 	ptrstream.h
 
-libzim_la_LDFLAGS=-lz -lbz2
+libzim_la_CXXFLAGS=${LIBZ_CFLAGS} ${LIBBZ2_CFLAGS}
+libzim_la_LDFLAGS=${LIBZ_LDFLAGS} ${LIBBZ2_LDFLAGS}
