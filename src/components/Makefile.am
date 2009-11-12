@@ -1,4 +1,3 @@
 SUBDIRS = \
-	xapianAccessor
-
-
+	xapianAccessor \
+	zimAccessor

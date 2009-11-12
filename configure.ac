@@ -152,7 +152,9 @@ AC_CONFIG_FILES([
   src/Makefile
   src/zimlib/Makefile
   src/zimlib/src/Makefile
+  src/components/Makefile
   src/components/xapianAccessor/Makefile
+  src/components/zimAccessor/Makefile
   ])
 
 # Generate the Makefiles
