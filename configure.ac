@@ -77,29 +77,45 @@ then
 
 	# Configuration for alternative zlib location
 	AC_ARG_WITH(zlib, [  --with-zlib=DIR         alternate location for zlib],
-			  CPPFLAGS="${CPPFLAGS} -I${withval}"; LDFLAGS="-L${withval} ${LDFLAGS}")
+			  LIBZ_PATH=`cd ${withval}; pwd`; CPPFLAGS="-I${LIBZ_PATH}"; LDFLAGS="-L${LIBZ_PATH}")
 	
 	# Check the zlib
 	AC_CHECK_HEADER([zlib.h],, [AC_MSG_ERROR([[cannot find zlib header]])])
 	AC_CHECK_LIB([z], [zlibVersion],, [AC_MSG_ERROR([[cannot find zlib]])])
+	if test [ "$LIBZ_PATH" ]
+	then
+	   LIBZ_CFLAGS="-I${LIBZ_PATH}"
+	   LIBZ_LDFLAGS="-L${LIBZ_PATH}"
+	fi   
+	LIBZ_LDFLAGS="${LIBZ_LDFLAGS} -lz"
 
 	# Configuration for alternative bz2lib location
 	AC_ARG_WITH(bz2, [  --with-bz2=DIR          alternate location for bz2 library],
-		 	 CPPFLAGS="${CPPFLAGS} -I${withval}"; LDFLAGS="-L${withval} ${LDFLAGS}")
+		 	 LIBBZ2_PATH=`cd ${withval}; pwd`; CPPFLAGS="-I${LIBBZ2_PATH}"; LDFLAGS="-L${LIBBZ2_PATH}")
 
 	# Check for the libbz2
-	AC_CHECK_HEADER([bzlib.h],, [AC_MSG_ERROR([[cannot find bzip2 header]])])
+	AC_CHECK_HEADER([bzlib.h], [], [AC_MSG_ERROR([[cannot find bzip2 header]])])
 	AC_CHECK_LIB([bz2], [main],, [AC_MSG_ERROR([[cannot find bzip2]])]) 
+	if test [ "$LIBBZ2_PATH" ]
+	then
+		LIBBZ2_CFLAGS="-I${LIBBZ2_PATH}"
+		LIBBZ2_LDFLAGS="-L${LIBBZ2_PATH}"
+	fi
+	LIBBZ2_LDFLAGS="-L${LIBBZ2_PATH} -lbz2"
 
 	# Configuration for alternative unaclib location
 	AC_ARG_WITH(unac, [  --with-unac=DIR         alternate location for unac library],
-			  CPPFLAGS="${CPPFLAGS} -I${withval}"; LDFLAGS="-L${withval} ${LDFLAGS}")
+			  LIBUNAC_PATH=`cd ${withval}; pwd`; CPPFLAGS="${LIBUNAC_PATH}"; LDFLAGS="${LDFLAGS}")
 
 	# Check the libunac
 	AC_CHECK_HEADER([unac.h],, [AC_MSG_ERROR([[cannot find unac header]])])
 	AC_CHECK_LIB([unac], [unac_string],, [AC_MSG_ERROR([[cannot find unac]])])
-	LIBUNAC_CFLAGS=""
-	LIBUNAC_LDFLAGS="-lunac"
+	if test [ "$LIBUNAC_PATH" ]
+	then
+		LIBUNAC_CFLAGS="-I${LIBUNAC_PATH}"
+		LIBUNAC_LDFLAGS="-L${LIBUNAC_PATH}"
+	fi
+	LIBUNAC_LDFLAGS="${LIBUNAC_LDFLAGS} -lunac"
 
 	# Configuration for alternative xapianlib location
 	XAPIAN_CONFIG_PATH="$PATH"
@@ -123,6 +139,15 @@ else
 	fi
 fi
 
+# clear $CPPFLAGS and $LDFLAGS
+CPPFLAGS=""
+LDFLAGS=""
+LIBS=""
+
+# libzim flags
+LIBZIM_CFLAGS="-I${CURRENT_PATH}src/zimlib/include"
+LIBZIM_LDFLAGS="-L${CURRENT_PATH}src/zimlib/src/.libs/ -Wl,-Bstatic -lzim -Wl,-Bdynamic"
+
 # debug
 AC_ARG_WITH(debug, [  --with-debug-symbols    add debug symbols], CFLAGS="${CFLAGS} -g "; CXXFLAGS="${CXXFLAGS} -g ")
 
@@ -137,8 +162,14 @@ AC_SUBST(XPCOM_CFLAGS)
 AC_SUBST(XPCOM_LDFLAGS)
 AC_SUBST(LIBXAPIAN_CFLAGS)
 AC_SUBST(LIBXAPIAN_LDFLAGS)
+AC_SUBST(LIBZ_CFLAGS)
+AC_SUBST(LIBZ_LDFLAGS)
+AC_SUBST(LIBBZ2_CFLAGS)
+AC_SUBST(LIBBZ2_LDFLAGS)
 AC_SUBST(LIBUNAC_CFLAGS)
 AC_SUBST(LIBUNAC_LDFLAGS)
+AC_SUBST(LIBZIM_CFLAGS)
+AC_SUBST(LIBZIM_LDFLAGS)
 
 # Check the existence of stat64 (to handle file >2GB) in the libc
 AC_CHECK_FUNCS([stat64])
@@ -164,10 +195,12 @@ AC_OUTPUT
 if test [ "$HAVE_XPIDL" ]
 then 
      cd src/components/xapianAccessor ; $XPIDL -m header -I $GECKO_IDL_PATH IXapianAccessor.idl ; cd ../../..
+     cd src/components/zimAccessor ; $XPIDL -m header -I $GECKO_IDL_PATH IZimAccessor.idl ; cd ../../..
 fi
 
 # Generation of the XPCOM xpt files
 if test [ "$HAVE_XPIDL" ]
 then 
      cd src/components/xapianAccessor ; $XPIDL -m typelib -I $GECKO_IDL_PATH IXapianAccessor.idl ; mv IXapianAccessor.xpt xapianAccessor.xpt ; cd ../../..
+     cd src/components/zimAccessor ; $XPIDL -m typelib -I $GECKO_IDL_PATH IZimAccessor.idl ; mv IZimAccessor.xpt zimAccessor.xpt ; cd ../../..
 fi
