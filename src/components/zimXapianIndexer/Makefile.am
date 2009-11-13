@@ -1,0 +1,4 @@
+bin_PROGRAMS=zimXapianAccessor.so
+zimXapianAccessor_so_SOURCES=xapianAccessor.cpp splitString.cpp
+zimXapianAccessor_so_CXXFLAGS=$(LIBXUL_CFLAGS) $(LIBXAPIAN_CFLAGS) $(LIBUNAC_CFLAGS) $(LIBZIM_CFLAGS) $(XPCOM_CFLAGS)
+zimXapianAccessor_so_LDFLAGS=$(LIBXUL_LDFLAGS) $(LIBXAPIAN_LDFLAGS) $(LIBUNAC_LDFLAGS) $(LIBZIM_LDFLAGS) $(XPCOM_LDFLAGS)

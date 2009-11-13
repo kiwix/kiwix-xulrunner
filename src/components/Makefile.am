@@ -1,3 +1,4 @@
 SUBDIRS = \
 	xapianAccessor \
-	zimAccessor
+	zimAccessor \
+	zimXapianIndexer
