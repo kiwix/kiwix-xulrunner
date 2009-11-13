@@ -101,25 +101,28 @@ then
 		LIBBZ2_CFLAGS="-I${LIBBZ2_PATH}"
 		LIBBZ2_LDFLAGS="-L${LIBBZ2_PATH}"
 	fi
-	LIBBZ2_LDFLAGS="-L${LIBBZ2_PATH} -lbz2"
+	LIBBZ2_LDFLAGS="${LIBBZ2_LDFLAGS} -lbz2"
 
 	# Configuration for alternative unaclib location
-	AC_ARG_WITH(unac, [  --with-unac=DIR         alternate location for unac library],
-			  LIBUNAC_PATH=`cd ${withval}; pwd`; CPPFLAGS="${LIBUNAC_PATH}"; LDFLAGS="${LDFLAGS}")
-
-	# Check the libunac
-	AC_CHECK_HEADER([unac.h],, [AC_MSG_ERROR([[cannot find unac header]])])
-	AC_CHECK_LIB([unac], [unac_string],, [AC_MSG_ERROR([[cannot find unac]])])
-	if test [ "$LIBUNAC_PATH" ]
+	if test [ ! "$with_unac" == "no" ]
 	then
-		LIBUNAC_CFLAGS="-I${LIBUNAC_PATH}"
-		LIBUNAC_LDFLAGS="-L${LIBUNAC_PATH}"
+		AC_ARG_WITH(unac, [  --with-unac=DIR         alternate location for unac library],
+				  LIBUNAC_PATH=`cd ${withval}; pwd`; CPPFLAGS="${LIBUNAC_PATH}"; LDFLAGS="${LDFLAGS}")
+
+		# Check the libunac
+		AC_CHECK_HEADER([unac.h],, [AC_MSG_ERROR([[cannot find unac header]])])
+		AC_CHECK_LIB([unac], [unac_string],, [AC_MSG_ERROR([[cannot find unac]])])
+		if test [ "$LIBUNAC_PATH" ]
+		then
+			LIBUNAC_CFLAGS="-I${LIBUNAC_PATH}"
+			LIBUNAC_LDFLAGS="-L${LIBUNAC_PATH}"
+		fi
+		LIBUNAC_LDFLAGS="${LIBUNAC_LDFLAGS} -lunac"
 	fi
-	LIBUNAC_LDFLAGS="${LIBUNAC_LDFLAGS} -lunac"
 
 	# Configuration for alternative xapianlib location
 	XAPIAN_CONFIG_PATH="$PATH"
-	AC_ARG_WITH(unac, [  --with-xapian=DIR       alternate location for Xapian library],
+	AC_ARG_WITH(xapian, [  --with-xapian=DIR       alternate location for Xapian library],
 			  XAPIAN_CONFIG_PATH="${withval}")
 
 	AC_CHECK_TOOL(HAVE_XAPIAN_CONFIG, xapian-config,, $XAPIAN_CONFIG_PATH)
@@ -186,6 +189,7 @@ AC_CONFIG_FILES([
   src/components/Makefile
   src/components/xapianAccessor/Makefile
   src/components/zimAccessor/Makefile
+  src/components/zimXapianIndexer/Makefile
   ])
 
 # Generate the Makefiles
@@ -196,6 +200,7 @@ if test [ "$HAVE_XPIDL" ]
 then 
      cd src/components/xapianAccessor ; $XPIDL -m header -I $GECKO_IDL_PATH IXapianAccessor.idl ; cd ../../..
      cd src/components/zimAccessor ; $XPIDL -m header -I $GECKO_IDL_PATH IZimAccessor.idl ; cd ../../..
+     cd src/components/zimXapianIndexer ; $XPIDL -m header -I $GECKO_IDL_PATH IZimXapianIndexer.idl ; cd ../../..
 fi
 
 # Generation of the XPCOM xpt files
@@ -203,4 +208,5 @@ if test [ "$HAVE_XPIDL" ]
 then 
      cd src/components/xapianAccessor ; $XPIDL -m typelib -I $GECKO_IDL_PATH IXapianAccessor.idl ; mv IXapianAccessor.xpt xapianAccessor.xpt ; cd ../../..
      cd src/components/zimAccessor ; $XPIDL -m typelib -I $GECKO_IDL_PATH IZimAccessor.idl ; mv IZimAccessor.xpt zimAccessor.xpt ; cd ../../..
+     cd src/components/zimXapianIndexer ; $XPIDL -m typelib -I $GECKO_IDL_PATH IZimXapianIndexer.idl ; mv IZimXapianIndexer.xpt zimXapianIndexer.xpt ; cd ../../..
 fi
