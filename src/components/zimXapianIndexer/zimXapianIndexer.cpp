@@ -1,8 +1,6 @@
 #include "xpcom-config.h"
 #include "nsIGenericFactory.h"
 #include "IZimXapianIndexer.h"
-#include <stdio.h>
-#include <stdlib.h>
 
 #include "nsXPCOM.h"
 #include "nsEmbedString.h"
@@ -21,26 +19,9 @@
 #include <xapian.h>
 #include "xapian/myhtmlparse.h"
 
-#include <unac.h>
-
-#include <string>
+#include <unaccent.h>
 
 using namespace std;
-
-/* Remove accent */
-std::string removeAccents(const char *text) { 
-  char* out = 0;
-  size_t out_length = 0;
-  std::string textWithoutAccent;
-
-  if (!unac_string("UTF8", text, size_t(strlen(text)), &out, &out_length)) {
-    textWithoutAccent = out;
-    free(out);
-  } else {
-    textWithoutAccent = text;
-  }
-  return textWithoutAccent;
-}
 
 /* Count word */
 unsigned int countWords(const string &text) {

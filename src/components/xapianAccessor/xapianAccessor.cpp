@@ -2,7 +2,8 @@
 #include <stdlib.h>
 #include <string>
 #include <xapian.h>
-#include <unac.h>
+
+#include <unaccent.h>
 
 #include "xpcom-config.h"
 #include "nsIGenericFactory.h"
@@ -18,7 +19,6 @@
 
 #include "splitString.h"
 
-
 using namespace std;
 
 struct Result
@@ -27,20 +27,6 @@ struct Result
   string title;
   int score;
 }; 
-
-/* Remove accent */
-std::string removeAccents(const char *text) { 
-  char* out = 0;
-  size_t out_length = 0;
-  std::string textWithoutAccent = text;
-
-  if (!unac_string("UTF8", text, strlen(text), &out, &out_length)) {
-    textWithoutAccent = string(out, out_length);
-    free(out);
-  }
-
-  return textWithoutAccent;
-}
 
 class XapianAccessor : public IXapianAccessor {
 
