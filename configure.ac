@@ -148,15 +148,15 @@ LDFLAGS=""
 LIBS=""
 
 # libzim flags
-LIBZIM_CFLAGS="-I${CURRENT_PATH}src/zimlib/include"
-LIBZIM_LDFLAGS="-L${CURRENT_PATH}src/zimlib/src/.libs/ -Wl,-Bstatic -lzim -Wl,-Bdynamic"
+LIBZIM_CFLAGS="-I${CURRENT_PATH}/src/zimlib/include"
+LIBZIM_LDFLAGS="-lbz2 -lz"
 
 # debug
 AC_ARG_WITH(debug, [  --with-debug-symbols    add debug symbols], CFLAGS="${CFLAGS} -g "; CXXFLAGS="${CXXFLAGS} -g ")
 
 # Special Flags for XPCOM components
-XPCOM_CFLAGS=" -fno-rtti -D_POSIX_ -O3 -fPIC "
-XPCOM_LDFLAGS=" -Xcompiler -shared -Wl,-rpath-link,$GECKO_SDK_PATH/bin "
+XPCOM_CFLAGS="-fno-rtti -D_POSIX_ -O3 -fPIC"
+XPCOM_LDFLAGS="-Xcompiler -shared -Wl,-rpath-link,$GECKO_SDK_PATH/bin"
 
 # Export variables
 AC_SUBST(LIBXUL_CFLAGS)
