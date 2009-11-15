@@ -12,6 +12,7 @@ Kiwix 0.9 alpha1
 * Save Page as file (ID: 175508)
 * kiwix.sh check for current path (ID: 2850487)
 * First result is now only loaded with a pretty good score (ID: 2845850)
+* "Report a bug" and "request a feature" links in the UI
 
 Kiwix 0.8 rc3
 * Small improvement by the kiwix.sh launcher (should work now under Slackware (see https://sourceforge.net/forum/message.php?msg_id=7561932)

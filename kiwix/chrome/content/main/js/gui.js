@@ -292,7 +292,7 @@ function openUrl(aEvent) {
 
     /* Open with extern browser if not an internal link */
     if (url.href.indexOf("zim://",0) != 0) {
-	openUrlWithExternalBrowser(url);
+	openUrlWithExternalBrowser(url.href);
 	aEvent.preventDefault();
 	aEvent.stopPropagation();
 	

@@ -54,6 +54,8 @@
 <!-- Help menu -->
 <!ENTITY main.help                    "Help">
 <!ENTITY main.help.accesskey          "H">
+<!ENTITY main.reportabug              "Report a bug">
+<!ENTITY main.requestafeature         "Request a feature">
 <!ENTITY main.about                   "About &brand.brandShortName;">
 <!ENTITY main.about.accesskey         "A">
 

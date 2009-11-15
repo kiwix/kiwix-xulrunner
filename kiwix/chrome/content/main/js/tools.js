@@ -228,7 +228,7 @@ function print() {
 function openUrlWithExternalBrowser(url) {
     var ioService = Components.classes["@mozilla.org/network/io-service;1"].
 	getService(Components.interfaces.nsIIOService);
-    var resolvedUrl = ioService.newURI(url.href, null, null);
+    var resolvedUrl = ioService.newURI(url, null, null);
     var externalProtocolService = Components.
 	classes["@mozilla.org/uriloader/external-protocol-service;1"].
 	getService(Components.interfaces.nsIExternalProtocolService);

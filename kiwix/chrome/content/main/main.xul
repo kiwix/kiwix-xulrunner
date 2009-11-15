@@ -121,6 +121,11 @@
       <menuitem id="help-help" label="&main.help;" class="menuitem-iconic" 
 		accesskey="&main.help.accesskey;" oncommand="showHelp()"/>
       <menuseparator/>
+      <menuitem id="help-reportabug" label="&main.reportabug;" class="menuitem-iconic" 
+		oncommand="openUrlWithExternalBrowser('http://reportabug.kiwix.org')"/>
+      <menuitem id="help-requestafeature" label="&main.requestafeature;" class="menuitem-iconic" 
+		oncommand="openUrlWithExternalBrowser('http://requestafeature.kiwix.org')"/>
+      <menuseparator/>
       <menuitem id="help-about" label="&main.about;" class="menuitem-iconic" 
 		accesskey="&main.about.accesskey;" oncommand="showAbout()"/>
     </menupopup>
