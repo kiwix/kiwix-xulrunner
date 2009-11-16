@@ -206,7 +206,7 @@ fi
 # Generation of the XPCOM xpt files
 if test [ "$HAVE_XPIDL" ]
 then 
-     cd src/components/xapianAccessor ; $XPIDL -m typelib -I $GECKO_IDL_PATH IXapianAccessor.idl ; mv IXapianAccessor.xpt xapianAccessor.xpt ; cd ../../..
-     cd src/components/zimAccessor ; $XPIDL -m typelib -I $GECKO_IDL_PATH IZimAccessor.idl ; mv IZimAccessor.xpt zimAccessor.xpt ; cd ../../..
-     cd src/components/zimXapianIndexer ; $XPIDL -m typelib -I $GECKO_IDL_PATH IZimXapianIndexer.idl ; mv IZimXapianIndexer.xpt zimXapianIndexer.xpt ; cd ../../..
+     cd src/components/xapianAccessor ; $XPIDL -m typelib -I $GECKO_IDL_PATH IXapianAccessor.idl ; cd ../../..
+     cd src/components/zimAccessor ; $XPIDL -m typelib -I $GECKO_IDL_PATH IZimAccessor.idl ; cd ../../..
+     cd src/components/zimXapianIndexer ; $XPIDL -m typelib -I $GECKO_IDL_PATH IZimXapianIndexer.idl ; cd ../../..
 fi
