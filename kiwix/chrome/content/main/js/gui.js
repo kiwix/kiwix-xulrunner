@@ -226,15 +226,6 @@ function changeResultsBarVisibilityStatus(visible) {
     settings.displayResultsBar(visible);
 }
 
-/* Allowing zoom function by combining mouse & ctrl */
-function mouseScroll(aEvent) {
-    if (aEvent.ctrlKey) {
-	if (aEvent.detail>0) { zoomOut() } ;
-	if (aEvent.detail<0) { zoomIn() } ;
-	aEvent.preventDefault();
-	aEvent.stopPropagation();
-    }
-}
 
 /* Return true if the URL is internal */
 function isInternalUrl(url) {
@@ -245,8 +236,34 @@ function isInternalUrl(url) {
     }
 }
 
+/* Allowing to navigate through the results list with the mouse wheel */
+function resultsListMouseScroll(aEvent) {
+    var resultsList = getResultsList();
+
+    if (resultsList.currentIndex >= 0) {
+	var newIndex = resultsList.currentIndex;
+	if (aEvent.detail > 0 && newIndex > 0) {
+	    newIndex++;
+	} else if (aEvent.detail < 0 && newIndex < (resultsList.itemCount-1)) { 
+	    newIndex--;
+	}
+	resultsList.selectItem(resultsList.getItemAtIndex(newIndex));
+	resultsList.scrollToIndex(newIndex);
+    }
+}
+
+/* Allowing zoom function by combining mouse & ctrl */
+function htmlRendererMouseScroll(aEvent) {
+    if (aEvent.ctrlKey) {
+	if (aEvent.detail>0) { zoomOut() } ;
+	if (aEvent.detail<0) { zoomIn() } ;
+	aEvent.preventDefault();
+	aEvent.stopPropagation();
+    }
+}
+
 /* Update the status bar if mouse is over a link */
-function mouseOver(aEvent) {
+function htmlRendererMouseOver(aEvent) {
     var url = aEvent.target;
 
     if (url instanceof HTMLSpanElement && 
@@ -269,7 +286,7 @@ function mouseOver(aEvent) {
 }
 
 /* Update the status bar if mouse is out of a link */
-function mouseOut(aEvent) {
+function htmlRendererMouseOut(aEvent) {
     var url = aEvent.target;
 
     if (url instanceof HTMLAnchorElement) {
@@ -278,7 +295,7 @@ function mouseOut(aEvent) {
 }
 
 /* Is called every time an (external|internal) url is clicked */
-function openUrl(aEvent) {
+function htmlRendererOpenUrl(aEvent) {
     var url = aEvent.target;
 
     if (url instanceof HTMLAnchorElement) {
@@ -568,7 +585,7 @@ function addResultToList(url, title, score) {
     scoreslide.setAttribute("flex", "0");
 
     var scoreslidef = document.createElement("box");
-    scoreslidef.setAttribute("style", "cursor: pointer; -moz-border-radius: 7px; width: "+slideWidth+"px; background-color: #EEEEEE");
+    scoreslidef.setAttribute("style", "text-overflow: ellipsis; cursor: pointer; -moz-border-radius: 7px; width: "+slideWidth+"px; background-color: #EEEEEE");
     scoreslide.appendChild(scoreslidef);
     
     /* Set label of the richlist item */

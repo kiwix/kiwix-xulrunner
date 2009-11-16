@@ -74,12 +74,15 @@ function init() {
     /* Populates the last open menu */
     populateLastOpenMenu();
 
-    /* Add mouse scroll listener to allow zoon in/out with the mouse for examle */
-    getHtmlRenderer().addEventListener("DOMMouseScroll", mouseScroll, false);
-    getHtmlRenderer().addEventListener("mouseover", mouseOver, true);
-    getHtmlRenderer().addEventListener("mouseout", mouseOut, true);
-    getHtmlRenderer().addEventListener("DOMActivate", openUrl, true);
+    /* Add mouse scroll listener to allow zoon in/out with the mouse for example */
+    getHtmlRenderer().addEventListener("DOMMouseScroll", htmlRendererMouseScroll, false);
+    getHtmlRenderer().addEventListener("mouseover", htmlRendererMouseOver, true);
+    getHtmlRenderer().addEventListener("mouseout", htmlRendererMouseOut, true);
+    getHtmlRenderer().addEventListener("DOMActivate", htmlRendererOpenUrl, true);
     
+    /* Add mouse scroll listener to the results bar */
+    getResultsList().addEventListener("DOMMouseScroll", resultsListMouseScroll, false);
+
     // register WebProgress listener
     var dls = Components.classes ["@mozilla.org/docloaderservice;1"]
 	.getService (nsIWebProgress);
