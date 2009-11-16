@@ -585,7 +585,7 @@ function addResultToList(url, title, score) {
     scoreslide.setAttribute("flex", "0");
 
     var scoreslidef = document.createElement("box");
-    scoreslidef.setAttribute("style", "text-overflow: ellipsis; cursor: pointer; -moz-border-radius: 7px; width: "+slideWidth+"px; background-color: #EEEEEE");
+    scoreslidef.setAttribute("style", "cursor: pointer; -moz-border-radius: 7px; width: "+slideWidth+"px; background-color: #EEEEEE");
     scoreslide.appendChild(scoreslidef);
     
     /* Set label of the richlist item */
