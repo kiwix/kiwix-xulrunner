@@ -1,7 +1,19 @@
-#!/bin/sh
+#!/bin/bash
+
+# Binary
+BINARY=$0
+while [ `readlink $BINARY` ]
+do
+    BINARY=`readlink $BINARY`
+done
+
+if [ ! ${BINARY:0:1} = "/" ]
+then
+    BINARY=`dirname $BINARY`/$BINARY
+fi
 
 # Binary dir
-BINARY_DIR=`dirname $0`
+BINARY_DIR=`dirname $BINARY`
 
 # Take a look to the current directory
 XULRUNNER=`find $BINARY_DIR -type f -name xulrunner`
