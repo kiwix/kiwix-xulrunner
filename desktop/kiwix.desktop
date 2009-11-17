@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Kiwix
+GenericName=Kiwix
+Comment=Kiwix
+Exec=kiwix
+Terminal=false
+Type=Application
+Icon=kiwix.png
+Categories=GNOME;Education;
+StartupNotify=false
