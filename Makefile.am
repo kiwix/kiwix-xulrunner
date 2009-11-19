@@ -1,5 +1,6 @@
-SUBDIRS = src
-
+SUBDIRS=src
+EXTRA_DIST=kiwix
+ 
 install:
 	if [ ! -d ${prefix}/share/pixmaps/ ] ; then mkdir ${prefix}/share/pixmaps/ ; fi
 	cp desktop/kiwix.png ${prefix}/share/pixmaps/
