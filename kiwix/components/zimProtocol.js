@@ -160,7 +160,7 @@ PipeChannel.prototype = {
 	    this.pipe.outputStream.write(content.value, contentLength.value);
 	    this.pipe.outputStream.close();
 	} else {
-	    throw("Unable to load article.");
+	    throw("Unable to load article '" + uri.spec + "'.");
 	}
     },
     
