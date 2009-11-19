@@ -1,7 +1,9 @@
 SUBDIRS = src
 
 install:
+	if [ ! -d ${prefix}/share/pixmaps/ ] ; then mkdir ${prefix}/share/pixmaps/ ; fi
 	cp desktop/kiwix.png ${prefix}/share/pixmaps/
+	if [ ! -d ${prefix}/share/applications/ ] ; then mkdir ${prefix}/share/applications/ ; fi
 	cp desktop/kiwix.desktop ${prefix}/share/applications/
 	cp -r -v -L ./kiwix ${prefix}/lib/
 	for FILE in `find /usr/local/lib/kiwix/ -name \
