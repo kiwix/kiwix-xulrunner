@@ -150,6 +150,8 @@ LIBS=""
 # libzim flags
 LIBZIM_CFLAGS="-I${CURRENT_PATH}/src/zimlib/include"
 LIBZIM_LDFLAGS="-lbz2 -lz"
+AC_DEFINE_UNQUOTED(CLUSTER_CACHE_SIZE, 16, [set zim cluster cache size to number of cached chunks])
+AC_DEFINE_UNQUOTED(DIRENT_CACHE_SIZE, 512, [set zim dirent cache size to number of cached chunks])
 
 # debug
 AC_ARG_WITH(debug, [  --with-debug-symbols    add debug symbols], CFLAGS="${CFLAGS} -g "; CXXFLAGS="${CXXFLAGS} -g ")
