@@ -1,6 +1,9 @@
 SUBDIRS=src
 EXTRA_DIST=kiwix
- 
+
+dist-hook:
+	rm -rf `find . -name "*.svn" -o -name "*.dat" -o -name "*~" -o -name "*#"`
+
 install:
 	if [ ! -d ${prefix}/share/pixmaps/ ] ; then mkdir ${prefix}/share/pixmaps/ ; fi
 	cp desktop/kiwix.png ${prefix}/share/pixmaps/
