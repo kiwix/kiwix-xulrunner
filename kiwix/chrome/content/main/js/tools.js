@@ -93,7 +93,6 @@ function init() {
     /* Apply GUI settings */
     if (settings.displayStatusBar() != undefined) { changeStatusBarVisibilityStatus(settings.displayStatusBar()); }
     if (settings.displayFullScreen() != undefined) { if (settings.displayFullScreen()) { UIToggleFullScreen(); } }
-    if (settings.displayResultsBar() != undefined) { changeResultsBarVisibilityStatus(settings.displayResultsBar()); }
     if (settings.displayBookmarksBar() === true) { UIToggleBookmarksBar(); }
 
     /* Load the welcome page of the ZIM file */
