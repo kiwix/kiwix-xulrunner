@@ -244,6 +244,8 @@ NS_IMETHODIMP ZimAccessor::GetContent(nsIURI *urlObject, nsACString &content, PR
       *retVal = PR_TRUE;
     } else {
       /* The found article is not the good one */
+      content="";
+      *contentLength = 0;
       *retVal = PR_FALSE;
     }
   } catch(...) {
