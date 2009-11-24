@@ -158,10 +158,13 @@ PipeChannel.prototype = {
 
 	if (zimAccessor.getContent(uri, content, contentLength, contentType)) {
 	    this.pipe.outputStream.write(content.value, contentLength.value);
-	    this.pipe.outputStream.close();
 	} else {
-	    throw("Unable to load article '" + uri.spec + "'.");
+	    /* TODO, this seems to generate segfaults */
+	    /* but is necessary to display an error if the client try to load an unexisting url */
+	    //throw("Unable to load article '" + uri.spec + "'.");
 	}
+	this.pipe.outputStream.close();
+
     },
     
     open: function() {return this.channel.open();},
