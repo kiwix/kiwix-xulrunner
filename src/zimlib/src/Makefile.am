@@ -25,7 +25,8 @@ libzim_la_SOURCES = \
 	zintstream.cpp
 
 include_HEADERS = \
-	ptrstream.h
+	ptrstream.h \
+	log.h
 
 libzim_la_CXXFLAGS=${LIBZ_CFLAGS} ${LIBBZ2_CFLAGS} -fPIC
 libzim_la_LDFLAGS=${LIBZ_LDFLAGS} ${LIBBZ2_LDFLAGS}
