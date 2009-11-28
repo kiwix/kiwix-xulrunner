@@ -1,0 +1,24 @@
+Source: kiwix
+Section: misc
+Priority: optional
+Maintainer: Emmanuel Engelhart <emmanuel@engelhart.org>
+Build-Depends: zlib1g-dev,
+	libxapian-dev,
+	libbz2-dev,
+	xulrunner-dev,
+	libunac1-dev
+	m4,
+	binutils
+Standards-Version: 0.9
+
+Package: kiwix
+Architecture: any
+Depends: debianutils, ${shlibs:Depends}
+Recommends: 
+Suggests: 
+Conflicts: 
+Replaces: 
+Provides: 
+Section: misc
+Description: ZIM file reader. Allows to read and search through
+offline content in ZIM format, like Wikipedia for example.
