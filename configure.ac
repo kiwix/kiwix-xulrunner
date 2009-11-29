@@ -212,3 +212,7 @@ then
      cd src/components/zimAccessor ; $XPIDL -m typelib -I $GECKO_IDL_PATH IZimAccessor.idl ; cd ../../..
      cd src/components/zimXapianIndexer ; $XPIDL -m typelib -I $GECKO_IDL_PATH IZimXapianIndexer.idl ; cd ../../..
 fi
+
+# Generate a new BuildID
+REPLACE=`date "+%Y%m%d"`
+sed -i -e "s/^BuildID=[[0-9]]*/BuildID=$REPLACE/" ./kiwix/application.ini
