@@ -65,6 +65,14 @@ function getProperty(name, parameter1, parameter2) {
 /* initialization function */
 function init() {
 
+    /* Check the XPCOM registration */
+    if (Components.classes["@kiwix.org/zimAccessor"] == undefined)
+	dump("Unable to register the zimAccessor XPCOM, Kiwix will be unable to read ZIM files.\n");
+    if (Components.classes["@kiwix.org/xapianAccessor"] == undefined)
+	dump("Unable to register the xapianAccessor XPCOM, Kiwix will be unable to provide the search engine.\n");
+    if (Components.classes["@kiwix.org/zimXapianIndexer"] == undefined)
+	dump("Unable to register the zimXapianIndexer XPCOM, Kiwix will be unable to index ZIM files.\n");
+
     /* Set the size and position of the window */
     configureWindowGeometry(this);
 
@@ -84,8 +92,8 @@ function init() {
     getResultsList().addEventListener("DOMMouseScroll", resultsListMouseScroll, false);
 
     // register WebProgress listener
-    var dls = Components.classes ["@mozilla.org/docloaderservice;1"]
-	.getService (nsIWebProgress);
+    var dls = Components.classes["@mozilla.org/docloaderservice;1"]
+	.getService(nsIWebProgress);
     dls.addProgressListener (UIBrowserProgressListener,
 			     nsIWebProgress.NOTIFY_LOCATION |
 			     nsIWebProgress.NOTIFY_STATE_DOCUMENT);
