@@ -58,11 +58,14 @@ XapianAccessor::~XapianAccessor() {
 }
 
 /* Open Xapian readable database */
-NS_IMETHODIMP XapianAccessor::OpenReadableDatabase(const char* directory, PRBool *retVal) {
+NS_IMETHODIMP XapianAccessor::OpenReadableDatabase(const nsACString &directory, PRBool *retVal) {
   *retVal = PR_TRUE;
 
+  const char *directoryPath;
+  NS_CStringGetData(directory, &directoryPath);
+
   try {
-    this->readableDatabase = Xapian::Database(directory);
+    this->readableDatabase = Xapian::Database(directoryPath);
   } catch (...) {
     *retVal = PR_FALSE;
   }

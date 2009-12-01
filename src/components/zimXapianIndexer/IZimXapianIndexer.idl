@@ -1,13 +1,11 @@
 #include "nsISupports.idl"
 
 interface nsIURI;
-interface nsACString;
-interface nsAUTF8String;
 
 [scriptable, uuid(9be3f6b2-31a3-4aed-8e58-2b6ca04babf0)]
 interface IZimXapianIndexer : nsISupports
 {
-  boolean startIndexing(in string zimFilePath, in string xapianDirectoryPath);
+  boolean startIndexing(in AUTF8String zimFilePath, in AUTF8String xapianDirectoryPath);
   boolean stopIndexing();
   boolean indexNextPercent();
 };

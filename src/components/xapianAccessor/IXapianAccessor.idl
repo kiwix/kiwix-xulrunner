@@ -1,13 +1,11 @@
 #include "nsISupports.idl"
 
 interface nsIURI;
-interface nsACString;
-interface nsAUTF8String;
 
 [scriptable, uuid(9EF75262-FA0D-11DD-A24C-006455D89593)]
 interface IXapianAccessor : nsISupports
 {
-  boolean openReadableDatabase(in string xapianDirectoryPath);
+  boolean openReadableDatabase(in AUTF8String xapianDirectoryPath);
   boolean search(in AUTF8String search, in PRUint32 resultsCount);
   boolean reset();
   boolean getNextResult(out AUTF8String url, out AUTF8String title, out PRUint32 score);

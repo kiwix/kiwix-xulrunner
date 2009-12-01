@@ -83,14 +83,18 @@ ZimXapianIndexer::~ZimXapianIndexer() {
 }
 
 /* Start indexing */
-NS_IMETHODIMP ZimXapianIndexer::StartIndexing(const char *zimFilePath, 
-					      const char *xapianDirectoryPath, 
+NS_IMETHODIMP ZimXapianIndexer::StartIndexing(const nsACString &zimFilePath, 
+					      const nsACString &xapianDirectoryPath, 
 					      PRBool *retVal) {
   *retVal = PR_TRUE;
+  const char *cZimFilePath;
+  NS_CStringGetData(zimFilePath, &cZimFilePath);
+  const char *cXapianDirectoryPath;
+  NS_CStringGetData(xapianDirectoryPath, &cXapianDirectoryPath);
 
   /* Open the ZIM file */
   try {    
-    this->zimFileHandler = new zim::File(zimFilePath);
+    this->zimFileHandler = new zim::File(cZimFilePath);
 
     if (this->zimFileHandler != NULL) {
       this->firstArticleOffset = this->zimFileHandler->getNamespaceBeginOffset('A');
@@ -105,7 +109,7 @@ NS_IMETHODIMP ZimXapianIndexer::StartIndexing(const char *zimFilePath,
 
   /* Open the Xapian directory */
   try {
-    this->writableDatabase = Xapian::WritableDatabase(xapianDirectoryPath, 
+    this->writableDatabase = Xapian::WritableDatabase(cXapianDirectoryPath, 
 						      Xapian::DB_CREATE_OR_OVERWRITE);
   } catch (...) {
     *retVal = PR_FALSE;
