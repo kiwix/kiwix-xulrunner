@@ -58,11 +58,14 @@ ZimAccessor::~ZimAccessor() {
 }
 
 /* Load zim file */
-NS_IMETHODIMP ZimAccessor::LoadFile(const char *path, PRBool *retVal) {
+NS_IMETHODIMP ZimAccessor::LoadFile(const nsACString &path, PRBool *retVal) {
   *retVal = PR_TRUE;
 
+  const char *filePath;
+  NS_CStringGetData(path, &filePath);
+
   try {    
-    this->zimFileHandler = new zim::File(path);
+    this->zimFileHandler = new zim::File(filePath);
 
     if (this->zimFileHandler != NULL) {
       this->firstArticleOffset = this->zimFileHandler->getNamespaceBeginOffset('A');
