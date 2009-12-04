@@ -9,7 +9,7 @@ done
 
 if [ ! ${BINARY:0:1} = "/" ]
 then
-    BINARY=`dirname $BINARY`/$BINARY
+    BINARY=`dirname $BINARY`/`basename $BINARY`
 fi
 
 # Binary dir
