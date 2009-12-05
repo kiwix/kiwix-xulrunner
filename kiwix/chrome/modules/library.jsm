@@ -1,9 +1,11 @@
 var EXPORTED_SYMBOLS = [ "library" ];
 
 /* Define the Book class */
-function Book(id, path) {
+function Book(id, path, indexPath, indexType) {
         this.id = id;
         this.path = path;
+	this.indexPath = indexPath;
+	this.indexType = indexType;
 }
 
 /* Define the Library class */
@@ -72,7 +74,9 @@ let library = {
 	for (var i=0; i<len; i++) {
 	    var id = root.childNodes[i].getAttribute('id');
 	    var path = root.childNodes[i].getAttribute('path');
-	    this.addBook(id, path);
+	    var indexPath = root.childNodes[i].getAttribute('indexPath');
+	    var indexType = root.childNodes[i].getAttribute('indexType');
+	    this.addBook(id, path, indexPath, indexType);
     	}
     },
 
@@ -110,6 +114,8 @@ let library = {
             var bookNode = doc.createElement("book");
 	    bookNode.setAttribute("id", book.id);
 	    bookNode.setAttribute("path", book.path);
+	    bookNode.setAttribute("indexPath", book.indexPath);
+	    bookNode.setAttribute("indexType", book.indexType);
 	    root.appendChild(bookNode);
 	}
     
@@ -129,17 +135,36 @@ let library = {
 
     /* Add a book to the library */
     addBook: function(id, path) {
-	/* Verify if the book is not in already in the list */
+    	var book = this.getBookById(id);
+    	if (!book) {
+	    	book = new Book(id, path);
+		this.books.push(book);
+		this.writeToFile();
+	}
+	return book;
+    },
+
+    /* Delete a book */
+    deleteBookById: function(id) {
 	var len = this.books.length >>> 0;
 	for (var i=0 ; i<len ; i++) {
 	    if (this.books[i].id == id) {
 	       books.splice(i, 1);
+	       return true;
 	    }
 	}
+	return false;
+    },
 
-    	var book = new Book(id, path);
-	this.books.push(book);
-	this.writeToFile();
+    /* Get a book by its id */
+    getBookById: function(id) {
+	var len = this.books.length >>> 0;
+	for (var i=0 ; i<len ; i++) {
+	    if (this.books[i].id == id) {
+	       return this.books[i];
+	    }
+	}
+	return undefined;
     },
 
     /* Accessor the the file path */

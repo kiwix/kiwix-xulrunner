@@ -513,12 +513,20 @@ function manageNewZimFile(zimFilePath) {
     var zimAccessor = loadZimFile(zimFilePath);
     if (zimAccessor != undefined) {
 	settings.zimFilePath(zimFilePath);
-	
-	/* Clear the results bar */
-	emptyResultsList();
+
+	/* Get the MD5 id */
+	var zimId = new Object();
+	zimAccessor.getId(zimId);
+	zimId = hex_md5(zimId.value);
+	var book = library.getBookById(zimId);
+
+	/* Add the file to the library if necessary */
+	if (!book) {
+	    book = library.addBook(zimId, zimFilePath);
+	}
 	
 	/* Ask to index if this files has not already an index */
-	if (!existsSearchIndex(zimFilePath)) {
+	if (!book.indexPath) {
 	    desactivateGuiSearchComponents();
 	    manageIndexZimFile();
 	    changeResultsBarVisibilityStatus(false);
@@ -539,13 +547,8 @@ function manageNewZimFile(zimFilePath) {
 	    getHtmlRenderer().sessionHistory.PurgeHistory(getHtmlRenderer().sessionHistory.count);
 	}
 
-	/* Get the MD5 id */
-	var zimId = new Object();
-	zimAccessor.getId(zimId);
-	var id = hex_md5(zimId.value);
-	
-	/* Add the file to the library */
-	library.addBook(id, zimFilePath);
+	/* Clear the results bar */
+	emptyResultsList();
 
 	/* Update the last open menu */
 	populateLastOpenMenu();
