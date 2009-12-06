@@ -24,7 +24,7 @@ for DIR in `find $BINARY_DIR -type d -name xulrunner`; do
 done
 
 # Add /usr/local/lib to $LD_LIBRARY_PATH as it seems no always be the case per default
-LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
 
 # If no xulrunner, get the path of the xulrunner install of the system
 if [ ! "$XULRUNNER" ]
