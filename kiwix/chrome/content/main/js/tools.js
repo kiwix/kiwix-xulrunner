@@ -62,6 +62,18 @@ function getProperty(name, parameter1, parameter2) {
     return message;
 }
 
+/* Return an application config parameter */
+function getApplicationProperty(name) {
+    var prefs = Components.classes["@mozilla.org/preferences-service;1"]
+	.getService(Components.interfaces.nsIPrefBranch);
+    return prefs.getCharPref(name);
+}
+
+/* Return the installation prefix */
+funtion getInstallationPrefix() {
+    return getApplicationProperty("kiwix.install.prefix");
+}
+ 
 /* initialization function */
 function init() {
     /* Check the XPCOM registration */

@@ -37,3 +37,6 @@ pref("kiwix.removeprofileonclose.confirm", false);
 /* Download Manager (for Save Page) */
 pref("browser.download.manager.closeWhenDone", true);
 pref("browser.download.manager.showWhenStarting", false);
+
+/* Installation */
+pref("kiwix.install.prefix", "");
