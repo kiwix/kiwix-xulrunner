@@ -134,10 +134,10 @@ let library = {
     },
 
     /* Add a book to the library */
-    addBook: function(id, path) {
+    addBook: function(id, path, indexPath, indexType) {
     	var book = this.getBookById(id);
     	if (!book) {
-	    	book = new Book(id, path);
+	    	book = new Book(id, path, indexPath, indexType);
 		this.books.push(book);
 		this.writeToFile();
 	}
@@ -166,6 +166,19 @@ let library = {
 	}
 	return undefined;
     },
+
+    /* Set the index information for a book */
+    setIndexById: function(id, indexPath, indexType) {
+      	var book = this.getBookById(id);
+    	if (book) {
+		book.indexPath = indexPath;
+		book.indexType = indexType;
+		this.writeToFile();
+		return true;
+	}
+	return false;
+    },
+
 
     /* Accessor the the file path */
     filePath: function(filePath) {

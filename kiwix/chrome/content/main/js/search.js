@@ -54,12 +54,15 @@ function existsSearchIndex(zimFilePath) {
 
 /* Show a dialog box to ask if the user want to index the ZIM file now */
 function manageIndexZimFile() {
+    var currentZimId = settings.currentZimId();
+    var currentBook = library.getBookById(currentZimId);
+
     if (isIndexing()) {
 	displayErrorDialog(getProperty("alreadyIndexingError"));
-    } else if (settings.zimFilePath() == undefined) {
+    } else if (!currentBook) {
 	displayErrorDialog(getProperty("noActiveZimFile"));
     } else if (displayConfirmDialog(getProperty("indexZimFileConfirm"))) {
-	indexZimFile(settings.zimFilePath(), getSearchIndexDirectory(settings.zimFilePath()));
+	indexZimFile(currentBook.path, getSearchIndexDirectory(currentBook.path));
     }
 }
 
@@ -110,7 +113,9 @@ function indexZimFile(zimFilePath, xapianDirectory) {
     /* ZIM indexing task */
     var zimIndexerTask = {
 	run: function() {
-	    var zimFilePath = settings.zimFilePath();
+	    var currentZimId = settings.currentZimId();
+	    var currentBook = library.getBookById(currentZimId);
+	    var zimFilePath = currentBook.path;
 	    var xapianTmpDirectory = getTmpSearchIndexDirectory();
 	    var xapianDirectoryName = getSearchIndexDirectoryName(zimFilePath);
 	    var xapianDirectory = getSearchIndexDirectory(zimFilePath);
@@ -146,7 +151,11 @@ function indexZimFile(zimFilePath, xapianDirectory) {
 
 	    /* Move the xapian tmp directory to the well named xapian directory */
 	    moveFile(xapianTmpDirectory, settingsRootPath, xapianDirectoryName); 
-	   
+
+	    /* Save the information in the library */
+	    library.setIndexById(settings.currentZimId(), 
+				 appendToPath(settingsRootPath, xapianDirectoryName), "xapian_flint");
+
 	    /* Fill the progress bar */
 	    proxiedZimIndexerObserver.notifyObservers(this, "indexingProgress", 100);
 
@@ -267,7 +276,9 @@ function manageSearchInIndex() {
 	displayErrorDialog(getProperty("emptySearchStringError"));
     } else {
 	/* Make the search and display results */
-	searchInIndex(stringToSearch, getSearchIndexDirectory(settings.zimFilePath()));
+	var currentZimId = settings.currentZimId();
+	var currentBook = library.getBookById(currentZimId);
+	searchInIndex(stringToSearch, getSearchIndexDirectory(currentBook.path));
     }
 
     /* Clear search textbox */

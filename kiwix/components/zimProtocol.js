@@ -3,7 +3,7 @@ const Ci = Components.interfaces;
 const Cr = Components.results;
 
 /* Global variables */
-var currentZimFilePath = null;
+var currentZimId = null;
 var zimAccessor = null;
 
 /* ZimprotocolHandler */
@@ -137,15 +137,14 @@ PipeChannel.prototype = {
 	
 	/* Load the settings java code module */
 	Components.utils.import("resource://modules/settings.jsm");
-	
+
 	/* load the zim file if necessary */
-	if (zimAccessor == null || currentZimFilePath != settings.zimFilePath()) {
+	if (zimAccessor == null || currentZimId != settings.currentZimId()) {
 	    zimAccessor = Components.classes["@kiwix.org/zimAccessor"].getService();
 	    zimAccessor = zimAccessor.QueryInterface(Components.interfaces.IZimAccessor);
-	    zimAccessor.loadFile(settings.zimFilePath());
-	    currentZimFilePath = settings.zimFilePath();
+	    /* No idea why I do not need to load the file here */
 	}
-	
+
 	/* Remove local anchor */
 	var uri = this.URI.clone();
 	if (uri.spec.indexOf("#") != -1) {

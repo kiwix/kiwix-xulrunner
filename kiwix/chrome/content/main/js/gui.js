@@ -508,19 +508,20 @@ function manageNewZimFile(zimFilePath) {
 	    return false;
 	}
     }
-	
+
     /* Try to open the ZIM file */
     var zimAccessor = loadZimFile(zimFilePath);
     if (zimAccessor != undefined) {
-	settings.zimFilePath(zimFilePath);
-
 	/* Get the MD5 id */
 	var zimId = new Object();
 	zimAccessor.getId(zimId);
 	zimId = hex_md5(zimId.value);
-	var book = library.getBookById(zimId);
+
+	/* Set the file as current */
+	settings.currentZimId(zimId);
 
 	/* Add the file to the library if necessary */
+	var book = library.getBookById(zimId);
 	if (!book) {
 	    book = library.addBook(zimId, zimFilePath);
 	}
@@ -555,6 +556,26 @@ function manageNewZimFile(zimFilePath) {
     }
 
     return true;
+}
+
+/* Got the welcome page of the current zim file */
+function goHome() {
+    var homeUrl = getZimFileHomePageUrl();
+    var htmlRenderer = getHtmlRenderer();
+
+    if (homeUrl != undefined && homeUrl != "") {
+	htmlRenderer.setAttribute("homepage", homeUrl);
+	htmlRenderer.goHome();
+	
+	/* activate if necessary the back button */
+	if (htmlRenderer.sessionHistory.count > 1) {
+	    activateBackButton();
+	} else {
+	    htmlRenderer.sessionHistory.PurgeHistory(htmlRenderer.sessionHistory.count);
+	}
+    } else {
+	showHelp();
+    }
 }
 
 /* Manage the change of the locale with the GUI */

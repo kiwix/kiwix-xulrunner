@@ -64,7 +64,6 @@ function getProperty(name, parameter1, parameter2) {
 
 /* initialization function */
 function init() {
-
     /* Check the XPCOM registration */
     if (Components.classes["@kiwix.org/zimAccessor"] == undefined)
 	dump("Unable to register the zimAccessor XPCOM, Kiwix will be unable to read ZIM files.\n");
@@ -106,10 +105,18 @@ function init() {
     /* Load the welcome page of the ZIM file */
     goHome();
 
+    /* Current Zim ID */
+    var currentZimId = settings.currentZimId();
+    var currentBook = library.getBookById(currentZimId);
+
+    if (currentBook) {
+	dump(currentBook.indexType + "\n");
+    }
+
     /* Check if there is a search index */
-    if (settings.zimFilePath() != undefined &&
-	settings.zimFilePath() != "" &&
-	existsSearchIndex(settings.zimFilePath())) {
+    if (currentBook != undefined &&
+	currentBook.indexPath != undefined &&
+	currentBook.indexPath != "") {
 	activateGuiSearchComponents();
     } else {
 	desactivateGuiSearchComponents();
@@ -150,30 +157,35 @@ function loadZimFile(zimFilePath) {
 /* Return the homepage of a ZIM file */
 /* TODO: as long as the welcome page is not saved in the ZIM file, this will return the first page */
 function getZimFileHomePageUrl() {
+    var currentZimId = settings.currentZimId();
+    var currentBook = library.getBookById(currentZimId);
+
     /* Security check */
-    if (settings.zimFilePath() == undefined || 
-	settings.zimFilePath() == "") {
+    if (!currentBook) {
 	return;
     }
 
     /* Try to load the ZIM file and retrieve the home page */
-    var zimAccessor = loadZimFile(settings.zimFilePath());
+    var zimAccessor = loadZimFile(currentBook.path);
 
     if (zimAccessor != undefined) {
 	var url = new Object();
 
+	/* Return the welcome path if exists */
 	zimAccessor.getMainPageUrl(url);
 	if (url.value != undefined && url.value != '') {
 	    return "zim://" + url.value;
 	}
 
+	/* Otherwise resturn the first page */
 	var content = new Object();
 	zimAccessor.reset();
 	zimAccessor.getNextArticle(url, content);
 	return "zim://" + url.value;
     } else {
 	/* File as moved or was deleted */
-	settings.zimFilePath("");
+	settings.currentZimId("");
+	library.deleteBookById(currentZimId);
     }
 
     return undefined;
@@ -181,14 +193,16 @@ function getZimFileHomePageUrl() {
 
 /* Load a ramdom page */
 function loadRandomArticle() {
+    var currentZimId = settings.currentZimId();
+    var currentBook = library.getBookById(currentZimId);
+
     /* Security check */
-    if (settings.zimFilePath() == undefined ||
-	settings.zimFilePath() == "") {
+    if (!currentBook) {
 	return;
     }
 
     /* Try to load the ZIM file and retrieve the home page */
-    var zimAccessor = loadZimFile(settings.zimFilePath());
+    var zimAccessor = loadZimFile(currentBook.path);
 
     if (zimAccessor != undefined) {
 	var url = new Object();
@@ -200,26 +214,6 @@ function loadRandomArticle() {
 
 	loadContent(url.value);
 	activateBackButton();
-    }
-}
-
-/* Got the welcome page of the current zim file */
-function goHome() {
-    var homeUrl = getZimFileHomePageUrl();
-    var htmlRenderer = getHtmlRenderer();
-
-    if (homeUrl != undefined && homeUrl != "") {
-	htmlRenderer.setAttribute("homepage", homeUrl);
-	htmlRenderer.goHome();
-	
-	/* activate if necessary the back button */
-	if (htmlRenderer.sessionHistory.count > 1) {
-	    activateBackButton();
-	} else {
-	    htmlRenderer.sessionHistory.PurgeHistory(htmlRenderer.sessionHistory.count);
-	}
-    } else {
-	showHelp();
     }
 }
 
