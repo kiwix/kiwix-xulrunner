@@ -16,7 +16,7 @@ fi
 BINARY_DIR=`dirname $BINARY`
 
 # Take a look to the current directory
-XULRUNNER=`find $BINARY_DIR -type f -name xulrunner`
+XULRUNNER=`find $BINARY_DIR/xulrunner -type f -name xulrunner`
 
 # Try to update $LD_LIBRARY_PATH
 for DIR in `find $BINARY_DIR -type d -name xulrunner`; do
