@@ -11,6 +11,10 @@ AC_PROG_CC
 
 # Determine a C++ compiler
 AC_PROG_CXX
+if test [ ! "$CXX" ]
+then 
+	AC_MSG_ERROR([[cannot find any C++ compiler]])
+fi
 
 # Determine libtool
 AC_PROG_LIBTOOL
