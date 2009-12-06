@@ -66,11 +66,19 @@ then
 		GECKO_IDL_PATH=`pkg-config --variable=idldir libxul`/stable
 	fi
 
+	# Possible to specify the IDL directory 
+	AC_ARG_WITH(gecko-idl, [  --with-gecko-idl=DIR]    path to Gecko IDL files,
+			       GECKO_IDL_PATH=`cd ${withval}; pwd`)   
+
 	# Configuration of xpidl
-	AC_CHECK_TOOL(HAVE_XPIDL, "xpidl", [], $GECKO_SDK_PATH/bin)
+	XPIDL_PATH=$GECKO_SDK_PATH/bin
+	AC_ARG_WITH(xpidl, [  --with-xpidl=DIR        path to XPIDL binary directory],
+			   XPIDL_PATH=`cd ${withval}; pwd`)
+
+	AC_CHECK_TOOL(HAVE_XPIDL, "xpidl", [], $XPIDL_PATH)
 	if test [ "$HAVE_XPIDL" ]
 	then 
-		AC_PATH_PROG([XPIDL], "xpidl", [], $GECKO_SDK_PATH/bin)
+		AC_PATH_PROG([XPIDL], "xpidl", [],  $XPIDL_PATH)
 	else
 		AC_MSG_ERROR([[cannot find xpidl]])
 	fi
