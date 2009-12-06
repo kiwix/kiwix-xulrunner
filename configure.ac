@@ -11,7 +11,8 @@ AC_PROG_CC
 
 # Determine a C++ compiler
 AC_PROG_CXX
-if test [ ! "$CXX" ]
+AC_CHECK_TOOL(HAVE_CXX, "$CXX")
+if test [ ! "$HAVE_CXX" ]
 then 
 	AC_MSG_ERROR([[cannot find any C++ compiler]])
 fi
@@ -70,9 +71,10 @@ then
 		GECKO_IDL_PATH=`pkg-config --variable=idldir libxul`/stable
 	fi
 
-	# Possible to specify the IDL directory 
+	# Possible to specify the IDL directory and check
 	AC_ARG_WITH(gecko-idl, [  --with-gecko-idl=DIR]    path to Gecko IDL files,
 			       GECKO_IDL_PATH=`cd ${withval}; pwd`)   
+	AC_CHECK_FILE("$GECKO_IDL_PATH/nsISupports.idl", [], AC_MSG_ERROR([[unable to find nsISupports.idl]]))
 
 	# Configuration of xpidl
 	XPIDL_PATH=$GECKO_SDK_PATH/bin
