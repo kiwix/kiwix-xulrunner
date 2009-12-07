@@ -147,6 +147,20 @@ then
 	     LIBXAPIAN_CFLAGS=`xapian-config --cxxflags`;
 	     LIBXAPIAN_LDFLAGS=`xapian-config --ltlibs`;
 	fi
+
+	# Configuration for alternative libmicrohttpd location
+	AC_ARG_WITH(unac, [  --with-microhttpd=DIR   alternate location for microhttpd library],
+			  LIBMICROHTTPD_PATH=`cd ${withval}; pwd`; CPPFLAGS="${LIBMICROHTTPD_PATH}"; LDFLAGS="${LDFLAGS}")
+
+	# Check the libunac
+	AC_CHECK_HEADER([microhttpd.h],, [AC_MSG_ERROR([[cannot find microhttpd header]])])
+	AC_CHECK_LIB([microhttpd], [MHD_start_daemon],, [AC_MSG_ERROR([[cannot find microhttpd]])])
+	if test [ "$LIBMICROHTTPD_PATH" ]
+	then
+		LIBMICROHTTPD_CFLAGS="-I${LIBMICROHTTPD_PATH}"
+		LIBMICROHTTPD_LDFLAGS="-L${LIBMICROHTTPD_PATH}"
+	fi
+	LIBMICROHTTPD_LDFLAGS="${LIBMICROHTTPD_LDFLAGS} -lmicrohttpd"
 else
 	# Check if the 'wget' binary exists
 	AC_CHECK_TOOL(HAVE_WGET, wget)
@@ -189,6 +203,8 @@ AC_SUBST(LIBUNAC_CFLAGS)
 AC_SUBST(LIBUNAC_LDFLAGS)
 AC_SUBST(LIBZIM_CFLAGS)
 AC_SUBST(LIBZIM_LDFLAGS)
+AC_SUBST(LIBMICROHTTPD_CFLAGS)
+AC_SUBST(LIBMICROHTTPD_LDFLAGS)
 
 # Check the existence of stat64 (to handle file >2GB) in the libc
 AC_CHECK_FUNCS([stat64])
