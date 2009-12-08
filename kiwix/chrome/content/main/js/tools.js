@@ -70,7 +70,7 @@ function getApplicationProperty(name) {
 }
 
 /* Return the installation prefix */
-funtion getInstallationPrefix() {
+function getInstallationPrefix() {
     return getApplicationProperty("kiwix.install.prefix");
 }
  
