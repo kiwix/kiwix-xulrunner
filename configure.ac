@@ -205,6 +205,7 @@ AC_SUBST(LIBZIM_CFLAGS)
 AC_SUBST(LIBZIM_LDFLAGS)
 AC_SUBST(LIBMICROHTTPD_CFLAGS)
 AC_SUBST(LIBMICROHTTPD_LDFLAGS)
+AC_SUBST(ESCAPED_PREFIX)
 
 # Check the existence of stat64 (to handle file >2GB) in the libc
 AC_CHECK_FUNCS([stat64])
@@ -246,3 +247,6 @@ fi
 # Generate a new BuildID
 REPLACE=`date "+%Y%m%d"`
 sed -i -e "s/^BuildID=[[0-9]]*/BuildID=$REPLACE/" ./kiwix/application.ini
+
+# Save the install prefix in the default application preferences
+sed -i "s/\"kiwix.install.prefix\"\,\ \"[[^\"]]*\"/\"kiwix.install.prefix\"\,\ \"$(echo $prefix | sed -e 's/\\/\\\\/g' -e 's/\//\\\//g' -e 's/&/\\\&/g')\"/" ./kiwix/defaults/preferences/preferences.js
