@@ -8,7 +8,7 @@ pref("general.skins.selectedSkin", "default");
 pref("intl.charset.default", "UTF-8");
 
 /* Don't inherit OS locale */
-pref("intl.locale.matchOS", "false");
+pref("intl.locale.matchOS", false);
 
 /* Choose own fallback locale; later it can be overridden by the user */
 pref("general.useragent.locale", "en-US");

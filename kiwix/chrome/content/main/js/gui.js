@@ -580,8 +580,7 @@ function goHome() {
 
 /* Manage the change of the locale with the GUI */
 function manageChangeLocale(locale) {
-    if ((settings.locale() != locale) && 
-	!(settings.locale() == undefined && locale == "en-US")) {
+    if (locale && settings.locale() != locale) {
 	settings.locale(locale);
 	restart();
     }
