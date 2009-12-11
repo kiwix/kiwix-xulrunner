@@ -7,6 +7,7 @@
 <!ENTITY main.file.accesskey          "A">
 <!ENTITY main.openFile                "Abrir...">
 <!ENTITY main.openFile.accesskey      "A">
+<!ENTITY main.lastOpen                "Recently open...">
 <!ENTITY main.saveFile                "Guardar página como...">
 <!ENTITY main.saveFile.accesskey      "S">
 <!ENTITY main.print                   "Imprimir...">
@@ -53,6 +54,8 @@
 <!-- Help menu -->
 <!ENTITY main.help                    "Ayuda">
 <!ENTITY main.help.accesskey          "y">
+<!ENTITY main.reportabug              "Report a bug">
+<!ENTITY main.requestafeature         "Request a feature">
 <!ENTITY main.about                   "Acerca de &brand.brandShortName;">
 <!ENTITY main.about.accesskey         "A">
 
@@ -60,7 +63,6 @@
 <!ENTITY main.back                    "Detrás">
 <!ENTITY main.forward                 "Adelante">
 <!ENTITY main.home                    "Inicio">
-<!ENTITY main.print                   "Imprimir">
 <!ENTITY main.searchBar               "Barra de la búsqueda">
 <!ENTITY main.search                  "Buscar">
 <!ENTITY main.noSearchBar             "La búsqueda requiere un archivo puesto en un índice de Zim">
