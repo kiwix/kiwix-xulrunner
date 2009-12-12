@@ -124,10 +124,6 @@ function init() {
     var currentZimId = settings.currentZimId();
     var currentBook = library.getBookById(currentZimId);
 
-    if (currentBook) {
-	dump(currentBook.indexType + "\n");
-    }
-
     /* Check if there is a search index */
     if (currentBook != undefined &&
 	currentBook.indexPath != undefined &&
