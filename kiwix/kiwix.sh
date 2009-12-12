@@ -42,5 +42,11 @@ then
     exit;
 fi
 
+# set the default locale if necessary
+if [ ! -d ~/.www.kiwix.org ]
+then
+    LOCALE="-UILocale $LANG"
+fi
+
 # Otherwise, launch Kiwix
-exec $XULRUNNER $BINARY_DIR/application.ini $1
+exec $XULRUNNER $BINARY_DIR/application.ini $1 $LOCALE

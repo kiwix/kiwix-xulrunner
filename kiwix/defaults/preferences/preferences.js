@@ -11,7 +11,7 @@ pref("intl.charset.default", "UTF-8");
 pref("intl.locale.matchOS", false);
 
 /* Choose own fallback locale; later it can be overridden by the user */
-pref("general.useragent.locale", "en-US");
+pref("general.useragent.locale", "chrome://global/locale/intl.properties");
 
 /* Warn for http */
 pref("network.protocol-handler.warn-external.http", false);

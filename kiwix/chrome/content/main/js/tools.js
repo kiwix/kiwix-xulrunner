@@ -93,6 +93,9 @@ function init() {
     /* Populates the last open menu */
     populateLastOpenMenu();
 
+    /* Save the current language (necessary if the profile does not exists) */
+    settings.locale(getCurrentLocale());
+
     /* Add mouse scroll listener to allow zoon in/out with the mouse for example */
     getHtmlRenderer().addEventListener("DOMMouseScroll", htmlRendererMouseScroll, false);
     getHtmlRenderer().addEventListener("mouseover", htmlRendererMouseOver, true);

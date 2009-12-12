@@ -680,14 +680,9 @@ function displayConfirmDialog(message, title) {
 
 /* Fill the languages-menu with all available languages */
 function populateLanguagesMenu() {
-    /* Query available and selected locales */
-    var chromeRegisteryService = Components.classes["@mozilla.org/chrome/chrome-registry;1"].getService();
-    var xulChromeRegistery = chromeRegisteryService.QueryInterface(Components.interfaces.nsIXULChromeRegistry);
-    var toolkitChromeRegistery = chromeRegisteryService.QueryInterface(Components.interfaces.nsIToolkitChromeRegistry);
-    
     /* Get informations about locales */
-    var selectedLocale = settings.locale() || xulChromeRegistery.getSelectedLocale("main");
-    var availableLocales = toolkitChromeRegistery.getLocalesForPackage("main");
+    var selectedLocale = getCurrentLocale();
+    var availableLocales =  getAvailableLocales();
     
     /* Render locale menu items */
     var languagesMenu = document.getElementById("menu-languages");
@@ -711,6 +706,22 @@ function populateLanguagesMenu() {
 	
 	languagesMenu.appendChild(menuItem);
     }
+}
+
+/* Return the current used locale code */
+function getCurrentLocale() {
+    var chromeRegisteryService = Components.classes["@mozilla.org/chrome/chrome-registry;1"].getService();
+    var xulChromeRegistery = chromeRegisteryService.QueryInterface(Components.interfaces.nsIXULChromeRegistry);
+    var toolkitChromeRegistery = chromeRegisteryService.QueryInterface(Components.interfaces.nsIToolkitChromeRegistry);
+    return settings.locale() || xulChromeRegistery.getSelectedLocale("main");
+}
+
+/* Return the available locales */
+function getAvailableLocales() {
+    var chromeRegisteryService = Components.classes["@mozilla.org/chrome/chrome-registry;1"].getService();
+    var xulChromeRegistery = chromeRegisteryService.QueryInterface(Components.interfaces.nsIXULChromeRegistry);
+    var toolkitChromeRegistery = chromeRegisteryService.QueryInterface(Components.interfaces.nsIToolkitChromeRegistry);
+    return toolkitChromeRegistery.getLocalesForPackage("main");
 }
 
 /* Fill the lastopen-menu with all available languages */
