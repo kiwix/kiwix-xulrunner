@@ -47,7 +47,6 @@ if [ ! -d ~/.www.kiwix.org ]
 then
     
     LOCALE="-UILocale "`echo $LANG | sed "s/[_|\.].*//"`
-    echo $LOCALE
 fi
 
 # Otherwise, launch Kiwix
