@@ -39,10 +39,10 @@ fi
 AC_CHECK_TOOL(HAVE_PERL, perl)
 
 # Check if user want local dependences
-AC_ARG_WITH(dependences, [  --with-dependences      download and compile dependences localy in src/dependences],
-		 WITH_DEPENDENCES=1; CPPFLAGS="${CPPFLAGS} -I${withval}"; LDFLAGS="-L${withval} ${LDFLAGS}")
+AC_ARG_WITH(dependences, [  --with-dependences      use system or custom libraries, otherwise download them and compile staticaly against them [[default=yes]]],
+		 WITH_DEPENDENCES=1, WITH_DEPENDENCES=0 )
 
-if test [ ! "$WITH_DEPENDENCES" ]
+if test [ "$WITH_DEPENDENCES" ]
 then
 	# Configuration for alternative zlib location
 	AC_ARG_WITH(gecko-sdk, [  --with-gecko-sdk=DIR    alternate location for gecko SDK], 
@@ -193,6 +193,8 @@ AC_SUBST(LIBXUL_CFLAGS)
 AC_SUBST(LIBXUL_LDFLAGS)
 AC_SUBST(XPCOM_CFLAGS)
 AC_SUBST(XPCOM_LDFLAGS)
+AC_SUBST(XPIDL)
+AC_SUBST(GECKO_IDL_PATH)
 AC_SUBST(LIBXAPIAN_CFLAGS)
 AC_SUBST(LIBXAPIAN_LDFLAGS)
 AC_SUBST(LIBZ_CFLAGS)
@@ -227,22 +229,6 @@ AC_CONFIG_FILES([
 
 # Generate the Makefiles
 AC_OUTPUT
-
-# Generation of the XPCOM header files
-if test [ "$HAVE_XPIDL" ]
-then 
-     cd src/components/xapianAccessor ; $XPIDL -m header -I $GECKO_IDL_PATH IXapianAccessor.idl ; cd ../../..
-     cd src/components/zimAccessor ; $XPIDL -m header -I $GECKO_IDL_PATH IZimAccessor.idl ; cd ../../..
-     cd src/components/zimXapianIndexer ; $XPIDL -m header -I $GECKO_IDL_PATH IZimXapianIndexer.idl ; cd ../../..
-fi
-
-# Generation of the XPCOM xpt files
-if test [ "$HAVE_XPIDL" ]
-then 
-     cd src/components/xapianAccessor ; $XPIDL -m typelib -I $GECKO_IDL_PATH IXapianAccessor.idl ; cd ../../..
-     cd src/components/zimAccessor ; $XPIDL -m typelib -I $GECKO_IDL_PATH IZimAccessor.idl ; cd ../../..
-     cd src/components/zimXapianIndexer ; $XPIDL -m typelib -I $GECKO_IDL_PATH IZimXapianIndexer.idl ; cd ../../..
-fi
 
 # Generate a new BuildID
 REPLACE=`date "+%Y%m%d"`
