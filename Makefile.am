@@ -2,6 +2,25 @@ SUBDIRS=src
 EXTRA_DIST= \
 	kiwix \
 	desktop 
+BUILT_SOURCES= \
+	./kiwix/components/xapianAccessor.so \
+	./kiwix/components/xapianAccessor.xpt \
+	./kiwix/components/zimAccessor.so \
+	./kiwix/components/zimAccessor.xpt \
+	./kiwix/components/zimXapianIndexer.so \
+	./kiwix/components/zimXapianIndexer.xpt
+CLEANFILES= \
+	./kiwix/components/xapianAccessor.so \
+	./kiwix/components/xapianAccessor.xpt \
+	./kiwix/components/zimAccessor.so \
+	./kiwix/components/zimAccessor.xpt \
+	./kiwix/components/zimXapianIndexer.so \
+	./kiwix/components/zimXapianIndexer.xpt
+
+IZimAccessor.xpt:
+	$(XPIDL) -m typelib -I $(GECKO_IDL_PATH) IZimAccessor.idl
+
+
 
 dist-hook:
 	rm -rf `find . -name "*.svn" -o -name "*.dat" -o -name "*~" -o -name "*#"`
@@ -27,3 +46,29 @@ uninstall:
 	rm -rf ${prefix}/lib/kiwix
 	unlink ${prefix}/bin/kiwix
 	unlink ${prefix}/bin/kiwix-compact
+
+./kiwix/components/xapianAccessor.so:
+	ln -f -s ../../src/components/xapianAccessor/.libs/libXapianAccessor.so ./kiwix/components/xapianAccessor.so
+
+./kiwix/components/xapianAccessor.xpt:
+	ln -f -s ../../src/components/xapianAccessor/IXapianAccessor.xpt ./kiwix/components/xapianAccessor.xpt
+
+./kiwix/components/zimAccessor.so:
+	ln -f -s ../../src/components/zimAccessor/.libs/libZimAccessor.so ./kiwix/components/zimAccessor.so
+
+./kiwix/components/zimAccessor.xpt:
+	ln -f -s ../../src/components/zimAccessor/IZimAccessor.xpt ./kiwix/components/zimAccessor.xpt
+
+./kiwix/components/zimXapianIndexer.so:
+	ln -f -s ../../src/components/zimXapianIndexer/.libs/libZimXapianIndexer.so  ./kiwix/components/zimXapianIndexer.so
+
+./kiwix/components/zimXapianIndexer.xpt:
+	ln -f -s ../../src/components/zimXapianIndexer/IZimXapianIndexer.xpt ./kiwix/components/zimXapianIndexer.xpt
+
+#all-local:
+#	ln -f -s ../../src/components/xapianAccessor/.libs/libXapianAccessor.so ./kiwix/components/xapianAccessor.so
+#	ln -f -s ../../src/components/xapianAccessor/IXapianAccessor.xpt ./kiwix/components/xapianAccessor.xpt
+#	ln -f -s ../../src/components/zimAccessor/.libs/libZimAccessor.so ./kiwix/components/zimAccessor.so
+#	ln -f -s ../../src/components/zimAccessor/IZimAccessor.xpt ./kiwix/components/zimAccessor.xpt
+#	ln -f -s ../../src/components/zimXapianIndexer/.libs/libZimXapianIndexer.so  ./kiwix/components/zimXapianIndexer.so
+#	ln -f -s ../../src/components/zimXapianIndexer/IZimXapianIndexer.xpt ./kiwix/components/zimXapianIndexer.xpt
