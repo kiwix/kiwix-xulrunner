@@ -1,6 +1,43 @@
 const nsIWebProgress = Components.interfaces.nsIWebProgress;
 const nsIWebProgressListener = Components.interfaces.nsIWebProgressListener;
 
+/* Drop file on windows to open it */
+function dropOnWindows (aEvent) {
+    var dragService = Components.classes["@mozilla.org/widget/dragservice;1"].getService(Components.interfaces.nsIDragService);
+    var dragSession = dragService.getCurrentSession();
+    
+    /* If sourceNode is not null, then the drop was from inside the application */
+    if (dragSession.sourceNode)
+	return;
+    
+    /* Setup a transfer item to retrieve the file data */
+    var trans = Components.classes["@mozilla.org/widget/transferable;1"].createInstance(Components.interfaces.nsITransferable);
+    trans.addDataFlavor("text/x-moz-url");
+    trans.addDataFlavor("application/x-moz-file");
+    
+    for (var i=0; i<dragSession.numDropItems && i<2; i++) {
+	dragSession.getData(trans, i);
+	var flavor = {}, data = {}, length = {};
+	trans.getAnyTransferData(flavor, data, length);
+	if (data) {
+	    try {
+		var str = data.value.QueryInterface(Components.interfaces.nsISupportsString);
+
+		if (str) {
+		    var ios = Components.classes['@mozilla.org/network/io-service;1']
+			.getService(Components.interfaces.nsIIOService);
+		    var uri = ios.newURI(str.data.split("\n")[0], null, null);
+		    var file = uri.QueryInterface(Components.interfaces.nsIFileURL).file;
+		    manageNewZimFile(file.path);
+		} else {
+		}
+	    }
+	    catch(e) {
+	    }
+	}
+    }
+}
+
 /* Restart Kiwix */
 function restart() {
     if (displayConfirmDialog(getProperty("restartConfirm", getProperty("brand.brandShortName")))) {

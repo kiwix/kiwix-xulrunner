@@ -17,11 +17,16 @@
 	contenttitlesetting = "true"
 	style = "direction: &main.cssdirection;"
 	langdir = "&main.cssdirection;"
+	ondragdrop ="dropOnWindows(event);"
 	>
 
 <!-- Properties -->
 <stringbundle id="properties" src="chrome://main/locale/main.properties"/>
 <stringbundle id="brandproperties" src="chrome://branding/locale/brand.properties"/>
+
+<!-- Standard Javascript scripts -->
+<script src="chrome://global/content/nsDragAndDrop.js"/> 
+<script src="chrome://global/content/nsTransferable.js"/>
 
 <!-- Custom Javascript scripts -->
 <script language="javaScript" type="text/javascript" src="resource://modules/settings.jsm"/>
