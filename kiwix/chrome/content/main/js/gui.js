@@ -485,45 +485,47 @@ function pageNext() {
     return true;
 }
 
-/* Open and add ZIM file to the manager */
-function manageNewZimFile(zimFilePath) {
+/* Try to open a ZIM file */
+function openFile(path) {
 
-    /* Display file picker if no file path given */
-    if (zimFilePath == undefined) {
+    /* Display file picker if no given file path */
+    if (!path) {
+
 	/* Create the file picker object */
 	var nsIFilePicker = Components.interfaces.nsIFilePicker;
-	var fp = Components.classes["@mozilla.org/filepicker;1"].createInstance(nsIFilePicker);
-	fp.init(window, "Select a File", nsIFilePicker.modeOpen);
+	var filePicker = Components.classes["@mozilla.org/filepicker;1"].createInstance(nsIFilePicker);
+	filePicker.init(window, "Select a File", nsIFilePicker.modeOpen);
 	
 	/* Add filters */
-	fp.appendFilter("ZIM files","*.zim");
+	filePicker.appendFilter("ZIM files","*.zim");
 	
 	/* Show the dialog and get the file path */
-	var res = fp.show();
+	var res = filePicker.show();
 	
 	/* Get the file path */
 	if (res == nsIFilePicker.returnOK) {
-	    zimFilePath = fp.file.path; 
+	    path = filePicker.file.path;
 	} else {
 	    return false;
 	}
     }
 
     /* Try to open the ZIM file */
-    var zimAccessor = loadZimFile(zimFilePath);
-    if (zimAccessor != undefined) {
+    var zimAccessor = openZimFile(path);
+
+    if (zimAccessor) {
 	/* Get the MD5 id */
 	var zimId = new Object();
 	zimAccessor.getId(zimId);
 	zimId = hex_md5(zimId.value);
 
 	/* Set the file as current */
-	settings.currentZimId(zimId);
+	library.current = zimId;
 
 	/* Add the file to the library if necessary */
 	var book = library.getBookById(zimId);
 	if (!book) {
-	    book = library.addBook(zimId, zimFilePath);
+	    book = library.addBook(zimId, path);
 	}
 	
 	/* Ask to index if this files has not already an index */
@@ -553,6 +555,8 @@ function manageNewZimFile(zimFilePath) {
 
 	/* Update the last open menu */
 	populateLastOpenMenu();
+    } else {
+	displayErrorDialog(getProperty("loadZimFileError", zimFilePath));
     }
 
     return true;
@@ -560,10 +564,10 @@ function manageNewZimFile(zimFilePath) {
 
 /* Got the welcome page of the current zim file */
 function goHome() {
-    var homeUrl = getZimFileHomePageUrl();
+    var homeUrl = getCurrentZimFileHomePageUrl();
     var htmlRenderer = getHtmlRenderer();
 
-    if (homeUrl != undefined && homeUrl != "") {
+    if (homeUrl) {
 	htmlRenderer.setAttribute("homepage", homeUrl);
 	htmlRenderer.goHome();
 	
@@ -751,8 +755,139 @@ function populateLastOpenMenu() {
 						    "menuitem");
 	    
 	    menuItem.setAttribute("label", label);
-	    menuItem.setAttribute("oncommand", "manageNewZimFile('" + book.path + "');");
+	    menuItem.setAttribute("oncommand", "openFile('" + book.path + "');");
 	    lastOpenMenu.appendChild(menuItem);
 	}
     }
+}
+
+/* Initialize the user interface */
+function initUserInterface() {
+    /* Set the size and position of the window */
+    configureWindowGeometry(this);
+
+    /* Populates localization languages to the menu-languages */
+    populateLanguagesMenu();
+
+    /* Populates the last open menu */
+    populateLastOpenMenu();
+
+    /* Apply GUI settings */
+    if (settings.displayStatusBar() != undefined) { changeStatusBarVisibilityStatus(settings.displayStatusBar()); }
+    if (settings.displayFullScreen() != undefined) { if (settings.displayFullScreen()) { UIToggleFullScreen(); } }
+    if (settings.displayBookmarksBar() === true) { UIToggleBookmarksBar(); }
+
+    /* Current Zim ID */
+    var currentBook = library.getCurrentBook();
+
+    /* Check if there is a search index */
+    if (currentBook != undefined &&
+	currentBook.indexPath != undefined &&
+	currentBook.indexPath != "" &&
+	openSearchIndex(currentBook.indexPath)
+	) {
+	activateGuiSearchComponents();
+    } else {
+	desactivateGuiSearchComponents();
+	desactivateHomeButton();
+    }
+
+    /* Activate (or not) the Home button */
+    if (getCurrentZimFileHomePageUrl()) {
+	activateHomeButton();
+    } else {
+	desactivateHomeButton();
+    }
+
+    /* Desactivate back/next buttons */
+    desactivateBackButton();
+    desactivateNextButton();
+}
+
+/* Drop file on windows to open it */
+function dropOnWindows (aEvent) {
+    var dragService = Components.classes["@mozilla.org/widget/dragservice;1"].getService(Components.interfaces.nsIDragService);
+    var dragSession = dragService.getCurrentSession();
+    
+    /* If sourceNode is not null, then the drop was from inside the application */
+    if (dragSession.sourceNode)
+	return;
+    
+    /* Setup a transfer item to retrieve the file data */
+    var trans = Components.classes["@mozilla.org/widget/transferable;1"].createInstance(Components.interfaces.nsITransferable);
+    trans.addDataFlavor("text/x-moz-url");
+    trans.addDataFlavor("application/x-moz-file");
+    
+    for (var i=0; i<dragSession.numDropItems && i<2; i++) {
+	dragSession.getData(trans, i);
+	var flavor = {}, data = {}, length = {};
+	trans.getAnyTransferData(flavor, data, length);
+	if (data) {
+	    try {
+		var str = data.value.QueryInterface(Components.interfaces.nsISupportsString);
+
+		if (str) {
+		    var ios = Components.classes['@mozilla.org/network/io-service;1']
+			.getService(Components.interfaces.nsIIOService);
+		    var uri = ios.newURI(str.data.split("\n")[0], null, null);
+		    var file = uri.QueryInterface(Components.interfaces.nsIFileURL).file;
+		    openFile(file.path);
+		} else {
+		}
+	    }
+	    catch(e) {
+	    }
+	}
+    }
+}
+
+/* Create the necessary listeners */
+function initEventListeners() {
+    /* Add mouse scroll listener to allow zoon in/out with the mouse for example */
+    getHtmlRenderer().addEventListener("DOMMouseScroll", htmlRendererMouseScroll, false);
+    getHtmlRenderer().addEventListener("mouseover", htmlRendererMouseOver, true);
+    getHtmlRenderer().addEventListener("mouseout", htmlRendererMouseOut, true);
+    getHtmlRenderer().addEventListener("DOMActivate", htmlRendererOpenUrl, true);
+    
+    /* Add mouse scroll listener to the results bar */
+    getResultsList().addEventListener("DOMMouseScroll", resultsListMouseScroll, false);
+
+    /* register WebProgress listener */
+    var dls = Components.classes["@mozilla.org/docloaderservice;1"]
+	.getService(nsIWebProgress);
+    dls.addProgressListener (UIBrowserProgressListener,
+			     nsIWebProgress.NOTIFY_LOCATION |
+			     nsIWebProgress.NOTIFY_STATE_DOCUMENT);
+}
+
+/* Event Listener */
+const UIBrowserProgressListener = {
+
+	onStateChange: function osc (aWP, aRequest, aStateFlags, aStatus) {
+	},
+
+	onLocationChange: function olc (wp,request,location) {
+    	UISaveCurrentNote ();
+		UIBookmarkFocus (location.spec);
+	},
+	
+	QueryInterface: function qi (aIID) {
+    	if (aIID.equals(nsIWebProgressListener) ||
+			aIID.equals(Components.interfaces.nsISupports) ||
+			aIID.equals(Components.interfaces.nsISupportsWeakReference)) {
+			return this;
+		}
+    	throw Components.results.NS_ERROR_NO_INTERFACE;
+	}
+};
+
+/* Open the "print" dialog windows */
+function print() {
+    try{
+	PrintUtils.print();
+    } catch(exception) {
+	displayErrorDialog(exception);
+	return false;
+    }
+    return true;
 }

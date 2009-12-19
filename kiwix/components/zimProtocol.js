@@ -139,11 +139,8 @@ PipeChannel.prototype = {
 	Components.utils.import("resource://modules/settings.jsm");
 
 	/* load the zim file if necessary */
-	if (zimAccessor == null || currentZimId != settings.currentZimId()) {
-	    zimAccessor = Components.classes["@kiwix.org/zimAccessor"].getService();
-	    zimAccessor = zimAccessor.QueryInterface(Components.interfaces.IZimAccessor);
-	    /* No idea why I do not need to load the file here */
-	}
+	zimAccessor = Components.classes["@kiwix.org/zimAccessor"].getService();
+	zimAccessor = zimAccessor.QueryInterface(Components.interfaces.IZimAccessor);
 
 	/* Remove local anchor */
 	var uri = this.URI.clone();

@@ -32,7 +32,7 @@ function getSearchIndexDirectory(zimFilePath) {
 
 /* Return the name of the search index directory */
 function getSearchIndexDirectoryName(zimFilePath) {
-    var zimAccessor = loadZimFile(zimFilePath);
+    var zimAccessor = openZimFile(zimFilePath);
     var zimId = new Object();
     zimAccessor.getId(zimId);
     return hex_md5(zimId.value) + ".index";
@@ -54,8 +54,7 @@ function existsSearchIndex(zimFilePath) {
 
 /* Show a dialog box to ask if the user want to index the ZIM file now */
 function manageIndexZimFile() {
-    var currentZimId = settings.currentZimId();
-    var currentBook = library.getBookById(currentZimId);
+    var currentBook = library.getCurrentBook();
 
     if (isIndexing()) {
 	displayErrorDialog(getProperty("alreadyIndexingError"));
@@ -113,8 +112,7 @@ function indexZimFile(zimFilePath, xapianDirectory) {
     /* ZIM indexing task */
     var zimIndexerTask = {
 	run: function() {
-	    var currentZimId = settings.currentZimId();
-	    var currentBook = library.getBookById(currentZimId);
+	    var currentBook = library.getCurrentBook();
 	    var zimFilePath = currentBook.path;
 	    var xapianTmpDirectory = getTmpSearchIndexDirectory();
 	    var xapianDirectoryName = getSearchIndexDirectoryName(zimFilePath);
@@ -153,7 +151,7 @@ function indexZimFile(zimFilePath, xapianDirectory) {
 	    moveFile(xapianTmpDirectory, settingsRootPath, xapianDirectoryName); 
 
 	    /* Save the information in the library */
-	    library.setIndexById(settings.currentZimId(), 
+	    library.setIndexById(library.current, 
 				 appendToPath(settingsRootPath, xapianDirectoryName), "xapian_flint");
 
 	    /* Fill the progress bar */
@@ -190,17 +188,31 @@ function indexZimFile(zimFilePath, xapianDirectory) {
     return;
 }
 
-/* Search a pattern in the index */
-function searchInIndex(query, xapianDirectory) {
-    /* Empty the results list */
-    emptyResultsList();
+/* Try to open search index */
+function openSearchIndex(path) {
 
     /* Create the xapian accessor */
     var xapianAccessor = Components.classes["@kiwix.org/xapianAccessor"].getService();
     xapianAccessor = xapianAccessor.QueryInterface(Components.interfaces.IXapianAccessor);
 
     /* Open the xapian readable database */
-    xapianAccessor.openReadableDatabase(xapianDirectory);
+    if (!xapianAccessor.openReadableDatabase(path)) {
+	return;
+    }
+
+    return xapianAccessor;
+}
+
+/* Search a pattern in the index */
+function searchInIndex(query, xapianDirectory) {
+    /* Empty the results list */
+    emptyResultsList();
+
+    /* Get the xapian accessor */
+    var xapianAccessor = openSearchIndex(xapianDirectory);
+
+    /* Security check */
+    if (!xapianAccessor) return;
 
     /* Make a search */
     xapianAccessor.search(query, 28);
@@ -276,8 +288,7 @@ function manageSearchInIndex() {
 	displayErrorDialog(getProperty("emptySearchStringError"));
     } else {
 	/* Make the search and display results */
-	var currentZimId = settings.currentZimId();
-	var currentBook = library.getBookById(currentZimId);
+	var currentBook = library.getCurrentBook();
 	searchInIndex(stringToSearch, getSearchIndexDirectory(currentBook.path));
     }
 
@@ -285,4 +296,70 @@ function manageSearchInIndex() {
     getSearchBox().value = "";
 
     return true;
+}
+
+
+/* Calculate Levenshtein distance between two strings */
+function computeLevenshteinDistance (s1, s2) {
+    if (s1 == s2) {
+        return 0;
+    }
+
+    s1 = s1.replace(" ", "");
+    s2 = s2.replace(" ", "");
+
+    var s1_len = s1.length;
+    var s2_len = s2.length;
+    if (s1_len === 0) {
+        return s2_len;
+    }
+    if (s2_len === 0) {
+        return s1_len;
+    }
+
+    /* begin static */
+    var split = false;
+    try{
+        split=!('0')[0];
+    } catch (e){
+        split=true; /* Earlier IE may not support access by string index */
+    }
+
+    /* end static */
+    if (split){
+        s1 = s1.split('');
+        s2 = s2.split('');
+    }
+
+    var v0 = new Array(s1_len+1);
+    var v1 = new Array(s1_len+1);
+
+    var s1_idx=0, s2_idx=0, cost=0;
+    for (s1_idx=0; s1_idx<s1_len+1; s1_idx++) {
+        v0[s1_idx] = s1_idx;
+    }
+
+    var char_s1='', char_s2='';
+    for (s2_idx=1; s2_idx<=s2_len; s2_idx++) {
+        v1[0] = s2_idx;
+        char_s2 = s2[s2_idx - 1];
+
+        for (s1_idx=0; s1_idx<s1_len;s1_idx++) {
+            char_s1 = s1[s1_idx];
+            cost = (char_s1 == char_s2) ? 0 : 1;
+            var m_min = v0[s1_idx+1] + 1;
+            var b = v1[s1_idx] + 1;
+            var c = v0[s1_idx] + cost;
+            if (b < m_min) {
+                m_min = b; }
+            if (c < m_min) {
+                m_min = c; }
+            v1[s1_idx+1] = m_min;
+        }
+        var v_tmp = v0;
+        v0 = v1;
+        v1 = v_tmp;
+    }
+
+    return v0[s1_len];
 }

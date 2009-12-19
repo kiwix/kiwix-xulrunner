@@ -14,6 +14,7 @@ let library = {
     /* Constructor */
     register: function() {
     	this.books = [];
+	this.current = "";
 
 	/* Prepare the library file descriptor */
 	var directoryService = Components.classes["@mozilla.org/file/directory_service;1"].getService(Components.interfaces.nsIProperties);
@@ -68,7 +69,8 @@ let library = {
        	var parser = new DOMParser();
         var doc = parser.parseFromString(xml, "text/xml");
 	var root = doc.firstChild;
-    
+	this.current = root.getAttribute('current');
+
         var len = root.childNodes.length;
 
 	for (var i=0; i<len; i++) {
@@ -107,6 +109,7 @@ let library = {
         var parser = new DOMParser();     
     	var doc = parser.parseFromString("<library />", "text/xml");
 	var root = doc.firstChild;
+	root.setAttribute("current", this.current);
     	    
 	var len = this.books.length >>> 0;
 	for (var i=0 ; i<len ; i++) {
@@ -186,7 +189,17 @@ let library = {
 	   this.path = filePath;
 	}
 	return this.path;
-    }   
+    },
+
+    /* Return the current book */
+    getCurrentBook: function() {
+        return(this.getBookById(this.current));
+    },
+
+    /* Return the current book */
+    deleteCurrentBook: function() {
+        return(this.deleteBookById(this.current));
+    }
 }
 
 /* Create the settings object */

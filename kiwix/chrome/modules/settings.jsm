@@ -85,7 +85,6 @@ let settings = {
     },
     
     /* Multiple accessor functions */
-    currentZimId: function(value) { return this.charSettingParameter("currentZimId", value); },
     locale: function(value) { return this.charSettingParameter("general.useragent.locale", value); },
     displayStatusBar: function(value) { return this.boolSettingParameter("displayStatusBar", value); },
     displayFullScreen: function(value) { return this.boolSettingParameter("displayFullScreen", value); },

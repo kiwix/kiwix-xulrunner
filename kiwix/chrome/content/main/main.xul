@@ -31,6 +31,7 @@
 <!-- Custom Javascript scripts -->
 <script language="javaScript" type="text/javascript" src="resource://modules/settings.jsm"/>
 <script language="javaScript" type="text/javascript" src="resource://modules/library.jsm"/>
+<script language="javaScript" type="text/javascript" src="js/zim.js"/>
 <script language="javaScript" type="text/javascript" src="js/logger.js"/>
 <script language="javaScript" type="text/javascript" src="js/search.js"/>
 <script language="javaScript" type="text/javascript" src="js/tools.js"/>
@@ -46,9 +47,9 @@
 
 <!-- Keyset -->
 <keyset>
-  <key id="quit-key" key="Q" modifiers="control" oncommand="quitKiwix()"/>
+  <key id="quit-key" key="Q" modifiers="control" oncommand="quit()"/>
   <key id="find-key" key="F" modifiers="control" oncommand="find()"/>
-  <key id="open-file-key" key="O" modifiers="control" oncommand="manageNewZimFile()"/>
+  <key id="open-file-key" key="O" modifiers="control" oncommand="openFile()"/>
   <key id="save-file-key" key="S" modifiers="control" oncommand="saveDocument(window.content.document)"/>
   <key id="print-key" key="P" modifiers="control" oncommand="print()"/>
   <key id="selectall" key="A" modifiers="control" oncommand="selectAll()"/>
@@ -65,7 +66,7 @@
   <menu id="menu-file" label="&main.file;" accesskey="&main.file.accesskey;">
     <menupopup id="file-popup">
       <menuitem id="file-open" label="&main.openFile;" key="open-file-key" class="menuitem-iconic"
-		accesskey="&main.openFile.accesskey;" oncommand="manageNewZimFile()"/>
+		accesskey="&main.openFile.accesskey;" oncommand="openFile()"/>
       <menu label="&main.lastOpen;" id="menu-lastopen-top">
 	<menupopup id="menu-lastopen">
 	</menupopup>
@@ -76,7 +77,7 @@
 		accesskey="&main.print.accesskey;" oncommand="print()"/>
       <menuseparator/>
       <menuitem id="file-quit" label="&main.quit;" key="quit-key" class="menuitem-iconic" 
-		accesskey="&main.quit.accesskey;" oncommand="quitKiwix()"/>
+		accesskey="&main.quit.accesskey;" oncommand="quit()"/>
     </menupopup>
   </menu>
   <menu id="menu-edit" label="&main.edit;" accesskey="&main.edit.accesskey;">
