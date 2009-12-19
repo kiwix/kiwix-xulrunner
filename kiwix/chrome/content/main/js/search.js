@@ -298,7 +298,6 @@ function manageSearchInIndex() {
     return true;
 }
 
-
 /* Calculate Levenshtein distance between two strings */
 function computeLevenshteinDistance (s1, s2) {
     if (s1 == s2) {
@@ -362,4 +361,11 @@ function computeLevenshteinDistance (s1, s2) {
     }
 
     return v0[s1_len];
+}
+
+/* Check if we have a current search index */
+function checkSearchIndex() {
+    var currentBook = library.getCurrentBook();
+    if (currentBook && currentBook.indexPath && openSearchIndex(currentBook.indexPath)) return true;
+    return false;
 }

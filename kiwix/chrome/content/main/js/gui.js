@@ -528,15 +528,6 @@ function openFile(path) {
 	    book = library.addBook(zimId, path);
 	}
 	
-	/* Ask to index if this files has not already an index */
-	if (!book.indexPath) {
-	    desactivateGuiSearchComponents();
-	    manageIndexZimFile();
-	    changeResultsBarVisibilityStatus(false);
-	} else {
-	    activateGuiSearchComponents();
-	}
-	
 	/* Load the ZIM file welcome page */
 	goHome();
 	
@@ -555,6 +546,15 @@ function openFile(path) {
 
 	/* Update the last open menu */
 	populateLastOpenMenu();
+
+	/* Ask to index if this files has not already an index */
+	if (!checkSearchIndex()) {
+	    manageIndexZimFile();
+	}
+
+	/* update the gui */
+	updateGuiSearchComponents();
+	
     } else {
 	displayErrorDialog(getProperty("loadZimFileError", zimFilePath));
     }
@@ -777,21 +777,6 @@ function initUserInterface() {
     if (settings.displayFullScreen() != undefined) { if (settings.displayFullScreen()) { UIToggleFullScreen(); } }
     if (settings.displayBookmarksBar() === true) { UIToggleBookmarksBar(); }
 
-    /* Current Zim ID */
-    var currentBook = library.getCurrentBook();
-
-    /* Check if there is a search index */
-    if (currentBook != undefined &&
-	currentBook.indexPath != undefined &&
-	currentBook.indexPath != "" &&
-	openSearchIndex(currentBook.indexPath)
-	) {
-	activateGuiSearchComponents();
-    } else {
-	desactivateGuiSearchComponents();
-	desactivateHomeButton();
-    }
-
     /* Activate (or not) the Home button */
     if (getCurrentZimFileHomePageUrl()) {
 	activateHomeButton();
@@ -799,9 +784,20 @@ function initUserInterface() {
 	desactivateHomeButton();
     }
 
+    /* Update the search bar */
+    updateGuiSearchComponents()
+
     /* Desactivate back/next buttons */
     desactivateBackButton();
     desactivateNextButton();
+}
+
+function updateGuiSearchComponents() {
+    if (checkSearchIndex()) {
+	activateGuiSearchComponents();
+    } else {
+	desactivateGuiSearchComponents();
+    }
 }
 
 /* Drop file on windows to open it */
