@@ -39,8 +39,10 @@ install:
 	cp src/components/xapianAccessor/IXapianAccessor.xpt ${prefix}/lib/kiwix/components/xapianAccessor.xpt
 	cp src/components/zimXapianIndexer/.libs/libZimXapianIndexer.so ${prefix}/lib/kiwix/components/zimXapianIndexer.so
 	cp src/components/zimXapianIndexer/IZimXapianIndexer.xpt ${prefix}/lib/kiwix/components/zimXapianIndexer.xpt
+	cp src/indexer/kiwix-index ${prefix}/bin/kiwix-index
 
 uninstall:
+	rm ${prefix}/bin/kiwix-index
 	rm ${prefix}/share/pixmaps/kiwix.png
 	rm ${prefix}/share/applications/kiwix.desktop
 	rm -rf ${prefix}/lib/kiwix

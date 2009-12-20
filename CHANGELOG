@@ -1,4 +1,5 @@
 Kiwix 0.9 alpha1
+* Command line indexation tool: kiwix-index
 * Allow drag&drop to open a ZIM file
 * Autodection of the UI locale at the first start
 * New "Recently open" menu
