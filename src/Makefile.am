@@ -1,4 +1,6 @@
 SUBDIRS = \
 	zimlib \
-	components
+	components \
+	indexer
+
 
