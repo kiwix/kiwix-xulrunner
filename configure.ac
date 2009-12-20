@@ -226,6 +226,7 @@ AC_CONFIG_FILES([
   src/components/zimAccessor/Makefile
   src/components/zimXapianIndexer/Makefile
   src/indexer/Makefile
+  src/server/Makefile
   ])
 
 # Generate the Makefiles
