@@ -58,7 +58,6 @@ NS_IMETHODIMP ZimXapianIndexer::StartIndexing(const nsACString &zimFilePath,
   try {    
     this->indexer = new kiwix::Indexer(cZimFilePath, cXapianDirectoryPath);
     if (this->indexer != NULL) {
-      this->indexer->startIndexing();
       *retVal = PR_TRUE;
     } else {
       *retVal = PR_FALSE;
