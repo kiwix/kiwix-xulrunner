@@ -170,7 +170,7 @@
       <label flex="1" class="results-title" value="&main.results.title;"/>
     </hbox>
 
-    <richlistbox flex="1" id="results-list" onselect="activateBackButton(); loadContent('zim://' + currentItem.getAttribute('url')) + '\')'">
+    <richlistbox flex="1" id="results-list" onselect="activateBackButton(); loadContent('zim://' + currentItem.getAttribute('url')) + '\')'" onclick="activateBackButton(); loadContent('zim://' + currentItem.getAttribute('url')) + '\')'">
 
     </richlistbox>
   </vbox>
