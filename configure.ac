@@ -39,10 +39,9 @@ fi
 AC_CHECK_TOOL(HAVE_PERL, perl)
 
 # Check if user want local dependences
-AC_ARG_WITH(dependences, [  --with-dependences      use system or custom libraries, otherwise download them and compile staticaly against them [[default=yes]]],
-		 WITH_DEPENDENCES=1, WITH_DEPENDENCES=0 )
+AC_ARG_WITH(dependences, [  --with-dependences      use system or custom libraries, otherwise download them and compile staticaly against them [[default=yes]]], WITH_DEPENDENCES=${withval}, WITH_DEPENDENCES=${withval})
 
-if test [ "$WITH_DEPENDENCES" ]
+if test [ "$WITH_DEPENDENCES" = "yes" ]
 then
 	# Configuration for alternative zlib location
 	AC_ARG_WITH(gecko-sdk, [  --with-gecko-sdk=DIR    alternate location for gecko SDK], 
@@ -161,12 +160,17 @@ then
 		LIBMICROHTTPD_LDFLAGS="-L${LIBMICROHTTPD_PATH}"
 	fi
 	LIBMICROHTTPD_LDFLAGS="${LIBMICROHTTPD_LDFLAGS} -lmicrohttpd"
+
+	# Dependences rule
+	DEPENDENCELESS_RULES="configure-without-dependences"
 else
 	# Check if the 'wget' binary exists
 	AC_CHECK_TOOL(HAVE_WGET, wget)
 	if test [ ! "$HAVE_WGET" ]
 	then 
 	     AC_MSG_ERROR([[cannot find wget]])
+	else
+	     DEPENDENCELESS_RULES="compile-dependences"
 	fi
 fi
 
@@ -208,6 +212,7 @@ AC_SUBST(LIBZIM_LDFLAGS)
 AC_SUBST(LIBMICROHTTPD_CFLAGS)
 AC_SUBST(LIBMICROHTTPD_LDFLAGS)
 AC_SUBST(ESCAPED_PREFIX)
+AC_SUBST(DEPENDENCELESS_RULES)
 
 # Check the existence of stat64 (to handle file >2GB) in the libc
 AC_CHECK_FUNCS([stat64])
