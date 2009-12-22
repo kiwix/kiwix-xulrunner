@@ -2,18 +2,20 @@ Source: kiwix
 Section: misc
 Priority: optional
 Maintainer: Emmanuel Engelhart <emmanuel@engelhart.org>
-Build-Depends: zlib1g-dev,
+Build-Depends: binutils,
+	debhelper,
+	g++,
 	libxapian-dev,
 	libbz2-dev,
-	xulrunner-dev,
 	libunac1-dev,
+	xulrunner-dev,
 	m4,
-	binutils
+	zlib1g-dev
 Standards-Version: 0.9
 
 Package: kiwix
 Architecture: any
-Depends: debianutils, ${shlibs:Depends}
+Depends: debianutils, ${shlibs:Depends}, ${misc:Depends}
 Recommends: 
 Suggests: 
 Conflicts: 

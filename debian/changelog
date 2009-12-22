@@ -1,5 +1,5 @@
 kiwix (0.9-1) unstable; urgency=low
 
-  * Initial release (Closes: #nnnn)  <nnnn is the bug number of your ITP>
+  * Initial release.
 
- -- Emmanuel Engelhart <kelson@unknown>  Sat, 28 Nov 2009 17:18:10 +0100
+ -- Emmanuel Engelhart <kelson@kiwix.org>  Sat, 28 Nov 2009 17:18:10 +0100
