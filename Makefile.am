@@ -22,28 +22,28 @@ dist-hook:
 	rm -rf `find . -name "*.svn" -o -name "*.dat" -o -name "*~" -o -name "*#"`
 
 install:
-	if [ ! -d ${prefix}/share/pixmaps/ ] ; then mkdir ${prefix}/share/pixmaps/ ; fi
-	cp desktop/kiwix.png ${prefix}/share/pixmaps/
-	if [ ! -d ${prefix}/share/applications/ ] ; then mkdir ${prefix}/share/applications/ ; fi
-	cp desktop/kiwix.desktop ${prefix}/share/applications/
-	cp -r -v -L ./kiwix ${prefix}/lib/
-	ln -f -s ${prefix}/lib/kiwix/kiwix.sh ${prefix}/bin/kiwix
-	ln -f -s ${prefix}/lib/kiwix/kiwix-compact.sh ${prefix}/bin/kiwix-compact
-	cp src/components/zimAccessor/.libs/libZimAccessor.so ${prefix}/lib/kiwix/components/zimAccessor.so
-	cp src/components/zimAccessor/IZimAccessor.xpt ${prefix}/lib/kiwix/components/zimAccessor.xpt
-	cp src/components/xapianAccessor/.libs/libXapianAccessor.so ${prefix}/lib/kiwix/components/xapianAccessor.so
-	cp src/components/xapianAccessor/IXapianAccessor.xpt ${prefix}/lib/kiwix/components/xapianAccessor.xpt
-	cp src/components/zimXapianIndexer/.libs/libZimXapianIndexer.so ${prefix}/lib/kiwix/components/zimXapianIndexer.so
-	cp src/components/zimXapianIndexer/IZimXapianIndexer.xpt ${prefix}/lib/kiwix/components/zimXapianIndexer.xpt
-	cp src/indexer/kiwix-index ${prefix}/bin/kiwix-index
+	if [ ! -d ${DESTDIR}/${prefix}/share/pixmaps/ ] ; then mkdir ${DESTDIR}/${prefix}/share/pixmaps/ ; fi
+	cp desktop/kiwix.png ${DESTDIR}/${prefix}/share/pixmaps/
+	if [ ! -d ${DESTDIR}/${prefix}/share/applications/ ] ; then mkdir ${DESTDIR}/${prefix}/share/applications/ ; fi
+	cp desktop/kiwix.desktop ${DESTDIR}/${prefix}/share/applications/
+	cp -r -v -L ./kiwix ${DESTDIR}/${prefix}/lib/
+	ln -f -s ${DESTDIR}/${prefix}/lib/kiwix/kiwix.sh ${DESTDIR}/${prefix}/bin/kiwix
+	ln -f -s ${DESTDIR}/${prefix}/lib/kiwix/kiwix-compact.sh ${DESTDIR}/${prefix}/bin/kiwix-compact
+	cp src/components/zimAccessor/.libs/libZimAccessor.so ${DESTDIR}/${prefix}/lib/kiwix/components/zimAccessor.so
+	cp src/components/zimAccessor/IZimAccessor.xpt ${DESTDIR}/${prefix}/lib/kiwix/components/zimAccessor.xpt
+	cp src/components/xapianAccessor/.libs/libXapianAccessor.so ${DESTDIR}/${prefix}/lib/kiwix/components/xapianAccessor.so
+	cp src/components/xapianAccessor/IXapianAccessor.xpt ${DESTDIR}/${prefix}/lib/kiwix/components/xapianAccessor.xpt
+	cp src/components/zimXapianIndexer/.libs/libZimXapianIndexer.so ${DESTDIR}/${prefix}/lib/kiwix/components/zimXapianIndexer.so
+	cp src/components/zimXapianIndexer/IZimXapianIndexer.xpt ${DESTDIR}/${prefix}/lib/kiwix/components/zimXapianIndexer.xpt
+	cp src/indexer/kiwix-index ${DESTDIR}/${prefix}/bin/kiwix-index
 
 uninstall:
-	rm ${prefix}/bin/kiwix-index
-	rm ${prefix}/share/pixmaps/kiwix.png
-	rm ${prefix}/share/applications/kiwix.desktop
-	rm -rf ${prefix}/lib/kiwix
-	unlink ${prefix}/bin/kiwix
-	unlink ${prefix}/bin/kiwix-compact
+	rm ${DESTDIR}/${prefix}/bin/kiwix-index
+	rm ${DESTDIR}/${prefix}/share/pixmaps/kiwix.png
+	rm ${DESTDIR}/${prefix}/share/applications/kiwix.desktop
+	rm -rf ${DESTDIR}/${prefix}/lib/kiwix
+	unlink ${DESTDIR}/${prefix}/bin/kiwix
+	unlink ${DESTDIR}/${prefix}/bin/kiwix-compact
 
 ./kiwix/components/xapianAccessor.so:
 	ln -f -s ../../src/components/xapianAccessor/.libs/libXapianAccessor.so ./kiwix/components/xapianAccessor.so
