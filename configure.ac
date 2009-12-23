@@ -1,4 +1,4 @@
-AC_INIT([kiwix], [svn])
+AC_INIT([kiwix], [0.9])
 
 # Init. of automake
 AM_INIT_AUTOMAKE
