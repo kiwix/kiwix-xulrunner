@@ -15,7 +15,16 @@ Standards-Version: 0.9
 
 Package: kiwix
 Architecture: any
-Depends: debianutils, ${shlibs:Depends}, ${misc:Depends}
+Depends: debianutils, 
+	 ${shlibs:Depends}, 
+	 ${misc:Depends},
+	 libunac1,
+	 libxapian15,
+	 xapian-tools,
+	 xulrunner,
+ 	 zlib1g,
+	 libbz2-1.0,
+	 libmicrohttpd5
 Recommends: 
 Suggests: 
 Conflicts: 
