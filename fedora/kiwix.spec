@@ -3,9 +3,9 @@
 
 Name: kiwix
 Summary: Kiwix is an offline reader for multimedia contents how Wikipedia.
-Version: 1.9.svn_09122009
+Version: 0.9
 Release: 1
-License: GPL
+License: GPLv3
 Group: Applications/Productivity
 URL: http://www.kiwix.org
 
@@ -18,7 +18,6 @@ BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root
 BuildRequires: xulrunner-devel, bzip2-devel, xapian-core-devel, libmicrohttpd-devel
 Requires: xulrunner, xapian-core, libmicrohttpd
 
-
 %description
 Kiwix is an offline reader for multimedia contents. 
 It's especially thought to make Wikipedia available offline.
@@ -26,13 +25,13 @@ Kiwix use a .zim files for mediawiki compatible sites,
 download it from http://tmp.kiwix.org/zim/ 
 
 %prep
-%setup -q
+%setup -q -n kiwix-0.9
 
 %build
-./autogen.sh
-./configure --with-xpidl=/usr/lib/xulrunner-*/ --with-gecko-idl=/usr/lib/xulrunner-sdk-*/sdk/idl/ --prefix=%{_prefix}
 grep -v 'ln' Makefile.am > Makefile.am.new
 mv -f Makefile.am.new Makefile.am
+if [ -f ./autogen.sh ] ; then ./autogen.sh ; fi
+./configure --with-xpidl=/usr/lib/xulrunner-*/ --with-gecko-idl=/usr/lib/xulrunner-sdk-*/sdk/idl/ --prefix=%{_prefix}
 make 
 
 %install
@@ -57,10 +56,12 @@ rm ${prefix}/share/applications/kiwix.desktop
 rm -rf ${prefix}/lib/kiwix
 rm -f ${prefix}/bin/kiwix
 rm -f ${prefix}/bin/kiwix-compact
+rm -f ${prefix}/bin/kiwix-index
 
 %files
 %defattr(-,root,root)
 %doc COPYING AUTHORS CHANGELOG README
+%{_bindir}/*
 %{_libdir}/*
 %{_datadir}/*
 
