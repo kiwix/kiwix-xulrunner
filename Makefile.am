@@ -2,7 +2,8 @@ SUBDIRS=src
 EXTRA_DIST= \
 	kiwix \
 	desktop \
-	debian
+	debian \
+	CHANGELOG
 BUILT_SOURCES= \
 	./kiwix/components/xapianAccessor.so \
 	./kiwix/components/xapianAccessor.xpt \
