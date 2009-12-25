@@ -1,7 +1,7 @@
 Source: kiwix
 Section: misc
 Priority: optional
-Maintainer: Emmanuel Engelhart <emmanuel@engelhart.org>
+Maintainer: Emmanuel Engelhart <kelson@kiwix.org>
 Build-Depends: binutils,
 	debhelper,
 	g++,
