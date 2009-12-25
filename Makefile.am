@@ -101,3 +101,11 @@ compile-dependences: download-dependences
 
 deb:
 	dpkg-buildpackage -rfakeroot
+
+rpm: dist
+	mkdir -p ~/rpmbuild/{BUILD,RPMS,SOURCES,SPECS,SRPMS}
+	echo "%_topdir /home/`echo ${USER}`/rpmbuild" > ~/.rpmmacros
+	cp kiwix-0.9.tar.gz /home/`echo ${USER}`/rpmbuild/SOURCES/
+	rpm --install --force http://download.kiwix.org/dev/unac-1.7.0-1.i386.rpm
+	rpmbuild -ba fedora/kiwix.spec
+	cp /home/`echo ${USER}`/rpmbuild/RPMS/*/*.rpm .
