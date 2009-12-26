@@ -104,8 +104,8 @@ deb:
 
 rpm: dist
 	mkdir -p ~/rpmbuild/{BUILD,RPMS,SOURCES,SPECS,SRPMS}
-	echo "%_topdir /home/$${USER}/rpmbuild" > ~/.rpmmacros
-	cp kiwix-0.9.tar.gz /home/$${USER}/rpmbuild/SOURCES/
+	echo "%_topdir ~/rpmbuild" > ~/.rpmmacros
+	cp kiwix-0.9.tar.gz ~/rpmbuild/SOURCES/
 	rpm --install --force http://download.kiwix.org/dev/unac-1.7.0-1.i386.rpm
 	rpmbuild -ba fedora/kiwix.spec
-	cp /home/$${USER}/rpmbuild/RPMS/*/*.rpm .
+	cp ~/rpmbuild/RPMS/*/*.rpm .
