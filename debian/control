@@ -10,7 +10,9 @@ Build-Depends: binutils,
 	libunac1-dev,
 	xulrunner-dev,
 	m4,
-	zlib1g-dev
+	zlib1g-dev,
+	libmicrohttpd-dev,
+	libtool
 Standards-Version: 0.9
 
 Package: kiwix
