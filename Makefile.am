@@ -39,12 +39,12 @@ install:
 	cp src/indexer/kiwix-index ${DESTDIR}/${prefix}/bin/kiwix-index
 
 uninstall:
-	rm ${DESTDIR}/${prefix}/bin/kiwix-index
-	rm ${DESTDIR}/${prefix}/share/pixmaps/kiwix.png
-	rm ${DESTDIR}/${prefix}/share/applications/kiwix.desktop
+	rm -f ${DESTDIR}/${prefix}/bin/kiwix-index
+	rm -f ${DESTDIR}/${prefix}/share/pixmaps/kiwix.png
+	rm -f ${DESTDIR}/${prefix}/share/applications/kiwix.desktop
 	rm -rf ${DESTDIR}/${prefix}/lib/kiwix
-	unlink ${DESTDIR}/${prefix}/bin/kiwix
-	unlink ${DESTDIR}/${prefix}/bin/kiwix-compact
+	rm -f ${DESTDIR}/${prefix}/bin/kiwix
+	rm -f ${DESTDIR}/${prefix}/bin/kiwix-compact
 
 ./kiwix/components/xapianAccessor.so:
 	ln -f -s ../../src/components/xapianAccessor/.libs/libXapianAccessor.so ./kiwix/components/xapianAccessor.so
@@ -99,8 +99,9 @@ compile-dependences: download-dependences
 	cd src/dependences/ ; export EXTERN_PATH=`pwd` ; cd xapian-core-1.0.16 ; export CPPFLAGS="-I$$EXTERN_PATH/zlib-1.2.3/" ; export CXXFLAGS=" -fPIC -L$$EXTERN_PATH/zlib-1.2.3" ; ./configure ; make
 	cd src/dependences/unac-1.7.0 ; gcc -DUNAC_VERSION="42" -fPIC -c unac.c ; ar cr libunac.a unac.o ; ranlib libunac.a
 
-deb:
-	dpkg-buildpackage -rfakeroot
+deb: dist
+	tar -xvzf kiwix-0.9.tar.gz
+	cd kiwix-0.9 ; ./configure ; dpkg-buildpackage -rfakeroot
 
 rpm: dist
 	mkdir -p ~/rpmbuild/{BUILD,RPMS,SOURCES,SPECS,SRPMS}
