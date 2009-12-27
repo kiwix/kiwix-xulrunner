@@ -1,0 +1,2 @@
+usr/bin/kiwix usr/lib/kiwix/kiwix.sh
+usr/bin/kiwix-compact usr/lib/kiwix/kiwix-compact.sh
