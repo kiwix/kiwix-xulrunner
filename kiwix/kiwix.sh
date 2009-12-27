@@ -17,10 +17,6 @@ then
     BINARY=$BINARY_DIR/`basename $BINARY`
 fi
 
-echo $BINARY
-
-exit
-
 # Take a look to the current directory
 if [ -d "$BINARY_DIR/xulrunner" ]
 then
