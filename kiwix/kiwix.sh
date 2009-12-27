@@ -1,7 +1,10 @@
 #!/bin/bash
 
-# Binary
+# Initialisation
 BINARY=$0
+BINARY_DIR=`dirname $BINARY`
+
+# Binary
 while [ `readlink $BINARY` ]
 do
     BINARY=`readlink $BINARY`
@@ -9,17 +12,22 @@ done
 
 if [ ! ${BINARY:0:1} = "/" ]
 then
-    BINARY=`dirname $BINARY`/`basename $BINARY`
+    BINARY_DIR=$BINARY_DIR/`dirname $BINARY`
+    BINARY_DIR=`cd $BINARY_DIR ; pwd` 
+    BINARY=$BINARY_DIR/`basename $BINARY`
 fi
 
-# Binary dir
-BINARY_DIR=`dirname $BINARY`
+echo $BINARY
+
+exit
 
 # Take a look to the current directory
 if [ -d "$BINARY_DIR/xulrunner" ]
 then
     XULRUNNER=`find $BINARY_DIR/xulrunner -type f -name xulrunner`
 fi
+
+echo  $BINARY_DIR
 
 # Try to update $LD_LIBRARY_PATH
 for DIR in `find $BINARY_DIR -type d -name xulrunner`; do
