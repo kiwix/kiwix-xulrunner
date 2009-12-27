@@ -23,8 +23,6 @@ then
     XULRUNNER=`find $BINARY_DIR/xulrunner -type f -name xulrunner`
 fi
 
-echo  $BINARY_DIR
-
 # Try to update $LD_LIBRARY_PATH
 for DIR in `find $BINARY_DIR -type d -name xulrunner`; do
     export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$DIR;
