@@ -52,7 +52,6 @@ then
 	then
 		LIBXUL_CFLAGS="-I${GECKO_SDK_PATH}/sdk/include -fshort-wchar"
 		LIBXUL_LDFLAGS="-L${GECKO_SDK_PATH}/sdk/lib -lxpcomglue_s -lxul -lxpcom -lplds4 -lplc4 -lnspr4 -lpthread -ldl"
-		GECKO_SDK_PATH=${GECKO_SDK_PATH}
 		GECKO_IDL_PATH=${GECKO_SDK_PATH}/idl
 	else
 		# Configuration of the libxul
@@ -172,6 +171,29 @@ else
 	else
 	     DEPENDENCELESS_RULES="compile-dependences"
 	fi
+
+	# Gecko stuff
+	GECKO_SDK_PATH=${CURRENT_PATH}/src/dependences/xulrunner-sdk
+	LIBXUL_CFLAGS="-I${GECKO_SDK_PATH}/sdk/include -fshort-wchar"
+	LIBXUL_LDFLAGS="-L${GECKO_SDK_PATH}/sdk/lib -lxpcomglue_s -lxul -lxpcom -lplds4 -lplc4 -lnspr4 -lpthread -ldl"
+	GECKO_IDL_PATH=${GECKO_SDK_PATH}/idl
+	XPIDL_PATH=$GECKO_SDK_PATH/bin
+	AC_PATH_PROG([XPIDL], "xpidl", [],  $XPIDL_PATH)
+
+	# Xapian part
+#	AC_SUBST(LIBXAPIAN_CFLAGS)
+#	AC_SUBST(LIBXAPIAN_LDFLAGS)
+#	AC_SUBST(LIBZ_CFLAGS)
+#	AC_SUBST(LIBZ_LDFLAGS)
+#	AC_SUBST(LIBBZ2_CFLAGS)
+#	AC_SUBST(LIBBZ2_LDFLAGS)
+#	AC_SUBST(LIBUNAC_CFLAGS)
+#	AC_SUBST(LIBUNAC_LDFLAGS)
+#	AC_SUBST(LIBZIM_CFLAGS)
+#	AC_SUBST(LIBZIM_LDFLAGS)
+#	AC_SUBST(LIBMICROHTTPD_CFLAGS)
+#	AC_SUBST(LIBMICROHTTPD_LDFLAGS)
+#	AC_SUBST(ESCAPED_PREFIX)
 fi
 
 # clear $CPPFLAGS and $LDFLAGS
