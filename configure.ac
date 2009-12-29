@@ -147,7 +147,7 @@ then
 	fi
 
 	# Configuration for alternative libmicrohttpd location
-	AC_ARG_WITH(unac, [  --with-microhttpd=DIR   alternate location for microhttpd library],
+	AC_ARG_WITH(microhttpd, [  --with-microhttpd=DIR   alternate location for microhttpd library],
 			  LIBMICROHTTPD_PATH=`cd ${withval}; pwd`; CPPFLAGS="${LIBMICROHTTPD_PATH}"; LDFLAGS="${LDFLAGS}")
 
 	# Check the libunac
