@@ -150,7 +150,7 @@ then
 	AC_ARG_WITH(microhttpd, [  --with-microhttpd=DIR   alternate location for microhttpd library],
 			  LIBMICROHTTPD_PATH=`cd ${withval}; pwd`; CPPFLAGS="${LIBMICROHTTPD_PATH}"; LDFLAGS="${LDFLAGS}")
 
-	# Check the libunac
+	# Check the libmicrohttpd
 	AC_CHECK_HEADER([microhttpd.h],, [AC_MSG_ERROR([[cannot find microhttpd header]])])
 	AC_CHECK_LIB([microhttpd], [MHD_start_daemon],, [AC_MSG_ERROR([[cannot find microhttpd]])])
 	if test [ "$LIBMICROHTTPD_PATH" ]
@@ -159,6 +159,20 @@ then
 		LIBMICROHTTPD_LDFLAGS="-L${LIBMICROHTTPD_PATH}"
 	fi
 	LIBMICROHTTPD_LDFLAGS="${LIBMICROHTTPD_LDFLAGS} -lmicrohttpd"
+
+	# Configuration for alternative liblzma location
+	AC_ARG_WITH(lzma, [  --with-lzma=DIR         alternate location for lzma library],
+			  LIBLZMA_PATH=`cd ${withval}; pwd`; CPPFLAGS="${LIBLZMA_PATH}"; LDFLAGS="${LDFLAGS}")
+
+	# Check the lzma
+	AC_CHECK_HEADER([lzma.h],, [AC_MSG_ERROR([[cannot find lzma header]])])
+	AC_CHECK_LIB([lzma], [lzma_code],, [AC_MSG_ERROR([[cannot find lzma]])])
+	if test [ "$LIBLZMA_PATH" ]
+       	then
+		LIBLZMA_CFLAGS="-I${LIBLZNA_PATH}"
+		LIBLZMA_LDFLAGS="-L${LIBLZMA_PATH}"
+	fi
+	LIBLZMA_LDFLAGS="${LIBLZMA_LDFLAGS} -llzma"
 
 	# Dependences rule
 	DEPENDENCELESS_RULES="configure-without-dependences"
