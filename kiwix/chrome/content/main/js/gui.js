@@ -519,14 +519,14 @@ function openFile(path) {
 	zimAccessor.getId(zimId);
 	zimId = hex_md5(zimId.value);
 
-	/* Set the file as current */
-	library.current = zimId;
-
 	/* Add the file to the library if necessary */
 	var book = library.getBookById(zimId);
 	if (!book) {
 	    book = library.addBook(zimId, path);
 	}
+
+	/* Set the file as current */
+	library.setCurrentId(zimId);
 	
 	/* Load the ZIM file welcome page */
 	goHome();

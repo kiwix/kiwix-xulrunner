@@ -192,11 +192,17 @@ let library = {
     },
 
     /* Return the current book */
+    setCurrentId: function(id) {
+        this.current = id;
+	this.writeToFile();
+    },
+
+    /* Return the current book */
     getCurrentBook: function() {
         return(this.getBookById(this.current));
     },
 
-    /* Return the current book */
+    /* Delete the current book */
     deleteCurrentBook: function() {
         return(this.deleteBookById(this.current));
     }
