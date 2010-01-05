@@ -1,20 +1,19 @@
 #!/bin/bash
 
-# Initialisation
-BINARY=$0
-BINARY_DIR=`dirname $BINARY`
-
 # Binary
+BINARY=$0
 while [ `readlink $BINARY` ]
 do
     BINARY=`readlink $BINARY`
 done
 
-if [ ! ${BINARY:0:1} = "/" ]
+# Binary dir
+if [ ${BINARY:0:1} = "/" ]
 then
-    BINARY_DIR=$BINARY_DIR/`dirname $BINARY`
+    BINARY_DIR=`dirname $BINARY`
+else
+    BINARY_DIR=`dirname $BINARY`
     BINARY_DIR=`cd $BINARY_DIR ; pwd` 
-    BINARY=$BINARY_DIR/`basename $BINARY`
 fi
 
 # Take a look to the current directory
@@ -44,10 +43,9 @@ then
     exit;
 fi
 
-# set the default locale if necessary
+# Set the default locale if necessary
 if [ ! -d ~/.www.kiwix.org ]
 then
-    
     LOCALE="-UILocale "`echo $LANG | sed "s/[_|\.].*//"`
 fi
 
