@@ -39,4 +39,4 @@ pref("browser.download.manager.closeWhenDone", true);
 pref("browser.download.manager.showWhenStarting", false);
 
 /* Installation */
-pref("kiwix.install.prefix", "");
+pref("kiwix.install.prefix", "/usr/local");

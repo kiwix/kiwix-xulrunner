@@ -17,16 +17,19 @@ libzim_la_SOURCES = \
 	indexarticle.cpp \
 	inflatestream.cpp \
 	ptrstream.cpp \
-	qunicode.cpp \
 	search.cpp \
 	template.cpp \
 	unicode.cpp \
 	uuid.cpp \
-	zintstream.cpp
+	zintstream.cpp \
+	envvalue.cpp \
+	lzmastream.cpp \
+	unlzmastream.cpp
 
 include_HEADERS = \
 	ptrstream.h \
-	log.h
+	log.h \
+	envvalue.h
 
-libzim_la_CXXFLAGS=${LIBZ_CFLAGS} ${LIBBZ2_CFLAGS} -fPIC
-libzim_la_LDFLAGS=${LIBZ_LDFLAGS} ${LIBBZ2_LDFLAGS}
+libzim_la_CXXFLAGS=${LIBZ_CFLAGS} ${LIBBZ2_CFLAGS} ${LIBLZMA_CFLAGS} -fPIC
+libzim_la_LDFLAGS=${LIBZ_LDFLAGS} ${LIBBZ2_LDFLAGS} ${LIBLZMA_LDFLAGS}

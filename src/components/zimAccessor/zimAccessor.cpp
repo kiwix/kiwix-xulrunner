@@ -118,15 +118,11 @@ NS_IMETHODIMP ZimAccessor::GetRandomPageUrl(nsACString &url, PRBool *retVal) {
   *retVal = PR_TRUE;
 
   if (this->zimFileHandler != NULL) {
-    if (this->zimFileHandler->getFileheader().hasMainPage()) {
-      zim::size_type idx = this->firstArticleOffset + 
-	(zim::size_type)((double)rand() / ((double)RAND_MAX + 1) * this->articleCount); 
-
-      zim::Article article = zimFileHandler->getArticle(idx);
-      url = nsDependentCString(article.getUrl().getValue().c_str(), article.getUrl().getValue().size());
-    } else {
-      *retVal = PR_FALSE;
-    }
+    zim::size_type idx = this->firstArticleOffset + 
+      (zim::size_type)((double)rand() / ((double)RAND_MAX + 1) * this->articleCount); 
+    
+    zim::Article article = zimFileHandler->getArticle(idx);
+    url = nsDependentCString(article.getLongUrl().c_str(), article.getLongUrl().size());
   } else {
     *retVal = PR_FALSE;
   }
@@ -140,7 +136,7 @@ NS_IMETHODIMP ZimAccessor::GetMainPageUrl(nsACString &url, PRBool *retVal) {
   if (this->zimFileHandler != NULL) {
     if (this->zimFileHandler->getFileheader().hasMainPage()) {
       zim::Article article = zimFileHandler->getArticle(this->zimFileHandler->getFileheader().getMainPage());
-      url = nsDependentCString(article.getUrl().getValue().c_str(), article.getUrl().getValue().size());
+      url = nsDependentCString(article.getLongUrl().c_str(), article.getLongUrl().size());
     } else {
       *retVal = PR_FALSE;
     }
@@ -163,7 +159,7 @@ NS_IMETHODIMP ZimAccessor::GetNextArticle(nsACString &url, nsACString &content, 
 	     this->currentArticleOffset++);
     
     /* returned values*/
-    url = nsDependentCString(currentArticle.getUrl().getValue().c_str(), currentArticle.getUrl().getValue().size());
+    url = nsDependentCString(currentArticle.getLongUrl().c_str(), currentArticle.getLongUrl().size());
     content = nsDependentCString(currentArticle.getData().data(), currentArticle.getData().size());
 
     /* increment the offset and set returned value */
@@ -220,7 +216,7 @@ NS_IMETHODIMP ZimAccessor::GetContent(nsIURI *urlObject, nsACString &content, PR
 
   /* Extract the content from the zim file */
   try {
-    std::pair<bool, zim::File::const_iterator> resultPair = zimFileHandler->findx(ns[0], zim::QUnicodeString(title));
+    std::pair<bool, zim::File::const_iterator> resultPair = zimFileHandler->findx(ns[0], title);
 
     /* Test if the article was found */
     if (resultPair.first == true) {
@@ -239,7 +235,7 @@ NS_IMETHODIMP ZimAccessor::GetContent(nsIURI *urlObject, nsACString &content, PR
       
       /* Get the data */
       content = nsDependentCString(article.getData().data(), article.getArticleSize());
-      
+
       /* Get the data length */
       *contentLength = article.getArticleSize();
       

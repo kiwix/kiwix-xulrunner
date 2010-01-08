@@ -217,9 +217,13 @@ LIBS=""
 
 # libzim flags
 LIBZIM_CFLAGS="-I${CURRENT_PATH}/src/zimlib/include"
-LIBZIM_LDFLAGS="-lbz2 -lz"
+LIBZIM_LDFLAGS="-lbz2 -lz -llzma"
 AC_DEFINE_UNQUOTED(CLUSTER_CACHE_SIZE, 16, [set zim cluster cache size to number of cached chunks])
 AC_DEFINE_UNQUOTED(DIRENT_CACHE_SIZE, 51200, [set zim dirent cache size to number of cached chunks])
+AC_DEFINE_UNQUOTED(LZMA_MEMORY_SIZE, 128, [set lzma uncompress memory size to number of MB])
+AC_DEFINE(ENABLE_ZLIB, [1], [defined if zlib compression is enabled])
+AC_DEFINE(ENABLE_BZIP2, [1], [defined if bzip2 compression is enabled])
+AC_DEFINE(ENABLE_LZMA, [1], [defined if lzma compression is enabled])
 
 # debug
 AC_ARG_WITH(debug, [  --with-debug-symbols    add debug symbols], CFLAGS="${CFLAGS} -g "; CXXFLAGS="${CXXFLAGS} -g ")
@@ -241,6 +245,8 @@ AC_SUBST(LIBZ_CFLAGS)
 AC_SUBST(LIBZ_LDFLAGS)
 AC_SUBST(LIBBZ2_CFLAGS)
 AC_SUBST(LIBBZ2_LDFLAGS)
+AC_SUBST(LIBLZMA_CFLAGS)
+AC_SUBST(LIBLZMA_LDFLAGS)
 AC_SUBST(LIBUNAC_CFLAGS)
 AC_SUBST(LIBUNAC_LDFLAGS)
 AC_SUBST(LIBZIM_CFLAGS)
