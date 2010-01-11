@@ -13,4 +13,6 @@ interface IZimAccessor : nsISupports
   boolean getArticleCount(out PRUint32 count);
   boolean reset();
   boolean getContent(in nsIURI url, out ACString content, out PRUint32 contentLength, out ACString contentType);
+  boolean searchSuggestions(in AUTF8String prefix, in PRUint32 resultsCount);
+  boolean getNextSuggestion(out AUTF8String title);
 };

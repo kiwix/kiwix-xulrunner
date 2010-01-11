@@ -40,6 +40,9 @@ protected:
   zim::size_type lastArticleOffset;
   zim::size_type currentArticleOffset;
   zim::size_type articleCount;
+
+  std::vector<std::string> suggestions;
+  std::vector<std::string>::iterator suggestionsOffset;
 };
 
 /* Implementation file */
@@ -248,6 +251,54 @@ NS_IMETHODIMP ZimAccessor::GetContent(nsIURI *urlObject, nsACString &content, PR
       *retVal = PR_FALSE;
     }
   } catch(...) {
+  }
+
+  return NS_OK;
+}
+
+/* Search titles by prefix*/
+NS_IMETHODIMP ZimAccessor::SearchSuggestions(const nsACString &prefix, PRUint32 resultsCount, PRBool *retVal) {
+  /* Reset the suggestions */
+  this->suggestions.clear();
+
+  const char *titlePrefix;
+  NS_CStringGetData(prefix, &titlePrefix);
+
+  if (strlen(titlePrefix) && this->zimFileHandler != NULL) {
+
+    cout << titlePrefix << endl;
+
+    for (zim::File::const_iterator it = zimFileHandler->findByTitle('A', titlePrefix); 
+	 it != zimFileHandler->end() && it->getTitle().compare(0, strlen(titlePrefix), titlePrefix) == 0 ; ++it) {
+      
+      this->suggestions.push_back(it->getTitle());
+
+      cout << "  " << it->getTitle() << endl;      
+    }
+  } else {
+    *retVal = PR_FALSE;
+  }
+
+  /* Set the cursor to the begining */
+  this->suggestionsOffset = this->suggestions.begin();
+
+  *retVal = PR_TRUE;
+  return NS_OK;
+}
+
+/* Get next suggestion */
+NS_IMETHODIMP ZimAccessor::GetNextSuggestion(nsACString &title, PRBool *retVal) {
+  *retVal = PR_FALSE;
+
+  if (this->suggestionsOffset != this->suggestions.end()) {
+    /* title */
+    title = nsDependentCString(this->suggestionsOffset->c_str(), 
+			       this->suggestionsOffset->length());
+
+    /* increment the cursor for the next call */
+    this->suggestionsOffset++;
+
+    *retVal = PR_TRUE;
   }
 
   return NS_OK;
