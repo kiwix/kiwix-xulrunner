@@ -257,7 +257,7 @@ NS_IMETHODIMP ZimAccessor::GetContent(nsIURI *urlObject, nsACString &content, PR
 }
 
 /* Search titles by prefix*/
-NS_IMETHODIMP ZimAccessor::SearchSuggestions(const nsACString &prefix, PRUint32 resultsCount, PRBool *retVal) {
+NS_IMETHODIMP ZimAccessor::SearchSuggestions(const nsACString &prefix, PRUint32 suggestionsCount, PRBool *retVal) {
   /* Reset the suggestions */
   this->suggestions.clear();
 
@@ -269,7 +269,8 @@ NS_IMETHODIMP ZimAccessor::SearchSuggestions(const nsACString &prefix, PRUint32 
     cout << titlePrefix << endl;
 
     for (zim::File::const_iterator it = zimFileHandler->findByTitle('A', titlePrefix); 
-	 it != zimFileHandler->end() && it->getTitle().compare(0, strlen(titlePrefix), titlePrefix) == 0 ; ++it) {
+	 it != zimFileHandler->end() && it->getTitle().compare(0, strlen(titlePrefix), titlePrefix) == 0 
+	   && this->suggestions.size() < suggestionsCount ; ++it) {
       
       this->suggestions.push_back(it->getTitle());
 
