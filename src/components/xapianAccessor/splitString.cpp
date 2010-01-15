@@ -1,33 +1,31 @@
 #include "splitString.h"
 
-std::vector<std::string> split(const std::string& myStr, const std::string& token) {
-  std::vector<std::string> temp (0);
-  std::string s;
-  
-  for (std::size_t i = 0; i < myStr.size(); i++) {
-    if ((myStr.substr(i, token.size()).compare(token) == 0)) {
-      temp.push_back(s);
-      s.clear();
-      i += token.size() - 1;
-    } else {
-      s.append(1, myStr[i]);
-      if (i == (myStr.size() - 1))
-	temp.push_back(s);
+std::vector<std::string> split(const std::string & str,
+                                      const std::string & delims=" *-")
+{
+  string::size_type lastPos = str.find_first_not_of(delims, 0);
+  string::size_type pos = str.find_first_of(delims, lastPos);
+  vector<string> tokens;
+ 
+  while (string::npos != pos || string::npos != lastPos)
+    {
+      tokens.push_back(str.substr(lastPos, pos - lastPos));
+      lastPos = str.find_first_not_of(delims, pos);
+      pos     = str.find_first_of(delims, lastPos);
     }
-  }
-
-  return temp;
+ 
+  return tokens;
 }
 
-std::vector<std::string> split (const char* lhs, const char* rhs){
+std::vector<std::string> split(const char* lhs, const char* rhs){
   const std::string m1 (lhs), m2 (rhs);
   return split(m1, m2);
 }
 
-std::vector<std::string> split (const char* lhs, const std::string& rhs){
+std::vector<std::string> split(const char* lhs, const std::string& rhs){
   return split(lhs, rhs.c_str());
 }
 
-std::vector<std::string> split (const std::string& lhs, const char* rhs){
+std::vector<std::string> split(const std::string& lhs, const char* rhs){
   return split(lhs.c_str(), rhs);
 }
