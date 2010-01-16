@@ -8,6 +8,7 @@ Build-Depends: binutils,
 	libxapian-dev,
 	libbz2-dev,
 	libunac1-dev,
+	liblzma-dev,
 	xulrunner-dev,
 	m4,
 	zlib1g-dev,
@@ -26,6 +27,7 @@ Depends: debianutils,
 	 xulrunner,
  	 zlib1g,
 	 libbz2-1.0,
+	 liblzma0,
 	 libmicrohttpd5
 Recommends: 
 Suggests: 
