@@ -16,7 +16,7 @@ gS.prototype={
 	var r=[];
 	
 	/* Build the result array */
-	zimAccessor.searchSuggestions(searchString, 10);
+	zimAccessor.searchSuggestions(searchString, 50);
 	var title = new Object();
 	while (zimAccessor.getNextSuggestion(title)) {
 	    r.push(title.value); 
