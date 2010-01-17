@@ -240,8 +240,13 @@ function searchInIndex(query, xapianDirectory) {
 	var firstTitle = results[0][1];
 	var firstScore = results[0][2];
 
+	/* Display the first result if the search pattern eq to the first result */
+	if (query.toLowerCase() == firstTitle.toLowerCase()) {
+	    loadContent("zim://" + firstUrl);
+	}
+
 	/* Display the first result (best score) if its accuracy is high*/
-	if (firstScore > _loadPageScoreThreshold) {
+	else if (firstScore > _loadPageScoreThreshold) {
 
 	    /* Check if the Levenshtein distance is not too bad */
 	    var distance = computeLevenshteinDistance(query.toLowerCase(), 
