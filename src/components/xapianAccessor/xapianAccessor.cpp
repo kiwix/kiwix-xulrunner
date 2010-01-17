@@ -91,7 +91,7 @@ NS_IMETHODIMP XapianAccessor::Search(const nsACString &search, PRUint32 resultsC
   /* Create the query term vector */
   const char *csearch;
   NS_CStringGetData(search, &csearch, NULL);
-  std::vector<std::string> queryTerms = split(removeAccents(csearch), " -*()[]");
+  std::vector<std::string> queryTerms = split(removeAccents(csearch), " #@%$0/\\_-*()[]{},;:");
   
   /* Create query object */
   Xapian::Query query(Xapian::Query::OP_OR, queryTerms.begin(), queryTerms.end());
