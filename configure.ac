@@ -212,8 +212,10 @@ fi
 
 # clear $CPPFLAGS and $LDFLAGS
 CPPFLAGS=""
+CFLAGS="-O6"
 LDFLAGS=""
 LIBS=""
+CXXFLAGS=${CFLAGS}
 
 # libzim flags
 LIBZIM_CFLAGS="-I${CURRENT_PATH}/src/zimlib/include"
@@ -229,7 +231,7 @@ AC_DEFINE(ENABLE_LZMA, [1], [defined if lzma compression is enabled])
 AC_ARG_WITH(debug, [  --with-debug-symbols    add debug symbols], CFLAGS="${CFLAGS} -g "; CXXFLAGS="${CXXFLAGS} -g ")
 
 # Special Flags for XPCOM components
-XPCOM_CFLAGS="-fno-rtti -D_POSIX_ -O3 -fPIC"
+XPCOM_CFLAGS="-fno-rtti -D_POSIX_ -fPIC"
 XPCOM_LDFLAGS="-Xcompiler -shared -Wl,-rpath-link,$GECKO_SDK_PATH/bin"
 
 # Export variables
