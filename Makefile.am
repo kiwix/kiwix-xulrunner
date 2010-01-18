@@ -37,6 +37,7 @@ install:
 	cp src/components/zimXapianIndexer/.libs/libZimXapianIndexer.so ${DESTDIR}/${prefix}/lib/kiwix/components/zimXapianIndexer.so
 	cp src/components/zimXapianIndexer/IZimXapianIndexer.xpt ${DESTDIR}/${prefix}/lib/kiwix/components/zimXapianIndexer.xpt
 	cp src/indexer/kiwix-index ${DESTDIR}/${prefix}/bin/kiwix-index
+	cp src/server/kiwix-serve ${DESTDIR}/${prefix}/bin/kiwix-serve
 
 uninstall:
 	rm -f ${DESTDIR}/${prefix}/bin/kiwix-index
