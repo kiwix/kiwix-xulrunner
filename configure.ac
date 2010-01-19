@@ -17,6 +17,16 @@ then
 	AC_MSG_ERROR([[cannot find any C++ compiler]])
 fi
 
+# Check the compiler version
+if test [ "$CXX" ]
+then
+  CXX_VERSION=`$CXX --version | head -n 1 | cut -d " " -f 3` 
+  if [[ "$CXX_VERSION" \< "4.3" ]]
+  then
+    AC_MSG_ERROR([g++ 4.3.x or higher required])
+  fi
+fi
+
 # Determine libtool
 AC_PROG_LIBTOOL
 AC_PROG_RANLIB
