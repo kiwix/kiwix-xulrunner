@@ -1,6 +1,11 @@
 lib_LTLIBRARIES=libZimAccessor.la
-libZimAccessor_la_SOURCES=zimAccessor.cpp
-libZimAccessor_la_CXXFLAGS=$(LIBXUL_CFLAGS) $(LIBZIM_CFLAGS) $(XPCOM_CFLAGS)
+libZimAccessor_la_SOURCES= \
+	zimAccessor.cpp \
+	../../common/kiwix/reader.cpp 
+include_HEADERS= \
+	IZimAccessor.h \
+	../../common/kiwix/reader.h
+libZimAccessor_la_CXXFLAGS=$(LIBXUL_CFLAGS) $(LIBZIM_CFLAGS) $(XPCOM_CFLAGS)  -I../../common/
 libZimAccessor_la_LDFLAGS=$(LIBXUL_LDFLAGS) $(LIBZIM_LDFLAGS) $(XPCOM_LDFLAGS)
 libZimAccessor_la_LIBADD=../../zimlib/src/.libs/libzim.a
 EXTRA_DIST=IZimAccessor.idl

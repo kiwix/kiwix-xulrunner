@@ -6,7 +6,6 @@ interface nsIURI;
 interface IZimAccessor : nsISupports
 {
   boolean loadFile(in AUTF8String path);
-  boolean getNextArticle(out ACString url, out ACString content);
   boolean getMainPageUrl(out ACString url);
   boolean getRandomPageUrl(out ACString url);
   boolean getId(out ACString id);

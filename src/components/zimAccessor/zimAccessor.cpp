@@ -14,14 +14,7 @@
 #include "nsIProperties.h"
 #include "nsDirectoryServiceDefs.h"
 
-#include <zim/zim.h>
-#include <zim/file.h>
-#include <zim/article.h>
-#include <zim/fileiterator.h>
-
-#include <string>
-
-using namespace std;
+#include <kiwix/reader.h>
 
 class ZimAccessor : public IZimAccessor {
 
@@ -35,14 +28,7 @@ private:
   ~ZimAccessor();
 
 protected:
-  zim::File* zimFileHandler;
-  zim::size_type firstArticleOffset;
-  zim::size_type lastArticleOffset;
-  zim::size_type currentArticleOffset;
-  zim::size_type articleCount;
-
-  std::vector<std::string> suggestions;
-  std::vector<std::string>::iterator suggestionsOffset;
+  kiwix::Reader *reader;
 };
 
 /* Implementation file */
@@ -50,13 +36,13 @@ NS_IMPL_ISUPPORTS1(ZimAccessor, IZimAccessor)
 
 /* Constructor */
 ZimAccessor::ZimAccessor()
-  : zimFileHandler(NULL)
-{}
+: reader(NULL) {
+}
 
 /* Destructor */
 ZimAccessor::~ZimAccessor() {
-  if (this->zimFileHandler != NULL) {
-    delete this->zimFileHandler;
+  if (this->reader != NULL) {
+    delete this->reader;
   }
 }
 
@@ -67,18 +53,9 @@ NS_IMETHODIMP ZimAccessor::LoadFile(const nsACString &path, PRBool *retVal) {
   const char *filePath;
   NS_CStringGetData(path, &filePath);
 
-  try {    
-    this->zimFileHandler = new zim::File(filePath);
+  this->reader = new kiwix::Reader(filePath);
 
-    if (this->zimFileHandler != NULL) {
-      this->firstArticleOffset = this->zimFileHandler->getNamespaceBeginOffset('A');
-      this->lastArticleOffset = this->zimFileHandler->getNamespaceEndOffset('A');
-      this->currentArticleOffset = this->firstArticleOffset;
-      this->articleCount = this->zimFileHandler->getNamespaceCount('A');
-    } else {
-      *retVal = PR_FALSE;
-    }
-  } catch(...) {
+  if (this->reader == NULL) {
     *retVal = PR_FALSE;
   }
 
@@ -88,15 +65,15 @@ NS_IMETHODIMP ZimAccessor::LoadFile(const nsACString &path, PRBool *retVal) {
 /* Reset the cursor for GetNextArticle() */
 NS_IMETHODIMP ZimAccessor::Reset(PRBool *retVal) {
   *retVal = PR_TRUE;
-  this->currentArticleOffset = this->firstArticleOffset;
+  this->reader->reset();
   return NS_OK;
 }
 
 /* Get the count of articles which can be indexed/displayed */
 NS_IMETHODIMP ZimAccessor::GetArticleCount(PRUint32 *count, PRBool *retVal) {
   *retVal = PR_TRUE;
-  if (this->zimFileHandler != NULL) {
-    *count = this->articleCount;
+  if (this->reader != NULL) {
+    *count = this->reader->getArticleCount();
   } else {
     *retVal = PR_FALSE;
   }
@@ -107,9 +84,9 @@ NS_IMETHODIMP ZimAccessor::GetArticleCount(PRUint32 *count, PRBool *retVal) {
 NS_IMETHODIMP ZimAccessor::GetId(nsACString &id, PRBool *retVal) {
   *retVal = PR_TRUE;
 
-  if (this->zimFileHandler != NULL) {
-    id = nsDependentCString(this->zimFileHandler->getFileheader().getUuid().data, 
-			    this->zimFileHandler->getFileheader().getUuid().size());
+  if (this->reader != NULL) {
+    id = nsDependentCString(this->reader->getId().c_str(), 
+			    this->reader->getId().size());
   } else {
     *retVal = PR_FALSE;
   }
@@ -120,12 +97,9 @@ NS_IMETHODIMP ZimAccessor::GetId(nsACString &id, PRBool *retVal) {
 NS_IMETHODIMP ZimAccessor::GetRandomPageUrl(nsACString &url, PRBool *retVal) {
   *retVal = PR_TRUE;
 
-  if (this->zimFileHandler != NULL) {
-    zim::size_type idx = this->firstArticleOffset + 
-      (zim::size_type)((double)rand() / ((double)RAND_MAX + 1) * this->articleCount); 
-    
-    zim::Article article = zimFileHandler->getArticle(idx);
-    url = nsDependentCString(article.getLongUrl().c_str(), article.getLongUrl().size());
+  if (this->reader != NULL) {
+    string urlstr = this->reader->getRandomPageUrl();
+    url = nsDependentCString(urlstr.c_str(), urlstr.size());
   } else {
     *retVal = PR_FALSE;
   }
@@ -136,45 +110,12 @@ NS_IMETHODIMP ZimAccessor::GetRandomPageUrl(nsACString &url, PRBool *retVal) {
 NS_IMETHODIMP ZimAccessor::GetMainPageUrl(nsACString &url, PRBool *retVal) {
   *retVal = PR_TRUE;
 
-  if (this->zimFileHandler != NULL) {
-    if (this->zimFileHandler->getFileheader().hasMainPage()) {
-      zim::Article article = zimFileHandler->getArticle(this->zimFileHandler->getFileheader().getMainPage());
-      url = nsDependentCString(article.getLongUrl().c_str(), article.getLongUrl().size());
-    } else {
-      *retVal = PR_FALSE;
-    }
+  if (this->reader != NULL) {
+    string urlstr = this->reader->getMainPageUrl();
+    url = nsDependentCString(urlstr.c_str(), urlstr.size());
   } else {
     *retVal = PR_FALSE;
   }
-  return NS_OK;
-}
-
-/* List articles for a namespace */
-NS_IMETHODIMP ZimAccessor::GetNextArticle(nsACString &url, nsACString &content, PRBool *retVal) {
-  try {
-    zim::Article currentArticle;
-    
-    /* get next non redirect article */
-    do {
-      currentArticle = this->zimFileHandler->getArticle(this->currentArticleOffset);
-    } while (currentArticle.isRedirect() && 
-	     this->currentArticleOffset != this->lastArticleOffset && 
-	     this->currentArticleOffset++);
-    
-    /* returned values*/
-    url = nsDependentCString(currentArticle.getLongUrl().c_str(), currentArticle.getLongUrl().size());
-    content = nsDependentCString(currentArticle.getData().data(), currentArticle.getData().size());
-
-    /* increment the offset and set returned value */
-    if (this->currentArticleOffset != this->lastArticleOffset) {
-      this->currentArticleOffset++;
-      *retVal = PR_TRUE;
-    } else {
-      this->currentArticleOffset = this->firstArticleOffset;
-      *retVal = PR_FALSE;
-    }
-  }
-  catch(...) { }
   return NS_OK;
 }
 
@@ -185,72 +126,22 @@ NS_IMETHODIMP ZimAccessor::GetContent(nsIURI *urlObject, nsACString &content, PR
   /* Convert the URL object to char* string */
   nsEmbedCString urlString;
   urlObject->GetPath(urlString);
-  const char *url = urlString.get();
-  
-  /* Offset to visit the url */
-  unsigned int urlLength = strlen(url);
-  unsigned int offset = 0;
+  const string url = string(urlString.get());
 
-  /* Ignore the '/' */
-  while((offset < urlLength) && (url[offset] == '/')) offset++;
+  /* strings */
+  string contentStr;
+  string contentTypeStr;
+  unsigned int contentLengthInt;
 
-  /* Get namespace */
-  char ns[1024];
-  unsigned int nsOffset = 0;
-  while((offset < urlLength) && (url[offset] != '/')) {
-    ns[nsOffset] = url[offset];
-    offset++;
-    nsOffset++;
-  }
-  ns[nsOffset] = 0;
-
-  /* Ignore the '/' */
-  while((offset < urlLength) && (url[offset] == '/')) offset++;  
-
-  /* Get content title */
-  char title[1024];
-  unsigned int titleOffset = 0;
-  while((offset < urlLength) && (url[offset] != '/')) {
-    title[titleOffset] = url[offset];
-    offset++;
-    titleOffset++;
-  }
-  title[titleOffset] = 0;
-
-  /* Extract the content from the zim file */
-  try {
-    std::pair<bool, zim::File::const_iterator> resultPair = zimFileHandler->findx(ns[0], title);
-
-    /* Test if the article was found */
-    if (resultPair.first == true) {
-
-      /* Get the article */
-      zim::Article article = zimFileHandler->getArticle(resultPair.second.getIndex());
-
-      /* If redirect */
-      unsigned int loopCounter = 0;
-      while (article.isRedirect() && loopCounter++<42) {
-	article = article.getRedirectArticle();
-      }
-      
-      /* Get the content mime-type */
-      contentType = nsDependentCString(article.getMimeType().data(), article.getMimeType().size()); 
-      
-      /* Get the data */
-      content = nsDependentCString(article.getData().data(), article.getArticleSize());
-
-      /* Get the data length */
-      *contentLength = article.getArticleSize();
-      
-      /* Set return value */
-      *retVal = PR_TRUE;
-    } else {
-      /* The found article is not the good one */
-      content="";
-      *contentLength = 0;
-      *retVal = PR_FALSE;
-    }
-  } catch(...) {
+  if (this->reader->getContent(url, contentStr, contentLengthInt, contentTypeStr)) {
+    contentType = nsDependentCString(contentTypeStr.data(), contentTypeStr.size()); 
+    content = nsDependentCString(contentStr.data(), contentStr.size());
+    *contentLength = contentLengthInt;
+    *retVal = PR_TRUE;
+  } else {
+    content="";
+    *contentLength = 0;
+    *retVal = PR_FALSE;
   }
 
   return NS_OK;
@@ -258,48 +149,28 @@ NS_IMETHODIMP ZimAccessor::GetContent(nsIURI *urlObject, nsACString &content, PR
 
 /* Search titles by prefix*/
 NS_IMETHODIMP ZimAccessor::SearchSuggestions(const nsACString &prefix, PRUint32 suggestionsCount, PRBool *retVal) {
-  /* Reset the suggestions */
-  this->suggestions.clear();
-
   const char *titlePrefix;
   NS_CStringGetData(prefix, &titlePrefix);
 
-  if (strlen(titlePrefix) && this->zimFileHandler != NULL) {
-
-    cout << titlePrefix << endl;
-
-    for (zim::File::const_iterator it = zimFileHandler->findByTitle('A', titlePrefix); 
-	 it != zimFileHandler->end() && it->getTitle().compare(0, strlen(titlePrefix), titlePrefix) == 0 
-	   && this->suggestions.size() < suggestionsCount ; ++it) {
-      
-      this->suggestions.push_back(it->getTitle());
-
-      cout << "  " << it->getTitle() << endl;      
-    }
+  if (this->reader->searchSuggestions(titlePrefix, suggestionsCount)) {
+    *retVal = PR_TRUE;
   } else {
     *retVal = PR_FALSE;
   }
 
-  /* Set the cursor to the begining */
-  this->suggestionsOffset = this->suggestions.begin();
-
-  *retVal = PR_TRUE;
   return NS_OK;
 }
 
 /* Get next suggestion */
 NS_IMETHODIMP ZimAccessor::GetNextSuggestion(nsACString &title, PRBool *retVal) {
   *retVal = PR_FALSE;
+  
+  string titleStr;
 
-  if (this->suggestionsOffset != this->suggestions.end()) {
-    /* title */
-    title = nsDependentCString(this->suggestionsOffset->c_str(), 
-			       this->suggestionsOffset->length());
-
-    /* increment the cursor for the next call */
-    this->suggestionsOffset++;
-
-    *retVal = PR_TRUE;
+  if (this->reader->getNextSuggestion(titleStr)) {
+    title = nsDependentCString(titleStr.c_str(), 
+			       titleStr.length());
+    *retVal = PR_TRUE;    
   }
 
   return NS_OK;
