@@ -38,6 +38,14 @@ AC_LANG(C++)
 # Current path
 CURRENT_PATH=`pwd`
 
+# default $CPPFLAGS and $LDFLAGS
+CPPFLAGS=""
+CFLAGS="-O6"
+LDFLAGS=""
+LIBS=""
+LD_PATH=""
+LD_LIBRARY_PATH=""
+
 # Check if the 'pkg-config' binary exists
 AC_CHECK_TOOL(HAVE_PKG_CONFIG, pkg-config)
 if test [ ! "$HAVE_PKG_CONFIG" ]
@@ -187,6 +195,9 @@ then
 	# Dependences rule
 	DEPENDENCELESS_RULES="configure-without-dependences"
 else
+	# No dependences
+	CFLAGS="$CFLAGS -nostdinc -nostdinc++"
+
 	# Check if the 'wget' binary exists
 	AC_CHECK_TOOL(HAVE_WGET, wget)
 	if test [ ! "$HAVE_WGET" ]
@@ -220,11 +231,7 @@ else
 #	AC_SUBST(ESCAPED_PREFIX)
 fi
 
-# clear $CPPFLAGS and $LDFLAGS
-CPPFLAGS=""
-CFLAGS="-O6"
-LDFLAGS=""
-LIBS=""
+# default CXXFLAGS
 CXXFLAGS=${CFLAGS}
 
 # libzim flags
