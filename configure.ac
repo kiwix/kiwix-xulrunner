@@ -169,7 +169,7 @@ then
 			  LIBMICROHTTPD_PATH=`cd ${withval}; pwd`; CPPFLAGS="${LIBMICROHTTPD_PATH}"; LDFLAGS="${LDFLAGS}")
 
 	# Check the libmicrohttpd
-	AC_CHECK_HEADER([microhttpd.h],, [AC_MSG_ERROR([[cannot find microhttpd header]])])
+	AC_CHECK_HEADER([microhttpd.h], , [AC_MSG_ERROR([[cannot find microhttpd header]])])
 	AC_CHECK_LIB([microhttpd], [MHD_start_daemon],, [AC_MSG_ERROR([[cannot find microhttpd]])])
 	if test [ "$LIBMICROHTTPD_PATH" ]
 	then
@@ -177,6 +177,24 @@ then
 		LIBMICROHTTPD_LDFLAGS="-L${LIBMICROHTTPD_PATH}"
 	fi
 	LIBMICROHTTPD_LDFLAGS="${LIBMICROHTTPD_LDFLAGS} -lmicrohttpd"
+
+	# Check the libmicrohttpd version
+
+	AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[
+					#include <stdint.h>
+		    		       	#include <stdlib.h>
+					#include <stdio.h>
+				       	#include <unistd.h>
+				       	#include <microhttpd.h>
+					]],
+                                     	[[
+					#if MHD_VERSION >= 0x00040000
+					// MHD_VERSION is high enough
+					#else
+					#  MHD_VERSION is to low
+				     	#endif
+				     	]])],
+					[], [AC_MSG_ERROR([[The libmicrohttpd version must be 0.4.0 or higher.]])])
 
 	# Configuration for alternative liblzma location
 	AC_ARG_WITH(lzma, [  --with-lzma=DIR         alternate location for lzma library],
