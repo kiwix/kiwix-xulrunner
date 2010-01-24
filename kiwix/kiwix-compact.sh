@@ -19,6 +19,7 @@ fi
 # Check if the profile path exists
 if [ ! -d $PROFILES_PATH ] ; then
     echo "Unable to find a the kiwix profile directory '$PROFILES_PATH'." ;
+    exit;
 fi
 
 # Return the profile list
