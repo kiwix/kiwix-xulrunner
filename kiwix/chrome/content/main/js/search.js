@@ -35,7 +35,7 @@ function getSearchIndexDirectoryName(zimFilePath) {
     var zimAccessor = openZimFile(zimFilePath);
     var zimId = new Object();
     zimAccessor.getId(zimId);
-    return hex_md5(zimId.value) + ".index";
+    return zimId.value + ".index";
 }
 
 /* Return the tmp directory path where the search index is build */
