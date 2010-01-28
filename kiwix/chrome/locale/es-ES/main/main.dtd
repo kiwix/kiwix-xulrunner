@@ -7,7 +7,7 @@
 <!ENTITY main.file.accesskey          "A">
 <!ENTITY main.openFile                "Abrir...">
 <!ENTITY main.openFile.accesskey      "A">
-<!ENTITY main.lastOpen                " Recientemente abiertos...">
+<!ENTITY main.lastOpen                "Recientemente abiertos...">
 <!ENTITY main.saveFile                "Guardar página como...">
 <!ENTITY main.saveFile.accesskey      "S">
 <!ENTITY main.print                   "Imprimir...">
