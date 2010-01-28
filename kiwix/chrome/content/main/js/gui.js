@@ -517,7 +517,7 @@ function openFile(path) {
 	/* Get the MD5 id */
 	var zimId = new Object();
 	zimAccessor.getId(zimId);
-	zimId = hex_md5(zimId.value);
+	zimId = zimId.value;
 
 	/* Add the file to the library if necessary */
 	var book = library.getBookById(zimId);
