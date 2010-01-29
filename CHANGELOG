@@ -1,4 +1,5 @@
 Kiwix 0.9 alpha1
+* Fix the Hebrew search issue with " (ID: 2939690)
 * First version of the search suggest feature (ID: 2799913)
 * Introduction of the HTTP server kiwix-serve
 * Command line indexation tool: kiwix-index
