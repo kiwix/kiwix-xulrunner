@@ -98,7 +98,7 @@ compile-dependences: download-dependences
 	cd src/dependences/bzip2-1.0.5 ; sed -i "s/CFLAGS=/CFLAGS=-fPIC /" Makefile ; make ; make Makefile-libbz2_so
 	cd src/dependences/zlib-1.2.3 ; export CFLAGS=" -fPIC " ; ./configure ; make ; ./configure ; make
 	cd src/dependences/ ; export EXTERN_PATH=`pwd` ; cd xapian-core-1.0.16 ; export CPPFLAGS="-I$$EXTERN_PATH/zlib-1.2.3/" ; export CXXFLAGS=" -fPIC -L$$EXTERN_PATH/zlib-1.2.3" ; ./configure ; make
-	cd src/dependences/unac-1.7.0 ; gcc -DUNAC_VERSION="42" -fPIC -c unac.c ; ar cr libunac.a unac.o ; ranlib libunac.a
+	cd src/dependences/unac-1.7.0 ; gcc -DUNAC_VERSION="\"42\"" -fPIC -c unac.c ; ar cr libunac.a unac.o ; ranlib libunac.a
 
 deb: dist
 	tar -xvzf kiwix-0.9.tar.gz
