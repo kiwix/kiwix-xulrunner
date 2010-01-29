@@ -1,4 +1,4 @@
-SUBDIRS = \
+SUBDIRS = ${DEPENDENCES} \
 	zimlib \
 	components \
 	indexer \

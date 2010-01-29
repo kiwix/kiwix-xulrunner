@@ -210,8 +210,8 @@ then
 	fi
 	LIBLZMA_LDFLAGS="${LIBLZMA_LDFLAGS} -llzma"
 
-	# Dependences rule
-	DEPENDENCELESS_RULES="configure-without-dependences"
+	# BINDIST_INTRO_* values
+	BINDIST_INTRO_MESSAGE="echo You have to run configure with the '--without-dependences' argument."
 else
 	# No dependences
 	CFLAGS="$CFLAGS -nostdinc -nostdinc++"
@@ -221,9 +221,13 @@ else
 	if test [ ! "$HAVE_WGET" ]
 	then 
 	     AC_MSG_ERROR([[cannot find wget]])
-	else
-	     DEPENDENCELESS_RULES="compile-dependences"
 	fi
+
+	# BINDIST_INTRO_* values
+	BINDIST_INTRO_MESSAGE="echo Building static binary tgz..."
+
+	# add the "dependences" rep.
+	DEPENDENCES="dependences"
 
 	# Gecko stuff
 	GECKO_SDK_PATH=${CURRENT_PATH}/src/dependences/xulrunner-sdk
@@ -291,7 +295,8 @@ AC_SUBST(LIBZIM_LDFLAGS)
 AC_SUBST(LIBMICROHTTPD_CFLAGS)
 AC_SUBST(LIBMICROHTTPD_LDFLAGS)
 AC_SUBST(ESCAPED_PREFIX)
-AC_SUBST(DEPENDENCELESS_RULES)
+AC_SUBST(BINDIST_INTRO_MESSAGE)
+AC_SUBST(DEPENDENCES)
 
 # Check the existence of stat64 (to handle file >2GB) in the libc
 AC_CHECK_FUNCS([stat64])
@@ -305,6 +310,7 @@ AC_CONFIG_FILES([
   src/Makefile
   src/zimlib/Makefile
   src/zimlib/src/Makefile
+  src/dependences/Makefile
   src/components/Makefile
   src/components/xapianAccessor/Makefile
   src/components/zimAccessor/Makefile
