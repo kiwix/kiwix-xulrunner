@@ -3,6 +3,3 @@ SUBDIRS = ${DEPENDENCES} \
 	components \
 	indexer \
 	server
-
-clean-local:
-	rm -rf dependences/*
