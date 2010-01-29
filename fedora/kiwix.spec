@@ -1,22 +1,17 @@
-# Not build to debug rpm package
-%define debug_package %{nil}
-
 Name: kiwix
-Summary: Kiwix is an offline reader for multimedia contents how Wikipedia.
-Version: 0.9
-Release: 1
+Summary: Is an offline reader for multimedia contents how Wikipedia
+Version: svn
+Release: 0.9_20100123_1%{?dist}
 License: GPLv3
 Group: Applications/Productivity
 URL: http://www.kiwix.org
 
-Packager: Edwind Richzendy <richzendy@fedoraproject.org>
-Vendor: Richzendy Repository, http://repo.Richzendy.org/
-
-Source: http://repo.richzendy.org/kiwix/src/kiwix-%{version}.tar.gz
+Source: http://tmp.kiwix.org/src/nightly/kiwix-%{version}-2010-01-23.tar.bz2
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root
 
-BuildRequires: xulrunner-devel, bzip2-devel, xapian-core-devel, libmicrohttpd-devel
+BuildRequires: xulrunner-devel, bzip2-devel, xapian-core-devel, libmicrohttpd-devel, libtool
 Requires: xulrunner, xapian-core, libmicrohttpd
+
 
 %description
 Kiwix is an offline reader for multimedia contents. 
@@ -28,18 +23,14 @@ download it from http://tmp.kiwix.org/zim/
 %setup -q -n kiwix-0.9
 
 %build
-grep -v 'ln' Makefile.am > Makefile.am.new
-mv -f Makefile.am.new Makefile.am
-if [ -f ./autogen.sh ] ; then ./autogen.sh ; fi
-./configure --with-xpidl=/usr/lib/xulrunner-*/ --with-gecko-idl=/usr/lib/xulrunner-sdk-*/sdk/idl/ --prefix=%{_prefix}
+%configure --with-xpidl=%{_libdir}/xulrunner-*/ --with-gecko-idl=%{_libdir}/xulrunner-sdk-*/sdk/idl/ --prefix=%{_prefix}
 make 
 
 %install
 %{__rm} -rf %{buildroot}
-#sed -i 's/ln/#ln/' Makefile.ac
-install -dm 755 $RPM_BUILD_ROOT%{_datadir}/pixmaps
+install -dm 755 $RPM_BUILD_ROOT%{_datadir}/
 install -dm 755 $RPM_BUILD_ROOT%{_bindir}/
-install -dm 755 $RPM_BUILD_ROOT%{_libdir}/kiwix
+install -dm 755 $RPM_BUILD_ROOT%{_libdir}/
 
 %makeinstall 
 
@@ -47,25 +38,21 @@ install -dm 755 $RPM_BUILD_ROOT%{_libdir}/kiwix
 %{__rm} -rf %{buildroot}
 
 %post 
-ln -f -s /usr/lib/kiwix/kiwix.sh  /usr/bin/kiwix
-ln -f -s /usr/lib/kiwix/kiwix-compact.sh /usr/bin/kiwix-compat
+rm -f /usr/bin/kiwix
+ln -s /usr/lib/kiwix/kiwix.sh /usr/bin/kiwix
 
 %postun 
-rm ${prefix}/share/pixmaps/kiwix.png
-rm ${prefix}/share/applications/kiwix.desktop
-rm -rf ${prefix}/lib/kiwix
-rm -f ${prefix}/bin/kiwix
-rm -f ${prefix}/bin/kiwix-compact
-rm -f ${prefix}/bin/kiwix-index
 
 %files
 %defattr(-,root,root)
-%doc COPYING AUTHORS CHANGELOG README
+%doc CHANGELOG COPYING AUTHORS README
 %{_bindir}/*
 %{_libdir}/*
 %{_datadir}/*
 
 
 %changelog
-* Wed Dec 09 2009 Richzendy <richzendy@fedoraproject.org> - 1.9 alpha svn_09-12-2009
-- Initial package. 
+* Sun Jan 24 2010 Richzendy <richzendy@fedoraproject.org> - 1.9  svn-2010-01-23
+-  Nightly RPM BUILD. 
+* Fri Dec 25 2009 Richzendy <richzendy@fedoraproject.org> - 1.9  svn-2009-12-25
+- Initial package - Nightly RPM BUILD. 
