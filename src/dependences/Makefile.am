@@ -1,28 +1,50 @@
-src/dependences/zlib.tar.gz:
-	wget -c http://download.kiwix.org/dev/zlib-1.2.3.tar.gz -O src/dependences/zlib.tar.gz
-	cd src/dependences ; tar -xvzf zlib.tar.gz
+# download
+zlib.tar.gz:
+	wget -c http://download.kiwix.org/dev/zlib-1.2.3.tar.gz -O zlib.tar.gz
+	tar -xvzf zlib.tar.gz
 
-src/dependences/bzip2.tar.gz:
-	wget -c http://download.kiwix.org/dev/bzip2-1.0.5.tar.gz -O src/dependences/bzip2.tar.gz
-	cd src/dependences ; tar -xvzf bzip2.tar.gz
+bzip2.tar.gz:
+	wget -c http://download.kiwix.org/dev/bzip2-1.0.5.tar.gz -O bzip2.tar.gz
+	tar -xvzf bzip2.tar.gz
 
-src/dependences/xapian-core.tar.gz:
-	wget -c http://download.kiwix.org/dev/xapian-core-1.0.16.tar.gz -O src/dependences/xapian-core.tar.gz
-	cd src/dependences ; tar -xvzf xapian-core.tar.gz
+xapian-core.tar.gz:
+	wget -c http://download.kiwix.org/dev/xapian-core-1.0.16.tar.gz -O xapian-core.tar.gz
+	tar -xvzf xapian-core.tar.gz
 
-src/dependences/unac.tar.bz2:
-	wget -c http://download.kiwix.org/dev/unac-1.7.0.tar.bz2 -O src/dependences/unac.tar.bz2
-	cd src/dependences ; tar -xvjf unac.tar.bz2
+unac.tar.bz2:
+	wget -c http://download.kiwix.org/dev/unac-1.7.0.tar.bz2 -O unac.tar.bz2
+	tar -xvjf unac.tar.bz2
 
-src/dependences/xulrunner-sdk.tar.bz2:
-	wget -c http://download.kiwix.org/dev/xulrunner-1.9.1.4.en-US.linux-i686.sdk.tar.bz2 -O src/dependences/xulrunner-sdk.tar.bz2
-	cd src/dependences ; tar -xvjf xulrunner-sdk.tar.bz2
+xulrunner-sdk.tar.bz2:
+	wget -c http://download.kiwix.org/dev/xulrunner-1.9.1.4.en-US.linux-i686.sdk.tar.bz2 -O xulrunner-sdk.tar.bz2
+	tar -xvjf xulrunner-sdk.tar.bz2
 
-download-dependences: src/dependences/zlib.tar.gz src/dependences/bzip2.tar.gz src/dependences/xapian-core.tar.gz src/dependences/unac.tar.bz2 src/dependences/xulrunner-sdk.tar.bz2
+xulrunner-source.tar.bz2:
+	wget -c http://download.kiwix.org/dev/xulrunner-1.9.1.7.source.tar.bz2 -O xulrunner-source.tar.bz2
+	tar -xvjf xulrunner-source.tar.bz2
+
+xz.tar.bz2:
+	wget -c http://download.kiwix.org/dev/xz-4.999.9beta.tar.bz2 xz.tar.bz2
+	tar -xvjf xz.tar.bz2
+
+# compile
+bzip2-1.0.5/libbz2.a: bzip2.tar.gz
+	cd bzip2-1.0.5 ; sed -i "s/CFLAGS=/CFLAGS=-fPIC /" Makefile ; make ; make Makefile-libbz2_so
+
+zlib-1.2.3/libz.a: zlib.tar.gz
+	cd zlib-1.2.3 ; export CFLAGS=" -fPIC " ; ./configure ; make ; ./configure ; make	
+
+xapian-core-1.0.16/.libs/libxapian.a: xapian-core.tar.gz
+	cd xapian-core-1.0.16 ; export EXTERN_PATH=`pwd` ; export CPPFLAGS="-I${CURRENT_PATH}/src/dependences/zlib-1.2.3/" ; export CXXFLAGS=" -fPIC -L${CURRENT_PATH}/src/dependences/zlib-1.2.3" ; ./configure ; make
+
+unac-1.7.0/libunac.a: unac.tar.bz2
+	cd unac-1.7.0 ; gcc -DUNAC_VERSION="\"42\"" -fPIC -c unac.c ; ar cr libunac.a unac.o ; ranlib libunac.a
+
+mozilla-1.9.1/dist/bin/xulrunner: xulrunner-source.tar.bz2
+	cp .mozconfig mozilla-1.9.1/ ; make -f client.mk build ; make package
+
+xz-4.999.9beta/src/liblzma/.libs/liblzma.a: xz.tar.bz2
+	cd xz-4.999.9beta ; export CFLAGS=" -fPIC " ; ./configure ; make 
+
+all: bzip2-1.0.5/libbz2.a zlib-1.2.3/libz.a xapian-core-1.0.16/.libs/libxapian.a unac-1.7.0/libunac.a xz-4.999.9beta/src/liblzma/.libs/liblzma.a mozilla-1.9.1/dist/bin/xulrunner
 	
-
-compile-dependences: download-dependences
-	cd src/dependences/bzip2-1.0.5 ; sed -i "s/CFLAGS=/CFLAGS=-fPIC /" Makefile ; make ; make Makefile-libbz2_so
-	cd src/dependences/zlib-1.2.3 ; export CFLAGS=" -fPIC " ; ./configure ; make ; ./configure ; make
-	cd src/dependences/ ; export EXTERN_PATH=`pwd` ; cd xapian-core-1.0.16 ; export CPPFLAGS="-I$$EXTERN_PATH/zlib-1.2.3/" ; export CXXFLAGS=" -fPIC -L$$EXTERN_PATH/zlib-1.2.3" ; ./configure ; make
-	cd src/dependences/unac-1.7.0 ; gcc -DUNAC_VERSION="\"42\"" -fPIC -c unac.c ; ar cr libunac.a unac.o ; ranlib libunac.a

@@ -119,7 +119,7 @@ then
 	fi   
 	LIBZ_LDFLAGS="${LIBZ_LDFLAGS} -lz"
 
-	# Configuration for alternative bz2lib location
+	# Configuration for alternative libbz2 location
 	AC_ARG_WITH(bz2, [  --with-bz2=DIR          alternate location for bz2 library],
 		 	 LIBBZ2_PATH=`cd ${withval}; pwd`; CPPFLAGS="-I${LIBBZ2_PATH}"; LDFLAGS="-L${LIBBZ2_PATH}")
 
@@ -214,7 +214,7 @@ then
 	BINDIST_INTRO_MESSAGE="echo You have to run configure with the '--without-dependences' argument."
 else
 	# No dependences
-	CFLAGS="$CFLAGS -nostdinc -nostdinc++"
+	#CFLAGS="$CFLAGS -nostdinc -nostdinc++"
 
 	# Check if the 'wget' binary exists
 	AC_CHECK_TOOL(HAVE_WGET, wget)
@@ -230,12 +230,34 @@ else
 	DEPENDENCES="dependences"
 
 	# Gecko stuff
-	GECKO_SDK_PATH=${CURRENT_PATH}/src/dependences/xulrunner-sdk
-	LIBXUL_CFLAGS="-I${GECKO_SDK_PATH}/sdk/include -fshort-wchar"
-	LIBXUL_LDFLAGS="-L${GECKO_SDK_PATH}/sdk/lib -lxpcomglue_s -lxul -lxpcom -lplds4 -lplc4 -lnspr4 -lpthread -ldl"
+	GECKO_SDK_PATH=${CURRENT_PATH}/src/dependences/mozilla-1.9.1/dist/sdk/
+	LIBXUL_CFLAGS="-I${GECKO_SDK_PATH}/include -fshort-wchar"
+	LIBXUL_LDFLAGS="-L${GECKO_SDK_PATH}/lib -lxpcomglue_s -lxul -lxpcom -lplds4 -lplc4 -lnspr4 -lpthread -ldl"
 	GECKO_IDL_PATH=${GECKO_SDK_PATH}/idl
 	XPIDL_PATH=$GECKO_SDK_PATH/bin
 	AC_PATH_PROG([XPIDL], "xpidl", [],  $XPIDL_PATH)
+
+	# zlib
+	LIBZ_CFLAGS="-I${CURRENT_PATH}/src/dependences/zlib-1.2.3/"
+	LIBZ_LDFLAGS="-L${CURRENT_PATH}/src/dependences/zlib-1.2.3/ -Bstatic -lz,"
+
+	# libbip2
+	LIBBZ2_CFLAGS="-I${CURRENT_PATH}/src/dependences/bzip2-1.0.5/"
+	LIBBZ2_LDFLAGS="-L${CURRENT_PATH}/src/dependences/bzip2-1.0.5/ -Bstatic -lbz2,"
+
+	# liblzma
+	LIBLZMA_CFLAGS="-I${CURRENT_PATH}/src/dependences/xz-4.999.9beta/src/liblzma/api/"
+	LIBLZMA_LDFLAGS="-L${CURRENT_PATH}/src/dependences/xz-4.999.9beta/src/liblzma/.libs/ -Bstatic -llzma,"
+
+	# libunac
+	LIBUNAC_CFLAGS="-I${CURRENT_PATH}/src/dependences/unac-1.7.0/"
+	LIBUNAC_LDFLAGS="-L${CURRENT_PATH}/src/dependences/unac-1.7.0/ -lunac"
+
+	# libxapian
+	LIBXAPIAN_CFLAGS="-I${CURRENT_PATH}/src/dependences/xapian-core-1.0.16/include/";
+	LIBXAPIAN_LDFLAGS="-L${CURRENT_PATH}/src/dependences/xapian-core-1.0.16/.libs/ -lxapian";
+
+#	-Bstatic -lzim -lz -lbz2 -lzma -Wl,-Bdynamic
 
 	# Xapian part
 #	AC_SUBST(LIBXAPIAN_CFLAGS)
@@ -258,9 +280,9 @@ CXXFLAGS=${CFLAGS}
 
 # libzim flags
 LIBZIM_CFLAGS="-I${CURRENT_PATH}/src/zimlib/include"
-LIBZIM_LDFLAGS="-lbz2 -lz -llzma"
+LIBZIM_LDFLAGS="${LIBZ_LDFLAGS} ${LIBLZMA_LDFLAGS} ${LIBBZ2_LDFLAGS}"
 AC_DEFINE_UNQUOTED(CLUSTER_CACHE_SIZE, 16, [set zim cluster cache size to number of cached chunks])
-AC_DEFINE_UNQUOTED(DIRENT_CACHE_SIZE, 51200, [set zim dirent cache size to number of cached chunks])
+AC_DEFINE_UNQUOTED(DIRENT_CACHE_SIZE, 512, [set zim dirent cache size to number of cached chunks])
 AC_DEFINE_UNQUOTED(LZMA_MEMORY_SIZE, 128, [set lzma uncompress memory size to number of MB])
 AC_DEFINE(ENABLE_ZLIB, [1], [defined if zlib compression is enabled])
 AC_DEFINE(ENABLE_BZIP2, [1], [defined if bzip2 compression is enabled])
@@ -297,6 +319,7 @@ AC_SUBST(LIBMICROHTTPD_LDFLAGS)
 AC_SUBST(ESCAPED_PREFIX)
 AC_SUBST(BINDIST_INTRO_MESSAGE)
 AC_SUBST(DEPENDENCES)
+AC_SUBST(CURRENT_PATH)
 
 # Check the existence of stat64 (to handle file >2GB) in the libc
 AC_CHECK_FUNCS([stat64])
