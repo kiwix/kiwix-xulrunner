@@ -62,20 +62,39 @@ function getProperty(name, parameter1, parameter2) {
     return message;
 }
 
-/* Return an application config parameter */
-function getApplicationProperty(name) {
+/* Return an application char preference */
+function getApplicationCharPreference(name) {
     var prefs = Components.classes["@mozilla.org/preferences-service;1"]
 	.getService(Components.interfaces.nsIPrefBranch);
     return prefs.getCharPref(name);
 }
 
+/* Return an application bool preference */
+function getApplicationBoolPreference(name) {
+    var prefs = Components.classes["@mozilla.org/preferences-service;1"]
+	.getService(Components.interfaces.nsIPrefBranch);
+    return prefs.getBoolPref(name);
+}
+
+/* Return true if the profile should be clean by closing Kiwix */
+function doOnCloseClean() {
+    return (settings.doOnCloseClean() != undefined ? 
+	    settings.doOnCloseClean() : getApplicationBoolPreference("kiwix.removeprofileonclose"));
+}
+
+/* Return true if the confirm dialogbox to remove profile should be displayed */
+function displayOnCloseCleanConfirmDialog() {
+    return (settings.displayOnCloseCleanConfirmDialog() != undefined ?
+	    settings.displayOnCloseCleanConfirmDialog() : getApplicationBoolPreference("kiwix.removeprofileonclose.confirm"));
+}
+
 /* Return the installation prefix */
 function getInstallationPrefix() {
-    return getApplicationProperty("kiwix.install.prefix");
+    return getApplicationCharPreference("kiwix.install.prefix");
 }
  
 /* initialization function */
-function init() {
+function onStart() {
     /* Check the XPCOM registration */
     if (Components.classes["@kiwix.org/zimAccessor"] == undefined)
 	dump("Unable to register the zimAccessor XPCOM, Kiwix will be unable to read ZIM files.\n");
@@ -103,6 +122,91 @@ function init() {
 
     /* Load the welcome page of the ZIM file */
     goHome();
+}
+
+/* Things to do before exit Kiwix */
+function onClose() {
+    var doClean = doOnCloseClean();
+
+    if (isLiveRunMode()) {
+
+	/* Ask before removing */
+	if (displayOnCloseCleanConfirmDialog()) {
+
+	    /* Prepare the strings for the confirm dialog box */
+	    var title = getProperty("confirm");
+	    var message = getProperty("removeProfileConfirm");
+	    var ok = getProperty("ok");
+	    var cancel = getProperty("cancel");
+	    var checkMessage = getProperty("dontDisplayAnymore");
+
+	    /* Prepare the confirm dialog box */
+	    var prompts = Components.classes["@mozilla.org/embedcomp/prompt-service;1"]
+		.getService(Components.interfaces.nsIPromptService);
+	    
+	    /* Prepare the buttons */
+	    var flags = prompts.BUTTON_POS_0 * prompts.BUTTON_TITLE_IS_STRING +
+		prompts.BUTTON_POS_1 * prompts.BUTTON_TITLE_IS_STRING;
+	    
+	    /* Prepare the check box */
+	    /* Default the checkbox to false */
+	    var check = {value: false};
+
+	    /* Display the confirm dialog and get the values back */
+	    var doClean = (prompts.confirmEx(null, title, message, flags, ok, cancel, "", checkMessage, check) == 0);
+	    var doDisplay = !check.value;
+	    
+	    /* Save the values in the settings */
+	    settings.displayOnCloseCleanConfirmDialog(doDisplay);
+	    if (!doDisplay) {
+		settings.doOnCloseClean(doClean);
+	    }
+	}
+
+	/* Clean the profile if necessary */
+	if (doClean) {
+
+	    /* Nookmarks */
+	    try {
+		purgeBookmarks();
+	    } catch (e) { L.info (e.toString ()); }
+	    
+	    /* History */
+	    var globalHistory = Components.classes["@mozilla.org/browser/global-history;2"]
+		.getService(Components.interfaces.nsIBrowserHistory);
+	    globalHistory.removeAllPages();
+	    
+	    try {
+		var os = Components.classes["@mozilla.org/observer-service;1"]
+		    .getService(Components.interfaces.nsIObserverService);
+		os.notifyObservers(null, "browser:purge-session-history", "");
+	    }
+	    catch (e) { L.info (e.toString ()); }
+	    
+	    /* Clear last URL of the Open Web Location dialog */
+	    var prefs = Components.classes["@mozilla.org/preferences-service;1"]
+		.getService(Components.interfaces.nsIPrefBranch2);
+	    try {
+		prefs.clearUserPref("general.open_location.last_url");
+	    }
+	    catch (e) { }
+	    
+	    /* cache */
+	    const cc = Components.classes;
+	    const ci = Components.interfaces;
+	    var cacheService = cc["@mozilla.org/network/cache-service;1"]
+		.getService(ci.nsICacheService);
+	    try {
+		cacheService.evictEntries(ci.nsICache.STORE_ANYWHERE);
+	    } catch(er) { L.info (e.toString ()); }
+	    
+	    /* cookies (shouldn't be any) */
+	    L.info ('purging Cookies');
+	    var cookieMgr = Components.classes["@mozilla.org/cookiemanager;1"]
+		.getService(Components.interfaces.nsICookieManager);
+	    cookieMgr.removeAll();
+	}
+    }
 }
 
 /* Load the page with the external browser */
@@ -212,15 +316,20 @@ function appendToPath(path, file) {
     return dir.path;
 }
 
-/* LiveMode */
-function GetRunMode() {
-    var live_file = Components.classes["@mozilla.org/file/directory_service;1"].getService(Components.interfaces.nsIProperties).get("resource:app", Components.interfaces.nsIFile);
-    live_file.append("live");
-    if (live_file.exists ()) {
+/* Return "live" for live CD for example or "install" in case of install version */
+function getRunMode() {
+    var liveFile = Components.classes["@mozilla.org/file/directory_service;1"].getService(Components.interfaces.nsIProperties).get("resource:app", Components.interfaces.nsIFile);
+    liveFile.append("live");
+    if (liveFile.exists ()) {
 	return 'live';
     } else {
 	return 'install';
     }
+}
+
+/* Return true if getRunMode() returns 'live' */
+function isLiveRunMode() {
+    return (getRunMode() == 'live' ? true : false);
 }
 
 function GetFirstRun () {
@@ -236,12 +345,6 @@ function GetFirstRun () {
 	first_file.create (Components.interfaces.nsIFile.NORMAL_FILE_TYPE, 0600);
 	return true;
     }
-}
-
-function GetCleanOnClose () {
-    var prefs = Components.classes["@mozilla.org/preferences-service;1"].getService(Components.interfaces.nsIPrefBranch);
-    var removeOnClosePref = prefs.getBoolPref("kiwix.removeprofileonclose");
-    return (removeOnClosePref && _runMode == 'live');
 }
 
 function AlertOnFirstRun () {

@@ -3,9 +3,8 @@ var _zoomFactor             = 1.2;      /* Factor by which font is magnified or 
 var _winIsFullScreen        = false;    /* Stores fullscreen state*/
 var _platform		    = GuessOS ();
 var _applicationFD          = GetApplicationFolder ();
-var _runMode		    = GetRunMode ();
+var _runMode		    = getRunMode ();
 var _firstRun		    = GetFirstRun ();
-var _cleanOnClose	    = GetCleanOnClose ();
 var _firstSideBar	    = true;
 
 var _languagesHash          = Array();
