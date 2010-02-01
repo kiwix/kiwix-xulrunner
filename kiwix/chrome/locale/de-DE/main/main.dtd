@@ -7,6 +7,9 @@
 <!ENTITY main.file.accesskey          "D">
 <!ENTITY main.openFile                "Datei öffnen...">
 <!ENTITY main.openFile.accesskey      "O">
+<!ENTITY main.lastOpen                "Recently open...">
+<!ENTITY main.saveFile                "Save Page as...">
+<!ENTITY main.saveFile.accesskey      "S">
 <!ENTITY main.print                   "Drucken...">
 <!ENTITY main.print.accesskey         "r">
 <!ENTITY main.quit                    "Schliessen">
@@ -51,6 +54,8 @@
 <!-- Help menu -->
 <!ENTITY main.help                    "Hilfe">
 <!ENTITY main.help.accesskey          "H">
+<!ENTITY main.reportabug              "Report a bug">
+<!ENTITY main.requestafeature         "Request a feature">
 <!ENTITY main.about                   "Über &brand.brandShortName;">
 <!ENTITY main.about.accesskey         "I">
 
@@ -58,7 +63,6 @@
 <!ENTITY main.back                    "Rückwärts">
 <!ENTITY main.forward                 "Vorwärts">
 <!ENTITY main.home                    "Home">
-<!ENTITY main.print                   "Drucken">
 <!ENTITY main.searchBar               "Suchleiste">
 <!ENTITY main.search                  "Suche">
 <!ENTITY main.noSearchBar             "Suche erfordert eine indexierte Zim Akte">
