@@ -2,10 +2,10 @@
 !define CSIDL_APPDATA '0x1A' ;Application Data path
 !define CSIDL_LOCALAPPDATA '0x1C' ;Local Application Data path
 
-!define PRODUCT_NAME "moulin"
-!define PRODUCT_VERSION "1.0"
-!define PRODUCT_PUBLISHER "Kunnafoni Foundation"
-!define PRODUCT_WEB_SITE "http://www.moulinwiki.org"
+!define PRODUCT_NAME "kiwix"
+!define PRODUCT_VERSION "0.8"
+!define PRODUCT_PUBLISHER "Kiwix"
+!define PRODUCT_WEB_SITE "http://www.kiwix.org"
 
 !define PRODUCT_UNINST_KEY "Software\Microsoft\Windows\CurrentVersion\Uninstall\${PRODUCT_NAME}"
 !define PRODUCT_UNINST_ROOT_KEY "HKLM"
@@ -16,12 +16,12 @@
 
 SetCompressor lzma ; Zlib supports "SetCompress off"
 Name "${PRODUCT_NAME} ${PRODUCT_VERSION}"
-OutFile "moulin-setup.exe"
+OutFile "kiwix-setup.exe"
 ShowInstDetails show
 ShowUnInstDetails show
-InstallDir "$PROGRAMFILES\moulin"
+InstallDir "$PROGRAMFILES\kiwix"
 
-!define MUI_FINISHPAGE_RUN "moulin.exe"
+!define MUI_FINISHPAGE_RUN "kiwix.exe"
 
 ; Global variables
 Var PAGETOKEEP
@@ -40,7 +40,7 @@ Page custom PageCreate PageLeave
 !define MUI_PAGE_CUSTOMFUNCTION_PRE LicensePage_Pre
 !define MUI_PAGE_CUSTOMFUNCTION_SHOW CommonPage_Show
 !define MUI_PAGE_CUSTOMFUNCTION_LEAVE CommonPage_Leave
-!insertmacro MUI_PAGE_LICENSE "../moulin/COPYING"
+!insertmacro MUI_PAGE_LICENSE "COPYING"
 
 !define MUI_PAGE_CUSTOMFUNCTION_PRE DirectoryPage_Pre
 !define MUI_PAGE_CUSTOMFUNCTION_SHOW CommonPage_Show
@@ -59,7 +59,7 @@ Page custom PageCreate PageLeave
 !insertmacro MUI_LANGUAGE "English"
 
 Function .onInit
-  !insertmacro MUI_INSTALLOPTIONS_EXTRACT "moulin-setup.ini"
+  !insertmacro MUI_INSTALLOPTIONS_EXTRACT "kiwix-setup.ini"
 FunctionEnd
 
 LangString READYPAGE_TITLE ${LANG_ENGLISH} "Ready to install"
@@ -67,11 +67,11 @@ LangString READYPAGE_SUBTITLE ${LANG_ENGLISH} "The installation wizard is ready 
 
 Function PageCreate
   !insertmacro MUI_HEADER_TEXT "$(READYPAGE_TITLE)" "$(READYPAGE_SUBTITLE)"
-  !insertmacro MUI_INSTALLOPTIONS_DISPLAY "moulin-setup.ini"
+  !insertmacro MUI_INSTALLOPTIONS_DISPLAY "kiwix-setup.ini"
 FunctionEnd
 
 Function PageLeave
-  !insertmacro MUI_INSTALLOPTIONS_READ $R0 "moulin-setup.ini" "Settings" "State"
+  !insertmacro MUI_INSTALLOPTIONS_READ $R0 "kiwix-setup.ini" "Settings" "State"
   ${Select} $R0
     ${Case} 0
       StrCpy $PAGETOKEEP "none"
@@ -143,30 +143,30 @@ FunctionEnd
 
 Section
   CreateDirectory `$INSTDIR`
-; copy here the list of files to install (everything inside moulin/ directory.
+; copy here the list of files to install (everything inside kiwix/ directory.
 ; you can use the ruby script file-list.rb to generate this list.
 ; /!\ You also need to include this files list into the uninstall section.
-;  CopyFiles `..\moulin\sample` `$INSTDIR`
+;  CopyFiles `..\kiwix\sample` `$INSTDIR`
 
 	
 	Delete "$INSTDIR\live"
-	AddSize 512000 ; 500MB
+ AddSize 30720 ; 30 MB
 SectionEnd
 
 Section /o "Uncompress Datas"
 ; 	nsexec::exectolog `"$EXEDIR\bunzip2.exe" "$INSTDIR\datas\fr\encyclopedia\0.bz2"`
 ;	Copy here the list of format files to copy.
 	
-	AddSize 1048576 ; 1GB
+	AddSize 2681040 ; 2.6 GB
 SectionEnd
 
 Section -AdditionalIcons
 	SetOutPath $INSTDIR
 	WriteIniStr "$INSTDIR\${PRODUCT_NAME}.url" "InternetShortcut" "URL" "${PRODUCT_WEB_SITE}"
-	CreateDirectory "$SMPROGRAMS\moulin"
-	CreateShortCut "$SMPROGRAMS\moulin\moulin.lnk" "$INSTDIR\moulin.exe"
-	CreateShortCut "$SMPROGRAMS\moulin\moulin Website.lnk" "$INSTDIR\${PRODUCT_NAME}.url"
-	CreateShortCut "$SMPROGRAMS\moulin\Uninstall.lnk" "$INSTDIR\uninst.exe"
+	CreateDirectory "$SMPROGRAMS\kiwix"
+	CreateShortCut "$SMPROGRAMS\kiwix\kiwix.lnk" "$INSTDIR\kiwix.exe"
+	CreateShortCut "$SMPROGRAMS\kiwix\kiwix Website.lnk" "$INSTDIR\${PRODUCT_NAME}.url"
+	CreateShortCut "$SMPROGRAMS\kiwix\Uninstall.lnk" "$INSTDIR\uninst.exe"
 SectionEnd
 
 Section -Post
@@ -189,11 +189,11 @@ Section Uninstall
 
 	Delete "$INSTDIR\${PRODUCT_NAME}.url"
 	Delete "$INSTDIR\uninst.exe"
-	Delete "$SMPROGRAMS\moulin\Uninstall.lnk"
-	Delete "$SMPROGRAMS\moulin\moulin.lnk"
-	Delete "$SMPROGRAMS\moulin\moulin Website.lnk"
+	Delete "$SMPROGRAMS\kiwix\Uninstall.lnk"
+	Delete "$SMPROGRAMS\kiwix\kiwix.lnk"
+	Delete "$SMPROGRAMS\kiwix\kiwix Website.lnk"
 
-	RMDir /R "$SMPROGRAMS\moulin"
+	RMDir /R "$SMPROGRAMS\kiwix"
 	RMDir /R "$INSTDIR"
 	DeleteRegKey ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}"
 
