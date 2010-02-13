@@ -16,7 +16,7 @@ Download source packages of the Qt framework only (http://qt.nokia.com/downloads
 1) Make sure you have MinGW installed. Please, download MinGW from (http://sourceforge.net/projects/mingw/files/Automated MinGW Installer/)
 2) Download the file qt-win-opensource-desktop-4.X.X.exe from (http://qt.nokia.com/downloads/windows-cpp).
 3) Open a cmd and cd to the directory c:\qt\4.X.X.
-4) Run the configure program like this, configure -platform win32-g++.
+4) Run the configure program like this. Run "configure" on qt folder. Example: "C:\Qt\2010.01\qt>configure"
 5) Run mingw32-make. Note: that this step takes quite some time.
 6) Ensure that the MinGW bin directory and qt bin directory is in your PATH environment variable.
    PATH can be extended through "Control Panel->System->Advanced->Environment variables".
