@@ -1,17 +1,17 @@
-Procedure to compile your own version of kiwix autorun. 
+Procedure to compile your own version of kiwix autorun on Windows OS plataform.
 This general procedure is to compile the autorun kiwix (launcher). 
 It's been done in c + + with Qt libraries.
 
--Requeriments:
+Requeriments:
 
-* mingw32.
-* qt 4.x.x.
-* msys could be necesary. 
+# mingw32.
+# qt 4.x.x.
+# msys. 
 
 Also you can install individually minGW and qt. If you don't need the complete SDK? 
 Download source packages of the Qt framework only (http://qt.nokia.com/downloads/windows-cpp)
 
--Manually:
+Manually:
 
 1) Make sure you have MinGW installed. Please, download MinGW from (http://sourceforge.net/projects/mingw/files/Automated MinGW Installer/)
 2) Download the file qt-win-opensource-desktop-4.X.X.exe from (http://qt.nokia.com/downloads/windows-cpp).
@@ -21,12 +21,12 @@ Download source packages of the Qt framework only (http://qt.nokia.com/downloads
 6) Ensure that the MinGW bin directory and qt bin directory is in your PATH environment variable.
    PATH can be extended through "Control Panel->System->Advanced->Environment variables".
 
--Automatic:
+Automatic:
 
 1) Install qt 2010.01 (http://qt.nokia.com/downloads/sdk-windows-cpp).
 2) qt 2010 don't have mcos library. Please copy mcos from the non sdk version (http://qt.nokia.com/downloads/windows-cpp).
 
--Compile kiwix launcher:
+Compile kiwix launcher:
 
 1) Load cmd and cd to autorun folder.
 2) Run qmake (Ensure that the autorun.pro file is in your actual dir).
