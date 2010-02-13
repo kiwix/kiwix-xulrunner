@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/resource1" >
+        <file>autorun.png</file>
+        <file>autorun.xpm</file>
+    </qresource>
+</RCC>

@@ -1,0 +1,4 @@
+[autorun]
+open=autorun\moulin-autorun.exe
+icon=moulin\chrome\icons\default\moulin.ico
+label=moulin 1.0
