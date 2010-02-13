@@ -32,4 +32,5 @@ Download source packages of the Qt framework only (http://qt.nokia.com/downloads
 2) Run qmake (Ensure that the autorun.pro file is in your actual dir).
 3) Run "mingw32-make" from cmd or "make" from msys (http://downloads.sourceforge.net/mingw/MSYS-1.0.11.exe)
    There have been some problems to compile g++ from msdos. We recommend using msys.
+   This problem is caused by the PATH, msdos use "\" and the path of the applications could use "/"
 
