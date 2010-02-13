@@ -50,7 +50,7 @@ def source_path
 	puts "|   The output is a default file called 'installer-files'     |\n"	
 	puts "|                                                             |\n"
 	puts "|   NOTE: Please, remember copy all the 'installer-files'     |\n"
-	puts "|         content in the nsis file installer file             |\n"
+	puts "|         content in the nsis      installer file             |\n"
 	puts "'-------------------------------------------------------------'\n\n"
 	puts "Please, enter your kiwix's distribution path.\nDefault distribution Path: [#{$source_path}]: "
 	
