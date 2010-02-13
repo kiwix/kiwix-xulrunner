@@ -1,0 +1,21 @@
+Note only for make the windows binary:
+Requeriments:
+1) Windows OS
+2) mingw32
+3) qt 4.x.x
+
+Also you can install individually minGW and qt. If you don't need the complete SDK? 
+Download source packages of the Qt framework only (http://qt.nokia.com/downloads/windows-cpp)
+
+Procedure manually:
+1) Make sure you have MinGW installed.
+2) Download the file qt-win-opensource-desktop-4.X.X.exe from (http://qt.nokia.com/downloads/windows-cpp)
+3) Open a cmd and cd to the directory c:\qt\4.X.X
+4) Run the configure program like this, configure -platform win32-g++.
+5) Run mingw32-make. Note: that this step takes quite some time
+6) Ensure that the MinGW bin directory and qt bin directory is in your PATH environment variable.
+
+Automatic procedure:
+1) Install qt 2010.01 (http://qt.nokia.com/downloads/sdk-windows-cpp)
+2) mcos.exe for the 2010 version, Could be necesary copy mcos from the non sdk version (http://qt.nokia.com/downloads/windows-cpp)
+

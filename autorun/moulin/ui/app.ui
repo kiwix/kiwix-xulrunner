@@ -1,7 +1,8 @@
-<ui version="4.0" >
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
  <class>App</class>
- <widget class="QDialog" name="App" >
-  <property name="geometry" >
+ <widget class="QDialog" name="App">
+  <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
@@ -9,17 +10,18 @@
     <height>301</height>
    </rect>
   </property>
-  <property name="windowTitle" >
-   <string>ويكيميديا من مولان</string>
+  <property name="windowTitle">
+   <string>Kiwix launcher</string>
   </property>
-  <property name="windowIcon" >
-   <iconset resource="../src/autorun.qrc" >:/resource1/moulin.xpm</iconset>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>:/resource1/moulin.xpm</normaloff>:/resource1/moulin.xpm</iconset>
   </property>
-  <property name="layoutDirection" >
+  <property name="layoutDirection">
    <enum>Qt::RightToLeft</enum>
   </property>
-  <widget class="QLabel" name="label_logo" >
-   <property name="geometry" >
+  <widget class="QLabel" name="label_logo">
+   <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
@@ -27,15 +29,15 @@
      <height>200</height>
     </rect>
    </property>
-   <property name="text" >
+   <property name="text">
     <string/>
    </property>
-   <property name="pixmap" >
-    <pixmap resource="../src/autorun.qrc" >:/resource1/autorun.png</pixmap>
+   <property name="pixmap">
+    <pixmap>../src/autorun_kiwix.png</pixmap>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_run" >
-   <property name="geometry" >
+  <widget class="QPushButton" name="pushButton_run">
+   <property name="geometry">
     <rect>
      <x>0</x>
      <y>210</y>
@@ -43,15 +45,15 @@
      <height>27</height>
     </rect>
    </property>
-   <property name="layoutDirection" >
+   <property name="layoutDirection">
     <enum>Qt::RightToLeft</enum>
    </property>
-   <property name="text" >
-    <string>شغّل مولان من هنا</string>
+   <property name="text">
+    <string>Launch kiwix from here</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_install" >
-   <property name="geometry" >
+  <widget class="QPushButton" name="pushButton_install">
+   <property name="geometry">
     <rect>
      <x>0</x>
      <y>240</y>
@@ -59,15 +61,15 @@
      <height>27</height>
     </rect>
    </property>
-   <property name="layoutDirection" >
+   <property name="layoutDirection">
     <enum>Qt::RightToLeft</enum>
    </property>
-   <property name="text" >
-    <string>ثبت مولان على القرص الصلب</string>
+   <property name="text">
+    <string>Install kiwix to your Hard Drive</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_quit" >
-   <property name="geometry" >
+  <widget class="QPushButton" name="pushButton_quit">
+   <property name="geometry">
     <rect>
      <x>0</x>
      <y>270</y>
@@ -75,16 +77,14 @@
      <height>27</height>
     </rect>
    </property>
-   <property name="layoutDirection" >
+   <property name="layoutDirection">
     <enum>Qt::RightToLeft</enum>
    </property>
-   <property name="text" >
-    <string>اخرج من هذه القائمة</string>
+   <property name="text">
+    <string>Quit this menu</string>
    </property>
   </widget>
  </widget>
- <resources>
-  <include location="../src/autorun.qrc" />
- </resources>
+ <resources/>
  <connections/>
 </ui>
