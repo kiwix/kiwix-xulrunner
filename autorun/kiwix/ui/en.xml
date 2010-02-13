@@ -3,8 +3,8 @@
 	<lang code="en">
 		<layoutDirection>Qt::LeftToRight</layoutDirection>
 		<windowTitle>Wikimedia by Kiwix</windowTitle>
-		<run>Launch moulin from here</run>
-		<install>Install moulin to your Hard Drive</install>
+		<run>Launch kiwix from here</run>
+		<install>Install kiwix to your Hard Drive</install>
 		<quit>Quit this menu</quit>
 	</lang>
 </autorun>
