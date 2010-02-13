@@ -2,9 +2,9 @@
 <autorun>
 	<lang code="fr">
 		<layoutDirection>Qt::LeftToRight</layoutDirection>
-		<windowTitle>Wikimédia par kiwix</windowTitle>
-		<run>Lancer kiwix directement</run>
-		<install>Installer kiwix sur le disque dur</install>
+		<windowTitle>Wikimédia par Kiwix</windowTitle>
+		<run>Lancer Kiwix directement</run>
+		<install>Installer Kiwix sur le disque dur</install>
 		<quit>Quitter</quit>
 	</lang>
 </autorun>
