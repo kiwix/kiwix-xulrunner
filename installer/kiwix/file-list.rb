@@ -10,7 +10,7 @@
 
 def usage(exit_code)
 	puts "Usage:\t#{$0} [switches]
-        [#{$0} -e SOURCE_PATH COPY_SOURCE_PATH COPY_DEST_PATH LOG_FILE]
+        [#{$0} -e SOURCE_PATH COPY_SOURCE_PATH COPY_DEST_PATH LOG_FILE>]
 
 	-help		Displays this help message
 	-defaults	Uses default values and run
@@ -20,10 +20,15 @@ def usage(exit_code)
 end
 
 # Default Path values
-$source_path = "../moulin/"
-$copy_source_path = "..\\moulin"
+# This path is necesary for make the
+# Directory tree used in the nsi installer
+# Place here the main kiwix application folder
+$source_path = "../kiwix/"
+$copy_source_path = "..\\kiwix"
 $copy_dest_path = "$INSTDIR"
-$log_file = "installer-files.log"
+# File generated for build the install and unistall
+# section in the nsi file
+$log_file = "installer-files"
 $content = String.new
 
 # internal variables
@@ -31,38 +36,47 @@ $dirs = []
 $files = []
 $formats = []
 
-# retrieves source path.
+# welcome and help start message
 def welcome
-	puts "This script will help you generate a FileCopy list for the NSIS uninstaller.\n"
-
+	puts ".-------------------------------------------------------------.\n"
+	puts "|   This script will help you generate a                      |\n"
+	puts "|   FileCopy Section list for the NSIS installer file.        |\n"
 	source_path()
 end
 
+# retrieves source path.
 def source_path
-	puts "Please, enter your moulin's distribution path. This path will serve as source to list all files."
-	puts "Distribution Path: [#{$source_path}]: "
+	puts "|   This path will serve as source to list all files.         |\n"
+	puts "|   The output is a default file called 'installer-files'     |\n"	
+	puts "|                                                             |\n"
+	puts "|   NOTE: Please, remember copy all the 'installer-files'     |\n"
+	puts "|         content in the nsis file installer file             |\n"
+	puts "'-------------------------------------------------------------'\n\n"
+	puts "Please, enter your kiwix's distribution path.\nDefault distribution Path: [#{$source_path}]: "
 	
 	a = String.new $stdin.gets
 	$source_path = a.chomp unless a.chomp.empty?
-	puts "You choosed: #{$source_path}\n"
+	puts "\nYou choosed: #{$source_path}\n"
 	path_position()
 end
 
 def path_position
-	puts "Choose the relative path to your installation files from the _final installer_ on your _final media_."
-	puts "Usually, your installer resides in cdrom/installer and your files in cdrom/moulin so path is `../moulin`."
+	puts "Choose the relative path to your installation files \n"
+	puts "from the _final installer_ on your _final media_. \n"
+	puts "Usually, your installer resides in cdrom/installer \n"
+	puts "and your files in cdrom/kiwix so path is `../kiwix`.\n\n"
 	puts "Path to files (use windows separators. ie: dir\otherdir) [#{$copy_source_path}]: "
 	
 	a = String.new $stdin.gets
 	$copy_source_path = a.chomp unless a.chomp.empty?
 	
-	puts "You choosed: #{$copy_source_path}\n"
+	puts "\nYou choosed: #{$copy_source_path}\n\n"
 	dest_path()
 end
 
 def dest_path
-	puts "Choose the _final_ destination path of the files."
-	puts "Default is using a user-selected installation path stored in $INSTDIR."
+	puts "Choose the _final_ destination path of the files.\n"
+	puts "Default is using a user-selected installation path stored in $INSTDIR.\n"
 	puts "Final Installation Path [#{$copy_dest_path}]: "
 	
 	a = String.new $stdin.gets
@@ -71,7 +85,7 @@ def dest_path
 end
 
 def install_log
-	puts "Choose where to write the list. (You can use special value STDOUT."
+	puts "Choose where to write the list. (You can use special value STDOUT.\n"
 	puts "Output file [#{$log_file}]: "
 	
 	a = String.new $stdin.gets
@@ -80,10 +94,11 @@ def install_log
 end
 
 def bye
-	puts "Processing done."
-	puts "source_path: #{$source_path}"
-	puts "copy_source_path: #{$copy_source_path}"
-	puts "log_file: #{$log_file}"
+	puts "Processing done.\n"
+	puts "source_path: #{$source_path} \n"
+	puts "copy_source_path: #{$copy_source_path} \n"
+	puts "log_file: #{$log_file} \n"
+	puts "Please, remember copy all the #{$log_file} content in the nsis file \n"
 end
 
 def process
@@ -91,14 +106,12 @@ def process
 	$out = ($log_file.class == IO) ? $log_file : File.new($log_file, "w")
 	recurs_display($source_path)
 	
-	# Write to File.
+# Write to File.
 $out.puts "
 ; 
-; 
+; Please, Copy the follow section to the kiwix nsis file
 ; 
 ; INSTALLATION PART
-; 
-; 
 ;
 "
 	$dirs.each do |d|
@@ -110,10 +123,7 @@ $out.puts "
 	$out.puts "
 ; 
 ; 
-; 
 ; EXTRACT STUB
-; 
-; 
 ;
 "
 	$files.each do |f|
