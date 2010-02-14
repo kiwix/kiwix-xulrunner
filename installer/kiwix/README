@@ -1,0 +1,15 @@
+Build installer steps for Windows OS plataforms
+
+Requeriments:
+*NSIS (http://nsis.sourceforge.net/Download)
+*Ruby (http://rubyinstaller.org/)
+*Msys (http://sourceforge.net/projects/mingw/files/)
+
+Procedure:
+1) Install NSIS, Ruby and Msys
+2) Add the NSIS bin folder to eviroment path variable. "C:\Program Files\NSIS"
+2) run cmd and cd to the installer source folder
+3) ruby make-installer.rb
+4) follow the instructions
+
+ready!
