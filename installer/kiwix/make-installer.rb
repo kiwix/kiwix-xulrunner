@@ -55,7 +55,7 @@ def source_path
 	
 	a = String.new $stdin.gets
 	$source_path = a.chomp unless a.chomp.empty?
-	puts "\nYou choosed: #{$source_path}\n"
+	puts "You choosed: #{$source_path}\n"
 	path_position()
 end
 
@@ -84,8 +84,8 @@ def dest_path
 end
 
 def install_log
-	puts "Choose where to write the list. (You can use special value STDOUT.\n"
-	puts "Output file [#{$nsi_output}]: "
+	puts "Choose where to write the list. You can use special value STDOUT.\n"
+	puts "Output nsi file [#{$nsi_output}]: "
 	
 	a = String.new $stdin.gets
 	$nsi_output = (a.match(/stdout/i)) ? $stdout : a.chomp unless a.chomp.empty?
@@ -103,7 +103,11 @@ end
 def process
 File.delete($nsi_output)if File::exists?($nsi_output)
 
-kiwixnsi = File.new($nsi_output, 'w')
+$source_path = $source_path.chop if $source_path[$source_path.length - 1, 1] == "/"
+kiwixnsi = ($nsi_output.class == IO) ? $nsi_output : File.new($nsi_output, "w")
+recurs_display($source_path)
+	
+# kiwixnsi = File.new($nsi_output, 'w')
 	File.open($nsi_base, "r") do |infile|
 		while (line = infile.gets)
 			kiwixnsi.puts "#{line}"
@@ -131,7 +135,7 @@ kiwixnsi.puts "
 		end
 	end  	  
 kiwixnsi.close 
-system("makensis kiwix-setup.nsi")
+system("makensis #{$nsi_output}")
 #bye()
 end
 =begin
