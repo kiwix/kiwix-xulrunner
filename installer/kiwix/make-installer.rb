@@ -6,6 +6,7 @@
 	which won't bundle the files-to-be-installed.
 	
 	reg <reg@nurv.fr>
+	wilfredor <wilfredor@kiwix.org>
 =end
 require 'ftools'
 
@@ -42,9 +43,9 @@ $formats = []
 def welcome
 	puts ".-------------------------------------------------------------.\n"
 	puts "|   This script will help you generate a                      |\n"
-	puts "|   NSIS source and a binary installer file.                  |\n"
-	puts "|   The output is a default file called 'kiwix-setup.nsi'     |\n"	
-	puts "|   And a installer bin called 'kiwix-setup.exe'              |\n"
+	puts "|   nsi source and a binary installer file.                   |\n"
+	puts "|   The output is file called 'kiwix-setup.nsi'               |\n"	
+	puts "|   and a installer bin called 'kiwix-setup.exe'              |\n"
 	puts "'-------------------------------------------------------------'\n\n"	
 	source_path()
 end
@@ -104,16 +105,16 @@ def process
 File.delete($nsi_output)if File::exists?($nsi_output)
 
 $source_path = $source_path.chop if $source_path[$source_path.length - 1, 1] == "/"
+# make a new output file
 kiwixnsi = ($nsi_output.class == IO) ? $nsi_output : File.new($nsi_output, "w")
 recurs_display($source_path)
 	
-# kiwixnsi = File.new($nsi_output, 'w')
-	File.open($nsi_base, "r") do |infile|
-		while (line = infile.gets)
-			kiwixnsi.puts "#{line}"
-			if "#{line}".include?"CreateDirectory \"$INSTDIR\"" then
+File.open($nsi_base, "r") do |infile|
+	while (line = infile.gets)
+		kiwixnsi.puts "#{line}"
+		if "#{line}".include?"CreateDirectory \"$INSTDIR\"" then
 
-# put the tree file on the instalation section nsis file
+# put the tree file on the instalation section nsi file
 kiwixnsi.puts "
 ; 
 ; INSTALLATION PART
@@ -131,10 +132,11 @@ kiwixnsi.puts "
 ; EXTRACT STUB
 ;
 "					
-			end
 		end
-	end  	  
+	end
+end  	  
 kiwixnsi.close 
+# compile the nsi file
 system("makensis #{$nsi_output}")
 #bye()
 end
