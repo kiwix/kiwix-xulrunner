@@ -7,7 +7,9 @@ Requeriments:
 
 Procedure:
 1) Install NSIS, Ruby and Msys
-2) Add the NSIS and Ruby bin folder to eviroment path variable. "C:\Program Files\NSIS"
+2) Set following environment variables (right click on My Computer, then Properties, Advanced, Environment variables):
+On System variables section add the NSIS and Ruby bin folder to eviroment path variable. 
+Example: "C:\Program Files\NSIS;C:\Ruby\bin" (or whatever path you installed Ruby and NSIS)
 2) run msys and cd to the installer source folder
 3) ruby make-installer.rb
 4) follow the instructions
