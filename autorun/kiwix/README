@@ -10,11 +10,17 @@ Requeriments:
 *qt 2010.01 (http://qt.nokia.com/downloads/sdk-windows-cpp)
 *Msys (http://sourceforge.net/projects/mingw/files/)
 
-Procedure:
+Instalation tools procedure:
 
 1) install Msys
 2) install qt 2010.01
 3) copy moc.exe to qt 2010.01 bin folder, the default folder is "C:\Qt\2010.01\qt\bin"
+4) Adjusting environment variables:
+Set following environment variables (right click on My Computer, then Properties, Advanced, Environment variables):
+On System variables section:
+QTDIR to "C:\Qt\2010.01\qt" (or whatever path you installed QT)
+QMAKESPEC to "win32-g++"
+and adjust PATH, add C:\Qt\2010.01\qt\bin and C:\Qt\2010.01\mingw\bin (or whatever path you installed MinGW)
 
 Compile kiwix launcher:
 
