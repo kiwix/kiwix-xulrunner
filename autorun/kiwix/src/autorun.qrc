@@ -1,6 +1,7 @@
 <RCC>
     <qresource prefix="/resource1" >
-        <file>autorun.png</file>
+        <file>autorun_kiwix.png</file>
         <file>autorun.xpm</file>
+		<file>kiwix.ico</file>
     </qresource>
 </RCC>

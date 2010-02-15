@@ -36,7 +36,7 @@ void AppImpl::msgerror(int coderror)
     switch(coderror)
     {
 
-    case 001: msg = "Error 001. File not found";
+    case 001: msg = "Error 001. File not found, ensure that the kiwix application file is in the current directory.";
     break;
 
     }
