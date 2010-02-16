@@ -5,9 +5,13 @@
 
 //SLOT and SIGNAL allocation
 AppImpl::AppImpl( QWidget * parent, Qt::WFlags f) 
-	: QDialog(parent, f)
+        : QDialog(parent, f)
 {
+
 	setupUi(this);
+        //Hide help button on windows title bar
+        this->setWindowFlags(windowFlags() & ~Qt::WindowContextHelpButtonHint);
+
         connect( pushButton_run, SIGNAL( clicked() ),
                  this, SLOT( launch() ) );
         connect( pushButton_install, SIGNAL( clicked() ),
