@@ -5,7 +5,7 @@ INCLUDEPATH += .
 CONFIG += static
 
 # Input
-HEADERS += src/appimpl.h src/logo.h
+HEADERS += src/appimpl.h 
 FORMS += ui/app.ui ui/source.ui
 SOURCES += src/appimpl.cpp src/main.cpp
 RESOURCES += src/autorun.qrc
