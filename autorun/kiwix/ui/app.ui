@@ -10,6 +10,18 @@
     <height>301</height>
    </rect>
   </property>
+  <property name="minimumSize">
+   <size>
+    <width>296</width>
+    <height>301</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>296</width>
+    <height>301</height>
+   </size>
+  </property>
   <property name="windowTitle">
    <string>Kiwix launcher</string>
   </property>
@@ -19,6 +31,12 @@
   </property>
   <property name="layoutDirection">
    <enum>Qt::RightToLeft</enum>
+  </property>
+  <property name="sizeGripEnabled">
+   <bool>false</bool>
+  </property>
+  <property name="modal">
+   <bool>false</bool>
   </property>
   <widget class="QLabel" name="label_logo">
    <property name="geometry">
@@ -39,7 +57,7 @@
   <widget class="QPushButton" name="pushButton_run">
    <property name="geometry">
     <rect>
-     <x>0</x>
+     <x>3</x>
      <y>210</y>
      <width>291</width>
      <height>27</height>
@@ -55,7 +73,7 @@
   <widget class="QPushButton" name="pushButton_install">
    <property name="geometry">
     <rect>
-     <x>0</x>
+     <x>3</x>
      <y>240</y>
      <width>291</width>
      <height>27</height>
@@ -71,7 +89,7 @@
   <widget class="QPushButton" name="pushButton_quit">
    <property name="geometry">
     <rect>
-     <x>0</x>
+     <x>3</x>
      <y>270</y>
      <width>291</width>
      <height>27</height>
