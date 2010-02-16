@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<autorun>
+	<lang code="ar">
+		<layoutDirection>Qt::RightToLeft</layoutDirection>
+		<windowTitle>ويكيميديا من مولان</windowTitle>
+		<run>شغّل مولان من هنا</run>
+		<install>ثبت مولان على القرص الصلب</install>
+		<quit>اخرج من هذه القائمة</quit>
+	</lang>
+</autorun>

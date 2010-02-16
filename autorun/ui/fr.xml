@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<autorun>
+	<lang code="fr">
+		<layoutDirection>Qt::LeftToRight</layoutDirection>
+		<windowTitle>Wikimédia par Kiwix</windowTitle>
+		<run>Lancer Kiwix directement</run>
+		<install>Installer Kiwix sur le disque dur</install>
+		<quit>Quitter</quit>
+	</lang>
+</autorun>
