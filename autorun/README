@@ -1,0 +1,74 @@
+This is the procedure to compile your own version of Kiwix/Moulinwiki
+Windows DVD launcher (autorun.exe). This DVD launcher gives the user
+the capability to launch the software on the DVD, install it or
+leave. This software is in c++ coded an use the Qt libraries. Please
+follow the steps in the given order.
+
+== Prepare ==
+
+* The Qt SDK provides the Qt library, the MinGW environnement and the
+  GNU g++ compiler. So with it, you will have almost all what you
+  need. Download the Qt SDK here:
+  http://download.kiwix.org/dev/qt-sdk-win-opensource-2010.01.exe
+
+* Install this self-extracting package on your system in the default
+  proposed directory: C:\Qt\2010.01
+
+* The Qt SDK does not provide a bash-like console, so you need to
+  download one called MSYS (this is also a MinGW tool) here:
+  http://download.kiwix.org/dev/MSYS-1.0.11.exe
+
+* Install this self-extracting package on your system in the default
+  proposed directory: C:\msys\1.0. A the end a console will be
+  launched. Please answer "y" two times. After that you need to give
+  the Qt SDK MingW path: c:/Qt/2010.01/mingw. Enter "y" a last time
+  and the MSYS installation will be finished.
+
+* You need to install the mandatory tool moc.exe in
+  c:\Qt\2010.01\qt\bin. You can download it there:
+  http://download.kiwix.org/dev/moc.exe
+
+
+
+4) Adjusting environment variables:
+Set following environment variables (right click on My Computer, then Properties, Advanced, Environment variables):
+On System variables section:
+QTDIR to "C:\Qt\2010.01\qt" (or whatever path you installed QT)
+QMAKESPEC to "win32-g++"
+and adjust PATH, add C:\Qt\2010.01\qt\bin and C:\Qt\2010.01\mingw\bin (or whatever path you installed MinGW)
+
+== Compile ==
+
+* Start MSYS, an icon should be present on your desktop. Otherwise
+  start C:\msys\1.0\msys.bat
+
+* Go to your code directory in "moulinkiwix/autorun" like following:
+  cd /c/your_path_to_the_code/moulinkiwix/autorun/
+
+* To configure the appareance of the DVD launcher you will have to
+  setup a few files:
+  
+  - src/board.png (copy kiwix_board.png for example)
+  - src/autorun.ico (copy kiwix.ico for example)  
+
+* Add the qt/bin directory to the path, like following:
+  export PATH=$PATH:/c/Qt/2010.01/qt/bin
+
+* Run "qmake.exe autorun.pro" from the console. Tthe result should be
+  something similar.
+
+  ----
+  $ ls
+  Makefile        Makefile.Release  README       bin    debug    src  ui_app.h
+  Makefile.Debug  Makefile_windows  autorun.pro  build  release  ui   ui_source.h
+  ----
+
+* Run "make release" from the console
+
+== Run ==
+
+* Copy the following files from c:\Qt\2010.01\bin to youre
+  "autorun/release" directory: QtGui4.dll, mingwm10.dll, QtCore4.dll
+  and libgcc_s_dw2-1.dll
+
+* Click on the "autorun/autorun.exe" binary and it should work.
