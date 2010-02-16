@@ -26,8 +26,7 @@
    <string>Kiwix launcher</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="../src/autorun.qrc">
-    <normaloff>:/resource1/kiwix.ico</normaloff>:/resource1/kiwix.ico</iconset>
+    <iconset resource="../src/autorun.qrc" >:/resource1/autorun.ico</iconset>
   </property>
   <property name="layoutDirection">
    <enum>Qt::RightToLeft</enum>
@@ -51,7 +50,7 @@
     <string/>
    </property>
    <property name="pixmap">
-    <pixmap resource="../src/autorun.qrc">:/resource1/autorun_kiwix.png</pixmap>
+    <pixmap resource="../src/autorun.qrc">:/resource1/board.png</pixmap>
    </property>
   </widget>
   <widget class="QPushButton" name="pushButton_run">
