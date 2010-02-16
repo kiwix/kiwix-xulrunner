@@ -28,15 +28,6 @@ follow the steps in the given order.
   c:\Qt\2010.01\qt\bin. You can download it there:
   http://download.kiwix.org/dev/moc.exe
 
-
-
-4) Adjusting environment variables:
-Set following environment variables (right click on My Computer, then Properties, Advanced, Environment variables):
-On System variables section:
-QTDIR to "C:\Qt\2010.01\qt" (or whatever path you installed QT)
-QMAKESPEC to "win32-g++"
-and adjust PATH, add C:\Qt\2010.01\qt\bin and C:\Qt\2010.01\mingw\bin (or whatever path you installed MinGW)
-
 == Compile ==
 
 * Start MSYS, an icon should be present on your desktop. Otherwise
@@ -72,3 +63,10 @@ and adjust PATH, add C:\Qt\2010.01\qt\bin and C:\Qt\2010.01\mingw\bin (or whatev
   and libgcc_s_dw2-1.dll
 
 * Click on the "autorun/autorun.exe" binary and it should work.
+
+== Addtional custom ==
+
+* You can customize the text by looking to the "ui" directory. The
+  file app.ui is used in the compilation. You can modify it manualy or
+  used the ruby script lang2ui.rb to generate it from an xml file( see
+  en.xml for example).
