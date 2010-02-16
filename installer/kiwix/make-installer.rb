@@ -102,75 +102,36 @@ def bye
 end
 # make a nsis file buildind the file tree from the path
 def process
-File.delete($nsi_output)if File::exists?($nsi_output)
-
-$source_path = $source_path.chop if $source_path[$source_path.length - 1, 1] == "/"
-# make a new output file
-kiwixnsi = ($nsi_output.class == IO) ? $nsi_output : File.new($nsi_output, "w")
-recurs_display($source_path)
-	
-File.open($nsi_base, "r") do |infile|
-	while (line = infile.gets)
-		kiwixnsi.puts "#{line}"
-		if "#{line}".include?"CreateDirectory \"$INSTDIR\"" then
-
-# put the tree file on the instalation section nsi file
-kiwixnsi.puts "
-; 
-; INSTALLATION PART
-;
-"
-	$dirs.each do |d|
-		kiwixnsi.puts "\tCreateDirectory `#{d}`"
-	end
-	$files.each do |f|
-		kiwixnsi.puts "\tCopyFiles `#{f[0]}` `#{f[1]}`"
-	end
-	kiwixnsi.puts "
-; 
-; 
-; EXTRACT STUB
-;
-"					
-		end
-	end
-end  	  
-kiwixnsi.close 
-# compile the nsi file
-system("makensis #{$nsi_output}")
-#bye()
-end
-=begin
-def process
+	File.delete($nsi_output)if File::exists?($nsi_output)
 	$source_path = $source_path.chop if $source_path[$source_path.length - 1, 1] == "/"
-	$out = ($nsi_output.class == IO) ? $nsi_output : File.new($nsi_output, "w")
+	# make a new output file
+	kiwixnsi = ($nsi_output.class == IO) ? $nsi_output : File.new($nsi_output, "w")
 	recurs_display($source_path)
-	
-# Write to File.
-$out.puts "
-; 
-; INSTALLATION PART
-;
-"
-	$dirs.each do |d|
-		$out.puts "\tCreateDirectory `#{d}`"
-	end
-	$files.each do |f|
-		$out.puts "\tCopyFiles `#{f[0]}` `#{f[1]}`"
-	end
-	$out.puts "
-; 
-; 
-; EXTRACT STUB
-;
-"
-	$files.each do |f|
-		$out.puts "\tCopyFiles `raw-format` `#{f[1]}\\format`" if f[2] =~ /datas.*format/
-		$out.puts "\tnsexec::exectolog `\"$EXEDIR\\bunzip2.exe\" \"#{f[2]}\"`" if f[2] =~ /datas.*[0-9]\.(bz2|gz)/
-	end
-    bye()
+	# writing directory tree for the nsi	
+	File.open($nsi_base, "r") do |infile|
+		while (line = infile.gets)
+			kiwixnsi.puts "#{line}"
+			if "#{line}".include?"CreateDirectory \"$INSTDIR\"" then
+
+			# put the tree file on the instalation section nsi file
+			kiwixnsi.puts "; INSTALLATION PART \n"
+			kiwixnsi.puts "; Section Automatically generated make-installer.rb \n"
+			$dirs.each do |d|
+				kiwixnsi.puts "\tCreateDirectory `#{d}`"
+			end
+			$files.each do |f|
+				kiwixnsi.puts "\tCopyFiles `#{f[0]}` `#{f[1]}`"
+			end
+			kiwixnsi.puts "\n; EXTRACT STUB \n"				
+			end
+		end
+	end  	  
+	kiwixnsi.close 
+	# compile the nsi file
+	system("makensis #{$nsi_output}")
+	#bye()
 end
-=end
+
 def recurs_display(dir)
 	Dir.foreach(dir) do |f|
 		next if [".","..", "moulin-linux","xulrunner-linux","moulin-mac.app","installed"].include? f
@@ -187,7 +148,6 @@ def recurs_display(dir)
 		end
 	end
 end
-
 # test if advanced mode
 if (ARGV.length == 5 and ARGV[0] == "-e") # assuming expert mode: take care !
     $source_path = ARGV[1]
@@ -202,4 +162,3 @@ elsif (ARGV.length == 1 and ARGV[0].match(/help/))
 else
 	welcome() # Launch the wizard.
 end
-
