@@ -22,6 +22,9 @@ Kiwix 0.9 alpha1
 * Fixing issue affecting ZIM file loading with accented paths (ID: 2905488)
 * New feature to clean the profile at the end of the session
 
+Kiwix 0.8
+* nothing new
+
 Kiwix 0.8 rc3
 * Small improvement by the kiwix.sh launcher (should work now under Slackware (see https://sourceforge.net/forum/message.php?msg_id=7561932)
 * Fix sporadic segfault by indexing (ID: 2823597)
