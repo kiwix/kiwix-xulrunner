@@ -1,17 +1,33 @@
-Build installer steps for Windows OS plataforms
+This is the procedure to build your own installer portable of Kiwix/Moulinwiki. 
+"make-installer.rb" is in ruby script. This script is a wizard 
+to build a NSIS (Nullsoft Scriptable Install System) and a binary 
+installer file. The output is file called 'kiwix-setup.nsi' and a 
+installer bin called 'kiwix-setup.exe'. This installer is a portable 
+executable, with the installation files archived within the installer.
 
-Requeriments:
-*NSIS (http://nsis.sourceforge.net/Download)
-*Ruby (http://rubyinstaller.org/)
-*Msys (http://sourceforge.net/projects/mingw/files/)
+Please follow the steps in the given order.
 
-Procedure:
-1) Install NSIS, Ruby and Msys
-2) Set following environment variables (right click on My Computer, then Properties, Advanced, Environment variables):
-On System variables section add the NSIS and Ruby bin folder to eviroment path variable. 
-Example: ";C:\Program Files\NSIS;C:\Ruby\bin" (or whatever path you installed Ruby and NSIS)
-2) run msys and cd to the installer source folder
-3) ruby make-installer.rb
-4) follow the instructions
+== Procedure ==
 
-ready!
+* Download the installers for NSIS, Ruby and Msys
+
+	NSIS from http://nsis.sourceforge.net/Download
+	Ruby from http://rubyinstaller.org/
+	Msys from http://sourceforge.net/projects/mingw/files/
+	
+* Install Ruby, NSIS and Msys.
+
+* Set following environment variables (right click on My Computer, 
+  then Properties, Advanced, Environment variables):
+  On System variables section add the NSIS and Ruby 
+  bin folder to eviroment path variable. 
+  Example: ";C:\Program Files\NSIS;C:\Ruby\bin" (or whatever path you installed Ruby and NSIS)
+
+* Run msys and cd to the installer source folder
+  Example: "cd /c/your_path_to_the_code/moulinkiwix/installer/"
+  
+* Run "ruby make-installer.rb" from the console
+
+* Follow the script instructions
+
+* Click on the "installer/kiwix-setup.exe" binary and it should work.
