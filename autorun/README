@@ -1,14 +1,14 @@
 This is the procedure to compile your own version of Kiwix/Moulinwiki
 Windows DVD launcher (autorun.exe). This DVD launcher gives the user
 the capability to launch the software on the DVD, install it or
-leave. This software is in c++ coded an use the Qt libraries. Please
+leave. This software is coded in coded an use the Qt libraries. Please
 follow the steps in the given order.
 
 == Prepare ==
 
 * The Qt SDK provides the Qt library, the MinGW environnement and the
-  GNU g++ compiler. So with it, you will have almost all what you
-  need. Download the Qt SDK here:
+  GNU g++ compiler. So with it, you will have almost all what you need
+  to compile the DVD launcher. Download the Qt SDK here:
   http://download.kiwix.org/dev/qt-sdk-win-opensource-2010.01.exe
 
 * Install this self-extracting package on your system in the default
@@ -18,14 +18,14 @@ follow the steps in the given order.
   download one called MSYS (this is also a MinGW tool) here:
   http://download.kiwix.org/dev/MSYS-1.0.11.exe
 
-* Install this self-extracting package on your system in the default
-  proposed directory: C:\msys\1.0. A the end a console will be
+* Install this self-extracting MSYS package on your system in the
+  default proposed directory: C:\msys\1.0. A the end a console will be
   launched. Please answer "y" two times. After that you need to give
-  the Qt SDK MingW path: c:/Qt/2010.01/mingw. Enter "y" a last time
+  the Qt SDK MinGW path: c:/Qt/2010.01/mingw. Enter "y" a last time
   and the MSYS installation will be finished.
 
 * You need to install the mandatory tool moc.exe in
-  c:\Qt\2010.01\qt\bin. You can download it there:
+  c:\Qt\2010.01\qt\bin. You can download it here:
   http://download.kiwix.org/dev/moc.exe
 
 == Compile ==
@@ -46,7 +46,7 @@ follow the steps in the given order.
   export PATH=$PATH:/c/Qt/2010.01/qt/bin
 
 * Run "qmake.exe autorun.pro" from the console. The result should be
-  something similar.
+  something similar to that:
 
   ----
   $ ls
@@ -66,7 +66,8 @@ follow the steps in the given order.
 
 == Addtional custom ==
 
-* You can customize the text by looking to the "ui" directory. The
-  file app.ui is used in the compilation. You can modify it manualy or
-  used the ruby script lang2ui.rb to generate it from an xml file( see
-  en.xml for example).
+* You can also customize the text by looking to the "ui"
+  directory. The file "app.ui" is used at the compilation. You can
+  modify it manualy or used the ruby script "lang2ui.rb" to generate
+  it from an xml file (see en.xml for example) and from the ui
+  template "source.ui".
