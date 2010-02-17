@@ -45,7 +45,7 @@ follow the steps in the given order.
 * Add the qt/bin directory to the path, like following:
   export PATH=$PATH:/c/Qt/2010.01/qt/bin
 
-* Run "qmake.exe autorun.pro" from the console. Tthe result should be
+* Run "qmake.exe autorun.pro" from the console. The result should be
   something similar.
 
   ----
@@ -58,7 +58,7 @@ follow the steps in the given order.
 
 == Run ==
 
-* Copy the following files from c:\Qt\2010.01\bin to youre
+* Copy the following files from c:\Qt\2010.01\bin to your
   "autorun/release" directory: QtGui4.dll, mingwm10.dll, QtCore4.dll
   and libgcc_s_dw2-1.dll
 
