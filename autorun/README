@@ -1,7 +1,7 @@
 This is the procedure to compile your own version of Kiwix/Moulinwiki
 Windows DVD launcher (autorun.exe). This DVD launcher gives the user
 the capability to launch the software on the DVD, install it or
-leave. This software is coded in coded an use the Qt libraries. Please
+leave. This software is coded in c++ an use the Qt libraries. Please
 follow the steps in the given order.
 
 == Prepare ==
