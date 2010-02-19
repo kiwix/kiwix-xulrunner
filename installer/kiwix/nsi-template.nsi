@@ -8,11 +8,14 @@
 !define MUI_HEADERIMAGE_RIGHT ;Header position
 !define MUI_HEADERIMAGE_BITMAP "header.bmp" ;Header installer image 500x63px
 
+!define MUI_ICON  "install.ico"
+!define MUI_UNICON "uninstall.ico"
+
 !define CSIDL_APPDATA '0x1A' ;Application Data path
 !define CSIDL_LOCALAPPDATA '0x1C' ;Local Application Data path
 
 !define PRODUCT_NAME "kiwix"
-!define PRODUCT_VERSION "0.8"
+!define PRODUCT_VERSION "0.9 svn"
 !define PRODUCT_PUBLISHER "Kiwix"
 !define PRODUCT_WEB_SITE "http://www.kiwix.org"
 
@@ -45,7 +48,6 @@ Var PAGETOKEEP
 
 ; Pages
 Page custom PageCreate PageLeave
-
 !define MUI_PAGE_CUSTOMFUNCTION_PRE LicensePage_Pre
 !define MUI_PAGE_CUSTOMFUNCTION_SHOW CommonPage_Show
 !define MUI_PAGE_CUSTOMFUNCTION_LEAVE CommonPage_Leave
