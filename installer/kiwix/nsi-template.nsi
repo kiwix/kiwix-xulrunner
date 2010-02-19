@@ -3,10 +3,10 @@
 ; Please, see the README file
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;!define MUI_WELCOMEFINISHPAGE_BITMAP "welcome_finish.bmp" ;Welcome image
-;!define MUI_HEADERIMAGE 
-;!define MUI_HEADERIMAGE_RIGHT ;Header position
-;!define MUI_HEADERIMAGE_BITMAP "header.bmp" ;Header installer image
+!define MUI_WELCOMEFINISHPAGE_BITMAP "welcome_finish.bmp" ;Welcome image 164x314px
+!define MUI_HEADERIMAGE 
+!define MUI_HEADERIMAGE_RIGHT ;Header position
+!define MUI_HEADERIMAGE_BITMAP "header.bmp" ;Header installer image 500x63px
 
 !define CSIDL_APPDATA '0x1A' ;Application Data path
 !define CSIDL_LOCALAPPDATA '0x1C' ;Local Application Data path
