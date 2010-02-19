@@ -2,5 +2,5 @@ SUBDIRS = ${DEPENDENCES} \
 	zimlib \
 	components \
 	indexer \
-	server \
-	dependences
+	server 
+EXTRA_DIST = dependences
