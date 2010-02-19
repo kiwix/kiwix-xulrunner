@@ -171,10 +171,10 @@ SectionEnd
 Section -AdditionalIcons
 	SetOutPath $INSTDIR
 	WriteIniStr "$INSTDIR\${PRODUCT_NAME}.url" "InternetShortcut" "URL" "${PRODUCT_WEB_SITE}"
-	CreateDirectory "$SMPROGRAMS\kiwix"
-	CreateShortCut "$SMPROGRAMS\kiwix\kiwix.lnk" "$INSTDIR\kiwix.exe"
-	CreateShortCut "$SMPROGRAMS\kiwix\kiwix Website.lnk" "$INSTDIR\${PRODUCT_NAME}.url"
-	CreateShortCut "$SMPROGRAMS\kiwix\Uninstall.lnk" "$INSTDIR\uninst.exe"
+	CreateDirectory "$SMPROGRAMS\Kiwix"
+	CreateShortCut "$SMPROGRAMS\Kiwix\kiwix.lnk" "$INSTDIR\kiwix.exe"
+	CreateShortCut "$SMPROGRAMS\Kiwix\kiwix Website.lnk" "$INSTDIR\${PRODUCT_NAME}.url"
+	CreateShortCut "$SMPROGRAMS\Kiwix\Uninstall.lnk" "$INSTDIR\uninst.exe"
 SectionEnd
 
 Section -Post
