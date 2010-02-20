@@ -1,33 +1,50 @@
-This is the procedure to build your own installer portable of Kiwix/Moulinwiki. 
-"make-installer.rb" is in ruby script. This script is a wizard 
-to build a NSIS (Nullsoft Scriptable Install System) and a binary 
-installer file. The output is file called 'kiwix-setup.nsi' and a 
-installer bin called 'kiwix-setup.exe'. This installer is a portable 
-executable, with the installation files archived within the installer.
+This is the procedure to build your own Kiwix/Moulinwiki DVD Windows
+installer. This installer is necessary to copy data and binary files
+from the DVD to the user HD easily and setup the application menu on
+the user system.
+
+"make-installer.rb" is a ruby script. This script is a wrapper over
+NSIS (Nullsoft Scriptable Install System). The output file is called
+'kiwix-setup.exe'.
 
 Please follow the steps in the given order.
 
-== Procedure ==
+== Prepare ==
 
-* Download the installers for NSIS, Ruby and Msys
+* Download Ruby here: http://download.kiwix.org/dev/ruby186-26.exe and
+  install it in the default proposed directory: C:\ruby\
 
-	NSIS from http://nsis.sourceforge.net/Download
-	Ruby from http://rubyinstaller.org/
-	Msys from http://sourceforge.net/projects/mingw/files/
-	
-* Install Ruby, NSIS and Msys.
+* Download NSIS: http://download.kiwix.org/dev/nsis-2.46-setup.exe and
+  install it in the default proposed directory: C:\Program Files\NSIS\
 
-* Set following environment variables (right click on My Computer, 
-  then Properties, Advanced, Environment variables):
-  On System variables section add the NSIS and Ruby 
-  bin folder to eviroment path variable. 
-  Example: ";C:\Program Files\NSIS;C:\Ruby\bin" (or whatever path you installed Ruby and NSIS)
+* Install this self-extracting MSYS package on your system in the
+  default proposed directory: C:\msys\1.0. A the end a console will be
+  launched. Please answer "y" two times. After that you need to give
+  the Qt SDK MinGW path: c:/Qt/2010.01/mingw. Enter "y" a last time
+  and the MSYS installation will be finished.
 
-* Run msys and cd to the installer source folder
-  Example: "cd /c/your_path_to_the_code/moulinkiwix/installer/"
-  
-* Run "ruby make-installer.rb" from the console
+== Compile ==
 
-* Follow the script instructions
+* Start MSYS, an icon should be present on your desktop. Otherwise
+  start C:\msys\1.0\msys.bat
 
-* Click on the "installer/kiwix-setup.exe" binary and it should work.
+* Go to your code directory in "moulinkiwix/installer/kiwix" like
+  following: cd /c/your_path_to_the_code/moulinkiwix/installer/kiwix/
+
+* Add the ruby and NSIS bin directory to the path like following:
+  export PATH=$PATH:/c/ruby/bin:/c/Program\ Files/NSIS/
+
+* Now you can run the make-installer.rb script to build your
+  installer. For that you need to give the path of the directory which
+  has exactly the file hierarchy like the DVD. The installer will be
+  directly written in the /install/ subdirectory. Do like following:
+  ruby.exe make-installer.rb --path=your_dvd_path
+
+== Run ==
+
+* To run the installer simply double click on the
+  "installer/kiwix-setup.exe" binary and it should work.
+
+== More infos ==
+
+* http://www.kiwix.org/index.php/Build_a_DVD
