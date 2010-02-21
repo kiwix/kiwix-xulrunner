@@ -77,17 +77,21 @@ def recurs_display(dir)
 		end
 	end
 end
-# test if advanced mode
-if ARGV[0].include?"--path="
-	# get path value
-	$copy_source_path = ARGV[0].gsub "--path=",""
-	# directory exist
-	if File.directory? $copy_source_path
-		$source_path = $copy_source_path
-		process() # run main procedure
-	else
-		puts "\n The directory \"#{$copy_source_path}\" not exist \n"
-	end	
-else
+# argument path
+if ARGV[0].nil?
 	usage() # show help
-end
+else	
+	if ARGV[0].include?"--path="
+		# get path value
+		$copy_source_path = ARGV[0].gsub "--path=",""
+		# directory exist
+		if File.directory? $copy_source_path
+			$source_path = $copy_source_path
+			process() # run main procedure
+		else
+			puts "\n The directory \"#{$copy_source_path}\" not exist \n"
+		end	
+	else
+		usage() # show help
+	end
+end	
