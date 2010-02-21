@@ -1,8 +1,9 @@
 #!/usr/bin/ruby
 =begin
-	This script is a wizard to build a list of files.
-	This list of files will be used to build an NSIS installer
-	which won't bundle the files-to-be-installed.
+	This script build the nsi installer.
+	It's a ruby script. This script is a wrapper over
+	NSIS (Nullsoft Scriptable Install System). 
+	The output file is called 'kiwix-setup.exe'.
 	
 	reg <reg@nurv.fr>
 	wilfredor <wilfredor@kiwix.org>
@@ -19,8 +20,9 @@ $copy_dest_path = "$INSTDIR"
 # section in the nsi file
 $nsi_base = "nsi-template.nsi"
 $nsi_output = "kiwix-setup.nsi"
+# not included in the nsi package
+$exceptions = [".","..", "moulin-linux","xulrunner-linux","moulin-mac.app","installed","bonus","autorun","autorun.inf","install"]
 $content = String.new
-
 # internal variables
 $dirs = []
 $files = []
@@ -39,28 +41,29 @@ def process
 			kiwixnsi.puts "#{line}"
 			if "#{line}".include?"CreateDirectory \"$INSTDIR\"" then
 
-			# put the tree file on the instalation section nsi file
-			kiwixnsi.puts "; INSTALLATION PART \n"
-			kiwixnsi.puts "; Section Automatically generated make-installer.rb \n"
-			$dirs.each do |d|
-				kiwixnsi.puts "\tCreateDirectory `#{d}`"
-			end
-			$files.each do |f|
-				kiwixnsi.puts "\tCopyFiles `#{f[0]}` `#{f[1]}`"
-			end
-			kiwixnsi.puts "\n; EXTRACT STUB \n"				
+				# put the tree file on the instalation section nsi file
+				kiwixnsi.puts "; INSTALLATION PART \n"
+				kiwixnsi.puts "; Section Automatically generated make-installer.rb \n"
+				
+				$dirs.each do |d|
+					kiwixnsi.puts "\tCreateDirectory `#{d}`"
+				end
+				
+				$files.each do |f|
+					kiwixnsi.puts "\tCopyFiles `#{f[0]}` `#{f[1]}`"
+				end
+				kiwixnsi.puts "\n; EXTRACT STUB \n"				
 			end
 		end
 	end  	  
 	kiwixnsi.close 
 	# compile the nsi file
 	system("makensis #{$nsi_output}")
-	#bye()
 end
 # build tree folder
 def recurs_display(dir)
 	Dir.foreach(dir) do |f|
-		next if [".","..", "moulin-linux","xulrunner-linux","moulin-mac.app","installed"].include? f
+		next if $exceptions.include? f
 		fp	= dir+File::SEPARATOR+f
 		wd	= fp.slice($source_path.length, fp.length).gsub("/","\\")
 		wdd	= wd.slice(0, (wd.length - (f.length + 1)))
@@ -78,10 +81,10 @@ end
 if ARGV[0].include?"--path="
 	# get path value
 	$copy_source_path = ARGV[0].gsub "--path=",""
-	$source_path = $copy_source_path
 	# directory exist
 	if File.directory? $copy_source_path
-		process()
+		$source_path = $copy_source_path
+		process() # run main procedure
 	else
 		puts "\n The directory \"#{$copy_source_path}\" not exist \n"
 	end	
