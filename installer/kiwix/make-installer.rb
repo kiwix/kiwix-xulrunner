@@ -3,11 +3,11 @@
 	This script build the nsi installer.
 	It's a ruby script. This script is a wrapper over
 	NSIS (Nullsoft Scriptable Install System). 
-	The output file is called 'kiwix-setup.exe'.
 	
 	reg <reg@nurv.fr>
 	wilfredor <wilfredor@kiwix.org>
 =end
+
 require 'ftools'
 def usage()
 	puts "\n ruby make-installer.rb --path=<path_to_the_dvd_file_tree>\n"
@@ -15,14 +15,18 @@ def usage()
 end
 # directory tree used in the nsi installer
 $copy_dest_path = "$INSTDIR"
+
+# relative path for the installer really in /install/win/
+$relative_path = "..\\..\\.."
 # file generated for build the install and unistall
 # section in the nsi file
 $nsi_base = "nsi-template.nsi"
 $nsi_output = "kiwix-setup.nsi"
-$content = String.new
+
 # internal variables
 $files = []
 $dirs = []
+
 # list files for build the installer
 $files_list = [
    "/kiwix/{kiwix.exe,application.ini}",
@@ -32,6 +36,7 @@ $files_list = [
    "/kiwix/defaults/*",        
    "/kiwix/components/*.{dll,xpt,js}" 
 ]
+
 # make a nsis file buildind the file tree from the path
 def process
 	File.delete($nsi_output)if File::exists?($nsi_output)
@@ -63,6 +68,7 @@ def process
 	# /V0 hide log
 	system("makensis /V0 #{$nsi_output}")
 end
+
 # build tree folder
 def build_tree(dvd_path)
 	$files_list.each do |dire| 
@@ -72,13 +78,13 @@ def build_tree(dvd_path)
 		else
 			$dirs << $copy_dest_path + current_dir
 			Dir.glob(dvd_path+"#{dire}").each do |f|
-				fp	= dvd_path + f
-				wd	= fp.slice(dvd_path.length, fp.length).gsub("/","\\")
+				wd = f.gsub(dvd_path,$relative_path).gsub("/","\\")
 				$files << ["#{wd}", "#{$copy_dest_path}#{current_dir}", "#{$copy_dest_path}#{wd}"]
 			end
 		end
 	end
 end
+
 # argument path
 if ARGV[0].nil? 
 	usage() # show help
@@ -91,7 +97,7 @@ else
 			$source_path = $copy_source_path
 			process() # run main procedure
 		else
-			puts "\n The directory \"#{$copy_source_path}\" not found \n"
+			puts "\n Error. The directory \"#{$copy_source_path}\" not found \n"
 		end	
 	else
 		usage() # show help
