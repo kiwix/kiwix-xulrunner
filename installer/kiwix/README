@@ -41,14 +41,14 @@ Please follow the steps in the given order.
 
 == Run ==
 
-* You have to install the kiwix-setup.exe installer in the /install/
+* You have to install the kiwix-setup.exe installer in the /install/win/
   directory on the DVD file hierarchy. This is really essential to
   copy it there, because by running the installer, files will be
   copied relatively to its (the installer) position in the DVD file
   system.
 
 * To run the installer simply double click on the
-  "installer/kiwix-setup.exe" binary and it should work.
+  "installer/win/kiwix-setup.exe" binary and it should work.
 
 == More infos ==
 

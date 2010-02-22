@@ -83,6 +83,7 @@ def build_tree(dvd_path)
 			end
 		end
 	end
+	puts "Done!!. Please, remember copy #{$nsi_output.gsub("nsi","exe")} to install/win/"
 end
 
 # argument path
