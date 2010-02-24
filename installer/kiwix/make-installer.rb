@@ -18,11 +18,11 @@ $copy_dest_path = "$INSTDIR"
 
 # relative path for the installer 
 # really in DVD_PATH/kiwix/install/win/
-$relative_path = "..\\..\\.."
+$relative_path = ".."
 # file generated for build the install and unistall
 # section in the nsi file
-$nsi_base = "nsi-template.nsi"
-$nsi_output = "kiwix-setup.nsi"
+$nsi_base = "kiwix-install.nsi.tmpl"
+$nsi_output = "kiwix-install.nsi"
 
 # internal variables
 $files = []

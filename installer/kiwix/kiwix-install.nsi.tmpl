@@ -28,12 +28,12 @@
 
 SetCompressor lzma ; Zlib supports "SetCompress off"
 Name "${PRODUCT_NAME} ${PRODUCT_VERSION}"
-OutFile "kiwix-setup.exe"
+OutFile "kiwix-install.exe"
 ShowInstDetails show
 ShowUnInstDetails show
 InstallDir "$PROGRAMFILES\kiwix"
 
-!define MUI_FINISHPAGE_RUN "kiwix.exe"
+!define MUI_FINISHPAGE_RUN "kiwix\kiwix.exe"
 
 ; Global variables
 Var PAGETOKEEP
@@ -172,7 +172,7 @@ Section -AdditionalIcons
 	SetOutPath $INSTDIR
 	WriteIniStr "$INSTDIR\${PRODUCT_NAME}.url" "InternetShortcut" "URL" "${PRODUCT_WEB_SITE}"
 	CreateDirectory "$SMPROGRAMS\Kiwix"
-	CreateShortCut "$SMPROGRAMS\Kiwix\Kiwix.lnk" "$INSTDIR\kiwix.exe"
+	CreateShortCut "$SMPROGRAMS\Kiwix\Kiwix.lnk" "$INSTDIR\kiwix\kiwix.exe"
 	CreateShortCut "$SMPROGRAMS\Kiwix\Kiwix Website.lnk" "$INSTDIR\${PRODUCT_NAME}.url"
 	CreateShortCut "$SMPROGRAMS\Kiwix\Uninstall.lnk" "$INSTDIR\uninst.exe"
 SectionEnd
