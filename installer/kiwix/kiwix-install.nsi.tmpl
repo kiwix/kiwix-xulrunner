@@ -70,7 +70,7 @@ Page custom PageCreate PageLeave
 !insertmacro MUI_LANGUAGE "English"
 
 Function .onInit
-  !insertmacro MUI_INSTALLOPTIONS_EXTRACT "kiwix-setup.ini"
+  !insertmacro MUI_INSTALLOPTIONS_EXTRACT "kiwix-install.ini"
 FunctionEnd
 
 LangString READYPAGE_TITLE ${LANG_ENGLISH} "Ready to install"
@@ -78,11 +78,11 @@ LangString READYPAGE_SUBTITLE ${LANG_ENGLISH} "The installation wizard is ready 
 
 Function PageCreate
   !insertmacro MUI_HEADER_TEXT "$(READYPAGE_TITLE)" "$(READYPAGE_SUBTITLE)"
-  !insertmacro MUI_INSTALLOPTIONS_DISPLAY "kiwix-setup.ini"
+  !insertmacro MUI_INSTALLOPTIONS_DISPLAY "kiwix-install.ini"
 FunctionEnd
 
 Function PageLeave
-  !insertmacro MUI_INSTALLOPTIONS_READ $R0 "kiwix-setup.ini" "Settings" "State"
+  !insertmacro MUI_INSTALLOPTIONS_READ $R0 "kiwix-install.ini" "Settings" "State"
   ${Select} $R0
     ${Case} 0
       StrCpy $PAGETOKEEP "none"
