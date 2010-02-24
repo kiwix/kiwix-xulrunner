@@ -62,12 +62,12 @@ void AppImpl::runapp(const char *filename,int windowsmodal)
 //Launch kiwix
 void AppImpl::launch()
 {
-    runapp("kiwix.exe", SW_SHOWMAXIMIZED);
+    runapp("..\\kiwix\\kiwix.exe", SW_SHOWMAXIMIZED);
 }
 //Run the kiwix install on hard disk
 void AppImpl::install()
 {
-    runapp("kiwix-setup.exe", SW_SHOWNORMAL);
+    runapp("..\\install\\kiwix-install.exe", SW_SHOWNORMAL);
 }
 //
 void AppImpl::clean()
