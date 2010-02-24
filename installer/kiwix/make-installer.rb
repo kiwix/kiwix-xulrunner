@@ -16,7 +16,8 @@ end
 # directory tree used in the nsi installer
 $copy_dest_path = "$INSTDIR"
 
-# relative path for the installer really in /install/win/
+# relative path for the installer 
+# really in DVD_PATH/kiwix/install/win/
 $relative_path = "..\\..\\.."
 # file generated for build the install and unistall
 # section in the nsi file
@@ -28,12 +29,13 @@ $files = []
 $dirs = []
 
 # list files for build the installer
+# /**/** is a recursive search in the folder
 $files_list = [
    "/kiwix/{kiwix.exe,application.ini}",
-   "/data/*",				
-   "/kiwix/xulrunner/*",       
-   "/kiwix/chrome/*",          
-   "/kiwix/defaults/*",        
+   "/data/**/**",				
+   "/kiwix/xulrunner/**/**",       
+   "/kiwix/chrome/**/**",          
+   "/kiwix/defaults/**/**",        
    "/kiwix/components/*.{dll,xpt,js}" 
 ]
 
@@ -73,17 +75,18 @@ end
 def build_tree(dvd_path)
 	$files_list.each do |dire| 
 		current_dir = dire.gsub("/"+File.basename(dire),"").gsub("/","\\")
-		if !File.directory? dvd_path + current_dir
-			puts "Warning!: Folder not found \"#{current_dir}\" in your path \"#{dvd_path}\""
-		else
-			$dirs << $copy_dest_path + current_dir
-			Dir.glob(dvd_path+"#{dire}").each do |f|
-				wd = f.gsub(dvd_path,$relative_path).gsub("/","\\")
-				$files << ["#{wd}", "#{$copy_dest_path}#{current_dir}", "#{$copy_dest_path}#{wd}"]
+		$dirs << $copy_dest_path + current_dir
+		Dir.glob(dvd_path+"#{dire}").each do |f|
+			wd = f.gsub(dvd_path,$relative_path).gsub("/","\\")
+			current = f.gsub(dvd_path,"").gsub("/","\\")
+			if File.directory? f
+				$dirs << $copy_dest_path + current
+			else
+				$files << ["#{wd}", "#{$copy_dest_path}#{current}", "#{$copy_dest_path}#{current}"]
 			end
 		end
 	end
-	puts "Done!!. Please, remember copy #{$nsi_output.gsub("nsi","exe")} to install/win/"
+	puts "Done!!. Please, remember copy #{$nsi_output.gsub("nsi","exe")} to DVD_PATH/kiwix/install/win/"
 end
 
 # argument path
