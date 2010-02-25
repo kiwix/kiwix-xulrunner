@@ -59,7 +59,7 @@ def process
 					kiwixnsi.puts "\tCreateDirectory `#{d}`"
 				end
 				$files.each do |f|
-					kiwixnsi.puts "\tCopyFiles `#{f[0]}` `#{f[1]}`"
+					kiwixnsi.puts "\tCopyFiles /SILENT `#{f[0]}` `#{f[1]}`"
 				end
 				kiwixnsi.puts "\n; EXTRACT STUB \n"				
 			end
