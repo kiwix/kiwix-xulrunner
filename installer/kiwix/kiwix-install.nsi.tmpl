@@ -213,7 +213,7 @@ SectionEnd
 
 Function un.full
 	System::Call 'shell32::SHGetSpecialFolderPathA(i $HWNDPARENT, t .r1, i ${CSIDL_APPDATA}, b 'false') i r0'
-    RMDir /r "$1\Kunnafoni"
+    RMDir /r "$1\www.kiwix.org"
     System::Call 'shell32::SHGetSpecialFolderPathA(i $HWNDPARENT, t .r1, i ${CSIDL_LOCALAPPDATA}, b 'false') i r0'
-    RMDir /r "$1\Kunnafoni"
+    RMDir /r "$1\www.kiwix.org"
 FunctionEnd
