@@ -68,7 +68,7 @@ def process
 	kiwixnsi.close 
 	# compile the nsi file
 	# /V0 hide log
-	system("makensis /V0 #{$nsi_output}")
+	system("makensis -V0 #{$nsi_output}")
 end
 
 # build tree folder
@@ -86,7 +86,7 @@ def build_tree(dvd_path)
 			end
 		end
 	end
-	puts "Done!!. Please, remember copy #{$nsi_output.gsub("nsi","exe")} to DVD_PATH/kiwix/install/win/"
+	puts "Done! Please, remember copy #{$nsi_output.gsub("nsi","exe")} to DVD_PATH/install/"
 end
 
 # argument path
