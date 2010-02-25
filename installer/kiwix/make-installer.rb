@@ -54,7 +54,7 @@ def process
 			if "#{line}".include?"CreateDirectory \"$INSTDIR\"" then
 				# put the tree file on the instalation section nsi file
 				kiwixnsi.puts "; INSTALLATION PART \n"
-				kiwixnsi.puts "; Section Automatically generated make-installer.rb \n"
+				kiwixnsi.puts "; Section Automatically generated \n"
 				$dirs.each do |d|
 					kiwixnsi.puts "\tCreateDirectory `#{d}`"
 				end
@@ -67,7 +67,7 @@ def process
 	end  	  
 	kiwixnsi.close 
 	# compile the nsi file
-	# /V0 hide log
+	# -V0 hide log
 	system("makensis -V0 #{$nsi_output}")
 end
 
@@ -86,24 +86,21 @@ def build_tree(dvd_path)
 			end
 		end
 	end
-	puts "Done! Please, remember copy #{$nsi_output.gsub("nsi","exe")} to DVD_PATH/install/"
+	puts "Done!. Remember copy #{$nsi_output.gsub("nsi","exe")} to DVD_PATH/install/"
 end
 
-# argument path
-if ARGV[0].nil? 
-	usage() # show help
-else	
-	if ARGV[0].include?"--path="
-		# get path value
-		$copy_source_path = ARGV[0].gsub "--path=",""
-		# directory exist
-		if File.directory? $copy_source_path
-			$source_path = $copy_source_path
-			process() # run main procedure
-		else
-			puts "\n Error. The directory \"#{$copy_source_path}\" not found \n"
-		end	
+# argument path validation
+if (ARGV[0] == nil)? false : ((ARGV[0].include?"--path=")? true : false)
+	# get path value
+	$copy_source_path = ARGV[0].gsub "--path=",""
+	# directory exist
+	if File.directory? $copy_source_path
+		$source_path = $copy_source_path
+		process() # run main procedure
 	else
-		usage() # show help
-	end
-end	
+		puts "\n Error. Directory \"#{$copy_source_path}\" not found \n"
+	end	
+else
+	usage() # show help
+end
+	
