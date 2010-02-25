@@ -37,7 +37,7 @@ Please follow the steps in the given order.
 * Now you can run the make-installer.rb script to build your
   installer. For that you need to give the path of the directory which
   has exactly the file hierarchy like the DVD. Do like following:
-  ruby.exe make-installer.rb --path=your_dvd_path
+  ruby.exe make-installer.rb --path=/c/your_dvd_path
 
 == Run ==
 
