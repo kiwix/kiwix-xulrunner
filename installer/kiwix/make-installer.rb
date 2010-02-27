@@ -68,7 +68,10 @@ def process
 	kiwixnsi.close 
 	# compile the nsi file
 	# -V0 hide log
+	
 	system("makensis -V0 #{$nsi_output}")
+	system("cp #{$nsi_output.gsub(".nsi",".exe")} #{$copy_source_path}/install/")
+	
 end
 
 # build tree folder
@@ -76,17 +79,17 @@ def build_tree(dvd_path)
 	$files_list.each do |dire| 
 		current_dir = dire.gsub("/"+File.basename(dire),"").gsub("/","\\")
 		$dirs << $copy_dest_path + current_dir
-		Dir.glob(dvd_path+"#{dire}").each do |f|
-			wd = f.gsub(dvd_path,$relative_path).gsub("/","\\")
+		Dir.glob(dvd_path+"#{dire}").each do |f|			
 			current = f.gsub(dvd_path,"").gsub("/","\\")
 			if File.directory? f
 				$dirs << $copy_dest_path + current
 			else
+				wd = f.gsub(dvd_path,$relative_path).gsub("/","\\")
 				$files << ["#{wd}", "#{$copy_dest_path}#{current}", "#{$copy_dest_path}#{current}"]
 			end
 		end
 	end
-	puts "Done!. Remember copy #{$nsi_output.gsub("nsi","exe")} to DVD_PATH/install/"
+	puts "Done!. #{$nsi_output.gsub("nsi","exe")} is in #{$copy_source_path}/install/"
 end
 
 # argument path validation
