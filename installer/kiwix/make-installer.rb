@@ -10,7 +10,8 @@
 
 require 'ftools'
 def usage()
-	puts "\n ruby make-installer.rb --path=<path_to_the_dvd_file_tree>\n"
+	puts "\n ruby make-installer.rb --path=<path_to_the_dvd_file_tree> <--allinone>\n"
+	puts "\n allinone: Build a installer packed portable"
 	exit()
 end
 # directory tree used in the nsi installer
@@ -58,8 +59,19 @@ def process
 				$dirs.each do |d|
 					kiwixnsi.puts "\tCreateDirectory `#{d}`"
 				end
-				$files.each do |f|
+				# if a portable packed installer
+				if $allinone then
+					$files.each do |f|
+						path_full = $copy_source_path.gsub("/","\\")+f[0].gsub("..","")
+						file_out = f[0].gsub("..","").gsub("\\"+File.basename(path_full),"")
+						kiwixnsi.puts "\tSetOutPath \"$INSTDIR#{file_out}\""
+						kiwixnsi.puts "\tFile `#{path_full}`"
+					end
+				else
+					# if is a installer for copy from a DVD
+					$files.each do |f|
 					kiwixnsi.puts "\tCopyFiles /SILENT `#{f[0]}` `#{f[1]}`"
+				end
 				end
 				kiwixnsi.puts "\n; EXTRACT STUB \n"				
 			end
@@ -94,6 +106,7 @@ end
 
 # argument path validation
 if (ARGV[0] == nil)? false : ((ARGV[0].include?"--path=")? true : false)
+	$allinone = (ARGV[1] == nil)? false : ((ARGV[1].include?"--allinone")? true : false)
 	# get path value
 	$copy_source_path = ARGV[0].gsub "--path=",""
 	# directory exist
