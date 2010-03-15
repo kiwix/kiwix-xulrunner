@@ -82,8 +82,6 @@ def process
 	# -V0 hide log
 	
 	system("makensis -V0 #{$nsi_output}")
-	system("cp #{$nsi_output.gsub(".nsi",".exe")} #{$copy_source_path}/install/")
-	
 end
 
 # build tree folder
@@ -115,6 +113,9 @@ if (ARGV[0] == nil)? false : ((ARGV[0].include?"--path=")? true : false)
 	else
 		puts "\n Error. Directory \"#{$copy_source_path}\" not found \n"
 	end	
+
+	# Copy the file in the DVD file hierarchy
+	system("cp #{$nsi_output.gsub(".nsi",".exe")} \"#{$copy_source_path}/install/\"")
 	puts "Done!. #{$nsi_output.gsub("nsi","exe")} is in #{$copy_source_path}/install/"
 else
 	usage() # show help
