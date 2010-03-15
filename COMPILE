@@ -1,0 +1,16 @@
+These are the instructions to compile Kiwix.
+
+== GNU/Linux ==
+
+* ./autogen.sh to generate the ./configure file if not already
+done.
+
+* ./configure to prepare the compilation and check if all
+  necessary libraries are installed. You may get more information by
+  running ./configure --help
+
+* make to compile kiwix
+
+* make install to install it on the system
+
+== Windows ==
