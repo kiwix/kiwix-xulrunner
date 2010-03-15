@@ -101,7 +101,6 @@ def build_tree(dvd_path)
 			end
 		end
 	end
-	puts "Done!. #{$nsi_output.gsub("nsi","exe")} is in #{$copy_source_path}/install/"
 end
 
 # argument path validation
@@ -116,6 +115,7 @@ if (ARGV[0] == nil)? false : ((ARGV[0].include?"--path=")? true : false)
 	else
 		puts "\n Error. Directory \"#{$copy_source_path}\" not found \n"
 	end	
+	puts "Done!. #{$nsi_output.gsub("nsi","exe")} is in #{$copy_source_path}/install/"
 else
 	usage() # show help
 end
