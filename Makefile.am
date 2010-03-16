@@ -69,8 +69,6 @@ uninstall:
 bindist: 
 	${BINDIST_INTRO_MESSAGE}
 
-configure-without-dependences:
-
 deb: dist
 	tar -xvzf kiwix-0.9.tar.gz
 	cd kiwix-0.9 ; ./configure ; dpkg-buildpackage -rfakeroot
