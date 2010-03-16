@@ -39,3 +39,10 @@ install it in the default proposed directory C:\mozilla-build.
 * If installed sucessfuly run one time VS to configure it and maybe
   register it (follow the instructions).
 
+* Now we will download try to configurate the compilation, run the
+  following commands:
+  cd /c/mozilla-build/moulinkiwix/
+  ./autogen.sh
+  ./configure
+
+
