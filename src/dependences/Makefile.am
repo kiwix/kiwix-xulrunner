@@ -31,6 +31,9 @@ xz.tar.bz2:
 bzip2-1.0.5/libbz2.a: bzip2.tar.gz
 	cd bzip2-1.0.5 ; sed -i "s/CFLAGS=/CFLAGS=-fPIC /" Makefile ; make ; make Makefile-libbz2_so
 
+bzip2-1.0.5/libbz2.lib: bzip2.tar.gz
+	cd bzip2-1.0.5 ; touch toto ; sed -e "s/\\-MD/\\-MT/" makefile.msc > makefile.msc.custom ; export MAKEFLAGS=; nmake.exe -f makefile.msc.custom
+
 zlib-1.2.3/libz.a: zlib.tar.gz
 	cd zlib-1.2.3 ; export CFLAGS=" -fPIC " ; ./configure ; make ; ./configure ; make	
 
@@ -46,11 +49,17 @@ mozilla-1.9.1/dist/bin/xulrunner: xulrunner-source.tar.bz2
 xz-4.999.9beta/src/liblzma/.libs/liblzma.a: xz.tar.bz2
 	cd xz-4.999.9beta ; export CFLAGS=" -fPIC " ; ./configure ; make 
 
-all: bzip2-1.0.5/libbz2.a zlib-1.2.3/libz.a xapian-core-1.0.16/.libs/libxapian.a unac-1.7.0/libunac.a xz-4.999.9beta/src/liblzma/.libs/liblzma.a mozilla-1.9.1/dist/bin/xulrunner
+all-posix: bzip2-1.0.5/libbz2.a zlib-1.2.3/libz.a xapian-core-1.0.16/.libs/libxapian.a unac-1.7.0/libunac.a xz-4.999.9beta/src/liblzma/.libs/liblzma.a mozilla-1.9.1/dist/bin/xulrunner
+	
+
+all-win: bzip2-1.0.5/libbz2.lib
+	
+
+all: ${ALL_RULE}
 
 # clean
 clean:
-	rm -rf bzip2-1.0.5/libbz2.a
+	rm -rf bzip2-1.0.5/libbz2.a bzip2-1.0.5/libbz2.lib
 	rm -rf zlib-1.2.3/libz.a
 	rm -rf xapian-core-1.0.16/.libs/libxapian.a
 	rm -rf unac-1.7.0/libunac.a
