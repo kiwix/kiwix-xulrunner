@@ -47,4 +47,22 @@ xz-4.999.9beta/src/liblzma/.libs/liblzma.a: xz.tar.bz2
 	cd xz-4.999.9beta ; export CFLAGS=" -fPIC " ; ./configure ; make 
 
 all: bzip2-1.0.5/libbz2.a zlib-1.2.3/libz.a xapian-core-1.0.16/.libs/libxapian.a unac-1.7.0/libunac.a xz-4.999.9beta/src/liblzma/.libs/liblzma.a mozilla-1.9.1/dist/bin/xulrunner
-	
+
+# clean
+clean:
+	rm -rf bzip2-1.0.5/libbz2.a
+	rm -rf zlib-1.2.3/libz.a
+	rm -rf xapian-core-1.0.16/.libs/libxapian.a
+	rm -rf unac-1.7.0/libunac.a
+	rm -rf mozilla-1.9.1/dist/bin/xulrunner
+	rm -rf xz-4.999.9beta/src/liblzma/.libs/liblzma.a
+
+# distclean
+distclean:
+	rm -rf zlib.tar.gz
+	rm -rf bzip2.tar.gz
+	rm -rf xapian-core.tar.gz
+	rm -rf unac.tar.bz2
+	rm -rf xulrunner-sdk.tar.bz2
+	rm -rf xulrunner-source.tar.bz2
+	rm -rf z.tar.bz2
