@@ -11,6 +11,10 @@ xapian-core.tar.gz:
 	wget -c http://download.kiwix.org/dev/xapian-core-1.0.16.tar.gz -O xapian-core.tar.gz
 	tar -xvzf xapian-core.tar.gz
 
+xapian-win32.zip:
+	wget -c http://download.kiwix.org/dev/xapian-1.0.16-win32.zip -O xapian-win32.zip
+	unzip xapian-win32.zip
+
 unac.tar.bz2:
 	wget -c http://download.kiwix.org/dev/unac-1.7.0.tar.bz2 -O unac.tar.bz2
 	tar -xvjf unac.tar.bz2
@@ -38,10 +42,14 @@ zlib-1.2.3/libz.a: zlib.tar.gz
 	cd zlib-1.2.3 ; export CFLAGS=" -fPIC " ; ./configure ; make ; ./configure ; make	
 
 zlib-1.2.3/libz.lib: zlib.tar.gz
-	cd zlib-1.2.3 ; pc ./win32/Makefile.msc ./ ; sed -e "s/\\-MD/\\-MT/" Makefile.msc > Makefile.msc.custom ; export MAKEFLAGS=; nmake.exe -f Makefile.msc.custom
+	cd zlib-1.2.3 ; cp ./win32/Makefile.msc ./ ; sed -e "s/\\-MD/\\-MT/" Makefile.msc > Makefile.msc.custom ; export MAKEFLAGS=; nmake.exe -f Makefile.msc.custom
 
-xapian-core-1.0.16/.libs/libxapian.a: xapian-core.tar.gz
+xapian-core-1.0.16/.libs/libxapian.a: xapian-core.tar.gz 
 	cd xapian-core-1.0.16 ; export EXTERN_PATH=`pwd` ; export CPPFLAGS="-I${CURRENT_PATH}/src/dependences/zlib-1.2.3/" ; export CXXFLAGS=" -fPIC -L${CURRENT_PATH}/src/dependences/zlib-1.2.3" ; ./configure ; make
+
+xapian-core-1.0.16/libxapian.lib: xapian-core.tar.gz xapian-win32.zip
+	mv win32 xapian-core-1.0.16
+	cd xapian-core-1.0.16 ;
 
 unac-1.7.0/libunac.a: unac.tar.bz2
 	cd unac-1.7.0 ; gcc -DUNAC_VERSION="\"42\"" -fPIC -c unac.c ; ar cr libunac.a unac.o ; ranlib libunac.a
@@ -55,7 +63,7 @@ xz-4.999.9beta/src/liblzma/.libs/liblzma.a: xz.tar.bz2
 all-posix: bzip2-1.0.5/libbz2.a zlib-1.2.3/libz.a xapian-core-1.0.16/.libs/libxapian.a unac-1.7.0/libunac.a xz-4.999.9beta/src/liblzma/.libs/liblzma.a mozilla-1.9.1/dist/bin/xulrunner
 	
 
-all-win: bzip2-1.0.5/libbz2.lib zlib-1.2.3/libz.lib
+all-win: bzip2-1.0.5/libbz2.lib zlib-1.2.3/libz.lib xapian-core-1.0.16/libxapian.lib
 	
 
 all: ${ALL_RULE}
@@ -73,7 +81,7 @@ clean:
 distclean:
 	rm -rf zlib.tar.gz bzip2-1.0.5
 	rm -rf bzip2.tar.gz zlib-1.2.3
-	rm -rf xapian-core.tar.gz
+	rm -rf xapian-core.tar.gz xapian-win32.zip xapian-core-1.0.16 
 	rm -rf unac.tar.bz2
 	rm -rf xulrunner-sdk.tar.bz2
 	rm -rf xulrunner-source.tar.bz2
