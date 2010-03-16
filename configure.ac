@@ -3,9 +3,6 @@ AC_INIT([kiwix], [0.9])
 # Init. of automake
 AM_INIT_AUTOMAKE
 
-# Check if cl.exe is there and use cccl if yes
-AC_CHECK_FILE(cl.exe, CC=cccl; LD=cccl,)
-
 # Determine a C compiler
 AC_PROG_CC
 
@@ -17,41 +14,53 @@ then
 	AC_MSG_ERROR([[cannot find any C++ compiler]])
 fi
 
-# Check the compiler version
-if test [ "$CXX" ]
+# Check the platform
+if test [ "$CXX" = "cl" ]
 then
-  CXX_VERSION=`$CXX --version | head -n 1 | cut -d " " -f 3` 
-  if [[ "$CXX_VERSION" \< "3.3" ]]
-  then
-    AC_MSG_ERROR([g++ 4.3.x or higher required])
-  fi
+  IS_WIN=1
 fi
 
-# Determine libtool
-AC_PROG_LIBTOOL
-AC_PROG_RANLIB
-AC_PROG_MAKE_SET
+# Only for POSIX systems
+if test [ ! "$IS_WIN" ]
+then
+
+  # Check the compiler version
+  if test [ "$CXX" ]
+  then
+    CXX_VERSION=`$CXX --version | head -n 1 | cut -d " " -f 3` 
+    if [[ "$CXX_VERSION" \< "3.3" ]]
+    then
+      AC_MSG_ERROR([g++ 4.3.x or higher required])
+    fi
+  fi
+
+  # Determine libtool
+  AC_PROG_LIBTOOL
+  AC_PROG_RANLIB
+  AC_PROG_MAKE_SET
+
+  # default $CPPFLAGS and $LDFLAGS
+  CPPFLAGS=""
+  CFLAGS="-O6"
+  LDFLAGS=""
+  LIBS=""
+  LD_PATH=""
+  LD_LIBRARY_PATH=""
+
+  # Check if the 'pkg-config' binary exists
+  AC_CHECK_TOOL(HAVE_PKG_CONFIG, pkg-config)
+  if test [ ! "$HAVE_PKG_CONFIG" ]
+  then 
+    AC_MSG_ERROR([[cannot find pkg-config]])
+  fi
+
+fi
 
 # Set current language to C++
 AC_LANG(C++)
 
 # Current path
 CURRENT_PATH=`pwd`
-
-# default $CPPFLAGS and $LDFLAGS
-CPPFLAGS=""
-CFLAGS="-O6"
-LDFLAGS=""
-LIBS=""
-LD_PATH=""
-LD_LIBRARY_PATH=""
-
-# Check if the 'pkg-config' binary exists
-AC_CHECK_TOOL(HAVE_PKG_CONFIG, pkg-config)
-if test [ ! "$HAVE_PKG_CONFIG" ]
-then 
-	AC_MSG_ERROR([[cannot find pkg-config]])
-fi
 
 # Check if their is a Perl binary
 AC_CHECK_TOOL(HAVE_PERL, perl)
@@ -345,9 +354,15 @@ AC_CONFIG_FILES([
 # Generate the Makefiles
 AC_OUTPUT
 
-# Generate a new BuildID
-REPLACE=`date "+%Y%m%d"`
-sed -i -e "s/^BuildID=[[0-9]]*/BuildID=$REPLACE/" ./kiwix/application.ini
+# Only for POSIX systems
+if test [ ! "$IS_WIN" ]
+then
 
-# Save the install prefix in the default application preferences
-sed -i "s/\"kiwix.install.prefix\"\,\ \"[[^\"]]*\"/\"kiwix.install.prefix\"\,\ \"$(echo $prefix | sed -e 's/\\/\\\\/g' -e 's/\//\\\//g' -e 's/&/\\\&/g')\"/" ./kiwix/defaults/preferences/preferences.js
+  # Generate a new BuildID
+  REPLACE=`date "+%Y%m%d"`
+  sed -i "s/^BuildID=[[0-9]]*/BuildID=$REPLACE/" ./kiwix/application.ini
+
+  # Save the install prefix in the default application preferences
+  sed -i "s/\"kiwix.install.prefix\"\,\ \"[[^\"]]*\"/\"kiwix.install.prefix\"\,\ \"$(echo $prefix | sed -e 's/\\/\\\\/g' -e 's/\//\\\//g' -e 's/&/\\\&/g')\"/" ./kiwix/defaults/preferences/preferences.js
+
+fi
