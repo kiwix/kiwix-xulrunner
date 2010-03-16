@@ -14,3 +14,28 @@ done.
 * make install to install it on the system
 
 == Windows ==
+
+* You have to install a MinGW environnement. You have to download it
+her": http://download.kiwix.org/dev/MozillaBuildSetup-1.4.exe and
+install it in the default proposed directory C:\mozilla-build.
+
+* Go to C:\mozilla-build with the Windows explorer and start the
+  script start-msvc9.bat. You have now an UNIX shell.
+
+* Change the current directory by typing:
+  cd /c/mozilla-build/
+
+* Check out the kiwix client code by typing:
+   svn co https://kiwix.svn.sourceforge.net/svnroot/kiwix/moulinkiwix
+
+* You need now to install the free (as free beer) Microsoft Visual
+  Studio express C++ compiler. You can download the installer here:
+  http://download.kiwix.org/dev/vcsetup.exe
+
+* To install it, run the self installer. Choose none of the optional
+  features and install it in the default directory: 
+  c:\Program Files\Microsft Visual Studio 9.0\
+
+* If installed sucessfuly run one time VS to configure it and maybe
+  register it (follow the instructions).
+
