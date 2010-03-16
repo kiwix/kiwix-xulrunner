@@ -32,10 +32,13 @@ bzip2-1.0.5/libbz2.a: bzip2.tar.gz
 	cd bzip2-1.0.5 ; sed -i "s/CFLAGS=/CFLAGS=-fPIC /" Makefile ; make ; make Makefile-libbz2_so
 
 bzip2-1.0.5/libbz2.lib: bzip2.tar.gz
-	cd bzip2-1.0.5 ; touch toto ; sed -e "s/\\-MD/\\-MT/" makefile.msc > makefile.msc.custom ; export MAKEFLAGS=; nmake.exe -f makefile.msc.custom
+	cd bzip2-1.0.5 ; sed -e "s/\\-MD/\\-MT/" makefile.msc > makefile.msc.custom ; export MAKEFLAGS=; nmake.exe -f makefile.msc.custom
 
 zlib-1.2.3/libz.a: zlib.tar.gz
 	cd zlib-1.2.3 ; export CFLAGS=" -fPIC " ; ./configure ; make ; ./configure ; make	
+
+zlib-1.2.3/libz.lib: zlib.tar.gz
+	cd zlib-1.2.3 ; pc ./win32/Makefile.msc ./ ; sed -e "s/\\-MD/\\-MT/" Makefile.msc > Makefile.msc.custom ; export MAKEFLAGS=; nmake.exe -f Makefile.msc.custom
 
 xapian-core-1.0.16/.libs/libxapian.a: xapian-core.tar.gz
 	cd xapian-core-1.0.16 ; export EXTERN_PATH=`pwd` ; export CPPFLAGS="-I${CURRENT_PATH}/src/dependences/zlib-1.2.3/" ; export CXXFLAGS=" -fPIC -L${CURRENT_PATH}/src/dependences/zlib-1.2.3" ; ./configure ; make
@@ -52,7 +55,7 @@ xz-4.999.9beta/src/liblzma/.libs/liblzma.a: xz.tar.bz2
 all-posix: bzip2-1.0.5/libbz2.a zlib-1.2.3/libz.a xapian-core-1.0.16/.libs/libxapian.a unac-1.7.0/libunac.a xz-4.999.9beta/src/liblzma/.libs/liblzma.a mozilla-1.9.1/dist/bin/xulrunner
 	
 
-all-win: bzip2-1.0.5/libbz2.lib
+all-win: bzip2-1.0.5/libbz2.lib zlib-1.2.3/libz.lib
 	
 
 all: ${ALL_RULE}
@@ -68,8 +71,8 @@ clean:
 
 # distclean
 distclean:
-	rm -rf zlib.tar.gz
-	rm -rf bzip2.tar.gz
+	rm -rf zlib.tar.gz bzip2-1.0.5
+	rm -rf bzip2.tar.gz zlib-1.2.3
 	rm -rf xapian-core.tar.gz
 	rm -rf unac.tar.bz2
 	rm -rf xulrunner-sdk.tar.bz2
