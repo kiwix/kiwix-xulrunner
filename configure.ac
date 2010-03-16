@@ -66,7 +66,12 @@ CURRENT_PATH=`pwd`
 AC_CHECK_TOOL(HAVE_PERL, perl)
 
 # Check if user want local dependences
-AC_ARG_WITH(dependences, [  --with-dependences      use system or custom libraries, otherwise download them and compile staticaly against them [[default=yes]]], WITH_DEPENDENCES=${withval}, WITH_DEPENDENCES=${withval})
+if test [ ! "$IS_WIN" ]
+then
+  AC_ARG_WITH(dependences, [  --with-dependences      use system or custom libraries, otherwise download them and compile staticaly against them [[default=yes]]], WITH_DEPENDENCES=${withval}, WITH_DEPENDENCES=${withval})
+else
+  WITH_DEPENDENCES="no"
+fi
 
 if test [ "$WITH_DEPENDENCES" = "yes" ]
 then
@@ -222,9 +227,6 @@ then
 	# BINDIST_INTRO_* values
 	BINDIST_INTRO_MESSAGE="echo You have to run configure with the '--without-dependences' argument."
 else
-	# No dependences
-	#CFLAGS="$CFLAGS -nostdinc -nostdinc++"
-
 	# Check if the 'wget' binary exists
 	AC_CHECK_TOOL(HAVE_WGET, wget)
 	if test [ ! "$HAVE_WGET" ]
