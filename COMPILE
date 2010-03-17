@@ -28,6 +28,10 @@ install it in the default proposed directory C:\mozilla-build.
 * Check out the kiwix client code by typing:
    svn co https://kiwix.svn.sourceforge.net/svnroot/kiwix/moulinkiwix
 
+* You need to install Perl. Download it here:
+http://download.kiwix.org/dev/ActivePerl-5.10.1.1007-MSWin32-x86-291969.msi
+and install it in the default directory c:\Perl\
+
 * You need now to install the free (as free beer) Microsoft Visual
   Studio express C++ compiler. You can download the installer here:
   http://download.kiwix.org/dev/vcsetup.exe
