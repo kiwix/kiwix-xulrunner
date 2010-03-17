@@ -101,22 +101,39 @@ def build_tree(dvd_path)
 	end
 end
 
+# final process
+def finalprocess
+	# verify if the binary installer exist
+	if (File.exist?("#{$bin_output}"))
+		# copy the file in the DVD file hierarchy
+		system("cp #{$bin_output} \"#{$install_dir}\"")
+		puts "Done!. #{$bin_output} is in #{$install_dir}"		
+	else
+		# try make the installer and show all log messages
+		system("makensis #{$nsi_output}")
+	end
+end
 # argument path validation
 if (ARGV[0] == nil)? false : ((ARGV[0].include?"--path=")? true : false)
 	$allinone = (ARGV[1] == nil)? false : ((ARGV[1].include?"--allinone")? true : false)
 	# get path value
 	$copy_source_path = ARGV[0].gsub "--path=",""
+	# output dir and binary installer file
+	$bin_output = $nsi_output.gsub(".nsi",".exe")
+	$install_dir = "#{$copy_source_path}install/"
 	# directory exist
 	if File.directory? $copy_source_path
-		$source_path = $copy_source_path
-		process() # run main procedure
+		if File.directory? $install_dir
+			$source_path = $copy_source_path
+			process() # run main procedure
+			finalprocess()
+		else
+			puts "\n Error. Directory \"#{$install_dir}\" not found \n"
+		end
 	else
 		puts "\n Error. Directory \"#{$copy_source_path}\" not found \n"
 	end	
 
-	# Copy the file in the DVD file hierarchy
-	system("cp #{$nsi_output.gsub(".nsi",".exe")} \"#{$copy_source_path}/install/\"")
-	puts "Done!. #{$nsi_output.gsub("nsi","exe")} is in #{$copy_source_path}/install/"
 else
 	usage() # show help
 end
