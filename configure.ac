@@ -101,7 +101,8 @@ then
 
 		# Gecko paths
 		GECKO_SDK_PATH=`pkg-config --variable=sdkdir libxul`
-		GECKO_IDL_PATH=`pkg-config --variable=idldir libxul`/stable
+		GECKO_IDL_PATH=`pkg-config --variable=idldir libxul`
+		AC_CHECK_FILE(${GECKO_IDL_PATH}/stable, GECKO_IDL_PATH=${GECKO_IDL_PATH}/stable,)
 	fi
 
 	# Possible to specify the IDL directory and check
