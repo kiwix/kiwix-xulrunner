@@ -485,7 +485,7 @@ function pageNext() {
 }
 
 /* Try to open a ZIM file */
-function openFile(path) {
+function openFile(path, noSearchIndexCheck) {
 
     /* Display file picker if no given file path */
     if (!path) {
@@ -547,7 +547,7 @@ function openFile(path) {
 	populateLastOpenMenu();
 
 	/* Ask to index if this files has not already an index */
-	if (!checkSearchIndex()) {
+	if (!noSearchIndexCheck && !checkSearchIndex()) {
 	    manageIndexZimFile();
 	}
 
