@@ -27,7 +27,7 @@ Depends: debianutils,
 	 xulrunner,
  	 zlib1g,
 	 libbz2-1.0,
-	 liblzma0,
+	 liblzma1,
 	 libmicrohttpd5
 Recommends: 
 Suggests: 
