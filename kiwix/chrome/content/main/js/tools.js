@@ -26,6 +26,7 @@ function quit() {
     /* Save settings */
     settings.save();
 
+    /* Quit the application */
     var forceQuit = 1;
     var appStartup = Components.classes['@mozilla.org/toolkit/app-startup;1'].
     getService(Components.interfaces.nsIAppStartup);
