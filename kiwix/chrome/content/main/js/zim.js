@@ -20,7 +20,7 @@ function openZimFile(path) {
 function openCurrentBook() {
     var currentBook = library.getCurrentBook();
     if (!currentBook) return;
-    return openZimFile(currentBook.path);
+    return openFile(currentBook.path);
 }
 
 /* Return the homepage of a ZIM file */

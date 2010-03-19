@@ -555,7 +555,7 @@ function openFile(path) {
 	updateGuiSearchComponents();
 	
     } else {
-	displayErrorDialog(getProperty("loadZimFileError", zimFilePath));
+	displayErrorDialog(getProperty("loadZimFileError", path));
     }
 
     return true;
