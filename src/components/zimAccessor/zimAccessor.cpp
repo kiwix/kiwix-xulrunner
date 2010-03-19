@@ -53,7 +53,11 @@ NS_IMETHODIMP ZimAccessor::LoadFile(const nsACString &path, PRBool *retVal) {
   const char *filePath;
   NS_CStringGetData(path, &filePath);
 
-  this->reader = new kiwix::Reader(filePath);
+  /* Instanciate the ZIM file handler */
+  try {
+    this->reader = new kiwix::Reader(filePath);
+  } catch (...) {
+  }
 
   if (this->reader == NULL) {
     *retVal = PR_FALSE;
