@@ -14,6 +14,7 @@ xapian-core.tar.gz:
 xapian-win32.zip:
 	wget -c http://download.kiwix.org/dev/xapian-1.0.16-win32.zip -O xapian-win32.zip
 	unzip xapian-win32.zip
+	mv win32 ./xapian-core-1.0.16/
 
 unac.tar.bz2:
 	wget -c http://download.kiwix.org/dev/unac-1.7.0.tar.bz2 -O unac.tar.bz2
@@ -48,8 +49,15 @@ xapian-core-1.0.16/.libs/libxapian.a: xapian-core.tar.gz
 	cd xapian-core-1.0.16 ; export EXTERN_PATH=`pwd` ; export CPPFLAGS="-I${CURRENT_PATH}/src/dependences/zlib-1.2.3/" ; export CXXFLAGS=" -fPIC -L${CURRENT_PATH}/src/dependences/zlib-1.2.3" ; ./configure ; make
 
 xapian-core-1.0.16/libxapian.lib: xapian-core.tar.gz xapian-win32.zip
-	mv win32 xapian-core-1.0.16
-	cd xapian-core-1.0.16 ;
+	cd xapian-core-1.0.16/win32; sed -e "s/\\-MD/\\-MT/" config.mak > config.mak.bis
+	cd xapian-core-1.0.16/win32; sed -e "s/C\\:\\\gnu\\\zlib123-dll/C\\:\\\mozilla\\-build\\\moulinkiwix\\\src\\\dependences\\\zlib\\-1\\.2\\.3/" config.mak.bis > config.mak
+	cd xapian-core-1.0.16/win32; sed -e "s/zdll\\.lib/zlib\\.lib/" config.mak > config.mak.bis
+	cd xapian-core-1.0.16/win32; sed -e "s/.ZLIB_DIR.\\\include/(ZLIB_DIR)/" config.mak.bis > config.mak
+	cd xapian-core-1.0.16/win32; sed -e "s/.ZLIB_DIR.\\\lib/(ZLIB_DIR)/" config.mak > config.mak.bis
+	cd xapian-core-1.0.16/win32; cp config.mak.bis config.mak
+	cd xapian-core-1.0.16/win32; sed "/harness/{x;p;x;}" Makefile > Makefile.bis
+	cd xapian-core-1.0.16/win32; sed "s/^.*harness.*$$/42:/" Makefile.bis > Makefile
+	cd xapian-core-1.0.16/win32; export MAKEFLAGS=; nmake.exe -f Makefile
 
 unac-1.7.0/libunac.a: unac.tar.bz2
 	cd unac-1.7.0 ; gcc -DUNAC_VERSION="\"42\"" -fPIC -c unac.c ; ar cr libunac.a unac.o ; ranlib libunac.a
