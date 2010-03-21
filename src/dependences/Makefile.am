@@ -24,9 +24,17 @@ unac.tar.bz2:
 	wget -c http://download.kiwix.org/dev/unac-1.7.0.tar.bz2 -O unac.tar.bz2
 	tar -xvjf unac.tar.bz2
 
-xulrunner-sdk.tar.bz2:
+xulrunner-sdk-linux.tar.bz2:
 	wget -c http://download.kiwix.org/dev/xulrunner-1.9.1.4.en-US.linux-i686.sdk.tar.bz2 -O xulrunner-sdk.tar.bz2
 	tar -xvjf xulrunner-sdk.tar.bz2
+
+xulrunner-sdk-win.zip:
+	wget -c http://download.kiwix.org/dev/xulrunner-1.9.1.7.en-US.win32.sdk.zip -O xulrunner-sdk-win.zip
+	unzip xulrunner-sdk-win.zip
+
+xulrunner-win.zip:
+	wget -c http://download.kiwix.org/dev/xulrunner-1.9.1.7.en-US.win32.zip -O xulrunner-win.zip
+	unzip xulrunner-win.zip
 
 xulrunner-source.tar.bz2:
 	wget -c http://download.kiwix.org/dev/xulrunner-1.9.1.7.source.tar.bz2 -O xulrunner-source.tar.bz2
@@ -86,7 +94,7 @@ xz-4.999.9beta/src/liblzma/.libs/liblzma.a: xz.tar.bz2
 all-posix: bzip2-1.0.5/libbz2.a zlib-1.2.3/libz.a xapian-core-1.0.16/.libs/libxapian.a unac-1.7.0/libunac.a xz-4.999.9beta/src/liblzma/.libs/liblzma.a mozilla-1.9.1/dist/bin/xulrunner
 	
 
-all-win: bzip2-1.0.5/libbz2.lib zlib-1.2.3/libz.lib xapian-core-1.0.16/win32/Release/libs/libunicode.lib libiconv-1.8/lib/iconv.lib unac-1.7.0/libunac.lib
+all-win: bzip2-1.0.5/libbz2.lib zlib-1.2.3/libz.lib xapian-core-1.0.16/win32/Release/libs/libunicode.lib libiconv-1.8/lib/iconv.lib unac-1.7.0/libunac.lib xulrunner-sdk-win.zip xulrunner-win.zip
 	
 
 all: ${ALL_RULE}
@@ -108,5 +116,6 @@ distclean:
 	rm -rf libiconv.tar.gz libiconv-1.8 
 	rm -rf unac.tar.bz2 unac-1.7.0
 	rm -rf xulrunner-sdk.tar.bz2
+	rm -rf xulrunner-sdk-win.zip xulrunner-sdk
+	rm -rf xulrunner-win.zip xulrunner
 	rm -rf xulrunner-source.tar.bz2
-	rm -rf z.tar.bz2
