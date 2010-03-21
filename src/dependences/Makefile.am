@@ -16,6 +16,10 @@ xapian-win32.zip:
 	unzip xapian-win32.zip
 	mv win32 ./xapian-core-1.0.16/
 
+libiconv.tar.gz:
+	wget -c http://download.kiwix.org/dev/libiconv-1.8.tar.gz -O libiconv.tar.gz
+	tar -xvzf libiconv.tar.gz
+
 unac.tar.bz2:
 	wget -c http://download.kiwix.org/dev/unac-1.7.0.tar.bz2 -O unac.tar.bz2
 	tar -xvjf unac.tar.bz2
@@ -48,7 +52,7 @@ zlib-1.2.3/libz.lib: zlib.tar.gz
 xapian-core-1.0.16/.libs/libxapian.a: xapian-core.tar.gz 
 	cd xapian-core-1.0.16 ; export EXTERN_PATH=`pwd` ; export CPPFLAGS="-I${CURRENT_PATH}/src/dependences/zlib-1.2.3/" ; export CXXFLAGS=" -fPIC -L${CURRENT_PATH}/src/dependences/zlib-1.2.3" ; ./configure ; make
 
-xapian-core-1.0.16/libxapian.lib: xapian-core.tar.gz xapian-win32.zip
+xapian-core-1.0.16/win32/Release/libs/libunicode.lib: xapian-core.tar.gz xapian-win32.zip
 	cd xapian-core-1.0.16/win32; sed -e "s/\\-MD/\\-MT/" config.mak > config.mak.bis
 	cd xapian-core-1.0.16/win32; sed -e "s/C\\:\\\gnu\\\zlib123-dll/C\\:\\\mozilla\\-build\\\moulinkiwix\\\src\\\dependences\\\zlib\\-1\\.2\\.3/" config.mak.bis > config.mak
 	cd xapian-core-1.0.16/win32; sed -e "s/zdll\\.lib/zlib\\.lib/" config.mak > config.mak.bis
@@ -62,6 +66,16 @@ xapian-core-1.0.16/libxapian.lib: xapian-core.tar.gz xapian-win32.zip
 unac-1.7.0/libunac.a: unac.tar.bz2
 	cd unac-1.7.0 ; gcc -DUNAC_VERSION="\"42\"" -fPIC -c unac.c ; ar cr libunac.a unac.o ; ranlib libunac.a
 
+libiconv-1.8/lib/iconv.lib: libiconv.tar.gz
+	cd libiconv-1.8 ; sed -e "s/\\-MD/\\-MT/g" Makefile.msvc > Makefile.msvc.bis
+	cd libiconv-1.8 ; mv Makefile.msvc.bis Makefile.msvc 
+	cd libiconv-1.8 ; sed -e "s/LOCALEDIR/\"\\.\"/" src/iconv.c > src/iconv.c.bis
+	cd libiconv-1.8 ; mv src/iconv.c.bis src/iconv.c
+	cd libiconv-1.8 ; export MAKEFLAGS=; nmake -f Makefile.msvc
+
+unac-1.7.0/libunac.lib: unac.tar.bz2
+	cd unac-1.7.0 ;
+
 mozilla-1.9.1/dist/bin/xulrunner: xulrunner-source.tar.bz2
 	cp .mozconfig mozilla-1.9.1/ ; make -f client.mk build ; make package
 
@@ -71,7 +85,7 @@ xz-4.999.9beta/src/liblzma/.libs/liblzma.a: xz.tar.bz2
 all-posix: bzip2-1.0.5/libbz2.a zlib-1.2.3/libz.a xapian-core-1.0.16/.libs/libxapian.a unac-1.7.0/libunac.a xz-4.999.9beta/src/liblzma/.libs/liblzma.a mozilla-1.9.1/dist/bin/xulrunner
 	
 
-all-win: bzip2-1.0.5/libbz2.lib zlib-1.2.3/libz.lib xapian-core-1.0.16/libxapian.lib
+all-win: bzip2-1.0.5/libbz2.lib zlib-1.2.3/libz.lib xapian-core-1.0.16/win32/Release/libs/libunicode.lib libiconv-1.8/lib/iconv.lib unac-1.7.0/libunac.lib
 	
 
 all: ${ALL_RULE}
@@ -89,8 +103,9 @@ clean:
 distclean:
 	rm -rf zlib.tar.gz bzip2-1.0.5
 	rm -rf bzip2.tar.gz zlib-1.2.3
-	rm -rf xapian-core.tar.gz xapian-win32.zip xapian-core-1.0.16 
-	rm -rf unac.tar.bz2
+	rm -rf xapian-core.tar.gz xapian-win32.zip xapian-core-1.0.16
+	rm -rf libiconv.tar.gz libiconv-1.8 
+	rm -rf unac.tar.bz2 unac-1.7.0
 	rm -rf xulrunner-sdk.tar.bz2
 	rm -rf xulrunner-source.tar.bz2
 	rm -rf z.tar.bz2
