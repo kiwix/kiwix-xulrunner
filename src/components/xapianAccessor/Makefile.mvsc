@@ -33,10 +33,10 @@ LDFLAGS=-LIBPATH:"$(XAPIAN_LIB)" -LIBPATH:"$(Z_LIB)" -LIBPATH:"$(XULRUNNER_LIB)"
 all: xapianAccessor.dll
      
 IXapianAccessor.xpt:
-	$(XPIDL) -m typelib -I "$(XULRUNNER_IDL_PATH)" IXapianAccessor.idl
+	$(XPIDL) -m typelib -I "$(XULRUNNER_IDL)" IXapianAccessor.idl
 
 IXapianAccessor.h:
-	$(XPIDL) -m header -I "$(XULRUNNER_IDL_PATH)" IXapianAccessor.idl
+	$(XPIDL) -m header -I "$(XULRUNNER_IDL)" IXapianAccessor.idl
 
 objs: IXapianAccessor.xpt IXapianAccessor.h
 	$(CC) $(CFLAGS) xapianAccessor.cpp ../../common/splitString.cpp ../../common/unaccent.cpp ../../common/kiwix/searcher.cpp
