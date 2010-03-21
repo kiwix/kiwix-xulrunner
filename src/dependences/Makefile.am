@@ -74,7 +74,8 @@ libiconv-1.8/lib/iconv.lib: libiconv.tar.gz
 	cd libiconv-1.8 ; export MAKEFLAGS=; nmake -f Makefile.msvc
 
 unac-1.7.0/libunac.lib: unac.tar.bz2
-	cd unac-1.7.0 ;
+	cd unac-1.7.0 ; cl.exe -c -I ../libiconv-1.8/include -MT -DUNAC_VERSION=42 unac.c
+	cd unac-1.7.0 ;	link.exe -lib -nologo unac.obj ../libiconv-1.8/lib/iconv.lib -out:unac.lib
 
 mozilla-1.9.1/dist/bin/xulrunner: xulrunner-source.tar.bz2
 	cp .mozconfig mozilla-1.9.1/ ; make -f client.mk build ; make package
