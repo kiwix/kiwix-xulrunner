@@ -1,0 +1,48 @@
+CC=cl.exe
+LD=link.exe
+
+# Global paths
+XULRUNNER_SDK=../../dependences/xulrunner-sdk/sdk
+XAPIAN=../../dependences/xapian-core-1.0.16
+UNAC=../../dependences/unac-1.7.0
+ICONV=../../dependences/libiconv-1.8
+Z=../../dependences/zlib-1.2.3
+
+# Binary paths
+XPIDL=$(XULRUNNER_SDK)/bin/xpidl.exe
+
+# Include paths
+XAPIAN_INCLUDE=${XAPIAN}/include
+XULRUNNER_INCLUDE=$(XULRUNNER_SDK)/include
+UNAC_INCLUDE=${UNAC}
+
+# Lib paths
+XULRUNNER_LIB=$(XULRUNNER_SDK)/lib
+XAPIAN_LIB=${XAPIAN}/win32/Release/libs
+ICONV_LIB=${ICONV}/lib
+UNAC_LIB=${UNAC}
+Z_LIB=${Z}
+
+# idl path
+XULRUNNER_IDL=$(XULRUNNER_SDK)/idl
+
+# Compiler and linker flags
+CFLAGS=-D"XP_WIN" -D"XP_WIN32" -O2 -Oi -I"$(XULRUNNER_INCLUDE)" -I../../common/ -I"$(XAPIAN_INCLUDE)" -I$(UNAC_INCLUDE) -D"_WINDLL" -D"_MBCS" -FD -EHsc -MT -Gy -W3 -nologo -c -Zi -TP		    
+LDFLAGS=-LIBPATH:"$(XAPIAN_LIB)" -LIBPATH:"$(Z_LIB)" -LIBPATH:"$(XULRUNNER_LIB)" -LIBPATH:"$(UNAC_LIB)" -LIBPATH:"$(ICONV_LIB)"
+
+all: xapianAccessor.dll
+     
+IXapianAccessor.xpt:
+	$(XPIDL) -m typelib -I "$(XULRUNNER_IDL_PATH)" IXapianAccessor.idl
+
+IXapianAccessor.h:
+	$(XPIDL) -m header -I "$(XULRUNNER_IDL_PATH)" IXapianAccessor.idl
+
+objs: IXapianAccessor.xpt IXapianAccessor.h
+	$(CC) $(CFLAGS) xapianAccessor.cpp ../../common/splitString.cpp ../../common/unaccent.cpp ../../common/kiwix/searcher.cpp
+
+libXapianAccessor.lib: objs
+		       $(LD) -lib -OUT:libXapianAccessor.lib $(LDFLAGS) searcher.obj unaccent.obj splitString.obj
+
+xapianAccessor.dll: libXapianAccessor.lib
+		    $(LD) -OUT:"xapianAccessor.dll" -NOLOGO $(LDFLAGS) -DLL -NODEFAULTLIB:"MSVCRT" -OPT:REF -OPT:ICF -DYNAMICBASE -NXCOMPAT -MACHINE:X86 zlib.lib libcommon.lib libbackend.lib libexpand.lib libflint.lib libquartz.lib libinmemory.lib libmulti.lib libmatcher.lib libnet.lib liblanguages.lib libapi.lib libremote.lib libunicode.lib libqueryparser.lib iconv.lib unac.lib libcmt.lib ws2_32.lib nspr4.lib xpcom.lib xpcomglue_s.lib DelayImp.lib libXapianAccessor.lib xapianAccessor.obj
