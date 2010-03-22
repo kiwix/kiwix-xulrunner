@@ -43,6 +43,15 @@ and install it in the default directory c:\Perl\
 * If installed sucessfuly run one time VS to configure it and maybe
   register it (follow the instructions).
 
+* You have also to install gcc (for liblzma). You can download it
+  here:
+  http://download.kiwix.org/dev/gcc-4.3.0-20080502-mingw32-alpha-bin.7z
+  ... and unzip it (with 7zip) in c:\mozilla-build\msys
+
+* You have also to install GNU binutils. Please download it here:
+  http://download.kiwix.org/dev/binutils-2.20.1-2-mingw32-bin.tar.gz
+  ... and detar it in c:\mozilla-build\msys
+
 * Now we will download try to configurate the compilation, run the
   following commands:
   cd /c/mozilla-build/moulinkiwix/
