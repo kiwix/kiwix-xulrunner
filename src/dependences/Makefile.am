@@ -25,8 +25,8 @@ unac.tar.bz2:
 	tar -xvjf unac.tar.bz2
 
 xulrunner-sdk-linux.tar.bz2:
-	wget -c http://download.kiwix.org/dev/xulrunner-1.9.1.4.en-US.linux-i686.sdk.tar.bz2 -O xulrunner-sdk.tar.bz2
-	tar -xvjf xulrunner-sdk.tar.bz2
+	wget -c http://download.kiwix.org/dev/xulrunner-1.9.1.4.en-US.linux-i686.sdk.tar.bz2 -O xulrunner-sdk-linux.tar.bz2
+	tar -xvjf xulrunner-sdk-linux.tar.bz2
 
 xulrunner-sdk-win.zip:
 	wget -c http://download.kiwix.org/dev/xulrunner-1.9.1.7.en-US.win32.sdk.zip -O xulrunner-sdk-win.zip
@@ -41,7 +41,7 @@ xulrunner-source.tar.bz2:
 	tar -xvjf xulrunner-source.tar.bz2
 
 xz.tar.bz2:
-	wget -c http://download.kiwix.org/dev/xz-4.999.9beta.tar.bz2 xz.tar.bz2
+	wget -c http://download.kiwix.org/dev/xz-4.999.9beta.tar.bz2 -O xz.tar.bz2
 	tar -xvjf xz.tar.bz2
 
 # compile
@@ -91,10 +91,14 @@ mozilla-1.9.1/dist/bin/xulrunner: xulrunner-source.tar.bz2
 xz-4.999.9beta/src/liblzma/.libs/liblzma.a: xz.tar.bz2
 	cd xz-4.999.9beta ; export CFLAGS=" -fPIC " ; ./configure ; make 
 
+xz-4.999.9beta/windows/liblzma.lib: xz.tar.bz2
+	cd xz-4.999.9beta/windows ; make liblzma
+	cd xz-4.999.9beta/windows ; lib /def:liblzma.def /out:liblzma.lib /machine:ix86
+
 all-posix: bzip2-1.0.5/libbz2.a zlib-1.2.3/libz.a xapian-core-1.0.16/.libs/libxapian.a unac-1.7.0/libunac.a xz-4.999.9beta/src/liblzma/.libs/liblzma.a mozilla-1.9.1/dist/bin/xulrunner
 	
 
-all-win: bzip2-1.0.5/libbz2.lib zlib-1.2.3/libz.lib xapian-core-1.0.16/win32/Release/libs/libunicode.lib libiconv-1.8/lib/iconv.lib unac-1.7.0/libunac.lib xulrunner-sdk-win.zip xulrunner-win.zip
+all-win: bzip2-1.0.5/libbz2.lib zlib-1.2.3/libz.lib xapian-core-1.0.16/win32/Release/libs/libunicode.lib libiconv-1.8/lib/iconv.lib unac-1.7.0/libunac.lib xz-4.999.9beta/windows/liblzma.lib xulrunner-sdk-win.zip xulrunner-win.zip
 	
 
 all: ${ALL_RULE}
@@ -102,11 +106,11 @@ all: ${ALL_RULE}
 # clean
 clean:
 	rm -rf bzip2-1.0.5/libbz2.a bzip2-1.0.5/libbz2.lib
-	rm -rf zlib-1.2.3/libz.a
-	rm -rf xapian-core-1.0.16/.libs/libxapian.a
-	rm -rf unac-1.7.0/libunac.a
-	rm -rf mozilla-1.9.1/dist/bin/xulrunner
-	rm -rf xz-4.999.9beta/src/liblzma/.libs/liblzma.a
+	rm -rf zlib-1.2.3/libz.a zlib-1.2.3/libz.lib
+	rm -rf xapian-core-1.0.16/.libs/libxapian.a xapian-core-1.0.16/win32/Release/libs/libunicode.lib
+	rm -rf libiconv-1.8/lib/iconv.lib
+	rm -rf unac-1.7.0/libunac.a unac-1.7.0/libunac.lib
+	rm -rf xz-4.999.9beta/src/liblzma/.libs/liblzma.a  xz-4.999.9beta/windows/liblzma.lib
 
 # distclean
 distclean:
@@ -115,7 +119,8 @@ distclean:
 	rm -rf xapian-core.tar.gz xapian-win32.zip xapian-core-1.0.16
 	rm -rf libiconv.tar.gz libiconv-1.8 
 	rm -rf unac.tar.bz2 unac-1.7.0
-	rm -rf xulrunner-sdk.tar.bz2
+	rm -rf xz.tar.bz2 xz-4.999.9beta
+	rm -rf xulrunner-sdk-linux.tar.bz2
 	rm -rf xulrunner-sdk-win.zip xulrunner-sdk
 	rm -rf xulrunner-win.zip xulrunner
 	rm -rf xulrunner-source.tar.bz2
