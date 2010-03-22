@@ -14,8 +14,12 @@ then
 	AC_MSG_ERROR([[cannot find any C++ compiler]])
 fi
 
+# Check cl.exe
+# Check if their is a Perl binary
+AC_CHECK_TOOL(HAVE_CL, cl)
+
 # Check the platform
-if test [ "$CXX" = "cl" ]
+if test [ "$HAVE_CL" ]
 then
   IS_WIN=1
   ALL_RULE="all-win"
