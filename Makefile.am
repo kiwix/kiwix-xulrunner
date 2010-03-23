@@ -80,3 +80,17 @@ rpm: dist
 	cp -f kiwix-0.9.tar.gz ~/rpmbuild/SOURCES/
 	rpmbuild -ba fedora/kiwix.spec
 	cp ~/rpmbuild/RPMS/*/*.rpm .
+
+# Windows rule
+win:
+	cd src/dependences ; make win
+	cd src/zimlib/src ; if [ ! -f zim.lib ] ; then make -f Makefile.mvsc ; fi
+	cd src/components/xapianAccessor ; if [ ! -f xapianAccessor.dll ] ; then make -f Makefile.mvsc ; fi
+	cd src/components/zimAccessor ; if [ ! -f zimAccessor.dll ] ; then make -f Makefile.mvsc ; fi
+	cd src/components/zimXapianIndexer ; if [ ! -f zimXapianIndexer.dll ] ; then make -f Makefile.mvsc ; fi
+	cp src/components/xapianAccessor/xapianAccessor.dll kiwix/components/
+	cp src/components/xapianAccessor/IXapianAccessor.xpt kiwix/components/xapianAccessor.xpt
+	cp src/components/zimAccessor/zimAccessor.dll kiwix/components/
+	cp src/components/zimAccessor/IZimAccessor.xpt kiwix/components/zimAccessor.xpt
+	cp src/components/zimXapianIndexer/zimXapianIndexer.dll kiwix/components/
+	cp src/components/zimXapianIndexer/IZimXapianIndexer.xpt kiwix/components/zimXapianIndexer.xpt
