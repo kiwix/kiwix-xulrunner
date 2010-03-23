@@ -42,10 +42,10 @@ IZimXapianIndexer.h:
 	$(XPIDL) -m header -I "$(XULRUNNER_IDL)" IZimXapianIndexer.idl
 
 objs: IZimXapianIndexer.xpt IZimXapianIndexer.h
-	$(CC) $(CFLAGS) zimXapianIndexer.cpp ../../common/splitString.cpp ../../common/unaccent.cpp ../../common/kiwix/indexer.cpp ../../common/kiwix/reader.cpp
+	$(CC) $(CFLAGS) zimXapianIndexer.cpp ../../common/splitString.cpp ../../common/unaccent.cpp ../../common/kiwix/indexer.cpp ../../common/kiwix/reader.cpp ../../common/kiwix/xapian/myhtmlparse.cc ../../common/kiwix/xapian/htmlparse.cc
 
 zimXapianIndexer.lib: objs
-		       $(LD) -lib -OUT:libZimXapianIndexer.lib $(LDFLAGS) indexer.obj unaccent.obj splitString.obj reader.obj
+		       $(LD) -lib -OUT:libZimXapianIndexer.lib $(LDFLAGS) indexer.obj unaccent.obj splitString.obj reader.obj myhtmlparse.obj htmlparse.obj
 
 zimXapianIndexer.dll: zimXapianIndexer.lib
 		    $(LD) -OUT:"zimXapianIndexer.dll" -NOLOGO $(LDFLAGS) -DLL -NODEFAULTLIB:"MSVCRT" -OPT:REF -OPT:ICF -DYNAMICBASE -NXCOMPAT -MACHINE:X86 zlib.lib libcommon.lib libbackend.lib libexpand.lib libflint.lib libquartz.lib libinmemory.lib libmulti.lib libmatcher.lib libnet.lib liblanguages.lib libapi.lib libremote.lib libunicode.lib libqueryparser.lib iconv.lib unac.lib libcmt.lib ws2_32.lib nspr4.lib xpcom.lib xpcomglue_s.lib DelayImp.lib libZimXapianIndexer.lib winmm.lib zim.lib zimXapianIndexer.obj
