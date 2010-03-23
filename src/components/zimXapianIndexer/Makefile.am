@@ -17,7 +17,7 @@ libZimXapianIndexer_la_LDFLAGS=$(LIBXUL_LDFLAGS) $(LIBXAPIAN_LDFLAGS) $(LIBUNAC_
 libZimXapianIndexer_la_LIBADD=../../zimlib/src/.libs/libzim.a
 EXTRA_DIST=IZimXapianIndexer.idl
 BUILT_SOURCES=IZimXapianIndexer.xpt IZimXapianIndexer.h
-CLEANFILES=IZimXapianIndexer.xpt IZimXapianIndexer.h
+CLEANFILES=IZimXapianIndexer.xpt IZimXapianIndexer.h *.lib *.obj *.dll
 
 IZimXapianIndexer.xpt:
 	$(XPIDL) -m typelib -I $(GECKO_IDL_PATH) IZimXapianIndexer.idl

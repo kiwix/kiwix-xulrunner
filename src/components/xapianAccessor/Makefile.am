@@ -12,7 +12,7 @@ libXapianAccessor_la_CXXFLAGS=$(LIBXUL_CFLAGS) $(LIBXAPIAN_CFLAGS) $(LIBUNAC_CFL
 libXapianAccessor_la_LDFLAGS=$(LIBXUL_LDFLAGS) $(LIBXAPIAN_LDFLAGS) $(LIBUNAC_LDFLAGS) $(XPCOM_LDFLAGS)
 EXTRA_DIST=IXapianAccessor.idl
 BUILT_SOURCES=IXapianAccessor.xpt IXapianAccessor.h
-CLEANFILES=IXapianAccessor.xpt IXapianAccessor.h
+CLEANFILES=IXapianAccessor.xpt IXapianAccessor.h *.lib *.obj *.dll
 
 IXapianAccessor.xpt: 
 	$(XPIDL) -m typelib -I $(GECKO_IDL_PATH) IXapianAccessor.idl

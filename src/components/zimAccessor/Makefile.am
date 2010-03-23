@@ -10,7 +10,7 @@ libZimAccessor_la_LDFLAGS=$(LIBXUL_LDFLAGS) $(LIBZIM_LDFLAGS) $(XPCOM_LDFLAGS)
 libZimAccessor_la_LIBADD=../../zimlib/src/.libs/libzim.a
 EXTRA_DIST=IZimAccessor.idl
 BUILT_SOURCES=IZimAccessor.xpt IZimAccessor.h
-CLEANFILES=IZimAccessor.xpt IZimAccessor.h
+CLEANFILES=IZimAccessor.xpt IZimAccessor.h *.lib *.obj *.dll
 
 IZimAccessor.xpt:
 	$(XPIDL) -m typelib -I $(GECKO_IDL_PATH) IZimAccessor.idl
