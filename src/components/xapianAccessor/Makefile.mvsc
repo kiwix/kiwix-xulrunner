@@ -42,7 +42,7 @@ objs: IXapianAccessor.xpt IXapianAccessor.h
 	$(CC) $(CFLAGS) xapianAccessor.cpp ../../common/splitString.cpp ../../common/unaccent.cpp ../../common/kiwix/searcher.cpp
 
 xapianAccessor.lib: objs
-		       $(LD) -lib -OUT:xapianAccessor.lib $(LDFLAGS) searcher.obj unaccent.obj splitString.obj
+		       $(LD) -lib -OUT:libXapianAccessor.lib $(LDFLAGS) searcher.obj unaccent.obj splitString.obj
 
 xapianAccessor.dll: xapianAccessor.lib
 		    $(LD) -OUT:"xapianAccessor.dll" -NOLOGO $(LDFLAGS) -DLL -NODEFAULTLIB:"MSVCRT" -OPT:REF -OPT:ICF -DYNAMICBASE -NXCOMPAT -MACHINE:X86 zlib.lib libcommon.lib libbackend.lib libexpand.lib libflint.lib libquartz.lib libinmemory.lib libmulti.lib libmatcher.lib libnet.lib liblanguages.lib libapi.lib libremote.lib libunicode.lib libqueryparser.lib iconv.lib unac.lib libcmt.lib ws2_32.lib nspr4.lib xpcom.lib xpcomglue_s.lib DelayImp.lib libXapianAccessor.lib xapianAccessor.obj
