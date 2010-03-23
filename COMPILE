@@ -57,5 +57,6 @@ and install it in the default directory c:\Perl\
   cd /c/mozilla-build/moulinkiwix/
   ./autogen.sh
   ./configure
+  make win
 
 
