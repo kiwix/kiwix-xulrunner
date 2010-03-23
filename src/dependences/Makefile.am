@@ -54,7 +54,7 @@ bzip2-1.0.5/libbz2.lib: bzip2.tar.gz
 zlib-1.2.3/libz.a: zlib.tar.gz
 	cd zlib-1.2.3 ; export CFLAGS=" -fPIC " ; ./configure ; make ; ./configure ; make	
 
-zlib-1.2.3/libz.lib: zlib.tar.gz
+zlib-1.2.3/zlib.lib: zlib.tar.gz
 	cd zlib-1.2.3 ; cp ./win32/Makefile.msc ./ ; sed -e "s/\\-MD/\\-MT/" Makefile.msc > Makefile.msc.custom ; export MAKEFLAGS=; nmake.exe -f Makefile.msc.custom
 
 xapian-core-1.0.16/.libs/libxapian.a: xapian-core.tar.gz 
@@ -81,7 +81,7 @@ libiconv-1.8/lib/iconv.lib: libiconv.tar.gz
 	cd libiconv-1.8 ; mv src/iconv.c.bis src/iconv.c
 	cd libiconv-1.8 ; export MAKEFLAGS=; nmake -f Makefile.msvc
 
-unac-1.7.0/libunac.lib: unac.tar.bz2
+unac-1.7.0/unac.lib: unac.tar.bz2
 	cd unac-1.7.0 ; cl.exe -c -I ../libiconv-1.8/include -MT -DUNAC_VERSION=42 unac.c
 	cd unac-1.7.0 ;	link.exe -lib -nologo unac.obj ../libiconv-1.8/lib/iconv.lib -out:unac.lib
 
@@ -95,13 +95,11 @@ xz-4.999.9beta/windows/liblzma.lib: xz.tar.bz2
 	cd xz-4.999.9beta/windows ; make liblzma
 	cd xz-4.999.9beta/windows ; lib /def:liblzma.def /out:liblzma.lib /machine:ix86
 
-all-posix: bzip2-1.0.5/libbz2.a zlib-1.2.3/libz.a xapian-core-1.0.16/.libs/libxapian.a unac-1.7.0/libunac.a xz-4.999.9beta/src/liblzma/.libs/liblzma.a mozilla-1.9.1/dist/bin/xulrunner
+all: bzip2-1.0.5/libbz2.a zlib-1.2.3/libz.a xapian-core-1.0.16/.libs/libxapian.a unac-1.7.0/libunac.a xz-4.999.9beta/src/liblzma/.libs/liblzma.a mozilla-1.9.1/dist/bin/xulrunner
 	
 
-all-win: bzip2-1.0.5/libbz2.lib zlib-1.2.3/libz.lib xapian-core-1.0.16/win32/Release/libs/libunicode.lib libiconv-1.8/lib/iconv.lib unac-1.7.0/libunac.lib xz-4.999.9beta/windows/liblzma.lib xulrunner-sdk-win.zip xulrunner-win.zip
+win: bzip2-1.0.5/libbz2.lib zlib-1.2.3/zlib.lib xapian-core-1.0.16/win32/Release/libs/libunicode.lib libiconv-1.8/lib/iconv.lib unac-1.7.0/unac.lib xz-4.999.9beta/windows/liblzma.lib xulrunner-sdk-win.zip xulrunner-win.zip
 	
-
-all: ${ALL_RULE}
 
 # clean
 clean:
