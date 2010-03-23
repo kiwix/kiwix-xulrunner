@@ -22,9 +22,6 @@ AC_CHECK_TOOL(HAVE_CL, cl)
 if test [ "$HAVE_CL" ]
 then
   IS_WIN=1
-  ALL_RULE="all-win"
-else
-  ALL_RULE="all-posix"
 fi
 
 # Only for POSIX systems
@@ -338,7 +335,6 @@ AC_SUBST(LIBMICROHTTPD_LDFLAGS)
 AC_SUBST(ESCAPED_PREFIX)
 AC_SUBST(BINDIST_INTRO_MESSAGE)
 AC_SUBST(DEPENDENCES)
-AC_SUBST(ALL_RULE)
 AC_SUBST(CURRENT_PATH)
 
 # Check the existence of stat64 (to handle file >2GB) in the libc
