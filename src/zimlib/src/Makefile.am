@@ -34,11 +34,4 @@ include_HEADERS = \
 libzim_la_CXXFLAGS=${LIBZ_CFLAGS} ${LIBBZ2_CFLAGS} ${LIBLZMA_CFLAGS} -fPIC
 libzim_la_LDFLAGS=${LIBZ_LDFLAGS} ${LIBBZ2_LDFLAGS} ${LIBLZMA_LDFLAGS}
 
-all-posix: config.h
-	$(MAKE) $(AM_MAKEFLAGS) all-am
-
-all-win:
-	make -f Makefile.mvsc
-
-all: ${ALL_RULE}
-	
+CLEANFILES=*.obj *.lib *.dll
