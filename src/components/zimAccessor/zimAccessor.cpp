@@ -137,7 +137,7 @@ NS_IMETHODIMP ZimAccessor::GetContent(nsIURI *urlObject, nsACString &content, PR
   string contentTypeStr;
   unsigned int contentLengthInt;
 
-  if (this->reader->getContent(url, contentStr, contentLengthInt, contentTypeStr)) {
+  if (this->reader->getContentByUrl(url, contentStr, contentLengthInt, contentTypeStr)) {
     contentType = nsDependentCString(contentTypeStr.data(), contentTypeStr.size()); 
     content = nsDependentCString(contentStr.data(), contentStr.size());
     *contentLength = contentLengthInt;

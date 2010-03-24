@@ -7,7 +7,7 @@ interface IZimAccessor : nsISupports
 {
   boolean loadFile(in AUTF8String path);
   boolean getMainPageUrl(out AUTF8String url);
-  boolean getRandomPageUrl(out ACString url);
+  boolean getRandomPageUrl(out AUTF8String url);
   boolean getId(out ACString id);
   boolean getArticleCount(out PRUint32 count);
   boolean reset();
