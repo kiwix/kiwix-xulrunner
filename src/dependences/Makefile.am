@@ -29,15 +29,15 @@ xulrunner-sdk-linux.tar.bz2:
 	tar -xvjf xulrunner-sdk-linux.tar.bz2
 
 xulrunner-sdk-win.zip:
-	wget -c http://download.kiwix.org/dev/xulrunner-1.9.1.7.en-US.win32.sdk.zip -O xulrunner-sdk-win.zip
+	wget -c http://download.kiwix.org/dev/xulrunner-1.9.2.en-US.win32.sdk.zip -O xulrunner-sdk-win.zip
 	unzip xulrunner-sdk-win.zip
 
 xulrunner-win.zip:
-	wget -c http://download.kiwix.org/dev/xulrunner-1.9.1.7.en-US.win32.zip -O xulrunner-win.zip
+	wget -c http://download.kiwix.org/dev/xulrunner-1.9.2.en-US.win32.zip -O xulrunner-win.zip
 	unzip xulrunner-win.zip
 
 xulrunner-source.tar.bz2:
-	wget -c http://download.kiwix.org/dev/xulrunner-1.9.1.7.source.tar.bz2 -O xulrunner-source.tar.bz2
+	wget -c http://download.kiwix.org/dev/xulrunner-1.9.2.source.tar.bz2 -O xulrunner-source.tar.bz2
 	tar -xvjf xulrunner-source.tar.bz2
 
 xz.tar.bz2:

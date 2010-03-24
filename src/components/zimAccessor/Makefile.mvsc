@@ -2,7 +2,7 @@ CC=cl.exe
 LD=link.exe
 
 # Global paths
-XULRUNNER_SDK=../../dependences/xulrunner-sdk/sdk
+XULRUNNER_SDK=../../dependences/xulrunner-sdk
 ZIM=../../zimlib
 
 # Binary paths
