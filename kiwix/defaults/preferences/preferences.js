@@ -20,6 +20,7 @@ pref("network.protocol-handler.warn-external.http", false);
 pref("javascript.options.showInConsole", true);
 pref("browser.dom.window.dump.enabled", true);
 pref("nglayout.debug.disable_xul_cache", true);
+pref("nglayout.debug.disable_xul_fastload", true);
 pref("javascript.options.strict", true);
 pref("extensions.logging.enabled", true);
 pref("dom.report_all_js_exceptions", true);
