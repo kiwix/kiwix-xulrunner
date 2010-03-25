@@ -52,11 +52,11 @@ and install it in the default directory c:\Perl\
   http://download.kiwix.org/dev/binutils-2.20.1-2-mingw32-bin.tar.gz
   ... and detar it in c:\mozilla-build\msys
 
-* Now we will download try to configurate the compilation, run the
-  following commands:
-  cd /c/mozilla-build/moulinkiwix/
+* Now we will download, configurate and compile kiwix. Run the
+  following commands: 
+  cd /c/mozilla-build/moulinkiwix/ 
   ./autogen.sh
-  ./configure
+  ./configure 
   make win
 
 
