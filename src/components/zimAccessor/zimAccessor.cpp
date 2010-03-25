@@ -48,19 +48,16 @@ ZimAccessor::~ZimAccessor() {
 
 /* Load zim file */
 NS_IMETHODIMP ZimAccessor::LoadFile(const nsACString &path, PRBool *retVal) {
-  *retVal = PR_TRUE;
-
+  *retVal = PR_FALSE;
   const char *filePath;
   NS_CStringGetData(path, &filePath);
 
   /* Instanciate the ZIM file handler */
   try {
     this->reader = new kiwix::Reader(filePath);
-  } catch (...) {
-  }
-
-  if (this->reader == NULL) {
-    *retVal = PR_FALSE;
+    *retVal = PR_TRUE;
+  } catch (exception &e) {
+    cerr << e.what() << endl;
   }
 
   return NS_OK;
@@ -69,18 +66,28 @@ NS_IMETHODIMP ZimAccessor::LoadFile(const nsACString &path, PRBool *retVal) {
 /* Reset the cursor for GetNextArticle() */
 NS_IMETHODIMP ZimAccessor::Reset(PRBool *retVal) {
   *retVal = PR_TRUE;
-  this->reader->reset();
+  
+  try {
+    this->reader->reset();
+  } catch (exception &e) {
+    cerr << e.what() << endl;
+  }
+
   return NS_OK;
 }
 
 /* Get the count of articles which can be indexed/displayed */
 NS_IMETHODIMP ZimAccessor::GetArticleCount(PRUint32 *count, PRBool *retVal) {
-  *retVal = PR_TRUE;
-  if (this->reader != NULL) {
-    *count = this->reader->getArticleCount();
-  } else {
-    *retVal = PR_FALSE;
-  }
+  *retVal = PR_FALSE;
+  try {
+    if (this->reader != NULL) {
+	*count = this->reader->getArticleCount();
+	*retVal = PR_TRUE;
+    }
+  } catch (exception &e) {
+    cerr << e.what() << endl;
+  }  
+
   return NS_OK;
 }
 
@@ -99,27 +106,35 @@ NS_IMETHODIMP ZimAccessor::GetId(nsACString &id, PRBool *retVal) {
 
 /* Return a random article URL */
 NS_IMETHODIMP ZimAccessor::GetRandomPageUrl(nsACString &url, PRBool *retVal) {
-  *retVal = PR_TRUE;
+  *retVal = PR_FALSE;
 
-  if (this->reader != NULL) {
-    string urlstr = this->reader->getRandomPageUrl();
-    url = nsDependentCString(urlstr.c_str(), urlstr.size());
-  } else {
-    *retVal = PR_FALSE;
+  try {
+    if (this->reader != NULL) {
+      string urlstr = this->reader->getRandomPageUrl();
+      url = nsDependentCString(urlstr.c_str(), urlstr.size());
+      *retVal = PR_TRUE;
+    }
+  } catch (exception &e) {
+    cerr << e.what() << endl;
   }
+
   return NS_OK;
 }
 
 /* Return the welcome page URL */
 NS_IMETHODIMP ZimAccessor::GetMainPageUrl(nsACString &url, PRBool *retVal) {
-  *retVal = PR_TRUE;
+  *retVal = PR_FALSE;
+    
+  try {
+    if (this->reader != NULL) {
+      string urlstr = this->reader->getMainPageUrl();
+      url = nsDependentCString(urlstr.c_str(), urlstr.size());
+      *retVal = PR_TRUE;
+    }
+  } catch (exception &e) {
+    cerr << e.what() << endl;
+  }  
 
-  if (this->reader != NULL) {
-    string urlstr = this->reader->getMainPageUrl();
-    url = nsDependentCString(urlstr.c_str(), urlstr.size());
-  } else {
-    *retVal = PR_FALSE;
-  }
   return NS_OK;
 }
 
@@ -137,17 +152,22 @@ NS_IMETHODIMP ZimAccessor::GetContent(nsIURI *urlObject, nsACString &content, PR
   string contentTypeStr;
   unsigned int contentLengthInt;
 
-  if (this->reader->getContentByUrl(url, contentStr, contentLengthInt, contentTypeStr)) {
-    contentType = nsDependentCString(contentTypeStr.data(), contentTypeStr.size()); 
-    content = nsDependentCString(contentStr.data(), contentStr.size());
-    *contentLength = contentLengthInt;
-    *retVal = PR_TRUE;
-  } else {
-    content="";
-    *contentLength = 0;
-    *retVal = PR_FALSE;
-  }
+  /* default value */
+  content="";
+  *contentLength = 0;
+  *retVal = PR_FALSE;
 
+  try {
+    if (this->reader->getContentByUrl(url, contentStr, contentLengthInt, contentTypeStr)) {
+      contentType = nsDependentCString(contentTypeStr.data(), contentTypeStr.size()); 
+      content = nsDependentCString(contentStr.data(), contentStr.size());
+      *contentLength = contentLengthInt;
+      *retVal = PR_TRUE;
+    }
+  } catch (exception &e) {
+    cerr << e.what() << endl;
+  }
+  
   return NS_OK;
 }
 
