@@ -5,11 +5,12 @@
 <!-- File menu -->
 <!ENTITY main.file                    "קובץ">
 <!ENTITY main.file.accesskey          "F">
-<!ENTITY main.openFile                "פתח קובץ...">
+<!ENTITY main.openFile                "פתיחת קובץ...">
 <!ENTITY main.openFile.accesskey      "O">
-<!ENTITY main.saveFile                "Save Page as...">
+<!ENTITY main.lastOpen                "Recently open...">
+<!ENTITY main.saveFile                "שמירת דף בשם...">
 <!ENTITY main.saveFile.accesskey      "S">
-<!ENTITY main.print                   "הדפסה...">
+<!ENTITY main.print                   "הדפסה">
 <!ENTITY main.print.accesskey         "P">
 <!ENTITY main.quit                    "יציאה">
 <!ENTITY main.quit.accesskey          "Q">
@@ -19,7 +20,7 @@
 <!ENTITY main.edit.accesskey          "E">
 <!ENTITY main.find                    "חיפוש בדף...">
 <!ENTITY main.find.accesskey          "S">
-<!ENTITY main.selectall               "בחר הכל">
+<!ENTITY main.selectall               "בחר הכול">
 <!ENTITY main.selectall.accesskey     "a">
 <!ENTITY main.copy                    "העתקה">
 <!ENTITY main.copy.accesskey          "p">
@@ -27,13 +28,13 @@
 <!-- Display menu -->
 <!ENTITY main.display                 "תצוגה">
 <!ENTITY main.display.accesskey       "D">
-<!ENTITY main.zoom                    "גודל">
+<!ENTITY main.zoom                    "מרחק מתצוגה">
 <!ENTITY main.zoom.accesskey          "Z">
-<!ENTITY main.zoomin                  "הגדלה">
+<!ENTITY main.zoomin                  "התקרבות">
 <!ENTITY main.zoomin.accesskey        "M">
-<!ENTITY main.zoomout                 "הקטנה">
+<!ENTITY main.zoomout                 "התרחקות">
 <!ENTITY main.zoomout.accesskey       "R">
-<!ENTITY main.zoomorig                "גודל מקורי">
+<!ENTITY main.zoomorig                "מרחק מקורי">
 <!ENTITY main.zoomorig.accesskey      "O">
 <!ENTITY main.language                "שפה">
 <!ENTITY main.language.accesskey      "L">
@@ -47,12 +48,14 @@
 <!-- Tools menu -->
 <!ENTITY main.tools                   "כלים">
 <!ENTITY main.tools.accesskey         "T">
-<!ENTITY main.randomArticle           "מאמר אקראי">
+<!ENTITY main.randomArticle           "ערך אקראי">
 <!ENTITY main.randomArticle.accesskey "R">
 
 <!-- Help menu -->
 <!ENTITY main.help                    "עזרה">
 <!ENTITY main.help.accesskey          "H">
+<!ENTITY main.reportabug              "Report a bug">
+<!ENTITY main.requestafeature         "Request a feature">
 <!ENTITY main.about                   "אודות">
 <!ENTITY main.about.accesskey         "A">
 
@@ -60,17 +63,16 @@
 <!ENTITY main.back                    "אחורה">
 <!ENTITY main.forward                 "קדימה">
 <!ENTITY main.home                    "דף הבית">
-<!ENTITY main.print                   "הדפסה">
 <!ENTITY main.searchBar               "שורת חיפוש">
-<!ENTITY main.search                  "Search">
-<!ENTITY main.noSearchBar             "Search requires an indexed Zim file">
-<!ENTITY main.bookmarks               "Bookmarks">
+<!ENTITY main.search                  "חיפוש">
+<!ENTITY main.noSearchBar             "החיפוש אפשרי רק אם יש קובץ ZIM מאונדקס">
+<!ENTITY main.bookmarks               "סימניות">
 
 <!-- Results bar -->
 <!ENTITY main.results.title           "תוצאות">
 
 <!-- Bookmarks Bar -->
-<!ENTITY main.bmkLabel                "Bookmarks:">
+<!ENTITY main.bmkLabel                "סימניות:">
 <!ENTITY main.notesLabel              "Bookmark notes:">
 <!ENTITY main.loadbmk                 "Import Bookmark Set">
 <!ENTITY main.newbmk                  "Create new Bookmark Set">

@@ -7,6 +7,9 @@
 <!ENTITY main.file.accesskey          "م">
 <!ENTITY main.openFile                "فتح ملف...">
 <!ENTITY main.openFile.accesskey      "ف">
+<!ENTITY main.lastOpen                "Recently open...">
+<!ENTITY main.saveFile                "Save Page as...">
+<!ENTITY main.saveFile.accesskey      "S">
 <!ENTITY main.print                   "طباعة">
 <!ENTITY main.print.accesskey         "ط">
 <!ENTITY main.quit                    "خروج">
@@ -51,6 +54,8 @@
 <!-- Help menu -->
 <!ENTITY main.help                    "مساعدة">
 <!ENTITY main.help.accesskey          "س">
+<!ENTITY main.reportabug              "Report a bug">
+<!ENTITY main.requestafeature         "Request a feature">
 <!ENTITY main.about                   "حول &brand.brandShortName;">
 <!ENTITY main.about.accesskey         "ح">
 
@@ -58,7 +63,6 @@
 <!ENTITY main.back                    "السابق">
 <!ENTITY main.forward                 "التالي">
 <!ENTITY main.home                    "صفحة البداية">
-<!ENTITY main.print                   "طباعة">
 <!ENTITY main.searchBar               "شريط البحث">
 <!ENTITY main.search                  "البحث">
 <!ENTITY main.noSearchBar             "يتطلب البحث عن الملفات وفهرستها Zim">
@@ -76,4 +80,3 @@
 <!ENTITY main.unmark                  "Unmark selected">
 <!ENTITY main.reload                  "Reset Bookmark Set">
 <!ENTITY main.defaultset              "Default Set">
-

@@ -7,6 +7,7 @@
 <!ENTITY main.file.accesskey          "F">
 <!ENTITY main.openFile                "打开文件...">
 <!ENTITY main.openFile.accesskey      "O">
+<!ENTITY main.lastOpen                "最近打开文件...">
 <!ENTITY main.saveFile                "页面保存为...">
 <!ENTITY main.saveFile.accesskey      "S">
 <!ENTITY main.print                   "打印...">
@@ -53,6 +54,8 @@
 <!-- Help menu -->
 <!ENTITY main.help                    "帮助">
 <!ENTITY main.help.accesskey          "H">
+<!ENTITY main.reportabug              "报告bug">
+<!ENTITY main.requestafeature         "新功能要求">
 <!ENTITY main.about                   "关于中文维基">
 <!ENTITY main.about.accesskey         "A">
 

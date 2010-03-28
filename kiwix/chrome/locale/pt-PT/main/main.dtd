@@ -7,6 +7,7 @@
 <!ENTITY main.file.accesskey          "F">
 <!ENTITY main.openFile                "Abrir ficheiro...">
 <!ENTITY main.openFile.accesskey      "A">
+<!ENTITY main.lastOpen                "Recently open...">
 <!ENTITY main.saveFile                "Gravar Página como...">
 <!ENTITY main.saveFile.accesskey      "S">
 <!ENTITY main.print                   "Imprimir">
@@ -53,6 +54,8 @@
 <!-- Help menu -->
 <!ENTITY main.help                    "Ajuda">
 <!ENTITY main.help.accesskey          "A">
+<!ENTITY main.reportabug              "Report a bug">
+<!ENTITY main.requestafeature         "Request a feature">
 <!ENTITY main.about                   "Sobre &brand.brandShortName;">
 <!ENTITY main.about.accesskey         "S">
 

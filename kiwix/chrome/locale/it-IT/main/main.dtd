@@ -7,7 +7,10 @@
 <!ENTITY main.file.accesskey          "F">
 <!ENTITY main.openFile                "Apri...">
 <!ENTITY main.openFile.accesskey      "A">
-<!ENTITY main.print                   "Stampa...">
+<!ENTITY main.lastOpen                "Recently open...">
+<!ENTITY main.saveFile                "Save Page as...">
+<!ENTITY main.saveFile.accesskey      "S">
+<!ENTITY main.print                   "Stampa">
 <!ENTITY main.print.accesskey         "m">
 <!ENTITY main.quit                    "Esci">
 <!ENTITY main.quit.accesskey          "E">
@@ -51,6 +54,8 @@
 <!-- Help menu -->
 <!ENTITY main.help                    "Aiuto">
 <!ENTITY main.help.accesskey          "i">
+<!ENTITY main.reportabug              "Report a bug">
+<!ENTITY main.requestafeature         "Request a feature">
 <!ENTITY main.about                   "Chi &brand.brandShortName;">
 <!ENTITY main.about.accesskey         "n">
 
@@ -58,7 +63,6 @@
 <!ENTITY main.back                    "Indietro">
 <!ENTITY main.forward                 "Avanti">
 <!ENTITY main.home                    "Pagina iniziale">
-<!ENTITY main.print                   "Stampa">
 <!ENTITY main.searchBar               "Barra di ricerca">
 <!ENTITY main.search                  "Ricercar">
 <!ENTITY main.noSearchBar             "La ricerca richiede una lima spostata ad incrementi di Zim">

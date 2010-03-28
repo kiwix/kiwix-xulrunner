@@ -1,7 +1,7 @@
 <!-- Window -->
 <!ENTITY main.title                   "&brand.brandShortName;">
 <!ENTITY main.cssdirection            "rtl">
- 
+
 <!-- File menu -->
 <!ENTITY main.file                    "فایل">
 <!ENTITY main.file.accesskey          "F">
@@ -14,7 +14,7 @@
 <!ENTITY main.print.accesskey         "P">
 <!ENTITY main.quit                    "خروج">
 <!ENTITY main.quit.accesskey          "Q">
- 
+
 <!-- Edit menu -->
 <!ENTITY main.edit                    "ویرایش">
 <!ENTITY main.edit.accesskey          "E">
@@ -24,7 +24,7 @@
 <!ENTITY main.selectall.accesskey     "a">
 <!ENTITY main.copy                    "کپی">
 <!ENTITY main.copy.accesskey          "p">
- 
+
 <!-- Display menu -->
 <!ENTITY main.display                 "نمایش">
 <!ENTITY main.display.accesskey       "D">
@@ -44,13 +44,13 @@
 <!ENTITY main.resultsbar.accesskey    "R">
 <!ENTITY main.fullscreen              "تمام صفحه">
 <!ENTITY main.fullscreen.accesskey    "F">
- 
+
 <!-- Tools menu -->
 <!ENTITY main.tools                   "ابزارها">
 <!ENTITY main.tools.accesskey         "T">
 <!ENTITY main.randomArticle           "مقاله تصادفی">
 <!ENTITY main.randomArticle.accesskey "R">
- 
+
 <!-- Help menu -->
 <!ENTITY main.help                    "کمک">
 <!ENTITY main.help.accesskey          "H">
@@ -58,7 +58,7 @@
 <!ENTITY main.requestafeature         "درخواست یک ویژگی">
 <!ENTITY main.about                   "درباره علامت تجاری.نام کوتاه تجاری;">
 <!ENTITY main.about.accesskey         "A">
- 
+
 <!-- Tool bar -->
 <!ENTITY main.back                    "عقب">
 <!ENTITY main.forward                 "جلو">
@@ -67,10 +67,10 @@
 <!ENTITY main.search                  "جستجو">
 <!ENTITY main.noSearchBar             "جستجو نیاز به یک فایل ZIM فهرست بندی شده دارد">
 <!ENTITY main.bookmarks               "نشانکها">
- 
+
 <!-- Results bar -->
 <!ENTITY main.results.title           "یافته ها">
- 
+
 <!-- Bookmarks Bar -->
 <!ENTITY main.bmkLabel                "نشانکها:">
 <!ENTITY main.notesLabel              "یادداشتهای نشانک">
