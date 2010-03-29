@@ -12,7 +12,7 @@ if [ ${BINARY:0:1} = "/" ]
 then
     BINARY_DIR=`dirname $BINARY`
 else
-    BINARY_DIR=`dirname $BINARY`
+    BINARY_DIR=`dirname $0`/`dirname $BINARY`
     BINARY_DIR=`cd $BINARY_DIR ; pwd` 
 fi
 
