@@ -48,7 +48,7 @@ ZimXapianIndexer::~ZimXapianIndexer() {
 NS_IMETHODIMP ZimXapianIndexer::StartIndexing(const nsACString &zimFilePath, 
 					      const nsACString &xapianDirectoryPath, 
 					      PRBool *retVal) {
-  *retVal = PR_TRUE;
+  *retVal = PR_FALSE;
   const char *cZimFilePath;
   NS_CStringGetData(zimFilePath, &cZimFilePath);
   const char *cXapianDirectoryPath;
@@ -59,11 +59,9 @@ NS_IMETHODIMP ZimXapianIndexer::StartIndexing(const nsACString &zimFilePath,
     this->indexer = new kiwix::Indexer(cZimFilePath, cXapianDirectoryPath);
     if (this->indexer != NULL) {
       *retVal = PR_TRUE;
-    } else {
-      *retVal = PR_FALSE;
     }
-  } catch(...) {
-    *retVal = PR_FALSE;
+  } catch (exception &e) {
+    cerr << e.what() << endl;
   }
 
   return NS_OK;
@@ -71,10 +69,14 @@ NS_IMETHODIMP ZimXapianIndexer::StartIndexing(const nsACString &zimFilePath,
 
 /* Index next percent */
 NS_IMETHODIMP ZimXapianIndexer::IndexNextPercent(PRBool *retVal) {
-  if (this->indexer->indexNextPercent()) {
-    *retVal = PR_TRUE;
-  } else {
-    *retVal = PR_FALSE;
+  *retVal = PR_FALSE;
+
+  try {
+    if (this->indexer->indexNextPercent()) {
+      *retVal = PR_TRUE;
+    }
+  } catch (exception &e) {
+    cerr << e.what() << endl;
   }
   
   return NS_OK;
