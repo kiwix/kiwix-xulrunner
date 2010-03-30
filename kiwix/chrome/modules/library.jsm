@@ -80,13 +80,16 @@ let library = {
 		content += str.value;
 	}
 
-	/* Compute the content and index roots */
-	var contentDirectory = fileDescriptor.parent.parent.clone();
-	contentDirectory.append("content");
-	var indexDirectory = fileDescriptor.parent.parent.clone();
-	indexDirectory.append("index");
-
-	this.fromXml(content, contentDirectory, indexDirectory);
+	/* Compute the content and index roots if necessary */
+	if (relative) {
+    	  var contentDirectory = fileDescriptor.parent.parent.clone();
+	  contentDirectory.append("content");
+	  var indexDirectory = fileDescriptor.parent.parent.clone();
+	  indexDirectory.append("index");
+	  this.fromXml(content, contentDirectory, indexDirectory);
+	} else {
+	  this.fromXml(content);
+        }
     },
 
     /* Build the book list from the XML */
@@ -162,7 +165,7 @@ let library = {
 	for (var i=0 ; i<len ; i++) {
 	    var book = this.books[i];
 
-	    if (book.id && book.path) {
+	    if (book.id && book.path && !book.readOnly) {
 	       var bookNode = doc.createElement("book");
 	       bookNode.setAttribute("id", book.id);
 	       bookNode.setAttribute("path", book.path);
