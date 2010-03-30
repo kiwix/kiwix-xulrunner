@@ -208,8 +208,6 @@ function searchInIndex(query, xapianDirectory) {
     /* Empty the results list */
     emptyResultsList();
 
-    alert(xapianDirectory);
-
     /* Get the xapian accessor */
     var xapianAccessor = openSearchIndex(xapianDirectory);
 
