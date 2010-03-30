@@ -51,9 +51,11 @@ NS_IMETHODIMP XapianAccessor::OpenReadableDatabase(const nsACString &directory, 
   
   try {
     this->searcher = new kiwix::Searcher(directoryPath);
-  } catch (...) {
+  } catch (exception &e) {
+    cerr << e.what() << endl;
     *retVal = PR_FALSE;
   }
+
   return NS_OK;
 }
 
@@ -66,45 +68,62 @@ NS_IMETHODIMP XapianAccessor::CloseReadableDatabase(PRBool *retVal) {
 
 /* Search strings in the database */
 NS_IMETHODIMP XapianAccessor::Search(const nsACString &search, PRUint32 resultsCount, PRBool *retVal) {
+  *retVal = PR_TRUE;
   const char *csearch;
   NS_CStringGetData(search, &csearch, NULL);
 
-  this->searcher->search(csearch, resultsCount);
+  try {
+    this->searcher->search(csearch, resultsCount);
+  } catch (exception &e) {
+    cerr << e.what() << endl;
+    *retVal = PR_FALSE;
+  }
 
-  *retVal = PR_TRUE;
   return NS_OK;
 }
 
 /* Reset the results */
 NS_IMETHODIMP XapianAccessor::Reset(PRBool *retVal) {
-  this->searcher->reset();
   *retVal = PR_TRUE;
+
+  try {
+    this->searcher->reset();
+  } catch (exception &e) {
+    cerr << e.what() << endl;
+    *retVal = PR_FALSE;
+  }
+
   return NS_OK;
 }
 
 /* Get next result */
-NS_IMETHODIMP XapianAccessor::GetNextResult(nsACString &url, nsACString &title, PRUint32 *score, PRBool *retVal) {
+NS_IMETHODIMP XapianAccessor::GetNextResult(nsACString &url, nsACString &title, 
+					    PRUint32 *score, PRBool *retVal) {
   *retVal = PR_FALSE;
-  
   std::string urlStr;
   std::string titleStr;
   unsigned int scoreInt;
 
-  if (this->searcher->getNextResult(urlStr, titleStr, scoreInt)) {
+  try {
+    if (this->searcher->getNextResult(urlStr, titleStr, scoreInt)) {
+      
+      /* url */
+      url = nsDependentCString(urlStr.c_str(), 
+			       urlStr.length());
+      
+      /* title */
+      title = nsDependentCString(titleStr.c_str(), 
+				 titleStr.length());
+      
+      /* score */
+      *score = scoreInt;
 
-    /* url */
-    url = nsDependentCString(urlStr.c_str(), 
-			     urlStr.length());
-
-    /* title */
-    title = nsDependentCString(titleStr.c_str(), 
-			       titleStr.length());
-
-    /* score */
-    *score = scoreInt;
-
-    *retVal = PR_TRUE;
+      *retVal = PR_TRUE;
+    }
+  } catch (exception &e) {
+    cerr << e.what() << endl;
   }
+
   return NS_OK;
 }
 
