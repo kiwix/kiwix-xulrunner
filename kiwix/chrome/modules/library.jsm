@@ -114,12 +114,22 @@ let library = {
 	var len = this.books.length >>> 0;
 	for (var i=0 ; i<len ; i++) {
 	    var book = this.books[i];
-            var bookNode = doc.createElement("book");
-	    bookNode.setAttribute("id", book.id);
-	    bookNode.setAttribute("path", book.path);
-	    bookNode.setAttribute("indexPath", book.indexPath);
-	    bookNode.setAttribute("indexType", book.indexType);
-	    root.appendChild(bookNode);
+
+	    if (book.id && book.path) {
+	       var bookNode = doc.createElement("book");
+	       bookNode.setAttribute("id", book.id);
+	       bookNode.setAttribute("path", book.path);
+	       
+	       if (book.indexPath) {
+	       	       bookNode.setAttribute("indexPath", book.indexPath );
+	       }
+
+	       if (book.indexType) {
+	       	       bookNode.setAttribute("indexType", book.indexType);
+	       }
+	       
+	       root.appendChild(bookNode);
+	    }
 	}
     
 	var serializer = new XMLSerializer();
