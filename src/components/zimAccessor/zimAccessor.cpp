@@ -48,16 +48,16 @@ ZimAccessor::~ZimAccessor() {
 
 /* Load zim file */
 NS_IMETHODIMP ZimAccessor::LoadFile(const nsACString &path, PRBool *retVal) {
-  *retVal = PR_FALSE;
+  *retVal = PR_TRUE;
   const char *filePath;
   NS_CStringGetData(path, &filePath);
 
   /* Instanciate the ZIM file handler */
   try {
     this->reader = new kiwix::Reader(filePath);
-    *retVal = PR_TRUE;
   } catch (exception &e) {
     cerr << e.what() << endl;
+    *retVal = PR_FALSE;
   }
 
   return NS_OK;
@@ -71,6 +71,7 @@ NS_IMETHODIMP ZimAccessor::Reset(PRBool *retVal) {
     this->reader->reset();
   } catch (exception &e) {
     cerr << e.what() << endl;
+    *retVal = PR_FALSE;
   }
 
   return NS_OK;
@@ -79,6 +80,7 @@ NS_IMETHODIMP ZimAccessor::Reset(PRBool *retVal) {
 /* Get the count of articles which can be indexed/displayed */
 NS_IMETHODIMP ZimAccessor::GetArticleCount(PRUint32 *count, PRBool *retVal) {
   *retVal = PR_FALSE;
+
   try {
     if (this->reader != NULL) {
 	*count = this->reader->getArticleCount();
@@ -93,14 +95,18 @@ NS_IMETHODIMP ZimAccessor::GetArticleCount(PRUint32 *count, PRBool *retVal) {
 
 /* Return the UID of the ZIM file */
 NS_IMETHODIMP ZimAccessor::GetId(nsACString &id, PRBool *retVal) {
-  *retVal = PR_TRUE;
+  *retVal = PR_FALSE;
 
-  if (this->reader != NULL) {
-    id = nsDependentCString(this->reader->getId().c_str(), 
-			    this->reader->getId().size());
-  } else {
-    *retVal = PR_FALSE;
-  }
+  try {
+    if (this->reader != NULL) {
+      id = nsDependentCString(this->reader->getId().c_str(), 
+			      this->reader->getId().size());
+      *retVal = PR_TRUE;
+    }
+  } catch (exception &e) {
+    cerr << e.what() << endl;
+  }  
+
   return NS_OK;
 }
 
@@ -142,6 +148,8 @@ NS_IMETHODIMP ZimAccessor::GetMainPageUrl(nsACString &url, PRBool *retVal) {
 NS_IMETHODIMP ZimAccessor::GetContent(nsIURI *urlObject, nsACString &content, PRUint32 *contentLength, 
 				      nsACString &contentType, PRBool *retVal) {
 
+  *retVal = PR_FALSE;
+
   /* Convert the URL object to char* string */
   nsEmbedCString urlString;
   urlObject->GetPath(urlString);
@@ -155,7 +163,6 @@ NS_IMETHODIMP ZimAccessor::GetContent(nsIURI *urlObject, nsACString &content, PR
   /* default value */
   content="";
   *contentLength = 0;
-  *retVal = PR_FALSE;
 
   try {
     if (this->reader->getContentByUrl(url, contentStr, contentLengthInt, contentTypeStr)) {
@@ -173,13 +180,16 @@ NS_IMETHODIMP ZimAccessor::GetContent(nsIURI *urlObject, nsACString &content, PR
 
 /* Search titles by prefix*/
 NS_IMETHODIMP ZimAccessor::SearchSuggestions(const nsACString &prefix, PRUint32 suggestionsCount, PRBool *retVal) {
+  *retVal = PR_FALSE;
   const char *titlePrefix;
   NS_CStringGetData(prefix, &titlePrefix);
 
-  if (this->reader->searchSuggestions(titlePrefix, suggestionsCount)) {
-    *retVal = PR_TRUE;
-  } else {
-    *retVal = PR_FALSE;
+  try {
+    if (this->reader->searchSuggestions(titlePrefix, suggestionsCount)) {
+      *retVal = PR_TRUE;
+    }
+  } catch (exception &e) {
+    cerr << e.what() << endl;
   }
 
   return NS_OK;
@@ -188,13 +198,16 @@ NS_IMETHODIMP ZimAccessor::SearchSuggestions(const nsACString &prefix, PRUint32 
 /* Get next suggestion */
 NS_IMETHODIMP ZimAccessor::GetNextSuggestion(nsACString &title, PRBool *retVal) {
   *retVal = PR_FALSE;
-  
   string titleStr;
 
-  if (this->reader->getNextSuggestion(titleStr)) {
-    title = nsDependentCString(titleStr.c_str(), 
-			       titleStr.length());
-    *retVal = PR_TRUE;    
+  try {
+    if (this->reader->getNextSuggestion(titleStr)) {
+      title = nsDependentCString(titleStr.c_str(), 
+				 titleStr.length());
+      *retVal = PR_TRUE;    
+    }
+  } catch (exception &e) {
+    cerr << e.what() << endl;
   }
 
   return NS_OK;
