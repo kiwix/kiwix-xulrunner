@@ -1,11 +1,12 @@
 var EXPORTED_SYMBOLS = [ "library" ];
 
 /* Define the Book class */
-function Book(id, path, indexPath, indexType) {
+function Book(id, path, indexPath, indexType, readOnly) {
         this.id = id;
         this.path = path;
 	this.indexPath = indexPath;
 	this.indexType = indexType;
+	this.readOnly = readOnly;
 }
 
 /* Define the Library class */
@@ -15,6 +16,24 @@ let library = {
     register: function() {
     	this.books = [];
 	this.current = "";
+
+	/* Try to read install library file */
+	var directoryService = Components.classes["@mozilla.org/file/directory_service;1"].getService(Components.interfaces.nsIProperties);
+	var kiwixDirectory = directoryService.get("CurProcD", Components.interfaces.nsIFile);
+	var libraryDirectory = kiwixDirectory.parent.clone();
+	libraryDirectory.append("data");
+	libraryDirectory.append("library");
+
+	/* List xml library files in the data/library directory */
+	if (libraryDirectory.exists() && libraryDirectory.isDirectory()) {
+	   var entries = libraryDirectory.directoryEntries;
+	   var array = [];  
+	   while(entries.hasMoreElements()) {
+	     var file = entries.getNext();  
+	     file.QueryInterface(Components.interfaces.nsIFile);  
+             this.readFromFile(file.path, true);
+	   }
+	}
 
 	/* Prepare the library file descriptor */
 	var directoryService = Components.classes["@mozilla.org/file/directory_service;1"].getService(Components.interfaces.nsIProperties);
@@ -31,7 +50,7 @@ let library = {
 	}
 
 	/* Load library file */
-	this.readFromFile();
+	this.readFromFile(this.filePath());
     },
     
     /* Destructor */
@@ -39,12 +58,12 @@ let library = {
     },
 
     /* Open the XML file */
-    readFromFile: function() {
+    readFromFile: function(libraryPath, relative) {
        	var content = "";
 	var charset = "UTF-8";
 
 	/* Create the file descriptor */
-	var fileDescriptor = this.openFile();
+	var fileDescriptor = this.openFile(libraryPath);
 
         /* Read the file from the fileDescriptor */
 	var fileInputStreamService = Components.classes["@mozilla.org/network/file-input-stream;1"]
@@ -61,25 +80,53 @@ let library = {
 		content += str.value;
 	}
 
-	this.fromXml(content);
+	/* Compute the content and index roots */
+	var contentDirectory = fileDescriptor.parent.parent.clone();
+	contentDirectory.append("content");
+	var indexDirectory = fileDescriptor.parent.parent.clone();
+	indexDirectory.append("index");
+
+	this.fromXml(content, contentDirectory, indexDirectory);
     },
 
     /* Build the book list from the XML */
-    fromXml: function(xml) {
+    fromXml: function(xml, contentDirectory, indexDirectory) {
        	var parser = new DOMParser();
         var doc = parser.parseFromString(xml, "text/xml");
 	var root = doc.firstChild;
-	this.current = root.getAttribute('current');
-
         var len = root.childNodes.length;
+	var readOnly = contentDirectory || indexDirectory ? true : false;
 
 	for (var i=0; i<len; i++) {
 	    var id = root.childNodes[i].getAttribute('id');
+
 	    var path = root.childNodes[i].getAttribute('path');
+	    if (contentDirectory) {
+	       var file = contentDirectory.clone();
+	       file.append(path);
+	       path = file.path;
+	    }
+
 	    var indexPath = root.childNodes[i].getAttribute('indexPath');
+	    if (indexDirectory) {
+	       var index = indexDirectory.clone();
+	       index.append(indexPath);
+	       indexPath = index.path;
+	    }
+
 	    var indexType = root.childNodes[i].getAttribute('indexType');
-	    this.addBook(id, path, indexPath, indexType);
+	    this.addBook(id, path, indexPath, indexType, readOnly);
     	}
+
+	/* Set a current book if necessary */
+	if (this.getBookById(root.getAttribute('current'))) {
+            if (readOnly) {
+	       this.current = root.getAttribute('current');
+	    } else {
+               this.setCurrentId(root.getAttribute('current'));
+	    }
+        }
+
     },
 
     /* Save the object to the XML file */
@@ -88,7 +135,7 @@ let library = {
 	var charset = "UTF-8";
 
 	/* Create the file descriptor */
-	var fileDescriptor = this.openFile();
+	var fileDescriptor = this.openFile(this.filePath());
 
 	/* Write to the file descriptor */
 	var converterOutputStreamService = Components.classes["@mozilla.org/intl/converter-output-stream;1"]
@@ -138,21 +185,23 @@ let library = {
     },
 
     /* Get the file descriptor for a file */
-    openFile: function() {
+    openFile: function(path) {
 	var fileDescriptor = Components.classes["@mozilla.org/file/local;1"].
                      createInstance(Components.interfaces.nsILocalFile);
-	fileDescriptor.initWithPath(this.filePath());
+	fileDescriptor.initWithPath(path);
 
 	return fileDescriptor;
     },
 
     /* Add a book to the library */
-    addBook: function(id, path, indexPath, indexType) {
+    addBook: function(id, path, indexPath, indexType, readOnly) {
     	var book = this.getBookById(id);
     	if (!book) {
-	    	book = new Book(id, path, indexPath, indexType);
+	    	book = new Book(id, path, indexPath, indexType, readOnly);
 		this.books.push(book);
-		this.writeToFile();
+		if (!book.readOnly) {
+		  this.writeToFile();
+		}
 	}
 	return book;
     },
