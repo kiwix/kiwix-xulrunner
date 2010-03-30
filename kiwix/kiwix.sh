@@ -1,7 +1,14 @@
 #!/bin/bash
 
+# Original binary
+BINARY_ORG=$0
+if [ ! ${BINARY_ORG:0:1} = "/" ]
+then
+   BINARY_ORG=`pwd`/$BINARY_ORG
+fi
+
 # Binary
-BINARY=$0
+BINARY=$BINARY_ORG
 while [ `readlink $BINARY` ]
 do
     BINARY=`readlink $BINARY`
@@ -12,7 +19,7 @@ if [ ${BINARY:0:1} = "/" ]
 then
     BINARY_DIR=`dirname $BINARY`
 else
-    BINARY_DIR=`dirname $0`/`dirname $BINARY`
+    BINARY_DIR=`dirname $BINARY_ORG`/`dirname $BINARY`
     BINARY_DIR=`cd $BINARY_DIR ; pwd` 
 fi
 
