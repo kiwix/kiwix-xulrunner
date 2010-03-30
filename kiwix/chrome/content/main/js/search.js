@@ -208,6 +208,8 @@ function searchInIndex(query, xapianDirectory) {
     /* Empty the results list */
     emptyResultsList();
 
+    alert(xapianDirectory);
+
     /* Get the xapian accessor */
     var xapianAccessor = openSearchIndex(xapianDirectory);
 
@@ -294,7 +296,7 @@ function manageSearchInIndex() {
     } else {
 	/* Make the search and display results */
 	var currentBook = library.getCurrentBook();
-	searchInIndex(stringToSearch, getSearchIndexDirectory(currentBook.path));
+	searchInIndex(stringToSearch, currentBook.indexPath);
     }
 
     /* Clear search textbox */
