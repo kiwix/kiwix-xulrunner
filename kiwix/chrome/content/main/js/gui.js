@@ -754,8 +754,7 @@ function populateLastOpenMenu() {
 						    "menuitem");
 	    
 	    menuItem.setAttribute("label", label);
-	    var escapedPath =  book.path.replace(/\\/g, "\\\\\\\\");
-	    menuItem.setAttribute("oncommand", "openFile('" + escapedPath + "');");
+	    menuItem.setAttribute("oncommand", "library.setCurrentId('" + book.id + "'); openCurrentBook();");
 	    lastOpenMenu.appendChild(menuItem);
 	}
     }
