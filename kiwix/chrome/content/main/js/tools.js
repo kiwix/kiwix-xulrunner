@@ -338,7 +338,7 @@ function GetFirstRun () {
 	.getService (Components.interfaces.nsIProperties)
 	.get ("ProfD", Components.interfaces.nsIFile);
     
-    first_file.append ("moulin_"+_runMode+".launched");
+    first_file.append ("software_"+_runMode+".launched");
     if (first_file.exists ()) {
 	return false;
     } else {
