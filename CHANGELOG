@@ -1,4 +1,6 @@
 Kiwix 0.9 alpha1
+* ZIM library management outside the profile
+* Windows support & installer
 * Fix the Hebrew search issue with " (ID: 2939690)
 * First version of the search suggest feature (ID: 2799913)
 * Introduction of the HTTP server kiwix-serve
