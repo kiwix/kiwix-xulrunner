@@ -754,7 +754,8 @@ function populateLastOpenMenu() {
 						    "menuitem");
 	    
 	    menuItem.setAttribute("label", label);
-	    menuItem.setAttribute("oncommand", "openFile('" + book.path + "');");
+	    var escapedPath =  book.path.replace(/\\/g, "\\\\\\\\");
+	    menuItem.setAttribute("oncommand", "openFile('" + escapedPath + "');");
 	    lastOpenMenu.appendChild(menuItem);
 	}
     }
