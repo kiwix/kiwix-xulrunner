@@ -148,7 +148,7 @@
     <toolbarbutton id="button-fullscreen" oncommand="UIToggleFullScreen(true)" tooltiptext="&main.fullscreen;"/>
     <toolbarbutton id="button-print" oncommand="print()" tooltiptext="&main.print;"/>
     <toolbarbutton id="button-bookmarks" oncommand="UIToggleBookmarksBar()" tooltiptext="&main.bookmarks;"/>
-    <toolbarbutton id="button-searchs" oncommand="changeResultsBarVisibilityStatus()" tooltiptext="&main.resultsbar;"/>
+    <toolbarbutton id="button-results" oncommand="changeResultsBarVisibilityStatus()" tooltiptext="&main.resultsbar;"/>
     <stack flex="1">
       <hbox>
 	<textbox id="textbox-search" flex="1" tooltiptext="&main.searchBar;"

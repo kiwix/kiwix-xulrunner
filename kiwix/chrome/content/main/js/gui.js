@@ -45,14 +45,14 @@ function getSearchBox() {
     return document.getElementById("textbox-search");
 }
 
-/* Return the Search button object */
-function getSearchButton() {
-    return document.getElementById("button-search");
-}
-
 /* Return the Home button object */
 function getHomeButton() {
     return document.getElementById("button-home");
+}
+
+/* Return the results button */
+function getResultsButton() {
+    return document.getElementById("button-results");
 }
 
 /* Return the Back button object */
@@ -145,16 +145,15 @@ function configureWindowGeometry(window) {
 function activateGuiSearchComponents() {
     getSearchLabel().collapsed = true;
     getSearchBox().disabled = false;
-    getSearchButton().disabled = false;
-    getSearchButton().className = "";
+    activateResultsButton();
 }
 
 /* Desactivate Search GUI elements */
 function desactivateGuiSearchComponents() {
     getSearchLabel().collapsed = false;
     getSearchBox().disabled = true;
-    getSearchButton().disabled = true;
-    getSearchButton().className = "disabled";
+    changeResultsBarVisibilityStatus(false);
+    desactivateResultsButton();
 }
 
 /* Activate home button */
@@ -167,6 +166,18 @@ function activateHomeButton() {
 function desactivateHomeButton() {
     getHomeButton().disabled = true;
     getHomeButton().className = "disabled";
+}
+
+/* Activate results button */
+function activateResultsButton() {
+    getResultsButton().disabled = false;
+    getResultsButton().className = "";
+}
+
+/* Desactivate results button */
+function desactivateResultsButton() {
+    getResultsButton().disabled = true;
+    getResultsButton().className = "disabled";
 }
 
 /* Activate back button */
@@ -529,7 +540,7 @@ function openFile(path, noSearchIndexCheck) {
 	
 	/* Load the ZIM file welcome page */
 	goHome();
-	
+
 	/* Activate the Home button and desactivate the next/back buttons */
 	activateHomeButton();
 	desactivateBackButton();
@@ -548,6 +559,7 @@ function openFile(path, noSearchIndexCheck) {
 
 	/* Ask to index if this files has not already an index */
 	if (!noSearchIndexCheck && !checkSearchIndex()) {
+	    desactivateGuiSearchComponents();
 	    manageIndexZimFile();
 	}
 

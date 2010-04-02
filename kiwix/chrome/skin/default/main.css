@@ -84,10 +84,10 @@ window[langdir="rtl"] #button-next {
     opacity: 0.2;
 }
 
-#button-search {
+#button-results {
     list-style-image: url("chrome://main/skin/icon/find24.png");
 }
-#button-search.disabled {
+#button-results.disabled {
     opacity: 0.2;
 }
 
@@ -115,7 +115,7 @@ window[langdir="rtl"] #button-next {
     list-style-image: url("chrome://main/skin/icon/bookmarks24.png");
 }
 
-#button-searchs {
+#button-results {
     list-style-image: url("chrome://main/skin/icon/searchs24.png");
 }
 

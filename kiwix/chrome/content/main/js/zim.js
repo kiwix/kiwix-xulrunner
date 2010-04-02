@@ -6,7 +6,7 @@ function openZimFile(path) {
     /* Create the ZIM accessor */
     var zimAccessorService = Components.classes["@kiwix.org/zimAccessor"].getService();
     var zimAccessor = zimAccessorService.QueryInterface(Components.interfaces.IZimAccessor);
-    
+
     /* Return if not able to open the file */
     if (!zimAccessor.loadFile(path)) return;
 
