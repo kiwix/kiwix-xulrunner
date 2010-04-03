@@ -54,6 +54,11 @@ function getResultsButton() {
     return document.getElementById("button-results");
 }
 
+/* Return the bookmarks button */
+function getBookmarksButton() {
+    return document.getElementById("button-bookmarks");
+}
+
 /* Return the Back button object */
 function getBackButton() {
     return document.getElementById("button-back");
@@ -223,12 +228,14 @@ function changeResultsBarVisibilityStatus(visible) {
 	    resultsBar.parentNode.insertBefore(splitter, resultsBar.nextSibling);
 	}
 	resultsBar.collapsed = false;
+	getResultsButton().setAttribute('checked', true);
     } else {
 	var splitter = document.getElementById('results-splitter');
 	if (splitter != null) {
 	    splitter.parentNode.removeChild(splitter);
 	}
 	document.getElementById('results-bar').collapsed = true;
+	getResultsButton().setAttribute('checked', false);
     }
 
     document.getElementById('display-resultsbar').setAttribute('checked', visible);
@@ -387,13 +394,14 @@ function UIToggleFullScreen (save) {
  */
 function UIToggleBookmarksBar () {
     var bar = getBookmarksBar();
-	if (bar.hidden) {
-    	WarnOnSideBar ();
-	    changeResultsBarVisibilityStatus(false);
-	}
+    if (bar.hidden) {
+	WarnOnSideBar ();
+	changeResultsBarVisibilityStatus(false);
+    }
 
-	bar.hidden  = !bar.hidden;
-	settings.displayBookmarksBar(!bar.hidden);
+    bar.hidden  = !bar.hidden;
+    settings.displayBookmarksBar(!bar.hidden);
+    getBookmarksButton().setAttribute('checked', !bar.hidden);
 }
 
 
@@ -585,7 +593,9 @@ function goHome() {
 	if (htmlRenderer.sessionHistory.count > 1) {
 	    activateBackButton();
 	} else {
-	    htmlRenderer.sessionHistory.PurgeHistory(htmlRenderer.sessionHistory.count);
+	    if (htmlRenderer.sessionHistory.count > 0) {
+		htmlRenderer.sessionHistory.PurgeHistory(htmlRenderer.sessionHistory.count);
+	    }
 	}
     } else {
 	showHelp();
@@ -786,6 +796,7 @@ function initUserInterface() {
     if (settings.displayStatusBar() != undefined) { changeStatusBarVisibilityStatus(settings.displayStatusBar()); }
     if (settings.displayFullScreen() != undefined) { if (settings.displayFullScreen()) { UIToggleFullScreen(); } }
     if (settings.displayBookmarksBar() === true) { UIToggleBookmarksBar(); }
+    if (settings.displayResultsBar() != undefined) { changeResultsBarVisibilityStatus(settings.displayResultsBar()); }
 
     /* Activate (or not) the Home button */
     if (getCurrentZimFileHomePageUrl()) {
@@ -795,7 +806,7 @@ function initUserInterface() {
     }
 
     /* Update the search bar */
-    updateGuiSearchComponents()
+    updateGuiSearchComponents();
 
     /* Desactivate back/next buttons */
     desactivateBackButton();
