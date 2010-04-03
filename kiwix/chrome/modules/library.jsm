@@ -20,8 +20,19 @@ let library = {
 	/* Try to read install library file */
 	var directoryService = Components.classes["@mozilla.org/file/directory_service;1"].getService(Components.interfaces.nsIProperties);
 	var kiwixDirectory = directoryService.get("CurProcD", Components.interfaces.nsIFile);
-	var libraryDirectory = kiwixDirectory.parent.clone();
-	libraryDirectory.append("data");
+
+	
+	/* Compute the "content" directory */
+	var libraryDirectory;
+	if (os.isLinux()) {
+	  /* From /usr/lib/kiwix/ to /usr/share/kiwix */
+          libraryDirectory = kiwixDirectory.parent.parent.clone();
+	  libraryDirectory.append("share");
+	  libraryDirectory.append("kiwix");
+	} else {
+          libraryDirectory = kiwixDirectory.parent.clone();
+	  libraryDirectory.append("data");
+        }
 	libraryDirectory.append("library");
 
 	/* List xml library files in the data/library directory */
