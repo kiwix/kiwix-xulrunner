@@ -23,15 +23,19 @@ class Nsi_output
 		@log = ""
 	end
 	
+	# main function in the installer creation
 	def make()
 		if verify_dirs()
+			# delete nsi file if exist
 			File.delete(@arg['nsi_output'])if File::exists?(@arg['nsi_output'])
 			# build the tree
 			in_tree(@arg['source_path'])
+			# put the tree in nsi 
 			write_file((@arg['nsi_output'].class == IO) ? @arg['nsi_output'] : File.new(@arg['nsi_output'], "w"))
 			# compile the nsi file
 			# -V0 hide log
 			system("makensis -V0 #{@arg['nsi_output']}")
+			# verify the output file binary
 			success()
 		end
 	end
@@ -47,7 +51,9 @@ class Nsi_output
 		# if a portable packed installer
 		if @arg['allinone']
 			@files.each do |f|
+				# path of file to install
 				path_full = @arg['source_path'].gsub("/","\\")+f[0].gsub("..","")
+				# file to install
 				file_out = f[0].gsub("..","").gsub("\\"+File.basename(path_full),"")
 				$result += "\tSetOutPath \"#{@arg['copy_dest_path']}#{file_out}\"\n"
 				$result += "\tFile `#{path_full}`\n"
@@ -59,16 +65,19 @@ class Nsi_output
 			end
 		end
 		$result += "\n; EXTRACT STUB \n"
+		# return tree section for put in nsi template
 		return $result
 	end
 	
 	def write_file(kiwixnsi)
-		# writing directory tree for the nsi	
+		# looking for a special line for use as a reference point
 		File.open(@arg['nsi_base'], "r") do |infile|
 			while (line = infile.gets)				
 				if line.include?"CreateDirectory \"#{@arg['copy_dest_path']}\"" 
+				# writing directory tree for the nsi	
 					kiwixnsi.puts out_tree
-				elsif line.include? "AddSize kiwix_size" 
+				elsif line.include? "AddSize kiwix_size"
+				# space required for installation
 					kiwixnsi.puts "\tAddSize #{@kiwix_size} ;Size automatically calculated"
 				else				
 					kiwixnsi.puts line
@@ -78,7 +87,7 @@ class Nsi_output
 		kiwixnsi.close 
 	end
 
-	# build tree folder
+	# build tree folder saving folders and files
 	def in_tree(dvd_path)
 		@files_list.each do |dire| 	
 			unless dire.empty?
@@ -90,7 +99,7 @@ class Nsi_output
 				if File.directory? f
 					@dirs << @arg['copy_dest_path'] + current
 				else
-					# installer size
+					# sum the size of each file to calculate the space required to install
 					@kiwix_size += File.stat(f).size
 					wd = f.gsub(dvd_path,@arg['relative_path']).gsub("/","\\")
 					@files << ["#{wd}", "#{@arg['copy_dest_path']}#{current}", "#{@arg['copy_dest_path']}#{current}"]
@@ -105,6 +114,7 @@ class Nsi_output
 			if (File.exist?("#{@arg['bin_output']}"))
 				# copy the file in the DVD file hierarchy
 				system("cp #{@arg['bin_output']} \"#{@arg['install_dir']}\"")
+				# acumule the log message
 				@log +=  "\nDone!. #{arg['bin_output']} is in #{arg['install_dir']}"				
 			else
 				# try make the installer and show all log messages
@@ -115,6 +125,7 @@ class Nsi_output
 	#look if is a directory
 	def is_dir(dire)
 		unless File.directory? @arg[dire]
+			# acumule the log message
 			@log += "\n Error. Directory \"#{@arg[dire]}\" not found \n"
 			return false
 		else
@@ -129,6 +140,7 @@ class Nsi_output
 	
 end
 
+#show help message
 def help()
 	puts "\n\t ruby make-installer.rb --path=<dvd_file_tree_path> <--allinone>\n"
 	puts "\n\t allinone: Build a installer packed portable"
@@ -137,21 +149,28 @@ end
 
 #get argument value
 def get_argument(argument)
-  if argument.nil?
-    return false
-  elsif argument =~ /=/    
-    return argument.split(/=/)[1]        
-  else
-    return true
-  end
+	if argument.nil?
+		return false
+	# regurn the path value
+	elsif argument.include? "--path="
+		return argument.split(/=/)[1]
+	# if the installer standalone
+	elsif argument=="--allinone"
+		return true
+	else
+		return false
+	end
 end
 
 begin
 
-	unless ARGV.empty?
-	  $source_path = get_argument(ARGV[0])
+	if (ARGV.empty?)
+		help
 	else
-		help()
+		$source_path = get_argument(ARGV[0])
+		if ($source_path == false)
+			help
+		end
 	end
 	
 	# list files for build the installer
@@ -166,6 +185,7 @@ begin
 		]
 	arg = Hash.new
 	arg = {
+		# variable for a standalone installer
 		"allinone"       => get_argument(ARGV[1]),
 		# get path value
 		"source_path"    => $source_path,
