@@ -378,28 +378,3 @@ function GetApplicationFolder () {
     }
 }
 
-/*
- * return [win|mac|unix] depending on the platform running.
- * usefull to trick mac specificities.
- */
-function GuessOS () {
-    var runtime = Components.classes ["@mozilla.org/xre/app-info;1"]
-	.getService(Components.interfaces.nsIXULRuntime);
-    var tmp = runtime.OS;
-    var platform = {};
-    
-    if (tmp.match(/^win/i)) { // send condoleances
-        platform.type = "win";
-        platform.string = tmp;
-        return platform;
-    }
-    if (tmp.match(/^darwin/i)) { // send freedom speech
-        platform.type = "mac";
-        platform.string = tmp;
-        return platform;
-    } else { // send drivers
-        platform.type = "unix";
-        platform.string = tmp;
-    }
-    return platform;
-}
