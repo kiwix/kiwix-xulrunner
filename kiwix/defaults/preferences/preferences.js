@@ -26,10 +26,9 @@ pref("extensions.logging.enabled", true);
 pref("dom.report_all_js_exceptions", true);
 
 /* Caching strategy */
-pref("browser.cache.disk.enable", true);
-pref("browser.cache.disk.capacity", 50000);
+pref("browser.cache.disk.enable", false);
 pref("browser.cache.memory.enable", true);
-pref("browser.cache.memory.capacity", 32768);
+pref("browser.cache.memory.capacity", -1);
 
 /* Privacy */
 pref("kiwix.removeprofileonclose", false);
@@ -39,5 +38,5 @@ pref("kiwix.removeprofileonclose.confirm", true);
 pref("browser.download.manager.closeWhenDone", true);
 pref("browser.download.manager.showWhenStarting", false);
 
-/* Installation */
-pref("kiwix.install.prefix", "/usr/local");
+/* History */
+pref("browser.sessionhistory.max", -1);
