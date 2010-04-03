@@ -51,8 +51,8 @@ NS_IMETHODIMP XapianAccessor::OpenReadableDatabase(const nsACString &directory, 
   
   try {
     this->searcher = new kiwix::Searcher(directoryPath);
-  } catch (exception &e) {
-    cerr << e.what() << endl;
+  } catch (...) {
+    cerr << "Not able to open xapian database " << directoryPath <<  endl;
     *retVal = PR_FALSE;
   }
 
