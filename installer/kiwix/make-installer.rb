@@ -8,6 +8,7 @@
 	Wilfredo Rodriguez <wilfredor@kiwix.org>
 =end
 
+# library for file management
 require 'ftools'
 
 class Nsi_output 
@@ -70,9 +71,10 @@ class Nsi_output
 	end
 	
 	def write_file(kiwixnsi)
-		# looking for a special line for use as a reference point
+		# reading nsi base to generate the final nsi
 		File.open(@arg['nsi_base'], "r") do |infile|
-			while (line = infile.gets)				
+			while (line = infile.gets)		
+			# looking for a special line for use as a reference point
 				if line.include?"CreateDirectory \"#{@arg['copy_dest_path']}\"" 
 				# writing directory tree for the nsi	
 					kiwixnsi.puts out_tree
@@ -164,10 +166,11 @@ def get_argument(argument)
 end
 
 begin
-
+	# check if you have sent at least one argument
 	if (ARGV.empty?)
 		help
 	else
+		# check if it has sent as a parameter "--path"
 		$source_path = get_argument(ARGV[0])
 		if ($source_path == false)
 			help
@@ -193,13 +196,19 @@ begin
 		# output nsi,dir and binary installer file
 		"nsi_output"     => "kiwix-install.nsi",
 		"bin_output"     => "kiwix-install.exe",
+		# staff needed to build the final file
 		"nsi_base"       => "kiwix-install.nsi.tmpl",
+		# directory where the installer will be copied
 		"install_dir"    => "#{$source_path}install/",
+		# defined installation directory nsi_base
 		"copy_dest_path" => "$INSTDIR",
+		# path relative to the installer with respect to source_path
 		"relative_path"  => ".."
 	}
 	# verify arguments need
 	out = Nsi_output.new(arg,files_list)
+	# build the installer
 	out.make()
+	# displays a message to see how everything went
 	puts out.log
 end	
