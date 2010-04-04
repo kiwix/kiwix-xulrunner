@@ -5,7 +5,7 @@
 	NSIS (Nullsoft Scriptable Install System). 
 	
 	Renaud Gaudin <rgaudin@gmail.com>
-    Wilfredo Rodriguez <wilfredor@kiwix.org>
+	Wilfredo Rodriguez <wilfredor@kiwix.org>
 =end
 
 require 'ftools'
@@ -61,7 +61,7 @@ class Nsi_output
 		else
 		# if is a installer for copy from a DVD or simple copy
 			@files.each do |f|
-				$result += "\tCopyFiles /SILENT `#{f[0]}` `#{f[1]}`\n"
+				$result += "\tCopyFiles /SILENT `#{f[0]}` `#{f[1]}` `#{f[2]}`\n"
 			end
 		end
 		$result += "\n; EXTRACT STUB \n"
@@ -100,9 +100,10 @@ class Nsi_output
 					@dirs << @arg['copy_dest_path'] + current
 				else
 					# sum the size of each file to calculate the space required to install
-					@kiwix_size += File.stat(f).size
+					file_size = File.stat(f).size
+					@kiwix_size += file_size
 					wd = f.gsub(dvd_path,@arg['relative_path']).gsub("/","\\")
-					@files << ["#{wd}", "#{@arg['copy_dest_path']}#{current}", "#{@arg['copy_dest_path']}#{current}"]
+					@files << ["#{wd}", "#{@arg['copy_dest_path']}#{current}", "#{file_size}"]
 				end
 			end
 		end
