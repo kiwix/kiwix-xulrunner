@@ -775,7 +775,7 @@ function populateLastOpenMenu() {
 						    "menuitem");
 	    
 	    menuItem.setAttribute("label", label);
-	    menuItem.setAttribute("oncommand", "if ('" + book.id + "' != library.getCurrentBook().id) { library.setCurrentId('" + book.id + "'); openCurrentBook(); } else { alert('titi'); } ");
+	    menuItem.setAttribute("oncommand", "if ('" + book.id + "' != library.getCurrentBook().id) { library.setCurrentId('" + book.id + "'); openCurrentBook(); } ");
 	    lastOpenMenu.appendChild(menuItem);
 	}
     }
