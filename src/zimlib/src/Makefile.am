@@ -24,7 +24,8 @@ libzim_la_SOURCES = \
 	zintstream.cpp \
 	envvalue.cpp \
 	lzmastream.cpp \
-	unlzmastream.cpp
+	unlzmastream.cpp \
+	fstream.cpp
 
 include_HEADERS = \
 	ptrstream.h \
