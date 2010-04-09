@@ -3,7 +3,9 @@ EXTRA_DIST= \
 	kiwix \
 	desktop \
 	debian \
-	CHANGELOG
+	CHANGELOG \
+	COMPILE
+
 CLEANFILES= \
 	./kiwix/components/xapianAccessor.so \
 	./kiwix/components/xapianAccessor.xpt \
