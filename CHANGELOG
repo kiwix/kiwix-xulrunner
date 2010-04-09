@@ -1,28 +1,26 @@
 Kiwix 0.9 alpha1
 * ZIM library management outside the profile
 * Windows support & installer
-* Fix the Hebrew search issue with " (ID: 2939690)
+* Fix the Hebrew search issue with the doublequote character (ID: 2939690)
 * First version of the search suggest feature (ID: 2799913)
-* Introduction of the HTTP server kiwix-serve
-* Command line indexation tool: kiwix-index
-* Allow drag&drop to open a ZIM file
-* Autodection of the UI locale at the first start
+* New icon (with white background) (ID: 2981323)
+* New ZIM HTTP server called "kiwix-serve"
+* New Command line indexation tool called "kiwix-index"
+* Allow drag&drop over the UI to open a ZIM file
+* Autodection of the UI locale at the first start (GNU/Linux only)
 * New "Recently open" menu
-* Introduction of the library
-* Use xapian-core-1.0.16
-* Hebrew localization
-* Portuguese localization
-* Chinese localization
-* Persian localization
-* Bookmarks and Notes (experimental)
-* Introduction of kiwix-compact.sh (ID: 2834599)
+* New internal library of ZIM (to be able to manage many ZIM files)
+* New Hebrew, Portuguese, Chinese and Persian localization
+* New Bookmarks and Notes system (coming from Moulinwiki)
+* New script to compact search engines indexes in the profile called "kiwix-compact.sh" (ID: 2834599)
 * Translate ISO code in the language sub-menu (ID: 2834600)
-* Save Page as file (ID: 175508)
+* New "Save Page" (in files) feature (ID: 175508)
 * kiwix.sh check for current path (ID: 2850487)
 * First result is now only loaded with a pretty good score (ID: 2845850)
 * "Report a bug" and "request a feature" links in the UI
 * Fixing issue affecting ZIM file loading with accented paths (ID: 2905488)
-* New feature to clean the profile at the end of the session
+* New feature to clean the profile at the end of the session (optional)
+* Redesign of the "About" Dialog box
 
 Kiwix 0.8
 * nothing new
