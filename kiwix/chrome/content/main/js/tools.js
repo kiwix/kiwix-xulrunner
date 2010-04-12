@@ -167,6 +167,9 @@ function onClose() {
 	/* Clean the profile if necessary */
 	if (doClean) {
 
+	    /* Remove the library */
+	    library.delete();
+
 	    /* Nookmarks */
 	    try {
 		purgeBookmarks();

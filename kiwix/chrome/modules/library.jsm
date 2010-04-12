@@ -63,6 +63,15 @@ let library = {
 	/* Load library file */
 	this.readFromFile(this.filePath());
     },
+
+    /* Delete file */
+    delete: function() {
+	var directoryService = Components.classes["@mozilla.org/file/directory_service;1"].getService(Components.interfaces.nsIProperties);
+	var settingsDirectory = directoryService.get("PrefD", Components.interfaces.nsIFile);
+	settingsDirectory.append("library.xml");
+	var libraryFile = settingsDirectory.clone();
+	libraryFile.remove(false);
+    },
     
     /* Destructor */
     unregister: function() {
