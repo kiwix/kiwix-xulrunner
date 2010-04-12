@@ -209,6 +209,12 @@ function onClose() {
 	    var cookieMgr = Components.classes["@mozilla.org/cookiemanager;1"]
 		.getService(Components.interfaces.nsICookieManager);
 	    cookieMgr.removeAll();
+
+	    /* delete settingsDirectoryRoot */
+	    var directoryService = Components.classes["@mozilla.org/file/directory_service;1"].getService(Components.interfaces.nsIProperties);
+	    var settingsDirectory = directoryService.get("DefProfRt", Components.interfaces.nsIFile);
+	    var settingsDirectoryRoot = settingsDirectory.parent.clone();
+	    settingsDirectoryRoot.remove(true);
 	}
     }
 }
