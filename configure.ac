@@ -169,6 +169,27 @@ then
 		LIBUNAC_LDFLAGS="${LIBUNAC_LDFLAGS} -lunac"
 	fi
 
+	# Configure for libicu
+	AC_ARG_WITH(icu, [  --with-icu=DIR         alternate location for icu library],
+		  LIBICU_PATH=`cd ${withval}; pwd`; CPPFLAGS="${LIBICU_PATH}"; LDFLAGS="${LDFLAGS}")
+
+	if test [ "$LIBICU_PATH" ]
+	then
+		LIBICU_CFLAGS="-I${LIBICU_PATH}"
+		LIBICU_LDFLAGS="-L${LIBICU_PATH} -licu"
+	else
+		ICU_CONFIG_PATH="$PATH"
+		AC_PATH_PROG([ICU_CONFIG], "icu-config", [], $ICU_CONFIG_PATH)
+		if test [ "$ICU_CONFIG" ]
+		then
+			ICU_VER=`$ICU_CONFIG --version`
+			LIBUNAC_CFLAGS=`$ICU_CONFIG --cflags`
+			LIBUNAC_LDFLAGS=`$ICU_CONFIG --ldflags`
+		else
+			AC_MSG_ERROR([[cannot find icu-config]])
+		fi
+	fi
+
 	# Configuration for alternative xapianlib location
 	XAPIAN_CONFIG_PATH="$PATH"
 	AC_ARG_WITH(xapian, [  --with-xapian=DIR       alternate location for Xapian library],
@@ -251,7 +272,7 @@ else
 	LIBXUL_LDFLAGS="-L${GECKO_SDK_PATH}/lib -lxpcomglue_s -lxul -lxpcom -lplds4 -lplc4 -lnspr4 -lpthread -ldl"
 	GECKO_IDL_PATH=${GECKO_SDK_PATH}/idl
 	XPIDL_PATH=$GECKO_SDK_PATH/bin
-	AC_PATH_PROG([XPIDL], "xpidl", [],  $XPIDL_PATH)
+	AC_PATH_PROG([XPIDL], "xpidl", [], $XPIDL_PATH)
 
 	# zlib
 	LIBZ_CFLAGS="-I${CURRENT_PATH}/src/dependences/zlib-1.2.3/"
@@ -328,6 +349,8 @@ AC_SUBST(LIBLZMA_CFLAGS)
 AC_SUBST(LIBLZMA_LDFLAGS)
 AC_SUBST(LIBUNAC_CFLAGS)
 AC_SUBST(LIBUNAC_LDFLAGS)
+AC_SUBST(LIBICU_CFLAGS)
+AC_SUBST(LIBICU_LDFLAGS)
 AC_SUBST(LIBZIM_CFLAGS)
 AC_SUBST(LIBZIM_LDFLAGS)
 AC_SUBST(LIBMICROHTTPD_CFLAGS)
