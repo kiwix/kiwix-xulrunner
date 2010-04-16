@@ -152,23 +152,6 @@ then
 	fi
 	LIBBZ2_LDFLAGS="${LIBBZ2_LDFLAGS} -lbz2"
 
-	# Configuration for alternative unaclib location
-	if test [ ! "$with_unac" == "no" ]
-	then
-		AC_ARG_WITH(unac, [  --with-unac=DIR         alternate location for unac library],
-				  LIBUNAC_PATH=`cd ${withval}; pwd`; CPPFLAGS="${LIBUNAC_PATH}"; LDFLAGS="${LDFLAGS}")
-
-		# Check the libunac
-		AC_CHECK_HEADER([unac.h],, [AC_MSG_ERROR([[cannot find unac header]])])
-		AC_CHECK_LIB([unac], [unac_string],, [AC_MSG_ERROR([[cannot find unac]])])
-		if test [ "$LIBUNAC_PATH" ]
-		then
-			LIBUNAC_CFLAGS="-I${LIBUNAC_PATH}"
-			LIBUNAC_LDFLAGS="-L${LIBUNAC_PATH}"
-		fi
-		LIBUNAC_LDFLAGS="${LIBUNAC_LDFLAGS} -lunac"
-	fi
-
 	# Configure for libicu
 	AC_ARG_WITH(icu, [  --with-icu=DIR         alternate location for icu library],
 		  LIBICU_PATH=`cd ${withval}; pwd`; CPPFLAGS="${LIBICU_PATH}"; LDFLAGS="${LDFLAGS}")
@@ -286,10 +269,6 @@ else
 	LIBLZMA_CFLAGS="-I${CURRENT_PATH}/src/dependences/xz-4.999.9beta/src/liblzma/api/"
 	LIBLZMA_LDFLAGS="-L${CURRENT_PATH}/src/dependences/xz-4.999.9beta/src/liblzma/.libs/ -Bstatic -llzma,"
 
-	# libunac
-	LIBUNAC_CFLAGS="-I${CURRENT_PATH}/src/dependences/unac-1.7.0/"
-	LIBUNAC_LDFLAGS="-L${CURRENT_PATH}/src/dependences/unac-1.7.0/ -lunac"
-
 	# libxapian
 	LIBXAPIAN_CFLAGS="-I${CURRENT_PATH}/src/dependences/xapian-core-1.0.16/include/";
 	LIBXAPIAN_LDFLAGS="-L${CURRENT_PATH}/src/dependences/xapian-core-1.0.16/.libs/ -lxapian";
@@ -303,8 +282,6 @@ else
 #	AC_SUBST(LIBZ_LDFLAGS)
 #	AC_SUBST(LIBBZ2_CFLAGS)
 #	AC_SUBST(LIBBZ2_LDFLAGS)
-#	AC_SUBST(LIBUNAC_CFLAGS)
-#	AC_SUBST(LIBUNAC_LDFLAGS)
 #	AC_SUBST(LIBZIM_CFLAGS)
 #	AC_SUBST(LIBZIM_LDFLAGS)
 #	AC_SUBST(LIBMICROHTTPD_CFLAGS)
@@ -347,8 +324,6 @@ AC_SUBST(LIBBZ2_CFLAGS)
 AC_SUBST(LIBBZ2_LDFLAGS)
 AC_SUBST(LIBLZMA_CFLAGS)
 AC_SUBST(LIBLZMA_LDFLAGS)
-AC_SUBST(LIBUNAC_CFLAGS)
-AC_SUBST(LIBUNAC_LDFLAGS)
 AC_SUBST(LIBICU_CFLAGS)
 AC_SUBST(LIBICU_LDFLAGS)
 AC_SUBST(LIBZIM_CFLAGS)
