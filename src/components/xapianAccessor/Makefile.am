@@ -8,8 +8,8 @@ include_HEADERS= \
 	../../common/splitString.h \
 	../../common/unaccent.h \
 	../../common/kiwix/searcher.h	
-libXapianAccessor_la_CXXFLAGS=$(LIBXUL_CFLAGS) $(LIBXAPIAN_CFLAGS) $(LIBUNAC_CFLAGS) $(XPCOM_CFLAGS) -I../../common/
-libXapianAccessor_la_LDFLAGS=$(LIBXUL_LDFLAGS) $(LIBXAPIAN_LDFLAGS) $(LIBUNAC_LDFLAGS) $(XPCOM_LDFLAGS)
+libXapianAccessor_la_CXXFLAGS=$(LIBXUL_CFLAGS) $(LIBXAPIAN_CFLAGS) $(LIBICU_CFLAGS) $(XPCOM_CFLAGS) -I../../common/
+libXapianAccessor_la_LDFLAGS=$(LIBXUL_LDFLAGS) $(LIBXAPIAN_LDFLAGS) $(LIBICU_LDFLAGS) $(XPCOM_LDFLAGS)
 EXTRA_DIST=IXapianAccessor.idl
 BUILT_SOURCES=IXapianAccessor.xpt IXapianAccessor.h
 CLEANFILES=IXapianAccessor.xpt IXapianAccessor.h *.lib *.obj *.dll

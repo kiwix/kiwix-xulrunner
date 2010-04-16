@@ -11,6 +11,6 @@ include_HEADERS= \
 	../common/kiwix/xapian/htmlparse.h \
 	../common/unaccent.h \
 	../common/kiwix/indexer.h
-kiwix_index_CXXFLAGS=$(LIBXAPIAN_CFLAGS) $(LIBUNAC_CFLAGS) $(LIBZIM_CFLAGS) -I../common/
-kiwix_index_LDFLAGS=$(LIBXAPIAN_LDFLAGS) $(LIBUNAC_LDFLAGS) $(LIBZIM_LDFLAGS)
+kiwix_index_CXXFLAGS=$(LIBXAPIAN_CFLAGS) $(LIBICU_CFLAGS) $(LIBZIM_CFLAGS) -I../common/
+kiwix_index_LDFLAGS=$(LIBXAPIAN_LDFLAGS) $(LIBICU_LDFLAGS) $(LIBZIM_LDFLAGS)
 kiwix_index_LDADD=../zimlib/src/.libs/libzim.a
