@@ -212,7 +212,7 @@ function desactivateNextButton() {
 function changeResultsBarVisibilityStatus(visible) {
 
     if (visible == undefined) {
-	visible = !settings.displayResultsBar();
+	visible = document.getElementById('results-bar').collapsed;
     }
     
     // hide bookmarks if visible
@@ -239,7 +239,6 @@ function changeResultsBarVisibilityStatus(visible) {
     }
 
     document.getElementById('display-resultsbar').setAttribute('checked', visible);
-    settings.displayResultsBar(visible);
 }
 
 
@@ -796,7 +795,6 @@ function initUserInterface() {
     if (settings.displayStatusBar() != undefined) { changeStatusBarVisibilityStatus(settings.displayStatusBar()); }
     if (settings.displayFullScreen() != undefined) { if (settings.displayFullScreen()) { UIToggleFullScreen(); } }
     if (settings.displayBookmarksBar() === true) { UIToggleBookmarksBar(); }
-    if (settings.displayResultsBar() != undefined) { changeResultsBarVisibilityStatus(settings.displayResultsBar()); }
 
     /* Activate (or not) the Home button */
     if (getCurrentZimFileHomePageUrl()) {
