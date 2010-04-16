@@ -24,6 +24,10 @@ unac.tar.bz2:
 	wget -c http://download.kiwix.org/dev/unac-1.7.0.tar.bz2 -O unac.tar.bz2
 	tar -xvjf unac.tar.bz2
 
+icu.zip:
+	wget -c http://download.kiwix.org/dev/icu4c-4_4-Win32-msvc9.zip -O icu.zip
+	unzip icu.zip
+
 xulrunner-sdk-linux.tar.bz2:
 	wget -c http://download.kiwix.org/dev/xulrunner-1.9.1.4.en-US.linux-i686.sdk.tar.bz2 -O xulrunner-sdk-linux.tar.bz2
 	tar -xvjf xulrunner-sdk-linux.tar.bz2
@@ -98,7 +102,7 @@ xz-4.999.9beta/windows/liblzma.lib: xz.tar.bz2
 all: bzip2-1.0.5/libbz2.a zlib-1.2.3/libz.a xapian-core-1.0.18/.libs/libxapian.a unac-1.7.0/libunac.a xz-4.999.9beta/src/liblzma/.libs/liblzma.a mozilla-1.9.1/dist/bin/xulrunner
 	
 
-win: bzip2-1.0.5/libbz2.lib zlib-1.2.3/zlib.lib xapian-core-1.0.18/win32/Release/libs/libunicode.lib libiconv-1.8/lib/iconv.lib unac-1.7.0/unac.lib xz-4.999.9beta/windows/liblzma.lib xulrunner-sdk-win.zip xulrunner-win.zip
+win: bzip2-1.0.5/libbz2.lib zlib-1.2.3/zlib.lib xapian-core-1.0.18/win32/Release/libs/libunicode.lib libiconv-1.8/lib/iconv.lib icu.zip xz-4.999.9beta/windows/liblzma.lib xulrunner-sdk-win.zip xulrunner-win.zip
 	
 
 # clean
@@ -122,3 +126,4 @@ distclean:
 	rm -rf xulrunner-sdk-win.zip xulrunner-sdk
 	rm -rf xulrunner-win.zip xulrunner
 	rm -rf xulrunner-source.tar.bz2
+	rm -rf icu icu.zip
