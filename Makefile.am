@@ -98,3 +98,4 @@ win:
 	cp src/components/zimXapianIndexer/IZimXapianIndexer.xpt kiwix/components/zimXapianIndexer.xpt
 	cp -r src/dependences/xulrunner ./kiwix
 	cp -r src/dependences/xz-4.999.9beta/windows/liblzma.dll ./kiwix/xulrunner
+	cp -r src/dependences/icu/bin/*dll ./kiwix/xulrunner
