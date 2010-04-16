@@ -16,14 +16,6 @@ xapian-win32.zip:
 	unzip xapian-win32.zip
 	mv win32 ./xapian-core-1.0.18/
 
-libiconv.tar.gz:
-	wget -c http://download.kiwix.org/dev/libiconv-1.8.tar.gz -O libiconv.tar.gz
-	tar -xvzf libiconv.tar.gz
-
-unac.tar.bz2:
-	wget -c http://download.kiwix.org/dev/unac-1.7.0.tar.bz2 -O unac.tar.bz2
-	tar -xvjf unac.tar.bz2
-
 icu.zip:
 	wget -c http://download.kiwix.org/dev/icu4c-4_4-Win32-msvc9.zip -O icu.zip
 	unzip icu.zip
@@ -75,20 +67,6 @@ xapian-core-1.0.18/win32/Release/libs/libunicode.lib: xapian-core.tar.gz xapian-
 	cd xapian-core-1.0.18/win32; sed "s/^.*harness.*$$/42:/" Makefile.bis > Makefile
 	cd xapian-core-1.0.18/win32; export MAKEFLAGS=; nmake.exe -f Makefile
 
-unac-1.7.0/libunac.a: unac.tar.bz2
-	cd unac-1.7.0 ; gcc -DUNAC_VERSION="\"42\"" -fPIC -c unac.c ; ar cr libunac.a unac.o ; ranlib libunac.a
-
-libiconv-1.8/lib/iconv.lib: libiconv.tar.gz
-	cd libiconv-1.8 ; sed -e "s/\\-MD/\\-MT/g" Makefile.msvc > Makefile.msvc.bis
-	cd libiconv-1.8 ; mv Makefile.msvc.bis Makefile.msvc 
-	cd libiconv-1.8 ; sed -e "s/LOCALEDIR/\"\\.\"/" src/iconv.c > src/iconv.c.bis
-	cd libiconv-1.8 ; mv src/iconv.c.bis src/iconv.c
-	cd libiconv-1.8 ; export MAKEFLAGS=; nmake -f Makefile.msvc
-
-unac-1.7.0/unac.lib: unac.tar.bz2
-	cd unac-1.7.0 ; cl.exe -c -I ../libiconv-1.8/include -MT -DUNAC_VERSION=42 unac.c
-	cd unac-1.7.0 ;	link.exe -lib -nologo unac.obj ../libiconv-1.8/lib/iconv.lib -out:unac.lib
-
 mozilla-1.9.1/dist/bin/xulrunner: xulrunner-source.tar.bz2
 	cp .mozconfig mozilla-1.9.1/ ; make -f client.mk build ; make package
 
@@ -99,10 +77,10 @@ xz-4.999.9beta/windows/liblzma.lib: xz.tar.bz2
 	cd xz-4.999.9beta/windows ; make liblzma
 	cd xz-4.999.9beta/windows ; lib /def:liblzma.def /out:liblzma.lib /machine:ix86
 
-all: bzip2-1.0.5/libbz2.a zlib-1.2.3/libz.a xapian-core-1.0.18/.libs/libxapian.a unac-1.7.0/libunac.a xz-4.999.9beta/src/liblzma/.libs/liblzma.a mozilla-1.9.1/dist/bin/xulrunner
+all: bzip2-1.0.5/libbz2.a zlib-1.2.3/libz.a xapian-core-1.0.18/.libs/libxapian.a xz-4.999.9beta/src/liblzma/.libs/liblzma.a mozilla-1.9.1/dist/bin/xulrunner
 	
 
-win: bzip2-1.0.5/libbz2.lib zlib-1.2.3/zlib.lib xapian-core-1.0.18/win32/Release/libs/libunicode.lib libiconv-1.8/lib/iconv.lib icu.zip xz-4.999.9beta/windows/liblzma.lib xulrunner-sdk-win.zip xulrunner-win.zip
+win: bzip2-1.0.5/libbz2.lib zlib-1.2.3/zlib.lib xapian-core-1.0.18/win32/Release/libs/libunicode.lib icu.zip xz-4.999.9beta/windows/liblzma.lib xulrunner-sdk-win.zip xulrunner-win.zip
 	
 
 # clean
@@ -110,8 +88,6 @@ clean:
 	rm -rf bzip2-1.0.5/libbz2.a bzip2-1.0.5/libbz2.lib
 	rm -rf zlib-1.2.3/libz.a zlib-1.2.3/libz.lib
 	rm -rf xapian-core-1.0.18/.libs/libxapian.a xapian-core-1.0.18/win32/Release/libs/libunicode.lib
-	rm -rf libiconv-1.8/lib/iconv.lib
-	rm -rf unac-1.7.0/libunac.a unac-1.7.0/libunac.lib
 	rm -rf xz-4.999.9beta/src/liblzma/.libs/liblzma.a  xz-4.999.9beta/windows/liblzma.lib
 
 # distclean
@@ -119,8 +95,6 @@ distclean:
 	rm -rf zlib.tar.gz bzip2-1.0.5
 	rm -rf bzip2.tar.gz zlib-1.2.3
 	rm -rf xapian-core.tar.gz xapian-win32.zip xapian-core-1.0.18
-	rm -rf libiconv.tar.gz libiconv-1.8 
-	rm -rf unac.tar.bz2 unac-1.7.0
 	rm -rf xz.tar.bz2 xz-4.999.9beta
 	rm -rf xulrunner-sdk-linux.tar.bz2
 	rm -rf xulrunner-sdk-win.zip xulrunner-sdk
