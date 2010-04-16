@@ -183,8 +183,8 @@ then
 		if test [ "$ICU_CONFIG" ]
 		then
 			ICU_VER=`$ICU_CONFIG --version`
-			LIBUNAC_CFLAGS=`$ICU_CONFIG --cflags`
-			LIBUNAC_LDFLAGS=`$ICU_CONFIG --ldflags`
+			LIBICU_CFLAGS=`$ICU_CONFIG --cflags`
+			LIBICU_LDFLAGS=`$ICU_CONFIG --ldflags`
 		else
 			AC_MSG_ERROR([[cannot find icu-config]])
 		fi
