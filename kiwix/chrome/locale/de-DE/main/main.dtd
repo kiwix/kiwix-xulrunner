@@ -12,6 +12,8 @@
 <!ENTITY main.saveFile.accesskey      "S">
 <!ENTITY main.print                   "Drucken...">
 <!ENTITY main.print.accesskey         "r">
+<!ENTITY main.printPdf                "Print as PDF">
+<!ENTITY main.printPdf.accesskey      "D">
 <!ENTITY main.quit                    "Schliessen">
 <!ENTITY main.quit.accesskey          "S">
 

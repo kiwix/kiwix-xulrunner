@@ -906,3 +906,41 @@ function print() {
     }
     return true;
 }
+
+/* Print the page in a PDF file */
+function printPdf() {
+    var path;
+
+    /* Prepare the file picker */
+    var nsIFilePicker = Components.interfaces.nsIFilePicker;
+    var filePicker = Components.classes["@mozilla.org/filepicker;1"].createInstance(nsIFilePicker);
+    filePicker.init(window, "Save page as PDF", nsIFilePicker.modeSave);
+    filePicker.appendFilter("PDF", "*.pdf");
+    filePicker.defaultExtension = "pdf";
+    filePicker.defaultString = content.document.title.replace(RegExp("( )", "g"), "_") + ".pdf";
+    
+    /* Show the dialog and get the file path */
+    var res = filePicker.show();
+    
+    /* Get the file path */
+    if (res == nsIFilePicker.returnOK) {
+	path = filePicker.file.path;
+    } else {
+	return false;
+    }
+
+    /* Prepare the PDF printer */
+    var webBrowserPrint = window.content.QueryInterface(Components.interfaces.nsIInterfaceRequestor)
+	.getInterface(Components.interfaces.nsIWebBrowserPrint);
+    var printer = Components.classes["@mozilla.org/gfx/printsettings-service;1"]
+	.getService(Components.interfaces.nsIPrintSettingsService);
+
+    var printSettings = printer.newPrintSettings;
+    printSettings.printToFile = true;
+    printSettings.toFileName = path;
+    printSettings.printSilent = true;
+    printSettings.outputFormat = Components.interfaces.nsIPrintSettings.kOutputFormatPDF;
+
+    /* Write the PDF */
+    webBrowserPrint.print(printSettings, null);
+}

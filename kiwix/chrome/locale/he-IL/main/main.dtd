@@ -12,6 +12,8 @@
 <!ENTITY main.saveFile.accesskey      "S">
 <!ENTITY main.print                   "הדפסה">
 <!ENTITY main.print.accesskey         "P">
+<!ENTITY main.printPdf                "Print as PDF">
+<!ENTITY main.printPdf.accesskey      "D">
 <!ENTITY main.quit                    "יציאה">
 <!ENTITY main.quit.accesskey          "Q">
 
