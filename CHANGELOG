@@ -15,6 +15,7 @@ Kiwix 0.9 alpha1
 * New script to compact search engines indexes in the profile called "kiwix-compact.sh" (ID: 2834599)
 * Translate ISO code in the language sub-menu (ID: 2834600)
 * New "Save Page" (in files) feature (ID: 175508)
+* New "Print as PDF" feature
 * kiwix.sh check for current path (ID: 2850487)
 * First result is now only loaded with a pretty good score (ID: 2845850)
 * "Report a bug" and "request a feature" links in the UI
