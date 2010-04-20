@@ -21,6 +21,20 @@ gS.prototype={
 	while (zimAccessor.getNextSuggestion(title)) {
 	    r.push(title.value); 
 	}
+
+	/* Check with lowercase or uppercase if we have space left in the result array */
+	if (r.length < 50 && searchString.length == 1) {
+	    if (searchString.toUpperCase() == searchString) {
+		zimAccessor.searchSuggestions(searchString.toLowerCase(), 50);
+	    } else {
+		zimAccessor.searchSuggestions(searchString.toUpperCase(), 50);
+	    }
+	    var title = new Object();
+	    while (zimAccessor.getNextSuggestion(title)) {
+		r.push(title.value); 
+	    }
+	}
+
 	listener.onSearchResult(j, new gR(4,r));
     },
 
