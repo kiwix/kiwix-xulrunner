@@ -7,6 +7,7 @@ const max=5;
 
 function gS(){};
 gS.prototype={
+
     startSearch:function(searchString, searchParam, result, listener) {
 	var j=this;
 
@@ -22,12 +23,28 @@ gS.prototype={
 	    r.push(title.value); 
 	}
 
-	/* Check with lowercase or uppercase if we have space left in the result array */
-	if (r.length < 50 && searchString.length == 1) {
-	    if (searchString.toUpperCase() == searchString) {
-		zimAccessor.searchSuggestions(searchString.toLowerCase(), 50);
+	function ucFirst(str) {
+	    if (str.length > 0) {
+		return str[0].toUpperCase() + str.substring(1);
 	    } else {
-		zimAccessor.searchSuggestions(searchString.toUpperCase(), 50);
+		return str;
+	    }
+	}	
+
+	function ulFirst(str) {
+	    if (str.length > 0) {
+		return str[0].toLowerCase() + str.substring(1);
+	    } else {
+		return str;
+	    }
+	}
+
+	/* Check with lowercase or uppercase if we have space left in the result array */
+	if (r.length < 50) {
+	    if (ucFirst(searchString) == searchString) {
+		zimAccessor.searchSuggestions(ulFirst(searchString), 50 - r.length);
+	    } else {
+		zimAccessor.searchSuggestions(ucFirst(searchString), 50 - r.length);
 	    }
 	    var title = new Object();
 	    while (zimAccessor.getNextSuggestion(title)) {
@@ -65,4 +82,5 @@ var gM={
    getClassObject:function(c,a,i){return gF},
    canUnload:function(c){return true}
 }
+
 function NSGetModule(c,f){return gM}
