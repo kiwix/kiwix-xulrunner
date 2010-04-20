@@ -169,6 +169,14 @@ window[langdir="rtl"] #button-next {
 
 /* Bookmarks bar */
 
+#bookmarks-close-button {
+    list-style-image: url("chrome://main/skin/icon/close12.png");
+}
+
+#bookmarks-bar-header {
+    padding: 2px 0px 2px 0px; 
+}
+
 #bookmarks-bar {
     margin: 0px;
     min-width: 150px;
