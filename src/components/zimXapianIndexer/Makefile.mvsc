@@ -3,7 +3,7 @@ LD=link.exe
 
 # Global paths
 XULRUNNER_SDK=../../dependences/xulrunner-sdk
-XAPIAN=../../dependences/xapian-core-1.0.18
+XAPIAN=../../dependences/xapian-core-1.0.19
 ICU=../../dependences/icu/
 ICONV=../../dependences/libiconv-1.8
 Z=../../dependences/zlib-1.2.3
