@@ -5,7 +5,6 @@ LD=link.exe
 XULRUNNER_SDK=../../dependences/xulrunner-sdk
 XAPIAN=../../dependences/xapian-core-1.0.19
 ICU=../../dependences/icu/
-ICONV=../../dependences/libiconv-1.8
 Z=../../dependences/zlib-1.2.3
 ZIM=../../zimlib
 
@@ -21,7 +20,6 @@ ZIM_INCLUDE=${ZIM}/include
 # Lib paths
 XULRUNNER_LIB=$(XULRUNNER_SDK)/lib
 XAPIAN_LIB=${XAPIAN}/win32/Release/libs
-ICONV_LIB=${ICONV}/lib
 ICU_LIB=${ICU}/lib
 Z_LIB=${Z}
 ZIM_LIB=${ZIM}/src
@@ -31,7 +29,7 @@ XULRUNNER_IDL=$(XULRUNNER_SDK)/idl
 
 # Compiler and linker flags
 CFLAGS=-D"XP_WIN" -D"XP_WIN32" -O2 -Oi -I"$(XULRUNNER_INCLUDE)" -I../../common/ -I../../zimlib/include/win -I../../zimlib/include -I"$(XAPIAN_INCLUDE)" -I$(ICU_INCLUDE) -D"_WINDLL" -D"_MBCS" -FD -EHsc -MT -Gy -W3 -nologo -c -Zi -TP		    
-LDFLAGS=-nologo -LIBPATH:"$(XAPIAN_LIB)" -LIBPATH:"$(Z_LIB)" -LIBPATH:"$(XULRUNNER_LIB)" -LIBPATH:"$(ICU_LIB)" -LIBPATH:"$(ICONV_LIB)" -LIBPATH:"${ZIM_LIB}"
+LDFLAGS=-nologo -LIBPATH:"$(XAPIAN_LIB)" -LIBPATH:"$(Z_LIB)" -LIBPATH:"$(XULRUNNER_LIB)" -LIBPATH:"$(ICU_LIB)" -LIBPATH:"${ZIM_LIB}"
 
 all: zimXapianIndexer.dll
      
@@ -48,4 +46,4 @@ zimXapianIndexer.lib: objs
 		       $(LD) -lib -OUT:libZimXapianIndexer.lib $(LDFLAGS) indexer.obj unaccent.obj splitString.obj reader.obj myhtmlparse.obj htmlparse.obj
 
 zimXapianIndexer.dll: zimXapianIndexer.lib
-		    $(LD) -OUT:"zimXapianIndexer.dll" -NOLOGO $(LDFLAGS) -DLL -NODEFAULTLIB:"MSVCRT" -OPT:REF -OPT:ICF -DYNAMICBASE -NXCOMPAT -MACHINE:X86 zlib.lib libcommon.lib libbackend.lib libexpand.lib libflint.lib libquartz.lib libinmemory.lib libmulti.lib libmatcher.lib libnet.lib liblanguages.lib libapi.lib libremote.lib libunicode.lib libqueryparser.lib iconv.lib icudt.lib icuin.lib icuio.lib icule.lib iculx.lib icutu.lib icuuc.lib libcmt.lib ws2_32.lib nspr4.lib xpcom.lib xpcomglue_s.lib DelayImp.lib libZimXapianIndexer.lib winmm.lib zim.lib zimXapianIndexer.obj
+		    $(LD) -OUT:"zimXapianIndexer.dll" -NOLOGO $(LDFLAGS) -DLL -NODEFAULTLIB:"MSVCRT" -OPT:REF -OPT:ICF -DYNAMICBASE -NXCOMPAT -MACHINE:X86 zlib.lib libcommon.lib libbackend.lib libexpand.lib libflint.lib libquartz.lib libinmemory.lib libmulti.lib libmatcher.lib libnet.lib liblanguages.lib libapi.lib libremote.lib libunicode.lib libqueryparser.lib icudt.lib icuin.lib icuio.lib icule.lib iculx.lib icutu.lib icuuc.lib libcmt.lib ws2_32.lib nspr4.lib xpcom.lib xpcomglue_s.lib DelayImp.lib libZimXapianIndexer.lib winmm.lib zim.lib zimXapianIndexer.obj
