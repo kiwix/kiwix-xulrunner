@@ -327,7 +327,7 @@ function UIBookmarkFocus (uri) {
 }
 
 function UIToggleNotes (enable, index) {
-    nbox    = getNotesBox();
+    var nbox = getNotesBox();
     var content;
     if (enable)
         content = BookmarkNFO.currentSet.itemAt(index)['notes'];
