@@ -1,3 +1,6 @@
+Kiwix 0.9 alpha2
+* Fix critical bug ID: 2992289, ZIM file >2GB are not readable on 32b GNU/Linux
+
 Kiwix 0.9 alpha1
 * ZIM library management outside the profile
 * Windows support & installer
