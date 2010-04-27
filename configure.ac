@@ -166,7 +166,13 @@ then
 		if test [ "$ICU_CONFIG" ]
 		then
 			ICU_VER=`$ICU_CONFIG --version`
-			LIBICU_CFLAGS=`$ICU_CONFIG --cflags`
+
+			if [[ `icu-config --version` < "4.2" ]]
+			then 
+			     AC_MSG_ERROR([[You need a version of libicu >= 4.2]])
+			fi
+
+			LIBICU_CFLAGS=`$ICU_CONFIG --cxxflags`
 			LIBICU_LDFLAGS=`$ICU_CONFIG --ldflags`
 		else
 			AC_MSG_ERROR([[cannot find icu-config]])
