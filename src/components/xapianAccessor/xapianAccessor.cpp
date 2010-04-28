@@ -42,6 +42,23 @@ XapianAccessor::~XapianAccessor() {
   }
 }
 
+/* Registration */
+static NS_METHOD XapianAccessorRegistration(nsIComponentManager *aCompMgr,
+                                      nsIFile *aPath,
+                                      const char *registryLocation,
+                                      const char *componentType,
+                                      const nsModuleComponentInfo *info) {
+  return NS_OK;
+}
+
+/* Unregistration */
+static NS_METHOD XapianAccessorUnregistration(nsIComponentManager *aCompMgr,
+                                        nsIFile *aPath,
+                                        const char *registryLocation,
+                                        const nsModuleComponentInfo *info) {
+  return NS_OK;
+}
+
 /* Open Xapian readable database */
 NS_IMETHODIMP XapianAccessor::OpenReadableDatabase(const nsACString &directory, PRBool *retVal) {
   *retVal = PR_TRUE;
@@ -134,7 +151,9 @@ static const nsModuleComponentInfo components[] =
    { "xapianAccessor",
      IXAPIANACCESSOR_IID,
      "@kiwix.org/xapianAccessor",
-     XapianAccessorConstructor
+     XapianAccessorConstructor,
+     XapianAccessorRegistration,
+     XapianAccessorUnregistration
    }
 };
 
