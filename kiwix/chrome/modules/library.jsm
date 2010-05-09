@@ -85,6 +85,10 @@ let library = {
 	/* Create the file descriptor */
 	var fileDescriptor = this.openFile(libraryPath);
 
+	/* Return if !fileDescriptor */
+	if (!fileDescriptor)
+	   return;
+
         /* Read the file from the fileDescriptor */
 	var fileInputStreamService = Components.classes["@mozilla.org/network/file-input-stream;1"]
 		.createInstance(Components.interfaces.nsIFileInputStream);
@@ -160,6 +164,10 @@ let library = {
 	/* Create the file descriptor */
 	var fileDescriptor = this.openFile(this.filePath());
 
+	/* Return if !fileDescriptor */
+	if (!fileDescriptor)
+	   return;
+
 	/* Write to the file descriptor */
 	var converterOutputStreamService = Components.classes["@mozilla.org/intl/converter-output-stream;1"]
 		.createInstance(Components.interfaces.nsIConverterOutputStream);
@@ -209,9 +217,15 @@ let library = {
 
     /* Get the file descriptor for a file */
     openFile: function(path) {
+    	dump(path);
 	var fileDescriptor = Components.classes["@mozilla.org/file/local;1"].
                      createInstance(Components.interfaces.nsILocalFile);
-	fileDescriptor.initWithPath(path);
+
+        try {
+   	  fileDescriptor.initWithPath(path);
+	} catch(err) {
+	  return;
+        }
 
 	return fileDescriptor;
     },
