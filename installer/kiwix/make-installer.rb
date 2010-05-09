@@ -79,14 +79,15 @@ File.new(@arg['nsi_output'], "w"))
                                if line.include?"CreateDirectory \"#{@arg['copy_dest_path']}\""
                                # writing directory tree for the nsi
                                        kiwixnsi.puts out_tree
-                               elsif line.include? "AddSize kiwix_size"
-                               # space required for installation
-                                       kiwixnsi.puts "\tAddSize #{@kiwix_size} ;Size automatically calculated"
+			       elsif line.include?"StrCpy $CONTENTSIZE"
+			       	       # Set the $CONTENTSIZE variable value
+				       kiwixnsi.puts "StrCpy $CONTENTSIZE \"#{kiwix_size}\"\n"
                                else
                                        kiwixnsi.puts line
                                end
                        end
                end
+
                kiwixnsi.close
        end
 
@@ -103,7 +104,7 @@ File.new(@arg['nsi_output'], "w"))
                                        @dirs << @arg['copy_dest_path'] + current
                                else
                                        # sum the size of each file to calculate the space required to install
-                                       file_size = File.stat(f).size
+                                       file_size = File.stat(f).size / 1024
                                        @kiwix_size += file_size
                                        wd = escape_backslash(f.gsub(dvd_path,@arg['relative_path']))
                                        @files << ["#{wd}", "#{@arg['copy_dest_path']}#{current}", "#{file_size}"]
