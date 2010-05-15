@@ -152,7 +152,7 @@ function indexZimFile(zimFilePath, xapianDirectory) {
 
 	    /* Save the information in the library */
 	    library.setIndexById(library.current, 
-				 appendToPath(settingsRootPath, xapianDirectoryName), "xapian_flint");
+				 appendToPath(settingsRootPath, xapianDirectoryName), "xapian");
 
 	    /* Fill the progress bar */
 	    proxiedZimIndexerObserver.notifyObservers(this, "indexingProgress", 100);
