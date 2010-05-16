@@ -1,51 +1,55 @@
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-; Kiwix nsis code for make the installer
-; Please, see the README file
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Kiwix nsis code for make the installer ;
+; Please, see the README file            ;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+;Define the Bitmaps used in the installer
 !define MUI_WELCOMEFINISHPAGE_BITMAP "welcome_finish.bmp" ;Welcome image 164x314px
 !define MUI_HEADERIMAGE 
 !define MUI_HEADERIMAGE_RIGHT ;Header position
 !define MUI_HEADERIMAGE_BITMAP "header.bmp" ;Header installer image 500x63px
 
+;Define the icons for the installer and uninstaller
 !define MUI_ICON  "install.ico"
 !define MUI_UNICON "uninstall.ico"
 
-!define CSIDL_APPDATA '0x1A' ;Application Data path
-!define CSIDL_LOCALAPPDATA '0x1C' ;Local Application Data path
+;Define User Interface additional stuff
+!define MUI_FINISHPAGE_RUN "kiwix\kiwix.exe"
 
+;Define Application and Local Applicaiont Data paths
+!define CSIDL_APPDATA '0x1A' 
+!define CSIDL_LOCALAPPDATA '0x1C'
+
+;Define installer registry string contants
 !define PRODUCT_NAME "kiwix"
 !define PRODUCT_VERSION "0.9 svn"
 !define PRODUCT_PUBLISHER "Kiwix"
 !define PRODUCT_WEB_SITE "http://www.kiwix.org"
 
+;Define installer Regkey values
 !define PRODUCT_UNINST_KEY "Software\Microsoft\Windows\CurrentVersion\Uninstall\${PRODUCT_NAME}"
 !define PRODUCT_UNINST_ROOT_KEY "HKLM"
 
-!include "MUI.nsh"
+;Mandatory plugins
+!include "MUI2.nsh"
+!include "InstallOptions.nsh"
 !include "WinMessages.nsh"
 !include "LogicLib.nsh"
 
-SetCompressor lzma ; Zlib supports "SetCompress off"
+;Request application privileges for Windows Vista
+RequestExecutionLevel user
+
+;Installer variables declarations
+SetCompressor lzma
 Name "${PRODUCT_NAME} ${PRODUCT_VERSION}"
 OutFile "kiwix-install.exe"
 ShowInstDetails show
 ShowUnInstDetails show
 InstallDir "$PROGRAMFILES\kiwix"
 
-!define MUI_FINISHPAGE_RUN "kiwix\kiwix.exe"
-
 ; Global variables
 Var PAGETOKEEP
 Var CONTENTSIZE
-
-; Useful macro
-!macro SendDlgItemMessage DLG ITEM MSG WPARAM LPARAM
-  Push $R0
-  GetDlgItem $R0 ${DLG} ${ITEM}
-  SendMessage $R0 ${MSG} ${WPARAM} ${LPARAM}
-  Pop $R0
-!macroend
 
 ; Pages
 Page custom PageCreate PageLeave
@@ -68,11 +72,68 @@ Page custom PageCreate PageLeave
 
 !insertmacro MUI_PAGE_FINISH
 
-!insertmacro MUI_LANGUAGE "English"
+; Insert language macro to get the interface common sentences localized
+!insertmacro MUI_LANGUAGE "English" ;first language is the default language
+!insertmacro MUI_LANGUAGE "French"
+!insertmacro MUI_LANGUAGE "German"
+!insertmacro MUI_LANGUAGE "Spanish"
+!insertmacro MUI_LANGUAGE "SpanishInternational"
+!insertmacro MUI_LANGUAGE "SimpChinese"
+!insertmacro MUI_LANGUAGE "TradChinese"
+!insertmacro MUI_LANGUAGE "Japanese"
+!insertmacro MUI_LANGUAGE "Korean"
+!insertmacro MUI_LANGUAGE "Italian"
+!insertmacro MUI_LANGUAGE "Dutch"
+!insertmacro MUI_LANGUAGE "Danish"
+!insertmacro MUI_LANGUAGE "Swedish"
+!insertmacro MUI_LANGUAGE "Norwegian"
+!insertmacro MUI_LANGUAGE "NorwegianNynorsk"
+!insertmacro MUI_LANGUAGE "Finnish"
+!insertmacro MUI_LANGUAGE "Greek"
+!insertmacro MUI_LANGUAGE "Russian"
+!insertmacro MUI_LANGUAGE "Portuguese"
+!insertmacro MUI_LANGUAGE "PortugueseBR"
+!insertmacro MUI_LANGUAGE "Polish"
+!insertmacro MUI_LANGUAGE "Ukrainian"
+!insertmacro MUI_LANGUAGE "Czech"
+!insertmacro MUI_LANGUAGE "Slovak"
+!insertmacro MUI_LANGUAGE "Croatian"
+!insertmacro MUI_LANGUAGE "Bulgarian"
+!insertmacro MUI_LANGUAGE "Hungarian"
+!insertmacro MUI_LANGUAGE "Thai"
+!insertmacro MUI_LANGUAGE "Romanian"
+!insertmacro MUI_LANGUAGE "Latvian"
+!insertmacro MUI_LANGUAGE "Macedonian"
+!insertmacro MUI_LANGUAGE "Estonian"
+!insertmacro MUI_LANGUAGE "Turkish"
+!insertmacro MUI_LANGUAGE "Lithuanian"
+!insertmacro MUI_LANGUAGE "Slovenian"
+!insertmacro MUI_LANGUAGE "Serbian"
+!insertmacro MUI_LANGUAGE "SerbianLatin"
+!insertmacro MUI_LANGUAGE "Arabic"
+!insertmacro MUI_LANGUAGE "Farsi"
+!insertmacro MUI_LANGUAGE "Hebrew"
+!insertmacro MUI_LANGUAGE "Indonesian"
+!insertmacro MUI_LANGUAGE "Mongolian"
+!insertmacro MUI_LANGUAGE "Luxembourgish"
+!insertmacro MUI_LANGUAGE "Albanian"
+!insertmacro MUI_LANGUAGE "Breton"
+!insertmacro MUI_LANGUAGE "Belarusian"
+!insertmacro MUI_LANGUAGE "Icelandic"
+!insertmacro MUI_LANGUAGE "Malay"
+!insertmacro MUI_LANGUAGE "Bosnian"
+!insertmacro MUI_LANGUAGE "Kurdish"
+!insertmacro MUI_LANGUAGE "Irish"
+!insertmacro MUI_LANGUAGE "Uzbek"
+!insertmacro MUI_LANGUAGE "Galician"
+!insertmacro MUI_LANGUAGE "Afrikaans"
+!insertmacro MUI_LANGUAGE "Catalan"
+!insertmacro MUI_LANGUAGE "Esperanto"
 
 Function .onInit
   StrCpy $CONTENTSIZE
-  !insertmacro MUI_INSTALLOPTIONS_EXTRACT "kiwix-install.ini"
+  !insertmacro INSTALLOPTIONS_EXTRACT "kiwix-install.ini"
+  !insertmacro MUI_LANGDLL_DISPLAY
 FunctionEnd
 
 LangString READYPAGE_TITLE ${LANG_ENGLISH} "Ready to install"
@@ -80,11 +141,11 @@ LangString READYPAGE_SUBTITLE ${LANG_ENGLISH} "The installation wizard is ready 
 
 Function PageCreate
   !insertmacro MUI_HEADER_TEXT "$(READYPAGE_TITLE)" "$(READYPAGE_SUBTITLE)"
-  !insertmacro MUI_INSTALLOPTIONS_DISPLAY "kiwix-install.ini"
+  !insertmacro INSTALLOPTIONS_DISPLAY "kiwix-install.ini"
 FunctionEnd
 
 Function PageLeave
-  !insertmacro MUI_INSTALLOPTIONS_READ $R0 "kiwix-install.ini" "Settings" "State"
+  !insertmacro INSTALLOPTIONS_READ $R0 "kiwix-install.ini" "Settings" "State"
   ${Select} $R0
     ${Case} 0
       StrCpy $PAGETOKEEP "none"
@@ -165,9 +226,9 @@ section -
   System::Int64Op $1 > $2 ; Compare the space required and the space available
   Pop $3 ; Get the result ...
  
-;  IntCmp $3 1 okay ; ... and compare it
-;    MessageBox MB_OK "Error: Not enough disk space!"    
-;  okay:
+  IntCmp $3 1 okay ; ... and compare it
+    MessageBox MB_OK "Error: Not enough disk space!"    
+  okay:
 sectionend
 
 Section
