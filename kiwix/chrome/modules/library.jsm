@@ -217,7 +217,6 @@ let library = {
 
     /* Get the file descriptor for a file */
     openFile: function(path) {
-    	dump(path);
 	var fileDescriptor = Components.classes["@mozilla.org/file/local;1"].
                      createInstance(Components.interfaces.nsILocalFile);
 
