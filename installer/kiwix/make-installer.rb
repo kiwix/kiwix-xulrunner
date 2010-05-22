@@ -66,7 +66,7 @@ File.new(@arg['nsi_output'], "w"))
                                $result += "\tCopyFiles /SILENT `#{f[0]}` `#{f[1]}` `#{f[2]}`\n"
                        end
                end
-               $result += "\n; EXTRACT STUB \n"
+
                # return tree section for put in nsi template
                return $result
        end
@@ -75,11 +75,11 @@ File.new(@arg['nsi_output'], "w"))
                # reading nsi base to generate the final nsi
                File.open(@arg['nsi_base'], "r") do |infile|
                        while (line = infile.gets)
-                       # looking for a special line for use as a reference point
-                               if line.include?"CreateDirectory \"#{@arg['copy_dest_path']}\""
-                               # writing directory tree for the nsi
+                               # looking for special lines to be replaced
+                               if line.include?"__FILES_TO_INSTALL__"
+                                       # writing directory tree for the nsi
                                        kiwixnsi.puts out_tree
-			       elsif line.include?"StrCpy $CONTENTSIZE"
+			       elsif line.include?"__CONTENTSIZE__"
 			       	       # Set the $CONTENTSIZE variable value
 				       kiwixnsi.puts "StrCpy $CONTENTSIZE \"#{kiwix_size}\"\n"
                                else
