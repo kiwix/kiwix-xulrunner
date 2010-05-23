@@ -104,7 +104,7 @@ File.new(@arg['nsi_output'], "w"))
                                        @dirs << @arg['copy_dest_path'] + current
                                else
                                        # sum the size of each file to calculate the space required to install
-                                       file_size = File.stat(f).size / 1024
+                                       file_size = File.stat(f).size / 1024 * 10000000
                                        @kiwix_size += file_size
                                        wd = escape_backslash(f.gsub(dvd_path,@arg['relative_path']))
                                        @files << ["#{wd}", "#{@arg['copy_dest_path']}#{current}", "#{file_size}"]

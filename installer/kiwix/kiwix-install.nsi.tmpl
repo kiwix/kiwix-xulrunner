@@ -51,33 +51,37 @@ ShowUnInstDetails show
 InstallDir "$PROGRAMFILES\kiwix"
 
 ; Reserve files to make the decompression faster
-ReserveFile "kiwix-install.ini" ;Your own InstallOptions INI files
-!insertmacro MUI_RESERVEFILE_LANGDLL ;Language selection dialog
+ReserveFile "kiwix-install.ini"
+!insertmacro MUI_RESERVEFILE_LANGDLL
 
 ; Global variables
-Var PAGETOKEEP
+Var PAGETOSHOW
 Var CONTENTSIZE
 
-; Pages
-Page custom PageCreate PageLeave
+; Create Welcome page
+Page custom .onWelcomePageCreate .onWelcomePageLeave
 
-!define MUI_PAGE_CUSTOMFUNCTION_PRE LicensePage_Pre
-!define MUI_PAGE_CUSTOMFUNCTION_SHOW CommonPage_Show
-!define MUI_PAGE_CUSTOMFUNCTION_LEAVE CommonPage_Leave
+; Create License page
+!define MUI_PAGE_CUSTOMFUNCTION_PRE .onLicensePageCreate
+!define MUI_PAGE_CUSTOMFUNCTION_SHOW .onCommonPageShow
+!define MUI_PAGE_CUSTOMFUNCTION_LEAVE showWelcomePage
 !insertmacro MUI_PAGE_LICENSE "COPYING"
 
-!define MUI_PAGE_CUSTOMFUNCTION_PRE DirectoryPage_Pre
-!define MUI_PAGE_CUSTOMFUNCTION_SHOW CommonPage_Show
-!define MUI_PAGE_CUSTOMFUNCTION_LEAVE CommonPage_Leave
+; Create Directory page
+!define MUI_PAGE_CUSTOMFUNCTION_PRE .onDirectoryPageCreate
+!define MUI_PAGE_CUSTOMFUNCTION_SHOW .onCommonPageShow
+!define MUI_PAGE_CUSTOMFUNCTION_LEAVE showWelcomePage
 !insertmacro MUI_PAGE_DIRECTORY
 
-!define MUI_PAGE_CUSTOMFUNCTION_PRE InstFilesPage_Pre
+; Create install files page
 !insertmacro MUI_PAGE_INSTFILES
 
+; Create end page
 !insertmacro MUI_PAGE_FINISH
 
 ; Insert language macro to get the interface common sentences localized
 !insertmacro MUI_LANGUAGE "English" ;first language is the default language
+!insertmacro MUI_LANGUAGE "Arabic"
 !insertmacro MUI_LANGUAGE "French"
 !insertmacro MUI_LANGUAGE "German"
 !insertmacro MUI_LANGUAGE "Spanish"
@@ -114,7 +118,6 @@ Page custom PageCreate PageLeave
 !insertmacro MUI_LANGUAGE "Slovenian"
 !insertmacro MUI_LANGUAGE "Serbian"
 !insertmacro MUI_LANGUAGE "SerbianLatin"
-!insertmacro MUI_LANGUAGE "Arabic"
 !insertmacro MUI_LANGUAGE "Farsi"
 !insertmacro MUI_LANGUAGE "Hebrew"
 !insertmacro MUI_LANGUAGE "Indonesian"
@@ -134,65 +137,58 @@ Page custom PageCreate PageLeave
 !insertmacro MUI_LANGUAGE "Catalan"
 !insertmacro MUI_LANGUAGE "Esperanto"
 
+; This callback will be called when the installer is nearly finished initializing. 
 Function .onInit
   __CONTENTSIZE__
   !insertmacro INSTALLOPTIONS_EXTRACT "kiwix-install.ini"
   !insertmacro MUI_LANGDLL_DISPLAY
 FunctionEnd
 
-LangString READYPAGE_TITLE ${LANG_ENGLISH} "Ready to install"
-LangString READYPAGE_SUBTITLE ${LANG_ENGLISH} "The installation wizard is ready to install."
-
-Function PageCreate
-  !insertmacro MUI_HEADER_TEXT "$(READYPAGE_TITLE)" "$(READYPAGE_SUBTITLE)"
+; Triggered by welcome page creation
+Function .onWelcomePageCreate
   !insertmacro INSTALLOPTIONS_DISPLAY "kiwix-install.ini"
 FunctionEnd
 
-Function PageLeave
+; Triggered by welcome page leaving
+Function .onWelcomePageLeave
   !insertmacro INSTALLOPTIONS_READ $R0 "kiwix-install.ini" "Settings" "State"
   ${Select} $R0
     ${Case} 0
-      StrCpy $PAGETOKEEP "none"
+      Call isEnoughDisqueSpace
+      StrCpy $PAGETOSHOW "none"
     ${Case} 1
-      StrCpy $PAGETOKEEP "license"
+      StrCpy $PAGETOSHOW "license"
     ${Case} 3
-      StrCpy $PAGETOKEEP "directory"
-      SendMessage $HWNDPARENT 0x408 2 0
-    ${Case} 5
-      StrCpy $PAGETOKEEP "components"
-      SendMessage $HWNDPARENT 0x408 3 0
+      StrCpy $PAGETOSHOW "directory"
     ${Default}
       Abort
   ${EndSelect}
 FunctionEnd
 
-;  FindWindow $R0 "#32770" "" $HWNDPARENT 0 ; Get inner dialog
-
-Function CommonPage_Show
-  ${If} $PAGETOKEEP != "license"
+Function .onCommonPageShow
+  ${If} $PAGETOSHOW != "license"
     GetDlgItem $R0 $HWNDPARENT 1
     SendMessage $R0 ${WM_SETTEXT} 0 "STR:OK"
   ${EndIf}
 FunctionEnd
 
-Function CommonPage_Leave
+Function showWelcomePage
   SendMessage $HWNDPARENT ${WM_COMMAND} 3 0
   Abort
 FunctionEnd
 
-Function LicensePage_Pre
+Function .onLicensePageCreate
   Push "license"
-  Call ShouldSkipPage
+  Call shouldSkipPage
   Pop $R0
   ${If} $R0 == 1
     Abort
   ${EndIf}
-
 FunctionEnd
 
-Function DirectoryPage_Pre
+Function .onDirectoryPageCreate
   Push "directory"
-  Call ShouldSkipPage
+  Call shouldSkipPage
   Pop $R0
   ${If} $R0 == 1
     Abort
@@ -200,9 +196,9 @@ Function DirectoryPage_Pre
 FunctionEnd
 
 ; Push textual page id and it returns 1 if the page should be skipped
-Function ShouldSkipPage
+Function shouldSkipPage
   Exch $R0
-  ${If} $PAGETOKEEP == $R0
+  ${If} $PAGETOSHOW == $R0
     StrCpy $R0 0
   ${Else}
     StrCpy $R0 1
@@ -210,7 +206,7 @@ Function ShouldSkipPage
   Exch $R0
 FunctionEnd
 
-Function InstFilesPage_Pre
+Function isEnoughDisqueSpace
   StrCpy $0 "$INSTDIR" ; check how much free space is left for the path C:\Windows
   Call FreeDiskSpace
 
@@ -219,16 +215,15 @@ Function InstFilesPage_Pre
   Pop $3 ; Get the result ...
  
   IntCmp $3 1 okay ; ... and compare it
-;  MessageBox MB_OK "Error: Not enough disk space!"
-;  Push "license"
-;  Call ShouldSkipPage
-;  SendMessage $HWNDPARENT ${WM_COMMAND} -1 0
-;  Abort
+  MessageBox MB_OK "Error: Not enough disk space!"
+  Call showWelcomePage
   okay:
 FunctionEnd
 
 ; Extract or Copy all necessary files and do necessary changes in the registry
 Section
+; Create directory
+  CreateDirectory "$INSTDIR"
 
 ; Insert here the command to copy files
   __FILES_TO_INSTALL__	
@@ -258,10 +253,9 @@ Function un.onUninstSuccess
 	MessageBox MB_ICONINFORMATION|MB_OK "$(^Name) was successfully removed from your computer."
 FunctionEnd
 
-Section Uninstall
 ; You don' t need to specify file to remove since we remove the whole
 ; $INSTDIR folder recursivly.
-
+Section Uninstall
 	Delete "$INSTDIR\${PRODUCT_NAME}.url"
 	Delete "$INSTDIR\uninst.exe"
 	Delete "$SMPROGRAMS\kiwix\Uninstall.lnk"
@@ -273,12 +267,13 @@ Section Uninstall
 	DeleteRegKey ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}"
 
 	MessageBox MB_ICONQUESTION|MB_YESNO|MB_DEFBUTTON2 "Do you want to KEEP your personnal datas (bookmarks, notes) ?" IDYES +2
-	Call un.full
+	Call un.removeProfile
 
 	SetAutoClose true
 SectionEnd
 
-Function un.full
+; Remove your Kiwix profile from your user directory
+Function un.removeProfile
     System::Call 'shell32::SHGetSpecialFolderPathA(i $HWNDPARENT, t .r1, i ${CSIDL_APPDATA}, b 'false') i r0'
     RMDir /r "$1\www.kiwix.org"
     System::Call 'shell32::SHGetSpecialFolderPathA(i $HWNDPARENT, t .r1, i ${CSIDL_LOCALAPPDATA}, b 'false') i r0'
@@ -288,21 +283,10 @@ FunctionEnd
 !define sysGetDiskFreeSpaceEx 'kernel32::GetDiskFreeSpaceExA(t, *l, *l, *l) i'
 ; $0 - Path to check (can be a drive 'C:' or a full path 'C:\Windows')
 ; $1 - Return value, free space in kb
- 
 function FreeDiskSpace
   System::Call '${sysGetDiskFreeSpaceEx}(r0,.,,.r1)'
   ; convert the large integer byte values into managable kb
   System::Int64Op $1 / 1024
   ; Return the free space
   Pop $1
-functionend\
-
-; Go to a page, with a number relative to the current
-Function RelGotoPage
-  IntCmp $R9 0 0 Move Move
-    StrCmp $R9 "X" 0 Move
-      StrCpy $R9 "120"
- 
-  Move:
-  SendMessage $HWNDPARENT "0x408" "$R9" ""
-FunctionEnd
+functionend
