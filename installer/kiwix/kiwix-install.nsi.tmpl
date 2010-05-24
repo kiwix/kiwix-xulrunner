@@ -81,9 +81,14 @@ Page custom .onWelcomePageCreate .onWelcomePageLeave
 ; Create end page
 !insertmacro MUI_PAGE_FINISH
 
+; The language selection dialog of Modern UI hides languages
+; unsupported by the user's selected codepage by default.
+; This is to avoid this behaviour
+; !define MUI_LANGDLL_ALLLANGUAGES
+
 ; Insert language macro to get the interface common sentences localized
-!insertmacro MUI_LANGUAGE "English" ;first language is the default language
 !insertmacro MUI_LANGUAGE "Arabic"
+!insertmacro MUI_LANGUAGE "English"
 !insertmacro MUI_LANGUAGE "French"
 !insertmacro MUI_LANGUAGE "German"
 !insertmacro MUI_LANGUAGE "Spanish"
