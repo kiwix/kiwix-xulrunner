@@ -74,6 +74,8 @@ Page custom .onWelcomePageCreate .onWelcomePageLeave
 !insertmacro MUI_PAGE_DIRECTORY
 
 ; Create install files page
+!define MUI_PAGE_CUSTOMFUNCTION_SHOW .onInstFilesShow
+!define MUI_CUSTOMFUNCTION_ABORT rollback
 !insertmacro MUI_PAGE_INSTFILES
 
 ; Create end page
@@ -149,6 +151,21 @@ Function .onWelcomePageCreate
   !insertmacro INSTALLOPTIONS_DISPLAY "kiwix-install.ini"
 FunctionEnd
 
+; Abort installation
+Function rollback
+	Delete "$INSTDIR\${PRODUCT_NAME}.url"
+	Delete "$INSTDIR\uninst.exe"
+	Delete "$SMPROGRAMS\kiwix\Uninstall.lnk"
+	Delete "$SMPROGRAMS\kiwix\kiwix.lnk"
+	Delete "$SMPROGRAMS\kiwix\kiwix Website.lnk"
+
+	RMDir /R "$SMPROGRAMS\kiwix"
+	RMDir /R "$INSTDIR"
+	DeleteRegKey ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}"
+
+	SetAutoClose true
+FunctionEnd
+
 ; Triggered by welcome page leaving
 Function .onWelcomePageLeave
   !insertmacro INSTALLOPTIONS_READ $R0 "kiwix-install.ini" "Settings" "State"
@@ -204,6 +221,13 @@ Function shouldSkipPage
     StrCpy $R0 1
   ${EndIf}
   Exch $R0
+FunctionEnd
+
+; Customize the instFile page
+; Able the Cancel button
+Function .onInstFilesShow
+  GetDlgItem $0 $HWNDPARENT 2
+  EnableWindow $0 1
 FunctionEnd
 
 Function isEnoughDisqueSpace
