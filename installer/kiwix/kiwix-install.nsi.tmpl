@@ -236,10 +236,11 @@ Function .onInstFilesShow
 FunctionEnd
 
 Function isEnoughDisqueSpace
-  StrCpy $0 "$INSTDIR" ; check how much free space is left for the path C:\Windows
+  StrCpy $0 "$INSTDIR" 
   Call FreeDiskSpace
 
   StrCpy $2 $CONTENTSIZE ; Free space required by you (in kb)
+
   System::Int64Op $1 > $2 ; Compare the space required and the space available
   Pop $3 ; Get the result ...
  
@@ -314,8 +315,18 @@ FunctionEnd
 ; $1 - Return value, free space in kb
 function FreeDiskSpace
   System::Call '${sysGetDiskFreeSpaceEx}(r0,.,,.r1)'
+
+  ${If} $1 == 0
+    GetDlgItem $R0 $HWNDPARENT 1
+    SendMessage $R0 ${WM_SETTEXT} 0 "STR:OK"
+    CreateDirectory $0
+    System::Call '${sysGetDiskFreeSpaceEx}(r0,.,,.r1)'
+    RMDir $0
+  ${EndIf}
+
   ; convert the large integer byte values into managable kb
   System::Int64Op $1 / 1024
+
   ; Return the free space
   Pop $1
 functionend
