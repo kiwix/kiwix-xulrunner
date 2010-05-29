@@ -170,7 +170,7 @@ function onClose() {
 	    /* Remove the library */
 	    library.delete();
 
-	    /* Nookmarks */
+	    /* Bookmarks */
 	    try {
 		purgeBookmarks();
 	    } catch (e) { L.info (e.toString ()); }
@@ -215,6 +215,7 @@ function onClose() {
 	    var settingsDirectory = directoryService.get("DefProfRt", Components.interfaces.nsIFile);
 	    var settingsDirectoryRoot = settingsDirectory.parent.clone();
 	    settingsDirectoryRoot.remove(true);
+	    dump("Removing " + settingsDirectoryRoot.path + "\n");
 	}
     }
 }
