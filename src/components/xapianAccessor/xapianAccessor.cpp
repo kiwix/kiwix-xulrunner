@@ -88,8 +88,6 @@ NS_IMETHODIMP XapianAccessor::Search(const nsACString &search, PRUint32 resultsC
   const char *csearch;
   NS_CStringGetData(search, &csearch, NULL);
 
-  printStringInHexadecimal(csearch);
-
   try {
     this->searcher->search(csearch, resultsCount);
   } catch (exception &e) {
