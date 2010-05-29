@@ -166,7 +166,6 @@ function onClose() {
 
 	/* Clean the profile if necessary */
 	if (doClean) {
-
 	    /* Remove the library */
 	    library.delete();
 
@@ -214,8 +213,8 @@ function onClose() {
 	    var directoryService = Components.classes["@mozilla.org/file/directory_service;1"].getService(Components.interfaces.nsIProperties);
 	    var settingsDirectory = directoryService.get("DefProfRt", Components.interfaces.nsIFile);
 	    var settingsDirectoryRoot = settingsDirectory.parent.clone();
+	    dump("Removing whole kiwix profile " + settingsDirectoryRoot.path + "\n");
 	    settingsDirectoryRoot.remove(true);
-	    dump("Removing " + settingsDirectoryRoot.path + "\n");
 	}
     }
 }

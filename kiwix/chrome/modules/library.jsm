@@ -70,7 +70,12 @@ let library = {
 	var settingsDirectory = directoryService.get("PrefD", Components.interfaces.nsIFile);
 	settingsDirectory.append("library.xml");
 	var libraryFile = settingsDirectory.clone();
-	libraryFile.remove(false);
+
+        try {
+	  libraryFile.remove(false);
+	} catch(err) {
+	  dump("Unable to remove library file " + libraryFile.path + " : " + err.toString() + "\n");
+        }
     },
     
     /* Destructor */
