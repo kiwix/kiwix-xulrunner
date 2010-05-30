@@ -58,9 +58,9 @@ follow the steps in the given order.
 
 == Run ==
 
-* Copy the following files from c:\Qt\2010.01\bin to your
-  "autorun/release" directory: QtGui4.dll, mingwm10.dll, QtCore4.dll
-  and libgcc_s_dw2-1.dll
+* Copy the following files from c:\Qt\2010.01\qt\bin to your
+  "autorun/release" directory: QtGui4.dll, QtCore4.dll and also
+  mingwm10.dll and libgcc_s_dw2-1.dll from c:\Qt\1010.01\minw\bin
 
 * Click on the "autorun/autorun.exe" binary and it should work.
 
