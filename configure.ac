@@ -97,7 +97,7 @@ then
 			LIBXUL_CFLAGS=`pkg-config --cflags libxul`
 			LIBXUL_LDFLAGS=`pkg-config --libs libxul`		
 		else
-			AC_MSG_ERROR([[cannot find libxul]])
+			AC_MSG_ERROR([[cannot find libxul (the file libxul.pc is missing)]])
 		fi
 
 		# Gecko paths
@@ -121,7 +121,7 @@ then
 	then 
 		AC_PATH_PROG([XPIDL], "xpidl", [],  $XPIDL_PATH)
 	else
-		AC_MSG_ERROR([[cannot find xpidl]])
+		AC_MSG_ERROR([[cannot find the xpidl binary]])
 	fi
 
 	# Configuration for alternative zlib location
