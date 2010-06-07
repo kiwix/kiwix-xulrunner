@@ -20,7 +20,6 @@ all-local: ./kiwix/components/xapianAccessor.so \
 	./kiwix/components/zimAccessor.xpt \
 	./kiwix/components/zimXapianIndexer.so \
 	./kiwix/components/zimXapianIndexer.xpt
-	
 
 dist-hook:
 	rm -rf `find . -name "*.svn" -o -name "*.dat" -o -name "*~" -o -name "*#"`
@@ -49,6 +48,7 @@ uninstall:
 	rm -rf ${DESTDIR}/${prefix}/lib/kiwix
 	rm -f ${DESTDIR}/${prefix}/bin/kiwix
 	rm -f ${DESTDIR}/${prefix}/bin/kiwix-compact
+	rm -f ${DESTDIR}/${prefix}/bin/kiwix-serve
 
 ./kiwix/components/xapianAccessor.so: 
 	ln -f -s ../../src/components/xapianAccessor/.libs/libXapianAccessor.so ./kiwix/components/xapianAccessor.so
