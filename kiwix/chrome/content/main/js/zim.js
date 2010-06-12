@@ -36,12 +36,6 @@ function getCurrentZimFileHomePageUrl() {
 	if (url.value != undefined && url.value != '') {
 	    return "zim://" + url.value;
 	}
-
-	/* Otherwise resturn the first page */
-	var content = new Object();
-	currentZimAccessor.reset();
-	currentZimAccessor.getNextArticle(url, content);
-	homePageUrl = "zim://" + url.value;
     }
 
     return homePageUrl;
