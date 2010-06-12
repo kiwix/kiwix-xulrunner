@@ -137,10 +137,8 @@ NS_IMETHODIMP ZimAccessor::GetMainPageUrl(nsACString &url, PRBool *retVal) {
 
       if (urlstr.empty()) {
 	urlstr = this->reader->getFirstPageUrl(); 
-	std::cout << "Welcome page: " <<  urlstr << std::endl;
       }
 
-      std::cout << "Welcome page: " <<  urlstr << std::endl;
       url = nsDependentCString(urlstr.c_str(), urlstr.size());
       *retVal = PR_TRUE;
     }
