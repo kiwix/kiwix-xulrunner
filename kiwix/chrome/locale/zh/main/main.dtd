@@ -12,7 +12,7 @@
 <!ENTITY main.saveFile.accesskey      "S">
 <!ENTITY main.print                   "打印...">
 <!ENTITY main.print.accesskey         "P">
-<!ENTITY main.printPdf                "Print as PDF">
+<!ENTITY main.printPdf                "打印成pdf">
 <!ENTITY main.printPdf.accesskey      "D">
 <!ENTITY main.quit                    "退出">
 <!ENTITY main.quit.accesskey          "Q">
