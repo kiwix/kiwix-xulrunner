@@ -1,3 +1,6 @@
+Kiwix 0.9 beta1
+* kiwix-serve supports the inflate/deflate compression for text/html
+
 Kiwix 0.9 alpha4
 * Fix a bug (regression) if no welcome page in the ZIM
 * Introduce the kiwix-debug.bat for Windows
