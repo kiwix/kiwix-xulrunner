@@ -204,7 +204,7 @@ function openSearchIndex(path) {
 }
 
 /* Search a pattern in the index */
-function searchInIndex(query, xapianDirectory) {
+function searchInIndex(query, xapianDirectory, loadFirstResult) {
     /* Empty the results list */
     emptyResultsList();
 
@@ -241,7 +241,7 @@ function searchInIndex(query, xapianDirectory) {
 	var firstScore = results[0][2];
 
 	/* Display the first result if the search pattern eq to the first result */
-	if (query.toLowerCase() == firstTitle.toLowerCase()) {
+	if (loadFirstResult == true && query.toLowerCase() == firstTitle.toLowerCase()) {
 	    loadContent("zim://" + firstUrl);
 	}
 
@@ -252,7 +252,7 @@ function searchInIndex(query, xapianDirectory) {
 	    var distance = computeLevenshteinDistance(query.toLowerCase(), 
 						      firstTitle.toLowerCase());
 	    var threshold = query.length;
-	    if (distance < threshold) {
+	    if (loadFirstResult == true && distance < threshold) {
 		loadContent("zim://" + firstUrl);
 	    }
 
@@ -260,14 +260,15 @@ function searchInIndex(query, xapianDirectory) {
 	    else if (results.length > 1) {
 		var secondTitle = results[1][1];
 		
-		if (firstTitle.toLowerCase().indexOf(query.toLowerCase()) > -1 &&
+		if (loadFirstResult == true &&
+		    firstTitle.toLowerCase().indexOf(query.toLowerCase()) > -1 &&
 		    secondTitle.toLowerCase().indexOf(query.toLowerCase()) == -1) {
 		    loadContent("zim://" + firstUrl);
 		}
 	    }
 
 	    /* If only one result load it */
-	    else {
+	    else if (loadFirstResult == true) {
 		loadContent("zim://" + firstUrl);
 	    }
 	}
@@ -277,7 +278,9 @@ function searchInIndex(query, xapianDirectory) {
 	for (var index=0; index<results.length; index++) {
 	    addResultToList(results[index][0], results[index][1], results[index][2]);
 	};
-    } else {
+    } 
+
+    if (results.length == 0 && loadFirstResult == true) {
 	displayErrorDialog(getProperty("noResultsError"), getProperty("information"));
     }	
     
@@ -286,19 +289,20 @@ function searchInIndex(query, xapianDirectory) {
 }
 
 /* Function called by clicking on the search button */
-function manageSearchInIndex() {
+function manageSearchInIndex(event) {
     var stringToSearch = getSearchBox().value.toLowerCase();
 
-    if (stringToSearch == "") {
-	displayErrorDialog(getProperty("emptySearchStringError"));
-    } else {
+    if (stringToSearch != "") {
 	/* Make the search and display results */
 	var currentBook = library.getCurrentBook();
-	searchInIndex(stringToSearch, currentBook.indexPath);
-    }
 
-    /* Clear search textbox */
-    getSearchBox().value = "";
+	if (event.keyCode != 13) {
+	    searchInIndex(stringToSearch, currentBook.indexPath, false);
+	} else {
+	    searchInIndex(stringToSearch, currentBook.indexPath, true);
+	    getSearchBox().value = "";
+	}
+    }
 
     return true;
 }

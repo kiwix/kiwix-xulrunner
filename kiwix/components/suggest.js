@@ -5,23 +5,12 @@ const Cg=Ci.nsIComponentRegistrar;
 const g=Cc.ID("7f7984b9-acc4-4da9-a159-c378fdca4f46");
 const max=5;
 
+var lastSearchString="";
+
 function gS(){};
 gS.prototype={
 
     startSearch:function(searchString, searchParam, result, listener) {
-	var j=this;
-
-	/* load the zim file if necessary */
-	var zimAccessor = Components.classes["@kiwix.org/zimAccessor"].getService();
-	var zimAccessor = zimAccessor.QueryInterface(Components.interfaces.IZimAccessor);
-	var r=[];
-	
-	/* Build the result array */
-	zimAccessor.searchSuggestions(searchString, 50);
-	var title = new Object();
-	while (zimAccessor.getNextSuggestion(title)) {
-	    r.push(title.value); 
-	}
 
 	function ucFirst(str) {
 	    if (str.length > 0) {
@@ -39,6 +28,27 @@ gS.prototype={
 	    }
 	}
 
+	var j=this;
+
+	/* load the zim file if necessary */
+	var zimAccessor = Components.classes["@kiwix.org/zimAccessor"].getService();
+	var zimAccessor = zimAccessor.QueryInterface(Components.interfaces.IZimAccessor);
+	var r=[];
+	
+	/* Build the result array */
+	zimAccessor.searchSuggestions(searchString, 50);
+	var title = new Object();
+	while (zimAccessor.getNextSuggestion(title)) {
+	    r.push(title.value); 
+	}
+
+	/* Check if equal to lastSearchString */
+	if (searchString == lastSearchString) {
+	    return;
+	} else {
+	    lastSearchString = searchString;
+	}
+
 	/* Check with lowercase or uppercase if we have space left in the result array */
 	if (r.length < 50) {
 	    if (ucFirst(searchString) == searchString) {
@@ -46,9 +56,15 @@ gS.prototype={
 	    } else {
 		zimAccessor.searchSuggestions(ucFirst(searchString), 50 - r.length);
 	    }
+
 	    var title = new Object();
 	    while (zimAccessor.getNextSuggestion(title)) {
-		r.push(title.value); 
+		for (i=0; i<r.length; i++) {
+		    if (r[0] != title.value) {
+			r.push(title.value); 
+			i = r.length;
+		    }
+		}
 	    }
 	}
 

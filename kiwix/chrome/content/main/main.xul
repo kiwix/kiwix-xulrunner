@@ -156,7 +156,7 @@
     <stack flex="1">
       <hbox>
 	<textbox id="textbox-search" flex="1" tooltiptext="&main.searchBar;"
-		 ontextentered="manageSearchInIndex()"
+		 onkeyup="manageSearchInIndex(event)"
 		 type="autocomplete" autocompletesearch="kiwix-suggest"
 		 />
 	<toolbarbutton id="button-search" onclick="manageSearchInIndex()" tooltiptext="&main.search;" />
