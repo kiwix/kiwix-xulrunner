@@ -1,5 +1,6 @@
-Kiwix 0.9 beta1
+Kiwix 0.9 alpha5
 * kiwix-serve supports the inflate/deflate compression for text/html
+* Fix bug in the search query tokenizer impact massively Malayalam
 
 Kiwix 0.9 alpha4
 * Fix a bug (regression) if no welcome page in the ZIM
