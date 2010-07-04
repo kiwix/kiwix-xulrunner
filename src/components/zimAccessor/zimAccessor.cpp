@@ -149,6 +149,25 @@ NS_IMETHODIMP ZimAccessor::GetMainPageUrl(nsACString &url, PRBool *retVal) {
   return NS_OK;
 }
 
+/* Get a metatag value */
+NS_IMETHODIMP ZimAccessor::GetMetatag(const nsACString &name, 
+				      nsACString &value, PRBool *retVal ) {
+  const char *cname;
+  NS_CStringGetData(name, &cname);
+  string valueStr;
+  
+  try {
+    if (this->reader->getMetatag(cname, valueStr)) {
+	value = nsDependentCString(valueStr.data(), valueStr.size()); 
+	*retVal = PR_TRUE;
+    }
+  } catch (exception &e) {
+    cerr << e.what() << endl;
+  }
+  
+  return NS_OK;
+}
+
 /* Get a content from a zim file */
 NS_IMETHODIMP ZimAccessor::GetContent(nsIURI *urlObject, nsACString &content, PRUint32 *contentLength, 
 				      nsACString &contentType, PRBool *retVal) {
