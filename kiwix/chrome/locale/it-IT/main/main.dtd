@@ -5,27 +5,29 @@
 <!-- File menu -->
 <!ENTITY main.file                    "File">
 <!ENTITY main.file.accesskey          "F">
-<!ENTITY main.openFile                "Apri...">
-<!ENTITY main.openFile.accesskey      "A">
-<!ENTITY main.lastOpen                "Recently open...">
-<!ENTITY main.saveFile                "Save Page as...">
-<!ENTITY main.saveFile.accesskey      "S">
-<!ENTITY main.print                   "Stampa">
-<!ENTITY main.print.accesskey         "m">
-<!ENTITY main.printPdf                "Print as PDF">
-<!ENTITY main.printPdf.accesskey      "D">
-<!ENTITY main.quit                    "Esci">
-<!ENTITY main.quit.accesskey          "E">
+<!ENTITY main.openFile                  "Apri...">
+<!ENTITY main.openFile.accesskey        "A">
+<!ENTITY main.lastOpen                  "Recently open...">
+<!ENTITY main.saveFile                  "Save Page as...">
+<!ENTITY main.saveFile.accesskey        "S">
+<!ENTITY main.print                     "Stampa">
+<!ENTITY main.print.accesskey           "m">
+<!ENTITY main.printPdf                  "Print as PDF">
+<!ENTITY main.printPdf.accesskey        "D">
+<!ENTITY main.quit                      "Esci">
+<!ENTITY main.quit.accesskey            "E">
 
 <!-- Edit menu -->
-<!ENTITY main.edit                    "Modifica">
-<!ENTITY main.edit.accesskey          "M">
-<!ENTITY main.find                    "Trova nella pagina...">
-<!ENTITY main.find.accesskey          "v">
-<!ENTITY main.selectall               "Seleziona tutto">
-<!ENTITY main.selectall.accesskey     "a">
-<!ENTITY main.copy                    "Copia">
-<!ENTITY main.copy.accesskey          "p">
+<!ENTITY main.edit                      "Modifica">
+<!ENTITY main.edit.accesskey            "M">
+<!ENTITY main.find                      "Trova nella pagina...">
+<!ENTITY main.find.accesskey            "v">
+<!ENTITY main.selectall                 "Seleziona tutto">
+<!ENTITY main.selectall.accesskey       "a">
+<!ENTITY main.copy                      "Copia">
+<!ENTITY main.copy.accesskey            "p">
+<!ENTITY main.transliteration           "Transliteration">
+<!ENTITY main.transliteration.accesskey "T">
 
 <!-- Display menu -->
 <!ENTITY main.display                 "Visualizza">

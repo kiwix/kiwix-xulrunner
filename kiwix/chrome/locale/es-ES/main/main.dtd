@@ -5,27 +5,29 @@
 <!-- File menu -->
 <!ENTITY main.file                    "Archivo">
 <!ENTITY main.file.accesskey          "A">
-<!ENTITY main.openFile                "Abrir...">
-<!ENTITY main.openFile.accesskey      "A">
-<!ENTITY main.lastOpen                "Recientemente abiertos...">
-<!ENTITY main.saveFile                "Guardar página como...">
-<!ENTITY main.saveFile.accesskey      "S">
-<!ENTITY main.print                   "Imprimir...">
-<!ENTITY main.print.accesskey         "I">
-<!ENTITY main.printPdf                "Print as PDF">
-<!ENTITY main.printPdf.accesskey      "D">
-<!ENTITY main.quit                    "Salir">
-<!ENTITY main.quit.accesskey          "S">
+<!ENTITY main.openFile                  "Abrir...">
+<!ENTITY main.openFile.accesskey        "A">
+<!ENTITY main.lastOpen                  "Recientemente abiertos...">
+<!ENTITY main.saveFile                  "Guardar página como...">
+<!ENTITY main.saveFile.accesskey        "S">
+<!ENTITY main.print                     "Imprimir...">
+<!ENTITY main.print.accesskey           "I">
+<!ENTITY main.printPdf                  "Print as PDF">
+<!ENTITY main.printPdf.accesskey        "D">
+<!ENTITY main.quit                      "Salir">
+<!ENTITY main.quit.accesskey            "S">
 
 <!-- Edit menu -->
-<!ENTITY main.edit                    "Editar">
-<!ENTITY main.edit.accesskey          "E">
-<!ENTITY main.find                    "Buscar en página...">
-<!ENTITY main.find.accesskey          "u">
-<!ENTITY main.selectall               "Seleccionar todo">
-<!ENTITY main.selectall.accesskey     "a">
-<!ENTITY main.copy                    "Copiar">
-<!ENTITY main.copy.accesskey          "C">
+<!ENTITY main.edit                      "Editar">
+<!ENTITY main.edit.accesskey            "E">
+<!ENTITY main.find                      "Buscar en página...">
+<!ENTITY main.find.accesskey            "u">
+<!ENTITY main.selectall                 "Seleccionar todo">
+<!ENTITY main.selectall.accesskey       "a">
+<!ENTITY main.copy                      "Copiar">
+<!ENTITY main.copy.accesskey            "C">
+<!ENTITY main.transliteration           "Transliteration">
+<!ENTITY main.transliteration.accesskey "T">
 
 <!-- Display menu -->
 <!ENTITY main.display                 "Pantalla">

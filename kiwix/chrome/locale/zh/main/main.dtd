@@ -5,27 +5,29 @@
 <!-- File menu -->
 <!ENTITY main.file                    "文件">
 <!ENTITY main.file.accesskey          "F">
-<!ENTITY main.openFile                "打开文件...">
-<!ENTITY main.openFile.accesskey      "O">
-<!ENTITY main.lastOpen                "最近打开文件...">
-<!ENTITY main.saveFile                "页面保存为...">
-<!ENTITY main.saveFile.accesskey      "S">
-<!ENTITY main.print                   "打印...">
-<!ENTITY main.print.accesskey         "P">
-<!ENTITY main.printPdf                "打印成pdf">
-<!ENTITY main.printPdf.accesskey      "D">
-<!ENTITY main.quit                    "退出">
-<!ENTITY main.quit.accesskey          "Q">
+<!ENTITY main.openFile                  "打开文件...">
+<!ENTITY main.openFile.accesskey        "O">
+<!ENTITY main.lastOpen                  "最近打开文件...">
+<!ENTITY main.saveFile                  "页面保存为...">
+<!ENTITY main.saveFile.accesskey        "S">
+<!ENTITY main.print                     "打印...">
+<!ENTITY main.print.accesskey           "P">
+<!ENTITY main.printPdf                  "打印成pdf">
+<!ENTITY main.printPdf.accesskey        "D">
+<!ENTITY main.quit                      "退出">
+<!ENTITY main.quit.accesskey            "Q">
 
 <!-- Edit menu -->
-<!ENTITY main.edit                    "编辑">
-<!ENTITY main.edit.accesskey          "E">
-<!ENTITY main.find                    "在页面中搜索...">
-<!ENTITY main.find.accesskey          "S">
-<!ENTITY main.selectall               "全选">
-<!ENTITY main.selectall.accesskey     "a">
-<!ENTITY main.copy                    "复制">
-<!ENTITY main.copy.accesskey          "p">
+<!ENTITY main.edit                      "编辑">
+<!ENTITY main.edit.accesskey            "E">
+<!ENTITY main.find                      "在页面中搜索...">
+<!ENTITY main.find.accesskey            "S">
+<!ENTITY main.selectall                 "全选">
+<!ENTITY main.selectall.accesskey       "a">
+<!ENTITY main.copy                      "复制">
+<!ENTITY main.copy.accesskey            "p">
+<!ENTITY main.transliteration           "Transliteration">
+<!ENTITY main.transliteration.accesskey "T">
 
 <!-- Display menu -->
 <!ENTITY main.display                 "显示">

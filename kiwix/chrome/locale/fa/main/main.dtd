@@ -5,27 +5,29 @@
 <!-- File menu -->
 <!ENTITY main.file                    "فایل">
 <!ENTITY main.file.accesskey          "F">
-<!ENTITY main.openFile                "...باز کردن فایل">
-<!ENTITY main.openFile.accesskey      "O">
-<!ENTITY main.lastOpen                "اخیرا باز شده...">
-<!ENTITY main.saveFile                "ذخیره صفحه به عنوان...">
-<!ENTITY main.saveFile.accesskey      "S">
-<!ENTITY main.print                   "پرینت">
-<!ENTITY main.print.accesskey         "P">
-<!ENTITY main.printPdf                "Print as PDF">
-<!ENTITY main.printPdf.accesskey      "D">
-<!ENTITY main.quit                    "خروج">
-<!ENTITY main.quit.accesskey          "Q">
+<!ENTITY main.openFile                  "...باز کردن فایل">
+<!ENTITY main.openFile.accesskey        "O">
+<!ENTITY main.lastOpen                  "اخیرا باز شده...">
+<!ENTITY main.saveFile                  "ذخیره صفحه به عنوان...">
+<!ENTITY main.saveFile.accesskey        "S">
+<!ENTITY main.print                     "پرینت">
+<!ENTITY main.print.accesskey           "P">
+<!ENTITY main.printPdf                  "Print as PDF">
+<!ENTITY main.printPdf.accesskey        "D">
+<!ENTITY main.quit                      "خروج">
+<!ENTITY main.quit.accesskey            "Q">
 
 <!-- Edit menu -->
-<!ENTITY main.edit                    "ویرایش">
-<!ENTITY main.edit.accesskey          "E">
-<!ENTITY main.find                    "...جستجو در صفحه">
-<!ENTITY main.find.accesskey          "S">
-<!ENTITY main.selectall               "انتخاب همه">
-<!ENTITY main.selectall.accesskey     "a">
-<!ENTITY main.copy                    "کپی">
-<!ENTITY main.copy.accesskey          "p">
+<!ENTITY main.edit                      "ویرایش">
+<!ENTITY main.edit.accesskey            "E">
+<!ENTITY main.find                      "...جستجو در صفحه">
+<!ENTITY main.find.accesskey            "S">
+<!ENTITY main.selectall                 "انتخاب همه">
+<!ENTITY main.selectall.accesskey       "a">
+<!ENTITY main.copy                      "کپی">
+<!ENTITY main.copy.accesskey            "p">
+<!ENTITY main.transliteration           "Transliteration">
+<!ENTITY main.transliteration.accesskey "T">
 
 <!-- Display menu -->
 <!ENTITY main.display                 "نمایش">

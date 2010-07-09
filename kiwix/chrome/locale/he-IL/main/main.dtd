@@ -5,27 +5,29 @@
 <!-- File menu -->
 <!ENTITY main.file                    "קובץ">
 <!ENTITY main.file.accesskey          "F">
-<!ENTITY main.openFile                "פתיחת קובץ...">
-<!ENTITY main.openFile.accesskey      "O">
-<!ENTITY main.lastOpen                "Recently open...">
-<!ENTITY main.saveFile                "שמירת דף בשם...">
-<!ENTITY main.saveFile.accesskey      "S">
-<!ENTITY main.print                   "הדפסה">
-<!ENTITY main.print.accesskey         "P">
-<!ENTITY main.printPdf                "Print as PDF">
-<!ENTITY main.printPdf.accesskey      "D">
-<!ENTITY main.quit                    "יציאה">
-<!ENTITY main.quit.accesskey          "Q">
+<!ENTITY main.openFile                  "פתיחת קובץ...">
+<!ENTITY main.openFile.accesskey        "O">
+<!ENTITY main.lastOpen                  "Recently open...">
+<!ENTITY main.saveFile                  "שמירת דף בשם...">
+<!ENTITY main.saveFile.accesskey        "S">
+<!ENTITY main.print                     "הדפסה">
+<!ENTITY main.print.accesskey           "P">
+<!ENTITY main.printPdf                  "Print as PDF">
+<!ENTITY main.printPdf.accesskey        "D">
+<!ENTITY main.quit                      "יציאה">
+<!ENTITY main.quit.accesskey            "Q">
 
 <!-- Edit menu -->
-<!ENTITY main.edit                    "עריכה">
-<!ENTITY main.edit.accesskey          "E">
-<!ENTITY main.find                    "חיפוש בדף...">
-<!ENTITY main.find.accesskey          "S">
-<!ENTITY main.selectall               "בחר הכול">
-<!ENTITY main.selectall.accesskey     "a">
-<!ENTITY main.copy                    "העתקה">
-<!ENTITY main.copy.accesskey          "p">
+<!ENTITY main.edit                      "עריכה">
+<!ENTITY main.edit.accesskey            "E">
+<!ENTITY main.find                      "חיפוש בדף...">
+<!ENTITY main.find.accesskey            "S">
+<!ENTITY main.selectall                 "בחר הכול">
+<!ENTITY main.selectall.accesskey       "a">
+<!ENTITY main.copy                      "העתקה">
+<!ENTITY main.copy.accesskey            "p">
+<!ENTITY main.transliteration           "Transliteration">
+<!ENTITY main.transliteration.accesskey "T">
 
 <!-- Display menu -->
 <!ENTITY main.display                 "תצוגה">
