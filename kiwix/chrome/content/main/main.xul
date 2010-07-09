@@ -91,6 +91,10 @@
 		accesskey="&main.selectall.accesskey;" oncommand="selectAll()"/>
       <menuitem id="edit-copy" label="&main.copy;" key="copy-key" class="menuitem-iconic"
 		accesskey="&main.copy.accesskey;" oncommand="copySelectedContent()"/>
+      <menu label="&main.transliteration;" accesskey="&main.transliteration.accesskey;">
+	<menupopup id="menu-transliterations">
+	</menupopup>
+      </menu>
     </menupopup>
   </menu>
   <menu id="menu-display" label="&main.display;" accesskey="&main.display.accesskey;">
