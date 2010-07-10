@@ -59,11 +59,17 @@ gS.prototype={
 
 	    var title = new Object();
 	    while (zimAccessor.getNextSuggestion(title)) {
+		var present = false;
 		for (i=0; i<r.length; i++) {
-		    if (r[0] != title.value) {
-			r.push(title.value); 
-			i = r.length;
+		    if (r[0] == title.value) {
+			i = r.length +1;
+			present = true;
 		    }
+		}
+
+		if (present == false) {
+		    r.push(title.value); 
+		    i = r.length;
 		}
 	    }
 	}
