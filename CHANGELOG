@@ -1,3 +1,7 @@
+Kiwix 0.9 alpha6
+* Fix a regression bug impacting the case insensitive (first character only) suggestion
+* Fix a bug in kiwix-serve impacting search results with titles including (non-escaped) special characters
+
 Kiwix 0.9 alpha5
 * kiwix-serve supports the inflate/deflate compression for text/html
 * Fix bug in the search query tokenizer impact massively Malayalam
