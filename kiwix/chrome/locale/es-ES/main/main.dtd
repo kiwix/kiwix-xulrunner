@@ -12,7 +12,7 @@
 <!ENTITY main.saveFile.accesskey        "S">
 <!ENTITY main.print                     "Imprimir...">
 <!ENTITY main.print.accesskey           "I">
-<!ENTITY main.printPdf                  "Print as PDF">
+<!ENTITY main.printPdf                  "Imprimir como PDF">
 <!ENTITY main.printPdf.accesskey        "D">
 <!ENTITY main.quit                      "Salir">
 <!ENTITY main.quit.accesskey            "S">
@@ -26,7 +26,7 @@
 <!ENTITY main.selectall.accesskey       "a">
 <!ENTITY main.copy                      "Copiar">
 <!ENTITY main.copy.accesskey            "C">
-<!ENTITY main.transliteration           "Transliteration">
+<!ENTITY main.transliteration           "Transcripción">
 <!ENTITY main.transliteration.accesskey "T">
 
 <!-- Display menu -->
@@ -58,8 +58,8 @@
 <!-- Help menu -->
 <!ENTITY main.help                    "Ayuda">
 <!ENTITY main.help.accesskey          "y">
-<!ENTITY main.reportabug              "Report a bug">
-<!ENTITY main.requestafeature         "Request a feature">
+<!ENTITY main.reportabug              "Reportar un bug">
+<!ENTITY main.requestafeature         "Solicitar una característica">
 <!ENTITY main.about                   "Acerca de &brand.brandShortName;">
 <!ENTITY main.about.accesskey         "A">
 
