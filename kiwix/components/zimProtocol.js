@@ -43,7 +43,7 @@ ZimprotocolHandler.prototype = {
 	    }
 	} 
 	
-	uri.spec = uri.spec.replace(/\+/g, "%2B");
+	uri.spec = uri.spec.replace(/\+/g, "%20");
 	return uri;
     },
     
@@ -147,7 +147,7 @@ PipeChannel.prototype = {
 	if (uri.spec.indexOf("#") != -1) {
 	    uri.spec = uri.spec.substr(0, uri.spec.indexOf("#"));
 	}
-	
+
 	var content = new Object();
 	var contentLength = new Object();
 	var contentType = new Object();
