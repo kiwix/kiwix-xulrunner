@@ -26,7 +26,7 @@
 <!ENTITY main.selectall.accesskey       "a">
 <!ENTITY main.copy                      "复制">
 <!ENTITY main.copy.accesskey            "p">
-<!ENTITY main.transliteration           "Transliteration">
+<!ENTITY main.transliteration           "音译">
 <!ENTITY main.transliteration.accesskey "T">
 
 <!-- Display menu -->
