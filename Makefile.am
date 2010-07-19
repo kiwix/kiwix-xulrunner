@@ -12,7 +12,11 @@ CLEANFILES= \
 	./kiwix/components/zimAccessor.so \
 	./kiwix/components/zimAccessor.xpt \
 	./kiwix/components/zimXapianIndexer.so \
-	./kiwix/components/zimXapianIndexer.xpt
+	./kiwix/components/zimXapianIndexer.xpt \
+	./kiwix*.deb \
+	./kiwix*.tar.gz \
+	./kiwix*.changes \
+	./kiwix*.dsc
 
 all-local: ./kiwix/components/xapianAccessor.so \
 	./kiwix/components/xapianAccessor.xpt \
