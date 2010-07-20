@@ -1,7 +1,7 @@
 Source: kiwix
 Section: misc
 Priority: optional
-Maintainer: Emmanuel Engelhart <kelson@kiwix.org>
+Maintainer: Jorge Gonzalez <jag2kn@gmail.com>
 Build-Depends: binutils,
 	debhelper,
 	g++,
@@ -35,5 +35,7 @@ Conflicts:
 Replaces: 
 Provides: 
 Section: misc
-Description: ZIM file reader. Allows to read and search through
- offline content in ZIM format, like Wikipedia for example.
+Description: Wikipedia offline reader
+  Kiwix allows you to read and search through offline content
+  as they were online. Similar to a browser, Kiwix works with
+  the highly compressed ZIM file format.
