@@ -13,7 +13,8 @@ Build-Depends: binutils,
 	m4,
 	zlib1g-dev,
 	libmicrohttpd-dev,
-	libtool
+	libtool,
+	python-support
 Standards-Version: 0.9
 
 Package: kiwix
