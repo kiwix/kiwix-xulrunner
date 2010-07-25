@@ -167,7 +167,7 @@ then
 		then
 			ICU_VER=`$ICU_CONFIG --version`
 
-			if [[ `icu-config --version` < "4.2" ]]
+			if [[ `icu-config --version` \< "4.2" ]]
 			then 
 			     AC_MSG_ERROR([[You need a version of libicu >= 4.2]])
 			fi
