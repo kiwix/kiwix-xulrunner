@@ -3,6 +3,7 @@ Kiwix 0.9 alpha6
 * Fix a bug in kiwix-serve impacting search results with titles including (non-escaped) special characters
 * Add the --versbose|-v to kiwix-index
 * Add a stub HTML header&footer in case of the article do not have a <body> (ID: 3030608)
+* Fix a bug in the ./configure libicu version checking (ID: 3034150)
 
 Kiwix 0.9 alpha5
 * kiwix-serve supports the inflate/deflate compression for text/html
