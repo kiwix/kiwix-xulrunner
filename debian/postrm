@@ -1,3 +1,1 @@
 #!/bin/bash
-
-rm -rf /usr/lib/kiwix
