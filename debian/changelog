@@ -1,3 +1,13 @@
+kiwix (0.9-alpha5) lucid; urgency=low
+
+  * Fix a regression bug impacting the case insensitive (first character only) suggestion
+  * Fix a bug in kiwix-serve impacting search results with titles including (non-escaped) special characters
+  * Add the --versbose|-v to kiwix-index
+  * Add a stub HTML header&footer in case of the article do not have a <body> (ID: 3030608)
+  * Fix a bug in the ./configure libicu version checking (ID: 3034150)
+
+ -- Emmanuel Engelhart <kelson@kiwix.org> Mon, 26 Jul 2010 21:39:00 +0200
+
 kiwix (0.9-3) lucid; urgency=low
 
   * Fix Build-Depends.
