@@ -1,3 +1,9 @@
+kiwix (0.9-alpha5.1) lucid; urgency=low
+
+  * Fix a bug in the debian/posrtrm script (ID: 3035092)
+
+ -- Emmanuel Engelhart <kelson@kiwix.org> Mon, 27 Jul 2010 11:44:00 +0200
+
 kiwix (0.9-alpha5) lucid; urgency=low
 
   * Fix a regression bug impacting the case insensitive (first character only) suggestion
