@@ -44,7 +44,8 @@ then
   AC_PROG_MAKE_SET
 
   # default $CPPFLAGS and $LDFLAGS
-  CPPFLAGS=""
+  # CLucene has headers in /usr/lib
+  CPPFLAGS="-I/usr/lib"
   CFLAGS="-O6"
   LDFLAGS=""
   LIBS=""
@@ -153,7 +154,7 @@ then
 	LIBBZ2_LDFLAGS="${LIBBZ2_LDFLAGS} -lbz2"
 
 	# Configure for libicu
-	AC_ARG_WITH(icu, [  --with-icu=DIR         alternate location for icu library],
+	AC_ARG_WITH(icu, [  --with-icu=DIR          alternate location for icu library],
 		  LIBICU_PATH=`cd ${withval}; pwd`; CPPFLAGS="${LIBICU_PATH}"; LDFLAGS="${LDFLAGS}")
 
 	if test [ "$LIBICU_PATH" ]
@@ -177,6 +178,34 @@ then
 		else
 			AC_MSG_ERROR([[cannot find icu-config]])
 		fi
+	fi
+
+	# Configuration for alternative libclucene location
+	AC_ARG_WITH(clucene, [  --with-clucene=DIR      alternate location for the clucene library], WITH_CLUCENE="${withval}")
+
+	if [[ "$WITH_CLUCENE" = "yes" ]]
+	then
+		LIBCLUCENE_PATH=`pwd`
+	elif [[ "$WITH_CLUCENE" = "no" ]] || [[ "$WITH_CLUCENE" = "" ]]
+	then
+		LIBCLUCENE_PATH=""
+	else
+		LIBCLUCENE_PATH=`cd ${withval}./ ; pwd`
+		CPPFLAGS="${LIBCLUCENE_PATH}"
+		LDFLAGS="${LDFLAGS}"
+	fi
+
+	# Check the libmicrohttpd
+	if test [ "$LIBCLUCENE_PATH" ]
+	then
+		AC_CHECK_HEADER([CLucene.h], , [AC_MSG_ERROR([[cannot find clucene header]])])
+		AC_CHECK_LIB([clucene], [open],, [AC_MSG_ERROR([[cannot find clucene]])])
+		if test [ "$LIBCLUCENE_PATH" ]
+		then
+			LIBCLUCENE_CFLAGS="-I${LIBCLUCENE_PATH}"
+			LIBCLUCENE_LDFLAGS="-L${LIBCLUCENE_PATH}"
+		fi
+		LIB_LDFLAGS="${LIBCLUCENE_LDFLAGS} -lclucene"
 	fi
 
 	# Configuration for alternative xapianlib location
@@ -208,7 +237,6 @@ then
 	LIBMICROHTTPD_LDFLAGS="${LIBMICROHTTPD_LDFLAGS} -lmicrohttpd"
 
 	# Check the libmicrohttpd version
-
 	AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[
 					#include <stdint.h>
 		    		       	#include <stdlib.h>
@@ -324,6 +352,8 @@ AC_SUBST(XPIDL)
 AC_SUBST(GECKO_IDL_PATH)
 AC_SUBST(LIBXAPIAN_CFLAGS)
 AC_SUBST(LIBXAPIAN_LDFLAGS)
+AC_SUBST(LIBCLUCENE_CFLAGS)
+AC_SUBST(LIBCLUCENE_LDFLAGS)
 AC_SUBST(LIBZ_CFLAGS)
 AC_SUBST(LIBZ_LDFLAGS)
 AC_SUBST(LIBBZ2_CFLAGS)
