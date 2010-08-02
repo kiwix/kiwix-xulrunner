@@ -34,6 +34,9 @@ pref("browser.cache.memory.capacity", -1);
 pref("kiwix.removeprofileonclose", false);
 pref("kiwix.removeprofileonclose.confirm", true);
 
+/* Search */
+pref("kiwix.defaultsearchbackend", "xapian");
+
 /* Download Manager (for Save Page) */
 pref("browser.download.manager.closeWhenDone", true);
 pref("browser.download.manager.showWhenStarting", false);
