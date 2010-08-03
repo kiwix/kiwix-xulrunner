@@ -388,6 +388,7 @@ AC_CONFIG_FILES([
   src/components/xapianAccessor/Makefile
   src/components/zimAccessor/Makefile
   src/components/zimXapianIndexer/Makefile
+  src/components/zimIndexer/Makefile
   src/indexer/Makefile
   src/server/Makefile
   ])

@@ -1,6 +1,6 @@
 #include "xpcom-config.h"
 #include "nsIGenericFactory.h"
-#include "IZimXapianIndexer.h"
+#include "IZimIndexer.h"
 
 #include "nsXPCOM.h"
 #include "nsEmbedString.h"
@@ -47,25 +47,25 @@ ZimIndexer::~ZimIndexer() {
 /* Start indexing */
 NS_IMETHODIMP ZimIndexer::StartIndexing(const nsACString &zimPath, 
 					const nsACString &indexPath,
-					nsACString &backend, 
+					const nsACString &backend, 
 					PRBool *retVal) {
   *retVal = PR_FALSE;
   return NS_OK;
 }
 
 /* Index next percent */
-NS_IMETHODIMP ZimXapianIndexer::GetStatus(PRUint32 *count, PRBool *retVal) {
+NS_IMETHODIMP ZimIndexer::GetStatus(PRUint32 *count, PRBool *retVal) {
   *retVal = PR_FALSE;
   return NS_OK;
 }
 
 /* Stop indexing. TODO: using it crashs the soft under windows. Have to do it in indexNextPercent() */
-NS_IMETHODIMP ZimXapianIndexer::StopIndexing(PRBool *retVal) {
+NS_IMETHODIMP ZimIndexer::StopIndexing(PRBool *retVal) {
   *retVal = PR_TRUE;
   return NS_OK;
 }
 
-NS_GENERIC_FACTORY_CONSTRUCTOR(ZimXapianIndexer)
+NS_GENERIC_FACTORY_CONSTRUCTOR(ZimIndexer)
 
 static const nsModuleComponentInfo components[] =
 {
