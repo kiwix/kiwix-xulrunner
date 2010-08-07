@@ -1,10 +1,10 @@
 <!-- Window -->
-<!ENTITY main.title                   "קיוויקס">
-<!ENTITY main.cssdirection            "rtl">
+<!ENTITY main.title                     "קיוויקס">
+<!ENTITY main.cssdirection              "rtl">
 
 <!-- File menu -->
-<!ENTITY main.file                    "קובץ">
-<!ENTITY main.file.accesskey          "F">
+<!ENTITY main.file                      "קובץ">
+<!ENTITY main.file.accesskey            "F">
 <!ENTITY main.openFile                  "פתיחת קובץ...">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "Recently open...">
@@ -30,57 +30,59 @@
 <!ENTITY main.transliteration.accesskey "T">
 
 <!-- Display menu -->
-<!ENTITY main.display                 "תצוגה">
-<!ENTITY main.display.accesskey       "D">
-<!ENTITY main.zoom                    "מרחק מתצוגה">
-<!ENTITY main.zoom.accesskey          "Z">
-<!ENTITY main.zoomin                  "התקרבות">
-<!ENTITY main.zoomin.accesskey        "M">
-<!ENTITY main.zoomout                 "התרחקות">
-<!ENTITY main.zoomout.accesskey       "R">
-<!ENTITY main.zoomorig                "מרחק מקורי">
-<!ENTITY main.zoomorig.accesskey      "O">
-<!ENTITY main.language                "שפה">
-<!ENTITY main.language.accesskey      "L">
-<!ENTITY main.statusbar               "שורת מצב">
-<!ENTITY main.statusbar.accesskey     "S">
-<!ENTITY main.resultsbar              "אזור תוצאות">
-<!ENTITY main.resultsbar.accesskey    "R">
-<!ENTITY main.fullscreen              "מסך מלא">
-<!ENTITY main.fullscreen.accesskey    "F">
+<!ENTITY main.display                   "תצוגה">
+<!ENTITY main.display.accesskey         "D">
+<!ENTITY main.zoom                      "מרחק מתצוגה">
+<!ENTITY main.zoom.accesskey            "Z">
+<!ENTITY main.zoomin                    "התקרבות">
+<!ENTITY main.zoomin.accesskey          "M">
+<!ENTITY main.zoomout                   "התרחקות">
+<!ENTITY main.zoomout.accesskey         "R">
+<!ENTITY main.zoomorig                  "מרחק מקורי">
+<!ENTITY main.zoomorig.accesskey        "O">
+<!ENTITY main.language                  "שפה">
+<!ENTITY main.language.accesskey        "L">
+<!ENTITY main.statusbar                 "שורת מצב">
+<!ENTITY main.statusbar.accesskey       "S">
+<!ENTITY main.resultsbar                "אזור תוצאות">
+<!ENTITY main.resultsbar.accesskey      "R">
+<!ENTITY main.fullscreen                "מסך מלא">
+<!ENTITY main.fullscreen.accesskey      "F">
 
 <!-- Tools menu -->
-<!ENTITY main.tools                   "כלים">
-<!ENTITY main.tools.accesskey         "T">
-<!ENTITY main.randomArticle           "ערך אקראי">
-<!ENTITY main.randomArticle.accesskey "R">
+<!ENTITY main.tools                     "כלים">
+<!ENTITY main.tools.accesskey           "T">
+<!ENTITY main.randomArticle             "ערך אקראי">
+<!ENTITY main.randomArticle.accesskey   "R">
+<!ENTITY main.purgeHistory              "Purge history">
+<!ENTITY main.purgeHistory.accesskey    "P">
 
 <!-- Help menu -->
-<!ENTITY main.help                    "עזרה">
-<!ENTITY main.help.accesskey          "H">
-<!ENTITY main.reportabug              "Report a bug">
-<!ENTITY main.requestafeature         "Request a feature">
-<!ENTITY main.about                   "אודות">
-<!ENTITY main.about.accesskey         "A">
+<!ENTITY main.help                      "עזרה">
+<!ENTITY main.help.accesskey            "H">
+<!ENTITY main.reportabug                "Report a bug">
+<!ENTITY main.requestafeature           "Request a feature">
+<!ENTITY main.about                     "אודות">
+<!ENTITY main.about.accesskey           "A">
 
 <!-- Tool bar -->
-<!ENTITY main.back                    "אחורה">
-<!ENTITY main.forward                 "קדימה">
-<!ENTITY main.home                    "דף הבית">
-<!ENTITY main.searchBar               "שורת חיפוש">
-<!ENTITY main.search                  "חיפוש">
-<!ENTITY main.noSearchBar             "החיפוש אפשרי רק אם יש קובץ ZIM מאונדקס">
-<!ENTITY main.bookmarks               "סימניות">
+<!ENTITY main.back                      "אחורה">
+<!ENTITY main.forward                   "קדימה">
+<!ENTITY main.home                      "דף הבית">
+<!ENTITY main.searchBar                 "שורת חיפוש">
+<!ENTITY main.search                    "חיפוש">
+<!ENTITY main.noSearchBar               "החיפוש אפשרי רק אם יש קובץ ZIM מאונדקס">
+<!ENTITY main.bookmarks                 "סימניות">
 
 <!-- Results bar -->
-<!ENTITY main.results.title           "תוצאות">
+<!ENTITY main.results.title             "תוצאות">
 
 <!-- Bookmarks Bar -->
-<!ENTITY main.bmkLabel                "סימניות:">
-<!ENTITY main.notesLabel              "Bookmark notes:">
-<!ENTITY main.loadbmk                 "Import Bookmark Set">
-<!ENTITY main.newbmk                  "Create new Bookmark Set">
-<!ENTITY main.mark                    "Mark this page">
-<!ENTITY main.unmark                  "Unmark selected">
-<!ENTITY main.reload                  "Reset Bookmark Set">
-<!ENTITY main.defaultset              "Default Set">
+<!ENTITY main.bmkLabel                  "סימניות:">
+<!ENTITY main.notesLabel                "Bookmark notes:">
+<!ENTITY main.loadbmk                   "Import Bookmark Set">
+<!ENTITY main.newbmk                    "Create new Bookmark Set">
+<!ENTITY main.mark                      "Mark this page">
+<!ENTITY main.unmark                    "Unmark selected">
+<!ENTITY main.reload                    "Reset Bookmark Set">
+<!ENTITY main.defaultset                "Default Set">

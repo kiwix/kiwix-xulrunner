@@ -5,6 +5,7 @@ Kiwix 0.9 alpha6
 * Add a stub HTML header&footer in case of the article do not have a <body> (ID: 3030608)
 * Fix a bug in the ./configure libicu version checking (ID: 3034150)
 * Fix a bug in the debian/posrtrm script (ID: 3035092)
+* Add the "Purge history" Tool (ID: 3036917)
 
 Kiwix 0.9 alpha5
 * kiwix-serve supports the inflate/deflate compression for text/html

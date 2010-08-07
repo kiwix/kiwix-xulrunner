@@ -125,6 +125,34 @@ function onStart() {
     goHome();
 }
 
+/* Clear the history and the cache */
+function managePurgeHistory() {
+    /* cache */
+    const cc = Components.classes;
+    const ci = Components.interfaces;
+    var cacheService = cc["@mozilla.org/network/cache-service;1"]
+	.getService(ci.nsICacheService);
+    try {
+	cacheService.evictEntries(ci.nsICache.STORE_ANYWHERE);
+    } catch(er) { L.info (e.toString ()); }
+
+    /* History */
+    var globalHistory = Components.classes["@mozilla.org/browser/global-history;2"]
+	.getService(Components.interfaces.nsIBrowserHistory);
+    globalHistory.removeAllPages();
+    
+    try {
+	var os = Components.classes["@mozilla.org/observer-service;1"]
+	    .getService(Components.interfaces.nsIObserverService);
+	os.notifyObservers(null, "browser:purge-session-history", "");
+    }
+    catch (e) { L.info (e.toString ()); }
+
+    desactivateBackButton();
+    desactivateNextButton();
+    getHtmlRenderer().reload();
+}
+
 /* Things to do before exit Kiwix */
 function onClose() {
     var doClean = doOnCloseClean();

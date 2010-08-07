@@ -1,10 +1,10 @@
 <!-- Window -->
-<!ENTITY main.title                   "&brand.brandShortName;">
-<!ENTITY main.cssdirection            "ltr">
+<!ENTITY main.title                     "&brand.brandShortName;">
+<!ENTITY main.cssdirection              "ltr">
 
 <!-- File menu -->
-<!ENTITY main.file                    "Archivo">
-<!ENTITY main.file.accesskey          "A">
+<!ENTITY main.file                      "Archivo">
+<!ENTITY main.file.accesskey            "A">
 <!ENTITY main.openFile                  "Abrir...">
 <!ENTITY main.openFile.accesskey        "A">
 <!ENTITY main.lastOpen                  "Recientemente abiertos...">
@@ -30,57 +30,59 @@
 <!ENTITY main.transliteration.accesskey "T">
 
 <!-- Display menu -->
-<!ENTITY main.display                 "Pantalla">
-<!ENTITY main.display.accesskey       "P">
-<!ENTITY main.zoom                    "Zoom">
-<!ENTITY main.zoom.accesskey          "Z">
-<!ENTITY main.zoomin                  "Aumentar">
-<!ENTITY main.zoomin.accesskey        "u">
-<!ENTITY main.zoomout                 "Disminuir">
-<!ENTITY main.zoomout.accesskey       "D">
-<!ENTITY main.zoomorig                "Normal">
-<!ENTITY main.zoomorig.accesskey      "N">
-<!ENTITY main.language                "Idioma">
-<!ENTITY main.language.accesskey      "I">
-<!ENTITY main.statusbar               "Barra de estado">
-<!ENTITY main.statusbar.accesskey     "B">
-<!ENTITY main.resultsbar              "Barra de resultados">
-<!ENTITY main.resultsbar.accesskey    "r">
-<!ENTITY main.fullscreen              "Pantalla completa">
-<!ENTITY main.fullscreen.accesskey    "l">
+<!ENTITY main.display                   "Pantalla">
+<!ENTITY main.display.accesskey         "P">
+<!ENTITY main.zoom                      "Zoom">
+<!ENTITY main.zoom.accesskey            "Z">
+<!ENTITY main.zoomin                    "Aumentar">
+<!ENTITY main.zoomin.accesskey          "u">
+<!ENTITY main.zoomout                   "Disminuir">
+<!ENTITY main.zoomout.accesskey         "D">
+<!ENTITY main.zoomorig                  "Normal">
+<!ENTITY main.zoomorig.accesskey        "N">
+<!ENTITY main.language                  "Idioma">
+<!ENTITY main.language.accesskey        "I">
+<!ENTITY main.statusbar                 "Barra de estado">
+<!ENTITY main.statusbar.accesskey       "B">
+<!ENTITY main.resultsbar                "Barra de resultados">
+<!ENTITY main.resultsbar.accesskey      "r">
+<!ENTITY main.fullscreen                "Pantalla completa">
+<!ENTITY main.fullscreen.accesskey      "l">
 
 <!-- Tools menu -->
-<!ENTITY main.tools                   "Herramientas">
-<!ENTITY main.tools.accesskey         "H">
-<!ENTITY main.randomArticle           "Página aleatoria">
-<!ENTITY main.randomArticle.accesskey "P">
+<!ENTITY main.tools                     "Herramientas">
+<!ENTITY main.tools.accesskey           "H">
+<!ENTITY main.randomArticle             "Página aleatoria">
+<!ENTITY main.randomArticle.accesskey   "P">
+<!ENTITY main.purgeHistory              "Purge history">
+<!ENTITY main.purgeHistory.accesskey    "P">
 
 <!-- Help menu -->
-<!ENTITY main.help                    "Ayuda">
-<!ENTITY main.help.accesskey          "y">
-<!ENTITY main.reportabug              "Reportar un bug">
-<!ENTITY main.requestafeature         "Solicitar una característica">
-<!ENTITY main.about                   "Acerca de &brand.brandShortName;">
-<!ENTITY main.about.accesskey         "A">
+<!ENTITY main.help                      "Ayuda">
+<!ENTITY main.help.accesskey            "y">
+<!ENTITY main.reportabug                "Reportar un bug">
+<!ENTITY main.requestafeature           "Solicitar una característica">
+<!ENTITY main.about                     "Acerca de &brand.brandShortName;">
+<!ENTITY main.about.accesskey           "A">
 
 <!-- Tool bar -->
-<!ENTITY main.back                    "Detrás">
-<!ENTITY main.forward                 "Adelante">
-<!ENTITY main.home                    "Inicio">
-<!ENTITY main.searchBar               "Barra de la búsqueda">
-<!ENTITY main.search                  "Buscar">
-<!ENTITY main.noSearchBar             "La búsqueda requiere un archivo puesto en un índice de Zim">
-<!ENTITY main.bookmarks               "Marcadores">
+<!ENTITY main.back                      "Detrás">
+<!ENTITY main.forward                   "Adelante">
+<!ENTITY main.home                      "Inicio">
+<!ENTITY main.searchBar                 "Barra de la búsqueda">
+<!ENTITY main.search                    "Buscar">
+<!ENTITY main.noSearchBar               "La búsqueda requiere un archivo puesto en un índice de Zim">
+<!ENTITY main.bookmarks                 "Marcadores">
 
 <!-- Results bar -->
-<!ENTITY main.results.title           "Resultados">
+<!ENTITY main.results.title             "Resultados">
 
 <!-- Bookmarks Bar -->
-<!ENTITY main.bmkLabel                "Favoritos:">
-<!ENTITY main.notesLabel              "Notas de Favoritos:">
-<!ENTITY main.loadbmk                 "Importar Favoritos">
-<!ENTITY main.newbmk                  "Crear Favoritos">
-<!ENTITY main.mark                    "Marcar esta página">
-<!ENTITY main.unmark                  "Desmarcar esta página">
-<!ENTITY main.reload                  "Borrar Favoritos">
-<!ENTITY main.defaultset              "Predeterminado">
+<!ENTITY main.bmkLabel                  "Favoritos:">
+<!ENTITY main.notesLabel                "Notas de Favoritos:">
+<!ENTITY main.loadbmk                   "Importar Favoritos">
+<!ENTITY main.newbmk                    "Crear Favoritos">
+<!ENTITY main.mark                      "Marcar esta página">
+<!ENTITY main.unmark                    "Desmarcar esta página">
+<!ENTITY main.reload                    "Borrar Favoritos">
+<!ENTITY main.defaultset                "Predeterminado">

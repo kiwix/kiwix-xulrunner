@@ -1,10 +1,10 @@
 <!-- Window -->
-<!ENTITY main.title                   "中文维基">
-<!ENTITY main.cssdirection            "ltr">
+<!ENTITY main.title                     "中文维基">
+<!ENTITY main.cssdirection              "ltr">
 
 <!-- File menu -->
-<!ENTITY main.file                    "文件">
-<!ENTITY main.file.accesskey          "F">
+<!ENTITY main.file                      "文件">
+<!ENTITY main.file.accesskey            "F">
 <!ENTITY main.openFile                  "打开文件...">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "最近打开文件...">
@@ -30,57 +30,59 @@
 <!ENTITY main.transliteration.accesskey "T">
 
 <!-- Display menu -->
-<!ENTITY main.display                 "显示">
-<!ENTITY main.display.accesskey       "D">
-<!ENTITY main.zoom                    "缩放">
-<!ENTITY main.zoom.accesskey          "Z">
-<!ENTITY main.zoomin                  "放大">
-<!ENTITY main.zoomin.accesskey        "M">
-<!ENTITY main.zoomout                 "缩小">
-<!ENTITY main.zoomout.accesskey       "R">
-<!ENTITY main.zoomorig                "原始大小">
-<!ENTITY main.zoomorig.accesskey      "O">
-<!ENTITY main.language                "语言">
-<!ENTITY main.language.accesskey      "L">
-<!ENTITY main.statusbar               "状态栏">
-<!ENTITY main.statusbar.accesskey     "S">
-<!ENTITY main.resultsbar              "结果栏">
-<!ENTITY main.resultsbar.accesskey    "R">
-<!ENTITY main.fullscreen              "全屏">
-<!ENTITY main.fullscreen.accesskey    "F">
+<!ENTITY main.display                   "显示">
+<!ENTITY main.display.accesskey         "D">
+<!ENTITY main.zoom                      "缩放">
+<!ENTITY main.zoom.accesskey            "Z">
+<!ENTITY main.zoomin                    "放大">
+<!ENTITY main.zoomin.accesskey          "M">
+<!ENTITY main.zoomout                   "缩小">
+<!ENTITY main.zoomout.accesskey         "R">
+<!ENTITY main.zoomorig                  "原始大小">
+<!ENTITY main.zoomorig.accesskey        "O">
+<!ENTITY main.language                  "语言">
+<!ENTITY main.language.accesskey        "L">
+<!ENTITY main.statusbar                 "状态栏">
+<!ENTITY main.statusbar.accesskey       "S">
+<!ENTITY main.resultsbar                "结果栏">
+<!ENTITY main.resultsbar.accesskey      "R">
+<!ENTITY main.fullscreen                "全屏">
+<!ENTITY main.fullscreen.accesskey      "F">
 
 <!-- Tools menu -->
-<!ENTITY main.tools                   "工具">
-<!ENTITY main.tools.accesskey         "T">
-<!ENTITY main.randomArticle           "随机页面">
-<!ENTITY main.randomArticle.accesskey "R">
+<!ENTITY main.tools                     "工具">
+<!ENTITY main.tools.accesskey           "T">
+<!ENTITY main.randomArticle             "随机页面">
+<!ENTITY main.randomArticle.accesskey   "R">
+<!ENTITY main.purgeHistory              "Purge history">
+<!ENTITY main.purgeHistory.accesskey    "P">
 
 <!-- Help menu -->
-<!ENTITY main.help                    "帮助">
-<!ENTITY main.help.accesskey          "H">
-<!ENTITY main.reportabug              "报告bug">
-<!ENTITY main.requestafeature         "新功能要求">
-<!ENTITY main.about                   "关于中文维基">
-<!ENTITY main.about.accesskey         "A">
+<!ENTITY main.help                      "帮助">
+<!ENTITY main.help.accesskey            "H">
+<!ENTITY main.reportabug                "报告bug">
+<!ENTITY main.requestafeature           "新功能要求">
+<!ENTITY main.about                     "关于中文维基">
+<!ENTITY main.about.accesskey           "A">
 
 <!-- Tool bar -->
-<!ENTITY main.back                    "后退">
-<!ENTITY main.forward                 "前进">
-<!ENTITY main.home                    "主页">
-<!ENTITY main.searchBar               "搜索栏">
-<!ENTITY main.search                  "搜索">
-<!ENTITY main.noSearchBar             "搜索需要已建立索引的Zim文件">
-<!ENTITY main.bookmarks               "书签">
+<!ENTITY main.back                      "后退">
+<!ENTITY main.forward                   "前进">
+<!ENTITY main.home                      "主页">
+<!ENTITY main.searchBar                 "搜索栏">
+<!ENTITY main.search                    "搜索">
+<!ENTITY main.noSearchBar               "搜索需要已建立索引的Zim文件">
+<!ENTITY main.bookmarks                 "书签">
 
 <!-- Results bar -->
-<!ENTITY main.results.title           "结果">
+<!ENTITY main.results.title             "结果">
 
 <!-- Bookmarks Bar -->
-<!ENTITY main.bmkLabel                "书签:">
-<!ENTITY main.notesLabel              "书签笔记:">
-<!ENTITY main.loadbmk                 "导入书签组">
-<!ENTITY main.newbmk                  "创建新的书签组">
-<!ENTITY main.mark                    "标记本页">
-<!ENTITY main.unmark                  "取消标记">
-<!ENTITY main.reload                  "重新设定书签组">
-<!ENTITY main.defaultset              "缺省书签组">
+<!ENTITY main.bmkLabel                  "书签:">
+<!ENTITY main.notesLabel                "书签笔记:">
+<!ENTITY main.loadbmk                   "导入书签组">
+<!ENTITY main.newbmk                    "创建新的书签组">
+<!ENTITY main.mark                      "标记本页">
+<!ENTITY main.unmark                    "取消标记">
+<!ENTITY main.reload                    "重新设定书签组">
+<!ENTITY main.defaultset                "缺省书签组">
