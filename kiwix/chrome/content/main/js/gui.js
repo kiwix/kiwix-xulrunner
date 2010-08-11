@@ -543,9 +543,6 @@ function openFile(path, noSearchIndexCheck) {
 
 	/* Set the file as current */
 	library.setCurrentId(zimId);
-	
-	/* Load the ZIM file welcome page */
-	goHome();
 
 	/* Activate the Home button and desactivate the next/back buttons */
 	activateHomeButton();
@@ -585,8 +582,7 @@ function goHome() {
     var htmlRenderer = getHtmlRenderer();
 
     if (homeUrl) {
-	htmlRenderer.setAttribute("homepage", homeUrl);
-	htmlRenderer.goHome();
+	loadContent(homeUrl);
 	
 	/* activate if necessary the back button */
 	if (htmlRenderer.sessionHistory.count > 1) {
@@ -856,6 +852,15 @@ function dropOnWindows (aEvent) {
     }
 }
 
+/* Update the tab header */
+function updateTabHeader() {
+    var tabId = getHtmlRenderer().parentNode.id;
+    var title = getHtmlRenderer().contentTitle;
+    var tabHeaderId = tabId + "-header";
+    var tabHeader = document.getElementById(tabHeaderId);
+    tabHeader.label = title;
+}
+
 /* Create the necessary listeners */
 function initEventListeners() {
     /* Add mouse scroll listener to allow zoon in/out with the mouse for example */
@@ -866,6 +871,9 @@ function initEventListeners() {
     
     /* Add mouse scroll listener to the results bar */
     getResultsList().addEventListener("DOMMouseScroll", resultsListMouseScroll, false);
+
+    /* Necessary to update the tab header */
+    getHtmlRenderer().addEventListener("DOMContentLoaded", updateTabHeader, true);
 
     /* register WebProgress listener */
     var dls = Components.classes["@mozilla.org/docloaderservice;1"]

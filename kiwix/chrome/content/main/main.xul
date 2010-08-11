@@ -222,11 +222,11 @@
   <!-- Rendering space -->
   <vbox flex="1">
     <tabbox flex="1" style="margin: 5px;">
-      <tabs style="display: none;">
-        <tab label=""/>
+      <tabs id="tab-headers" style="display: none;">
+        <tab id="first-tab-header"/>
       </tabs>
       <tabpanels flex="1" style="padding: 0px;">
-        <tabpanel>
+        <tabpanel id="first-tab">
           <browser flex="1" id="html-renderer" src="" type="content-primary" />
         </tabpanel>
       </tabpanels>
