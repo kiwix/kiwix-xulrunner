@@ -209,6 +209,16 @@ window[langdir="rtl"] #button-next {
     list-style-image: url("chrome://main/skin/icon/reload24.png");
 }
 
+/* Tabs */
+#tab-box {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.tab-close-button {
+    list-style-image: url("chrome://main/skin/icon/close12.png");
+}
+
 /* Status bar */
 #status-bar {
     height: auto;

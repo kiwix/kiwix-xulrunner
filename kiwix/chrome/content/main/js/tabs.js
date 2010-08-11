@@ -25,6 +25,7 @@ function openNewTab() {
     var tabHeaders = document.getElementById("tab-headers");
     var newTabHeader = document.createElement("tab");
     newTabHeader.id = newTab.id + "-header"; 
+    newTabHeader.appendChild(document.createElement("label"));
     tabHeaders.appendChild(newTabHeader);
 
     initHtmlRendererEventListeners();
@@ -34,13 +35,21 @@ function openNewTab() {
     tabBox.selectedTab = newTabHeader;
 }
 
+/* Close current tab */
+function closeTab(id) {
+    var tabs = document.getElementById("tabs");
+    var tabHeaders = document.getElementById("tab-headers");
+}
+
 /* Update the tab header */
 function updateTabHeader() {
     var tabId = getHtmlRenderer().parentNode.id;
-    var title = getHtmlRenderer().contentTitle;
     var tabHeaderId = tabId + "-header";
     var tabHeader = document.getElementById(tabHeaderId);
-    tabHeader.label = title;
+
+    var title = getHtmlRenderer().contentTitle;
+    var titleNode = tabHeader.childNodes[0];
+    titleNode.setAttribute("value", title);
 }
 
 /* Return the HTML rendering object */

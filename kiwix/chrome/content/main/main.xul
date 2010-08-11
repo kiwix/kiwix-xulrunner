@@ -223,7 +223,9 @@
   <vbox flex="1">
     <tabbox flex="1" style="margin: 5px;">
       <tabs id="tab-headers" style="display: none;">
-        <tab id="first-tab-header"/>
+        <tab id="first-tab-header">
+	  <label value=""/>
+	</tab>
       </tabs>
       <tabpanels id="tabs" flex="1" style="padding: 0px;">
         <tabpanel id="first-tab">
