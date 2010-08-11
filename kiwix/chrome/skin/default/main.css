@@ -51,9 +51,10 @@
     list-style-image: url("chrome://main/skin/icon/about16.png");
 }
 
-/* Tool bar */
-#toolbar {
-
+/* Tool box & bar */
+#tool-box {
+    margin-left: 5px;
+    margin-right: 5px;
 }
 
 /* Buttons */

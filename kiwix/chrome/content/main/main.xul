@@ -150,7 +150,7 @@
 </menubar>
 
 <!-- Tool bar -->
-<toolbox>
+<toolbox id="tool-box">
   <toolbar id="tool-bar">
     <toolbarbutton id="button-home" oncommand="goHome()" tooltiptext="&main.home;"/>
     <toolbarbutton id="button-back" oncommand="pageBack()" tooltiptext="&main.back;"/>
