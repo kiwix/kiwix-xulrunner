@@ -23,11 +23,6 @@ function getWindow() {
     return document.getElementById("main");
 }
 
-/* Return the HTML rendering object */
-function getHtmlRenderer() {
-    return document.getElementById("html-renderer");  
-}
-
 /* Load an url in the HTML render element */
 function loadContent(url) {
     try {
@@ -309,6 +304,17 @@ function htmlRendererMouseOut(aEvent) {
     }
 }
 
+/* Double Click event handler */
+function htmlRendererMouseUp(aEvent) {
+    var url = aEvent.target;
+
+    if (url instanceof HTMLAnchorElement && aEvent.button == 1) {
+	showTabHeaders();
+	openNewTab();
+	htmlRendererOpenUrl(aEvent);
+    }
+}
+
 /* Is called every time an (external|internal) url is clicked */
 function htmlRendererOpenUrl(aEvent) {
     var url = aEvent.target;
@@ -541,7 +547,7 @@ function openFile(path, noSearchIndexCheck) {
 	    book = library.addBook(zimId, path);
 	}
 
-	/* Set the file as current */
+/* Set the file as current */
 	library.setCurrentId(zimId);
 
 	/* Activate the Home button and desactivate the next/back buttons */
@@ -852,28 +858,24 @@ function dropOnWindows (aEvent) {
     }
 }
 
-/* Update the tab header */
-function updateTabHeader() {
-    var tabId = getHtmlRenderer().parentNode.id;
-    var title = getHtmlRenderer().contentTitle;
-    var tabHeaderId = tabId + "-header";
-    var tabHeader = document.getElementById(tabHeaderId);
-    tabHeader.label = title;
+/* Add mouse scroll listener to allow zoon in/out with the mouse for example */
+function initHtmlRendererEventListeners() {
+    getHtmlRenderer().addEventListener("DOMMouseScroll", htmlRendererMouseScroll, false);
+    getHtmlRenderer().addEventListener("mouseover", htmlRendererMouseOver, true);
+    getHtmlRenderer().addEventListener("mouseout", htmlRendererMouseOut, true);
+    getHtmlRenderer().addEventListener("mouseup", htmlRendererMouseUp , true);
+    getHtmlRenderer().addEventListener("DOMActivate", htmlRendererOpenUrl, true);
+
+    /* Necessary to update the tab header */
+    getHtmlRenderer().addEventListener("DOMContentLoaded", updateTabHeader, true);
 }
 
 /* Create the necessary listeners */
 function initEventListeners() {
-    /* Add mouse scroll listener to allow zoon in/out with the mouse for example */
-    getHtmlRenderer().addEventListener("DOMMouseScroll", htmlRendererMouseScroll, false);
-    getHtmlRenderer().addEventListener("mouseover", htmlRendererMouseOver, true);
-    getHtmlRenderer().addEventListener("mouseout", htmlRendererMouseOut, true);
-    getHtmlRenderer().addEventListener("DOMActivate", htmlRendererOpenUrl, true);
-    
+    initHtmlRendererEventListeners();
+   
     /* Add mouse scroll listener to the results bar */
     getResultsList().addEventListener("DOMMouseScroll", resultsListMouseScroll, false);
-
-    /* Necessary to update the tab header */
-    getHtmlRenderer().addEventListener("DOMContentLoaded", updateTabHeader, true);
 
     /* register WebProgress listener */
     var dls = Components.classes["@mozilla.org/docloaderservice;1"]
