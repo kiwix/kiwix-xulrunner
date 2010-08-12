@@ -25,6 +25,7 @@ function openNewTab() {
     var tabHeaders = document.getElementById("tab-headers");
     var newTabHeader = document.createElement("tab");
     newTabHeader.id = newTab.id + "-header"; 
+    newTabHeader.setAttribute("onclick", "currentHtmlRendererId = '" + newHtmlRenderer.id + "'");
     newTabHeader.appendChild(document.createElement("label"));
     tabHeaders.appendChild(newTabHeader);
 
