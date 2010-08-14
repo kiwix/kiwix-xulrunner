@@ -48,6 +48,8 @@ then
   CPPFLAGS="-I/usr/lib"
   CFLAGS="-O6"
   LDFLAGS=""
+  CFLAGS="${CFLAGS}"
+  LDFLAGS="${LDFLAGS}" 
   LIBS=""
   LD_PATH=""
   LD_LIBRARY_PATH=""
