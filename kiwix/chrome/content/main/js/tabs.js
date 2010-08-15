@@ -1,4 +1,4 @@
-var currentHtmlRendererId = "html-renderer";
+var currentTabId = "00000000";
 
 /* Display the tab header */
 function showTabHeaders() {
@@ -9,43 +9,62 @@ function showTabHeaders() {
 /* Add a new tab */
 function openNewTab() {
     var id=randomString();
+    var refererTabId = currentTabId;
 
     var newHtmlRenderer = document.createElement("browser");
     newHtmlRenderer.setAttribute("type", "content");
     newHtmlRenderer.setAttribute("flex", "1");
     newHtmlRenderer.id = "html-renderer-" + id; 
-    currentHtmlRendererId = newHtmlRenderer.id;
 
-    var tabs = document.getElementById("tabs");
-    var newTab = document.createElement("tabpanel");
-    newTab.id = "tab-" + id; 
-    newTab.appendChild(newHtmlRenderer);
-    tabs.appendChild(newTab);
+    var tabPanels = document.getElementById("tab-panels");
+    var newTabPanel = document.createElement("tabpanel");
+    newTabPanel.id = "tab-panel-" + id; 
+    newTabPanel.appendChild(newHtmlRenderer);
+    tabPanels.appendChild(newTabPanel);
 
     var tabHeaders = document.getElementById("tab-headers");
     var newTabHeader = document.createElement("tab");
-    newTabHeader.id = newTab.id + "-header"; 
-    newTabHeader.setAttribute("onclick", "currentHtmlRendererId = '" + newHtmlRenderer.id + "'");
+    newTabHeader.id = "tab-header-" + id; 
+    newTabHeader.setAttribute("onclick", "currentTabId = '" + id + "'");
+    newTabHeader.setAttribute("refererTabId", refererTabId);
     newTabHeader.appendChild(document.createElement("label"));
-    tabHeaders.appendChild(newTabHeader);
+    tabHeaders.insertBefore(newTabHeader, tabHeaders.lastChild);
+
+    switchTab(id);
 
     initHtmlRendererEventListeners();
-    
-    var tabBox = tabs.parentNode;
-    tabBox.selectedPanel = newTab;
-    tabBox.selectedTab = newTabHeader;
 }
 
 /* Close current tab */
-function closeTab(id) {
+function closeCurrentTab() {
     var tabs = document.getElementById("tabs");
     var tabHeaders = document.getElementById("tab-headers");
+    var tabPanels = document.getElementById("tab-panels");
+    var currentTabPanel = document.getElementById("tab-panel-" + currentTabId);
+    var currentTabHeader = document.getElementById("tab-header-" + currentTabId);
+    var refererTabId = currentTabHeader.getAttribute("refererTabId");
+
+    /* Avoid to close the first tab */
+    if (refererTabId != "") {
+	tabHeaders.removeChild(currentTabHeader);
+	tabPanels.removeChild(currentTabPanel);
+	switchTab(refererTabId);
+    }
+}
+
+/* Switch Tab */
+function switchTab(tabId) {
+    var tabBox = document.getElementById("tab-box");
+    var tabPanel = document.getElementById("tab-panel-" +  tabId);
+    var tabHeader = document.getElementById("tab-header-" +  tabId);
+    tabBox.selectedPanel = tabPanel;
+    tabBox.selectedTab = tabHeader;
+    currentTabId = tabId;
 }
 
 /* Update the tab header */
 function updateTabHeader() {
-    var tabId = getHtmlRenderer().parentNode.id;
-    var tabHeaderId = tabId + "-header";
+    var tabHeaderId = "tab-header-" + currentTabId;
     var tabHeader = document.getElementById(tabHeaderId);
 
     var title = getHtmlRenderer().contentTitle;
@@ -55,5 +74,5 @@ function updateTabHeader() {
 
 /* Return the HTML rendering object */
 function getHtmlRenderer() {
-    return document.getElementById(currentHtmlRendererId);  
+    return document.getElementById("html-renderer-" + currentTabId);  
 }

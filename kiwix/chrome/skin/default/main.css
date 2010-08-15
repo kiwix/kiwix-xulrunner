@@ -215,8 +215,16 @@ window[langdir="rtl"] #button-next {
     margin-right: 5px;
 }
 
-.tab-close-button {
+#tab-panels {
+    padding: 0px;
+}
+
+#tabs-close-button {
     list-style-image: url("chrome://main/skin/icon/close12.png");
+}
+
+#tabs-add-button {
+    list-style-image: url("chrome://main/skin/icon/add12.png");
 }
 
 /* Status bar */

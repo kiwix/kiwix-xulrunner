@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
 <?xml-stylesheet href="chrome://main/skin/main.css" type="text/css"?>
+
 <!DOCTYPE window [
 <!ENTITY % mainDTD SYSTEM "chrome://main/locale/main.dtd">
 <!ENTITY % brandDTD SYSTEM "chrome://branding/locale/brand.dtd">
@@ -221,15 +222,17 @@
   
   <!-- Rendering space -->
   <vbox flex="1">
-    <tabbox flex="1" style="margin: 5px;">
+    <tabbox flex="1" id="tab-box">
       <tabs id="tab-headers" style="display: none;">
-        <tab id="first-tab-header" onclick="currentHtmlRendererId = 'html-renderer'">
+	<toolbarbutton id="tabs-add-button" oncommand="openNewTab()"/>
+        <tab id="tab-header-00000000" onclick="switchTab('00000000')">
 	  <label value=""/>
 	</tab>
+	<toolbarbutton id="tabs-close-button" oncommand="closeCurrentTab()"/>
       </tabs>
-      <tabpanels id="tabs" flex="1" style="padding: 0px;">
-        <tabpanel id="first-tab">
-          <browser flex="1" id="html-renderer" src="" type="content-primary"/>
+      <tabpanels id="tab-panels" flex="1">
+        <tabpanel id="tab-panel-00000000">
+          <browser flex="1" id="html-renderer-00000000" src="" type="content-primary"/>
         </tabpanel>
       </tabpanels>
     </tabbox>
@@ -250,5 +253,5 @@
     <label id="progress-bar-label" collapsed="true"/>
   </stack>
 </hbox>
-	
+
 </window>
