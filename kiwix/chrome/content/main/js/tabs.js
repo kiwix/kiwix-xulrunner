@@ -72,7 +72,6 @@ function switchTab(tabId) {
 function updateTabHeader() {
     var tabHeaderId = "tab-header-" + currentTabId;
     var tabHeader = document.getElementById(tabHeaderId);
-
     var title = getHtmlRenderer().contentTitle;
     var titleNode = tabHeader.childNodes[0];
     titleNode.setAttribute("value", title);

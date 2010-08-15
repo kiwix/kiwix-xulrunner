@@ -289,19 +289,15 @@ function searchInIndex(query, xapianDirectory, loadFirstResult) {
 }
 
 /* Function called by clicking on the search button */
-function manageSearchInIndex(event) {
+function manageSearchInIndex() {
     var stringToSearch = getSearchBox().value.toLowerCase();
 
     if (stringToSearch != "") {
 	/* Make the search and display results */
 	var currentBook = library.getCurrentBook();
 
-	if (event.keyCode != 13) {
-	    searchInIndex(stringToSearch, currentBook.indexPath, false);
-	} else {
-	    searchInIndex(stringToSearch, currentBook.indexPath, true);
-	    getSearchBox().value = "";
-	}
+	searchInIndex(stringToSearch, currentBook.indexPath, true);
+	getSearchBox().value = "";
     }
 
     return true;

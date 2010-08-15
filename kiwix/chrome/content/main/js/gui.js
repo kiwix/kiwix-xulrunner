@@ -867,7 +867,7 @@ function initHtmlRendererEventListeners() {
     getHtmlRenderer().addEventListener("DOMActivate", htmlRendererOpenUrl, true);
 
     /* Necessary to update the tab header */
-    getHtmlRenderer().addEventListener("DOMContentLoaded", updateTabHeader, true);
+    getHtmlRenderer().addEventListener("load", updateTabHeader, true);
 }
 
 /* Create the necessary listeners */
