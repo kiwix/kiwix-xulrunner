@@ -48,6 +48,12 @@ function closeCurrentTab() {
     if (refererTabId != "") {
 	tabHeaders.removeChild(currentTabHeader);
 	tabPanels.removeChild(currentTabPanel);
+	
+	/* If the referer tab was already closed */
+	if ( document.getElementById("tab-panel-" + refererTabId) == undefined) {
+	    refererTabId = "00000000";
+	}
+
 	switchTab(refererTabId);
     }
 }
