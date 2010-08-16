@@ -25,7 +25,7 @@ function openNewTab() {
     var tabHeaders = document.getElementById("tab-headers");
     var newTabHeader = document.createElement("tab");
     newTabHeader.id = "tab-header-" + id; 
-    newTabHeader.setAttribute("onclick", "currentTabId = '" + id + "'");
+    newTabHeader.setAttribute("onclick", "switchTab('" + id + "')");
     newTabHeader.setAttribute("refererTabId", refererTabId);
     newTabHeader.setAttribute("class", "tab-header");
     var newTabHeaderLabel = document.createElement("label");

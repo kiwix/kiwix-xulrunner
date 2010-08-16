@@ -232,7 +232,6 @@ window[langdir="rtl"] #button-next {
 }
 
 .tab-header-label {
-    text-overflow: ellipsis;
     text-align: left;
     width: 130px;
 }
