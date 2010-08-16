@@ -225,8 +225,8 @@
     <tabbox flex="1" id="tab-box">
       <tabs id="tab-headers" style="display: none;">
 	<toolbarbutton id="tabs-add-button" oncommand="openNewTab()"/>
-        <tab id="tab-header-00000000" onclick="switchTab('00000000')">
-	  <label value=""/>
+        <tab id="tab-header-00000000" onclick="switchTab('00000000')" class="tab-header">
+	  <label value="" crop="right" class="tab-header-label"/>
 	</tab>
 	<toolbarbutton id="tabs-close-button" oncommand="closeCurrentTab()"/>
       </tabs>

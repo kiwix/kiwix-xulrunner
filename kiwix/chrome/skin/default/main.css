@@ -227,6 +227,16 @@ window[langdir="rtl"] #button-next {
     list-style-image: url("chrome://main/skin/icon/add12.png");
 }
 
+.tab-header {
+    width: 150px;
+}
+
+.tab-header-label {
+    text-overflow: ellipsis;
+    text-align: left;
+    width: 130px;
+}
+
 /* Status bar */
 #status-bar {
     height: auto;

@@ -27,7 +27,11 @@ function openNewTab() {
     newTabHeader.id = "tab-header-" + id; 
     newTabHeader.setAttribute("onclick", "currentTabId = '" + id + "'");
     newTabHeader.setAttribute("refererTabId", refererTabId);
-    newTabHeader.appendChild(document.createElement("label"));
+    newTabHeader.setAttribute("class", "tab-header");
+    var newTabHeaderLabel = document.createElement("label");
+    newTabHeaderLabel.setAttribute("class", "tab-header-label");
+    newTabHeaderLabel.setAttribute("crop", "right");
+    newTabHeader.appendChild(newTabHeaderLabel);
     tabHeaders.insertBefore(newTabHeader, tabHeaders.lastChild);
 
     switchTab(id);
@@ -75,6 +79,7 @@ function updateTabHeader() {
     var title = getHtmlRenderer().contentTitle;
     var titleNode = tabHeader.childNodes[0];
     titleNode.setAttribute("value", title);
+    tabHeader.setAttribute("tooltiptext", title);
 }
 
 /* Return the HTML rendering object */
