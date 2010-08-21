@@ -252,7 +252,7 @@ let library = {
 	var len = this.books.length >>> 0;
 	for (var i=0 ; i<len ; i++) {
 	    if (this.books[i].id == id) {
-	       books.splice(i, 1);
+	       this.books.splice(i, 1);
 	       return true;
 	    }
 	}

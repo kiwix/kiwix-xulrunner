@@ -116,6 +116,7 @@ function onStart() {
     /* Open current book */
     if (!openCurrentBook()) {
 	library.deleteCurrentBook();
+	showHelp();
     }
 
     /* Initialize the user interface */

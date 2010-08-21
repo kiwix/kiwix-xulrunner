@@ -580,6 +580,7 @@ function openFile(path, noSearchIndexCheck) {
 	
     } else {
 	displayErrorDialog(getProperty("loadZimFileError", path));
+	return false;
     }
 
     return true;
