@@ -120,9 +120,6 @@ function onStart() {
 
     /* Initialize the user interface */
     initUserInterface();
-
-    /* Load the welcome page of the ZIM file */
-    goHome();
 }
 
 /* Clear the history and the cache */
