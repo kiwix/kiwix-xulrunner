@@ -7,6 +7,7 @@ Kiwix 0.9 alpha6
 * Fix a bug in the debian/posrtrm script (ID: 3035092)
 * Add the "Purge history" Tool (ID: 3036917)
 * Tab navigation (ID: 1644478)
+* Capacity to deal with splitted ZIM files
 
 Kiwix 0.9 alpha5
 * kiwix-serve supports the inflate/deflate compression for text/html
