@@ -262,9 +262,13 @@ function resultsListMouseScroll(aEvent) {
     }
 }
 
-/* Allowing zoom function by combining mouse & ctrl */
+/* Allowing zoom/history function by combining mouse & ctrl */
 function htmlRendererMouseScroll(aEvent) {
-    if (aEvent.ctrlKey) {
+    if (aEvent.detail == -1) {
+	pageBack();
+    } else if (aEvent.detail == 1) {
+	pageNext();
+    } else if (aEvent.ctrlKey) {
 	if (aEvent.detail>0) { zoomOut() } ;
 	if (aEvent.detail<0) { zoomIn() } ;
 	aEvent.preventDefault();
