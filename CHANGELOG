@@ -9,6 +9,7 @@ Kiwix 0.9 alpha6
 * Tab navigation (ID: 1644478)
 * Capacity to deal with splitted ZIM files
 * Add mouse button forward/back support (ID: 3052213)
+* Fix annoyous bug impacting user moving and reopening the same file (ID: 3052211)
 
 Kiwix 0.9 alpha5
 * kiwix-serve supports the inflate/deflate compression for text/html
