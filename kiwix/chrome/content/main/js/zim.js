@@ -2,7 +2,6 @@ var currentZimAccessor;
 
 /* try a ZIM file */
 function openZimFile(path) {
-
     /* Create the ZIM accessor */
     var zimAccessorService = Components.classes["@kiwix.org/zimAccessor"].getService();
     var zimAccessor = zimAccessorService.QueryInterface(Components.interfaces.IZimAccessor);
@@ -24,7 +23,6 @@ function openCurrentBook() {
 }
 
 /* Return the homepage of a ZIM file */
-/* TODO: as long as the welcome page is not saved in the ZIM file, this will return the first page */
 function getCurrentZimFileHomePageUrl() {
     var homePageUrl;
 
