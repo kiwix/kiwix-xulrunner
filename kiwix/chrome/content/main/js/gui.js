@@ -473,15 +473,18 @@ function selectAll() {
 function pageBack() {
     try {
 	var htmlRenderer = getHtmlRenderer();
-	htmlRenderer.stop();
-	htmlRenderer.goBack();
-	
-	/* activate if necessary the next button */
-	activateNextButton();
 
-	/* desactivate if necessary the back button */
-	if (htmlRenderer.sessionHistory.index <= 1) {
-	    desactivateBackButton();
+	if (htmlRenderer.sessionHistory.index > 0) {
+	    htmlRenderer.stop();
+	    htmlRenderer.goBack();
+	    
+	    /* activate if necessary the next button */
+	    activateNextButton();
+	    
+	    /* desactivate if necessary the back button */
+	    if (htmlRenderer.sessionHistory.index <= 1) {
+		desactivateBackButton();
+	    }
 	}
     } catch (exception) {
 	displayErrorDialog(exception);
@@ -494,15 +497,18 @@ function pageBack() {
 function pageNext() {
     try { 
 	var htmlRenderer = getHtmlRenderer();
-	htmlRenderer.stop();
-	htmlRenderer.goForward();
 
-	/* activate if necessary the back button */
-	activateBackButton();
-
-	/* desactivate if necessary the next button */
-	if (htmlRenderer.sessionHistory.index >= (htmlRenderer.sessionHistory.count-2)) {
-	    desactivateNextButton();
+	if (htmlRenderer.sessionHistory.index < (htmlRenderer.sessionHistory.count-1)) {
+	    htmlRenderer.stop();
+	    htmlRenderer.goForward();
+	    
+	    /* activate if necessary the back button */
+	    activateBackButton();
+	    
+	    /* desactivate if necessary the next button */
+	    if (htmlRenderer.sessionHistory.index >= (htmlRenderer.sessionHistory.count-2)) {
+		desactivateNextButton();
+	    }
 	}
     } catch (exception) {
 	displayErrorDialog(exception);
