@@ -879,6 +879,8 @@ function initHtmlRendererEventListeners() {
     getHtmlRenderer().addEventListener("mouseout", htmlRendererMouseOut, true);
     getHtmlRenderer().addEventListener("mouseup", htmlRendererMouseUp , true);
     getHtmlRenderer().addEventListener("DOMActivate", htmlRendererOpenUrl, true);
+    getHtmlRenderer().addEventListener("pageshow", updateTabHeader, true);
+
 
     /* Necessary to update the tab header */
     getHtmlRenderer().addEventListener("load", updateTabHeader, true);
