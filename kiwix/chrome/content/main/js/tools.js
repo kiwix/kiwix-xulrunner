@@ -146,9 +146,16 @@ function managePurgeHistory() {
     }
     catch (e) { L.info (e.toString ()); }
 
+    /* Update the back/next buttons */
     desactivateBackButton();
     desactivateNextButton();
-    getHtmlRenderer().reload();
+
+    /* Update the htmlrenderers */
+    var tabPanels = document.getElementById("tab-panels");
+    for (var tabPanelIndex = 0; tabPanelIndex<tabPanels.children.length; tabPanelIndex++) {
+	var htmlRenderer = tabPanels.children[tabPanelIndex].firstChild;
+	htmlRenderer.reload();
+    }
 }
 
 /* Things to do before exit Kiwix */

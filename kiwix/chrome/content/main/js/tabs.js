@@ -20,7 +20,7 @@ function openNewTab() {
     var newTabPanel = document.createElement("tabpanel");
     newTabPanel.id = "tab-panel-" + id; 
     newTabPanel.appendChild(newHtmlRenderer);
-    tabPanels.appendChild(newTabPanel);
+    tabPanels.insertBefore(newTabPanel, tabPanels.lastChild.nextSibling);
 
     var tabHeaders = document.getElementById("tab-headers");
     var newTabHeader = document.createElement("tab");
@@ -32,7 +32,9 @@ function openNewTab() {
     newTabHeaderLabel.setAttribute("class", "tab-header-label");
     newTabHeaderLabel.setAttribute("crop", "right");
     newTabHeader.appendChild(newTabHeaderLabel);
-    tabHeaders.insertBefore(newTabHeader, tabHeaders.lastChild);
+    tabHeaders.insertBefore(newTabHeader, tabHeaders.lastChild.nextSibling);
+    var closeButton = document.getElementById("tabs-close-button");
+    tabHeaders.insertBefore(closeButton, tabHeaders.lastChild.nextSibling);
 
     switchTab(id);
 
