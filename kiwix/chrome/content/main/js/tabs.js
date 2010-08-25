@@ -82,6 +82,10 @@ function updateTabHeader() {
     var titleNode = tabHeader.childNodes[0];
     titleNode.setAttribute("value", title);
     tabHeader.setAttribute("tooltiptext", title);
+
+    if (title != "") {
+	document.title = title + " - " + getWindow().getAttribute("titlemodifier");
+    }
 }
 
 /* Return the HTML rendering object */
