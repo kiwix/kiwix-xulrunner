@@ -469,22 +469,30 @@ function selectAll() {
     getHtmlRenderer().contentViewerEdit.selectAll();
 }
 
+function updateHistoryNavigationButtons() {
+    var htmlRenderer = getHtmlRenderer();
+
+    if (htmlRenderer.canGoBack == true) {
+	activateBackButton();
+    } else {
+	desactivateBackButton();
+    }
+
+    if (htmlRenderer.canGoForward == true) {
+	activateNextButton();
+    } else {
+	desactivateNextButton();
+    }
+}
+
 /* Back to the previous rendered page */
 function pageBack() {
     try {
 	var htmlRenderer = getHtmlRenderer();
 
-	if (htmlRenderer.sessionHistory.index > 0) {
+	if (htmlRenderer.canGoBack == true) {
 	    htmlRenderer.stop();
 	    htmlRenderer.goBack();
-	    
-	    /* activate if necessary the next button */
-	    activateNextButton();
-	    
-	    /* desactivate if necessary the back button */
-	    if (htmlRenderer.sessionHistory.index <= 1) {
-		desactivateBackButton();
-	    }
 	}
     } catch (exception) {
 	displayErrorDialog(exception);
@@ -498,7 +506,7 @@ function pageNext() {
     try { 
 	var htmlRenderer = getHtmlRenderer();
 
-	if (htmlRenderer.sessionHistory.index < (htmlRenderer.sessionHistory.count-1)) {
+	if (htmlRenderer.canGoForward == true) {
 	    htmlRenderer.stop();
 	    htmlRenderer.goForward();
 	    
@@ -506,7 +514,7 @@ function pageNext() {
 	    activateBackButton();
 	    
 	    /* desactivate if necessary the next button */
-	    if (htmlRenderer.sessionHistory.index >= (htmlRenderer.sessionHistory.count-2)) {
+	    if (htmlRenderer.canGoForward == false) {
 		desactivateNextButton();
 	    }
 	}
@@ -880,7 +888,7 @@ function initHtmlRendererEventListeners() {
     getHtmlRenderer().addEventListener("mouseup", htmlRendererMouseUp , true);
     getHtmlRenderer().addEventListener("DOMActivate", htmlRendererOpenUrl, true);
     getHtmlRenderer().addEventListener("pageshow", updateTabHeader, true);
-
+    getHtmlRenderer().addEventListener("pageshow", updateHistoryNavigationButtons, true);
 
     /* Necessary to update the tab header */
     getHtmlRenderer().addEventListener("load", updateTabHeader, true);
