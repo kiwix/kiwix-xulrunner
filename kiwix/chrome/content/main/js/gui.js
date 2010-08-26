@@ -313,9 +313,13 @@ function htmlRendererMouseUp(aEvent) {
     var url = aEvent.target;
 
     if (url instanceof HTMLAnchorElement && aEvent.button == 1) {
-	changeTabsVisibilityStatus(true);
-	openNewTab();
-	htmlRendererOpenUrl(aEvent);
+	if (url.href.indexOf("zim://",0) != 0) {
+	    htmlRendererOpenUrl(aEvent);
+	} else {
+	    changeTabsVisibilityStatus(true);
+	    openNewTab();
+	    htmlRendererOpenUrl(aEvent);
+	}
     }
 }
 
