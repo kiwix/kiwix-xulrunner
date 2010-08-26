@@ -46,6 +46,8 @@
 <!ENTITY main.statusbar.accesskey       "B">
 <!ENTITY main.resultsbar                "Resultats">
 <!ENTITY main.resultsbar.accesskey      "R">
+<!ENTITY main.tabs                      "Tabs">
+<!ENTITY main.tabs.accesskey            "T">
 <!ENTITY main.fullscreen                "Plein écran">
 <!ENTITY main.fullscreen.accesskey      "P">
 

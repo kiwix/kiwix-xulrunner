@@ -34,6 +34,9 @@ pref("browser.cache.memory.capacity", -1);
 pref("kiwix.removeprofileonclose", false);
 pref("kiwix.removeprofileonclose.confirm", true);
 
+/* Tabs */
+pref("kiwix.displayTabs", false);
+
 /* Search */
 pref("kiwix.defaultsearchbackend", "xapian");
 

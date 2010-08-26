@@ -96,6 +96,7 @@ let settings = {
     windowY: function(value) { return this.intSettingParameter("windowY", value); },
     windowMaximized: function(value) { return this.boolSettingParameter("windowMaximized", value); },
     doOnCloseClean: function(value) { return this.boolSettingParameter("doOnCloseClean", value); },
+    displayTabs: function(value) { return this.boolSettingParameter("displayTabs", value); },
     displayOnCloseCleanConfirmDialog: function(value) { 
     	return this.boolSettingParameter("displayOnCloseCleanConfirmDialog", value); 
     }

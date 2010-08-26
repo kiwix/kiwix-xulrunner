@@ -118,6 +118,9 @@
       <menuitem id="display-resultsbar" label="&main.resultsbar;" type="checkbox" checked="false"
 		accesskey="&main.resultsbar.accesskey;" key="change-results-bar-visibility-status"
 		oncommand="changeResultsBarVisibilityStatus()"/>
+      <menuitem id="display-tabs" label="&main.tabs;" type="checkbox" checked="false"
+		accesskey="&main.tabs.accesskey;" key="change-tabs-visibility-status"
+		oncommand="changeTabsVisibilityStatus(undefined, true)"/>
       <menuitem id="display-fullscreen" label="&main.fullscreen;" checked="false" class="menuitem-iconic" 
 		accesskey="&main.fullscreen.accesskey;" oncommand="UIToggleFullScreen(true)"/>
     </menupopup>
@@ -222,7 +225,7 @@
     <tabbox flex="1" id="tab-box">
       <tabs id="tab-headers" style="display: none;">
 	<toolbarbutton id="tabs-add-button" oncommand="openNewTab()"/>
-        <tab id="tab-header-00000000" onclick="switchTab('00000000')" class="tab-header">
+        <tab id="tab-header-00000000" onclick="switchTab('00000000')" class="tab-header" selected="true">
 	  <label value="" crop="right" class="tab-header-label"/>
 	</tab>
 	<toolbarbutton id="tabs-close-button" oncommand="closeCurrentTab()"/>

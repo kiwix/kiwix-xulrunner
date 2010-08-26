@@ -6,6 +6,26 @@ function showTabHeaders() {
     tabHeaders.style.display = "block";
 }
 
+/* Make the tabs (in)visible */
+function changeTabsVisibilityStatus(visible, save) {
+    if (visible == undefined) {
+	visible = document.getElementById('display-tabs').getAttribute('checked');
+    } else {
+	document.getElementById('display-tabs').setAttribute('checked', visible);
+    }
+
+    var tabHeaders = document.getElementById("tab-headers");
+    if (visible) {
+	tabHeaders.style.display = "block";
+    } else {
+	tabHeaders.style.display = "none";
+    }
+
+    if (save) {
+	settings.displayTabs(visible);
+    }
+}
+
 /* Add a new tab */
 function openNewTab() {
     var id=randomString();

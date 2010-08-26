@@ -46,6 +46,8 @@
 <!ENTITY main.statusbar.accesskey       "S">
 <!ENTITY main.resultsbar                "结果栏">
 <!ENTITY main.resultsbar.accesskey      "R">
+<!ENTITY main.tabs                      "Tabs">
+<!ENTITY main.tabs.accesskey            "T">
 <!ENTITY main.fullscreen                "全屏">
 <!ENTITY main.fullscreen.accesskey      "F">
 

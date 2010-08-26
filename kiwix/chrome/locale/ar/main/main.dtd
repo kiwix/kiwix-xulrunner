@@ -46,6 +46,8 @@
 <!ENTITY main.statusbar.accesskey       "ح">
 <!ENTITY main.resultsbar                "شريط النتائج">
 <!ENTITY main.resultsbar.accesskey      "ن">
+<!ENTITY main.tabs                      "Tabs">
+<!ENTITY main.tabs.accesskey            "T">
 <!ENTITY main.fullscreen                "ملئ الشاشة">
 <!ENTITY main.fullscreen.accesskey      "م">
 

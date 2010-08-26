@@ -313,7 +313,7 @@ function htmlRendererMouseUp(aEvent) {
     var url = aEvent.target;
 
     if (url instanceof HTMLAnchorElement && aEvent.button == 1) {
-	showTabHeaders();
+	changeTabsVisibilityStatus(true);
 	openNewTab();
 	htmlRendererOpenUrl(aEvent);
     }
@@ -412,7 +412,6 @@ function UIToggleBookmarksBar () {
     settings.displayBookmarksBar(!bar.hidden);
     getBookmarksButton().setAttribute('checked', !bar.hidden);
 }
-
 
 /* Make the status bar (in)visible */
 function changeStatusBarVisibilityStatus(visible, save) {
@@ -819,6 +818,7 @@ function initUserInterface() {
     if (settings.displayStatusBar() != undefined) { changeStatusBarVisibilityStatus(settings.displayStatusBar()); }
     if (settings.displayFullScreen() != undefined) { if (settings.displayFullScreen()) { UIToggleFullScreen(); } }
     if (settings.displayBookmarksBar() === true) { UIToggleBookmarksBar(); }
+    if (settings.displayTabs() === true) { changeTabsVisibilityStatus(settings.displayTabs()); }
 
     /* Activate (or not) the Home button */
     if (getCurrentZimFileHomePageUrl()) {

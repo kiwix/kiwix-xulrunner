@@ -7,12 +7,12 @@
 <!ENTITY main.file.accesskey            "F">
 <!ENTITY main.openFile                  "פתיחת קובץ...">
 <!ENTITY main.openFile.accesskey        "O">
-<!ENTITY main.lastOpen                  "Recently open...">
+<!ENTITY main.lastOpen                  "פתיחת קובץ מבין האחרונים...">
 <!ENTITY main.saveFile                  "שמירת דף בשם...">
 <!ENTITY main.saveFile.accesskey        "S">
 <!ENTITY main.print                     "הדפסה">
 <!ENTITY main.print.accesskey           "P">
-<!ENTITY main.printPdf                  "Print as PDF">
+<!ENTITY main.printPdf                  "הדפסה אל PDF">
 <!ENTITY main.printPdf.accesskey        "D">
 <!ENTITY main.quit                      "יציאה">
 <!ENTITY main.quit.accesskey            "Q">
@@ -26,7 +26,7 @@
 <!ENTITY main.selectall.accesskey       "a">
 <!ENTITY main.copy                      "העתקה">
 <!ENTITY main.copy.accesskey            "p">
-<!ENTITY main.transliteration           "Transliteration">
+<!ENTITY main.transliteration           "תעתיק">
 <!ENTITY main.transliteration.accesskey "T">
 
 <!-- Display menu -->
@@ -46,6 +46,8 @@
 <!ENTITY main.statusbar.accesskey       "S">
 <!ENTITY main.resultsbar                "אזור תוצאות">
 <!ENTITY main.resultsbar.accesskey      "R">
+<!ENTITY main.tabs                      "Tabs">
+<!ENTITY main.tabs.accesskey            "T">
 <!ENTITY main.fullscreen                "מסך מלא">
 <!ENTITY main.fullscreen.accesskey      "F">
 
@@ -54,14 +56,14 @@
 <!ENTITY main.tools.accesskey           "T">
 <!ENTITY main.randomArticle             "ערך אקראי">
 <!ENTITY main.randomArticle.accesskey   "R">
-<!ENTITY main.purgeHistory              "Purge history">
+<!ENTITY main.purgeHistory              "מחק היסטוריה">
 <!ENTITY main.purgeHistory.accesskey    "P">
 
 <!-- Help menu -->
 <!ENTITY main.help                      "עזרה">
 <!ENTITY main.help.accesskey            "H">
-<!ENTITY main.reportabug                "Report a bug">
-<!ENTITY main.requestafeature           "Request a feature">
+<!ENTITY main.reportabug                "דווח על באג">
+<!ENTITY main.requestafeature           "בקש שיפור לתוכנה">
 <!ENTITY main.about                     "אודות">
 <!ENTITY main.about.accesskey           "A">
 
@@ -79,10 +81,10 @@
 
 <!-- Bookmarks Bar -->
 <!ENTITY main.bmkLabel                  "סימניות:">
-<!ENTITY main.notesLabel                "Bookmark notes:">
-<!ENTITY main.loadbmk                   "Import Bookmark Set">
-<!ENTITY main.newbmk                    "Create new Bookmark Set">
-<!ENTITY main.mark                      "Mark this page">
-<!ENTITY main.unmark                    "Unmark selected">
-<!ENTITY main.reload                    "Reset Bookmark Set">
-<!ENTITY main.defaultset                "Default Set">
+<!ENTITY main.notesLabel                "הערות לסימניות:">
+<!ENTITY main.loadbmk                   "יבא קובץ סימניות">
+<!ENTITY main.newbmk                    "צור קובץ סימניות חדש">
+<!ENTITY main.mark                      "סמן דף זה">
+<!ENTITY main.unmark                    "בטל סימון בקטע הנבחר">
+<!ENTITY main.reload                    "אפס קובץ סימניות">
+<!ENTITY main.defaultset                "קובץ ברירת מחדל">
