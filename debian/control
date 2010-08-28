@@ -16,6 +16,7 @@ Build-Depends: binutils,
 	libtool,
 	python-support
 Standards-Version: 0.9
+Homepage: http://www.kiwix.org/
 
 Package: kiwix
 Architecture: any
@@ -40,3 +41,14 @@ Description: Wikipedia offline reader
   Kiwix allows you to read and search through offline content
   as they were online. Similar to a browser, Kiwix works with
   the highly compressed ZIM file format.
+
+  Features:
+  * Pure ZIM file reader
+  * Case and diacritics insensitve full text search engine
+  * Bookmarks & Notes
+  * ZIM base HTTP server
+  * PDF/HTML export
+  * Localized
+  * Search suggestions
+  * ZIM file Index capacity
+  * Tabs navigation
