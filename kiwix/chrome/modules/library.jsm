@@ -20,7 +20,6 @@ let library = {
 	/* Try to read install library file */
 	var directoryService = Components.classes["@mozilla.org/file/directory_service;1"].getService(Components.interfaces.nsIProperties);
 	var kiwixDirectory = directoryService.get("CurProcD", Components.interfaces.nsIFile);
-
 	
 	/* Compute the "content" directory */
 	var libraryDirectory;
@@ -46,22 +45,27 @@ let library = {
 	   }
 	}
 
-	/* Prepare the library file descriptor */
-	var directoryService = Components.classes["@mozilla.org/file/directory_service;1"].getService(Components.interfaces.nsIProperties);
-	var settingsDirectory = directoryService.get("PrefD", Components.interfaces.nsIFile);
-	settingsDirectory.append("library.xml");
+	/* Check if this is a live instance */
+	var liveFile = Components.classes["@mozilla.org/file/directory_service;1"].getService(Components.interfaces.nsIProperties).get("resource:app", Components.interfaces.nsIFile);
+	liveFile.append("live");
+	if (!liveFile.exists()) {	
+		/* Prepare the library file descriptor */
+		var directoryService = Components.classes["@mozilla.org/file/directory_service;1"].getService(Components.interfaces.nsIProperties);
+		var settingsDirectory = directoryService.get("PrefD", Components.interfaces.nsIFile);
+		settingsDirectory.append("library.xml");
 
-	/* Save the library file path */
-	this.filePath( settingsDirectory.path );
+		/* Save the library file path */
+		this.filePath( settingsDirectory.path );
 
-	/* Create a file if necessary */
-	var libraryFile = settingsDirectory.clone();
-	if (!libraryFile.exists ()) {
-	   this.writeToFile();
+		/* Create a file if necessary */
+		var libraryFile = settingsDirectory.clone();
+		if (!libraryFile.exists ()) {
+	   	   this.writeToFile();
+		}
+
+		/* Load library file */
+		this.readFromFile(this.filePath());
 	}
-
-	/* Load library file */
-	this.readFromFile(this.filePath());
     },
 
     /* Delete file */
