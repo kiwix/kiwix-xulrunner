@@ -97,6 +97,7 @@ let settings = {
     windowMaximized: function(value) { return this.boolSettingParameter("windowMaximized", value); },
     doOnCloseClean: function(value) { return this.boolSettingParameter("doOnCloseClean", value); },
     displayTabs: function(value) { return this.boolSettingParameter("displayTabs", value); },
+    defaultFilePickerPath: function(value) { return this.charSettingParameter("defaultFilePickerPath", value); },
     displayOnCloseCleanConfirmDialog: function(value) { 
     	return this.boolSettingParameter("displayOnCloseCleanConfirmDialog", value); 
     }

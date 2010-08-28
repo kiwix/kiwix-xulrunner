@@ -542,12 +542,24 @@ function openFile(path, noSearchIndexCheck) {
 	/* Add filters */
 	filePicker.appendFilter("ZIM files","*.zim");
 	
+	/* Set the default path */
+	var defaultFilePickerPath = settings.defaultFilePickerPath();
+	if (defaultFilePickerPath != undefined && defaultFilePickerPath != "") {
+	    var defaultFilePickerPathFile = Components.classes["@mozilla.org/file/local;1"]
+		.createInstance(Components.interfaces.nsILocalFile);
+	    defaultFilePickerPathFile.initWithPath(defaultFilePickerPath);
+	    if (defaultFilePickerPathFile.exists() == true) {
+		filePicker.displayDirectory = defaultFilePickerPathFile;
+	    }
+	}
+
 	/* Show the dialog and get the file path */
 	var res = filePicker.show();
 	
 	/* Get the file path */
 	if (res == nsIFilePicker.returnOK) {
 	    path = filePicker.file.path;
+	    settings.defaultFilePickerPath(filePicker.file.parent.path);
 	} else {
 	    return false;
 	}
