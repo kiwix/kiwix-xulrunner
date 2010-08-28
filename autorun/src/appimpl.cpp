@@ -1,5 +1,6 @@
 #include <windows.h>
 #include <QMessageBox>
+#include <QString>
 #include <sys\stat.h>
 #include "appimpl.h"
 
@@ -36,13 +37,11 @@ bool AppImpl::filexist(const char *filename)
 //Show a error message
 void AppImpl::msgerror(int coderror)
 {
-    char *msg;
+    QString msg = "Unknow Error";
     switch(coderror)
     {
-
-    case 001: msg = "Error 001. File not found, ensure that the kiwix application file is in the current directory.";
-    break;
-
+		case 001: msg = "Error 001. File not found, ensure that the kiwix application file is in the current directory.";
+		break;
     }
     QMessageBox::critical(0,"Error",   msg);
 }
