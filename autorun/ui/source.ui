@@ -1,7 +1,8 @@
-<ui version="4.0" >
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
  <class>App</class>
- <widget class="QDialog" name="App" >
-  <property name="geometry" >
+ <widget class="QDialog" name="App">
+  <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
@@ -9,17 +10,21 @@
     <height>301</height>
    </rect>
   </property>
-  <property name="windowTitle" >
+  <property name="windowTitle">
    <string>[[[windowTitle]]]</string>
   </property>
-  <property name="windowIcon" >
-   <iconset resource="../src/autorun.qrc" >:/resource1/autorun.ico</iconset>
+  <property name="windowIcon">
+   <iconset resource="../src/autorun.qrc">
+    <normaloff>:/resource1/autorun.ico</normaloff>:/resource1/autorun.ico</iconset>
   </property>
-  <property name="layoutDirection" >
-   <enum>[[[layoutDirection]]]</enum>
+  <property name="layoutDirection">
+   <enum>Qt::LeftToRight</enum>
   </property>
-  <widget class="QLabel" name="label_logo" >
-   <property name="geometry" >
+  <property name="modal">
+   <bool>true</bool>
+  </property>
+  <widget class="QLabel" name="label_logo">
+   <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
@@ -27,15 +32,18 @@
      <height>200</height>
     </rect>
    </property>
-   <property name="text" >
+   <property name="text">
     <string/>
    </property>
-   <property name="pixmap" >
-    <pixmap resource="../src/autorun.qrc" >:/resource1/board.png</pixmap>
+   <property name="pixmap">
+    <pixmap resource="../src/autorun.qrc">:/resource1/board_kiwix.png</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>false</bool>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_run" >
-   <property name="geometry" >
+  <widget class="QPushButton" name="pushButton_run">
+   <property name="geometry">
     <rect>
      <x>0</x>
      <y>210</y>
@@ -43,15 +51,15 @@
      <height>27</height>
     </rect>
    </property>
-   <property name="layoutDirection" >
-    <enum>[[[layoutDirection]]]</enum>
+   <property name="layoutDirection">
+    <enum>Qt::LeftToRight</enum>
    </property>
-   <property name="text" >
+   <property name="text">
     <string>[[[run]]]</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_install" >
-   <property name="geometry" >
+  <widget class="QPushButton" name="pushButton_install">
+   <property name="geometry">
     <rect>
      <x>0</x>
      <y>240</y>
@@ -59,15 +67,15 @@
      <height>27</height>
     </rect>
    </property>
-   <property name="layoutDirection" >
-    <enum>[[[layoutDirection]]]</enum>
+   <property name="layoutDirection">
+    <enum>Qt::LeftToRight</enum>
    </property>
-   <property name="text" >
+   <property name="text">
     <string>[[[install]]]</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_quit" >
-   <property name="geometry" >
+  <widget class="QPushButton" name="pushButton_quit">
+   <property name="geometry">
     <rect>
      <x>0</x>
      <y>270</y>
@@ -75,16 +83,58 @@
      <height>27</height>
     </rect>
    </property>
-   <property name="layoutDirection" >
-    <enum>[[[layoutDirection]]]</enum>
+   <property name="layoutDirection">
+    <enum>Qt::LeftToRight</enum>
    </property>
-   <property name="text" >
+   <property name="text">
     <string>[[[quit]]]</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="message2">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>160</y>
+     <width>291</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>14</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Wikipedia anywhere</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="message1">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>30</y>
+     <width>291</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>11</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Multimedia offline reader</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
    </property>
   </widget>
  </widget>
  <resources>
-  <include location="../src/autorun.qrc" />
+  <include location="../src/autorun.qrc"/>
  </resources>
  <connections/>
 </ui>
