@@ -1,0 +1,5 @@
+?package(kiwix):needs="X11" \
+  section="Applications/Education" \
+  title="Kiwix" \
+  command="/usr/bin/kiwix" \
+  icon="/usr/share/pixmaps/kiwix.png"
