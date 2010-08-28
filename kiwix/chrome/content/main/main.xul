@@ -121,7 +121,7 @@
       <menuitem id="display-tabs" label="&main.tabs;" type="checkbox" checked="false"
 		accesskey="&main.tabs.accesskey;" key="change-tabs-visibility-status"
 		oncommand="changeTabsVisibilityStatus(undefined, true)"/>
-      <menuitem id="display-fullscreen" label="&main.fullscreen;" checked="false" class="menuitem-iconic" 
+      <menuitem id="display-fullscreen" label="&main.fullscreen;" type="checkbox" checked="false" class="menuitem-iconic" 
 		accesskey="&main.fullscreen.accesskey;" oncommand="UIToggleFullScreen(true)"/>
     </menupopup>
   </menu>
