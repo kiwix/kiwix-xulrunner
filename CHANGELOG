@@ -11,7 +11,7 @@ Kiwix 0.9 alpha6
 * Add mouse button forward/back support (ID: 3052213)
 * Fix annoyous bug impacting user moving and reopening the same file (ID: 3052211)
 * Remember the file picker path over sessions
-* Does not read anymore the profile library in the instance is a "live" one (DVD or USB)
+* Does not read/save anymore the profile library if "live" instance (DVD or USB)
 
 Kiwix 0.9 alpha5
 * kiwix-serve supports the inflate/deflate compression for text/html
