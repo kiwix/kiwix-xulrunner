@@ -1,7 +1,7 @@
 #ifndef APPIMPL_H
 #define APPIMPL_H
 
-#include "ui_app.h"
+#include "ui_source.h"
 
 class AppImpl : public QDialog, public Ui::App
 {
