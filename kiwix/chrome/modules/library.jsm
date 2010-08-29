@@ -167,28 +167,33 @@ let library = {
 
     /* Save the object to the XML file */
     writeToFile: function() {
-        var xml = this.toXml();
-	var charset = "UTF-8";
+	/* Check if this is a live instance */
+	var liveFile = Components.classes["@mozilla.org/file/directory_service;1"].getService(Components.interfaces.nsIProperties).get("resource:app", Components.interfaces.nsIFile);
+	liveFile.append("live");
+	if (!liveFile.exists()) {	
+	        var xml = this.toXml();	
+		var charset = "UTF-8";
 
-	/* Create the file descriptor */
-	var fileDescriptor = this.openFile(this.filePath());
+		/* Create the file descriptor */
+		var fileDescriptor = this.openFile(this.filePath());
 
-	/* Return if !fileDescriptor */
-	if (!fileDescriptor)
-	   return;
+		/* Return if !fileDescriptor */
+		if (!fileDescriptor)
+		   return;
 
-	/* Write to the file descriptor */
-	var converterOutputStreamService = Components.classes["@mozilla.org/intl/converter-output-stream;1"]
-		.createInstance(Components.interfaces.nsIConverterOutputStream);
+		/* Write to the file descriptor */
+		var converterOutputStreamService = Components.classes["@mozilla.org/intl/converter-output-stream;1"]
+		    .createInstance(Components.interfaces.nsIConverterOutputStream);
 	
-	var fileOutputStreamService = Components.classes["@mozilla.org/network/file-output-stream;1"]
-		.createInstance(Components.interfaces.nsIFileOutputStream);
-	fileOutputStreamService.init(fileDescriptor, 0x02 | 0x08 | 0x20, 0666, 0);
+		var fileOutputStreamService = Components.classes["@mozilla.org/network/file-output-stream;1"]
+		    .createInstance(Components.interfaces.nsIFileOutputStream);
+		fileOutputStreamService.init(fileDescriptor, 0x02 | 0x08 | 0x20, 0666, 0);
 
-	converterOutputStreamService.init(fileOutputStreamService, charset, 0, 0x0000);
-	converterOutputStreamService.writeString(xml);
-	converterOutputStreamService.close();
-	fileOutputStreamService.close();
+		converterOutputStreamService.init(fileOutputStreamService, charset, 0, 0x0000);
+		converterOutputStreamService.writeString(xml);
+		converterOutputStreamService.close();
+		fileOutputStreamService.close();
+	}
     },
 
     /* Build an XML string from the library object */
