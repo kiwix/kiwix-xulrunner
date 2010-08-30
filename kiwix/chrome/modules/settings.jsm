@@ -85,7 +85,13 @@ let settings = {
     },
     
     /* Multiple accessor functions */
-    locale: function(value) { return this.charSettingParameter("general.useragent.locale", value); },
+    locale: function(value) {
+        if (value != undefined) {
+	    this.rootBranch.setBoolPref("intl.locale.matchOS", false);
+        }
+    	return this.charSettingParameter("general.useragent.locale", value); 
+    },
+
     defaultSearchBackend: function(value) { return this.charSettingParameter("kiwix.defaultsearchbackend", value); },
     displayStatusBar: function(value) { return this.boolSettingParameter("displayStatusBar", value); },
     displayFullScreen: function(value) { return this.boolSettingParameter("displayFullScreen", value); },
