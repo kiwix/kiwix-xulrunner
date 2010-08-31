@@ -13,6 +13,8 @@ Kiwix 0.9 alpha6
 * Remember the file picker path over sessions
 * Does not read/save anymore the profile library if "live" instance (DVD or USB)
 * Per default, use now the OS default language and not English anymore
+* Remove the auto full text search by typing the search pattern (was too slow and introduced in alpha5)
+* Add new useful keyboard shortcuts like in Firefox
 
 Kiwix 0.9 alpha5
 * kiwix-serve supports the inflate/deflate compression for text/html

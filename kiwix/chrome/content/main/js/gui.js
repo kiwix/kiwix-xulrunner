@@ -203,6 +203,16 @@ function desactivateNextButton() {
     getNextButton().className = "disabled";
 }
 
+/* Get the focus on the search textbox */
+function focusOnSearchBox() {
+    var searchBox = getSearchBox();
+    if (searchBox.disabled == false) {
+	searchBox.focus();
+    } else {
+	manageIndexZimFile();
+    }
+}
+
 /* Change result side bar visibility status */
 function changeResultsBarVisibilityStatus(visible) {
 

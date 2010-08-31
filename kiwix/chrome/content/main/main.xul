@@ -48,6 +48,7 @@
 <keyset>
   <key id="quit-key" key="Q" modifiers="control" oncommand="quit()"/>
   <key id="find-key" key="F" modifiers="control" oncommand="find()"/>
+  <key id="goto-search-fiel-key" key="L" modifiers="control" oncommand="focusOnSearchBox()"/>
   <key id="open-file-key" key="O" modifiers="control" oncommand="openFile()"/>
   <key id="save-file-key" key="S" modifiers="control" oncommand="saveDocument(window.content.document)"/>
   <key id="print-key" key="P" modifiers="control" oncommand="print()"/>
