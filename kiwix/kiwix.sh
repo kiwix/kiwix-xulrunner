@@ -51,10 +51,10 @@ then
 fi
 
 # Set the default locale if necessary
-if [ ! -d ~/.www.kiwix.org ]
-then
-    LOCALE="-UILocale "`echo $LANG | sed "s/[_|\.].*//"`
-fi
+# if [ ! -d ~/.www.kiwix.org ]
+# then
+#    LOCALE="-UILocale "`echo $LANG | sed "s/[_|\.].*//"`
+# fi
 
 # Otherwise, launch Kiwix
 exec $XULRUNNER $BINARY_DIR/application.ini $1 $LOCALE
