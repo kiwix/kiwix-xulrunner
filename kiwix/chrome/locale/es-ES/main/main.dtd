@@ -56,7 +56,7 @@
 <!ENTITY main.tools.accesskey           "H">
 <!ENTITY main.randomArticle             "Página aleatoria">
 <!ENTITY main.randomArticle.accesskey   "P">
-<!ENTITY main.purgeHistory              "Purge history">
+<!ENTITY main.purgeHistory              "Purgar historial">
 <!ENTITY main.purgeHistory.accesskey    "P">
 
 <!-- Help menu -->
@@ -71,7 +71,7 @@
 <!ENTITY main.back                      "Detrás">
 <!ENTITY main.forward                   "Adelante">
 <!ENTITY main.home                      "Inicio">
-<!ENTITY main.searchBar                 "Barra de la búsqueda">
+<!ENTITY main.searchBar                 "Barra de búsqueda">
 <!ENTITY main.search                    "Buscar">
 <!ENTITY main.noSearchBar               "La búsqueda requiere un archivo puesto en un índice de Zim">
 <!ENTITY main.bookmarks                 "Marcadores">
