@@ -16,6 +16,7 @@ Kiwix 0.9 alpha6
 * Per default, use now the OS default language and not English anymore
 * Remove the auto full text search by typing the search pattern (was introduced in alpha5 and needs too much CPU)
 * Add new useful keyboard shortcuts like in Firefox (ID: 2992557)
+* Better help page in English
 
 Kiwix 0.9 alpha5
 * kiwix-serve supports the inflate/deflate compression for text/html

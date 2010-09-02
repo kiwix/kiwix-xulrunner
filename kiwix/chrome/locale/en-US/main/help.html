@@ -12,33 +12,155 @@
       font-weight: bold;
       }
 
+      .subtitle {
+      padding: 0.5em;
+      margin: 0.5em 0 0.5em 0;
+      font-weight: bold;
+      }     
+
       .chapter {
       text-indent: 2em;
       }
 
       body {
       background-color: #FFFFFF;
-      margin: 0 0.5em 0 0.5em;
+      margin: 0 0.5em 0 0.5em
       font-family: sans-serif;
       color: black;
       }
-      
+
+      accronym, abbr {
+      border-bottom: 1px dotted;
+      cursor: help;
+      }
+
+      li { text-indent: 0; }
     </style>
 
   </head>
 <body>
+<h1>Welcome to Kiwix</h1>
 
-<div class="title">Welcome</div>
 <div class="chapter">
-Welcome to Kiwix software. Kiwix is a <a href="http://en.wikipedia.org/wiki/Free_software">free software<a> able to read <a href="http://www.openzim.org">ZIM files</a>. ZIM files are files merging multimedia content (text, picture, video) typically issued by the <a href="http://en.wikipedia.org/wiki/World_Wide_Web">World Wide Web</a>, like <a href="http://en.wikipedia.org/wiki/Blog">Blogs</a> or <a href="http://en.wikipedia.org/wiki/Wiki">Wikis</a>. Kiwix is consequently a solution which allows you to browse content offline which is normaly only available online. It is especially developed to give access to the content of the free encyclopedia <a href="http://en.wikipedia.org/wiki/Wikipedia">Wikipedia</a> to people which do not have access to <a href="http://en.wikipedia.org/wiki/Internet">Internet</a>. However Kiwix is a software under active development, it can be used.
+<p>Kiwix is a content reader software. Just like an Internet Browser allows you to read content from the web, Kiwix allows you to read <i>offline content</i>.</p>
+<p>Kiwix is also a <em>Free Software</em> licensed under the <accronym title="GNU General Public License">GPL</accronym> version 3. It means you can <strong>freely</strong> distribute and share kiwix with other people.</p>
 </div>
 
-<div class="title">ZIM files</div>
+<ul>
+    <li><a href="#guide">Beginner's Guide</a></li>
+    <li><a href="#faq"><accronym title="Frequently Asked Questions">F.A.Q</accrnym> & Further Topics</a></li>
+    <li><a href="#online_help">Online help</a></li>
+    <li><a href="#more">More...</a></li>
+</ul>
+
+<div class="title"><a name="guide"></a>Beginner's Guide</div>
+
+<div class="subtitle"><a name="guide_start"></a>Where to start from ?</div>
 <div class="chapter">
-Currently, there does not exist any official release of ZIM files, but we are working on a few of them. You can download development files <a href="http://tmp.kiwix.org/zim/0.9/">here</a> with your browser and open them with the menu "File > Open file..."
+<p>Kiwix is frequently deployed (distributed), bundled with a content package. This package can be content from Wikipedia, Ubuntu documentation or other online content that has been prepared for Kiwix.</p>
+<p>If you are in this case, once you launch Kiwix, you should see the content's default page which will guide you ; if it's not, the first thing you'll see is the Help page (this one).</p>
+<p>Kiwix content packages are not specific to Kiwix. There are called <em>zim files</em> and are defined by the <em>OpenZIM</em> consortium. Find out more in the <a href="#guide_addcontent">Adding Content</a> section.</p>
 </div>
 
-<div class="title" style="text-indent: 0px;">Help</div>
+<div class="subtitle"><a name="guide_features"></a>What can I do ? List of features.</div>
+<div class="chapter">
+<p>Kiwix behaves mostly like a Web browser. It thus share some features with them:</p>
+<ul>
+<li><a href="#faq_nav">Going backward and forward</a>.</li>
+<li><a href="#faq_textsize">Increasing and Decreasing the size of the text</a>.</li>
+<li><a href="#faq_fullscreen">Displaying Kiwix in full-screen</a>.</li>
+<li><a href="#faq_printing">Printing and exporting documents</a>.</li>
+<li><a href="#faq_bookmarks">Bookmarking pages</a>.</li>
+<li><a href="#faq_notes">Saving personnal notes on bookmarks</a>.</li>
+<li><a href="#faq_find">Search inside pages</a>.</li>
+<li><a href="#faq_copy">Copy text from pages</a>.</li>
+<li><a href="#faq_search">Search accross all documents of the content packages</a>.</li>
+</ul>
+</div>
+
+<div class="subtitle" style="display: none"><a name="guide_addcontent"></a>Adding Content</div>
+<div class="chapter" style="display: none"><p>TODO</p></div>
+
+<div class="subtitle" style="display: none"><a name="guide_readcontent"></a>Reading Content</div>
+<div class="chapter" style="display: none"><p>TODO</p></div>
+
+<div class="title"><a name="faq"></a><accronym title="Frequently Asked Questions">F.A.Q</accrnym> & Further Topics</div>
+
+<div class="subtitle"><a name="faq_nav"></a>Going backward and forward.</div>
+<div class="chapter">
+<p>Browsing a Kiwix content, just like on the Internet means going from <em>pages</em> (documents or articles) to pages. You would do this be following links (clicking on them) or by requesting new pages using the search engine. This is called <em>navigating</em>.</p>
+<p>To ease your navigation, you can click the <em>Back</em> and <em>Forward</em> buttons located on the toolbar, represented by two arrows.</p>
+<p>Should you get lost and want to start a new navigation from the <em>begining</em> (the welcome page), you can use the <em>Home</em> button, close to the navigation ones. It is represented by a house.</p>
+</div>
+
+<div class="subtitle"><a name="faq_textsize"></a>Increasing and Decreasing the size of the text.</div>
+<div class="chapter">
+<p>The size of the text is specified by the content package you are using. Because it might not be ideal for your eyes and comfort, you can either increase or decrease the size of the text at any time. To do so, use the <em>Magnify</em> (to increase) and <em>Reduce</em> (to decrease) buttons to change the size of the text. Those commands are also available from the <em>Display</em> menu.</p>
+</div>
+
+<div class="subtitle"><a name="faq_fullscreen"></a>Displaying Kiwix in full-screen.</div>
+<div class="chapter">
+<p>To gain some extra space on a small display or to remove distractions, you may want to display Kiwix in fullscreen. It will maximize the size of the Kiwix window and hide all other programs including your operating system. The saved space is then used to display more content at once.</p>
+<p>Activate and de-activate it using the <em>Full screen</em> button, next to the <em>Reduce</em> one.</p>
+</div>
+
+<div class="subtitle"><a name="faq_printing"></a>Printing and exporting documents.</div>
+<div class="chapter">
+<p>Just like on the Web, you can print any Kiwix document (including this one) or export it and share. Three options are available:</p>
+<ul>
+<li>Print a document using the <em>Print</em> button (representing a printer).</li>
+<li>Export a document in <accronym title="Portable Document Format">PDF</accronym>, using the <em>File</em> → <em>Print as PDF</em> menu item. It will create a file which can be used to print or read the document later. Note that it will be formatted for priting and will thus remove the links.</li>
+<li>Save the document as an <accronym title="Hyper Text Markup Language">HTML</accronym> file. It's not ideal for sharing but will keep the same formatting and links.</li>
+</div>
+
+<div class="subtitle"><a name="faq_bookmarks"></a>Bookmarking pages.</div>
+<div class="chapter">
+<p>You can mark some pages (documents) to access them directly afterwards.</p>
+<p>Bookmarks are organised in <em>sets</em>. A set is a list (or group) of bookmarks that live together. Because you can easily import or export (a set is saved as a regular file on your computer) a complete set of bookmarks (using the <em>Import</em> or <em>Create</em> buttons on the bookmarks side-bar), it is easy to share a list of documents ; with your students for example.</p>
+<p>The bookmarking feature is reachable by clicking on the <em>Bookmarks</em> button. It will open a panel on the side of the screen. The panel contains, in order: </p>
+<ul>
+<li>The action buttons
+    <ul>
+    <li><em>Create new set</em>: Create an empty set in a new file on your computer. Each time you add or delete a bookmark to the set, the file is updated. Share this file for backup or for someone else to import.</li>
+    <li><em>Import set</em>: Select a previously saved (or retrieved) Kiwix bookmark file to import a complete set, including <a href="#faq_notes">notes</a>.</li>
+    <li><em>Reset Bookmark Set</em>: Deletes all the bookmarks from the current ; should it be the <em>Default Set</em> or another. Use with care as it's not reversible.</li>
+    <li><em>Mark this page</em>: Add the current page (document) to the current bookmark set.</li>
+    <li><em>Unmark selected</em>: Removes the selected (on the bookmark list) bookmark from the current set.</li>
+    </ul>
+<li>List of opened bookmark sets. Switch from here between your opened (default one and those you imported) sets. Once you close Kiwix, all your sets are closed ; you will need to re-import them next time.</li>
+<li>List of bookmarks in the current set. Each time you mark a document, it is added to that list. Just click on an item to be sent to the corresponding document.</li>
+<li><a href="#faq_notes">Notes</a> text input field for the selected bookmark.</li> 
+</div>
+
+<div class="subtitle"><a name="faq_notes"></a>Saving personnal notes on bookmarks.</div>
+<div class="chapter">
+<p>You can comment or write notes on each page (document) you <a href="#faq_bookmarks">bookmark</a>. Notes are included in the bookmark set file ; this way, your comments are shared with your bookmarks.</p>
+<p>You can only write comments on pages you have bookmarked.</p>
+<p>To add a note, mark the current page and click on the <em>Notes</em> text box on the bookmark side-panel. The text is saved as you type.</p></div>
+
+<div class="subtitle"><a name="faq_find"></a>Search inside pages.</div>
+<div class="chapter">
+<p>You can find specific words inside a document by searching for them. To do so, access the <em>Find in page</em> Dialog by going to the <em>Edit</em> → <em>Search in Page</em> menu item.</p>
+<p>The dialog allows you to type a word, select some straightforward options and hit <em>Find next</em> to find that <strong>exact</strong> (minus case) sentence in the current page (document). It's a basic text matching search, not a <a href="#faq_search">search engine</a>.</div>
+
+<div class="subtitle"><a name="faq_copy"></a>Copy text from pages.</div>
+<div class="chapter">
+<p>As most applications, Kiwix supports copy-pasting. Select a piece of text using the mouse then click <em>Edit</em> → <em>Copy</em> and you'll be able to paste that text in any other application ; or on the search engine.</p></div>
+
+<div class="subtitle"><a name="faq_search"></a>Search accross all documents of the content packages.</div>
+<div class="chapter">
+<p>Kiwix includes a powerful search engine to help you easily access the documents you are looking for.</p>
+<p>To use the search engine, you must first enable it by <em>creating the indexes</em>. This steps may have already been done for you.</p>
+<p>Check that the search engine is ready by clicking on the large search field located on the toolbar. If you can type text inside, your search engine is ready. If not, Kiwix will ask you whether to launch the index creation process or not. This step is very time consuming and depend on both the size of your content package and the speed of your computer.</p>
+<p>Once ready, the search engine is very easy to use: type text into the search field and hit enter. A list of matching results will appear on the side-panel. Click on the documents' name to access them.</p>
+<p>Alternatively, you can select document's title in the search field. The popup-list is auto-completed as-you-type. Those are suggestions based on the real names of existing documents. Using them is not a requirement.</p></div>
+
+<div class="subtitle" style="display: none"><a name="faq_findcontent"></a>Finding new content</div>
+<div class="chapter" style="display: none">
+<p>TODO</p>
+</div>
+
+<div class="title" style="text-indent: 0px;"<a name="online_help"></a>Online help</div>
 <ul>
   <li><a href="https://sourceforge.net/tracker/?group_id=175508&atid=873515">Report a bug</a></li>
   <li><a href="https://sourceforge.net/tracker/?group_id=175508&atid=873518">Make a feature request</a></li>
@@ -48,13 +170,15 @@ Currently, there does not exist any official release of ZIM files, but we are wo
 <div class="chapter">
 </div>
 
-<div class="title">More...</div>
+<div class="title"><a name="more"></a>More...</div>
 <div class="chapter" style="text-indent: 0px;">
 <ul>
+  <li><a href="http://tmp.kiwix.org/zim/0.9/">More content (zim files)</a></li>
   <li><a href="http://www.kiwix.org/">Kiwix project Web page</li>
   <li><a href="http://www.openzim.org/">openZIM project Web page</li>
 </ul>
 </div>
 
+</div>
 </body>
 </html>
