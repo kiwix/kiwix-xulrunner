@@ -41,8 +41,8 @@ Description: Wikipedia offline reader
   Kiwix allows you to read and search through offline content
   as they were online. Similar to a browser, Kiwix works with
   the highly compressed ZIM file format.
-
-  Features\:
+  .
+  Features:
   * Pure ZIM file reader
   * Case and diacritics insensitve full text search engine
   * Bookmarks & Notes
