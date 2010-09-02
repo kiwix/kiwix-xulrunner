@@ -42,7 +42,7 @@ Description: Wikipedia offline reader
   as they were online. Similar to a browser, Kiwix works with
   the highly compressed ZIM file format.
 
-  Features:
+  Features\:
   * Pure ZIM file reader
   * Case and diacritics insensitve full text search engine
   * Bookmarks & Notes
