@@ -720,6 +720,10 @@ function showAbout() {
 
 /* Display the help */
 function showHelp() {
+    if (settings.displayTabs() == true) {
+	openNewTab();
+    }
+
     loadContent("chrome://main/locale/help.html");
 }
 
