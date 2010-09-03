@@ -1,3 +1,26 @@
+kiwix (0.9-alpha6) lucid; urgency=low
+
+  * Fix a regression bug impacting the case insensitive (first character only) suggestion system
+  * Fix a bug in kiwix-serve impacting search results with titles including special characters
+  * Add the --verbose|-v arugment to kiwix-index
+  * Add a stub HTML header&footer in case of the article only have a <body> (ID: 3030608)
+  * Fix a bug in the ./configure libicu version checking (ID: 3034150)
+  * Fix a bug in the debian/posrtrm script (ID: 3035092)
+  * Complete the DEB package with additional informations
+  * Add the "Purge history" Tool (ID: 3036917)
+  * Tab navigation (ID: 1644478)
+  * Capacity to deal with splitted ZIM files
+  * Add mouse button forward/back support (ID: 3052213)
+  * Fix annoyous bug impacting user moving and reopening the same file (ID: 3052211)
+  * Remember the file picker path over sessions
+  * Does not read/save anymore the profile library if "live" instance (DVD or USB)
+  * Per default, use now the OS default language and not English anymore
+  * Remove the auto full text search by typing the search pattern (was introduced in alpha5 and needs too much CPU)
+  * Add new useful keyboard shortcuts like in Firefox (ID: 2992557)
+  * Better help page in English
+
+ -- Emmanuel Engelhart <kelson@kiwix.org> Thu, 2 Sep 2010 19:20:00 +0200
+
 kiwix (0.9-alpha5.1) lucid; urgency=low
 
   * Fix a bug in the debian/posrtrm script (ID: 3035092)
