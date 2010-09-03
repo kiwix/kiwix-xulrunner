@@ -58,6 +58,7 @@
   <key id="zoomin" key="+" modifiers="control" oncommand="zoomIn()"/>
   <key id="zoomout" key="-" modifiers="control" oncommand="zoomOut()"/>
   <key id="zoomorig" key="0" modifiers="control" oncommand="zoomOriginal()"/>
+  <key id="open-tab-key" key="T" modifiers="control" oncommand="openNewTab()"/>
   <key id="help-key" keycode="VK_F1" oncommand="showHelp()"/>
   <key id="change-results-bar-visibility-status" key="R" modifiers="control" 
        oncommand="changeResultsBarVisibilityStatus()"/>
