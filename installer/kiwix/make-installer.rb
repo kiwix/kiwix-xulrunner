@@ -65,6 +65,7 @@ File.new(@arg['nsi_output'], "w"))
                        @files.each do |f|
                                $result += "\tCopyFiles /SILENT `#{f[0]}` `#{f[1]}` `#{f[2]}`\n"
                        end
+		       $result += "\tCopyFiles /SILENT `..\\data\\*` `$INSTDIR\\data\\`\n"
                end
 
                # return tree section for put in nsi template
