@@ -42,7 +42,7 @@ void AppImpl::msgerror(int coderror)
     QString msg = "Unknow Error";
     switch(coderror)
     {
-		case 001: msg = "Error 001. File not found, ensure that the kiwix application file is in the current directory.";
+		case 001: msg = "Error 001. File not found, ensure that the kiwix application file is in the current directory.";                
 		break;
     }
     QMessageBox::critical(0,"Error",   msg);
@@ -115,7 +115,7 @@ QMap<QString, QString> AppImpl::parseXML() {
     if (!file->open(QIODevice::ReadOnly | QIODevice::Text)) {
             QMessageBox::critical(this,
                                   "AppImpl::parseXML",
-                                  "Couldn't open " +this->lang + ".xml",
+                                  "Error 002. Couldn't open ui\\"+this->lang + ".xml",
                                   QMessageBox::Ok);
             exit(0);
         }
