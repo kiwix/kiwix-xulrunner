@@ -73,22 +73,10 @@ public:
         message1->setFont(font1);
         message1->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
 
-        retranslateUi(App);
+        //retranslateUi(App);
 
         QMetaObject::connectSlotsByName(App);
     } // setupUi
-
-    void retranslateUi(QDialog *App)
-    {
-        App->setWindowTitle(QApplication::translate("App", "[[[windowTitle]]]", 0, QApplication::UnicodeUTF8));
-        label_logo->setText(QString());
-        pushButton_run->setText(QApplication::translate("App", "[[[run]]]", 0, QApplication::UnicodeUTF8));
-        pushButton_install->setText(QApplication::translate("App", "[[[install]]]", 0, QApplication::UnicodeUTF8));
-        pushButton_quit->setText(QApplication::translate("App", "[[[quit]]]", 0, QApplication::UnicodeUTF8));
-        message2->setText(QApplication::translate("App", "Wikipedia anywhere", 0, QApplication::UnicodeUTF8));
-        message1->setText(QApplication::translate("App", "Multimedia offline reader", 0, QApplication::UnicodeUTF8));
-    } // retranslateUi
-
 };
 
 namespace Ui {
