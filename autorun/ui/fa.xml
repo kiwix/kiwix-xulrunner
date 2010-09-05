@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <autorun>
 	<lang code="fa">
-		<layoutDirection>Qt::RightToLeft</layoutDirection>
 		<windowTitle>ویکی پدیا آفلاین</windowTitle>
 		<run>بر روی سي دی نگاه کنيد</run>
 		<install>نصب بر روی ديسک</install>

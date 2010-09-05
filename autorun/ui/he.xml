@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <autorun>
   <lang code="he">
-    <layoutDirection>Qt::RightToLeft</layoutDirection>
     <windowTitle>קיוויקס</windowTitle>
     <run>הרץ את קיוויקס מכאן</run>
     <install>התקן את קיוויקס לדיסק הקשיח</install>

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <autorun>
 	<lang code="en">
-		<layoutDirection>Qt::LeftToRight</layoutDirection>
 		<windowTitle>Wikimedia by Kiwix</windowTitle>
 		<run>Launch kiwix from here</run>
 		<install>Install kiwix to your Hard Drive</install>
