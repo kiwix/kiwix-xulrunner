@@ -64,6 +64,8 @@ follow the steps in the given order.
 
 * Click on the "autorun/autorun.exe" binary and it should work.
 
+* In the subdirectory called "ui" should be the language xml file, eg en.xml, es.xml, fr.xml
+
 == Addtional custom ==
 
 * You can also customize the text by looking to the "ui"
