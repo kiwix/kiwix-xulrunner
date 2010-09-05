@@ -2,6 +2,9 @@
 <ui version="4.0">
  <class>App</class>
  <widget class="QDialog" name="App">
+  <property name="windowModality">
+   <enum>Qt::NonModal</enum>
+  </property>
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -14,7 +17,7 @@
    <string>[[[windowTitle]]]</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="../src/autorun.qrc">
+   <iconset>
     <normaloff>:/resource1/autorun.ico</normaloff>:/resource1/autorun.ico</iconset>
   </property>
   <property name="layoutDirection">
@@ -36,7 +39,7 @@
     <string/>
    </property>
    <property name="pixmap">
-    <pixmap resource="../src/autorun.qrc">:/resource1/board_kiwix.png</pixmap>
+    <pixmap>:/resource1/board_kiwix.png</pixmap>
    </property>
    <property name="scaledContents">
     <bool>false</bool>
@@ -133,8 +136,6 @@
    </property>
   </widget>
  </widget>
- <resources>
-  <include location="../src/autorun.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>
