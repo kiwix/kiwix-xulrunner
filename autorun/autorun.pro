@@ -6,10 +6,9 @@ DEPENDPATH += . \
     ui
 INCLUDEPATH += .
 CONFIG += static
-
+QT += xml
 # Input
 HEADERS += src/appimpl.h \
-    src/ui_app.h \
     src/ui_source.h
 FORMS += ui/source.ui
 SOURCES += src/appimpl.cpp \
