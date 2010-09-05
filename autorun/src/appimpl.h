@@ -11,6 +11,7 @@ class AppImpl : public QDialog, public Ui::App
 
             AppImpl( QWidget * parent = 0, Qt::WFlags f = 0 );
             QString lang;
+
     public slots:
 
             bool filexist(const char *filename);

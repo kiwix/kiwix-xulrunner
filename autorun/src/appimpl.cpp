@@ -84,24 +84,41 @@ void AppImpl::quit()
 void AppImpl::retranslateUi()
 {
     QMap<QString, QString> ui_element = this->parseXML();
+
     //Label:launcher
     this->setWindowTitle(QApplication::translate("App", ui_element["windowTitle"].toUtf8().data(), 0, QApplication::UnicodeUTF8));
+
+    //Image label
     this->label_logo->setText(QString());
+
     //Label:Launch from here
     this->pushButton_run->setText(QApplication::translate("App", ui_element["run"].toUtf8().data(), 0, QApplication::UnicodeUTF8));
+
     //Label:Install to your Hard Drive
     this->pushButton_install->setText(QApplication::translate("App", ui_element["install"].toUtf8().data(), 0, QApplication::UnicodeUTF8));
+
     //Label:Quit this menu
     this->pushButton_quit->setText(QApplication::translate("App", ui_element["quit"].toUtf8().data(), 0, QApplication::UnicodeUTF8));
+
     //Label:Wikipedia anywhere
     this->message2->setText(QApplication::translate("App", "Wikipedia anywhere", 0, QApplication::UnicodeUTF8));
+
     //Label:Multimedia offline reader
     this->message1->setText(QApplication::translate("App", "Multimedia offline reader", 0, QApplication::UnicodeUTF8));
-} // retranslateUi
 
+} // retranslateUi
+//Xml lang user interface reader
 QMap<QString, QString> AppImpl::parseXML() {
-    /* We'll parse the xml */
+    /* We'll parse the xml in ui folder */
     QFile* file = new QFile("ui\\"+this->lang + ".xml");
+
+    if (!file->open(QIODevice::ReadOnly | QIODevice::Text)) {
+            QMessageBox::critical(this,
+                                  "AppImpl::parseXML",
+                                  "Couldn't open " +this->lang + ".xml",
+                                  QMessageBox::Ok);
+            exit(0);
+        }
 
     /* QDomDocument takes any QIODevice. as well as QString buffer*/
     QDomDocument doc("mylangdocument");
@@ -122,7 +139,7 @@ QMap<QString, QString> AppImpl::parseXML() {
     // get the current one as QDomElement
     QDomElement el = nodeList.at(0).toElement();
 
-    ui_element["code"] = el.attribute("code"); // get and set the attribute ID
+    ui_element["code"] = el.attribute("code"); // get and set the attribute code
 
     //get all data for the element, by looping through all child elements
     QDomNode uiEntries = el.firstChild();
@@ -131,18 +148,15 @@ QMap<QString, QString> AppImpl::parseXML() {
             QDomElement uiData = uiEntries.toElement();
             QString tagNam = uiData.tagName();
 
-            if(tagNam == "layoutDirection") { /* We've found layoutDirection label. */
-                            ui_element["layoutDirection"] = uiData.text();
-            }else if(tagNam == "windowTitle") { /* We've found windowTitle label. */
+            if(tagNam == "windowTitle") { /* We've found windowTitle label. */
                             ui_element["windowTitle"] = uiData.text();
             }else if(tagNam == "run") { /* We've found run label. */
                             ui_element["run"] = uiData.text();
             }else if(tagNam == "install") { /* We've found install label. */
                             ui_element["install"] = uiData.text();
             }else if(tagNam == "quit") { /* We've found quit label. */
-                ui_element["quit"] = uiData.text();
+                            ui_element["quit"] = uiData.text();
             }
-
             uiEntries = uiEntries.nextSibling();
     }
     return ui_element;
