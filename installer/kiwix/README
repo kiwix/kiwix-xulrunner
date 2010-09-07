@@ -17,6 +17,9 @@ Please follow the steps in the given order.
 * Download NSIS: http://download.kiwix.org/dev/nsis-2.46-setup.exe and
   install it in the default proposed directory: C:\Program Files\NSIS\
 
+* Download the following file, unpack and run install.exe
+  http://download.kiwix.org/dev/nsis_locate.zip
+
 * Install this self-extracting MSYS package on your system in the
   default proposed directory: C:\msys\1.0. A the end a console will be
   launched. Please answer "y" two times. After that you need to give
