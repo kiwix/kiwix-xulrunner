@@ -149,12 +149,14 @@ Page custom .onWelcomePageCreate .onWelcomePageLeave
 Function .onInit
   __CONTENTSIZE__
 
-  ${locate::GetSize} "..\data\" "/S=Mb /M=*.* /G=1 /B=1" $R1 $R2 $R3
-  System::Int64Op $R1 * 1024
-  Pop $0
-  System::Int64Op $0 + $CONTENTSIZE
-  Pop $0
-  StrCpy $CONTENTSIZE "$0" 
+  ${If} ${FileExists} "..\data\"
+    ${locate::GetSize} "..\data\" "/S=Mb /M=*.* /G=1 /B=1" $R1 $R2 $R3
+    System::Int64Op $R1 * 1024
+    Pop $0
+    System::Int64Op $0 + $CONTENTSIZE
+    Pop $0
+    StrCpy $CONTENTSIZE "$0" 
+  ${EndIf}
 
   !insertmacro INSTALLOPTIONS_EXTRACT "kiwix-install.ini"
   !insertmacro MUI_LANGDLL_DISPLAY
@@ -267,24 +269,26 @@ Section
 ; Insert here the command to copy files
   __FILES_TO_INSTALL__	
 
-; Copy files from "data" directory 
-CreateDirectory "$INSTDIR\data"
-${locate::Open} "..\data\" "/S=Mb /M=*.* /G=1 /B=1" $0
-StrCmp $0 0 0 loop
+; Copy files from "data" directory
+${If} ${FileExists} "..\data\"
+  CreateDirectory "$INSTDIR\data"
+  ${locate::Open} "..\data\" "/S=Mb /M=*.* /G=1 /B=1" $0
+  StrCmp $0 0 0 loop
 
-loop:
-${locate::Find} $0 $1 $2 $3 $4 $5 $6
-${If} $1 != ""
-  ${If} $4 == ""
-    CreateDirectory "$INSTDIR\data\$1"
-  ${Else}
-    CopyFiles /SILENT $1 "$INSTDIR\data\$2"
+  loop:
+  ${locate::Find} $0 $1 $2 $3 $4 $5 $6
+  ${If} $1 != ""
+    ${If} $4 == ""
+      CreateDirectory "$INSTDIR\data\$1"
+    ${Else}
+      CopyFiles /SILENT $1 "$INSTDIR\data\$2"
+    ${EndIf}
   ${EndIf}
-${EndIf}
 
-close:
-${locate::Close} $0
-${locate::Unload}
+  close:
+  ${locate::Close} $0
+  ${locate::Unload}
+${EndIf}
 
 ; Delete the "live" file which should never be installed
   Delete "$INSTDIR\live"
