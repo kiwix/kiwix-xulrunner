@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<autorun>
+	<lang code="it">
+		<layoutDirection>Qt::LeftToRight</layoutDirection>
+		<windowTitle>Kiwix</windowTitle>
+		<run>Esegui kiwix da qui</run>
+		<install>Installa Kiwix sul tuo disco fisso</install>
+		<quit>Esci da questo menu</quit>
+	</lang>
+</autorun>
