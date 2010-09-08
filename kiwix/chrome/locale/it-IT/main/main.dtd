@@ -7,12 +7,12 @@
 <!ENTITY main.file.accesskey            "F">
 <!ENTITY main.openFile                  "Apri...">
 <!ENTITY main.openFile.accesskey        "A">
-<!ENTITY main.lastOpen                  "Recently open...">
-<!ENTITY main.saveFile                  "Save Page as...">
+<!ENTITY main.lastOpen                  "Aperti di recente...">
+<!ENTITY main.saveFile                  "Salva pagina con nome...">
 <!ENTITY main.saveFile.accesskey        "S">
 <!ENTITY main.print                     "Stampa">
 <!ENTITY main.print.accesskey           "m">
-<!ENTITY main.printPdf                  "Print as PDF">
+<!ENTITY main.printPdf                  "Stampa come PDF">
 <!ENTITY main.printPdf.accesskey        "D">
 <!ENTITY main.quit                      "Esci">
 <!ENTITY main.quit.accesskey            "E">
@@ -26,7 +26,7 @@
 <!ENTITY main.selectall.accesskey       "a">
 <!ENTITY main.copy                      "Copia">
 <!ENTITY main.copy.accesskey            "p">
-<!ENTITY main.transliteration           "Transliteration">
+<!ENTITY main.transliteration           "Traslitterazione">
 <!ENTITY main.transliteration.accesskey "T">
 
 <!-- Display menu -->
@@ -46,7 +46,7 @@
 <!ENTITY main.statusbar.accesskey       "s">
 <!ENTITY main.resultsbar                "Barra dei risultati">
 <!ENTITY main.resultsbar.accesskey      "r">
-<!ENTITY main.tabs                      "Tabs">
+<!ENTITY main.tabs                      "Schede">
 <!ENTITY main.tabs.accesskey            "T">
 <!ENTITY main.fullscreen                "A tutto schermo">
 <!ENTITY main.fullscreen.accesskey      "u">
@@ -56,14 +56,14 @@
 <!ENTITY main.tools.accesskey           "S">
 <!ENTITY main.randomArticle             "Voce a caso">
 <!ENTITY main.randomArticle.accesskey   "V">
-<!ENTITY main.purgeHistory              "Purge history">
+<!ENTITY main.purgeHistory              "Cancella cronologia">
 <!ENTITY main.purgeHistory.accesskey    "P">
 
 <!-- Help menu -->
 <!ENTITY main.help                      "Aiuto">
 <!ENTITY main.help.accesskey            "i">
-<!ENTITY main.reportabug                "Report a bug">
-<!ENTITY main.requestafeature           "Request a feature">
+<!ENTITY main.reportabug                "Segnala un malfunzionamento">
+<!ENTITY main.requestafeature           "Richiedi una funzionalità">
 <!ENTITY main.about                     "Chi &brand.brandShortName;">
 <!ENTITY main.about.accesskey           "n">
 
@@ -72,19 +72,19 @@
 <!ENTITY main.forward                   "Avanti">
 <!ENTITY main.home                      "Pagina iniziale">
 <!ENTITY main.searchBar                 "Barra di ricerca">
-<!ENTITY main.search                    "Ricercar">
-<!ENTITY main.noSearchBar               "La ricerca richiede una lima spostata ad incrementi di Zim">
-<!ENTITY main.bookmarks                 "Bookmarks">
+<!ENTITY main.search                    "Ricerca">
+<!ENTITY main.noSearchBar               "La ricerca richiede uno ZIM indicizzato">
+<!ENTITY main.bookmarks                 "Segnalibri">
 
 <!-- Results bar -->
 <!ENTITY main.results.title             "Risultati">
 
 <!-- Bookmarks Bar -->
-<!ENTITY main.bmkLabel                  "Bookmarks:">
-<!ENTITY main.notesLabel                "Bookmark notes:">
-<!ENTITY main.loadbmk                   "Import Bookmark Set">
-<!ENTITY main.newbmk                    "Create new Bookmark Set">
-<!ENTITY main.mark                      "Mark this page">
-<!ENTITY main.unmark                    "Unmark selected">
-<!ENTITY main.reload                    "Reset Bookmark Set">
-<!ENTITY main.defaultset                "Default Set">
+<!ENTITY main.bmkLabel                  "Segnalibri:">
+<!ENTITY main.notesLabel                "Note ai segnalibri:">
+<!ENTITY main.loadbmk                   "Importa una collezione di segnalibri">
+<!ENTITY main.newbmk                    "Crea una nuova collezione di segnalibri">
+<!ENTITY main.mark                      "Aggiungi questa pagina ai segnalibri">
+<!ENTITY main.unmark                    "Togli questa pagina dai segnalibri">
+<!ENTITY main.reload                    "Azzera collezione di segnalibri">
+<!ENTITY main.defaultset                "Collezione predefinita">
