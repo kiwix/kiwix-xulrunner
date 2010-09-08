@@ -1,3 +1,6 @@
+Kiwix 0.9 beta1
+* Fix the encoding issue in the help in Parsi (ID: 3060250)
+
 Kiwix 0.9 alpha6
 * Fix a regression bug impacting the case insensitive (first character only) suggestion system
 * Fix a bug in kiwix-serve impacting search results with titles including special characters
