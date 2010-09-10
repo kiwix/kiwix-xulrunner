@@ -1,1 +1,1 @@
-xulrunner\xulrunner.exe application.ini -jsconsole
+xulrunner\xulrunner.exe application.ini -jsconsole -console
