@@ -274,9 +274,9 @@ function resultsListMouseScroll(aEvent) {
 
 /* Allowing zoom/history function by combining mouse & ctrl */
 function htmlRendererMouseScroll(aEvent) {
-    if (aEvent.detail == -1) {
+    if (aEvent.detail == -1 || (aEvent.detail>0 && aEvent.shiftKey)) {
 	pageBack();
-    } else if (aEvent.detail == 1) {
+    } else if (aEvent.detail == 1 || (aEvent.detail<0 && aEvent.shiftKey)) {
 	pageNext();
     } else if (aEvent.ctrlKey) {
 	if (aEvent.detail>0) { zoomOut() } ;
