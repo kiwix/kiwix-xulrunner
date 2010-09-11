@@ -274,13 +274,17 @@ function resultsListMouseScroll(aEvent) {
 
 /* Allowing zoom/history function by combining mouse & ctrl */
 function htmlRendererMouseScroll(aEvent) {
-    if (aEvent.detail == -1 || (aEvent.detail>0 && aEvent.shiftKey)) {
-	pageBack();
-    } else if (aEvent.detail == 1 || (aEvent.detail<0 && aEvent.shiftKey)) {
-	pageNext();
-    } else if (aEvent.ctrlKey) {
-	if (aEvent.detail>0) { zoomOut() } ;
-	if (aEvent.detail<0) { zoomIn() } ;
+    if (aEvent.shiftKey || aEvent.ctrlKey) {
+	if (aEvent.shiftKey) {
+	    if (aEvent.detail == -1 || aEvent.detail>0) {
+		pageBack();
+	    } else if (aEvent.detail == 1 || aEvent.detail<0) {
+		pageNext();
+	    }
+	} else if (aEvent.ctrlKey) {
+	    if (aEvent.detail>0) { zoomOut() } ;
+	    if (aEvent.detail<0) { zoomIn() } ;
+	}
 	aEvent.preventDefault();
 	aEvent.stopPropagation();
     }
@@ -506,6 +510,14 @@ function pageBack() {
 	if (htmlRenderer.canGoBack == true) {
 	    htmlRenderer.stop();
 	    htmlRenderer.goBack();
+
+	    /* activate if necessary the back button */
+	    activateNextButton();
+
+	    /* desactivate if necessary the next button */
+	    if (htmlRenderer.canGoBack == false) {
+		desactivateBackButton();
+	    }
 	}
     } catch (exception) {
 	displayErrorDialog(exception);
@@ -518,7 +530,6 @@ function pageBack() {
 function pageNext() {
     try { 
 	var htmlRenderer = getHtmlRenderer();
-
 	if (htmlRenderer.canGoForward == true) {
 	    htmlRenderer.stop();
 	    htmlRenderer.goForward();
