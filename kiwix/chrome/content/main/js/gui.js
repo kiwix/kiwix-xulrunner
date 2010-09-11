@@ -14,7 +14,7 @@ _languagesHash['zh']        = "中文";
 _languagesHash['es-ES']     = "Español";
 _languagesHash['it-IT']     = "Italiano";
 _languagesHash['ar']        = "العربية";
-_languagesHash['fa']        = "فارسی";
+_languagesHash['faool']        = "فارسی";
 _languagesHash['he-IL']     = "עברית";
 _languagesHash['pt-PT']     = "Português";
 
@@ -274,17 +274,30 @@ function resultsListMouseScroll(aEvent) {
 
 /* Allowing zoom/history function by combining mouse & ctrl */
 function htmlRendererMouseScroll(aEvent) {
-    if (aEvent.shiftKey || aEvent.ctrlKey) {
-	if (aEvent.shiftKey) {
-	    if (aEvent.detail == -1 || aEvent.detail>0) {
-		pageBack();
-	    } else if (aEvent.detail == 1 || aEvent.detail<0) {
-		pageNext();
-	    }
-	} else if (aEvent.ctrlKey) {
-	    if (aEvent.detail>0) { zoomOut() } ;
-	    if (aEvent.detail<0) { zoomIn() } ;
-	}
+    
+    /* Deal with the left/right click*/
+    if (aEvent.detail == -1 || aEvent.detail>0) {
+	pageBack();
+	aEvent.preventDefault();
+	aEvent.stopPropagation();
+    } else if (aEvent.detail == 1 || aEvent.detail<0) {
+	pageNext();
+	aEvent.preventDefault();
+	aEvent.stopPropagation();
+    }
+
+    /* Deal with the roll + ctrl */
+    if (aEvent.ctrlKey) {
+	if (aEvent.detail>0) { zoomOut() } ;
+	if (aEvent.detail<0) { zoomIn() } ;
+	aEvent.preventDefault();
+	aEvent.stopPropagation();
+    }
+
+    /* Deal with the roll + shift*/
+    if (aEvent.shiftKey) {
+	if (aEvent.detail>0) { pageNext() } ;
+	if (aEvent.detail<0) { pageBack() } ;
 	aEvent.preventDefault();
 	aEvent.stopPropagation();
     }
