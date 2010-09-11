@@ -910,12 +910,24 @@ function dropOnWindows (aEvent) {
     }
 }
 
+/* Manage the handling of key combination */
+function manageKeyCombination(aEvent) {
+    if (aEvent.altKey) {
+	if (aEvent.keyCode == 37) {
+	    pageBack();
+	} else if (aEvent.keyCode == 39) { 
+	    pageNext();
+	}
+    }
+}
+
 /* Add mouse scroll listener to allow zoon in/out with the mouse for example */
 function initHtmlRendererEventListeners() {
     getHtmlRenderer().addEventListener("DOMMouseScroll", htmlRendererMouseScroll, false);
     getHtmlRenderer().addEventListener("mouseover", htmlRendererMouseOver, true);
     getHtmlRenderer().addEventListener("mouseout", htmlRendererMouseOut, true);
-    getHtmlRenderer().addEventListener("mouseup", htmlRendererMouseUp , true);
+    getHtmlRenderer().addEventListener("mouseup", htmlRendererMouseUp, true);
+    getHtmlRenderer().addEventListener("keypress", manageKeyCombination, true);
     getHtmlRenderer().addEventListener("DOMActivate", htmlRendererOpenUrl, true);
     getHtmlRenderer().addEventListener("pageshow", updateTabHeader, true);
     getHtmlRenderer().addEventListener("pageshow", updateHistoryNavigationButtons, true);
