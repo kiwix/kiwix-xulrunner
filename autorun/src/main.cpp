@@ -6,8 +6,7 @@ int main(int argc, char ** argv)
 {
     QApplication app( argc, argv );
     QString args;
-    QString lang;
-    lang = "en";
+    QString lang = "en";
 
     for (int i = 1; i < argc; i++) {
         //the argument value
@@ -22,11 +21,14 @@ int main(int argc, char ** argv)
             }
         }
     }
-
+    //Declare main window
     AppImpl win;
+    //Set language for the interface
     win.lang=lang;
+    //Translate interface
     win.retranslateUi();
-    win.show();
+    //Show main window
+    win.show();    
     app.connect( &app, SIGNAL( lastWindowClosed() ), &app, SLOT( quit() ) );
     return app.exec();
 }

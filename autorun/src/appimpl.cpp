@@ -12,14 +12,19 @@ AppImpl::AppImpl( QWidget * parent, Qt::WFlags f)
 {
 
 	setupUi(this);        
+
         //Hide help button on windows title bar
         this->setWindowFlags(windowFlags() & ~Qt::WindowContextHelpButtonHint);
 
+        //Add event "launch" to the "pushButton_run" button
         connect( pushButton_run, SIGNAL( clicked() ),
                  this, SLOT( launch() ) );
+
+        //Add event "install" to the "pushButton_install" button
         connect( pushButton_install, SIGNAL( clicked() ),
                  this, SLOT( install() ) );
-	//connect( pushButton_clean, SIGNAL( clicked() ), this, SLOT( clean() ) );
+
+        //Add event "install" to the "pushButton_install" button
         connect( pushButton_quit, SIGNAL( clicked() ),
                  this, SLOT( quit() ) );
 }
