@@ -23,7 +23,7 @@ let library = {
 	
 	/* Compute the "content" directory */
 	var libraryDirectory;
-	if (os.isLinux()) {
+	if (env.isLinux()) {
 	  /* From /usr/lib/kiwix/ to /usr/share/kiwix */
           libraryDirectory = kiwixDirectory.parent.parent.clone();
 	  libraryDirectory.append("share");
