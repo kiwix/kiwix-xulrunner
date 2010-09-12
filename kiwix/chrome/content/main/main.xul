@@ -49,7 +49,7 @@
   <key id="quit-key" key="Q" modifiers="control" oncommand="quit()"/>
   <key id="find-key" key="F" modifiers="control" oncommand="find()"/>
   <key id="goto-search-fiel-key" key="L" modifiers="control" oncommand="focusOnSearchBox()"/>
-  <key id="open-file-key" key="O" modifiers="control" oncommand="openFile()"/>
+  <key id="open-file-key" key="O" modifiers="control" oncommand="manageOpenFile()"/>
   <key id="save-file-key" key="S" modifiers="control" oncommand="saveDocument(window.content.document)"/>
   <key id="print-key" key="P" modifiers="control" oncommand="print()"/>
   <key id="print-pdf-key" key="D" modifiers="control" oncommand="printPdf()"/>
@@ -69,7 +69,7 @@
   <menu id="menu-file" label="&main.file;" accesskey="&main.file.accesskey;">
     <menupopup id="file-popup">
       <menuitem id="file-open" label="&main.openFile;" key="open-file-key" class="menuitem-iconic"
-		accesskey="&main.openFile.accesskey;" oncommand="openFile()"/>
+		accesskey="&main.openFile.accesskey;" oncommand="manageOpenFile()"/>
       <menu label="&main.lastOpen;" id="menu-lastopen-top">
 	<menupopup id="menu-lastopen">
 	</menupopup>

@@ -571,7 +571,7 @@ function pageNext() {
 }
 
 /* Try to open a ZIM file */
-function openFile(path, noSearchIndexCheck) {
+function manageOpenFile(path, noSearchIndexCheck) {
 
     /* Display file picker if no given file path */
     if (!path) {
@@ -932,7 +932,7 @@ function dropOnWindows (aEvent) {
 			.getService(Components.interfaces.nsIIOService);
 		    var uri = ios.newURI(str.data.split("\n")[0], null, null);
 		    var file = uri.QueryInterface(Components.interfaces.nsIFileURL).file;
-		    openFile(file.path);
+		    manageOpenFile(file.path);
 		} else {
 		}
 	    }
