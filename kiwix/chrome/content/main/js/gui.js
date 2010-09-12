@@ -274,16 +274,17 @@ function resultsListMouseScroll(aEvent) {
 
 /* Allowing zoom/history function by combining mouse & ctrl */
 function htmlRendererMouseScroll(aEvent) {
-    
     /* Deal with the left/right click*/
-    if (aEvent.detail == -1 || aEvent.detail>0) {
+    if (aEvent.detail == -1) {
 	pageBack();
 	aEvent.preventDefault();
 	aEvent.stopPropagation();
-    } else if (aEvent.detail == 1 || aEvent.detail<0) {
+	return;
+    } else if (aEvent.detail == 1) {
 	pageNext();
 	aEvent.preventDefault();
 	aEvent.stopPropagation();
+	return;
     }
 
     /* Deal with the roll + ctrl */
@@ -292,14 +293,16 @@ function htmlRendererMouseScroll(aEvent) {
 	if (aEvent.detail<0) { zoomIn() } ;
 	aEvent.preventDefault();
 	aEvent.stopPropagation();
+	return;
     }
 
     /* Deal with the roll + shift*/
     if (aEvent.shiftKey) {
-	if (aEvent.detail>0) { pageNext() } ;
-	if (aEvent.detail<0) { pageBack() } ;
+	if (aEvent.detail<0) { pageNext() } ;
+	if (aEvent.detail>0) { pageBack() } ;
 	aEvent.preventDefault();
 	aEvent.stopPropagation();
+	return;
     }
 }
 
@@ -614,7 +617,7 @@ function openFile(path, noSearchIndexCheck) {
 	    book = library.addBook(zimId, path);
 	}
 
-/* Set the file as current */
+	/* Set the file as current */
 	library.setCurrentId(zimId);
 	
 	/* Load the welcome page of the ZIM file */
