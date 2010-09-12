@@ -274,6 +274,13 @@ function resultsListMouseScroll(aEvent) {
 
 /* Allowing zoom/history function by combining mouse & ctrl */
 function htmlRendererMouseScroll(aEvent) {
+    /* Deal the with the scroll in case of alt is pressed */
+    if (aEvent.altKey) {
+	aEvent.preventDefault();
+	aEvent.stopPropagation();
+	return;
+    }
+
     /* Deal with the left/right click*/
     if (aEvent.detail == -1) {
 	pageBack();
