@@ -85,6 +85,9 @@ void AppImpl::retranslateUi()
 {
     QMap<QString, QString> ui_element = this->parseXML();
 
+    //Set text layoutDirection      
+    this->setLayoutDirection((ui_element["layoutDirection"] == "Qt::LeftToRight")?(Qt::LeftToRight):(Qt::RightToLeft));
+
     //Label:launcher
     this->setWindowTitle(QApplication::translate("App", ui_element["windowTitle"].toUtf8().data(), 0, QApplication::UnicodeUTF8));
 
@@ -156,6 +159,8 @@ QMap<QString, QString> AppImpl::parseXML() {
                             ui_element["install"] = uiData.text();
             }else if(tagNam == "quit") { /* We've found quit label. */
                             ui_element["quit"] = uiData.text();
+            }else if(tagNam == "layoutDirection") { /* We've found layoutDirection label. */
+                ui_element["layoutDirection"] = uiData.text();
             }
             uiEntries = uiEntries.nextSibling();
     }
