@@ -40,6 +40,13 @@ let env = {
       var liveFile = Components.classes["@mozilla.org/file/directory_service;1"].getService(Components.interfaces.nsIProperties).get("resource:app", Components.interfaces.nsIFile);
       liveFile.append("live");
       return liveFile.exists();
+    },
+
+    /* Return the current date in UNIX format */
+    getUnixTime: function() {
+      var unixTimeDate = new Date;
+      var unixTimeMs = unixTimeDate.getTime();
+      return parseInt(unixTimeMs / 1000);
     }
 }
 

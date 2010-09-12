@@ -622,6 +622,7 @@ function manageOpenFile(path, noSearchIndexCheck) {
 	if (!book) {
 	    book = library.addBook(zimId, path);
 	}
+	book.last = env.getUnixTime();
 
 	/* Set the file as current */
 	library.setCurrentId(zimId);

@@ -1,12 +1,13 @@
 var EXPORTED_SYMBOLS = [ "library" ];
 
 /* Define the Book class */
-function Book(id, path, indexPath, indexType, readOnly) {
+function Book(id, path, indexPath, indexType, readOnly, last) {
         this.id = id;
         this.path = path;
 	this.indexPath = indexPath;
 	this.indexType = indexType;
 	this.readOnly = readOnly;
+	this.last = last;
 }
 
 /* Define the Library class */
@@ -133,7 +134,7 @@ let library = {
 
 	for (var i=0; i<len; i++) {
 	    var id = root.childNodes[i].getAttribute('id');
-
+	    var last = root.childNodes[i].getAttribute('last');
 	    var path = root.childNodes[i].getAttribute('path');
 	    if (contentDirectory) {
 	       var file = contentDirectory.clone();
@@ -149,7 +150,7 @@ let library = {
 	    }
 
 	    var indexType = root.childNodes[i].getAttribute('indexType');
-	    this.addBook(id, path, indexPath, indexType, readOnly);
+	    this.addBook(id, path, indexPath, indexType, readOnly, last);
     	}
 
 	/* Set a current book if necessary */
@@ -206,6 +207,7 @@ let library = {
 	       var bookNode = doc.createElement("book");
 	       bookNode.setAttribute("id", book.id);
 	       bookNode.setAttribute("path", book.path);
+	       bookNode.setAttribute("last", book.last);
 	       
 	       if (book.indexPath) {
 	       	       bookNode.setAttribute("indexPath", book.indexPath );
