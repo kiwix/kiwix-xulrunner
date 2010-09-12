@@ -162,7 +162,7 @@ function managePurgeHistory() {
 function onClose() {
     var doClean = doOnCloseClean();
 
-    if (isLiveRunMode()) {
+    if (env.isLive()) {
 
 	/* Ask before removing */
 	if (displayOnCloseCleanConfirmDialog()) {
@@ -359,44 +359,9 @@ function appendToPath(path, file) {
     return dir.path;
 }
 
-/* Return "live" for live CD for example or "install" in case of install version */
-function getRunMode() {
-    var liveFile = Components.classes["@mozilla.org/file/directory_service;1"].getService(Components.interfaces.nsIProperties).get("resource:app", Components.interfaces.nsIFile);
-    liveFile.append("live");
-    if (liveFile.exists ()) {
-	return 'live';
-    } else {
-	return 'install';
-    }
-}
-
-/* Return true if getRunMode() returns 'live' */
-function isLiveRunMode() {
-    return (getRunMode() == 'live' ? true : false);
-}
-
-function GetFirstRun () {
-    var first_file = Components.classes["@mozilla.org/file/directory_service;1"]
-	.getService (Components.interfaces.nsIProperties)
-	.get ("ProfD", Components.interfaces.nsIFile);
-    
-    first_file.append ("software_"+_runMode+".launched");
-    if (first_file.exists ()) {
-	return false;
-    } else {
-	L.info ("first run ; creating "+first_file.path);
-	first_file.create (Components.interfaces.nsIFile.NORMAL_FILE_TYPE, 0600);
-	return true;
-    }
-}
-
-function AlertOnFirstRun () {
-    return true;
-}
-
 function WarnOnSideBar () {
     
-    if (_runMode == 'live' && _firstRun && _firstSideBar) {
+    if (env.isLive() && _firstSideBar) {
 	_firstSideBar = false;
 	
 	var strbundle			= document.getElementById ("strings");

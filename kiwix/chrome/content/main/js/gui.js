@@ -2,8 +2,6 @@
 var _zoomFactor             = 1.2;      /* Factor by which font is magnified or reduced with zoomIn() & zommOut() */
 var _winIsFullScreen        = false;    /* Stores fullscreen state*/
 var _applicationFD          = GetApplicationFolder ();
-var _runMode		    = getRunMode ();
-var _firstRun		    = GetFirstRun ();
 var _firstSideBar	    = true;
 
 var _languagesHash          = Array();
