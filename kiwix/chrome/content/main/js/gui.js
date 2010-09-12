@@ -582,7 +582,7 @@ function manageOpenFile(path, noSearchIndexCheck) {
 	filePicker.init(window, "Select a File", nsIFilePicker.modeOpen);
 	
 	/* Add filters */
-	filePicker.appendFilter("ZIM files","*.zim");
+	filePicker.appendFilter("ZIM files","*.zim; *.zimaa");
 	
 	/* Set the default path */
 	var defaultFilePickerPath = settings.defaultFilePickerPath();
@@ -601,6 +601,7 @@ function manageOpenFile(path, noSearchIndexCheck) {
 	/* Get the file path */
 	if (res == nsIFilePicker.returnOK) {
 	    path = filePicker.file.path;
+	    path = path.replace(".zimaa", ".zim");
 	    settings.defaultFilePickerPath(filePicker.file.parent.path);
 	} else {
 	    return false;
