@@ -955,8 +955,23 @@ function manageKeyCombination(aEvent) {
     }
 }
 
+function HandleAppCommandEvent(evt) {
+    evt.stopPropagation();
+    switch (evt.command) {
+    case "Back":
+	pageBack();
+	break;
+    case "Forward":
+	pageNext();
+	break;
+    default:
+	break;
+    }
+}
+
 /* Add mouse scroll listener to allow zoon in/out with the mouse for example */
 function initHtmlRendererEventListeners() {
+    
     getHtmlRenderer().addEventListener("DOMMouseScroll", htmlRendererMouseScroll, false);
     getHtmlRenderer().addEventListener("mouseover", htmlRendererMouseOver, true);
     getHtmlRenderer().addEventListener("mouseout", htmlRendererMouseOut, true);
@@ -965,6 +980,8 @@ function initHtmlRendererEventListeners() {
     getHtmlRenderer().addEventListener("DOMActivate", htmlRendererOpenUrl, true);
     getHtmlRenderer().addEventListener("pageshow", updateTabHeader, true);
     getHtmlRenderer().addEventListener("pageshow", updateHistoryNavigationButtons, true);
+
+    getHtmlRenderer().addEventListener("AppCommand", HandleAppCommandEvent, true);
 
     /* Necessary to update the tab header */
     getHtmlRenderer().addEventListener("load", updateTabHeader, true);
