@@ -183,32 +183,18 @@ then
 	fi
 
 	# Configuration for alternative libclucene location
-	AC_ARG_WITH(clucene, [  --with-clucene=DIR      alternate location for the clucene library], WITH_CLUCENE="${withval}")
+	AC_ARG_WITH(clucene, [  --with-clucene=DIR      alternate location for the clucene library], LIBCLUCENE_PATH=`cd ${withval}; pwd`)
 
-	if [[ "$WITH_CLUCENE" = "yes" ]]
-	then
-		LIBCLUCENE_PATH=`pwd`
-	elif [[ "$WITH_CLUCENE" = "no" ]] || [[ "$WITH_CLUCENE" = "" ]]
-	then
-		LIBCLUCENE_PATH=""
-	else
-		LIBCLUCENE_PATH=`cd ${withval}./ ; pwd`
-		CPPFLAGS="${LIBCLUCENE_PATH}"
-		LDFLAGS="${LDFLAGS}"
-	fi
+	# Check the libclucene
+	AC_CHECK_HEADER([CLucene.h],, [AC_MSG_ERROR([[cannot find clucene header]])])
+	AC_CHECK_LIB([clucene], [open],, [AC_MSG_ERROR([[cannot find clucene]])])
 
-	# Check the libmicrohttpd
 	if test [ "$LIBCLUCENE_PATH" ]
 	then
-		AC_CHECK_HEADER([CLucene.h], , [AC_MSG_ERROR([[cannot find clucene header]])])
-		AC_CHECK_LIB([clucene], [open],, [AC_MSG_ERROR([[cannot find clucene]])])
-		if test [ "$LIBCLUCENE_PATH" ]
-		then
-			LIBCLUCENE_CFLAGS="-I${LIBCLUCENE_PATH}"
-			LIBCLUCENE_LDFLAGS="-L${LIBCLUCENE_PATH}"
-		fi
-		LIB_LDFLAGS="${LIBCLUCENE_LDFLAGS} -lclucene"
+		LIBCLUCENE_CFLAGS="-I${LIBCLUCENE_PATH}"
+		LIBCLUCENE_LDFLAGS="-L${LIBCLUCENE_PATH}"
 	fi
+	LIBCLUCENE_LDFLAGS="${LIBCLUCENE_LDFLAGS} -lclucene"
 
 	# Configuration for alternative xapianlib location
 	XAPIAN_CONFIG_PATH="$PATH"
