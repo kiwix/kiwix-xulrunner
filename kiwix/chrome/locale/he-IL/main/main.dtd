@@ -88,3 +88,6 @@
 <!ENTITY main.unmark                    "בטל סימון בקטע הנבחר">
 <!ENTITY main.reload                    "אפס קובץ סימניות">
 <!ENTITY main.defaultset                "קובץ ברירת מחדל">
+
+<!-- Contextual Menu -->
+<!ENTITY main.saveImageAs               "Save image as...">

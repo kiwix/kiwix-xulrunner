@@ -12,7 +12,7 @@
 <!ENTITY main.saveFile.accesskey        "S">
 <!ENTITY main.print                     "Imprimir...">
 <!ENTITY main.print.accesskey           "I">
-<!ENTITY main.printPdf                  "Imprimir como PDF">
+<!ENTITY main.printPdf                  "Guardar como PDF...">
 <!ENTITY main.printPdf.accesskey        "D">
 <!ENTITY main.quit                      "Salir">
 <!ENTITY main.quit.accesskey            "S">
@@ -88,3 +88,6 @@
 <!ENTITY main.unmark                    "Desmarcar esta página">
 <!ENTITY main.reload                    "Borrar Favoritos">
 <!ENTITY main.defaultset                "Predeterminado">
+
+<!-- Contextual Menu -->
+<!ENTITY main.saveImageAs               "Save image as...">

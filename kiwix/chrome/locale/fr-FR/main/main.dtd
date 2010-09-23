@@ -88,3 +88,6 @@
 <!ENTITY main.unmark                    "Supprimer le marque page séléctionné">
 <!ENTITY main.reload                    "Supprimer tous les marques pages de ce jeu">
 <!ENTITY main.defaultset                "Mes marques pages">
+
+<!-- Contextual Menu -->
+<!ENTITY main.saveImageAs               "Save image as...">

@@ -88,3 +88,6 @@
 <!ENTITY main.unmark                    "Desmarcar selecionadas">
 <!ENTITY main.reload                    "Repor Conjunto de Favoritos">
 <!ENTITY main.defaultset                "Conjunto Padrão">
+
+<!-- Contextual Menu -->
+<!ENTITY main.saveImageAs               "Save image as...">

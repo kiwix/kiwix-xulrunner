@@ -2,58 +2,157 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Ayuda</title>
-
+ 
     <style type="text/css">
       .title {
-      background-color: #DDDDDD;
-      padding: 0.5em;
-      -moz-border-radius: 5px;
-      margin: 0.5em 0 0.5em 0;
-      font-weight: bold;
+		  background-color: #DDDDDD;
+		  -moz-border-radius: 5px;
       }
-
+	  .subtitle,.title {
+			margin: 0.5em 0 0.5em 0;
+			padding: 0.5em;
+			font-weight: bold
+		}  
       .chapter {
-      text-indent: 2em;
+		text-indent: 2em
       }
-
       body {
-      background-color: #FFFFFF;
-      margin: 0 0.5em 0 0.5em;
-      font-family: sans-serif;
-      color: black;
+		  background-color: #FFFFFF;
+		  margin: 0 0.5em 0 0.5em;
+		  font-family: sans-serif;
+		  color: black
       }
+      accronym, abbr {
+		  border-bottom: 1px dotted;
+		  cursor: help;
+      }
+      li { text-indent: 0 }
     </style>
-
+ 
   </head>
 <body>
-
-<div class="title">Bienvenido</div>
+<h1>Bienvenido a Kiwix</h1>
 <div class="chapter">
-Bienvenido al programa Kiwix. Kiwix es <a href="http://es.wikipedia.org/wiki/Software_libre">software libre<a> capaz de leer <a href="http://www.openzim.org">archivos ZIM</a>. Los archivos ZIM son archivos que combinan contenido multimedia (texto, imágenes y video) normalmente presentado por la <a href="http://es.wikipedia.org/wiki/World_Wide_Web">World Wide Web</a>, como <a href="http://es.wikipedia.org/wiki/Blog">Blogs</a> o <a href="http://es.wikipedia.org/wiki/Wiki">Wikis</a>. Kiwix es consecuentemente una solución que le permite navegar contenido sin conexión el cual solo esta disponible en linea. Esta especialmente desarrollado para brindar acceso al contenido de la enciclopedia libre <a href="http://es.wikipedia.org/wiki/Wikipedia">Wikipedia</a> a personas sin acceso a <a href="http://en.wikipedia.org/wiki/Internet">Internet</a>. Sin embargo, Kiwix es software bajo un desarrollo activo y puede ser usado.
+	<p>Kiwix es un software lector de contenido. Al igual que un navegador de Internet le permite leer el contenido de la web, pero, sin necesidad de tener Internet. Kiwix le permite visualizar <i>contenido sin conexión </i>.</p>
+	<p>Kiwix es además <em>Software Libre</em> licenciado dentro de la <accronym title="Licencia Pública General GNU">GPL</accronym> versión 3. Lo que quiere decir que puedes distribuir y compartir kiwix con otras personas <strong>libremente</strong>.</p>
 </div>
-
-<div class="title">Archivos ZIM</div>
-<div class="chapter">
-Actualmente, no existe ninguna publicación oficial de archivos ZIM, pero estamos trabajando en algunos de ellos. Puede descargar archivos en desarrollo <a href="http://tmp.kiwix.org/zim/0.9/">aquí</a> con su navegador y son abiertos desde Kiwix con el menú "Archivo > Abrir..."
-</div>
-
-<div class="title" style="text-indent: 0px;">Ayuda</div>
 <ul>
-  <li><a href="https://sourceforge.net/tracker/?group_id=175508&atid=873515">Reporte errores</a></li>
-  <li><a href="https://sourceforge.net/tracker/?group_id=175508&atid=873518">Solicite alguna característica</a></li>
+    <li><a href="#guide">Guía para principiantes</a></li>
+    <li><a href="#faq"><accronym title="Preguntas frecuentes">F.A.Q</accrnym> & Otros temas</a></li>
+    <li><a href="#online_help">Ayuda en línea</a></li>
+    <li><a href="#more">Más...</a></li>
+</ul>
+<div class="title"><a name="guide"></a>Guía para principiantes</div>
+<div class="subtitle"><a name="guide_start"></a>¿Dónde empezar?</div>
+<div class="chapter">
+	<p>Kiwix suele ser distribuido, con un paquete de contenido incluido. Este paquete puede contener Wikipedia, documentación de Ubuntu o cualquier contenido en línea que se ha preparado para Kiwix.</p>
+	<p>Si este es tu caso, una vez que inicies Kiwix, debería ver el contenido de la página por defecto que le guiará, y si no lo es, lo primero que verás es la página de ayuda (en donde te encuentras ahora).</p>
+	<p>Los paquetes de contenido no son únicamente de Kiwix. Se llaman <em>archivos zim</em> y son definidos por el consorcio <em>OpenZIM</em>. Obtenga más información en la sección <a href="#guide_addcontent">Agregando de contenido</a>.</p>
+</div>
+<div class="subtitle"><a name="guide_features"></a>¿Qué puedo hacer? Lista de características.</div>
+<div class="chapter">
+	<p>Kiwix se comporta como todo un explorador Web. Por lo tanto, comparte algunas características con ellos:</p>
+	<ul>
+		<li><a href="#faq_nav">Yendo hacia atrás y hacia adelante</a>.</li>
+		<li><a href="#faq_textsize">Subir y bajar el tamaño del texto</a>.</li>
+		<li><a href="#faq_fullscreen">Viendo Kiwix en pantalla completa</a>.</li>
+		<li><a href="#faq_printing">Impresión y exportación de documentos</a>.</li>
+		<li><a href="#faq_bookmarks">Páginas de marcadores</a>.</li>
+		<li><a href="#faq_notes">Guardar notas personales acerca de los marcadores</a>.</li>
+		<li><a href="#faq_find">Buscar en las páginas</a>.</li>
+		<li><a href="#faq_copy">Copiar texto de las páginas</a>.</li>
+		<li><a href="#faq_search">Buscar en todos los documentos de los paquetes de contenido</a>.</li>
+	</ul>
+</div>
+<div class="subtitle" style="display: none"><a name="guide_addcontent"></a>Agregando Contenido</div>
+<div class="chapter" style="display: none"><p>TODO</p></div>
+<div class="subtitle" style="display: none"><a name="guide_readcontent"></a>Leyendo Contenido</div>
+<div class="chapter" style="display: none"><p>TODO</p></div>
+<div class="title"><a name="faq"></a><accronym title="Preguntas frecuentes">F.A.Q</accrnym> & Otros temas</div>
+<div class="subtitle"><a name="faq_nav"></a>Yendo hacia atrás y hacia adelante.</div>
+<div class="chapter">
+	<p>Examinar un contenido Kiwix, al igual que en Internet significa ir de <em>páginas</em> (los documentos o artículos) a las páginas. Esto se hace siguiendo los enlaces (haciendo click sobre ellos) o encontrando nuevas páginas utilizando el motor de búsqueda. Esto es lo que se denomina <em>navegación</em>.</p>
+	<p>Para facilitar tu navegación, puedes hacer clic en los botones <em>Atrás</em> y <em>Adelante</em> que se encuentran en la barra de herramientas, representado por dos flechas.</p>
+	<p>Si te pierdes y deseas volver a iniciar una nueva navegación desde el <me>principio</me> (la página de bienvenida), puedes utilizar el botón de <me>Inicio</me>, cerca de los de navegación. Está representado por una casa.</p>
+</div>
+<div class="subtitle"><a name="faq_textsize"></a>Subir y bajar el tamaño del texto.</div>
+<div class="chapter">
+	<p>El tamaño del texto se especifica en el paquete de contenido que estás utilizando. Puedes aumentar o disminuir el texto, en cualquier momento, a un tamaño que consideres cómodo. Para ello, utiliza el <em>Aumentar</em> (para aumentar) y <em>Reducir</em> (para disminuir) para cambiar el tamaño del texto. Estos comandos también están disponibles desde el menú <em>Ver</em>.</p>
+</div>
+<div class="subtitle"><a name="faq_fullscreen"></a>Viendo Kiwix en pantalla completa.</div>
+<div class="chapter">
+	<p>Para ganar un poco de espacio adicional en una pantalla pequeña o eliminar las distracciones, es posible que desee mostrar Kiwix en pantalla completa. Kiwix aprovechará al máximo el tamaño de la ventana y ocultará todos los otros programas, como el sistema operativo. El espacio ahorrado se utiliza para mostrar más contenido a la vez.</p>
+	<p>Puedes activarlo y desactivarlo mediante el botón de <em>Pantalla completa</em>, junto al lado de <em>Reducir</em>.</p>
+</div>
+<div class="subtitle"><a name="faq_printing"></a>Impresión y exportación de documentos.</div>
+<div class="chapter">
+	<p>Al igual que en la Web, usted puedes imprimir cualquier documento Kiwix (incluido éste) o exportarlo y compartirlo. Hay tres opciones disponibles:</p>
+	<ul>
+		<li>Imprimir un documento utilizando el botón <em>Imprimir</em> (representado por una impresora).</li>
+		<li>Exportar un documento en <accronym title="Formato de Documento Portable">PDF</accronym>, usa el menú de <em>Archivo</em> la opción <em>Exportar como PDF...</em> que aparece como elemento del menú. Se creará un archivo que se puede utilizar para imprimir o leer el documento más posteriormente. Tenga en cuenta que tendrá el formato de vista de impresión y así eliminará los enlaces.</li>
+		<li>Guarde el documento como un archivo <accronym title="Hyper Text Markup Language">HTML</accronym>. No es ideal para compartir, pero mantendrá el mismo formato con enlaces.</li>
+	</ul>
+</div> 
+<div class="subtitle"><a name="faq_bookmarks"></a>Páginas de marcadores.</div>
+<div class="chapter">
+	<p>Puedes marcar algunas de las páginas (los documentos) para acceder a ellas directamente después.</p>
+	<p>Los favoritos se organizan en <em>grupos</em>. Un conjunto es una lista (o grupo) de marcadores juntos. 
+Se puede importar o exportar fácilmente  (un conjunto se guarda como un archivo normal en el equipo) un juego completo de marcadores (usando los botones de <em>Importar</em> o <em>Crear</em> ubicados al lado de  la barra de favoritos), es fácil de compartir una lista de favoritos; con sus estudiantes, por ejemplo.</p>
+	<p>La función de marcado es accesible haciendo clic en el botón <em>Favoritos</em>. Se abrirá un panel a un lado de la pantalla. El panel contiene, en orden:/p>
+	<ul>
+		<li>Los botones de acción
+		<ul>
+			<li><em>Crear un nuevo conjunto</em>: Crear un conjunto vacío en un archivo en tu computadora. Cada vez que se agrega o quita un marcador para el conjunto, el archivo se actualiza. Puedes compartir este archivo con otra persona o usarlo de copia de seguridad para importar posteriormente.</li>
+			<li><em>Conjunto de Importación</em>: Seleccione un archivo Kiwix  de marcadores guardado previamente (o recuperado) para importar un conjunto completo, inclusive <a href="#faq_notes">notas</a>.</li>
+			<li><em>Inicializar el Conjunto de Favoritos
+</em>: Elimina todos los marcadores actuales; podría ser otro <em>Conjunto Predeterminado</em>. Usalo con cuidado, ya que, esta acción, no es reversible.</li>
+			<li><em>Marcar esta página</em>: Añadir la página actual (documento) al conjunto de marcadores actuales.</li>
+			<li><em>Desmarcar seleccionado</em>: Elimina el favorito seleccionado (en la lista de favoritos) del conjunto actual.</li>
+		</ul>
+		<li>Lista del conjunto favoritos abierto. Intercambia aquí entre los conjuntos abiertos (por defecto uno y los que has importado). Una vez que cierre Kiwix, todos los conjuntos son cerrados, tendrá que volver a importarlos la próxima vez.</li>
+		<li>Lista de favoritos en el conjunto actual. Cada vez que marques un documento, se agrega a la lista. Basta con hacer clic sobre un elemento para ser enviado al documento correspondiente.</li>
+		<li><a href="#faq_notes">Notas</a> campo de texto de entrada para el marcador seleccionado.</li>
+	</ul>
+</div>
+<div class="subtitle"><a name="faq_notes"></a>Guardar notas personales acerca de los marcadores.</div>
+<div class="chapter">
+	<p>Puedes comentar o escribir notas en cada página (documento) que <a href="#faq_bookmarks">marques</a>. Las notas se incluyen en el archivo de conjunto de favoritos, de esta forma, sus comentarios se unen con tus favoritos.</p>
+	<p>Sólo se pueden escribir comentarios en las páginas que tu has marcado.</p>
+	<p>Para añadir una nota, marca la página actual y has clic en el cuadro de texto <em>Notas</em> sobre el marcador del lado del panel. El texto que escribes se va guardando.</p>
+</div>
+<div class="subtitle"><a name="faq_find"></a>Buscar en las páginas.</div>
+<div class="chapter">
+	<p>Puedes encontrar palabras específicas dentro de un documento mediante la búsqueda dentro de la página. Para ello, accede al dialogo  <em>Buscar en la página</em>, yendo al menú <em>Editar</em> en el item <em>Buscar en la página</em>.</p>
+	<p>El cuadro de diálogo le permite escribir una palabra, selecciona algunas opciones sencillas y pulsa en <em>Buscar siguiente</em> para encontrar la sentencia <strong>exacta</strong> (al menos) en la página actual (documento). Es un texto básico de búsqueda no un un <a href="#faq_search">motor de búsqueda</a>.
+</div> 
+<div class="subtitle"><a name="faq_copy"></a>Copiar texto de las páginas.</div><div class="chapter">
+	<p>Como la mayoría de las aplicaciones, Kiwix soporta la copiar-pegar. Selecciona un trozo de texto usando el ratón y luego haz clic en <em>Editar</em> ? <em>Copiar</em> y usted será capaz de pegar ese texto en cualquier otra aplicación, o en el motor de búsqueda.</p>
+</div> 
+<div class="subtitle"><a name="faq_search"></a>Buscar en todos los documentos de los paquetes de contenido.</div>
+<div class="chapter">
+	<p>Kiwix incluye un potente motor de búsqueda para ayudarte a acceder fácilmente a los documentos que buscas.</p>
+	<p>Para utilizar el motor de búsqueda, primero debe activar la opción <em> creación de la índices </em>. Este paso puede ya pudiste haberlo.</p>
+	<p>Comprueba que el motor de búsqueda está listo haciendo clic en el campo de búsqueda situado en la gran barra de herramientas. Si puedes escribir texto en el interior, el motor de búsqueda está listo. Si no, Kiwix le preguntará si desea iniciar el proceso de creación de índices o no. Este paso es muy lento y depende tanto del tamaño de su paquete de contenido (archivo ZIM) y la velocidad de su ordenador.</p>
+	<p>Una vez listo, el motor de búsqueda es muy fácil de usar: escribe texto en el campo de búsqueda y pulsa enter. Una lista de resultados aparecerá en el lado del panel. Haga clic en algún item de la lista para acceder al documento relacionado.</p>
+	<p>Alternativamente, puedes seleccionar el título del documento en el campo de búsqueda. La ventana emergente de lista es auto-completado. Estas son sugerencias basadas en los nombres reales de los documentos existentes. Su uso no es un requisito.</p>
+</div>
+<div class="subtitle" style="display: none"><a name="faq_findcontent"></a>Encontrar nuevos contenidos</div>
+<div class="chapter" style="display: none"><p>TODO</p></div>
+<div class="title" style="text-indent: 0px;"><a name="online_help"></a>Ayuda en línea</div>
+<ul>
+  <li><a href="https://sourceforge.net/tracker/?group_id=175508&atid=873515">Notificar un error</a></li>
+  <li><a href="https://sourceforge.net/tracker/?group_id=175508&atid=873518">Hacer una solicitud</a></li>
   <li><a href="http://www.kiwix.org/index.php/FAQ">Preguntas frecuentes</a></li>
-  <li><a href="mailto:kelson@kiwix.org">Otros temas</a></li>
+  <li><a href="mailto:kelson@kiwix.org">Otros</a></li>
 </ul>
-<div class="chapter">
-</div>
-
-<div class="title">Más...</div>
+<div class="chapter"></div>
+<div class="title"><a name="more"></a>Más...</div>
 <div class="chapter" style="text-indent: 0px;">
-<ul>
-  <li><a href="http://www.kiwix.org">Sitio web oficial del proyecto Kiwix</li>
-  <li><a href="http://www.openzim.org">Sitio web oficial del proyecto openZIM</li>
-</ul>
+	<ul>
+	  <li><a href="http://tmp.kiwix.org/zim/0.9/">Más contenido (archivos zim)</a></li>
+	  <li><a href="http://www.kiwix.org/">Página web del proyecto Kiwix</a></li>
+	  <li><a href="http://www.openzim.org/">Página web del proyecto openZIM</a></li>
+	</ul>
 </div>
-
 </body>
 </html>

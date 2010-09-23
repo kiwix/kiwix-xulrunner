@@ -88,3 +88,6 @@
 <!ENTITY main.unmark                    "علامت انتخاب شده را بردار">
 <!ENTITY main.reload                    "ریست کردن تنظیمات نشانک">
 <!ENTITY main.defaultset                "تنظیمات نشانک">
+
+<!-- Contextual Menu -->
+<!ENTITY main.saveImageAs               "Save image as...">

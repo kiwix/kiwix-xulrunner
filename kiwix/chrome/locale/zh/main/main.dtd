@@ -88,3 +88,6 @@
 <!ENTITY main.unmark                    "取消标记">
 <!ENTITY main.reload                    "重新设定书签组">
 <!ENTITY main.defaultset                "缺省书签组">
+
+<!-- Contextual Menu -->
+<!ENTITY main.saveImageAs               "Save image as...">

@@ -88,3 +88,6 @@
 <!ENTITY main.unmark                    "Togli questa pagina dai segnalibri">
 <!ENTITY main.reload                    "Azzera collezione di segnalibri">
 <!ENTITY main.defaultset                "Collezione predefinita">
+
+<!-- Contextual Menu -->
+<!ENTITY main.saveImageAs               "Save image as...">
