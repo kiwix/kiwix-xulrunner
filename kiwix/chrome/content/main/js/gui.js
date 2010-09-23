@@ -774,6 +774,62 @@ function displayErrorDialog(message, title) {
     return promptService.alert(window, title, message);
 }
 
+/* Download an url on the hard disk */
+function downloadFile(url, path) {
+  var ioService = Components.classes["@mozilla.org/network/io-service;1"]
+                            .getService(Components.interfaces.nsIIOService);
+  var s_uri = ioService.newURI(url, null, null);
+  var t_uri = ioService.newURI(path, null, null);
+  const nsIWBP = Components.interfaces.nsIWebBrowserPersist;
+  var persist = Components.classes['@mozilla.org/embedding/browser/nsWebBrowserPersist;1']
+                          .createInstance(Components.interfaces.nsIWebBrowserPersist);
+  var flags = nsIWBP.PERSIST_FLAGS_NO_CONVERSION |
+              nsIWBP.PERSIST_FLAGS_REPLACE_EXISTING_FILES |
+              nsIWBP.PERSIST_FLAGS_BYPASS_CACHE;
+  persist.persistFlags = flags;
+  persist.saveURI(s_uri, null, null, null, null, t_uri);
+}
+
+/* Manage the image download */
+function manageImageDownload(url) {
+    var path;
+
+    /* Compute the extension */
+    var extension = url.replace(RegExp(".*\.(.{3,4})"), "$1");
+
+    /* Prepare the file picker */
+    var nsIFilePicker = Components.interfaces.nsIFilePicker;
+    var filePicker = Components.classes["@mozilla.org/filepicker;1"].createInstance(nsIFilePicker);
+    filePicker.init(window, "Save image", nsIFilePicker.modeSave);
+    filePicker.appendFilters(filePicker.filterImages);
+    filePicker.defaultString = url.replace(RegExp("/I/", "i"), "");
+    
+    /* Show the dialog and get the file path */
+    var res = filePicker.show();
+    
+    /* Get the file path */
+    if (res == nsIFilePicker.returnOK) {
+	path = filePicker.file.path;
+    } else {
+	return false;
+    }
+
+    /* Write the image */
+    downloadFile('zim://' + url, 'file://' + path);
+}
+
+/* Toogle browser contextual menu */
+function toggleBrowserContextualMenu(event) {
+    var target = event.target;
+    
+    if (target.localName == "img") {
+	var browserContextualMenu = document.getElementById("browser-contextual-menu");
+	var browserContextualMenuItem = document.getElementById("browser-contextual-menu-saveimageas");
+	var imageUrl = target.getAttribute("src");
+	browserContextualMenuItem.setAttribute("onclick", "manageImageDownload('" + imageUrl + "')");
+	browserContextualMenu.openPopupAtScreen(event.screenX, event.screenY, true);
+  }
+}
 
 /* Display a confirm dialog box like confirm() */
 function displayConfirmDialog(message, title) {
@@ -955,6 +1011,7 @@ function manageKeyCombination(aEvent) {
     }
 }
 
+/* Allow to deal with mouse thumb buttons back/forward*/
 function HandleAppCommandEvent(evt) {
     evt.stopPropagation();
     switch (evt.command) {
@@ -971,7 +1028,6 @@ function HandleAppCommandEvent(evt) {
 
 /* Add mouse scroll listener to allow zoon in/out with the mouse for example */
 function initHtmlRendererEventListeners() {
-    
     getHtmlRenderer().addEventListener("DOMMouseScroll", htmlRendererMouseScroll, false);
     getHtmlRenderer().addEventListener("mouseover", htmlRendererMouseOver, true);
     getHtmlRenderer().addEventListener("mouseout", htmlRendererMouseOut, true);
@@ -980,7 +1036,7 @@ function initHtmlRendererEventListeners() {
     getHtmlRenderer().addEventListener("DOMActivate", htmlRendererOpenUrl, true);
     getHtmlRenderer().addEventListener("pageshow", updateTabHeader, true);
     getHtmlRenderer().addEventListener("pageshow", updateHistoryNavigationButtons, true);
-
+    getHtmlRenderer().addEventListener("contextmenu", toggleBrowserContextualMenu, true);
     getHtmlRenderer().addEventListener("AppCommand", HandleAppCommandEvent, true);
 
     /* Necessary to update the tab header */

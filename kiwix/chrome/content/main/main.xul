@@ -64,6 +64,11 @@
        oncommand="changeResultsBarVisibilityStatus()"/>
 </keyset>
 
+<!-- Contextual menu -->
+<menupopup id="browser-contextual-menu">
+  <menuitem label="&main.saveImageAs;" id="browser-contextual-menu-saveimageas"/>
+</menupopup>
+
 <!-- Menu bar -->
 <menubar id="menu-bar"> 
   <menu id="menu-file" label="&main.file;" accesskey="&main.file.accesskey;">
