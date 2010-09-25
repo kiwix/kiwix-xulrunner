@@ -5,9 +5,6 @@ lib_LTLIBRARIES = libzim.la
 libzim_la_SOURCES = \
 	article.cpp \
 	articlesearch.cpp \
-	bunzip2stream.cpp \
-	bzip2.cpp \
-	bzip2stream.cpp \
 	cluster.cpp \
 	deflatestream.cpp \
 	dirent.cpp \
@@ -32,7 +29,7 @@ include_HEADERS = \
 	log.h \
 	envvalue.h
 
-libzim_la_CXXFLAGS=${LIBZ_CFLAGS} ${LIBBZ2_CFLAGS} ${LIBLZMA_CFLAGS} -fPIC -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE
-libzim_la_LDFLAGS=${LIBZ_LDFLAGS} ${LIBBZ2_LDFLAGS} ${LIBLZMA_LDFLAGS}
+libzim_la_CXXFLAGS=${LIBZ_CFLAGS} ${LIBLZMA_CFLAGS} -fPIC -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE
+libzim_la_LDFLAGS=${LIBZ_LDFLAGS} ${LIBLZMA_LDFLAGS}
 
 CLEANFILES=*.obj *.lib *.dll
