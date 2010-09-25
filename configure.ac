@@ -141,20 +141,6 @@ then
 	fi   
 	LIBZ_LDFLAGS="${LIBZ_LDFLAGS} -lz"
 
-	# Configuration for alternative libbz2 location
-	AC_ARG_WITH(bz2, [  --with-bz2=DIR          alternate location for bz2 library],
-		 	 LIBBZ2_PATH=`cd ${withval}; pwd`; CPPFLAGS="-I${LIBBZ2_PATH}"; LDFLAGS="-L${LIBBZ2_PATH}")
-
-	# Check for the libbz2
-	AC_CHECK_HEADER([bzlib.h], [], [AC_MSG_ERROR([[cannot find bzip2 header]])])
-	AC_CHECK_LIB([bz2], [main],, [AC_MSG_ERROR([[cannot find bzip2]])]) 
-	if test [ "$LIBBZ2_PATH" ]
-	then
-		LIBBZ2_CFLAGS="-I${LIBBZ2_PATH}"
-		LIBBZ2_LDFLAGS="-L${LIBBZ2_PATH}"
-	fi
-	LIBBZ2_LDFLAGS="${LIBBZ2_LDFLAGS} -lbz2"
-
 	# Configure for libicu
 	AC_ARG_WITH(icu, [  --with-icu=DIR          alternate location for icu library],
 		  LIBICU_PATH=`cd ${withval}; pwd`; CPPFLAGS="${LIBICU_PATH}"; LDFLAGS="${LDFLAGS}")
@@ -283,10 +269,6 @@ else
 	LIBZ_CFLAGS="-I${CURRENT_PATH}/src/dependences/zlib-1.2.3/"
 	LIBZ_LDFLAGS="-L${CURRENT_PATH}/src/dependences/zlib-1.2.3/ -Bstatic -lz,"
 
-	# libbip2
-	LIBBZ2_CFLAGS="-I${CURRENT_PATH}/src/dependences/bzip2-1.0.5/"
-	LIBBZ2_LDFLAGS="-L${CURRENT_PATH}/src/dependences/bzip2-1.0.5/ -Bstatic -lbz2,"
-
 	# liblzma
 	LIBLZMA_CFLAGS="-I${CURRENT_PATH}/src/dependences/xz-4.999.9beta/src/liblzma/api/"
 	LIBLZMA_LDFLAGS="-L${CURRENT_PATH}/src/dependences/xz-4.999.9beta/src/liblzma/.libs/ -Bstatic -llzma,"
@@ -295,15 +277,13 @@ else
 	LIBXAPIAN_CFLAGS="-I${CURRENT_PATH}/src/dependences/xapian-core-1.0.16/include/";
 	LIBXAPIAN_LDFLAGS="-L${CURRENT_PATH}/src/dependences/xapian-core-1.0.16/.libs/ -lxapian";
 
-#	-Bstatic -lzim -lz -lbz2 -lzma -Wl,-Bdynamic
+#	-Bstatic -lzim -lz -lzma -Wl,-Bdynamic
 
 	# Xapian part
 #	AC_SUBST(LIBXAPIAN_CFLAGS)
 #	AC_SUBST(LIBXAPIAN_LDFLAGS)
 #	AC_SUBST(LIBZ_CFLAGS)
 #	AC_SUBST(LIBZ_LDFLAGS)
-#	AC_SUBST(LIBBZ2_CFLAGS)
-#	AC_SUBST(LIBBZ2_LDFLAGS)
 #	AC_SUBST(LIBZIM_CFLAGS)
 #	AC_SUBST(LIBZIM_LDFLAGS)
 #	AC_SUBST(LIBMICROHTTPD_CFLAGS)
@@ -316,12 +296,11 @@ CXXFLAGS=${CFLAGS}
 
 # libzim flags
 LIBZIM_CFLAGS="-I${CURRENT_PATH}/src/zimlib/include"
-LIBZIM_LDFLAGS="${LIBZ_LDFLAGS} ${LIBLZMA_LDFLAGS} ${LIBBZ2_LDFLAGS}"
+LIBZIM_LDFLAGS="${LIBZ_LDFLAGS} ${LIBLZMA_LDFLAGS}"
 AC_DEFINE_UNQUOTED(CLUSTER_CACHE_SIZE, 16, [set zim cluster cache size to number of cached chunks])
 AC_DEFINE_UNQUOTED(DIRENT_CACHE_SIZE, 512, [set zim dirent cache size to number of cached chunks])
 AC_DEFINE_UNQUOTED(LZMA_MEMORY_SIZE, 128, [set lzma uncompress memory size to number of MB])
 AC_DEFINE(ENABLE_ZLIB, [1], [defined if zlib compression is enabled])
-AC_DEFINE(ENABLE_BZIP2, [1], [defined if bzip2 compression is enabled])
 AC_DEFINE(ENABLE_LZMA, [1], [defined if lzma compression is enabled])
 
 # debug
@@ -344,8 +323,6 @@ AC_SUBST(LIBCLUCENE_CFLAGS)
 AC_SUBST(LIBCLUCENE_LDFLAGS)
 AC_SUBST(LIBZ_CFLAGS)
 AC_SUBST(LIBZ_LDFLAGS)
-AC_SUBST(LIBBZ2_CFLAGS)
-AC_SUBST(LIBBZ2_LDFLAGS)
 AC_SUBST(LIBLZMA_CFLAGS)
 AC_SUBST(LIBLZMA_LDFLAGS)
 AC_SUBST(LIBICU_CFLAGS)

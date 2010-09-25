@@ -3,6 +3,7 @@ Kiwix 0.9 beta1
 * Fix an URL parsing issue impacting title containing a '/' (ID: 3065286)
 * Add mouse thumb buttons back/forward support (ID: 3063304)
 * Add a contextual menu "Save image as..." for images (ID: 1669553)
+* Remove the deprecated (not used anymore by libzim) bzip2 dependence
 
 Kiwix 0.9 alpha6
 * Fix a regression bug impacting the case insensitive (first character only) suggestion system
