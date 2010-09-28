@@ -16,47 +16,47 @@ done.
 == Windows ==
 
 * You have to install a MinGW environnement. You have to download it
-her": http://download.kiwix.org/dev/MozillaBuildSetup-1.4.exe and
-install it in the default proposed directory C:\mozilla-build.
+  here: "http://download.kiwix.org/dev/MozillaBuildSetup-1.4.exe" and
+  install it in the default proposed directory "C:\mozilla-build".
 
-* Go to C:\mozilla-build with the Windows explorer and start the
+* Go to "c:\mozilla-build" with the Windows explorer and start the
   script start-msvc9.bat. You have now an UNIX shell.
 
 * Change the current directory by typing:
-  cd /c/mozilla-build/
+  > cd /c/mozilla-build/
 
 * Check out the kiwix client code by typing:
-   svn co https://kiwix.svn.sourceforge.net/svnroot/kiwix/moulinkiwix
+  "svn co https://kiwix.svn.sourceforge.net/svnroot/kiwix/moulinkiwix"
 
 * You need to install Perl. Download it here:
-http://download.kiwix.org/dev/ActivePerl-5.10.1.1007-MSWin32-x86-291969.msi
-and install it in the default directory c:\Perl\
+  "http://download.kiwix.org/dev/ActivePerl-5.10.1.1007-MSWin32-x86-291969.msi"
+  and install it in the default directory "c:\Perl\"
 
 * You need now to install the free (as free beer) Microsoft Visual
   Studio express C++ compiler. You can download the installer here:
-  http://download.kiwix.org/dev/vcsetup.exe
+  "http://download.kiwix.org/dev/vcsetup.exe"
 
 * To install it, run the self installer. Choose none of the optional
   features and install it in the default directory: 
-  c:\Program Files\Microsft Visual Studio 9.0\
+  "c:\Program Files\Microsft Visual Studio 9.0\"
 
 * If installed sucessfuly run one time VS to configure it and maybe
   register it (follow the instructions).
 
 * You have also to install gcc (for liblzma). You can download it
   here:
-  http://download.kiwix.org/dev/gcc-4.3.0-20080502-mingw32-alpha-bin.7z
-  ... and unzip it (with 7zip) in c:\mozilla-build\msys
+  "http://download.kiwix.org/dev/gcc-4.3.0-20080502-mingw32-alpha-bin.7z"
+  ... and unzip it (with 7zip) in "c:\mozilla-build\msys"
 
 * You have also to install GNU binutils. Please download it here:
-  http://download.kiwix.org/dev/binutils-2.20.1-2-mingw32-bin.tar.gz
-  ... and detar it in c:\mozilla-build\msys
+  "http://download.kiwix.org/dev/binutils-2.20.1-2-mingw32-bin.tar.gz"
+  ... and detar it in "c:\mozilla-build\msys"
 
-* Now we will download, configurate and compile kiwix. Run the
-  following commands: 
-  cd /c/mozilla-build/moulinkiwix/ 
-  ./autogen.sh
-  ./configure 
-  make win
+* Now we will download, configurate and compile kiwix. 
+  Run the following commands: 
+  > cd /c/mozilla-build/moulinkiwix/ 
+  > ./autogen.sh
+  > ./configure 
+  > make win
 
 
