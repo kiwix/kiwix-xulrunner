@@ -25,22 +25,19 @@ ZimprotocolHandler.prototype = {
 	if (baseURI instanceof Components.interfaces.nsIURI && spec.indexOf ("#") == 0) {
 	    var sh = baseURI.spec.indexOf ("#");
 	    if (sh != -1) {
-		var nb = baseURI.spec.substr (0, sh);
+			var nb = baseURI.spec.substr (0, sh);
 	    	uri.spec = nb+spec;
 	    } else
 	    	uri.spec = baseURI.spec+spec;
 	} else {
 	    var prefix = spec.indexOf("zim://");
 	    if (prefix == -1) {
-
-		if (spec[1] != '/' && spec[0] != '/') {
-		    spec = 'A/' + spec;
-		}
-
-		uri.spec = "zim://" + spec;
-	    } else {
-		uri.spec = spec;
-	    }
+			if (spec[1] != '/' && spec[0] != '/') {
+				spec = 'A/' + spec;
+			}
+			uri.spec = "zim://" + spec;
+	    } else
+			uri.spec = spec;	    
 	} 
 	
 	uri.spec = uri.spec.replace(/\+/g, "%20");
@@ -55,7 +52,7 @@ ZimprotocolHandler.prototype = {
     QueryInterface: function(iid) {
 
         if(!iid.equals(Ci.nsIProtocolHandler) && !iid.equals(Ci.nsISupports)) 
-	    throw Cr.NS_ERROR_NO_INTERFACE;
+			throw Cr.NS_ERROR_NO_INTERFACE;
         return this;
     }
 
@@ -165,9 +162,7 @@ PipeChannel.prototype = {
     
     open: function() {return this.channel.open();},
     
-    close: function() {
-	this.pipe.outputStream.close();
-    }
+    close: function() {this.pipe.outputStream.close();}
     
 }
 
@@ -175,13 +170,13 @@ PipeChannel.prototype = {
 var ZimprotocolHandlerFactory = {
     createInstance: function(outer, iid) {
 	if(outer != null) throw Cr.NS_ERROR_NO_AGGREGATION;
-	return (new ZimprotocolHandler()).QueryInterface(iid);
+		return (new ZimprotocolHandler()).QueryInterface(iid);
     },
     
     QueryInterface: function(iid) {
-	if(!iid.equals(Ci.nsIFactory) && !iid.equals(Ci.nsISupports))
-	    throw Cr.NS_ERROR_NO_INTERFACE;
-	return this;
+		if(!iid.equals(Ci.nsIFactory) && !iid.equals(Ci.nsISupports))
+			throw Cr.NS_ERROR_NO_INTERFACE;
+		return this;
     }
 }
     
@@ -204,7 +199,8 @@ ZimprotocolModule.unregisterSelf = function(compMgr, location, loaderStr) {
 
 ZimprotocolModule.getClassObject = function(compMgr, cid, iid) {
     if(!iid.equals(Ci.nsIFactory)) throw Cr.NS_ERROR_NOT_IMPLEMENTED;
-    if(cid.equals(Components.ID("{ee042780-dcf9-11dd-8733-0002a5d5c51b}"))) return ZimprotocolHandlerFactory;
+    if(cid.equals(Components.ID("{ee042780-dcf9-11dd-8733-0002a5d5c51b}"))) 
+		return ZimprotocolHandlerFactory;
     throw Cr.NS_ERROR_NO_INTERFACE;
 }
 
