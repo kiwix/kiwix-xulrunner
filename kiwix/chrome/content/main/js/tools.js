@@ -39,7 +39,8 @@ function quit() {
 /* Return the properties object */
 function getProperties(brand) {
     var pid = "properties";
-    if (brand == true) { pid  = "brand" + pid; }
+    if (brand == true) 
+        pid  = "brand" + pid;
     return document.getElementById(pid);
 }
 
@@ -269,7 +270,7 @@ function isDirectory(path) {
     var file = Components.classes['@mozilla.org/file/local;1'].createInstance(Components.interfaces.nsILocalFile);
     file.initWithPath(path);
     
-	return (file.exists() && file.isDirectory());
+    return (file.exists() && file.isDirectory());
 }
 
 /* Return the size of a file */
@@ -277,8 +278,8 @@ function isDirectory(path) {
 function getFileSize(path) {
     var fileService = Components.classes["@mozilla.org/file/local;1"].createInstance();
     if (fileService instanceof Components.interfaces.nsILocalFile) {
-		fileService.initWithPath(path);
-		return fileService.fileSize;
+	fileService.initWithPath(path);
+	return fileService.fileSize;
     }
 }
 
@@ -286,8 +287,8 @@ function getFileSize(path) {
 function deleteFile(path) {
     var fileService = Components.classes["@mozilla.org/file/local;1"].createInstance();
     if (fileService instanceof Components.interfaces.nsILocalFile) {
-		fileService.initWithPath(path);
-		return fileService.remove(true);
+	fileService.initWithPath(path);
+	return fileService.remove(true);
     }
 }
 
@@ -298,9 +299,9 @@ function moveFile(filePath, newDirectory, newName) {
 
     if (fileService instanceof Components.interfaces.nsILocalFile &&
 	directoryService instanceof Components.interfaces.nsILocalFile) {
-		fileService.initWithPath(filePath);
-		directoryService.initWithPath(newDirectory);
-		return fileService.moveTo(directoryService, newName);
+	fileService.initWithPath(filePath);
+	directoryService.initWithPath(newDirectory);
+	return fileService.moveTo(directoryService, newName);
     }
 }
 
@@ -308,8 +309,8 @@ function moveFile(filePath, newDirectory, newName) {
 function isFile(filePath) {
     var fileService = Components.classes["@mozilla.org/file/local;1"].createInstance();
     if (fileService instanceof Components.interfaces.nsILocalFile) {
-		fileService.initWithPath(filePath);
-		return fileService.exists();
+	fileService.initWithPath(filePath);
+	return fileService.exists();
     }
 }
 
@@ -324,26 +325,22 @@ function decodeUrl (text) {
     
     while ( i < utftext.length ) {
 	
-		c = utftext.charCodeAt(i);
+  	   c = utftext.charCodeAt(i);
 		
-		if (c < 128) {
-			string += String.fromCharCode(c);
-			i++;
-		}
-		else if((c > 191) && (c < 224)) {
-			c2 = utftext.charCodeAt(i+1);
-			string += String.fromCharCode(((c & 31) << 6) | (c2 & 63));
-			i += 2;
-		}
-		else {
-			c2 = utftext.charCodeAt(i+1);
-			c3 = utftext.charCodeAt(i+2);
-			string += String.fromCharCode(((c & 15) << 12) | ((c2 & 63) << 6) | (c3 & 63));
-			i += 3;
-		}
-	
-    }
-    
+	   if (c < 128) {
+	       string += String.fromCharCode(c);
+	       i++;
+	    } else if((c > 191) && (c < 224)) {
+	 	      c2 = utftext.charCodeAt(i+1);
+		      string += String.fromCharCode(((c & 31) << 6) | (c2 & 63));
+		      i += 2;
+	    } else {
+		    c2 = utftext.charCodeAt(i+1);
+		    c3 = utftext.charCodeAt(i+2);
+		    string += String.fromCharCode(((c & 15) << 12) | ((c2 & 63) << 6) | (c3 & 63));
+		    i += 3;
+	    }	
+    }    
     return string;
 }
 
@@ -359,26 +356,26 @@ function appendToPath(path, file) {
 function WarnOnSideBar () {
     
     if (env.isLive() && _firstSideBar) {
-		_firstSideBar = false;
-		
-		var strbundle			= document.getElementById ("strings");
-		var welcomeAlertTitle	= strbundle.getString ("welcomeAlertTitle");	
-		var welcomeAlert		= strbundle.getString ("welcomeAlert");	
-		
-		var prompt = Components.classes["@mozilla.org/network/default-prompt;1"].createInstance(Components.interfaces.nsIPrompt);
-		prompt.alert (welcomeAlertTitle, welcomeAlert);
+	_firstSideBar = false;
+	
+	var strbundle			= document.getElementById ("strings");
+	var welcomeAlertTitle	= strbundle.getString ("welcomeAlertTitle");	
+	var welcomeAlert		= strbundle.getString ("welcomeAlert");	
+	
+	var prompt = Components.classes["@mozilla.org/network/default-prompt;1"].createInstance(Components.interfaces.nsIPrompt);
+	prompt.alert (welcomeAlertTitle, welcomeAlert);
     }
 }
 
 /* Returns path application is running from */
 function GetApplicationFolder () {
     try {
-		return Components.classes ["@mozilla.org/file/directory_service;1"]
-			.getService (Components.interfaces.nsIProperties)
-			.get ("resource:app", Components.interfaces.nsIFile);
+	return Components.classes ["@mozilla.org/file/directory_service;1"]
+		.getService (Components.interfaces.nsIProperties)
+		.get ("resource:app", Components.interfaces.nsIFile);
     } catch (e) {
-		L.error ("can't get app folder:" + e.toString ());
-		return false;
+	L.error ("can't get app folder:" + e.toString ());
+	return false;
     }
 }
 
@@ -388,8 +385,8 @@ function randomString() {
     var string_length = 8;
     var randomstring = '';
     for (var i=0; i<string_length; i++) {
-		var rnum = Math.floor(Math.random() * chars.length);
-		randomstring += chars.substring(rnum,rnum+1);
+	var rnum = Math.floor(Math.random() * chars.length);
+	randomstring += chars.substring(rnum,rnum+1);
     }
     return randomstring;
 }
