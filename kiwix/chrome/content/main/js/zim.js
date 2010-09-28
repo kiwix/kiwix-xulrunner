@@ -27,13 +27,13 @@ function getCurrentZimFileHomePageUrl() {
     var homePageUrl;
 
     if (currentZimAccessor) {
-	var url = new Object();
+		var url = new Object();
 
-	/* Return the welcome path if exists */
-	currentZimAccessor.getMainPageUrl(url);
-	if (url.value != undefined && url.value != '') {
-	    return "zim://" + url.value;
-	}
+		/* Return the welcome path if exists */
+		currentZimAccessor.getMainPageUrl(url);
+		if (url.value != undefined && url.value != '') {
+			return "zim://" + url.value;
+		}
     }
 
     return homePageUrl;
@@ -42,14 +42,14 @@ function getCurrentZimFileHomePageUrl() {
 /* Load a ramdom page */
 function loadRandomArticle() {
     if (currentZimAccessor != undefined) {
-	var url = new Object();
+		var url = new Object();
 
-	currentZimAccessor.getRandomPageUrl(url);
-	if (url.value != undefined && url.value != '') {
-	    url.value = "zim://" + url.value;
-	}
+		currentZimAccessor.getRandomPageUrl(url);
+		if (url.value != undefined && url.value != '') {
+			url.value = "zim://" + url.value;
+		}
 
-	loadContent(url.value);
-	activateBackButton();
+		loadContent(url.value);
+		activateBackButton();
     }
 }
