@@ -6,8 +6,8 @@ var _loadPageScoreThreshold = 90;       /* Only first result with a high score a
 /* Open the "find in page" dialog window */
 function find() {
     if (!findInPageObject) {
-	findInPageObject = new nsFindInstData();
-	findInPageObject.browser = getHtmlRenderer();
+		findInPageObject = new nsFindInstData();
+		findInPageObject.browser = getHtmlRenderer();
     }
     
     var searchPattern = '';
@@ -18,9 +18,8 @@ function find() {
 
 /* Return true if an indexing process runs currently */
 function isIndexing(value) {
-    if (value != undefined) {
-	_isIndexing = value;
-    }
+    if (value != undefined)
+		_isIndexing = value;
 
     return _isIndexing;
 }
@@ -45,11 +44,8 @@ function getTmpSearchIndexDirectory() {
 
 /* Return true if there is already a search index */
 function existsSearchIndex(zimFilePath) {
-    var indexDirectorypath = getSearchIndexDirectory(zimFilePath);
-    if (isDirectory(indexDirectorypath)) {
-	return true;
-    }
-    return false;
+    var indexDirectorypath = getSearchIndexDirectory(zimFilePath);	
+    return (isDirectory(indexDirectorypath));
 }
 
 /* Show a dialog box to ask if the user want to index the ZIM file now */
@@ -57,11 +53,11 @@ function manageIndexZimFile() {
     var currentBook = library.getCurrentBook();
 
     if (isIndexing()) {
-	displayErrorDialog(getProperty("alreadyIndexingError"));
+		displayErrorDialog(getProperty("alreadyIndexingError"));
     } else if (!currentBook) {
-	displayErrorDialog(getProperty("noActiveZimFile"));
+		displayErrorDialog(getProperty("noActiveZimFile"));
     } else if (displayConfirmDialog(getProperty("indexZimFileConfirm"))) {
-	indexZimFile(currentBook.path, getSearchIndexDirectory(currentBook.path));
+		indexZimFile(currentBook.path, getSearchIndexDirectory(currentBook.path));
     }
 }
 
@@ -74,7 +70,7 @@ function proxyfyObject(obj, iid, sync) {
 	    Components.interfaces.nsIProxyObjectManager.FORCE_PROXY_CREATION;
     } else {
         flags = Components.interfaces.nsIProxyObjectManager.INVOKE_ASYNC | 
-            Components.interfaces.nsIProxyObjectManager.FORCE_PROXY_CREATION;
+        Components.interfaces.nsIProxyObjectManager.FORCE_PROXY_CREATION;
     }
 
     var proxyManager = Components.classes["@mozilla.org/xpcomproxy;1"].
@@ -95,16 +91,16 @@ function indexZimFile(zimFilePath, xapianDirectory) {
     var zimIndexerObserver = {
 	observe : function (subject, topic, data) {
 	    if (topic == "indexingProgress") {
-		progressBar.value = data;
-		progressBarLabel.value = getProperty("indexing") + " (" + Math.round(data) + "%)";
+			progressBar.value = data;
+			progressBarLabel.value = getProperty("indexing") + " (" + Math.round(data) + "%)";
 	    } else if (topic == "startIndexing") {
-		isIndexing(true);
-		changeProgressBarVisibilityStatus(true);
+			isIndexing(true);
+			changeProgressBarVisibilityStatus(true);
 	    } else if (topic == "stopIndexing") {
-		displayErrorDialog(getProperty("endOfIndexing"), getProperty("information"))
-		changeProgressBarVisibilityStatus(false);
-		isIndexing(false);
-		activateGuiSearchComponents();
+			displayErrorDialog(getProperty("endOfIndexing"), getProperty("information"))
+			changeProgressBarVisibilityStatus(false);
+			isIndexing(false);
+			activateGuiSearchComponents();
 	    }
 	}
     }
@@ -124,9 +120,8 @@ function indexZimFile(zimFilePath, xapianDirectory) {
 	    proxiedZimIndexerObserver.notifyObservers(this, "startIndexing", "");
 
 	    /* Remove the xapian tmp directory */
-	    if (isFile(xapianTmpDirectory)) {
-		deleteFile(xapianTmpDirectory);
-	    }
+	    if (isFile(xapianTmpDirectory)) 
+			deleteFile(xapianTmpDirectory);	    
 
 	    /* Create the ZIM Xapian Indexer */
 	    zimXapianIndexer = Components.classes["@kiwix.org/zimXapianIndexer"].getService();
@@ -141,9 +136,9 @@ function indexZimFile(zimFilePath, xapianDirectory) {
 	    
 	    /* Add each article of the ZIM file in the xapian database */
 	    while (zimXapianIndexer.indexNextPercent()) {
-		dump("Indexing " + currentProgressBarPosition + "%...\n");
-		proxiedZimIndexerObserver.notifyObservers(this, "indexingProgress", currentProgressBarPosition);
-		currentProgressBarPosition += 1;
+			dump("Indexing " + currentProgressBarPosition + "%...\n");
+			proxiedZimIndexerObserver.notifyObservers(this, "indexingProgress", currentProgressBarPosition);
+			currentProgressBarPosition++;
 	    }
 	    dump("Indexing finished");
 
@@ -160,12 +155,12 @@ function indexZimFile(zimFilePath, xapianDirectory) {
 	    /* Hide the indexing progress bar */
 	    proxiedZimIndexerObserver.notifyObservers(this, "stopIndexing", "");
 	
-            /* Remove the observer */
-            proxiedZimIndexerObserver.removeObserver(zimIndexerObserver, "indexingProgress");
-            proxiedZimIndexerObserver.removeObserver(zimIndexerObserver, "stopIndexing");
-            proxiedZimIndexerObserver.removeObserver(zimIndexerObserver, "startIndexing");
-	    zimIndexerObserver = null;		
-            proxiedZimIndexerObserver = null;
+		/* Remove the observer */
+		proxiedZimIndexerObserver.removeObserver(zimIndexerObserver, "indexingProgress");
+		proxiedZimIndexerObserver.removeObserver(zimIndexerObserver, "stopIndexing");
+		proxiedZimIndexerObserver.removeObserver(zimIndexerObserver, "startIndexing");
+		zimIndexerObserver = null;		
+		proxiedZimIndexerObserver = null;
 	}
     }
 
@@ -196,9 +191,8 @@ function openSearchIndex(path) {
     xapianAccessor = xapianAccessor.QueryInterface(Components.interfaces.IXapianAccessor);
 
     /* Open the xapian readable database */
-    if (!xapianAccessor.openReadableDatabase(path)) {
-	return;
-    }
+    if (!xapianAccessor.openReadableDatabase(path))
+		return;    
 
     return xapianAccessor;
 }
@@ -225,64 +219,62 @@ function searchInIndex(query, xapianDirectory, loadFirstResult) {
     /* Build the result array */
     var results = new Array;
     while (xapianAccessor.getNextResult(url, title, score)) {
-	var result = new Array;
-	result.push(url.value);
-	result.push(title.value);
-	result.push(score.value);
-	results.push(result);
+		var result = new Array;
+		result.push(url.value);
+		result.push(title.value);
+		result.push(score.value);
+		results.push(result);
     }
 
     /* Try to get the first result */
     xapianAccessor.getNextResult(url, title, score);
 
     if (results.length > 0) {
-	var firstUrl = results[0][0];
-	var firstTitle = results[0][1];
-	var firstScore = results[0][2];
+		var firstUrl = results[0][0];
+		var firstTitle = results[0][1];
+		var firstScore = results[0][2];
 
-	/* Display the first result if the search pattern eq to the first result */
-	if (loadFirstResult == true && query.toLowerCase() == firstTitle.toLowerCase()) {
-	    loadContent("zim://" + firstUrl);
-	}
-
-	/* Display the first result (best score) if its accuracy is high*/
-	else if (firstScore > _loadPageScoreThreshold) {
-
-	    /* Check if the Levenshtein distance is not too bad */
-	    var distance = computeLevenshteinDistance(query.toLowerCase(), 
-						      firstTitle.toLowerCase());
-	    var threshold = query.length;
-	    if (loadFirstResult == true && distance < threshold) {
-		loadContent("zim://" + firstUrl);
-	    }
-
-	    /* Last chance */
-	    else if (results.length > 1) {
-		var secondTitle = results[1][1];
-		
-		if (loadFirstResult == true &&
-		    firstTitle.toLowerCase().indexOf(query.toLowerCase()) > -1 &&
-		    secondTitle.toLowerCase().indexOf(query.toLowerCase()) == -1) {
-		    loadContent("zim://" + firstUrl);
+		/* Display the first result if the search pattern eq to the first result */
+		if (loadFirstResult == true && query.toLowerCase() == firstTitle.toLowerCase()) {
+			loadContent("zim://" + firstUrl);
 		}
-	    }
 
-	    /* If only one result load it */
-	    else if (loadFirstResult == true) {
-		loadContent("zim://" + firstUrl);
-	    }
-	}
+		/* Display the first result (best score) if its accuracy is high*/
+		else if (firstScore > _loadPageScoreThreshold) {
 
-	/* Display all the results in the results sidebar */
-	changeResultsBarVisibilityStatus(true);
-	for (var index=0; index<results.length; index++) {
-	    addResultToList(results[index][0], results[index][1], results[index][2]);
-	};
+			/* Check if the Levenshtein distance is not too bad */
+			var distance = computeLevenshteinDistance(query.toLowerCase(), 
+								  firstTitle.toLowerCase());
+			var threshold = query.length;
+			if (loadFirstResult == true && distance < threshold) {
+				loadContent("zim://" + firstUrl);
+			}
+
+			/* Last chance */
+			else if (results.length > 1) {
+				var secondTitle = results[1][1];
+				
+				if (loadFirstResult == true &&
+					firstTitle.toLowerCase().indexOf(query.toLowerCase()) > -1 &&
+					secondTitle.toLowerCase().indexOf(query.toLowerCase()) == -1) {
+					loadContent("zim://" + firstUrl);
+				}
+			}
+
+			/* If only one result load it */
+			else if (loadFirstResult == true) {
+				loadContent("zim://" + firstUrl);
+			}
+		}
+
+		/* Display all the results in the results sidebar */
+		changeResultsBarVisibilityStatus(true);
+		for (var index=0; index<results.length; index++) 
+			addResultToList(results[index][0], results[index][1], results[index][2]);	
     } 
 
-    if (results.length == 0 && loadFirstResult == true) {
-	displayErrorDialog(getProperty("noResultsError"), getProperty("information"));
-    }	
+    if (results.length == 0 && loadFirstResult) 
+		displayErrorDialog(getProperty("noResultsError"), getProperty("information"));    
     
     /* Close the xapian readable databse */
     xapianAccessor.closeReadableDatabase();
@@ -293,33 +285,26 @@ function manageSearchInIndex() {
     var stringToSearch = getSearchBox().value.toLowerCase();
 
     if (stringToSearch != "") {
-	/* Make the search and display results */
-	var currentBook = library.getCurrentBook();
+		/* Make the search and display results */
+		var currentBook = library.getCurrentBook();
 
-	searchInIndex(stringToSearch, currentBook.indexPath, true);
-	getSearchBox().value = "";
+		searchInIndex(stringToSearch, currentBook.indexPath, true);
+		getSearchBox().value = "";
     }
-
     return true;
 }
 
 /* Calculate Levenshtein distance between two strings */
 function computeLevenshteinDistance (s1, s2) {
-    if (s1 == s2) {
-        return 0;
-    }
+    if (s1 == s2) return 0;
 
     s1 = s1.replace(" ", "");
     s2 = s2.replace(" ", "");
 
     var s1_len = s1.length;
     var s2_len = s2.length;
-    if (s1_len === 0) {
-        return s2_len;
-    }
-    if (s2_len === 0) {
-        return s1_len;
-    }
+    if (s1_len === 0) return s2_len;
+    if (s2_len === 0) return s1_len;
 
     /* begin static */
     var split = false;
@@ -339,9 +324,8 @@ function computeLevenshteinDistance (s1, s2) {
     var v1 = new Array(s1_len+1);
 
     var s1_idx=0, s2_idx=0, cost=0;
-    for (s1_idx=0; s1_idx<s1_len+1; s1_idx++) {
+    for (s1_idx=0; s1_idx<s1_len+1; s1_idx++) 
         v0[s1_idx] = s1_idx;
-    }
 
     var char_s1='', char_s2='';
     for (s2_idx=1; s2_idx<=s2_len; s2_idx++) {
@@ -354,10 +338,8 @@ function computeLevenshteinDistance (s1, s2) {
             var m_min = v0[s1_idx+1] + 1;
             var b = v1[s1_idx] + 1;
             var c = v0[s1_idx] + cost;
-            if (b < m_min) {
-                m_min = b; }
-            if (c < m_min) {
-                m_min = c; }
+            if (b < m_min) m_min = b;
+            if (c < m_min) m_min = c;
             v1[s1_idx+1] = m_min;
         }
         var v_tmp = v0;
@@ -371,6 +353,5 @@ function computeLevenshteinDistance (s1, s2) {
 /* Check if we have a current search index */
 function checkSearchIndex() {
     var currentBook = library.getCurrentBook();
-    if (currentBook && currentBook.indexPath && openSearchIndex(currentBook.indexPath)) return true;
-    return false;
+    return (currentBook && currentBook.indexPath && openSearchIndex(currentBook.indexPath));
 }
