@@ -14,16 +14,16 @@ gS.prototype={
 
 	function ucFirst(str) {
 	    if (str.length > 0)
-			return str[0].toUpperCase() + str.substring(1);
+		return str[0].toUpperCase() + str.substring(1);
 	    else
-			return str;	    
+		return str;	    
 	}	
 
 	function ulFirst(str) {
 	    if (str.length > 0)
-			return str[0].toLowerCase() + str.substring(1);
+		return str[0].toLowerCase() + str.substring(1);
 	    else 
-			return str;
+		return str;
 	}
 
 	var j=this;
@@ -48,23 +48,23 @@ gS.prototype={
 	/* Check with lowercase or uppercase if we have space left in the result array */
 	if (r.length < 50) {
 	    if (ucFirst(searchString) == searchString)
-			zimAccessor.searchSuggestions(ulFirst(searchString), 50 - r.length);
+		zimAccessor.searchSuggestions(ulFirst(searchString), 50 - r.length);
 	    else 
-			zimAccessor.searchSuggestions(ucFirst(searchString), 50 - r.length);	    
+		zimAccessor.searchSuggestions(ucFirst(searchString), 50 - r.length);	    
 
 	    var title = new Object();
 	    while (zimAccessor.getNextSuggestion(title)) {
-			var present = false;
-			for (i=0; i<r.length; i++) {
-				if (r[0] == title.value) {
-					i = r.length +1;
-					present = true;
-				}
+		var present = false;
+		for (i=0; i<r.length; i++) {
+			if (r[0] == title.value) {
+               			i = r.length +1;
+				present = true;
 			}
-			if (!present) {
-				r.push(title.value); 
-				i = r.length;
-			}
+		}
+		if (!present) {
+        		r.push(title.value); 
+			i = r.length;
+		}
 	    }
 	}
 
@@ -87,7 +87,7 @@ gR.prototype={
    
    QueryInterface:function(a){
        if(a.equals(Ci.nsIAutoCompleteResult))
-		return this;
+	  return this;
    }
 }
 var gF={createInstance:function(o,i){return new gS().QueryInterface(i)}}
