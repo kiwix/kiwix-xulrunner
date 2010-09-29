@@ -24,10 +24,7 @@ class AppImpl : public QDialog, public Ui::App
             void quit();
 
     private slots:
+
             QMap<QString, QString> parseXML();
 };
 #endif
-
-
-
-

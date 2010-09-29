@@ -12,23 +12,22 @@ int main(int argc, char ** argv)
         //the argument value
         args = QString(QApplication::arguments().at(i));
 
-        if (args.length()==9)
+        if (args.length()==9)//Example: "--lang=en"
         {
-            if (args.mid(0,7) == "--lang=")
-            {
-                //If lang have a value like "--lang=en"
-                lang = args.mid(7,9);
-            }
+            if (args.mid(0,7) == "--lang=")            
+                //if lang have a value like "--lang=en"
+                lang = args.mid(7,9);            
         }
     }
-    //Declare main window
+    //declare main window
     AppImpl win;
-    //Set language for the interface
+    //set language for the interface
     win.lang=lang;
-    //Translate interface
+    //translate interface
     win.retranslateUi();
-    //Show main window
+    //show main window
     win.show();    
     app.connect( &app, SIGNAL( lastWindowClosed() ), &app, SLOT( quit() ) );
+
     return app.exec();
 }

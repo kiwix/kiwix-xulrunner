@@ -47,8 +47,8 @@ void AppImpl::msgerror(int coderror)
     QString msg = "Unknow Error";
     switch(coderror)
     {
-		case 001: msg = "Error 001. File not found, ensure that the kiwix application file is in the current directory.";                
-		break;
+	case 001: msg = "Error 001. File not found, ensure that the kiwix application file is in the current directory.";                
+	break;
     }
     QMessageBox::critical(0,"Error",   msg);
 }
@@ -60,10 +60,8 @@ void AppImpl::runapp(const char *filename,int windowsmodal)
         WinExec(filename, windowsmodal);
         this->close();
     }
-    else
-    {
-        this->msgerror(001);
-    }
+    else    
+        this->msgerror(001);    
 }
 //Launch kiwix
 void AppImpl::launch()
@@ -83,7 +81,7 @@ void AppImpl::clean()
 //Exit autorun
 void AppImpl::quit()
 {
-	this->close();
+    this->close();
 }
 //Translate ui
 void AppImpl::retranslateUi()
@@ -114,17 +112,17 @@ void AppImpl::retranslateUi()
     //Label:Multimedia offline reader
     this->message1->setText(QApplication::translate("App", "Multimedia offline reader", 0, QApplication::UnicodeUTF8));
 
-} // retranslateUi
+}
 //Xml lang user interface reader
 QMap<QString, QString> AppImpl::parseXML() {
     /* We'll parse the xml in ui folder */
     QFile* file = new QFile("ui\\"+this->lang + ".xml");
 
     if (!file->open(QIODevice::ReadOnly | QIODevice::Text)) {
-            QMessageBox::critical(this,
-                                  "AppImpl::parseXML",
-                                  "Error 002. Couldn't open ui\\"+this->lang + ".xml",
-                                  QMessageBox::Ok);
+        QMessageBox::critical(this,
+                                   "AppImpl::parseXML",
+                                   "Error 002. Couldn't open ui\\"+this->lang + ".xml",
+                                   QMessageBox::Ok);
             exit(0);
         }
 
@@ -157,15 +155,15 @@ QMap<QString, QString> AppImpl::parseXML() {
             QString tagNam = uiData.tagName();
 
             if(tagNam == "windowTitle") { /* We've found windowTitle label. */
-                            ui_element["windowTitle"] = uiData.text();
+               ui_element["windowTitle"] = uiData.text();
             }else if(tagNam == "run") { /* We've found run label. */
-                            ui_element["run"] = uiData.text();
+                     ui_element["run"] = uiData.text();
             }else if(tagNam == "install") { /* We've found install label. */
-                            ui_element["install"] = uiData.text();
+                     ui_element["install"] = uiData.text();
             }else if(tagNam == "quit") { /* We've found quit label. */
-                            ui_element["quit"] = uiData.text();
+                     ui_element["quit"] = uiData.text();
             }else if(tagNam == "layoutDirection") { /* We've found layoutDirection label. */
-                ui_element["layoutDirection"] = uiData.text();
+                     ui_element["layoutDirection"] = uiData.text();
             }
             uiEntries = uiEntries.nextSibling();
     }
