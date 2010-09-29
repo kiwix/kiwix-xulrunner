@@ -64,7 +64,10 @@ follow the steps in the given order.
 
 * Click on the "autorun/autorun.exe" binary and it should work.
 
-* In the subdirectory called "ui" should be the language xml file, eg en.xml, es.xml, fr.xml
+* In the subdirectory called "ui" should be the language xml file, eg en.xml, es.xml, fr.xml.
+  There is a xml for each language. Xml file specifies the interface language for the autorun. 
+  For all languages except English, you must specify the interface language,
+  eg "autorun --lang=fr" to load a custom interface in French.
 
 == Addtional custom ==
 
