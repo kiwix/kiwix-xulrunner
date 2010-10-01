@@ -21,6 +21,7 @@ function XMLStringToBookmarks (xmls) {
             notes   = root.childNodes[i].firstChild.nodeValue;
         else
             notes   = new String();
+
         items.push({title:title, uri:uri, notes:notes});
     }
     return items;
@@ -52,15 +53,15 @@ function XMLFileFromBookmarks (file, object) {
     return writeToFile (file, fileContent);
 }
 
-var BookmarkNFO				= {};
+var BookmarkNFO	            = {};
 BookmarkNFO.defaultSetFile  = null;
-BookmarkNFO.currentPage		= null;
+BookmarkNFO.currentPage	    = null;
 BookmarkNFO.currentSet	    = null;
 BookmarkNFO.defaultSet	    = null;
 BookmarkNFO.externalSet	    = null;
 BookmarkNFO.defaultFileStr  = "<bookmarks></bookmarks>";
 BookmarkNFO.itemInSet	    = function (element, index, array) { 
-	return (element['uri'] == this['uri']);
+                                  	return (element['uri'] == this['uri']);
 };
 
 function InitializeBookmarks () {
@@ -180,9 +181,8 @@ function BookmarkSet () {
 
         var newA = [];
         for (var i=0; i<this.items.length;i++) {
-            if (this.items[i]['uri'] != uri) {
-                newA.push(this.items[i]);
-            }
+            if (this.items[i]['uri'] != uri)
+                newA.push(this.items[i]);            
         }
         this.items = newA;
         this.save();
@@ -198,9 +198,9 @@ function BookmarkSet () {
 	}
 	// save note async
 	this.update = function (index, item) {
-	    for (field in item) {
+	    for (field in item)
 	        this.items[index][field] = item[field];
-	    }
+	    
 	    this.save();
 	}
 	// helper functions
@@ -212,7 +212,7 @@ function BookmarkSet () {
  * adds bookmark to current set
  */
 function AddBookmarkToDatasource (title, uri) {
-	return BookmarkNFO.currentSet.add(title, uri, "");
+    return BookmarkNFO.currentSet.add(title, uri, "");
 }
 
 /*

@@ -19,6 +19,7 @@ function openZimFile(path) {
 function openCurrentBook() {
     var currentBook = library.getCurrentBook();
     if (!currentBook) return;
+    
     return manageOpenFile(currentBook.path, true);
 }
 
@@ -31,9 +32,8 @@ function getCurrentZimFileHomePageUrl() {
 
 		/* Return the welcome path if exists */
 		currentZimAccessor.getMainPageUrl(url);
-		if (url.value != undefined && url.value != '') {
-			return "zim://" + url.value;
-		}
+		if (url.value != undefined && url.value != '')
+			return "zim://" + url.value;		
     }
 
     return homePageUrl;
@@ -45,9 +45,8 @@ function loadRandomArticle() {
 		var url = new Object();
 
 		currentZimAccessor.getRandomPageUrl(url);
-		if (url.value != undefined && url.value != '') {
-			url.value = "zim://" + url.value;
-		}
+		if (url.value != undefined && url.value != '')
+			url.value = "zim://" + url.value;	
 
 		loadContent(url.value);
 		activateBackButton();

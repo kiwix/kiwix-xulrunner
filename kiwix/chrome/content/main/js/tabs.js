@@ -8,22 +8,16 @@ function showTabHeaders() {
 
 /* Make the tabs (in)visible */
 function changeTabsVisibilityStatus(visible, save) {
-    if (visible == undefined) {
+    if (visible == undefined)
 	visible = document.getElementById('display-tabs').getAttribute('checked');
-    } else {
-	document.getElementById('display-tabs').setAttribute('checked', visible);
-    }
+    else
+	document.getElementById('display-tabs').setAttribute('checked', visible);   
 
     var tabHeaders = document.getElementById("tab-headers");
-    if (visible) {
-	tabHeaders.style.display = "block";
-    } else {
-	tabHeaders.style.display = "none";
-    }
+    
+    tabHeaders.style.display = visible?"block":"none";
 
-    if (save) {
-	settings.displayTabs(visible);
-    }
+    if (save) settings.displayTabs(visible);
 }
 
 /* Add a new tab */
@@ -76,10 +70,9 @@ function closeCurrentTab() {
 	tabPanels.removeChild(currentTabPanel);
 	
 	/* If the referer tab was already closed */
-	if ( document.getElementById("tab-panel-" + refererTabId) == undefined) {
+	if ( document.getElementById("tab-panel-" + refererTabId) == undefined) 
 	    refererTabId = "00000000";
-	}
-
+	
 	switchTab(refererTabId);
     }
 }

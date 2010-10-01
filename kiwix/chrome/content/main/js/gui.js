@@ -746,14 +746,13 @@ function addResultToList(url, title, score) {
 
 /* Display the about dialog box */
 function showAbout() {
-    var win = window.openDialog('about.xul','','resizable=no,scrollbars=no,modal,fullscreen=no,width=350,height=400,chrome=yes');
+    var win = window.openDialog('about.xul','','centerscreen,resizable=no,scrollbars=no,modal,dialog,width=350,height=380,chrome');
 }
 
 /* Display the help */
 function showHelp() {
-    if (settings.displayTabs() == true) {
+    if (settings.displayTabs()) 
 	openNewTab();
-    }
 
     loadContent("chrome://main/locale/help.html");
 }
