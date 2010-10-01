@@ -13,6 +13,7 @@
 	id        = "about"
 	title     = "&main.about;"
 	resizable = "no"
+        style     = "background-color: white"
 	>
 
 <!-- Custom Javascript scripts -->
