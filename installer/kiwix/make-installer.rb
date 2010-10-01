@@ -32,8 +32,7 @@ class Nsi_output
                        # build the tree
                        in_tree(@arg['source_path'])
                        # put the tree in nsi
-                       write_file((@arg['nsi_output'].class == IO) ? @arg['nsi_output'] :
-File.new(@arg['nsi_output'], "w"))
+                       write_file((@arg['nsi_output'].class == IO) ? @arg['nsi_output'] : File.new(@arg['nsi_output'], "w"))
                        # compile the nsi file
                        # -V0 hide log
                        system("makensis -V0 #{@arg['nsi_output']}")
@@ -71,9 +70,9 @@ File.new(@arg['nsi_output'], "w"))
                # return tree section for put in nsi template
                return $result
        end
-
-       def write_file(kiwixnsi)
-               # reading nsi base to generate the final nsi
+	   
+	   # reading nsi base to generate the final nsi
+       def write_file(kiwixnsi)              
                File.open(@arg['nsi_base'], "r") do |infile|
                        while (line = infile.gets)
                                # looking for special lines to be replaced
@@ -88,7 +87,6 @@ File.new(@arg['nsi_output'], "w"))
                                end
                        end
                end
-
                kiwixnsi.close
        end
 
@@ -138,9 +136,9 @@ File.new(@arg['nsi_output'], "w"))
                        return true
                end
        end
-
-       def verify_dirs()
-               # directory exist
+	   
+	   # directory exist
+       def verify_dirs()               
                return is_dir('source_path') && is_dir('install_dir')
        end
 
