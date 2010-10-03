@@ -1,5 +1,5 @@
 !define LANG "FARSI" ; Must be the lang name define my NSIS
-!insertmacro LANG_STRING LICENSE_AGREEMENT "ู…ูุงููุช ูุงู…ู ู…ุฌูุฒ"
-!insertmacro LANG_STRING LICENSE_AGREEMENT_EXPLANATION "ุฌูุช ู…ุทุงูุนู ู ุงุนูุงู… ู…ูุงููุช ุจุง ู…ูุฏุฑุฌุงุช ู…ุฌูุฒุ ุจุฑ ุฑูÛ ุงÛู ุฏฺฉู…ู ฺฉูÛฺฉ ฺฉูÛุฏ. ุจุฑุงÛ ุขูฺฉู ุจุชูุงูÛุฏ ุงุฒ ุงÛู ูุฑู… ุงูุฒุงุฑ ุงุณุชูุงุฏู ูู…ุงÛÛุฏ ู…Û ุจุงÛุฏ ุจุง ุดุฑุงÛุท ุฐฺฉุฑ ุดุฏู ุฏุฑ ู…ูุงููุช ูุงู…ู ู…ุฌูุฒุ ู…ูุงููุช ฺฉูÛุฏ."
-!insertmacro LANG_STRING INSTALL_DIRECTORY "ุดุงุฎู ูุตุจ"
-!insertmacro LANG_STRING INSTALL_DIRECTORY_EXPLANATION "ฺูุงูฺู ู…ุงÛูÛุฏ ู…ุญู ูุตุจ ูุฑู… ุงูุฒุงุฑ ุฑุง ุจุฑ ุฑูÛ ฺฉุงู…ูพÛูุชุฑ ุฎูุฏ ุชุบÛÛุฑ ุฏูÛุฏุ ุจุฑ ุฑูÛ ุงÛู ุฏฺฉู…ู ฺฉูÛฺฉ ฺฉูÛุฏ"
+!insertmacro LANG_STRING LICENSE_AGREEMENT "ใๆวÝÞส ไวใๅ ใฬๆา"
+!insertmacro LANG_STRING LICENSE_AGREEMENT_EXPLANATION "ฬๅส ใุวแฺๅ ๆ วฺแวใ ใๆวÝÞส ศว ใไฯัฬวส ใฬๆาก ศั ัๆ วไ ฯใๅ แ ไฯ. ศัว ยไๅ ศสๆวไฯ วา วไ ไัใ วÝาวั วำสÝวฯๅ ไใวฯ ใ ศวฯ ศว ิัวุ ะั ิฯๅ ฯั ใๆวÝÞส ไวใๅ ใฬๆาก ใๆวÝÞส ไฯ."
+!insertmacro LANG_STRING INSTALL_DIRECTORY "ิวฮๅ ไีศ"
+!insertmacro LANG_STRING INSTALL_DIRECTORY_EXPLANATION "ไวไๅ ใวแฯ ใอแ ไีศ ไัใ วÝาวั ัว ศั ัๆ วใๆสั ฮๆฯ สÛั ฯๅฯก ศั ัๆ วไ ฯใๅ แ ไฯ"
