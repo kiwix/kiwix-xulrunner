@@ -7,12 +7,12 @@
 <!ENTITY main.file.accesskey            "F">
 <!ENTITY main.openFile                  "...باز کردن فایل">
 <!ENTITY main.openFile.accesskey        "O">
-<!ENTITY main.lastOpen                  "اخیرا باز شده...">
-<!ENTITY main.saveFile                  "ذخیره صفحه به عنوان...">
+<!ENTITY main.lastOpen                  "...اخیرا باز شده">
+<!ENTITY main.saveFile                  "...ذخیره صفحه به عنوان">
 <!ENTITY main.saveFile.accesskey        "S">
 <!ENTITY main.print                     "پرینت">
 <!ENTITY main.print.accesskey           "P">
-<!ENTITY main.printPdf                  "Print as PDF">
+<!ENTITY main.printPdf                  "PDF پرینت به صورت">
 <!ENTITY main.printPdf.accesskey        "D">
 <!ENTITY main.quit                      "خروج">
 <!ENTITY main.quit.accesskey            "Q">
@@ -26,7 +26,7 @@
 <!ENTITY main.selectall.accesskey       "a">
 <!ENTITY main.copy                      "کپی">
 <!ENTITY main.copy.accesskey            "p">
-<!ENTITY main.transliteration           "Transliteration">
+<!ENTITY main.transliteration           "نويسه گردانى">
 <!ENTITY main.transliteration.accesskey "T">
 
 <!-- Display menu -->
@@ -46,7 +46,7 @@
 <!ENTITY main.statusbar.accesskey       "S">
 <!ENTITY main.resultsbar                "نوار نتایج">
 <!ENTITY main.resultsbar.accesskey      "R">
-<!ENTITY main.tabs                      "Tabs">
+<!ENTITY main.tabs                      "برگه ها">
 <!ENTITY main.tabs.accesskey            "T">
 <!ENTITY main.fullscreen                "تمام صفحه">
 <!ENTITY main.fullscreen.accesskey      "F">
@@ -56,7 +56,7 @@
 <!ENTITY main.tools.accesskey           "T">
 <!ENTITY main.randomArticle             "مقاله تصادفی">
 <!ENTITY main.randomArticle.accesskey   "R">
-<!ENTITY main.purgeHistory              "Purge history">
+<!ENTITY main.purgeHistory              "پاکسازی تاریخچه">
 <!ENTITY main.purgeHistory.accesskey    "P">
 
 <!-- Help menu -->
@@ -80,7 +80,7 @@
 <!ENTITY main.results.title             "یافته ها">
 
 <!-- Bookmarks Bar -->
-<!ENTITY main.bmkLabel                  "نشانکها:">
+<!ENTITY main.bmkLabel                  ":نشانکها">
 <!ENTITY main.notesLabel                "یادداشتهای نشانک">
 <!ENTITY main.loadbmk                   "ورود تنظیمات نشانک">
 <!ENTITY main.newbmk                    "ایجاد تنظیمات جدید نشانک">
@@ -90,4 +90,4 @@
 <!ENTITY main.defaultset                "تنظیمات نشانک">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveImageAs               "Save image as...">
+<!ENTITY main.saveImageAs               "...ذخیره عکس به صورت">
