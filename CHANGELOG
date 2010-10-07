@@ -4,6 +4,7 @@ Kiwix 0.9 beta1
 * Add mouse thumb buttons back/forward support (ID: 3063304)
 * Add a contextual menu "Save image as..." for images (ID: 1669553)
 * Remove the deprecated (not used anymore by libzim) bzip2 dependence
+* Fully localized MS Windows installer
 
 Kiwix 0.9 alpha6
 * Fix a regression bug impacting the case insensitive (first character only) suggestion system
