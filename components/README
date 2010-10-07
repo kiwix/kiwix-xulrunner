@@ -1,5 +1,0 @@
-To add a new XPCOM component, do like follow:
-1 - create a directory with the name of our component
-2 - put inside it the code of your component
-3 - put inside it too, the corresponding Makefile with (at least) the rules "clean" and "all"
-4 - add the directory name to the SUBDIRS variable in the "components/" directory Makefile
