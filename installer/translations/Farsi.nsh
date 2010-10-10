@@ -1,5 +1,8 @@
-!define LANG "FARSI" ; Must be the lang name define my NSIS
+!define LANG "FARSI"
+!define LANG_CODEPAGE "WINDOWS-1256"
+!define LANG_FILENAME "Farsi.nsh"
+
 !insertmacro LANG_STRING LICENSE_AGREEMENT "„Ê«›ﬁ  ‰«„Â „ÃÊ“"
-!insertmacro LANG_STRING LICENSE_AGREEMENT_EXPLANATION "ÃÂ  „ÿ«·⁄Â Ê «⁄·«„ „Ê«›ﬁ  »« „‰œ—Ã«  „ÃÊ“° »— —Ê ¬‰ ò·ò ‰„«œ. »—« ¬‰òÂ » Ê«‰œ «“ ‰—„ «›“«— «” ›«œÂ ò‰œ° »«œ »« ‘—«ÿ –ò— ‘œÂ œ— „Ê«›ﬁ  ‰«„Â „Ê«›ﬁ  ‰„«œ."
+!insertmacro LANG_STRING LICENSE_AGREEMENT_EXPLANATION "„ÿ«·⁄Â „Ê«›ﬁ  ‰«„Â –ò— ‘œÂ œ— ‰—„ «›“«— Ê «⁄·«„ „Ê«›ﬁ  »« ¬‰ ÃÂ  «” ›«œÂ «“ ‰—„ «›“«—"
 !insertmacro LANG_STRING INSTALL_DIRECTORY "‘«ŒÂ ‰’»"
-!insertmacro LANG_STRING INSTALL_DIRECTORY_EXPLANATION "ç‰«‰çÂ „«· »Â  €— „Õ· ‰’» ‰—„ «›“«— Â” œ° »— —Ê ¬‰ ò·ò ò‰œ."
+!insertmacro LANG_STRING INSTALL_DIRECTORY_EXPLANATION "«’·«Õ ò—œ‰ „Õ· ‰’»"
