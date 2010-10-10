@@ -68,7 +68,7 @@
 <!ENTITY main.about.accesskey           "A">
 
 <!-- Tool bar -->
-<!ENTITY main.back                      "Detrás">
+<!ENTITY main.back                      "Atrás">
 <!ENTITY main.forward                   "Adelante">
 <!ENTITY main.home                      "Inicio">
 <!ENTITY main.searchBar                 "Barra de búsqueda">
@@ -90,4 +90,4 @@
 <!ENTITY main.defaultset                "Predeterminado">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveImageAs               "Save image as...">
+<!ENTITY main.saveImageAs               "Guardar imagen como...">
