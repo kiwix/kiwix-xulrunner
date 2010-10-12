@@ -798,8 +798,12 @@ function manageImageDownload(url) {
     var filePicker = Components.classes["@mozilla.org/filepicker;1"].createInstance(nsIFilePicker);
     filePicker.init(window, "Save image", nsIFilePicker.modeSave);
     filePicker.appendFilters(filePicker.filterImages);
-    filePicker.defaultString = url.replace(RegExp("/I/", "i"), "");
-    
+
+    /* Compute and set up the default filename */
+    var defaultFilename = url.replace(RegExp("/I/", "i"), "");
+    defaultFilename = defaultFilename.replace(RegExp("\/", "i"), "_");
+    filePicker.defaultString = defaultFilename;
+
     /* Show the dialog and get the file path */
     var res = filePicker.show();
     
@@ -1096,7 +1100,11 @@ function printPdf() {
     filePicker.init(window, "Save page as PDF", nsIFilePicker.modeSave);
     filePicker.appendFilter("PDF", "*.pdf");
     filePicker.defaultExtension = "pdf";
-    filePicker.defaultString = content.document.title.replace(RegExp("( )", "g"), "_") + ".pdf";
+
+    /* Compute and set up the default filename */
+    var defaultFilename = content.document.title.replace(RegExp("( )", "g"), "_") + ".pdf";
+    defaultFilename = defaultFilename.replace(RegExp("\/", "i"), "_");
+    filePicker.defaultString = defaultFilename;
     
     /* Show the dialog and get the file path */
     var res = filePicker.show();
