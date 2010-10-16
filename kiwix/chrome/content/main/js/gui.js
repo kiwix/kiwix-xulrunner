@@ -24,10 +24,10 @@ function getWindow() {
 /* Load an url in the HTML render element */
 function loadContent(url) {
     try {
-		getHtmlRenderer().loadURI(url, null, null);
+	getHtmlRenderer().loadURI(url, null, null);
     } catch(e) {
-		displayErrorDialog(getProperty("loadArticleError"));
-		return false;
+	displayErrorDialog(getProperty("loadArticleError"));
+	return false;
     }
     return true;
 }
@@ -215,7 +215,7 @@ function focusOnSearchBox() {
 function changeResultsBarVisibilityStatus(visible) {
 
     if (visible == undefined) {
-		visible = document.getElementById('results-bar').collapsed;
+	visible = document.getElementById('results-bar').collapsed;
     }
     
     // hide bookmarks if visible
@@ -226,22 +226,22 @@ function changeResultsBarVisibilityStatus(visible) {
     var resultsBar = document.getElementById('results-bar');
 	
     if (visible) {
-		if (!document.getElementById('results-splitter')) {
-			var splitter = document.createElement('splitter');
-			splitter.setAttribute('id', 'results-splitter');
-			resultsBar.parentNode.insertBefore(splitter, resultsBar.nextSibling);
-		}
-		resultsBar.collapsed = false;
-		getResultsButton().setAttribute('checked', true);
+	if (!document.getElementById('results-splitter')) {
+	    var splitter = document.createElement('splitter');
+	    splitter.setAttribute('id', 'results-splitter');
+	    resultsBar.parentNode.insertBefore(splitter, resultsBar.nextSibling);
+	}
+	resultsBar.collapsed = false;
+	getResultsButton().setAttribute('checked', true);
     } else {
-		var splitter = document.getElementById('results-splitter');
-		if (splitter != null) {
-			splitter.parentNode.removeChild(splitter);
-		}
-		document.getElementById('results-bar').collapsed = true;
-		getResultsButton().setAttribute('checked', false);
+	var splitter = document.getElementById('results-splitter');
+	if (splitter != null) {
+	    splitter.parentNode.removeChild(splitter);
+	}
+	document.getElementById('results-bar').collapsed = true;
+	getResultsButton().setAttribute('checked', false);
     }
-
+    
     document.getElementById('display-resultsbar').setAttribute('checked', visible);
 }
 
@@ -271,63 +271,63 @@ function resultsListMouseScroll(aEvent) {
 function htmlRendererMouseScroll(aEvent) {
     /* Deal the with the scroll in case of alt is pressed */
     if (aEvent.altKey) {
-		aEvent.preventDefault();
-		aEvent.stopPropagation();
-		return;
+	aEvent.preventDefault();
+	aEvent.stopPropagation();
+	return;
     }
-
+    
     /* Deal with the left/right click*/
     if (aEvent.detail == -1) {
-		pageBack();
-		aEvent.preventDefault();
-		aEvent.stopPropagation();
-		return;
+	pageBack();
+	aEvent.preventDefault();
+	aEvent.stopPropagation();
+	return;
     } else if (aEvent.detail == 1) {
-		pageNext();
-		aEvent.preventDefault();
-		aEvent.stopPropagation();
-		return;
+	pageNext();
+	aEvent.preventDefault();
+	aEvent.stopPropagation();
+	return;
     }
-
+    
     /* Deal with the roll + ctrl */
     if (aEvent.ctrlKey) {
-		if (aEvent.detail>0) { zoomOut() } ;
-		if (aEvent.detail<0) { zoomIn() } ;
-		aEvent.preventDefault();
-		aEvent.stopPropagation();
-		return;
+	if (aEvent.detail>0) { zoomOut() } ;
+	if (aEvent.detail<0) { zoomIn() } ;
+	aEvent.preventDefault();
+	aEvent.stopPropagation();
+	return;
     }
 
     /* Deal with the roll + shift*/
     if (aEvent.shiftKey) {
-		if (aEvent.detail<0) { pageNext() } ;
-		if (aEvent.detail>0) { pageBack() } ;
-		aEvent.preventDefault();
-		aEvent.stopPropagation();
-		return;
+	if (aEvent.detail<0) { pageNext() } ;
+	if (aEvent.detail>0) { pageBack() } ;
+	aEvent.preventDefault();
+	aEvent.stopPropagation();
+	return;
     }
 }
 
 /* Update the status bar if mouse is over a link */
 function htmlRendererMouseOver(aEvent) {
     var url = aEvent.target;
-
+    
     if (url instanceof HTMLSpanElement && 
 	url.parentNode instanceof HTMLAnchorElement) {
         url = url.parentNode;
     }
 
     if (url instanceof HTMLAnchorElement) {
-		/* To be sure that nothing else is already displayed */
-		clearStatusBar();
-
-		document.getElementById("address-bar").value = decodeUrl(url.href.replace(":///", "://"));
-		
-		if (isInternalUrl(url)) {
-			document.getElementById('book-icon').collapsed = false;
-		} else {
-			document.getElementById('earth-icon').collapsed = false;
-		}
+	/* To be sure that nothing else is already displayed */
+	clearStatusBar();
+	
+	document.getElementById("address-bar").value = decodeUrl(url.href.replace(":///", "://"));
+	
+	if (isInternalUrl(url)) {
+	    document.getElementById('book-icon').collapsed = false;
+	} else {
+	    document.getElementById('earth-icon').collapsed = false;
+	}
     }
 }
 
@@ -336,7 +336,7 @@ function htmlRendererMouseOut(aEvent) {
     var url = aEvent.target;
 
     if (url instanceof HTMLAnchorElement) {
-		clearStatusBar();
+	clearStatusBar();
     }
 }
 
@@ -345,44 +345,39 @@ function htmlRendererMouseUp(aEvent) {
     var url = aEvent.target;
 
     if (url instanceof HTMLAnchorElement && aEvent.button == 1) {
-		if (url.href.indexOf("zim://",0) != 0) {
-			htmlRendererOpenUrl(aEvent);
-		} else {
-			changeTabsVisibilityStatus(true);
-			openNewTab();
-			htmlRendererOpenUrl(aEvent);
-		}
+	if (url.href.indexOf("zim://",0) != 0) {
+	    htmlRendererOpenUrl(aEvent);
+	} else {
+	    changeTabsVisibilityStatus(true);
+	    openNewTab();
+	    htmlRendererOpenUrl(aEvent);
+	}
     }
 }
 
 /* Is called every time an (external|internal) url is clicked */
 function htmlRendererOpenUrl(aEvent) {
     var url = aEvent.target;
-
+    
     if (url instanceof HTMLAnchorElement) {
-		clearStatusBar();
+	clearStatusBar();
     }
 
     /* Return in case of javascript */
     if (url.href.indexOf("javascript:",0) == 0) {
-		return;
+	return;
     }
 
     /* Open with extern browser if not an internal link */
     if (url.href.indexOf("zim://",0) != 0) {
-		openUrlWithExternalBrowser(url.href);
-		aEvent.preventDefault();
-		aEvent.stopPropagation();
-		
-		/* Purge the history of the last entry */
-		getHtmlRenderer().sessionHistory.PurgeHistory(1);
-    } else { /* If the a ZIM url */
-		if (loadContent(url.href)) {
-			activateBackButton();
-		}
+	openUrlWithExternalBrowser(url.href);
+	aEvent.preventDefault();
+	aEvent.stopPropagation();
+	
+	/* Purge the history of the last entry */
+	getHtmlRenderer().sessionHistory.PurgeHistory(1);
     }
-
-
+    
     return;
 }
 
@@ -412,15 +407,15 @@ function zoomOut() {
  * Enable/Disable fullscreen mode. Acts as window maximizer on mac.
  */
 function UIToggleFullScreen (save) {
-	_winIsFullScreen = !_winIsFullScreen;
-	
-	// Update window state (1s delay for startup)
-	setTimeout('window.fullScreen = '+ _winIsFullScreen +';', 1); 
-	
-	// save preference for restore on restart
-	if (save) {
-	    settings.displayFullScreen(_winIsFullScreen);
-	}
+    _winIsFullScreen = !_winIsFullScreen;
+    
+    // Update window state (1s delay for startup)
+    setTimeout('window.fullScreen = '+ _winIsFullScreen +';', 1); 
+    
+    // save preference for restore on restart
+    if (save) {
+	settings.displayFullScreen(_winIsFullScreen);
+    }
     
     // UI Updates
     try {
