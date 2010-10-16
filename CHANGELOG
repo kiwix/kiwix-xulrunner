@@ -6,6 +6,7 @@ Kiwix 0.9 beta1
 * Remove the deprecated (not used anymore by libzim) bzip2 dependence
 * Fully localized MS Windows installer
 * Fix the default filename by "save image" and "save as PDF"  with article containing a "/"
+* Avoid a small bug responsible for duplicate zim calls
 
 Kiwix 0.9 alpha6
 * Fix a regression bug impacting the case insensitive (first character only) suggestion system
