@@ -19,13 +19,13 @@ kiwix (0.9-alpha6) lucid; urgency=low
   * Add new useful keyboard shortcuts like in Firefox (ID: 2992557)
   * Better help page in English
 
- -- Emmanuel Engelhart <kelson@kiwix.org> Thu, 2 Sep 2010 19:20:00 +0200
+ -- Emmanuel Engelhart <kelson@kiwix.org>  Tue, 2 Sep 2010 19:20:00 +0200
 
 kiwix (0.9-alpha5.1) lucid; urgency=low
 
   * Fix a bug in the debian/posrtrm script (ID: 3035092)
 
- -- Emmanuel Engelhart <kelson@kiwix.org> Mon, 27 Jul 2010 11:44:00 +0200
+ -- Emmanuel Engelhart <kelson@kiwix.org>  Mon, 27 Jul 2010 11:44:00 +0200
 
 kiwix (0.9-alpha5) lucid; urgency=low
 
@@ -35,7 +35,7 @@ kiwix (0.9-alpha5) lucid; urgency=low
   * Add a stub HTML header&footer in case of the article do not have a <body> (ID: 3030608)
   * Fix a bug in the ./configure libicu version checking (ID: 3034150)
 
- -- Emmanuel Engelhart <kelson@kiwix.org> Mon, 26 Jul 2010 21:39:00 +0200
+ -- Emmanuel Engelhart <kelson@kiwix.org>  Mon, 26 Jul 2010 21:39:00 +0200
 
 kiwix (0.9-3) lucid; urgency=low
 
