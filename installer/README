@@ -31,8 +31,8 @@ Please follow the steps in the given order.
 * Start MSYS, an icon should be present on your desktop. Otherwise
   start C:\msys\1.0\msys.bat
 
-* Go to your code directory in "moulinkiwix/installer/kiwix" like
-  following: cd /c/your_path_to_the_code/moulinkiwix/installer/kiwix/
+* Go to your code directory in "moulinkiwix/installer/" like
+  following: cd /c/your_path_to_the_code/moulinkiwix/installer/
 
 * Add the ruby and NSIS bin directory to the path like following:
   export PATH=$PATH:/c/ruby/bin:/c/Program\ Files/NSIS/
