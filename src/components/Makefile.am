@@ -3,4 +3,5 @@ SUBDIRS = \
 	zimAccessor \
 	zimXapianIndexer \
 	zimIndexer \
-	zimCluceneIndexer
+	zimCluceneIndexer \
+	cluceneAccessor
