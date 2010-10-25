@@ -1,0 +1,11 @@
+#include "nsISupports.idl"
+
+interface nsIURI;
+
+[scriptable, uuid(e145a100-e070-11df-85ca-0800200c9a66)]
+interface IZimCluceneIndexer : nsISupports
+{
+  boolean startIndexing(in AUTF8String zimFilePath, in AUTF8String cluceneDirectoryPath);
+  boolean stopIndexing();
+  boolean indexNextPercent();
+};
