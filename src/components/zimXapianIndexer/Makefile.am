@@ -4,14 +4,16 @@ libZimXapianIndexer_la_SOURCES= \
 	../../common/kiwix/xapian/myhtmlparse.cc \
 	../../common/kiwix/xapian/htmlparse.cc \
 	../../common/unaccent.cpp \
-	../../common/kiwix/indexer.cpp 
+	../../common/kiwix/indexer.cpp \
+	../../common/kiwix/xapianIndexer.cpp 
 include_HEADERS= \
 	IZimXapianIndexer.h \
 	../../common/kiwix/xapian/myhtmlparse.h \
 	../../common/kiwix/xapian/namedentities.h \
 	../../common/kiwix/xapian/htmlparse.h \
 	../../common/unaccent.h \
-	../../common/kiwix/indexer.h
+	../../common/kiwix/indexer.h \
+	../../common/kiwix/xapianIndexer.h
 libZimXapianIndexer_la_CXXFLAGS=$(LIBXUL_CFLAGS) $(LIBXAPIAN_CFLAGS) $(LIBICU_CFLAGS) $(LIBZIM_CFLAGS) $(XPCOM_CFLAGS) -I../../common/
 libZimXapianIndexer_la_LDFLAGS=$(LIBXUL_LDFLAGS) $(LIBXAPIAN_LDFLAGS) $(LIBICU_LDFLAGS) $(LIBZIM_LDFLAGS) $(XPCOM_LDFLAGS)
 libZimXapianIndexer_la_LIBADD=../../zimlib/src/.libs/libzim.a

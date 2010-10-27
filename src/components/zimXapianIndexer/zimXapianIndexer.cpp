@@ -12,7 +12,7 @@
 #include "nsIProperties.h"
 #include "nsDirectoryServiceDefs.h"
 
-#include <kiwix/indexer.h>
+#include <kiwix/xapianIndexer.h>
 
 using namespace std;
 
@@ -26,7 +26,7 @@ public:
 
 private:
   ~ZimXapianIndexer();
-  kiwix::Indexer* indexer;
+  kiwix::XapianIndexer* indexer;
 };
 
 /* Implementation file */
@@ -56,7 +56,7 @@ NS_IMETHODIMP ZimXapianIndexer::StartIndexing(const nsACString &zimFilePath,
 
   /* Create the indexer */
   try {    
-    this->indexer = new kiwix::Indexer(cZimFilePath, cXapianDirectoryPath);
+    this->indexer = new kiwix::XapianIndexer(cZimFilePath, cXapianDirectoryPath);
     if (this->indexer != NULL) {
       *retVal = PR_TRUE;
     }
