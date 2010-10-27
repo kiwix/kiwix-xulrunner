@@ -104,6 +104,10 @@ function onStart() {
 	dump("Unable to register the xapianAccessor XPCOM, Kiwix will be unable to provide the search engine.\n");
     if (Components.classes["@kiwix.org/zimXapianIndexer"] == undefined)
 	dump("Unable to register the zimXapianIndexer XPCOM, Kiwix will be unable to index ZIM files.\n");
+    if (Components.classes["@kiwix.org/cluceneAccessor"] == undefined)
+	dump("Unable to register the cluceneAccessor XPCOM, Kiwix will be unable to provide the Clucene search engine.\n");
+    if (Components.classes["@kiwix.org/zimCluceneIndexer"] == undefined)
+	dump("Unable to register the zimCluceneIndexer XPCOM, Kiwix will be unable to index ZIM files with Clucene.\n");
 
     /* Init the event listeners */
     initEventListeners();
