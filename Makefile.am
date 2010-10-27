@@ -104,7 +104,7 @@ bindist:
 deb: dist
 	if [ `whereis dpkg-buildpackage | cut -f2 -d" "` == "dpkg-buildpackage:" ] ; then echo "You have to install dpkg-buildpackage" ; exit 1 ; fi
 	tar -xvzf kiwix-0.9.tar.gz
-	cd kiwix-0.9 ; ./configure ; dpkg-buildpackage -rfakeroot
+	cd kiwix-0.9 ; dpkg-buildpackage -rfakeroot
 
 rpm: dist
 	$(MKDIR_P) ~/rpmbuild/{BUILD,RPMS,SOURCES,SPECS,SRPMS}
