@@ -1,3 +1,9 @@
+kiwix (0.9-alpha6.1) lucid; urgency=low
+
+  * Version for 10.10 (same code as before)
+
+ -- Emmanuel Engelhart <kelson@kiwix.org>  Wed, 27 Oct 2010 12:30:00 +0200
+
 kiwix (0.9-alpha6) lucid; urgency=low
 
   * Fix a regression bug impacting the case insensitive (first character only) suggestion system
