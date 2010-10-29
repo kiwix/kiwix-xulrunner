@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<autorun>
+	<lang code="pt">
+		<layoutDirection>Qt::LeftToRight</layoutDirection>
+		<windowTitle>Kiwix</windowTitle>
+		<run>Arrancar Kiwix a partir do dvd</run>
+		<install>Instalar Kiwix para o disco rígido</install>
+		<quit>Saír do menu de instalação</quit>
+	</lang>
+</autorun>
