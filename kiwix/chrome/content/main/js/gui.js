@@ -218,7 +218,7 @@ function changeResultsBarVisibilityStatus(visible) {
 	visible = document.getElementById('results-bar').collapsed;
     }
     
-    // hide bookmarks if visible
+    /* hide bookmarks if visible */
     if (visible && !getBookmarksBar().hidden) {
         UIToggleBookmarksBar();
     }
@@ -376,6 +376,12 @@ function htmlRendererOpenUrl(aEvent) {
 	
 	/* Purge the history of the last entry */
 	getHtmlRenderer().sessionHistory.PurgeHistory(1);
+    } else { /* If the a ZIM url */ 	 
+	if (loadContent(url.href)) { 	 
+	    activateBackButton(); 	 
+	}
+	aEvent.preventDefault();
+	aEvent.stopPropagation();
     }
     
     return;
