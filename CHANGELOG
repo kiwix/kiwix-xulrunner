@@ -8,6 +8,7 @@ Kiwix 0.9 beta1
 * Fix the default filename by "save image" and "save as PDF"  with article containing a "/"
 * Avoid a small bug responsible for duplicate zim calls
 * Per default, Kiwix instance are not "live" anymoore. Can now be decided with buildDistribution.pl
+* Propose a download dialog if the mime-type is unknown
 
 Kiwix 0.9 alpha6
 * Fix a regression bug impacting the case insensitive (first character only) suggestion system
