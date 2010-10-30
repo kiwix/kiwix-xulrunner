@@ -344,6 +344,10 @@ function htmlRendererMouseOut(aEvent) {
 function htmlRendererMouseUp(aEvent) {
     var url = aEvent.target;
 
+    while (url.parentNode != undefined &&  !(url instanceof HTMLAnchorElement)) {
+        url = url.parentNode;
+    }
+
     if (url instanceof HTMLAnchorElement && aEvent.button == 1) {
 	if (url.href.indexOf("zim://",0) != 0) {
 	    htmlRendererOpenUrl(aEvent);
@@ -359,6 +363,10 @@ function htmlRendererMouseUp(aEvent) {
 function htmlRendererOpenUrl(aEvent) {
     var url = aEvent.target;
     
+    while (url.parentNode != undefined &&  !(url instanceof HTMLAnchorElement)) {
+        url = url.parentNode;
+    }
+
     if (url instanceof HTMLAnchorElement) {
 	clearStatusBar();
     }
