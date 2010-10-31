@@ -12,7 +12,7 @@
 #include "nsIProperties.h"
 #include "nsDirectoryServiceDefs.h"
 
-#include <kiwix/indexer.h>
+#include <kiwix/cluceneIndexer.h>
 
 using namespace std;
 
@@ -56,7 +56,7 @@ NS_IMETHODIMP ZimCluceneIndexer::StartIndexing(const nsACString &zimFilePath,
 
   /* Create the indexer */
   try {    
-    this->indexer = new kiwix::Indexer(cZimFilePath, cCluceneDirectoryPath);
+    this->indexer = new kiwix::CluceneIndexer(cZimFilePath, cCluceneDirectoryPath);
     if (this->indexer != NULL) {
       *retVal = PR_TRUE;
     }
