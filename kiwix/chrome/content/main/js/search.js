@@ -133,18 +133,21 @@ function indexZimFile(zimFilePath, xapianDirectory) {
 	    /* Default start value */
 	    var currentProgressBarPosition = 0;
 	    proxiedZimIndexerObserver.notifyObservers(this, "indexingProgress", currentProgressBarPosition);
-	    
-	    /* Add each article of the ZIM file in the xapian database */
-	    while (zimXapianIndexer.indexNextPercent()) {
-		   dump("Indexing " + currentProgressBarPosition + "%...\n");
-		   proxiedZimIndexerObserver.notifyObservers(this, "indexingProgress", currentProgressBarPosition);
-		   currentProgressBarPosition++;
+
+	    /* Check if the index directory exits (more robust, in case of the library file is wrong) */
+	    if (!isDirectory(xapianDirectory)) {
+		/* Add each article of the ZIM file in the xapian database */
+		while (zimXapianIndexer.indexNextPercent()) {
+		    dump("Indexing " + currentProgressBarPosition + "%...\n");
+		    proxiedZimIndexerObserver.notifyObservers(this, "indexingProgress", currentProgressBarPosition);
+		    currentProgressBarPosition++;
+		}
+		
+		/* Move the xapian tmp directory to the well named xapian directory */
+		moveFile(xapianTmpDirectory, settingsRootPath, xapianDirectoryName); 
 	    }
 	    dump("Indexing finished");
-
-	    /* Move the xapian tmp directory to the well named xapian directory */
-	    moveFile(xapianTmpDirectory, settingsRootPath, xapianDirectoryName); 
-
+	    
 	    /* Save the information in the library */
 	    library.setIndexById(library.current, 
 				 appendToPath(settingsRootPath, xapianDirectoryName), "xapian");
