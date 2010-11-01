@@ -3,6 +3,7 @@ content main content/main/
 content branding content/branding/
 
 #locale packagename localename uri/to/files/ [flags]
+locale main ca    locale/ca/main/
 locale main de-DE locale/de-DE/main/
 locale main en-US locale/en-US/main/
 locale main es-ES locale/es-ES/main/

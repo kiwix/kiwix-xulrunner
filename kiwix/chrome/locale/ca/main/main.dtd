@@ -1,0 +1,93 @@
+<!-- Window -->
+<!ENTITY main.title                     "&brand.brandShortName;">
+<!ENTITY main.cssdirection              "ltr">
+
+<!-- File menu -->
+<!ENTITY main.file                      "Fitxer">
+<!ENTITY main.file.accesskey            "F">
+<!ENTITY main.openFile                  "Obre...">
+<!ENTITY main.openFile.accesskey        "O">
+<!ENTITY main.lastOpen                  "Oberts recentment...">
+<!ENTITY main.saveFile                  "Desa pàgina com a...">
+<!ENTITY main.saveFile.accesskey        "D">
+<!ENTITY main.print                     "Imprimeix">
+<!ENTITY main.print.accesskey           "p">
+<!ENTITY main.printPdf                  "Exporta com a PDF">
+<!ENTITY main.printPdf.accesskey        "x">
+<!ENTITY main.quit                      "Surt">
+<!ENTITY main.quit.accesskey            "S">
+
+<!-- Edit menu -->
+<!ENTITY main.edit                      "Edita">
+<!ENTITY main.edit.accesskey            "E">
+<!ENTITY main.find                      "Cerca a la pàgina...">
+<!ENTITY main.find.accesskey            "S">
+<!ENTITY main.selectall                 "Selecciona-ho tot">
+<!ENTITY main.selectall.accesskey       "a">
+<!ENTITY main.copy                      "Copia">
+<!ENTITY main.copy.accesskey            "p">
+<!ENTITY main.transliteration           "Transliteració">
+<!ENTITY main.transliteration.accesskey "T">
+
+<!-- Display menu -->
+<!ENTITY main.display                   "Visualitza">
+<!ENTITY main.display.accesskey         "V">
+<!ENTITY main.zoom                      "Zoom">
+<!ENTITY main.zoom.accesskey            "Z">
+<!ENTITY main.zoomin                    "Augmenta">
+<!ENTITY main.zoomin.accesskey          "m">
+<!ENTITY main.zoomout                   "Redueix">
+<!ENTITY main.zoomout.accesskey         "R">
+<!ENTITY main.zoomorig                  "Mida original">
+<!ENTITY main.zoomorig.accesskey        "o">
+<!ENTITY main.language                  "Idioma">
+<!ENTITY main.language.accesskey        "I">
+<!ENTITY main.statusbar                 "Barra d'estat">
+<!ENTITY main.statusbar.accesskey       "e">
+<!ENTITY main.resultsbar                "Barra de resultats">
+<!ENTITY main.resultsbar.accesskey      "r">
+<!ENTITY main.tabs                      "Tabs">
+<!ENTITY main.tabs.accesskey            "T">
+<!ENTITY main.fullscreen                "Pantalla completa">
+<!ENTITY main.fullscreen.accesskey      "c">
+
+<!-- Tools menu -->
+<!ENTITY main.tools                     "Eines">
+<!ENTITY main.tools.accesskey           "E">
+<!ENTITY main.randomArticle             "Article a l'atzar">
+<!ENTITY main.randomArticle.accesskey   "Z">
+<!ENTITY main.purgeHistory              "Netejar historial">
+<!ENTITY main.purgeHistory.accesskey    "N">
+
+<!-- Help menu -->
+<!ENTITY main.help                      "Ajuda">
+<!ENTITY main.help.accesskey            "A">
+<!ENTITY main.reportabug                "Informar un error">
+<!ENTITY main.requestafeature           "Demanar noves característiques">
+<!ENTITY main.about                     "Quant a &brand.brandShortName;">
+<!ENTITY main.about.accesskey           "Q">
+
+<!-- Tool bar -->
+<!ENTITY main.back                      "Endarrere">
+<!ENTITY main.forward                   "Enadvant">
+<!ENTITY main.home                      "Pàgina d'inici">
+<!ENTITY main.searchBar                 "Barra de cerca">
+<!ENTITY main.search                    "Cerca">
+<!ENTITY main.noSearchBar               "La cerca necessita un fitxer ZIM indexat">
+<!ENTITY main.bookmarks                 "Adreces d'interès">
+
+<!-- Results bar -->
+<!ENTITY main.results.title             "Resultats de la cerca">
+
+<!-- Bookmarks Bar -->
+<!ENTITY main.bmkLabel                  "Adreces d'interès:">
+<!ENTITY main.notesLabel                "Notes dels preferits:">
+<!ENTITY main.loadbmk                   "Importar grup de preferits">
+<!ENTITY main.newbmk                    "Crea grup de preferits">
+<!ENTITY main.mark                      "Afegeix als preferits">
+<!ENTITY main.unmark                    "Treu dels preferits">
+<!ENTITY main.reload                    "Reiniciar grup de preferits">
+<!ENTITY main.defaultset                "Grup predeterminat">
+
+<!-- Contextual Menu -->
+<!ENTITY main.saveImageAs               "Desa imatge com a...">
