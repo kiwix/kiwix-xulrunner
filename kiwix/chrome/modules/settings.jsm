@@ -66,14 +66,14 @@ let settings = {
 	if (value != undefined) {
 	    this.rootBranch.setCharPref(name, value);
 	}
-	if (this.rootBranch.prefHasUserValue(name) == true) { return this.rootBranch.getCharPref(name); }
+	if (this.rootBranch.getPrefType(name) == this.rootBranch.PREF_STRING) { return this.rootBranch.getCharPref(name); }
     },
     
     intSettingParameter: function(name, value) {
 	if (value != undefined) {
 	    this.rootBranch.setIntPref(name, value);
 	}
-	if (this.rootBranch.prefHasUserValue(name) == true) { return this.rootBranch.getIntPref(name); }
+	if (this.rootBranch.getPrefType(name) == this.rootBranch.PREF_INT) { return this.rootBranch.getIntPref(name); }
     },
 
     boolSettingParameter: function(name, value) {
@@ -81,7 +81,7 @@ let settings = {
 	    value = (value == "true" || value == true) ? true : false;
 	    this.rootBranch.setBoolPref(name, value);
 	}
-	if (this.rootBranch.prefHasUserValue(name) == true) { return this.rootBranch.getBoolPref(name); }
+	if (this.rootBranch.getPrefType(name) == this.rootBranch.PREF_BOOL) { return this.rootBranch.getBoolPref(name); }
     },
     
     /* Multiple accessor functions */
