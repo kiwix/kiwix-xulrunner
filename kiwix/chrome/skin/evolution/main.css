@@ -1,0 +1,303 @@
+/* Menuitems */
+#file-open {
+    list-style-image: url("chrome://main/skin/icon/open16.png");
+}
+
+#file-save {
+    list-style-image: url("chrome://main/skin/icon/saveas16.png");
+}
+
+#file-print {
+    list-style-image: url("chrome://main/skin/icon/print16.png");
+}
+
+#file-print-pdf {
+    list-style-image: url("chrome://main/skin/icon/printas-pdf16.png");
+}
+
+#file-quit {
+    list-style-image: url("chrome://main/skin/icon/quit16.png");
+}
+
+#edit-find {
+    list-style-image: url("chrome://main/skin/icon/find-article16.png");
+}
+
+#edit-selectall {
+    list-style-image: url("chrome://main/skin/icon/select-all16.png");
+}
+
+#edit-copy {
+    list-style-image: url("chrome://main/skin/icon/copy16.png");
+}
+
+#display-zoomin {
+    list-style-image: url("chrome://main/skin/icon/zoom-in16.png");
+}
+
+#display-zoomout {
+    list-style-image: url("chrome://main/skin/icon/zoom-out16.png");
+}
+
+#display-zoomorig {
+    list-style-image: url("chrome://main/skin/icon/zoom-10016.png");
+}
+
+#display-fullscreen, #display-fullscreen.normal {
+    list-style-image: url("chrome://main/skin/icon/fullscreen16.png");
+}
+
+#display-fullscreen.fullscreen {
+    list-style-image: url("chrome://main/skin/icon/leave-fullscreen16.png");
+}
+
+#tools-randomArticle {
+    list-style-image: url("chrome://main/skin/icon/jump-to16.png");
+}
+
+#tools-purgeHistory {
+    list-style-image: url("chrome://main/skin/icon/purge-history16.png");
+}
+
+#help-help {
+    list-style-image: url("chrome://main/skin/icon/help16.png");
+}
+
+#help-reportabug {
+    list-style-image: url("chrome://main/skin/icon/report-bug16.png");
+}
+
+#help-requestafeature {
+    list-style-image: url("chrome://main/skin/icon/request-feature16.png");
+}
+
+#help-about {
+    list-style-image: url("chrome://main/skin/icon/about16.png");
+}
+
+/* Tool box & bar */
+#tool-box {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+/* Buttons */
+#button-back {
+    list-style-image: url("chrome://main/skin/icon/go-back24.png");
+}
+window[langdir="rtl"] #button-back {
+    list-style-image: url("chrome://main/skin/icon/go-forward24.png");
+}
+#button-back.disabled {
+    opacity: 0.2;
+}
+
+#button-next {
+    list-style-image: url("chrome://main/skin/icon/go-forward24.png");
+}
+window[langdir="rtl"] #button-next {
+    list-style-image: url("chrome://main/skin/icon/go-back24.png");
+}
+#button-next.disabled {
+    opacity: 0.2;
+}
+
+#button-home {
+    list-style-image: url("chrome://main/skin/icon/home24.png");
+}
+#button-home.disabled {
+    opacity: 0.2;
+}
+
+#button-results {
+    list-style-image: url("chrome://main/skin/icon/find-wiki24.png");
+}
+#button-results.disabled {
+    opacity: 0.2;
+}
+
+#button-sizeup {
+    list-style-image: url("chrome://main/skin/icon/zoom-in24.png");
+}
+
+#button-sizedown {
+    list-style-image: url("chrome://main/skin/icon/zoom-out24.png");
+}
+
+#button-fullscreen, #button-fullscreen.normal {
+    list-style-image: url("chrome://main/skin/icon/fullscreen24.png");
+}
+
+#button-fullscreen.fullscreen {
+    list-style-image: url("chrome://main/skin/icon/leave-fullscreen24.png");
+}
+
+#button-print {
+    list-style-image: url("chrome://main/skin/icon/print24.png");
+}
+
+#button-bookmarks {
+    list-style-image: url("chrome://main/skin/icon/bookmarks24.png");
+}
+
+#button-results {
+    list-style-image: url("chrome://main/skin/icon/searchs24.png");
+}
+
+#button-search {
+    list-style-image: url("chrome://main/skin/icon/find-wiki24.png");
+}
+#button-search.disabled {
+    opacity: 0.2;
+}
+
+#button-search-article {
+    list-style-image: url("chrome://main/skin/icon/find-article24.png");
+}
+#button-search-article-up {
+    list-style-image: url("chrome://main/skin/icon/find-article-up24.png");
+}
+#button-search-article-up.disabled {
+    opacity: 0.2;
+}
+#button-search-article-down {
+    list-style-image: url("chrome://main/skin/icon/find-article-down24.png");
+}
+#button-search-article-down.disabled {
+    opacity: 0.2;
+}
+
+
+/* Textbox search */
+#textbox-search {
+    margin: 6px;
+    width: 100%;
+}
+
+/* Main window*/
+#main {
+    margin: 0;
+    padding: 0;
+}
+
+/* Results bar */
+#results-bar {
+    margin: 0px;
+    min-width: 150px;
+    max-width: 450px;
+    width: 200px;
+}
+
+#results-list {
+    margin: 0px;
+}
+
+#results-close-button {
+    list-style-image: url("chrome://main/skin/icon/close12.png");
+}
+
+.results-button {
+    margin: 0px;
+}
+
+#results-bar-header {
+    padding: 2px 0px 2px 0px; 
+}
+
+.results-title {
+    margin: 0px;
+    padding: 4px 0px 0px 2px;
+}
+
+/* Bookmarks bar */
+
+#bookmarks-close-button {
+    list-style-image: url("chrome://main/skin/icon/close12.png");
+}
+
+#bookmarks-bar-header {
+    padding: 2px 0px 2px 0px; 
+}
+
+#bookmarks-bar {
+    margin: 0px;
+    min-width: 150px;
+    max-width: 450px;
+    width: 200px;
+}
+
+#bookmarks-toolbar {
+    -moz-appearance: none;
+}
+
+#bookmarks-load-button {
+    list-style-image: url("chrome://main/skin/icon/open24.png");
+}
+
+#bookmarks-new-button {
+    list-style-image: url("chrome://main/skin/icon/new24.png");
+}
+
+#bookmarks-mark-button {
+    list-style-image: url("chrome://main/skin/icon/add24.png");
+}
+
+#bookmarks-unmark-button {
+    list-style-image: url("chrome://main/skin/icon/remove24.png");
+}
+
+#bookmarks-reload-button {
+    list-style-image: url("chrome://main/skin/icon/reload24.png");
+}
+
+/* Tabs */
+#tab-box {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+#tab-panels {
+    padding: 0px;
+}
+
+#tabs-close-button {
+    list-style-image: url("chrome://main/skin/icon/close12.png");
+}
+
+#tabs-add-button {
+    list-style-image: url("chrome://main/skin/icon/add12.png");
+}
+
+.tab-header {
+    width: 150px;
+}
+
+.tab-header-label {
+    text-align: left;
+    width: 130px;
+}
+
+/* Status bar */
+#status-bar {
+    height: auto;
+    margin: 0px;
+    padding-top: 5px;
+    padding-left: 5px;
+}
+
+#earth-icon {
+    list-style-image: url("chrome://main/skin/icon/external16.png");
+}
+
+#book-icon {
+    list-style-image: url("chrome://main/skin/icon/zim-file16.png");
+}
+
+#progress-bar {
+    width: 200px;
+}
+
+#progress-bar-label {
+    margin-top: 3px;
+    text-align: center;
+}
