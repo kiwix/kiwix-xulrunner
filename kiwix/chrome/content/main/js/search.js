@@ -110,47 +110,53 @@ function indexZimFile(zimFilePath, xapianDirectory) {
 	run: function() {
 	    var currentBook = library.getCurrentBook();
 	    var zimFilePath = currentBook.path;
-	    var xapianTmpDirectory = getTmpSearchIndexDirectory();
-	    var xapianDirectoryName = getSearchIndexDirectoryName(zimFilePath);
-	    var xapianDirectory = getSearchIndexDirectory(zimFilePath);
+	    var indexTmpDirectory = getTmpSearchIndexDirectory();
+	    var indexDirectoryName = getSearchIndexDirectoryName(zimFilePath);
+	    var indexDirectory = getSearchIndexDirectory(zimFilePath);
 	    var progressBar = getProgressBar();
 	    var settingsRootPath = settings.getRootPath();
+	    var backend = settings.defaultSearchBackend();
 
 	    /* show the indexing progress bar */
 	    proxiedZimIndexerObserver.notifyObservers(this, "startIndexing", "");
 
 	    /* Remove the xapian tmp directory */
-	    if (isFile(xapianTmpDirectory)) 
-		deleteFile(xapianTmpDirectory);	    
+	    if (isFile(indexTmpDirectory)) 
+		deleteFile(indexTmpDirectory);	    
 
 	    /* Create the ZIM Xapian Indexer */
-	    zimXapianIndexer = Components.classes["@kiwix.org/zimXapianIndexer"].getService();
-	    zimXapianIndexer = zimXapianIndexer.QueryInterface(Components.interfaces.IZimXapianIndexer);
+	    if (backend == "clucene") {
+		zimIndexer = Components.classes["@kiwix.org/zimCluceneIndexer"].getService();
+		zimIndexer = zimIndexer.QueryInterface(Components.interfaces.IZimCluceneIndexer);
+	    } else {
+		zimIndexer = Components.classes["@kiwix.org/zimXapianIndexer"].getService();
+		zimIndexer = zimIndexer.QueryInterface(Components.interfaces.IZimXapianIndexer);
+	    }
 
 	    /* Load the ZIM file */
-	    zimXapianIndexer.startIndexing(zimFilePath, xapianTmpDirectory);
+	    zimIndexer.startIndexing(zimFilePath, indexTmpDirectory);
 
 	    /* Default start value */
 	    var currentProgressBarPosition = 0;
 	    proxiedZimIndexerObserver.notifyObservers(this, "indexingProgress", currentProgressBarPosition);
 
 	    /* Check if the index directory exits (more robust, in case of the library file is wrong) */
-	    if (!isDirectory(xapianDirectory)) {
+	    if (!isDirectory(indexDirectory)) {
 		/* Add each article of the ZIM file in the xapian database */
-		while (zimXapianIndexer.indexNextPercent()) {
+		while (zimIndexer.indexNextPercent()) {
 		    dump("Indexing " + currentProgressBarPosition + "%...\n");
 		    proxiedZimIndexerObserver.notifyObservers(this, "indexingProgress", currentProgressBarPosition);
 		    currentProgressBarPosition++;
 		}
 		
 		/* Move the xapian tmp directory to the well named xapian directory */
-		moveFile(xapianTmpDirectory, settingsRootPath, xapianDirectoryName); 
+		moveFile(indexTmpDirectory, settingsRootPath, indexDirectoryName); 
 	    }
 	    dump("Indexing finished");
 	    
 	    /* Save the information in the library */
 	    library.setIndexById(library.current, 
-				 appendToPath(settingsRootPath, xapianDirectoryName), "xapian");
+				 appendToPath(settingsRootPath, indexDirectoryName), backend);
 
 	    /* Fill the progress bar */
 	    proxiedZimIndexerObserver.notifyObservers(this, "indexingProgress", 100);
@@ -201,12 +207,12 @@ function openSearchIndex(path) {
 }
 
 /* Search a pattern in the index */
-function searchInIndex(query, xapianDirectory, loadFirstResult) {
+function searchInIndex(query, indexDirectory, loadFirstResult) {
     /* Empty the results list */
     emptyResultsList();
 
     /* Get the xapian accessor */
-    var xapianAccessor = openSearchIndex(xapianDirectory);
+    var xapianAccessor = openSearchIndex(indexDirectory);
 
     /* Security check */
     if (!xapianAccessor) return;
