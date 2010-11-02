@@ -177,7 +177,15 @@
 		 type="autocomplete" autocompletesearch="kiwix-suggest"
 		 />
 	<toolbarbutton id="button-search" oncommand="manageSearchInIndex()" tooltiptext="&main.search;" />
-      </hbox>
+<!-- waiting for implementation
+        <toolbarbutton id="button-search-article" oncommand="" tooltiptext="&main.search;" />
+	<toolbarseparator />
+        <checkbox label="Match case" checked="false"/>
+        <checkbox label="Wrap" checked="true"/>
+        <toolbarbutton id="button-search-article-up" oncommand="" tooltiptext="&main.search;" />
+        <toolbarbutton id="button-search-article-down" class="disabled" oncommand="" tooltiptext="&main.search;" />
+-->
+        </hbox>
       <label id="search-label" style="margin: 0px;" collapsed="true" onclick="manageIndexZimFile()" tooltiptext="&main.noSearchBar;"/>
     </stack>
   </toolbar>
