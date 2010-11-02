@@ -153,15 +153,18 @@ window[langdir="rtl"] #button-next {
 
 #button-search-article {
     list-style-image: url("chrome://main/skin/icon/find-article24.png");
+    display:none; /* to remove after implementation */
 }
 #button-search-article-up {
     list-style-image: url("chrome://main/skin/icon/find-article-up24.png");
+    display:none; /* to remove after implementation */
 }
 #button-search-article-up.disabled {
     opacity: 0.2;
 }
 #button-search-article-down {
     list-style-image: url("chrome://main/skin/icon/find-article-down24.png");
+    display:none; /* to remove after implementation */
 }
 #button-search-article-down.disabled {
     opacity: 0.2;
