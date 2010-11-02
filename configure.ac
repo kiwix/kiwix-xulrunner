@@ -307,7 +307,7 @@ AC_DEFINE(ENABLE_LZMA, [1], [defined if lzma compression is enabled])
 AC_ARG_WITH(debug, [  --with-debug-symbols    add debug symbols], CFLAGS="${CFLAGS} -g "; CXXFLAGS="${CXXFLAGS} -g ")
 
 # Special Flags for XPCOM components
-XPCOM_CFLAGS="-fno-rtti -D_POSIX_ -fPIC"
+XPCOM_CFLAGS="-fno-rtti -fPIC"
 XPCOM_LDFLAGS="-Xcompiler -shared -Wl,-rpath-link,$GECKO_SDK_PATH/bin"
 
 # Export variables
