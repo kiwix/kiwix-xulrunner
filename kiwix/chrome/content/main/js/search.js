@@ -194,16 +194,23 @@ function indexZimFile(zimFilePath, xapianDirectory) {
 
 /* Try to open search index */
 function openSearchIndex(path) {
+    var backend = settings.defaultSearchBackend();
+    var indexAccessor;
 
     /* Create the xapian accessor */
-    var xapianAccessor = Components.classes["@kiwix.org/xapianAccessor"].getService();
-    xapianAccessor = xapianAccessor.QueryInterface(Components.interfaces.IXapianAccessor);
+    if (backend == "clucene") {
+	indexAccessor = Components.classes["@kiwix.org/cluceneAccessor"].getService();
+	indexAccessor = indexAccessor.QueryInterface(Components.interfaces.ICluceneAccessor);
+    } else {
+	indexAccessor = Components.classes["@kiwix.org/xapianAccessor"].getService();
+	indexAccessor = indexAccessor.QueryInterface(Components.interfaces.IXapianAccessor);
+    }
 
     /* Open the xapian readable database */
-    if (!xapianAccessor.openReadableDatabase(path))
+    if (!indexAccessor.openReadableDatabase(path))
 	return;    
 
-    return xapianAccessor;
+    return indexAccessor;
 }
 
 /* Search a pattern in the index */
@@ -211,14 +218,14 @@ function searchInIndex(query, indexDirectory, loadFirstResult) {
     /* Empty the results list */
     emptyResultsList();
 
-    /* Get the xapian accessor */
-    var xapianAccessor = openSearchIndex(indexDirectory);
+    /* Get the index accessor */
+    var indexAccessor = openSearchIndex(indexDirectory);
 
     /* Security check */
-    if (!xapianAccessor) return;
+    if (!indexAccessor) return;
 
     /* Make a search */
-    xapianAccessor.search(query, 28);
+    indexAccessor.search(query, 28);
 
     /* Get the result */
     var url = new Object();
@@ -227,7 +234,7 @@ function searchInIndex(query, indexDirectory, loadFirstResult) {
 
     /* Build the result array */
     var results = new Array;
-    while (xapianAccessor.getNextResult(url, title, score)) {
+    while (indexAccessor.getNextResult(url, title, score)) {
 		var result = new Array;
 		result.push(url.value);
 		result.push(title.value);
@@ -236,7 +243,7 @@ function searchInIndex(query, indexDirectory, loadFirstResult) {
     }
 
     /* Try to get the first result */
-    xapianAccessor.getNextResult(url, title, score);
+    indexAccessor.getNextResult(url, title, score);
 
     if (results.length > 0) {
 	var firstUrl = results[0][0];
@@ -281,7 +288,7 @@ function searchInIndex(query, indexDirectory, loadFirstResult) {
 	displayErrorDialog(getProperty("noResultsError"), getProperty("information"));    
     
     /* Close the xapian readable databse */
-    xapianAccessor.closeReadableDatabase();
+    indexAccessor.closeReadableDatabase();
 }
 
 /* Function called by clicking on the search button */
