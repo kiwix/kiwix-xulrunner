@@ -10,8 +10,8 @@
 #include "nsDirectoryServiceDefs.h"
 #include "IXapianAccessor.h"
 
-#include "kiwix/searcher.h"
 #include <string>
+#include "kiwix/xapianSearcher.h"
 
 class XapianAccessor : public IXapianAccessor {
 
@@ -23,7 +23,7 @@ public:
 
 private:
   ~XapianAccessor();
-  kiwix::Searcher *searcher;
+  kiwix::XapianSearcher *searcher;
 
 };
 
@@ -67,9 +67,9 @@ NS_IMETHODIMP XapianAccessor::OpenReadableDatabase(const nsACString &directory, 
   NS_CStringGetData(directory, &directoryPath);
   
   try {
-    this->searcher = new kiwix::Searcher(directoryPath);
+    this->searcher = new kiwix::XapianSearcher(directoryPath);
   } catch (...) {
-    cerr << "Not able to open xapian database " << directoryPath <<  endl;
+    std::cerr << "Not able to open xapian database " << directoryPath << std::endl;
     *retVal = PR_FALSE;
   }
 
@@ -89,9 +89,10 @@ NS_IMETHODIMP XapianAccessor::Search(const nsACString &search, PRUint32 resultsC
   NS_CStringGetData(search, &csearch, NULL);
 
   try {
-    this->searcher->search(csearch, resultsCount);
+    std::string searchString = std::string(csearch);
+    this->searcher->search(searchString, resultsCount);
   } catch (exception &e) {
-    cerr << e.what() << endl;
+    std::cerr << e.what() << std::endl;
     *retVal = PR_FALSE;
   }
 
@@ -105,7 +106,7 @@ NS_IMETHODIMP XapianAccessor::Reset(PRBool *retVal) {
   try {
     this->searcher->reset();
   } catch (exception &e) {
-    cerr << e.what() << endl;
+    std::cerr << e.what() << std::endl;
     *retVal = PR_FALSE;
   }
 
@@ -137,7 +138,7 @@ NS_IMETHODIMP XapianAccessor::GetNextResult(nsACString &url, nsACString &title,
       *retVal = PR_TRUE;
     }
   } catch (exception &e) {
-    cerr << e.what() << endl;
+    std::cerr << e.what() << std::endl;
   }
 
   return NS_OK;
