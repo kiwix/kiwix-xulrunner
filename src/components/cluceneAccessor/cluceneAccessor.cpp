@@ -10,7 +10,7 @@
 #include "nsDirectoryServiceDefs.h"
 #include "ICluceneAccessor.h"
 
-#include "kiwix/searcher.h"
+#include "kiwix/cluceneSearcher.h"
 #include <string>
 
 class CluceneAccessor : public ICluceneAccessor {
@@ -23,7 +23,7 @@ public:
 
 private:
   ~CluceneAccessor();
-  kiwix::Searcher *searcher;
+  kiwix::CluceneSearcher *searcher;
 
 };
 
@@ -67,7 +67,7 @@ NS_IMETHODIMP CluceneAccessor::OpenReadableDatabase(const nsACString &directory,
   NS_CStringGetData(directory, &directoryPath);
   
   try {
-    this->searcher = new kiwix::Searcher(directoryPath);
+    this->searcher = new kiwix::CluceneSearcher(directoryPath);
   } catch (...) {
     cerr << "Not able to open clucene database " << directoryPath <<  endl;
     *retVal = PR_FALSE;
@@ -89,7 +89,8 @@ NS_IMETHODIMP CluceneAccessor::Search(const nsACString &search, PRUint32 results
   NS_CStringGetData(search, &csearch, NULL);
 
   try {
-    this->searcher->search(csearch, resultsCount);
+    std::string searchString = std::string(csearch);
+    this->searcher->search(searchString, resultsCount);
   } catch (exception &e) {
     cerr << e.what() << endl;
     *retVal = PR_FALSE;
