@@ -11,6 +11,7 @@ Kiwix 0.9 beta1
 * Propose a download dialog if the mime-type is unknown
 * New locales: Catalan
 * Fix a bug with the "impossible" indexing process in case of defect library.xml (ID: 3068722)
+* Reintroduction of the skin switcher tool
 
 Kiwix 0.9 alpha6
 * Fix a regression bug impacting the case insensitive (first character only) suggestion system
