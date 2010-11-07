@@ -42,6 +42,8 @@
 <!ENTITY main.zoomorig.accesskey        "o">
 <!ENTITY main.language                  "Idioma">
 <!ENTITY main.language.accesskey        "I">
+<!ENTITY main.skin                      "Skin">
+<!ENTITY main.skin.accesskey            "S">
 <!ENTITY main.statusbar                 "Barra d'estat">
 <!ENTITY main.statusbar.accesskey       "e">
 <!ENTITY main.resultsbar                "Barra de resultats">

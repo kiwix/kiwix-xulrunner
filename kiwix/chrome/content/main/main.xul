@@ -121,6 +121,12 @@
 	<menupopup id="menu-languages">
 	</menupopup>
       </menu>
+      <menu label="&main.skin;" accesskey="&main.skin.accesskey;">
+	<menupopup id="menu-skins">
+	  <menuitem label="Default" id="skin-default" oncommand="selectSkin('default');"/>
+          <menuitem label="Evolution" id="skin-evolution" oncommand="selectSkin('evolution');"/>
+	</menupopup>
+      </menu>
       <menuitem id="display-statusbar" label="&main.statusbar;" type="checkbox" checked="true"
 		accesskey="&main.statusbar.accesskey;" oncommand="changeStatusBarVisibilityStatus(undefined, true)"/>
       <menuitem id="display-resultsbar" label="&main.resultsbar;" type="checkbox" checked="false"

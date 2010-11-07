@@ -28,6 +28,7 @@ locale branding pt-PT locale/branding/
 
 #skin packagename skinname uri/to/files/ [flags]
 skin main default skin/default/
+skin main evolution skin/evolution/
 
 #resource aliasname uri/to/files/
 resource modules modules/

@@ -884,6 +884,19 @@ function populateLanguagesMenu() {
     }
 }
 
+/* Select the current skin */
+function populateSkinsMenu() {
+    var currentSkin = settings.skin();
+    var skinMenu = document.getElementById("menu-skins");
+
+    for (var i=0; i<skinMenu.children.length; i++) {
+	var menuItem = skinMenu.children[i];
+	if (menuItem.getAttribute("id") == "skin-" + currentSkin) {
+	    menuItem.setAttribute('checked', true);
+	}
+    }
+}
+
 /* Return the current used locale code */
 function getCurrentLocale() {
     var chromeRegisteryService = Components.classes["@mozilla.org/chrome/chrome-registry;1"].getService();
@@ -940,6 +953,9 @@ function initUserInterface() {
 
     /* Populates localization languages to the menu-languages */
     populateLanguagesMenu();
+
+    /* Same for the skins */
+    populateSkinsMenu();
 
     /* Populates the last open menu */
     populateLastOpenMenu();
@@ -1140,4 +1156,11 @@ function printPdf() {
 
     /* Write the PDF */
     webBrowserPrint.print(printSettings, null);
+}
+
+function selectSkin(name) {
+    if (displayConfirmDialog(getProperty("changeSkinNeedRestart"))) {
+	settings.skin(name);
+	restart(true);
+    }
 }

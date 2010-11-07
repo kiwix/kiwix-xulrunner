@@ -2,8 +2,8 @@ const nsIWebProgress = Components.interfaces.nsIWebProgress;
 const nsIWebProgressListener = Components.interfaces.nsIWebProgressListener;
 
 /* Restart Kiwix */
-function restart() {
-    if (displayConfirmDialog(getProperty("restartConfirm", getProperty("brand.brandShortName")))) {
+function restart(silent) {
+    if (silent == true || displayConfirmDialog(getProperty("restartConfirm", getProperty("brand.brandShortName")))) {
 	/* Save settings */
 	settings.save();
 

@@ -42,6 +42,8 @@
 <!ENTITY main.zoomorig.accesskey        "O">
 <!ENTITY main.language                  "שפה">
 <!ENTITY main.language.accesskey        "L">
+<!ENTITY main.skin                      "Skin">
+<!ENTITY main.skin.accesskey            "S">
 <!ENTITY main.statusbar                 "שורת מצב">
 <!ENTITY main.statusbar.accesskey       "S">
 <!ENTITY main.resultsbar                "אזור תוצאות">

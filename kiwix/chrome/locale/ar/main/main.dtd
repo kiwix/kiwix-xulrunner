@@ -42,6 +42,8 @@
 <!ENTITY main.zoomorig.accesskey        "ح">
 <!ENTITY main.language                  "اللغة">
 <!ENTITY main.language.accesskey        "ل">
+<!ENTITY main.skin                      "Skin">
+<!ENTITY main.skin.accesskey            "S">
 <!ENTITY main.statusbar                 "شريط الحالة">
 <!ENTITY main.statusbar.accesskey       "ح">
 <!ENTITY main.resultsbar                "شريط النتائج">

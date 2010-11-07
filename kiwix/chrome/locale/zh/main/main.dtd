@@ -42,6 +42,8 @@
 <!ENTITY main.zoomorig.accesskey        "O">
 <!ENTITY main.language                  "语言">
 <!ENTITY main.language.accesskey        "L">
+<!ENTITY main.skin                      "Skin">
+<!ENTITY main.skin.accesskey            "S">
 <!ENTITY main.statusbar                 "状态栏">
 <!ENTITY main.statusbar.accesskey       "S">
 <!ENTITY main.resultsbar                "结果栏">

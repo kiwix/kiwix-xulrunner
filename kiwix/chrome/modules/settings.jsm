@@ -93,6 +93,7 @@ let settings = {
     },
 
     defaultSearchBackend: function(value) { return this.charSettingParameter("kiwix.defaultsearchbackend", value); },
+    skin: function(value) { return this.charSettingParameter("general.skins.selectedSkin", value); },
     displayStatusBar: function(value) { return this.boolSettingParameter("displayStatusBar", value); },
     displayFullScreen: function(value) { return this.boolSettingParameter("displayFullScreen", value); },
     displayBookmarksBar: function(value) { return this.boolSettingParameter("displayBookmarksBar", value); },
