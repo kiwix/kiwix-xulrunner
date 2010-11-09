@@ -249,7 +249,8 @@ function changeResultsBarVisibilityStatus(visible) {
 
 /* Return true if the URL is internal */
 function isInternalUrl(url) {
-	return (url.href.indexOf("zim://", 0)==0 || url.href.indexOf("javascript:", 0)==0);
+	return (url.href.indexOf("zim://", 0)==0 || url.href.indexOf("javascript:", 0)==0 || 
+		url.href.indexOf("chrome:", 0)==0);
 }
 
 /* Allowing to navigate through the results list with the mouse wheel */
@@ -378,14 +379,14 @@ function htmlRendererOpenUrl(aEvent) {
     }
 
     /* Open with extern browser if not an internal link */
-    if (url.href.indexOf("zim://",0) != 0) {
+    if (!isInternalUrl(url)) {
 	openUrlWithExternalBrowser(url.href);
 	aEvent.preventDefault();
 	aEvent.stopPropagation();
 	
 	/* Purge the history of the last entry */
 	getHtmlRenderer().sessionHistory.PurgeHistory(1);
-    } else { /* If the a ZIM url */ 	 
+    } else { /* If the a ZIM or chrome url */ 	 
 	if (loadContent(url.href)) { 	 
 	    activateBackButton(); 	 
 	}
