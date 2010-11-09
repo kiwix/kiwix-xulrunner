@@ -394,3 +394,7 @@ function randomString() {
     }
     return randomstring;
 }
+
+function delay (f, t) {
+    setTimeout(f, t || 0);
+}

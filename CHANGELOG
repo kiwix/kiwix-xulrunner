@@ -13,6 +13,7 @@ Kiwix 0.9 beta1
 * Fix a bug with the "impossible" indexing process in case of defect library.xml (ID: 3068722)
 * Reintroduction of the skin switcher tool
 * Consider chrome:// as internal url, and do not ask anumore to load the url with an external app.
+* Fullscreen is now a *real* fullscreen
 
 Kiwix 0.9 alpha6
 * Fix a regression bug impacting the case insensitive (first character only) suggestion system

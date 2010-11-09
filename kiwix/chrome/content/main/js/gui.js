@@ -1,6 +1,8 @@
 /* Global variables */
 var _zoomFactor             = 1.2;      /* Factor by which font is magnified or reduced with zoomIn() & zommOut() */
 var _winIsFullScreen        = false;    /* Stores fullscreen state*/
+var _showFullScreenToolBar  = false;
+var _fullScreenStatusBar    = true;
 var _applicationFD          = GetApplicationFolder ();
 var _firstSideBar	    = true;
 
@@ -419,12 +421,56 @@ function zoomOut() {
     getHtmlRenderer().markupDocumentViewer.textZoom /= _zoomFactor;
 }
 
+/* Fullscreen mode functions */
+function hideFullScreenToolBar() {
+    if (!_showFullScreenToolBar) {
+	document.getElementById('tool-bar').setAttribute("style", "display: none;");
+    }
+}
+
+function showFullScreenToolBar() {
+    document.getElementById('tool-bar').setAttribute("style", "display: visible;");
+}
+
+function hideFullScreenToolBox() {
+    _showFullScreenToolBar = false;
+    delay(hideFullScreenToolBar, 2000);
+}
+
+function showFullScreenToolBox() {
+    _showFullScreenToolBar = true;
+    showFullScreenToolBar();
+}
+
 /*
  * Enable/Disable fullscreen mode. Acts as window maximizer on mac.
  */
 function UIToggleFullScreen (save) {
+    var window = document.getElementById("main");
+    var toolBox = document.getElementById('tool-box');
+
+    /* Toggle */
     _winIsFullScreen = !_winIsFullScreen;
     
+    /* Configuration changes */
+    if (_winIsFullScreen) {
+	toolBox.addEventListener("mouseover", showFullScreenToolBox, false);
+	getHtmlRenderer().addEventListener("mouseover", hideFullScreenToolBox, false);
+	toolBox.setAttribute("style", "height: 4px;");
+	_fullScreenStatusBar = settings.displayStatusBar();
+	changeStatusBarVisibilityStatus(false);
+	document.getElementById('menu-bar').collapsed = true;
+	hideFullScreenToolBox();
+    } else {
+	toolBox.removeEventListener("mouseover", showFullScreenToolBox, false);
+	getHtmlRenderer().removeEventListener("mouseover", hideFullScreenToolBox, false);
+	toolBox.setAttribute("style", "height: auto;");
+	showFullScreenToolBox(_fullScreenStatusBar);
+	changeStatusBarVisibilityStatus(_fullScreenStatusBar);
+	document.getElementById('menu-bar').collapsed = false;
+	showFullScreenToolBox();
+    }
+
     // Update window state (1s delay for startup)
     setTimeout('window.fullScreen = '+ _winIsFullScreen +';', 1); 
     
@@ -435,12 +481,12 @@ function UIToggleFullScreen (save) {
     
     // UI Updates
     try {
-        d = document.getElementById('button-fullscreen');
-        d.className = (_winIsFullScreen) ? 'fullscreen' : 'normal';
+        var button = document.getElementById('button-fullscreen');
+        button.className = (_winIsFullScreen) ? 'fullscreen' : 'normal';
     } catch (e) {}
     try {
-        d = document.getElementById('display-fullscreen');
-        d.className = (_winIsFullScreen) ? 'menuitem-iconic fullscreen' : 'menuitem-iconic normal';
+        var button = document.getElementById('display-fullscreen');
+        button.className = (_winIsFullScreen) ? 'menuitem-iconic fullscreen' : 'menuitem-iconic normal';
     } catch (e) {}
     
 }
