@@ -60,6 +60,7 @@
   <key id="zoomorig" key="0" modifiers="control" oncommand="zoomOriginal()"/>
   <key id="open-tab-key" key="T" modifiers="control" oncommand="openNewTab()"/>
   <key id="help-key" keycode="VK_F1" oncommand="showHelp()"/>
+  <key id="fullscreen-key" keycode="VK_F11" oncommand="UIToggleFullScreen(true)"/>
   <key id="change-results-bar-visibility-status" key="R" modifiers="control" 
        oncommand="changeResultsBarVisibilityStatus()"/>
 </keyset>
@@ -136,7 +137,7 @@
 		accesskey="&main.tabs.accesskey;" key="change-tabs-visibility-status"
 		oncommand="changeTabsVisibilityStatus(undefined, true)"/>
       <menuitem id="display-fullscreen" label="&main.fullscreen;" type="checkbox" checked="false" class="menuitem-iconic" 
-		accesskey="&main.fullscreen.accesskey;" oncommand="UIToggleFullScreen(true)"/>
+		key="fullscreen-key" accesskey="&main.fullscreen.accesskey;" oncommand="UIToggleFullScreen(true)"/>
     </menupopup>
   </menu>
   <menu id="menu-tools" label="&main.tools;" accesskey="&main.tools.accesskey;">
@@ -151,7 +152,7 @@
   <menu id="menu-help" label="&main.help;" accesskey="&main.help.accesskey;">
     <menupopup id="help-popup">
       <menuitem type="checkbox" id="help-help" label="&main.help;" class="menuitem-iconic" 
-		accesskey="&main.help.accesskey;" oncommand="showHelp()"/>
+		key="help-key" accesskey="&main.help.accesskey;" oncommand="showHelp()"/>
       <menuseparator/>
       <menuitem type="checkbox" id="help-reportabug" label="&main.reportabug;" class="menuitem-iconic" 
 		oncommand="openUrlWithExternalBrowser('http://reportabug.kiwix.org')"/>
