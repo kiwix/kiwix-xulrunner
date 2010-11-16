@@ -80,10 +80,10 @@ function closeCurrentTab() {
 /* Switch Tab */
 function switchTab(tabId) {
     var tabBox = document.getElementById("tab-box");
-    var tabPanel = document.getElementById("tab-panel-" +  tabId);
-    var tabHeader = document.getElementById("tab-header-" +  tabId);
-    tabBox.selectedPanel = tabPanel;
+    var tabHeader = document.getElementById("tab-header-" + tabId);
+    var tabPanel = document.getElementById("tab-panel-" + tabId);
     tabBox.selectedTab = tabHeader;
+    tabBox.selectedPanel = tabPanel;
     currentTabId = tabId;
     updateHistoryNavigationButtons();
 }

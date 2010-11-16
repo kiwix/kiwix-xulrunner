@@ -15,6 +15,7 @@ Kiwix 0.9 beta1
 * Consider chrome:// as internal url, and do not ask anumore to load the url with an external app.
 * Fullscreen is now a *real* fullscreen
 * Fix the initialisation of the random article url generator (ID: 3109548)
+* Fix an issue by tab rendering after closing one (ID: 3108586)
 
 Kiwix 0.9 alpha6
 * Fix a regression bug impacting the case insensitive (first character only) suggestion system
