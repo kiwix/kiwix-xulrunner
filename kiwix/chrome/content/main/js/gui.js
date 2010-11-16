@@ -1101,19 +1101,24 @@ function HandleAppCommandEvent(evt) {
 
 /* Add mouse scroll listener to allow zoon in/out with the mouse for example */
 function initHtmlRendererEventListeners() {
-    getHtmlRenderer().addEventListener("DOMMouseScroll", htmlRendererMouseScroll, false);
-    getHtmlRenderer().addEventListener("mouseover", htmlRendererMouseOver, true);
-    getHtmlRenderer().addEventListener("mouseout", htmlRendererMouseOut, true);
-    getHtmlRenderer().addEventListener("mouseup", htmlRendererMouseUp, true);
-    getHtmlRenderer().addEventListener("keypress", manageKeyCombination, true);
-    getHtmlRenderer().addEventListener("DOMActivate", htmlRendererOpenUrl, true);
-    getHtmlRenderer().addEventListener("pageshow", updateTabHeader, true);
-    getHtmlRenderer().addEventListener("pageshow", updateHistoryNavigationButtons, true);
-    getHtmlRenderer().addEventListener("contextmenu", toggleBrowserContextualMenu, true);
-    getHtmlRenderer().addEventListener("AppCommand", HandleAppCommandEvent, true);
+    var htmlRenderer =  getHtmlRenderer();
+    var htmlRendererId = htmlRenderer.id;
+    var regexResults = htmlRendererId.match(/html-renderer-(.*)/);
+    var id = regexResults[1];
+
+    htmlRenderer.addEventListener("DOMMouseScroll", htmlRendererMouseScroll, false);
+    htmlRenderer.addEventListener("mouseover", htmlRendererMouseOver, true);
+    htmlRenderer.addEventListener("mouseout", htmlRendererMouseOut, true);
+    htmlRenderer.addEventListener("mouseup", htmlRendererMouseUp, true);
+    htmlRenderer.addEventListener("keypress", manageKeyCombination, true);
+    htmlRenderer.addEventListener("DOMActivate", htmlRendererOpenUrl, true);
+    htmlRenderer.addEventListener("pageshow", updateHistoryNavigationButtons, true);
+    htmlRenderer.addEventListener("contextmenu", toggleBrowserContextualMenu, true);
+    htmlRenderer.addEventListener("AppCommand", HandleAppCommandEvent, true);
 
     /* Necessary to update the tab header */
-    getHtmlRenderer().addEventListener("load", updateTabHeader, true);
+    htmlRenderer.addEventListener("pageshow", function(){ updateTabHeader(id) }, true);
+    htmlRenderer.addEventListener("load", function(){ updateTabHeader(id) }, true);
 }
 
 /* Create the necessary listeners */

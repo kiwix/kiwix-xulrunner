@@ -89,10 +89,10 @@ function switchTab(tabId) {
 }
 
 /* Update the tab header */
-function updateTabHeader() {
-    var tabHeaderId = "tab-header-" + currentTabId;
+function updateTabHeader(tabId) {
+    var tabHeaderId = "tab-header-" + tabId;
     var tabHeader = document.getElementById(tabHeaderId);
-    var title = getHtmlRenderer().contentTitle;
+    var title = getHtmlRenderer(tabId).contentTitle;
     var titleNode = tabHeader.childNodes[0];
     titleNode.setAttribute("value", title);
     tabHeader.setAttribute("tooltiptext", title);
@@ -103,6 +103,9 @@ function updateTabHeader() {
 }
 
 /* Return the HTML rendering object */
-function getHtmlRenderer() {
-    return document.getElementById("html-renderer-" + currentTabId);  
+function getHtmlRenderer(tabId) {
+    if (tabId == undefined) {
+	tabId = currentTabId;
+    }
+    return document.getElementById("html-renderer-" + tabId);  
 }
