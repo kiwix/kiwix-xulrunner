@@ -7,9 +7,10 @@
 #include "nsXPCOM.h"
 #include "nsEmbedString.h"
 #include "nsIURI.h"
+#include "nsStringAPI.h"
 
 #include "nsIServiceManager.h"
-#include "nsIFile.h"
+#include "nsILocalFile.h"
 #include "nsCOMPtr.h"
 #include "nsIProperties.h"
 #include "nsDirectoryServiceDefs.h"
@@ -46,15 +47,16 @@ ZimAccessor::~ZimAccessor() {
   }
 }
 
-/* Load zim file */
-NS_IMETHODIMP ZimAccessor::LoadFile(const nsACString &path, PRBool *retVal) {
+NS_IMETHODIMP ZimAccessor::LoadFile(nsILocalFile *file, PRBool *retVal) {
   *retVal = PR_TRUE;
-  const char *filePath;
-  NS_CStringGetData(path, &filePath);
+  nsString path;
+  file->GetPath(path);
+  const PRUnichar *wcPath = ToNewUnicode(path);
+  const char *cPath = ToNewUTF8String(path);
 
   /* Instanciate the ZIM file handler */
   try {
-    this->reader = new kiwix::Reader(filePath);
+    this->reader = new kiwix::Reader(cPath);
   } catch (exception &e) {
     cerr << e.what() << endl;
     *retVal = PR_FALSE;

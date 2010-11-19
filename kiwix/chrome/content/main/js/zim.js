@@ -7,7 +7,11 @@ function openZimFile(path) {
     var zimAccessor = zimAccessorService.QueryInterface(Components.interfaces.IZimAccessor);
 
     /* Return if not able to open the file */
-    if (!zimAccessor.loadFile(path)) return;
+    var file =
+	Components.classes["@mozilla.org/file/local;1"].
+	createInstance(Components.interfaces.nsILocalFile);
+    file.initWithPath(path);
+    if (!zimAccessor.loadFile(file)) return;
 
     /* Otherwise */
     currentZimAccessor = zimAccessor;
