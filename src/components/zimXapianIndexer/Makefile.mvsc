@@ -3,7 +3,7 @@ LD=link.exe
 
 # Global paths
 XULRUNNER_SDK=../../dependences/xulrunner-sdk
-XAPIAN=../../dependences/xapian-core-1.2.2
+XAPIAN=../../dependences/xapian-core-1.2.3
 ICU=../../dependences/icu/
 Z=../../dependences/zlib-1.2.3
 ZIM=../../zimlib
@@ -40,10 +40,10 @@ IZimXapianIndexer.h:
 	$(XPIDL) -m header -I "$(XULRUNNER_IDL)" IZimXapianIndexer.idl
 
 objs: IZimXapianIndexer.xpt IZimXapianIndexer.h
-	$(CC) $(CFLAGS) zimXapianIndexer.cpp ../../common/splitString.cpp ../../common/unaccent.cpp ../../common/kiwix/indexer.cpp ../../common/kiwix/reader.cpp ../../common/kiwix/xapian/myhtmlparse.cc ../../common/kiwix/xapian/htmlparse.cc
+	$(CC) $(CFLAGS) zimXapianIndexer.cpp ../../common/splitString.cpp ../../common/unaccent.cpp ../../common/kiwix/indexer.cpp ../../common/kiwix/reader.cpp ../../common/kiwix/xapian/myhtmlparse.cc ../../common/kiwix/xapian/htmlparse.cc ../../common/kiwix/xapianIndexer.cpp
 
 zimXapianIndexer.lib: objs
-		       $(LD) -lib -OUT:libZimXapianIndexer.lib $(LDFLAGS) indexer.obj unaccent.obj splitString.obj reader.obj myhtmlparse.obj htmlparse.obj
+		       $(LD) -lib -OUT:libZimXapianIndexer.lib $(LDFLAGS) indexer.obj unaccent.obj splitString.obj reader.obj myhtmlparse.obj htmlparse.obj xapianIndexer.obj
 
 zimXapianIndexer.dll: zimXapianIndexer.lib
 		    $(LD) -OUT:"zimXapianIndexer.dll" -NOLOGO $(LDFLAGS) -DLL -NODEFAULTLIB:"MSVCRT" -OPT:REF -OPT:ICF -DYNAMICBASE -NXCOMPAT -MACHINE:X86 zlib.lib libcommon.lib libbackend.lib libbrass.lib Rpcrt4.lib libbrassbtreecheck.lib libbrassbtreecheck.lib libexpand.lib libflint.lib libflintbtreecheck.lib libchert.lib libweight.lib libinmemory.lib libmulti.lib libmatcher.lib libnet.lib liblanguages.lib libapi.lib libremote.lib libunicode.lib libqueryparser.lib icuin.lib icuio.lib icule.lib iculx.lib icutu.lib icuuc.lib winmm.lib zim.lib libcmt.lib ws2_32.lib nspr4.lib xpcom.lib xpcomglue_s.lib DelayImp.lib libZimXapianIndexer.lib zimXapianIndexer.obj

@@ -3,7 +3,7 @@ LD=link.exe
 
 # Global paths
 XULRUNNER_SDK=../../dependences/xulrunner-sdk
-XAPIAN=../../dependences/xapian-core-1.2.2
+XAPIAN=../../dependences/xapian-core-1.2.3
 ICU=../../dependences/icu/
 Z=../../dependences/zlib-1.2.3
 
@@ -37,10 +37,10 @@ IXapianAccessor.h:
 	$(XPIDL) -m header -I "$(XULRUNNER_IDL)" IXapianAccessor.idl
 
 objs: IXapianAccessor.xpt IXapianAccessor.h
-	$(CC) $(CFLAGS) xapianAccessor.cpp ../../common/splitString.cpp ../../common/unaccent.cpp ../../common/kiwix/searcher.cpp
+	$(CC) $(CFLAGS) xapianAccessor.cpp ../../common/splitString.cpp ../../common/unaccent.cpp ../../common/kiwix/searcher.cpp ../../common/kiwix/xapianSearcher.cpp
 
 xapianAccessor.lib: objs
-		       $(LD) -lib -OUT:libXapianAccessor.lib $(LDFLAGS) searcher.obj unaccent.obj splitString.obj
+		       $(LD) -lib -OUT:libXapianAccessor.lib $(LDFLAGS) searcher.obj unaccent.obj splitString.obj xapianSearcher.obj
 
 xapianAccessor.dll: xapianAccessor.lib
 		    $(LD) -OUT:"xapianAccessor.dll" -NOLOGO $(LDFLAGS) -DLL -NODEFAULTLIB:"MSVCRT" -OPT:REF -OPT:ICF -DYNAMICBASE -NXCOMPAT -MACHINE:X86 zlib.lib libcommon.lib libbackend.lib libbrass.lib Rpcrt4.lib libbrassbtreecheck.lib libbrassbtreecheck.lib libexpand.lib libflint.lib libflintbtreecheck.lib libchert.lib libweight.lib libinmemory.lib libmulti.lib libmatcher.lib libnet.lib liblanguages.lib libapi.lib libremote.lib libunicode.lib libqueryparser.lib icuin.lib icuio.lib icule.lib iculx.lib icutu.lib icuuc.lib libcmt.lib ws2_32.lib nspr4.lib xpcom.lib xpcomglue_s.lib DelayImp.lib libXapianAccessor.lib xapianAccessor.obj
