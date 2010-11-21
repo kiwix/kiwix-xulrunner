@@ -29,7 +29,7 @@ Depends: debianutils,
 	 xapian-tools,
 	 xulrunner-1.9.2,
  	 zlib1g,
-	 liblzma2,
+	 liblzma1,
 	 libmicrohttpd5
 Recommends: 
 Suggests: 
