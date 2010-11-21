@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <autorun>
-	<lang code="en">
+	<lang code="de">
 		<layoutDirection>Qt::LeftToRight</layoutDirection>
 		<windowTitle>Kiwix</windowTitle>
-		<run>Launch Kiwix from here</run>
-		<install>Install Kiwix to your Hard Drive</install>
-		<quit>Quit this menu</quit>
+		<run>Kiwix starten</run>
+		<install>Kiwix auf der Festplatte installieren</install>
+		<quit>Menu schliessen</quit>
 	</lang>
 </autorun>
