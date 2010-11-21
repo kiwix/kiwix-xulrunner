@@ -42,8 +42,8 @@
 <!ENTITY main.zoomorig.accesskey        "N">
 <!ENTITY main.language                  "Langue">
 <!ENTITY main.language.accesskey        "L">
-<!ENTITY main.skin                      "Skin">
-<!ENTITY main.skin.accesskey            "S">
+<!ENTITY main.skin                      "Habillage">
+<!ENTITY main.skin.accesskey            "H">
 <!ENTITY main.statusbar                 "Barre d'état">
 <!ENTITY main.statusbar.accesskey       "B">
 <!ENTITY main.resultsbar                "Resultats">
@@ -92,4 +92,4 @@
 <!ENTITY main.defaultset                "Mes marques pages">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveImageAs               "Save image as...">
+<!ENTITY main.saveImageAs               "Enregistrer l'image sous...">

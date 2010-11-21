@@ -7,12 +7,12 @@
 <!ENTITY main.file.accesskey            "D">
 <!ENTITY main.openFile                  "Datei öffnen...">
 <!ENTITY main.openFile.accesskey        "O">
-<!ENTITY main.lastOpen                  "Recently open...">
-<!ENTITY main.saveFile                  "Save Page as...">
+<!ENTITY main.lastOpen                  "Vor Kurzem geöffnet...">
+<!ENTITY main.saveFile                  "Artikel speichern als...">
 <!ENTITY main.saveFile.accesskey        "S">
 <!ENTITY main.print                     "Drucken...">
 <!ENTITY main.print.accesskey           "r">
-<!ENTITY main.printPdf                  "Print as PDF">
+<!ENTITY main.printPdf                  "Als PDF drucken">
 <!ENTITY main.printPdf.accesskey        "D">
 <!ENTITY main.quit                      "Schliessen">
 <!ENTITY main.quit.accesskey            "S">
