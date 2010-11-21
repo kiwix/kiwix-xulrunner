@@ -1,3 +1,25 @@
+kiwix (0.9-alpha7) maverick; urgency=low
+  * Fix the encoding issue in the help in Parsi (ID: 3060250)
+  * Fix an URL parsing issue impacting title containing a '/' (ID: 3065286)
+  * Add mouse thumb buttons back/forward support (ID: 3063304)
+  * Add a contextual menu "Save image as..." for images (ID: 1669553)
+  * Remove the deprecated (not used anymore by libzim) bzip2 dependence
+  * Fully localized MS Windows installer
+  * Fix the default filename by "save image" and "save as PDF"  with article containing a "/"
+  * Avoid a small bug responsible for duplicate zim calls
+    * Per default, Kiwix instance are not "live" anymoore. Can now be decided with buildDistribution.pl
+  * Propose a download dialog if the mime-type is unknown
+  * New locales: Catalan
+  * Fix a bug with the "impossible" indexing process in case of defect library.xml (ID: 3068722)
+  * Reintroduction of the skin switcher tool
+  * Consider chrome:// as internal url, and do not ask anumore to load the url with an external app.
+  * Fullscreen is now a *real* fullscreen
+  * Fix the initialisation of the random article url generator (ID: 3109548)
+  * Fix an issue by tab rendering after closing one (ID: 3108586)
+  * Fix the issue with no tab title if user change tab before content renders (ID: 3108598)
+
+ -- Emmanuel Engelhart <kelson@kiwix.org>  Sun, 21 Nov 2010 16:00:00 +0200
+
 kiwix (0.9-alpha6.1) maverick; urgency=low
 
   * Version for 10.10 (same code as before)
