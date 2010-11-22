@@ -1,4 +1,4 @@
-Kiwix 0.9 beta1
+Kiwix 0.9 alpha7
 * Fix the encoding issue in the help in Parsi (ID: 3060250)
 * Fix an URL parsing issue impacting title containing a '/' (ID: 3065286)
 * Add mouse thumb buttons back/forward support (ID: 3063304)
