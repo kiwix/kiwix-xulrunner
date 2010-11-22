@@ -1,4 +1,10 @@
-kiwix (0.9-alpha7) maverick; urgency=low
+kiwix (0.9-alpha7.1) lucid; urgency=low
+
+  * Same code as 0.9-alpha7, simply rebuild,
+
+ -- Emmanuel Engelhart <kelson@kiwix.org>  Mon, 22 Nov 2010 22:00:00 +0200
+
+kiwix (0.9-alpha7) lucid; urgency=low
   * Fix the encoding issue in the help in Parsi (ID: 3060250)
   * Fix an URL parsing issue impacting title containing a '/' (ID: 3065286)
   * Add mouse thumb buttons back/forward support (ID: 3063304)
@@ -17,7 +23,7 @@ kiwix (0.9-alpha7) maverick; urgency=low
   * Fix the initialisation of the random article url generator (ID: 3109548)
   * Fix an issue by tab rendering after closing one (ID: 3108586)
   * Fix the issue with no tab title if user change tab before content renders (ID: 3108598)
-  * Fix the brocken liblzma dependence in Debian package for Maverick (ID: 3115241)
+  * Fix the brocken liblzma dependence in Debian package for Lucid (ID: 3115241)
 
  -- Emmanuel Engelhart <kelson@kiwix.org>  Sun, 21 Nov 2010 16:00:00 +0200
 
