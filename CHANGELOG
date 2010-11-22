@@ -17,7 +17,7 @@ Kiwix 0.9 beta1
 * Fix the initialisation of the random article url generator (ID: 3109548)
 * Fix an issue by tab rendering after closing one (ID: 3108586)
 * Fix the issue with no tab title if user change tab before content renders (ID: 3108598)
-* Fix the brocken liblzma dependence in Debian package for Maverick
+* Fix the brocken liblzma dependence in Debian package for Maverick (ID: 3115241)
 
 Kiwix 0.9 alpha6
 * Fix a regression bug impacting the case insensitive (first character only) suggestion system
