@@ -122,10 +122,10 @@
 	<menupopup id="menu-languages">
 	</menupopup>
       </menu>
-      <menu type="checkbox" label="&main.skin;" accesskey="&main.skin.accesskey;">
+      <menu label="&main.skin;" accesskey="&main.skin.accesskey;">
 	<menupopup id="menu-skins">
-	  <menuitem label="Default" id="skin-default" oncommand="selectSkin('default');"/>
-          <menuitem label="Evolution" id="skin-evolution" oncommand="selectSkin('evolution');"/>
+	  <menuitem type="checkbox" label="Default" id="skin-default" oncommand="selectSkin('default');"/>
+          <menuitem type="checkbox" label="Evolution" id="skin-evolution" oncommand="selectSkin('evolution');"/>
 	</menupopup>
       </menu>
       <menuitem id="display-statusbar" label="&main.statusbar;" type="checkbox" checked="true"
