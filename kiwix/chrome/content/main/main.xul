@@ -74,32 +74,32 @@
 <menubar id="menu-bar"> 
   <menu id="menu-file" label="&main.file;" accesskey="&main.file.accesskey;">
     <menupopup id="file-popup">
-      <menuitem type="checkbox" id="file-open" label="&main.openFile;" key="open-file-key" class="menuitem-iconic"
+      <menuitem id="file-open" label="&main.openFile;" key="open-file-key" class="menuitem-iconic"
 		accesskey="&main.openFile.accesskey;" oncommand="manageOpenFile()"/>
-      <menu type="checkbox" label="&main.lastOpen;" id="menu-lastopen-top">
+      <menu label="&main.lastOpen;" id="menu-lastopen-top">
 	<menupopup id="menu-lastopen">
 	</menupopup>
       </menu>
-      <menuitem type="checkbox" id="file-save" label="&main.saveFile;" key="save-file-key" class="menuitem-iconic"
+      <menuitem id="file-save" label="&main.saveFile;" key="save-file-key" class="menuitem-iconic"
 		accesskey="&main.saveFile.accesskey;" oncommand="saveDocument(window.content.document);"/>
-      <menuitem type="checkbox" id="file-print" label="&main.print;" key="print-key" class="menuitem-iconic" 
+      <menuitem id="file-print" label="&main.print;" key="print-key" class="menuitem-iconic" 
 		accesskey="&main.print.accesskey;" oncommand="print()"/>
-      <menuitem type="checkbox" id="file-print-pdf" label="&main.printPdf;" key="print-pdf-key" class="menuitem-iconic" 
+      <menuitem id="file-print-pdf" label="&main.printPdf;" key="print-pdf-key" class="menuitem-iconic" 
 		accesskey="&main.printPdf.accesskey;" oncommand="printPdf()"/>
       <menuseparator/>
-      <menuitem type="checkbox" id="file-quit" label="&main.quit;" key="quit-key" class="menuitem-iconic" 
+      <menuitem id="file-quit" label="&main.quit;" key="quit-key" class="menuitem-iconic" 
 		accesskey="&main.quit.accesskey;" oncommand="quit()"/>
     </menupopup>
   </menu>
   <menu id="menu-edit" label="&main.edit;" accesskey="&main.edit.accesskey;">
     <menupopup id="edit-popup">
-      <menuitem type="checkbox" id="edit-find" label="&main.find;" key="find-key" class="menuitem-iconic"
+      <menuitem id="edit-find" label="&main.find;" key="find-key" class="menuitem-iconic"
 		accesskey="&main.find.accesskey;" oncommand="find()"/>
-      <menuitem type="checkbox" id="edit-selectall" label="&main.selectall;" key="selectall-key" class="menuitem-iconic"
+      <menuitem id="edit-selectall" label="&main.selectall;" key="selectall-key" class="menuitem-iconic"
 		accesskey="&main.selectall.accesskey;" oncommand="selectAll()"/>
-      <menuitem type="checkbox" id="edit-copy" label="&main.copy;" key="copy-key" class="menuitem-iconic"
+      <menuitem id="edit-copy" label="&main.copy;" key="copy-key" class="menuitem-iconic"
 		accesskey="&main.copy.accesskey;" oncommand="copySelectedContent()"/>
-      <menu type="checkbox" label="&main.transliteration;" accesskey="&main.transliteration.accesskey;" style="display: none;">
+      <menu label="&main.transliteration;" accesskey="&main.transliteration.accesskey;" style="display: none;">
 	<menupopup id="menu-transliterations">
 	</menupopup>
       </menu>
@@ -107,18 +107,18 @@
   </menu>
   <menu id="menu-display" label="&main.display;" accesskey="&main.display.accesskey;">
     <menupopup id="display-popup">
-      <menu type="checkbox" label="&main.zoom;" accesskey="&main.zoom.accesskey;">
+      <menu label="&main.zoom;" accesskey="&main.zoom.accesskey;">
 	<menupopup id="menu-zoom">
-	  <menuitem type="checkbox" id="display-zoomin" label="&main.zoomin;" key="zoomin" class="menuitem-iconic" 
+	  <menuitem id="display-zoomin" label="&main.zoomin;" key="zoomin" class="menuitem-iconic" 
 		    accesskey="&main.zoomin.accesskey;" oncommand="zoomIn()"/>
-	  <menuitem type="checkbox" id="display-zoomout" label="&main.zoomout;" key="zoomout" class="menuitem-iconic" 
+	  <menuitem id="display-zoomout" label="&main.zoomout;" key="zoomout" class="menuitem-iconic" 
 		    accesskey="&main.zoomout.accesskey;" oncommand="zoomOut()"/>
 	  <menuseparator/>
-	  <menuitem type="checkbox" id="display-zoomorig" label="&main.zoomorig;" key="zoomorig" class="menuitem-iconic" 
+	  <menuitem id="display-zoomorig" label="&main.zoomorig;" key="zoomorig" class="menuitem-iconic" 
 		    accesskey="&main.zoomorig.accesskey;" oncommand="zoomOriginal()"/>
 	</menupopup>
       </menu>
-      <menu type="checkbox" label="&main.language;" accesskey="&main.language.accesskey;">
+      <menu label="&main.language;" accesskey="&main.language.accesskey;">
 	<menupopup id="menu-languages">
 	</menupopup>
       </menu>
@@ -151,15 +151,15 @@
   </menu>
   <menu id="menu-help" label="&main.help;" accesskey="&main.help.accesskey;">
     <menupopup id="help-popup">
-      <menuitem type="checkbox" id="help-help" label="&main.help;" class="menuitem-iconic" 
+      <menuitem id="help-help" label="&main.help;" class="menuitem-iconic" 
 		key="help-key" accesskey="&main.help.accesskey;" oncommand="showHelp()"/>
       <menuseparator/>
-      <menuitem type="checkbox" id="help-reportabug" label="&main.reportabug;" class="menuitem-iconic" 
+      <menuitem id="help-reportabug" label="&main.reportabug;" class="menuitem-iconic" 
 		oncommand="openUrlWithExternalBrowser('http://reportabug.kiwix.org')"/>
-      <menuitem type="checkbox" id="help-requestafeature" label="&main.requestafeature;" class="menuitem-iconic" 
+      <menuitem id="help-requestafeature" label="&main.requestafeature;" class="menuitem-iconic" 
 		oncommand="openUrlWithExternalBrowser('http://requestafeature.kiwix.org')"/>
       <menuseparator/>
-      <menuitem type="checkbox" id="help-about" label="&main.about;" class="menuitem-iconic" 
+      <menuitem id="help-about" label="&main.about;" class="menuitem-iconic" 
 		accesskey="&main.about.accesskey;" oncommand="showAbout()"/>
     </menupopup>
   </menu>
