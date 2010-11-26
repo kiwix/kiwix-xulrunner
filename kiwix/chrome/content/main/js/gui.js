@@ -920,6 +920,7 @@ function populateLanguagesMenu() {
 	menuItem.setAttribute("type", "radio");
 	menuItem.setAttribute("value", locale);
 	menuItem.setAttribute("label", label);
+	menuItem.setAttribute("type", "checkbox");
 	menuItem.setAttribute("oncommand", "manageChangeLocale(this.value)");
 	
 	/* If this the current locale, check and apply it. */
