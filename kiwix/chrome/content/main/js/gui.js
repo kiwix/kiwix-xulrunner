@@ -17,7 +17,7 @@ _languagesHash['ar']        = "العربية";
 _languagesHash['faool']     = "فارسی";
 _languagesHash['he-IL']     = "עברית";
 _languagesHash['pt-PT']     = "Português";
-_languagesHash['ca']     = "Català";
+_languagesHash['ca']        = "Català";
 
 /* Return the window object */
 function getWindow() {
@@ -950,7 +950,9 @@ function getCurrentLocale() {
     var chromeRegisteryService = Components.classes["@mozilla.org/chrome/chrome-registry;1"].getService();
     var xulChromeRegistery = chromeRegisteryService.QueryInterface(Components.interfaces.nsIXULChromeRegistry);
     var toolkitChromeRegistery = chromeRegisteryService.QueryInterface(Components.interfaces.nsIToolkitChromeRegistry);
-    return settings.locale() || xulChromeRegistery.getSelectedLocale("main");
+    var settingsLocale = settings.locale();
+    var chromeLocale = xulChromeRegistery.getSelectedLocale("main");
+    return (settingsLocale.match(/chrome/) ==  undefined ? settingsLocale : chromeLocale);
 }
 
 /* Return the available locales */

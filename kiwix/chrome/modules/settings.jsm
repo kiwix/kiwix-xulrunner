@@ -87,7 +87,7 @@ let settings = {
     /* Multiple accessor functions */
     locale: function(value) {
         if (value != undefined) {
-	    this.rootBranch.setBoolPref("intl.locale.matchOS", false);
+	    this.boolSettingParameter("intl.locale.matchOS", false);
         }
     	return this.charSettingParameter("general.useragent.locale", value); 
     },
