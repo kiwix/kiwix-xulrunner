@@ -60,7 +60,11 @@ follow the steps in the given order.
 
 * Copy the following files from c:\Qt\2010.01\qt\bin to your
   "autorun/release" directory: QtGui4.dll, QtCore4.dll and also
-  mingwm10.dll and libgcc_s_dw2-1.dll from c:\Qt\1010.01\minw\bin
+  mingwm10.dll, libgcc_s_dw2-1.dll and QtXml4.dll from
+  c:\Qt\1010.01\minw\bin
+
+* copz the "autorun/ui" folder to "autorun/release" and remove all non
+  XML file inside.
 
 * Click on the "autorun/autorun.exe" binary and it should work.
 
