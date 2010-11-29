@@ -18,6 +18,7 @@ Kiwix 0.9 alpha7
 * Fix an issue by tab rendering after closing one (ID: 3108586)
 * Fix the issue with no tab title if user change tab before content renders (ID: 3108598)
 * Fix the brocken liblzma dependence in Debian package for Maverick (ID: 3115241)
+* On the Windows installer, add dialog boxes to elevate the user level to get admin permissions
 
 Kiwix 0.9 alpha6
 * Fix a regression bug impacting the case insensitive (first character only) suggestion system
