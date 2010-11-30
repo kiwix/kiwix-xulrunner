@@ -1,5 +1,7 @@
 #include <QApplication>
 #include <QString>
+#include <unistd.h>
+#include <libgen.h>
 #include "appimpl.h"
 
 int main(int argc, char ** argv)
@@ -7,6 +9,9 @@ int main(int argc, char ** argv)
     QApplication app( argc, argv );
     QString args;
     QString lang = "en";
+
+    const char* currentDirectory = dirname(argv[0]);
+    chdir(currentDirectory);
 
     for (int i = 1; i < argc; i++) {
         //the argument value
