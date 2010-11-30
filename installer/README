@@ -20,6 +20,12 @@ Please follow the steps in the given order.
 * Download the following file, unpack and run install.exe
   http://download.kiwix.org/dev/nsis_locate.zip
 
+* Download the following file, unpack it and copy UAC.nsh into your
+  Include directory (e.g. C:\Program Files\NSIS\Include) and UAC.dll
+  from Release/A into your Plugins directory (e.g. C:\Program
+  Files\NSIS\Plugins).
+  http://download.kiwix.org/dev/nsis_uac.zip
+
 * Install this self-extracting MSYS package on your system in the
   default proposed directory: C:\msys\1.0. A the end a console will be
   launched. Please answer "y" two times. After that you need to give
