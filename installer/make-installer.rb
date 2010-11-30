@@ -64,7 +64,7 @@ class Nsi_output
                        @files.each do |f|
                                $result += "\tCopyFiles /SILENT `#{f[0]}` `#{f[1]}` `#{f[2]}`\n"
                        end
-		       $result += "\tCopyFiles /SILENT `..\\data\\*` `$INSTDIR\\data\\`\n"
+		       $result += "\tCopyFiles /SILENT `data\\*` `$INSTDIR\\data\\`\n"
                end
 
                # return tree section for put in nsi template
@@ -94,19 +94,19 @@ class Nsi_output
        def in_tree(dvd_path)
                @files_list.each do |dire|
                        unless dire.empty?
-							   current_dir = escape_backslash(dire.gsub("/"+File.basename(dire),""))
-                               @dirs << @arg['copy_dest_path'] + current_dir
+			   current_dir = escape_backslash(dire.gsub("/"+File.basename(dire),""))
+                           @dirs << @arg['copy_dest_path'] + "\\" + current_dir
                        end
                        Dir.glob(dvd_path+"#{dire}").each do |f|
                                current = escape_backslash(f.gsub(dvd_path,""))
                                if File.directory? f
-                                       @dirs << @arg['copy_dest_path'] + current
+                                       @dirs << @arg['copy_dest_path'] + "\\" + current
                                else
                                        # sum the size of each file to calculate the space required to install
                                        file_size = File.stat(f).size / 1024
                                        @kiwix_size += file_size
                                        wd = escape_backslash(f.gsub(dvd_path,@arg['relative_path']))
-                                       @files << ["#{wd}", "#{@arg['copy_dest_path']}#{current}", "#{file_size}"]
+                                       @files << ["#{wd}", "#{@arg['copy_dest_path']}\\#{current}", "#{file_size}"]
                                end
                        end
                end
@@ -186,12 +186,12 @@ begin
        # list files for build the installer
        # /**/** is a recursive search in the folder
        files_list = [
-                  "/kiwix/{kiwix.exe,application.ini,kiwix-debug.bat}",
-                  "/data/**/**",
-                  "/kiwix/xulrunner/**/**",
-                  "/kiwix/chrome/**/**",
-                  "/kiwix/defaults/**/**",
-                  "/kiwix/components/*.{dll,xpt,js}"
+                  "kiwix/{kiwix.exe,application.ini,kiwix-debug.bat}",
+                  "data/**/**",
+                  "kiwix/xulrunner/**/**",
+                  "kiwix/chrome/**/**",
+                  "kiwix/defaults/**/**",
+                  "kiwix/components/*.{dll,xpt,js}"
                ]
        arg = Hash.new
        arg = {
@@ -209,7 +209,7 @@ begin
                # defined installation directory nsi_base
                "copy_dest_path" => "$INSTDIR",
                # path relative to the installer with respect to source_path
-               "relative_path"  => "..",
+               "relative_path"  => "",
                # opearative system backslash
                "windows" => 0
        }

@@ -315,15 +315,18 @@ Section
   Push "$EXEPATH"
   Call GetParent
   Pop $CURRENTPATH
+  Push "$CURRENTPATH"
+  Call GetParent
+  Pop $CURRENTPATH
   SetOutPath $CURRENTPATH 
 
 ; Insert here the command to copy files
   __FILES_TO_INSTALL__	
 
 ; Copy files from "data" directory
-${If} ${FileExists} "..\data"
+${If} ${FileExists} "data"
   CreateDirectory "$INSTDIR\data"
-  ${locate::Open} "..\data\" "/S=Mb /M=*.* /G=1 /B=1" $0
+  ${locate::Open} "data\" "/S=Mb /M=*.* /G=1 /B=1" $0
   StrCmp $0 0 0 loop
 
   loop:
@@ -408,16 +411,24 @@ UAC_Success:
 
 FunctionEnd
 
+; Remove user shortcuts
+Function un.RemoveShortcuts
+  Delete "$SMPROGRAMS\Kiwix\Uninstall.lnk"
+  Delete "$SMPROGRAMS\Kiwix\kiwix.lnk"
+  Delete "$SMPROGRAMS\Kiwix\kiwix Website.lnk"
+  RMDir /R "$SMPROGRAMS\Kiwix"
+FunctionEnd
+
 ; You don' t need to specify file to remove since we remove the whole
 ; $INSTDIR folder recursivly.
 Section Uninstall
-	Delete "$INSTDIR\${PRODUCT_NAME}.url"
-	Delete "$INSTDIR\uninst.exe"
-	Delete "$SMPROGRAMS\kiwix\Uninstall.lnk"
-	Delete "$SMPROGRAMS\kiwix\kiwix.lnk"
-	Delete "$SMPROGRAMS\kiwix\kiwix Website.lnk"
 
-	RMDir /R "$SMPROGRAMS\kiwix"
+        Delete "$INSTDIR\${PRODUCT_NAME}.url"
+        Delete "$INSTDIR\uninst.exe"
+
+	GetFunctionAddress $0 un.RemoveShortcuts
+	UAC::ExecCodeSegment $0
+
 	RMDir /R "$INSTDIR"
 	DeleteRegKey ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}"
 
