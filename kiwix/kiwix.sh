@@ -43,6 +43,12 @@ then
     XULRUNNER=`whereis xulrunner | cut -d" " -f2`
 fi
 
+# If no symlink "xulrunner" try to find the binary itself
+if [ ! "$XULRUNNER" ]
+then
+    XULRUNNER=`whereis xulrunner-1.9.2 | cut -d" " -f2`
+fi
+
 # If no result print a message
 if [ ! "$XULRUNNER" ] || [ ! -f "$XULRUNNER" ]
 then
