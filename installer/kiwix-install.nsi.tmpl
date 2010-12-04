@@ -63,6 +63,7 @@ ReserveFile "kiwix-install.ini"
 Var PAGETOSHOW
 Var CONTENTSIZE
 Var CURRENTPATH
+Var NEWCURRENTPATH
 
 ; Create Welcome page
 Page custom .onWelcomePageCreate .onWelcomePageLeave
@@ -311,14 +312,8 @@ Section
 ; Create directory
   CreateDirectory "$INSTDIR"
  
-; Set the current directory (following paths are relative)
-  Push "$EXEPATH"
-  Call GetParent
-  Pop $CURRENTPATH
-  Push "$CURRENTPATH"
-  Call GetParent
-  Pop $CURRENTPATH
-  SetOutPath $CURRENTPATH 
+; Set the current directory one level higher to installer binary (following paths are relative)
+  SetOutPath "..\"
 
 ; Insert here the command to copy files
   __FILES_TO_INSTALL__	
@@ -335,7 +330,7 @@ ${If} ${FileExists} "data"
     ${If} $4 == ""
       CreateDirectory "$INSTDIR\data\$1"
     ${Else}
-      CopyFiles /SILENT $1 "$INSTDIR\data\$2"
+      CopyFiles /SILENT $1 "$INSTDIR\$2"
     ${EndIf}
     Goto loop
   ${EndIf}
@@ -481,7 +476,7 @@ Function GetParent
     StrCpy $R3 $R0 1 -$R1
     StrCmp $R3 "\" get
   Goto loop
- 
+
   get:
     StrCpy $R0 $R0 -$R1
  
