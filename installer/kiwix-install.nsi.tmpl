@@ -62,8 +62,6 @@ ReserveFile "kiwix-install.ini"
 ; Global variables
 Var PAGETOSHOW
 Var CONTENTSIZE
-Var CURRENTPATH
-Var NEWCURRENTPATH
 
 ; Create Welcome page
 Page custom .onWelcomePageCreate .onWelcomePageLeave
@@ -313,6 +311,10 @@ Section
   CreateDirectory "$INSTDIR"
  
 ; Set the current directory one level higher to installer binary (following paths are relative)
+  Push "$EXEPATH"
+  Call GetParent 
+  Pop $0
+  SetOutPath $0
   SetOutPath "..\"
 
 ; Insert here the command to copy files
