@@ -320,7 +320,10 @@ Section
 
 ; Copy files from "data" directory
 ${If} ${FileExists} "data"
-  CreateDirectory "$INSTDIR\data"
+  ${IfNot} ${FileExists} "$INSTDIR\data"
+    CreateDirectory "$INSTDIR\data"
+  ${EndIf}
+
   ${locate::Open} "data\" "/S=Mb /M=*.* /G=1 /B=1" $0
   StrCmp $0 0 0 loop
 
@@ -328,7 +331,9 @@ ${If} ${FileExists} "data"
   ${locate::Find} $0 $1 $2 $3 $4 $5 $6
   ${If} $1 != ""
     ${If} $4 == ""
-      CreateDirectory "$INSTDIR\data\$1"
+      ${IfNot} ${FileExists} "$INSTDIR\$1"
+        CreateDirectory "$INSTDIR\$1"
+      ${EndIf}	
     ${Else}
       CopyFiles /SILENT $1 "$INSTDIR\$2"
     ${EndIf}
