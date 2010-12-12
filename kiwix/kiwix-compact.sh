@@ -29,7 +29,7 @@ else
   fi
 
   # Return the profile list
-  PROFILES=`cat /home/kelson/.www.kiwix.org/kiwix/profiles.ini | grep "Path=" | sed -e 's/Path=//' | tr '\n' ' '` ;
+  PROFILES=`cat ~/.www.kiwix.org/kiwix/profiles.ini | grep "Path=" | sed -e 's/Path=//' | tr '\n' ' '` ;
 
   # Check if Kiwix is currently running
   for PROFILE in $PROFILES ; do
