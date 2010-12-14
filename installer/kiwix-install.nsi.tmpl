@@ -369,6 +369,7 @@ SectionEnd
 
 ; Create user shortcuts
 Function CreateShortcuts
+  SetShellVarContext all	 
   CreateDirectory "$SMPROGRAMS\Kiwix"
   CreateShortCut "$SMPROGRAMS\Kiwix\Kiwix.lnk" "$INSTDIR\kiwix\kiwix.exe"
   CreateShortCut "$SMPROGRAMS\Kiwix\Kiwix Website.lnk" "$INSTDIR\${PRODUCT_NAME}.url"
@@ -415,6 +416,7 @@ FunctionEnd
 
 ; Remove user shortcuts
 Function un.RemoveShortcuts
+  SetShellVarContext all
   Delete "$SMPROGRAMS\Kiwix\Uninstall.lnk"
   Delete "$SMPROGRAMS\Kiwix\kiwix.lnk"
   Delete "$SMPROGRAMS\Kiwix\kiwix Website.lnk"
