@@ -59,6 +59,9 @@ function manageIndexZimFile() {
     } else if (displayConfirmDialog(getProperty("indexZimFileConfirm"))) {
 	indexZimFile(currentBook.path, getSearchIndexDirectory(currentBook.path));
     }
+
+    /* Necessary to avoid a flickering in the HTML renderer */
+    getHtmlRenderer().reload();
 }
 
 /* Proxyfy an object */

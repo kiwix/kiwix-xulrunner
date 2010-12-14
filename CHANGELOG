@@ -1,5 +1,6 @@
 Kiwix 0.9 alpha8
 * Remove a hard coded path in kiwix-compact.sh (ID: 3135956)
+* Avoid the flickering during mouseover links after canceling the indexing
 
 Kiwix 0.9 alpha7
 * Fix the encoding issue in the help in Parsi (ID: 3060250)
