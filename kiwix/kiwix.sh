@@ -56,11 +56,8 @@ then
     exit;
 fi
 
-# Set the default locale if necessary
-# if [ ! -d ~/.www.kiwix.org ]
-# then
-#    LOCALE="-UILocale "`echo $LANG | sed "s/[_|\.].*//"`
-# fi
+# Set the custom plugins directory
+export MOZ_PLUGIN_PATH=/usr/lib
 
 # Otherwise, launch Kiwix
-exec $XULRUNNER $BINARY_DIR/application.ini $1 $LOCALE
+$XULRUNNER $BINARY_DIR/application.ini $1 $2
