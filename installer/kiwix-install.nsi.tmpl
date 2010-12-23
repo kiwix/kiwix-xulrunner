@@ -162,6 +162,9 @@ Page custom .onWelcomePageCreate .onWelcomePageLeave
 ;!insertmacro LANG_LOAD "Catalan"
 ;!insertmacro LANG_LOAD "Esperanto"
 
+Section Install SECTIONINSTALLID
+SectionEnd
+
 ; This callback will be called when the installer is nearly finished initializing. 
 Function .onInit
 
@@ -196,6 +199,7 @@ UAC_Success:
     System::Int64Op $0 + $CONTENTSIZE
     Pop $0
     StrCpy $CONTENTSIZE "$0"
+    SectionSetSize ${SECTIONINSTALLID} "$CONTENTSIZE"
   ${EndIf}
 
   !insertmacro MUI_LANGDLL_DISPLAY
