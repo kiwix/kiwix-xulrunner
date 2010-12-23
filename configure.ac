@@ -348,6 +348,8 @@ AC_CONFIG_FILES([
   src/Makefile
   src/zimlib/Makefile
   src/zimlib/src/Makefile
+  src/ctpp2/Makefile
+  src/ctpp2/src/Makefile
   src/dependences/Makefile
   src/components/Makefile
   src/components/xapianAccessor/Makefile
