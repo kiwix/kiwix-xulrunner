@@ -4,6 +4,7 @@ Kiwix 0.9 alpha8
 * Under Windows, installer add now shortuts to all users
 * Force loading no plugin to avoid any problem (with libmoon for example)
 * Under Windows, the displayed (disk) "space required" value is now correct
+* kiwix-index backend argument is now option and set as "xapian" per default
 	
 Kiwix 0.9 alpha7
 * Fix the encoding issue in the help in Parsi (ID: 3060250)
