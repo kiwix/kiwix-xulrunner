@@ -45,9 +45,10 @@ then
 
   # default $CPPFLAGS and $LDFLAGS
   # CLucene has headers in /usr/lib
-  CPPFLAGS="-I/usr/lib"
-  CFLAGS="-O6"
-  LDFLAGS=""
+  CPPFLAGS="${CPPFLAGS} -I/usr/lib"
+  if test "x${CFLAGS}" = "x"; then
+    CFLAGS="-O6"
+  fi
   CFLAGS="${CFLAGS}"
   LDFLAGS="${LDFLAGS}" 
   LIBS=""
