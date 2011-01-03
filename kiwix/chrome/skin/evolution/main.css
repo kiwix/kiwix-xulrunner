@@ -298,9 +298,11 @@ window[langdir="rtl"] #button-next {
 
 #progress-bar {
     width: 200px;
+    height: 19px;
 }
 
 #progress-bar-label {
     margin-top: 3px;
     text-align: center;
+    font-size: 90%;
 }
