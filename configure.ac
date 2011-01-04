@@ -268,11 +268,11 @@ else
 
 	# zlib
 	LIBZ_CFLAGS="-I${CURRENT_PATH}/src/dependences/zlib-1.2.3/"
-	LIBZ_LDFLAGS="-L${CURRENT_PATH}/src/dependences/zlib-1.2.3/ -Bstatic -lz,"
+	LIBZ_LDFLAGS="-L${CURRENT_PATH}/src/dependences/zlib-1.2.3/ -Bstatic -lz"
 
 	# liblzma
 	LIBLZMA_CFLAGS="-I${CURRENT_PATH}/src/dependences/xz-4.999.9beta/src/liblzma/api/"
-	LIBLZMA_LDFLAGS="-L${CURRENT_PATH}/src/dependences/xz-4.999.9beta/src/liblzma/.libs/ -Bstatic -llzma,"
+	LIBLZMA_LDFLAGS="-L${CURRENT_PATH}/src/dependences/xz-4.999.9beta/src/liblzma/.libs/ -Bstatic -llzma"
 
 	# libxapian
 	LIBXAPIAN_CFLAGS="-I${CURRENT_PATH}/src/dependences/xapian-core-1.0.16/include/";
