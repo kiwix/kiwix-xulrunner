@@ -372,9 +372,9 @@ then
 
   # Generate a new BuildID
   REPLACE=`date "+%Y%m%d"`
-  sed -i "s/^BuildID=[[0-9]]*/BuildID=$REPLACE/" ./kiwix/application.ini
+  sed -ised -e "s/^BuildID=[[0-9]]*/BuildID=$REPLACE/" ./kiwix/application.ini
 
   # Save the install prefix in the default application preferences
-  sed -i "s/\"kiwix.install.prefix\"\,\ \"[[^\"]]*\"/\"kiwix.install.prefix\"\,\ \"$(echo $prefix | sed -e 's/\\/\\\\/g' -e 's/\//\\\//g' -e 's/&/\\\&/g')\"/" ./kiwix/defaults/preferences/preferences.js
+  sed -ised -e "s/\"kiwix.install.prefix\"\,\ \"[[^\"]]*\"/\"kiwix.install.prefix\"\,\ \"$(echo $prefix | sed -e 's/\\/\\\\/g' -e 's/\//\\\//g' -e 's/&/\\\&/g')\"/" ./kiwix/defaults/preferences/preferences.js
 
 fi
