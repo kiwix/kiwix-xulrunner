@@ -34,7 +34,7 @@ then
     CXX_VERSION=`$CXX --version | head -n 1 | cut -d " " -f 3` 
     if [[ "$CXX_VERSION" \< "3.3" ]]
     then
-      AC_MSG_ERROR([g++ 4.3.x or higher required])
+      AC_MSG_ERROR([g++ 3.3.x or higher required])
     fi
   fi
 
