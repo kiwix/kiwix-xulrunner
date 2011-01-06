@@ -275,8 +275,8 @@ else
 	LIBLZMA_LDFLAGS="-L${CURRENT_PATH}/src/dependences/xz-4.999.9beta/src/liblzma/.libs/ -Bstatic -llzma"
 
 	# libxapian
-	LIBXAPIAN_CFLAGS="-I${CURRENT_PATH}/src/dependences/xapian-core-1.0.16/include/";
-	LIBXAPIAN_LDFLAGS="-L${CURRENT_PATH}/src/dependences/xapian-core-1.0.16/.libs/ -lxapian";
+	LIBXAPIAN_CFLAGS="-I${CURRENT_PATH}/src/dependences/xapian-core-1.2.3/include/";
+	LIBXAPIAN_LDFLAGS="-L${CURRENT_PATH}/src/dependences/xapian-core-1.2.3/.libs/ -lxapian";
 
 #	-Bstatic -lzim -lz -lzma -Wl,-Bdynamic
 
