@@ -58,7 +58,7 @@ xapian-core-1.2.3/win32/Release/libs/libunicode.lib: xapian-core.tar.gz xapian-w
 	cd xapian-core-1.2.3/win32; export MAKEFLAGS=; nmake.exe -f Makefile
 
 mozilla-1.9.1/dist/bin/xulrunner: xulrunner-source.tar.bz2
-	cp .mozconfig mozilla-1.9.1/ ; make -f client.mk build ; make package
+	cp .mozconfig mozilla-1.9.1/ ; cd mozilla-1.9.1 ; make -f client.mk build ; make package
 
 xz-4.999.9beta/src/liblzma/.libs/liblzma.a: xz.tar.bz2
 	cd xz-4.999.9beta ; export CFLAGS=" -fPIC " ; ./configure ; make 
