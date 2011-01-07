@@ -37,6 +37,7 @@ xulrunner.dmg:
 	hdiutil attach xulrunner.dmg
 	echo "Installing XulRunner Framework. Please provide admin password to installer"
 	sudo installer -pkg /Volumes/XULRunner/xulrunner-1.9.2.13.en-US.mac.pkg -target /
+	hdiutil detach /Volumes/XULRunner/
 
 xz.tar.bz2:
 	wget -c http://download.kiwix.org/dev/xz-4.999.9beta.tar.bz2 -O xz.tar.bz2
