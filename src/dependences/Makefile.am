@@ -23,6 +23,9 @@ else
 	wget -c http://download.kiwix.org/dev/xulrunner-1.9.2.13.en-US.linux-i686.sdk.tar.bz2 -O xulrunner-sdk.tar.bz2
 endif
 	tar -xf xulrunner-sdk.tar.bz2
+if IS_OSX
+	cd xulrunner-sdk/sdk/lib ; ln -s XUL libxul.dylib
+endif
 
 xulrunner-sdk-win.zip:
 	wget -c http://download.kiwix.org/dev/xulrunner-1.9.2.en-US.win32.sdk.zip -O xulrunner-sdk-win.zip
