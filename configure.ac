@@ -24,6 +24,9 @@ then
   IS_WIN=1
 fi
 
+AC_CHECK_PROG(HAVE_XCODE, Xcode, yes, no, [$PATH$PATH_SEPARATOR/Developer/Applications/Xcode.app/Contents/MacOS/$PATH_SEPARATOR])
+AM_CONDITIONAL([IS_OSX], [test "$HAVE_XCODE" = yes])
+
 # Only for POSIX systems
 if test [ ! "$IS_WIN" ]
 then
