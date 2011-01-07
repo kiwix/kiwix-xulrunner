@@ -262,7 +262,7 @@ else
 	DEPENDENCES="dependences"
 
 	# Gecko stuff
-	GECKO_SDK_PATH=${CURRENT_PATH}/src/dependences/mozilla-1.9.1/dist/sdk/
+	GECKO_SDK_PATH=${CURRENT_PATH}/src/dependences/xulrunner-sdk/
 	LIBXUL_CFLAGS="-I${GECKO_SDK_PATH}/include -fshort-wchar"
 	LIBXUL_LDFLAGS="-L${GECKO_SDK_PATH}/lib -lxpcomglue_s -lxul -lxpcom -lplds4 -lplc4 -lnspr4 -lpthread -ldl"
 	GECKO_IDL_PATH=${GECKO_SDK_PATH}/idl
