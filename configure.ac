@@ -312,6 +312,7 @@ CXXFLAGS=${CFLAGS}
 # libzim flags
 LIBZIM_CFLAGS="-I${CURRENT_PATH}/src/zimlib/include"
 LIBZIM_LDFLAGS="${LIBZ_LDFLAGS} ${LIBLZMA_LDFLAGS}"
+LIBZIM_STATIC_LDFLAGS="${LIBZ_STATIC_LDFLAGS} ${LIBLZMA_STATIC_LDFLAGS}"
 AC_DEFINE_UNQUOTED(CLUSTER_CACHE_SIZE, 16, [set zim cluster cache size to number of cached chunks])
 AC_DEFINE_UNQUOTED(DIRENT_CACHE_SIZE, 512, [set zim dirent cache size to number of cached chunks])
 AC_DEFINE_UNQUOTED(LZMA_MEMORY_SIZE, 128, [set lzma uncompress memory size to number of MB])
