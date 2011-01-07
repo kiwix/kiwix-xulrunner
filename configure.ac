@@ -26,6 +26,10 @@ fi
 
 AC_CHECK_PROG(HAVE_XCODE, Xcode, yes, no, [$PATH$PATH_SEPARATOR/Developer/Applications/Xcode.app/Contents/MacOS/$PATH_SEPARATOR])
 AM_CONDITIONAL([IS_OSX], [test "$HAVE_XCODE" = yes])
+if test [ "$HAVE_XCODE" ]
+then
+  IS_OSX=1
+fi
 
 # Only for POSIX systems
 if test [ ! "$IS_WIN" ]
@@ -262,9 +266,9 @@ else
 	DEPENDENCES="dependences"
 
 	# Gecko stuff
-	GECKO_SDK_PATH=${CURRENT_PATH}/src/dependences/xulrunner-sdk/
+	GECKO_SDK_PATH=${CURRENT_PATH}/src/dependences/xulrunner-sdk
 	LIBXUL_CFLAGS="-I${GECKO_SDK_PATH}/include -fshort-wchar"
-	LIBXUL_LDFLAGS="-L${GECKO_SDK_PATH}/lib -lxpcomglue_s -lxul -lxpcom -lplds4 -lplc4 -lnspr4 -lpthread -ldl"
+	LIBXUL_LDFLAGS="-L${GECKO_SDK_PATH}/sdk/lib -lxpcomglue_s -lxul -lxpcom -lplds4 -lplc4 -lnspr4 -lpthread -ldl"
 	GECKO_IDL_PATH=${GECKO_SDK_PATH}/idl
 	XPIDL_PATH=$GECKO_SDK_PATH/bin
 	AC_PATH_PROG([XPIDL], "xpidl", [], $XPIDL_PATH)
@@ -272,14 +276,21 @@ else
 	# zlib
 	LIBZ_CFLAGS="-I${CURRENT_PATH}/src/dependences/zlib-1.2.3/"
 	LIBZ_LDFLAGS="-L${CURRENT_PATH}/src/dependences/zlib-1.2.3/ -Bstatic -lz"
+	LIBZ_STATIC_LDFLAGS="${CURRENT_PATH}/src/dependences/zlib-1.2.3/libz.a"
 
 	# liblzma
 	LIBLZMA_CFLAGS="-I${CURRENT_PATH}/src/dependences/xz-4.999.9beta/src/liblzma/api/"
 	LIBLZMA_LDFLAGS="-L${CURRENT_PATH}/src/dependences/xz-4.999.9beta/src/liblzma/.libs/ -Bstatic -llzma"
+	LIBLZMA_STATIC_LDFLAGS="${CURRENT_PATH}/src/dependences/xz-4.999.9beta/src/liblzma/.libs/liblzma.a"
 
 	# libxapian
 	LIBXAPIAN_CFLAGS="-I${CURRENT_PATH}/src/dependences/xapian-core-1.2.3/include/";
 	LIBXAPIAN_LDFLAGS="-L${CURRENT_PATH}/src/dependences/xapian-core-1.2.3/.libs/ -lxapian";
+	LIBXAPIAN_STATIC_LDFLAGS="${CURRENT_PATH}/src/dependences/xapian-core-1.2.3/.libs/libxapian.a";
+	
+	# libicu
+	# even in with-dep mode we don't get it
+	LIBICU_STATIC_LDFLAGS="/opt/local/lib/libicudata.a /opt/local/lib/libicui18n.a /opt/local/lib/libicuuc.a"
 
 #	-Bstatic -lzim -lz -lzma -Wl,-Bdynamic
 
@@ -312,7 +323,12 @@ AC_ARG_WITH(debug, [  --with-debug-symbols    add debug symbols], CFLAGS="${CFLA
 
 # Special Flags for XPCOM components
 XPCOM_CFLAGS="-fno-rtti -fPIC"
-XPCOM_LDFLAGS="-Xcompiler -shared -Wl,-rpath-link,$GECKO_SDK_PATH/bin"
+XPCOM_LDFLAGS="-Xcompiler -shared -Wl"
+if test [ ! "$IS_OSX" ]
+then
+# osx don't need for rpath-link as we build static
+XPCOM_LDFLAGS +=",-rpath-link,$GECKO_SDK_PATH/bin"
+fi
 
 # Export variables
 AC_SUBST(LIBXUL_CFLAGS)
@@ -323,16 +339,22 @@ AC_SUBST(XPIDL)
 AC_SUBST(GECKO_IDL_PATH)
 AC_SUBST(LIBXAPIAN_CFLAGS)
 AC_SUBST(LIBXAPIAN_LDFLAGS)
+AC_SUBST(LIBXAPIAN_STATIC_LDFLAGS)
 AC_SUBST(LIBCLUCENE_CFLAGS)
 AC_SUBST(LIBCLUCENE_LDFLAGS)
+AC_SUBST(LIBCLUCENE_STATIC_LDFLAGS)
 AC_SUBST(LIBZ_CFLAGS)
 AC_SUBST(LIBZ_LDFLAGS)
+AC_SUBST(LIBZ_STATIC_LDFLAGS)
 AC_SUBST(LIBLZMA_CFLAGS)
 AC_SUBST(LIBLZMA_LDFLAGS)
+AC_SUBST(LIBLZMA_STATIC_LDFLAGS)
 AC_SUBST(LIBICU_CFLAGS)
 AC_SUBST(LIBICU_LDFLAGS)
+AC_SUBST(LIBICU_STATIC_LDFLAGS)
 AC_SUBST(LIBZIM_CFLAGS)
 AC_SUBST(LIBZIM_LDFLAGS)
+AC_SUBST(LIBZIM_STATIC_LDFLAGS)
 AC_SUBST(LIBMICROHTTPD_CFLAGS)
 AC_SUBST(LIBMICROHTTPD_LDFLAGS)
 AC_SUBST(ESCAPED_PREFIX)
