@@ -35,6 +35,10 @@ xulrunner-source.tar.bz2:
 xz.tar.bz2:
 	wget -c http://download.kiwix.org/dev/xz-4.999.9beta.tar.bz2 -O xz.tar.bz2
 	tar -xvjf xz.tar.bz2
+if IS_OSX
+	echo "patching liblzma for OSX"
+	cd xz-4.999.9beta ; patch -p0 < ../patches/xz-4.999.9beta-sysctl-darwin.patch ; patch -p0 < ../patches/xz-4.999.9beta-lzma-versioninfo.patch
+endif
 
 # compile
 zlib-1.2.3/libz.a: zlib.tar.gz
@@ -61,7 +65,10 @@ mozilla-1.9.2/dist/bin/xulrunner: xulrunner-source.tar.bz2
 	cp .mozconfig mozilla-1.9.2/ ; cd mozilla-1.9.2 ; make -f client.mk build ; make package
 
 xz-4.999.9beta/src/liblzma/.libs/liblzma.a: xz.tar.bz2
-	cd xz-4.999.9beta ; export CFLAGS=" -fPIC " ; ./configure ; make 
+if IS_OSX
+	lzma_conf_extra="--with-libiconv-prefix=/opt/local --with-libintl-prefix=/opt/local --disable-assembler"
+endif
+	cd xz-4.999.9beta ; export CFLAGS=" -fPIC " ; ./configure $(lzma_conf_extra); make 
 
 xz-4.999.9beta/windows/liblzma.lib: xz.tar.bz2
 	cd xz-4.999.9beta/windows ; make liblzma
