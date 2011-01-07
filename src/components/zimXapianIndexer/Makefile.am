@@ -15,7 +15,12 @@ include_HEADERS= \
 	../../common/kiwix/indexer.h \
 	../../common/kiwix/xapianIndexer.h
 libZimXapianIndexer_la_CXXFLAGS=$(LIBXUL_CFLAGS) $(LIBXAPIAN_CFLAGS) $(LIBICU_CFLAGS) $(LIBZIM_CFLAGS) $(XPCOM_CFLAGS) -I../../common/
+if IS_OSX
+libZimXapianIndexer_la_CXXFLAGS += -I/opt/local/include 
+libZimXapianIndexer_la_LDFLAGS=$(LIBXUL_LDFLAGS) $(LIBXAPIAN_STATIC_LDFLAGS) $(LIBICU_STATIC_LDFLAGS) $(LIBZIM_STATIC_LDFLAGS) $(XPCOM_LDFLAGS)
+else
 libZimXapianIndexer_la_LDFLAGS=$(LIBXUL_LDFLAGS) $(LIBXAPIAN_LDFLAGS) $(LIBICU_LDFLAGS) $(LIBZIM_LDFLAGS) $(XPCOM_LDFLAGS)
+endif
 libZimXapianIndexer_la_LIBADD=../../zimlib/src/.libs/libzim.a
 EXTRA_DIST=IZimXapianIndexer.idl
 BUILT_SOURCES=IZimXapianIndexer.xpt IZimXapianIndexer.h
