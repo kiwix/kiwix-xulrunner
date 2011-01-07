@@ -1,11 +1,11 @@
 # download
 zlib.tar.gz:
 	wget -c http://download.kiwix.org/dev/zlib-1.2.3.tar.gz -O zlib.tar.gz
-	tar -xvzf zlib.tar.gz
+	tar -xf zlib.tar.gz
 
 xapian-core.tar.gz:
 	wget -c http://download.kiwix.org/dev/xapian-core-1.2.3.tar.gz -O xapian-core.tar.gz
-	tar -xvzf xapian-core.tar.gz
+	tar -xf xapian-core.tar.gz
 
 xapian-win32.zip:
 	wget -c http://download.kiwix.org/dev/xapian-1.2.3-win32.zip -O xapian-win32.zip
@@ -16,9 +16,13 @@ icu.zip:
 	wget -c http://download.kiwix.org/dev/icu4c-4_4-Win32-msvc9.zip -O icu.zip
 	unzip icu.zip
 
-xulrunner-sdk-linux.tar.bz2:
-	wget -c http://download.kiwix.org/dev/xulrunner-1.9.1.4.en-US.linux-i686.sdk.tar.bz2 -O xulrunner-sdk-linux.tar.bz2
-	tar -xvjf xulrunner-sdk-linux.tar.bz2
+xulrunner-sdk.tar.bz2:
+if IS_OSX
+	wget -c http://download.kiwix.org/dev/xulrunner-1.9.2.13.en-US.mac-i386.sdk.tar.bz2 -O xulrunner-sdk.tar.bz2
+else
+	wget -c http://download.kiwix.org/dev/xulrunner-1.9.2.13.en-US.linux-i686.sdk.tar.bz2 -O xulrunner-sdk.tar.bz2
+endif
+	tar -xf xulrunner-sdk.tar.bz2
 
 xulrunner-sdk-win.zip:
 	wget -c http://download.kiwix.org/dev/xulrunner-1.9.2.en-US.win32.sdk.zip -O xulrunner-sdk-win.zip
@@ -28,13 +32,15 @@ xulrunner-win.zip:
 	wget -c http://download.kiwix.org/dev/xulrunner-1.9.2.en-US.win32.zip -O xulrunner-win.zip
 	unzip xulrunner-win.zip
 
-xulrunner-source.tar.bz2:
-	wget -c http://download.kiwix.org/dev/xulrunner-1.9.2.source.tar.bz2 -O xulrunner-source.tar.bz2
-	tar -xvjf xulrunner-source.tar.bz2
+xulrunner.dmg:
+	wget -c http://download.kiwix.org/dev/xulrunner-1.9.2.13.en-US.mac-pkg.dmg -O xulrunner.dmg
+	hdiutil attach xulrunner.dmg
+	echo "Installing XulRunner Framework. Please provide admin password to installer"
+	sudo installer -pkg /Volumes/XULRunner/xulrunner-1.9.2.13.en-US.mac.pkg -target /
 
 xz.tar.bz2:
 	wget -c http://download.kiwix.org/dev/xz-4.999.9beta.tar.bz2 -O xz.tar.bz2
-	tar -xvjf xz.tar.bz2
+	tar -xf xz.tar.bz2
 if IS_OSX
 	echo "patching liblzma for OSX"
 	cd xz-4.999.9beta ; patch -p0 < ../patches/xz-4.999.9beta-sysctl-darwin.patch ; patch -p0 < ../patches/xz-4.999.9beta-lzma-versioninfo.patch
@@ -61,8 +67,8 @@ xapian-core-1.2.3/win32/Release/libs/libunicode.lib: xapian-core.tar.gz xapian-w
 	cd xapian-core-1.2.3/win32; sed "s/^.*harness.*$$/42:/" Makefile.bis > Makefile
 	cd xapian-core-1.2.3/win32; export MAKEFLAGS=; nmake.exe -f Makefile
 
-mozilla-1.9.2/dist/bin/xulrunner: xulrunner-source.tar.bz2
-	cp .mozconfig mozilla-1.9.2/ ; cd mozilla-1.9.2 ; make -f client.mk build ; make package
+xulrunner-sdk/bin/xulrunner: xulrunner-sdk.tar.bz2
+	echo "xulrunner SDK present."
 
 xz-4.999.9beta/src/liblzma/.libs/liblzma.a: xz.tar.bz2
 if IS_OSX
@@ -72,10 +78,17 @@ endif
 
 xz-4.999.9beta/windows/liblzma.lib: xz.tar.bz2
 	cd xz-4.999.9beta/windows ; make liblzma
-	cd xz-4.999.9beta/windows ; lib /def:liblzma.def /out:liblzma.lib /machine:ix86
+	cd xz-4.999.9beta/windows ; lib /def:liblzma.def /out:liblzma.lib /machine:ix86	
 
-all: zlib-1.2.3/libz.a xapian-core-1.2.3/.libs/libxapian.a xz-4.999.9beta/src/liblzma/.libs/liblzma.a mozilla-1.9.1/dist/bin/xulrunner
-	
+linux: zlib-1.2.3/libz.a xapian-core-1.2.3/.libs/libxapian.a xz-4.999.9beta/src/liblzma/.libs/liblzma.a xulrunner-sdk/bin/xulrunner
+
+mac: linux xulrunner.dmg
+
+if IS_OSX
+all: linux mac
+else
+all: linux
+endif
 
 win: zlib-1.2.3/zlib.lib xapian-core-1.2.3/win32/Release/libs/libunicode.lib icu.zip xz-4.999.9beta/windows/liblzma.lib xulrunner-sdk-win.zip xulrunner-win.zip
 	
