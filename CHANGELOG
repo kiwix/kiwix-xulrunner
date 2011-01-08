@@ -6,6 +6,7 @@ Kiwix 0.9 alpha8
 * Under Windows, the displayed (disk) "space required" value is now correct
 * kiwix-index backend argument is now option and set as "xapian" per default
 * Fix regressions responsible for lower case titles in result list (ID: 3147594)
+* Implement the HTTP 404 error in kiwix-serve
 	
 Kiwix 0.9 alpha7
 * Fix the encoding issue in the help in Parsi (ID: 3060250)
