@@ -1,0 +1,17 @@
+zimAccessor.dylib
+zimAccessor.so
+zimAccessor.dll
+zimXapianIndexer.dylib
+zimXapianIndexer.so
+zimXapianIndexer.d;;
+xapianAccessor.dylib
+xapianAccessor.so
+xapianAccessor.dll
+zimProtocol.js
+suggest.js
+cluceneAccessor.dylib
+cluceneAccessor.so
+cluceneAccessor.dll
+zimCluceneIndexer.dylib
+zimCluceneIndexer.so
+zimCluceneIndexer.dll

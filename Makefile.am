@@ -8,10 +8,13 @@ EXTRA_DIST= \
 
 CLEANFILES= \
 	./kiwix/components/zimAccessor.so \
+	./kiwix/components/zimAccessor.dylib \
 	./kiwix/components/zimAccessor.xpt \
 	./kiwix/components/xapianAccessor.so \
+	./kiwix/components/xapianAccessor.dylib \
 	./kiwix/components/xapianAccessor.xpt \
 	./kiwix/components/zimXapianIndexer.so \
+	./kiwix/components/zimXapianIndexer.dylib \
 	./kiwix/components/zimXapianIndexer.xpt \
 	./kiwix/components/cluceneAccessor.so \
 	./kiwix/components/cluceneAccessor.xpt \
@@ -112,6 +115,38 @@ rpm: dist
 	cp -f kiwix-0.9.tar.gz ~/rpmbuild/SOURCES/
 	rpmbuild -ba fedora/kiwix.spec
 	cp ~/rpmbuild/RPMS/*/*.rpm .
+
+kiwix-0.9.tar.gz: dist
+	echo "Need to recreate tgz"
+
+# Mac OSX rule
+# requires install of XR
+distmac: kiwix-0.9.tar.gz
+	tar xf kiwix-0.9.tar.gz
+	rm -rf kiwix_dmg
+	$(MKDIR_P) Kiwix.app
+	$(MKDIR_P) Kiwix.app/Contents
+	$(MKDIR_P) Kiwix.app/Contents/Frameworks
+	$(MKDIR_P) Kiwix.app/Contents/MacOS
+	$(MKDIR_P) Kiwix.app/Contents/Resources
+	rsync -ar kiwix-0.9/kiwix/* Kiwix.app/Contents/Resources/
+	find Kiwix.app/Contents/Resources/components/ -type l -delete
+	cp src/components/zimAccessor/IZimAccessor.xpt Kiwix.app/Contents/Resources/components/zimAccessor.xpt
+	cp src/components/zimAccessor/.libs/libZimAccessor.dylib Kiwix.app/Contents/Resources/components/zimAccessor.dylib
+	cp src/components/xapianAccessor/IXapianAccessor.xpt Kiwix.app/Contents/Resources/components/xapianAccessor.xpt
+	cp src/components/xapianAccessor/.libs/libXapianAccessor.dylib Kiwix.app/Contents/Resources/components/xapianAccessor.dylib
+	cp src/components/zimXapianIndexer/IZimXapianIndexer.xpt Kiwix.app/Contents/Resources/components/zimXapianIndexer.xpt
+	cp src/components/zimXapianIndexer/.libs/libZimXapianIndexer.dylib Kiwix.app/Contents/Resources/components/zimXapianIndexer.dylib
+	cp src/components/components.list Kiwix.app/Contents/Resources/components/components.list
+	rsync -rl /Library/Frameworks/XUL.framework/ Kiwix.app/Contents/Frameworks/XUL.framework/
+	cp /Library/Frameworks/XUL.framework/Versions/Current/xulrunner Kiwix.app/Contents/MacOS/xulrunner
+	cp kiwix-0.9/kiwix/chrome/icons/default/main.icns Kiwix.app/Contents/Resources/kiwix.icns
+	cp src/macosx/Info.plist Kiwix.app/Contents/Info.plist
+	chmod -R 755 Kiwix.app
+	$(MKDIR_P) kiwix_dmg
+	mv Kiwix.app kiwix_dmg/Kiwix.app
+	echo "Hello" > kiwix_dmg/message.txt
+	hdiutil create kiwix-0.9.dmg -volname "Kiwix-0.9" -srcfolder ./kiwix_dmg/ -ov
 
 # Windows rule
 win:

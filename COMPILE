@@ -23,6 +23,9 @@ You will also need to build on an Apple Mac computer.
 * Install OSX 10.6.5+ (proprietary)
 * Install XCode 3.2.5+ (proprietary) - 
   http://developer.apple.com/technologies/xcode.html (requires registration)
+  http://download.kiwix.org/dev/xcode_3.2.5_and_ios_sdk_4.2_final.dmg
+* Install XulRunner
+  http://download.kiwix.org/dev/xulrunner-1.9.2.13.en-US.mac-pkg.dmg
 * Install MacPorts - http://www.macports.org/install.php
 
 * Install the following tools and libraries
