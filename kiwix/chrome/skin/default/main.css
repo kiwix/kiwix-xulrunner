@@ -133,6 +133,13 @@ window[langdir="rtl"] #button-next {
     width: 100%;
 }
 
+#main.mac #textbox-search {
+	-moz-appearance: none;
+	background-color: #f1f1f1;
+	border: 1px solid #dedede;
+    -moz-border-radius: 12px / 24px;
+}
+
 /* Main window*/
 #main {
     margin: 0;
