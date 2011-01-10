@@ -1013,6 +1013,12 @@ function initUserInterface() {
     /* Populates the last open menu */
     populateLastOpenMenu();
 
+	/* Mac OSX specificities
+	   disable Print as PDF menu */
+	if (env.platform.type == "mac") {
+		document.getElementById("file-print-pdf").setAttribute('disabled', 'true');
+	}
+
     /* Apply GUI settings */
     if (settings.displayStatusBar() != undefined) { changeStatusBarVisibilityStatus(settings.displayStatusBar()); }
     if (settings.displayFullScreen() != undefined) { if (settings.displayFullScreen()) { UIToggleFullScreen(); } }
