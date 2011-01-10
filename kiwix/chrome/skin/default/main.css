@@ -57,6 +57,11 @@
     margin-right: 5px;
 }
 
+#main.mac #tool-box {
+    margin-left: auto;
+    margin-right: auto;
+}
+
 /* Buttons */
 #button-back {
     list-style-image: url("chrome://main/skin/icon/go-back24.png");
@@ -137,7 +142,9 @@ window[langdir="rtl"] #button-next {
 	-moz-appearance: none;
 	background-color: #f1f1f1;
 	border: 1px solid #dedede;
-    -moz-border-radius: 12px / 24px;
+	padding-left: .5em;
+	padding-right: .5em;
+    -moz-border-radius: 1em;
 }
 
 /* Main window*/
@@ -232,6 +239,8 @@ window[langdir="rtl"] #button-next {
 
 #main.mac * #tab-panels {
 	-moz-appearance: none;
+	margin-left: -4px;
+	margin-right: -4px;
 }
 
 #tabs-close-button {
