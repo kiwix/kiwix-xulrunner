@@ -21,4 +21,5 @@
 
 <!-- Log -->
 <browser id="credits" type="text/html" src="chrome://branding/locale/credits.html" flex="1" style="margin-top: 10px; margin-bottom: 10px;" />
+<button oncommand="window.close();" label="&main.close;" />
 </window>
