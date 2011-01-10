@@ -5,7 +5,6 @@ SUBDIRS = \
 if IS_OSX
 
 else
-	SUBDIRS += zimIndexer \
-	zimCluceneIndexer \
+	SUBDIRS += zimCluceneIndexer \
 	cluceneAccessor
 endif
