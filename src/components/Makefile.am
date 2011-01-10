@@ -1,7 +1,11 @@
 SUBDIRS = \
 	xapianAccessor \
 	zimAccessor \
-	zimXapianIndexer \
-	zimIndexer \
+	zimXapianIndexer
+if IS_OSX
+
+else
+	SUBDIRS += zimIndexer \
 	zimCluceneIndexer \
 	cluceneAccessor
+endif
