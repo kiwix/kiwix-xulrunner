@@ -7,17 +7,23 @@ function showTabHeaders() {
 }
 
 /* Make the tabs (in)visible */
-function changeTabsVisibilityStatus(visible, save) {
-    if (visible == undefined)
-	visible = document.getElementById('display-tabs').getAttribute('checked');
-    else
-	document.getElementById('display-tabs').setAttribute('checked', visible);   
+function changeTabsVisibilityStatus(set_visible, save) {
+	
+	var tabHeaders = document.getElementById("tab-headers");
+	is_visible = (tabHeaders.style.display == "block");
+	if (set_visible == true) {
+		vis_value = true;
+	} else {
+		vis_value = !is_visible;
+	}
+	
+	if (vis_value)
+		tabHeaders.style.display = "block";
+	else
+		tabHeaders.style.display = "none";
 
-    var tabHeaders = document.getElementById("tab-headers");
-    
-    tabHeaders.style.display = visible?"block":"none";
-
-    if (save) settings.displayTabs(visible);
+	document.getElementById('display-tabs').setAttribute('checked', vis_value);
+	if (save) settings.displayTabs(vis_value);
 }
 
 /* Add a new tab */
