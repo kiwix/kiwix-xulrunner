@@ -3,7 +3,7 @@ zimAccessor.so
 zimAccessor.dll
 zimXapianIndexer.dylib
 zimXapianIndexer.so
-zimXapianIndexer.d;;
+zimXapianIndexer.dylib
 xapianAccessor.dylib
 xapianAccessor.so
 xapianAccessor.dll
