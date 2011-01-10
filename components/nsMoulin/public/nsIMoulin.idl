@@ -1,7 +1,0 @@
-#include "nsISupports.idl"
-[scriptable, uuid(00536F33-2C53-457C-B74A-893A04A07D1D)]
-interface nsIMoulin : nsISupports
-{
-    AUTF8String retrieveBzip2Content(in string archivefile, in PRUint32 startoffset, in PRInt32 length);
-    AUTF8String retrieveGzipContent(in string archivefile, in PRUint32 startoffset, in PRInt32 length);
-};
