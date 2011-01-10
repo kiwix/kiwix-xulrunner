@@ -998,6 +998,9 @@ function populateLastOpenMenu() {
 
 /* Initialize the user interface */
 function initUserInterface() {
+	/* Set a class on main window based on platform string */
+	document.getElementById("main").className = env.platform.type;
+	
     /* Set the size and position of the window */
     configureWindowGeometry(this);
 
