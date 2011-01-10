@@ -185,6 +185,10 @@ window[langdir="rtl"] #button-next {
     width: 200px;
 }
 
+#main.mac #bookmarks-bar {
+    width: 240px;
+}
+
 #bookmarks-toolbar {
     -moz-appearance: none;
 }
@@ -216,7 +220,11 @@ window[langdir="rtl"] #button-next {
 }
 
 #tab-panels {
-    padding: 0px;
+    padding: 0;
+}
+
+#main.mac * #tab-panels {
+	-moz-appearance: none;
 }
 
 #tabs-close-button {
@@ -229,6 +237,11 @@ window[langdir="rtl"] #button-next {
 
 .tab-header {
     width: 150px;
+}
+
+#main.mac * .tab-header {
+	margin-top: .8em;
+	margin-bottom: 1.2em;
 }
 
 .tab-header-label {
