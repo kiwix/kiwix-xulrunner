@@ -81,6 +81,11 @@
     margin-right: 5px;
 }
 
+#main.mac #tool-box {
+    margin-left: auto;
+    margin-right: auto;
+}
+
 /* Buttons */
 #button-back {
     list-style-image: url("chrome://main/skin/icon/go-back24.png");
@@ -177,6 +182,15 @@ window[langdir="rtl"] #button-next {
     width: 100%;
 }
 
+#main.mac #textbox-search {
+	-moz-appearance: none;
+	background-color: #f1f1f1;
+	border: 1px solid #dedede;
+	padding-left: .5em;
+	padding-right: .5em;
+    -moz-border-radius: 1em;
+}
+
 /* Main window*/
 #main {
     margin: 0;
@@ -229,6 +243,10 @@ window[langdir="rtl"] #button-next {
     width: 200px;
 }
 
+#main.mac #bookmarks-bar {
+    width: 240px;
+}
+
 #bookmarks-toolbar {
     -moz-appearance: none;
 }
@@ -263,6 +281,12 @@ window[langdir="rtl"] #button-next {
     padding: 0px;
 }
 
+#main.mac * #tab-panels {
+	-moz-appearance: none;
+	margin-left: -4px;
+	margin-right: -4px;
+}
+
 #tabs-close-button {
     list-style-image: url("chrome://main/skin/icon/close12.png");
 }
@@ -273,6 +297,11 @@ window[langdir="rtl"] #button-next {
 
 .tab-header {
     width: 150px;
+}
+
+#main.mac * .tab-header {
+	margin-top: .8em;
+	margin-bottom: 1.2em;
 }
 
 .tab-header-label {
