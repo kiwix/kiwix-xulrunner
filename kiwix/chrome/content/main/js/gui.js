@@ -740,7 +740,7 @@ function goHome() {
 
 /* Manage the change of the locale with the GUI */
 function manageChangeLocale(locale) {
-    if (locale && settings.locale() != locale) {
+    if (locale && (settings.locale() != locale)) {
 	settings.locale(locale);
 	restart();
     }
@@ -921,7 +921,7 @@ function populateLanguagesMenu() {
 	menuItem.setAttribute("value", locale);
 	menuItem.setAttribute("label", label);
 	menuItem.setAttribute("type", "checkbox");
-	menuItem.setAttribute("oncommand", "manageChangeLocale(this.value)");
+	menuItem.setAttribute("oncommand", "manageChangeLocale(this.getAttribute('value'));");
 	
 	/* If this the current locale, check and apply it. */
 	if (locale == selectedLocale) {
