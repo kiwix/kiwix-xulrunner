@@ -58,6 +58,10 @@ CXX="g++ -arch i386 -m32" to the configure command.
   running ./configure --help
   /opt/local is the path where you installed MacPorts (/opt/local is default)
 
+* make in src/dependences to fetch dependencies.
+
+* re-do ./configure script so it knows about new dependencies.
+
 * make to compile kiwix
 
 * make distmac to generate a complete dmg archive.

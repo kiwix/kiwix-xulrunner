@@ -143,10 +143,17 @@ distmac: kiwix-0.9.tar.gz
 	cp kiwix-0.9/kiwix/chrome/icons/default/main.icns Kiwix.app/Contents/Resources/kiwix.icns
 	cp src/macosx/Info.plist Kiwix.app/Contents/Info.plist
 	chmod -R 755 Kiwix.app
+
+	rm -f Kiwix-0.9.dmg
+	bunzip2 -kf src/macosx/kiwix_template.dmg.bz2
 	$(MKDIR_P) kiwix_dmg
-	mv Kiwix.app kiwix_dmg/Kiwix.app
-	echo "Hello" > kiwix_dmg/message.txt
-	hdiutil create kiwix-0.9.dmg -volname "Kiwix-0.9" -srcfolder ./kiwix_dmg/ -ov
+	hdiutil attach src/macosx/kiwix_template.dmg -noautoopen -quiet -mountpoint ./kiwix_dmg
+	rm -rf ./kiwix_dmg/Kiwix.app
+	mv Kiwix.app kiwix_dmg/
+	hdiutil detach ./kiwix_dmg -quiet -force
+	hdiutil convert src/macosx/kiwix_template.dmg -quiet -format UDZO -imagekey zlib-level=9 -o Kiwix-0.9.dmg
+	rm -f src/macosx/kiwix_template.dmg
+
 
 # Windows rule
 win:
