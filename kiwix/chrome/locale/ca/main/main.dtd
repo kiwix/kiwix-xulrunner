@@ -93,3 +93,7 @@
 
 <!-- Contextual Menu -->
 <!ENTITY main.saveImageAs               "Desa imatge com a...">
+
+
+<!-- About Window -->
+<!ENTITY main.close               		"Close">
