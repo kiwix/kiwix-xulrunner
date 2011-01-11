@@ -14,11 +14,10 @@ _languagesHash['zh']        = "中文";
 _languagesHash['es-ES']     = "Español";
 _languagesHash['it-IT']     = "Italiano";
 _languagesHash['ar']        = "العربية";
-_languagesHash['faool']     = "فارسی";
+_languagesHash['fa']     = "فارسی";
 _languagesHash['he-IL']     = "עברית";
 _languagesHash['pt-PT']     = "Português";
 _languagesHash['ca']        = "Català";
-_languagesHash['fa']        = "فارسی";
 
 /* Return the window object */
 function getWindow() {
