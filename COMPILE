@@ -28,15 +28,21 @@ You will also need to build on an Apple Mac computer.
   http://download.kiwix.org/dev/xulrunner-1.9.2.13.en-US.mac-pkg.dmg
 * Install MacPorts - http://www.macports.org/install.php
 
+* Configure Macports
+  Edit /opt/local/etc/macports/variants.conf and add "+universal" flag.
+  Edit /opt/local/etc/macports/macports.conf and change universal_archs to
+  universal_archs ppc i386 x86_64
+  rebuild MacPorts with port upgrade --force installed
+
 * Install the following tools and libraries
-sudo port install autogen +universal
-sudo port install pkgconfig +universal
-sudo port install wget +universal
-sudo port install gmake +universal
-sudo port install coreutils +universal
-sudo port install libidl +universal
-sudo port install autoconf213 +universal
-sudo port install icu +universal
+sudo port install autogen
+sudo port install pkgconfig
+sudo port install wget
+sudo port install gmake
+sudo port install coreutils
+sudo port install libidl
+sudo port install autoconf213
+sudo port install icu
 
 * short-circuit libtoolize which is a different tool on OSX.
 sudo ln -s /opt/local/bin/glibtoolize /opt/local/bin/libtoolize
