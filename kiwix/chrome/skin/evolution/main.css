@@ -86,6 +86,11 @@
     margin-right: auto;
 }
 
+#main.mac * toolbarbutton {
+	padding: 0;
+	margin: 0;
+}
+
 /* Buttons */
 #button-back {
     list-style-image: url("chrome://main/skin/icon/go-back24.png");
