@@ -2,6 +2,11 @@ These are the instructions to compile Kiwix.
 
 == GNU/Linux ==
 
+GNU/Linux build uses shared libraries by default.
+You will need the following dependencies to compile Kiwix for Linux
+Debian/Ubuntu packages: build-essentia autoconf automake libtool \
+libicu-dev libclucene-dev libxapian-dev libmicrohttpd-dev liblzma-dev
+
 * ./autogen.sh to generate the ./configure file if not already
 done.
 
