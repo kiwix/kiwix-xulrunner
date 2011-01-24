@@ -14,6 +14,7 @@ locale main he-IL locale/he-IL/main/
 locale main zh	  locale/zh/main/
 locale main fa	  locale/fa/main/
 locale main pt-PT locale/pt-PT/main/
+locale main pl    locale/pl/main/
 
 locale branding en-US locale/branding/
 locale branding fr-FR locale/branding/

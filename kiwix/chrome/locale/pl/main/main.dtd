@@ -1,0 +1,95 @@
+<!-- Window -->
+<!ENTITY main.title                     "&brand.brandShortName;">
+<!ENTITY main.cssdirection              "ltr">
+
+<!-- File menu -->
+<!ENTITY main.file                      "Plik">
+<!ENTITY main.file.accesskey            "P">
+<!ENTITY main.openFile                  "Otwórz plik...">
+<!ENTITY main.openFile.accesskey        "O">
+<!ENTITY main.lastOpen                  "Ostatnio otwarte...">
+<!ENTITY main.saveFile                  "Zapisz stronę jako...">
+<!ENTITY main.saveFile.accesskey        "P">
+<!ENTITY main.print                     "Drukuj">
+<!ENTITY main.print.accesskey           "D">
+<!ENTITY main.printPdf                  "Drukuj do PDF">
+<!ENTITY main.printPdf.accesskey        "J">
+<!ENTITY main.quit                      "Zakończ">
+<!ENTITY main.quit.accesskey            "K">
+
+<!-- Edit menu -->
+<!ENTITY main.edit                      "Edycja">
+<!ENTITY main.edit.accesskey            "E">
+<!ENTITY main.find                      "Znajdź na stronie...">
+<!ENTITY main.find.accesskey            "F">
+<!ENTITY main.selectall                 "Zaznacz wszystko">
+<!ENTITY main.selectall.accesskey       "a">
+<!ENTITY main.copy                      "Kopiuj">
+<!ENTITY main.copy.accesskey            "c">
+<!ENTITY main.transliteration           "Transliteracja">
+<!ENTITY main.transliteration.accesskey "T">
+
+<!-- Display menu -->
+<!ENTITY main.display                   "Widok">
+<!ENTITY main.display.accesskey         "W">
+<!ENTITY main.zoom                      "Powiększenie">
+<!ENTITY main.zoom.accesskey            "w">
+<!ENTITY main.zoomin                    "Powiększ">
+<!ENTITY main.zoomin.accesskey          "+">
+<!ENTITY main.zoomout                   "Pomniejsz">
+<!ENTITY main.zoomout.accesskey         "-">
+<!ENTITY main.zoomorig                  "Rozmiar pierwotny">
+<!ENTITY main.zoomorig.accesskey        "0">
+<!ENTITY main.language                  "Język">
+<!ENTITY main.language.accesskey        "J">
+<!ENTITY main.skin                      "Skórka">
+<!ENTITY main.skin.accesskey            "S">
+<!ENTITY main.statusbar                 "Pasek stanu">
+<!ENTITY main.statusbar.accesskey       "S">
+<!ENTITY main.resultsbar                "Panel wyników">
+<!ENTITY main.resultsbar.accesskey      "w">
+<!ENTITY main.tabs                      "Zakładki">
+<!ENTITY main.tabs.accesskey            "Z">
+<!ENTITY main.fullscreen                "Pełny ekran">
+<!ENTITY main.fullscreen.accesskey      "F">
+
+<!-- Tools menu -->
+<!ENTITY main.tools                     "Narzędzia">
+<!ENTITY main.tools.accesskey           "N">
+<!ENTITY main.randomArticle             "Losowy artykuł">
+<!ENTITY main.randomArticle.accesskey   "L">
+<!ENTITY main.purgeHistory              "Wyczyść historię">
+<!ENTITY main.purgeHistory.accesskey    "W">
+
+<!-- Help menu -->
+<!ENTITY main.help                      "Pomoc">
+<!ENTITY main.help.accesskey            "c">
+<!ENTITY main.reportabug                "Zgłoś bug">
+<!ENTITY main.requestafeature           "Zaproponuj opcję">
+<!ENTITY main.about                     "O &brand.brandShortName;">
+<!ENTITY main.about.accesskey           "O">
+
+<!-- Tool bar -->
+<!ENTITY main.back                      "Cofnij">
+<!ENTITY main.forward                   "Ponów">
+<!ENTITY main.home                      "Strona główna">
+<!ENTITY main.searchBar                 "Pole wyszukiwania">
+<!ENTITY main.search                    "Szukaj">
+<!ENTITY main.noSearchBar               "Wyszukiwanie wymaga zaindeksowanego pliku Zim">
+<!ENTITY main.bookmarks                 "Zakładki">
+
+<!-- Results bar -->
+<!ENTITY main.results.title             "Wyniki wyszukiwania">
+
+<!-- Bookmarks Bar -->
+<!ENTITY main.bmkLabel                  "Zakładki:">
+<!ENTITY main.notesLabel                "Notatki zakładki:">
+<!ENTITY main.loadbmk                   "Importuj zestaw zakładek">
+<!ENTITY main.newbmk                    "Stwórz nowy zestaw zakładek">
+<!ENTITY main.mark                      "Zaznacz bieżącą stronę">
+<!ENTITY main.unmark                    "Odznacz wybrane">
+<!ENTITY main.reload                    "Usuń wszystkie zakładki z bieżącego zestawu">
+<!ENTITY main.defaultset                "Zestaw domyślny">
+
+<!-- Contextual Menu -->
+<!ENTITY main.saveImageAs               "Zapisz obrazek jako...">

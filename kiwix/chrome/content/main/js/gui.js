@@ -17,6 +17,7 @@ _languagesHash['ar']        = "العربية";
 _languagesHash['fa']     = "فارسی";
 _languagesHash['he-IL']     = "עברית";
 _languagesHash['pt-PT']     = "Português";
+_languagesHash['pl']        = "Język polski";
 _languagesHash['ca']        = "Català";
 
 /* Return the window object */
