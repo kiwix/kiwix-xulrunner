@@ -63,6 +63,7 @@
   <key id="fullscreen-key" keycode="VK_F11" oncommand="UIToggleFullScreen(true)"/>
   <key id="change-results-bar-visibility-status" key="R" modifiers="control" 
        oncommand="changeResultsBarVisibilityStatus()"/>
+  <key id="escape" keycode="VK_ESCAPE" oncommand="handleEscape()"/>
 </keyset>
 
 <!-- Contextual menu -->

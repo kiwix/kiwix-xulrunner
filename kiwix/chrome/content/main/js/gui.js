@@ -14,7 +14,7 @@ _languagesHash['zh']        = "中文";
 _languagesHash['es-ES']     = "Español";
 _languagesHash['it-IT']     = "Italiano";
 _languagesHash['ar']        = "العربية";
-_languagesHash['fa']     = "فارسی";
+_languagesHash['fa']        = "فارسی";
 _languagesHash['he-IL']     = "עברית";
 _languagesHash['pt-PT']     = "Português";
 _languagesHash['pl']        = "Język polski";
@@ -1132,6 +1132,13 @@ function initHtmlRendererEventListeners() {
     /* Necessary to update the tab header */
     htmlRenderer.addEventListener("pageshow", function(){ updateTabHeader(id) }, true);
     htmlRenderer.addEventListener("load", function(){ updateTabHeader(id) }, true);
+}
+
+/* Deal with the Escape key */
+function handleEscape() {
+    if (_winIsFullScreen) {
+	UIToggleFullScreen(true);
+    }
 }
 
 /* Create the necessary listeners */
