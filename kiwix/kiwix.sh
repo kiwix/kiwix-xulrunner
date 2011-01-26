@@ -44,13 +44,13 @@ then
 fi
 
 # If no symlink "xulrunner" try to find the binary itself
-if [ ! "$XULRUNNER" ]
+if [ ! "$XULRUNNER" ] || [ ! -f "$XULRUNNER" ] || [ ! -x "$XULRUNNER" ] || [ ! -r "$XULRUNNER" ]
 then
     XULRUNNER=`whereis xulrunner-1.9.2 | cut -d" " -f2`
 fi
 
 # If no result print a message
-if [ ! "$XULRUNNER" ] || [ ! -f "$XULRUNNER" ]
+if [ ! "$XULRUNNER" ] || [ ! -f "$XULRUNNER" ] || [ ! -x "$XULRUNNER" ] || [ ! -r "$XULRUNNER" ]
 then
     echo "'xulrunner' is not installed, you have to install it to use Kiwix."
     exit;
