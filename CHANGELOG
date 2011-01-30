@@ -8,6 +8,7 @@ Kiwix 0.9 alpha8
 * Fix regressions responsible for lower case titles in result list (ID: 3147594)
 * Implement the HTTP 404 error in kiwix-serve
 * Fix a small bug in the indexing code to avoid forgetting around 100 articler per ZIM file
+* Disable DNS prefetching for external links
 	
 Kiwix 0.9 alpha7
 * Fix the encoding issue in the help in Parsi (ID: 3060250)

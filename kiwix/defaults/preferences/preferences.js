@@ -67,3 +67,7 @@ pref("alerts.slideIncrement", 1);
 pref("alerts.slideIncrementTime", 10);
 pref("alerts.totalOpenTime", 4000);
 pref("alerts.height", 50);
+
+/* Disable DNS prefetching */
+pref("network.dns.disablePrefetch", false);
+pref("network.dns.disablePrefetchFromHTTPS", false);
