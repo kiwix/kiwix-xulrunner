@@ -1,10 +1,13 @@
+if IS_OSX
 SUBDIRS = \
 	xapianAccessor \
 	zimAccessor \
 	zimXapianIndexer
-if IS_OSX
-
 else
-	SUBDIRS += zimCluceneIndexer \
+SUBDIRS = \
+	xapianAccessor \
+	zimAccessor \
+	zimXapianIndexer \
+	zimCluceneIndexer \
 	cluceneAccessor
 endif
