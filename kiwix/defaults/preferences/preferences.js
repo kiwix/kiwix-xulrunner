@@ -69,5 +69,5 @@ pref("alerts.totalOpenTime", 4000);
 pref("alerts.height", 50);
 
 /* Disable DNS prefetching */
-pref("network.dns.disablePrefetch", false);
-pref("network.dns.disablePrefetchFromHTTPS", false);
+pref("network.dns.disablePrefetch", true);
+pref("network.dns.disablePrefetchFromHTTPS", true);
