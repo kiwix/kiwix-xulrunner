@@ -3,8 +3,8 @@
 	<lang code="en">
 		<layoutDirection>Qt::LeftToRight</layoutDirection>
 		<windowTitle>Kiwix</windowTitle>
-		<run>Launch Kiwix from here</run>
-		<install>Install Kiwix to your Hard Drive</install>
-		<quit>Quit this menu</quit>
+		<run>Uruchom Kiwix bez instalacji</run>
+		<install>Zainstaluj Kiwix na dysku</install>
+		<quit>Wyjdź z tego menu</quit>
 	</lang>
 </autorun>
