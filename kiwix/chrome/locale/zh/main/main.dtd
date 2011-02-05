@@ -42,13 +42,13 @@
 <!ENTITY main.zoomorig.accesskey        "O">
 <!ENTITY main.language                  "语言">
 <!ENTITY main.language.accesskey        "L">
-<!ENTITY main.skin                      "Skin">
+<!ENTITY main.skin                      "皮肤">
 <!ENTITY main.skin.accesskey            "S">
 <!ENTITY main.statusbar                 "状态栏">
 <!ENTITY main.statusbar.accesskey       "S">
 <!ENTITY main.resultsbar                "结果栏">
 <!ENTITY main.resultsbar.accesskey      "R">
-<!ENTITY main.tabs                      "Tabs">
+<!ENTITY main.tabs                      "标签">
 <!ENTITY main.tabs.accesskey            "T">
 <!ENTITY main.fullscreen                "全屏">
 <!ENTITY main.fullscreen.accesskey      "F">
@@ -58,7 +58,7 @@
 <!ENTITY main.tools.accesskey           "T">
 <!ENTITY main.randomArticle             "随机页面">
 <!ENTITY main.randomArticle.accesskey   "R">
-<!ENTITY main.purgeHistory              "Purge history">
+<!ENTITY main.purgeHistory              "清除历史">
 <!ENTITY main.purgeHistory.accesskey    "P">
 
 <!-- Help menu -->
@@ -92,7 +92,7 @@
 <!ENTITY main.defaultset                "缺省书签组">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveImageAs               "Save image as...">
+<!ENTITY main.saveImageAs               "图片另存为...">
 
 <!-- About Window -->
-<!ENTITY main.close               		"Close">
+<!ENTITY main.close                     "关闭">

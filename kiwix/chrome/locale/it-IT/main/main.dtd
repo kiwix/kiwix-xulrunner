@@ -92,7 +92,7 @@
 <!ENTITY main.defaultset                "Collezione predefinita">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveImageAs               "Save image as...">
+<!ENTITY main.saveImageAs               "Salva immagine con nome...">
 
 <!-- About Window -->
-<!ENTITY main.close               		"Close">
+<!ENTITY main.close                     "Chiudi">

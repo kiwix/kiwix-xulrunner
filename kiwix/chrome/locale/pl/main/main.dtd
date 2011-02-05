@@ -64,7 +64,7 @@
 <!-- Help menu -->
 <!ENTITY main.help                      "Pomoc">
 <!ENTITY main.help.accesskey            "c">
-<!ENTITY main.reportabug                "Zgłoś bug">
+<!ENTITY main.reportabug                "Zgłoś błąd">
 <!ENTITY main.requestafeature           "Zaproponuj opcję">
 <!ENTITY main.about                     "O &brand.brandShortName;">
 <!ENTITY main.about.accesskey           "O">
@@ -83,7 +83,7 @@
 
 <!-- Bookmarks Bar -->
 <!ENTITY main.bmkLabel                  "Zakładki:">
-<!ENTITY main.notesLabel                "Notatki zakładki:">
+<!ENTITY main.notesLabel                "Notatki:">
 <!ENTITY main.loadbmk                   "Importuj zestaw zakładek">
 <!ENTITY main.newbmk                    "Stwórz nowy zestaw zakładek">
 <!ENTITY main.mark                      "Zaznacz bieżącą stronę">

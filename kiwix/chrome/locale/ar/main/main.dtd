@@ -1,18 +1,18 @@
 <!-- Window -->
-<!ENTITY main.title                     "&brand.brandShortName;">
-<!ENTITY main.cssdirection              "rtl">
+<!ENTITY main.title                    "&brand.brandShortName;">
+<!ENTITY main.cssdirection              "إتجاه اللغة من اليمين لليسار ">
 
 <!-- File menu -->
 <!ENTITY main.file                      "ملف">
 <!ENTITY main.file.accesskey            "م">
 <!ENTITY main.openFile                  "فتح ملف...">
 <!ENTITY main.openFile.accesskey        "ف">
-<!ENTITY main.lastOpen                  "Recently open...">
-<!ENTITY main.saveFile                  "Save Page as...">
+<!ENTITY main.lastOpen                  "المفتوح مؤخراً...">
+<!ENTITY main.saveFile                  "حفظ الصفحة ك...">
 <!ENTITY main.saveFile.accesskey        "S">
 <!ENTITY main.print                     "طباعة">
 <!ENTITY main.print.accesskey           "ط">
-<!ENTITY main.printPdf                  "Print as PDF">
+<!ENTITY main.printPdf                  "طباعة كملف PDF">
 <!ENTITY main.printPdf.accesskey        "D">
 <!ENTITY main.quit                      "خروج">
 <!ENTITY main.quit.accesskey            "خ">
@@ -26,7 +26,7 @@
 <!ENTITY main.selectall.accesskey       "ح">
 <!ENTITY main.copy                      "نسخ">
 <!ENTITY main.copy.accesskey            "ن">
-<!ENTITY main.transliteration           "Transliteration">
+<!ENTITY main.transliteration           "تحويل لغة الكتابة">
 <!ENTITY main.transliteration.accesskey "T">
 
 <!-- Display menu -->
@@ -42,13 +42,13 @@
 <!ENTITY main.zoomorig.accesskey        "ح">
 <!ENTITY main.language                  "اللغة">
 <!ENTITY main.language.accesskey        "ل">
-<!ENTITY main.skin                      "Skin">
+<!ENTITY main.skin                      "الواجهة">
 <!ENTITY main.skin.accesskey            "S">
 <!ENTITY main.statusbar                 "شريط الحالة">
 <!ENTITY main.statusbar.accesskey       "ح">
 <!ENTITY main.resultsbar                "شريط النتائج">
 <!ENTITY main.resultsbar.accesskey      "ن">
-<!ENTITY main.tabs                      "Tabs">
+<!ENTITY main.tabs                      "ألسنة">
 <!ENTITY main.tabs.accesskey            "T">
 <!ENTITY main.fullscreen                "ملئ الشاشة">
 <!ENTITY main.fullscreen.accesskey      "م">
@@ -58,15 +58,15 @@
 <!ENTITY main.tools.accesskey           "ا">
 <!ENTITY main.randomArticle             "مقالة عشوائية">
 <!ENTITY main.randomArticle.accesskey   "ع">
-<!ENTITY main.purgeHistory              "Purge history">
+<!ENTITY main.purgeHistory              "إلغاء التاريخ">
 <!ENTITY main.purgeHistory.accesskey    "P">
 
 <!-- Help menu -->
 <!ENTITY main.help                      "مساعدة">
 <!ENTITY main.help.accesskey            "س">
-<!ENTITY main.reportabug                "Report a bug">
-<!ENTITY main.requestafeature           "Request a feature">
-<!ENTITY main.about                     "حول &brand.brandShortName;">
+<!ENTITY main.reportabug                "إرسال تقرير بخطأ">
+<!ENTITY main.requestafeature           "طلب ميزة">
+<!ENTITY main.about                     "حول &شعار.اسم الشعار;">
 <!ENTITY main.about.accesskey           "ح">
 
 <!-- Tool bar -->
@@ -76,23 +76,23 @@
 <!ENTITY main.searchBar                 "شريط البحث">
 <!ENTITY main.search                    "البحث">
 <!ENTITY main.noSearchBar               "يتطلب البحث عن الملفات وفهرستها Zim">
-<!ENTITY main.bookmarks                 "Bookmarks">
+<!ENTITY main.bookmarks                 "المفضلة">
 
 <!-- Results bar -->
 <!ENTITY main.results.title             "النتائج">
 
 <!-- Bookmarks Bar -->
-<!ENTITY main.bmkLabel                  "Bookmarks:">
-<!ENTITY main.notesLabel                "Bookmark notes:">
-<!ENTITY main.loadbmk                   "Import Bookmark Set">
-<!ENTITY main.newbmk                    "Create new Bookmark Set">
-<!ENTITY main.mark                      "Mark this page">
-<!ENTITY main.unmark                    "Unmark selected">
-<!ENTITY main.reload                    "Reset Bookmark Set">
-<!ENTITY main.defaultset                "Default Set">
+<!ENTITY main.bmkLabel                  "المفضلة:">
+<!ENTITY main.notesLabel                "ملاحظات المفضلة:">
+<!ENTITY main.loadbmk                   "إستيراد مجموعة مفضلة">
+<!ENTITY main.newbmk                    "إنشاء مجموعة مفضلة جديدة">
+<!ENTITY main.mark                      "علم هذه الصفحة">
+<!ENTITY main.unmark                    "أزل تعليم المحدد">
+<!ENTITY main.reload                    "إعادة تعيين المفضلة">
+<!ENTITY main.defaultset                "الإفتراضية">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveImageAs               "Save image as...">
+<!ENTITY main.saveImageAs               "حفظ الصورة ك...">
 
 <!-- About Window -->
-<!ENTITY main.close               		"إغلاق">
+<!ENTITY main.close                     "إغلاق">
