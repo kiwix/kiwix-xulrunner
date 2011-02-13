@@ -1,15 +1,15 @@
 Kiwix 0.9 alpha8
 * Remove a hard coded path in kiwix-compact.sh (ID: 3135956)
 * Avoid the flickering during mouseover links after canceling the indexing
-* Under Windows, installer add now shortuts to all users
+* Under Windows, installer adds now shortcuts to all users
 * Force loading no plugin to avoid any problem (with libmoon for example)
-* Under Windows, the displayed (disk) "space required" value is now correct
-* kiwix-index backend argument is now option and set as "xapian" per default
+* Under Windows, the displayed (disk) "space required" value is now correct in the installer
+* kiwix-index backend argument is now an option and set as "xapian" per default
 * Fix regressions responsible for lower case titles in result list (ID: 3147594)
 * Implement the HTTP 404 error in kiwix-serve
-* Fix a small bug in the indexing code to avoid forgetting around 100 articler per ZIM file
+* Fix a small bug in the indexing code to avoid forgetting around 100 articles per ZIM file
 * Disable DNS prefetching for external links
-	
+
 Kiwix 0.9 alpha7
 * Fix the encoding issue in the help in Parsi (ID: 3060250)
 * Fix an URL parsing issue impacting title containing a '/' (ID: 3065286)
