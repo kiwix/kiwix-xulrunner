@@ -9,6 +9,7 @@ Kiwix 0.9 alpha8
 * Implement the HTTP 404 error in kiwix-serve
 * Fix a small bug in the indexing code to avoid forgetting around 100 articles per ZIM file
 * Disable DNS prefetching for external links
+* New locales: Polish, Dutch
 
 Kiwix 0.9 alpha7
 * Fix the encoding issue in the help in Parsi (ID: 3060250)
