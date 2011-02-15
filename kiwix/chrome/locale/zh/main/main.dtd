@@ -95,4 +95,4 @@
 <!ENTITY main.saveImageAs               "图片另存为...">
 
 <!-- About Window -->
-<!ENTITY main.close                     "关闭">
+<!ENTITY main.close           		"关闭">

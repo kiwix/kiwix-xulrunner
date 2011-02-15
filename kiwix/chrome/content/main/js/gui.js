@@ -19,6 +19,7 @@ _languagesHash['he-IL']     = "עברית";
 _languagesHash['pt-PT']     = "Português";
 _languagesHash['pl']        = "Język polski";
 _languagesHash['ca']        = "Català";
+_languagesHash['nl']        = "Nederlands";
 
 /* Return the window object */
 function getWindow() {

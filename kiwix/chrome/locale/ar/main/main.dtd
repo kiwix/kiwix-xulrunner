@@ -1,5 +1,5 @@
 <!-- Window -->
-<!ENTITY main.title                    "&brand.brandShortName;">
+<!ENTITY main.title                     "&brand.brandShortName;">
 <!ENTITY main.cssdirection              "إتجاه اللغة من اليمين لليسار ">
 
 <!-- File menu -->
@@ -95,4 +95,4 @@
 <!ENTITY main.saveImageAs               "حفظ الصورة ك...">
 
 <!-- About Window -->
-<!ENTITY main.close                     "إغلاق">
+<!ENTITY main.close           		"إغلاق">

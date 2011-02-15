@@ -95,4 +95,4 @@
 <!ENTITY main.saveImageAs               "Salva immagine con nome...">
 
 <!-- About Window -->
-<!ENTITY main.close                     "Chiudi">
+<!ENTITY main.close           		"Chiudi">

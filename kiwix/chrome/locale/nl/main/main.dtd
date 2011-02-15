@@ -1,0 +1,98 @@
+<!-- Window -->
+<!ENTITY main.title                     "&brand.brandShortName;">
+<!ENTITY main.cssdirection              "ltr">
+
+<!-- File menu -->
+<!ENTITY main.file                      "Bestand">
+<!ENTITY main.file.accesskey            "B">
+<!ENTITY main.openFile                  "Open bestand...">
+<!ENTITY main.openFile.accesskey        "O">
+<!ENTITY main.lastOpen                  "Recent geopend...">
+<!ENTITY main.saveFile                  "Pagina opslaan als...">
+<!ENTITY main.saveFile.accesskey        "S">
+<!ENTITY main.print                     "Afdrukken">
+<!ENTITY main.print.accesskey           "P">
+<!ENTITY main.printPdf                  "Afdrukken als PDF">
+<!ENTITY main.printPdf.accesskey        "D">
+<!ENTITY main.quit                      "Stoppen">
+<!ENTITY main.quit.accesskey            "Q">
+
+<!-- Edit menu -->
+<!ENTITY main.edit                      "Bewereken">
+<!ENTITY main.edit.accesskey            "E">
+<!ENTITY main.find                      "Zoeken in pagina...">
+<!ENTITY main.find.accesskey            "S">
+<!ENTITY main.selectall                 "Alles selecteren">
+<!ENTITY main.selectall.accesskey       "a">
+<!ENTITY main.copy                      "Kopieeren">
+<!ENTITY main.copy.accesskey            "p">
+<!ENTITY main.transliteration           "Vertaling">
+<!ENTITY main.transliteration.accesskey "T">
+
+<!-- Display menu -->
+<!ENTITY main.display                   "Beeld">
+<!ENTITY main.display.accesskey         "D">
+<!ENTITY main.zoom                      "Zoomen">
+<!ENTITY main.zoom.accesskey            "Z">
+<!ENTITY main.zoomin                    "Vergroten">
+<!ENTITY main.zoomin.accesskey          "M">
+<!ENTITY main.zoomout                   "Verkleinen">
+<!ENTITY main.zoomout.accesskey         "R">
+<!ENTITY main.zoomorig                  "Originele grootte">
+<!ENTITY main.zoomorig.accesskey        "O">
+<!ENTITY main.language                  "Taal">
+<!ENTITY main.language.accesskey        "L">
+<!ENTITY main.skin                      "Skin">
+<!ENTITY main.skin.accesskey            "S">
+<!ENTITY main.statusbar                 "Status balk">
+<!ENTITY main.statusbar.accesskey       "S">
+<!ENTITY main.resultsbar                "Resultaten balk">
+<!ENTITY main.resultsbar.accesskey      "R">
+<!ENTITY main.tabs                      "Tabs">
+<!ENTITY main.tabs.accesskey            "T">
+<!ENTITY main.fullscreen                "Volledig scherm">
+<!ENTITY main.fullscreen.accesskey      "F">
+
+<!-- Tools menu -->
+<!ENTITY main.tools                     "Gereedschap">
+<!ENTITY main.tools.accesskey           "T">
+<!ENTITY main.randomArticle             "Willekeurig artikel">
+<!ENTITY main.randomArticle.accesskey   "R">
+<!ENTITY main.purgeHistory              "Geschiedenis verwijderen">
+<!ENTITY main.purgeHistory.accesskey    "P">
+
+<!-- Help menu -->
+<!ENTITY main.help                      "Hulp">
+<!ENTITY main.help.accesskey            "H">
+<!ENTITY main.reportabug                "Geef een fout door">
+<!ENTITY main.requestafeature           "Verzoek om nieuwe functionaliteit">
+<!ENTITY main.about                     "Over &brand.brandShortName;">
+<!ENTITY main.about.accesskey           "A">
+
+<!-- Tool bar -->
+<!ENTITY main.back                      "Terug">
+<!ENTITY main.forward                   "Verder">
+<!ENTITY main.home                      "Home">
+<!ENTITY main.searchBar                 "Zoek balk">
+<!ENTITY main.search                    "Zoek">
+<!ENTITY main.noSearchBar               "Zoek vereist een geindexeerd Zim bestand">
+<!ENTITY main.bookmarks                 "Favorieten">
+
+<!-- Results bar -->
+<!ENTITY main.results.title             "Zoekresultaat">
+
+<!-- Bookmarks Bar -->
+<!ENTITY main.bmkLabel                  "Favorieten:">
+<!ENTITY main.notesLabel                "Favorieten aantekeningen:">
+<!ENTITY main.loadbmk                   "Importeer Favorieten Set">
+<!ENTITY main.newbmk                    "Maak nieuwe Favorieten Set">
+<!ENTITY main.mark                      "Markeer deze pagina">
+<!ENTITY main.unmark                    "Demarkeer deze pagina">
+<!ENTITY main.reload                    "Reset Favorieten Set">
+<!ENTITY main.defaultset                "Standaard Set">
+
+<!-- Contextual Menu -->
+<!ENTITY main.saveImageAs               "Save image as...">
+
+<!-- About Window -->
+<!ENTITY main.close           		"Close">
