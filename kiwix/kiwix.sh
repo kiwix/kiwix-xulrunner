@@ -60,4 +60,4 @@ fi
 export MOZ_PLUGIN_PATH=/usr/lib
 
 # Otherwise, launch Kiwix
-$XULRUNNER $BINARY_DIR/application.ini $1 $2
+$XULRUNNER $BINARY_DIR/application.ini $1 $2 $3 $4 $5 $6 $7 $8 $9 $10

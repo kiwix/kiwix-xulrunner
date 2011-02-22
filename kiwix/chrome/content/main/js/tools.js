@@ -118,6 +118,17 @@ function onStart() {
     /* Initialize Bookmarks */
     InitializeBookmarks();
 
+    /* Read the command line arguments */
+    var nsCommandLine = window.arguments[0];
+    nsCommandLine = nsCommandLine.QueryInterface(Components.interfaces.nsICommandLine);
+    var argumentCount = nsCommandLine.length;
+    for (var argumentIndex=0; argumentIndex<argumentCount; argumentIndex++) {
+	var argument = nsCommandLine.getArgument(argumentIndex);
+	if (argument.match(/^.*\.zim$/i)) {
+	    manageOpenFile(argument, true);
+	}
+    }
+
     /* Open current book */
     if (!openCurrentBook()) {
 	library.deleteCurrentBook();

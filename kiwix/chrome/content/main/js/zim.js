@@ -10,7 +10,12 @@ function openZimFile(path) {
     var file =
 	Components.classes["@mozilla.org/file/local;1"].
 	createInstance(Components.interfaces.nsILocalFile);
-    file.initWithPath(path);
+    try {
+	file.initWithPath(path);
+    } catch(er) {
+	return;
+    }
+
     if (!zimAccessor.loadFile(file)) return;
 
     /* Otherwise */

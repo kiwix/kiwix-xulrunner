@@ -10,6 +10,7 @@ Kiwix 0.9 alpha8
 * Fix a small bug in the indexing code to avoid forgetting around 100 articles per ZIM file
 * Disable DNS prefetching for external links
 * New locales: Polish, Dutch
+* Open a ZIM file directly from the command line
 
 Kiwix 0.9 alpha7
 * Fix the encoding issue in the help in Parsi (ID: 3060250)
