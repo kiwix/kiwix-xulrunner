@@ -3,6 +3,7 @@
 	<mime-type type="application/x-zim">
 		<comment>ZIM file</comment>
 		<comment xml:lang="fr">Fichier ZIM</comment>
+		<generic-icon name="x-zim"/>
 		<glob pattern="*.zim"/>
 	</mime-type>
 </mime-info>
