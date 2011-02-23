@@ -1,0 +1,6 @@
+kiwix
+	command=kiwix
+	name=Kiwix
+	expects_uris=false
+	requires_terminal=false
+	mime_types=application/x-zim

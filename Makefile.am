@@ -44,6 +44,8 @@ install:
 	cp desktop/kiwix.png ${DESTDIR}/${prefix}/share/pixmaps/
 	if [ ! -d ${DESTDIR}/${prefix}/share/mime/packages/ ] ; then $(MKDIR_P) ${DESTDIR}/${prefix}/share/mime/packages/ ; fi
 	cp desktop/kiwix.xml ${DESTDIR}/${prefix}/share/mime/packages/
+	if [ ! -d ${DESTDIR}/${prefix}/share/application-registry/ ] ; then $(MKDIR_P) ${DESTDIR}/${prefix}/share/application-registry/ ; fi
+	cp desktop/kiwix.applications ${DESTDIR}/${prefix}/share/application-registry/kiwix-applications
 	if [ ! -d ${DESTDIR}/${prefix}/share/applications/ ] ; then $(MKDIR_P) ${DESTDIR}/${prefix}/share/applications/ ; fi
 	if [ ! -d ${DESTDIR}/${bindir} ] ; then $(MKDIR_P) ${DESTDIR}/${bindir}/ ; fi
 	if [ ! -d ${DESTDIR}/${libdir} ] ; then $(MKDIR_P) ${DESTDIR}/${libdir}/ ; fi
@@ -64,17 +66,20 @@ install:
 	cp src/indexer/kiwix-index ${DESTDIR}/${bindir}/kiwix-index
 	cp src/server/kiwix-serve ${DESTDIR}/${bindir}/kiwix-serve
 	update-mime-database ${DESTDIR}/${prefix}/share/mime
+	update-desktop-database
 
 uninstall:
 	rm -f ${DESTDIR}/${bindir}/kiwix-index
 	rm -f ${DESTDIR}/${prefix}/share/pixmaps/kiwix.png
 	rm -f ${DESTDIR}/${prefix}/share/mime/packages/kiwix.xml
 	rm -f ${DESTDIR}/${prefix}/share/applications/kiwix.desktop
+	rm -f ${DESTDIR}/${prefix}/share/application-registry/kiwix.applications
 	rm -rf ${DESTDIR}/${libdir}/kiwix
 	rm -f ${DESTDIR}/${bindir}/kiwix
 	rm -f ${DESTDIR}/${bindir}/kiwix-compact
 	rm -f ${DESTDIR}/${bindir}/kiwix-serve
 	update-mime-database ${DESTDIR}/${prefix}/share/mime
+	update-desktop-database
 
 ./kiwix/components/zimAccessor.so: 
 	ln -f -s ../../src/components/zimAccessor/.libs/libZimAccessor.so ./kiwix/components/zimAccessor.so
