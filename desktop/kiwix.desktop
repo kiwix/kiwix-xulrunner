@@ -8,3 +8,4 @@ Type=Application
 Icon=kiwix.png
 Categories=GNOME;Education;
 StartupNotify=false
+MimeType=application/zim
