@@ -42,6 +42,7 @@ dist-hook:
 install:
 	if [ ! -d ${DESTDIR}/${prefix}/share/pixmaps/ ] ; then $(MKDIR_P) ${DESTDIR}/${prefix}/share/pixmaps/ ; fi
 	cp desktop/kiwix.png ${DESTDIR}/${prefix}/share/pixmaps/
+	if [ ! -d ${DESTDIR}/${prefix}/share/mime/packages/ ] ; then $(MKDIR_P) ${DESTDIR}/${prefix}/share/mime/packages/ ; fi
 	cp desktop/kiwix.xml ${DESTDIR}/${prefix}/share/mime/packages/
 	if [ ! -d ${DESTDIR}/${prefix}/share/applications/ ] ; then $(MKDIR_P) ${DESTDIR}/${prefix}/share/applications/ ; fi
 	if [ ! -d ${DESTDIR}/${bindir} ] ; then $(MKDIR_P) ${DESTDIR}/${bindir}/ ; fi
@@ -62,6 +63,7 @@ install:
 	cp src/components/zimCluceneIndexer/IZimCluceneIndexer.xpt ${DESTDIR}/${libdir}/kiwix/components/zimCluceneIndexer.xpt
 	cp src/indexer/kiwix-index ${DESTDIR}/${bindir}/kiwix-index
 	cp src/server/kiwix-serve ${DESTDIR}/${bindir}/kiwix-serve
+	update-mime-database ${DESTDIR}/${prefix}/share/mime
 
 uninstall:
 	rm -f ${DESTDIR}/${bindir}/kiwix-index
@@ -72,6 +74,7 @@ uninstall:
 	rm -f ${DESTDIR}/${bindir}/kiwix
 	rm -f ${DESTDIR}/${bindir}/kiwix-compact
 	rm -f ${DESTDIR}/${bindir}/kiwix-serve
+	update-mime-database ${DESTDIR}/${prefix}/share/mime
 
 ./kiwix/components/zimAccessor.so: 
 	ln -f -s ../../src/components/zimAccessor/.libs/libZimAccessor.so ./kiwix/components/zimAccessor.so

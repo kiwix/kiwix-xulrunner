@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <mime-info xmlns='http://www.freedesktop.org/standards/shared-mime-info'>
-	<mime-type type="application/zim">
+	<mime-type type="application/x-zim">
 		<comment>ZIM file</comment>
 		<comment xml:lang="fr">Fichier ZIM</comment>
 		<glob pattern="*.zim"/>
