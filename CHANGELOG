@@ -11,6 +11,7 @@ Kiwix 0.9 alpha8
 * Disable DNS prefetching for external links
 * New locales: Polish, Dutch
 * Open a ZIM file directly from the command line
+* Gnome integration: mime-type recognition + icon & application associations (ZIM double-click feature)
 
 Kiwix 0.9 alpha7
 * Fix the encoding issue in the help in Parsi (ID: 3060250)
