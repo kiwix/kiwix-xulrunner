@@ -42,6 +42,7 @@ dist-hook:
 install:
 	if [ ! -d ${DESTDIR}/${prefix}/share/pixmaps/ ] ; then $(MKDIR_P) ${DESTDIR}/${prefix}/share/pixmaps/ ; fi
 	cp desktop/kiwix.png ${DESTDIR}/${prefix}/share/pixmaps/
+	cp desktop/kiwix.xml ${DESTDIR}/${prefix}/share/mime/packages/
 	if [ ! -d ${DESTDIR}/${prefix}/share/applications/ ] ; then $(MKDIR_P) ${DESTDIR}/${prefix}/share/applications/ ; fi
 	if [ ! -d ${DESTDIR}/${bindir} ] ; then $(MKDIR_P) ${DESTDIR}/${bindir}/ ; fi
 	if [ ! -d ${DESTDIR}/${libdir} ] ; then $(MKDIR_P) ${DESTDIR}/${libdir}/ ; fi
@@ -65,6 +66,7 @@ install:
 uninstall:
 	rm -f ${DESTDIR}/${bindir}/kiwix-index
 	rm -f ${DESTDIR}/${prefix}/share/pixmaps/kiwix.png
+	rm -f ${DESTDIR}/${prefix}/share/mime/packages/kiwix.xml
 	rm -f ${DESTDIR}/${prefix}/share/applications/kiwix.desktop
 	rm -rf ${DESTDIR}/${libdir}/kiwix
 	rm -f ${DESTDIR}/${bindir}/kiwix
