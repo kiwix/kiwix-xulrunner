@@ -39,6 +39,8 @@
 <script language="javaScript" type="text/javascript" src="js/contentAreaUtils.js"/>
 <script language="javaScript" type="text/javascript" src="js/library.js"/>
 <script language="javaScript" type="text/javascript" src="js/tabs.js"/>
+<script language="javaScript" type="text/javascript" src="js/xmlrpc.js"/>
+<script language="javaScript" type="text/javascript" src="js/content.js"/>
 
 <!-- Global Javascript scripts -->
 <script type="application/x-javascript" src="chrome://global/content/printUtils.js"/>
