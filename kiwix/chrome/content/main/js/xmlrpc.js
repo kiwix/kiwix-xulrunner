@@ -420,7 +420,7 @@ xmlrpc_client.prototype.send = function (msg, timeout, method)
 	// optionally deny reception of deflated responses
 	if (this.accepted_compression != 'auto')
 	{
-		httpconn.setRequestHeader('Accept-Encoding', this.accepted_compression.join(','));
+	    httpconn.setRequestHeader('Accept-Encoding', this.accepted_compression.join(','));
 	}
 
 	/// @todo add support for setting cookies by hand
@@ -1734,42 +1734,11 @@ xmlrpcmsg.prototype.parseResponse = function (data, headers_processed, return_ty
 	/// @todo try to 'guestimate' the character encoding of the received response
 
 	// build xml parser object
-	var obj = null;
-	var isMoz = false;
+	var obj = new DOMParser();
+	var isMoz = true;
 	var isIE = false;
 	var isASV = false;
 
-	try
-	{ //to get Adobe's SVG parseXML
-		obj = window.parseXML;
-		if (obj == null)
-		{
-			throw 'No ASV parseXML';
-		}
-		isASV = true;
-	}
-	catch(e)
-	{
-		try
-		{ //to get the mozilla parser
-			obj = new DOMParser();
-			isMoz = true;
-		}
-		catch(e)
-		{
-			for(var i = 0; i < _msxmldoc_progid.length; ++i)
-			{
-				try
-				{
-					// Instantiates XML parser for IE and assign to obj.
-					obj = new ActiveXObject(_msxmldoc_progid[i]);
-					isIE = true;
-					break;
-				}
-				catch(e) {}
-			}
-		}
-	}
 	if (!isIE && !isMoz && !isASV)
 	{
 		var r = new xmlrpcresp(0, xmlrpcerr['no_parser'], xmlrpcstr['no_parser']);
@@ -2289,44 +2258,37 @@ function base64_decode (aString) {
 * @bug given an empty string, returns '0' in IE and Opera
 */
 function base64_encode (aString) {
-	if (typeof btoa == 'function')
-	{ // try using mozillas builtin codec
-		return btoa(aString);
-	}
-	else
+    var base64 = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z',
+		  'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z',
+		  '0','1','2','3','4','5','6','7','8','9','+','/'];
+    var sbin;
+    var pad = 0;
+    var s = '' + aString;
+    if ((s.length % 3) == 1)
 	{
-		var base64 = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z',
-					  'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z',
-					  '0','1','2','3','4','5','6','7','8','9','+','/'];
-		var sbin;
-		var pad = 0;
-		var s = '' + aString;
-		if ((s.length % 3) == 1)
-		{
-			s += String.fromCharCode(0);
-			s += String.fromCharCode(0);
-			pad = 2;
-		}
-		else if ((s.length % 3) == 2)
-		{
-			s += String.fromCharCode(0);
-			pad = 1 ;
-		}
-		//create a result buffer, this is much faster than having strings concatinated.
-		var rslt = [s.length / 3];
-		var ri = 0;
-		for(var i = 0; i < s.length; i += 3)
-		{
-			sbin = ((s.charCodeAt(i) & 0xff) << 16) | ((s.charCodeAt(i+1) & 0xff) << 8) | (s.charCodeAt(i+2) & 0xff);
-			rslt[ri] = (base64[(sbin >> 18) & 0x3f] + base64[(sbin >> 12) & 0x3f] + base64[(sbin >>6) & 0x3f] + base64[sbin & 0x3f]);
-			ri++;
-		}
-		if (pad > 0)
-		{
-			rslt[rslt.length-1] = rslt[rslt.length-1].substr(0, 4-pad) +((pad==2) ? '==' : (pad==1) ? '=' : '');
-		}
-		return rslt.join('');
+	    s += String.fromCharCode(0);
+	    s += String.fromCharCode(0);
+	    pad = 2;
 	}
+    else if ((s.length % 3) == 2)
+	{
+	    s += String.fromCharCode(0);
+	    pad = 1 ;
+	}
+    //create a result buffer, this is much faster than having strings concatinated.
+    var rslt = [s.length / 3];
+    var ri = 0;
+    for(var i = 0; i < s.length; i += 3)
+	{
+	    sbin = ((s.charCodeAt(i) & 0xff) << 16) | ((s.charCodeAt(i+1) & 0xff) << 8) | (s.charCodeAt(i+2) & 0xff);
+	    rslt[ri] = (base64[(sbin >> 18) & 0x3f] + base64[(sbin >> 12) & 0x3f] + base64[(sbin >>6) & 0x3f] + base64[sbin & 0x3f]);
+	    ri++;
+	}
+    if (pad > 0)
+	{
+	    rslt[rslt.length-1] = rslt[rslt.length-1].substr(0, 4-pad) +((pad==2) ? '==' : (pad==1) ? '=' : '');
+	}
+    return rslt.join('');
 }
 
 /**
@@ -2710,11 +2672,11 @@ function xmlrpc_error_log(errormsg) {
 		if (typeof window == 'object')
 		{
 			// be smart with Firebug console
-			if (window.console && typeof window.console.error == 'function')
-				window.console.error(errormsg);
-			else
+// addbykiwix			if (window.console && typeof window.console.error == 'function')
+// addbykiwix				window.console.error(errormsg);
+// addbykiwix			else
 				//alert(errormsg);
-				window.setTimeout(function(){throw new Error(errormsg);}, 0);
+// addbykiwix				window.setTimeout(function(){throw new Error(errormsg);}, 0);
 		}
 		// MS Windows Scripting Host
 		else if (typeof WScript == 'object')
