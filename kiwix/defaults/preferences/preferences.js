@@ -71,3 +71,6 @@ pref("alerts.height", 50);
 /* Disable DNS prefetching */
 pref("network.dns.disablePrefetch", true);
 pref("network.dns.disablePrefetchFromHTTPS", true);
+
+/* Remove accept-encoding HTTP request header for aria2 xml-rpc */
+pref("network.http.accept-encoding", "gzip;q=0,deflate;q=0");
