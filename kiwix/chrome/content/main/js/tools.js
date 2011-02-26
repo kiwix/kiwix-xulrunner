@@ -137,9 +137,6 @@ function onStart() {
 
     /* Initialize the user interface */
     initUserInterface();
-
-    /* Start downloader */
-    startDownloader();
 }
 
 /* Clear the history and the cache */

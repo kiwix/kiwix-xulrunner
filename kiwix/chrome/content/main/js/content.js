@@ -11,25 +11,16 @@ function loadBinaryResource(url) {
 }
 
 function startDownloader() {
-    var backgroundTask = {
-	run: function() {
-	    var binary = Components.classes["@mozilla.org/file/local;1"]
-	    .createInstance(Components.interfaces.nsILocalFile);
-	    binary.initWithPath("/usr/bin/aria2c");
-	    
-	    aria2Process = Components.classes["@mozilla.org/process/util;1"]
-	    .createInstance(Components.interfaces.nsIProcess);
-	    aria2Process.init(binary);
-	    
-	    var args = [ "--enable-xml-rpc", "--log=" + getDownloaderLogPath() ];
-	    aria2Process.run(false, args, args.length);
-	}
-    }
-
-    var thread = Components.classes["@mozilla.org/thread-manager;1"]
-	.getService(Components.interfaces.nsIThreadManager)
-	.newThread(0);
-    thread.dispatch(backgroundTask, thread.DISPATCH_NORMAL);
+    var binary = Components.classes["@mozilla.org/file/local;1"]
+	.createInstance(Components.interfaces.nsILocalFile);
+    binary.initWithPath("/usr/bin/aria2c");
+    
+    aria2Process = Components.classes["@mozilla.org/process/util;1"]
+	.createInstance(Components.interfaces.nsIProcess);
+    aria2Process.init(binary);
+    
+    var args = [ "--enable-xml-rpc", "--log=" + getDownloaderLogPath() ];
+    aria2Process.run(false, args, args.length);
 }
 
 function stopDownloader() {
@@ -38,6 +29,12 @@ function stopDownloader() {
 }
 
 function startDownload(url) {
+
+    /* Start downloader if necessary*/
+    if (aria2Process == null) {
+	startDownloader();
+    }
+
     var backgroundTask = {
 	run: function() {
 	    var torrentContent = loadBinaryResource(url);
