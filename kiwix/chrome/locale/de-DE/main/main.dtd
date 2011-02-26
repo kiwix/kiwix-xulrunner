@@ -58,14 +58,16 @@
 <!ENTITY main.tools.accesskey           "W">
 <!ENTITY main.randomArticle             "Zufälliger Artikel">
 <!ENTITY main.randomArticle.accesskey   "Z">
-<!ENTITY main.purgeHistory              "Purge history">
+<!ENTITY main.purgeHistory              "Geschichte löschen">
 <!ENTITY main.purgeHistory.accesskey    "P">
 
 <!-- Help menu -->
 <!ENTITY main.help                      "Hilfe">
 <!ENTITY main.help.accesskey            "H">
-<!ENTITY main.reportabug                "Report a bug">
-<!ENTITY main.requestafeature           "Request a feature">
+<!ENTITY main.reportabug                "Fehler melden">
+<!ENTITY main.reportabug.accesskey      "F">
+<!ENTITY main.requestafeature           "Erweiterung vorschlagen">
+<!ENTITY main.requestafeature.accesskey "E">
 <!ENTITY main.about                     "Über &brand.brandShortName;">
 <!ENTITY main.about.accesskey           "I">
 
@@ -76,23 +78,23 @@
 <!ENTITY main.searchBar                 "Suchleiste">
 <!ENTITY main.search                    "Suche">
 <!ENTITY main.noSearchBar               "Suche erfordert eine indexierte Zim Akte">
-<!ENTITY main.bookmarks                 "Bookmarks">
+<!ENTITY main.bookmarks                 "Lesezeichen">
 
 <!-- Results bar -->
 <!ENTITY main.results.title             "Ergebnisse">
 
 <!-- Bookmarks Bar -->
-<!ENTITY main.bmkLabel                  "Bookmarks:">
-<!ENTITY main.notesLabel                "Bookmark notes:">
-<!ENTITY main.loadbmk                   "Import Bookmark Set">
-<!ENTITY main.newbmk                    "Create new Bookmark Set">
-<!ENTITY main.mark                      "Mark this page">
-<!ENTITY main.unmark                    "Unmark selected">
-<!ENTITY main.reload                    "Reset Bookmark Set">
-<!ENTITY main.defaultset                "Default Set">
+<!ENTITY main.bmkLabel                  "Lesezeichen:">
+<!ENTITY main.notesLabel                "Bemerkung Lesezeichen:">
+<!ENTITY main.loadbmk                   "Lesezeichensatz importieren">
+<!ENTITY main.newbmk                    "neuen Lesezeichensatz anlegen">
+<!ENTITY main.mark                      "Seite markieren">
+<!ENTITY main.unmark                    "Markierung aufheben">
+<!ENTITY main.reload                    "Reset Lesezeichensatz">
+<!ENTITY main.defaultset                "Defaultset">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveImageAs               "Save image as...">
+<!ENTITY main.saveImageAs               "Bild speichern als...">
 
 <!-- About Window -->
 <!ENTITY main.close           		"Schliessen">
