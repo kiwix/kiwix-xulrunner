@@ -1,4 +1,5 @@
 var aria2Client = new xmlrpc_client ("rpc", "localhost", "6800", "http");
+var aria2Process = null;
 
 function loadBinaryResource(url) {
     var req = new XMLHttpRequest();
@@ -7,6 +8,24 @@ function loadBinaryResource(url) {
     req.send(null);
     if (req.status != 200) return '';
     return req.responseText;
+}
+
+function startDownloader() {
+    var binary = Components.classes["@mozilla.org/file/local;1"]
+	.createInstance(Components.interfaces.nsILocalFile);
+    binary.initWithPath("/usr/bin/aria2c");
+
+    aria2Process = Components.classes["@mozilla.org/process/util;1"]
+	.createInstance(Components.interfaces.nsIProcess);
+    aria2Process.init(binary);
+
+    var args = [ "--enable-xml-rpc", "--log=" + getDownloaderLogPath() ];
+    aria2Process.run(false, args, args.length);
+}
+
+function stopDownloader() {
+    dump("killing aria2c...\n");    
+    aria2Process.kill();
 }
 
 function startDownload(url) {
@@ -21,4 +40,9 @@ function stopDownload(index) {
     var param = new xmlrpcval(index, "base64");
     var msg = new xmlrpcmsg("aria2.remove", [ param ]);
     var response = aria2Client.send(msg);
+}
+
+/* Return the tmp directory path where the search index is build */
+function getDownloaderLogPath() {
+    return appendToPath(settings.getRootPath(), "downloader.log");
 }

@@ -137,6 +137,9 @@ function onStart() {
 
     /* Initialize the user interface */
     initUserInterface();
+
+    /* Start downloader */
+    startDownloader();
 }
 
 /* Clear the history and the cache */
@@ -176,8 +179,11 @@ function managePurgeHistory() {
 
 /* Things to do before exit Kiwix */
 function onClose() {
-    var doClean = doOnCloseClean();
 
+    /* Stop downloader */
+    stopDownloader();
+
+    var doClean = doOnCloseClean();
     if (env.isLive()) {
 
 	/* Ask before removing */
