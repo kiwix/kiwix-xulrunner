@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<?xml-stylesheet href="chrome://main/skin/preferences.css" type="text/css"?>
+<!DOCTYPE window [
+<!ENTITY % mainDTD SYSTEM "chrome://main/locale/main.dtd">
+<!ENTITY % brandDTD SYSTEM "chrome://branding/locale/brand.dtd">
+<!ENTITY % findBarDTD SYSTEM "chrome://global/locale/findbar.dtd">
+%mainDTD;
+%brandDTD;
+%findBarDTD;
+]>
+<window	xmlns:html="http://www.w3.org/1999/xhtml" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+	id        = "about"
+	title     = "&main.preferences;"
+	resizable = "no"
+        style     = ""
+	>
+
+<!-- Custom Javascript scripts -->
+<script language="javaScript" type="text/javascript" src="resource://modules/settings.jsm"/>
+<script language="javaScript" type="text/javascript" src="js/preferences.js"/>
+
+<button oncommand="window.close();" label="&preferences.cancel;" />
+<button oncommand="window.close();" label="&preferences.save;" />
+</window>

@@ -28,6 +28,8 @@
 <!ENTITY main.copy.accesskey            "p">
 <!ENTITY main.transliteration           "תעתיק">
 <!ENTITY main.transliteration.accesskey "T">
+<!ENTITY main.preferences               "Preferences">
+<!ENTITY main.preferences.accesskey     "n">
 
 <!-- Display menu -->
 <!ENTITY main.display                   "תצוגה">
@@ -96,3 +98,9 @@
 
 <!-- About Window -->
 <!ENTITY main.close           		"סגור">
+
+<!-- Preferences Window -->
+<!ENTITY preferences.preferences        "Preferences">
+<!ENTITY preferences.save      		"Save">
+<!ENTITY preferences.cancel     	"Cancel">
+

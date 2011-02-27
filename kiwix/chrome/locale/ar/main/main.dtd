@@ -28,6 +28,8 @@
 <!ENTITY main.copy.accesskey            "ن">
 <!ENTITY main.transliteration           "تحويل لغة الكتابة">
 <!ENTITY main.transliteration.accesskey "T">
+<!ENTITY main.preferences               "Preferences">
+<!ENTITY main.preferences.accesskey     "n">
 
 <!-- Display menu -->
 <!ENTITY main.display                   "عرض">
@@ -96,3 +98,9 @@
 
 <!-- About Window -->
 <!ENTITY main.close           		"إغلاق">
+
+<!-- Preferences Window -->
+<!ENTITY preferences.preferences        "Preferences">
+<!ENTITY preferences.save      		"Save">
+<!ENTITY preferences.cancel     	"Cancel">
+

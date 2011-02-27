@@ -28,22 +28,24 @@
 <!ENTITY main.copy.accesskey            "K">
 <!ENTITY main.transliteration           "Transliteration">
 <!ENTITY main.transliteration.accesskey "T">
+<!ENTITY main.preferences               "Preferences">
+<!ENTITY main.preferences.accesskey     "n">
 
 <!-- Display menu -->
 <!ENTITY main.display                   "Bildschirm">
 <!ENTITY main.display.accesskey         "B">
 <!ENTITY main.zoom                      "Zoom">
 <!ENTITY main.zoom.accesskey            "Z">
-<!ENTITY main.zoomin                    "Vergrössern">
-<!ENTITY main.zoomin.accesskey          "V">
-<!ENTITY main.zoomout                   "Verkleinern">
+<!ENTITY main.zoomin                    "Grösser">
+<!ENTITY main.zoomin.accesskey          "g">
+<!ENTITY main.zoomout                   "Kleiner">
 <!ENTITY main.zoomout.accesskey         "k">
 <!ENTITY main.zoomorig                  "Ursprüngliche Grösse">
 <!ENTITY main.zoomorig.accesskey        "U">
 <!ENTITY main.language                  "Sprache">
 <!ENTITY main.language.accesskey        "p">
-<!ENTITY main.skin                      "Skin">
-<!ENTITY main.skin.accesskey            "S">
+<!ENTITY main.skin                      "Aussehen">
+<!ENTITY main.skin.accesskey            "A">
 <!ENTITY main.statusbar                 "Statusleiste">
 <!ENTITY main.statusbar.accesskey       "S">
 <!ENTITY main.resultsbar                "Ergebnisleiste">
@@ -51,7 +53,7 @@
 <!ENTITY main.tabs                      "Tabs">
 <!ENTITY main.tabs.accesskey            "T">
 <!ENTITY main.fullscreen                "Vollbildmodus">
-<!ENTITY main.fullscreen.accesskey      "F">
+<!ENTITY main.fullscreen.accesskey      "V">
 
 <!-- Tools menu -->
 <!ENTITY main.tools                     "Werkzeuge">
@@ -59,15 +61,13 @@
 <!ENTITY main.randomArticle             "Zufälliger Artikel">
 <!ENTITY main.randomArticle.accesskey   "Z">
 <!ENTITY main.purgeHistory              "Geschichte löschen">
-<!ENTITY main.purgeHistory.accesskey    "P">
+<!ENTITY main.purgeHistory.accesskey    "G">
 
 <!-- Help menu -->
 <!ENTITY main.help                      "Hilfe">
 <!ENTITY main.help.accesskey            "H">
 <!ENTITY main.reportabug                "Fehler melden">
-<!ENTITY main.reportabug.accesskey      "F">
 <!ENTITY main.requestafeature           "Erweiterung vorschlagen">
-<!ENTITY main.requestafeature.accesskey "E">
 <!ENTITY main.about                     "Über &brand.brandShortName;">
 <!ENTITY main.about.accesskey           "I">
 
@@ -85,16 +85,22 @@
 
 <!-- Bookmarks Bar -->
 <!ENTITY main.bmkLabel                  "Lesezeichen:">
-<!ENTITY main.notesLabel                "Bemerkung Lesezeichen:">
-<!ENTITY main.loadbmk                   "Lesezeichensatz importieren">
-<!ENTITY main.newbmk                    "neuen Lesezeichensatz anlegen">
+<!ENTITY main.notesLabel                "Bemerkung:">
+<!ENTITY main.loadbmk                   "Lesezeichen importieren">
+<!ENTITY main.newbmk                    "neuen Lesezeichendatei anlegen">
 <!ENTITY main.mark                      "Seite markieren">
 <!ENTITY main.unmark                    "Markierung aufheben">
-<!ENTITY main.reload                    "Reset Lesezeichensatz">
-<!ENTITY main.defaultset                "Defaultset">
+<!ENTITY main.reload                    "Nochmal laden">
+<!ENTITY main.defaultset                "Defaultdatei">
 
 <!-- Contextual Menu -->
 <!ENTITY main.saveImageAs               "Bild speichern als...">
 
 <!-- About Window -->
 <!ENTITY main.close           		"Schliessen">
+
+<!-- Preferences Window -->
+<!ENTITY preferences.preferences        "Preferences">
+<!ENTITY preferences.save      		"Save">
+<!ENTITY preferences.cancel     	"Cancel">
+

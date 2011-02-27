@@ -1,3 +1,4 @@
+
 /* Global variables */
 var _zoomFactor             = 1.2;      /* Factor by which font is magnified or reduced with zoomIn() & zommOut() */
 var _winIsFullScreen        = false;    /* Stores fullscreen state*/
