@@ -103,4 +103,6 @@
 <!ENTITY preferences.preferences        "Preferences">
 <!ENTITY preferences.save      		"Save">
 <!ENTITY preferences.cancel     	"Cancel">
+<!ENTITY preferences.profileDirectory  	"Profile directory">
+<!ENTITY preferences.browse  	        "Browse">
 

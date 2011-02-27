@@ -10,16 +10,26 @@
 %findBarDTD;
 ]>
 <window	xmlns:html="http://www.w3.org/1999/xhtml" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
-	id        = "about"
+	id        = "preferences"
 	title     = "&main.preferences;"
 	resizable = "no"
         style     = ""
+	onload    = "onPreferencesDialogStart()"
 	>
 
 <!-- Custom Javascript scripts -->
 <script language="javaScript" type="text/javascript" src="resource://modules/settings.jsm"/>
 <script language="javaScript" type="text/javascript" src="js/preferences.js"/>
 
-<button oncommand="window.close();" label="&preferences.cancel;" />
-<button oncommand="window.close();" label="&preferences.save;" />
+<hbox style="text-align: center; width: 600px;" align="center">
+  <description>&preferences.profileDirectory;</description>
+  <textbox id="profileDirectory-textbox" flex="1" disabled="true"/>
+  <button oncommand="manageChangeProfileDirectory()" label="&preferences.browse;..." />
+</hbox>
+
+<hbox>
+  <spacer flex="1"/>
+  <button oncommand="window.close();" label="&preferences.cancel;" />
+  <button oncommand="window.close();" label="&preferences.save;" />
+</hbox>
 </window>
