@@ -24,8 +24,10 @@ function startDownloader() {
 }
 
 function stopDownloader() {
-    dump("killing aria2c...\n");    
-    aria2Process.kill();
+    if (aria2Process != null) {
+	dump("killing aria2c...\n");    
+	aria2Process.kill();
+    }
 }
 
 function startDownload(url) {
