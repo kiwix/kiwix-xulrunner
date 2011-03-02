@@ -39,14 +39,46 @@ function manageChangeProfileDirectory() {
 	var newProfileDirectoryParent = newProfileDirectory.parent;
 
 	/* Check if the target directory is writable */
+	//	if( newProfileDirectory.isWritable()) {
+	//}
 
 	/* Check if the target directory is empty */
 
 	/* Check if the target directory has enough place */
 
+	/* Check if an indexation is running */
+
 	/* Show a confirm dialog box to ask the user if he really want to move his profile */
+
+	/* Move the profile */
+	newProfileDirectory.remove(true);
 	profileDirectory.copyTo(newProfileDirectoryParent, newProfileDirectory.leafName);
+
+	/* Update profile.ini */
+	var profileService = Components.classes["@mozilla.org/toolkit/profile-service;1"]
+                            .createInstance(Components.interfaces.nsIToolkitProfileService);
+	var oldProfile = profileService.selectedProfile;
+
+	/* Set new profile */
+	var newProfile = profileService.createProfile(newProfileDirectory, null, newProfileDirectory.leafName);
+	profileService.selectedProfile = newProfile;
+
+	/* Flush */
+	profileService.flush();
+
+	/* Restart to setup the new default profile */
+	settings.register();
+	settings.profileToRemove(oldProfile.name);
+	restart(false);
+
     } else {
 	return false;
     }
+}
+
+function removeProfile(name) {
+    var profileService = Components.classes["@mozilla.org/toolkit/profile-service;1"]
+	.createInstance(Components.interfaces.nsIToolkitProfileService);
+    var profile = profileService.getProfileByName(name);
+    profile.remove(true);
 }

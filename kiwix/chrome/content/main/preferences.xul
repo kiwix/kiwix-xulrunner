@@ -4,10 +4,8 @@
 <!DOCTYPE window [
 <!ENTITY % mainDTD SYSTEM "chrome://main/locale/main.dtd">
 <!ENTITY % brandDTD SYSTEM "chrome://branding/locale/brand.dtd">
-<!ENTITY % findBarDTD SYSTEM "chrome://global/locale/findbar.dtd">
 %mainDTD;
 %brandDTD;
-%findBarDTD;
 ]>
 <window	xmlns:html="http://www.w3.org/1999/xhtml" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
 	id        = "preferences"
@@ -17,13 +15,31 @@
 	onload    = "onPreferencesDialogStart()"
 	>
 
+<!-- Properties -->
+<stringbundle id="properties" src="chrome://main/locale/main.properties"/>
+<stringbundle id="brandproperties" src="chrome://branding/locale/brand.properties"/>
+
 <!-- Custom Javascript scripts -->
+<script language="javaScript" type="text/javascript" src="resource://modules/env.jsm"/>
 <script language="javaScript" type="text/javascript" src="resource://modules/settings.jsm"/>
+<script language="javaScript" type="text/javascript" src="resource://modules/library.jsm"/>
+<script language="javaScript" type="text/javascript" src="js/zim.js"/>
+<script language="javaScript" type="text/javascript" src="js/logger.js"/>
+<script language="javaScript" type="text/javascript" src="js/search.js"/>
+<script language="javaScript" type="text/javascript" src="js/tools.js"/>
+<script language="javaScript" type="text/javascript" src="js/gui.js"/>
+<script language="javaScript" type="text/javascript" src="js/bookmarks.js"/>
+<script language="javaScript" type="text/javascript" src="js/contentAreaUtils.js"/>
+<script language="javaScript" type="text/javascript" src="js/library.js"/>
+<script language="javaScript" type="text/javascript" src="js/tabs.js"/>
+<script language="javaScript" type="text/javascript" src="js/xmlrpc.js"/>
+<script language="javaScript" type="text/javascript" src="js/content.js"/>
 <script language="javaScript" type="text/javascript" src="js/preferences.js"/>
+<script language="javaScript" type="text/javascript" src="resource://modules/settings.jsm"/>
 
 <hbox style="text-align: center; width: 600px;" align="center">
   <description>&preferences.profileDirectory;</description>
-  <textbox id="profileDirectory-textbox" flex="1" disabled="true"/>
+  <textbox  style="text-align: left;" id="profileDirectory-textbox" flex="1" disabled="true"/>
   <button oncommand="manageChangeProfileDirectory()" label="&preferences.browse;..." />
 </hbox>
 

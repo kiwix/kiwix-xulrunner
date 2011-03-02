@@ -105,6 +105,7 @@ let settings = {
     doOnCloseClean: function(value) { return this.boolSettingParameter("doOnCloseClean", value); },
     displayTabs: function(value) { return this.boolSettingParameter("displayTabs", value); },
     defaultFilePickerPath: function(value) { return this.charSettingParameter("defaultFilePickerPath", value); },
+    profileToRemove: function(value) { return this.charSettingParameter("profileToRemove", value); },
     displayOnCloseCleanConfirmDialog: function(value) { 
     	return this.boolSettingParameter("displayOnCloseCleanConfirmDialog", value); 
     }
