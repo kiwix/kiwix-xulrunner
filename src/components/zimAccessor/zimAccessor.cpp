@@ -239,6 +239,32 @@ NS_IMETHODIMP ZimAccessor::GetNextSuggestion(nsACString &title, PRBool *retVal) 
   return NS_OK;
 }
 
+/* Can I check the integrity - for old ZIM file without checksum */
+NS_IMETHODIMP ZimAccessor::CanCheckIntegrity(PRBool *retVal) {
+  *retVal = PR_FALSE;
+
+  try {
+    *retVal = this->reader->canCheckIntegrity() == true ? PR_TRUE : PR_FALSE;
+  } catch (exception &e) {
+    cerr << e.what() << endl;
+  }
+
+  return NS_OK;
+}
+
+/* Return true if corrupted, false otherwise */
+NS_IMETHODIMP ZimAccessor::IsCorrupted(PRBool *retVal) {
+  *retVal = PR_FALSE;
+
+  try {
+    *retVal = this->reader->isCorrupted() == true ? PR_TRUE : PR_FALSE;
+  } catch (exception &e) {
+    cerr << e.what() << endl;
+  }
+
+  return NS_OK;
+}
+
 NS_GENERIC_FACTORY_CONSTRUCTOR(ZimAccessor)
 
 static const nsModuleComponentInfo components[] =
