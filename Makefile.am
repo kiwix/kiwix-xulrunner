@@ -128,8 +128,7 @@ uninstall:
 	rm -f ${DESTDIR}/${prefix}/share/icons/hicolor/22x22/mimetypes/application-x-zim.png
 	rm -f ${DESTDIR}/${prefix}/share/icons/hicolor/22x22/apps/kiwix.png
 	rm -f ${DESTDIR}/${prefix}/share/icons/hicolor/24x24/mimetypes/application-x-zim.png
-	rm -f ${DESTDIR}/${prefix}/share/icons/hicolor/24x24/apps/kiwix.pn
-g
+	rm -f ${DESTDIR}/${prefix}/share/icons/hicolor/24x24/apps/kiwix.png
 	rm -f ${DESTDIR}/${prefix}/share/icons/hicolor/48x48/mimetypes/application-x-zim.png
 	rm -f ${DESTDIR}/${prefix}/share/icons/hicolor/48x48/apps/kiwix.png
 	rm -f ${DESTDIR}/${prefix}/share/icons/hicolor/256x256/mimetypes/application-x-zim.png
