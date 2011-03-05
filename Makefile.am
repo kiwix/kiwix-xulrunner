@@ -73,7 +73,7 @@ install:
 	cp desktop/kiwix_32x32.png ${DESTDIR}/${prefix}/share/icons/gnome/32x32/mimetypes/x-zim.png
 	cp desktop/kiwix_48x48.png ${DESTDIR}/${prefix}/share/icons/gnome/48x48/mimetypes/x-zim.png
 	cp desktop/kiwix_256x256.png ${DESTDIR}/${prefix}/share/icons/gnome/256x256/mimetypes/x-zim.png
-	cp -r -v -L ./kiwix ${DESTDIR}/${libdir}/
+	cp -r -v -L ./kiwix ${DESTDIR}/${libdir}/2>/dev/null
 	ln -f -s ${DESTDIR}/${libdir}/kiwix/kiwix.sh ${DESTDIR}/${bindir}/kiwix
 	ln -f -s ${DESTDIR}/${libdir}/kiwix/kiwix-compact.sh ${DESTDIR}/${bindir}/kiwix-compact
 	cp src/components/zimAccessor/.libs/libZimAccessor.so ${DESTDIR}/${libdir}/kiwix/components/zimAccessor.so
