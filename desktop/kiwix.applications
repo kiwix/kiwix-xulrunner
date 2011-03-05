@@ -2,5 +2,6 @@ kiwix
 	command=kiwix
 	name=Kiwix
 	expects_uris=false
+	can_open_multiple_files=false
 	requires_terminal=false
 	mime_types=application/x-zim
