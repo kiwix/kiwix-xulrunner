@@ -64,25 +64,39 @@ install:
 	if [ ! -d ${DESTDIR}/${prefix}/share/icons/hicolor/ ] ; then $(MKDIR_P) ${DESTDIR}/${prefix}/share/icons/hicolor/ ; fi
 	if [ ! -d ${DESTDIR}/${prefix}/share/icons/hicolor/8x8/ ] ; then $(MKDIR_P) ${DESTDIR}/${prefix}/share/icons/hicolor/8x8/ ; fi
 	if [ ! -d ${DESTDIR}/${prefix}/share/icons/hicolor/8x8/mimetypes ] ; then $(MKDIR_P) ${DESTDIR}/${prefix}/share/icons/hicolor/8x8/mimetypes ; fi
+	if [ ! -d ${DESTDIR}/${prefix}/share/icons/hicolor/8x8/apps ] ; then $(MKDIR_P) ${DESTDIR}/${prefix}/share/icons/hicolor/8x8/apps ; fi
 	if [ ! -d ${DESTDIR}/${prefix}/share/icons/hicolor/16x16/ ] ; then $(MKDIR_P) ${DESTDIR}/${prefix}/share/icons/hicolor/16x16/ ; fi
 	if [ ! -d ${DESTDIR}/${prefix}/share/icons/hicolor/16x16/mimetypes ] ; then $(MKDIR_P) ${DESTDIR}/${prefix}/share/icons/hicolor/16x16/mimetypes ; fi
+	if [ ! -d ${DESTDIR}/${prefix}/share/icons/hicolor/16x16/apps ] ; then $(MKDIR_P) ${DESTDIR}/${prefix}/share/icons/hicolor/16x16/apps ; fi
 	if [ ! -d ${DESTDIR}/${prefix}/share/icons/hicolor/22x22/ ] ; then $(MKDIR_P) ${DESTDIR}/${prefix}/share/icons/hicolor/22x22/ ; fi
 	if [ ! -d ${DESTDIR}/${prefix}/share/icons/hicolor/22x22/mimetypes ] ; then $(MKDIR_P) ${DESTDIR}/${prefix}/share/icons/hicolor/22x22/mimetypes ; fi
+	if [ ! -d ${DESTDIR}/${prefix}/share/icons/hicolor/22x22/apps ] ; then $(MKDIR_P) ${DESTDIR}/${prefix}/share/icons/hicolor/22x22/apps ; fi
 	if [ ! -d ${DESTDIR}/${prefix}/share/icons/hicolor/24x24/ ] ; then $(MKDIR_P) ${DESTDIR}/${prefix}/share/icons/hicolor/24x24/ ; fi
 	if [ ! -d ${DESTDIR}/${prefix}/share/icons/hicolor/24x24/mimetypes ] ; then $(MKDIR_P) ${DESTDIR}/${prefix}/share/icons/hicolor/24x24/mimetypes ; fi
+	if [ ! -d ${DESTDIR}/${prefix}/share/icons/hicolor/24x24/apps ] ; then $(MKDIR_P) ${DESTDIR}/${prefix}/share/icons/hicolor/24x24/apps ; fi
 	if [ ! -d ${DESTDIR}/${prefix}/share/icons/hicolor/32x32/ ] ; then $(MKDIR_P) ${DESTDIR}/${prefix}/share/icons/hicolor/32x32/ ; fi
 	if [ ! -d ${DESTDIR}/${prefix}/share/icons/hicolor/32x32/mimetypes ] ; then $(MKDIR_P) ${DESTDIR}/${prefix}/share/icons/hicolor/32x32/mimetypes ; fi
+	if [ ! -d ${DESTDIR}/${prefix}/share/icons/hicolor/32x32/apps ] ; then $(MKDIR_P) ${DESTDIR}/${prefix}/share/icons/hicolor/32x32/apps ; fi
 	if [ ! -d ${DESTDIR}/${prefix}/share/icons/hicolor/48x48/ ] ; then $(MKDIR_P) ${DESTDIR}/${prefix}/share/icons/hicolor/48x48/ ; fi
 	if [ ! -d ${DESTDIR}/${prefix}/share/icons/hicolor/48x48/mimetypes ] ; then $(MKDIR_P) ${DESTDIR}/${prefix}/share/icons/hicolor/48x48/mimetypes ; fi
+	if [ ! -d ${DESTDIR}/${prefix}/share/icons/hicolor/48x48/apps ] ; then $(MKDIR_P) ${DESTDIR}/${prefix}/share/icons/hicolor/48x48/apps ; fi
 	if [ ! -d ${DESTDIR}/${prefix}/share/icons/hicolor/256x256/ ] ; then $(MKDIR_P) ${DESTDIR}/${prefix}/share/icons/hicolor/256x256/ ; fi
 	if [ ! -d ${DESTDIR}/${prefix}/share/icons/hicolor/256x256/mimetypes ] ; then $(MKDIR_P) ${DESTDIR}/${prefix}/share/icons/hicolor/256x256/mimetypes ; fi
+	if [ ! -d ${DESTDIR}/${prefix}/share/icons/hicolor/256x256/apps ] ; then $(MKDIR_P) ${DESTDIR}/${prefix}/share/icons/hicolor/256x256/apps ; fi
 	cp desktop/kiwix_8x8.png ${DESTDIR}/${prefix}/share/icons/hicolor/8x8/mimetypes/application-x-zim.png
+	cp desktop/kiwix_8x8.png ${DESTDIR}/${prefix}/share/icons/hicolor/8x8/apps/kiwix.png
 	cp desktop/kiwix_16x16.png ${DESTDIR}/${prefix}/share/icons/hicolor/16x16/mimetypes/application-x-zim.png
+	cp desktop/kiwix_16x16.png ${DESTDIR}/${prefix}/share/icons/hicolor/16x16/apps/kiwix.png
 	cp desktop/kiwix_22x22.png ${DESTDIR}/${prefix}/share/icons/hicolor/22x22/mimetypes/application-x-zim.png
+	cp desktop/kiwix_22x22.png ${DESTDIR}/${prefix}/share/icons/hicolor/22x22/apps/kiwix.png
 	cp desktop/kiwix_24x24.png ${DESTDIR}/${prefix}/share/icons/hicolor/24x24/mimetypes/application-x-zim.png
+	cp desktop/kiwix_24x24.png ${DESTDIR}/${prefix}/share/icons/hicolor/24x24/apps/kiwix.png
 	cp desktop/kiwix_32x32.png ${DESTDIR}/${prefix}/share/icons/hicolor/32x32/mimetypes/application-x-zim.png
+	cp desktop/kiwix_32x32.png ${DESTDIR}/${prefix}/share/icons/hicolor/32x32/apps/kiwix.png
 	cp desktop/kiwix_48x48.png ${DESTDIR}/${prefix}/share/icons/hicolor/48x48/mimetypes/application-x-zim.png
+	cp desktop/kiwix_48x48.png ${DESTDIR}/${prefix}/share/icons/hicolor/48x48/apps/kiwix.png
 	cp desktop/kiwix_256x256.png ${DESTDIR}/${prefix}/share/icons/hicolor/256x256/mimetypes/application-x-zim.png
+	cp desktop/kiwix_256x256.png ${DESTDIR}/${prefix}/share/icons/hicolor/256x256/apps/kiwix.png
 	cp -r -v -L ./kiwix ${DESTDIR}/${libdir}/ 2>/dev/null
 	ln -f -s ${DESTDIR}/${libdir}/kiwix/kiwix.sh ${DESTDIR}/${bindir}/kiwix
 	ln -f -s ${DESTDIR}/${libdir}/kiwix/kiwix-compact.sh ${DESTDIR}/${bindir}/kiwix-compact
@@ -108,12 +122,18 @@ uninstall:
 	rm -f ${DESTDIR}/${prefix}/share/applications/kiwix.desktop
 	rm -f ${DESTDIR}/${prefix}/share/application-registry/kiwix-applications
 	rm -f ${DESTDIR}/${prefix}/share/icons/hicolor/8x8/mimetypes/application-x-zim.png
+	rm -f ${DESTDIR}/${prefix}/share/icons/hicolor/8x8/apps/kiwix.png
 	rm -f ${DESTDIR}/${prefix}/share/icons/hicolor/16x16/mimetypes/application-x-zim.png
+	rm -f ${DESTDIR}/${prefix}/share/icons/hicolor/16x16/apps/kiwix.png
 	rm -f ${DESTDIR}/${prefix}/share/icons/hicolor/22x22/mimetypes/application-x-zim.png
+	rm -f ${DESTDIR}/${prefix}/share/icons/hicolor/22x22/apps/kiwix.png
 	rm -f ${DESTDIR}/${prefix}/share/icons/hicolor/24x24/mimetypes/application-x-zim.png
-	rm -f ${DESTDIR}/${prefix}/share/icons/hicolor/32x32/mimetypes/application-x-zim.png
+	rm -f ${DESTDIR}/${prefix}/share/icons/hicolor/24x24/apps/kiwix.pn
+g
 	rm -f ${DESTDIR}/${prefix}/share/icons/hicolor/48x48/mimetypes/application-x-zim.png
+	rm -f ${DESTDIR}/${prefix}/share/icons/hicolor/48x48/apps/kiwix.png
 	rm -f ${DESTDIR}/${prefix}/share/icons/hicolor/256x256/mimetypes/application-x-zim.png
+	rm -f ${DESTDIR}/${prefix}/share/icons/hicolor/256x256/apps/kiwix.png
 	rm -rf ${DESTDIR}/${libdir}/kiwix
 	rm -f ${DESTDIR}/${bindir}/kiwix
 	rm -f ${DESTDIR}/${bindir}/kiwix-compact
