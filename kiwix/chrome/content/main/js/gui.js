@@ -73,6 +73,10 @@ function getSearchLabel() {
     return document.getElementById("search-label");
 }
 
+function getCheckIntegrityMenuItem() {
+    return document.getElementById("tools-checkIntegrity");
+}
+
 /* Return the Progress meter object */
 function getProgressBar() {
     return document.getElementById("progress-bar");
@@ -712,6 +716,9 @@ function manageOpenFile(path, noSearchIndexCheck) {
 	/* update the gui */
 	updateGuiSearchComponents();
 	
+	/* verify if we can check the integrity */
+	getCheckIntegrityMenuItem().disabled = !canCheckIntegrity();
+
     } else {
 	displayErrorDialog(getProperty("loadZimFileError", path));
 	return false;
@@ -1236,5 +1243,13 @@ function selectSkin(name) {
     if (displayConfirmDialog(getProperty("changeSkinNeedRestart"))) {
 	settings.skin(name);
 	restart(true);
+    }
+}
+
+function manageCheckIntegrity() {
+    if (checkIntegrity()) {
+	displayInfoDialog("The file integrity was succesfuly checked.");
+    } else {
+	displayErrorDialog("Your file is corrupted.");
     }
 }

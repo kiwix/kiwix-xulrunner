@@ -60,6 +60,8 @@
 <!ENTITY main.tools.accesskey           "T">
 <!ENTITY main.randomArticle             "Random article">
 <!ENTITY main.randomArticle.accesskey   "R">
+<!ENTITY main.checkIntegrity            "Integrity check">
+<!ENTITY main.checkIntegrity.accesskey  "k">
 <!ENTITY main.purgeHistory              "Purge history">
 <!ENTITY main.purgeHistory.accesskey    "P">
 

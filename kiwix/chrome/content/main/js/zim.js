@@ -37,27 +37,46 @@ function getCurrentZimFileHomePageUrl() {
     var homePageUrl;
 
     if (currentZimAccessor) {
-		var url = new Object();
-
-		/* Return the welcome path if exists */
-		currentZimAccessor.getMainPageUrl(url);
-		if (url.value != undefined && url.value != '')
-			return "zim://" + url.value;		
+	var url = new Object();
+	
+	/* Return the welcome path if exists */
+	currentZimAccessor.getMainPageUrl(url);
+	if (url.value != undefined && url.value != '')
+	    return "zim://" + url.value;		
     }
-
+    
     return homePageUrl;
 }
 
 /* Load a ramdom page */
 function loadRandomArticle() {
     if (currentZimAccessor != undefined) {
-		var url = new Object();
+	var url = new Object();
+	
+	currentZimAccessor.getRandomPageUrl(url);
+	if (url.value != undefined && url.value != '')
+	    url.value = "zim://" + url.value;	
+	
+	loadContent(url.value);
+	activateBackButton();
+    }
+}
 
-		currentZimAccessor.getRandomPageUrl(url);
-		if (url.value != undefined && url.value != '')
-			url.value = "zim://" + url.value;	
+/* Check the integrity (with a checksum) of the ZIM file */
+function checkIntegrity() {
+    if (currentZimAccessor != undefined) {
+	if (canCheckIntegrity()) {
+	    dump("asdf\n"); 
+	    return !(currentZimAccessor.isCorrupted());
+	} else {
+	    dump("Unable to check the integrity of the current ZIMf file.\n");
+	}
+    }
+}
 
-		loadContent(url.value);
-		activateBackButton();
+/* Verify if the file has a checksum */
+function canCheckIntegrity() {
+    if (currentZimAccessor != undefined) {
+	return currentZimAccessor.canCheckIntegrity();
     }
 }

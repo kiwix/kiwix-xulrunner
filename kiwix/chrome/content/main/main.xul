@@ -131,7 +131,7 @@
       </menu>
       <menu label="&main.skin;" accesskey="&main.skin.accesskey;">
 	<menupopup id="menu-skins">
-	  <menuitem type="checkbox" label="Default" id="skin-default" oncommand="selectSkin('default');"/>
+OB	  <menuitem type="checkbox" label="Default" id="skin-default" oncommand="selectSkin('default');"/>
           <menuitem type="checkbox" label="Evolution" id="skin-evolution" oncommand="selectSkin('evolution');"/>
 	</menupopup>
       </menu>
@@ -151,6 +151,8 @@
     <menupopup id="tools-popup">
       <menuitem id="tools-randomArticle" label="&main.randomArticle;" key="random-article-key" class="menuitem-iconic" 
 		accesskey="&main.randomArticle.accesskey;" oncommand="loadRandomArticle()"/>
+      <menuitem id="tools-checkIntegrity" label="&main.checkIntegrity;" class="menuitem-iconic" 
+		accesskey="&main.checkIntegrity.accesskey;" oncommand="manageCheckIntegrity()" disabled="true"/>
       <menuitem id="tools-purgeHistory" label="&main.purgeHistory;" key="purge-history-key" class="menuitem-iconic" 
 		accesskey="&main.purgeHistory.accesskey;" oncommand="managePurgeHistory()"/>
 
