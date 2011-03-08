@@ -13,6 +13,7 @@ Kiwix 0.9 alpha8
 * Open a ZIM file directly from the command line
 * Gnome and KDE integration: mime-type recognition + icon & application associations (ZIM double-click feature)
 * New checksum checker to be able to check ZIM file integrity
+* A list of ZIM files to download is dynamicaly downloaded in the help page if user online (ID: 3165272)
 
 Kiwix 0.9 alpha7
 * Fix the encoding issue in the help in Parsi (ID: 3060250)

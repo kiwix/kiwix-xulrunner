@@ -28,9 +28,36 @@
       }
       li { text-indent: 0 }
     </style>
- 
+
+   <script type="text/javascript">
+    //<![CDATA[
+    
+    var invocation = new XMLHttpRequest();
+    var url = 'http://www.kiwix.org/index.php?action=render&title=template:ZIMdumps';
+    
+    function downloadZimList() {
+            invocation.open('GET', url, true);
+            invocation.onreadystatechange = handler;
+            invocation.send(); 
+        
+    }
+    function handler(evtXHR)
+    {
+        if (invocation.readyState == 4)
+        {
+                if (invocation.status == 200)
+                {
+                    var textDiv = document.getElementById("zimList");
+                    textDiv.innerHTML = invocation.responseText;
+                }
+        }
+    }
+    //]]>
+    
+    </script>
+
   </head>
-<body>
+<body onload="downloadZimList();">
 <h1>Welcome to Kiwix</h1>
 <div class="chapter">
 	<p>Kiwix is a content reader software. Just like an Internet Browser allows you to read content from the web, Kiwix allows you to read <i>offline content</i>.</p>
@@ -64,8 +91,12 @@
 		<li><a href="#faq_search">Search accross all documents of the content packages</a>.</li>
 	</ul>
 </div>
-<div class="subtitle" style="display: none"><a name="guide_addcontent"></a>Adding Content</div>
-<div class="chapter" style="display: none"><p>TODO</p></div>
+<div class="subtitle"><a name="guide_addcontent"></a>Adding Content</div>
+<div class="chapter">
+	<p>To add content, you need first to download or copy a zim file from Internet of any storage device.</p>
+	<p><div id="zimList"></div></p>
+	<p>All Kiwix zim files are available at this address: <a href="http://download.kiwix.org/zim/0.9/">http://download.kiwix.org/zim/0.9/<a/>. Choose one file, download it using your browser or bittorrent client and open afterwards with Kiwix.</p>
+</div>
 <div class="subtitle" style="display: none"><a name="guide_readcontent"></a>Reading Content</div>
 <div class="chapter" style="display: none"><p>TODO</p></div>
 <div class="title"><a name="faq"></a><accronym title="Frequently Asked Questions">F.A.Q</accrnym> & Further Topics</div>
