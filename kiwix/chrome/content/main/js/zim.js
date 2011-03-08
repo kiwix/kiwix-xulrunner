@@ -66,7 +66,6 @@ function loadRandomArticle() {
 function checkIntegrity() {
     if (currentZimAccessor != undefined) {
 	if (canCheckIntegrity()) {
-	    dump("asdf\n"); 
 	    return !(currentZimAccessor.isCorrupted());
 	} else {
 	    dump("Unable to check the integrity of the current ZIMf file.\n");

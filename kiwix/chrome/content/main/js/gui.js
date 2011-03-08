@@ -837,6 +837,19 @@ function displayErrorDialog(message, title) {
     return promptService.alert(window, title, message);
 }
 
+/* Display an information dialog box like alert() */
+function displayInfoDialog(message, title) {
+    var promptService = Components.classes["@mozilla.org/embedcomp/prompt-service;1"]
+	.getService(Components.interfaces.nsIPromptService);
+
+    /* Default title */
+    if (title == undefined) {
+	title = getProperty("information");
+    }
+
+    return promptService.alert(window, title, message);
+}
+
 /* Download an url on the hard disk */
 function downloadFile(url, path) {
   var ioService = Components.classes["@mozilla.org/network/io-service;1"]
