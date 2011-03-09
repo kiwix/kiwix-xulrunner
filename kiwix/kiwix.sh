@@ -49,6 +49,12 @@ then
     XULRUNNER=`whereis xulrunner-1.9.2 | cut -d" " -f2`
 fi
 
+# Last chance, try with xulrunner-1.9.1 binary
+if [ ! "$XULRUNNER" ] || [ ! -f "$XULRUNNER" ] || [ ! -x "$XULRUNNER" ] || [ ! -r "$XULRUNNER" ]
+then
+    XULRUNNER=`whereis xulrunner-1.9.1 | cut -d" " -f2`
+fi
+
 # If no result print a message
 if [ ! "$XULRUNNER" ] || [ ! -f "$XULRUNNER" ] || [ ! -x "$XULRUNNER" ] || [ ! -r "$XULRUNNER" ]
 then
