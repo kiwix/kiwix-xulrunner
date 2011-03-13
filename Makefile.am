@@ -2,8 +2,6 @@ SUBDIRS=src
 EXTRA_DIST= \
 	kiwix \
 	desktop \
-	debian \
-	fedora \
 	CHANGELOG \
 	COMPILE
 
