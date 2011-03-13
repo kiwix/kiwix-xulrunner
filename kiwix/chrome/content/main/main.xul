@@ -155,11 +155,12 @@ OB	  <menuitem type="checkbox" label="Default" id="skin-default" oncommand="sele
 		accesskey="&main.checkIntegrity.accesskey;" oncommand="manageCheckIntegrity()" disabled="true"/>
       <menuitem id="tools-purgeHistory" label="&main.purgeHistory;" key="purge-history-key" class="menuitem-iconic" 
 		accesskey="&main.purgeHistory.accesskey;" oncommand="managePurgeHistory()"/>
+<!-- waiting for implementation
       <menuitem id="tools-downloadStatus" label="getDownloadStatus" class="menuitem-iconic" 
 		oncommand="getDownloadStatus()"/>
       <menuitem id="tools-downloadWikipediaIt" label="downloadWikipediaITgetDownloadStatus" class="menuitem-iconic" 
 		oncommand="startDownload('http://download.kiwix.org/zim/0.9/wikipedia_it_all_03_2010_alpha2.zim.torrent')"/>
-
+-->
     </menupopup>
   </menu>
   <menu id="menu-help" label="&main.help;" accesskey="&main.help.accesskey;">
