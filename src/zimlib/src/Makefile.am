@@ -29,7 +29,9 @@ libzim_la_SOURCES = \
 include_HEADERS = \
 	ptrstream.h \
 	log.h \
-	envvalue.h
+	envvalue.h \
+	md5stream.h \
+	md5.h
 
 libzim_la_CXXFLAGS=${LIBZ_CFLAGS} ${LIBLZMA_CFLAGS} -fPIC -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE
 libzim_la_LDFLAGS=${LIBZ_LDFLAGS} ${LIBLZMA_LDFLAGS}
