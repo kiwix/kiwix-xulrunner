@@ -1,0 +1,110 @@
+<!-- Window -->
+<!ENTITY main.title                     "&brand.brandShortName;">
+<!ENTITY main.cssdirection              "ltr">
+
+<!-- File menu -->
+<!ENTITY main.file                      "ഫയല്‍">
+<!ENTITY main.file.accesskey            "ഫ">
+<!ENTITY main.openFile                  "ഫയല്‍ തുറക്കുക...">
+<!ENTITY main.openFile.accesskey        "ത">
+<!ENTITY main.lastOpen                  "ഈയിടെ തുറന്നതു്...">
+<!ENTITY main.saveFile                  "താള്‍ സൂക്ഷിക്കുക...">
+<!ENTITY main.saveFile.accesskey        "സ">
+<!ENTITY main.print                     "അച്ചടിക്കുക">
+<!ENTITY main.print.accesskey           "അ">
+<!ENTITY main.printPdf                  "പിഡിഎഫ് ആക്കി മാറ്റുക">
+<!ENTITY main.printPdf.accesskey        "പ">
+<!ENTITY main.quit                      "അടയ്ക്കുക">
+<!ENTITY main.quit.accesskey            "ട">
+
+<!-- Edit menu -->
+<!ENTITY main.edit                      "ചിട്ട">
+<!ENTITY main.edit.accesskey            "ച">
+<!ENTITY main.find                      "താളില്‍ തിരയുക...">
+<!ENTITY main.find.accesskey            "ത">
+<!ENTITY main.selectall                 "എല്ലാം തിരഞ്ഞെടുക്കുക">
+<!ENTITY main.selectall.accesskey       "എ">
+<!ENTITY main.copy                      "പകര്‍ത്തുക">
+<!ENTITY main.copy.accesskey            "പ">
+<!ENTITY main.transliteration           "ലിപ്യന്തരണം">
+<!ENTITY main.transliteration.accesskey "ല">
+<!ENTITY main.preferences               "ഐച്ഛികങ്ങള്‍">
+<!ENTITY main.preferences.accesskey     "ഐ">
+
+<!-- Display menu -->
+<!ENTITY main.display                   "കാഴ്ച">
+<!ENTITY main.display.accesskey         "ക">
+<!ENTITY main.zoom                      "വലുപ്പം മാറ്റുക">
+<!ENTITY main.zoom.accesskey            "വ">
+<!ENTITY main.zoomin                    "വലുതാക്കുക">
+<!ENTITY main.zoomin.accesskey          "വ">
+<!ENTITY main.zoomout                   "ചെറുതാക്കുക">
+<!ENTITY main.zoomout.accesskey         "ച">
+<!ENTITY main.zoomorig                  "ആദ്യപടിയാക്കുക">
+<!ENTITY main.zoomorig.accesskey        "ആ">
+<!ENTITY main.language                  "ഭാഷ">
+<!ENTITY main.language.accesskey        "ഭ">
+<!ENTITY main.skin                      "ചമയം">
+<!ENTITY main.skin.accesskey            "ച">
+<!ENTITY main.statusbar                 "അവസ്ഥാപട്ട">
+<!ENTITY main.statusbar.accesskey       "പ">
+<!ENTITY main.resultsbar                "തെരച്ചില്‍ ഫലങ്ങള്‍ പട്ട">
+<!ENTITY main.resultsbar.accesskey      "ഫ">
+<!ENTITY main.tabs                      "കിളിവാതിലുകള്‍">
+<!ENTITY main.tabs.accesskey            "ള">
+<!ENTITY main.fullscreen                "മുഴുവന്‍ സ്ക്രീനില്‍">
+<!ENTITY main.fullscreen.accesskey      "സ">
+
+<!-- Tools menu -->
+<!ENTITY main.tools                     "ഉപകരണങ്ങള്‍">
+<!ENTITY main.tools.accesskey           "ഉ">
+<!ENTITY main.randomArticle             "ഏതെങ്കിലും ലേഖനം">
+<!ENTITY main.randomArticle.accesskey   "ഏ">
+<!ENTITY main.checkIntegrity            "കെട്ടുറപ്പു് പരിശോധന">
+<!ENTITY main.checkIntegrity.accesskey  "ക">
+<!ENTITY main.purgeHistory              "നാള്‍വഴി വെടിപ്പാക്കുക">
+<!ENTITY main.purgeHistory.accesskey    "ന">
+
+<!-- Help menu -->
+<!ENTITY main.help                      "സഹായം">
+<!ENTITY main.help.accesskey            "സ">
+<!ENTITY main.reportabug                "പിഴവു് ചൂണ്ടിക്കാണിയ്ക്കുക">
+<!ENTITY main.requestafeature           "പരിഷ്കാരങ്ങള്‍ നിര്‍ദ്ദേശിക്കുക">
+<!ENTITY main.about                     "&brand.brandShortName;നെ പറ്റി">
+<!ENTITY main.about.accesskey           "പ">
+
+<!-- Tool bar -->
+<!ENTITY main.back                      "പിന്നോട്ടു്">
+<!ENTITY main.forward                   "മുന്നോട്ടു്">
+<!ENTITY main.home                      "ആസ്ഥാനം">
+<!ENTITY main.searchBar                 "തിരച്ചില്‍ പട്ട">
+<!ENTITY main.search                    "തിരയുക">
+<!ENTITY main.noSearchBar               "തിരയുന്നതിനു് ഇന്‍ഡെക്സ് ചെയ്ത Zim ഫയല്‍ ആവശ്യമാണു്">
+<!ENTITY main.bookmarks                 "അടയാളക്കുറിപ്പുകള്‍">
+
+<!-- Results bar -->
+<!ENTITY main.results.title             "തിരച്ചില്‍ ഫലങ്ങള്‍">
+
+<!-- Bookmarks Bar -->
+<!ENTITY main.bmkLabel                  "അടയാളക്കുറിപ്പുകള്‍:">
+<!ENTITY main.notesLabel                "അടയാളക്കുറിപ്പുകള്‍:">
+<!ENTITY main.loadbmk                   "അടയാളക്കുറിപ്പുകളുടെ കെട്ടു് ഇറക്കുമതി ചെയ്യുക">
+<!ENTITY main.newbmk                    "അടയാളക്കുറിപ്പുകളുടെ പുതിയൊരു  കെട്ടുണ്ടാക്കുക">
+<!ENTITY main.mark                      "ഈ താള്‍ അടയാളപ്പെടുത്തുക">
+<!ENTITY main.unmark                    "തിരഞ്ഞെടുത്തവ അടയാളപ്പെടുത്താതിരിക്കുക">
+<!ENTITY main.reload                    "അടയാളക്കുറിപ്പുകളിടെ കെട്ടു് പഴയപടിയാക്കുക">
+<!ENTITY main.defaultset                "സ്വതവേയുള്ള സെറ്റ്">
+
+<!-- Contextual Menu -->
+<!ENTITY main.saveImageAs               "ചിത്രം സൂക്ഷിക്കുക...">
+
+<!-- About Window -->
+<!ENTITY main.close           		"അടയ്ക്കുക">
+
+<!-- Preferences Window -->
+<!ENTITY preferences.preferences        "ഐച്ഛികങ്ങള്‍">
+<!ENTITY preferences.save      		"സൂക്ഷിക്കുക">
+<!ENTITY preferences.cancel     	"റദ്ദാക്കുക">
+<!ENTITY preferences.profileDirectory  	"പ്രൊഫൈല്‍ ഡയറക്ടറി">
+<!ENTITY preferences.browse  	        "പരതുക">
+
