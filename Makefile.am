@@ -2,6 +2,8 @@ SUBDIRS=src
 EXTRA_DIST= \
 	kiwix \
 	desktop \
+	debian \
+	fedora \
 	CHANGELOG \
 	COMPILE
 
@@ -174,30 +176,27 @@ bindist:
 
 deb: dist
 	if [ `whereis dpkg-buildpackage | cut -f2 -d" "` == "dpkg-buildpackage:" ] ; then echo "You have to install dpkg-buildpackage" ; exit 1 ; fi
-	tar -xvzf kiwix-0.9.tar.gz
-	cd kiwix-0.9 ; dpkg-buildpackage -rfakeroot
+	tar -xvzf $(PACKAGE)-$(VERSION).tar.gz
+	cd $(PACKAGE)-$(VERSION) ; dpkg-buildpackage -rfakeroot
 
 rpm: dist
 	$(MKDIR_P) ~/rpmbuild/{BUILD,RPMS,SOURCES,SPECS,SRPMS}
 	echo "%_topdir $${HOME}/rpmbuild" > ~/.rpmmacros
-	cp -f kiwix-0.9.tar.gz ~/rpmbuild/SOURCES/
+	cp -f $(PACKAGE)-$(VERSION).tar.gz ~/rpmbuild/SOURCES/
 	rpmbuild -ba fedora/kiwix.spec
 	cp ~/rpmbuild/RPMS/*/*.rpm .
 
-kiwix-0.9.tar.gz: dist
-	echo "Need to recreate tgz"
-
 # Mac OSX rule
 # requires install of XR
-distmac: kiwix-0.9.tar.gz
-	tar xf kiwix-0.9.tar.gz
+distmac: dist
+	tar xf $(PACKAGE)-$(VERSION).tar.gz
 	rm -rf kiwix_dmg
 	$(MKDIR_P) Kiwix.app
 	$(MKDIR_P) Kiwix.app/Contents
 	$(MKDIR_P) Kiwix.app/Contents/Frameworks
 	$(MKDIR_P) Kiwix.app/Contents/MacOS
 	$(MKDIR_P) Kiwix.app/Contents/Resources
-	rsync -ar kiwix-0.9/kiwix/* Kiwix.app/Contents/Resources/
+	rsync -ar $(PACKAGE)-$(VERSION)/kiwix/* Kiwix.app/Contents/Resources/
 	find Kiwix.app/Contents/Resources/components/ -type l -delete
 	cp src/components/zimAccessor/IZimAccessor.xpt Kiwix.app/Contents/Resources/components/zimAccessor.xpt
 	cp src/components/zimAccessor/.libs/libZimAccessor.dylib Kiwix.app/Contents/Resources/components/zimAccessor.dylib
@@ -208,18 +207,18 @@ distmac: kiwix-0.9.tar.gz
 	cp src/components/components.list Kiwix.app/Contents/Resources/components/components.list
 	rsync -rl /Library/Frameworks/XUL.framework/ Kiwix.app/Contents/Frameworks/XUL.framework/
 	cp /Library/Frameworks/XUL.framework/Versions/Current/xulrunner Kiwix.app/Contents/MacOS/xulrunner
-	cp kiwix-0.9/kiwix/chrome/icons/default/main.icns Kiwix.app/Contents/Resources/kiwix.icns
+	cp $(PACKAGE)-$(VERSION)/kiwix/chrome/icons/default/main.icns Kiwix.app/Contents/Resources/kiwix.icns
 	cp src/macosx/Info.plist Kiwix.app/Contents/Info.plist
 	chmod -R 755 Kiwix.app
 
-	rm -f Kiwix-0.9.dmg
+	rm -f $(PACKAGE)-$(VERSION).dmg
 	bunzip2 -kf src/macosx/kiwix_template.dmg.bz2
 	$(MKDIR_P) kiwix_dmg
 	hdiutil attach src/macosx/kiwix_template.dmg -noautoopen -quiet -mountpoint ./kiwix_dmg
 	rm -rf ./kiwix_dmg/Kiwix.app
 	mv Kiwix.app kiwix_dmg/
 	hdiutil detach ./kiwix_dmg -quiet -force
-	hdiutil convert src/macosx/kiwix_template.dmg -quiet -format UDZO -imagekey zlib-level=9 -o Kiwix-0.9.dmg
+	hdiutil convert src/macosx/kiwix_template.dmg -quiet -format UDZO -imagekey zlib-level=9 -o $(PACKAGE)-$(VERSION).dmg
 	rm -f src/macosx/kiwix_template.dmg
 
 
