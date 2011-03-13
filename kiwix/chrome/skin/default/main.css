@@ -126,15 +126,12 @@ window[langdir="rtl"] #button-next {
     list-style-image: url("chrome://main/skin/icon/bookmarks24.png");
 }
 
-#button-results {
-    list-style-image: url("chrome://main/skin/icon/searchs24.png");
+#button-search-article {
+    list-style-image: url("chrome://main/skin/icon/find-article24.png");
 }
 
-#button-search {
-    list-style-image: url("chrome://main/skin/icon/find24.png");
-}
-#button-search.disabled {
-    opacity: 0.2;
+#button-results {
+    list-style-image: url("chrome://main/skin/icon/searchs24.png");
 }
 
 /* Textbox search */
@@ -143,17 +140,19 @@ window[langdir="rtl"] #button-next {
     width: 100%;
 }
 
-#button-search-article {
-    list-style-image: url("chrome://main/skin/icon/find-article24.png");
-}
-
 #main.mac #textbox-search {
 	-moz-appearance: none;
 	background-color: #f1f1f1;
 	border: 1px solid #dedede;
 	padding-left: .5em;
 	padding-right: .5em;
-    -moz-border-radius: 1em;
+	-moz-border-radius: 1em;
+}
+
+#textbox-search-go-button {
+    list-style-image: url("chrome://main/skin/icon/magnify16.png");
+    margin-right: 2px;
+    cursor: pointer;
 }
 
 /* Main window*/

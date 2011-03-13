@@ -197,7 +197,12 @@ OB	  <menuitem type="checkbox" label="Default" id="skin-default" oncommand="sele
 	<textbox id="textbox-search" flex="1" tooltiptext="&main.searchBar;"
 		 onkeypress="if (event.keyCode == 13) { manageSearchInIndex(); }"
 		 type="autocomplete" autocompletesearch="kiwix-suggest"
-		 />
+		 >
+	  <hbox class="textbox-search-go-container">
+	    <image id="textbox-search-go-button" anonid="search-go-button" 
+		   onclick="manageSearchInIndex();" tooltiptext="&main.search;"/>
+	  </hbox>
+	</textbox>
 <!-- waiting for implementation
         <toolbarbutton id="button-search-article" oncommand="" tooltiptext="&main.search;" />
 	<toolbarseparator />

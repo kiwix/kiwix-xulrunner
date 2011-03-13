@@ -196,6 +196,12 @@ window[langdir="rtl"] #button-next {
     -moz-border-radius: 1em;
 }
 
+#textbox-search-go-button {
+    list-style-image: url("chrome://main/skin/icon/magnify16.png");
+    margin-right: 2px;
+    cursor: pointer;
+}
+
 /* Main window*/
 #main {
     margin: 0;
