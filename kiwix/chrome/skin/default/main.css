@@ -143,6 +143,10 @@ window[langdir="rtl"] #button-next {
     width: 100%;
 }
 
+#button-search-article {
+    list-style-image: url("chrome://main/skin/icon/find-article24.png");
+}
+
 #main.mac #textbox-search {
 	-moz-appearance: none;
 	background-color: #f1f1f1;

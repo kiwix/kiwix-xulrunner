@@ -155,6 +155,10 @@ OB	  <menuitem type="checkbox" label="Default" id="skin-default" oncommand="sele
 		accesskey="&main.checkIntegrity.accesskey;" oncommand="manageCheckIntegrity()" disabled="true"/>
       <menuitem id="tools-purgeHistory" label="&main.purgeHistory;" key="purge-history-key" class="menuitem-iconic" 
 		accesskey="&main.purgeHistory.accesskey;" oncommand="managePurgeHistory()"/>
+      <menuitem id="tools-downloadStatus" label="getDownloadStatus" class="menuitem-iconic" 
+		oncommand="getDownloadStatus()"/>
+      <menuitem id="tools-downloadWikipediaIt" label="downloadWikipediaITgetDownloadStatus" class="menuitem-iconic" 
+		oncommand="startDownload('http://download.kiwix.org/zim/0.9/wikipedia_it_all_03_2010_alpha2.zim.torrent')"/>
 
     </menupopup>
   </menu>
@@ -185,6 +189,7 @@ OB	  <menuitem type="checkbox" label="Default" id="skin-default" oncommand="sele
     <toolbarbutton id="button-fullscreen" oncommand="UIToggleFullScreen(true)" tooltiptext="&main.fullscreen;"/>
     <toolbarbutton id="button-print" oncommand="print()" tooltiptext="&main.print;"/>
     <toolbarbutton id="button-bookmarks" oncommand="UIToggleBookmarksBar()" tooltiptext="&main.bookmarks;"/>
+    <toolbarbutton id="button-search-article" oncommand="find()" tooltiptext="&main.search;" />
     <toolbarbutton id="button-results" oncommand="changeResultsBarVisibilityStatus()" tooltiptext="&main.resultsbar;"/>
     <stack flex="1">
       <hbox>
@@ -192,7 +197,6 @@ OB	  <menuitem type="checkbox" label="Default" id="skin-default" oncommand="sele
 		 onkeypress="if (event.keyCode == 13) { manageSearchInIndex(); }"
 		 type="autocomplete" autocompletesearch="kiwix-suggest"
 		 />
-	<toolbarbutton id="button-search" oncommand="manageSearchInIndex()" tooltiptext="&main.search;" />
 <!-- waiting for implementation
         <toolbarbutton id="button-search-article" oncommand="" tooltiptext="&main.search;" />
 	<toolbarseparator />

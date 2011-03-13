@@ -163,8 +163,8 @@ window[langdir="rtl"] #button-next {
 
 #button-search-article {
     list-style-image: url("chrome://main/skin/icon/find-article24.png");
-    display:none; /* to remove after implementation */
 }
+
 #button-search-article-up {
     list-style-image: url("chrome://main/skin/icon/find-article-up24.png");
     display:none; /* to remove after implementation */
