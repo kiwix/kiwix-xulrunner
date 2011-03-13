@@ -195,12 +195,12 @@ OB	  <menuitem type="checkbox" label="Default" id="skin-default" oncommand="sele
     <stack flex="1">
       <hbox>
 	<textbox id="textbox-search" flex="1" tooltiptext="&main.searchBar;"
-		 onkeypress="if (event.keyCode == 13) { manageSearchInIndex(); }"
+		 onkeypress="if (event.keyCode == 13) { manageSearchInIndex(); } else { this.keyPressed = true; }"
+		 oninput="if (this.keyPressed == false) { manageSearchInIndex();}; this.keyPressed = false;"
 		 type="autocomplete" autocompletesearch="kiwix-suggest"
 		 >
 	  <hbox class="textbox-search-go-container">
-	    <image id="textbox-search-go-button" anonid="search-go-button" 
-		   onclick="manageSearchInIndex();" tooltiptext="&main.search;"/>
+	    <image id="textbox-search-go-button" onclick="manageSearchInIndex();" tooltiptext="&main.search;"/>
 	  </hbox>
 	</textbox>
 <!-- waiting for implementation
