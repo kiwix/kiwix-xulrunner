@@ -10,8 +10,8 @@ include_HEADERS= \
 	../../common/unaccent.h \
 	../../common/kiwix/searcher.h \
 	../../common/kiwix/cluceneSearcher.cpp
-libCluceneAccessor_la_CXXFLAGS=$(LIBXUL_CFLAGS) $(LIBCLUCENE_CFLAGS) $(LIBICU_CFLAGS) $(XPCOM_CFLAGS) -I../../common/
-libCluceneAccessor_la_LDFLAGS=$(LIBXUL_LDFLAGS) $(LIBCLUCENE_LDFLAGS) $(LIBICU_LDFLAGS) $(XPCOM_LDFLAGS)
+libCluceneAccessor_la_CXXFLAGS=$(LIBCTPP2_CFLAGS) $(LIBXUL_CFLAGS) $(LIBCLUCENE_CFLAGS) $(LIBICU_CFLAGS) $(XPCOM_CFLAGS) -I../../common/
+libCluceneAccessor_la_LDFLAGS=$(LIBCTPP2_LDFLAGS) $(LIBXUL_LDFLAGS) $(LIBCLUCENE_LDFLAGS) $(LIBICU_LDFLAGS) $(XPCOM_LDFLAGS)
 EXTRA_DIST=ICluceneAccessor.idl
 BUILT_SOURCES=ICluceneAccessor.xpt ICluceneAccessor.h
 CLEANFILES=ICluceneAccessor.xpt ICluceneAccessor.h *.lib *.obj *.dll
