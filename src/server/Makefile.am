@@ -17,4 +17,4 @@ include_HEADERS= \
 	../common/splitString.cpp 
 kiwix_serve_CXXFLAGS=${LIBMICROHTTPD_CFLAGS} $(LIBCTPP2_CFLAGS) $(LIBCLUCENE_CFLAGS) $(LIBXAPIAN_CFLAGS) $(LIBICU_CFLAGS) $(LIBZIM_CFLAGS) -I../common/
 kiwix_serve_LDFLAGS=${LIBMICROHTTPD_LDFLAGS} $(LIBCTPP2_LDLAGS) $(LIBCLUCENE_LDFLAGS) $(LIBXAPIAN_LDFLAGS) $(LIBICU_LDFLAGS) $(LIBZIM_LDFLAGS)
-kiwix_serve_LDADD=../zimlib/src/.libs/libzim.a
+kiwix_serve_LDADD=../zimlib/src/.libs/libzim.a ../ctpp2/src/.libs/libctpp2.a

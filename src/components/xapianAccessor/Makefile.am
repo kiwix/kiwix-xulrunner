@@ -17,6 +17,7 @@ libXapianAccessor_la_LDFLAGS=$(LIBXUL_LDFLAGS) $(LIBXAPIAN_STATIC_LDFLAGS) $(LIB
 else
 libXapianAccessor_la_LDFLAGS=$(LIBCTPP2_LDFLAGS) $(LIBXUL_LDFLAGS) $(LIBXAPIAN_LDFLAGS) $(LIBICU_LDFLAGS) $(XPCOM_LDFLAGS)
 endif
+libXapianAccessor_la_LIBADD=../../ctpp2/src/.libs/libctpp2.a
 EXTRA_DIST=IXapianAccessor.idl
 BUILT_SOURCES=IXapianAccessor.xpt IXapianAccessor.h
 CLEANFILES=IXapianAccessor.xpt IXapianAccessor.h *.lib *.obj *.dll
