@@ -5,8 +5,8 @@ SUBDIRS = ${DEPENDENCES} \
 else
 SUBDIRS = ${DEPENDENCES} \
 	zimlib \
-	components \
 	ctpp2 \
+	components \
 	indexer \
 	server 
 endif
