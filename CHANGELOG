@@ -14,6 +14,8 @@ Kiwix 0.9 alpha8
 * Gnome and KDE integration: mime-type recognition + icon & application associations (ZIM double-click feature)
 * New checksum checker to be able to check ZIM file integrity
 * A list of ZIM files to download is dynamicaly downloaded in the help page if user online (ID: 3165272)
+* Simplification and improvment of the searchbar (no search button anymore, always available, standardized, ...)
+* Result sidebar removed and replaced by a result web page "a la google"
 
 Kiwix 0.9 alpha7
 * Fix the encoding issue in the help in Parsi (ID: 3060250)
