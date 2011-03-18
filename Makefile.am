@@ -111,7 +111,6 @@ install:
 	cp src/components/zimCluceneIndexer/IZimCluceneIndexer.xpt ${DESTDIR}/${libdir}/kiwix/components/zimCluceneIndexer.xpt
 	cp src/indexer/kiwix-index ${DESTDIR}/${bindir}/kiwix-index
 	cp src/server/kiwix-serve ${DESTDIR}/${bindir}/kiwix-serve
-	$(UPDATE_MIME)
 	$(UPDATE_DESKTOP) 
 
 uninstall:
@@ -136,7 +135,6 @@ uninstall:
 	rm -f ${DESTDIR}/${bindir}/kiwix
 	rm -f ${DESTDIR}/${bindir}/kiwix-compact
 	rm -f ${DESTDIR}/${bindir}/kiwix-serve
-	$(UPDATE_MIME)
 	$(UPDATE_DESKTOP) 
 
 ./kiwix/components/zimAccessor.so: 
