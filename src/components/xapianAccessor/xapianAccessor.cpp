@@ -132,6 +132,22 @@ NS_IMETHODIMP XapianAccessor::Reset(PRBool *retVal) {
   return NS_OK;
 }
 
+/* Return the result as HTML */
+NS_IMETHODIMP XapianAccessor::GetHtml(nsACString &html, PRBool *retVal) {
+  *retVal = PR_TRUE;
+
+  try {
+    std::string htmlStr =  this->searcher->getHtml();
+    html = nsDependentCString(htmlStr.c_str(), 
+			      htmlStr.length());
+  } catch (exception &e) {
+    std::cerr << e.what() << std::endl;
+    *retVal = PR_FALSE;
+  }
+
+  return NS_OK;
+}
+
 /* Get next result */
 NS_IMETHODIMP XapianAccessor::GetNextResult(nsACString &url, nsACString &title, 
 					    PRUint32 *score, PRBool *retVal) {

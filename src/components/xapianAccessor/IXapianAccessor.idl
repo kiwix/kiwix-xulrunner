@@ -9,5 +9,6 @@ interface IXapianAccessor : nsISupports
   boolean search(in AUTF8String search, in PRUint32 resultsCount);
   boolean reset();
   boolean getNextResult(out AUTF8String url, out AUTF8String title, out PRUint32 score);
+  boolean getHtml(out AUTF8String html);
   boolean closeReadableDatabase();
 };

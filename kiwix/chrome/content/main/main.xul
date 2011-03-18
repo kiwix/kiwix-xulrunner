@@ -64,8 +64,6 @@
   <key id="open-tab-key" key="T" modifiers="control" oncommand="openNewTab()"/>
   <key id="help-key" keycode="VK_F1" oncommand="showHelp()"/>
   <key id="fullscreen-key" keycode="VK_F11" oncommand="UIToggleFullScreen(true)"/>
-  <key id="change-results-bar-visibility-status" key="R" modifiers="control" 
-       oncommand="changeResultsBarVisibilityStatus()"/>
   <key id="escape" keycode="VK_ESCAPE" oncommand="handleEscape()"/>
 </keyset>
 
@@ -131,15 +129,12 @@
       </menu>
       <menu label="&main.skin;" accesskey="&main.skin.accesskey;">
 	<menupopup id="menu-skins">
-OB	  <menuitem type="checkbox" label="Default" id="skin-default" oncommand="selectSkin('default');"/>
+	  <menuitem type="checkbox" label="Default" id="skin-default" oncommand="selectSkin('default');"/>
           <menuitem type="checkbox" label="Evolution" id="skin-evolution" oncommand="selectSkin('evolution');"/>
 	</menupopup>
       </menu>
       <menuitem id="display-statusbar" label="&main.statusbar;" type="checkbox" checked="true"
 		accesskey="&main.statusbar.accesskey;" oncommand="changeStatusBarVisibilityStatus(undefined, true)"/>
-      <menuitem id="display-resultsbar" label="&main.resultsbar;" type="checkbox" checked="false"
-		accesskey="&main.resultsbar.accesskey;" key="change-results-bar-visibility-status"
-		oncommand="changeResultsBarVisibilityStatus()"/>
       <menuitem id="display-tabs" label="&main.tabs;" type="checkbox" checked="false"
 		accesskey="&main.tabs.accesskey;" key="change-tabs-visibility-status"
 		oncommand="changeTabsVisibilityStatus(undefined, true)"/>
@@ -191,7 +186,6 @@ OB	  <menuitem type="checkbox" label="Default" id="skin-default" oncommand="sele
     <toolbarbutton id="button-print" oncommand="print()" tooltiptext="&main.print;"/>
     <toolbarbutton id="button-bookmarks" oncommand="UIToggleBookmarksBar()" tooltiptext="&main.bookmarks;"/>
     <toolbarbutton id="button-search-article" oncommand="find()" tooltiptext="&main.search;" />
-    <toolbarbutton id="button-results" oncommand="changeResultsBarVisibilityStatus()" tooltiptext="&main.resultsbar;"/>
     <stack flex="1">
       <hbox>
 	<textbox id="textbox-search" flex="1" tooltiptext="&main.searchBar;"
@@ -219,19 +213,6 @@ OB	  <menuitem type="checkbox" label="Default" id="skin-default" oncommand="sele
 
 <hbox flex="1">
 
-  <!-- Search results side bar -->
-  <vbox id="results-bar" collapsed="true">
-
-    <hbox id="results-bar-header">
-      <label flex="1" class="results-title" value="&main.results.title;"/>
-      <toolbarbutton id="results-close-button" oncommand="changeResultsBarVisibilityStatus(false)"/>
-    </hbox>
-
-    <richlistbox flex="1" id="results-list" onselect="activateBackButton(); loadContent('zim://' + currentItem.getAttribute('url')) + '\')'" onclick="activateBackButton(); loadContent('zim://' + currentItem.getAttribute('url')) + '\')'">
-
-    </richlistbox>
-  </vbox>
-  
   <!-- bookmarks side bar -->
   <vbox id="bookmarks-bar" hidden="true">
 

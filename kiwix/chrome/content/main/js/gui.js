@@ -49,11 +49,6 @@ function getHomeButton() {
     return document.getElementById("button-home");
 }
 
-/* Return the results button */
-function getResultsButton() {
-    return document.getElementById("button-results");
-}
-
 /* Return the bookmarks button */
 function getBookmarksButton() {
     return document.getElementById("button-bookmarks");
@@ -86,16 +81,6 @@ function getProgressBar() {
 /* Return the Progress meter label */
 function getProgressBarLabel() {
     return document.getElementById("progress-bar-label");
-}
-
-/* Return the results side bar */
-function getResultsBar() {
-    return document.getElementById("results-bar");
-}
-
-/* Return the list of results */
-function getResultsList() {
-    return document.getElementById("results-list");
 }
 
 /* Return the bookmarks side bar */
@@ -153,15 +138,12 @@ function configureWindowGeometry(window) {
 function activateGuiSearchComponents() {
     getSearchLabel().collapsed = true;
     getSearchBox().disabled = false;
-    activateResultsButton();
 }
 
 /* Desactivate Search GUI elements */
 function desactivateGuiSearchComponents() {
     getSearchLabel().collapsed = false;
     getSearchBox().disabled = true;
-    changeResultsBarVisibilityStatus(false);
-    desactivateResultsButton();
 }
 
 /* Activate home button */
@@ -174,18 +156,6 @@ function activateHomeButton() {
 function desactivateHomeButton() {
     getHomeButton().disabled = true;
     getHomeButton().className = "disabled";
-}
-
-/* Activate results button */
-function activateResultsButton() {
-    getResultsButton().disabled = false;
-    getResultsButton().className = "";
-}
-
-/* Desactivate results button */
-function desactivateResultsButton() {
-    getResultsButton().disabled = true;
-    getResultsButton().className = "disabled";
 }
 
 /* Activate back button */
@@ -222,61 +192,10 @@ function focusOnSearchBox() {
     }
 }
 
-/* Change result side bar visibility status */
-function changeResultsBarVisibilityStatus(visible) {
-
-    if (visible == undefined) {
-	visible = document.getElementById('results-bar').collapsed;
-    }
-    
-    /* hide bookmarks if visible */
-    if (visible && !getBookmarksBar().hidden) {
-        UIToggleBookmarksBar();
-    }
-
-    var resultsBar = document.getElementById('results-bar');
-	
-    if (visible) {
-	if (!document.getElementById('results-splitter')) {
-	    var splitter = document.createElement('splitter');
-	    splitter.setAttribute('id', 'results-splitter');
-	    resultsBar.parentNode.insertBefore(splitter, resultsBar.nextSibling);
-	}
-	resultsBar.collapsed = false;
-	getResultsButton().setAttribute('checked', true);
-    } else {
-	var splitter = document.getElementById('results-splitter');
-	if (splitter != null) {
-	    splitter.parentNode.removeChild(splitter);
-	}
-	document.getElementById('results-bar').collapsed = true;
-	getResultsButton().setAttribute('checked', false);
-    }
-    
-    document.getElementById('display-resultsbar').setAttribute('checked', visible);
-}
-
-
 /* Return true if the URL is internal */
 function isInternalUrl(url) {
 	return (url.href.indexOf("zim://", 0)==0 || url.href.indexOf("javascript:", 0)==0 || 
 		url.href.indexOf("chrome:", 0)==0);
-}
-
-/* Allowing to navigate through the results list with the mouse wheel */
-function resultsListMouseScroll(aEvent) {
-    var resultsList = getResultsList();
-
-    if (resultsList.currentIndex >= 0) {
-	var newIndex = resultsList.currentIndex;
-	if (aEvent.detail > 0 && newIndex > 0) {
-	    newIndex++;
-	} else if (aEvent.detail < 0 && newIndex < (resultsList.itemCount-1)) { 
-	    newIndex--;
-	}
-	resultsList.selectItem(resultsList.getItemAtIndex(newIndex));
-	resultsList.scrollToIndex(newIndex);
-    }
 }
 
 /* Allowing zoom/history function by combining mouse & ctrl */
@@ -506,7 +425,6 @@ function UIToggleBookmarksBar () {
     var bar = getBookmarksBar();
     if (bar.hidden) {
 	WarnOnSideBar ();
-	changeResultsBarVisibilityStatus(false);
     }
 
     bar.hidden  = !bar.hidden;
@@ -702,9 +620,6 @@ function manageOpenFile(path, noSearchIndexCheck) {
 	    getHtmlRenderer().sessionHistory.PurgeHistory(getHtmlRenderer().sessionHistory.count);
 	}
 
-	/* Clear the results bar */
-	emptyResultsList();
-
 	/* Update the last open menu */
 	populateLastOpenMenu();
 
@@ -755,61 +670,6 @@ function manageChangeLocale(locale) {
 	settings.locale(locale);
 	restart();
     }
-}
-
-/* Empty the results list */
-function emptyResultsList() {
-    var resultsList = getResultsList();
-
-    while (resultsList.hasChildNodes()) {
-	resultsList.removeChild( resultsList.lastChild );
-    }
-}
-
-/* Add a list item to the results list */
-function addResultToList(url, title, score) {
-    
-    /* Get the result list object */
-    var resultsList = getResultsList();
-
-    /* Create the scoreslide */
-    var slideWidth = score;
-
-    var scoreslide = document.createElement("hbox");
-    scoreslide.setAttribute("flex", "0");
-
-    var scoreslidef = document.createElement("box");
-    scoreslidef.setAttribute("style", "cursor: pointer; -moz-border-radius: 7px; width: "+slideWidth+"px; background-color: #EEEEEE");
-    scoreslide.appendChild(scoreslidef);
-    
-    /* Set label of the richlist item */
-    var titre = document.createElement("label");
-    titre.setAttribute("value", title);
-    titre.setAttribute("tooltiptext", title + " - " + score + "%");
-    titre.setAttribute("flex", "0");
-    titre.setAttribute("crop", "end");
-    titre.setAttribute("style", "cursor: pointer;");
-
-    /* Create the stack */
-    var titrescore = document.createElement("stack");
-    titrescore.setAttribute("flex", "0");
-    
-    /* Generates color problems, todo */
-    //titrescore.appendChild(scoreslide);
-    
-    titrescore.appendChild(titre);
-
-    /* Create a new richlist item */
-    var li = document.createElement("richlistitem");
-    li.setAttribute("url", url);
-    li.setAttribute("flex", "0");
-    li.setAttribute("style", "cursor: pointer; padding: 2px;");
-    li.appendChild(titrescore);
-
-    /* Add the item to the list */
-    resultsList.appendChild(li);
-
-    return true;
 }
 
 /* Display the about dialog box */
@@ -1168,9 +1028,6 @@ function handleEscape() {
 function initEventListeners() {
     initHtmlRendererEventListeners();
    
-    /* Add mouse scroll listener to the results bar */
-    getResultsList().addEventListener("DOMMouseScroll", resultsListMouseScroll, false);
-
     /* register WebProgress listener */
     var dls = Components.classes["@mozilla.org/docloaderservice;1"]
 	.getService(nsIWebProgress);

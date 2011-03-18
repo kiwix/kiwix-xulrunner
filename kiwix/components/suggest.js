@@ -71,7 +71,8 @@ gS.prototype={
 	listener.onSearchResult(j, new gR(4,r));
     },
 
-    stopSearch:function(){},
+    stopSearch:function(){
+    },
     
     QueryInterface:function(a){return this}
 }
