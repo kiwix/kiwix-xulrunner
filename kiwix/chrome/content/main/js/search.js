@@ -225,34 +225,18 @@ function searchInIndex(query, indexDirectory, loadFirstResult) {
     if (!indexAccessor) return;
 
     /* Make a search */
-    indexAccessor.search(query, 28);
+    if (indexAccessor.search(query, 28)) {
 
-    /* Get the result */
-    var url = new Object();
-    var title = new Object();
-    var score = new Object();
-
-    /* Build the result array */
-    var results = new Array;
-    while (indexAccessor.getNextResult(url, title, score)) {
-		var result = new Array;
-		result.push(url.value);
-		result.push(title.value);
-		result.push(score.value);
-		results.push(result);
-    }
-
-    /* Try to get the first result */
-    indexAccessor.getNextResult(url, title, score);
-
-    if (results.length > 0) {
+	/* Set the template */
+	indexAccessor.setResultTemplatePath(chromeToPath("chrome://main/skin/results.tmpl"));
+	    
+	/* Display the HTML */
 	var html = new Object();
 	indexAccessor.getHtml(html);
 	getHtmlRenderer().contentDocument.body.innerHTML = html.value;
-    } 
-
-    if (results.length == 0 && loadFirstResult) 
+    } else { 
 	displayErrorDialog(getProperty("noResultsError"), getProperty("information"));    
+    }
     
     /* Close the xapian readable databse */
     indexAccessor.closeReadableDatabase();

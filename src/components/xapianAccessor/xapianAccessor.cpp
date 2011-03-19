@@ -95,6 +95,21 @@ NS_IMETHODIMP XapianAccessor::OpenReadableDatabase(const nsACString &directory, 
   return NS_OK;
 }
 
+NS_IMETHODIMP XapianAccessor::SetResultTemplatePath(const nsACString &resultTemplate, PRBool *retVal) {
+  *retVal = PR_TRUE;
+  
+  const char *resultTemplatePath;
+  NS_CStringGetData(resultTemplate, &resultTemplatePath);
+  
+  try {
+    this->searcher->setResultTemplatePath(resultTemplatePath);
+  } catch (...) {
+    *retVal = PR_FALSE;
+  }
+
+  return NS_OK;
+}
+
 /* Close Xapian writable database */
 NS_IMETHODIMP XapianAccessor::CloseReadableDatabase(PRBool *retVal) {
   *retVal = PR_TRUE;

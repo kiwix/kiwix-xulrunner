@@ -412,3 +412,33 @@ function randomString() {
 function delay (f, t) {
     setTimeout(f, t || 0);
 }
+
+function urlToPath (aPath) {
+
+    if (!aPath || !/^file:/.test(aPath))
+	return ;
+    var rv;
+   var ph = Components.classes["@mozilla.org/network/protocol;1?name=file"]
+       .createInstance(Components.interfaces.nsIFileProtocolHandler);
+   rv = ph.getFileFromURLSpec(aPath).path;
+   return rv;
+}
+
+function chromeToPath (aPath) {
+
+    if (!aPath || !(/^chrome:/.test(aPath)))
+	return; //not a chrome url
+    var rv;
+
+    var ios = Components.classes['@mozilla.org/network/io-service;1'].getService(Components.interfaces["nsIIOService"]);
+    var uri = ios.newURI(aPath, "UTF-8", null);
+    var cr = Components.classes['@mozilla.org/chrome/chrome-registry;1'].getService(Components.interfaces["nsIChromeRegistry"]);
+    rv = cr.convertChromeURL(uri).spec;
+
+    if (/^file:/.test(rv))
+	rv = urlToPath(rv);
+    else
+	rv = urlToPath("file://"+rv);
+
+    return rv;
+}
