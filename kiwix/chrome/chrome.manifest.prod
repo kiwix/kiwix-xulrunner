@@ -1,0 +1,41 @@
+#content packagename uri/to/files/ [flags]
+content main jar:content.jar!/content/main/
+content branding jar:content.jar!/content/branding/
+
+#locale packagename localename uri/to/files/ [flags]
+locale main ar    jar:locale.jar!/locale/ar/main/
+locale main ca    jar:locale.jar!/locale/ca/main/
+locale main de-DE jar:locale.jar!/locale/de-DE/main/
+locale main en-US jar:locale.jar!/locale/en-US/main/
+locale main es-ES jar:locale.jar!/locale/es-ES/main/
+locale main fa	  jar:locale.jar!/locale/fa/main/
+locale main fr-FR jar:locale.jar!/locale/fr-FR/main/
+locale main he-IL jar:locale.jar!/locale/he-IL/main/
+locale main it-IT jar:locale.jar!/locale/it-IT/main/
+locale main ml    jar:locale.jar!/locale/ml/main/
+locale main nl    jar:locale.jar!/locale/nl/main/
+locale main pl    jar:locale.jar!/locale/pl/main/
+locale main pt-PT jar:locale.jar!/locale/pt-PT/main/
+locale main zh	  jar:locale.jar!/locale/zh/main/
+
+locale branding ar    jar:locale.jar!/locale/branding/
+locale branding ca    jar:locale.jar!/locale/branding/
+locale branding de-DE jar:locale.jar!/locale/branding/
+locale branding en-US jar:locale.jar!/locale/branding/
+locale branding es-ES jar:locale.jar!/locale/branding/
+locale branding fa    jar:locale.jar!/locale/branding/
+locale branding fr-FR jar:locale.jar!/locale/branding/
+locale branding he-IL jar:locale.jar!/locale/branding/
+locale branding it-IT jar:locale.jar!/locale/branding/
+locale branding ml    jar:locale.jar!/locale/branding/
+locale branding nl    jar:locale.jar!/locale/branding/
+locale branding pl    jar:locale.jar!/locale/branding/
+locale branding pt-PT jar:locale.jar!/locale/branding/
+locale branding zh    jar:locale.jar!/locale/branding/
+
+#skin packagename skinname uri/to/files/ [flags]
+skin main default jar:skin.jar!/skin/default/
+skin main evolution jar:skin.jar!/skin/evolution/
+
+#resource aliasname uri/to/files/
+resource modules modules/
