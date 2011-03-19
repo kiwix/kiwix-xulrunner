@@ -16,6 +16,7 @@ Kiwix 0.9 alpha8
 * A list of ZIM files to download is dynamicaly downloaded in the help page if user online (ID: 3165272)
 * Simplification and improvment of the searchbar (no search button anymore, always available, standardized, ...)
 * Result sidebar removed and replaced by a result web page "a la google"
+* Usage of jar files for a quicker startup
 
 Kiwix 0.9 alpha7
 * Fix the encoding issue in the help in Parsi (ID: 3060250)

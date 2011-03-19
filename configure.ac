@@ -14,6 +14,8 @@ then
 	AC_MSG_ERROR([[cannot find any C++ compiler]])
 fi
 
+AC_CHECK_TOOL(HAVE_JAR, cl)
+
 # Check cl.exe
 # Check if their is a Perl binary
 AC_CHECK_TOOL(HAVE_CL, cl)
@@ -29,6 +31,12 @@ AM_CONDITIONAL([IS_OSX], [test "$HAVE_XCODE" = yes])
 if test [ "$HAVE_XCODE" ]
 then
   IS_OSX=1
+fi
+
+# Chek jar
+AC_CHECK_TOOL([JAR],[jar],[])
+if [[ "$JAR" = "" ]]; then
+  AC_MSG_ERROR([jar is required.])
 fi
 
 # Only for POSIX systems
@@ -365,6 +373,7 @@ AC_SUBST(LIBMICROHTTPD_LDFLAGS)
 AC_SUBST(ESCAPED_PREFIX)
 AC_SUBST(BINDIST_INTRO_MESSAGE)
 AC_SUBST(DEPENDENCES)
+AC_SUBST(JAR)
 AC_SUBST(CURRENT_PATH)
 
 # Check the existence of stat64 (to handle file >2GB) in the libc

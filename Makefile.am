@@ -97,6 +97,13 @@ install:
 	cp desktop/kiwix_256x256.png ${DESTDIR}/${prefix}/share/icons/hicolor/256x256/mimetypes/application-x-zim.png
 	cp desktop/kiwix_256x256.png ${DESTDIR}/${prefix}/share/icons/hicolor/256x256/apps/kiwix.png
 	cp -r -v -L ./kiwix ${DESTDIR}/${libdir}/ 2>/dev/null
+	mv ${DESTDIR}/${libdir}/kiwix/chrome/chrome.manifest.prod ${DESTDIR}/${libdir}/kiwix/chrome/chrome.manifest
+	cd ${DESTDIR}/${libdir}/kiwix/chrome/ ; ${JAR} c -f locale.jar locale/
+	rm -rf ${DESTDIR}/${libdir}/kiwix/chrome/locale
+	cd ${DESTDIR}/${libdir}/kiwix/chrome/ ; ${JAR} c -f content.jar content/
+	rm -rf ${DESTDIR}/${libdir}/kiwix/chrome/content
+	cd ${DESTDIR}/${libdir}/kiwix/chrome/ ; ${JAR} c -f skin.jar skin/
+	rm -rf ${DESTDIR}/${libdir}/kiwix/chrome/skin
 	ln -f -s ${DESTDIR}/${libdir}/kiwix/kiwix.sh ${DESTDIR}/${bindir}/kiwix
 	ln -f -s ${DESTDIR}/${libdir}/kiwix/kiwix-compact.sh ${DESTDIR}/${bindir}/kiwix-compact
 	cp src/components/zimAccessor/.libs/libZimAccessor.so ${DESTDIR}/${libdir}/kiwix/components/zimAccessor.so
