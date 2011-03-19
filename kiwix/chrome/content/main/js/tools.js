@@ -427,7 +427,7 @@ function urlToPath (aPath) {
 function chromeToPath (aPath) {
 
     if (!aPath || !(/^chrome:/.test(aPath)))
-	return; //not a chrome url
+    	return; //not a chrome url
     var rv;
 
     var ios = Components.classes['@mozilla.org/network/io-service;1'].getService(Components.interfaces["nsIIOService"]);
