@@ -105,6 +105,11 @@ install:
 	cp desktop/kiwix_256x256.png ${DESTDIR}/${prefix}/share/icons/hicolor/256x256/mimetypes/application-x-zim.png
 	cp desktop/kiwix_256x256.png ${DESTDIR}/${prefix}/share/icons/hicolor/256x256/apps/kiwix.png
 	cp -r -v -L ./kiwix ${DESTDIR}/${libdir}/ 2>/dev/null
+	if [ ! -d ${datadir}/kiwix ] ; then $(MKDIR_P) ${datadir}/kiwix ; fi
+	mv ${DESTDIR}/${libdir}/kiwix/chrome ${datadir}/kiwix/
+	ln -s ${datadir}/kiwix/chrome ${DESTDIR}/${libdir}/kiwix/chrome
+	mv ${DESTDIR}/${libdir}/kiwix/defaults ${datadir}/kiwix/
+	ln -s ${datadir}/kiwix/defaults ${DESTDIR}/${libdir}/kiwix/defaults
 	ln -f -s ${DESTDIR}/${libdir}/kiwix/kiwix.sh ${DESTDIR}/${bindir}/kiwix
 	ln -f -s ${DESTDIR}/${libdir}/kiwix/kiwix-compact.sh ${DESTDIR}/${bindir}/kiwix-compact
 	cp src/components/zimAccessor/.libs/libZimAccessor.so ${DESTDIR}/${libdir}/kiwix/components/zimAccessor.so
@@ -140,6 +145,7 @@ uninstall:
 	rm -f ${DESTDIR}/${prefix}/share/icons/hicolor/256x256/mimetypes/application-x-zim.png
 	rm -f ${DESTDIR}/${prefix}/share/icons/hicolor/256x256/apps/kiwix.png
 	rm -rf ${DESTDIR}/${libdir}/kiwix
+	rm -rf ${datadir}/kiwix
 	rm -f ${DESTDIR}/${bindir}/kiwix
 	rm -f ${DESTDIR}/${bindir}/kiwix-compact
 	rm -f ${DESTDIR}/${bindir}/kiwix-serve
