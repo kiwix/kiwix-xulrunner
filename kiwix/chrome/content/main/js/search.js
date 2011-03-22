@@ -244,7 +244,7 @@ function searchInIndex(query, indexDirectory, loadFirstResult) {
 
 /* Function called by clicking on the search button */
 function manageSearchInIndex() {
-    var stringToSearch = getSearchBox().value.toLowerCase();
+    var stringToSearch = getSearchBox().value;
 
     if (stringToSearch != "") {
 	/* Make the search and display results */
