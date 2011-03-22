@@ -242,6 +242,8 @@ function htmlRendererMouseScroll(aEvent) {
 /* Update the status bar if mouse is over a link */
 function htmlRendererMouseOver(aEvent) {
     var url = aEvent.target;
+    //    if (url.href.indexOf("http://search/", 0) == 0)
+    //	return;
     
     if (url instanceof HTMLSpanElement && 
 	url.parentNode instanceof HTMLAnchorElement) {
@@ -309,12 +311,19 @@ function htmlRendererOpenUrl(aEvent) {
 
     /* Open with extern browser if not an internal link */
     if (!isInternalUrl(url)) {
-	openUrlWithExternalBrowser(url.href);
-	aEvent.preventDefault();
-	aEvent.stopPropagation();
-	
-	/* Purge the history of the last entry */
-	getHtmlRenderer().sessionHistory.PurgeHistory(1);
+	if (url.href.indexOf("http://search/", 0) == 0) {
+	    var elements = url.href.split('/');
+	    manageSearchInIndex(elements[3], elements[4], elements[5]);
+	    aEvent.preventDefault();
+	    aEvent.stopPropagation();
+	} else {
+	    openUrlWithExternalBrowser(url.href);
+	    aEvent.preventDefault();
+	    aEvent.stopPropagation();
+
+	    /* Purge the history of the last entry */
+	    getHtmlRenderer().sessionHistory.PurgeHistory(1);
+	}
     } else { /* If the a ZIM or chrome url */ 	 
 	if (loadContent(url.href)) { 	 
 	    activateBackButton(); 	 

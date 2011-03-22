@@ -217,7 +217,7 @@ function openSearchIndex(path) {
 }
 
 /* Search a pattern in the index */
-function searchInIndex(query, indexDirectory, loadFirstResult) {
+function searchInIndex(query, indexDirectory, start, end, loadFirstResult) {
     /* Get the index accessor */
     var indexAccessor = openSearchIndex(indexDirectory);
 
@@ -225,7 +225,7 @@ function searchInIndex(query, indexDirectory, loadFirstResult) {
     if (!indexAccessor) return;
 
     /* Make a search */
-    if (indexAccessor.search(query, 28)) {
+    if (indexAccessor.search(query, start, end)) {
 
 	/* Set the template */
 	indexAccessor.setResultTemplatePath(chromeToPath("chrome://static/content/results.tmpl"));
@@ -243,13 +243,20 @@ function searchInIndex(query, indexDirectory, loadFirstResult) {
 }
 
 /* Function called by clicking on the search button */
-function manageSearchInIndex() {
-    var stringToSearch = getSearchBox().value;
+function manageSearchInIndex(stringToSearch, start, end) {
+    if (stringToSearch == undefined)
+	stringToSearch = getSearchBox().value;
+
+    if (start == undefined)
+	start = 0;
+
+    if (end == undefined)
+	end = start + 20;
 
     if (stringToSearch != "") {
 	/* Make the search and display results */
 	var currentBook = library.getCurrentBook();
-	searchInIndex(stringToSearch, currentBook.indexPath, true);
+	searchInIndex(stringToSearch, currentBook.indexPath, start, end, true);
 	getSearchBox().value = "";
     }
     return true;

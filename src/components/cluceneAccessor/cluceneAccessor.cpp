@@ -102,14 +102,14 @@ NS_IMETHODIMP CluceneAccessor::CloseReadableDatabase(PRBool *retVal) {
 }
 
 /* Search strings in the database */
-NS_IMETHODIMP CluceneAccessor::Search(const nsACString &search, PRUint32 resultsCount, PRBool *retVal) {
+NS_IMETHODIMP CluceneAccessor::Search(const nsACString &search, PRUint32 resultStart, PRUint32 resultEnd, PRBool *retVal) {
   *retVal = PR_TRUE;
   const char *csearch;
   NS_CStringGetData(search, &csearch, NULL);
 
   try {
     std::string searchString = std::string(csearch);
-    this->searcher->search(searchString, resultsCount);
+    this->searcher->search(searchString, resultStart, resultEnd);
   } catch (exception &e) {
     cerr << e.what() << endl;
     *retVal = PR_FALSE;
