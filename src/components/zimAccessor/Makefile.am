@@ -11,7 +11,7 @@ libZimAccessor_la_LDFLAGS=$(LIBXUL_LDFLAGS) $(LIBZIM_STATIC_LDFLAGS) $(XPCOM_LDF
 else
 libZimAccessor_la_LDFLAGS=$(LIBXUL_LDFLAGS) $(LIBZIM_LDFLAGS) $(XPCOM_LDFLAGS)
 endif
-libZimAccessor_la_LIBADD=../../zimlib/src/.libs/libzim.a
+libZimAccessor_la_LIBADD=../../zimlib/src/libzim.la
 EXTRA_DIST=IZimAccessor.idl
 BUILT_SOURCES=IZimAccessor.xpt IZimAccessor.h
 CLEANFILES=IZimAccessor.xpt IZimAccessor.h *.lib *.obj *.dll

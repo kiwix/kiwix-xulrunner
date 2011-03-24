@@ -16,7 +16,7 @@ include_HEADERS= \
 	../../common/kiwix/cluceneIndexer.h
 libZimCluceneIndexer_la_CXXFLAGS=$(LIBXUL_CFLAGS) $(LIBXAPIAN_CFLAGS) $(LIBCLUCENE_CFLAGS) $(LIBICU_CFLAGS) $(LIBZIM_CFLAGS) $(XPCOM_CFLAGS) -I../../common/
 libZimCluceneIndexer_la_LDFLAGS=$(LIBXUL_LDFLAGS) $(LIBXAPIAN_LDFLAGS) $(LIBCLUCENE_LDFLAGS) $(LIBICU_LDFLAGS) $(LIBZIM_LDFLAGS) $(XPCOM_LDFLAGS)
-libZimCluceneIndexer_la_LIBADD=../../zimlib/src/.libs/libzim.a
+libZimCluceneIndexer_la_LIBADD=../../zimlib/src/libzim.la
 EXTRA_DIST=IZimCluceneIndexer.idl
 BUILT_SOURCES=IZimCluceneIndexer.xpt IZimCluceneIndexer.h
 CLEANFILES=IZimCluceneIndexer.xpt IZimCluceneIndexer.h *.lib *.obj *.dll
