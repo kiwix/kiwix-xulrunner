@@ -1,5 +1,7 @@
 var EXPORTED_SYMBOLS = [ "library" ];
 
+Components.utils.import("resource://modules/env.jsm");
+
 /* Define the Book class */
 function Book(id, path, indexPath, indexType, readOnly, last) {
         this.id = id;
@@ -126,7 +128,7 @@ let library = {
 
     /* Build the book list from the XML */
     fromXml: function(xml, contentDirectory, indexDirectory) {
-       	var parser = new DOMParser();
+       	var parser = Components.classes["@mozilla.org/xmlextras/domparser;1"].createInstance(Components.interfaces.nsIDOMParser);
         var doc = parser.parseFromString(xml, "text/xml");
 	var root = doc.firstChild;
         var len = root.childNodes.length;
@@ -194,7 +196,7 @@ let library = {
 
     /* Build an XML string from the library object */
     toXml: function() {
-        var parser = new DOMParser();     
+       	var parser = Components.classes["@mozilla.org/xmlextras/domparser;1"].createInstance(Components.interfaces.nsIDOMParser);
     	var doc = parser.parseFromString("<library />", "text/xml");
 	var root = doc.firstChild;
 	root.setAttribute("current", this.current);
@@ -221,7 +223,7 @@ let library = {
 	    }
 	}
     
-	var serializer = new XMLSerializer();
+	var serializer = Components.classes["@mozilla.org/xmlextras/xmlserializer;1"].createInstance(Components.interfaces.nsIDOMSerializer);
         var xml = serializer.serializeToString(doc);
         return xml;
     },
