@@ -47,7 +47,34 @@ let env = {
       var unixTimeDate = new Date;
       var unixTimeMs = unixTimeDate.getTime();
       return parseInt(unixTimeMs / 1000);
-    }
+    },
+
+    urlToPath: function(aPath) {
+      if (!aPath || !/^file:/.test(aPath))
+        return;
+
+      var ph = Components.classes["@mozilla.org/network/protocol;1?name=file"]
+        .createInstance(Components.interfaces.nsIFileProtocolHandler);
+      return ph.getFileFromURLSpec(aPath).path;
+   },
+
+   chromeToPath: function(aPath) {
+     if (!aPath || !(/^chrome:/.test(aPath)))
+       return; //not a chrome url
+    
+     var rv;
+     var ios = Components.classes['@mozilla.org/network/io-service;1'].getService(Components.interfaces["nsIIOService"]);
+     var uri = ios.newURI(aPath, "UTF-8", null);
+     var cr = Components.classes['@mozilla.org/chrome/chrome-registry;1'].getService(Components.interfaces["nsIChromeRegistry"]);
+     rv = cr.convertChromeURL(uri).spec;
+
+     if (/^file:/.test(rv))
+       rv = this.urlToPath(rv);
+     else
+       rv = this.urlToPath("file://"+rv);
+
+    return rv;
+  }
 }
 
 /* Create the settings object */

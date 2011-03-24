@@ -228,7 +228,7 @@ function searchInIndex(query, indexDirectory, start, end, loadFirstResult) {
     if (indexAccessor.search(query, start, end)) {
 
 	/* Set the template */
-	indexAccessor.setResultTemplatePath(chromeToPath("chrome://static/content/results.tmpl"));
+	indexAccessor.setResultTemplatePath(env.chromeToPath("chrome://static/content/results.tmpl"));
 	    
 	/* Display the HTML */
 	var html = new Object();

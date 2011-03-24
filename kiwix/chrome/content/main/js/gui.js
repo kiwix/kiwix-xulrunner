@@ -195,7 +195,7 @@ function focusOnSearchBox() {
 /* Return true if the URL is internal */
 function isInternalUrl(url) {
 	return (url.href.indexOf("zim://", 0)==0 || url.href.indexOf("javascript:", 0)==0 || 
-		url.href.indexOf("chrome:", 0)==0);
+		url.href.indexOf("chrome:", 0)==0 || url.href.indexOf("search://", 0)==0);
 }
 
 /* Allowing zoom/history function by combining mouse & ctrl */
