@@ -10,6 +10,6 @@ interface IXapianAccessor : nsISupports
   boolean reset();
   boolean getNextResult(out AUTF8String url, out AUTF8String title, out PRUint32 score);
   boolean setResultTemplatePath(in AUTF8String resultTemplatePath);
-  boolean getHtml(out AUTF8String html);
+  boolean getHtml(out ACString html);
   boolean closeReadableDatabase();
 };
