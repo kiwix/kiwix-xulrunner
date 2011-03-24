@@ -34,6 +34,9 @@
  * the terms of any one of the MPL, the GPL or the LGPL.
  *
  * ***** END LICENSE BLOCK ***** */
+const Cc = Components.classes;
+const Ci = Components.interfaces;
+const Cr = Components.results;
 
 // Test protocol related
 const kSCHEME = "search";
@@ -80,52 +83,166 @@ Protocol.prototype =
     return uri;
   },
 
-  newChannel: function(aURI)
+  newChannel: function(URI)
   {
-    // aURI is a nsIUri, so get a string from it using .spec
-    var mySearchTerm = aURI.spec;
-
-    // strip away the kSCHEME: part
-    mySearchTerm = mySearchTerm.substring(mySearchTerm.indexOf(":") + 1, mySearchTerm.length);    
-    mySearchTerm = encodeURI(mySearchTerm);
-
-    dump("[mySearchTerm=" + mySearchTerm + "]\n");
-    var finalURL = "";
-    
-    try{ 
-      // Get the preferences service
-      var prefService = Components.classes["@mozilla.org/preferences-service;1"]
-                                  .getService(Components.interfaces.nsIPrefService);
-
-      var prefBranch = prefService.getBranch(null);
-  
-      defaultSearchURL = prefBranch.getComplexValue("browser.search.defaulturl",
-                            Components.interfaces.nsIPrefLocalizedString).data;
-
-      var searchDS = Components.classes["@mozilla.org/rdf/datasource;1?name=internetsearch"]
-                               .getService(Components.interfaces.nsIInternetSearchService);
-
-      var searchEngineURI = prefBranch.getCharPref("browser.search.defaultengine");
-      if (searchEngineURI) {          
-        searchURL = searchDS.GetInternetSearchURL(searchEngineURI, mySearchTerm, 0, 0, {value:0});
-        if (searchURL)
-          defaultSearchURL = searchURL;      
-      }
-      dump("[Search Protocol Success: " + defaultSearchURL + "]")
-    } catch (e){
-      dump("[Search Protocol failed to get the search pref: " + e + "]\n");
-    }
-
-   finalURL = defaultSearchURL + mySearchTerm;
-
-    /* create dummy nsIURI and nsIChannel instances */
-    var ios = Components.classes[kIOSERVICE_CONTRACTID]
-                        .getService(nsIIOService);
-
-    return ios.newChannel("javascript:document.location.href='" + finalURL + "'", null, null);
-
+      var channel = new SearchPipeChannel(URI);
+      return channel.QueryInterface(Ci.nsIChannel);
   },
 }
+
+/* PipeChannel */
+var SearchPipeChannel = function(URI) {
+    this.pipe = Cc["@mozilla.org/pipe;1"].createInstance(Ci.nsIPipe);
+    const PR_UINT32_MAX = Math.pow(2, 32) - 1;
+    this.pipe.init(true,true,0, PR_UINT32_MAX,null);
+    this.inputStreamChannel = Cc["@mozilla.org/network/input-stream-channel;1"].createInstance(Ci.nsIInputStreamChannel);
+    this.inputStreamChannel.setURI(URI);
+    this.inputStreamChannel.contentStream = this.pipe.inputStream;
+    this.request = this.inputStreamChannel.QueryInterface(Ci.nsIRequest);
+    this.channel = this.inputStreamChannel.QueryInterface(Ci.nsIChannel);
+}
+
+SearchPipeChannel.prototype = {
+    QueryInterface: function(iid){
+	if (iid.equals(Ci.nsIChannel) || iid.equals(Ci.nsIRequest) ||
+	    iid.equals(Ci.nsISupports))
+	    return this;
+	throw Cr.NS_NOINTERFACE;
+    },
+    
+    get LOAD_NORMAL() {return this.request.LOAD_NORMAL},
+    get LOAD_BACKGROUND() {return this.request.LOAD_BACKGROUND},
+    get INHIBIT_CACHING() {return this.request.INHIBIT_CACHING},
+    get INHIBIT_PERSISTENT_CACHING() {return this.request.INHIBIT_PERSISTENT_CACHING},
+    get LOAD_BYPASS_CACHE() {return this.request.LOAD_BYPASS_CACHE},
+    get LOAD_FROM_CACHE() {return this.request.LOAD_FROM_CACHE},
+    get VALIDATE_ALWAYS() {return this.request.VALIDATE_ALWAYS},
+    get VALIDATE_NEVER() {return this.request.VALIDATE_NEVER},
+    get VALIDATE_ONCE_PER_SESSION() {return this.request.VALIDATE_ONCE_PER_SESSION},
+    
+    get loadFlags() {return this.request.loadFlags},
+    set loadFlags(val) {this.request.loadFlags = val},
+    get loadGroup() {return this.request.loadGroup},
+    set loadGroup(val) {this.request.loadGroup = val},
+    get name() {return this.request.name},
+    get status() {return this.request.status},
+
+    cancel: function(status) {this.request.cancel(status);},
+    isPending: function() {return this.request.isPending();},
+    resume: function() {this.request.resume();},
+    suspend: function() {this.request.suspend();},
+    
+    get LOAD_DOCUMENT_URI() {return this.channel.LOAD_DOCUMENT_URI},
+    get LOAD_RETARGETED_DOCUMENT_URI() {return this.channel.LOAD_RETARGETED_DOCUMENT_URI},
+    get LOAD_REPLACE() {return this.channel.LOAD_REPLACE},
+    get LOAD_INITIAL_DOCUMENT_URI() {return this.channel.LOAD_INITIAL_DOCUMENT_URI},
+    get LOAD_TARGETED() {return this.channel.LOAD_TARGETED},
+
+    get contentCharset() {return this.channel.contentCharset},
+    set contentCharset(val) {this.channel.contentCharset = val},
+    get contentLength() {return this.channel.contentLength},
+    set contentLength(val) {this.channel.contentLength = val},
+    get contentType() {return this.channel.contentType},
+    set contentType(val) {this.channel.contentType = val},
+    get notificationCallbacks() {return this.channel.notificationCallbacks},
+    set notificationCallbacks(val) {this.channel.notificationCallbacks = val},
+    get originalURI() {return this.channel.originalURI},
+    set originalURI(val) {this.channel.originalURI = val},
+    get owner() {return this.channel.owner},
+    set owner(val) {this.channel.owner = val},
+    get securityInfo() {return this.channel.securityInfo},
+    get URI() {return this.channel.URI},
+
+
+    /* Try to open search index */
+    openSearchIndex: function(path) {
+
+	Components.utils.import("resource://modules/settings.jsm");
+
+	var backend = settings.defaultSearchBackend();
+	var indexAccessor;
+	
+	/* Create the xapian accessor */
+	if (backend == "clucene") {
+	    indexAccessor = Components.classes["@kiwix.org/cluceneAccessor"].getService();
+	    indexAccessor = indexAccessor.QueryInterface(Components.interfaces.ICluceneAccessor);
+	} else {
+	    indexAccessor = Components.classes["@kiwix.org/xapianAccessor"].getService();
+	    indexAccessor = indexAccessor.QueryInterface(Components.interfaces.IXapianAccessor);
+	}
+	
+	/* Open the xapian readable database */
+	if (!indexAccessor.openReadableDatabase(path))
+	    return;    
+	
+	return indexAccessor;
+    },
+    
+    /* Search a pattern in the index */
+    searchInIndex: function(query, indexDirectory, start, end, loadFirstResult) {
+	var value;
+
+	Components.utils.import("resource://modules/env.jsm");
+
+	/* Get the index accessor */
+	var indexAccessor = this.openSearchIndex(indexDirectory);
+
+	/* Security check */
+	if (!indexAccessor) return;
+	
+	/* Make a search */
+	if (indexAccessor.search(query, start, end)) {
+	    
+	    /* Set the template */
+	    indexAccessor.setResultTemplatePath(env.chromeToPath("chrome://static/content/results.tmpl"));
+	    
+	    /* Display the HTML */
+	    var html = new Object();
+	    indexAccessor.getHtml(html);
+	    value = html.value;
+	}
+	
+	/* Close the xapian readable databse */
+	indexAccessor.closeReadableDatabase();
+
+	return value;
+    },
+
+    asyncOpen: function(listener, context) {
+
+	this.channel.asyncOpen(listener, context);
+	
+	if(false/* some reason to abort */) {
+	    this.request.cancel(Cr.NS_BINDING_FAILED);
+	    Cc["@mozilla.org/embedcomp/prompt-service;1"]
+		.getService(Ci.nsIPromptService)
+		.alert(null, 'Error message.', 'Error message.');
+	    return;
+	}
+
+	Components.utils.import("resource://modules/library.jsm");
+
+	// aURI is a nsIUri, so get a string from it using .spec
+	var uri = this.URI.clone();
+	var mySearchTerm = uri.spec;
+
+	// strip away the kSCHEME: part
+	mySearchTerm = mySearchTerm.substring(mySearchTerm.indexOf(":") + 1, mySearchTerm.length);    
+
+	var currentBook = library.getCurrentBook();
+	var html = this.searchInIndex("dijon", currentBook.indexPath, 0, 20, true);
+
+	this.pipe.outputStream.write(html, html.length);
+	this.pipe.outputStream.close();
+    },
+    
+    open: function() {return this.channel.open();},
+    
+    close: function() {this.pipe.outputStream.close();}
+    
+}
+
+
 
 var ProtocolFactory = new Object();
 
