@@ -60,6 +60,8 @@
 <!ENTITY main.tools.accesskey           "S">
 <!ENTITY main.randomArticle             "Voce a caso">
 <!ENTITY main.randomArticle.accesskey   "V">
+<!ENTITY main.checkIntegrity            "Integrity check">
+<!ENTITY main.checkIntegrity.accesskey  "k">
 <!ENTITY main.purgeHistory              "Cancella cronologia">
 <!ENTITY main.purgeHistory.accesskey    "P">
 
@@ -103,4 +105,6 @@
 <!ENTITY preferences.preferences        "Preferences">
 <!ENTITY preferences.save      		"Save">
 <!ENTITY preferences.cancel     	"Cancel">
+<!ENTITY preferences.profileDirectory  	"Profile directory">
+<!ENTITY preferences.browse  	        "Browse">
 
