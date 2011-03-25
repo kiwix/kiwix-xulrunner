@@ -1,4 +1,4 @@
-Kiwix 0.9 alpha8
+Kiwix 0.9 beta1
 * Remove a hard coded path in kiwix-compact.sh (ID: 3135956)
 * Avoid the flickering during mouseover links after canceling the indexing
 * Under Windows, installer adds now shortcuts to all users
@@ -17,6 +17,7 @@ Kiwix 0.9 alpha8
 * Simplification and improvment of the searchbar (no search button anymore, always available, standardized, ...)
 * Result sidebar removed and replaced by a result web page "a la google"
 * Usage of jar files for a quicker startup
+* Kiwix for Mac OSX
 
 Kiwix 0.9 alpha7
 * Fix the encoding issue in the help in Parsi (ID: 3060250)
