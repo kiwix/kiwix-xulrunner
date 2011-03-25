@@ -88,7 +88,7 @@
 		accesskey="&main.print.accesskey;" oncommand="print()"/>
       <menuitem id="file-print-pdf" label="&main.printPdf;" key="print-pdf-key" class="menuitem-iconic" 
 		accesskey="&main.printPdf.accesskey;" oncommand="printPdf()"/>
-      <menuseparator/>
+      <menuseparator id="file-sep" />
       <menuitem id="file-quit" label="&main.quit;" key="quit-key" class="menuitem-iconic" 
 		accesskey="&main.quit.accesskey;" oncommand="quit()"/>
     </menupopup>
@@ -101,7 +101,7 @@
 		accesskey="&main.selectall.accesskey;" oncommand="selectAll()"/>
       <menuitem id="edit-copy" label="&main.copy;" key="copy-key" class="menuitem-iconic"
 		accesskey="&main.copy.accesskey;" oncommand="copySelectedContent()"/>
-      <menu label="&main.transliteration;" accesskey="&main.transliteration.accesskey;" style="display: none;">
+      <menu id="edit-transliteration" label="&main.transliteration;" accesskey="&main.transliteration.accesskey;" style="display: none;">
 	<menupopup id="menu-transliterations">
 	</menupopup>
       </menu>

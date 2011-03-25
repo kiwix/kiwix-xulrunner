@@ -909,7 +909,16 @@ function initUserInterface() {
 	/* Mac OSX specificities
 	   disable Print as PDF menu */
 	if (env.platform.type == "mac") {
-		document.getElementById("file-print-pdf").setAttribute('disabled', 'true');
+		fm = document.getElementById("file-popup");
+		fp = document.getElementById("file-print-pdf");
+		fm.removeChild(fp);
+		fq = document.getElementById("file-quit");
+		fm.removeChild(fq);
+		fs = document.getElementById("file-sep");
+		fm.removeChild(fs);
+		em = document.getElementById("edit-popup");
+		et = document.getElementById("edit-transliteration");
+		em.removeChild(et);
 	}
 
     /* Apply GUI settings */
