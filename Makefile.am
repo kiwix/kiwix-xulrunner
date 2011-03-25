@@ -49,11 +49,11 @@ all-local: ./kiwix/components/xapianAccessor.so \
 dist-hook:
 	rm -rf `find $(distdir) -name "*.svn" -o -name "*.dat" -o -name "*~" -o -name "*#"`
 	mv $(distdir)/kiwix/chrome/chrome.manifest.prod $(distdir)/kiwix/chrome/chrome.manifest
-	cd $(distdir)/kiwix/chrome/ ; ${JAR} c -f locale.jar locale/
+	cd $(distdir)/kiwix/chrome/ ; ${JAR} cf locale.jar locale/
 	rm -rf $(distdir)/kiwix/chrome/locale
-	cd $(distdir)/kiwix/chrome/ ; ${JAR} c -f content.jar content/
+	cd $(distdir)/kiwix/chrome/ ; ${JAR} cf content.jar content/
 	rm -rf $(distdir)/kiwix/chrome/content
-	cd $(distdir)/kiwix/chrome/ ; ${JAR} c -f skin.jar skin/
+	cd $(distdir)/kiwix/chrome/ ; ${JAR} cf skin.jar skin/
 	rm -rf $(distdir)/kiwix/chrome/skin
 
 install:
