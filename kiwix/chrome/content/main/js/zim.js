@@ -62,6 +62,23 @@ function loadRandomArticle() {
     }
 }
 
+/* Load article from title */
+function loadArticleFromTitle(title) {
+    if (currentZimAccessor != undefined) {
+	var url = new Object();
+	
+	currentZimAccessor.getPageUrlFromTitle(title, url);
+	if (url.value != undefined && url.value != '') {
+	    url.value = "zim://" + url.value;	
+	    loadContent(url.value);
+	    activateBackButton();
+	    return true;
+	}
+    }
+    
+    return false;
+}
+
 /* Check the integrity (with a checksum) of the ZIM file */
 function checkIntegrity() {
     if (currentZimAccessor != undefined) {
@@ -78,4 +95,9 @@ function canCheckIntegrity() {
     if (currentZimAccessor != undefined) {
 	return currentZimAccessor.canCheckIntegrity();
     }
+}
+
+/* Check if a zim file is open */
+function isBookOpen() {
+    return (currentZimAccessor != undefined);
 }

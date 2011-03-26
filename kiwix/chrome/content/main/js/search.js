@@ -195,7 +195,6 @@ function indexZimFile(zimFilePath, xapianDirectory) {
     return;
 }
 
-/* Try to open search index */
 function openSearchIndex(path) {
     var backend = settings.defaultSearchBackend();
     var indexAccessor;
@@ -247,19 +246,30 @@ function manageSearchInIndex(stringToSearch, start, end) {
     if (stringToSearch == undefined)
 	stringToSearch = getSearchBox().value;
 
-    if (start == undefined)
-	start = 0;
-
-    if (end == undefined)
-	end = start + 20;
-
     if (stringToSearch != "") {
+	getSearchBox().value = "";
+
+	/* Try to load the article */
+	// Not possible cause bug http://bugs.openzim.org/show_bug.cgi?id=33
+	//if (loadArticleFromTitle(stringToSearch))
+	//return true;
+
+	/* Check if a search index exists */
+	if (!checkSearchIndex()) {
+	    manageIndexZimFile();
+	    return;
+	}
+	
+	if (start == undefined)
+	    start = 0;
+	
+	if (end == undefined)
+	    end = start + 20;
+	
 	/* Make the search and display results */
 	var currentBook = library.getCurrentBook();
-	searchInIndex(stringToSearch, currentBook.indexPath, start, end, true);
-	getSearchBox().value = "";
+	loadContent("search://?pattern=" + stringToSearch + "&start=" + start + "&end=" + end);
     }
-    return true;
 }
 
 /* Calculate Levenshtein distance between two strings */

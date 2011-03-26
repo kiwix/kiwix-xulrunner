@@ -148,6 +148,27 @@ NS_IMETHODIMP ZimAccessor::GetRandomPageUrl(nsACString &url, PRBool *retVal) {
   return NS_OK;
 }
 
+/* Return a page url fronm title */
+NS_IMETHODIMP ZimAccessor::GetPageUrlFromTitle(const nsACString &title, nsACString &url, PRBool *retVal) {
+  *retVal = PR_FALSE;
+  string urlstr;
+  const char *ctitle;
+  NS_CStringGetData(title, &ctitle);
+
+  try {
+    if (this->reader != NULL) {
+      if (this->reader->getPageUrlFromTitle(ctitle, urlstr)) {
+	url = nsDependentCString(urlstr.c_str(), urlstr.size());
+	*retVal = PR_TRUE;
+      }
+    }
+  } catch (exception &e) {
+    cerr << e.what() << endl;
+  }
+
+  return NS_OK;
+}
+
 /* Return the welcome page URL */
 NS_IMETHODIMP ZimAccessor::GetMainPageUrl(nsACString &url, PRBool *retVal) {
   *retVal = PR_FALSE;

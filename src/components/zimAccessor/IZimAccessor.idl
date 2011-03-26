@@ -14,6 +14,7 @@ interface IZimAccessor : nsISupports
   boolean reset();
   boolean getMetatag(in ACString name, out ACString value);
   boolean getContent(in nsIURI url, out ACString content, out PRUint32 contentLength, out ACString contentType);
+  boolean getPageUrlFromTitle(in AUTF8String title, out AUTF8String url);
   boolean searchSuggestions(in AUTF8String prefix, in PRUint32 resultsCount);
   boolean getNextSuggestion(out AUTF8String title);
   boolean canCheckIntegrity();

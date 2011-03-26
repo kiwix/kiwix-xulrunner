@@ -224,13 +224,14 @@ SearchPipeChannel.prototype = {
 
 	// aURI is a nsIUri, so get a string from it using .spec
 	var uri = this.URI.clone();
-	var mySearchTerm = uri.spec;
-
-	// strip away the kSCHEME: part
-	mySearchTerm = mySearchTerm.substring(mySearchTerm.indexOf(":") + 1, mySearchTerm.length);    
-
+	var indexOfPattern = uri.spec.indexOf("pattern=");
+	var indexOfStart = uri.spec.indexOf("start=");
+	var indexOfEnd = uri.spec.indexOf("end=");
+	var pattern = decodeURI(uri.spec.substring(indexOfPattern + 8, indexOfStart -1));
+	var start = uri.spec.substring(indexOfStart + 6, indexOfEnd -1);
+	var end = uri.spec.substring(indexOfEnd + 4);
 	var currentBook = library.getCurrentBook();
-	var html = this.searchInIndex("dijon", currentBook.indexPath, 0, 20, true);
+	var html = this.searchInIndex(pattern, currentBook.indexPath, start, end, true);
 
 	this.pipe.outputStream.write(html, html.length);
 	this.pipe.outputStream.close();
