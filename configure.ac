@@ -33,15 +33,15 @@ then
   IS_OSX=1
 fi
 
-# Chek jar
-AC_CHECK_TOOL([JAR],[jar],[])
-if [[ "$JAR" = "" ]]; then
-  AC_MSG_ERROR([jar is required.])
-fi
-
 # Only for POSIX systems
 if test [ ! "$IS_WIN" ]
 then
+
+  # Chek jar
+  AC_CHECK_TOOL([JAR],[jar],[])
+  if [[ "$JAR" = "" ]]; then
+    AC_MSG_ERROR([jar is required.])
+  fi
 
   # Check the compiler version
   if test [ "$CXX" ]
