@@ -238,6 +238,7 @@ distmac: dist
 win:
 	cd src/dependences ; make win
 	cd src/zimlib/src ; if [ ! -f zim.lib ] ; then make -f Makefile.mvsc ; fi
+	cd src/ctpp2/src ; if [ ! -f ctpp2.lib ] ; then make -f Makefile.mvsc ; fi
 	cd src/components/xapianAccessor ; if [ ! -f xapianAccessor.dll ] ; then make -f Makefile.mvsc ; fi
 	cd src/components/zimAccessor ; if [ ! -f zimAccessor.dll ] ; then make -f Makefile.mvsc ; fi
 	cd src/components/zimXapianIndexer ; if [ ! -f zimXapianIndexer.dll ] ; then make -f Makefile.mvsc ; fi
