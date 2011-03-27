@@ -5,6 +5,9 @@ var _loadPageScoreThreshold = 90;       /* Only first result with a high score a
 
 /* Open the "find in page" dialog window */
 function find() {
+    getFindBar().open(getFindBar().FIND_NORMAL);
+    return;
+
     if (!findInPageObject) {
 	findInPageObject = new nsFindInstData();
 	findInPageObject.browser = getHtmlRenderer();
@@ -251,8 +254,8 @@ function manageSearchInIndex(stringToSearch, start, end) {
 
 	/* Try to load the article */
 	// Not possible cause bug http://bugs.openzim.org/show_bug.cgi?id=33
-	//if (loadArticleFromTitle(stringToSearch))
-	//return true;
+	if (loadArticleFromTitle(stringToSearch))
+	    return true;
 
 	/* Check if a search index exists */
 	if (!checkSearchIndex()) {
