@@ -18,7 +18,6 @@ libctpp2_la_SOURCES = \
 	CTPP2StreamOutputCollector.cpp \
 	CTPP2StringBuffer.cpp \
 	CDTSortRoutines.cpp \
-	CTPP2StringIconvOutputCollector.cpp \
 	CTPP2VMDebugInfo.cpp \
 	CTPP2SyscallFactory.cpp \
 	CTPP2HashTable.cpp \
