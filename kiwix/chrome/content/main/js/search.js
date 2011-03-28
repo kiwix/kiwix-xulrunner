@@ -6,7 +6,7 @@ var _loadPageScoreThreshold = 90;       /* Only first result with a high score a
 function find() {
     var findBar = getFindBar();
     if (findBar.hidden) {
-	findBar.open();
+	findBar.open(findBar.FIND_NORMAL);
 	findBar.startFind();
     } else {
 	findBar.close();
