@@ -72,5 +72,8 @@ pref("alerts.height", 50);
 pref("network.dns.disablePrefetch", true);
 pref("network.dns.disablePrefetchFromHTTPS", true);
 
+/* Findbar */
+pref("accessibility.typeaheadfind.flashBar", 1);
+
 /* Remove accept-encoding HTTP request header for aria2 xml-rpc for debugging purpose */
 // pref("network.http.accept-encoding", "gzip;q=0,deflate;q=0");
