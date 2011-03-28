@@ -15,6 +15,7 @@ Kiwix 0.9 beta1
 * New checksum checker to be able to check ZIM file integrity
 * A list of ZIM files to download is dynamicaly downloaded in the help page if user online (ID: 3165272)
 * Simplification and improvment of the searchbar (no search button anymore, always available, standardized, ...)
+* New Find-in-text bar (like in firefox, at the bottom), to replace the dialogbox.
 * Result sidebar removed and replaced by a result web page "a la google"
 * Usage of jar files for a quicker startup
 * Kiwix for Mac OSX
