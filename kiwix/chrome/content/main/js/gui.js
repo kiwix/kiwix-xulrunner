@@ -79,6 +79,11 @@ function getBackButton() {
     return document.getElementById("button-back");
 }
 
+/* Return the Find bar object */
+function getFindBar() {
+    return document.getElementById("find-bar");
+}
+
 /* Return the Next button object */
 function getNextButton() {
     return document.getElementById("button-next");
