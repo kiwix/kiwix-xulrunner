@@ -74,6 +74,11 @@ function getBookmarksButton() {
     return document.getElementById("button-bookmarks");
 }
 
+/* Return the find button */
+function getFindButton() {
+    return document.getElementById("button-search-article");
+}
+
 /* Return the Back button object */
 function getBackButton() {
     return document.getElementById("button-back");

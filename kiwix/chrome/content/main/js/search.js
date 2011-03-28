@@ -1,22 +1,18 @@
 /* Global variables */
-var findInPageObject = null;            /* Object for the find in page dialog window */
 var _isIndexing = false;                /* To know if a ZIM file is currently indexing */
 var _loadPageScoreThreshold = 90;       /* Only first result with a high score are loaded */ 
 
 /* Open the "find in page" dialog window */
 function find() {
-    getFindBar().open(getFindBar().FIND_NORMAL);
-    return;
-
-    if (!findInPageObject) {
-	findInPageObject = new nsFindInstData();
-	findInPageObject.browser = getHtmlRenderer();
+    var findBar = getFindBar();
+    if (findBar.hidden) {
+	findBar.open();
+	findBar.startFind();
+    } else {
+	findBar.close();
+	getSearchBox().focus();
     }
-    
-    var searchPattern = '';
-    var lastWord = searchPattern.lastIndexOf(" ", searchPattern.length);
-    findInPageObject.webBrowserFind.searchString = searchPattern.substring( lastWord+1, searchPattern.length );
-    findInPage(findInPageObject);
+    getFindButton().setAttribute('checked', !findBar.hidden);
 }
 
 /* Return true if an indexing process runs currently */
