@@ -12,7 +12,6 @@ function find() {
 	findBar.close();
 	getSearchBox().focus();
     }
-    getFindButton().setAttribute('checked', !findBar.hidden);
 }
 
 /* Return true if an indexing process runs currently */
