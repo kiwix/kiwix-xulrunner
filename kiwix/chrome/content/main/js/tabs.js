@@ -92,6 +92,7 @@ function switchTab(tabId) {
     tabBox.selectedPanel = tabPanel;
     currentTabId = tabId;
     updateHistoryNavigationButtons();
+    getFindBar().browser = getHtmlRenderer();
 }
 
 /* Update the tab header */
