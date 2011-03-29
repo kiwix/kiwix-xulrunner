@@ -196,10 +196,7 @@ UAC_Success:
     ${locate::GetSize} "..\data\" "/S=Mb /M=*.* /G=1 /B=1" $R1 $R2 $R3
     System::Int64Op $R1 * 1024
     Pop $0
-    System::Int64Op $0 + $CONTENTSIZE
-    Pop $0
-    StrCpy $CONTENTSIZE "$0"
-    SectionSetSize ${SECTIONINSTALLID} "$CONTENTSIZE"
+    SectionSetSize ${SECTIONINSTALLID} "$0"
   ${EndIf}
 
   !insertmacro MUI_LANGDLL_DISPLAY
