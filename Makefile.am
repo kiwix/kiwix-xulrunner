@@ -110,8 +110,6 @@ install:
 	ln -s ${datadir}/kiwix/chrome ${DESTDIR}/${libdir}/kiwix/chrome
 	mv ${DESTDIR}/${libdir}/kiwix/defaults ${datadir}/kiwix/
 	ln -s ${datadir}/kiwix/defaults ${DESTDIR}/${libdir}/kiwix/defaults
-	mv ${DESTDIR}/${libdir}/kiwix/application.ini ${datadir}/kiwix/application.ini
-	ln -s ${datadir}/kiwix/application.ini ${DESTDIR}/${libdir}/kiwix/application.ini
 	ln -f -s ${DESTDIR}/${libdir}/kiwix/kiwix.sh ${DESTDIR}/${bindir}/kiwix
 	ln -f -s ${DESTDIR}/${libdir}/kiwix/kiwix-compact.sh ${DESTDIR}/${bindir}/kiwix-compact
 	cp src/components/zimAccessor/.libs/libZimAccessor.so ${DESTDIR}/${libdir}/kiwix/components/zimAccessor.so
@@ -189,6 +187,7 @@ bindist:
 deb: dist
 	if [ `whereis dpkg-buildpackage | cut -f2 -d" "` == "dpkg-buildpackage:" ] ; then echo "You have to install dpkg-buildpackage" ; exit 1 ; fi
 	tar -xvzf $(PACKAGE)-$(VERSION).tar.gz
+	ln --verbose -s ../debian $(PACKAGE)-$(VERSION)
 	cd $(PACKAGE)-$(VERSION) ; dpkg-buildpackage -rfakeroot
 
 rpm: dist
