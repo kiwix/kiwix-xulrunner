@@ -196,7 +196,8 @@
       <hbox>
 	<textbox id="textbox-search" flex="1" tooltiptext="&main.searchBar;"
 		 oncompositionstart="this.keyPressed = true;" oncompositionend="this.keyPressed = false;"
-		 onkeypress="if (event.keyCode == 13) { manageSearchInIndex(); } else { this.keyPressed = true; }"
+		 onkeydown="if (event.keyCode == 13) { manageSearchInIndex(); } else { this.keyPressed = true; }"
+		 onkeypress="if (event.keyCode == 27) {this.value = ''; this.keyPressed = true;}"
 		 oninput="if (this.keyPressed == false) { manageSearchInIndex();}; this.keyPressed = false;"
 		 type="autocomplete" autocompletesearch="kiwix-suggest"
 		 >

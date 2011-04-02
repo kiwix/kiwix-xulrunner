@@ -245,7 +245,7 @@ function manageSearchInIndex(stringToSearch, start, end) {
 	stringToSearch = getSearchBox().value;
 
     if (stringToSearch != "") {
-	getSearchBox().value = "";
+	//getSearchBox().value = "";
 
 	/* Try to load the article */
 	// Not possible cause bug http://bugs.openzim.org/show_bug.cgi?id=33
