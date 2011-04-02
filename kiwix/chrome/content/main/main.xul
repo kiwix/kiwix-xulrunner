@@ -58,6 +58,8 @@
   <key id="print-pdf-key" key="D" modifiers="control" oncommand="printPdf()"/>
   <key id="selectall" key="A" modifiers="control" oncommand="selectAll()"/>
   <key id="copy" key="C" modifiers="control" oncommand="copySelectedContent()"/>
+  <key id="findnext" key="g" modifiers="control" oncommand="getFindBar().onFindAgainCommand(true);"/>
+  <key id="findprevious" key="G" modifiers="control,shift" oncommand="getFindBar().onFindAgainCommand(false);"/>
   <key id="zoomin" key="+" modifiers="control" oncommand="zoomIn()"/>
   <key id="zoomout" key="-" modifiers="control" oncommand="zoomOut()"/>
   <key id="zoomorig" key="0" modifiers="control" oncommand="zoomOriginal()"/>
@@ -65,6 +67,10 @@
   <key id="help-key" keycode="VK_F1" oncommand="showHelp()"/>
   <key id="fullscreen-key" keycode="VK_F11" oncommand="UIToggleFullScreen(true)"/>
   <key id="escape" keycode="VK_ESCAPE" oncommand="handleEscape()"/>
+
+  <!-- For mac -->
+  <key id="findnext" key="g" modifiers="meta" oncommand="getFindBar().onFindAgainCommand(true);"/>
+  <key id="findprevious" key="G" modifiers="meta,shift" oncommand="getFindBar().onFindAgainCommand(false);"/>
 </keyset>
 
 <!-- Contextual menu -->
