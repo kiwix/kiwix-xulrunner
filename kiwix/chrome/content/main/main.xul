@@ -192,6 +192,11 @@
     <toolbarbutton id="button-print" oncommand="print()" tooltiptext="&main.print;"/>
     <toolbarbutton id="button-bookmarks" oncommand="UIToggleBookmarksBar()" tooltiptext="&main.bookmarks;"/>
     <toolbarbutton id="button-search-article" oncommand="find()" tooltiptext="&main.findInText;" />
+
+<!-- waiting for implementation
+    <toolbarbutton id="button-library" oncommand="showLibrary()" tooltiptext="Library" />
+-->
+
     <stack flex="1">
       <hbox>
 	<textbox id="textbox-search" flex="1" tooltiptext="&main.searchBar;"

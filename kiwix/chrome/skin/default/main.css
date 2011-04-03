@@ -134,6 +134,10 @@ window[langdir="rtl"] #button-next {
     list-style-image: url("chrome://main/skin/icon/searchs24.png");
 }
 
+#button-library {
+    list-style-image: url("chrome://main/skin/icon/library24.png");
+}
+
 /* Textbox search */
 #textbox-search {
     margin: 6px;

@@ -154,6 +154,10 @@ window[langdir="rtl"] #button-next {
     list-style-image: url("chrome://main/skin/icon/searchs24.png");
 }
 
+#button-library {
+    list-style-image: url("chrome://main/skin/icon/library24.png");
+}
+
 #button-search {
     list-style-image: url("chrome://main/skin/icon/find-wiki24.png");
 }
