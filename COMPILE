@@ -51,8 +51,8 @@ sudo ln -s /opt/local/bin/glibtoolize /opt/local/bin/libtoolize
 * set default target architecture by replacing gcc and g++ files
 sudo mv /usr/bin/gcc /usr/bin/gcc.default
 sudo mv /usr/bin/g++ /usr/bin/g++.default
-sudo echo "/usr/bin/gcc-4.2 -arch i386 -m32 \"$@\"" > /usr/bin/gcc
-sudo echo "/usr/bin/g++-4.2 -arch i386 -m32 \"$@\"" > /usr/bin/g++
+sudo echo "/usr/bin/gcc-4.2 -arch i386 -m32 \"\$@\"" > /usr/bin/gcc
+sudo echo "/usr/bin/g++-4.2 -arch i386 -m32 \"\$@\"" > /usr/bin/g++
 sudo chmod +x /usr/bin/g{cc,++}
 Alternatively, you can choose to append CC="gcc -arch i386 -m32" 
 CXX="g++ -arch i386 -m32" to the configure command.
