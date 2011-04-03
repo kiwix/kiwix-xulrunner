@@ -379,6 +379,31 @@ AC_SUBST(CURRENT_PATH)
 # Check the existence of stat64 (to handle file >2GB) in the libc
 AC_CHECK_FUNCS([stat64])
 
+# Checks for header files.
+AC_CHECK_HEADERS([fcntl.h float.h libintl.h limits.h stddef.h stdint.h stdlib.h string.h strings.h sys/socket.h sys/time.h unistd.h wchar.h])
+
+# Checks for typedefs, structures, and compiler characteristics.
+AC_HEADER_STDBOOL
+AC_C_INLINE
+AC_TYPE_INT16_T
+AC_TYPE_INT32_T
+AC_TYPE_INT64_T
+AC_TYPE_INT8_T
+AC_TYPE_OFF_T
+AC_TYPE_PID_T
+AC_TYPE_SIZE_T
+AC_TYPE_UINT16_T
+AC_TYPE_UINT32_T
+AC_TYPE_UINT64_T
+AC_TYPE_UINT8_T
+AC_CHECK_TYPES([ptrdiff_t])
+
+# Checks for library functions.
+AC_FUNC_FORK
+AC_FUNC_MALLOC
+AC_FUNC_STRTOD
+AC_CHECK_FUNCS([getcwd gettimeofday memmove memset pow regcomp sqrt strcasecmp strchr strdup strerror strtol])
+
 # Generate the headers
 AC_CONFIG_HEADERS([src/zimlib/src/config.h])
 
@@ -399,10 +424,11 @@ AC_CONFIG_FILES([
   src/components/cluceneAccessor/Makefile
   src/indexer/Makefile
   src/server/Makefile
+  kiwix/Makefile
+  kiwix/chrome/Makefile
+  kiwix/defaults/Makefile
+  desktop/Makefile
   ])
-
-# Generate the Makefiles
-AC_OUTPUT
 
 # Only for POSIX systems
 if test [ ! "$IS_WIN" ]
@@ -416,3 +442,6 @@ then
   sed -i -e "s/\"kiwix.install.prefix\"\,\ \"[[^\"]]*\"/\"kiwix.install.prefix\"\,\ \"$(echo $prefix | sed -e 's/\\/\\\\/g' -e 's/\//\\\//g' -e 's/&/\\\&/g')\"/" ./kiwix/defaults/preferences/preferences.js
 
 fi
+
+AC_PROG_INSTALL
+AC_OUTPUT
