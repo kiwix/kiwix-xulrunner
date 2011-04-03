@@ -79,6 +79,7 @@
 <!ENTITY main.home                      "Início">
 <!ENTITY main.searchBar                 "Barra de pesquisa">
 <!ENTITY main.search                    "Pesquisar">
+<!ENTITY main.findInText                "Find in text">
 <!ENTITY main.noSearchBar               "A pesquisa requere um ficheiro Zim indexado">
 <!ENTITY main.bookmarks                 "Favoritos">
 

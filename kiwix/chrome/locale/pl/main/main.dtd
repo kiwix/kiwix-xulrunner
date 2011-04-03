@@ -79,6 +79,7 @@
 <!ENTITY main.home                      "Strona główna">
 <!ENTITY main.searchBar                 "Pole wyszukiwania">
 <!ENTITY main.search                    "Szukaj">
+<!ENTITY main.findInText                "Find in text">
 <!ENTITY main.noSearchBar               "Wyszukiwanie wymaga zaindeksowanego pliku Zim">
 <!ENTITY main.bookmarks                 "Zakładki">
 

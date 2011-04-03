@@ -79,6 +79,7 @@
 <!ENTITY main.home                      "Home">
 <!ENTITY main.searchBar                 "Zoek balk">
 <!ENTITY main.search                    "Zoek">
+<!ENTITY main.findInText                "Find in text">
 <!ENTITY main.noSearchBar               "Zoek vereist een geindexeerd Zim bestand">
 <!ENTITY main.bookmarks                 "Favorieten">
 

@@ -79,6 +79,7 @@
 <!ENTITY main.home                      "خانه">
 <!ENTITY main.searchBar                 "نوار جستجو">
 <!ENTITY main.search                    "جستجو">
+<!ENTITY main.findInText                "Find in text">
 <!ENTITY main.noSearchBar               "جستجو نیاز به یک فایل ZIM فهرست بندی شده دارد">
 <!ENTITY main.bookmarks                 "نشانکها">
 

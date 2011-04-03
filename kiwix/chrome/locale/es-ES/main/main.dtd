@@ -28,7 +28,7 @@
 <!ENTITY main.copy.accesskey            "C">
 <!ENTITY main.transliteration           "Transcripción">
 <!ENTITY main.transliteration.accesskey "T">
-<!ENTITY main.preferences               "Preferences">
+<!ENTITY main.preferences               "Preferencias">
 <!ENTITY main.preferences.accesskey     "n">
 
 <!-- Display menu -->
@@ -50,7 +50,7 @@
 <!ENTITY main.statusbar.accesskey       "B">
 <!ENTITY main.resultsbar                "Barra de resultados">
 <!ENTITY main.resultsbar.accesskey      "r">
-<!ENTITY main.tabs                      "Tabs">
+<!ENTITY main.tabs                      "Pestañas">
 <!ENTITY main.tabs.accesskey            "T">
 <!ENTITY main.fullscreen                "Pantalla completa">
 <!ENTITY main.fullscreen.accesskey      "l">
@@ -60,7 +60,7 @@
 <!ENTITY main.tools.accesskey           "H">
 <!ENTITY main.randomArticle             "Página aleatoria">
 <!ENTITY main.randomArticle.accesskey   "P">
-<!ENTITY main.checkIntegrity            "Integrity check">
+<!ENTITY main.checkIntegrity            "Verificar integridad">
 <!ENTITY main.checkIntegrity.accesskey  "k">
 <!ENTITY main.purgeHistory              "Purgar historial">
 <!ENTITY main.purgeHistory.accesskey    "P">
@@ -79,7 +79,8 @@
 <!ENTITY main.home                      "Inicio">
 <!ENTITY main.searchBar                 "Barra de búsqueda">
 <!ENTITY main.search                    "Buscar">
-<!ENTITY main.noSearchBar               "La búsqueda requiere un archivo puesto en un índice de Zim">
+<!ENTITY main.findInText                "Find in text">
+<!ENTITY main.noSearchBar               "La búsqueda requiere un archivo índice del ZIM">
 <!ENTITY main.bookmarks                 "Marcadores">
 
 <!-- Results bar -->
@@ -102,9 +103,9 @@
 <!ENTITY main.close           		"Cerrar">
 
 <!-- Preferences Window -->
-<!ENTITY preferences.preferences        "Preferences">
-<!ENTITY preferences.save      		"Save">
-<!ENTITY preferences.cancel     	"Cancel">
-<!ENTITY preferences.profileDirectory  	"Profile directory">
-<!ENTITY preferences.browse  	        "Browse">
+<!ENTITY preferences.preferences        "Preferencias">
+<!ENTITY preferences.save      		"Guardar">
+<!ENTITY preferences.cancel     	"Cancelar">
+<!ENTITY preferences.profileDirectory  	"Carpeta del perfil">
+<!ENTITY preferences.browse  	        "Examinar">
 

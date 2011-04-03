@@ -79,6 +79,7 @@
 <!ENTITY main.home                      "Pàgina d'inici">
 <!ENTITY main.searchBar                 "Barra de cerca">
 <!ENTITY main.search                    "Cerca">
+<!ENTITY main.findInText                "Find in text">
 <!ENTITY main.noSearchBar               "La cerca necessita un fitxer ZIM indexat">
 <!ENTITY main.bookmarks                 "Adreces d'interès">
 

@@ -79,6 +79,7 @@
 <!ENTITY main.home                      "صفحة البداية">
 <!ENTITY main.searchBar                 "شريط البحث">
 <!ENTITY main.search                    "البحث">
+<!ENTITY main.findInText                "Find in text">
 <!ENTITY main.noSearchBar               "يتطلب البحث عن الملفات وفهرستها Zim">
 <!ENTITY main.bookmarks                 "المفضلة">
 

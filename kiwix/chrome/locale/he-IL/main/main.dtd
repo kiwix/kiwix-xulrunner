@@ -79,6 +79,7 @@
 <!ENTITY main.home                      "דף הבית">
 <!ENTITY main.searchBar                 "שורת חיפוש">
 <!ENTITY main.search                    "חיפוש">
+<!ENTITY main.findInText                "Find in text">
 <!ENTITY main.noSearchBar               "החיפוש אפשרי רק אם יש קובץ ZIM מאונדקס">
 <!ENTITY main.bookmarks                 "סימניות">
 

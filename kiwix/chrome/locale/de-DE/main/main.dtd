@@ -79,6 +79,7 @@
 <!ENTITY main.home                      "Home">
 <!ENTITY main.searchBar                 "Suchleiste">
 <!ENTITY main.search                    "Suche">
+<!ENTITY main.findInText                "Find in text">
 <!ENTITY main.noSearchBar               "Suche erfordert eine indexierte Zim Akte">
 <!ENTITY main.bookmarks                 "Lesezeichen">
 
