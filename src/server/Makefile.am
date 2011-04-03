@@ -10,7 +10,6 @@ kiwix_serve_SOURCES= \
 include_HEADERS= \
 	../common/kiwix/reader.h \
 	../common/kiwix/searcher.h \
-	../common/kiwix/searcher.h \
 	../common/kiwix/xapianSearcher.h \
 	../common/kiwix/cluceneSearcher.h \
 	../common/unaccent.h \
