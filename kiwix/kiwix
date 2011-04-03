@@ -66,4 +66,9 @@ fi
 export MOZ_PLUGIN_PATH=/usr/lib
 
 # Otherwise, launch Kiwix
-$XULRUNNER $BINARY_DIR/application.ini $*
+if [ -f $BINARY_DIR/../lib/kiwix/application.ini ]
+then
+    $XULRUNNER $BINARY_DIR/../lib/kiwix/application.ini $*
+else
+    $XULRUNNER $BINARY_DIR/application.ini $*
+fi
