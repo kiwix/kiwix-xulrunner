@@ -427,6 +427,7 @@ AC_CONFIG_FILES([
   kiwix/Makefile
   kiwix/chrome/Makefile
   kiwix/defaults/Makefile
+  kiwix/components/Makefile
   desktop/Makefile
   ])
 
