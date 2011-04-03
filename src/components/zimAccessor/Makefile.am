@@ -1,4 +1,7 @@
-lib_LTLIBRARIES=libZimAccessor.la
+pkglib_LTLIBRARIES=libZimAccessor.la
+xptdir = $(DESTDIR)/$(libdir)/kiwix/components
+pkglibdir = $(DESTDIR)/$(libdir)/kiwix/components
+xpt_DATA = zimAccessor.xpt
 libZimAccessor_la_SOURCES= \
 	zimAccessor.cpp \
 	../../common/kiwix/reader.cpp 
@@ -13,11 +16,11 @@ libZimAccessor_la_LDFLAGS=$(LIBXUL_LDFLAGS) $(LIBZIM_LDFLAGS) $(XPCOM_LDFLAGS)
 endif
 libZimAccessor_la_LIBADD=../../zimlib/src/libzim.la
 EXTRA_DIST=IZimAccessor.idl
-BUILT_SOURCES=IZimAccessor.xpt IZimAccessor.h
-CLEANFILES=IZimAccessor.xpt IZimAccessor.h *.lib *.obj *.dll
+BUILT_SOURCES=zimAccessor.xpt IZimAccessor.h
+CLEANFILES=zimAccessor.xpt IZimAccessor.h *.lib *.obj *.dll
 
-IZimAccessor.xpt:
-	$(XPIDL) -m typelib -I $(GECKO_IDL_PATH) IZimAccessor.idl
+zimAccessor.xpt:
+	$(XPIDL) -m typelib -o zimAccessor -I $(GECKO_IDL_PATH) IZimAccessor.idl
 
 IZimAccessor.h:
 	$(XPIDL) -m header -I $(GECKO_IDL_PATH) IZimAccessor.idl

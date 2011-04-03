@@ -1,4 +1,7 @@
-lib_LTLIBRARIES=libZimXapianIndexer.la
+pkglib_LTLIBRARIES=libZimXapianIndexer.la
+xptdir = $(DESTDIR)/$(libdir)/kiwix/components
+pkglibdir = $(DESTDIR)/$(libdir)/kiwix/components
+xpt_DATA = zimXapianIndexer.xpt
 libZimXapianIndexer_la_SOURCES= \
 	zimXapianIndexer.cpp \
 	../../common/kiwix/xapian/myhtmlparse.cc \
@@ -17,17 +20,17 @@ include_HEADERS= \
 libZimXapianIndexer_la_CXXFLAGS=$(LIBXUL_CFLAGS) $(LIBXAPIAN_CFLAGS) $(LIBICU_CFLAGS) $(LIBZIM_CFLAGS) $(XPCOM_CFLAGS) -I../../common/
 if IS_OSX
 libZimXapianIndexer_la_CXXFLAGS += -I/opt/local/include 
-libZimXapianIndexer_la_LDFLAGS=$(LIBXUL_LDFLAGS) $(LIBXAPIAN_STATIC_LDFLAGS) $(LIBICU_STATIC_LDFLAGS) $(LIBZIM_STATIC_LDFLAGS) $(XPCOM_LDFLAGS)
+libZimXapianIndexer_la_LDFLAGS=$(LIBXUL_LDFLAGS) $(LIBXAPIAN_STATIC_LDFLAGS) $(LIBICU_STATIC_LDFLAGS) $(LIBZIM_STATIC_LDFLAGS) $(XPCOM_LDFLAGS) 
 else
-libZimXapianIndexer_la_LDFLAGS=$(LIBXUL_LDFLAGS) $(LIBXAPIAN_LDFLAGS) $(LIBICU_LDFLAGS) $(LIBZIM_LDFLAGS) $(XPCOM_LDFLAGS)
+libZimXapianIndexer_la_LDFLAGS=$(LIBXUL_LDFLAGS) $(LIBXAPIAN_LDFLAGS) $(LIBICU_LDFLAGS) $(LIBZIM_LDFLAGS) $(XPCOM_LDFLAGS) 
 endif
 libZimXapianIndexer_la_LIBADD=../../zimlib/src/libzim.la
 EXTRA_DIST=IZimXapianIndexer.idl
-BUILT_SOURCES=IZimXapianIndexer.xpt IZimXapianIndexer.h
-CLEANFILES=IZimXapianIndexer.xpt IZimXapianIndexer.h *.lib *.obj *.dll
+BUILT_SOURCES=zimXapianIndexer.xpt IZimXapianIndexer.h
+CLEANFILES=zimXapianIndexer.xpt IZimXapianIndexer.h *.lib *.obj *.dll
 
-IZimXapianIndexer.xpt:
-	$(XPIDL) -m typelib -I $(GECKO_IDL_PATH) IZimXapianIndexer.idl
+zimXapianIndexer.xpt:
+	$(XPIDL) -m typelib -o zimXapianIndexer -I $(GECKO_IDL_PATH) IZimXapianIndexer.idl
 
 IZimXapianIndexer.h:
 	$(XPIDL) -m header -I $(GECKO_IDL_PATH) IZimXapianIndexer.idl

@@ -1,4 +1,7 @@
-lib_LTLIBRARIES=libXapianAccessor.la
+pkglib_LTLIBRARIES=libXapianAccessor.la
+xptdir = ${DESTDIR}/${libdir}/kiwix/components/
+pkglibdir = $(DESTDIR)/$(libdir)/kiwix/components
+xpt_DATA = xapianAccessor.xpt
 libXapianAccessor_la_SOURCES= \
 	xapianAccessor.cpp \
 	../../common/splitString.cpp \
@@ -19,11 +22,11 @@ libXapianAccessor_la_LDFLAGS=$(LIBCTPP2_LDFLAGS) $(LIBXUL_LDFLAGS) $(LIBXAPIAN_L
 endif
 libXapianAccessor_la_LIBADD=../../ctpp2/src/libctpp2.la
 EXTRA_DIST=IXapianAccessor.idl
-BUILT_SOURCES=IXapianAccessor.xpt IXapianAccessor.h
-CLEANFILES=IXapianAccessor.xpt IXapianAccessor.h *.lib *.obj *.dll
+BUILT_SOURCES=xapianAccessor.xpt IXapianAccessor.h
+CLEANFILES=xapianAccessor.xpt IXapianAccessor.h *.lib *.obj *.dll
 
-IXapianAccessor.xpt: 
-	$(XPIDL) -m typelib -I $(GECKO_IDL_PATH) IXapianAccessor.idl
+xapianAccessor.xpt: 
+	$(XPIDL) -m typelib -o xapianAccessor -I $(GECKO_IDL_PATH) IXapianAccessor.idl
 
 IXapianAccessor.h:
 	$(XPIDL) -m header -I $(GECKO_IDL_PATH) IXapianAccessor.idl

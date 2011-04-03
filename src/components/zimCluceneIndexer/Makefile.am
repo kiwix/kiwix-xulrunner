@@ -1,4 +1,7 @@
-lib_LTLIBRARIES=libZimCluceneIndexer.la
+pkglib_LTLIBRARIES=libZimCluceneIndexer.la
+xptdir = $(DESTDIR)/$(libdir)/kiwix/components
+pkglibdir = $(DESTDIR)/$(libdir)/kiwix/components
+xpt_DATA = zimCluceneIndexer.xpt
 libZimCluceneIndexer_la_SOURCES= \
 	zimCluceneIndexer.cpp \
 	../../common/kiwix/xapian/myhtmlparse.cc \
@@ -18,11 +21,11 @@ libZimCluceneIndexer_la_CXXFLAGS=$(LIBXUL_CFLAGS) $(LIBXAPIAN_CFLAGS) $(LIBCLUCE
 libZimCluceneIndexer_la_LDFLAGS=$(LIBXUL_LDFLAGS) $(LIBXAPIAN_LDFLAGS) $(LIBCLUCENE_LDFLAGS) $(LIBICU_LDFLAGS) $(LIBZIM_LDFLAGS) $(XPCOM_LDFLAGS)
 libZimCluceneIndexer_la_LIBADD=../../zimlib/src/libzim.la
 EXTRA_DIST=IZimCluceneIndexer.idl
-BUILT_SOURCES=IZimCluceneIndexer.xpt IZimCluceneIndexer.h
-CLEANFILES=IZimCluceneIndexer.xpt IZimCluceneIndexer.h *.lib *.obj *.dll
+BUILT_SOURCES=zimCluceneIndexer.xpt IZimCluceneIndexer.h
+CLEANFILES=zimCluceneIndexer.xpt IZimCluceneIndexer.h *.lib *.obj *.dll
 
-IZimCluceneIndexer.xpt:
-	$(XPIDL) -m typelib -I $(GECKO_IDL_PATH) IZimCluceneIndexer.idl
+zimCluceneIndexer.xpt:
+	$(XPIDL) -m typelib -o zimCluceneIndexer -I $(GECKO_IDL_PATH) IZimCluceneIndexer.idl
 
 IZimCluceneIndexer.h:
 	$(XPIDL) -m header -I $(GECKO_IDL_PATH) IZimCluceneIndexer.idl
