@@ -429,6 +429,7 @@ AC_CONFIG_FILES([
   kiwix/defaults/Makefile
   kiwix/components/Makefile
   desktop/Makefile
+  static/Makefile
   ])
 
 # Only for POSIX systems
