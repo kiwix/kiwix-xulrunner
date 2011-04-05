@@ -213,32 +213,6 @@ function openSearchIndex(path) {
     return indexAccessor;
 }
 
-/* Search a pattern in the index */
-function searchInIndex(query, indexDirectory, start, end, loadFirstResult) {
-    /* Get the index accessor */
-    var indexAccessor = openSearchIndex(indexDirectory);
-
-    /* Security check */
-    if (!indexAccessor) return;
-
-    /* Make a search */
-    if (indexAccessor.search(query, start, end)) {
-
-	/* Set the template */
-	indexAccessor.setResultTemplatePath(env.chromeToPath("chrome://static/content/results.tmpl"));
-	    
-	/* Display the HTML */
-	var html = new Object();
-	indexAccessor.getHtml(html);
-	getHtmlRenderer().contentDocument.body.innerHTML = html.value;
-    } else { 
-	displayErrorDialog(getProperty("noResultsError"), getProperty("information"));    
-    }
-    
-    /* Close the xapian readable databse */
-    indexAccessor.closeReadableDatabase();
-}
-
 /* Function called by clicking on the search button */
 function manageSearchInIndex(stringToSearch, start, end) {
     if (stringToSearch == undefined)

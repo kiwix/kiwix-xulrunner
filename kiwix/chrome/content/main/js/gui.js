@@ -624,7 +624,6 @@ function manageOpenFile(path, noSearchIndexCheck) {
 
 	/* Set the file as current */
 	library.setCurrentId(zimId);
-	
 	/* Load the welcome page of the ZIM file */
 	goHome();
 
@@ -656,7 +655,7 @@ function manageOpenFile(path, noSearchIndexCheck) {
 	displayErrorDialog(getProperty("loadZimFileError", path));
 	return false;
     }
-    
+
     return true;
 }
 

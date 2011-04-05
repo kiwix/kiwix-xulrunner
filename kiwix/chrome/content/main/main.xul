@@ -27,9 +27,6 @@
 <script src="chrome://global/content/nsTransferable.js"/>
 
 <!-- Custom Javascript scripts -->
-<script language="javaScript" type="text/javascript" src="resource://modules/env.jsm"/>
-<script language="javaScript" type="text/javascript" src="resource://modules/settings.jsm"/>
-<script language="javaScript" type="text/javascript" src="resource://modules/library.jsm"/>
 <script language="javaScript" type="text/javascript" src="js/zim.js"/>
 <script language="javaScript" type="text/javascript" src="js/logger.js"/>
 <script language="javaScript" type="text/javascript" src="js/search.js"/>

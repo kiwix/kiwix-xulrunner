@@ -52,6 +52,10 @@ const nsIIOService = Components.interfaces.nsIIOService;
 const nsIProtocolHandler = Components.interfaces.nsIProtocolHandler;
 const nsIURI = Components.interfaces.nsIURI;
 
+Components.utils.import("resource://modules/env.jsm");
+Components.utils.import("resource://modules/settings.jsm");
+Components.utils.import("resource://modules/library.jsm");
+
 function Protocol()
 {
 }
@@ -157,8 +161,6 @@ SearchPipeChannel.prototype = {
     /* Try to open search index */
     openSearchIndex: function(path) {
 
-	Components.utils.import("resource://modules/settings.jsm");
-
 	var backend = settings.defaultSearchBackend();
 	var indexAccessor;
 	
@@ -181,8 +183,6 @@ SearchPipeChannel.prototype = {
     /* Search a pattern in the index */
     searchInIndex: function(query, indexDirectory, start, end, loadFirstResult) {
 	var value;
-
-	Components.utils.import("resource://modules/env.jsm");
 
 	/* Get the index accessor */
 	var indexAccessor = this.openSearchIndex(indexDirectory);
@@ -219,8 +219,6 @@ SearchPipeChannel.prototype = {
 		.alert(null, 'Error message.', 'Error message.');
 	    return;
 	}
-
-	Components.utils.import("resource://modules/library.jsm");
 
 	// aURI is a nsIUri, so get a string from it using .spec
 	var uri = this.URI.clone();

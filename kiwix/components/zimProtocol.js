@@ -131,9 +131,6 @@ PipeChannel.prototype = {
 		.alert(null, 'Error message.', 'Error message.');
 	    return;
 	}
-	
-	/* Load the settings java code module */
-	Components.utils.import("resource://modules/settings.jsm");
 
 	/* load the zim file if necessary */
 	zimAccessor = Components.classes["@kiwix.org/zimAccessor"].getService();
