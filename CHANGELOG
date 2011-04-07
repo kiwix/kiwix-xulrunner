@@ -19,6 +19,7 @@ Kiwix 0.9 beta1
 * Result sidebar removed and replaced by a result web page "a la google"
 * Usage of jar files for a quicker startup
 * Kiwix for Mac OSX
+* kiwix-serve CPU usage improvement (ID: 3213104)
 
 Kiwix 0.9 alpha7
 * Fix the encoding issue in the help in Parsi (ID: 3060250)
