@@ -105,7 +105,7 @@ then
 	# Check for in standard way
 	if test [ "$GECKO_SDK_PATH" ]
 	then
-		LIBXUL_CFLAGS="-I${GECKO_SDK_PATH}/sdk/include -fshort-wchar"
+		LIBXUL_CFLAGS="-I${GECKO_SDK_PATH}/sdk/include -I${GECKO_SDK_PATH}/include -fshort-wchar"
 		LIBXUL_LDFLAGS="-L${GECKO_SDK_PATH}/sdk/lib -lxpcomglue_s -lxul -lxpcom -lplds4 -lplc4 -lnspr4 -lpthread -ldl"
 		GECKO_IDL_PATH=${GECKO_SDK_PATH}/idl
 	else
