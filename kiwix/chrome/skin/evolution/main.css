@@ -296,31 +296,39 @@ window[langdir="rtl"] #button-next {
 }
 
 #main.mac * #tab-panels {
-	-moz-appearance: none;
-	margin-left: -4px;
-	margin-right: -4px;
+    -moz-appearance: none;
+    margin-left: -4px;
+    margin-right: -4px;
 }
 
 #tabs-close-button {
     list-style-image: url("chrome://main/skin/icon/close12.png");
+    padding: 0px;
+    margin: 0px;
 }
 
 #tabs-add-button {
     list-style-image: url("chrome://main/skin/icon/add12.png");
+    padding: 0px;
+    margin: 0px;
 }
 
 .tab-header {
     width: 150px;
+    padding: 2px 0px 3px 0px;
+    margin: 0px;
 }
 
 #main.mac * .tab-header {
-	margin-top: .8em;
-	margin-bottom: 1.2em;
+    margin-top: .8em;
+    margin-bottom: 1.2em;
 }
 
 .tab-header-label {
     text-align: left;
     width: 130px;
+    margin: 0px;
+    padding: 0px;
 }
 
 /* Status bar */
