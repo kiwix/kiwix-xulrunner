@@ -18,7 +18,27 @@
  */
 
 #include "xpcom-config.h"
-#include "nsIGenericFactory.h"
+
+#if GECKO_VERSION == 2
+
+  #if !defined(NS_ATTR_MALLOC)
+  #define NS_ATTR_MALLOC
+  #endif
+
+  #if !defined(NS_WARN_UNUSED_RESULT)
+  #define NS_WARN_UNUSED_RESULT
+  #endif
+
+  #if !defined(MOZ_CPP_EXCEPTIONS)
+  #define MOZ_CPP_EXCEPTIONS
+  #endif
+
+  #include "mozilla/ModuleUtils.h"
+  #include "nsIClassInfoImpl.h"
+#else
+  #include "nsIGenericFactory.h"
+#endif
+
 #include "nsXPCOM.h"
 #include "nsEmbedString.h"
 #include "nsIURI.h"
@@ -27,6 +47,7 @@
 #include "nsCOMPtr.h"
 #include "nsIProperties.h"
 #include "nsDirectoryServiceDefs.h"
+
 #include "IXapianAccessor.h"
 
 #include <string>
@@ -59,23 +80,6 @@ XapianAccessor::~XapianAccessor() {
   if (this->searcher != NULL) {
     delete this->searcher;
   }
-}
-
-/* Registration */
-static NS_METHOD XapianAccessorRegistration(nsIComponentManager *aCompMgr,
-                                      nsIFile *aPath,
-                                      const char *registryLocation,
-                                      const char *componentType,
-                                      const nsModuleComponentInfo *info) {
-  return NS_OK;
-}
-
-/* Unregistration */
-static NS_METHOD XapianAccessorUnregistration(nsIComponentManager *aCompMgr,
-                                        nsIFile *aPath,
-                                        const char *registryLocation,
-                                        const nsModuleComponentInfo *info) {
-  return NS_OK;
 }
 
 /* Open Xapian readable database */
@@ -194,17 +198,17 @@ NS_IMETHODIMP XapianAccessor::GetNextResult(nsACString &url, nsACString &title,
   return NS_OK;
 }
 
+#if GECKO_VERSION == 2
+#else
 NS_GENERIC_FACTORY_CONSTRUCTOR(XapianAccessor)
-
 static const nsModuleComponentInfo components[] =
 {
    { "xapianAccessor",
      IXAPIANACCESSOR_IID,
      "@kiwix.org/xapianAccessor",
-     XapianAccessorConstructor,
-     XapianAccessorRegistration,
-     XapianAccessorUnregistration
+     XapianAccessorConstructor
    }
 };
-
 NS_IMPL_NSGETMODULE(nsXapianAccessor, components)
+#endif
+

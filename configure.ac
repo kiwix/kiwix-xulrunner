@@ -26,6 +26,9 @@ then
   IS_WIN=1
 fi
 
+# Gecko version
+GECKO_VERSION=1
+
 AC_CHECK_PROG(HAVE_XCODE, Xcode, yes, no, [$PATH$PATH_SEPARATOR/Developer/Applications/Xcode.app/Contents/MacOS/$PATH_SEPARATOR])
 AM_CONDITIONAL([IS_OSX], [test "$HAVE_XCODE" = yes])
 if test [ "$HAVE_XCODE" ]
@@ -375,6 +378,7 @@ AC_SUBST(BINDIST_INTRO_MESSAGE)
 AC_SUBST(DEPENDENCES)
 AC_SUBST(JAR)
 AC_SUBST(CURRENT_PATH)
+AC_SUBST(GECKO_VERSION)
 
 # Check the existence of stat64 (to handle file >2GB) in the libc
 AC_CHECK_FUNCS([stat64])
@@ -430,7 +434,7 @@ AC_CONFIG_FILES([
   kiwix/components/Makefile
   desktop/Makefile
   static/Makefile
-  ])
+])
 
 # Only for POSIX systems
 if test [ ! "$IS_WIN" ]

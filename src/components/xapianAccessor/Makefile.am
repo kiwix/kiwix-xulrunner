@@ -13,7 +13,7 @@ include_HEADERS= \
 	../../common/unaccent.h \
 	../../common/kiwix/searcher.h \
 	../../common/kiwix/xapianSearcher.h
-libXapianAccessor_la_CXXFLAGS=$(LIBCTPP2_CFLAGS) $(LIBXUL_CFLAGS) $(LIBXAPIAN_CFLAGS) $(LIBICU_CFLAGS) $(XPCOM_CFLAGS) -I../../common/ 
+libXapianAccessor_la_CXXFLAGS=$(LIBCTPP2_CFLAGS) $(LIBXUL_CFLAGS) $(LIBXAPIAN_CFLAGS) $(LIBICU_CFLAGS) $(XPCOM_CFLAGS) -I../../common/ -D GECKO_VERSION=$(GECKO_VERSION)
 if IS_OSX
 libXapianAccessor_la_CXXFLAGS += -I/opt/local/include 
 libXapianAccessor_la_LDFLAGS=$(LIBXUL_LDFLAGS) $(LIBXAPIAN_STATIC_LDFLAGS) $(LIBICU_STATIC_LDFLAGS) $(XPCOM_LDFLAGS)
