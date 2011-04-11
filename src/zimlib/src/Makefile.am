@@ -6,13 +6,11 @@ libzim_la_SOURCES = \
 	article.cpp \
 	articlesearch.cpp \
 	cluster.cpp \
-	deflatestream.cpp \
 	dirent.cpp \
 	file.cpp \
 	fileheader.cpp \
 	fileimpl.cpp \
 	indexarticle.cpp \
-	inflatestream.cpp \
 	ptrstream.cpp \
 	search.cpp \
 	template.cpp \
@@ -33,7 +31,7 @@ include_HEADERS = \
 	md5stream.h \
 	md5.h
 
-libzim_la_CXXFLAGS=${LIBZ_CFLAGS} ${LIBLZMA_CFLAGS} -fPIC -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE
-libzim_la_LDFLAGS=${LIBZ_LDFLAGS} ${LIBLZMA_LDFLAGS}
+libzim_la_CXXFLAGS=${LIBLZMA_CFLAGS} -fPIC -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE
+libzim_la_LDFLAGS=${LIBLZMA_LDFLAGS}
 
 CLEANFILES=*.obj *.lib *.dll

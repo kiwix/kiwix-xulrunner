@@ -329,7 +329,6 @@ LIBCTPP2_LDFLAGS=""
 AC_DEFINE_UNQUOTED(CLUSTER_CACHE_SIZE, 16, [set zim cluster cache size to number of cached chunks])
 AC_DEFINE_UNQUOTED(DIRENT_CACHE_SIZE, 512, [set zim dirent cache size to number of cached chunks])
 AC_DEFINE_UNQUOTED(LZMA_MEMORY_SIZE, 128, [set lzma uncompress memory size to number of MB])
-AC_DEFINE(ENABLE_ZLIB, [1], [defined if zlib compression is enabled])
 AC_DEFINE(ENABLE_LZMA, [1], [defined if lzma compression is enabled])
 
 # debug
