@@ -1,4 +1,4 @@
-AM_CPPFLAGS=-I$(top_builddir)/src/ctpp2/include -I$(top_builddir)/src/ctpp2/include/functions
+AM_CPPFLAGS=-I$(top_srcdir)/src/ctpp2/include -I$(top_srcdir)/src/ctpp2/include/functions
 
 lib_LTLIBRARIES = libctpp2.la
 
