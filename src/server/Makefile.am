@@ -1,4 +1,5 @@
 bin_PROGRAMS=kiwix-serve
+AM_CPPFLAGS=-I$(top_srcdir)/src/common -I$(top_srcdir)/src/zimlib/include -I$(top_srcdir)/src/ctpp2/include
 kiwix_serve_SOURCES= \
 	kiwix-serve.cpp \
 	../common/kiwix/reader.cpp \

@@ -2,6 +2,7 @@ pkglib_LTLIBRARIES=libZimXapianIndexer.la
 xptdir = $(DESTDIR)/$(libdir)/kiwix/components
 pkglibdir = $(DESTDIR)/$(libdir)/kiwix/components
 xpt_DATA = zimXapianIndexer.xpt
+ AM_CPPFLAGS=-I$(top_srcdir)/src/common -I$(top_srcdir)/src/zimlib/include
 libZimXapianIndexer_la_SOURCES= \
 	zimXapianIndexer.cpp \
 	../../common/kiwix/xapian/myhtmlparse.cc \
@@ -30,7 +31,7 @@ BUILT_SOURCES=zimXapianIndexer.xpt IZimXapianIndexer.h
 CLEANFILES=zimXapianIndexer.xpt IZimXapianIndexer.h *.lib *.obj *.dll
 
 zimXapianIndexer.xpt:
-	$(XPIDL) -m typelib -o zimXapianIndexer -I $(GECKO_IDL_PATH) IZimXapianIndexer.idl
+	$(XPIDL) -m typelib -o zimXapianIndexer -I $(GECKO_IDL_PATH) $(top_srcdir)/src/components/zimXapianIndexer/IZimXapianIndexer.idl
 
 IZimXapianIndexer.h:
-	$(XPIDL) -m header -I $(GECKO_IDL_PATH) IZimXapianIndexer.idl
+	$(XPIDL) -m header -I $(GECKO_IDL_PATH) $(top_srcdir)/src/components/zimXapianIndexer/IZimXapianIndexer.idl

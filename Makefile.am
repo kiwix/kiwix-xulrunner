@@ -48,13 +48,10 @@ all-local: ./kiwix/components/xapianAccessor.so \
 
 dist-hook:
 	rm -rf `find $(distdir) -name "*.svn" -o -name "*.dat" -o -name "*~" -o -name "*#"`
-	mv $(distdir)/kiwix/chrome/chrome.manifest.prod $(distdir)/kiwix/chrome/chrome.manifest
-	cd $(distdir)/kiwix/chrome/ ; ${JAR} cf locale.jar locale/
-	rm -rf $(distdir)/kiwix/chrome/locale
-	cd $(distdir)/kiwix/chrome/ ; ${JAR} cf content.jar content/
-	rm -rf $(distdir)/kiwix/chrome/content
-	cd $(distdir)/kiwix/chrome/ ; ${JAR} cf skin.jar skin/
-	rm -rf $(distdir)/kiwix/chrome/skin
+	if [ -e "$(distdir)/kiwix/chrome/chrome.manifest.prod" ] ; then mv $(distdir)/kiwix/chrome/chrome.manifest.prod $(distdir)/kiwix/chrome/chrome.manifest ; fi
+	if [ -d "$(distdir)/kiwix/chrome/locale" ] ; then cd $(distdir)/kiwix/chrome/ ; ${JAR} cf locale.jar locale/ ; rm -rf locale ; fi
+	if [ -d "$(distdir)/kiwix/chrome/content" ] ; then cd $(distdir)/kiwix/chrome/ ; ${JAR} cf content.jar content/ ; rm -rf content ; fi
+	if [ -d "$(distdir)/kiwix/chrome/skin" ] ; then cd $(distdir)/kiwix/chrome/ ; ${JAR} cf skin.jar skin/ ; rm -rf skin ; fi
 
 ./kiwix/components/zimAccessor.so: 
 	ln -f -s ../../src/components/zimAccessor/.libs/libZimAccessor.so ./kiwix/components/zimAccessor.so

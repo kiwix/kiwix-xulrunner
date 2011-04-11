@@ -10,5 +10,3 @@ SUBDIRS = ${DEPENDENCES} \
 	indexer \
 	server 
 endif
-
-EXTRA_DIST = dependences

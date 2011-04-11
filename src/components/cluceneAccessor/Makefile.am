@@ -2,6 +2,7 @@ pkglib_LTLIBRARIES=libCluceneAccessor.la
 xptdir = $(DESTDIR)/$(libdir)/kiwix/components
 pkglibdir = $(DESTDIR)/$(libdir)/kiwix/components
 xpt_DATA = cluceneAccessor.xpt
+AM_CPPFLAGS=-I$(top_srcdir)/src/common -I$(top_srcdir)/src/ctpp2/include
 libCluceneAccessor_la_SOURCES= \
 	cluceneAccessor.cpp \
 	../../common/splitString.cpp \
@@ -21,7 +22,7 @@ BUILT_SOURCES=cluceneAccessor.xpt ICluceneAccessor.h
 CLEANFILES=cluceneAccessor.xpt ICluceneAccessor.h *.lib *.obj *.dll
 
 cluceneAccessor.xpt: 
-	$(XPIDL) -m typelib -o cluceneAccessor -I $(GECKO_IDL_PATH) ICluceneAccessor.idl
+	$(XPIDL) -m typelib -o cluceneAccessor -I $(GECKO_IDL_PATH) $(top_srcdir)/src/components/cluceneAccessor/ICluceneAccessor.idl
 
 ICluceneAccessor.h:
-	$(XPIDL) -m header -I $(GECKO_IDL_PATH) ICluceneAccessor.idl
+	$(XPIDL) -m header -I $(GECKO_IDL_PATH) $(top_srcdir)/src/components/cluceneAccessor/ICluceneAccessor.idl

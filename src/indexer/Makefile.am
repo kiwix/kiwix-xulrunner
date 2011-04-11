@@ -1,4 +1,5 @@
 bin_PROGRAMS=kiwix-index
+AM_CPPFLAGS=-I$(top_srcdir)/src/common -I$(top_srcdir)/src/zimlib/include -I$(top_srcdir)/src/ctpp2/include
 kiwix_index_SOURCES= \
 	kiwix-index.cpp \
 	../common/kiwix/xapian/myhtmlparse.cc \
