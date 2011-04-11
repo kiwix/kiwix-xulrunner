@@ -1,4 +1,4 @@
-AM_CPPFLAGS=-I$(top_builddir)/src/zimlib/include
+AM_CPPFLAGS=-I$(top_srcdir)/src/zimlib/include
 
 lib_LTLIBRARIES = libzim.la
 
