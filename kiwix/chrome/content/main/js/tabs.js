@@ -93,6 +93,8 @@ function switchTab(tabId) {
     currentTabId = tabId;
     updateHistoryNavigationButtons();
     getFindBar().browser = getHtmlRenderer();
+    var title = getHtmlRenderer(tabId).contentTitle;
+    setWindowsTitle(title);
 }
 
 /* Update the tab header */
@@ -103,7 +105,11 @@ function updateTabHeader(tabId) {
     var titleNode = tabHeader.childNodes[0];
     titleNode.setAttribute("value", title);
     tabHeader.setAttribute("tooltiptext", title);
+    setWindowsTitle(title);
+}
 
+/* Update windows title */
+function setWindowsTitle(title) {
     if (title != "") {
 	document.title = title + " - " + getWindow().getAttribute("titlemodifier");
     }
