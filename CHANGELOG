@@ -20,6 +20,7 @@ Kiwix 0.9 beta1
 * Usage of jar files for a quicker startup
 * Kiwix for Mac OSX
 * kiwix-serve CPU usage improvement (ID: 3213104)
+* Update the Window title by switching the tabs
 
 Kiwix 0.9 alpha7
 * Fix the encoding issue in the help in Parsi (ID: 3060250)
