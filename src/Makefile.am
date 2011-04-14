@@ -6,6 +6,7 @@ else
 SUBDIRS = ${DEPENDENCES} \
 	zimlib \
 	ctpp2 \
+	pugixml \
 	components \
 	indexer \
 	server 
