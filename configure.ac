@@ -427,6 +427,7 @@ AC_CONFIG_FILES([
   src/components/cluceneAccessor/Makefile
   src/indexer/Makefile
   src/server/Makefile
+  src/manager/Makefile
   kiwix/Makefile
   kiwix/chrome/Makefile
   kiwix/defaults/Makefile

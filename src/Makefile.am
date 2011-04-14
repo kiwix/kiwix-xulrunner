@@ -9,5 +9,6 @@ SUBDIRS = ${DEPENDENCES} \
 	pugixml \
 	components \
 	indexer \
-	server 
+	server \
+	manager
 endif
