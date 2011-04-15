@@ -5,4 +5,4 @@ kiwix_manage_SOURCES= \
 include_HEADERS= 
 kiwix_manage_CXXFLAGS=$(LIBZIM_CFLAGS) -I../common/
 kiwix_manage_LDFLAGS=$(LIBZIM_LDFLAGS)
-kiwix_manage_LDADD=../zimlib/src/.libs/libzim.a
+kiwix_manage_LDADD=../zimlib/src/libzim.la
