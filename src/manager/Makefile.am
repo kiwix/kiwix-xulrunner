@@ -3,10 +3,12 @@ AM_CPPFLAGS=-I$(top_srcdir)/src/common -I$(top_srcdir)/src/zimlib/include -I$(to
 kiwix_manage_SOURCES= \
 	kiwix-manage.cpp \
 	../common/kiwix/manager.cpp \
-	../common/kiwix/library.cpp
+	../common/kiwix/library.cpp \
+	../common/kiwix/reader.cpp
 include_HEADERS= \
 	../common/kiwix/manager.h \
-	../common/kiwix/library.h
+	../common/kiwix/library.h \
+	../common/kiwix/reader.h
 kiwix_manage_CXXFLAGS=$(LIBZIM_CFLAGS) -I../common/
 kiwix_manage_LDFLAGS=$(LIBZIM_LDFLAGS)
 kiwix_manage_LDADD=../zimlib/src/libzim.la ../pugixml/libpugixml.la
