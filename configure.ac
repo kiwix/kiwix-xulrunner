@@ -378,6 +378,7 @@ AC_SUBST(DEPENDENCES)
 AC_SUBST(JAR)
 AC_SUBST(CURRENT_PATH)
 AC_SUBST(GECKO_VERSION)
+AC_SUBST(IS_OSX)
 
 # Check the existence of stat64 (to handle file >2GB) in the libc
 AC_CHECK_FUNCS([stat64])
@@ -414,6 +415,7 @@ AC_CONFIG_HEADERS([src/zimlib/src/config.h])
 AC_CONFIG_FILES([
   Makefile
   src/Makefile
+  src/dependences/Makefile
   src/zimlib/Makefile
   src/zimlib/src/Makefile
   src/ctpp2/Makefile
