@@ -225,17 +225,21 @@ function htmlRendererMouseScroll(aEvent) {
 	return;
     }
     
-    /* Deal with the left/right click*/
-    if (aEvent.detail == -1) {
-	pageBack();
-	aEvent.preventDefault();
-	aEvent.stopPropagation();
-	return;
-    } else if (aEvent.detail == 1) {
-	pageNext();
-	aEvent.preventDefault();
-	aEvent.stopPropagation();
-	return;
+    // following triggers weird behavior on OSX
+    // scrolling up/down raises back() and next()
+    if (env.platform.type != "mac") {
+	    /* Deal with the left/right click*/
+	    if (aEvent.detail == -1) {
+		pageBack();
+		aEvent.preventDefault();
+		aEvent.stopPropagation();
+		return;
+	    } else if (aEvent.detail == 1) {
+		pageNext();
+		aEvent.preventDefault();
+		aEvent.stopPropagation();
+		return;
+	    }
     }
     
     /* Deal with the roll + ctrl */
