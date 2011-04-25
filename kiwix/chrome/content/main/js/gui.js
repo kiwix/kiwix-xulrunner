@@ -610,6 +610,9 @@ function manageOpenFile(path, noSearchIndexCheck) {
 	}
     }
 
+	// OSX prepends path with URL
+	path = path.replace('file://localhost', '');
+	
     /* Try to open the ZIM file */
     var zimAccessor = openZimFile(path);
 
