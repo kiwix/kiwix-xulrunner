@@ -930,6 +930,15 @@ function initUserInterface() {
 		em = document.getElementById("edit-popup");
 		et = document.getElementById("edit-transliteration");
 		em.removeChild(et);
+		
+		// keyboard shortcut
+		keys = document.getElementsByTagName("key");
+		for (var i=0; i<=keys.length; i++) {
+			mod = keys[i].getAttribute('modifiers');
+			if (mod == 'control') {
+				keys[i].setAttribute('modifiers', 'meta');	
+			}
+		}
 	}
 
     /* Apply GUI settings */
