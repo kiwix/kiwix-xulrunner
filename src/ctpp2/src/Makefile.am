@@ -85,7 +85,12 @@ libctpp2_la_SOURCES = \
 
 include_HEADERS = 
 
+if IS_OSX
+libctpp2_la_CXXFLAGS=-I/opt/local/include -fPIC -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE
+else
 libctpp2_la_CXXFLAGS=-fPIC -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE
+endif
+
 libctpp2_la_LDFLAGS=
 
 CLEANFILES=*.obj *.lib *.dll
