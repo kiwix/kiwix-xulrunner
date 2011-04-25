@@ -222,7 +222,6 @@ function manageSearchInIndex(stringToSearch, start, end) {
 	//getSearchBox().value = "";
 
 	/* Try to load the article */
-	// Not possible cause bug http://bugs.openzim.org/show_bug.cgi?id=33
 	if (loadArticleFromTitle(stringToSearch))
 	    return true;
 
