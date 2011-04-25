@@ -1,6 +1,7 @@
 if IS_OSX
 SUBDIRS = ${DEPENDENCES} \
 	zimlib \
+	ctpp2 \
 	components
 else
 SUBDIRS = ${DEPENDENCES} \
