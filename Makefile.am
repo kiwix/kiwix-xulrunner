@@ -35,6 +35,14 @@ UPDATE_DESKTOP = \
 		update-desktop-database; \
 	fi
 
+if IS_OSX
+all-local: ./kiwix/components/xapianAccessor.dylib \
+	./kiwix/components/xapianAccessor.xpt \
+	./kiwix/components/zimAccessor.dylib \
+	./kiwix/components/zimAccessor.xpt \
+	./kiwix/components/zimXapianIndexer.dylib \
+	./kiwix/components/zimXapianIndexer.xpt
+else
 all-local: ./kiwix/components/xapianAccessor.so \
 	./kiwix/components/xapianAccessor.xpt \
 	./kiwix/components/zimAccessor.so \
@@ -45,6 +53,7 @@ all-local: ./kiwix/components/xapianAccessor.so \
 	./kiwix/components/cluceneAccessor.xpt \
 	./kiwix/components/zimCluceneIndexer.so \
 	./kiwix/components/zimCluceneIndexer.xpt
+endif
 
 dist-hook:
 	rm -rf `find $(distdir) -name "*.svn" -o -name "*.dat" -o -name "*~" -o -name "*#"`
@@ -82,6 +91,15 @@ dist-hook:
 
 ./kiwix/components/zimCluceneIndexer.xpt: 
 	ln -f -s ../../src/components/zimCluceneIndexer/zimCluceneIndexer.xpt ./kiwix/components/zimCluceneIndexer.xpt
+	
+./kiwix/components/zimAccessor.dylib: 
+	ln -f -s ../../src/components/zimAccessor/.libs/libZimAccessor.dylib ./kiwix/components/zimAccessor.dylib
+	
+./kiwix/components/xapianAccessor.dylib: 
+	ln -f -s ../../src/components/xapianAccessor/.libs/libXapianAccessor.dylib ./kiwix/components/xapianAccessor.dylib
+	
+./kiwix/components/zimXapianIndexer.dylib:
+	ln -f -s ../../src/components/zimXapianIndexer/.libs/libZimXapianIndexer.dylib  ./kiwix/components/zimXapianIndexer.dylib
 
 bindist: 
 	${BINDIST_INTRO_MESSAGE}
@@ -114,12 +132,12 @@ distmac: dist
 	$(MKDIR_P) Kiwix.app/Contents/Resources
 	rsync -ar $(PACKAGE)-$(VERSION)/kiwix/* Kiwix.app/Contents/Resources/
 	find Kiwix.app/Contents/Resources/components/ -type l -delete
-	cp src/components/zimAccessor/IZimAccessor.xpt Kiwix.app/Contents/Resources/components/zimAccessor.xpt
-	cp src/components/zimAccessor/.libs/libZimAccessor.dylib Kiwix.app/Contents/Resources/components/zimAccessor.dylib
-	cp src/components/xapianAccessor/IXapianAccessor.xpt Kiwix.app/Contents/Resources/components/xapianAccessor.xpt
-	cp src/components/xapianAccessor/.libs/libXapianAccessor.dylib Kiwix.app/Contents/Resources/components/xapianAccessor.dylib
-	cp src/components/zimXapianIndexer/IZimXapianIndexer.xpt Kiwix.app/Contents/Resources/components/zimXapianIndexer.xpt
-	cp src/components/zimXapianIndexer/.libs/libZimXapianIndexer.dylib Kiwix.app/Contents/Resources/components/zimXapianIndexer.dylib
+	cp ./kiwix/components/zimAccessor.xpt Kiwix.app/Contents/Resources/components/zimAccessor.xpt
+	cp ./kiwix/components/zimAccessor.dylib Kiwix.app/Contents/Resources/components/zimAccessor.dylib
+	cp ./kiwix/components/xapianAccessor.xpt Kiwix.app/Contents/Resources/components/xapianAccessor.xpt
+	cp ./kiwix/components/xapianAccessor.dylib Kiwix.app/Contents/Resources/components/xapianAccessor.dylib
+	cp ./kiwix/components/zimXapianIndexer.xpt Kiwix.app/Contents/Resources/components/zimXapianIndexer.xpt
+	cp ./kiwix/components/zimXapianIndexer.dylib Kiwix.app/Contents/Resources/components/zimXapianIndexer.dylib
 	cp src/components/components.list Kiwix.app/Contents/Resources/components/components.list
 	rsync -rl /Library/Frameworks/XUL.framework/ Kiwix.app/Contents/Frameworks/XUL.framework/
 	cp /Library/Frameworks/XUL.framework/Versions/Current/xulrunner Kiwix.app/Contents/MacOS/xulrunner
