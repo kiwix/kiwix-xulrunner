@@ -1030,6 +1030,12 @@ function HandleAppCommandEvent(evt) {
     }
 }
 
+function toggleFinBarButton(aEvent) {
+    if (aEvent.attrName == 'hidden') {
+	getFindButton().setAttribute('checked', !aEvent.newValue);
+    }
+}
+
 /* Add mouse scroll listener to allow zoon in/out with the mouse for example */
 function initHtmlRendererEventListeners() {
     var htmlRenderer =  getHtmlRenderer();
@@ -1050,6 +1056,9 @@ function initHtmlRendererEventListeners() {
     /* Necessary to update the tab header */
     htmlRenderer.addEventListener("pageshow", function(){ updateTabHeader(id) }, true);
     htmlRenderer.addEventListener("load", function(){ updateTabHeader(id) }, true);
+    
+    /* finbar event */
+    getFindBar().addEventListener ("DOMAttrModified", toggleFinBarButton, true);
 }
 
 /* Deal with the Escape key */
