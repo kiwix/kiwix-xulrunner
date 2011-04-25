@@ -14,8 +14,8 @@ if IS_OSX
 libZimAccessor_la_LDFLAGS=$(LIBXUL_LDFLAGS) $(LIBZIM_STATIC_LDFLAGS) $(XPCOM_LDFLAGS)
 else
 libZimAccessor_la_LDFLAGS=$(LIBXUL_LDFLAGS) $(LIBZIM_LDFLAGS) $(XPCOM_LDFLAGS)
-endif
 libZimAccessor_la_LIBADD=../../zimlib/src/libzim.la
+endif
 EXTRA_DIST=IZimAccessor.idl
 BUILT_SOURCES=zimAccessor.xpt IZimAccessor.h
 CLEANFILES=zimAccessor.xpt IZimAccessor.h *.lib *.obj *.dll

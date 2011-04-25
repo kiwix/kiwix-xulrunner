@@ -24,8 +24,8 @@ libZimXapianIndexer_la_CXXFLAGS += -I/opt/local/include
 libZimXapianIndexer_la_LDFLAGS=$(LIBXUL_LDFLAGS) $(LIBXAPIAN_STATIC_LDFLAGS) $(LIBICU_STATIC_LDFLAGS) $(LIBZIM_STATIC_LDFLAGS) $(XPCOM_LDFLAGS) 
 else
 libZimXapianIndexer_la_LDFLAGS=$(LIBXUL_LDFLAGS) $(LIBXAPIAN_LDFLAGS) $(LIBICU_LDFLAGS) $(LIBZIM_LDFLAGS) $(XPCOM_LDFLAGS) 
-endif
 libZimXapianIndexer_la_LIBADD=../../zimlib/src/libzim.la
+endif
 EXTRA_DIST=IZimXapianIndexer.idl
 BUILT_SOURCES=zimXapianIndexer.xpt IZimXapianIndexer.h
 CLEANFILES=zimXapianIndexer.xpt IZimXapianIndexer.h *.lib *.obj *.dll

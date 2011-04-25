@@ -17,11 +17,11 @@ include_HEADERS= \
 libXapianAccessor_la_CXXFLAGS=$(LIBCTPP2_CFLAGS) $(LIBXUL_CFLAGS) $(LIBXAPIAN_CFLAGS) $(LIBICU_CFLAGS) $(XPCOM_CFLAGS) -I../../common/ -D GECKO_VERSION=$(GECKO_VERSION)
 if IS_OSX
 libXapianAccessor_la_CXXFLAGS += -I/opt/local/include 
-libXapianAccessor_la_LDFLAGS=$(LIBXUL_LDFLAGS) $(LIBXAPIAN_STATIC_LDFLAGS) $(LIBICU_STATIC_LDFLAGS) $(XPCOM_LDFLAGS)
+libXapianAccessor_la_LDFLAGS=$(LIBXUL_LDFLAGS) $(LIBXAPIAN_STATIC_LDFLAGS) $(LIBCTPP2_STATIC_LDFLAGS) $(LIBICU_STATIC_LDFLAGS) $(XPCOM_LDFLAGS)
 else
 libXapianAccessor_la_LDFLAGS=$(LIBCTPP2_LDFLAGS) $(LIBXUL_LDFLAGS) $(LIBXAPIAN_LDFLAGS) $(LIBICU_LDFLAGS) $(XPCOM_LDFLAGS)
-endif
 libXapianAccessor_la_LIBADD=../../ctpp2/src/libctpp2.la
+endif
 EXTRA_DIST=IXapianAccessor.idl
 BUILT_SOURCES=xapianAccessor.xpt IXapianAccessor.h
 CLEANFILES=xapianAccessor.xpt IXapianAccessor.h *.lib *.obj *.dll
