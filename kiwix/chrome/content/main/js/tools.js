@@ -130,7 +130,7 @@ function onStart() {
     var argumentCount = nsCommandLine.length;
     for (var argumentIndex=0; argumentIndex<argumentCount; argumentIndex++) {
 	var argument = nsCommandLine.getArgument(argumentIndex);
-	if (argument.match(/^.*\.zim$/i)) {
+	if (argument.match(/^.*\.(zim|zimaa)$/i)) {
 	    manageOpenFile(argument, true);
 	}
     }

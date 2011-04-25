@@ -603,16 +603,18 @@ function manageOpenFile(path, noSearchIndexCheck) {
 	/* Get the file path */
 	if (res == nsIFilePicker.returnOK) {
 	    path = filePicker.file.path;
-	    path = path.replace(".zimaa", ".zim");
 	    settings.defaultFilePickerPath(filePicker.file.parent.path);
 	} else {
 	    return false;
 	}
     }
 
-	// OSX prepends path with URL
-	path = path.replace('file://localhost', '');
-	
+    /* OSX prepends path with URL */
+    path = path.replace('file://localhost', '');
+
+    /* Replace .zimaa by .zim */
+    path = path.replace(".zimaa", ".zim");
+
     /* Try to open the ZIM file */
     var zimAccessor = openZimFile(path);
 
