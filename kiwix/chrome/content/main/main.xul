@@ -285,7 +285,7 @@
 	<box class="library-content" flex="1">
 	  <deck id="library-deck" selectedIndex="0" flex="1">
 	    <vbox style="overflow:auto">
-	      <box class="library-content-item" style="background-color: white;">
+	      <box class="library-content-item" style="background-color: white;" onclick="selectLibraryContentItem(this);">
 		<hbox flex="1">
 		  <box class="library-content-item-favicon" style="background-image: url('http://tmp.kiwix.org/tmp/wikipedia-icon-48x48.png');"/>
 		  <box flex="1" style="margin: 7px 0px 0px 0px;">

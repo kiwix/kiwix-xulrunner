@@ -6,6 +6,7 @@ var _showFullScreenToolBar  = false;
 var _fullScreenStatusBar    = true;
 var _applicationFD          = GetApplicationFolder ();
 var _firstSideBar	    = true;
+var _selectedLibraryContentItem = undefined;
 
 var _languagesHash          = Array();
 _languagesHash['fr-FR']     = "Français";
@@ -819,6 +820,21 @@ function selectLibraryMenu(menuItemId) {
 	menuItemLocal.setAttribute("style", "background-color: transparent;");
 	menuItemRemote.setAttribute("style", "background-color: white;")
 	libraryDeck.selectedIndex = 1;
+    }
+}
+
+function selectLibraryContentItem(box) {
+    if (_selectedLibraryContentItem != undefined) {
+	_selectedLibraryContentItem.setAttribute("style", _selectedLibraryContentItem.backGroundColorBackup);
+    }
+
+    if (box == _selectedLibraryContentItem) {
+	_selectedLibraryContentItem = undefined;
+	return;
+    } else {
+	box.backGroundColorBackup = box.getAttribute("style");
+	box.setAttribute("style", "background-color: Highlight;");
+	_selectedLibraryContentItem = box;
     }
 }
 
