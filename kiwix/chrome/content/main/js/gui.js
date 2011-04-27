@@ -805,6 +805,23 @@ function toggleLibrary() {
     }
 }
 
+/* Change the library selected menuitem */
+function selectLibraryMenu(menuItemId) {
+    var menuItemLocal = document.getElementById("library-menuitem-local");
+    var menuItemRemote = document.getElementById("library-menuitem-remote");
+    var libraryDeck = document.getElementById("library-deck");
+
+    if (menuItemId == "library-menuitem-local") {
+	menuItemLocal.setAttribute("style", "background-color: white;");
+	menuItemRemote.setAttribute("style", "background-color: transparent;");
+	libraryDeck.selectedIndex = 0;
+    } else {
+	menuItemLocal.setAttribute("style", "background-color: transparent;");
+	menuItemRemote.setAttribute("style", "background-color: white;")
+	libraryDeck.selectedIndex = 1;
+    }
+}
+
 /* Toogle browser contextual menu */
 function toggleBrowserContextualMenu(event) {
     var target = event.target;

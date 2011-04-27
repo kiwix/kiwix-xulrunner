@@ -271,21 +271,20 @@
 	<findbar id="find-bar" browserid="html-renderer-00000000"/>
       </vbox>
     </page>
-    <page id="library-page" flex="1" hidden="true">
+    <page id="library-page" flex="1" hidden="true" style="background-color: red;">
       <grid style="padding:0px; margin:0px;" flex="1">
-	<columns style="padding: -1px; margin: 0px;">
-	  <column style="background: -moz-linear-gradient(left, #b8b5b0, #d2d2d2); padding: 0px; width: 200px;">
-	    <richlistbox class="library-menu" style="background: -moz-linear-gradient(left, #b8b5b0, #d2d2d2);">
-	      <richlistitem class="library-menuitem">
-		<description>My Library</description>
-	      </richlistitem>
-	      <richlistitem class="library-menuitem">
-		<description>Get New Files</description>
-	      </richlistitem>
-	    </richlistbox>
+	<columns style="padding: 0px; margin: 0px;">
+	  <column class="library-menu">
+	    <box id="library-menuitem-local" class="library-menuitem" 
+		 style="background-color: white;" onclick="selectLibraryMenu(this.id);">
+	      <description>My Library</description>
+	    </box> 
+	    <box id="library-menuitem-remote" class="library-menuitem" onclick="selectLibraryMenu(this.id);">
+	      <description>Get New Files</description>
+	    </box> 
 	  </column>
 	  <column style="padding:0px; margin:0px; background-color: white;" flex="1">
-	    <deck>
+	    <deck id="library-deck" selectedIndex="0">
 	      <box>local</box>
 	      <box>remote</box>
 	    </deck>

@@ -314,13 +314,16 @@ window[langdir="rtl"] #button-next {
 /* Library manager */
 
 .library-menu {
-    margin: 10px 0px 10px 10px;
+    background: -moz-linear-gradient(left, #b8b5b0, #d2d2d2);
+    padding-top: 10px;
+    padding-right: 0px;
+    width: 200px;
 }
 
 .library-menuitem {
+    margin: 0px 0px 0px 10px;
     padding: 5px;
-    margin: 0px;
     font-size: 110%;
-    -moz-border-radius: 10px 0px 0px 10px;
+    -moz-border-radius: 5px 0px 0px 5px;
 }
 
