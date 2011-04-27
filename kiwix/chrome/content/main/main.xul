@@ -271,26 +271,61 @@
 	<findbar id="find-bar" browserid="html-renderer-00000000"/>
       </vbox>
     </page>
-    <page id="library-page" flex="1" hidden="true" style="background-color: red;">
-      <grid style="padding:0px; margin:0px;" flex="1">
-	<columns style="padding: 0px; margin: 0px;">
-	  <column class="library-menu">
-	    <box id="library-menuitem-local" class="library-menuitem" 
-		 style="background-color: white;" onclick="selectLibraryMenu(this.id);">
-	      <description>My Library</description>
-	    </box> 
-	    <box id="library-menuitem-remote" class="library-menuitem" onclick="selectLibraryMenu(this.id);">
-	      <description>Get New Files</description>
-	    </box> 
-	  </column>
-	  <column style="padding:0px; margin:0px; background-color: white;" flex="1">
-	    <deck id="library-deck" selectedIndex="0">
-	      <box>local</box>
-	      <box>remote</box>
-	    </deck>
-	  </column>
-	</columns>
-      </grid>
+    <page id="library-page" flex="1" hidden="true">
+      <hbox flex="1">
+	<vbox class="library-menu">
+	  <box id="library-menuitem-local" class="library-menuitem" 
+	       style="background-color: white;" onclick="selectLibraryMenu(this.id);">
+	    <description>My Library</description>
+	  </box> 
+	  <box id="library-menuitem-remote" class="library-menuitem" onclick="selectLibraryMenu(this.id);">
+	    <description>Get New Files</description>
+	  </box>
+	</vbox>
+	<box class="library-content" flex="1">
+	  <deck id="library-deck" selectedIndex="0" flex="1">
+	    <vbox style="overflow:auto">
+	      <box class="library-content-item" style="background-color: white;">
+		<hbox flex="1">
+		  <box class="library-content-item-favicon" style="background-image: url('http://tmp.kiwix.org/tmp/wikipedia-icon-48x48.png');"/>
+		  <box flex="1" style="margin: 7px 0px 0px 0px;">
+		    <label class="library-content-item-title">Wikipedia 0.8</label><html:br/>
+		    <description class="library-content-item-description">Curated selection of 45,000 articles from the English Wikipedia</description><html:br/>
+		    <grid>
+		      <columns>
+			<column style="width: 300px;">
+			  <label class="library-content-item-detail">Size 1,3 GB (45,000 pages, 0 images)</label><html:br/>
+			  <label class="library-content-item-detail">Publisher: Wikimedia Foundation</label>
+			</column>
+			<column>
+			  <label class="library-content-item-detail">Created: February 30, 2010</label><html:br/>
+			  <label class="library-content-item-detail">Language: German</label>
+			</column>
+		      </columns>
+		    </grid>
+		  </box>
+		  <vbox style="margin: 5px;">
+		    <spacer flex="1" />
+		    <button label="Download" />
+		  </vbox>
+		</hbox>
+	      </box>
+	      <box class="library-content-item" style="background-color: #eeeeee;">
+	      </box>
+	      <box class="library-content-item" style="background-color: white;">
+	      </box>
+	      <box class="library-content-item" style="background-color: #eeeeee;">
+	      </box>
+	      <box class="library-content-item" style="background-color: white;">
+	      </box>
+	      <box class="library-content-item" style="background-color: #eeeeee;">
+	      </box>
+	    </vbox>
+	    <vbox style="overflow:auto">
+	    </vbox>
+	  </deck>
+	</box>
+      </hbox>
     </page>
   </stack>
 </hbox>

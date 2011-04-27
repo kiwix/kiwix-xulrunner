@@ -327,3 +327,33 @@ window[langdir="rtl"] #button-next {
     -moz-border-radius: 5px 0px 0px 5px;
 }
 
+.library-content {
+    background-color: white;
+}
+
+.library-content-item {
+    height: 90px;
+}
+
+.library-content-item-favicon {
+    background-repeat: no-repeat; 
+    background-position: right top; 
+    width: 80px; 
+    margin: 10px 10px 0px 0px;
+}
+
+.library-content-item-title {
+    font-size: 100%;
+    font-weight: bold;
+}
+
+.library-content-item-description {
+    line-height:90%;
+    font-size: 90%;
+}
+
+.library-content-item-detail {
+    line-height:80%;
+    color: grey;
+    font-size: 80%;
+}
