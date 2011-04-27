@@ -189,10 +189,7 @@
     <toolbarbutton id="button-print" oncommand="print()" tooltiptext="&main.print;"/>
     <toolbarbutton id="button-bookmarks" oncommand="UIToggleBookmarksBar()" tooltiptext="&main.bookmarks;"/>
     <toolbarbutton id="button-search-article" oncommand="find()" tooltiptext="&main.findInText;" />
-
-<!-- waiting for implementation
-    <toolbarbutton id="button-library" oncommand="showLibrary()" tooltiptext="Library" />
--->
+    <toolbarbutton id="button-library" oncommand="toggleLibrary()" tooltiptext="Library" checked="false" />
 
     <stack flex="1">
       <hbox>
@@ -254,23 +251,49 @@
 	</vbox>
   
   <!-- Rendering space -->
-  <vbox flex="1">
-    <tabbox flex="1" id="tab-box">
-      <tabs id="tab-headers" style="display: none;">
-	<toolbarbutton id="tabs-add-button" oncommand="openNewTab()"/>
-        <tab id="tab-header-00000000" onclick="switchTab('00000000')" class="tab-header" selected="true">
-	  <label value="" crop="right" class="tab-header-label"/>
-	</tab>
-	<toolbarbutton id="tabs-close-button" oncommand="closeCurrentTab()"/>
-      </tabs>
-      <tabpanels id="tab-panels" flex="1">
-        <tabpanel id="tab-panel-00000000">
-          <browser flex="1" id="html-renderer-00000000" src="" type="content-primary"/>
-        </tabpanel>
-      </tabpanels>
-    </tabbox>
-    <findbar id="find-bar" browserid="html-renderer-00000000"/>
-  </vbox>
+  <stack flex="1">
+    <page id="rendering-page" flex="1">
+      <vbox flex="1">
+	<tabbox flex="1" id="tab-box">
+	  <tabs id="tab-headers" style="display: none;">
+	    <toolbarbutton id="tabs-add-button" oncommand="openNewTab()"/>
+            <tab id="tab-header-00000000" onclick="switchTab('00000000')" class="tab-header" selected="true">
+	      <label value="" crop="right" class="tab-header-label"/>
+	    </tab>
+	    <toolbarbutton id="tabs-close-button" oncommand="closeCurrentTab()"/>
+	  </tabs>
+	  <tabpanels id="tab-panels" flex="1">
+            <tabpanel id="tab-panel-00000000">
+              <browser flex="1" id="html-renderer-00000000" src="" type="content-primary"/>
+            </tabpanel>
+	  </tabpanels>
+	</tabbox>
+	<findbar id="find-bar" browserid="html-renderer-00000000"/>
+      </vbox>
+    </page>
+    <page id="library-page" flex="1" hidden="true">
+      <grid style="padding:0px; margin:0px;" flex="1">
+	<columns style="padding: -1px; margin: 0px;">
+	  <column style="background: -moz-linear-gradient(left, #b8b5b0, #d2d2d2); padding: 0px; width: 200px;">
+	    <richlistbox class="library-menu" style="background: -moz-linear-gradient(left, #b8b5b0, #d2d2d2);">
+	      <richlistitem class="library-menuitem">
+		<description>My Library</description>
+	      </richlistitem>
+	      <richlistitem class="library-menuitem">
+		<description>Get New Files</description>
+	      </richlistitem>
+	    </richlistbox>
+	  </column>
+	  <column style="padding:0px; margin:0px; background-color: white;" flex="1">
+	    <deck>
+	      <box>local</box>
+	      <box>remote</box>
+	    </deck>
+	  </column>
+	</columns>
+      </grid>
+    </page>
+  </stack>
 </hbox>
 
 <!-- Status bar -->

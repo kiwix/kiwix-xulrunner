@@ -310,3 +310,17 @@ window[langdir="rtl"] #button-next {
     text-align: center;
     font-size: 90%;
 }
+
+/* Library manager */
+
+.library-menu {
+    margin: 10px 0px 10px 10px;
+}
+
+.library-menuitem {
+    padding: 5px;
+    margin: 0px;
+    font-size: 110%;
+    -moz-border-radius: 10px 0px 0px 10px;
+}
+

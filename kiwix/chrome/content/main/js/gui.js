@@ -84,6 +84,10 @@ function getBackButton() {
     return document.getElementById("button-back");
 }
 
+function getLibraryButton() {
+    return document.getElementById("button-library");
+}
+
 /* Return the Find bar object */
 function getFindBar() {
     return document.getElementById("find-bar");
@@ -782,6 +786,23 @@ function manageImageDownload(url) {
 
     /* Write the image */
     downloadFile('zim://' + url, 'file://' + path);
+}
+
+/* Show/hide library manager */
+function toggleLibrary() {
+    var libraryButton = getLibraryButton();
+    var renderingPage = document.getElementById("rendering-page");
+    var libraryPage = document.getElementById("library-page");
+
+    if (libraryButton.getAttribute('checked') == "true") {
+	libraryButton.setAttribute('checked', false);
+	renderingPage.hidden = false;
+	libraryPage.hidden = true;
+    } else {
+	libraryButton.setAttribute('checked', true);
+	renderingPage.hidden = true;
+	libraryPage.hidden = false;
+    }
 }
 
 /* Toogle browser contextual menu */
