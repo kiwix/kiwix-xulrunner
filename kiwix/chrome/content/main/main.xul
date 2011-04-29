@@ -337,7 +337,7 @@
   <image id="earth-icon" collapsed="true"/>
   <image id="book-icon" collapsed="true"/>
   </vbox>
-  <label id="address-bar" crop="end" flex="1"/>
+  <label id="address-bar" crop="end" flex="1" value=" "/>
   <spacer flex="1"/>
   <stack>
     <progressmeter id="progress-bar" mode="determined" collapsed="true"/>

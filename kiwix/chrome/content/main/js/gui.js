@@ -374,7 +374,7 @@ function htmlRendererOpenUrl(aEvent) {
 
 /* Clear the status bar */
 function clearStatusBar() {
-    document.getElementById("address-bar").value = "";
+    document.getElementById("address-bar").value = " ";
     document.getElementById('earth-icon').collapsed = true;
     document.getElementById('book-icon').collapsed = true;
 }
@@ -867,7 +867,8 @@ function toggleBrowserContextualMenu(event) {
 	var imageUrl = target.getAttribute("src");
 	browserContextualMenuItem.setAttribute("onclick", "manageImageDownload('" + imageUrl + "')");
 	browserContextualMenu.openPopupAtScreen(event.screenX, event.screenY, true);
-  }
+    } else if (target.localName == "a") {
+    }
 }
 
 /* Display a confirm dialog box like confirm() */
