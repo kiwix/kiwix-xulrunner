@@ -317,6 +317,25 @@ function htmlRendererMouseUp(aEvent) {
     }
 }
 
+/* Mousedown event handler, necessary to deal with ctrl left click on urls */
+function htmlRendererMouseDown(aEvent) {
+    var url = aEvent.target;
+
+    while (url.parentNode != undefined &&  !(url instanceof HTMLAnchorElement)) {
+        url = url.parentNode;
+    }
+
+    if (url instanceof HTMLAnchorElement && aEvent.ctrlKey) {
+	if (url.href.indexOf("zim://",0) != 0) {
+	    htmlRendererOpenUrl(aEvent);
+	} else {
+	    changeTabsVisibilityStatus(true);
+	    openNewTab();
+	    htmlRendererOpenUrl(aEvent);
+	}
+    }
+}
+
 /* Is called every time an (external|internal) url is clicked */
 function htmlRendererOpenUrl(aEvent) {
     var url = aEvent.target;
@@ -1101,6 +1120,7 @@ function initHtmlRendererEventListeners() {
     htmlRenderer.addEventListener("mouseover", htmlRendererMouseOver, true);
     htmlRenderer.addEventListener("mouseout", htmlRendererMouseOut, true);
     htmlRenderer.addEventListener("mouseup", htmlRendererMouseUp, true);
+    htmlRenderer.addEventListener("mousedown", htmlRendererMouseDown, true);
     htmlRenderer.addEventListener("keypress", manageKeyCombination, true);
     htmlRenderer.addEventListener("DOMActivate", htmlRendererOpenUrl, true);
     htmlRenderer.addEventListener("pageshow", updateHistoryNavigationButtons, true);
