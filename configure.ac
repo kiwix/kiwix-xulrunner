@@ -431,6 +431,7 @@ AC_CONFIG_FILES([
   src/components/zimXapianIndexer/Makefile
   src/components/zimCluceneIndexer/Makefile
   src/components/cluceneAccessor/Makefile
+  src/components/contentManager/Makefile
   src/indexer/Makefile
   src/server/Makefile
   src/manager/Makefile

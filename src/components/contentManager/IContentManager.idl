@@ -1,0 +1,9 @@
+#include "nsISupports.idl"
+
+interface nsIURI;
+interface nsILocalFile;
+
+[scriptable, uuid(041c2a90-74f1-11e0-a1f0-0800200c9a66)]
+interface IContentManager : nsISupports
+{
+};

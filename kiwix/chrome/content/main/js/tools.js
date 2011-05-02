@@ -114,6 +114,8 @@ function onStart() {
 	dump("Unable to register the cluceneAccessor XPCOM, Kiwix will be unable to provide the Clucene search engine.\n");
     if (Components.classes["@kiwix.org/zimCluceneIndexer"] == undefined)
 	dump("Unable to register the zimCluceneIndexer XPCOM, Kiwix will be unable to index ZIM files with Clucene.\n");
+    if (Components.classes["@kiwix.org/contentManager"] == undefined)
+	dump("Unable to register the contentManager XPCOM, Kiwix will be unable to deal with content.\n");
 
     /* Init the event listeners */
     initEventListeners();

@@ -2,12 +2,14 @@ if IS_OSX
 SUBDIRS = \
 	xapianAccessor \
 	zimAccessor \
-	zimXapianIndexer
+	zimXapianIndexer \
+	contentManager
 else
 SUBDIRS = \
 	xapianAccessor \
 	zimAccessor \
 	zimXapianIndexer \
 	zimCluceneIndexer \
-	cluceneAccessor
+	cluceneAccessor \
+	contentManager
 endif
