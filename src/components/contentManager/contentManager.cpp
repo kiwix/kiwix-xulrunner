@@ -34,6 +34,8 @@
 #include "nsIProperties.h"
 #include "nsDirectoryServiceDefs.h"
 
+#include <kiwix/manager.h>
+
 class ContentManager : public IContentManager {
 
 public:
@@ -45,6 +47,8 @@ public:
 private:
   ~ContentManager();
 
+protected:
+  kiwix::Manager manager;
 };
 
 /* Implementation file */
@@ -57,6 +61,83 @@ ContentManager::ContentManager() {
 /* Destructor */
 ContentManager::~ContentManager() {
 }
+
+NS_IMETHODIMP ContentManager::OpenLibraryFromFile(nsILocalFile *file, PRBool *retVal) {
+  *retVal = PR_TRUE;
+  nsString path;
+  file->GetPath(path);
+  const PRUnichar *wcPath = ToNewUnicode(path);
+  const char *cPath = ToNewUTF8String(path);
+  bool returnValue = true;
+
+  try {
+    returnValue = this->manager.readFile(cPath);
+  } catch (exception &e) {
+    cerr << e.what() << endl;
+    *retVal = PR_FALSE;
+  }
+
+  *retVal = (returnValue ? PR_TRUE : PR_FALSE);
+
+  return NS_OK;
+}
+
+NS_IMETHODIMP ContentManager::WriteLibraryToFile(nsILocalFile *file, PRBool *retVal) {
+  *retVal = PR_TRUE;
+  nsString path;
+  file->GetPath(path);
+  const PRUnichar *wcPath = ToNewUnicode(path);
+  const char *cPath = ToNewUTF8String(path);
+  bool returnValue = true;
+
+  try {
+    returnValue = this->manager.writeFile(cPath);
+  } catch (exception &e) {
+    cerr << e.what() << endl;
+    *retVal = PR_FALSE;
+  }
+
+  *retVal = (returnValue ? PR_TRUE : PR_FALSE);
+
+  return NS_OK;
+}
+
+NS_IMETHODIMP ContentManager::AddBookFromPath(nsILocalFile *file, PRBool *retVal) {
+  *retVal = PR_TRUE;
+  nsString path;
+  file->GetPath(path);
+  const PRUnichar *wcPath = ToNewUnicode(path);
+  const char *cPath = ToNewUTF8String(path);
+  bool returnValue = true;
+
+  try {
+    returnValue = this->manager.addBookFromPath(cPath);
+  } catch (exception &e) {
+    cerr << e.what() << endl;
+    *retVal = PR_FALSE;
+  }
+
+  *retVal = (returnValue ? PR_TRUE : PR_FALSE);
+
+  return NS_OK;
+}
+
+NS_IMETHODIMP ContentManager::RemoveBookById(const nsACString &id, PRBool *retVal) {
+  *retVal = PR_FALSE;
+  const char *cid;
+  NS_CStringGetData(id, &cid);
+  
+  try {
+    if (this->manager.removeBookById(cid)) {
+      *retVal = PR_TRUE;
+    }
+  } catch (exception &e) {
+    cerr << e.what() << endl;
+  }
+  
+  return NS_OK;
+}
+
 
 NS_GENERIC_FACTORY_CONSTRUCTOR(ContentManager)
 
