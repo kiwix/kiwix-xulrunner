@@ -424,13 +424,13 @@ function UIToggleFullScreen (save) {
 
     /* Toggle */
     _winIsFullScreen = !_winIsFullScreen;
-    
+    _fullScreenStatusBar = settings.displayStatusBar();
+
     /* Configuration changes */
     if (_winIsFullScreen) {
 	toolBox.addEventListener("mouseover", showFullScreenToolBox, false);
 	getHtmlRenderer().addEventListener("mouseover", hideFullScreenToolBox, false);
 	toolBox.setAttribute("style", "height: 4px;");
-	_fullScreenStatusBar = settings.displayStatusBar();
 	changeStatusBarVisibilityStatus(false);
 	document.getElementById('menu-bar').collapsed = true;
 	hideFullScreenToolBox();
@@ -480,21 +480,22 @@ function UIToggleBookmarksBar () {
 
 /* Make the status bar (in)visible */
 function changeStatusBarVisibilityStatus(visible, save) {
-    if (visible == undefined) {
-	visible = document.getElementById('display-statusbar').getAttribute('checked');
-    } else {
-	document.getElementById('display-statusbar').setAttribute('checked', visible);
-    }
 
-    if (visible) {
-	document.getElementById('status-bar').collapsed = false;
-    } else {
-	document.getElementById('status-bar').collapsed = true;
-    }
+    var bar = document.getElementById('status-bar');
 
+    // if user don't know what he wants
+    // assume he wants to toggle
+    if (visible == undefined)
+        visible = !bar.collapsed;
+    else
+        visible = !visible;
+
+    bar.collapsed  = visible;
     if (save) {
-	settings.displayStatusBar(visible);
+        settings.displayStatusBar(!visible);
     }
+
+    document.getElementById('display-statusbar').setAttribute('checked', !visible);
 }
 
 /* Make the progress bar (in)visible */
@@ -982,6 +983,7 @@ function populateLastOpenMenu() {
 
 /* Initialize the user interface */
 function initUserInterface() {
+
 	/* Set a class on main window based on platform string */
 	document.getElementById("main").className = env.platform.type;
 	
@@ -996,6 +998,26 @@ function initUserInterface() {
 
     /* Populates the last open menu */
     populateLastOpenMenu();
+
+    /* Apply GUI settings */
+    if (settings.displayStatusBar() != undefined) { changeStatusBarVisibilityStatus(settings.displayStatusBar()); }
+    if (settings.displayFullScreen() != undefined) { if (settings.displayFullScreen()) { UIToggleFullScreen(); } }
+    if (settings.displayBookmarksBar() === true) { UIToggleBookmarksBar(); }
+    if (settings.displayTabs() === true) { changeTabsVisibilityStatus(settings.displayTabs()); }
+
+    /* Activate (or not) the Home button */
+    if (getCurrentZimFileHomePageUrl()) {
+    activateHomeButton();
+    } else {
+    desactivateHomeButton();
+    }
+
+    /* Update the search bar */
+    updateGuiSearchComponents();
+
+    /* Desactivate back/next buttons */
+    desactivateBackButton();
+    desactivateNextButton();
 
 	/* Mac OSX specificities
 	   disable Print as PDF menu */
@@ -1020,26 +1042,6 @@ function initUserInterface() {
 			}
 		}
 	}
-
-    /* Apply GUI settings */
-    if (settings.displayStatusBar() != undefined) { changeStatusBarVisibilityStatus(settings.displayStatusBar()); }
-    if (settings.displayFullScreen() != undefined) { if (settings.displayFullScreen()) { UIToggleFullScreen(); } }
-    if (settings.displayBookmarksBar() === true) { UIToggleBookmarksBar(); }
-    if (settings.displayTabs() === true) { changeTabsVisibilityStatus(settings.displayTabs()); }
-
-    /* Activate (or not) the Home button */
-    if (getCurrentZimFileHomePageUrl()) {
-	activateHomeButton();
-    } else {
-	desactivateHomeButton();
-    }
-
-    /* Update the search bar */
-    updateGuiSearchComponents();
-
-    /* Desactivate back/next buttons */
-    desactivateBackButton();
-    desactivateNextButton();
 }
 
 /* Drop file on windows to open it */
