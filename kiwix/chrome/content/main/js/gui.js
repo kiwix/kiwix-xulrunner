@@ -948,6 +948,7 @@ function getAvailableLocales() {
 
 /* Fill the lastopen-menu with all available languages */
 function populateLastOpenMenu() {
+    return;
     /* Render locale menu items */
     var lastOpenMenuTop = document.getElementById("menu-lastopen-top");
     var lastOpenMenu = document.getElementById("menu-lastopen");

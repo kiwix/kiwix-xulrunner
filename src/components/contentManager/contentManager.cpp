@@ -138,6 +138,53 @@ NS_IMETHODIMP ContentManager::RemoveBookById(const nsACString &id, PRBool *retVa
   return NS_OK;
 }
 
+NS_IMETHODIMP ContentManager::SetCurrentBookId(const nsACString &id, PRBool *retVal) {
+  *retVal = PR_FALSE;
+  const char *cid;
+  NS_CStringGetData(id, &cid);
+  
+  try {
+    if (this->manager.setCurrentBookId(cid)) {
+      *retVal = PR_TRUE;
+    }
+  } catch (exception &e) {
+    cerr << e.what() << endl;
+  }
+  
+  return NS_OK;
+}
+
+NS_IMETHODIMP ContentManager::GetCurrentBookId(nsACString &id, PRBool *retVal) {
+  *retVal = PR_FALSE;
+  
+  try {
+    string current = this->manager.getCurrentBookId();
+    //content = nsDependentCString(contentStr.data(), contentStr.size());
+    *retVal = PR_TRUE;
+  } catch (exception &e) {
+    cerr << e.what() << endl;
+  }
+  
+  return NS_OK;
+}
+
+
+NS_IMETHODIMP ContentManager::GetBookById(const nsACString &id, 
+					  nsACString &path, 
+					  nsACString &title, PRBool *retVal) {
+  *retVal = PR_FALSE;
+  const char *cid;
+  NS_CStringGetData(id, &cid);
+
+  try {
+    //      content = nsDependentCString(contentStr.data(), contentStr.size());
+      *retVal = PR_TRUE;
+  } catch (exception &e) {
+    cerr << e.what() << endl;
+  }
+  
+  return NS_OK;
+}
 
 NS_GENERIC_FACTORY_CONSTRUCTOR(ContentManager)
 

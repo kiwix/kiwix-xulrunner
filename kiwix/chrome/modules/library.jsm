@@ -148,12 +148,7 @@ let library = {
 
     /* Get a book by its id */
     getBookById: function(id) {
-	var len = this.books.length >>> 0;
-	for (var i=0 ; i<len ; i++) {
-	    if (this.books[i].id == id) {
-	       return this.books[i];
-	    }
-	}
+        dump(id + "\n");
 	return undefined;
     },
 
@@ -178,14 +173,21 @@ let library = {
 	return this.path;
     },
 
-    /* Return the current book */
     setCurrentId: function(id) {
         return this.contentManager.setCurrentBookId(id);
     },
 
+    getCurrentId: function() {
+	var id = new Object();
+        this.contentManager.getCurrentBookId(id);
+	if (id.value != "") {
+	  return id.value;
+	}
+    },
+
     /* Return the current book */
     getCurrentBook: function() {
-        return(this.getBookById(""));
+        return(this.getBookById(this.getCurrentId()));
     },
 
     /* Delete the current book */

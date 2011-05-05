@@ -10,5 +10,7 @@ interface IContentManager : nsISupports
   boolean writeLibraryToFile(in nsILocalFile path);
   boolean removeBookById(in ACString id);
   boolean addBookFromPath(in nsILocalFile path);
-  boolean getBookById (in ACString id, out ACString path, out ACString title);
+  boolean getBookById(in ACString id, out ACString path, out ACString title);
+  boolean setCurrentBookId(in ACString id);
+  boolean getCurrentBookId(out ACString id);
 };
