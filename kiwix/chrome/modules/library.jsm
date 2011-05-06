@@ -57,17 +57,8 @@ let library = {
 	  var settingsDirectory = directoryService.get("PrefD", Components.interfaces.nsIFile);
 	  settingsDirectory.append("library.xml");
 
-	  /* Save the library file path */
-	  this.filePath( settingsDirectory.path );
-
-	  /* Create a file if necessary */
-	  var libraryFile = settingsDirectory.clone();
-	  if (!libraryFile.exists ()) {
-	    this.writeToFile();
-	  }
-
 	  /* Load library file */
-	  this.readFromFile(this.filePath());
+	  this.readFromFile(settingsDirectory.path, false);
 	}
     },
 
@@ -90,7 +81,7 @@ let library = {
     },
 
     /* Open the XML file */
-    readFromFile: function(libraryPath, relative) {
+    readFromFile: function(libraryPath, readOnly) {
 	/* Create the file descriptor */
 	var fileDescriptor = this.openFile(libraryPath);
 
@@ -103,16 +94,7 @@ let library = {
 
     /* Save the object to the XML file */
     writeToFile: function() {
-	if (!env.isLive()) {	
-		/* Create the file descriptor */
-		var fileDescriptor = this.openFile(this.filePath());
-
-		/* Return if !fileDescriptor */
-		if (!fileDescriptor)
-		   return;
-
-                this.contentManager.writeLibraryToFile(fileDescriptor);
-	}
+        this.contentManager.writeLibrary();
     },
 
     /* Get the file descriptor for a file */
@@ -130,7 +112,7 @@ let library = {
     },
 
     /* Add a book to the library */
-    addBook: function(path) {
+    addBook: function(id, path) {
 	/* Create the file descriptor */
 	var fileDescriptor = this.openFile(path);
 
@@ -138,7 +120,9 @@ let library = {
 	if (!fileDescriptor)
 	   return;
 
-        this.contentManager.addBookFromPath(path);
+        this.contentManager.addBookFromPath(fileDescriptor);
+	this.writeToFile();
+	return this.getBookById(id);
     },
 
     /* Delete a book */
@@ -148,8 +132,13 @@ let library = {
 
     /* Get a book by its id */
     getBookById: function(id) {
-        dump(id + "\n");
-	return undefined;
+	var path = new Object();
+	var title = new Object();
+	var indexPath = new Object();
+	var indexType = new Object();
+	if (this.contentManager.getBookById(id, path, title, indexPath, indexType)) {
+	   return new Book(id, path.value, indexPath.value, indexType.value, false, "");
+	}
     },
 
     /* Set the index information for a book */
@@ -164,17 +153,10 @@ let library = {
 	return false;
     },
 
-
-    /* Accessor the the file path */
-    filePath: function(filePath) {
-        if (filePath != undefined) {
-	   this.path = filePath;
-	}
-	return this.path;
-    },
-
     setCurrentId: function(id) {
-        return this.contentManager.setCurrentBookId(id);
+    	var ok = this.contentManager.setCurrentBookId(id);
+	this.writeToFile();
+	return ok;
     },
 
     getCurrentId: function() {

@@ -71,7 +71,23 @@ NS_IMETHODIMP ContentManager::OpenLibraryFromFile(nsILocalFile *file, PRBool *re
   bool returnValue = true;
 
   try {
-    returnValue = this->manager.readFile(cPath);
+    returnValue = this->manager.readFile(cPath, false);
+  } catch (exception &e) {
+    cerr << e.what() << endl;
+    *retVal = PR_FALSE;
+  }
+
+  *retVal = (returnValue ? PR_TRUE : PR_FALSE);
+
+  return NS_OK;
+}
+
+NS_IMETHODIMP ContentManager::WriteLibrary(PRBool *retVal) {
+  *retVal = PR_TRUE;
+  bool returnValue = true;
+
+  try {
+    returnValue = this->manager.writeFile(this->manager.writableLibraryPath);
   } catch (exception &e) {
     cerr << e.what() << endl;
     *retVal = PR_FALSE;
@@ -159,7 +175,7 @@ NS_IMETHODIMP ContentManager::GetCurrentBookId(nsACString &id, PRBool *retVal) {
   
   try {
     string current = this->manager.getCurrentBookId();
-    //content = nsDependentCString(contentStr.data(), contentStr.size());
+    id = nsDependentCString(current.data(), current.size());
     *retVal = PR_TRUE;
   } catch (exception &e) {
     cerr << e.what() << endl;
@@ -171,14 +187,30 @@ NS_IMETHODIMP ContentManager::GetCurrentBookId(nsACString &id, PRBool *retVal) {
 
 NS_IMETHODIMP ContentManager::GetBookById(const nsACString &id, 
 					  nsACString &path, 
-					  nsACString &title, PRBool *retVal) {
+					  nsACString &title,
+					  nsACString &indexPath, 
+					  nsACString &indexType, PRBool *retVal) {
   *retVal = PR_FALSE;
   const char *cid;
   NS_CStringGetData(id, &cid);
 
   try {
-    //      content = nsDependentCString(contentStr.data(), contentStr.size());
+    kiwix::Book book;
+    if (this->manager.getBookById(cid, book)) {
+      path = nsDependentCString(book.path.data(), book.path.size());
+      title = nsDependentCString(book.title.data(), book.title.size());
+      indexPath = nsDependentCString(book.indexPath.data(), book.indexPath.size());
+
+      string indexTypeString = "";
+      if (book.indexType == kiwix::XAPIAN) {
+	indexTypeString = "xapian";
+      } else if (book.indexType == kiwix::CLUCENE) {
+	indexTypeString = "clucene";
+      }
+      indexType = nsDependentCString(indexTypeString.data(), indexTypeString.size());
+
       *retVal = PR_TRUE;
+    }
   } catch (exception &e) {
     cerr << e.what() << endl;
   }

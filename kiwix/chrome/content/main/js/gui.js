@@ -658,6 +658,7 @@ function manageOpenFile(path, noSearchIndexCheck) {
 
 	/* Set the file as current */
 	library.setCurrentId(zimId);
+
 	/* Load the welcome page of the ZIM file */
 	goHome();
 
