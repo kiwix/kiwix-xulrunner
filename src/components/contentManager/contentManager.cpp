@@ -274,6 +274,34 @@ NS_IMETHODIMP ContentManager::GetListNextBookId(nsACString &id, PRBool *retVal) 
   return NS_OK;
 }
 
+NS_IMETHODIMP ContentManager::SetBookIndex(const nsACString &id, const nsACString &indexPath, 
+					   const nsACString &indexType, PRBool *retVal) {
+  *retVal = PR_FALSE;
+  const char *cid;
+  NS_CStringGetData(id, &cid);
+  const char *cindexPath;
+  NS_CStringGetData(indexPath, &cindexPath);
+  const char *cindexType;
+  NS_CStringGetData(indexType, &cindexType);
+  
+  try {
+    kiwix::supportedIndexType iType;
+    if (std::string(cindexType) == "clucene") {
+      iType = kiwix::CLUCENE;
+    } else {
+      iType = kiwix::XAPIAN;
+    }
+
+    if (this->manager.setBookIndex(cid, cindexPath, iType)) {
+      *retVal = PR_TRUE;
+    }
+  } catch (exception &e) {
+    cerr << e.what() << endl;
+  }
+  
+  return NS_OK;
+}
+
 NS_GENERIC_FACTORY_CONSTRUCTOR(ContentManager)
 
 static const nsModuleComponentInfo components[] =

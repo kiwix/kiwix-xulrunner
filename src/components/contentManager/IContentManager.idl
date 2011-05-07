@@ -16,6 +16,7 @@ interface IContentManager : nsISupports
   boolean setCurrentBookId(in ACString id);
   boolean getCurrentBookId(out ACString id);
   boolean getListNextBookId(out ACString id);
+  boolean setBookIndex(in ACString id, in ACString indexPath, in ACString indexType);
   boolean updateBookLastOpenDateById(in ACString id);
   boolean listBooks(in ACString mode);
 };

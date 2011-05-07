@@ -143,13 +143,10 @@ let library = {
     },
 
     /* Set the index information for a book */
-    setBookIndexById: function(id, indexPath, indexType) {
-      	var book = this.getBookById(id);
-    	if (book) {
-		book.indexPath = indexPath;
-		book.indexType = indexType;
-		this.writeToFile();
-		return true;
+    setBookIndex: function(id, indexPath, indexType) {
+    	if (this.contentManager.setBookIndex(id, indexPath, indexType)) {
+	   this.writeToFile();
+	   return true;
 	}
 	return false;
     },

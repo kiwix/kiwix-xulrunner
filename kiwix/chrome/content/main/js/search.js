@@ -156,7 +156,7 @@ function indexZimFile(zimFilePath, xapianDirectory) {
 	    dump("Indexing finished");
 	    
 	    /* Save the information in the library */
-	    library.setIndexById(library.current, 
+	    library.setBookIndex(library.getCurrentId(), 
 				 appendToPath(settingsRootPath, indexDirectoryName), backend);
 
 	    /* Fill the progress bar */

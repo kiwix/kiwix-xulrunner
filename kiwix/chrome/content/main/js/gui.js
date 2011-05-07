@@ -689,6 +689,9 @@ function manageOpenFile(path, noSearchIndexCheck) {
 	/* verify if we can check the integrity */
 	getCheckIntegrityMenuItem().disabled = !canCheckIntegrity();
 
+	/* Empty the search box */
+	getSearchBox().value = "";
+
     } else {
 	displayErrorDialog(getProperty("loadZimFileError", path));
 	return false;
