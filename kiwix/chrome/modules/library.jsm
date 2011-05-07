@@ -3,13 +3,14 @@ var EXPORTED_SYMBOLS = [ "library" ];
 Components.utils.import("resource://modules/env.jsm");
 
 /* Define the Book class */
-function Book(id, path, indexPath, indexType, readOnly, last) {
+function Book(id, path, indexPath, indexType, readOnly, last, title) {
         this.id = id;
         this.path = path;
 	this.indexPath = indexPath;
 	this.indexType = indexType;
 	this.readOnly = readOnly;
 	this.last = last;
+	this.title = title;
 }
 
 /* Define the Library class */
@@ -89,7 +90,7 @@ let library = {
 	if (!fileDescriptor)
 	   return;
 
-        this.contentManager.openLibraryFromFile(fileDescriptor);
+        this.contentManager.openLibraryFromFile(fileDescriptor, readOnly);
     },
 
     /* Save the object to the XML file */
@@ -137,12 +138,12 @@ let library = {
 	var indexPath = new Object();
 	var indexType = new Object();
 	if (this.contentManager.getBookById(id, path, title, indexPath, indexType)) {
-	   return new Book(id, path.value, indexPath.value, indexType.value, false, "");
+	   return new Book(id, path.value, indexPath.value, indexType.value, false, "", title.value);
 	}
     },
 
     /* Set the index information for a book */
-    setIndexById: function(id, indexPath, indexType) {
+    setBookIndexById: function(id, indexPath, indexType) {
       	var book = this.getBookById(id);
     	if (book) {
 		book.indexPath = indexPath;
@@ -152,6 +153,12 @@ let library = {
 	}
 	return false;
     },
+
+    updateBookLastOpenDateById: function(id) {
+        if (this.contentManager.updateBookLastOpenDateById(id)) {
+	   this.writeToFile();
+	}
+    },   
 
     setCurrentId: function(id) {
     	var ok = this.contentManager.setCurrentBookId(id);
@@ -175,7 +182,23 @@ let library = {
     /* Delete the current book */
     deleteCurrentBook: function() {
         return(this.deleteBookById(this.current));
+    },
+
+    /* Prepare a list of books */
+    /* mode = [lastOpen|remote|local] */
+    listBooks: function(mode) {
+    	this.contentManager.listBooks(mode);
+	this.writeToFile();
+    },
+
+    /* Pop up the next book in the list (see listBooks() */
+    getNextBookInList: function() {
+    	var id = new Object();
+        if (this.contentManager.getListNextBookId(id)) {
+	  return(this.getBookById(id.value));
+	}
     }
+    
 }
 
 /* Create the settings object */

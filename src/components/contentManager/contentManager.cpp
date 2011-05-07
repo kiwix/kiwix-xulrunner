@@ -62,7 +62,7 @@ ContentManager::ContentManager() {
 ContentManager::~ContentManager() {
 }
 
-NS_IMETHODIMP ContentManager::OpenLibraryFromFile(nsILocalFile *file, PRBool *retVal) {
+NS_IMETHODIMP ContentManager::OpenLibraryFromFile(nsILocalFile *file, PRBool readOnly, PRBool *retVal) {
   *retVal = PR_TRUE;
   nsString path;
   file->GetPath(path);
@@ -71,7 +71,7 @@ NS_IMETHODIMP ContentManager::OpenLibraryFromFile(nsILocalFile *file, PRBool *re
   bool returnValue = true;
 
   try {
-    returnValue = this->manager.readFile(cPath, false);
+    returnValue = this->manager.readFile(cPath, readOnly == PR_TRUE ? true : false);
   } catch (exception &e) {
     cerr << e.what() << endl;
     *retVal = PR_FALSE;
@@ -184,7 +184,6 @@ NS_IMETHODIMP ContentManager::GetCurrentBookId(nsACString &id, PRBool *retVal) {
   return NS_OK;
 }
 
-
 NS_IMETHODIMP ContentManager::GetBookById(const nsACString &id, 
 					  nsACString &path, 
 					  nsACString &title,
@@ -209,6 +208,63 @@ NS_IMETHODIMP ContentManager::GetBookById(const nsACString &id,
       }
       indexType = nsDependentCString(indexTypeString.data(), indexTypeString.size());
 
+      *retVal = PR_TRUE;
+    }
+  } catch (exception &e) {
+    cerr << e.what() << endl;
+  }
+  
+  return NS_OK;
+}
+
+NS_IMETHODIMP ContentManager::UpdateBookLastOpenDateById(const nsACString &id, PRBool *retVal) {
+  *retVal = PR_FALSE;
+  const char *cid;
+  NS_CStringGetData(id, &cid);
+  
+  try {
+    if (this->manager.updateBookLastOpenDateById(cid)) {
+      *retVal = PR_TRUE;
+    }
+  } catch (exception &e) {
+    cerr << e.what() << endl;
+  }
+  
+  return NS_OK;
+}
+
+NS_IMETHODIMP ContentManager::ListBooks(const nsACString &mode, PRBool *retVal) {
+  *retVal = PR_FALSE;
+  const char *cmode;
+  NS_CStringGetData(mode, &cmode);
+  
+  try {
+    kiwix::supportedListMode listMode;
+    if (std::string(cmode) == "lastOpen") {
+      listMode = kiwix::LASTOPEN;
+    } else if ( std::string(cmode) == "remote") {
+      listMode = kiwix::REMOTE;
+    } else {
+      listMode = kiwix::LOCAL;
+    }
+    if (this->manager.listBooks(listMode)) {
+      *retVal = PR_TRUE;
+    }
+  } catch (exception &e) {
+    cerr << e.what() << endl;
+  }
+  
+  return NS_OK;
+}
+
+NS_IMETHODIMP ContentManager::GetListNextBookId(nsACString &id, PRBool *retVal) {
+  *retVal = PR_FALSE;
+  
+  try {
+    if (!this->manager.bookIdList.empty()) {
+      string idString = *(this->manager.bookIdList.begin());
+      id = nsDependentCString(idString.data(), idString.size());
+      this->manager.bookIdList.erase(this->manager.bookIdList.begin());
       *retVal = PR_TRUE;
     }
   } catch (exception &e) {

@@ -6,7 +6,7 @@ interface nsILocalFile;
 [scriptable, uuid(041c2a90-74f1-11e0-a1f0-0800200c9a66)]
 interface IContentManager : nsISupports
 {
-  boolean openLibraryFromFile(in nsILocalFile path);
+  boolean openLibraryFromFile(in nsILocalFile path, in PRBool readOnly);
   boolean writeLibraryToFile(in nsILocalFile path);
   boolean writeLibrary();
   boolean removeBookById(in ACString id);
@@ -15,4 +15,7 @@ interface IContentManager : nsISupports
 		      out ACString indexPath, out ACString indexType);
   boolean setCurrentBookId(in ACString id);
   boolean getCurrentBookId(out ACString id);
+  boolean getListNextBookId(out ACString id);
+  boolean updateBookLastOpenDateById(in ACString id);
+  boolean listBooks(in ACString mode);
 };

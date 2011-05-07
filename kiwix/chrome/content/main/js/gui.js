@@ -654,7 +654,10 @@ function manageOpenFile(path, noSearchIndexCheck) {
 	if (!book) {
 	    book = library.addBook(zimId, path);
 	}
-	book.last = env.getUnixTime();
+	library.updateBookLastOpenDateById(zimId);
+
+	/* Re-arrange the last open files */
+	populateLastOpenMenu();
 
 	/* Set the file as current */
 	library.setCurrentId(zimId);
@@ -950,7 +953,6 @@ function getAvailableLocales() {
 
 /* Fill the lastopen-menu with all available languages */
 function populateLastOpenMenu() {
-    return;
     /* Render locale menu items */
     var lastOpenMenuTop = document.getElementById("menu-lastopen-top");
     var lastOpenMenu = document.getElementById("menu-lastopen");
@@ -960,24 +962,30 @@ function populateLastOpenMenu() {
 	lastOpenMenu.removeChild(lastOpenMenu.firstChild);
     };
 
-    /* Get the number of books */
-    var len = library.books.length >>> 0;
+    /* Prepare the list */
+    library.listBooks("lastOpen");
+    var book = library.getNextBookInList();
+
+    /* Skip the first, it's already open */
+    book = library.getNextBookInList();
 
     /* Disable the menu if no book */
-    if (len == 0) {
+    if (book == undefined) {
 	lastOpenMenuTop.disabled = true;
     } else {/* Go through the book list an update the GUI */
 	lastOpenMenuTop.disabled = false;
 
-	for (var i=len-1 ; i>=0 ; i--) {
-	    var book = library.books[i];
-	    var label = book.path;
+	while (book != undefined) {
+	    var label = book.title != "" && book.title != " " ? book.title : book.path;
+	    var tooltip = book.path;
 	    var menuItem = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
 						    "menuitem");
 	    
 	    menuItem.setAttribute("label", label);
+	    menuItem.setAttribute("tooltip", tooltip);
 	    menuItem.setAttribute("oncommand", "if ('" + book.id + "' != library.getCurrentBook().id) { library.setCurrentId('" + book.id + "'); openCurrentBook(); } ");
 	    lastOpenMenu.appendChild(menuItem);
+	    book = library.getNextBookInList();
 	}
     }
 }
