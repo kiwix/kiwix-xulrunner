@@ -143,6 +143,7 @@ function indexZimFile(zimFilePath, xapianDirectory) {
 
 	    /* Check if the index directory exits (more robust, in case of the library file is wrong) */
 	    if (!isDirectory(indexDirectory)) {
+
 		/* Add each article of the ZIM file in the xapian database */
 		while (zimIndexer.indexNextPercent()) {
 		    dump("Indexing " + currentProgressBarPosition + "%...\n");
@@ -219,8 +220,6 @@ function manageSearchInIndex(stringToSearch, start, end) {
 	stringToSearch = getSearchBox().value;
 
     if (stringToSearch != "") {
-	//getSearchBox().value = "";
-
 	/* Try to load the article */
 	if (loadArticleFromTitle(stringToSearch))
 	    return true;

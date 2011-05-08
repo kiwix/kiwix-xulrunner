@@ -342,6 +342,10 @@ window[langdir="rtl"] #button-next {
     margin: 10px 10px 0px 0px;
 }
 
+.library-content-item-details {
+    margin: 7px 0px 0px 0px;
+}
+
 .library-content-item-title {
     font-size: 100%;
     font-weight: bold;
@@ -357,3 +361,4 @@ window[langdir="rtl"] #button-next {
     color: grey;
     font-size: 80%;
 }
+

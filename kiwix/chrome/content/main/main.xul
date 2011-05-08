@@ -285,11 +285,12 @@
 	</vbox>
 	<box class="library-content" flex="1">
 	  <deck id="library-deck" selectedIndex="0" flex="1">
-	    <vbox style="overflow:auto">
+	    <vbox id="library-content-local" style="overflow:auto">
+	      <!--
 	      <box class="library-content-item" style="background-color: white;" onclick="selectLibraryContentItem(this);">
 		<hbox flex="1">
 		  <box class="library-content-item-favicon" style="background-image: url('http://tmp.kiwix.org/tmp/wikipedia-icon-48x48.png');"/>
-		  <box flex="1" style="margin: 7px 0px 0px 0px;">
+		  <box flex="1" class="library-content-item-details">
 		    <label class="library-content-item-title">Wikipedia 0.8</label><html:br/>
 		    <description class="library-content-item-description">Curated selection of 45,000 articles from the English Wikipedia</description><html:br/>
 		    <grid>
@@ -311,18 +312,9 @@
 		  </vbox>
 		</hbox>
 	      </box>
-	      <box class="library-content-item" style="background-color: #eeeeee;">
-	      </box>
-	      <box class="library-content-item" style="background-color: white;">
-	      </box>
-	      <box class="library-content-item" style="background-color: #eeeeee;">
-	      </box>
-	      <box class="library-content-item" style="background-color: white;">
-	      </box>
-	      <box class="library-content-item" style="background-color: #eeeeee;">
-	      </box>
+	      -->
 	    </vbox>
-	    <vbox style="overflow:auto">
+	    <vbox id="library-content-remote" style="overflow:auto">
 	    </vbox>
 	  </deck>
 	</box>

@@ -6,7 +6,6 @@ var _showFullScreenToolBar  = false;
 var _fullScreenStatusBar    = true;
 var _applicationFD          = GetApplicationFolder ();
 var _firstSideBar	    = true;
-var _selectedLibraryContentItem = undefined;
 
 var _languagesHash          = Array();
 _languagesHash['fr-FR']     = "Français";
@@ -816,55 +815,6 @@ function manageImageDownload(url) {
     downloadFile('zim://' + url, 'file://' + path);
 }
 
-/* Show/hide library manager */
-function toggleLibrary() {
-    var libraryButton = getLibraryButton();
-    var renderingPage = document.getElementById("rendering-page");
-    var libraryPage = document.getElementById("library-page");
-
-    if (libraryButton.getAttribute('checked') == "true") {
-	libraryButton.setAttribute('checked', false);
-	renderingPage.hidden = false;
-	libraryPage.hidden = true;
-    } else {
-	libraryButton.setAttribute('checked', true);
-	renderingPage.hidden = true;
-	libraryPage.hidden = false;
-    }
-}
-
-/* Change the library selected menuitem */
-function selectLibraryMenu(menuItemId) {
-    var menuItemLocal = document.getElementById("library-menuitem-local");
-    var menuItemRemote = document.getElementById("library-menuitem-remote");
-    var libraryDeck = document.getElementById("library-deck");
-
-    if (menuItemId == "library-menuitem-local") {
-	menuItemLocal.setAttribute("style", "background-color: white;");
-	menuItemRemote.setAttribute("style", "background-color: transparent;");
-	libraryDeck.selectedIndex = 0;
-    } else {
-	menuItemLocal.setAttribute("style", "background-color: transparent;");
-	menuItemRemote.setAttribute("style", "background-color: white;")
-	libraryDeck.selectedIndex = 1;
-    }
-}
-
-function selectLibraryContentItem(box) {
-    if (_selectedLibraryContentItem != undefined) {
-	_selectedLibraryContentItem.setAttribute("style", _selectedLibraryContentItem.backGroundColorBackup);
-    }
-
-    if (box == _selectedLibraryContentItem) {
-	_selectedLibraryContentItem = undefined;
-	return;
-    } else {
-	box.backGroundColorBackup = box.getAttribute("style");
-	box.setAttribute("style", "background-color: Highlight;");
-	_selectedLibraryContentItem = box;
-    }
-}
-
 /* Toogle browser contextual menu */
 function toggleBrowserContextualMenu(event) {
     var target = event.target;
@@ -996,8 +946,8 @@ function populateLastOpenMenu() {
 /* Initialize the user interface */
 function initUserInterface() {
 
-	/* Set a class on main window based on platform string */
-	document.getElementById("main").className = env.platform.type;
+    /* Set a class on main window based on platform string */
+    document.getElementById("main").className = env.platform.type;
 	
     /* Set the size and position of the window */
     configureWindowGeometry(this);
@@ -1010,6 +960,9 @@ function initUserInterface() {
 
     /* Populates the last open menu */
     populateLastOpenMenu();
+
+    /* Populate the library */
+    populateContentManager();
 
     /* Apply GUI settings */
     if (settings.displayStatusBar() != undefined) { changeStatusBarVisibilityStatus(settings.displayStatusBar()); }
