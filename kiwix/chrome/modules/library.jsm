@@ -100,6 +100,11 @@ let library = {
         this.contentManager.openLibraryFromFile(fileDescriptor, readOnly);
     },
 
+    /* Open the XML file */
+    readFromText: function(xml, readOnly) {
+        this.contentManager.openLibraryFromText(xml, readOnly);
+    },
+
     /* Save the object to the XML file */
     writeToFile: function() {
         this.contentManager.writeLibrary();

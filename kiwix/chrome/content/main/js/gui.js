@@ -650,13 +650,16 @@ function manageOpenFile(path, noSearchIndexCheck) {
 
 	/* Add the file to the library if necessary */
 	var book = library.getBookById(zimId);
-	if (!book) {
+	if (!book || book.path == "") {
 	    book = library.addBook(zimId, path);
 	}
 	library.updateBookLastOpenDateById(zimId);
 
 	/* Re-arrange the last open files */
 	populateLastOpenMenu();
+	
+	/* Populate the library */
+	populateContentManager();
 
 	/* Set the file as current */
 	library.setCurrentId(zimId);

@@ -98,15 +98,11 @@ function formatFileSize(filesize) {
     return filesize;
 };
 
-function populateContentManager() {
-    var container;
-    var book;
-    var backgroundColor = "#FFFFFF";
+function populateBookList(container) {
+   var book;
+   var backgroundColor = "#FFFFFF";
 
-    /* Local */
     backgroundColor = "#FFFFFF";
-    library.listBooks("local");
-    container = document.getElementById("library-content-local");
 
     /* Remove the child nodes */
     while (container.firstChild) {
@@ -160,7 +156,7 @@ function populateContentManager() {
 
 	var leftColumn = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
 					      "column");
-	leftColumn.setAttribute("style", "width: 300px");
+	leftColumn.setAttribute("style", "width: 400px");
 
         var sizeLabel = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
 						  "label");
@@ -207,37 +203,34 @@ function populateContentManager() {
 	var downloadButton = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
 						      "button");
 	downloadButton.setAttribute("label", "Download");
+	downloadButton.setAttribute("onclick", "startDownload('http://download.kiwix.org/zim/0.9/wikipedia_fr_all_07_2010_beta2.zim.torrent')");
 	buttonBox.appendChild(downloadButton);
 
 	hbox.appendChild(buttonBox);
 
-	<!--
-		  <vbox style="margin: 5px;">
-		    <spacer flex="1" />
-		    <button label="Download" />
-		  </vbox>
-        -->
-
 	/* Add the new item to the UI */
 	container.appendChild(box);
-
- 
-
 
 	/* Compute new item background color */
 	backgroundColor = (backgroundColor == "#FFFFFF" ? "#EEEEEE" : "#FFFFFF");
 	book = library.getNextBookInList();
     }
+}
+
+function populateContentManager() {
+    var container;
+ 
+    /* Local */
+    container = document.getElementById("library-content-local");
+    library.listBooks("local");
+    populateBookList(container);
 
     /* Remote */
-    backgroundColor = "#FFFFFF";
-    library.listBooks("remote");
+    var onlineLibrary = loadBinaryResource(settings.libraryUrls());
+    library.readFromText(onlineLibrary, false);
     container = document.getElementById("library-content-remote");
-
-    /* Remove the child nodes */
-    while (container.firstChild) {
-	container.removeChild(container.firstChild);
-    };
+    library.listBooks("remote");
+    populateBookList(container);
 }
 
 /* Show/hide library manager */
