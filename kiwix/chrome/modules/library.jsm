@@ -3,7 +3,7 @@ var EXPORTED_SYMBOLS = [ "library" ];
 Components.utils.import("resource://modules/env.jsm");
 
 /* Define the Book class */
-function Book(id, path, indexPath, indexType, readOnly, last, title) {
+function Book(id, path, indexPath, indexType, readOnly, last, title, description, articleCount, mediaCount, size, creator, date, language) {
         this.id = id;
         this.path = path;
 	this.indexPath = indexPath;
@@ -11,6 +11,13 @@ function Book(id, path, indexPath, indexType, readOnly, last, title) {
 	this.readOnly = readOnly;
 	this.last = last;
 	this.title = title;
+	this.description = description;
+	this.articleCount = articleCount;
+	this.mediaCount = mediaCount;
+	this.size = size;
+	this.creator = creator;
+	this.date = date;
+	this.language = language;
 }
 
 /* Define the Library class */
@@ -137,8 +144,16 @@ let library = {
 	var title = new Object();
 	var indexPath = new Object();
 	var indexType = new Object();
-	if (this.contentManager.getBookById(id, path, title, indexPath, indexType)) {
-	   return new Book(id, path.value, indexPath.value, indexType.value, false, "", title.value);
+	var description = new Object();
+	var articleCount = new Object();
+	var mediaCount = new Object();
+	var size = new Object();
+	var creator = new Object();
+	var date = new Object();
+	var language = new Object();
+
+	if (this.contentManager.getBookById(id, path, title, indexPath, indexType, description, articleCount, mediaCount, size, creator, date, language)) {
+	   return new Book(id, path.value, indexPath.value, indexType.value, false, "", title.value, description.value, articleCount.value, mediaCount.value, size.value, creator.value, date.value, language.value);
 	}
     },
 

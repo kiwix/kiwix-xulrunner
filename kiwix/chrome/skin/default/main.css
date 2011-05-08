@@ -349,11 +349,13 @@ window[langdir="rtl"] #button-next {
 .library-content-item-title {
     font-size: 100%;
     font-weight: bold;
+    display: block;
 }
 
 .library-content-item-description {
     line-height:90%;
     font-size: 90%;
+    display: block;
 }
 
 .library-content-item-detail {

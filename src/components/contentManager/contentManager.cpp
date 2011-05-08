@@ -188,17 +188,31 @@ NS_IMETHODIMP ContentManager::GetBookById(const nsACString &id,
 					  nsACString &path, 
 					  nsACString &title,
 					  nsACString &indexPath, 
-					  nsACString &indexType, PRBool *retVal) {
+					  nsACString &indexType, 
+					  nsACString &description,
+					  nsACString &articleCount, 
+					  nsACString &mediaCount, 
+					  nsACString &size,
+					  nsACString &creator,
+					  nsACString &date,
+					  nsACString &language, PRBool *retVal) {
   *retVal = PR_FALSE;
   const char *cid;
   NS_CStringGetData(id, &cid);
 
   try {
     kiwix::Book book;
+
     if (this->manager.getBookById(cid, book)) {
       path = nsDependentCString(book.path.data(), book.path.size());
       title = nsDependentCString(book.title.data(), book.title.size());
       indexPath = nsDependentCString(book.indexPath.data(), book.indexPath.size());
+      articleCount = nsDependentCString(book.articleCount.data(), book.articleCount.size());
+      mediaCount = nsDependentCString(book.mediaCount.data(), book.mediaCount.size());
+      size = nsDependentCString(book.size.data(), book.size.size());
+      creator = nsDependentCString(book.creator.data(), book.creator.size());
+      date = nsDependentCString(book.date.data(), book.date.size());
+      language = nsDependentCString(book.language.data(), book.language.size());
 
       string indexTypeString = "";
       if (book.indexType == kiwix::XAPIAN) {
@@ -207,6 +221,8 @@ NS_IMETHODIMP ContentManager::GetBookById(const nsACString &id,
 	indexTypeString = "clucene";
       }
       indexType = nsDependentCString(indexTypeString.data(), indexTypeString.size());
+
+      description = nsDependentCString(book.description.data(), book.description.size());
 
       *retVal = PR_TRUE;
     }
