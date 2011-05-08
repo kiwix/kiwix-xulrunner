@@ -7,6 +7,7 @@ interface nsILocalFile;
 interface IContentManager : nsISupports
 {
   boolean openLibraryFromFile(in nsILocalFile path, in PRBool readOnly);
+  boolean openLibraryFromText(in AUTF8String xml, in PRBool readOnly);
   boolean writeLibraryToFile(in nsILocalFile path);
   boolean writeLibrary();
   boolean removeBookById(in ACString id);

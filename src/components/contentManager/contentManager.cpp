@@ -82,6 +82,24 @@ NS_IMETHODIMP ContentManager::OpenLibraryFromFile(nsILocalFile *file, PRBool rea
   return NS_OK;
 }
 
+NS_IMETHODIMP ContentManager::OpenLibraryFromText(const nsACString &xml, PRBool readOnly, PRBool *retVal) {
+  *retVal = PR_TRUE;
+  bool returnValue = true;
+  const char *cXml;
+  NS_CStringGetData(xml, &cXml);
+
+  try {
+    returnValue = this->manager.readXml(cXml, readOnly == PR_TRUE ? true : false);
+  } catch (exception &e) {
+    cerr << e.what() << endl;
+    *retVal = PR_FALSE;
+  }
+
+  *retVal = (returnValue ? PR_TRUE : PR_FALSE);
+
+  return NS_OK;
+}
+
 NS_IMETHODIMP ContentManager::WriteLibrary(PRBool *retVal) {
   *retVal = PR_TRUE;
   bool returnValue = true;
