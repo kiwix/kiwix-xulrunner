@@ -287,6 +287,26 @@
 	  <deck id="library-deck" selectedIndex="0" flex="1">
 	    <vbox id="library-content-local" style="overflow:auto">
 	      <!--
+	      <vbox flex="1">
+		<label crop="center" flex="2" class="name"/>
+		<hbox>
+		  <vbox flex="1">
+		    <progressmeter mode="normal" value="0" flex="1"
+                                       anonid="progressmeter" />
+
+		  </vbox>
+		  <button class="pause mini-button" tooltiptext=""
+                              cmd="cmd_pause" ondblclick="event.stopPropagation();"
+                              oncommand="performCommand('cmd_pause', this);"/>
+		  <button class="cancel mini-button" tooltiptext=""
+                              cmd="cmd_cancel" ondblclick="event.stopPropagation();"
+                              oncommand="performCommand('cmd_cancel', this);"/>
+		</hbox>
+		<label flex="1" crop="right" class="status"/>
+		<spacer flex="1"/>
+              </vbox>
+	      -->
+	      <!--
 	      <box class="library-content-item" style="background-color: white;" onclick="selectLibraryContentItem(this);">
 		<hbox flex="1">
 		  <box class="library-content-item-favicon" style="background-image: url('http://tmp.kiwix.org/tmp/wikipedia-icon-48x48.png');"/>

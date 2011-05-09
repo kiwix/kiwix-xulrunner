@@ -20,7 +20,7 @@ function startDownloader() {
 	.createInstance(Components.interfaces.nsIProcess);
     aria2Process.init(binary);
     
-    var args = [ "--enable-xml-rpc", "--log=" + getDownloaderLogPath() ];
+    var args = [ "--enable-xml-rpc", "", "--log=" + getDownloaderLogPath(), "--allow-overwrite=true" ];
     aria2Process.run(false, args, args.length);
 }
 
@@ -99,10 +99,11 @@ function formatFileSize(filesize) {
 };
 
 function populateBookList(container) {
-   var book;
-   var backgroundColor = "#FFFFFF";
-
-    backgroundColor = "#FFFFFF";
+    var book;
+    var backgroundColor = "#FFFFFF";
+    var spacer = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
+					  "spacer");
+    spacer.setAttribute("flex", "1");
 
     /* Remove the child nodes */
     while (container.firstChild) {
@@ -189,22 +190,63 @@ function populateBookList(container) {
 
 	columns.appendChild(rightColumn);
 	grid.appendChild(columns);
-	detailsBox.appendChild(grid);
+
+        var detailsDeck = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
+						   "deck");
+	detailsDeck.setAttribute("selectedIndex", "0");
+	detailsDeck.appendChild(grid);
+
+	var downloadBox = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
+						   "vbox");
+	var progressmeterBox = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
+							"hbox");
+	progressmeterBox.setAttribute("flex", "1");
+	var progressmeter = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
+						     "progressmeter");
+	progressmeter.setAttribute("flex", "1");
+
+	progressmeterBox.appendChild(progressmeter);
+	downloadBox.appendChild(progressmeterBox);
+
+	var pauseButton = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
+						    "button");
+	pauseButton.setAttribute("class", "pause mini-button");
+	pauseButton.setAttribute("oncommand", "alert('todo')");
+	progressmeterBox.appendChild(pauseButton);
+
+	var playButton = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
+						    "button");
+	playButton.setAttribute("class", "play mini-button");
+	playButton.setAttribute("oncommand", "alert('todo')");
+	progressmeterBox.appendChild(playButton);
+
+	var cancelButton = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
+						    "button");
+	cancelButton.setAttribute("class", "cancel mini-button");
+	cancelButton.setAttribute("oncommand", "alert('todo')");
+	progressmeterBox.appendChild(cancelButton);
+
+	var downloadStatusLabel = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
+							   "label");
+	downloadStatusLabel.setAttribute("value", "download details...");
+	downloadBox.appendChild(downloadStatusLabel);
+
+	detailsDeck.appendChild(downloadBox);
+	detailsBox.appendChild(detailsDeck);
 
 	/* Button box */
         var buttonBox = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
 						 "vbox");
 	buttonBox.setAttribute("style", "margin: 5px;");
-        var spacer = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
-					      "spacer");
-	spacer.setAttribute("flex", "1");
-	buttonBox.appendChild(spacer);
+	buttonBox.appendChild(spacer.cloneNode(true));
 
-	var downloadButton = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
-						      "button");
-	downloadButton.setAttribute("label", "Download");
-	downloadButton.setAttribute("onclick", "startDownload('http://download.kiwix.org/zim/0.9/wikipedia_fr_all_07_2010_beta2.zim.torrent')");
-	buttonBox.appendChild(downloadButton);
+	if (book.path == "") {
+	    var downloadButton = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
+							  "button");
+	    downloadButton.setAttribute("label", "Download");
+	    downloadButton.setAttribute("onclick", "startDownload('http://download.kiwix.org/zim/0.9/wikipedia_fr_all_07_2010_beta2.zim.torrent');");
+	    buttonBox.appendChild(downloadButton);
+	}
 
 	hbox.appendChild(buttonBox);
 
