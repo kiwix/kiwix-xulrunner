@@ -939,7 +939,7 @@ function populateLastOpenMenu() {
 	    
 	    menuItem.setAttribute("label", label);
 	    menuItem.setAttribute("tooltip", tooltip);
-	    menuItem.setAttribute("oncommand", "if ('" + book.id + "' != library.getCurrentBook().id) { library.setCurrentId('" + book.id + "'); openCurrentBook(); } ");
+	    menuItem.setAttribute("oncommand", "library.setCurrentId('" + book.id + "'); openCurrentBook();");
 	    lastOpenMenu.appendChild(menuItem);
 	    book = library.getNextBookInList();
 	}
