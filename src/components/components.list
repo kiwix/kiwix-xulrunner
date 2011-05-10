@@ -16,3 +16,6 @@ cluceneAccessor.dll
 zimCluceneIndexer.dylib
 zimCluceneIndexer.so
 zimCluceneIndexer.dll
+contentManager.dylib
+contentManager.so
+contentManager.dll

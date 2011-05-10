@@ -2,7 +2,9 @@ if IS_OSX
 SUBDIRS = ${DEPENDENCES} \
 	zimlib \
 	ctpp2 \
-	components
+	pugixml \
+	components \
+	manager
 else
 SUBDIRS = ${DEPENDENCES} \
 	zimlib \

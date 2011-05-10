@@ -41,7 +41,10 @@ all-local: ./kiwix/components/xapianAccessor.dylib \
 	./kiwix/components/zimAccessor.dylib \
 	./kiwix/components/zimAccessor.xpt \
 	./kiwix/components/zimXapianIndexer.dylib \
-	./kiwix/components/zimXapianIndexer.xpt
+	./kiwix/components/zimXapianIndexer.xpt \
+	./kiwix/components/zimXapianIndexer.dylib \
+	./kiwix/components/contentManager.xpt \
+./kiwix/components/contentManager.dylib
 else
 all-local: ./kiwix/components/xapianAccessor.so \
 	./kiwix/components/xapianAccessor.xpt \
@@ -52,7 +55,9 @@ all-local: ./kiwix/components/xapianAccessor.so \
 	./kiwix/components/cluceneAccessor.so \
 	./kiwix/components/cluceneAccessor.xpt \
 	./kiwix/components/zimCluceneIndexer.so \
-	./kiwix/components/zimCluceneIndexer.xpt
+	./kiwix/components/zimCluceneIndexer.xpt \
+	./kiwix/components/contentManager.so \
+	./kiwix/components/contentManager.xpt
 endif
 
 dist-hook:
@@ -91,6 +96,12 @@ dist-hook:
 
 ./kiwix/components/zimCluceneIndexer.xpt: 
 	ln -f -s ../../src/components/zimCluceneIndexer/zimCluceneIndexer.xpt ./kiwix/components/zimCluceneIndexer.xpt
+
+./kiwix/components/contentManager.so: 
+	ln -f -s ../../src/components/contentManager/.libs/libContentManager.so ./kiwix/components/contentManager.so
+
+./kiwix/components/contentManager.xpt:
+	ln -f -s ../../src/components/contentManager/contentManager.xpt ./kiwix/components/contentManager.xpt
 	
 ./kiwix/components/zimAccessor.dylib: 
 	ln -f -s ../../src/components/zimAccessor/.libs/libZimAccessor.dylib ./kiwix/components/zimAccessor.dylib
@@ -100,6 +111,9 @@ dist-hook:
 	
 ./kiwix/components/zimXapianIndexer.dylib:
 	ln -f -s ../../src/components/zimXapianIndexer/.libs/libZimXapianIndexer.dylib  ./kiwix/components/zimXapianIndexer.dylib
+
+./kiwix/components/contentManager.dylib: 
+	ln -f -s ../../src/components/contentManager/.libs/libContentManager.dylib ./kiwix/components/contentManager.dylib
 
 bindist: 
 	${BINDIST_INTRO_MESSAGE}
