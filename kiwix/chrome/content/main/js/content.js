@@ -83,6 +83,18 @@ function stopDownload(index) {
     var response = aria2Client.send(msg);
 }
 
+function pauseDownload(index) {
+    var param = new xmlrpcval(index, "base64");
+    var msg = new xmlrpcmsg("aria2.pause", [ param ]);
+    var response = aria2Client.send(msg);
+}
+
+function resumeDownload(index) {
+    var param = new xmlrpcval(index, "base64");
+    var msg = new xmlrpcmsg("aria2.unpause", [ param ]);
+    var response = aria2Client.send(msg);
+}
+
 function getDownloadStatus() {
     var msg = new xmlrpcmsg("aria2.tellActive");
     var response = aria2Client.send(msg);
@@ -120,6 +132,33 @@ function formatFileSize(filesize) {
 
     return filesize;
 };
+
+function manageStopDownload(id) {
+    var downloadButton = document.getElementById("download-button-" + id);
+    downloadButton.setAttribute("style", "display: block;");
+    var detailsDeck = document.getElementById("download-deck-" + id);
+    detailsDeck.setAttribute("selectedIndex", "0");
+}
+
+function manageStartDownload(id) {
+    var downloadButton = document.getElementById("download-button-" + id);
+    downloadButton.setAttribute("style", "display: none;");
+    var playButton = document.getElementById("play-button-" + id);
+    playButton.setAttribute("style", "display: none;");
+    var pauseButton = document.getElementById("pause-button-" + id);
+    pauseButton.setAttribute("style", "display: block;");
+    var detailsDeck = document.getElementById("download-deck-" + id);
+    detailsDeck.setAttribute("selectedIndex", "1");
+}
+
+function managePauseDownload(id) {
+    var pauseButton = document.getElementById("pause-button-" + id);
+    pauseButton.setAttribute("style", "display: none;");
+    var playButton = document.getElementById("play-button-" + id);
+    playButton.setAttribute("style", "display: block;");
+    var detailsDeck = document.getElementById("download-deck-" + id);
+    detailsDeck.setAttribute("selectedIndex", "1");
+}
 
 function populateBookList(container) {
     var book;
@@ -217,6 +256,7 @@ function populateBookList(container) {
         var detailsDeck = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
 						   "deck");
 	detailsDeck.setAttribute("selectedIndex", "0");
+	detailsDeck.setAttribute("id", "download-deck-" + book.id);
 	detailsDeck.appendChild(grid);
 
 	var downloadBox = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
@@ -233,20 +273,22 @@ function populateBookList(container) {
 
 	var pauseButton = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
 						    "button");
+	pauseButton.setAttribute("id", "pause-button-" + book.id);
 	pauseButton.setAttribute("class", "pause mini-button");
-	pauseButton.setAttribute("oncommand", "alert('todo')");
+	pauseButton.setAttribute("onclick", "event.stopPropagation(); managePauseDownload('" + book.id + "')");
 	progressmeterBox.appendChild(pauseButton);
 
 	var playButton = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
 						    "button");
+	playButton.setAttribute("id", "play-button-" + book.id);
 	playButton.setAttribute("class", "play mini-button");
-	playButton.setAttribute("oncommand", "alert('todo')");
+	playButton.setAttribute("onclick", "event.stopPropagation(); manageStartDownload('" + book.id + "')");
 	progressmeterBox.appendChild(playButton);
 
 	var cancelButton = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
 						    "button");
 	cancelButton.setAttribute("class", "cancel mini-button");
-	cancelButton.setAttribute("oncommand", "alert('todo')");
+	cancelButton.setAttribute("onclick", "event.stopPropagation(); manageStopDownload('" + book.id + "')");
 	progressmeterBox.appendChild(cancelButton);
 
 	var downloadStatusLabel = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
@@ -267,7 +309,8 @@ function populateBookList(container) {
 	    var downloadButton = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
 							  "button");
 	    downloadButton.setAttribute("label", "Download");
-	    downloadButton.setAttribute("onclick", "startDownload('http://download.kiwix.org/zim/0.9/wikipedia_fr_all_07_2010_beta2.zim.torrent');");
+	    downloadButton.setAttribute("id", "download-button-" + book.id);
+	    downloadButton.setAttribute("onclick", "event.stopPropagation(); manageStartDownload('" + book.id + "')");
 	    buttonBox.appendChild(downloadButton);
 	}
 
