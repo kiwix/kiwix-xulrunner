@@ -11,10 +11,33 @@ function loadBinaryResource(url) {
     return req.responseText;
 }
 
+function whereis(binary) {
+    var env = Components.classes["@mozilla.org/process/environment;1"].
+          getService(Components.interfaces.nsIEnvironment);
+    var path = env.get("PATH");
+    var pathArray = path.split(":");
+    var i;
+    var directory = Components.classes["@mozilla.org/file/local;1"].
+           createInstance(Components.interfaces.nsILocalFile);
+
+    for (i in pathArray) {
+	directory.initWithPath(pathArray[i]);
+	directory.append("aria2c");
+	if (directory.exists())
+	    return directory.path
+    }
+}
+
 function startDownloader() {
+    var binaryPath = whereis("aria2c");
+    if (binaryPath == undefined) {
+	dump("Unable to find the aria2c binary.\n");
+	return;
+    }
+
     var binary = Components.classes["@mozilla.org/file/local;1"]
 	.createInstance(Components.interfaces.nsILocalFile);
-    binary.initWithPath("/usr/bin/aria2c");
+    binary.initWithPath(binaryPath);
     
     aria2Process = Components.classes["@mozilla.org/process/util;1"]
 	.createInstance(Components.interfaces.nsIProcess);
