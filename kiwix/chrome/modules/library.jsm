@@ -198,6 +198,7 @@ let library = {
 
     /* Delete the current book */
     deleteCurrentBook: function() {
+	this.setCurrentId("");
         return(this.deleteBookById(this.current));
     },
 

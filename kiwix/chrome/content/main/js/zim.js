@@ -16,19 +16,16 @@ function openZimFile(path) {
 	return;
     }
 
-    if (!zimAccessor.loadFile(file)) return;
-
-    /* Otherwise */
-    currentZimAccessor = zimAccessor;
-
-    return currentZimAccessor;
+    if (isFile(file.path) && zimAccessor.loadFile(file)) {
+	currentZimAccessor = zimAccessor;
+	return currentZimAccessor;
+    }
 }
 
 /* Load the current ZIM file */
 function openCurrentBook() {
     var currentBook = library.getCurrentBook();
-    if (!currentBook) return;
-    
+    if (!currentBook) return false;
     return manageOpenFile(currentBook.path, true);
 }
 

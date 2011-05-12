@@ -116,6 +116,7 @@ function formatNumber( number, decimals, dec_point, thousands_sep ) {
 }
 
 function formatFileSize(filesize) {
+    filesize *= 1024;
     if (filesize >= 1073741824) {
 	filesize = formatNumber(filesize / 1073741824, 2, '.', '') + ' Gb';
     } else {
@@ -261,40 +262,43 @@ function populateBookList(container) {
 
 	var downloadBox = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
 						   "vbox");
-	var progressmeterBox = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
-							"hbox");
-	progressmeterBox.setAttribute("flex", "1");
-	var progressmeter = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
-						     "progressmeter");
-	progressmeter.setAttribute("flex", "1");
 
-	progressmeterBox.appendChild(progressmeter);
-	downloadBox.appendChild(progressmeterBox);
-
-	var pauseButton = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
-						    "button");
-	pauseButton.setAttribute("id", "pause-button-" + book.id);
-	pauseButton.setAttribute("class", "pause mini-button");
-	pauseButton.setAttribute("onclick", "event.stopPropagation(); managePauseDownload('" + book.id + "')");
-	progressmeterBox.appendChild(pauseButton);
-
-	var playButton = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
-						    "button");
-	playButton.setAttribute("id", "play-button-" + book.id);
-	playButton.setAttribute("class", "play mini-button");
-	playButton.setAttribute("onclick", "event.stopPropagation(); manageStartDownload('" + book.id + "')");
-	progressmeterBox.appendChild(playButton);
-
-	var cancelButton = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
-						    "button");
-	cancelButton.setAttribute("class", "cancel mini-button");
-	cancelButton.setAttribute("onclick", "event.stopPropagation(); manageStopDownload('" + book.id + "')");
-	progressmeterBox.appendChild(cancelButton);
-
-	var downloadStatusLabel = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
-							   "label");
-	downloadStatusLabel.setAttribute("value", "download details...");
-	downloadBox.appendChild(downloadStatusLabel);
+	if (book.path == "") {
+	    var progressmeterBox = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
+							    "hbox");
+	    progressmeterBox.setAttribute("flex", "1");
+	    var progressmeter = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
+							 "progressmeter");
+	    progressmeter.setAttribute("flex", "1");
+	    
+	    progressmeterBox.appendChild(progressmeter);
+	    downloadBox.appendChild(progressmeterBox);
+	    
+	    var pauseButton = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
+						       "button");
+	    pauseButton.setAttribute("id", "pause-button-" + book.id);
+	    pauseButton.setAttribute("class", "pause mini-button");
+	    pauseButton.setAttribute("onclick", "event.stopPropagation(); managePauseDownload('" + book.id + "')");
+	    progressmeterBox.appendChild(pauseButton);
+	    
+	    var playButton = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
+						      "button");
+	    playButton.setAttribute("id", "play-button-" + book.id);
+	    playButton.setAttribute("class", "play mini-button");
+	    playButton.setAttribute("onclick", "event.stopPropagation(); manageStartDownload('" + book.id + "')");
+	    progressmeterBox.appendChild(playButton);
+	    
+	    var cancelButton = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
+							"button");
+	    cancelButton.setAttribute("class", "cancel mini-button");
+	    cancelButton.setAttribute("onclick", "event.stopPropagation(); manageStopDownload('" + book.id + "')");
+	    progressmeterBox.appendChild(cancelButton);
+	    
+	    var downloadStatusLabel = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
+							       "label");
+	    downloadStatusLabel.setAttribute("value", "download details...");
+	    downloadBox.appendChild(downloadStatusLabel);
+	}
 
 	detailsDeck.appendChild(downloadBox);
 	detailsBox.appendChild(detailsDeck);
