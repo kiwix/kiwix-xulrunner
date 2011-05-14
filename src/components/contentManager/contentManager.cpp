@@ -214,7 +214,8 @@ NS_IMETHODIMP ContentManager::GetBookById(const nsACString &id,
 					  nsACString &creator,
 					  nsACString &date,
 					  nsACString &language, 
-					  nsACString &favicon, PRBool *retVal) {
+					  nsACString &favicon, 
+					  nsACString &url, PRBool *retVal) {
   *retVal = PR_FALSE;
   const char *cid;
   NS_CStringGetData(id, &cid);
@@ -232,6 +233,7 @@ NS_IMETHODIMP ContentManager::GetBookById(const nsACString &id,
       creator = nsDependentCString(book.creator.data(), book.creator.size());
       date = nsDependentCString(book.date.data(), book.date.size());
       language = nsDependentCString(book.language.data(), book.language.size());
+      url = nsDependentCString(book.url.data(), book.url.size());
       
       string faviconUrl = "";
       if (!book.faviconMimeType.empty()) {

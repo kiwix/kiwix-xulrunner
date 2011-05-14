@@ -1,6 +1,8 @@
 var _selectedLibraryContentItem = undefined;
 var aria2Client = new xmlrpc_client ("rpc", "localhost", "6800", "http");
 var aria2Process = null;
+var jobTimer = null;
+var downloads = new Array();
 
 function loadBinaryResource(url) {
     var req = new XMLHttpRequest();
@@ -42,8 +44,8 @@ function startDownloader() {
     aria2Process = Components.classes["@mozilla.org/process/util;1"]
 	.createInstance(Components.interfaces.nsIProcess);
     aria2Process.init(binary);
-    
-    var args = [ "--enable-xml-rpc", "", "--log=" + getDownloaderLogPath(), "--allow-overwrite=true" ];
+
+    var args = [ "--enable-xml-rpc", "--dir=" + settings.getRootPath(), "--log=" + getDownloaderLogPath(), "--allow-overwrite=true" ];
     aria2Process.run(false, args, args.length);
 }
 
@@ -96,10 +98,23 @@ function resumeDownload(index) {
 }
 
 function getDownloadStatus() {
-    var msg = new xmlrpcmsg("aria2.tellActive");
-    var response = aria2Client.send(msg);
-    var downloadStatus = response.val.arrayMem(0);
-    alert(downloadStatus.structMem('downloadSpeed').scalarVal());
+    if (aria2Process != null) {
+	var index = 0;
+	var id = downloads[index];
+
+	var msg = new xmlrpcmsg("aria2.tellActive");
+	var response = aria2Client.send(msg);
+	var downloadStatus = response.val.arrayMem(index);
+
+	if (downloadStatus) {
+	    var downloadSpeed = downloadStatus.structMem('downloadSpeed').scalarVal();
+	    var size = downloadStatus.structMem('totalLength').scalarVal();
+	    var completed = downloadStatus.structMem('completedLength').scalarVal();
+	    var percent = completed / size * 100;
+	    var progressbar = document.getElementById("progressbar-" + id);
+	    progressbar.setAttribute("value", percent);
+	}
+    }
 }
 
 /* Return the tmp directory path where the search index is build */
@@ -142,6 +157,8 @@ function manageStopDownload(id) {
 }
 
 function manageStartDownload(id) {
+    downloads.push(id);
+
     var downloadButton = document.getElementById("download-button-" + id);
     downloadButton.setAttribute("style", "display: none;");
     var playButton = document.getElementById("play-button-" + id);
@@ -150,6 +167,11 @@ function manageStartDownload(id) {
     pauseButton.setAttribute("style", "display: block;");
     var detailsDeck = document.getElementById("download-deck-" + id);
     detailsDeck.setAttribute("selectedIndex", "1");
+
+    var book = library.getBookById(id);
+    var urlString = book.url.replace(/\.metalink/, ".torrent");
+    startDownload(urlString);
+    
 }
 
 function managePauseDownload(id) {
@@ -205,7 +227,7 @@ function populateBookList(container) {
 	var titleLabel = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
 						  "label");
 	titleLabel.setAttribute("class", "library-content-item-title");
-	titleLabel.setAttribute("value", book.title);
+	titleLabel.setAttribute("value", book.title || book.path);
 	detailsBox.appendChild(titleLabel);
 
 	var description = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
@@ -271,7 +293,7 @@ function populateBookList(container) {
 	    var progressmeter = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
 							 "progressmeter");
 	    progressmeter.setAttribute("flex", "1");
-	    
+	    progressmeter.setAttribute("id", "progressbar-" + book.id);
 	    progressmeterBox.appendChild(progressmeter);
 	    downloadBox.appendChild(progressmeterBox);
 	    
@@ -410,4 +432,35 @@ function selectLibraryContentItem(box) {
     }
 }
 
+function startDownloadObserver() {
+    var backgroundTask = {
+	run: function() {
+	    try {
+		jobTimer = Components.classes["@mozilla.org/timer;1"].createInstance(Components.interfaces.nsITimer);
+		
+		var jobEvent = {
+		    notify: function(timer) {
+			var mainThread = Components.classes["@mozilla.org/thread-manager;1"].getService().mainThread;
+			mainThread.dispatch({
+				run: function()
+				    {
+					getDownloadStatus();
+				    }
+			    }, Components.interfaces.nsIThread.DISPATCH_NORMAL);
+		    }
+		};
+     
+		jobTimer.initWithCallback(jobEvent, 1000, Components.interfaces.nsITimer.TYPE_REPEATING_SLACK);
+   
+	    } catch(err) {
+		Components.utils.reportError(err);
+	    }
 
+	}
+    }
+
+    var thread = Components.classes["@mozilla.org/thread-manager;1"]
+	.getService(Components.interfaces.nsIThreadManager)
+	.newThread(0);
+    thread.dispatch(backgroundTask, thread.DISPATCH_NORMAL);
+}
