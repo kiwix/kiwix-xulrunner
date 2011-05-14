@@ -7,13 +7,15 @@ libContentManager_la_SOURCES= \
 	contentManager.cpp \
 	../../common/kiwix/library.cpp \
 	../../common/kiwix/manager.cpp \
-	../../common/kiwix/reader.cpp
+	../../common/kiwix/reader.cpp \
+	../../common/base64.cpp
 include_HEADERS= \
 	IContentManager.h \
 	../../common/kiwix/library.h \
 	../../common/kiwix/manager.h \
 	../../common/kiwix/reader.h \
-	../../pugixml/pugixml.hpp 
+	../../pugixml/pugixml.hpp \
+	../../common/base64.h
 libContentManager_la_CXXFLAGS=$(LIBXUL_CFLAGS) $(LIBZIM_CFLAGS) $(LIBPUGIXML_CFLAGS) $(XPCOM_CFLAGS) -I../../common/
 if IS_OSX
 libContentManager_la_LDFLAGS=$(LIBXUL_LDFLAGS) $(LIBZIM_STATIC_LDFLAGS) $(LIBZIMSELF_STATIC_LDFLAGS) $(XPCOM_LDFLAGS)

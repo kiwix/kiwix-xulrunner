@@ -213,7 +213,8 @@ NS_IMETHODIMP ContentManager::GetBookById(const nsACString &id,
 					  nsACString &size,
 					  nsACString &creator,
 					  nsACString &date,
-					  nsACString &language, PRBool *retVal) {
+					  nsACString &language, 
+					  nsACString &favicon, PRBool *retVal) {
   *retVal = PR_FALSE;
   const char *cid;
   NS_CStringGetData(id, &cid);
@@ -231,6 +232,12 @@ NS_IMETHODIMP ContentManager::GetBookById(const nsACString &id,
       creator = nsDependentCString(book.creator.data(), book.creator.size());
       date = nsDependentCString(book.date.data(), book.date.size());
       language = nsDependentCString(book.language.data(), book.language.size());
+      
+      string faviconUrl = "";
+      if (!book.faviconMimeType.empty()) {
+	faviconUrl = "url(data:" + book.faviconMimeType + ";base64," + book.favicon + ")";
+      }
+      favicon = nsDependentCString(faviconUrl.data(), faviconUrl.size());
 
       string indexTypeString = "";
       if (book.indexType == kiwix::XAPIAN) {

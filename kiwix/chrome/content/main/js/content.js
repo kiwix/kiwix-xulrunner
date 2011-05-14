@@ -192,7 +192,7 @@ function populateBookList(container) {
 	var faviconBox = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
 						  "box");
 	faviconBox.setAttribute("class", "library-content-item-favicon");
-	faviconBox.setAttribute("style", "background-image: url('http://tmp.kiwix.org/tmp/wikipedia-icon-48x48.png');");
+	faviconBox.setAttribute("style", "background-image: " + book.favicon);
 	hbox.appendChild(faviconBox);
 
 	var detailsBox = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 

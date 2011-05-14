@@ -15,7 +15,7 @@ interface IContentManager : nsISupports
   boolean getBookById(in ACString id, out AUTF8String path, out AUTF8String title, 
 		      out AUTF8String indexPath, out AUTF8String indexType, out AUTF8String description,
 		      out AUTF8String articleCount, out AUTF8String mediaCount, out AUTF8String size,
-		      out AUTF8String creator, out AUTF8String date, out AUTF8String language);
+		      out AUTF8String creator, out AUTF8String date, out AUTF8String language, out AUTF8String favicon);
   boolean setCurrentBookId(in ACString id);
   boolean getCurrentBookId(out ACString id);
   boolean getListNextBookId(out ACString id);

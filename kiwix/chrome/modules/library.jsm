@@ -3,7 +3,7 @@ var EXPORTED_SYMBOLS = [ "library" ];
 Components.utils.import("resource://modules/env.jsm");
 
 /* Define the Book class */
-function Book(id, path, indexPath, indexType, readOnly, last, title, description, articleCount, mediaCount, size, creator, date, language) {
+function Book(id, path, indexPath, indexType, readOnly, last, title, description, articleCount, mediaCount, size, creator, date, language, favicon) {
         this.id = id;
         this.path = path;
 	this.indexPath = indexPath;
@@ -18,6 +18,7 @@ function Book(id, path, indexPath, indexType, readOnly, last, title, description
 	this.creator = creator;
 	this.date = date;
 	this.language = language;
+	this.favicon = favicon;
 }
 
 /* Define the Library class */
@@ -156,9 +157,10 @@ let library = {
 	var creator = new Object();
 	var date = new Object();
 	var language = new Object();
+	var favicon = new Object();
 
-	if (this.contentManager.getBookById(id, path, title, indexPath, indexType, description, articleCount, mediaCount, size, creator, date, language)) {
-	   return new Book(id, path.value, indexPath.value, indexType.value, false, "", title.value, description.value, articleCount.value, mediaCount.value, size.value, creator.value, date.value, language.value);
+	if (this.contentManager.getBookById(id, path, title, indexPath, indexType, description, articleCount, mediaCount, size, creator, date, language, favicon)) {
+	   return new Book(id, path.value, indexPath.value, indexType.value, false, "", title.value, description.value, articleCount.value, mediaCount.value, size.value, creator.value, date.value, language.value, favicon.value);
 	}
     },
 
