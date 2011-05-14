@@ -192,7 +192,8 @@ function populateBookList(container) {
 	var faviconBox = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
 						  "box");
 	faviconBox.setAttribute("class", "library-content-item-favicon");
-	faviconBox.setAttribute("style", "background-image: " + book.favicon);
+	if (book.favicon != "")
+	    faviconBox.setAttribute("style", "background-image: " + book.favicon);
 	hbox.appendChild(faviconBox);
 
 	var detailsBox = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
@@ -352,10 +353,26 @@ function toggleLibrary() {
     var libraryPage = document.getElementById("library-page");
 
     if (libraryButton.getAttribute('checked') == "true") {
+	activateHomeButton();
+	activateBackButton();
+	activateNextButton();
+	activateZoomButtons();
+	activateFullscreenButton();
+	activateToolbarButton(getPrintButton());
+	activateToolbarButton(getSearchInPlaceButton());
+	activateToolbarButton(getBookmarksButton())
 	libraryButton.setAttribute('checked', false);
 	renderingPage.hidden = false;
 	libraryPage.hidden = true;
     } else {
+	desactivateHomeButton();
+	desactivateBackButton();
+	desactivateNextButton();
+	desactivateZoomButtons();
+	desactivateFullscreenButton();
+	desactivateToolbarButton(getPrintButton());
+	desactivateToolbarButton(getSearchInPlaceButton());
+	desactivateToolbarButton(getBookmarksButton())
 	libraryButton.setAttribute('checked', true);
 	renderingPage.hidden = true;
 	libraryPage.hidden = false;

@@ -79,6 +79,22 @@ function getFindButton() {
     return document.getElementById("button-search-article");
 }
 
+function getFullscreenButton() {
+    return document.getElementById("button-fullscreen");
+}
+
+function getPrintButton() { 
+    return document.getElementById("button-print");
+}
+
+function getBookmarksButton() {
+    return document.getElementById("button-bookmarks");
+}
+
+function getSearchInPlaceButton() {
+    return document.getElementById("button-search-article");
+}
+
 /* Return the Back button object */
 function getBackButton() {
     return document.getElementById("button-back");
@@ -168,6 +184,41 @@ function configureWindowGeometry(window) {
     }
 }
 
+/* (des)activate the zoom buttons */
+function activateZoomButtons() {
+    var button;
+
+    button = document.getElementById('button-sizeup');
+    button.disabled = false; 
+    button.className = "";  
+
+    button = document.getElementById('button-sizedown');
+    button.disabled = false; 
+    button.className = "";  
+}
+
+function activateToolbarButton(button) {
+    button.disabled = false; 
+    button.className = "";  
+}
+
+function desactivateToolbarButton(button) {
+    button.disabled = true; 
+    button.className = "disabled";  
+}
+
+function desactivateZoomButtons() {
+    var button;
+
+    button = document.getElementById('button-sizeup');
+    button.disabled = true; 
+    button.className = "disabled";  
+
+    button = document.getElementById('button-sizedown');
+    button.disabled = true; 
+    button.className = "disabled";  
+}
+
 /* Activate home button */
 function activateHomeButton() {
     getHomeButton().disabled = false; 
@@ -178,6 +229,17 @@ function activateHomeButton() {
 function desactivateHomeButton() {
     getHomeButton().disabled = true;
     getHomeButton().className = "disabled";
+}
+
+/* activate/desactivate fullscreen button */
+function activateFullscreenButton() {
+    getFullscreenButton().disabled = false;
+    getFullscreenButton().className = "";
+}
+
+function desactivateFullscreenButton() {
+    getFullscreenButton().disabled = true;
+    getFullscreenButton().className = "disabled";
 }
 
 /* Activate back button */

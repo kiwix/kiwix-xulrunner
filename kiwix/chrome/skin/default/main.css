@@ -105,29 +105,46 @@ window[langdir="rtl"] #button-next {
 #button-sizeup {
     list-style-image: url("chrome://main/skin/icon/zoom-in24.png");
 }
+#button-sizeup.disabled {
+    opacity: 0.2;
+}
 
 #button-sizedown {
     list-style-image: url("chrome://main/skin/icon/zoom-out24.png");
+}
+#button-sizedown.disabled {
+    opacity: 0.2;
 }
 
 #button-fullscreen, #button-fullscreen.normal, #display-fullscreen, #display-fullscreen.normal {
     list-style-image: url("chrome://main/skin/icon/fullscreen24.png");
 }
-
 #button-fullscreen.fullscreen, #display-fullscreen.fullscreen {
     list-style-image: url("chrome://main/skin/icon/leave-fullscreen24.png");
+}
+#button-fullscreen.disabled {
+    opacity: 0.2;
 }
 
 #button-print {
     list-style-image: url("chrome://main/skin/icon/print24.png");
 }
+#button-print.disabled {
+    opacity: 0.2;
+}
 
 #button-bookmarks {
     list-style-image: url("chrome://main/skin/icon/bookmarks24.png");
 }
+#button-bookmarks.disabled {
+    opacity: 0.2;
+}
 
 #button-search-article {
     list-style-image: url("chrome://main/skin/icon/find-article24.png");
+}
+#button-search-article.disabled {
+    opacity: 0.2;
 }
 
 #button-results {
