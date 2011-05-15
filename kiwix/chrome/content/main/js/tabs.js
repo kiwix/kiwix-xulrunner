@@ -8,26 +8,19 @@ function showTabHeaders() {
 
 /* Make the tabs (in)visible */
 function changeTabsVisibilityStatus(set_visible, save) {
-	
 	var tabHeaders = document.getElementById("tab-headers");
-	is_visible = (tabHeaders.style.display == "block");
-	if (set_visible == true) {
-		vis_value = true;
-	} else {
-		vis_value = !is_visible;
-	}
-	
-	if (vis_value)
-		tabHeaders.style.display = "block";
-	else
-		tabHeaders.style.display = "none";
-
+	var is_visible = (tabHeaders.style.display == "block" ? true : false);
+	var vis_value = (set_visible == true ? true : !is_visible);
+	tabHeaders.style.display = (vis_value == true ? "block" : "none");
 	document.getElementById('display-tabs').setAttribute('checked', vis_value);
-	if (save) settings.displayTabs(vis_value);
+	if (save) 
+	    settings.displayTabs(vis_value);
 }
 
 /* Add a new tab */
 function openNewTab() {
+    changeTabsVisibilityStatus(true);
+
     var id=randomString();
     var refererTabId = currentTabId;
 

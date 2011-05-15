@@ -390,7 +390,6 @@ function htmlRendererMouseDown(aEvent) {
 	if (url.href.indexOf("zim://",0) != 0) {
 	    htmlRendererOpenUrl(aEvent);
 	} else {
-	    changeTabsVisibilityStatus(true);
 	    openNewTab();
 	    htmlRendererOpenUrl(aEvent);
 	}
