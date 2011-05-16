@@ -67,7 +67,7 @@ function startDownload(url) {
 	run: function() {
 	    var torrentContent = loadBinaryResource(url);
 	    var param = new xmlrpcval(torrentContent, "base64");
-	    var msg = new xmlrpcmsg("aria2.addTorrent", [ param ]);
+	    var msg = new xmlrpcmsg("aria2.addMetalink", [ param ]);
 	    var response = aria2Client.send(msg);
 	    response.val.scalarVal();
 	}
@@ -169,7 +169,7 @@ function manageStartDownload(id) {
     detailsDeck.setAttribute("selectedIndex", "1");
 
     var book = library.getBookById(id);
-    var urlString = book.url.replace(/\.metalink/, ".torrent");
+    var urlString = book.url;
     startDownload(urlString);
     
 }
