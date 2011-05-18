@@ -117,6 +117,13 @@
   </menu>
   <menu id="menu-display" label="&main.display;" accesskey="&main.display.accesskey;">
     <menupopup id="display-popup">
+      <menuitem id="display-tabs" label="&main.tabs;" type="checkbox" checked="false"
+		accesskey="&main.tabs.accesskey;" key="change-tabs-visibility-status"
+		oncommand="changeTabsVisibilityStatus(undefined, true)"/>
+      <menuitem id="display-fullscreen" label="&main.fullscreen;" type="checkbox" checked="false" class="menuitem-iconic" 
+		key="fullscreen-key" accesskey="&main.fullscreen.accesskey;" oncommand="UIToggleFullScreen(true)"/>
+      <menuitem id="display-statusbar" label="&main.statusbar;" type="checkbox" checked="true"
+		accesskey="&main.statusbar.accesskey;" oncommand="changeStatusBarVisibilityStatus(undefined, true)"/>
       <menu label="&main.zoom;" accesskey="&main.zoom.accesskey;">
 	<menupopup id="menu-zoom">
 	  <menuitem id="display-zoomin" label="&main.zoomin;" key="zoomin" class="menuitem-iconic" 
@@ -138,13 +145,6 @@
           <menuitem type="checkbox" label="Evolution" id="skin-evolution" oncommand="selectSkin('evolution');"/>
 	</menupopup>
       </menu>
-      <menuitem id="display-statusbar" label="&main.statusbar;" type="checkbox" checked="true"
-		accesskey="&main.statusbar.accesskey;" oncommand="changeStatusBarVisibilityStatus(undefined, true)"/>
-      <menuitem id="display-tabs" label="&main.tabs;" type="checkbox" checked="false"
-		accesskey="&main.tabs.accesskey;" key="change-tabs-visibility-status"
-		oncommand="changeTabsVisibilityStatus(undefined, true)"/>
-      <menuitem id="display-fullscreen" label="&main.fullscreen;" type="checkbox" checked="false" class="menuitem-iconic" 
-		key="fullscreen-key" accesskey="&main.fullscreen.accesskey;" oncommand="UIToggleFullScreen(true)"/>
     </menupopup>
   </menu>
   <menu id="menu-tools" label="&main.tools;" accesskey="&main.tools.accesskey;">
