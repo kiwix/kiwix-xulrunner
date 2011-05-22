@@ -1,5 +1,12 @@
 var EXPORTED_SYMBOLS = [ "settings" ];
 
+/* Define the Book class */
+function Download(id, completed, status) {
+        this.id = id || "";
+        this.completed = completed || "0";
+	this.status = status || "1";
+}
+
 let settings = {
 
     /* Constructor */
@@ -92,6 +99,50 @@ let settings = {
     	return this.charSettingParameter("general.useragent.locale", value); 
     },
 
+    addDownload: function(id) {
+        var downloadsString = this.downloads();
+        var downloadsArray = this.unserializeDownloads(downloadsString);
+	for(var i=0;i<downloadsArray.length;i++) {
+            var download = downloadsArray[i];
+	    if (download.id == id)
+	        return false;
+	}
+
+	var download = new Download(id, 0, 1);
+	downloadsArray.push(download);
+	var downloadsString = this.serializeDownloads(downloadsArray);
+	this.downloads(downloadsString);
+    },
+
+    serializeDownloads: function(downloadsArray) {
+        var downloadsString = "";
+	for(var i=0; i<downloadsArray.length; i++) {
+            var download = downloadsArray[i];
+	    var downloadString = download.id + ";" + download.completed + ";" + download.status;
+            
+	    if (downloadsString != "") {
+	        downloadsString += "|";
+	    }
+	    downloadsString += downloadString;
+	}
+	return downloadsString;
+    },
+
+    unserializeDownloads: function(downloadsString) {
+        var downloadsArray = new Array();
+	if (downloadsString != undefined && downloadsString != "") {
+            var downloadsStringArray = downloadsString.split('|');
+	    for(var i=0; i<downloadsStringArray.length; i++) {
+	        var downloadString = downloadsStringArray[i];
+	        var downloadStringArray = downloadString.split(';');
+	        var download = new Download(downloadStringArray[0], downloadStringArray[1], downloadStringArray[2]);
+	        downloadsArray.push(download);
+	    }
+        }
+
+	return downloadsArray;
+    },
+
     defaultSearchBackend: function(value) { return this.charSettingParameter("kiwix.defaultsearchbackend", value); },
     skin: function(value) { return this.charSettingParameter("general.skins.selectedSkin", value); },
     displayStatusBar: function(value) { return this.boolSettingParameter("displayStatusBar", value); },
@@ -107,6 +158,7 @@ let settings = {
     defaultFilePickerPath: function(value) { return this.charSettingParameter("defaultFilePickerPath", value); },
     profileToRemove: function(value) { return this.charSettingParameter("profileToRemove", value); },
     libraryUrls: function(value) { return this.charSettingParameter("kiwix.libraryUrls", value); },
+    downloads: function(value) { return this.charSettingParameter("kiwix.downloads", value); },
     displayOnCloseCleanConfirmDialog: function(value) { 
     	return this.boolSettingParameter("displayOnCloseCleanConfirmDialog", value); 
     }

@@ -145,6 +145,9 @@ function onStart() {
 
     /* Initialize the user interface */
     initUserInterface();
+
+    /* Restart downloads if necessary */
+    resumeOngoingDownloads();
 }
 
 /* Clear the history and the cache */

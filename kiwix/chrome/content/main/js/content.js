@@ -2,7 +2,6 @@ var _selectedLibraryContentItem = undefined;
 var aria2Client = new xmlrpc_client ("rpc", "localhost", "6800", "http");
 var aria2Process = null;
 var jobTimer = null;
-var downloads = new Array();
 
 function loadBinaryResource(url) {
     var req = new XMLHttpRequest();
@@ -99,21 +98,27 @@ function resumeDownload(index) {
 
 function getDownloadStatus() {
     if (aria2Process != null) {
-	var index = 0;
-	var id = downloads[index];
-
-	var msg = new xmlrpcmsg("aria2.tellActive");
-	var response = aria2Client.send(msg);
-	var downloadStatus = response.val.arrayMem(index);
-
-	if (downloadStatus) {
-	    var downloadSpeed = downloadStatus.structMem('downloadSpeed').scalarVal();
-	    var size = downloadStatus.structMem('totalLength').scalarVal();
-	    var completed = downloadStatus.structMem('completedLength').scalarVal();
-	    var percent = completed / size * 100;
-	    var progressbar = document.getElementById("progressbar-" + id);
-	    progressbar.setAttribute("value", percent);
-	}
+        var downloadsString = settings.downloads();
+        var downloadsArray = settings.unserializeDownloads(downloadsString);
+	for(var index=0; index<downloadsArray.length; index++) {
+	    var download = downloadsArray[index];
+	    var id = download.id;
+	    var msg = new xmlrpcmsg("aria2.tellActive");
+	    var response = aria2Client.send(msg);
+	    var downloadStatus = response.val.arrayMem(index);
+	    
+	    if (downloadStatus) {
+		var downloadSpeed = downloadStatus.structMem('downloadSpeed').scalarVal();
+		var size = downloadStatus.structMem('totalLength').scalarVal();
+		var completed = downloadStatus.structMem('completedLength').scalarVal();
+		download.completed = completed;
+		var percent = completed / size * 100;
+		var progressbar = document.getElementById("progressbar-" + id);
+		progressbar.setAttribute("value", percent);
+	    }
+	} 	
+	var downloadsString = settings.serializeDownloads(downloadsArray);
+	settings.downloads(downloadsString);
     }
 }
 
@@ -156,8 +161,8 @@ function manageStopDownload(id) {
     detailsDeck.setAttribute("selectedIndex", "0");
 }
 
-function manageStartDownload(id) {
-    downloads.push(id);
+function manageStartDownload(id, completed) {
+    settings.addDownload(id);
 
     var downloadButton = document.getElementById("download-button-" + id);
     downloadButton.setAttribute("style", "display: none;");
@@ -169,6 +174,15 @@ function manageStartDownload(id) {
     detailsDeck.setAttribute("selectedIndex", "1");
 
     var book = library.getBookById(id);
+
+    var progressbar = document.getElementById("progressbar-" + id);
+    if (completed != undefined && completed != "0" && completed != "") {
+	var percent = completed / (book.size * 1024) * 100;
+	progressbar.setAttribute("value", percent);
+    } else {
+	progressbar.setAttribute("value", 0);
+    }
+
     var urlString = book.url;
     startDownload(urlString);
     
@@ -398,6 +412,17 @@ function toggleLibrary() {
 	libraryButton.setAttribute('checked', true);
 	renderingPage.hidden = true;
 	libraryPage.hidden = false;
+    }
+}
+
+function resumeOngoingDownloads() {
+    var downloadsString = settings.downloads();
+    var downloadsArray = settings.unserializeDownloads(downloadsString);
+    for(var index=0; index<downloadsArray.length; index++) {
+	var download = downloadsArray[index];
+	if (download.status == "1") {
+	    manageStartDownload(download.id, download.completed);
+	}
     }
 }
 
