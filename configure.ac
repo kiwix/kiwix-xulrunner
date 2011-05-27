@@ -340,8 +340,7 @@ GECKO_VERSION=1
 else
 GECKO_VERSION=2
 fi
-echo ${GECKO_VERSION}
-exit
+AC_MSG_RESULT(checking for Gecko version... ${GECKO_VERSION})
 
 # debug
 AC_ARG_WITH(debug, [  --with-debug-symbols    add debug symbols], CFLAGS="${CFLAGS} -g "; CXXFLAGS="${CXXFLAGS} -g ")
