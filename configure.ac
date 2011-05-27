@@ -26,9 +26,6 @@ then
   IS_WIN=1
 fi
 
-# Gecko version
-GECKO_VERSION=1
-
 AC_CHECK_PROG(HAVE_XCODE, Xcode, yes, no, [$PATH$PATH_SEPARATOR/Developer/Applications/Xcode.app/Contents/MacOS/$PATH_SEPARATOR])
 AM_CONDITIONAL([IS_OSX], [test "$HAVE_XCODE" = yes])
 if test [ "$HAVE_XCODE" ]
@@ -334,6 +331,17 @@ AC_DEFINE_UNQUOTED(CLUSTER_CACHE_SIZE, 16, [set zim cluster cache size to number
 AC_DEFINE_UNQUOTED(DIRENT_CACHE_SIZE, 512, [set zim dirent cache size to number of cached chunks])
 AC_DEFINE_UNQUOTED(LZMA_MEMORY_SIZE, 128, [set lzma uncompress memory size to number of MB])
 AC_DEFINE(ENABLE_LZMA, [1], [defined if lzma compression is enabled])
+
+# Gecko version
+GECKO_VERSION=`grep MOZILLA_VERSION_U ${GECKO_SDK_PATH}/include/mozilla-config.h | cut --delimiter=" " -f3`
+if [[ "$GECKO_VERSION" \< "2.0" ]]
+then
+GECKO_VERSION=1
+else
+GECKO_VERSION=2
+fi
+echo ${GECKO_VERSION}
+exit
 
 # debug
 AC_ARG_WITH(debug, [  --with-debug-symbols    add debug symbols], CFLAGS="${CFLAGS} -g "; CXXFLAGS="${CXXFLAGS} -g ")
