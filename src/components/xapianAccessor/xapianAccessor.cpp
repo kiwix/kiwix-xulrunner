@@ -20,7 +20,6 @@
 #include "xpcom-config.h"
 
 #if GECKO_VERSION == 2
-
   #if !defined(NS_ATTR_MALLOC)
   #define NS_ATTR_MALLOC
   #endif
@@ -67,7 +66,6 @@ private:
 
 };
 
-/* Implementation file */
 NS_IMPL_ISUPPORTS1(XapianAccessor, IXapianAccessor)
 
 /* Constructor */
@@ -199,6 +197,28 @@ NS_IMETHODIMP XapianAccessor::GetNextResult(nsACString &url, nsACString &title,
 }
 
 #if GECKO_VERSION == 2
+
+NS_GENERIC_FACTORY_CONSTRUCTOR(XapianAccessor)
+NS_DEFINE_NAMED_CID(IXAPIANACCESSOR_IID);
+static const mozilla::Module::CIDEntry kXapianAccessorCIDs[] = {
+     { &kIXAPIANACCESSOR_IID, false, NULL, XapianAccessorConstructor },
+     { NULL }
+};
+
+static const mozilla::Module::ContractIDEntry kXapianAccessorContracts[] = {
+     { "@kiwix.org/xapianAccessor", &kIXAPIANACCESSOR_IID },
+     { NULL }
+};
+
+static const mozilla::Module kXapianAccessorModule = {
+     mozilla::Module::kVersion,
+     kXapianAccessorCIDs,
+     kXapianAccessorContracts,
+     NULL
+};
+
+NSMODULE_DEFN(nsXapianAccessor) = &kXapianAccessorModule;
+NS_IMPL_MOZILLA192_NSGETMODULE(&kXapianAccessorModule)
 #else
 NS_GENERIC_FACTORY_CONSTRUCTOR(XapianAccessor)
 static const nsModuleComponentInfo components[] =

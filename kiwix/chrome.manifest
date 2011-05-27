@@ -1,0 +1,6 @@
+# chrome manifest
+manifest chrome/chrome.manifest
+
+#components
+interfaces components/xapianAccessor.xpt
+binary-component components/xapianAccessor.so ABI=Linux_x86-gcc3
