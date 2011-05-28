@@ -18,7 +18,26 @@
  */
 
 #include "xpcom-config.h"
-#include "nsIGenericFactory.h"
+
+#if GECKO_VERSION == 2
+#if !defined(NS_ATTR_MALLOC)
+  #define NS_ATTR_MALLOC
+  #endif
+
+#if !defined(NS_WARN_UNUSED_RESULT)
+  #define NS_WARN_UNUSED_RESULT
+  #endif
+
+#if !defined(MOZ_CPP_EXCEPTIONS)
+  #define MOZ_CPP_EXCEPTIONS
+  #endif
+
+  #include "mozilla/ModuleUtils.h"
+  #include "nsIClassInfoImpl.h"
+#else
+  #include "nsIGenericFactory.h"
+#endif
+
 #include "IZimXapianIndexer.h"
 
 #include "nsXPCOM.h"
@@ -107,6 +126,30 @@ NS_IMETHODIMP ZimXapianIndexer::StopIndexing(PRBool *retVal) {
   return NS_OK;
 }
 
+#if GECKO_VERSION == 2
+
+NS_GENERIC_FACTORY_CONSTRUCTOR(ZimXapianIndexer)
+NS_DEFINE_NAMED_CID(IZIMXAPIANINDEXER_IID);
+static const mozilla::Module::CIDEntry kZimXapianIndexerCIDs[] = {
+  { &kIZIMXAPIANINDEXER_IID, false, NULL, ZimXapianIndexerConstructor },
+  { NULL }
+};
+
+static const mozilla::Module::ContractIDEntry kZimXapianIndexerContracts[] = {
+  { "@kiwix.org/zimXapianIndexer", &kIZIMXAPIANINDEXER_IID },
+  { NULL }
+};
+
+static const mozilla::Module kZimXapianIndexerModule = {
+  mozilla::Module::kVersion,
+  kZimXapianIndexerCIDs,
+  kZimXapianIndexerContracts,
+  NULL
+};
+
+NSMODULE_DEFN(nsZimXapianIndexer) = &kZimXapianIndexerModule;
+NS_IMPL_MOZILLA192_NSGETMODULE(&kZimXapianIndexerModule)
+#else
 NS_GENERIC_FACTORY_CONSTRUCTOR(ZimXapianIndexer)
 
 static const nsModuleComponentInfo components[] =
@@ -119,4 +162,4 @@ static const nsModuleComponentInfo components[] =
 };
 
 NS_IMPL_NSGETMODULE(nsZimXapianIndexer, components)
-
+#endif

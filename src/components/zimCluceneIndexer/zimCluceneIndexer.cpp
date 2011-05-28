@@ -18,7 +18,26 @@
  */
 
 #include "xpcom-config.h"
-#include "nsIGenericFactory.h"
+
+#if GECKO_VERSION == 2
+#if !defined(NS_ATTR_MALLOC)
+  #define NS_ATTR_MALLOC
+  #endif
+
+#if !defined(NS_WARN_UNUSED_RESULT)
+  #define NS_WARN_UNUSED_RESULT
+  #endif
+
+#if !defined(MOZ_CPP_EXCEPTIONS)
+  #define MOZ_CPP_EXCEPTIONS
+  #endif
+
+  #include "mozilla/ModuleUtils.h"
+  #include "nsIClassInfoImpl.h"
+#else
+  #include "nsIGenericFactory.h"
+#endif
+
 #include "IZimCluceneIndexer.h"
 
 #include "nsXPCOM.h"
@@ -107,6 +126,30 @@ NS_IMETHODIMP ZimCluceneIndexer::StopIndexing(PRBool *retVal) {
   return NS_OK;
 }
 
+#if GECKO_VERSION == 2
+
+NS_GENERIC_FACTORY_CONSTRUCTOR(ZimCluceneIndexer)
+NS_DEFINE_NAMED_CID(IZIMCLUCENEINDEXER_IID);
+static const mozilla::Module::CIDEntry kZimCluceneIndexerCIDs[] = {
+  { &kIZIMCLUCENEINDEXER_IID, false, NULL, ZimCluceneIndexerConstructor },
+  { NULL }
+};
+
+static const mozilla::Module::ContractIDEntry kZimCluceneIndexerContracts[] = {
+  { "@kiwix.org/zimCluceneIndexer", &kIZIMCLUCENEINDEXER_IID },
+  { NULL }
+};
+
+static const mozilla::Module kZimCluceneIndexerModule = {
+  mozilla::Module::kVersion,
+  kZimCluceneIndexerCIDs,
+  kZimCluceneIndexerContracts,
+  NULL
+};
+
+NSMODULE_DEFN(nsZimCluceneIndexer) = &kZimCluceneIndexerModule;
+NS_IMPL_MOZILLA192_NSGETMODULE(&kZimCluceneIndexerModule)
+#else
 NS_GENERIC_FACTORY_CONSTRUCTOR(ZimCluceneIndexer)
 
 static const nsModuleComponentInfo components[] =
@@ -119,4 +162,4 @@ static const nsModuleComponentInfo components[] =
 };
 
 NS_IMPL_NSGETMODULE(nsZimCluceneIndexer, components)
-
+#endif

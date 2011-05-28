@@ -2,5 +2,26 @@
 manifest chrome/chrome.manifest
 
 #components
+component {ee042780-dcf9-11dd-8733-0002a5d5c51b} components/zimProtocol.js
+contract @mozilla.org/network/protocol;1?name=zim {ee042780-dcf9-11dd-8733-0002a5d5c51b}
+
+component {7f7984b9-acc4-4da9-a159-c378fdca4f46} components/suggest.js
+contract @mozilla.org/autocomplete/search;1?name=kiwix-suggest {7f7984b9-acc4-4da9-a159-c378fdca4f46}
+
 interfaces components/xapianAccessor.xpt
 binary-component components/xapianAccessor.so ABI=Linux_x86-gcc3
+
+interfaces components/zimXapianIndexer.xpt
+binary-component components/zimXapianIndexer.so ABI=Linux_x86-gcc3
+
+interfaces components/cluceneAccessor.xpt
+binary-component components/cluceneAccessor.so ABI=Linux_x86-gcc3
+
+interfaces components/zimCluceneIndexer.xpt
+binary-component components/zimCluceneIndexer.so ABI=Linux_x86-gcc3
+
+interfaces components/zimAccessor.xpt
+binary-component components/zimAccessor.so ABI=Linux_x86-gcc3
+
+interfaces components/contentManager.xpt
+binary-component components/contentManager.so ABI=Linux_x86-gcc3

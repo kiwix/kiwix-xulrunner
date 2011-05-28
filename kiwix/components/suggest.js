@@ -5,8 +5,13 @@ const Cg=Ci.nsIComponentRegistrar;
 const g=Cc.ID("7f7984b9-acc4-4da9-a159-c378fdca4f46");
 const max=5;
 
+Components.utils.import("resource://gre/modules/XPCOMUtils.jsm");
+
 function gS(){};
 gS.prototype={
+
+    classID: Components.ID("{7f7984b9-acc4-4da9-a159-c378fdca4f46}"),
+    QueryInterface: XPCOMUtils.generateQI([Components.interfaces.nsIMyComponent]),
 
     startSearch:function(searchString, searchParam, result, listener) {
 
@@ -90,6 +95,13 @@ var gM={
    unregisterSelf:function(c,l,t){c.QueryInterface(Cg).unregisterFactoryLocation(g,l)},
    getClassObject:function(c,a,i){return gF},
    canUnload:function(c){return true}
+}
+
+
+if (XPCOMUtils.generateNSGetFactory) {
+    var NSGetFactory = XPCOMUtils.generateNSGetFactory([gS]);
+} else {
+    var NSGetModule = XPCOMUtils.generateNSGetModule([gS]);
 }
 
 function NSGetModule(c,f){return gM}

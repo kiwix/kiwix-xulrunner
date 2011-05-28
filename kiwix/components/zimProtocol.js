@@ -184,7 +184,7 @@ var ZimprotocolHandlerFactory = {
 if (XPCOMUtils.generateNSGetFactory) {
     var NSGetFactory = XPCOMUtils.generateNSGetFactory([ZimprotocolHandler]);
 } else {
-    var NSGetModule = XPCOMUtils.generateNSGetModule([myComponent]);
+    var NSGetModule = XPCOMUtils.generateNSGetModule([ZimprotocolHandler]);
 }
 
 var ZimprotocolModule = new Object();

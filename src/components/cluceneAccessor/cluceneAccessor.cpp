@@ -18,7 +18,26 @@
  */
 
 #include "xpcom-config.h"
-#include "nsIGenericFactory.h"
+
+#if GECKO_VERSION == 2
+#if !defined(NS_ATTR_MALLOC)
+  #define NS_ATTR_MALLOC
+  #endif
+
+#if !defined(NS_WARN_UNUSED_RESULT)
+  #define NS_WARN_UNUSED_RESULT
+  #endif
+
+#if !defined(MOZ_CPP_EXCEPTIONS)
+  #define MOZ_CPP_EXCEPTIONS
+  #endif
+
+  #include "mozilla/ModuleUtils.h"
+  #include "nsIClassInfoImpl.h"
+#else
+  #include "nsIGenericFactory.h"
+#endif
+
 #include "nsXPCOM.h"
 #include "nsEmbedString.h"
 #include "nsIURI.h"
@@ -59,23 +78,6 @@ CluceneAccessor::~CluceneAccessor() {
   if (this->searcher != NULL) {
     delete this->searcher;
   }
-}
-
-/* Registration */
-static NS_METHOD CluceneAccessorRegistration(nsIComponentManager *aCompMgr,
-                                      nsIFile *aPath,
-                                      const char *registryLocation,
-                                      const char *componentType,
-                                      const nsModuleComponentInfo *info) {
-  return NS_OK;
-}
-
-/* Unregistration */
-static NS_METHOD CluceneAccessorUnregistration(nsIComponentManager *aCompMgr,
-                                        nsIFile *aPath,
-                                        const char *registryLocation,
-                                        const nsModuleComponentInfo *info) {
-  return NS_OK;
 }
 
 /* Open Clucene readable database */
@@ -163,6 +165,30 @@ NS_IMETHODIMP CluceneAccessor::GetNextResult(nsACString &url, nsACString &title,
   return NS_OK;
 }
 
+#if GECKO_VERSION == 2
+
+NS_GENERIC_FACTORY_CONSTRUCTOR(CluceneAccessor)
+NS_DEFINE_NAMED_CID(ICLUCENEACCESSOR_IID);
+static const mozilla::Module::CIDEntry kCluceneAccessorCIDs[] = {
+  { &kICLUCENEACCESSOR_IID, false, NULL, CluceneAccessorConstructor },
+  { NULL }
+};
+
+static const mozilla::Module::ContractIDEntry kCluceneAccessorContracts[] = {
+  { "@kiwix.org/cluceneAccessor", &kICLUCENEACCESSOR_IID },
+  { NULL }
+};
+
+static const mozilla::Module kCluceneAccessorModule = {
+  mozilla::Module::kVersion,
+  kCluceneAccessorCIDs,
+  kCluceneAccessorContracts,
+     NULL
+};
+
+NSMODULE_DEFN(nsCluceneAccessor) = &kCluceneAccessorModule;
+NS_IMPL_MOZILLA192_NSGETMODULE(&kCluceneAccessorModule)
+#else
 NS_GENERIC_FACTORY_CONSTRUCTOR(CluceneAccessor)
 
 static const nsModuleComponentInfo components[] =
@@ -177,3 +203,4 @@ static const nsModuleComponentInfo components[] =
 };
 
 NS_IMPL_NSGETMODULE(nsCluceneAccessor, components)
+#endif
