@@ -2,6 +2,8 @@ const Cc = Components.classes;
 const Ci = Components.interfaces;
 const Cr = Components.results;
 
+Components.utils.import("resource://gre/modules/XPCOMUtils.jsm");
+
 /* Global variables */
 var currentZimId = null;
 var zimAccessor = null;
@@ -14,6 +16,9 @@ ZimprotocolHandler.prototype = {
     defaultPort: -1,
 
     protocolFlags: Ci.nsIProtocolHandler.URI_NORELATIVE,
+
+    classID: Components.ID("{ee042780-dcf9-11dd-8733-0002a5d5c51b}"),
+    QueryInterface: XPCOMUtils.generateQI([Components.interfaces.nsIMyComponent]),
 
     allowPort: function(port, scheme) { return false; },
 
@@ -175,9 +180,14 @@ var ZimprotocolHandlerFactory = {
 	return this;
     }
 }
-    
-/* ZimprotocolModule */
-    var ZimprotocolModule = new Object();
+
+if (XPCOMUtils.generateNSGetFactory) {
+    var NSGetFactory = XPCOMUtils.generateNSGetFactory([ZimprotocolHandler]);
+} else {
+    var NSGetModule = XPCOMUtils.generateNSGetModule([myComponent]);
+}
+
+var ZimprotocolModule = new Object();
 
 ZimprotocolModule.registerSelf = function(compMgr, fileSpec, location, type) {
     compMgr = compMgr.QueryInterface(Ci.nsIComponentRegistrar);
@@ -195,9 +205,9 @@ ZimprotocolModule.unregisterSelf = function(compMgr, location, loaderStr) {
 
 ZimprotocolModule.getClassObject = function(compMgr, cid, iid) {
     if(!iid.equals(Ci.nsIFactory)) 
-       throw Cr.NS_ERROR_NOT_IMPLEMENTED;
+	throw Cr.NS_ERROR_NOT_IMPLEMENTED;
     if(cid.equals(Components.ID("{ee042780-dcf9-11dd-8733-0002a5d5c51b}"))) 
-       return ZimprotocolHandlerFactory;
+	return ZimprotocolHandlerFactory;
     throw Cr.NS_ERROR_NO_INTERFACE;
 }
 

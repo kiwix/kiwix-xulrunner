@@ -18,7 +18,26 @@
  */
 
 #include "xpcom-config.h"
-#include "nsIGenericFactory.h"
+
+#if GECKO_VERSION == 2
+#if !defined(NS_ATTR_MALLOC)
+  #define NS_ATTR_MALLOC
+  #endif
+
+#if !defined(NS_WARN_UNUSED_RESULT)
+  #define NS_WARN_UNUSED_RESULT
+  #endif
+
+#if !defined(MOZ_CPP_EXCEPTIONS)
+  #define MOZ_CPP_EXCEPTIONS
+  #endif
+
+  #include "mozilla/ModuleUtils.h"
+  #include "nsIClassInfoImpl.h"
+#else
+  #include "nsIGenericFactory.h"
+#endif
+
 #include "IZimAccessor.h"
 #include <stdio.h>
 #include <stdlib.h>
@@ -305,6 +324,29 @@ NS_IMETHODIMP ZimAccessor::IsCorrupted(PRBool *retVal) {
   return NS_OK;
 }
 
+#if GECKO_VERSION == 2
+NS_GENERIC_FACTORY_CONSTRUCTOR(ZimAccessor)
+NS_DEFINE_NAMED_CID(IZIMACCESSOR_IID);
+static const mozilla::Module::CIDEntry kZimAccessorCIDs[] = {
+  { &kIZIMACCESSOR_IID, false, NULL, ZimAccessorConstructor },
+  { NULL }
+};
+
+static const mozilla::Module::ContractIDEntry kZimAccessorContracts[] = {
+  { "@kiwix.org/zimAccessor", &kIZIMACCESSOR_IID },
+  { NULL }
+};
+
+static const mozilla::Module kZimAccessorModule = {
+  mozilla::Module::kVersion,
+  kZimAccessorCIDs,
+  kZimAccessorContracts,
+  NULL
+};
+
+NSMODULE_DEFN(nsZimAccessor) = &kZimAccessorModule;
+NS_IMPL_MOZILLA192_NSGETMODULE(&kZimAccessorModule)
+#else
 NS_GENERIC_FACTORY_CONSTRUCTOR(ZimAccessor)
 
 static const nsModuleComponentInfo components[] =
@@ -317,3 +359,4 @@ static const nsModuleComponentInfo components[] =
 };
 
 NS_IMPL_NSGETMODULE(nsZimAccessor, components)
+#endif

@@ -18,7 +18,26 @@
  */
 
 #include "xpcom-config.h"
-#include "nsIGenericFactory.h"
+
+#if GECKO_VERSION == 2
+#if !defined(NS_ATTR_MALLOC)
+  #define NS_ATTR_MALLOC
+  #endif
+
+#if !defined(NS_WARN_UNUSED_RESULT)
+  #define NS_WARN_UNUSED_RESULT
+  #endif
+
+#if !defined(MOZ_CPP_EXCEPTIONS)
+  #define MOZ_CPP_EXCEPTIONS
+  #endif
+
+  #include "mozilla/ModuleUtils.h"
+  #include "nsIClassInfoImpl.h"
+#else
+  #include "nsIGenericFactory.h"
+#endif
+
 #include "IContentManager.h"
 #include <stdio.h>
 #include <stdlib.h>
@@ -345,6 +364,30 @@ NS_IMETHODIMP ContentManager::SetBookIndex(const nsACString &id, const nsACStrin
   return NS_OK;
 }
 
+#if GECKO_VERSION == 2
+
+NS_GENERIC_FACTORY_CONSTRUCTOR(ContentManager)
+NS_DEFINE_NAMED_CID(ICONTENTMANAGER_IID);
+static const mozilla::Module::CIDEntry kContentManagerCIDs[] = {
+  { &kICONTENTMANAGER_IID, false, NULL, ContentManagerConstructor },
+  { NULL }
+};
+
+static const mozilla::Module::ContractIDEntry kContentManagerContracts[] = {
+  { "@kiwix.org/contentManager", &kICONTENTMANAGER_IID },
+  { NULL }
+};
+
+static const mozilla::Module kContentManagerModule = {
+  mozilla::Module::kVersion,
+  kContentManagerCIDs,
+  kContentManagerContracts,
+  NULL
+};
+
+NSMODULE_DEFN(nsContentManager) = &kContentManagerModule;
+NS_IMPL_MOZILLA192_NSGETMODULE(&kContentManagerModule)
+#else
 NS_GENERIC_FACTORY_CONSTRUCTOR(ContentManager)
 
 static const nsModuleComponentInfo components[] =
@@ -357,3 +400,4 @@ static const nsModuleComponentInfo components[] =
 };
 
 NS_IMPL_NSGETMODULE(nsContentManager, components)
+#endif
