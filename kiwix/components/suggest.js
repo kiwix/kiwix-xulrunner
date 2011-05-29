@@ -11,7 +11,7 @@ function gS(){};
 gS.prototype={
 
     classID: Components.ID("{7f7984b9-acc4-4da9-a159-c378fdca4f46}"),
-    QueryInterface: XPCOMUtils.generateQI([Components.interfaces.nsIMyComponent]),
+    QueryInterface: XPCOMUtils.generateQI([Components.interfaces.nsIComponentRegistrar]),
 
     startSearch:function(searchString, searchParam, result, listener) {
 
