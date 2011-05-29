@@ -172,8 +172,8 @@ function saveWindowGeometry(width, height, x, y, windowState) {
 
 /* Compute position and size of the window */
 function configureWindowGeometry(window) {
-    var width = settings.windowWidth() || screen.width / 100 * 80;
-    var height = settings.windowHeight() || screen.height / 100 * 80;
+    var width = settings.windowWidth() || screen.width / 100 * 90;
+    var height = settings.windowHeight() || screen.height / 100 * 90;
     var x = (settings.windowX() != undefined) ? settings.windowX() : (screen.width - width) / 2;
     var y = (settings.windowY() != undefined) ? settings.windowY() : (screen.height - height) / 2;
 
