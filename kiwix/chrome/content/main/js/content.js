@@ -1,5 +1,5 @@
 var _selectedLibraryContentItem = undefined;
-var aria2Client = new xmlrpc_client ("rpc", "localhost", "6800", "http");
+var aria2Client = new xmlrpc_client ("rpc", "localhost", "42042", "http");
 var aria2Process = null;
 var jobTimer = null;
 
@@ -44,7 +44,7 @@ function startDownloader() {
 	.createInstance(Components.interfaces.nsIProcess);
     aria2Process.init(binary);
 
-    var args = [ "--enable-rpc", "--dir=" + settings.getRootPath(), "--log=" + getDownloaderLogPath(), "--allow-overwrite=true" ];
+    var args = [ "--enable-xml-rpc", "--xml-rpc-listen-port=42042", "--dir=" + settings.getRootPath(), "--log=" + getDownloaderLogPath(), "--allow-overwrite=true", "--disable-ipv6=true" ];
     aria2Process.run(false, args, args.length);
 }
 
