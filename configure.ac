@@ -43,6 +43,21 @@ then
     AC_MSG_ERROR([jar is required.])
   fi
 
+  # Chek aria2
+  AC_CHECK_TOOL([ARIA2C],[aria2c],[])
+  if [[ "$ARIA2C" = "" ]]; then
+    AC_MSG_ERROR([aria2c is required.])
+  fi
+
+  # aria2c version	
+  ARIA2C_VERSION=`aria2c -v | grep "aria2 version" | cut -d' ' -f3`
+  AC_MSG_RESULT(checking for aria2c version... ${ARIA2C_VERSION})
+  ARIA2C_VERSION=`aria2c -v | grep "aria2 version" | cut -d' ' -f3 | cut -d. -f-2 | sed "s/\.//"`
+  if [[ ${ARIA2C_VERSION} -lt 110 ]]
+  then
+    AC_MSG_ERROR([aria2c is too old, you need version 1.10 or newer.])
+  fi
+
   # Check the compiler version
   if test [ "$CXX" ]
   then
