@@ -75,10 +75,12 @@ gS.prototype={
 }
 
 function gR(z,r){this._z=z;this._r=r;}
+
 gR.prototype={
    _z:0,_r:[],
    get searchResult(){return this._z},
    get matchCount(){return this._r.length},
+   getLabelAt:function(i){return this._r[i]},
    getValueAt:function(i){return this._r[i]},
    getStyleAt:function(i){return null},
    getImageAt:function(i){return ''},
