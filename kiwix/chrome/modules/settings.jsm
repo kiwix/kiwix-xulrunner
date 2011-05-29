@@ -1,8 +1,9 @@
 var EXPORTED_SYMBOLS = [ "settings" ];
 
 /* Define the Book class */
-function Download(id, completed, status) {
+function Download(id, gid, completed, status) {
         this.id = id || "";
+        this.gid = gid || "";
         this.completed = completed || "0";
 	this.status = status || "1";
 }
@@ -118,7 +119,7 @@ let settings = {
         var downloadsString = "";
 	for(var i=0; i<downloadsArray.length; i++) {
             var download = downloadsArray[i];
-	    var downloadString = download.id + ";" + download.completed + ";" + download.status;
+	    var downloadString = download.id + ";" + download.gid + ";" + download.completed + ";" + download.status;
             
 	    if (downloadsString != "") {
 	        downloadsString += "|";
@@ -135,7 +136,7 @@ let settings = {
 	    for(var i=0; i<downloadsStringArray.length; i++) {
 	        var downloadString = downloadsStringArray[i];
 	        var downloadStringArray = downloadString.split(';');
-	        var download = new Download(downloadStringArray[0], downloadStringArray[1], downloadStringArray[2]);
+	        var download = new Download(downloadStringArray[0], downloadStringArray[1], downloadStringArray[2], downloadStringArray[3]);
 	        downloadsArray.push(download);
 	    }
         }

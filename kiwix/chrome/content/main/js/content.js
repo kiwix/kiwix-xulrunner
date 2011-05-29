@@ -44,7 +44,7 @@ function startDownloader() {
 	.createInstance(Components.interfaces.nsIProcess);
     aria2Process.init(binary);
 
-    var args = [ "--enable-xml-rpc", "--dir=" + settings.getRootPath(), "--log=" + getDownloaderLogPath(), "--allow-overwrite=true" ];
+    var args = [ "--enable-rpc", "--dir=" + settings.getRootPath(), "--log=" + getDownloaderLogPath(), "--allow-overwrite=true" ];
     aria2Process.run(false, args, args.length);
 }
 
@@ -55,8 +55,22 @@ function stopDownloader() {
     }
 }
 
-function startDownload(url) {
+function isDownloadPaused(gid) {
+     var param1 = new xmlrpcval(gid, "base64");
+     var param2 = new xmlrpcval("gid", "base64");
+     var param3 = new xmlrpcval("status", "base64");
+     var arr = [param2, param3];
+     var param4 = new xmlrpcval(arr, 'array');
+     var msg = new xmlrpcmsg("aria2.tellStatus", [ param1, param4 ]);
+     var response = aria2Client.send(msg);
+     if (response.val) {
+	 var value = response.val.structMem('status').scalarVal();
+	 return (value == "paused" ? true : false);
+     }
+     return false;
+}
 
+function startDownload(url, id) {
     /* Start downloader if necessary*/
     if (aria2Process == null) {
 	startDownloader();
@@ -64,11 +78,23 @@ function startDownload(url) {
 
     var backgroundTask = {
 	run: function() {
-	    var torrentContent = loadBinaryResource(url);
-	    var param = new xmlrpcval(torrentContent, "base64");
+	    var contentMetalink = loadBinaryResource(url);
+	    var param = new xmlrpcval(contentMetalink, "base64");
 	    var msg = new xmlrpcmsg("aria2.addMetalink", [ param ]);
 	    var response = aria2Client.send(msg);
-	    response.val.scalarVal();
+	    var gid = response.val.arrayMem(0).scalarVal();
+
+	    /* set the gid */
+	    var downloadsString = settings.downloads();
+	    var downloadsArray = settings.unserializeDownloads(downloadsString);
+	    for(var index=0; index<downloadsArray.length; index++) {
+		var download = downloadsArray[index];
+		if (download.id == id) {
+		    download.gid = gid;
+		}
+	    }
+	    var downloadsString = settings.serializeDownloads(downloadsArray);
+	    settings.downloads(downloadsString);
 	}
     }
 
@@ -100,15 +126,40 @@ function getDownloadStatus() {
     if (aria2Process != null) {
         var downloadsString = settings.downloads();
         var downloadsArray = settings.unserializeDownloads(downloadsString);
-	for(var index=0; index<downloadsArray.length; index++) {
+	var msg = new xmlrpcmsg("aria2.tellActive");
+	var response = aria2Client.send(msg);
+	var activeIndex = 0;
+
+	for (var index=0; index<downloadsArray.length; index++) {
 	    var download = downloadsArray[index];
-	    var id = download.id;
-	    var msg = new xmlrpcmsg("aria2.tellActive");
-	    var response = aria2Client.send(msg);
+
+	    if (download.status == 0) {
+		var id = download.id;
+		var gid = download.gid;
+		var completed = download.completed;
+		var book = library.getBookById(id);
+		var size = book.size * 1024;
+		var downloadStatusLabel = document.getElementById("download-status-label-" + id);
+		var dowloadStatusLabelString = "Paused – " + formatFileSize(completed) + " of " + formatFileSize(size) + " (" + formatFileSize(downloadSpeed * 8) + "/s)"; 
+		downloadStatusLabel.setAttribute("value", dowloadStatusLabelString);
+		
+		var progressbar = document.getElementById("progressbar-" + id);
+		if (completed != undefined && completed != "0" && completed != "") {
+		    var percent = completed / (book.size * 1024) * 100;
+		    progressbar.setAttribute("value", percent);
+		} else {
+		    progressbar.setAttribute("value", 0);
+		}
+	    }
+	}
+
+	for (var index=0; index<response.val.arraySize(); index++) {
 	    var downloadStatus = response.val.arrayMem(index);
-	    
+
 	    if (downloadStatus) {
 		/* Retrieve infos */
+		var status = downloadStatus.structMem('status').scalarVal();
+		var gid = downloadStatus.structMem('gid').scalarVal();
 		var downloadSpeed = downloadStatus.structMem('downloadSpeed').scalarVal();
 		var size = downloadStatus.structMem('totalLength').scalarVal();
 		var completed = downloadStatus.structMem('completedLength').scalarVal();
@@ -118,20 +169,34 @@ function getDownloadStatus() {
 		remaining = parseInt(remaining - (remainingHours * 3600));
 		var remainingMinutes = (remaining >= 60 ? parseInt(remaining / 60) : 0);
 		remaining = parseInt(remaining - (remainingMinutes * 60));
+	    
+		if (completed > 0 || downloadSpeed > 0) {
 
-		/* Update the settings */
-		download.completed = completed;
+		    /* Find the corresponding download */
+		    var id = "";
+		    for (var index=0; index<downloadsArray.length; index++) {
+			var download = downloadsArray[index];
+			if (download.gid == gid)
+			    id = download.id;
+		    }
 
-		/* Update the progressbar */
-		var progressbar = document.getElementById("progressbar-" + id);
-		progressbar.setAttribute("value", percent);
-
-		/* Update the download status string */
-		var downloadStatusLabel = document.getElementById("download-status-label-" + id);
-		var dowloadStatusLabelString = "Time remaining: " + (remainingHours > 0 ? remainingHours + " hours, " : "") + (remainingMinutes > 0 ? remainingMinutes + " minutes, " : "") + (remainingHours == 0 && remaining > 0 ? remaining + " seconds" : "") + " – " + formatFileSize(completed) + " of " + formatFileSize(size) + " (" + formatFileSize(downloadSpeed * 8) + "/s)"; 
-		downloadStatusLabel.setAttribute("value", dowloadStatusLabelString);
+		    /* Update the settings */
+		    download.completed = completed;
+		    
+		    /* Update the progressbar */
+		    var progressbar = document.getElementById("progressbar-" + id);
+		    progressbar.setAttribute("value", percent);
+		    
+		    /* Update the download status string */
+		    var downloadStatusLabel = document.getElementById("download-status-label-" + id);
+		    var dowloadStatusLabelString = "Time remaining: " + (remainingHours > 0 ? remainingHours + " hours, " : "") + (remainingMinutes > 0 ? remainingMinutes + " minutes, " : "") + (remainingHours == 0 && remaining > 0 ? remaining + " seconds" : "") + " – " + formatFileSize(completed) + " of " + formatFileSize(size) + " (" + formatFileSize(downloadSpeed * 8) + "/s)"; 
+		    downloadStatusLabel.setAttribute("value", dowloadStatusLabelString);
+		} else {
+		    var downloadStatusLabel = document.getElementById("download-status-label-" + id);
+		    downloadStatusLabel.setAttribute("value", "Preparing download...");
+		}
 	    }
-	} 	
+	}
 
 	var downloadsString = settings.serializeDownloads(downloadsArray);
 	settings.downloads(downloadsString);
@@ -185,11 +250,12 @@ function manageStartDownload(id, completed) {
     playButton.setAttribute("style", "display: none;");
     var pauseButton = document.getElementById("pause-button-" + id);
     pauseButton.setAttribute("style", "display: block;");
+    var downloadStatusLabel = document.getElementById("download-status-label-" + id);
+    downloadStatusLabel.setAttribute("value", "Preparing download...");
     var detailsDeck = document.getElementById("download-deck-" + id);
     detailsDeck.setAttribute("selectedIndex", "1");
 
     var book = library.getBookById(id);
-
     var progressbar = document.getElementById("progressbar-" + id);
     if (completed != undefined && completed != "0" && completed != "") {
 	var percent = completed / (book.size * 1024) * 100;
@@ -198,18 +264,59 @@ function manageStartDownload(id, completed) {
 	progressbar.setAttribute("value", 0);
     }
 
-    var urlString = book.url;
-    startDownload(urlString);
-    
+    startDownload(book.url, book.id);
+}
+
+function manageResumeDownload(id) {
+    /* User Interface update */
+    var pauseButton = document.getElementById("pause-button-" + id);
+    pauseButton.setAttribute("style", "display: block;");
+    var playButton = document.getElementById("play-button-" + id);
+    playButton.setAttribute("style", "display: none;");
+
+    /* Pause the download */
+    var downloadsString = settings.downloads();
+    var downloadsArray = settings.unserializeDownloads(downloadsString);
+    for(var index=0; index<downloadsArray.length; index++) {
+	var download = downloadsArray[index];
+	if (download.id == id) {
+	    download.status = 1;
+	    dump("resume download" + download.gid + "\n");
+	    if (isDownloadPaused(download.gid)) {
+		resumeDownload(download.gid);
+	    } else {
+		var book = library.getBookById(download.id);
+		startDownload(book.url, book.id);
+	    }
+	}
+    }
+    var downloadsString = settings.serializeDownloads(downloadsArray);
+    settings.downloads(downloadsString);
 }
 
 function managePauseDownload(id) {
+    /* User Interface update */
     var pauseButton = document.getElementById("pause-button-" + id);
     pauseButton.setAttribute("style", "display: none;");
     var playButton = document.getElementById("play-button-" + id);
     playButton.setAttribute("style", "display: block;");
+    var downloadButton = document.getElementById("download-button-" + id);
+    downloadButton.setAttribute("style", "display: none;");
     var detailsDeck = document.getElementById("download-deck-" + id);
     detailsDeck.setAttribute("selectedIndex", "1");
+
+    /* Pause the download */
+    var downloadsString = settings.downloads();
+    var downloadsArray = settings.unserializeDownloads(downloadsString);
+    for(var index=0; index<downloadsArray.length; index++) {
+	var download = downloadsArray[index];
+	if (download.id == id) {
+	    download.status = 0;
+	    pauseDownload(download.gid);
+	}
+    }
+    var downloadsString = settings.serializeDownloads(downloadsArray);
+    settings.downloads(downloadsString);
 }
 
 function populateBookList(container) {
@@ -337,7 +444,7 @@ function populateBookList(container) {
 						      "button");
 	    playButton.setAttribute("id", "play-button-" + book.id);
 	    playButton.setAttribute("class", "play mini-button");
-	    playButton.setAttribute("onclick", "event.stopPropagation(); manageStartDownload('" + book.id + "')");
+	    playButton.setAttribute("onclick", "event.stopPropagation(); manageResumeDownload('" + book.id + "')");
 	    progressmeterBox.appendChild(playButton);
 	    
 	    var cancelButton = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
@@ -434,10 +541,17 @@ function toggleLibrary() {
 function resumeOngoingDownloads() {
     var downloadsString = settings.downloads();
     var downloadsArray = settings.unserializeDownloads(downloadsString);
+
+    if (downloadsArray.length > 0 && aria2Process == null) {
+	startDownloader();
+    }
+
     for(var index=0; index<downloadsArray.length; index++) {
 	var download = downloadsArray[index];
-	if (download.status == "1") {
+	if (download.status == 1) {
 	    manageStartDownload(download.id, download.completed);
+	} else {
+	    managePauseDownload(download.id);
 	}
     }
 }
