@@ -196,9 +196,7 @@ static const nsModuleComponentInfo components[] =
    { "cluceneAccessor",
      ICLUCENEACCESSOR_IID,
      "@kiwix.org/cluceneAccessor",
-     CluceneAccessorConstructor,
-     CluceneAccessorRegistration,
-     CluceneAccessorUnregistration
+     CluceneAccessorConstructor
    }
 };
 
