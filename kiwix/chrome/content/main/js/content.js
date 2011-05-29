@@ -108,15 +108,31 @@ function getDownloadStatus() {
 	    var downloadStatus = response.val.arrayMem(index);
 	    
 	    if (downloadStatus) {
+		/* Retrieve infos */
 		var downloadSpeed = downloadStatus.structMem('downloadSpeed').scalarVal();
 		var size = downloadStatus.structMem('totalLength').scalarVal();
 		var completed = downloadStatus.structMem('completedLength').scalarVal();
-		download.completed = completed;
 		var percent = completed / size * 100;
+		var remaining = (size - completed) / downloadSpeed;
+		var remainingHours = (remaining >= 3600 ? parseInt(remaining / 3600) : 0);
+		remaining = parseInt(remaining - (remainingHours * 3600));
+		var remainingMinutes = (remaining >= 60 ? parseInt(remaining / 60) : 0);
+		remaining = parseInt(remaining - (remainingMinutes * 60));
+
+		/* Update the settings */
+		download.completed = completed;
+
+		/* Update the progressbar */
 		var progressbar = document.getElementById("progressbar-" + id);
 		progressbar.setAttribute("value", percent);
+
+		/* Update the download status string */
+		var downloadStatusLabel = document.getElementById("download-status-label-" + id);
+		var dowloadStatusLabelString = "Time remaining: " + (remainingHours > 0 ? remainingHours + " hours, " : "") + (remainingMinutes > 0 ? remainingMinutes + " minutes, " : "") + (remainingHours == 0 && remaining > 0 ? remaining + " seconds" : "") + " – " + formatFileSize(completed) + " of " + formatFileSize(size) + " (" + formatFileSize(downloadSpeed * 8) + "/s)"; 
+		downloadStatusLabel.setAttribute("value", dowloadStatusLabelString);
 	    }
 	} 	
+
 	var downloadsString = settings.serializeDownloads(downloadsArray);
 	settings.downloads(downloadsString);
     }
@@ -136,7 +152,6 @@ function formatNumber( number, decimals, dec_point, thousands_sep ) {
 }
 
 function formatFileSize(filesize) {
-    filesize *= 1024;
     if (filesize >= 1073741824) {
 	filesize = formatNumber(filesize / 1073741824, 2, '.', '') + ' Gb';
     } else {
@@ -262,7 +277,7 @@ function populateBookList(container) {
         var sizeLabel = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
 						  "label");
 	sizeLabel.setAttribute("class", "library-content-item-detail");
-	sizeLabel.setAttribute("value", "Size: " + formatFileSize(book.size) + " (" + book.articleCount + " articles, " + book.mediaCount + " medias)");
+	sizeLabel.setAttribute("value", "Size: " + formatFileSize(book.size * 1024) + " (" + book.articleCount + " articles, " + book.mediaCount + " medias)");
 	leftColumn.appendChild(sizeLabel);
 
         var creatorLabel = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
@@ -333,6 +348,7 @@ function populateBookList(container) {
 	    
 	    var downloadStatusLabel = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
 							       "label");
+	    downloadStatusLabel.setAttribute("id", "download-status-label-" + book.id);
 	    downloadStatusLabel.setAttribute("value", "download details...");
 	    downloadBox.appendChild(downloadStatusLabel);
 	}
