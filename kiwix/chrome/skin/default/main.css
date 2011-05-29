@@ -355,8 +355,8 @@ window[langdir="rtl"] #button-next {
 .library-content-item-favicon {
     background-repeat: no-repeat; 
     background-position: right top; 
-    width: 80px; 
-    margin: 10px 10px 0px 0px;
+    width: 55px; 
+    margin: 10px 5px 0px 0px;
 }
 
 .library-content-item-details {
