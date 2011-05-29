@@ -44,7 +44,7 @@ function startDownloader() {
 	.createInstance(Components.interfaces.nsIProcess);
     aria2Process.init(binary);
 
-    var args = [ "--enable-xml-rpc", "--xml-rpc-listen-port=42042", "--dir=" + settings.getRootPath(), "--log=" + getDownloaderLogPath(), "--allow-overwrite=true", "--disable-ipv6=true" ];
+    var args = [ "--enable-xml-rpc", "--xml-rpc-listen-port=42042", "--dir=" + settings.getRootPath(), "--log=" + getDownloaderLogPath(), "--allow-overwrite=true", "--disable-ipv6=true", "--quiet=true", "--always-resume=true" ];
     aria2Process.run(false, args, args.length);
 }
 
@@ -281,7 +281,6 @@ function manageResumeDownload(id) {
 	var download = downloadsArray[index];
 	if (download.id == id) {
 	    download.status = 1;
-	    dump("resume download" + download.gid + "\n");
 	    if (isDownloadPaused(download.gid)) {
 		resumeDownload(download.gid);
 	    } else {
