@@ -88,20 +88,19 @@ gR.prototype={
 	  return this;
    }
 }
-var gF={createInstance:function(o,i){return new gS().QueryInterface(i)}}
-var gM={
-   registerSelf:function(c,f,l,t){c.QueryInterface(Cg).registerFactoryLocation(g,"Kiwix search Suggest",
-      "@mozilla.org/autocomplete/search;1?name=kiwix-suggest",f,l,t)},
-   unregisterSelf:function(c,l,t){c.QueryInterface(Cg).unregisterFactoryLocation(g,l)},
-   getClassObject:function(c,a,i){return gF},
-   canUnload:function(c){return true}
-}
-
 
 if (XPCOMUtils.generateNSGetFactory) {
     var NSGetFactory = XPCOMUtils.generateNSGetFactory([gS]);
 } else {
-    var NSGetModule = XPCOMUtils.generateNSGetModule([gS]);
+    var gF={createInstance:function(o,i){return new gS().QueryInterface(i)}}
+    var gM={
+	registerSelf:function(c,f,l,t){c.QueryInterface(Cg).registerFactoryLocation(g,"Kiwix search Suggest",
+										    "@mozilla.org/autocomplete/search;1?name=kiwix-suggest",f,l,t)},
+	unregisterSelf:function(c,l,t){c.QueryInterface(Cg).unregisterFactoryLocation(g,l)},
+	getClassObject:function(c,a,i){return gF},
+	canUnload:function(c){return true}
+    }
+
+    function NSGetModule(c,f){return gM}
 }
 
-function NSGetModule(c,f){return gM}

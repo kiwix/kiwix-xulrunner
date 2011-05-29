@@ -184,37 +184,35 @@ var ZimprotocolHandlerFactory = {
 if (XPCOMUtils.generateNSGetFactory) {
     var NSGetFactory = XPCOMUtils.generateNSGetFactory([ZimprotocolHandler]);
 } else {
-    var NSGetModule = XPCOMUtils.generateNSGetModule([ZimprotocolHandler]);
-}
-
-var ZimprotocolModule = new Object();
-
-ZimprotocolModule.registerSelf = function(compMgr, fileSpec, location, type) {
-    compMgr = compMgr.QueryInterface(Ci.nsIComponentRegistrar);
-    compMgr.registerFactoryLocation(Components.ID("{ee042780-dcf9-11dd-8733-0002a5d5c51b}"),
-				    "ZIM protocol handler",
-				    "@mozilla.org/network/protocol;1?name=zim",
-				    fileSpec, location, type);
+    var ZimprotocolModule = new Object();
     
-}
-
-ZimprotocolModule.unregisterSelf = function(compMgr, location, loaderStr) {
-    compMgr = compMgr.QueryInterface(Ci.nsIComponentRegistrar);
-    compMgr.unregisterFactoryLocation(Components.ID("{ee042780-dcf9-11dd-8733-0002a5d5c51b}"), location);
-}
-
-ZimprotocolModule.getClassObject = function(compMgr, cid, iid) {
-    if(!iid.equals(Ci.nsIFactory)) 
-	throw Cr.NS_ERROR_NOT_IMPLEMENTED;
-    if(cid.equals(Components.ID("{ee042780-dcf9-11dd-8733-0002a5d5c51b}"))) 
-	return ZimprotocolHandlerFactory;
-    throw Cr.NS_ERROR_NO_INTERFACE;
-}
-
-ZimprotocolModule.canUnload = function(compMgr) {
-    return true;
-}
-
-function NSGetModule(compMgr, fileSpec) {
-    return ZimprotocolModule;
+    ZimprotocolModule.registerSelf = function(compMgr, fileSpec, location, type) {
+	compMgr = compMgr.QueryInterface(Ci.nsIComponentRegistrar);
+	compMgr.registerFactoryLocation(Components.ID("{ee042780-dcf9-11dd-8733-0002a5d5c51b}"),
+					"ZIM protocol handler",
+					"@mozilla.org/network/protocol;1?name=zim",
+					fileSpec, location, type);
+	
+    }
+    
+    ZimprotocolModule.unregisterSelf = function(compMgr, location, loaderStr) {
+	compMgr = compMgr.QueryInterface(Ci.nsIComponentRegistrar);
+	compMgr.unregisterFactoryLocation(Components.ID("{ee042780-dcf9-11dd-8733-0002a5d5c51b}"), location);
+    }
+    
+    ZimprotocolModule.getClassObject = function(compMgr, cid, iid) {
+	if(!iid.equals(Ci.nsIFactory)) 
+	    throw Cr.NS_ERROR_NOT_IMPLEMENTED;
+	if(cid.equals(Components.ID("{ee042780-dcf9-11dd-8733-0002a5d5c51b}"))) 
+	    return ZimprotocolHandlerFactory;
+	throw Cr.NS_ERROR_NO_INTERFACE;
+    }
+    
+    ZimprotocolModule.canUnload = function(compMgr) {
+	return true;
+    }
+    
+    function NSGetModule(compMgr, fileSpec) {
+	return ZimprotocolModule;
+    }
 }
