@@ -3,9 +3,15 @@ const Cc=Components;
 const Ci=Cc.interfaces;
 const Cg=Ci.nsIComponentRegistrar;
 const g=Cc.ID("7f7984b9-acc4-4da9-a159-c378fdca4f46");
-const max=5;
+const max=11;
 
 Components.utils.import("resource://gre/modules/XPCOMUtils.jsm");
+
+function Result(value, label, style) {
+        this.value = value;
+        this.label = label;
+	this.style = style;
+}
 
 function gS(){};
 gS.prototype={
@@ -37,33 +43,37 @@ gS.prototype={
 	var r=[];
 	
 	/* Build the result array */
-	zimAccessor.searchSuggestions(searchString, 50);
+	zimAccessor.searchSuggestions(searchString, 10);
 	var title = new Object();
-	while (zimAccessor.getNextSuggestion(title))
-	    r.push(title.value); 
+	while (zimAccessor.getNextSuggestion(title)) {
+	    r.push(new Result(title.value, title.value, null)); 
+	}
 
 	/* Check with lowercase or uppercase if we have space left in the result array */
-	if (r.length < 50) {
+	if (r.length < 10) {
 	    if (ucFirst(searchString) == searchString)
-		zimAccessor.searchSuggestions(ulFirst(searchString), 50 - r.length);
+		zimAccessor.searchSuggestions(ulFirst(searchString), 10 - r.length);
 	    else 
-		zimAccessor.searchSuggestions(ucFirst(searchString), 50 - r.length);	    
+		zimAccessor.searchSuggestions(ucFirst(searchString), 10 - r.length);	    
 
 	    var title = new Object();
 	    while (zimAccessor.getNextSuggestion(title)) {
 		var present = false;
 		for (i=0; i<r.length; i++) {
-			if (r[0] == title.value) {
+			if (r[0] == new Result(title.value, title.value, null)) {
                			i = r.length +1;
 				present = true;
 			}
 		}
 		if (!present) {
-        		r.push(title.value); 
+        		r.push(new Result(title.value, title.value, null)); 
 			i = r.length;
 		}
 	    }
 	}
+	
+	/* Adding the 'containing...' */
+	r.push(new Result(searchString + " ", "containing '" + searchString + "'...", "italic"));
 
 	listener.onSearchResult(j, new gR(4,r));
     },
@@ -80,9 +90,9 @@ gR.prototype={
    _z:0,_r:[],
    get searchResult(){return this._z},
    get matchCount(){return this._r.length},
-   getLabelAt:function(i){return this._r[i]},
-   getValueAt:function(i){return this._r[i]},
-   getStyleAt:function(i){return null},
+   getLabelAt:function(i){return this._r[i].label},
+   getValueAt:function(i){return this._r[i].value},
+   getStyleAt:function(i){return this._r[i].style},
    getImageAt:function(i){return ''},
    
    QueryInterface:function(a){

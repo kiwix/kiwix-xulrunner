@@ -402,3 +402,7 @@ window[langdir="rtl"] #button-next {
 .cancel {
     list-style-image: url("chrome://main/skin/icon/cancel16.png");
 }
+
+treechildren::-moz-tree-cell-text(italic) {
+    font-style: italic;
+}
