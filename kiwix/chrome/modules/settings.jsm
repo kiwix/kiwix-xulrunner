@@ -109,7 +109,7 @@ let settings = {
 	        return false;
 	}
 
-	var download = new Download(id, 0, 1);
+	var download = new Download(id, 0, 0, 1);
 	downloadsArray.push(download);
 	var downloadsString = this.serializeDownloads(downloadsArray);
 	this.downloads(downloadsString);

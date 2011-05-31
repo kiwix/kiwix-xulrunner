@@ -44,13 +44,12 @@ function startDownloader() {
 	.createInstance(Components.interfaces.nsIProcess);
     aria2Process.init(binary);
 
-    var args = [ "--enable-xml-rpc", "--xml-rpc-listen-port=42042", "--dir=" + settings.getRootPath(), "--log=" + getDownloaderLogPath(), "--allow-overwrite=true", "--disable-ipv6=true", "--quiet=true", "--always-resume=true" ];
+    var args = [ "--enable-rpc", "--rpc-listen-port=42042", "--dir=" + settings.getRootPath(), "--log=" + getDownloaderLogPath(), "--allow-overwrite=true", "--disable-ipv6=true", "--quiet=true", "--always-resume=true", "--max-concurrent-downloads=9", "--min-split-size=1M" ];
     aria2Process.run(false, args, args.length);
 }
 
 function stopDownloader() {
     if (aria2Process != null) {
-	dump("killing aria2c...\n");    
 	aria2Process.kill();
     }
 }
@@ -123,84 +122,84 @@ function resumeDownload(index) {
 }
 
 function getDownloadStatus() {
+
+    /* Get Kiwix list of downloads */
+    var kiwixDownloadsString = settings.downloads();
+    var kiwixDownloads = settings.unserializeDownloads(kiwixDownloadsString);
+    var kiwixDownloadsCount = kiwixDownloads.length;
+
+    /* Get aria2 active downloads */
+    var ariaDownloadsCount = 0;
+    var ariaResponse;
     if (aria2Process != null) {
-        var downloadsString = settings.downloads();
-        var downloadsArray = settings.unserializeDownloads(downloadsString);
-	var msg = new xmlrpcmsg("aria2.tellActive");
-	var response = aria2Client.send(msg);
-	var activeIndex = 0;
+	var ariaMessage = new xmlrpcmsg("aria2.tellActive");
+	ariaResponse = aria2Client.send(ariaMessage);
+	ariaDownloadsCount = ariaResponse.val.arraySize();
+    }
 
-	for (var index=0; index<downloadsArray.length; index++) {
-	    var download = downloadsArray[index];
+    /* Get through all known downloads */
+    for (var i=0; i<kiwixDownloadsCount; i++) {
+	var kiwixDownload = kiwixDownloads[i];
+	var book = library.getBookById(kiwixDownload.id);
+	
+	/* Download is running */
+	if (kiwixDownload.status == 1) {
 
-	    if (download.status == 0) {
-		var id = download.id;
-		var gid = download.gid;
-		var completed = download.completed;
-		var book = library.getBookById(id);
-		var size = book.size * 1024;
-		var downloadStatusLabel = document.getElementById("download-status-label-" + id);
-		var dowloadStatusLabelString = "Paused – " + formatFileSize(completed) + " of " + formatFileSize(size) + " (" + formatFileSize(downloadSpeed * 8) + "/s)"; 
-		downloadStatusLabel.setAttribute("value", dowloadStatusLabelString);
-		
-		var progressbar = document.getElementById("progressbar-" + id);
-		if (completed != undefined && completed != "0" && completed != "") {
-		    var percent = completed / (book.size * 1024) * 100;
-		    progressbar.setAttribute("value", percent);
-		} else {
-		    progressbar.setAttribute("value", 0);
+	    /* Find the corresponding ariaDownload */
+	    var ariaDownload = undefined;
+	    for (var i=0; i<ariaDownloadsCount; i++) {
+		var currentAriaDownload = ariaResponse.val.arrayMem(i);
+		var ariaDownloadGid = currentAriaDownload.structMem('gid').scalarVal();
+		if (ariaDownloadGid == kiwixDownload.gid) {
+		    ariaDownload = currentAriaDownload;
 		}
 	    }
-	}
 
-	for (var index=0; index<response.val.arraySize(); index++) {
-	    var downloadStatus = response.val.arrayMem(index);
-
-	    if (downloadStatus) {
+	    if (ariaDownload != undefined) {
 		/* Retrieve infos */
-		var status = downloadStatus.structMem('status').scalarVal();
-		var gid = downloadStatus.structMem('gid').scalarVal();
-		var downloadSpeed = downloadStatus.structMem('downloadSpeed').scalarVal();
-		var size = downloadStatus.structMem('totalLength').scalarVal();
-		var completed = downloadStatus.structMem('completedLength').scalarVal();
-		var percent = completed / size * 100;
-		var remaining = (size - completed) / downloadSpeed;
-		var remainingHours = (remaining >= 3600 ? parseInt(remaining / 3600) : 0);
-		remaining = parseInt(remaining - (remainingHours * 3600));
-		var remainingMinutes = (remaining >= 60 ? parseInt(remaining / 60) : 0);
-		remaining = parseInt(remaining - (remainingMinutes * 60));
-	    
-		if (completed > 0 || downloadSpeed > 0) {
+		var ariaDownloadSpeed = ariaDownload.structMem('downloadSpeed').scalarVal();
+		var ariaDownloadCompleted = ariaDownload.structMem('completedLength').scalarVal();
+		var ariaDownloadStatus = ariaDownload.structMem('status').scalarVal();
 
-		    /* Find the corresponding download */
-		    var id = "";
-		    for (var index=0; index<downloadsArray.length; index++) {
-			var download = downloadsArray[index];
-			if (download.gid == gid)
-			    id = download.id;
-		    }
+		/* Update download status lebel */
+		var downloadStatusLabel = document.getElementById("download-status-label-" + book.id);
+		var downloadStatusLabelString = "Preparing download...";
 
+		/* Download started */
+		if (ariaDownloadCompleted > 0 || ariaDownloadSpeed > 0) {
 		    /* Update the settings */
-		    download.completed = completed;
-		    
-		    /* Update the progressbar */
-		    var progressbar = document.getElementById("progressbar-" + id);
-		    progressbar.setAttribute("value", percent);
+		    kiwixDownload.completed = ariaDownloadCompleted;
+
+		    /* Compute the remaining time */
+		    var remaining = (book.size * 1024 - ariaDownloadCompleted) / ariaDownloadSpeed;
+		    var remainingHours = (remaining >= 3600 ? parseInt(remaining / 3600) : 0);
+		    remaining = parseInt(remaining - (remainingHours * 3600));
+		    var remainingMinutes = (remaining >= 60 ? parseInt(remaining / 60) : 0);
+		    remaining = parseInt(remaining - (remainingMinutes * 60));
 		    
 		    /* Update the download status string */
-		    var downloadStatusLabel = document.getElementById("download-status-label-" + id);
-		    var dowloadStatusLabelString = "Time remaining: " + (remainingHours > 0 ? remainingHours + " hours, " : "") + (remainingMinutes > 0 ? remainingMinutes + " minutes, " : "") + (remainingHours == 0 && remaining > 0 ? remaining + " seconds" : "") + " – " + formatFileSize(completed) + " of " + formatFileSize(size) + " (" + formatFileSize(downloadSpeed * 8) + "/s)"; 
-		    downloadStatusLabel.setAttribute("value", dowloadStatusLabelString);
-		} else {
-		    var downloadStatusLabel = document.getElementById("download-status-label-" + id);
-		    downloadStatusLabel.setAttribute("value", "Preparing download...");
+		    downloadStatusLabelString = "Time remaining: " + (remainingHours > 0 ? remainingHours + " hours, " : "") + (remainingMinutes > 0 ? remainingMinutes + " minutes, " : "") + (remainingHours == 0 && remaining > 0 ? remaining + " seconds" : "") + " – " + formatFileSize(ariaDownloadCompleted) + " of " + formatFileSize(book.size) + " (" + formatFileSize(ariaDownloadSpeed * 8) + "/s)"; 
 		}
+		downloadStatusLabel.setAttribute("value", downloadStatusLabelString);
 	    }
 	}
-
-	var downloadsString = settings.serializeDownloads(downloadsArray);
-	settings.downloads(downloadsString);
+	
+	/* Download is paused */
+	if (kiwixDownload.status == 0 && kiwixDownload.completed > 1) { 
+	    var downloadStatusLabel = document.getElementById("download-status-label-" + kiwixDownload.id);
+	    downloadStatusLabel.setAttribute("value", "Paused – " + formatFileSize(kiwixDownload.completed) + " of " + formatFileSize(book.size * 1024));
+	}
+	
+	/* Set the progressbar */
+	var progressbar = document.getElementById("progressbar-" + book.id);
+	var progressbarValue = 0;
+	if (kiwixDownload.completed != undefined && kiwixDownload.completed != "0" && kiwixDownload.completed != "")
+	    progressbarValue = kiwixDownload.completed / (book.size * 1024) * 100;
+	progressbar.setAttribute("value", progressbarValue);
     }
+    
+    kiwixDownloadsString = settings.serializeDownloads(kiwixDownloads);
+    settings.downloads(kiwixDownloadsString);
 }
 
 /* Return the tmp directory path where the search index is build */
@@ -547,12 +546,16 @@ function resumeOngoingDownloads() {
 
     for(var index=0; index<downloadsArray.length; index++) {
 	var download = downloadsArray[index];
+	download.gid = "";
 	if (download.status == 1) {
 	    manageStartDownload(download.id, download.completed);
 	} else {
 	    managePauseDownload(download.id);
 	}
     }
+
+    downloadsString = settings.serializeDownloads(downloadsArray);
+    settings.downloads(downloadsString);
 }
 
 function selectLibraryMenu(menuItemId) {
