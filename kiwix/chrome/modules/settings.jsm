@@ -119,12 +119,14 @@ let settings = {
         var downloadsString = "";
 	for(var i=0; i<downloadsArray.length; i++) {
             var download = downloadsArray[i];
-	    var downloadString = download.id + ";" + download.gid + ";" + download.completed + ";" + download.status;
+	    if (download.id != undefined && download.id != "") {
+	        var downloadString = download.id + ";" + download.gid + ";" + download.completed + ";" + download.status;
             
-	    if (downloadsString != "") {
-	        downloadsString += "|";
+		if (downloadsString != "") {
+	           downloadsString += "|";
+		}
+		downloadsString += downloadString;
 	    }
-	    downloadsString += downloadString;
 	}
 	return downloadsString;
     },

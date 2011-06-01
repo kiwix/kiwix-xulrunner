@@ -1,3 +1,5 @@
+var _populatedBookList = false;
+var _resumedDownloads = false;
 var _selectedLibraryContentItem = undefined;
 var aria2Client = new xmlrpc_client ("rpc", "localhost", "42042", "http");
 var aria2Process = null;
@@ -54,7 +56,7 @@ function stopDownloader() {
     }
 }
 
-function isDownloadPaused(gid) {
+function getAriaDownloadStatus(gid) {
      var param1 = new xmlrpcval(gid, "base64");
      var param2 = new xmlrpcval("gid", "base64");
      var param3 = new xmlrpcval("status", "base64");
@@ -62,11 +64,7 @@ function isDownloadPaused(gid) {
      var param4 = new xmlrpcval(arr, 'array');
      var msg = new xmlrpcmsg("aria2.tellStatus", [ param1, param4 ]);
      var response = aria2Client.send(msg);
-     if (response.val) {
-	 var value = response.val.structMem('status').scalarVal();
-	 return (value == "paused" ? true : false);
-     }
-     return false;
+     return response.val.structMem('status').scalarVal();
 }
 
 function startDownload(url, id) {
@@ -141,7 +139,8 @@ function getDownloadStatus() {
     for (var i=0; i<kiwixDownloadsCount; i++) {
 	var kiwixDownload = kiwixDownloads[i];
 	var book = library.getBookById(kiwixDownload.id);
-	
+	var box = document.getElementById("library-content-item-" + book.id);
+
 	/* Download is running */
 	if (kiwixDownload.status == 1) {
 
@@ -159,7 +158,6 @@ function getDownloadStatus() {
 		/* Retrieve infos */
 		var ariaDownloadSpeed = ariaDownload.structMem('downloadSpeed').scalarVal();
 		var ariaDownloadCompleted = ariaDownload.structMem('completedLength').scalarVal();
-		var ariaDownloadStatus = ariaDownload.structMem('status').scalarVal();
 
 		/* Update download status lebel */
 		var downloadStatusLabel = document.getElementById("download-status-label-" + book.id);
@@ -181,12 +179,17 @@ function getDownloadStatus() {
 		    downloadStatusLabelString = "Time remaining: " + (remainingHours > 0 ? remainingHours + " hours, " : "") + (remainingMinutes > 0 ? remainingMinutes + " minutes, " : "") + (remainingHours == 0 && remaining > 0 ? remaining + " seconds" : "") + " – " + formatFileSize(ariaDownloadCompleted) + " of " + formatFileSize(book.size) + " (" + formatFileSize(ariaDownloadSpeed * 8) + "/s)"; 
 		}
 		downloadStatusLabel.setAttribute("value", downloadStatusLabelString);
+	    } else {
+
+		var ariaDownloadPath = ariaDownload.structMem('files').arrayMem(0).structMem('path').scalarVal();
+
+
 	    }
 	}
 	
 	/* Download is paused */
+	var downloadStatusLabel = document.getElementById("download-status-label-" + kiwixDownload.id);
 	if (kiwixDownload.status == 0 && kiwixDownload.completed > 1) { 
-	    var downloadStatusLabel = document.getElementById("download-status-label-" + kiwixDownload.id);
 	    downloadStatusLabel.setAttribute("value", "Paused – " + formatFileSize(kiwixDownload.completed) + " of " + formatFileSize(book.size * 1024));
 	}
 	
@@ -238,6 +241,19 @@ function manageStopDownload(id) {
     downloadButton.setAttribute("style", "display: block;");
     var detailsDeck = document.getElementById("download-deck-" + id);
     detailsDeck.setAttribute("selectedIndex", "0");
+
+    /* Stop the download */
+    var downloadsString = settings.downloads();
+    var downloadsArray = settings.unserializeDownloads(downloadsString);
+    for(var index=0; index<downloadsArray.length; index++) {
+	var download = downloadsArray[index];
+	if (download.id == id) {
+	    stopDownload(download.gid);
+	    download.id = "";
+	}
+    }
+    var downloadsString = settings.serializeDownloads(downloadsArray);
+    settings.downloads(downloadsString);
 }
 
 function manageStartDownload(id, completed) {
@@ -280,7 +296,7 @@ function manageResumeDownload(id) {
 	var download = downloadsArray[index];
 	if (download.id == id) {
 	    download.status = 1;
-	    if (isDownloadPaused(download.gid)) {
+	    if (getAriaDownloadStatus(download.gid) == "paused") {
 		resumeDownload(download.gid);
 	    } else {
 		var book = library.getBookById(download.id);
@@ -337,6 +353,7 @@ function populateBookList(container) {
 	var box = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
 					   "box");
 	box.setAttribute("class", "library-content-item");
+	box.setAttribute("id", "library-content-item-" + book.id);
 	box.setAttribute("style", "background-color: " + backgroundColor + ";");
 	box.setAttribute("onclick", "selectLibraryContentItem(this);");
 	
@@ -485,6 +502,8 @@ function populateBookList(container) {
 	backgroundColor = (backgroundColor == "#FFFFFF" ? "#EEEEEE" : "#FFFFFF");
 	book = library.getNextBookInList();
     }
+
+    _populatedBookList = true;
 }
 
 function populateContentManager() {
@@ -496,11 +515,20 @@ function populateContentManager() {
     populateBookList(container);
 
     /* Remote */
-    var onlineLibrary = loadBinaryResource(settings.libraryUrls());
-    library.readFromText(onlineLibrary, false);
-    container = document.getElementById("library-content-remote");
-    library.listBooks("remote");
-    populateBookList(container);
+    var backgroundTask = {
+	run: function() {
+	    var onlineLibrary = loadBinaryResource(settings.libraryUrls());
+	    library.readFromText(onlineLibrary, false);
+	    container = document.getElementById("library-content-remote");
+	    library.listBooks("remote");
+	    populateBookList(container);
+	}
+    }
+
+    var thread = Components.classes["@mozilla.org/thread-manager;1"]
+	.getService(Components.interfaces.nsIThreadManager)
+	.newThread(0);
+    thread.dispatch(backgroundTask, thread.DISPATCH_NORMAL);
 }
 
 /* Show/hide library manager */
@@ -539,11 +567,11 @@ function toggleLibrary() {
 function resumeOngoingDownloads() {
     var downloadsString = settings.downloads();
     var downloadsArray = settings.unserializeDownloads(downloadsString);
-
+    
     if (downloadsArray.length > 0 && aria2Process == null) {
 	startDownloader();
     }
-
+    
     for(var index=0; index<downloadsArray.length; index++) {
 	var download = downloadsArray[index];
 	download.gid = "";
@@ -553,7 +581,7 @@ function resumeOngoingDownloads() {
 	    managePauseDownload(download.id);
 	}
     }
-
+    
     downloadsString = settings.serializeDownloads(downloadsArray);
     settings.downloads(downloadsString);
 }
