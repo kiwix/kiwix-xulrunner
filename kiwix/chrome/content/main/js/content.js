@@ -197,8 +197,8 @@ function getDownloadStatus() {
 		var ariaDownloadStatus = getAriaDownloadStatus(kiwixDownload.gid);
 		if (ariaDownloadStatus == "complete") {
 		    library.setBookPath(kiwixDownload.id, getAriaDownloadPath(kiwixDownload.gid));
-		    populateContentManager();
 		    kiwixDownload.id = "";
+		    populateContentManager();
 		}
 	    }
 	}
@@ -503,7 +503,14 @@ function populateBookList(container) {
 	buttonBox.setAttribute("style", "margin: 5px;");
 	buttonBox.appendChild(spacer.cloneNode(true));
 
-	if (book.path == "") {
+	if (book.path != "") {
+	    var loadButton = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
+							  "button");
+	    loadButton.setAttribute("label", "Load");
+	    loadButton.setAttribute("id", "load-button-" + book.id);
+	    loadButton.setAttribute("onclick", "event.stopPropagation();  toggleLibrary(); manageOpenFile('" + book.path + "')");
+	    buttonBox.appendChild(loadButton);
+	} else {
 	    var downloadButton = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
 							  "button");
 	    downloadButton.setAttribute("label", "Download");
@@ -537,13 +544,18 @@ function populateContentManager() {
     downloader.postMessage(message);
 }
 
+function isLibraryVisible() {
+    var libraryButton = getLibraryButton();
+    return libraryButton.getAttribute('checked') == "true";
+}
+
 /* Show/hide library manager */
 function toggleLibrary() {
     var libraryButton = getLibraryButton();
     var renderingPage = document.getElementById("rendering-page");
     var libraryPage = document.getElementById("library-page");
 
-    if (libraryButton.getAttribute('checked') == "true") {
+    if (isLibraryVisible()) {
 	activateHomeButton();
 	activateBackButton();
 	activateNextButton();
