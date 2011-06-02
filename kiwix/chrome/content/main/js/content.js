@@ -4,7 +4,6 @@ var _selectedLibraryContentItem = undefined;
 var aria2Client = new xmlrpc_client ("rpc", "localhost", "42042", "http");
 var aria2Process = null;
 var jobTimer = null;
-
 var downloader = new Worker("js/downloader.js");
 
 downloader.onmessage = function(event) {
@@ -72,7 +71,7 @@ function startDownloader() {
 	.createInstance(Components.interfaces.nsIProcess);
     aria2Process.init(binary);
 
-    var args = [ "--enable-rpc", "--rpc-listen-port=42042", "--dir=" + settings.getRootPath(), "--log=" + getDownloaderLogPath(), "--allow-overwrite=true", "--disable-ipv6=true", "--quiet=false", "--always-resume=true", "--max-concurrent-downloads=9", "--min-split-size=1M" ];
+    var args = [ "--enable-rpc", "--rpc-listen-port=42042", "--dir=" + settings.getRootPath(), "--log=" + getDownloaderLogPath(), "--allow-overwrite=true", "--disable-ipv6=true", "--quiet=true", "--always-resume=true", "--max-concurrent-downloads=9", "--min-split-size=1M" ];
     aria2Process.run(false, args, args.length);
 }
 
@@ -94,7 +93,7 @@ function getAriaDownloadStatus(gid) {
 }
 
 function startDownload(url, id) {
-    var message = new WorkerMessage("downloadMetalink", [ settings.libraryUrls() ], [ id ] );
+    var message = new WorkerMessage("downloadMetalink", [ url ], [ id ] );
     downloader.postMessage(message);
 }
 
@@ -117,7 +116,6 @@ function resumeDownload(index) {
 }
 
 function getDownloadStatus() {
-    return;
     /* Get Kiwix list of downloads */
     var kiwixDownloadsString = settings.downloads();
     var kiwixDownloads = settings.unserializeDownloads(kiwixDownloadsString);

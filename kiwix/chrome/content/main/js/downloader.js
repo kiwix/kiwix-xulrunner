@@ -1,6 +1,6 @@
 importScripts('workerMessage.js');
 
-function loadBinaryResource(url, callback) {
+function loadBinaryResource(url) {
     var req = new XMLHttpRequest();
     req.open('GET', url, false);
     req.overrideMimeType('text/plain; charset=x-user-defined');
