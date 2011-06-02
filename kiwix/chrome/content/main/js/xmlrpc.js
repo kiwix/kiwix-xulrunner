@@ -2457,7 +2457,7 @@ function getChildText(node)
 	var ret = '';
 	for(var i = 0; i < node.childNodes.length; i++)
 	{
-		child = node.childNodes.item(i);
+		var child = node.childNodes.item(i);
 		if (child.nodeType == 3) // ignore comments (8), character data (3), ...
 		{
 			ret += String(child.nodeValue)
