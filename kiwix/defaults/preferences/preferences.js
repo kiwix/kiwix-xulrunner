@@ -79,4 +79,4 @@ pref("accessibility.typeaheadfind.flashBar", 1);
 pref("kiwix.libraryUrls", "http://www.kiwix.org/library.xml");
 
 /* Remove accept-encoding HTTP request header for aria2 xml-rpc for debugging purpose */
-// pref("network.http.accept-encoding", "gzip;q=0,deflate;q=0");
+pref("network.http.accept-encoding", "gzip;q=0,deflate;q=0");

@@ -1,3 +1,4 @@
+
 var EXPORTED_SYMBOLS = [ "library" ];
 
 Components.utils.import("resource://modules/env.jsm");
@@ -169,6 +170,14 @@ let library = {
     /* Set the index information for a book */
     setBookIndex: function(id, indexPath, indexType) {
     	if (this.contentManager.setBookIndex(id, indexPath, indexType)) {
+	   this.writeToFile();
+	   return true;
+	}
+	return false;
+    },
+
+    setBookPath: function(id, path) {
+    	if (this.contentManager.setBookPath(id, path)) {
 	   this.writeToFile();
 	   return true;
 	}

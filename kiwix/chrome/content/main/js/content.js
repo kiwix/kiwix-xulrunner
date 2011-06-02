@@ -63,7 +63,6 @@ function startDownloader() {
 	var req = new XMLHttpRequest();
 	req.open('GET', "http://localhost:42042/", false);
 	req.send(null);
-	dump(req.status + "\n");
     } catch(error) {
 	openPort = false;
     }
@@ -83,7 +82,7 @@ function startDownloader() {
 	    .createInstance(Components.interfaces.nsIProcess);
 	aria2Process.init(binary);
 	
-	var args = [ "--enable-rpc", "--rpc-listen-port=42042", "--dir=" + settings.getRootPath(), "--log=" + getDownloaderLogPath(), "--allow-overwrite=true", "--disable-ipv6=true", "--quiet=true", "--always-resume=true", "--max-concurrent-downloads=9", "--min-split-size=1M" ];
+	var args = [ "--enable-rpc", "--rpc-listen-port=42042", "--dir=" + settings.getRootPath(), "--log=" + getDownloaderLogPath(), "--allow-overwrite=true", "--disable-ipv6=true", "--quiet=true", "--always-resume=true", "--max-concurrent-downloads=42", "--min-split-size=1M" ];
 	aria2Process.run(false, args, args.length);
     }
 }
@@ -161,8 +160,8 @@ function getDownloadStatus() {
 
 	    /* Find the corresponding ariaDownload */
 	    var ariaDownload = undefined;
-	    for (var i=0; i<ariaDownloadsCount; i++) {
-		var currentAriaDownload = ariaResponse.val.arrayMem(i);
+	    for (var j=0; j<ariaDownloadsCount; j++) {
+		var currentAriaDownload = ariaResponse.val.arrayMem(j);
 		var ariaDownloadGid = currentAriaDownload.structMem('gid').scalarVal();
 		if (ariaDownloadGid == kiwixDownload.gid) {
 		    ariaDownload = currentAriaDownload;
@@ -195,6 +194,12 @@ function getDownloadStatus() {
 		}
 		downloadStatusLabel.setAttribute("value", downloadStatusLabelString);
 	    } else {
+		var ariaDownloadStatus = getAriaDownloadStatus(kiwixDownload.gid);
+		if (ariaDownloadStatus == "complete") {
+		    library.setBookPath(kiwixDownload.id, getAriaDownloadPath(kiwixDownload.gid));
+		    populateContentManager();
+		    kiwixDownload.id = "";
+		}
 	    }
 	}
 	

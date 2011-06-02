@@ -364,6 +364,24 @@ NS_IMETHODIMP ContentManager::SetBookIndex(const nsACString &id, const nsACStrin
   return NS_OK;
 }
 
+NS_IMETHODIMP ContentManager::SetBookPath(const nsACString &id, const nsACString &path, PRBool *retVal) {
+  *retVal = PR_FALSE;
+  const char *cid;
+  NS_CStringGetData(id, &cid);
+  const char *cPath;
+  NS_CStringGetData(path, &cPath);
+  
+  try {
+    if (this->manager.setBookPath(cid, cPath)) {
+      *retVal = PR_TRUE;
+    }
+  } catch (exception &e) {
+    cerr << e.what() << endl;
+  }
+  
+  return NS_OK;
+}
+
 #if GECKO_VERSION == 2
 
 NS_GENERIC_FACTORY_CONSTRUCTOR(ContentManager)

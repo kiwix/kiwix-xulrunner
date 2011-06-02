@@ -314,11 +314,16 @@ function getFileSize(path) {
 
 /* Delete a file or a directory */
 function deleteFile(path) {
-    var fileService = Components.classes["@mozilla.org/file/local;1"].createInstance();
-    if (fileService instanceof Components.interfaces.nsILocalFile) {
-	fileService.initWithPath(path);
-	return fileService.remove(true);
+    try {
+	var fileService = Components.classes["@mozilla.org/file/local;1"].createInstance();
+	if (fileService instanceof Components.interfaces.nsILocalFile) {
+	    fileService.initWithPath(path);
+	    return fileService.remove(true);
+	}
+    } catch(error) {
+	return false;
     }
+    return true;
 }
 
 /* Move a file or a directory */
