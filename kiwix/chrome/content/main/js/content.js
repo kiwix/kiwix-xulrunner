@@ -169,6 +169,7 @@ function getDownloadStatus() {
 	    }
 
 	    if (ariaDownload != undefined) {
+
 		/* Retrieve infos */
 		var ariaDownloadSpeed = ariaDownload.structMem('downloadSpeed').scalarVal();
 		var ariaDownloadCompleted = ariaDownload.structMem('completedLength').scalarVal();
@@ -179,6 +180,7 @@ function getDownloadStatus() {
 
 		/* Download started */
 		if (ariaDownloadCompleted > 0 || ariaDownloadSpeed > 0) {
+
 		    /* Update the settings */
 		    kiwixDownload.completed = ariaDownloadCompleted;
 
@@ -297,7 +299,7 @@ function manageStartDownload(id, completed) {
     } else {
 	progressbar.setAttribute("value", 0);
     }
-
+    
     startDownload(book.url, book.id);
 }
 
@@ -583,12 +585,25 @@ function toggleLibrary() {
 }
 
 function resumeDownloads() {
+    if (_resumedDownloads)
+	return;
+
+    /* Erase gids */
     var downloadsString = settings.downloads();
     var downloadsArray = settings.unserializeDownloads(downloadsString);
 
     for(var index=0; index<downloadsArray.length; index++) {
 	var download = downloadsArray[index];
 	download.gid = "";
+    }
+    downloadsString = settings.serializeDownloads(downloadsArray);
+    settings.downloads(downloadsString);
+
+    /* Resume */
+    downloadsString = settings.downloads();
+    downloadsArray = settings.unserializeDownloads(downloadsString);
+    for(var index=0; index<downloadsArray.length; index++) {
+	var download = downloadsArray[index];
 	if (download.status == 1) {
 	    manageStartDownload(download.id, download.completed);
 	} else {
@@ -598,6 +613,8 @@ function resumeDownloads() {
     
     downloadsString = settings.serializeDownloads(downloadsArray);
     settings.downloads(downloadsString);
+
+    _resumedDownloads = true;
 }
 
 function selectLibraryMenu(menuItemId) {
