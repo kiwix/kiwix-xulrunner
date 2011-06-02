@@ -57,22 +57,35 @@ function whereis(binary) {
 }
 
 function startDownloader() {
-    var binaryPath = whereis("aria2c");
-    if (binaryPath == undefined) {
-	dump("Unable to find the aria2c binary.\n");
-	return;
+    /* Check if aria2c is not already started */
+    var openPort = true;
+    try {
+	var req = new XMLHttpRequest();
+	req.open('GET', "http://localhost:42042/", false);
+	req.send(null);
+	dump(req.status + "\n");
+    } catch(error) {
+	openPort = false;
     }
 
-    var binary = Components.classes["@mozilla.org/file/local;1"]
-	.createInstance(Components.interfaces.nsILocalFile);
-    binary.initWithPath(binaryPath);
-    
-    aria2Process = Components.classes["@mozilla.org/process/util;1"]
-	.createInstance(Components.interfaces.nsIProcess);
-    aria2Process.init(binary);
-
-    var args = [ "--enable-rpc", "--rpc-listen-port=42042", "--dir=" + settings.getRootPath(), "--log=" + getDownloaderLogPath(), "--allow-overwrite=true", "--disable-ipv6=true", "--quiet=true", "--always-resume=true", "--max-concurrent-downloads=9", "--min-split-size=1M" ];
-    aria2Process.run(false, args, args.length);
+    if (openPort == false) {
+	var binaryPath = whereis("aria2c");
+	if (binaryPath == undefined) {
+	    dump("Unable to find the aria2c binary.\n");
+	    return;
+	}
+	
+	var binary = Components.classes["@mozilla.org/file/local;1"]
+	    .createInstance(Components.interfaces.nsILocalFile);
+	binary.initWithPath(binaryPath);
+	
+	aria2Process = Components.classes["@mozilla.org/process/util;1"]
+	    .createInstance(Components.interfaces.nsIProcess);
+	aria2Process.init(binary);
+	
+	var args = [ "--enable-rpc", "--rpc-listen-port=42042", "--dir=" + settings.getRootPath(), "--log=" + getDownloaderLogPath(), "--allow-overwrite=true", "--disable-ipv6=true", "--quiet=true", "--always-resume=true", "--max-concurrent-downloads=9", "--min-split-size=1M" ];
+	aria2Process.run(false, args, args.length);
+    }
 }
 
 function stopDownloader() {
@@ -82,14 +95,14 @@ function stopDownloader() {
 }
 
 function getAriaDownloadStatus(gid) {
-     var param1 = new xmlrpcval(gid, "base64");
-     var param2 = new xmlrpcval("gid", "base64");
-     var param3 = new xmlrpcval("status", "base64");
-     var arr = [param2, param3];
-     var param4 = new xmlrpcval(arr, 'array');
-     var msg = new xmlrpcmsg("aria2.tellStatus", [ param1, param4 ]);
-     var response = aria2Client.send(msg);
-     return response.val.structMem('status').scalarVal();
+    var param1 = new xmlrpcval(gid, "base64");
+    var param2 = new xmlrpcval("gid", "base64");
+    var param3 = new xmlrpcval("status", "base64");
+    var arr = [param2, param3];
+    var param4 = new xmlrpcval(arr, 'array');
+    var msg = new xmlrpcmsg("aria2.tellStatus", [ param1, param4 ]);
+    var response = aria2Client.send(msg);
+    return (response.val != 0 ? response.val.structMem('status').scalarVal() : "");
 }
 
 function startDownload(url, id) {
@@ -592,34 +605,5 @@ function selectLibraryContentItem(box) {
 }
 
 function startDownloadObserver() {
-    var backgroundTask = {
-	run: function() {
-	    try {
-		jobTimer = Components.classes["@mozilla.org/timer;1"].createInstance(Components.interfaces.nsITimer);
-		
-		var jobEvent = {
-		    notify: function(timer) {
-			var mainThread = Components.classes["@mozilla.org/thread-manager;1"].getService().mainThread;
-			mainThread.dispatch({
-				run: function()
-				    {
-					getDownloadStatus();
-				    }
-			    }, Components.interfaces.nsIThread.DISPATCH_NORMAL);
-		    }
-		};
-     
-		jobTimer.initWithCallback(jobEvent, 1000, Components.interfaces.nsITimer.TYPE_REPEATING_SLACK);
-   
-	    } catch(err) {
-		Components.utils.reportError(err);
-	    }
-
-	}
-    }
-
-    var thread = Components.classes["@mozilla.org/thread-manager;1"]
-	.getService(Components.interfaces.nsIThreadManager)
-	.newThread(0);
-    thread.dispatch(backgroundTask, thread.DISPATCH_NORMAL);
+    window.setInterval("getDownloadStatus()", 1000);
 }
