@@ -146,8 +146,8 @@ function onStart() {
     /* Initialize the user interface */
     initUserInterface();
 
-    /* Restart downloads if necessary */
-    resumeOngoingDownloads();
+    /* Start aria */
+    startDownloader();
 }
 
 /* Clear the history and the cache */

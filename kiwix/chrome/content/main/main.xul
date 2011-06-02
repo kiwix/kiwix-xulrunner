@@ -38,6 +38,7 @@
 <script language="javaScript" type="text/javascript" src="js/tabs.js"/>
 <script language="javaScript" type="text/javascript" src="js/xmlrpc.js"/>
 <script language="javaScript" type="text/javascript" src="js/content.js"/>
+<script language="javaScript" type="text/javascript" src="js/workerMessage.js"/>
 <script language="javaScript" type="text/javascript" src="js/preferences.js"/>
 
 <!-- Global Javascript scripts -->

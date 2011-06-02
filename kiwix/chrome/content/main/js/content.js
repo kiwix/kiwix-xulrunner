@@ -5,14 +5,40 @@ var aria2Client = new xmlrpc_client ("rpc", "localhost", "42042", "http");
 var aria2Process = null;
 var jobTimer = null;
 
-function loadBinaryResource(url) {
-    var req = new XMLHttpRequest();
-    req.open('GET', url, false);
-    req.overrideMimeType('text/plain; charset=x-user-defined');
-    req.send(null);
-    if (req.status != 200) return '';
-    return req.responseText;
-}
+var downloader = new Worker("js/downloader.js");
+
+downloader.onmessage = function(event) {
+    var message = event.data;
+    if (message.id == "downloadedMetalink") {
+	var id = message.parameters[0];
+	var contentMetalink = message.parameters[1];
+	var param = new xmlrpcval(contentMetalink, "base64");
+	var msg = new xmlrpcmsg("aria2.addMetalink", [ param ]);
+	var response = aria2Client.send(msg);
+	var gid = response.val.arrayMem(0).scalarVal();
+	
+	/* set the gid */
+	var downloadsString = settings.downloads();
+	var downloadsArray = settings.unserializeDownloads(downloadsString);
+	for(var index=0; index<downloadsArray.length; index++) {
+	    var download = downloadsArray[index];
+	    if (download.id == id) {
+		download.gid = gid;
+	    }
+	}
+	var downloadsString = settings.serializeDownloads(downloadsArray);
+	settings.downloads(downloadsString);
+    } else if (message.id == "downloadedBookList") {
+	var xml = message.parameters[0];
+	library.readFromText(xml, false);
+	library.listBooks("remote");
+	populateBookList(document.getElementById("library-content-remote"));
+	resumeDownloads();
+    }
+};
+
+downloader.onerror = function(message) {
+};
 
 function whereis(binary) {
     var env = Components.classes["@mozilla.org/process/environment;1"].
@@ -46,7 +72,7 @@ function startDownloader() {
 	.createInstance(Components.interfaces.nsIProcess);
     aria2Process.init(binary);
 
-    var args = [ "--enable-rpc", "--rpc-listen-port=42042", "--dir=" + settings.getRootPath(), "--log=" + getDownloaderLogPath(), "--allow-overwrite=true", "--disable-ipv6=true", "--quiet=true", "--always-resume=true", "--max-concurrent-downloads=9", "--min-split-size=1M" ];
+    var args = [ "--enable-rpc", "--rpc-listen-port=42042", "--dir=" + settings.getRootPath(), "--log=" + getDownloaderLogPath(), "--allow-overwrite=true", "--disable-ipv6=true", "--quiet=false", "--always-resume=true", "--max-concurrent-downloads=9", "--min-split-size=1M" ];
     aria2Process.run(false, args, args.length);
 }
 
@@ -68,37 +94,8 @@ function getAriaDownloadStatus(gid) {
 }
 
 function startDownload(url, id) {
-    /* Start downloader if necessary*/
-    if (aria2Process == null) {
-	startDownloader();
-    }
-
-    var backgroundTask = {
-	run: function() {
-	    var contentMetalink = loadBinaryResource(url);
-	    var param = new xmlrpcval(contentMetalink, "base64");
-	    var msg = new xmlrpcmsg("aria2.addMetalink", [ param ]);
-	    var response = aria2Client.send(msg);
-	    var gid = response.val.arrayMem(0).scalarVal();
-
-	    /* set the gid */
-	    var downloadsString = settings.downloads();
-	    var downloadsArray = settings.unserializeDownloads(downloadsString);
-	    for(var index=0; index<downloadsArray.length; index++) {
-		var download = downloadsArray[index];
-		if (download.id == id) {
-		    download.gid = gid;
-		}
-	    }
-	    var downloadsString = settings.serializeDownloads(downloadsArray);
-	    settings.downloads(downloadsString);
-	}
-    }
-
-    var thread = Components.classes["@mozilla.org/thread-manager;1"]
-	.getService(Components.interfaces.nsIThreadManager)
-	.newThread(0);
-    thread.dispatch(backgroundTask, thread.DISPATCH_NORMAL);
+    var message = new WorkerMessage("downloadMetalink", [ settings.libraryUrls() ], [ id ] );
+    downloader.postMessage(message);
 }
 
 function stopDownload(index) {
@@ -120,7 +117,7 @@ function resumeDownload(index) {
 }
 
 function getDownloadStatus() {
-
+    return;
     /* Get Kiwix list of downloads */
     var kiwixDownloadsString = settings.downloads();
     var kiwixDownloads = settings.unserializeDownloads(kiwixDownloadsString);
@@ -180,10 +177,6 @@ function getDownloadStatus() {
 		}
 		downloadStatusLabel.setAttribute("value", downloadStatusLabelString);
 	    } else {
-
-		var ariaDownloadPath = ariaDownload.structMem('files').arrayMem(0).structMem('path').scalarVal();
-
-
 	    }
 	}
 	
@@ -510,25 +503,12 @@ function populateContentManager() {
     var container;
  
     /* Local */
-    container = document.getElementById("library-content-local");
     library.listBooks("local");
-    populateBookList(container);
+    populateBookList(document.getElementById("library-content-local"));
 
     /* Remote */
-    var backgroundTask = {
-	run: function() {
-	    var onlineLibrary = loadBinaryResource(settings.libraryUrls());
-	    library.readFromText(onlineLibrary, false);
-	    container = document.getElementById("library-content-remote");
-	    library.listBooks("remote");
-	    populateBookList(container);
-	}
-    }
-
-    var thread = Components.classes["@mozilla.org/thread-manager;1"]
-	.getService(Components.interfaces.nsIThreadManager)
-	.newThread(0);
-    thread.dispatch(backgroundTask, thread.DISPATCH_NORMAL);
+    var message = new WorkerMessage("downloadBookList", [ settings.libraryUrls() ], []);
+    downloader.postMessage(message);
 }
 
 /* Show/hide library manager */
@@ -564,14 +544,10 @@ function toggleLibrary() {
     }
 }
 
-function resumeOngoingDownloads() {
+function resumeDownloads() {
     var downloadsString = settings.downloads();
     var downloadsArray = settings.unserializeDownloads(downloadsString);
-    
-    if (downloadsArray.length > 0 && aria2Process == null) {
-	startDownloader();
-    }
-    
+
     for(var index=0; index<downloadsArray.length; index++) {
 	var download = downloadsArray[index];
 	download.gid = "";
