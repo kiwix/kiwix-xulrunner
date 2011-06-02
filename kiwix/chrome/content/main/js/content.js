@@ -105,6 +105,13 @@ function getAriaDownloadStatus(gid) {
     return (response.val != 0 ? response.val.structMem('status').scalarVal() : "");
 }
 
+function getAriaDownloadPath(gid) {
+    var param = new xmlrpcval(gid, "base64");
+    var msg = new xmlrpcmsg("aria2.getFiles", [ param ]);
+    var response = aria2Client.send(msg);
+    return (response.val != 0 ? response.val.arrayMem(0).structMem('path').scalarVal() : "");
+}
+
 function startDownload(url, id) {
     var message = new WorkerMessage("downloadMetalink", [ url ], [ id ] );
     downloader.postMessage(message);
@@ -253,6 +260,9 @@ function manageStopDownload(id) {
 	var download = downloadsArray[index];
 	if (download.id == id) {
 	    stopDownload(download.gid);
+	    var path = getAriaDownloadPath(download.gid);
+	    deleteFile(path);
+	    deleteFile(path + ".aria2");
 	    download.id = "";
 	}
     }
