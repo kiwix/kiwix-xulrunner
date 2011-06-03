@@ -720,7 +720,7 @@ function manageOpenFile(path, noSearchIndexCheck) {
 	populateLastOpenMenu();
 	
 	/* Populate the library */
-	populateContentManager();
+	populateContentManager(false, false);
 
 	/* Set the file as current */
 	library.setCurrentId(zimId);
@@ -1026,7 +1026,7 @@ function initUserInterface() {
     populateLastOpenMenu();
 
     /* Populate the library */
-    populateContentManager();
+    populateContentManager(true, true);
 
     /* Apply GUI settings */
     if (settings.displayStatusBar() != undefined) { changeStatusBarVisibilityStatus(settings.displayStatusBar()); }

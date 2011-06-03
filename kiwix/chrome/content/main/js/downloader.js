@@ -12,7 +12,7 @@ onmessage = function(event) {
     var message = event.data;
     if (message.id == "downloadBookList") {
 	var content = loadBinaryResource(message.parameters[0], message.parameters[1]);
-	message = new WorkerMessage("downloadedBookList", [ content ]);
+	message = new WorkerMessage("downloadedBookList", [ content, message.callbackParameters[0], message.callbackParameters[1] ]);
 	postMessage(message);
     } else if (message.id == "downloadMetalink") {
 	var content = loadBinaryResource(message.parameters[0], message.parameters[1]);

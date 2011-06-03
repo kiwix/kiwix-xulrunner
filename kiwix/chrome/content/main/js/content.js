@@ -1,5 +1,3 @@
-var _populatedBookList = false;
-var _resumedDownloads = false;
 var _selectedLibraryContentItem = undefined;
 var aria2Client = new xmlrpc_client ("rpc", "localhost", "42042", "http");
 var aria2Process = null;
@@ -15,7 +13,7 @@ downloader.onmessage = function(event) {
 	var msg = new xmlrpcmsg("aria2.addMetalink", [ param ]);
 	var response = aria2Client.send(msg);
 	var gid = response.val.arrayMem(0).scalarVal();
-	
+
 	/* set the gid */
 	var downloadsString = settings.downloads();
 	var downloadsArray = settings.unserializeDownloads(downloadsString);
@@ -30,9 +28,10 @@ downloader.onmessage = function(event) {
     } else if (message.id == "downloadedBookList") {
 	var xml = message.parameters[0];
 	library.readFromText(xml, false);
-	library.listBooks("remote");
-	populateBookList(document.getElementById("library-content-remote"));
-	resumeDownloads();
+	if (message.parameters[1])
+	    populateRemoteBookList();
+	if (message.parameters[2])
+	    resumeDownloads();
     }
 };
 
@@ -134,6 +133,12 @@ function resumeDownload(index) {
     var response = aria2Client.send(msg);
 }
 
+function removeDownload(index) {
+    var param = new xmlrpcval(index, "base64");
+    var msg = new xmlrpcmsg("aria2.remove", [ param ]);
+    var response = aria2Client.send(msg);
+}
+
 function getDownloadStatus() {
     /* Get Kiwix list of downloads */
     var kiwixDownloadsString = settings.downloads();
@@ -154,6 +159,11 @@ function getDownloadStatus() {
 	var kiwixDownload = kiwixDownloads[i];
 	var book = library.getBookById(kiwixDownload.id);
 	var box = document.getElementById("library-content-item-" + book.id);
+
+	/* In case of a ZIM file where open and at the same time already downloading */
+	if (book.path != "") {
+	    manageStopDownload(book.id);
+	}
 
 	/* Download is running */
 	if (kiwixDownload.status == 1) {
@@ -192,7 +202,7 @@ function getDownloadStatus() {
 		    remaining = parseInt(remaining - (remainingMinutes * 60));
 		    
 		    /* Update the download status string */
-		    downloadStatusLabelString = "Time remaining: " + (remainingHours > 0 ? remainingHours + " hours, " : "") + (remainingMinutes > 0 ? remainingMinutes + " minutes, " : "") + (remainingHours == 0 && remaining > 0 ? remaining + " seconds" : "") + " – " + formatFileSize(ariaDownloadCompleted) + " of " + formatFileSize(book.size) + " (" + formatFileSize(ariaDownloadSpeed * 8) + "/s)"; 
+		    downloadStatusLabelString = (remainingHours > 0 || remainingMinutes > 0 || remaining > 0 ? "Time remaining: " : "") + (remainingHours > 0 ? remainingHours + " hours" : "") + (remainingHours > 0 && (remainingMinutes > 0 || remaining > 0) ? ", " : "") + (remainingMinutes > 0 ? remainingMinutes + " minutes" : "") + (remainingMinutes > 0 && remaining > 0 ? ", " : "") + (remainingHours == 0 && remaining > 0 ? remaining + " seconds" : "") + (remainingHours > 0 || remainingMinutes > 0 || remaining > 0 ? " – " : "") + formatFileSize(ariaDownloadCompleted) + " of " + formatFileSize(book.size) + (ariaDownloadSpeed != undefined && ariaDownloadSpeed > 0 ? " (" + formatFileSize(ariaDownloadSpeed * 8) + "/s)" : ""); 
 		}
 		downloadStatusLabel.setAttribute("value", downloadStatusLabelString);
 	    } else {
@@ -200,23 +210,27 @@ function getDownloadStatus() {
 		if (ariaDownloadStatus == "complete") {
 		    library.setBookPath(kiwixDownload.id, getAriaDownloadPath(kiwixDownload.gid));
 		    kiwixDownload.id = "";
-		    populateContentManager();
+		    populateLocalBookList();
+		    populateRemoteBookList();
+		    removeDownload(kiwixDownload.gid);
 		}
 	    }
 	}
 	
 	/* Download is paused */
 	var downloadStatusLabel = document.getElementById("download-status-label-" + kiwixDownload.id);
-	if (kiwixDownload.status == 0 && kiwixDownload.completed > 1) { 
+	if (downloadStatusLabel != undefined && kiwixDownload.status == 0 && kiwixDownload.completed > 1) { 
 	    downloadStatusLabel.setAttribute("value", "Paused – " + formatFileSize(kiwixDownload.completed) + " of " + formatFileSize(book.size * 1024));
 	}
 	
 	/* Set the progressbar */
 	var progressbar = document.getElementById("progressbar-" + book.id);
-	var progressbarValue = 0;
-	if (kiwixDownload.completed != undefined && kiwixDownload.completed != "0" && kiwixDownload.completed != "")
-	    progressbarValue = kiwixDownload.completed / (book.size * 1024) * 100;
-	progressbar.setAttribute("value", progressbarValue);
+	if (progressbar != undefined) {
+	    var progressbarValue = 0;
+	    if (kiwixDownload.completed != undefined && kiwixDownload.completed != "0" && kiwixDownload.completed != "")
+		progressbarValue = kiwixDownload.completed / (book.size * 1024) * 100;
+	    progressbar.setAttribute("value", progressbarValue);
+	}
     }
     
     kiwixDownloadsString = settings.serializeDownloads(kiwixDownloads);
@@ -279,7 +293,6 @@ function manageStopDownload(id) {
 
 function manageStartDownload(id, completed) {
     settings.addDownload(id);
-
     var downloadButton = document.getElementById("download-button-" + id);
     downloadButton.setAttribute("style", "display: none;");
     var playButton = document.getElementById("play-button-" + id);
@@ -458,43 +471,41 @@ function populateBookList(container) {
 	var downloadBox = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
 						   "vbox");
 
-	if (book.path == "") {
-	    var progressmeterBox = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
-							    "hbox");
-	    progressmeterBox.setAttribute("flex", "1");
-	    var progressmeter = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
-							 "progressmeter");
-	    progressmeter.setAttribute("flex", "1");
-	    progressmeter.setAttribute("id", "progressbar-" + book.id);
-	    progressmeterBox.appendChild(progressmeter);
-	    downloadBox.appendChild(progressmeterBox);
-	    
-	    var pauseButton = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
-						       "button");
-	    pauseButton.setAttribute("id", "pause-button-" + book.id);
-	    pauseButton.setAttribute("class", "pause mini-button");
-	    pauseButton.setAttribute("onclick", "event.stopPropagation(); managePauseDownload('" + book.id + "')");
-	    progressmeterBox.appendChild(pauseButton);
-	    
-	    var playButton = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
-						      "button");
-	    playButton.setAttribute("id", "play-button-" + book.id);
-	    playButton.setAttribute("class", "play mini-button");
-	    playButton.setAttribute("onclick", "event.stopPropagation(); manageResumeDownload('" + book.id + "')");
-	    progressmeterBox.appendChild(playButton);
-	    
-	    var cancelButton = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
-							"button");
-	    cancelButton.setAttribute("class", "cancel mini-button");
-	    cancelButton.setAttribute("onclick", "event.stopPropagation(); manageStopDownload('" + book.id + "')");
-	    progressmeterBox.appendChild(cancelButton);
-	    
-	    var downloadStatusLabel = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
-							       "label");
-	    downloadStatusLabel.setAttribute("id", "download-status-label-" + book.id);
-	    downloadStatusLabel.setAttribute("value", "download details...");
-	    downloadBox.appendChild(downloadStatusLabel);
-	}
+	var progressmeterBox = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
+							"hbox");
+	progressmeterBox.setAttribute("flex", "1");
+	var progressmeter = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
+						     "progressmeter");
+	progressmeter.setAttribute("flex", "1");
+	progressmeter.setAttribute("id", "progressbar-" + book.id);
+	progressmeterBox.appendChild(progressmeter);
+	downloadBox.appendChild(progressmeterBox);
+	
+	var pauseButton = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
+						   "button");
+	pauseButton.setAttribute("id", "pause-button-" + book.id);
+	pauseButton.setAttribute("class", "pause mini-button");
+	pauseButton.setAttribute("onclick", "event.stopPropagation(); managePauseDownload('" + book.id + "')");
+	progressmeterBox.appendChild(pauseButton);
+	
+	var playButton = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
+						  "button");
+	playButton.setAttribute("id", "play-button-" + book.id);
+	playButton.setAttribute("class", "play mini-button");
+	playButton.setAttribute("onclick", "event.stopPropagation(); manageResumeDownload('" + book.id + "')");
+	progressmeterBox.appendChild(playButton);
+	
+	var cancelButton = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
+						    "button");
+	cancelButton.setAttribute("class", "cancel mini-button");
+	cancelButton.setAttribute("onclick", "event.stopPropagation(); manageStopDownload('" + book.id + "')");
+	progressmeterBox.appendChild(cancelButton);
+	
+	var downloadStatusLabel = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
+							   "label");
+	downloadStatusLabel.setAttribute("id", "download-status-label-" + book.id);
+	downloadStatusLabel.setAttribute("value", "download details...");
+	downloadBox.appendChild(downloadStatusLabel);
 
 	detailsDeck.appendChild(downloadBox);
 	detailsBox.appendChild(detailsDeck);
@@ -505,20 +516,24 @@ function populateBookList(container) {
 	buttonBox.setAttribute("style", "margin: 5px;");
 	buttonBox.appendChild(spacer.cloneNode(true));
 
+	var loadButton = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
+						  "button");
+	loadButton.setAttribute("label", "Load");
+	loadButton.setAttribute("id", "load-button-" + book.id);
+	loadButton.setAttribute("onclick", "event.stopPropagation();  toggleLibrary(); manageOpenFile('" + book.path + "')");
+	buttonBox.appendChild(loadButton);
+
+	var downloadButton = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
+						      "button");
+	downloadButton.setAttribute("label", "Download");
+	downloadButton.setAttribute("id", "download-button-" + book.id);
+	downloadButton.setAttribute("onclick", "event.stopPropagation(); manageStartDownload('" + book.id + "')");
+	buttonBox.appendChild(downloadButton);
+	
 	if (book.path != "") {
-	    var loadButton = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
-							  "button");
-	    loadButton.setAttribute("label", "Load");
-	    loadButton.setAttribute("id", "load-button-" + book.id);
-	    loadButton.setAttribute("onclick", "event.stopPropagation();  toggleLibrary(); manageOpenFile('" + book.path + "')");
-	    buttonBox.appendChild(loadButton);
+	    downloadButton.setAttribute("style", "display: none;");
 	} else {
-	    var downloadButton = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
-							  "button");
-	    downloadButton.setAttribute("label", "Download");
-	    downloadButton.setAttribute("id", "download-button-" + book.id);
-	    downloadButton.setAttribute("onclick", "event.stopPropagation(); manageStartDownload('" + book.id + "')");
-	    buttonBox.appendChild(downloadButton);
+	    loadButton.setAttribute("style", "display: none;");
 	}
 
 	hbox.appendChild(buttonBox);
@@ -530,20 +545,29 @@ function populateBookList(container) {
 	backgroundColor = (backgroundColor == "#FFFFFF" ? "#EEEEEE" : "#FFFFFF");
 	book = library.getNextBookInList();
     }
-
-    _populatedBookList = true;
 }
 
-function populateContentManager() {
-    var container;
- 
-    /* Local */
+function populateLocalBookList() {
     library.listBooks("local");
     populateBookList(document.getElementById("library-content-local"));
+}
 
-    /* Remote */
-    var message = new WorkerMessage("downloadBookList", [ settings.libraryUrls() ], []);
+function populateRemoteBookList() {
+    library.listBooks("remote");
+    populateBookList(document.getElementById("library-content-remote"));
+}
+
+function downloadRemoteBookList(populateRemoteBookList, resumeDownloads) {
+    populateRemoteBookList = (populateRemoteBookList == undefined ? false : populateRemoteBookList);
+    resumeDownloads = (resumeDownloads == undefined ? false : resumeDownloads);
+
+    var message = new WorkerMessage("downloadBookList", [ settings.libraryUrls() ], [ populateRemoteBookList, resumeDownloads ]);
     downloader.postMessage(message);
+}
+
+function populateContentManager(populateRemoteBookList, resumeDownloads) {
+    populateLocalBookList();
+    downloadRemoteBookList(populateRemoteBookList, resumeDownloads);
 }
 
 function isLibraryVisible() {
@@ -585,9 +609,6 @@ function toggleLibrary() {
 }
 
 function resumeDownloads() {
-    if (_resumedDownloads)
-	return;
-
     /* Erase gids */
     var downloadsString = settings.downloads();
     var downloadsArray = settings.unserializeDownloads(downloadsString);
@@ -613,8 +634,6 @@ function resumeDownloads() {
     
     downloadsString = settings.serializeDownloads(downloadsArray);
     settings.downloads(downloadsString);
-
-    _resumedDownloads = true;
 }
 
 function selectLibraryMenu(menuItemId) {
