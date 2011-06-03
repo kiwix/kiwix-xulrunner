@@ -286,57 +286,8 @@
 	</vbox>
 	<box class="library-content" flex="1">
 	  <deck id="library-deck" selectedIndex="0" flex="1">
-	    <vbox id="library-content-local" style="overflow:auto">
-	      <!--
-	      <vbox flex="1">
-		<label crop="center" flex="2" class="name"/>
-		<hbox>
-		  <vbox flex="1">
-		    <progressmeter mode="normal" value="0" flex="1"
-                                       anonid="progressmeter" />
-
-		  </vbox>
-		  <button class="pause mini-button" tooltiptext=""
-                              cmd="cmd_pause" ondblclick="event.stopPropagation();"
-                              oncommand="performCommand('cmd_pause', this);"/>
-		  <button class="cancel mini-button" tooltiptext=""
-                              cmd="cmd_cancel" ondblclick="event.stopPropagation();"
-                              oncommand="performCommand('cmd_cancel', this);"/>
-		</hbox>
-		<label flex="1" crop="right" class="status"/>
-		<spacer flex="1"/>
-              </vbox>
-	      -->
-	      <!--
-	      <box class="library-content-item" style="background-color: white;" onclick="selectLibraryContentItem(this);">
-		<hbox flex="1">
-		  <box class="library-content-item-favicon" style="background-image: url('http://tmp.kiwix.org/tmp/wikipedia-icon-48x48.png');"/>
-		  <box flex="1" class="library-content-item-details">
-		    <label class="library-content-item-title">Wikipedia 0.8</label><html:br/>
-		    <description class="library-content-item-description">Curated selection of 45,000 articles from the English Wikipedia</description><html:br/>
-		    <grid>
-		      <columns>
-			<column style="width: 300px;">
-			  <label class="library-content-item-detail">Size 1,3 GB (45,000 pages, 0 images)</label><html:br/>
-			  <label class="library-content-item-detail">Publisher: Wikimedia Foundation</label>
-			</column>
-			<column>
-			  <label class="library-content-item-detail">Created: February 30, 2010</label><html:br/>
-			  <label class="library-content-item-detail">Language: German</label>
-			</column>
-		      </columns>
-		    </grid>
-		  </box>
-		  <vbox style="margin: 5px;">
-		    <spacer flex="1" />
-		    <button label="Download" />
-		  </vbox>
-		</hbox>
-	      </box>
-	      -->
-	    </vbox>
-	    <vbox id="library-content-remote" style="overflow:auto">
-	    </vbox>
+	    <vbox id="library-content-local" style="overflow:auto" />
+	    <vbox id="library-content-remote" style="overflow:auto" />
 	  </deck>
 	</box>
       </hbox>
