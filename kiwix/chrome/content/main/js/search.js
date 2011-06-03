@@ -146,7 +146,6 @@ function indexZimFile(zimFilePath, xapianDirectory) {
 
 		/* Add each article of the ZIM file in the xapian database */
 		while (zimIndexer.indexNextPercent()) {
-		    dump("Indexing " + currentProgressBarPosition + "%...\n");
 		    proxiedZimIndexerObserver.notifyObservers(this, "indexingProgress", currentProgressBarPosition);
 		    currentProgressBarPosition++;
 		}
@@ -154,7 +153,6 @@ function indexZimFile(zimFilePath, xapianDirectory) {
 		/* Move the xapian tmp directory to the well named xapian directory */
 		moveFile(indexTmpDirectory, settingsRootPath, indexDirectoryName); 
 	    }
-	    dump("Indexing finished");
 	    
 	    /* Save the information in the library */
 	    library.setBookIndex(library.getCurrentId(), 

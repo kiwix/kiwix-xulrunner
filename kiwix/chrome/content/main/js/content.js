@@ -372,7 +372,7 @@ function moveFromRemoteToLocalLibrary(id) {
 }
 
 function removeLibraryItem(id) {
-    var box = document.getElementById("library-content-item-" + book.id);
+    var box = document.getElementById("library-content-item-" + id);
     box.parentNode.removeChild(box);
 }
 
