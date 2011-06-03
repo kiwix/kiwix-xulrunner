@@ -216,8 +216,13 @@ function openSearchIndex(path) {
 
 /* Function called by clicking on the search button */
 function manageSearchInIndex(stringToSearch, start, end) {
-    if (stringToSearch == undefined)
+    if (stringToSearch == undefined) {
 	stringToSearch = getSearchBox().value;
+	
+	/* Tip to allow full text search from suggestions also if the stringToSearch matchs a title */
+	if (stringToSearch[stringToSearch.length-1] == ' ')
+	    getSearchBox().value = stringToSearch.substring(0, stringToSearch.length-1);
+    }
 
     if (stringToSearch != "") {
 	/* Try to load the article */
