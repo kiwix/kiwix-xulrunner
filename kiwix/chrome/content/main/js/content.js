@@ -160,6 +160,10 @@ function getDownloadStatus() {
 	var book = library.getBookById(kiwixDownload.id);
 	var box = document.getElementById("library-content-item-" + book.id);
 
+	/* Toggle the deck */
+	var detailsDeck = document.getElementById("download-deck-" + book.id);
+	detailsDeck.setAttribute("selectedIndex", "1");
+
 	/* In case of a ZIM file where open and at the same time already downloading */
 	if (book.path != "") {
 	    manageStopDownload(book.id);
@@ -202,7 +206,7 @@ function getDownloadStatus() {
 		    remaining = parseInt(remaining - (remainingMinutes * 60));
 		    
 		    /* Update the download status string */
-		    downloadStatusLabelString = (remainingHours > 0 || remainingMinutes > 0 || remaining > 0 ? "Time remaining: " : "") + (remainingHours > 0 ? remainingHours + " hours" : "") + (remainingHours > 0 && (remainingMinutes > 0 || remaining > 0) ? ", " : "") + (remainingMinutes > 0 ? remainingMinutes + " minutes" : "") + (remainingMinutes > 0 && remaining > 0 ? ", " : "") + (remainingHours == 0 && remaining > 0 ? remaining + " seconds" : "") + (remainingHours > 0 || remainingMinutes > 0 || remaining > 0 ? " – " : "") + formatFileSize(ariaDownloadCompleted) + " of " + formatFileSize(book.size) + (ariaDownloadSpeed != undefined && ariaDownloadSpeed > 0 ? " (" + formatFileSize(ariaDownloadSpeed * 8) + "/s)" : ""); 
+		    downloadStatusLabelString = (remainingHours > 0 || remainingMinutes > 0 || remaining > 0 ? "Time remaining: " : "") + (remainingHours > 0 ? remainingHours + " hours" : "") + (remainingHours > 0 && (remainingMinutes > 0 || remaining > 0) ? ", " : "") + (remainingMinutes > 0 ? remainingMinutes + " minutes" : "") + (remainingMinutes > 0 && remaining > 0 ? ", " : "") + (remainingHours == 0 && remaining > 0 ? remaining + " seconds" : "") + (remainingHours > 0 || remainingMinutes > 0 || remaining > 0 ? " – " : "") + formatFileSize(ariaDownloadCompleted) + " of " + formatFileSize(book.size * 1024) + (ariaDownloadSpeed != undefined && ariaDownloadSpeed > 0 ? " (" + formatFileSize(ariaDownloadSpeed * 8) + "/s)" : ""); 
 		}
 		downloadStatusLabel.setAttribute("value", downloadStatusLabelString);
 	    } else {
