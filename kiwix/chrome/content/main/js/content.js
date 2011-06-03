@@ -160,10 +160,6 @@ function getDownloadStatus() {
 	var book = library.getBookById(kiwixDownload.id);
 	var box = document.getElementById("library-content-item-" + book.id);
 
-	/* Toggle the deck */
-	var detailsDeck = document.getElementById("download-deck-" + book.id);
-	detailsDeck.setAttribute("selectedIndex", "1");
-
 	/* In case of a ZIM file where open and at the same time already downloading */
 	if (book.path != "") {
 	    manageStopDownload(book.id);
@@ -213,9 +209,8 @@ function getDownloadStatus() {
 		var ariaDownloadStatus = getAriaDownloadStatus(kiwixDownload.gid);
 		if (ariaDownloadStatus == "complete") {
 		    library.setBookPath(kiwixDownload.id, getAriaDownloadPath(kiwixDownload.gid));
+ 		    moveFromRemoteToLocalLibrary(kiwixDownload.id);
 		    kiwixDownload.id = "";
-		    populateLocalBookList();
-		    populateRemoteBookList();
 		    removeDownload(kiwixDownload.gid);
 		}
 	    }
@@ -371,12 +366,181 @@ function managePauseDownload(id) {
     settings.downloads(downloadsString);
 }
 
-function populateBookList(container) {
-    var book;
-    var backgroundColor = "#FFFFFF";
+function moveFromRemoteToLocalLibrary(id) {
+    removeLibraryItem(id);
+    populateLocalBookList();
+}
+
+function removeLibraryItem(id) {
+    var box = document.getElementById("library-content-item-" + book.id);
+    box.parentNode.removeChild(box);
+}
+
+function createLibraryItem(book) {
     var spacer = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
 					  "spacer");
     spacer.setAttribute("flex", "1");
+
+    /* Create item box */
+    var box = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
+				       "box");
+    box.setAttribute("class", "library-content-item");
+    box.setAttribute("id", "library-content-item-" + book.id);
+    box.setAttribute("onclick", "selectLibraryContentItem(this);");
+    
+    var hbox = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
+					"hbox");
+    hbox.setAttribute("flex", "1");
+    box.appendChild(hbox);
+    
+    var faviconBox = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
+					      "box");
+    faviconBox.setAttribute("class", "library-content-item-favicon");
+    if (book.favicon != "")
+	faviconBox.setAttribute("style", "background-image: " + book.favicon);
+    hbox.appendChild(faviconBox);
+    
+    var detailsBox = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
+					      "vbox");
+    detailsBox.setAttribute("flex", "1");
+    detailsBox.setAttribute("class", "library-content-item-details");
+    hbox.appendChild(detailsBox);
+    
+    var titleLabel = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
+					      "label");
+    titleLabel.setAttribute("class", "library-content-item-title");
+    titleLabel.setAttribute("value", book.title || book.path);
+    detailsBox.appendChild(titleLabel);
+    
+    var description = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
+					       "description");
+    description.setAttribute("class", "library-content-item-description");
+    description.setAttribute("value", book.description);
+    detailsBox.appendChild(description);
+    
+    var grid = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
+					"grid");
+    var columns = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
+					   "columns");
+    
+    var leftColumn = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
+					      "column");
+    leftColumn.setAttribute("style", "width: 400px");
+    
+    var sizeLabel = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
+					     "label");
+    sizeLabel.setAttribute("class", "library-content-item-detail");
+    sizeLabel.setAttribute("value", "Size: " + formatFileSize(book.size * 1024) + " (" + book.articleCount + " articles, " + book.mediaCount + " medias)");
+    leftColumn.appendChild(sizeLabel);
+    
+    var creatorLabel = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
+						"label");
+    creatorLabel.setAttribute("class", "library-content-item-detail");
+    creatorLabel.setAttribute("value", "Creator: " + book.creator);
+    leftColumn.appendChild(creatorLabel);
+    
+    columns.appendChild(leftColumn);
+    
+    var rightColumn = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
+					       "column");
+    
+    var dateLabel = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
+					     "label");
+    dateLabel.setAttribute("class", "library-content-item-detail");
+    dateLabel.setAttribute("value", "Created: " + book.date);
+    rightColumn.appendChild(dateLabel);
+    
+    var languageLabel = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
+						 "label");
+    languageLabel.setAttribute("class", "library-content-item-detail");
+    languageLabel.setAttribute("value", "Language: " + book.language);
+    rightColumn.appendChild(languageLabel);
+    
+    columns.appendChild(rightColumn);
+    grid.appendChild(columns);
+    
+    var detailsDeck = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
+					       "deck");
+    detailsDeck.setAttribute("selectedIndex", "0");
+    detailsDeck.setAttribute("id", "download-deck-" + book.id);
+    detailsDeck.appendChild(grid);
+    
+    var downloadBox = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
+					       "vbox");
+
+    var progressmeterBox = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
+						    "hbox");
+    progressmeterBox.setAttribute("flex", "1");
+    var progressmeter = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
+						 "progressmeter");
+    progressmeter.setAttribute("flex", "1");
+    progressmeter.setAttribute("id", "progressbar-" + book.id);
+    progressmeterBox.appendChild(progressmeter);
+    downloadBox.appendChild(progressmeterBox);
+    
+    var pauseButton = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
+					       "button");
+    pauseButton.setAttribute("id", "pause-button-" + book.id);
+    pauseButton.setAttribute("class", "pause mini-button");
+    pauseButton.setAttribute("onclick", "event.stopPropagation(); managePauseDownload('" + book.id + "')");
+    progressmeterBox.appendChild(pauseButton);
+    
+    var playButton = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
+					      "button");
+    playButton.setAttribute("id", "play-button-" + book.id);
+    playButton.setAttribute("class", "play mini-button");
+    playButton.setAttribute("onclick", "event.stopPropagation(); manageResumeDownload('" + book.id + "')");
+    progressmeterBox.appendChild(playButton);
+    
+    var cancelButton = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
+						"button");
+    cancelButton.setAttribute("class", "cancel mini-button");
+    cancelButton.setAttribute("onclick", "event.stopPropagation(); manageStopDownload('" + book.id + "')");
+    progressmeterBox.appendChild(cancelButton);
+    
+    var downloadStatusLabel = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
+						       "label");
+    downloadStatusLabel.setAttribute("id", "download-status-label-" + book.id);
+    downloadStatusLabel.setAttribute("value", "download details...");
+    downloadBox.appendChild(downloadStatusLabel);
+    
+    detailsDeck.appendChild(downloadBox);
+    detailsBox.appendChild(detailsDeck);
+    
+    /* Button box */
+    var buttonBox = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
+					     "vbox");
+    buttonBox.setAttribute("style", "margin: 5px;");
+    buttonBox.appendChild(spacer.cloneNode(true));
+    
+    var loadButton = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
+					      "button");
+    loadButton.setAttribute("label", "Load");
+    loadButton.setAttribute("id", "load-button-" + book.id);
+    loadButton.setAttribute("onclick", "event.stopPropagation();  toggleLibrary(); manageOpenFile('" + book.path + "')");
+    buttonBox.appendChild(loadButton);
+    
+    var downloadButton = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
+						  "button");
+    downloadButton.setAttribute("label", "Download");
+    downloadButton.setAttribute("id", "download-button-" + book.id);
+    downloadButton.setAttribute("onclick", "event.stopPropagation(); manageStartDownload('" + book.id + "')");
+    buttonBox.appendChild(downloadButton);
+    
+    if (book.path != "") {
+	downloadButton.setAttribute("style", "display: none;");
+    } else {
+	loadButton.setAttribute("style", "display: none;");
+    }
+    
+    hbox.appendChild(buttonBox);
+
+    return box
+}
+
+function populateBookList(container) {
+    var book;
+    var backgroundColor = "#FFFFFF";
 
     /* Remove the child nodes */
     while (container.firstChild) {
@@ -387,160 +551,8 @@ function populateBookList(container) {
     book = library.getNextBookInList();
     while (book != undefined) {
 	
-	/* Create item box */
-	var box = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
-					   "box");
-	box.setAttribute("class", "library-content-item");
-	box.setAttribute("id", "library-content-item-" + book.id);
+	var box = createLibraryItem(book);
 	box.setAttribute("style", "background-color: " + backgroundColor + ";");
-	box.setAttribute("onclick", "selectLibraryContentItem(this);");
-	
-	var hbox = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
-					    "hbox");
-	hbox.setAttribute("flex", "1");
-	box.appendChild(hbox);
-
-	var faviconBox = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
-						  "box");
-	faviconBox.setAttribute("class", "library-content-item-favicon");
-	if (book.favicon != "")
-	    faviconBox.setAttribute("style", "background-image: " + book.favicon);
-	hbox.appendChild(faviconBox);
-
-	var detailsBox = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
-						  "vbox");
-	detailsBox.setAttribute("flex", "1");
-	detailsBox.setAttribute("class", "library-content-item-details");
-	hbox.appendChild(detailsBox);
-
-	var titleLabel = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
-						  "label");
-	titleLabel.setAttribute("class", "library-content-item-title");
-	titleLabel.setAttribute("value", book.title || book.path);
-	detailsBox.appendChild(titleLabel);
-
-	var description = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
-						   "description");
-	description.setAttribute("class", "library-content-item-description");
-	description.setAttribute("value", book.description);
-	detailsBox.appendChild(description);
-
-	var grid = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
-					    "grid");
-	var columns = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
-					       "columns");
-
-	var leftColumn = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
-					      "column");
-	leftColumn.setAttribute("style", "width: 400px");
-
-        var sizeLabel = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
-						  "label");
-	sizeLabel.setAttribute("class", "library-content-item-detail");
-	sizeLabel.setAttribute("value", "Size: " + formatFileSize(book.size * 1024) + " (" + book.articleCount + " articles, " + book.mediaCount + " medias)");
-	leftColumn.appendChild(sizeLabel);
-
-        var creatorLabel = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
-						  "label");
-	creatorLabel.setAttribute("class", "library-content-item-detail");
-	creatorLabel.setAttribute("value", "Creator: " + book.creator);
-	leftColumn.appendChild(creatorLabel);
-
-	columns.appendChild(leftColumn);
-
-	var rightColumn = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
-						   "column");
-
-        var dateLabel = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
-						 "label");
-	dateLabel.setAttribute("class", "library-content-item-detail");
-	dateLabel.setAttribute("value", "Created: " + book.date);
-	rightColumn.appendChild(dateLabel);
-
-        var languageLabel = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
-						 "label");
-	languageLabel.setAttribute("class", "library-content-item-detail");
-	languageLabel.setAttribute("value", "Language: " + book.language);
-	rightColumn.appendChild(languageLabel);
-
-	columns.appendChild(rightColumn);
-	grid.appendChild(columns);
-
-        var detailsDeck = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
-						   "deck");
-	detailsDeck.setAttribute("selectedIndex", "0");
-	detailsDeck.setAttribute("id", "download-deck-" + book.id);
-	detailsDeck.appendChild(grid);
-
-	var downloadBox = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
-						   "vbox");
-
-	var progressmeterBox = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
-							"hbox");
-	progressmeterBox.setAttribute("flex", "1");
-	var progressmeter = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
-						     "progressmeter");
-	progressmeter.setAttribute("flex", "1");
-	progressmeter.setAttribute("id", "progressbar-" + book.id);
-	progressmeterBox.appendChild(progressmeter);
-	downloadBox.appendChild(progressmeterBox);
-	
-	var pauseButton = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
-						   "button");
-	pauseButton.setAttribute("id", "pause-button-" + book.id);
-	pauseButton.setAttribute("class", "pause mini-button");
-	pauseButton.setAttribute("onclick", "event.stopPropagation(); managePauseDownload('" + book.id + "')");
-	progressmeterBox.appendChild(pauseButton);
-	
-	var playButton = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
-						  "button");
-	playButton.setAttribute("id", "play-button-" + book.id);
-	playButton.setAttribute("class", "play mini-button");
-	playButton.setAttribute("onclick", "event.stopPropagation(); manageResumeDownload('" + book.id + "')");
-	progressmeterBox.appendChild(playButton);
-	
-	var cancelButton = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
-						    "button");
-	cancelButton.setAttribute("class", "cancel mini-button");
-	cancelButton.setAttribute("onclick", "event.stopPropagation(); manageStopDownload('" + book.id + "')");
-	progressmeterBox.appendChild(cancelButton);
-	
-	var downloadStatusLabel = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
-							   "label");
-	downloadStatusLabel.setAttribute("id", "download-status-label-" + book.id);
-	downloadStatusLabel.setAttribute("value", "download details...");
-	downloadBox.appendChild(downloadStatusLabel);
-
-	detailsDeck.appendChild(downloadBox);
-	detailsBox.appendChild(detailsDeck);
-
-	/* Button box */
-        var buttonBox = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
-						 "vbox");
-	buttonBox.setAttribute("style", "margin: 5px;");
-	buttonBox.appendChild(spacer.cloneNode(true));
-
-	var loadButton = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
-						  "button");
-	loadButton.setAttribute("label", "Load");
-	loadButton.setAttribute("id", "load-button-" + book.id);
-	loadButton.setAttribute("onclick", "event.stopPropagation();  toggleLibrary(); manageOpenFile('" + book.path + "')");
-	buttonBox.appendChild(loadButton);
-
-	var downloadButton = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
-						      "button");
-	downloadButton.setAttribute("label", "Download");
-	downloadButton.setAttribute("id", "download-button-" + book.id);
-	downloadButton.setAttribute("onclick", "event.stopPropagation(); manageStartDownload('" + book.id + "')");
-	buttonBox.appendChild(downloadButton);
-	
-	if (book.path != "") {
-	    downloadButton.setAttribute("style", "display: none;");
-	} else {
-	    loadButton.setAttribute("style", "display: none;");
-	}
-
-	hbox.appendChild(buttonBox);
 
 	/* Add the new item to the UI */
 	container.appendChild(box);
