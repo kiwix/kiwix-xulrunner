@@ -153,7 +153,6 @@ function removeDownload(index) {
 function getDownloadStatus() {
     /* Get Kiwix list of downloads */
     var kiwixDownloadsString = settings.downloads();
-    var kiwixDownloadsStringBack = kiwixDownloadsString;
     var kiwixDownloads = settings.unserializeDownloads(kiwixDownloadsString);
     var kiwixDownloadsCount = kiwixDownloads.length;
 
@@ -244,8 +243,7 @@ function getDownloadStatus() {
     }
     
     kiwixDownloadsString = settings.serializeDownloads(kiwixDownloads);
-    if (kiwixDownloadsString != kiwixDownloadsStringBack)
-	settings.downloads(kiwixDownloadsString);
+    settings.downloads(kiwixDownloadsString);
 }
 
 /* Return the tmp directory path where the search index is build */
@@ -335,23 +333,29 @@ function manageResumeDownload(id) {
     var playButton = document.getElementById("play-button-" + id);
     playButton.setAttribute("style", "display: none;");
 
-    /* Pause the download */
+    /* Search the corresponding kiwix downloads */
+    var gid = undefined;
     var downloadsString = settings.downloads();
     var downloadsArray = settings.unserializeDownloads(downloadsString);
     for(var index=0; index<downloadsArray.length; index++) {
 	var download = downloadsArray[index];
 	if (download.id == id) {
 	    download.status = 1;
-	    if (getAriaDownloadStatus(download.gid) == "paused") {
-		resumeDownload(download.gid);
-	    } else {
-		var book = library.getBookById(download.id);
-		startDownload(book.url, book.id);
-	    }
+	    gid = download.gid;
 	}
     }
     var downloadsString = settings.serializeDownloads(downloadsArray);
     settings.downloads(downloadsString);
+
+    /* Resume the download */
+    if (gid != undefined) {
+	if (getAriaDownloadStatus(gid) == "paused") {
+	    resumeDownload(gid);
+	} else {
+	    var book = library.getBookById(id);
+	    startDownload(book.url, book.id);
+	}
+    }
 }
 
 function managePauseDownload(id) {
