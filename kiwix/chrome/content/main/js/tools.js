@@ -348,6 +348,37 @@ function isFile(filePath) {
     }
 }
 
+/* Write content to a file */
+function writeFile(path, content) {
+    Components.utils.import("resource://gre/modules/NetUtil.jsm");
+    Components.utils.import("resource://gre/modules/FileUtils.jsm");
+
+    var file = Components.classes["@mozilla.org/file/local;1"].createInstance(Components.interfaces.nsILocalFile);
+    file.initWithPath(path);
+    var ostream = FileUtils.openSafeFileOutputStream(file)
+    var converter = Components.classes["@mozilla.org/intl/scriptableunicodeconverter"].
+        createInstance(Components.interfaces.nsIScriptableUnicodeConverter);
+    converter.charset = "UTF-8";
+    var istream = converter.convertToInputStream(content);
+    NetUtil.asyncCopy(istream, ostream);
+}
+
+/* Read content from a file */
+function readFile(path) {
+    var file = Components.classes["@mozilla.org/file/local;1"].createInstance(Components.interfaces.nsILocalFile);
+    file.initWithPath(path);
+    var ios = Components.classes["@mozilla.org/network/io-service;1"].
+        getService(Components.interfaces.nsIIOService);
+    var istream = Components.classes["@mozilla.org/network/file-input-stream;1"].
+        createInstance(Components.interfaces.nsIFileInputStream);
+    istream.init(file, -1, -1, false);
+    var bstream = Components.classes["@mozilla.org/binaryinputstream;1"].
+        createInstance(Components.interfaces.nsIBinaryInputStream);
+    bstream.setInputStream(istream);
+    
+    return bstream.readBytes(bstream.available());
+}
+
 /* Decode URL */
 function decodeUrl (text) {
     var string = "";

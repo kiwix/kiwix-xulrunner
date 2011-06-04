@@ -7,24 +7,7 @@ var downloader = new Worker("js/downloader.js");
 downloader.onmessage = function(event) {
     var message = event.data;
     if (message.id == "downloadedMetalink") {
-	var id = message.parameters[0];
-	var contentMetalink = message.parameters[1];
-	var param = new xmlrpcval(contentMetalink, "base64");
-	var msg = new xmlrpcmsg("aria2.addMetalink", [ param ]);
-	var response = aria2Client.send(msg);
-	var gid = response.val.arrayMem(0).scalarVal();
-
-	/* set the gid */
-	var downloadsString = settings.downloads();
-	var downloadsArray = settings.unserializeDownloads(downloadsString);
-	for(var index=0; index<downloadsArray.length; index++) {
-	    var download = downloadsArray[index];
-	    if (download.id == id) {
-		download.gid = gid;
-	    }
-	}
-	var downloadsString = settings.serializeDownloads(downloadsArray);
-	settings.downloads(downloadsString);
+	addMetalink(message.parameters[0], message.parameters[1]);
     } else if (message.id == "downloadedBookList") {
 	var xml = message.parameters[0];
 	library.readFromText(xml, false);
@@ -37,6 +20,30 @@ downloader.onmessage = function(event) {
 
 downloader.onerror = function(message) {
 };
+
+function addMetalink(id, metalinkContent) {
+    /* Make a cache if necessary */
+    if (!isFile(appendToPath(settings.getRootPath(), id + ".metalink")))
+	writeFile(appendToPath(settings.getRootPath(), id + ".metalink"), metalinkContent);
+
+    /* Tell aria2c to start the download */
+    var param = new xmlrpcval(metalinkContent, "base64");
+    var msg = new xmlrpcmsg("aria2.addMetalink", [ param ]);
+    var response = aria2Client.send(msg);
+    var gid = response.val.arrayMem(0).scalarVal();
+
+    /* set the gid */
+    var downloadsString = settings.downloads();
+    var downloadsArray = settings.unserializeDownloads(downloadsString);
+    for(var index=0; index<downloadsArray.length; index++) {
+	var download = downloadsArray[index];
+	if (download.id == id) {
+	    download.gid = gid;
+	}
+    }
+    var downloadsString = settings.serializeDownloads(downloadsArray);
+    settings.downloads(downloadsString);
+}
 
 function whereis(binary) {
     var env = Components.classes["@mozilla.org/process/environment;1"].
@@ -111,8 +118,12 @@ function getAriaDownloadPath(gid) {
 }
 
 function startDownload(url, id) {
-    var message = new WorkerMessage("downloadMetalink", [ url ], [ id ] );
-    downloader.postMessage(message);
+    if (isFile(appendToPath(settings.getRootPath(), id + ".metalink"))) {
+	addMetalink(id, readFile(appendToPath(settings.getRootPath(), id + ".metalink")));
+    } else {
+	var message = new WorkerMessage("downloadMetalink", [ url ], [ id ] );
+	downloader.postMessage(message);
+    }
 }
 
 function stopDownload(index) {
@@ -142,6 +153,7 @@ function removeDownload(index) {
 function getDownloadStatus() {
     /* Get Kiwix list of downloads */
     var kiwixDownloadsString = settings.downloads();
+    var kiwixDownloadsStringBack = kiwixDownloadsString;
     var kiwixDownloads = settings.unserializeDownloads(kiwixDownloadsString);
     var kiwixDownloadsCount = kiwixDownloads.length;
 
@@ -179,7 +191,6 @@ function getDownloadStatus() {
 	    }
 
 	    if (ariaDownload != undefined) {
-
 		/* Retrieve infos */
 		var ariaDownloadSpeed = ariaDownload.structMem('downloadSpeed').scalarVal();
 		var ariaDownloadCompleted = ariaDownload.structMem('completedLength').scalarVal();
@@ -233,7 +244,8 @@ function getDownloadStatus() {
     }
     
     kiwixDownloadsString = settings.serializeDownloads(kiwixDownloads);
-    settings.downloads(kiwixDownloadsString);
+    if (kiwixDownloadsString != kiwixDownloadsStringBack)
+	settings.downloads(kiwixDownloadsString);
 }
 
 /* Return the tmp directory path where the search index is build */
@@ -283,6 +295,7 @@ function manageStopDownload(id) {
 	    var path = getAriaDownloadPath(download.gid);
 	    deleteFile(path);
 	    deleteFile(path + ".aria2");
+	    deleteFile(appendToPath(settings.getRootPath(), id + ".metalink"));
 	    download.id = "";
 	}
     }
@@ -647,9 +660,6 @@ function resumeDownloads() {
 	    managePauseDownload(download.id);
 	}
     }
-    
-    downloadsString = settings.serializeDownloads(downloadsArray);
-    settings.downloads(downloadsString);
 }
 
 function selectLibraryMenu(menuItemId) {
