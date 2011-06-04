@@ -431,7 +431,7 @@ function createLibraryItem(book) {
     var sizeLabel = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
 					     "label");
     sizeLabel.setAttribute("class", "library-content-item-detail");
-    sizeLabel.setAttribute("value", "Size: " + formatFileSize(book.size * 1024) + " (" + book.articleCount + " articles, " + book.mediaCount + " medias)");
+    sizeLabel.setAttribute("value", "Size: " + formatFileSize(book.size * 1024) + " (" + formatNumber(book.articleCount, 0, '', '.') + " articles, " + formatNumber(book.mediaCount, 0, '', '.') + " medias)");
     leftColumn.appendChild(sizeLabel);
     
     var creatorLabel = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
