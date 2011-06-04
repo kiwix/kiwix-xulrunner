@@ -151,11 +151,6 @@ function removeDownload(index) {
 }
 
 function getDownloadStatus() {
-    /* Get Kiwix list of downloads */
-    var kiwixDownloadsString = settings.downloads();
-    var kiwixDownloads = settings.unserializeDownloads(kiwixDownloadsString);
-    var kiwixDownloadsCount = kiwixDownloads.length;
-
     /* Get aria2 active downloads */
     var ariaDownloadsCount = 0;
     var ariaResponse;
@@ -164,6 +159,12 @@ function getDownloadStatus() {
 	ariaResponse = aria2Client.send(ariaMessage);
 	ariaDownloadsCount = ariaResponse.val.arraySize();
     }
+
+    /* Get Kiwix list of downloads */
+    var kiwixDownloadsString = settings.downloads();
+    var kiwixDownloadsStringBack = kiwixDownloadsString;
+    var kiwixDownloads = settings.unserializeDownloads(kiwixDownloadsString);
+    var kiwixDownloadsCount = kiwixDownloads.length;
 
     /* Get through all known downloads */
     for (var i=0; i<kiwixDownloadsCount; i++) {
@@ -212,7 +213,7 @@ function getDownloadStatus() {
 		    remaining = parseInt(remaining - (remainingMinutes * 60));
 		    
 		    /* Update the download status string */
-		    downloadStatusLabelString = (remainingHours > 0 || remainingMinutes > 0 || remaining > 0 ? "Time remaining: " : "") + (remainingHours > 0 ? remainingHours + " hours" : "") + (remainingHours > 0 && (remainingMinutes > 0 || remaining > 0) ? ", " : "") + (remainingMinutes > 0 ? remainingMinutes + " minutes" : "") + (remainingHours == 0 && remainingMinutes > 0 && remaining > 0 ? ", " : "") + (remainingHours == 0 && remaining > 0 ? remaining + " seconds" : "") + (remainingHours > 0 || remainingMinutes > 0 || remaining > 0 ? " – " : "") + formatFileSize(ariaDownloadCompleted) + " of " + formatFileSize(book.size * 1024) + (ariaDownloadSpeed != undefined && ariaDownloadSpeed > 0 ? " (" + formatFileSize(ariaDownloadSpeed * 8) + "/s)" : ""); 
+		    downloadStatusLabelString = (remainingHours > 0 || remainingMinutes > 0 || remaining > 0 ? "Time remaining: " : "") + (remainingHours > 0 ? remainingHours + " hours" : "") + (remainingHours > 0 && remainingMinutes > 0 ? ", " : "") + (remainingMinutes > 0 ? remainingMinutes + " minutes" : "") + (remainingHours == 0 && remainingMinutes > 0 && remaining > 0 ? ", " : "") + (remainingHours == 0 && remaining > 0 ? remaining + " seconds" : "") + (remainingHours > 0 || remainingMinutes > 0 || remaining > 0 ? " – " : "") + formatFileSize(ariaDownloadCompleted) + " of " + formatFileSize(book.size * 1024) + (ariaDownloadSpeed != undefined && ariaDownloadSpeed > 0 ? " (" + formatFileSize(ariaDownloadSpeed * 8) + "/s)" : ""); 
 		}
 		downloadStatusLabel.setAttribute("value", downloadStatusLabelString);
 	    } else {
@@ -243,7 +244,8 @@ function getDownloadStatus() {
     }
     
     kiwixDownloadsString = settings.serializeDownloads(kiwixDownloads);
-    settings.downloads(kiwixDownloadsString);
+    if (kiwixDownloadsString != kiwixDownloadsStringBack)
+	settings.downloads(kiwixDownloadsString);
 }
 
 /* Return the tmp directory path where the search index is build */
@@ -349,6 +351,9 @@ function manageResumeDownload(id) {
 
     /* Resume the download */
     if (gid != undefined) {
+	var downloadStatusLabel = document.getElementById("download-status-label-" + id);
+	downloadStatusLabel.setAttribute("value", "Resuming download...");
+
 	if (getAriaDownloadStatus(gid) == "paused") {
 	    resumeDownload(gid);
 	} else {
