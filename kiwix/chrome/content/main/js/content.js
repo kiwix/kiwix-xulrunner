@@ -10,11 +10,15 @@ downloader.onmessage = function(event) {
 	addMetalink(message.parameters[0], message.parameters[1]);
     } else if (message.id == "downloadedBookList") {
 	var xml = message.parameters[0];
-	library.readFromText(xml, false);
-	if (message.parameters[1])
-	    populateRemoteBookList();
-	if (message.parameters[2])
-	    resumeDownloads();
+	if (xml == undefined || xml == "") {
+	    dump("Unable to download the Metalink...\n");
+	} else {
+	    library.readFromText(xml, false);
+	    if (message.parameters[1])
+		populateRemoteBookList();
+	    if (message.parameters[2])
+		resumeDownloads();
+	}
     }
 };
 
@@ -33,16 +37,7 @@ function addMetalink(id, metalinkContent) {
     var gid = response.val.arrayMem(0).scalarVal();
 
     /* set the gid */
-    var downloadsString = settings.downloads();
-    var downloadsArray = settings.unserializeDownloads(downloadsString);
-    for(var index=0; index<downloadsArray.length; index++) {
-	var download = downloadsArray[index];
-	if (download.id == id) {
-	    download.gid = gid;
-	}
-    }
-    var downloadsString = settings.serializeDownloads(downloadsArray);
-    settings.downloads(downloadsString);
+    settings.setDownloadProperty(id, "gid", gid);
 }
 
 function whereis(binary) {
@@ -144,6 +139,14 @@ function resumeDownload(index) {
     var response = aria2Client.send(msg);
 }
 
+function moveDownloadPositionToTop(index) {
+    var param1 = new xmlrpcval(index, "base64");
+    var param2 = new xmlrpcval(0, "base64");
+    var param3 = new xmlrpcval("POS_SET", "base64");
+    var msg = new xmlrpcmsg("aria2.changePosition", [ param1, param2, param3 ]);
+    var response = aria2Client.send(msg);
+}
+
 function removeDownload(index) {
     var param = new xmlrpcval(index, "base64");
     var msg = new xmlrpcmsg("aria2.remove", [ param ]);
@@ -162,7 +165,6 @@ function getDownloadStatus() {
 
     /* Get Kiwix list of downloads */
     var kiwixDownloadsString = settings.downloads();
-    var kiwixDownloadsStringBack = kiwixDownloadsString;
     var kiwixDownloads = settings.unserializeDownloads(kiwixDownloadsString);
     var kiwixDownloadsCount = kiwixDownloads.length;
 
@@ -203,7 +205,7 @@ function getDownloadStatus() {
 		if (ariaDownloadCompleted > 0 || ariaDownloadSpeed > 0) {
 
 		    /* Update the settings */
-		    kiwixDownload.completed = ariaDownloadCompleted;
+		    settings.setDownloadProperty(kiwixDownload.id,  "completed", ariaDownloadCompleted);
 
 		    /* Compute the remaining time */
 		    var remaining = (book.size * 1024 - ariaDownloadCompleted) / ariaDownloadSpeed;
@@ -221,8 +223,9 @@ function getDownloadStatus() {
 		if (ariaDownloadStatus == "complete") {
 		    library.setBookPath(kiwixDownload.id, getAriaDownloadPath(kiwixDownload.gid));
  		    moveFromRemoteToLocalLibrary(kiwixDownload.id);
-		    kiwixDownload.id = "";
+		    settings.setDownloadProperty(kiwixDownload.id,  "id", "");
 		    removeDownload(kiwixDownload.gid);
+		} else if (ariaDownloadStatus == "waiting") {
 		}
 	    }
 	}
@@ -242,10 +245,6 @@ function getDownloadStatus() {
 	    progressbar.setAttribute("value", progressbarValue);
 	}
     }
-    
-    kiwixDownloadsString = settings.serializeDownloads(kiwixDownloads);
-    if (kiwixDownloadsString != kiwixDownloadsStringBack)
-	settings.downloads(kiwixDownloadsString);
 }
 
 /* Return the tmp directory path where the search index is build */
@@ -285,22 +284,18 @@ function manageStopDownload(id) {
     var detailsDeck = document.getElementById("download-deck-" + id);
     detailsDeck.setAttribute("selectedIndex", "0");
 
+    /* Get corresponding gid */
+    var kiwixDownloadGid = settings.getDownloadProperty(id, "gid");
+
     /* Stop the download */
-    var downloadsString = settings.downloads();
-    var downloadsArray = settings.unserializeDownloads(downloadsString);
-    for(var index=0; index<downloadsArray.length; index++) {
-	var download = downloadsArray[index];
-	if (download.id == id) {
-	    stopDownload(download.gid);
-	    var path = getAriaDownloadPath(download.gid);
-	    deleteFile(path);
-	    deleteFile(path + ".aria2");
-	    deleteFile(appendToPath(settings.getRootPath(), id + ".metalink"));
-	    download.id = "";
-	}
-    }
-    var downloadsString = settings.serializeDownloads(downloadsArray);
-    settings.downloads(downloadsString);
+    stopDownload(kiwixDownloadGid);
+    var path = getAriaDownloadPath(kiwixDownloadGid);
+    deleteFile(path);
+    deleteFile(path + ".aria2");
+    deleteFile(appendToPath(settings.getRootPath(), id + ".metalink"));
+
+    /* Remove Kiwix download */
+    settings.setDownloadProperty(id, "id", "");
 }
 
 function manageStartDownload(id, completed) {
@@ -335,19 +330,9 @@ function manageResumeDownload(id) {
     var playButton = document.getElementById("play-button-" + id);
     playButton.setAttribute("style", "display: none;");
 
-    /* Search the corresponding kiwix downloads */
-    var gid = undefined;
-    var downloadsString = settings.downloads();
-    var downloadsArray = settings.unserializeDownloads(downloadsString);
-    for(var index=0; index<downloadsArray.length; index++) {
-	var download = downloadsArray[index];
-	if (download.id == id) {
-	    download.status = 1;
-	    gid = download.gid;
-	}
-    }
-    var downloadsString = settings.serializeDownloads(downloadsArray);
-    settings.downloads(downloadsString);
+    /* Search the corresponding kiwix download */
+    settings.setDownloadProperty(id, "status", "1");
+    var gid = settings.getDownloadProperty(id, "gid");
 
     /* Resume the download */
     if (gid != undefined) {
@@ -374,18 +359,12 @@ function managePauseDownload(id) {
     var detailsDeck = document.getElementById("download-deck-" + id);
     detailsDeck.setAttribute("selectedIndex", "1");
 
+    /* Search the corresponding kiwix download */
+    settings.setDownloadProperty(id, "status", "0");
+    var gid = settings.getDownloadProperty(id, "gid");
+
     /* Pause the download */
-    var downloadsString = settings.downloads();
-    var downloadsArray = settings.unserializeDownloads(downloadsString);
-    for(var index=0; index<downloadsArray.length; index++) {
-	var download = downloadsArray[index];
-	if (download.id == id) {
-	    download.status = 0;
-	    pauseDownload(download.gid);
-	}
-    }
-    var downloadsString = settings.serializeDownloads(downloadsArray);
-    settings.downloads(downloadsString);
+    pauseDownload(gid);
 }
 
 function moveFromRemoteToLocalLibrary(id) {
@@ -648,19 +627,11 @@ function toggleLibrary() {
 
 function resumeDownloads() {
     /* Erase gids */
-    var downloadsString = settings.downloads();
-    var downloadsArray = settings.unserializeDownloads(downloadsString);
-
-    for(var index=0; index<downloadsArray.length; index++) {
-	var download = downloadsArray[index];
-	download.gid = "";
-    }
-    downloadsString = settings.serializeDownloads(downloadsArray);
-    settings.downloads(downloadsString);
+    settings.eraseDownloadGids();
 
     /* Resume */
-    downloadsString = settings.downloads();
-    downloadsArray = settings.unserializeDownloads(downloadsString);
+    var downloadsString = settings.downloads();
+    var downloadsArray = settings.unserializeDownloads(downloadsString);
     for(var index=0; index<downloadsArray.length; index++) {
 	var download = downloadsArray[index];
 	if (download.status == 1) {

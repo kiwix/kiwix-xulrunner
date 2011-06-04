@@ -115,6 +115,55 @@ let settings = {
 	this.downloads(downloadsString);
     },
 
+    setDownloadProperty: function(id, name, value) {
+        var downloadsString = this.downloads();
+        var downloadsArray = this.unserializeDownloads(downloadsString);
+	for(var i=0; i<downloadsArray.length; i++) {
+	    var download = downloadsArray[i];
+	    if (download.id == id) {
+	        if (name == "id" )
+	           download.id = value;
+		else if (name == "gid")
+	           download.gid = value;
+		else if (name == "completed")
+	           download.completed = value;
+		else if (name == "status")
+	           download.status = value;
+	    }
+    	}
+	var downloadsString = this.serializeDownloads(downloadsArray);
+	this.downloads(downloadsString);
+    },
+
+    getDownloadProperty: function(id, name) {
+        var downloadsString = this.downloads();
+        var downloadsArray = this.unserializeDownloads(downloadsString);
+	for(var i=0; i<downloadsArray.length; i++) {
+	    var download = downloadsArray[i];
+	    if (download.id == id) {
+	        if (name == "id" )
+	           return download.id;
+		else if (name == "gid")
+	           return download.gid;
+		else if (name == "completed")
+	           return download.completed;
+		else if (name == "status")
+	           return download.status;
+	    }
+    	}
+    },
+
+    eraseDownloadGids: function() {
+        var downloadsString = this.downloads();
+        var downloadsArray = this.unserializeDownloads(downloadsString);
+	for(var i=0; i<downloadsArray.length; i++) {
+	    var download = downloadsArray[i];
+            download.gid = "";
+    	}
+	var downloadsString = this.serializeDownloads(downloadsArray);
+	this.downloads(downloadsString);
+    },
+
     serializeDownloads: function(downloadsArray) {
         var downloadsString = "";
 	for(var i=0; i<downloadsArray.length; i++) {
