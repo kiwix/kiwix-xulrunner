@@ -53,9 +53,9 @@ then
   ARIA2C_VERSION=`aria2c -v | grep "aria2 version" | cut -d' ' -f3`
   AC_MSG_RESULT(checking for aria2c version... ${ARIA2C_VERSION})
   ARIA2C_VERSION=`aria2c -v | grep "aria2 version" | cut -d' ' -f3 | cut -d. -f-2 | sed "s/\.//"`
-  if [[ ${ARIA2C_VERSION} -lt 110 ]]
+  if [[ ${ARIA2C_VERSION} -lt 111 ]]
   then
-    AC_MSG_ERROR([aria2c is too old, you need version 1.10 or newer.])
+    AC_MSG_ERROR([aria2c is too old, you need version 1.11 or newer.])
   fi
 
   # Check the compiler version
