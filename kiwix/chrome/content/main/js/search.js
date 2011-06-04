@@ -227,6 +227,23 @@ function manageSearchInIndex(stringToSearch, start, end) {
 	if (loadArticleFromTitle(stringToSearch))
 	    return true;
 
+	/* Try to ucfirst the strintToSearch */
+	if (loadArticleFromTitle(stringToSearch[0].toUpperCase() + stringToSearch.substring(1)))
+	    return true;
+
+	/* Try to uppercase the strintToSearch */
+	if (loadArticleFromTitle(stringToSearch.toUpperCase()))
+	    return true;
+
+	/* Try to lowercase the strintToSearch */
+	if (loadArticleFromTitle(stringToSearch.toLowerCase()))
+	    return true;
+
+	/* Try to lowercase the strintToSearch and ucfirst */
+	if (loadArticleFromTitle(stringToSearch[0].toUpperCase() + stringToSearch.toLowerCase().substring(1)))
+	    return true;
+
+
 	/* Check if a search index exists */
 	if (!checkSearchIndex()) {
 	    manageIndexZimFile();
