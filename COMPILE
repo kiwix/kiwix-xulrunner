@@ -94,7 +94,7 @@ CXX="g++ -arch i386 -m32" to the configure command.
   register it (follow the instructions).
 
 * You have to install a MinGW environnement. You have to download it
-  here: "http://download.kiwix.org/dev/MozillaBuildSetup-1.4.exe" and
+  here: "http://download.kiwix.org/dev/MozillaBuildSetup-1.5.1.exe" and
   install it in the default proposed directory "C:\mozilla-build".
 
 * Go to "c:\mozilla-build" with the Windows explorer and start the
