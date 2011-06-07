@@ -82,6 +82,17 @@ CXX="g++ -arch i386 -m32" to the configure command.
 
 == Windows ==
 
+* You need now to install the free (as free beer) Microsoft Visual
+  Studio express C++ compiler. You can download the installer here:
+  "http://download.kiwix.org/dev/vcsetup.exe"
+
+* To install it, run the self installer. Choose none of the optional
+  features and install it in the default directory: 
+  "c:\Program Files\Microsft Visual Studio 9.0\"
+
+* If installed sucessfuly run one time VS to configure it and maybe
+  register it (follow the instructions).
+
 * You have to install a MinGW environnement. You have to download it
   here: "http://download.kiwix.org/dev/MozillaBuildSetup-1.4.exe" and
   install it in the default proposed directory "C:\mozilla-build".
@@ -98,17 +109,6 @@ CXX="g++ -arch i386 -m32" to the configure command.
 * You need to install Perl. Download it here:
   "http://download.kiwix.org/dev/ActivePerl-5.10.1.1007-MSWin32-x86-291969.msi"
   and install it in the default directory "c:\Perl\"
-
-* You need now to install the free (as free beer) Microsoft Visual
-  Studio express C++ compiler. You can download the installer here:
-  "http://download.kiwix.org/dev/vcsetup.exe"
-
-* To install it, run the self installer. Choose none of the optional
-  features and install it in the default directory: 
-  "c:\Program Files\Microsft Visual Studio 9.0\"
-
-* If installed sucessfuly run one time VS to configure it and maybe
-  register it (follow the instructions).
 
 * You have also to install gcc (for liblzma). You can download it
   here:
