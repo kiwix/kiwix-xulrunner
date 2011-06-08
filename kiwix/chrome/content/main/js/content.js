@@ -254,7 +254,11 @@ function getDownloadStatus() {
 	    } else {
 		var ariaDownloadStatus = getAriaDownloadStatus(kiwixDownload.gid);
 		if (ariaDownloadStatus == "complete") {
-		    library.setBookPath(kiwixDownload.id, getAriaDownloadPath(kiwixDownload.gid));
+		    var ariaDownloadPath = getAriaDownloadPath(kiwixDownload.gid);
+		    ariaDownloadPath = ariaDownloadPath.replace(/\\/g, "\\\\"); /* Necessary to avoid escaping */
+		    if (env.isWindows())
+			ariaDownloadPath = ariaDownloadPath.replace(/\//g, "\\\\"); /* Necessary to fix a bug in aria2c */
+		    library.setBookPath(kiwixDownload.id, ariaDownloadPath);
  		    moveFromRemoteToLocalLibrary(kiwixDownload.id);
 		    settings.setDownloadProperty(kiwixDownload.id,  "id", "");
 		    removeDownload(kiwixDownload.gid);
