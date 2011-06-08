@@ -43,17 +43,21 @@ function addMetalink(id, metalinkContent) {
 function whereis(binary) {
     var env = Components.classes["@mozilla.org/process/environment;1"].
           getService(Components.interfaces.nsIEnvironment);
-    var path = env.get("PATH");
-    var pathArray = path.split(":");
+    var path = GetApplicationFolder().path + ";" + env.get("PATH");
+    var pathArray = path.split(";");
     var i;
     var directory = Components.classes["@mozilla.org/file/local;1"].
            createInstance(Components.interfaces.nsILocalFile);
 
     for (i in pathArray) {
-	directory.initWithPath(pathArray[i]);
-	directory.append("aria2c");
-	if (directory.exists())
-	    return directory.path
+	try {
+	    directory.initWithPath(pathArray[i]);
+	    directory.append(binary);
+	    if (directory.exists()) {
+		return directory.path;
+	    }
+	} catch (error) {
+	}
     }
 }
 
@@ -69,21 +73,35 @@ function startDownloader() {
     }
 
     if (openPort == false) {
-	var binaryPath = whereis("aria2c");
-	if (binaryPath == undefined) {
+	var binaryPath;
+	var args = [ "--enable-rpc", "--rpc-listen-port=42042", "--dir=" + settings.getRootPath(), "--log=" + getDownloaderLogPath(), "--allow-overwrite=true", "--disable-ipv6=true", "--quiet=true", "--always-resume=true", "--max-concurrent-downloads=42", "--min-split-size=1M", "--rpc-max-request-size=6M" ];
+
+	var ariaBinaryPath = whereis(env.isWindows() ? "aria2c.exe" : "aria2c");
+	if (ariaBinaryPath == undefined) {
 	    dump("Unable to find the aria2c binary.\n");
 	    return;
 	}
 	
+	if (env.isWindows()) {
+	    binaryPath = whereis("chp.exe");
+	    if (binaryPath == undefined) {
+		dump("Unable to find the chp binary.\n");
+		return;
+	    }
+	    
+	    args.splice(0, 0, ariaBinaryPath);
+	} else {
+	    binaryPath = ariaBinaryPath;
+	}
+
 	var binary = Components.classes["@mozilla.org/file/local;1"]
 	    .createInstance(Components.interfaces.nsILocalFile);
 	binary.initWithPath(binaryPath);
-	
+
 	aria2Process = Components.classes["@mozilla.org/process/util;1"]
 	    .createInstance(Components.interfaces.nsIProcess);
 	aria2Process.init(binary);
-	
-	var args = [ "--enable-rpc", "--rpc-listen-port=42042", "--dir=" + settings.getRootPath(), "--log=" + getDownloaderLogPath(), "--allow-overwrite=true", "--disable-ipv6=true", "--quiet=true", "--always-resume=true", "--max-concurrent-downloads=42", "--min-split-size=1M", "--rpc-max-request-size=6M" ];
+
 	aria2Process.run(false, args, args.length);
     }
 }
