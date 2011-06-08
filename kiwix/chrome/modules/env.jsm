@@ -35,6 +35,11 @@ let env = {
       return this.platform.type == "linux" ? true : false;
     },
 
+    /* Return true if windows, otherwise false */
+    isWindows: function() {
+      return this.platform.type == "win" ? true : false;
+    },
+
     /* Check if this is a live instance */
     isLive: function() {
       var liveFile = Components.classes["@mozilla.org/file/directory_service;1"].getService(Components.interfaces.nsIProperties).get("resource:app", Components.interfaces.nsIFile);
