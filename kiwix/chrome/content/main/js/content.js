@@ -101,14 +101,29 @@ function startDownloader() {
 	aria2Process = Components.classes["@mozilla.org/process/util;1"]
 	    .createInstance(Components.interfaces.nsIProcess);
 	aria2Process.init(binary);
-
+	
 	aria2Process.run(false, args, args.length);
     }
 }
 
 function stopDownloader() {
     if (aria2Process != null) {
-	aria2Process.kill();
+	if (env.isWindows()) {
+	    var taskkillBinaryPath = whereis("taskkill.exe");
+	    var chpBinaryPath = whereis("chp.exe");
+
+	    var binary = Components.classes["@mozilla.org/file/local;1"]
+		.createInstance(Components.interfaces.nsILocalFile);
+	    binary.initWithPath(chpBinaryPath);
+	    
+	    var process = Components.classes["@mozilla.org/process/util;1"]
+		.createInstance(Components.interfaces.nsIProcess);
+	    process.init(binary);
+	    
+	    process.run(true, [ taskkillBinaryPath, "/PID", aria2Process.exitValue ], 3);
+	} else if (aria2Process != null) {
+	    aria2Process.kill();
+	}
     }
 }
 
