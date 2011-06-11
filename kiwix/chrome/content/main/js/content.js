@@ -41,15 +41,11 @@ function addMetalink(id, metalinkContent) {
 }
 
 function whereis(binary) {
-    var env = Components.classes["@mozilla.org/process/environment;1"].
-          getService(Components.interfaces.nsIEnvironment);
-    var path = GetApplicationFolder().path + ";" + env.get("PATH");
-    var pathArray = path.split(";");
-    var i;
+    var pathArray = env.getPath().split(env.isWindows() ? ";" : ":");
     var directory = Components.classes["@mozilla.org/file/local;1"].
            createInstance(Components.interfaces.nsILocalFile);
 
-    for (i in pathArray) {
+    for (var i in pathArray) {
 	try {
 	    directory.initWithPath(pathArray[i]);
 	    directory.append(binary);

@@ -432,18 +432,6 @@ function WarnOnSideBar () {
     }
 }
 
-/* Returns path application is running from */
-function GetApplicationFolder () {
-    try {
-	return Components.classes ["@mozilla.org/file/directory_service;1"]
-		.getService (Components.interfaces.nsIProperties)
-		.get ("resource:app", Components.interfaces.nsIFile);
-    } catch (e) {
-	L.error ("can't get app folder:" + e.toString ());
-	return false;
-    }
-}
-
 /* Return a random string */
 function randomString() {
     var chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz";

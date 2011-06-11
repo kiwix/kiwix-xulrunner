@@ -63,6 +63,21 @@ let env = {
       return ph.getFileFromURLSpec(aPath).path;
    },
 
+   getPath: function() {
+      var environment = Components.classes["@mozilla.org/process/environment;1"].
+          getService(Components.interfaces.nsIEnvironment);
+      return this.getApplicationFolder().path + (this.isWindows() ? ";" : ":") + environment.get("PATH");
+   },   
+
+   getApplicationFolder: function() {
+      try {
+	return Components.classes ["@mozilla.org/file/directory_service;1"]
+		.getService (Components.interfaces.nsIProperties)
+		.get ("resource:app", Components.interfaces.nsIFile);
+      } catch (e) {
+      }
+   },
+
    chromeToPath: function(aPath) {
      if (!aPath || !(/^chrome:/.test(aPath)))
        return; //not a chrome url

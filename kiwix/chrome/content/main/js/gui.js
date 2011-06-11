@@ -4,7 +4,6 @@ var _zoomFactor             = 1.2;      /* Factor by which font is magnified or 
 var _winIsFullScreen        = false;    /* Stores fullscreen state*/
 var _showFullScreenToolBar  = false;
 var _fullScreenStatusBar    = true;
-var _applicationFD          = GetApplicationFolder ();
 var _firstSideBar	    = true;
 
 var _languagesHash          = Array();
