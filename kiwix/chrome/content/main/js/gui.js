@@ -1,4 +1,3 @@
-
 /* Global variables */
 var _zoomFactor             = 1.2;      /* Factor by which font is magnified or reduced with zoomIn() & zommOut() */
 var _winIsFullScreen        = false;    /* Stores fullscreen state*/
@@ -1276,4 +1275,12 @@ function manageCheckIntegrity() {
     } else {
 	displayErrorDialog("Your file is corrupted.");
     }
+}
+
+function sendNotification(title, message) {
+    var alertsService = Components.classes["@mozilla.org/alerts-service;1"].
+	getService(Components.interfaces.nsIAlertsService);
+    alertsService.showAlertNotification("chrome://mozapps/skin/downloads/downloadIcon.png", 
+					title, message, 
+					false, "", null, "");
 }

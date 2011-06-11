@@ -98,10 +98,10 @@ function indexZimFile(zimFilePath, xapianDirectory) {
 		isIndexing(true);
 		changeProgressBarVisibilityStatus(true);
 	    } else if (topic == "stopIndexing") {
-		displayErrorDialog(getProperty("endOfIndexing"), getProperty("information"))
 		changeProgressBarVisibilityStatus(false);
 		isIndexing(false);
 		activateGuiSearchComponents();
+		sendNotification(getProperty("information"), getProperty("endOfIndexing"));
 	    }
 	}
     }

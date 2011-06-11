@@ -258,6 +258,7 @@ function getDownloadStatus() {
  		    moveFromRemoteToLocalLibrary(kiwixDownload.id);
 		    settings.setDownloadProperty(kiwixDownload.id,  "id", "");
 		    removeDownload(kiwixDownload.gid);
+		    sendNotification("Download finished", "Download finished");
 		} else if (ariaDownloadStatus == "waiting") {
 		}
 	    }
