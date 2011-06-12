@@ -4,6 +4,7 @@ LD=link.exe
 # Global paths
 XULRUNNER_SDK=../../dependences/xulrunner-sdk
 ZIM=../../zimlib
+PUGIXML=../../pugixml
 
 # Binary paths
 XPIDL=$(XULRUNNER_SDK)/bin/xpidl.exe
@@ -11,31 +12,33 @@ XPIDL=$(XULRUNNER_SDK)/bin/xpidl.exe
 # Include paths
 XULRUNNER_INCLUDE=$(XULRUNNER_SDK)/include
 ZIM_INCLUDE=${ZIM}/include
+PUGIXML_INCLUDE=${PUGIXML}
 
 # Lib paths
 XULRUNNER_LIB=$(XULRUNNER_SDK)/lib
 ZIM_LIB=${ZIM}/src
+PUGIXML_LIB=${PUGIXML}
 
 # idl path
 XULRUNNER_IDL=$(XULRUNNER_SDK)/idl
 
 # Compiler and linker flags
-CFLAGS=-D"XP_WIN" -D"XP_WIN32" -O2 -Oi -I"${ZIM_INCLUDE}" -I"$(XULRUNNER_INCLUDE)" -I../../common/ -I../../zimlib/include/win -D"_WINDLL" -D"_MBCS" -FD -EHsc -MT -Gy -nologo -c -Zi -TP		    
-LDFLAGS=-nologo -LIBPATH:"$(XULRUNNER_LIB)" -LIBPATH:"${ZIM_LIB}"
+CFLAGS=-D"XP_WIN" -D"XP_WIN32" -O2 -Oi -I"${ZIM_INCLUDE}" -I"${PUGIXML_INCLUDE}" -I"$(XULRUNNER_INCLUDE)" -I../../common/ -I../../zimlib/include/win -D"_WINDLL" -D"_MBCS" -FD -EHsc -MT -Gy -nologo -c -Zi -TP		    
+LDFLAGS=-nologo -LIBPATH:"$(XULRUNNER_LIB)" -LIBPATH:"${ZIM_LIB}" -LIBPATH:"${PUGIXML_LIB}"
 
-all: zimAccessor.dll
+all: contentManager.dll
      
-IZimAccessor.xpt:
-	$(XPIDL) -m typelib -I "$(XULRUNNER_IDL)" IZimAccessor.idl
+IContentManager.xpt:
+	$(XPIDL) -m typelib -I "$(XULRUNNER_IDL)" IContentManager.idl
 
-IZimAccessor.h:
-	$(XPIDL) -m header -I "$(XULRUNNER_IDL)" IZimAccessor.idl
+IContentManager.h:
+	$(XPIDL) -m header -I "$(XULRUNNER_IDL)" IContentManager.idl
 
-objs: IZimAccessor.xpt IZimAccessor.h
-	$(CC) $(CFLAGS) zimAccessor.cpp ../../common/kiwix/reader.cpp
+objs: IContentManager.xpt IContentManager.h
+	$(CC) $(CFLAGS) contentManager.cpp  ../../common/base64.cpp ../../common/kiwix/reader.cpp ../../common/kiwix/manager.cpp ../../common/kiwix/library.cpp
 
-zimAccessor.lib: objs
-		       $(LD) -lib -OUT:libZimAccessor.lib $(LDFLAGS) reader.obj
+contentManager.lib: objs
+		       $(LD) -lib -OUT:libContentManager.lib $(LDFLAGS) reader.obj manager.obj library.obj base64.obj
 
-zimAccessor.dll: zimAccessor.lib
-		    $(LD) -OUT:"zimAccessor.dll" -NOLOGO $(LDFLAGS) -DLL -NODEFAULTLIB:"MSVCRT" -OPT:REF -OPT:ICF -DYNAMICBASE -NXCOMPAT -MACHINE:X86 zim.lib libcmt.lib ws2_32.lib nspr4.lib xpcom.lib xpcomglue_s.lib DelayImp.lib winmm.lib libZimAccessor.lib zimAccessor.obj
+contentManager.dll: contentManager.lib
+		    $(LD) -OUT:"contentManager.dll" -NOLOGO $(LDFLAGS) -DLL -NODEFAULTLIB:"MSVCRT" -OPT:REF -OPT:ICF -DYNAMICBASE -NXCOMPAT -MACHINE:X86 zim.lib pugixml.lib libcmt.lib ws2_32.lib nspr4.lib xpcom.lib xpcomglue_s.lib DelayImp.lib winmm.lib libContentManager.lib contentManager.obj
