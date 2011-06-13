@@ -69,7 +69,6 @@ function loadArticleFromTitle(title) {
 	    
 	    /* Need to replace the '+' by the escaping value, otherwise will be interpreted as ' ' (see with "C++") */
 	    var urlValue = url.value.replace( /\+/g, "%2B");
-	    dump(urlValue + "\n");
 
 	    url.value = "zim://" + urlValue;
 	    loadContent(url.value);
