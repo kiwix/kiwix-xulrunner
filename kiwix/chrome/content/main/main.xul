@@ -258,7 +258,7 @@
       <vbox flex="1">
 	<tabbox flex="1" id="tab-box">
 	  <tabs id="tab-headers" style="display: none;">
-	    <toolbarbutton id="tabs-add-button" oncommand="openNewTab()"/>
+	    <toolbarbutton id="tabs-add-button" oncommand="openNewTab(); getSearchBox().focus()"/>
             <tab id="tab-header-00000000" onclick="switchTab('00000000')" class="tab-header" selected="true">
 	      <label value="" crop="right" class="tab-header-label"/>
 	    </tab>
