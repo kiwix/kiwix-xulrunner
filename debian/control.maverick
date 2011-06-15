@@ -1,7 +1,7 @@
 Source: kiwix
 Section: misc
 Priority: optional
-Maintainer: Jorge Gonzalez <jag2kn@gmail.com>
+Maintainer: Emmanuel Engelhart <kelson@kiwix.org>
 Build-Depends: binutils,
 	debhelper,
 	g++,
@@ -28,6 +28,7 @@ Depends: debianutils,
 	 libclucene0ldbl,
 	 xapian-tools,
 	 xulrunner-1.9.2,
+	 aria2,
  	 zlib1g,
 	 liblzma2,
 	 libmicrohttpd5
@@ -37,18 +38,20 @@ Conflicts:
 Replaces: 
 Provides: 
 Section: misc
+HomePage: http://www.kiwix.org
 Description: Wikipedia offline reader
  Kiwix allows you to read and search through offline content
  as they were online. Similar to a browser, Kiwix works with
  the highly compressed ZIM file format.
  .
  Features:
- * Pure ZIM file reader
- * Case and diacritics insensitve full text search engine
- * Bookmarks & Notes
- * ZIM base HTTP server
- * PDF/HTML export
- * Localized
- * Search suggestions
- * ZIM file Index capacity
- * Tabs navigation
+  * Pure ZIM file reader
+  * Case and diacritics insensitve full text search engine
+  * Bookmarks & Notes
+  * ZIM base HTTP server
+  * PDF/HTML export
+  * Localized
+  * Search suggestions
+  * ZIM file Index capacity
+  * Tabs navigation
+  * Content manager
