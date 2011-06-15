@@ -1,10 +1,34 @@
-kiwix (0.9-alpha7.1) maverick; urgency=low
+kiwix (0.9-beta1-natty) natty; urgency=low
+
+  * Remove a hard coded path in kiwix-compact.sh (ID: 3135956)
+  * Avoid the flickering during mouseover links after canceling the indexing
+  * Force loading no plugin to avoid any problem (with libmoon for example)
+  * kiwix-index backend argument is now an option and set as "xapian" per default
+  * Fix regressions responsible for lower case titles in result list (ID: 3147594)
+  * Implement the HTTP 404 error in kiwix-serve
+  * Fix a small bug in the indexing code to avoid forgetting around 100 articles per ZIM file
+  * Disable DNS prefetching for external links
+  * New locales: Polish, Dutch
+  * Open a ZIM file directly from the command line
+  * Gnome and KDE integration: mime-type recognition + icon & application associations (ZIM double-click feature)
+  * A list of ZIM files to download is dynamicaly downloaded in the help page if user online (ID: 3165272)
+  * Simplification and improvment of the searchbar (no search button anymore, always available, standardized, ...)
+  * New Find-in-text bar (like in firefox, at the bottom), to replace the dialogbox.
+  * Result sidebar removed and replaced by a result web page "a la google"
+  * Usage of jar files for a quicker startup
+  * kiwix-serve CPU usage improvement (ID: 3213104)
+  * New integrated content manager/downloader
+  * Introduction of Desktop notifications (ID: 3315162)
+
+ -- Emmanuel Engelhart <kelson@kiwix.org>  Mon, 22 Nov 2010 22:00:00 +0200
+
+kiwix (0.9-alpha7.1) natty; urgency=low
 
   * Same code as 0.9-alpha7, simply rebuild.
 
  -- Emmanuel Engelhart <kelson@kiwix.org>  Mon, 22 Nov 2010 22:00:00 +0200
 
-kiwix (0.9-alpha7) maverick; urgency=low
+kiwix (0.9-alpha7) natty; urgency=low
   * Fix the encoding issue in the help in Parsi (ID: 3060250)
   * Fix an URL parsing issue impacting title containing a '/' (ID: 3065286)
   * Add mouse thumb buttons back/forward support (ID: 3063304)
@@ -23,17 +47,17 @@ kiwix (0.9-alpha7) maverick; urgency=low
   * Fix the initialisation of the random article url generator (ID: 3109548)
   * Fix an issue by tab rendering after closing one (ID: 3108586)
   * Fix the issue with no tab title if user change tab before content renders (ID: 3108598)
-  * Fix the brocken liblzma dependence in Debian package for Maverick (ID: 3115241)
+  * Fix the brocken liblzma dependence in Debian package for Natty (ID: 3115241)
 
  -- Emmanuel Engelhart <kelson@kiwix.org>  Sun, 21 Nov 2010 16:00:00 +0200
 
-kiwix (0.9-alpha6.1) maverick; urgency=low
+kiwix (0.9-alpha6.1) natty; urgency=low
 
   * Version for 10.10 (same code as before)
 
  -- Emmanuel Engelhart <kelson@kiwix.org>  Wed, 27 Oct 2010 12:30:00 +0200
 
-kiwix (0.9-alpha6) maverick; urgency=low
+kiwix (0.9-alpha6) natty; urgency=low
 
   * Fix a regression bug impacting the case insensitive (first character only) suggestion system
   * Fix a bug in kiwix-serve impacting search results with titles including special characters
@@ -56,13 +80,13 @@ kiwix (0.9-alpha6) maverick; urgency=low
 
  -- Emmanuel Engelhart <kelson@kiwix.org>  Tue, 2 Sep 2010 19:20:00 +0200
 
-kiwix (0.9-alpha5.1) maverick; urgency=low
+kiwix (0.9-alpha5.1) natty; urgency=low
 
   * Fix a bug in the debian/posrtrm script (ID: 3035092)
 
  -- Emmanuel Engelhart <kelson@kiwix.org>  Mon, 27 Jul 2010 11:44:00 +0200
 
-kiwix (0.9-alpha5) maverick; urgency=low
+kiwix (0.9-alpha5) natty; urgency=low
 
   * Fix a regression bug impacting the case insensitive (first character only) suggestion
   * Fix a bug in kiwix-serve impacting search results with titles including (non-escaped) special characters
@@ -72,13 +96,13 @@ kiwix (0.9-alpha5) maverick; urgency=low
 
  -- Emmanuel Engelhart <kelson@kiwix.org>  Mon, 26 Jul 2010 21:39:00 +0200
 
-kiwix (0.9-3) maverick; urgency=low
+kiwix (0.9-3) natty; urgency=low
 
   * Fix Build-Depends.
 
  -- Jorge Gonzalez <jag2kn@gmail.com>  Mon, 19 Jul 2010 16:00:00 -0500
 
-kiwix (0.9-2) maverick; urgency=low
+kiwix (0.9-2) natty; urgency=low
 
   * Initial ppa.
 
