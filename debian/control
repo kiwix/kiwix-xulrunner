@@ -28,7 +28,7 @@ Depends: debianutils,
 	 libclucene0ldbl,
 	 xapian-tools,
 	 xulrunner-1.9.2,
-	 aria2c,
+	 aria2,
  	 zlib1g,
 	 liblzma2,
 	 libmicrohttpd5
