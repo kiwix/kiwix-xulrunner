@@ -4,7 +4,8 @@ SUBDIRS = ${DEPENDENCES} \
 	ctpp2 \
 	pugixml \
 	components \
-	manager
+	manager \
+	dependences
 else
 SUBDIRS = ${DEPENDENCES} \
 	zimlib \
