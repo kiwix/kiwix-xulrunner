@@ -5,7 +5,7 @@ kiwix_manage_SOURCES= \
 	../common/kiwix/manager.cpp \
 	../common/kiwix/library.cpp \
 	../common/kiwix/reader.cpp \
-	../common/base64.cpp \
+	../common/base64.cpp
 include_HEADERS= \
 	../common/kiwix/manager.h \
 	../common/kiwix/library.h \
