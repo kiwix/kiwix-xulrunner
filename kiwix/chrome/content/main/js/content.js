@@ -70,7 +70,11 @@ function startDownloader() {
 
     if (openPort == false) {
 	var binaryPath;
-	var args = [ "--enable-rpc", "--rpc-listen-port=42042", "--dir=" + settings.getRootPath(), "--log=" + getDownloaderLogPath(), "--allow-overwrite=true", "--disable-ipv6=true", "--quiet=true", "--always-resume=true", "--max-concurrent-downloads=42", "--min-split-size=1M", "--rpc-max-request-size=6M" ];
+
+	/* Need to wait wide usage of aria2c 1.11 or higher before using this version of the aria2c command line */
+	/* var args = [ "--enable-rpc", "--rpc-listen-port=42042", "--dir=" + settings.getRootPath(), "--log=" + getDownloaderLogPath(), "--allow-overwrite=true", "--disable-ipv6=true", "--quiet=true", "--always-resume=true", "--max-concurrent-downloads=42", "--min-split-size=1M", "--rpc-max-request-size=6M" ]; */
+
+	var args = [ "--enable-xml-rpc", "--xml-rpc-listen-port=42042", "--dir=" + settings.getRootPath(), "--log=" + getDownloaderLogPath(), "--allow-overwrite=true", "--disable-ipv6=true", "--quiet=true", "--always-resume=true", "--max-concurrent-downloads=42", "--xml-rpc-max-request-size=6M" ];
 
 	var ariaBinaryPath = whereis(env.isWindows() ? "aria2c.exe" : "aria2c");
 	if (ariaBinaryPath == undefined) {
