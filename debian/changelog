@@ -1,4 +1,4 @@
-kiwix (0.9-beta1-natty) natty; urgency=low
+kiwix (0.9-beta1) natty; urgency=low
 
   * Remove a hard coded path in kiwix-compact.sh (ID: 3135956)
   * Avoid the flickering during mouseover links after canceling the indexing
