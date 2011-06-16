@@ -81,9 +81,9 @@ then
   fi
   CFLAGS="${CFLAGS}"
   LDFLAGS="${LDFLAGS}" 
-  LIBS=""
-  LD_PATH=""
-  LD_LIBRARY_PATH=""
+  # LIBS=""
+  # LD_PATH=""
+  # LD_LIBRARY_PATH=""
 
   # Check if the 'pkg-config' binary exists
   AC_CHECK_TOOL(HAVE_PKG_CONFIG, pkg-config)
