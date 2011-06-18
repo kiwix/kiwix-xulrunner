@@ -23,7 +23,8 @@ CLEANFILES= \
 	./kiwix*.deb \
 	./kiwix*.tar.gz \
 	./kiwix*.changes \
-	./kiwix*.dsc
+	./kiwix*.dsc \
+	./src/dependences/Makefile
 
 UPDATE_MIME = \
 	if which update-mime-database>/dev/null 2>&1; then \
@@ -102,13 +103,13 @@ dist-hook:
 
 ./kiwix/components/contentManager.xpt:
 	ln -f -s ../../src/components/contentManager/contentManager.xpt ./kiwix/components/contentManager.xpt
-	
+
 ./kiwix/components/zimAccessor.dylib: 
 	ln -f -s ../../src/components/zimAccessor/.libs/libZimAccessor.dylib ./kiwix/components/zimAccessor.dylib
-	
+
 ./kiwix/components/xapianAccessor.dylib: 
 	ln -f -s ../../src/components/xapianAccessor/.libs/libXapianAccessor.dylib ./kiwix/components/xapianAccessor.dylib
-	
+
 ./kiwix/components/zimXapianIndexer.dylib:
 	ln -f -s ../../src/components/zimXapianIndexer/.libs/libZimXapianIndexer.dylib  ./kiwix/components/zimXapianIndexer.dylib
 

@@ -95,7 +95,6 @@ all: linux
 endif
 
 win: zlib-1.2.3/zlib.lib xapian-core-1.2.3/win32/Release/libs/libunicode.lib icu.zip xz-4.999.9beta/windows/liblzma.lib xulrunner-sdk-win.zip xulrunner-win.zip
-	
 
 # clean
 clean:
