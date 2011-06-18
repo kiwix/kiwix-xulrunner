@@ -2,7 +2,7 @@ pkglib_LTLIBRARIES=libContentManager.la
 xptdir = $(DESTDIR)/$(libdir)/kiwix/components
 pkglibdir = $(DESTDIR)/$(libdir)/kiwix/components
 xpt_DATA = contentManager.xpt
- AM_CPPFLAGS=-I$(top_srcdir)/src/common -I$(top_srcdir)/src/zimlib/include
+AM_CPPFLAGS=-I$(top_srcdir)/src/common -I$(top_srcdir)/src/zimlib/include -I$(top_srcdir)/src/pugixml
 libContentManager_la_SOURCES= \
 	contentManager.cpp \
 	../../common/kiwix/library.cpp \
@@ -16,7 +16,7 @@ include_HEADERS= \
 	../../common/kiwix/reader.h \
 	../../pugixml/pugixml.hpp \
 	../../common/base64.h
-libContentManager_la_CXXFLAGS=$(LIBXUL_CFLAGS) $(LIBZIM_CFLAGS) $(LIBPUGIXML_CFLAGS) $(XPCOM_CFLAGS) -D GECKO_VERSION=$(GECKO_VERSION) -I../../common/
+libContentManager_la_CXXFLAGS=$(LIBXUL_CFLAGS) $(LIBZIM_CFLAGS) -L/4141 $(LIBPUGIXML_CFLAGS) -L/4242 $(XPCOM_CFLAGS) -D GECKO_VERSION=$(GECKO_VERSION) -I../../common/
 if IS_OSX
 libContentManager_la_LDFLAGS=$(LIBXUL_LDFLAGS) $(LIBZIM_STATIC_LDFLAGS) $(LIBZIMSELF_STATIC_LDFLAGS) $(XPCOM_LDFLAGS)
 else
