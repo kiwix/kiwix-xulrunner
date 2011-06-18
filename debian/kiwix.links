@@ -1,2 +1,2 @@
-usr/lib/kiwix/kiwix.sh usr/bin/kiwix
-usr/lib/kiwix/kiwix-compact.sh usr/bin/kiwix-compact
+usr/lib/kiwix/kiwix usr/bin/kiwix
+usr/lib/kiwix/kiwix-compact usr/bin/kiwix-compact
