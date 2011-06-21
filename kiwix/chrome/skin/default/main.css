@@ -283,10 +283,9 @@ window[langdir="rtl"] #button-next {
     margin: 0px;
 }
 
+/* Under Linux, never set margin or paddin, this generate displaying issues */
 .tab-header {
     width: 150px;
-    padding: 2px 0px 3px 0px;
-    margin: 0px;
 }
 
 #main.mac * .tab-header {

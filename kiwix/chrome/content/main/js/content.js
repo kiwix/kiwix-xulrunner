@@ -648,6 +648,7 @@ function toggleLibrary() {
 	libraryButton.setAttribute('checked', false);
 	renderingPage.hidden = false;
 	libraryPage.hidden = true;
+	activateGuiSearchComponents();
     } else {
 	desactivateHomeButton();
 	desactivateBackButton();
@@ -660,6 +661,7 @@ function toggleLibrary() {
 	libraryButton.setAttribute('checked', true);
 	renderingPage.hidden = true;
 	libraryPage.hidden = false;
+	desactivateGuiSearchComponents();
     }
 }
 

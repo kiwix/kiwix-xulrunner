@@ -76,6 +76,7 @@
 <!-- Contextual menu -->
 <menupopup id="browser-contextual-menu">
   <menuitem label="&main.saveImageAs;" id="browser-contextual-menu-saveimageas"/>
+  <menuitem label="Open Link in New Tab" id="browser-contextual-menu-openlinkinnewtab"/>
 </menupopup>
 
 <!-- Menu bar -->
@@ -215,7 +216,7 @@
         <toolbarbutton id="button-search-article-down" class="disabled" oncommand="" tooltiptext="&main.search;" />
 -->
         </hbox>
-      <label id="search-label" style="margin: 0px;" collapsed="true" onclick="manageIndexZimFile()" tooltiptext="&main.noSearchBar;"/>
+      <label id="search-label" style="margin: 0px;" collapsed="true" onclick="if (!getSearchBox().disabled) { manageIndexZimFile() }" tooltiptext="&main.noSearchBar;"/>
     </stack>
   </toolbar>
 </toolbox>

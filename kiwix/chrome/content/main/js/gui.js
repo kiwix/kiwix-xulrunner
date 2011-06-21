@@ -276,8 +276,8 @@ function focusOnSearchBox() {
 
 /* Return true if the URL is internal */
 function isInternalUrl(url) {
-	return (url.href.indexOf("zim://", 0)==0 || url.href.indexOf("javascript:", 0)==0 || 
-		url.href.indexOf("chrome:", 0)==0 || url.href.indexOf("search://", 0)==0);
+	return (url.indexOf("zim://", 0)==0 || url.indexOf("javascript:", 0)==0 || 
+		url.indexOf("chrome:", 0)==0 || url.indexOf("search://", 0)==0);
 }
 
 /* Allowing zoom/history function by combining mouse & ctrl */
@@ -327,18 +327,13 @@ function htmlRendererMouseScroll(aEvent) {
 
 /* Update the status bar if mouse is over a link */
 function htmlRendererMouseOver(aEvent) {
-    var url = aEvent.target;
-    
-    if (url instanceof HTMLSpanElement && 
-	url.parentNode instanceof HTMLAnchorElement) {
-        url = url.parentNode;
-    }
+    var url = getNodeLinkUrl(aEvent.target);
 
-    if (url instanceof HTMLAnchorElement) {
+    if (url != undefined) {
 	/* To be sure that nothing else is already displayed */
 	clearStatusBar();
 	
-	document.getElementById("address-bar").value = decodeUrl(url.href.replace(":///", "://"));
+	document.getElementById("address-bar").value = decodeUrl(url.replace(":///", "://"));
 	
 	if (isInternalUrl(url)) {
 	    document.getElementById('book-icon').collapsed = false;
@@ -350,84 +345,75 @@ function htmlRendererMouseOver(aEvent) {
 
 /* Update the status bar if mouse is out of a link */
 function htmlRendererMouseOut(aEvent) {
-    var url = aEvent.target;
+    var url = getNodeLinkUrl(aEvent.target);
 
-    if (url instanceof HTMLAnchorElement) {
+    if (url != undefined) {
 	clearStatusBar();
     }
+}
+
+/* Try to find the link behind a node */
+function getNodeLinkUrl(node) {
+    while (node.parentNode != undefined &&  !(node instanceof HTMLAnchorElement)) {
+        node = node.parentNode;
+    }
+    return (node instanceof HTMLAnchorElement ? node.href : undefined);
 }
 
 /* Double Click event handler */
 function htmlRendererMouseUp(aEvent) {
-    var url = aEvent.target;
+    var url = getNodeLinkUrl(aEvent.target);
+    var stopPropagation = false;
 
-    while (url.parentNode != undefined &&  !(url instanceof HTMLAnchorElement)) {
-        url = url.parentNode;
-    }
-
-    if (url instanceof HTMLAnchorElement && aEvent.button == 1) {
-	if (url.href.indexOf("zim://",0) != 0) {
-	    htmlRendererOpenUrl(aEvent);
+    if (url != undefined && aEvent.button < 2) {
+	if (aEvent.button == 1 || aEvent.ctrlKey) {
+	    stopPropagation = manageOpenUrlInNewTab(url);
 	} else {
-	    changeTabsVisibilityStatus(true);
-	    openNewTab();
-	    htmlRendererOpenUrl(aEvent);
+	    stopPropagation = manageOpenUrl(url);
+	}
+
+	/* Avoid default handling */
+	if (stopPropagation) {
+	    aEvent.preventDefault();
+	    aEvent.stopPropagation();
 	}
     }
 }
 
-/* Mousedown event handler, necessary to deal with ctrl left click on urls */
-function htmlRendererMouseDown(aEvent) {
-    var url = aEvent.target;
-
-    while (url.parentNode != undefined &&  !(url instanceof HTMLAnchorElement)) {
-        url = url.parentNode;
-    }
-
-    if (url instanceof HTMLAnchorElement && aEvent.ctrlKey) {
-	if (url.href.indexOf("zim://",0) != 0) {
-	    htmlRendererOpenUrl(aEvent);
-	} else {
-	    openNewTab();
-	    htmlRendererOpenUrl(aEvent);
-	}
-    }
+/* Open a link in a new tab */
+function manageOpenUrlInNewTab(url) {
+    changeTabsVisibilityStatus(true);
+    openNewTab();
+    return manageOpenUrl(url);
 }
 
-/* Is called every time an (external|internal) url is clicked */
-function htmlRendererOpenUrl(aEvent) {
-    var url = aEvent.target;
-    
-    while (url.parentNode != undefined &&  !(url instanceof HTMLAnchorElement)) {
-        url = url.parentNode;
-    }
-
-    if (url instanceof HTMLAnchorElement) {
+/* Open a link. Returns true if everything OK */
+function manageOpenUrl(url) {
+    /* Clear status bar */
+    if (url == undefined) {
+	return false;
+    } else {
 	clearStatusBar();
     }
 
     /* Return in case of javascript */
-    if (url.href.indexOf("javascript:",0) == 0) {
-	return;
+    if (url.indexOf("javascript:",0) == 0) {
+	return false;
     }
 
     /* Open with extern browser if not an internal link */
     if (!isInternalUrl(url)) {
-	openUrlWithExternalBrowser(url.href);
-	aEvent.preventDefault();
-	aEvent.stopPropagation();
+	openUrlWithExternalBrowser(url);
 	
 	/* Purge the history of the last entry */
 	getHtmlRenderer().sessionHistory.PurgeHistory(1);
     } else { /* If the a ZIM or chrome url */ 	 
-	if (loadContent(url.href)) { 	 
+	if (loadContent(url)) { 	 
 	    activateBackButton(); 	 
 	}
-	aEvent.preventDefault();
-	aEvent.stopPropagation();
     }
     
-    return;
+    return true;
 }
 
 /* Clear the status bar */
@@ -882,15 +868,30 @@ function manageImageDownload(url) {
 /* Toogle browser contextual menu */
 function toggleBrowserContextualMenu(event) {
     var target = event.target;
-    
+
+    /* Image target */
+    var saveImageAsMenuItem = document.getElementById("browser-contextual-menu-saveimageas");
     if (target.localName == "img") {
-	var browserContextualMenu = document.getElementById("browser-contextual-menu");
-	var browserContextualMenuItem = document.getElementById("browser-contextual-menu-saveimageas");
-	var imageUrl = target.getAttribute("src");
-	browserContextualMenuItem.setAttribute("onclick", "manageImageDownload('" + imageUrl + "')");
-	browserContextualMenu.openPopupAtScreen(event.screenX, event.screenY, true);
-    } else if (target.localName == "a") {
+	var src = target.getAttribute("src");
+	saveImageAsMenuItem.setAttribute("onclick", "manageImageDownload('" + src + "')");
+	saveImageAsMenuItem.setAttribute("style", "display: visible;");
+    } else {
+	saveImageAsMenuItem.setAttribute("style", "display: none;");
     }
+
+    /* Target with a link */
+    var openLinkInNewTabMenuItem = document.getElementById("browser-contextual-menu-openlinkinnewtab");
+    var url = getNodeLinkUrl(target);
+    if (url != undefined) {
+	openLinkInNewTabMenuItem.setAttribute("onclick", "manageOpenUrlInNewTab('" + url + "')");
+	openLinkInNewTabMenuItem.setAttribute("style", "display: visible;");
+    } else {
+	openLinkInNewTabMenuItem.setAttribute("style", "display: none;");
+    }
+
+    /* Show the contextual menu */
+    var browserContextualMenu = document.getElementById("browser-contextual-menu");
+    browserContextualMenu.openPopupAtScreen(event.screenX, event.screenY, true);
 }
 
 /* Display a confirm dialog box like confirm() */
@@ -1139,7 +1140,7 @@ function HandleAppCommandEvent(evt) {
     }
 }
 
-function toggleFinBarButton(aEvent) {
+function toggleFindBarButton(aEvent) {
     if (aEvent.attrName == 'hidden') {
 	getFindButton().setAttribute('checked', !aEvent.newValue);
     }
@@ -1156,9 +1157,7 @@ function initHtmlRendererEventListeners() {
     htmlRenderer.addEventListener("mouseover", htmlRendererMouseOver, true);
     htmlRenderer.addEventListener("mouseout", htmlRendererMouseOut, true);
     htmlRenderer.addEventListener("mouseup", htmlRendererMouseUp, true);
-    htmlRenderer.addEventListener("mousedown", htmlRendererMouseDown, true);
     htmlRenderer.addEventListener("keypress", manageKeyCombination, true);
-    htmlRenderer.addEventListener("DOMActivate", htmlRendererOpenUrl, true);
     htmlRenderer.addEventListener("pageshow", updateHistoryNavigationButtons, true);
     htmlRenderer.addEventListener("contextmenu", toggleBrowserContextualMenu, true);
     htmlRenderer.addEventListener("AppCommand", HandleAppCommandEvent, true);
@@ -1168,7 +1167,7 @@ function initHtmlRendererEventListeners() {
     htmlRenderer.addEventListener("load", function(){ updateTabHeader(id) }, true);
     
     /* finbar event */
-    getFindBar().addEventListener ("DOMAttrModified", toggleFinBarButton, true);
+    getFindBar().addEventListener ("DOMAttrModified", toggleFindBarButton, true);
 }
 
 /* Deal with the Escape key */
