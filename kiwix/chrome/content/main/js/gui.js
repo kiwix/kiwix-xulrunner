@@ -1114,17 +1114,6 @@ function dropOnWindows (aEvent) {
     }
 }
 
-/* Manage the handling of key combination */
-function manageKeyCombination(aEvent) {
-    if (aEvent.altKey) {
-	if (aEvent.keyCode == 37) {
-	    pageBack();
-	} else if (aEvent.keyCode == 39) { 
-	    pageNext();
-	}
-    }
-}
-
 /* Allow to deal with mouse thumb buttons back/forward*/
 function HandleAppCommandEvent(evt) {
     evt.stopPropagation();
@@ -1157,7 +1146,6 @@ function initHtmlRendererEventListeners() {
     htmlRenderer.addEventListener("mouseover", htmlRendererMouseOver, true);
     htmlRenderer.addEventListener("mouseout", htmlRendererMouseOut, true);
     htmlRenderer.addEventListener("mouseup", htmlRendererMouseUp, true);
-    htmlRenderer.addEventListener("keypress", manageKeyCombination, true);
     htmlRenderer.addEventListener("pageshow", updateHistoryNavigationButtons, true);
     htmlRenderer.addEventListener("contextmenu", toggleBrowserContextualMenu, true);
     htmlRenderer.addEventListener("AppCommand", HandleAppCommandEvent, true);
