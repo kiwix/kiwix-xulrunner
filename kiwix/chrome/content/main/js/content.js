@@ -521,6 +521,7 @@ function createLibraryItem(book) {
 					       "button");
     pauseButton.setAttribute("id", "pause-button-" + book.id);
     pauseButton.setAttribute("class", "pause mini-button");
+    pauseButton.setAttribute("tooltiptext", "Pause download");
     pauseButton.setAttribute("onclick", "event.stopPropagation(); managePauseDownload('" + book.id + "')");
     progressmeterBox.appendChild(pauseButton);
     
@@ -528,12 +529,14 @@ function createLibraryItem(book) {
 					      "button");
     playButton.setAttribute("id", "play-button-" + book.id);
     playButton.setAttribute("class", "play mini-button");
+    playButton.setAttribute("tooltiptext", "Resume download");
     playButton.setAttribute("onclick", "event.stopPropagation(); manageResumeDownload('" + book.id + "')");
     progressmeterBox.appendChild(playButton);
     
     var cancelButton = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
 						"button");
     cancelButton.setAttribute("class", "cancel mini-button");
+    cancelButton.setAttribute("tooltiptext", "Cancel download");
     cancelButton.setAttribute("onclick", "event.stopPropagation(); manageStopDownload('" + book.id + "')");
     progressmeterBox.appendChild(cancelButton);
     
