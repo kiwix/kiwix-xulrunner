@@ -63,7 +63,7 @@
   <key id="zoomout" key="=" modifiers="control" oncommand="zoomIn()"/> <!-- facilitate the zoomin without using SHIFT-->
   <key id="zoomout" key="-" modifiers="control" oncommand="zoomOut()"/>
   <key id="zoomorig" key="0" modifiers="control" oncommand="zoomOriginal()"/>
-  <key id="open-tab-key" key="T" modifiers="control" oncommand="openNewTab()"/>
+  <key id="open-tab-key" key="T" modifiers="control" oncommand="openNewTab(); getSearchBox().value = ''; getSearchBox().focus()"/>
   <key id="help-key" keycode="VK_F1" oncommand="showHelp()"/>
   <key id="fullscreen-key" keycode="VK_F11" oncommand="UIToggleFullScreen(true)"/>
   <key id="escape" keycode="VK_ESCAPE" oncommand="handleEscape()"/>
