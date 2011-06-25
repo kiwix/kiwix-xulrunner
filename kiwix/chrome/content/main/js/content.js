@@ -248,7 +248,7 @@ function getDownloadStatus() {
 		    remaining = parseInt(remaining - (remainingMinutes * 60));
 		    
 		    /* Update the download status string */
-		    downloadStatusLabelString = (remainingHours > 0 || remainingMinutes > 0 || remaining > 0 ? "Time remaining: " : "") + (remainingHours > 0 ? remainingHours + " hours" : "") + (remainingHours > 0 && remainingMinutes > 0 ? ", " : "") + (remainingMinutes > 0 ? remainingMinutes + " minutes" : "") + (remainingHours == 0 && remainingMinutes > 0 && remaining > 0 ? ", " : "") + (remainingHours == 0 && remaining > 0 ? remaining + " seconds" : "") + (remainingHours > 0 || remainingMinutes > 0 || remaining > 0 ? " – " : "") + formatFileSize(ariaDownloadCompleted) + " of " + formatFileSize(book.size * 1024) + (ariaDownloadSpeed != undefined && ariaDownloadSpeed > 0 ? " (" + formatFileSize(ariaDownloadSpeed * 8) + "/s)" : ""); 
+		    downloadStatusLabelString = (remainingHours > 0 || remainingMinutes > 0 || remaining > 0 ? "Time remaining: " : "") + (remainingHours > 0 ? remainingHours + " hours" : "") + (remainingHours > 0 && remainingMinutes > 0 ? ", " : "") + (remainingMinutes > 0 ? remainingMinutes + " minutes" : "") + (remainingHours == 0 && remainingMinutes > 0 && remaining > 0 ? ", " : "") + (remainingHours == 0 && remaining > 0 ? remaining + " seconds" : "") + (remainingHours > 0 || remainingMinutes > 0 || remaining > 0 ? " – " : "") + formatFileSize(ariaDownloadCompleted) + " of " + formatFileSize(book.size * 1024) + (ariaDownloadSpeed != undefined && ariaDownloadSpeed > 0 ? " (" + formatFileSize(ariaDownloadSpeed) + "/s)" : ""); 
 		}
 		downloadStatusLabel.setAttribute("value", downloadStatusLabelString);
 	    } else {
@@ -300,13 +300,13 @@ function formatNumber( number, decimals, dec_point, thousands_sep ) {
 
 function formatFileSize(filesize) {
     if (filesize >= 1073741824) {
-	filesize = formatNumber(filesize / 1073741824, 2, '.', '') + ' Gb';
+	filesize = formatNumber(filesize / 1073741824, 2, '.', '') + ' GB';
     } else {
 	if (filesize >= 1048576) {
-	    filesize = formatNumber(filesize / 1048576, 2, '.', '') + ' Mb';
+	    filesize = formatNumber(filesize / 1048576, 2, '.', '') + ' MB';
 	} else {
 	    if (filesize >= 1024) {
-		filesize = formatNumber(filesize / 1024, 0) + ' Kb';
+		filesize = formatNumber(filesize / 1024, 0) + ' KB';
 	    } else {
 		filesize = formatNumber(filesize, 0) + ' bytes';
 	    };
