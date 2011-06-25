@@ -70,10 +70,6 @@
   <key id="escape" keycode="VK_ESCAPE" oncommand="handleEscape()"/>
   <key id="pageback-key" keycode="VK_LEFT" modifiers="control" oncommand="pageBack()"/>
   <key id="pagenext-key" keycode="VK_RIGHT" modifiers="control" oncommand="pageNext()"/>
-
-  <!-- For mac -->
-  <key id="findnext" key="g" modifiers="meta" oncommand="getFindBar().onFindAgainCommand(true);"/>
-  <key id="findprevious" key="G" modifiers="meta,shift" oncommand="getFindBar().onFindAgainCommand(false);"/>
 </keyset>
 
 <!-- Contextual menu -->
