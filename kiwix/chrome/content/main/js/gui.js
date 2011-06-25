@@ -1052,25 +1052,27 @@ function initUserInterface() {
     /* Mac OSX specificities
        disable Print as PDF menu */
     if (env.platform.type == "mac") {
-	fm = document.getElementById("file-popup");
-	fp = document.getElementById("file-print-pdf");
-	fm.removeChild(fp);
-	fq = document.getElementById("file-quit");
-	fm.removeChild(fq);
-	fs = document.getElementById("file-sep");
-	fm.removeChild(fs);
-	em = document.getElementById("edit-popup");
-	et = document.getElementById("edit-transliteration");
-	em.removeChild(et);
+        fm = document.getElementById("file-popup");
+        fp = document.getElementById("file-print-pdf");
+        fm.removeChild(fp);
+        fq = document.getElementById("file-quit");
+        fm.removeChild(fq);
+        fs = document.getElementById("file-sep");
+        fm.removeChild(fs);
+        em = document.getElementById("edit-popup");
+        et = document.getElementById("edit-transliteration");
+        em.removeChild(et);
 	
-	// keyboard shortcut
-	keys = document.getElementsByTagName("key");
-	for (var i=0; i<=keys.length; i++) {
-	    mod = keys[i].getAttribute('modifiers');
-	    if (mod == 'control') {
-		keys[i].setAttribute('modifiers', 'meta');	
-	    }
-	}
+        // keyboard shortcut
+        keys = document.getElementsByTagName("key");
+        for (var i=0; i<keys.length; i++) {
+            if (keys[i].hasAttribute('modifiers')) {
+                mod = keys[i].getAttribute('modifiers');
+                if (mod == 'control') {
+                    keys[i].setAttribute('modifiers', 'meta');	
+                }
+            }
+        }
     }
     
     /* Start the download observer */
