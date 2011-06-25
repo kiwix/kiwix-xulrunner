@@ -153,6 +153,8 @@ distmac: dist
 	cp ./kiwix/components/xapianAccessor.dylib Kiwix.app/Contents/Resources/components/xapianAccessor.dylib
 	cp ./kiwix/components/zimXapianIndexer.xpt Kiwix.app/Contents/Resources/components/zimXapianIndexer.xpt
 	cp ./kiwix/components/zimXapianIndexer.dylib Kiwix.app/Contents/Resources/components/zimXapianIndexer.dylib
+	cp ./kiwix/components/contentManager.xpt Kiwix.app/Contents/Resources/components/contentManager.xpt
+	cp ./kiwix/components/contentManager.dylib Kiwix.app/Contents/Resources/components/contentManager.dylib
 	cp src/components/components.list Kiwix.app/Contents/Resources/components/components.list
 	rsync -rl /Library/Frameworks/XUL.framework/ Kiwix.app/Contents/Frameworks/XUL.framework/
 	cp /Library/Frameworks/XUL.framework/Versions/Current/xulrunner Kiwix.app/Contents/MacOS/xulrunner

@@ -340,6 +340,9 @@ else
 	# libicu
 	# even in with-dep mode we don't get it
 	LIBICU_STATIC_LDFLAGS="/opt/local/lib/libicudata.a /opt/local/lib/libicui18n.a /opt/local/lib/libicuuc.a /opt/local/lib/libicuio.a /opt/local/lib/libicule.a /opt/local/lib/libiculx.a /opt/local/lib/libicutu.a /opt/local/lib/libicutest.a"
+	
+	# pugixml
+	LIBPUGIXML_STATIC_LDFLAGS="${CURRENT_PATH}/src/pugixml/.libs/libpugixml.a"
 
 #	-Bstatic -lzim -lz -lzma -Wl,-Bdynamic
 
@@ -422,6 +425,7 @@ AC_SUBST(LIBZIM_LDFLAGS)
 AC_SUBST(LIBZIM_STATIC_LDFLAGS)
 AC_SUBST(LIBPUGIXML_CFLAGS)
 AC_SUBST(LIBPUGIXML_LDFLAGS)
+AC_SUBST(LIBPUGIXML_STATIC_LDFLAGS)
 AC_SUBST(LIBZIMSELF_STATIC_LDFLAGS)
 AC_SUBST(LIBCTPP2_CFLAGS)
 AC_SUBST(LIBCTPP2_LDFLAGS)
