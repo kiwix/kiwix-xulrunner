@@ -75,7 +75,7 @@ xulrunner-sdk/bin/xulrunner: xulrunner-sdk.tar.bz2
 	echo "xulrunner SDK present."
 
 aria2-1.10.9.dmg:
-	wget -c http://garr.dl.sourceforge.net/project/aria2/stable/aria2-1.10.7/aria2%201.10.7%20Mac%20OS%20X%20Snow%20Leopard.dmg -O aria2-1.10.9.dmg
+	wget -c http://garr.dl.sourceforge.net/project/aria2/stable/aria2-1.10.9/aria2%201.10.9%20Mac%20OS%20X%20Snow%20Leopard.dmg -O aria2-1.10.9.dmg
 
 aria2.pkg: aria2-1.10.9.dmg
 	mkdir -p ./aria_dmg
