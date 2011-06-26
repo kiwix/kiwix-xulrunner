@@ -23,6 +23,7 @@ Kiwix 0.9 beta1
 * Update the Window title by switching the tabs
 * New integrated content manager/downloader
 * Introduction of Desktop notifications (ID: 3315162)
+* New way to open link in new tab with shortcuts or drag&drop (ID: 3311320)
 
 Kiwix 0.9 alpha7
 * Fix the encoding issue in the help in Parsi (ID: 3060250)
