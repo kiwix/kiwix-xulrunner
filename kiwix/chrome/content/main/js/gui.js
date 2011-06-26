@@ -57,6 +57,10 @@ function updateGuiSearchComponents() {
     }
 }
 
+function getTabHeaders() {
+    return document.getElementById("tab-headers");
+}
+
 /* Return the Search input box object */
 function getSearchBox() {
     return document.getElementById("textbox-search");
@@ -1158,6 +1162,27 @@ function initHtmlRendererEventListeners() {
     
     /* finbar event */
     getFindBar().addEventListener ("DOMAttrModified", toggleFindBarButton, true);
+
+    /* Drag & drop to open a link in a new tab */
+    htmlRenderer.addEventListener ("dragend", htmlRendererDrop, true);
+}
+
+/* Deal with drag & drop to open a link in a new tab */
+function htmlRendererDrop(event) {
+    var target = event.target;
+    var tabHeaders = getTabHeaders();
+
+    if (target.tagName == "A") {
+	var x1 = tabHeaders.boxObject.screenX;
+	var x2 = x1 + tabHeaders.boxObject.width;
+	var y1 = tabHeaders.boxObject.screenY;
+	var y2 = y1 + tabHeaders.boxObject.height;
+	var x = event.screenX;
+	var y = event.screenY;
+	if (x > x1 && x < x2 && y > y1 && y < y2) {
+	    manageOpenUrlInNewTab(target.href);
+	}
+    }
 }
 
 /* Deal with the Escape key */
