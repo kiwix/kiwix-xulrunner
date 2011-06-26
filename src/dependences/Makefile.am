@@ -74,6 +74,18 @@ xapian-core-1.2.3/win32/Release/libs/libunicode.lib: xapian-core.tar.gz xapian-w
 xulrunner-sdk/bin/xulrunner: xulrunner-sdk.tar.bz2
 	echo "xulrunner SDK present."
 
+aria2-1.10.9.dmg:
+	wget -c http://garr.dl.sourceforge.net/project/aria2/stable/aria2-1.10.7/aria2%201.10.7%20Mac%20OS%20X%20Snow%20Leopard.dmg -O aria2-1.10.9.dmg
+
+aria2.pkg: aria2-1.10.9.dmg
+	mkdir -p ./aria_dmg
+	hdiutil attach aria2-1.10.9.dmg -noautoopen -quiet -mountpoint ./aria_dmg
+	cp ./aria_dmg/aria2.pkg aria2.pkg
+	hdiutil detach ./aria2_dmg
+
+aria2/bin/aria2c: aria2.pkg
+	${CURRENT_PATH}/../maintenance_tools/unpkg.py aria2.pkg
+
 xz-4.999.9beta/src/liblzma/.libs/liblzma.a: xz.tar.bz2
 if IS_OSX
 	lzma_conf_extra="--with-libiconv-prefix=/opt/local --with-libintl-prefix=/opt/local --disable-assembler"
@@ -86,7 +98,7 @@ xz-4.999.9beta/windows/liblzma.lib: xz.tar.bz2
 
 linux: zlib-1.2.3/libz.a xapian-core-1.2.3/.libs/libxapian.a xz-4.999.9beta/src/liblzma/.libs/liblzma.a xulrunner-sdk/bin/xulrunner
 
-mac: linux xulrunner.dmg
+mac: linux xulrunner.dmg aria2/bin/aria2c
 
 if IS_OSX
 all: linux mac
