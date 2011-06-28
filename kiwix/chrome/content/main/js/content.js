@@ -316,6 +316,24 @@ function formatFileSize(filesize) {
     return filesize;
 };
 
+function manageRemoveContent(id) {
+    var book = library.getBookById(id);
+    if (book != undefined) {
+	deleteFile(book.path);
+	deleteFile(book.indexPath);
+	removeLibraryItem(id);
+	
+	if (book.url != "") {
+	    library.setBookPath(id, "");
+	    library.setBookIndex(id, "", "");
+	} else {
+	    library.deleteBookById(id);
+	}
+	populateLocalBookList();
+	populateRemoteBookList();
+    }
+};
+    
 function manageStopDownload(id) {
     var downloadButton = document.getElementById("download-button-" + id);
     downloadButton.setAttribute("style", "display: block;");
@@ -555,6 +573,13 @@ function createLibraryItem(book) {
     buttonBox.setAttribute("style", "margin: 5px;");
     buttonBox.appendChild(spacer.cloneNode(true));
     
+    var removeButton = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
+						"button");
+    removeButton.setAttribute("label", "Remove");
+    removeButton.setAttribute("id", "remove-button-" + book.id);
+    removeButton.setAttribute("onclick", "event.stopPropagation(); manageRemoveContent('" + book.id + "')");
+    buttonBox.appendChild(removeButton);
+
     var loadButton = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
 					      "button");
     loadButton.setAttribute("label", "Load");
@@ -573,6 +598,7 @@ function createLibraryItem(book) {
 	downloadButton.setAttribute("style", "display: none;");
     } else {
 	loadButton.setAttribute("style", "display: none;");
+	removeButton.setAttribute("style", "display: none;");
     }
     
     hbox.appendChild(buttonBox);
