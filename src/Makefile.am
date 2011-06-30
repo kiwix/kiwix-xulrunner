@@ -14,6 +14,5 @@ SUBDIRS = ${DEPENDENCES} \
 	components \
 	indexer \
 	server \
-	manager \
-	dependences
+	manager 
 endif
