@@ -1,7 +1,11 @@
 AC_INIT([kiwix], [0.9])
 
+# Directory where autotools helper scripts lives.
+AC_CONFIG_AUX_DIR([.])
+
 # Init. of automake
 AM_INIT_AUTOMAKE
+AM_MAINTAINER_MODE
 
 # Determine a C compiler
 AC_PROG_CC
@@ -104,6 +108,7 @@ AC_LANG(C++)
 
 # Current path
 CURRENT_PATH=`pwd`
+#CURRENT_PATH=../
 
 # Check if their is a Perl binary
 AC_CHECK_TOOL(HAVE_PERL, perl)

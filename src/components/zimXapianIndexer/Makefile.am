@@ -5,26 +5,26 @@ xpt_DATA = zimXapianIndexer.xpt
  AM_CPPFLAGS=-I$(top_srcdir)/src/common -I$(top_srcdir)/src/zimlib/include
 libZimXapianIndexer_la_SOURCES= \
 	zimXapianIndexer.cpp \
-	../../common/kiwix/xapian/myhtmlparse.cc \
-	../../common/kiwix/xapian/htmlparse.cc \
-	../../common/unaccent.cpp \
-	../../common/kiwix/indexer.cpp \
-	../../common/kiwix/xapianIndexer.cpp 
+	$(top_srcdir)/src/common/kiwix/xapian/myhtmlparse.cc \
+	$(top_srcdir)/src/common/kiwix/xapian/htmlparse.cc \
+	$(top_srcdir)/src/common/unaccent.cpp \
+	$(top_srcdir)/src/common/kiwix/indexer.cpp \
+	$(top_srcdir)/src/common/kiwix/xapianIndexer.cpp 
 include_HEADERS= \
 	IZimXapianIndexer.h \
-	../../common/kiwix/xapian/myhtmlparse.h \
-	../../common/kiwix/xapian/namedentities.h \
-	../../common/kiwix/xapian/htmlparse.h \
-	../../common/unaccent.h \
-	../../common/kiwix/indexer.h \
-	../../common/kiwix/xapianIndexer.h
-libZimXapianIndexer_la_CXXFLAGS=$(LIBXUL_CFLAGS) $(LIBXAPIAN_CFLAGS) $(LIBICU_CFLAGS) $(LIBZIM_CFLAGS) $(XPCOM_CFLAGS) -D GECKO_VERSION=$(GECKO_VERSION) -I../../common/
+	$(top_srcdir)/src/common/kiwix/xapian/myhtmlparse.h \
+	$(top_srcdir)/src/common/kiwix/xapian/namedentities.h \
+	$(top_srcdir)/src/common/kiwix/xapian/htmlparse.h \
+	$(top_srcdir)/src/common/unaccent.h \
+	$(top_srcdir)/src/common/kiwix/indexer.h \
+	$(top_srcdir)/src/common/kiwix/xapianIndexer.h
+libZimXapianIndexer_la_CXXFLAGS=$(LIBXUL_CFLAGS) $(LIBXAPIAN_CFLAGS) $(LIBICU_CFLAGS) $(LIBZIM_CFLAGS) $(XPCOM_CFLAGS) -D GECKO_VERSION=$(GECKO_VERSION) -I$(top_srcdir)/src/common/
 if IS_OSX
-libZimXapianIndexer_la_CXXFLAGS += -I/opt/local/include 
+libZimXapianIndexer_la_CXXFLAGS += -I/opt/local/include
 libZimXapianIndexer_la_LDFLAGS=$(LIBXUL_LDFLAGS) $(LIBXAPIAN_STATIC_LDFLAGS) $(LIBICU_STATIC_LDFLAGS) $(LIBZIM_STATIC_LDFLAGS) $(LIBZIMSELF_STATIC_LDFLAGS) $(XPCOM_LDFLAGS) 
 else
 libZimXapianIndexer_la_LDFLAGS=$(LIBXUL_LDFLAGS) $(LIBXAPIAN_LDFLAGS) $(LIBICU_LDFLAGS) $(LIBZIM_LDFLAGS) $(XPCOM_LDFLAGS) 
-libZimXapianIndexer_la_LIBADD=../../zimlib/src/libzim.la
+libZimXapianIndexer_la_LIBADD=$(top_builddir)/src/zimlib/src/libzim.la
 endif
 EXTRA_DIST=IZimXapianIndexer.idl
 BUILT_SOURCES=zimXapianIndexer.xpt IZimXapianIndexer.h

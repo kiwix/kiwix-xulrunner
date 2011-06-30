@@ -7,24 +7,24 @@ EXTRA_DIST= \
 	COMPILE
 
 CLEANFILES= \
-	./kiwix/components/zimAccessor.so \
-	./kiwix/components/zimAccessor.dylib \
-	./kiwix/components/zimAccessor.xpt \
-	./kiwix/components/xapianAccessor.so \
-	./kiwix/components/xapianAccessor.dylib \
-	./kiwix/components/xapianAccessor.xpt \
-	./kiwix/components/zimXapianIndexer.so \
-	./kiwix/components/zimXapianIndexer.dylib \
-	./kiwix/components/zimXapianIndexer.xpt \
-	./kiwix/components/cluceneAccessor.so \
-	./kiwix/components/cluceneAccessor.xpt \
-	./kiwix/components/zimCluceneIndexer.so \
-	./kiwix/components/zimCluceneIndexer.xpt \
-	./kiwix*.deb \
-	./kiwix*.tar.gz \
-	./kiwix*.changes \
-	./kiwix*.dsc \
-	./src/dependences/Makefile
+	kiwix/components/zimAccessor.so \
+	kiwix/components/zimAccessor.dylib \
+	kiwix/components/zimAccessor.xpt \
+	kiwix/components/xapianAccessor.so \
+	kiwix/components/xapianAccessor.dylib \
+	kiwix/components/xapianAccessor.xpt \
+	kiwix/components/zimXapianIndexer.so \
+	kiwix/components/zimXapianIndexer.dylib \
+	kiwix/components/zimXapianIndexer.xpt \
+	kiwix/components/cluceneAccessor.so \
+	kiwix/components/cluceneAccessor.xpt \
+	kiwix/components/zimCluceneIndexer.so \
+	kiwix/components/zimCluceneIndexer.xpt \
+	kiwix*.deb \
+	kiwix*.tar.gz \
+	kiwix*.changes \
+	kiwix*.dsc \
+	src/dependences/Makefile
 
 UPDATE_MIME = \
 	if which update-mime-database>/dev/null 2>&1; then \
@@ -37,28 +37,28 @@ UPDATE_DESKTOP = \
 	fi
 
 if IS_OSX
-all-local: ./kiwix/components/xapianAccessor.dylib \
-	./kiwix/components/xapianAccessor.xpt \
-	./kiwix/components/zimAccessor.dylib \
-	./kiwix/components/zimAccessor.xpt \
-	./kiwix/components/zimXapianIndexer.dylib \
-	./kiwix/components/zimXapianIndexer.xpt \
-	./kiwix/components/zimXapianIndexer.dylib \
-	./kiwix/components/contentManager.xpt \
-./kiwix/components/contentManager.dylib
+all-local: kiwix/components/xapianAccessor.dylib \
+	kiwix/components/xapianAccessor.xpt \
+	kiwix/components/zimAccessor.dylib \
+	kiwix/components/zimAccessor.xpt \
+	kiwix/components/zimXapianIndexer.dylib \
+	kiwix/components/zimXapianIndexer.xpt \
+	kiwix/components/zimXapianIndexer.dylib \
+	kiwix/components/contentManager.xpt \
+	kiwix/components/contentManager.dylib
 else
-all-local: ./kiwix/components/xapianAccessor.so \
-	./kiwix/components/xapianAccessor.xpt \
-	./kiwix/components/zimAccessor.so \
-	./kiwix/components/zimAccessor.xpt \
-	./kiwix/components/zimXapianIndexer.so \
-	./kiwix/components/zimXapianIndexer.xpt \
-	./kiwix/components/cluceneAccessor.so \
-	./kiwix/components/cluceneAccessor.xpt \
-	./kiwix/components/zimCluceneIndexer.so \
-	./kiwix/components/zimCluceneIndexer.xpt \
-	./kiwix/components/contentManager.so \
-	./kiwix/components/contentManager.xpt
+all-local: kiwix/components/xapianAccessor.so \
+	kiwix/components/xapianAccessor.xpt \
+	kiwix/components/zimAccessor.so \
+	kiwix/components/zimAccessor.xpt \
+	kiwix/components/zimXapianIndexer.so \
+	kiwix/components/zimXapianIndexer.xpt \
+	kiwix/components/cluceneAccessor.so \
+	kiwix/components/cluceneAccessor.xpt \
+	kiwix/components/zimCluceneIndexer.so \
+	kiwix/components/zimCluceneIndexer.xpt \
+	kiwix/components/contentManager.so \
+	kiwix/components/contentManager.xpt
 endif
 
 dist-hook:
@@ -68,52 +68,52 @@ dist-hook:
 	if [ -d "$(distdir)/kiwix/chrome/content" ] ; then cd $(distdir)/kiwix/chrome/ ; ${JAR} cf content.jar content/ ; rm -rf content ; fi
 	if [ -d "$(distdir)/kiwix/chrome/skin" ] ; then cd $(distdir)/kiwix/chrome/ ; ${JAR} cf skin.jar skin/ ; rm -rf skin ; fi
 
-./kiwix/components/zimAccessor.so: 
+kiwix/components/zimAccessor.so: 
 	ln -f -s ../../src/components/zimAccessor/.libs/libZimAccessor.so ./kiwix/components/zimAccessor.so
 
-./kiwix/components/zimAccessor.xpt: 
+kiwix/components/zimAccessor.xpt: 
 	ln -f -s ../../src/components/zimAccessor/zimAccessor.xpt ./kiwix/components/zimAccessor.xpt
 
-./kiwix/components/xapianAccessor.so: 
+kiwix/components/xapianAccessor.so: 
 	ln -f -s ../../src/components/xapianAccessor/.libs/libXapianAccessor.so ./kiwix/components/xapianAccessor.so
 
-./kiwix/components/xapianAccessor.xpt:
+kiwix/components/xapianAccessor.xpt:
 	ln -f -s ../../src/components/xapianAccessor/xapianAccessor.xpt ./kiwix/components/xapianAccessor.xpt
 
-./kiwix/components/zimXapianIndexer.so:
+kiwix/components/zimXapianIndexer.so:
 	ln -f -s ../../src/components/zimXapianIndexer/.libs/libZimXapianIndexer.so  ./kiwix/components/zimXapianIndexer.so
 
-./kiwix/components/zimXapianIndexer.xpt: 
+kiwix/components/zimXapianIndexer.xpt: 
 	ln -f -s ../../src/components/zimXapianIndexer/zimXapianIndexer.xpt ./kiwix/components/zimXapianIndexer.xpt
 
-./kiwix/components/cluceneAccessor.so: 
+kiwix/components/cluceneAccessor.so: 
 	ln -f -s ../../src/components/cluceneAccessor/.libs/libCluceneAccessor.so ./kiwix/components/cluceneAccessor.so
 
-./kiwix/components/cluceneAccessor.xpt:
+kiwix/components/cluceneAccessor.xpt:
 	ln -f -s ../../src/components/cluceneAccessor/cluceneAccessor.xpt ./kiwix/components/cluceneAccessor.xpt
 
-./kiwix/components/zimCluceneIndexer.so:
+kiwix/components/zimCluceneIndexer.so:
 	ln -f -s ../../src/components/zimCluceneIndexer/.libs/libZimCluceneIndexer.so  ./kiwix/components/zimCluceneIndexer.so
 
-./kiwix/components/zimCluceneIndexer.xpt: 
+kiwix/components/zimCluceneIndexer.xpt: 
 	ln -f -s ../../src/components/zimCluceneIndexer/zimCluceneIndexer.xpt ./kiwix/components/zimCluceneIndexer.xpt
 
-./kiwix/components/contentManager.so: 
+kiwix/components/contentManager.so: 
 	ln -f -s ../../src/components/contentManager/.libs/libContentManager.so ./kiwix/components/contentManager.so
 
-./kiwix/components/contentManager.xpt:
+kiwix/components/contentManager.xpt:
 	ln -f -s ../../src/components/contentManager/contentManager.xpt ./kiwix/components/contentManager.xpt
 
-./kiwix/components/zimAccessor.dylib: 
+kiwix/components/zimAccessor.dylib: 
 	ln -f -s ../../src/components/zimAccessor/.libs/libZimAccessor.dylib ./kiwix/components/zimAccessor.dylib
 
-./kiwix/components/xapianAccessor.dylib: 
+kiwix/components/xapianAccessor.dylib: 
 	ln -f -s ../../src/components/xapianAccessor/.libs/libXapianAccessor.dylib ./kiwix/components/xapianAccessor.dylib
 
-./kiwix/components/zimXapianIndexer.dylib:
+kiwix/components/zimXapianIndexer.dylib:
 	ln -f -s ../../src/components/zimXapianIndexer/.libs/libZimXapianIndexer.dylib  ./kiwix/components/zimXapianIndexer.dylib
 
-./kiwix/components/contentManager.dylib: 
+kiwix/components/contentManager.dylib: 
 	ln -f -s ../../src/components/contentManager/.libs/libContentManager.dylib ./kiwix/components/contentManager.dylib
 
 bindist: 
