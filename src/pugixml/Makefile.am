@@ -1,6 +1,6 @@
 AM_CPPFLAGS=
 
-lib_LTLIBRARIES = libpugixml.la
+noinst_LTLIBRARIES = libpugixml.la
 
 libpugixml_la_SOURCES = \
 	pugixml.cpp

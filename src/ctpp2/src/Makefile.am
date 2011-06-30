@@ -1,6 +1,6 @@
 AM_CPPFLAGS=-I$(top_srcdir)/src/ctpp2/include -I$(top_srcdir)/src/ctpp2/include/functions
 
-lib_LTLIBRARIES = libctpp2.la
+noinst_LTLIBRARIES = libctpp2.la
 
 libctpp2_la_SOURCES = \
 	CTPP2Logger.cpp \

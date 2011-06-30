@@ -1,6 +1,6 @@
 AM_CPPFLAGS=-I$(top_srcdir)/src/zimlib/include
 
-lib_LTLIBRARIES = libzim.la
+noinst_LTLIBRARIES = libzim.la
 
 libzim_la_SOURCES = \
 	article.cpp \
