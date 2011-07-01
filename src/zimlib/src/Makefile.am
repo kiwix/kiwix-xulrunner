@@ -22,9 +22,7 @@ libzim_la_SOURCES = \
 	unlzmastream.cpp \
 	fstream.cpp \
 	md5.cpp \
-	md5stream.cpp
-
-include_HEADERS = \
+	md5stream.cpp \
 	ptrstream.h \
 	log.h \
 	envvalue.h \

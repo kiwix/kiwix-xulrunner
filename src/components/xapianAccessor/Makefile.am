@@ -1,7 +1,9 @@
 pkglib_LTLIBRARIES=libXapianAccessor.la
-xptdir = ${DESTDIR}/${libdir}/kiwix/components/
-pkglibdir = $(DESTDIR)/$(libdir)/kiwix/components
+pkglibdir = $(libdir)/kiwix/components
+
+xptdir = ${libdir}/kiwix/components/
 xpt_DATA = xapianAccessor.xpt
+
 AM_CPPFLAGS=-I$(top_srcdir)/src/common -I$(top_srcdir)/src/ctpp2/include
 libXapianAccessor_la_SOURCES= \
 	xapianAccessor.cpp \

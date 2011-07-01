@@ -3,9 +3,7 @@ AM_CPPFLAGS=
 noinst_LTLIBRARIES = libpugixml.la
 
 libpugixml_la_SOURCES = \
-	pugixml.cpp
-
-include_HEADERS = \
+	pugixml.cpp \
 	pugixml.hpp \
 	pugiconfig.hpp
 

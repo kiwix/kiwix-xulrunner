@@ -83,8 +83,6 @@ libctpp2_la_SOURCES = \
 	CTPP2DTOA.cpp \
 	CTPP2Util.cpp
 
-include_HEADERS = 
-
 libctpp2_la_CXXFLAGS=-fPIC -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE
 if IS_OSX
 libctpp2_la_CXXFLAGS+= -I/opt/local/include
