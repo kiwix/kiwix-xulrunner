@@ -9,5 +9,5 @@ ini_DATA=application.ini
 launcher_SCRIPTS=kiwix
 launcherdir=$(libdir)/kiwix
 
-uninstall-hook:
-	rm -rf $(libdir)/kiwix
+install-exec-local:
+	-ln -s -f $(launcherdir)/kiwix $(bindir)/kiwix
