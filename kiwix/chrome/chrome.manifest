@@ -8,7 +8,7 @@ locale main ar    locale/ar/main/
 locale main ca    locale/ca/main/
 locale main de-DE locale/de-DE/main/
 locale main en-US locale/en-US/main/
-locale main es-ES locale/es-ES/main/
+locale main es    locale/es/main/
 locale main fa	  locale/fa/main/
 locale main fr-FR locale/fr-FR/main/
 locale main he-IL locale/he-IL/main/
@@ -23,7 +23,7 @@ locale branding ar    locale/branding/
 locale branding ca    locale/branding/
 locale branding de-DE locale/branding/
 locale branding en-US locale/branding/
-locale branding es-ES locale/branding/
+locale branding es    locale/branding/
 locale branding fa    locale/branding/
 locale branding fr-FR locale/branding/
 locale branding he-IL locale/branding/
