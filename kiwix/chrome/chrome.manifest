@@ -6,17 +6,17 @@ content static static/
 #locale packagename localename uri/to/files/ [flags]
 locale main ar    locale/ar/main/
 locale main ca    locale/ca/main/
-locale main de    locale/de-DE/main/
-locale main en    locale/en-US/main/
+locale main de    locale/de/main/
+locale main en    locale/en/main/
 locale main es    locale/es/main/
 locale main fa	  locale/fa/main/
-locale main fr    locale/fr-FR/main/
-locale main he    locale/he-IL/main/
-locale main it    locale/it-IT/main/
+locale main fr    locale/fr/main/
+locale main he    locale/he/main/
+locale main it    locale/it/main/
 locale main ml    locale/ml/main/
 locale main nl    locale/nl/main/
 locale main pl    locale/pl/main/
-locale main pt    locale/pt-PT/main/
+locale main pt    locale/pt/main/
 locale main zh	  locale/zh/main/
 
 locale branding ar    locale/branding/
