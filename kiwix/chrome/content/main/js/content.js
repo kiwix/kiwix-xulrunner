@@ -317,41 +317,45 @@ function formatFileSize(filesize) {
 };
 
 function manageRemoveContent(id) {
-    var book = library.getBookById(id);
-    if (book != undefined) {
-	deleteFile(book.path);
-	deleteFile(book.indexPath);
-	removeLibraryItem(id);
-	
-	if (book.url != "") {
-	    library.setBookPath(id, "");
-	    library.setBookIndex(id, "", "");
-	} else {
-	    library.deleteBookById(id);
+    if (displayConfirmDialog("Are you sure you want to remove this content?")) {
+	var book = library.getBookById(id);
+	if (book != undefined) {
+	    deleteFile(book.path);
+	    deleteFile(book.indexPath);
+	    removeLibraryItem(id);
+	    
+	    if (book.url != "") {
+		library.setBookPath(id, "");
+		library.setBookIndex(id, "", "");
+	    } else {
+		library.deleteBookById(id);
+	    }
+	    populateLocalBookList();
+	    populateRemoteBookList();
 	}
-	populateLocalBookList();
-	populateRemoteBookList();
     }
 };
     
 function manageStopDownload(id) {
-    var downloadButton = document.getElementById("download-button-" + id);
-    downloadButton.setAttribute("style", "display: block;");
-    var detailsDeck = document.getElementById("download-deck-" + id);
-    detailsDeck.setAttribute("selectedIndex", "0");
-
-    /* Get corresponding gid */
-    var kiwixDownloadGid = settings.getDownloadProperty(id, "gid");
-
-    /* Stop the download */
-    stopDownload(kiwixDownloadGid);
-    var path = getAriaDownloadPath(kiwixDownloadGid);
-    deleteFile(path);
-    deleteFile(path + ".aria2");
-    deleteFile(appendToPath(settings.getRootPath(), id + ".metalink"));
-
-    /* Remove Kiwix download */
-    settings.setDownloadProperty(id, "id", "");
+    if (displayConfirmDialog("Are you sure you want to stop this download?")) {
+	var downloadButton = document.getElementById("download-button-" + id);
+	downloadButton.setAttribute("style", "display: block;");
+	var detailsDeck = document.getElementById("download-deck-" + id);
+	detailsDeck.setAttribute("selectedIndex", "0");
+	
+	/* Get corresponding gid */
+	var kiwixDownloadGid = settings.getDownloadProperty(id, "gid");
+	
+	/* Stop the download */
+	stopDownload(kiwixDownloadGid);
+	var path = getAriaDownloadPath(kiwixDownloadGid);
+	deleteFile(path);
+	deleteFile(path + ".aria2");
+	deleteFile(appendToPath(settings.getRootPath(), id + ".metalink"));
+	
+	/* Remove Kiwix download */
+	settings.setDownloadProperty(id, "id", "");
+    }
 }
 
 function manageStartDownload(id, completed) {

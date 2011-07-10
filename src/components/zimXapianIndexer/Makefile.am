@@ -1,16 +1,15 @@
 pkglib_LTLIBRARIES=libZimXapianIndexer.la
-xptdir = $(DESTDIR)/$(libdir)/kiwix/components
-pkglibdir = $(DESTDIR)/$(libdir)/kiwix/components
-xpt_DATA = zimXapianIndexer.xpt
- AM_CPPFLAGS=-I$(top_srcdir)/src/common -I$(top_srcdir)/src/zimlib/include
+xptdir=$(libdir)/kiwix/components
+pkglibdir=$(libdir)/kiwix/components
+xpt_DATA=zimXapianIndexer.xpt
+AM_CPPFLAGS=-I$(top_srcdir)/src/common -I$(top_srcdir)/src/zimlib/include
 libZimXapianIndexer_la_SOURCES= \
 	zimXapianIndexer.cpp \
 	$(top_srcdir)/src/common/kiwix/xapian/myhtmlparse.cc \
 	$(top_srcdir)/src/common/kiwix/xapian/htmlparse.cc \
 	$(top_srcdir)/src/common/unaccent.cpp \
 	$(top_srcdir)/src/common/kiwix/indexer.cpp \
-	$(top_srcdir)/src/common/kiwix/xapianIndexer.cpp 
-include_HEADERS= \
+	$(top_srcdir)/src/common/kiwix/xapianIndexer.cpp \
 	IZimXapianIndexer.h \
 	$(top_srcdir)/src/common/kiwix/xapian/myhtmlparse.h \
 	$(top_srcdir)/src/common/kiwix/xapian/namedentities.h \

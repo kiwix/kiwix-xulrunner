@@ -120,7 +120,8 @@ bindist:
 	${BINDIST_INTRO_MESSAGE}
 
 uninstall-hook:
-	rm -rf $(datarootdir)/kiwix
+	-rm -rf $(datadir)/kiwix
+	-rm -rf $(libdir)/kiwix
 
 deb: dist
 	if [ `whereis dpkg-buildpackage | cut -f2 -d" "` == "dpkg-buildpackage:" ] ; then echo "You have to install dpkg-buildpackage" ; exit 1 ; fi
