@@ -1,3 +1,29 @@
+kiwix (0.9-beta1_lucid) natty; urgency=low
+
+  * Remove a hard coded path in kiwix-compact.sh (ID: 3135956)
+  * Avoid the flickering during mouseover links after canceling the indexing
+  * Force loading no plugin to avoid any problem (with libmoon for example)
+  * kiwix-index backend argument is now an option and set as "xapian" per default
+  * Fix regressions responsible for lower case titles in result list (ID: 3147594)
+  * Implement the HTTP 404 error in kiwix-serve
+  * Fix a small bug in the indexing code to avoid forgetting around 100 articles per ZIM file
+  * Disable DNS prefetching for external links
+  * New locales: Polish, Dutch
+  * Open a ZIM file directly from the command line
+  * Gnome and KDE integration: mime-type recognition + icon & application associations (ZIM double-click feature)
+  * A list of ZIM files to download is dynamicaly downloaded in the help page if user online (ID: 3165272)
+  * Simplification and improvment of the searchbar (no search button anymore, always available, standardized, ...)
+  * New Find-in-text bar (like in firefox, at the bottom), to replace the dialogbox.
+  * Result sidebar removed and replaced by a result web page "a la google"
+  * Usage of jar files for a quicker startup
+  * kiwix-serve CPU usage improvement (ID: 3213104)
+  * New integrated content manager/downloader
+  * Introduction of Desktop notifications (ID: 3315162)
+  * New way to open link in new tab with shortcuts or drag&drop (ID: 3311320)
+  * Option to change the profile directory
+
+ -- Emmanuel Engelhart <kelson@kiwix.org>  Mon, 12 Jul 2011 22:00:00 +0200
+
 kiwix (0.9-alpha7.1) lucid; urgency=low
 
   * Same code as 0.9-alpha7, simply rebuild,

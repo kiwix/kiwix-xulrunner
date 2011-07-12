@@ -1,4 +1,4 @@
-kiwix (0.9-beta1) natty; urgency=low
+kiwix (0.9-beta1_natty) natty; urgency=low
 
   * Remove a hard coded path in kiwix-compact.sh (ID: 3135956)
   * Avoid the flickering during mouseover links after canceling the indexing
@@ -19,8 +19,10 @@ kiwix (0.9-beta1) natty; urgency=low
   * kiwix-serve CPU usage improvement (ID: 3213104)
   * New integrated content manager/downloader
   * Introduction of Desktop notifications (ID: 3315162)
+  * New way to open link in new tab with shortcuts or drag&drop (ID: 3311320)
+  * Option to change the profile directory
 
- -- Emmanuel Engelhart <kelson@kiwix.org>  Mon, 22 Nov 2010 22:00:00 +0200
+ -- Emmanuel Engelhart <kelson@kiwix.org>  Mon, 12 Jul 2011 22:00:00 +0200
 
 kiwix (0.9-alpha7.1) natty; urgency=low
 
