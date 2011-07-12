@@ -27,13 +27,9 @@ function quit() {
     settings.save();
 
     /* Quit the application */
-    var forceQuit = 1;
-    var appStartup = Components.classes['@mozilla.org/toolkit/app-startup;1'].
-    getService(Components.interfaces.nsIAppStartup);
-
-    var quitSeverity = forceQuit ? Components.interfaces.nsIAppStartup.eForceQuit :
-	Components.interfaces.nsIAppStartup.eAttemptQuit;
-    appStartup.quit(quitSeverity);
+    var applicationStartup = Components.classes['@mozilla.org/toolkit/app-startup;1'].
+	getService(Components.interfaces.nsIAppStartup);
+    applicationStartup.quit(Components.interfaces.nsIAppStartup.eForceQuit);
 }
 
 /* Return the properties object */
@@ -116,6 +112,21 @@ function onStart() {
 	dump("Unable to register the zimCluceneIndexer XPCOM, Kiwix will be unable to index ZIM files with Clucene.\n");
     if (Components.classes["@kiwix.org/contentManager"] == undefined)
 	dump("Unable to register the contentManager XPCOM, Kiwix will be unable to deal with content.\n");
+
+    /* Remove old profile if necessary */
+    var profileToRemove = settings.profileToRemove();
+    if (profileToRemove != undefined && profileToRemove != "") {
+	try {
+	    var profileService = Components.classes["@mozilla.org/toolkit/profile-service;1"]
+		.createInstance(Components.interfaces.nsIToolkitProfileService);
+	    var oldProfile = profileService.getProfileByName(settings.profileToRemove());
+	    oldProfile.remove(true);
+	    profileService.flush();
+	    settings.profileToRemove("");
+	} catch(error) {
+	}
+    }
+
 
     /* Init the event listeners */
     initEventListeners();

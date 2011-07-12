@@ -50,14 +50,17 @@ function manageChangeProfileDirectory() {
 
 	/* Show a confirm dialog box to ask the user if he really want to move his profile */
 
-	/* Move the profile */
-	newProfileDirectory.remove(true);
-	profileDirectory.copyTo(newProfileDirectoryParent, newProfileDirectory.leafName);
-
 	/* Update profile.ini */
 	var profileService = Components.classes["@mozilla.org/toolkit/profile-service;1"]
                             .createInstance(Components.interfaces.nsIToolkitProfileService);
+
+	/* Ask to remove old profile */
 	var oldProfile = profileService.selectedProfile;
+	settings.profileToRemove(oldProfile.name);
+
+	/* Move the profile */
+	newProfileDirectory.remove(true);
+	profileDirectory.copyTo(newProfileDirectoryParent, newProfileDirectory.leafName);
 
 	/* Set new profile */
 	var newProfile = profileService.createProfile(newProfileDirectory, null, newProfileDirectory.leafName);
@@ -66,11 +69,9 @@ function manageChangeProfileDirectory() {
 	/* Flush */
 	profileService.flush();
 
-	/* Restart to setup the new default profile */
-	settings.register();
-	settings.profileToRemove(oldProfile.name);
-	restart(false);
-
+	/* Quit */
+	displayInfoDialog("Kiwix will quit now. Please restart it.");
+	quit();
     } else {
 	return false;
     }

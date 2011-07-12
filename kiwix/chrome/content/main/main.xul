@@ -113,7 +113,7 @@
       </menu>
       <menuseparator style="display: none;"/>
       <menuitem id="file-preferences" label="&main.preferences;" class="menuitem-iconic" 
-		accesskey="&main.preferences.accesskey;" oncommand="showPreferences()" style="display: none;"/>
+		accesskey="&main.preferences.accesskey;" oncommand="showPreferences()"/>
     </menupopup>
   </menu>
   <menu id="menu-display" label="&main.display;" accesskey="&main.display.accesskey;">
