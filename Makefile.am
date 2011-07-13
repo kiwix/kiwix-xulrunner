@@ -1,4 +1,4 @@
-SUBDIRS=src kiwix desktop static
+B0;136;0cSUBDIRS=src kiwix desktop static
 EXTRA_DIST= \
 	kiwix \
 	desktop \
@@ -63,10 +63,6 @@ endif
 
 dist-hook:
 	rm -rf `find $(distdir) -name "*.svn" -o -name "*.dat" -o -name "*~" -o -name "*#"`
-	if [ -e "$(distdir)/kiwix/chrome/chrome.manifest.prod" ] ; then mv $(distdir)/kiwix/chrome/chrome.manifest.prod $(distdir)/kiwix/chrome/chrome.manifest ; fi
-	if [ -d "$(distdir)/kiwix/chrome/locale" ] ; then cd $(distdir)/kiwix/chrome/ ; ${JAR} cf locale.jar locale/ ; rm -rf locale ; fi
-	if [ -d "$(distdir)/kiwix/chrome/content" ] ; then cd $(distdir)/kiwix/chrome/ ; ${JAR} cf content.jar content/ ; rm -rf content ; fi
-	if [ -d "$(distdir)/kiwix/chrome/skin" ] ; then cd $(distdir)/kiwix/chrome/ ; ${JAR} cf skin.jar skin/ ; rm -rf skin ; fi
 
 kiwix/components/zimAccessor.so: 
 	ln -f -s ../../src/components/zimAccessor/.libs/libZimAccessor.so ./kiwix/components/zimAccessor.so
@@ -118,10 +114,6 @@ kiwix/components/contentManager.dylib:
 
 bindist: 
 	${BINDIST_INTRO_MESSAGE}
-
-uninstall-hook:
-	-rm -rf $(datadir)/kiwix
-	-rm -rf $(libdir)/kiwix
 
 deb: dist
 	if [ `whereis dpkg-buildpackage | cut -f2 -d" "` == "dpkg-buildpackage:" ] ; then echo "You have to install dpkg-buildpackage" ; exit 1 ; fi
