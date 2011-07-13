@@ -1,4 +1,4 @@
-B0;136;0cSUBDIRS=src kiwix desktop static
+SUBDIRS=src kiwix desktop static
 EXTRA_DIST= \
 	kiwix \
 	desktop \

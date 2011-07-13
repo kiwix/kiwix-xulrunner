@@ -11,14 +11,14 @@ skin.jar:
 	${JAR} cf skin.jar skin/
 
 install-data-hook: locale.jar content.jar skin.jar
-	-cp chrome.manifest.prod $(chromedir)/chrome.manifest
-	-mv locale.jar $(chromedir)
-	-mv content.jar $(chromedir)
-	-mv skin.jar $(chromedir)
-	-cp -rf icons $(chromedir)
-	-cp -rf modules $(chromedir)
-	-ln -s -f $(chromedir) $(pkglibdir)/chrome
-	-ln -s -f $(pkgdatadir)/static $(chromedir)/static
+	-cp chrome.manifest.prod ${DESTDIR}/$(chromedir)/chrome.manifest
+	-mv locale.jar ${DESTDIR}/$(chromedir)
+	-mv content.jar ${DESTDIR}/$(chromedir)
+	-mv skin.jar ${DESTDIR}/$(chromedir)
+	-cp -rf icons ${DESTDIR}/$(chromedir)
+	-cp -rf modules ${DESTDIR}/$(chromedir)
+	-ln -s -f ${DESTDIR}/$(chromedir) ${DESTDIR}/$(pkglibdir)/chrome
+	-ln -s -f ${DESTDIR}/$(pkgdatadir)/static ${DESTDIR}/$(chromedir)/static
 
 uninstall-hook:
-	-rm ${pkglibdir}/chrome
+	-rm ${DESTDIR}/${pkglibdir}/chrome
