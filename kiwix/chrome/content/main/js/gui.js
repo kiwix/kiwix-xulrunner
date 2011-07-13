@@ -288,34 +288,30 @@ function isInternalUrl(url) {
 function htmlRendererMouseScroll(aEvent) {
     /* Deal the with the scroll in case of alt is pressed */
     if (aEvent.altKey) {
-	aEvent.preventDefault();
-	aEvent.stopPropagation();
+	stopEventPropagation(aEvent);
 	return;
     }
     
     // following triggers weird behavior on OSX
     // scrolling up/down raises back() and next()
     if (env.platform.type != "mac") {
-	    /* Deal with the left/right click*/
-	    if (aEvent.detail == -1) {
-		pageBack();
-		aEvent.preventDefault();
-		aEvent.stopPropagation();
-		return;
-	    } else if (aEvent.detail == 1) {
-		pageNext();
-		aEvent.preventDefault();
-		aEvent.stopPropagation();
-		return;
-	    }
+	/* Deal with the left/right click*/
+	if (aEvent.detail == -1) {
+	    pageBack();
+	    stopEventPropagation(aEvent);
+	    return;
+	} else if (aEvent.detail == 1) {
+	    pageNext();
+	    stopEventPropagation(aEvent);
+	    return;
+	}
     }
     
     /* Deal with the roll + ctrl */
     if (aEvent.ctrlKey) {
 	if (aEvent.detail>0) { zoomOut() } ;
 	if (aEvent.detail<0) { zoomIn() } ;
-	aEvent.preventDefault();
-	aEvent.stopPropagation();
+	stopEventPropagation(aEvent);
 	return;
     }
 
@@ -323,8 +319,7 @@ function htmlRendererMouseScroll(aEvent) {
     if (aEvent.shiftKey) {
 	if (aEvent.detail<0) { pageNext() } ;
 	if (aEvent.detail>0) { pageBack() } ;
-	aEvent.preventDefault();
-	aEvent.stopPropagation();
+	stopEventPropagation(aEvent);
 	return;
     }
 }
@@ -378,10 +373,14 @@ function htmlRendererMouseUp(aEvent) {
 
 	/* Avoid default handling */
 	if (stopPropagation) {
-	    aEvent.preventDefault();
-	    aEvent.stopPropagation();
+	    stopEventPropagation(aEvent);
 	}
     }
+}
+
+function stopEventPropagation(aEvent) {
+    aEvent.preventDefault();
+    aEvent.stopPropagation();
 }
 
 /* Open a link in a new tab */
@@ -1155,6 +1154,7 @@ function initHtmlRendererEventListeners() {
     htmlRenderer.addEventListener("pageshow", updateHistoryNavigationButtons, true);
     htmlRenderer.addEventListener("contextmenu", toggleBrowserContextualMenu, true);
     htmlRenderer.addEventListener("AppCommand", HandleAppCommandEvent, true);
+    htmlRenderer.addEventListener("DOMActivate", stopEventPropagation, true); 
 
     /* Necessary to update the tab header */
     htmlRenderer.addEventListener("pageshow", function(){ updateTabHeader(id) }, true);
