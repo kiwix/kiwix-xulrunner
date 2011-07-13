@@ -1,10 +1,24 @@
-chromedir=$(datarootdir)/kiwix/chrome
+chromedir=$(pkgdatadir)/chrome
+chrome_DATA=
 
-install-data-hook:
-	-mkdir -p $(chromedir)
-	-cp -rf locale.jar content.jar skin.jar content icons locale modules skin chrome.manifest $(chromedir)
-	-ln -s -f $(chromedir) ${DESTDIR}/${libdir}/kiwix/chrome
-	-ln -s -f $(datarootdir)/kiwix/static $(chromedir)/static
+locale.jar:
+	${JAR} cf locale.jar locale/
+
+content.jar:
+	${JAR} cf content.jar content/
+
+skin.jar:
+	${JAR} cf skin.jar skin/
+
+install-data-hook: locale.jar content.jar skin.jar
+	-cp chrome.manifest.prod $(chromedir)/chrome.manifest
+	-mv locale.jar $(chromedir)
+	-mv content.jar $(chromedir)
+	-mv skin.jar $(chromedir)
+	-cp -rf icons $(chromedir)
+	-cp -rf modules $(chromedir)
+	-ln -s -f $(chromedir) $(pkglibdir)/chrome
+	-ln -s -f $(pkgdatadir)/static $(chromedir)/static
 
 uninstall-hook:
-	-rm -rf $(chromedir) ${DESTDIR}/${libdir}/kiwix/chrome
+	-rm ${pkglibdir}/chrome
