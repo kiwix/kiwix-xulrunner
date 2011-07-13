@@ -118,7 +118,8 @@ bindist:
 deb: dist
 	if [ `whereis dpkg-buildpackage | cut -f2 -d" "` == "dpkg-buildpackage:" ] ; then echo "You have to install dpkg-buildpackage" ; exit 1 ; fi
 	tar -xvzf $(PACKAGE)-$(VERSION).tar.gz
-	ln --verbose -s ../debian $(PACKAGE)-$(VERSION)
+	cp -r debian $(PACKAGE)-$(VERSION)/
+	rm -rf `find $(PACKAGE)-$(VERSION)/debian/ -name "*.svn" -o -name "*.dat" -o -name "*~" -o -name "*#"`
 	cd $(PACKAGE)-$(VERSION) ; dpkg-buildpackage -rfakeroot
 
 rpm: dist
