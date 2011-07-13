@@ -1,4 +1,4 @@
-kiwix (0.9-beta1_lucid) natty; urgency=low
+kiwix (0.9-beta1~lucid) natty; urgency=low
 
   * Remove a hard coded path in kiwix-compact.sh (ID: 3135956)
   * Avoid the flickering during mouseover links after canceling the indexing
@@ -31,6 +31,7 @@ kiwix (0.9-alpha7.1) lucid; urgency=low
  -- Emmanuel Engelhart <kelson@kiwix.org>  Mon, 22 Nov 2010 22:00:00 +0200
 
 kiwix (0.9-alpha7) lucid; urgency=low
+
   * Fix the encoding issue in the help in Parsi (ID: 3060250)
   * Fix an URL parsing issue impacting title containing a '/' (ID: 3065286)
   * Add mouse thumb buttons back/forward support (ID: 3063304)

@@ -17,8 +17,8 @@ install-data-hook: locale.jar content.jar skin.jar
 	-mv skin.jar ${DESTDIR}/$(chromedir)
 	-cp -rf icons ${DESTDIR}/$(chromedir)
 	-cp -rf modules ${DESTDIR}/$(chromedir)
-	-ln -s -f ${DESTDIR}/$(chromedir) ${DESTDIR}/$(pkglibdir)/chrome
-	-ln -s -f ${DESTDIR}/$(pkgdatadir)/static ${DESTDIR}/$(chromedir)/static
+	-ln -s -f $(chromedir) ${DESTDIR}/$(pkglibdir)/chrome
+	-ln -s -f $(pkgdatadir)/static ${DESTDIR}/$(chromedir)/static
 
 uninstall-hook:
 	-rm ${DESTDIR}/${pkglibdir}/chrome

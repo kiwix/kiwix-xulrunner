@@ -10,6 +10,7 @@ Build-Depends: binutils,
 	libicu-dev,
 	liblzma-dev,
 	xulrunner-1.9.2-dev,
+	fastjar,
 	m4,
 	zlib1g-dev,
 	libmicrohttpd-dev,
@@ -21,13 +22,13 @@ Homepage: http://www.kiwix.org/
 Package: kiwix
 Architecture: any
 Depends: debianutils, 
-	 ${shlibs:Depends}, 
 	 ${misc:Depends},
 	 libicu42,
 	 libxapian15,
 	 libclucene0ldbl,
 	 xapian-tools,
 	 xulrunner-1.9.2,
+	 aria2,
  	 zlib1g,
 	 liblzma1,
 	 libmicrohttpd5
