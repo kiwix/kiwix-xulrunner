@@ -10,7 +10,7 @@ launcherdir=$(pkglibdir)
 launcher_SCRIPTS=kiwix
 
 install-exec-hook:
-	-ln -s -f $(launcherdir)/kiwix $(bindir)/kiwix
+	-ln -s -f ${DESTDIR}/$(launcherdir)/kiwix ${DESTDIR}/$(bindir)/kiwix
 
 uninstall-hook:
-	-rm $(bindir)/kiwix
+	-rm ${DESTDIR}/$(bindir)/kiwix
