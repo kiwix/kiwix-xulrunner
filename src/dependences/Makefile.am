@@ -81,7 +81,7 @@ aria2.pkg: aria2-1.10.9.dmg
 	mkdir -p ./aria_dmg
 	hdiutil attach aria2-1.10.9.dmg -noautoopen -quiet -mountpoint ./aria_dmg
 	cp ./aria_dmg/aria2.pkg aria2.pkg
-	hdiutil detach ./aria2_dmg
+	hdiutil detach ./aria_dmg
 
 aria2/bin/aria2c: aria2.pkg
 	${CURRENT_PATH}/../maintenance_tools/unpkg.py aria2.pkg
