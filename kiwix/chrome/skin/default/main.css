@@ -265,12 +265,6 @@ window[langdir="rtl"] #button-next {
     padding: 0;
 }
 
-#main.mac * #tab-panels {
-    -moz-appearance: none;
-    margin-left: -4px;
-    margin-right: -4px;
-}
-
 #tabs-close-button {
     list-style-image: url("chrome://main/skin/icon/close12.png");
     padding: 0px;
@@ -288,17 +282,102 @@ window[langdir="rtl"] #button-next {
     width: 150px;
 }
 
-#main.mac * .tab-header {
-    margin-top: .8em;
-    margin-bottom: 1.2em;
-}
-
 .tab-header-label {
     text-align: left;
     width: 130px;
     margin: 0px;
     padding: 0px;
 }
+
+/* mac tabs UI */
+#main.mac * #tab-panels {
+    padding: 0;
+}
+
+#main.mac * #tab-panels {
+    -moz-appearance: none;
+    margin-left: -4px;
+    margin-right: -4px;
+    border-top: 1px dotted #999999;
+    padding-right: 4px;
+}
+
+#tabs-close-button {
+    list-style-image: url("chrome://main/skin/icon/close12.png");
+    padding: 0px;
+    margin: 0px;
+    position: relative;
+    left: -15px;
+}
+
+#main.mac * #tabs-add-button {
+    list-style-image: none;
+    padding: 0px;
+    margin: 0px;
+    background-image: url("chrome://main/skin/icon/add12.png");
+    background-position: 4px center;
+    background-repeat: no-repeat;
+    position: relative;
+    top: -4px;
+    width: 18px;
+    height: 8px;
+}
+
+
+#main.mac * .tab-header {
+}
+
+#main.mac * #tab-panels {
+    -moz-appearance: none;
+    margin-left: -4px;
+    margin-right: -4px;
+}
+
+
+#main.mac * tabbox {
+    -moz-appearance: none;
+    text-align: left;
+    padding:0;
+    margin: 0;
+}
+
+#main.mac * tabs {
+    position: absolute;
+    left: 0;
+    padding:0;
+    margin: 0;    
+    background-color: #dedede;
+    border: 0;
+}
+
+#main.mac * tab {
+    left: 0;
+    -moz-appearance: none;
+    background-color: #dedede;
+    border: 1px solid #999999;
+    border-bottom: 0;
+    padding-left: 1px;
+    margin-top: 5px;
+    margin-left: 3px;
+    -moz-border-radius: 4px 4px 0 0;
+}
+
+#main.mac * tab[selected="true"] {
+    background-color: white;
+}
+
+#main.mac * .tab-header-label {
+    text-align: left;
+    width: 130px;
+    margin: 0px;
+    padding: 0px;
+    color: #333333;
+    font-size: 110%;
+    padding-bottom: 1px;
+    overflow: hidden;
+    padding-right: 2px;
+}
+
 
 /* Status bar */
 #status-bar {
