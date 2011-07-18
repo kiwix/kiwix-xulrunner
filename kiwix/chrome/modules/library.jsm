@@ -46,8 +46,8 @@ let library = {
 	  libraryDirectory.append("kiwix");
 	} else {
           libraryDirectory = kiwixDirectory.parent.clone();
-	  libraryDirectory.append("data");
         }
+	libraryDirectory.append("data");
 	libraryDirectory.append("library");
 
 	/* List xml library files in the data/library directory */
