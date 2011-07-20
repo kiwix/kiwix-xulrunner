@@ -154,6 +154,7 @@ distmac: dist
 	cp /Library/Frameworks/XUL.framework/Versions/Current/xulrunner Kiwix.app/Contents/MacOS/xulrunner
 	cp ./src/dependences/aria2/bin/aria2c Kiwix.app/Contents/Resources/aria2c
 	cp $(PACKAGE)-$(VERSION)/kiwix/chrome/icons/default/main.icns Kiwix.app/Contents/Resources/kiwix.icns
+	cp $(PACKAGE)-$(VERSION)/kiwix/chrome/icons/default/zim.icns Kiwix.app/Contents/Resources/kiwix-ZIM.icns
 	cp src/macosx/Info.plist Kiwix.app/Contents/Info.plist
 	chmod -R 755 Kiwix.app
 
