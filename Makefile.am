@@ -174,15 +174,19 @@ win:
 	cd src/dependences ; make win
 	cd src/zimlib/src ; if [ ! -f zim.lib ] ; then make -f Makefile.mvsc ; fi
 	cd src/ctpp2/src ; if [ ! -f ctpp2.lib ] ; then make -f Makefile.mvsc ; fi
+	cd src/pugixml ; if [ ! -f pugixml.lib ] ; then make -f Makefile.mvsc ; fi
 	cd src/components/xapianAccessor ; if [ ! -f xapianAccessor.dll ] ; then make -f Makefile.mvsc ; fi
 	cd src/components/zimAccessor ; if [ ! -f zimAccessor.dll ] ; then make -f Makefile.mvsc ; fi
 	cd src/components/zimXapianIndexer ; if [ ! -f zimXapianIndexer.dll ] ; then make -f Makefile.mvsc ; fi
+	cd src/components/contentManager ; if [ ! -f contentManager.dll ] ; then make -f Makefile.mvsc ; fi
 	cp src/components/xapianAccessor/xapianAccessor.dll kiwix/components/
 	cp src/components/xapianAccessor/IXapianAccessor.xpt kiwix/components/xapianAccessor.xpt
 	cp src/components/zimAccessor/zimAccessor.dll kiwix/components/
 	cp src/components/zimAccessor/IZimAccessor.xpt kiwix/components/zimAccessor.xpt
 	cp src/components/zimXapianIndexer/zimXapianIndexer.dll kiwix/components/
 	cp src/components/zimXapianIndexer/IZimXapianIndexer.xpt kiwix/components/zimXapianIndexer.xpt
+	cp src/components/contentManager/contentManager.dll kiwix/components/
+	cp src/components/contentManager/IContentManager.xpt kiwix/components/contentManager.xpt
 	cp -r src/dependences/xulrunner ./kiwix
 	cp -r src/dependences/xz-4.999.9beta/windows/liblzma.dll ./kiwix/xulrunner
 	cp -r src/dependences/icu/bin/*dll ./kiwix/xulrunner
