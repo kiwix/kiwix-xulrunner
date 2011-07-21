@@ -2,9 +2,14 @@ importScripts('workerMessage.js');
 
 function loadBinaryResource(url) {
     var req = new XMLHttpRequest();
-    req.open('GET', url, false);
-    req.overrideMimeType('text/plain; charset=x-user-defined');
-    req.send(null);
+    if (url != undefined && url != "")  { 
+	try {
+	    req.open('GET', url, false);
+	    req.overrideMimeType('text/plain; charset=x-user-defined');
+	    req.send(null);
+	} catch (error)  {
+	}
+    }
     return (req.status == 200 ? req.responseText : '');
 }
 
