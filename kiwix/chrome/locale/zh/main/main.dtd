@@ -28,7 +28,7 @@
 <!ENTITY main.copy.accesskey            "p">
 <!ENTITY main.transliteration           "音译">
 <!ENTITY main.transliteration.accesskey "T">
-<!ENTITY main.preferences               "Preferences">
+<!ENTITY main.preferences               "首选项">
 <!ENTITY main.preferences.accesskey     "n">
 
 <!-- Display menu -->
@@ -60,7 +60,7 @@
 <!ENTITY main.tools.accesskey           "T">
 <!ENTITY main.randomArticle             "随机页面">
 <!ENTITY main.randomArticle.accesskey   "R">
-<!ENTITY main.checkIntegrity            "Integrity check">
+<!ENTITY main.checkIntegrity            "检查完整性">
 <!ENTITY main.checkIntegrity.accesskey  "k">
 <!ENTITY main.purgeHistory              "清除历史">
 <!ENTITY main.purgeHistory.accesskey    "P">
@@ -79,7 +79,7 @@
 <!ENTITY main.home                      "主页">
 <!ENTITY main.searchBar                 "搜索栏">
 <!ENTITY main.search                    "搜索">
-<!ENTITY main.findInText                "Find in text">
+<!ENTITY main.findInText                "在文本中查找">
 <!ENTITY main.noSearchBar               "搜索需要已建立索引的Zim文件">
 <!ENTITY main.bookmarks                 "书签">
 
@@ -103,9 +103,9 @@
 <!ENTITY main.close           		"关闭">
 
 <!-- Preferences Window -->
-<!ENTITY preferences.preferences        "Preferences">
-<!ENTITY preferences.save      		"Save">
-<!ENTITY preferences.cancel     	"Cancel">
-<!ENTITY preferences.profileDirectory  	"Profile directory">
-<!ENTITY preferences.browse  	        "Browse">
+<!ENTITY preferences.preferences        "首选项">
+<!ENTITY preferences.save      		"保存">
+<!ENTITY preferences.cancel     	"取消">
+<!ENTITY preferences.profileDirectory  	"设置目录">
+<!ENTITY preferences.browse  	        "浏览">
 
