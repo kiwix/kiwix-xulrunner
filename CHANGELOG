@@ -1,3 +1,6 @@
+Kiwix 0.9 beta2
+* Regression fix, tabs should not be visible per default
+
 Kiwix 0.9 beta1
 * Remove a hard coded path in kiwix-compact.sh (ID: 3135956)
 * Avoid the flickering during mouseover links after canceling the indexing
