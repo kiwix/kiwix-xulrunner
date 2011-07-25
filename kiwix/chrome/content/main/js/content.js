@@ -664,12 +664,18 @@ function isLibraryVisible() {
 }
 
 /* Show/hide library manager */
-function toggleLibrary() {
+function toggleLibrary(visible) {
     var libraryButton = getLibraryButton();
     var renderingPage = document.getElementById("rendering-page");
     var libraryPage = document.getElementById("library-page");
 
-    if (isLibraryVisible()) {
+    if (visible == undefined) {
+	visible = isLibraryVisible() ? false : true;
+    } else {
+	visible = !isLibraryVisible();
+    }
+
+    if (!visible) {
 	activateHomeButton();
 	activateBackButton();
 	activateNextButton();

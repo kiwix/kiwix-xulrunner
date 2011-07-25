@@ -82,6 +82,8 @@
 <menubar id="menu-bar"> 
   <menu id="menu-file" label="&main.file;" accesskey="&main.file.accesskey;">
     <menupopup id="file-popup">
+      <menuitem id="file-browse-library" label="Browse library" class="menuitem-iconic"
+		oncommand="toggleLibrary(true);"/>
       <menuitem id="file-open" label="&main.openFile;" key="open-file-key" class="menuitem-iconic"
 		accesskey="&main.openFile.accesskey;" oncommand="manageOpenFile()"/>
       <menu label="&main.lastOpen;" id="menu-lastopen-top">
