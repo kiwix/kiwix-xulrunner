@@ -3,6 +3,7 @@ Kiwix 0.9 beta2
 * Fixed deprecated tmp.kiwix.org/zim links in help files (ID: 3376641)
 * Now able to load on GNU/Linux with the command line ZIM files with " " in their path
 * Add menuitem File > Browse Library (ID: 3377139)
+* Avoid segfault by bookmarks pointing to a missing ZIM file (ID: 3376642)
 
 Kiwix 0.9 beta1
 * Remove a hard coded path in kiwix-compact.sh (ID: 3135956)
