@@ -588,7 +588,7 @@ function createLibraryItem(book) {
 					      "button");
     loadButton.setAttribute("label", "Load");
     loadButton.setAttribute("id", "load-button-" + book.id);
-    loadButton.setAttribute("onclick", "event.stopPropagation();  toggleLibrary(); manageOpenFile('" + book.path + "')");
+    loadButton.setAttribute("onclick", "event.stopPropagation(); toggleLibrary(); manageOpenFile('" + book.path + "')");
     buttonBox.appendChild(loadButton);
     
     var downloadButton = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
@@ -671,8 +671,6 @@ function toggleLibrary(visible) {
 
     if (visible == undefined) {
 	visible = isLibraryVisible() ? false : true;
-    } else {
-	visible = !isLibraryVisible();
     }
 
     if (!visible) {
