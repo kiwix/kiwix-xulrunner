@@ -744,6 +744,9 @@ function manageOpenFile(path, noSearchIndexCheck) {
 	/* Empty the search box */
 	getSearchBox().value = "";
 
+	/* Force to hide the library manager */
+	toggleLibrary(false);
+
     } else {
 	displayErrorDialog(getProperty("loadZimFileError", path));
 	return false;
