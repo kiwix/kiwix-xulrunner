@@ -218,9 +218,11 @@ NS_IMETHODIMP ZimAccessor::GetMetatag(const nsACString &name,
   string valueStr;
   
   try {
-    if (this->reader->getMetatag(cname, valueStr)) {
+    if (this->reader != NULL) {
+      if (this->reader->getMetatag(cname, valueStr)) {
 	value = nsDependentCString(valueStr.data(), valueStr.size()); 
 	*retVal = PR_TRUE;
+      }
     }
   } catch (exception &e) {
     cerr << e.what() << endl;
@@ -250,11 +252,13 @@ NS_IMETHODIMP ZimAccessor::GetContent(nsIURI *urlObject, nsACString &content, PR
   *contentLength = 0;
 
   try {
-    if (this->reader->getContentByUrl(url, contentStr, contentLengthInt, contentTypeStr)) {
-      contentType = nsDependentCString(contentTypeStr.data(), contentTypeStr.size()); 
-      content = nsDependentCString(contentStr.data(), contentStr.size());
-      *contentLength = contentLengthInt;
-      *retVal = PR_TRUE;
+    if (this->reader != NULL) {
+      if (this->reader->getContentByUrl(url, contentStr, contentLengthInt, contentTypeStr)) {
+	contentType = nsDependentCString(contentTypeStr.data(), contentTypeStr.size()); 
+	content = nsDependentCString(contentStr.data(), contentStr.size());
+	*contentLength = contentLengthInt;
+	*retVal = PR_TRUE;
+      }
     }
   } catch (exception &e) {
     cerr << e.what() << endl;
@@ -270,8 +274,10 @@ NS_IMETHODIMP ZimAccessor::SearchSuggestions(const nsACString &prefix, PRUint32 
   NS_CStringGetData(prefix, &titlePrefix);
 
   try {
-    if (this->reader->searchSuggestions(titlePrefix, suggestionsCount)) {
-      *retVal = PR_TRUE;
+    if (this->reader != NULL) {
+      if (this->reader->searchSuggestions(titlePrefix, suggestionsCount)) {
+	*retVal = PR_TRUE;
+      }
     }
   } catch (exception &e) {
     cerr << e.what() << endl;
@@ -286,10 +292,12 @@ NS_IMETHODIMP ZimAccessor::GetNextSuggestion(nsACString &title, PRBool *retVal) 
   string titleStr;
 
   try {
-    if (this->reader->getNextSuggestion(titleStr)) {
-      title = nsDependentCString(titleStr.c_str(), 
-				 titleStr.length());
-      *retVal = PR_TRUE;    
+    if (this->reader != NULL) {
+      if (this->reader->getNextSuggestion(titleStr)) {
+	title = nsDependentCString(titleStr.c_str(), 
+				   titleStr.length());
+	*retVal = PR_TRUE;    
+      }
     }
   } catch (exception &e) {
     cerr << e.what() << endl;
@@ -303,7 +311,9 @@ NS_IMETHODIMP ZimAccessor::CanCheckIntegrity(PRBool *retVal) {
   *retVal = PR_FALSE;
 
   try {
-    *retVal = this->reader->canCheckIntegrity() == true ? PR_TRUE : PR_FALSE;
+    if (this->reader != NULL) {
+      *retVal = this->reader->canCheckIntegrity() == true ? PR_TRUE : PR_FALSE;
+    }
   } catch (exception &e) {
     cerr << e.what() << endl;
   }
@@ -316,7 +326,9 @@ NS_IMETHODIMP ZimAccessor::IsCorrupted(PRBool *retVal) {
   *retVal = PR_FALSE;
 
   try {
-    *retVal = this->reader->isCorrupted() == true ? PR_TRUE : PR_FALSE;
+    if (this->reader != NULL) {
+      *retVal = this->reader->isCorrupted() == true ? PR_TRUE : PR_FALSE;
+    }
   } catch (exception &e) {
     cerr << e.what() << endl;
   }
