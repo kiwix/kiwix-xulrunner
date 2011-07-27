@@ -16,13 +16,14 @@ function XMLStringToBookmarks (xmls) {
     for (var i=0 ; i<len ; i++) {
         var title   = root.childNodes[i].getAttribute('title');
         var uri     = root.childNodes[i].getAttribute('uri');
+	var book    = root.childNodes[i].getAttribute('book');
         var notes;
         if (root.childNodes[i].firstChild != null)
             notes   = root.childNodes[i].firstChild.nodeValue;
         else
             notes   = new String();
 
-        items.push({title:title, uri:uri, notes:notes});
+        items.push({title:title, uri:uri, notes:notes, book:book});
     }
     return items;
 }
@@ -31,12 +32,13 @@ function XMLStringFromBookmarks (object) {
     var parser  = new DOMParser();
     var doc     = parser.parseFromString("<bookmarks />", "text/xml");
     var root    = doc.firstChild;
-    
     var len     = object.length >>> 0;
+
     for (var i=0 ; i<len ; i++) {
         var item= doc.createElement("bookmark");
         item.setAttribute("title", object[i]['title']);
         item.setAttribute("uri", object[i]['uri']);
+        item.setAttribute("book", object[i]['book']);
         var note= doc.createTextNode(object[i]['notes']);
         item.appendChild(note);
         root.appendChild(item);
@@ -189,10 +191,10 @@ function BookmarkSet () {
         return true;
 	};
 	// add a bookmark
-	this.add = function(title, uri, notes) {
+        this.add = function(title, uri, book, notes) {
 	    if (this.items.some (BookmarkNFO.itemInSet, {'uri':uri}))
 	        return false;
-	    this.items.push ({'title':title, 'uri':uri, 'notes':notes});
+	    this.items.push ({'title':title, 'uri':uri, 'book':book, 'notes':notes});
 	    this.save ();
 	    return true;
 	}
@@ -212,7 +214,10 @@ function BookmarkSet () {
  * adds bookmark to current set
  */
 function AddBookmarkToDatasource (title, uri) {
-    return BookmarkNFO.currentSet.add(title, uri, "");
+    var currentBook = library.getCurrentBook();
+    var currentBookId = currentBook != undefined ? currentBook.id : undefined;
+
+    return BookmarkNFO.currentSet.add(title, uri, currentBookId, "");
 }
 
 /*
