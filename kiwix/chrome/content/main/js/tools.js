@@ -127,7 +127,6 @@ function onStart() {
 	}
     }
 
-
     /* Init the event listeners */
     initEventListeners();
 

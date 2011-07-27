@@ -698,21 +698,21 @@ function manageOpenFile(path, noSearchIndexCheck) {
 	zimAccessor.getId(zimId);
 	zimId = zimId.value;
 
-	/* Add the file to the library if necessary */
+	/* Update library */
 	var book = library.getBookById(zimId);
-	if (!book || book.path == "") {
-	    book = library.addBook(zimId, path);
+	if (!book) {
+	    library.addBook(zimId, path);
+	} else {
+	    library.setBookPath(zimId, path);
 	}
 	library.updateBookLastOpenDateById(zimId);
+	library.setCurrentId(zimId);
 
 	/* Re-arrange the last open files */
 	populateLastOpenMenu();
 	
 	/* Populate the library */
 	populateContentManager(false, false);
-
-	/* Set the file as current */
-	library.setCurrentId(zimId);
 
 	/* Load the welcome page of the ZIM file */
 	goHome();
