@@ -731,7 +731,7 @@ function manageOpenFile(path, noSearchIndexCheck) {
 	populateLastOpenMenu();
 
 	/* Ask to index if this files has not already an index */
-	if (!noSearchIndexCheck && !checkSearchIndex()) {
+	if (!isIndexing() && !noSearchIndexCheck && !checkSearchIndex()) {
 	    manageIndexZimFile();
 	}
 	

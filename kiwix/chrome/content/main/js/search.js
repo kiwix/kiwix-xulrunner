@@ -99,13 +99,8 @@ function indexZimFile(zimFilePath, xapianDirectory) {
 		changeProgressBarVisibilityStatus(true);
 	    } else if (topic == "stopIndexing") {
 		sendNotification(getProperty("information"), getProperty("endOfIndexing"));
-		
-		/* Only if current book is the one which was being indexed */
-		if (data == true) {
-		    changeProgressBarVisibilityStatus(false);
-		    isIndexing(false);
-		    activateGuiSearchComponents();
-		}
+		changeProgressBarVisibilityStatus(false);
+		isIndexing(false);
 	    }
 	}
     }
@@ -160,9 +155,7 @@ function indexZimFile(zimFilePath, xapianDirectory) {
 	    }
 	    
 	    /* Save the information in the library */
-	    library.setBookIndex(zimFileId, 
-				 appendToPath(settingsRootPath, indexDirectoryName), 
-				 zimFileId == library.getCurrentId());
+	    library.setBookIndex(zimFileId, appendToPath(settingsRootPath, indexDirectoryName));
 
 	    /* Fill the progress bar */
 	    proxiedZimIndexerObserver.notifyObservers(this, "indexingProgress", 100);
