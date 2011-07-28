@@ -70,7 +70,7 @@
 <!ENTITY main.help.accesskey            "س">
 <!ENTITY main.reportabug                "إرسال تقرير بخطأ">
 <!ENTITY main.requestafeature           "طلب ميزة">
-<!ENTITY main.about                     "حول &شعار.اسم الشعار;">
+<!ENTITY main.about                     "حول &#38;#38;شعار.اسم الشعار;">
 <!ENTITY main.about.accesskey           "ح">
 
 <!-- Tool bar -->
