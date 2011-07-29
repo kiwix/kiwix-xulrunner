@@ -49,6 +49,7 @@ function desactivateGuiSearchComponents() {
     getSearchBox().disabled = true;
 }
 
+/* Activate search components only if a book is open */
 function updateGuiSearchComponents() {
     if (isBookOpen()) {
 	activateGuiSearchComponents();
@@ -57,107 +58,62 @@ function updateGuiSearchComponents() {
     }
 }
 
-function getTabHeaders() {
-    return document.getElementById("tab-headers");
+/* Return DOM Element */
+function getTabHeaders() { return document.getElementById("tab-headers"); }
+function getSearchBox() { return document.getElementById("textbox-search"); }
+function getHomeButton() { return document.getElementById("button-home"); }
+function getBookmarksButton() { return document.getElementById("button-bookmarks"); }
+function getFindButton() { return document.getElementById("button-search-article"); }
+function getFullscreenButton() { return document.getElementById("button-fullscreen"); }
+function getPrintButton() { return document.getElementById("button-print"); }
+function getBookmarksButton() { return document.getElementById("button-bookmarks"); }
+function getSearchInPlaceButton() { return document.getElementById("button-search-article"); }
+function getBackButton() { return document.getElementById("button-back"); }
+function getSizeUpButton() { return document.getElementById("button-sizeup"); }
+function getSizeDownButton() { return document.getElementById("button-sizedown"); }
+function getLibraryButton() { return document.getElementById("button-library"); }
+function getFindBar() { return document.getElementById("find-bar"); }
+function getNextButton() { return document.getElementById("button-next"); }
+function getSearchLabel() { return document.getElementById("search-label"); }
+function getCheckIntegrityMenuItem() { return document.getElementById("tools-checkIntegrity"); }
+function getProgressBar() { return document.getElementById("progress-bar"); }
+function getProgressBarLabel() { return document.getElementById("progress-bar-label"); }
+function getBookmarksBar() { return document.getElementById("bookmarks-bar"); }
+function getBookmarksList() { return document.getElementById("bookmarks-list"); }
+function getNotesBox() { return document.getElementById("notesTextBox"); }
+function GetBookmarksSetsList() { return document.getElementById('bookmarks-sets-list'); }
+function getBookmarksSetsPopup() { return document.getElementById('bookmarks-sets'); }
+
+/* Des/Activate a button */
+function activateToolbarButton(button) {
+    button.disabled = false; 
+    button.className = "";  
 }
 
-/* Return the Search input box object */
-function getSearchBox() {
-    return document.getElementById("textbox-search");
+function desactivateToolbarButton(button) {
+    button.disabled = true; 
+    button.className = "disabled";  
 }
 
-/* Return the Home button object */
-function getHomeButton() {
-    return document.getElementById("button-home");
+/* Des/Activate Specific buttons */
+function activateHomeButton() { activateToolbarButton(getHomeButton()); }
+function desactivateHomeButton() { desactivateToolbarButton(getHomeButton()); }
+function activateFullscreenButton() { activateToolbarButton(getFullscreenButton()); }
+function desactivateFullscreenButton() { desactivateToolbarButton(getFullscreenButton()); }
+function activateBackButton() { activateToolbarButton(getBackButton()); }
+function desactivateBackButton() { desactivateToolbarButton(getBackButton()); }
+function activateNextButton() { activateToolbarButton(getNextButton()); }
+function desactivateNextButton() { desactivateToolbarButton(getNextButton()); }
+
+/* Des/Activate Zoom buttons */
+function activateZoomButtons() {
+    activateToolbarButton(getSizeUpButton());
+    activateToolbarButton(getSizeDownButton());
 }
 
-/* Return the bookmarks button */
-function getBookmarksButton() {
-    return document.getElementById("button-bookmarks");
-}
-
-/* Return the find button */
-function getFindButton() {
-    return document.getElementById("button-search-article");
-}
-
-function getFullscreenButton() {
-    return document.getElementById("button-fullscreen");
-}
-
-function getPrintButton() { 
-    return document.getElementById("button-print");
-}
-
-function getBookmarksButton() {
-    return document.getElementById("button-bookmarks");
-}
-
-function getSearchInPlaceButton() {
-    return document.getElementById("button-search-article");
-}
-
-/* Return the Back button object */
-function getBackButton() {
-    return document.getElementById("button-back");
-}
-
-function getLibraryButton() {
-    return document.getElementById("button-library");
-}
-
-/* Return the Find bar object */
-function getFindBar() {
-    return document.getElementById("find-bar");
-}
-
-/* Return the Next button object */
-function getNextButton() {
-    return document.getElementById("button-next");
-}
-
-/* Return the label "masking" the search button and textbox */
-function getSearchLabel() {
-    return document.getElementById("search-label");
-}
-
-function getCheckIntegrityMenuItem() {
-    return document.getElementById("tools-checkIntegrity");
-}
-
-/* Return the Progress meter object */
-function getProgressBar() {
-    return document.getElementById("progress-bar");
-}
-
-/* Return the Progress meter label */
-function getProgressBarLabel() {
-    return document.getElementById("progress-bar-label");
-}
-
-/* Return the bookmarks side bar */
-function getBookmarksBar() {
-    return document.getElementById("bookmarks-bar");
-}
-
-/* Return the list of bookmarks */
-function getBookmarksList() {
-    return document.getElementById("bookmarks-list");
-}
-
-/* Return Notes text box */
-function getNotesBox() {
-    return document.getElementById("notesTextBox");
-}
-
-/* Return Bookmarks Sets menulist */
-function GetBookmarksSetsList() {
-    return document.getElementById('bookmarks-sets-list');
-}
-
-/* Return Bookmarks Sets menupopup */
-function getBookmarksSetsPopup() {
-    return document.getElementById('bookmarks-sets');
+function desactivateZoomButtons() {
+    desactivateToolbarButton(getSizeUpButton());
+    desactivateToolbarButton(getSizeDownButton());
 }
 
 /* Save window geometry */
@@ -184,88 +140,6 @@ function configureWindowGeometry(window) {
     if (settings.windowMaximized()) {
         setTimeout('window.maximize();', 1);
     }
-}
-
-/* (des)activate the zoom buttons */
-function activateZoomButtons() {
-    var button;
-
-    button = document.getElementById('button-sizeup');
-    button.disabled = false; 
-    button.className = "";  
-
-    button = document.getElementById('button-sizedown');
-    button.disabled = false; 
-    button.className = "";  
-}
-
-function activateToolbarButton(button) {
-    button.disabled = false; 
-    button.className = "";  
-}
-
-function desactivateToolbarButton(button) {
-    button.disabled = true; 
-    button.className = "disabled";  
-}
-
-function desactivateZoomButtons() {
-    var button;
-
-    button = document.getElementById('button-sizeup');
-    button.disabled = true; 
-    button.className = "disabled";  
-
-    button = document.getElementById('button-sizedown');
-    button.disabled = true; 
-    button.className = "disabled";  
-}
-
-/* Activate home button */
-function activateHomeButton() {
-    getHomeButton().disabled = false; 
-    getHomeButton().className = "";  
-}
-
-/* Desactivate home button */
-function desactivateHomeButton() {
-    getHomeButton().disabled = true;
-    getHomeButton().className = "disabled";
-}
-
-/* activate/desactivate fullscreen button */
-function activateFullscreenButton() {
-    getFullscreenButton().disabled = false;
-    getFullscreenButton().className = "";
-}
-
-function desactivateFullscreenButton() {
-    getFullscreenButton().disabled = true;
-    getFullscreenButton().className = "disabled";
-}
-
-/* Activate back button */
-function activateBackButton() {
-    getBackButton().disabled = false;
-    getBackButton().className = "";
-}
-
-/* Desactivate back button */
-function desactivateBackButton() {
-    getBackButton().disabled = true;
-    getBackButton().className = "disabled";
-}
-
-/* Activate next button */
-function activateNextButton() {
-    getNextButton().disabled = false;
-    getNextButton().className = "";
-}
-
-/* Desactivate next button */
-function desactivateNextButton() {
-    getNextButton().disabled = true;
-    getNextButton().className = "disabled";
 }
 
 /* Get the focus on the search textbox */
