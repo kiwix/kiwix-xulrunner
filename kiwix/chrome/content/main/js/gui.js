@@ -166,10 +166,10 @@ function htmlRendererMouseScroll(aEvent) {
 	return;
     }
     
-    // following triggers weird behavior on OSX
-    // scrolling up/down raises back() and next()
-    if (env.platform.type != "mac") {
-	/* Deal with the left/right click*/
+    /* following triggers weird behavior on OSX
+       scrolling up/down raises back() and next() */
+    if (env.isMac()) {
+	/* Deal with the left/right click */
 	if (aEvent.detail == -1) {
 	    pageBack();
 	    stopEventPropagation(aEvent);
@@ -931,7 +931,7 @@ function initUserInterface() {
     
     /* Mac OSX specificities
        disable Print as PDF menu */
-    if (env.platform.type == "mac") {
+    if (env.isMac()) {
         fm = document.getElementById("file-popup");
         fp = document.getElementById("file-print-pdf");
         fm.removeChild(fp);
