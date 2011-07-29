@@ -454,6 +454,24 @@ function randomString() {
     return randomstring;
 }
 
+/* Returns the root path of the binary if found, undefined otherwise */
+function whereis(binary) {
+    var pathArray = env.getPath().split(env.isWindows() ? ";" : ":");
+    var directory = Components.classes["@mozilla.org/file/local;1"].
+           createInstance(Components.interfaces.nsILocalFile);
+
+    for (var i in pathArray) {
+	try {
+	    directory.initWithPath(pathArray[i]);
+	    directory.append(binary);
+	    if (directory.exists()) {
+		return directory.path;
+	    }
+	} catch (error) {
+	}
+    }
+}
+
 function delay (f, t) {
     setTimeout(f, t || 0);
 }

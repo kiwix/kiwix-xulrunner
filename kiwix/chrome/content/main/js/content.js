@@ -40,23 +40,6 @@ function addMetalink(id, metalinkContent) {
     settings.setDownloadProperty(id, "gid", gid);
 }
 
-function whereis(binary) {
-    var pathArray = env.getPath().split(env.isWindows() ? ";" : ":");
-    var directory = Components.classes["@mozilla.org/file/local;1"].
-           createInstance(Components.interfaces.nsILocalFile);
-
-    for (var i in pathArray) {
-	try {
-	    directory.initWithPath(pathArray[i]);
-	    directory.append(binary);
-	    if (directory.exists()) {
-		return directory.path;
-	    }
-	} catch (error) {
-	}
-    }
-}
-
 function startDownloader() {
     /* Check if aria2c is not already started */
     var openPort = true;
