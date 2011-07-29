@@ -125,7 +125,14 @@ function getAriaDownloadPath(gid) {
     var param = new xmlrpcval(gid, "base64");
     var msg = new xmlrpcmsg("aria2.getFiles", [ param ]);
     var response = aria2Client.send(msg);
-    return (response.val != 0 ? response.val.arrayMem(0).structMem('path').scalarVal() : "");
+    var path = (response.val != 0 ? response.val.arrayMem(0).structMem('path').scalarVal() : "");
+
+    /* There is a bug on certain version of aria2c by the concatenating of path */
+    if (env.isWindows()) {
+	path = path.replace(/\//g, '\\');
+    }
+
+    return path;
 }
 
 function startDownload(url, id) {
@@ -239,8 +246,6 @@ function getDownloadStatus() {
 		if (ariaDownloadStatus == "complete") {
 		    var ariaDownloadPath = getAriaDownloadPath(kiwixDownload.gid);
 		    ariaDownloadPath = ariaDownloadPath.replace(/\\/g, "\\\\"); /* Necessary to avoid escaping */
-		    if (env.isWindows())
-			ariaDownloadPath = ariaDownloadPath.replace(/\//g, "\\\\"); /* Necessary to fix a bug in aria2c */
 		    library.setBookPath(kiwixDownload.id, ariaDownloadPath);
  		    moveFromRemoteToLocalLibrary(kiwixDownload.id);
 		    settings.setDownloadProperty(kiwixDownload.id,  "id", "");
