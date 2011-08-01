@@ -307,6 +307,11 @@ window[langdir="rtl"] #button-next {
     padding: 0px;
     margin: 0px;
     position: relative;
+    left: -26px;
+    z-index: 99;
+}
+
+#main.mac #tabs-close-button {
     left: -15px;
 }
 
