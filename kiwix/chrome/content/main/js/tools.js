@@ -99,6 +99,8 @@ function onStart() {
     Components.utils.import("resource://modules/settings.jsm");
     Components.utils.import("resource://modules/library.jsm");
 
+    preInitUserInterface();
+
     /* Check the XPCOM registration */
     if (Components.classes["@kiwix.org/zimAccessor"] == undefined)
 	dump("Unable to register the zimAccessor XPCOM, Kiwix will be unable to read ZIM files.\n");

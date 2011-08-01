@@ -888,8 +888,8 @@ function populateLastOpenMenu() {
     }
 }
 
-/* Initialize the user interface */
-function initUserInterface() {
+/* basic UI init so error messages are displayed properly */
+function preInitUserInterface() {
 
     /* Set a class on main window based on platform string */
     document.getElementById("main").className = env.platform.type;
@@ -902,6 +902,10 @@ function initUserInterface() {
 
     /* Same for the skins */
     populateSkinsMenu();
+}
+
+/* Initialize the user interface */
+function initUserInterface() {
 
     /* Populates the last open menu */
     populateLastOpenMenu();
