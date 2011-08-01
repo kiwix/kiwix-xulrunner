@@ -1,0 +1,3 @@
+#!/bin/bash
+if [ -d /usr/lib/kiwix/chrome ] && [ ! -h /usr/lib/kiwix/chrome ] ; then rmdir /usr/lib/kiwix/chrome ; fi
+if [ -d /usr/lib/kiwix/defaults ] && [ ! -h /usr/lib/kiwix/defaults ] ; then rmdir /usr/lib/kiwix/defaults ; fi
