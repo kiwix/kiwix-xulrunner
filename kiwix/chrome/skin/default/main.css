@@ -311,7 +311,7 @@ window[langdir="rtl"] #button-next {
     z-index: 99;
 }
 
-#main.mac #tabs-close-button {
+#main.mac * #tabs-close-button {
     left: -15px;
 }
 
