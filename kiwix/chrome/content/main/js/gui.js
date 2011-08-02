@@ -1175,9 +1175,15 @@ function manageCheckIntegrity() {
 }
 
 function sendNotification(title, message) {
-    var alertsService = Components.classes["@mozilla.org/alerts-service;1"].
-	getService(Components.interfaces.nsIAlertsService);
-    alertsService.showAlertNotification("chrome://mozapps/skin/downloads/downloadIcon.png", 
-					title, message, 
-					false, "", null, "");
+    try {
+        var alertsService = Components.classes["@mozilla.org/alerts-service;1"].
+    	getService(Components.interfaces.nsIAlertsService);
+        alertsService.showAlertNotification("chrome://mozapps/skin/downloads/downloadIcon.png", 
+    					title, message, 
+    					false, "", null, "");
+    } catch(error) {
+        var promptService = Components.classes["@mozilla.org/embedcomp/prompt-service;1"]
+    	.getService(Components.interfaces.nsIPromptService);
+        return promptService.alert(window, title, message);
+    }
 }
