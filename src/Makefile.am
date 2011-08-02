@@ -13,6 +13,7 @@ SUBDIRS = ${DEPENDENCES} \
 	pugixml \
 	components \
 	indexer \
+	searcher \
 	server \
 	manager 
 endif
