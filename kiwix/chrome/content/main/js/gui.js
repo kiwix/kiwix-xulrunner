@@ -1182,8 +1182,6 @@ function sendNotification(title, message) {
     					title, message, 
     					false, "", null, "");
     } catch(error) {
-        var promptService = Components.classes["@mozilla.org/embedcomp/prompt-service;1"]
-    	.getService(Components.interfaces.nsIPromptService);
-        return promptService.alert(window, title, message);
+	displayInfoDialog(title, message);
     }
 }

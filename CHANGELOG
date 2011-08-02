@@ -10,6 +10,7 @@ Kiwix 0.9 beta2
 * Fixed regression with not always 100% visible close tab button (ID: 3377280)
 * Fixed issue occuring by installing PPA 0.9 beta1 over alpha7 fails (ID: 3377130)
 * Introduced kiwix-search, a console search tool for debug purpose
+* Fixed non-working notifications on OSX if growl is not installed (ID: 3384848)
 
 Kiwix 0.9 beta1
 * Remove a hard coded path in kiwix-compact.sh (ID: 3135956)
