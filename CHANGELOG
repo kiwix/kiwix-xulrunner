@@ -12,6 +12,7 @@ Kiwix 0.9 beta2
 * Fixed drag zim file on Kiwix icon in OSX Dock (ID: 3315167)
 * Fixed drag zim on Kiwix window in OSX (ID: 3385313)
 * Fixed fullscreen shortcut for OSX now compliant to standard (ID: 3304022)
+* Avoid the possibility to open an external url in a new kiwix tab (does not make sense)
 
 Kiwix 0.9 beta1
 * Remove a hard coded path in kiwix-compact.sh (ID: 3135956)

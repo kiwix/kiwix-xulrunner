@@ -239,7 +239,7 @@ function htmlRendererMouseUp(aEvent) {
     var stopPropagation = false;
 
     if (url != undefined && aEvent.button < 2) {
-	if (aEvent.button == 1 || aEvent.ctrlKey) {
+	if ((aEvent.button == 1 || aEvent.ctrlKey) && isInternalUrl(url)) {
 	    stopPropagation = manageOpenUrlInNewTab(url);
 	} else {
 	    stopPropagation = manageOpenUrl(url);
@@ -763,8 +763,12 @@ function toggleBrowserContextualMenu(event) {
     var openLinkInNewTabMenuItem = document.getElementById("browser-contextual-menu-openlinkinnewtab");
     var url = getNodeLinkUrl(target);
     if (url != undefined) {
-	openLinkInNewTabMenuItem.setAttribute("onclick", "manageOpenUrlInNewTab('" + url + "')");
-	openLinkInNewTabMenuItem.setAttribute("style", "display: visible;");
+	if (isInternalUrl(url)) {
+	    openLinkInNewTabMenuItem.setAttribute("style", "display: visible;");
+	    openLinkInNewTabMenuItem.setAttribute("onclick", "manageOpenUrlInNewTab('" + url + "')");
+	} else {
+	    openLinkInNewTabMenuItem.setAttribute("style", "display: none;");
+	}
     } else {
 	openLinkInNewTabMenuItem.setAttribute("style", "display: none;");
     }
@@ -1069,7 +1073,9 @@ function htmlRendererDrop(event) {
 	var x = event.screenX;
 	var y = event.screenY;
 	if (x > x1 && x < x2 && y > y1 && y < y2) {
-	    manageOpenUrlInNewTab(target.href);
+	    if (isInternalUrl(target)) {
+		manageOpenUrlInNewTab(target.href);
+	    }
 	}
     }
 }
