@@ -952,11 +952,15 @@ function initUserInterface() {
         for (var i=0; i<keys.length; i++) {
             if (keys[i].hasAttribute('modifiers')) {
                 mod = keys[i].getAttribute('modifiers');
-                if (mod == 'control') {
-                    keys[i].setAttribute('modifiers', 'meta');	
+                if (mod.match(/control/i)) {
+                    keys[i].setAttribute('modifiers', mod.replace('control', 'meta'));	
                 }
             }
         }
+        // full screen is complete different shortcut
+        fkey = document.getElementById("fullscreen-key");
+        fkey.setAttribute('modifiers', 'meta,shift');
+        fkey.setAttribute('keycode', 'F');
     }
     
     /* Start the download observer */
