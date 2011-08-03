@@ -145,7 +145,9 @@ function onStart() {
     for (var argumentIndex=0; argumentIndex<argumentCount; argumentIndex++) {
 	var argument = nsCommandLine.getArgument(argumentIndex);
 	if (argument.match(/^.*\.(zim|zimaa)$/i)) {
-	    manageOpenFile(argument, true);
+	   argument = pathFromURL(argument);
+	   argument = argument.replace('%20', ' ');
+	   manageOpenFile(argument, true);
 	}
     }
 
@@ -478,3 +480,12 @@ function delay (f, t) {
     setTimeout(f, t || 0);
 }
 
+function pathFromURL(aURL) {
+    if (!aURL.match(/^file\:\/\//)) {
+        return aURL;
+    }
+    var ioService = Components.classes["@mozilla.org/network/io-service;1"]
+                              .getService(Components.interfaces.nsIIOService);
+    var baseURI = ioService.newURI(aURL, null, null);
+    return baseURI.path;
+}
