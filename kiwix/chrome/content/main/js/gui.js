@@ -983,16 +983,20 @@ function dropOnWindows (aEvent) {
 	trans.getAnyTransferData(flavor, data, length);
 	if (data) {
 	    try {
-		var str = data.value.QueryInterface(Components.interfaces.nsISupportsString);
+            if (env.isMac()) {
+                var file = data.value.QueryInterface(Components.interfaces.nsIFile);
+            } else {
+        		var str = data.value.QueryInterface(Components.interfaces.nsISupportsString);
 
-		if (str) {
-		    var ios = Components.classes['@mozilla.org/network/io-service;1']
-			.getService(Components.interfaces.nsIIOService);
-		    var uri = ios.newURI(str.data.split("\n")[0], null, null);
-		    var file = uri.QueryInterface(Components.interfaces.nsIFileURL).file;
-		    manageOpenFile(file.path);
-		} else {
-		}
+		        if (str) {
+		            var ios = Components.classes['@mozilla.org/network/io-service;1']
+			        .getService(Components.interfaces.nsIIOService);
+		            var uri = ios.newURI(str.data.split("\n")[0], null, null);
+		            var file = uri.QueryInterface(Components.interfaces.nsIFileURL).file;
+		        }
+            }
+            if (file)
+    		    manageOpenFile(file.path);
 	    }
 	    catch(e) {
 	    }
