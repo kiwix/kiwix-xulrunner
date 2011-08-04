@@ -265,7 +265,7 @@ window[langdir="rtl"] #button-next {
     padding: 0;
 }
 
-#tabs-close-button {
+.tabs-close-button {
     list-style-image: url("chrome://main/skin/icon/close12.png");
     padding: 0px;
     margin: 0px;
@@ -302,7 +302,7 @@ window[langdir="rtl"] #button-next {
     padding-right: 4px;
 }
 
-#tabs-close-button {
+.tabs-close-button {
     list-style-image: url("chrome://main/skin/icon/close12.png");
     padding: 0px;
     margin: 0px;
@@ -311,7 +311,7 @@ window[langdir="rtl"] #button-next {
     z-index: 99;
 }
 
-#main.mac * #tabs-close-button {
+#main.mac * .tabs-close-button {
     left: -15px;
 }
 

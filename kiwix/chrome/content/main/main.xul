@@ -260,12 +260,12 @@
     <page id="rendering-page" flex="1">
       <vbox flex="1">
 	<tabbox flex="1" id="tab-box">
-	  <tabs id="tab-headers" style="display: none;">
-	    <toolbarbutton id="tabs-add-button" oncommand="openNewTab(); getSearchBox().value = ''; getSearchBox().focus()"/>
-            <tab id="tab-header-00000000" onclick="switchTab('00000000')" class="tab-header" selected="true">
-	      <label value="" crop="right" class="tab-header-label"/>
+	  <tabs id="tab-headers" style="">
+        <tab id="tab-header-00000000" onclick="switchTab(null, this)" class="tab-header" selected="true">
+	      <label value="No Name" crop="right" class="tab-header-label"/>
 	    </tab>
-	    <toolbarbutton id="tabs-close-button" oncommand="closeCurrentTab()"/>
+        <toolbarbutton id="tab-close-button-00000000" class="tabs-close-button" oncommand="closeThatTab('00000000')"/>
+        <toolbarbutton id="tabs-add-button" oncommand="switchToNewTab();"/>
 	  </tabs>
 	  <tabpanels id="tab-panels" flex="1">
             <tabpanel id="tab-panel-00000000">

@@ -664,9 +664,9 @@ function showAbout() {
 }
 
 /* Display the help */
-function showHelp() {
-    if (settings.displayTabs()) 
-	openNewTab();
+function showHelp(create_tab) {
+    if (settings.displayTabs() || create_tab) 
+	    openNewTab();
 
     loadContent("chrome://main/locale/help.html");
 }
