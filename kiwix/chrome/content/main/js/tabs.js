@@ -62,6 +62,10 @@ function openNewTab() {
     initHtmlRendererEventListeners();
 }
 
+function closeCurrentTab() {
+    closeThatTab(currentTabId);
+}
+
 function closeThatTab(tabId) {
     var tabs = document.getElementById("tabs");
     var tabHeaders = document.getElementById("tab-headers");
