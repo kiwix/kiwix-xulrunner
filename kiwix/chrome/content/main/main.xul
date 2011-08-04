@@ -169,6 +169,7 @@
   <key id="zoomorig" key="0" modifiers="control" oncommand="zoomOriginal()"/>
   <key id="open-tab-key" key="T" modifiers="control" oncommand="openNewTab(); getSearchBox().value = ''; getSearchBox().focus()"/>
   <key id="close-tab-key" key="w" modifiers="control" oncommand="closeCurrentTab();"/>
+  <key id="close-alltab-key" key="W" modifiers="control,shift" oncommand="closeAllTabs();"/>
   <key id="help-key" keycode="VK_F1" oncommand="showHelp()"/>
   <key id="home-key" keycode="VK_HOME" modifiers="alt" oncommand="goHome()"/>
   <key id="fullscreen-key" keycode="VK_F11" oncommand="UIToggleFullScreen(true)"/>

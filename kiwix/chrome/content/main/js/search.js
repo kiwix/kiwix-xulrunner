@@ -204,7 +204,7 @@ function openSearchIndex(path) {
 	indexAccessor = indexAccessor.QueryInterface(Components.interfaces.IXapianAccessor);
     }
 
-    /* Open the xapian readable database */
+    /* Open the search engine index */
     if (!indexAccessor.openReadableDatabase(path))
 	return;    
 

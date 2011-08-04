@@ -536,7 +536,7 @@ function pageNext() {
 
 /* Try to open a ZIM file */
 function manageOpenFile(path, noSearchIndexCheck) {
-
+    
     /* Display file picker if no given file path */
     if (!path) {
 
@@ -569,6 +569,11 @@ function manageOpenFile(path, noSearchIndexCheck) {
 	} else {
 	    return false;
 	}
+    }
+
+    /* Close all tabs */
+    if (!closeAllTabs()) {
+	return true;
     }
 
     /* OSX prepends path with URL */

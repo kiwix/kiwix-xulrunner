@@ -34,8 +34,8 @@ function openNewTab() {
 
     var addButton = document.getElementById('tabs-add-button');
 
-    var tabPanels = document.getElementById("tab-panels");
-    var newTabPanel = document.createElement("tabpanel");
+    var tabPanels = document.getElementById("tab-panels"); 
+   var newTabPanel = document.createElement("tabpanel");
     newTabPanel.id = "tab-panel-" + id; 
     newTabPanel.appendChild(newHtmlRenderer);
     if (tabPanels.lastChild == null)
@@ -166,11 +166,31 @@ function getHtmlRenderer(tabId) {
     return document.getElementById("html-renderer-" + tabId);  
 }
 
-/* create new tab. open it and adjust UI */
+/* Create new tab. open it and adjust UI */
 function switchToNewTab() {
     openNewTab();
     getSearchBox().value = '';
     getSearchBox().focus();
+}
+
+/* Close all tabs */
+function closeAllTabs() {
+    var tabHeaders = document.getElementsByTagName('tab');
+    var tabHeadersLength = tabHeaders.length
+
+    if (tabHeadersLength > 1) {
+	if (displayConfirmDialog("This will close all your tabs. Are you sure you want to continue?", "Close tabs")) {
+	    for (var i=tabHeadersLength-1; i>=0; i--) {
+		var node = tabHeaders[i];
+		var id = node.getAttribute('id').replace("tab-header-", "");
+		closeThatTab(id);
+	    }
+	} else {
+	    return false;
+	}
+    }
+    
+    return true;
 }
 
 /* return tab (tab-panel elem) from tabId */

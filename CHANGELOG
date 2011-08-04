@@ -14,6 +14,8 @@ Kiwix 0.9 beta2
 * Fixed fullscreen shortcut for OSX now compliant to standard (ID: 3304022)
 * Avoid the possibility to open an external url in a new kiwix tab (does not make sense)
 * Implement ctrl+w keyboard shortcut to close the current tab
+* Implement ctrl+W keyboard shortcut to close all tabs
+* Close all tabs before opening new ZIM file, avoid weird situations (ID: 3372140)
 * Fixed tabs behavior + fullScreen
 
 Kiwix 0.9 beta1
