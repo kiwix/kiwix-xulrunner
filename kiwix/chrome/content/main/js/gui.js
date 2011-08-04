@@ -3,6 +3,7 @@ var _zoomFactor             = 1.2;      /* Factor by which font is magnified or 
 var _winIsFullScreen        = false;    /* Stores fullscreen state*/
 var _showFullScreenToolBar  = false;
 var _fullScreenStatusBar    = true;
+var _restore_tab            = null;
 var _firstSideBar	    = true;
 
 var _languagesHash          = Array();
@@ -319,15 +320,21 @@ function zoomOut() {
 function hideFullScreenToolBar() {
     if (!_showFullScreenToolBar) {
 	document.getElementById('tool-bar').setAttribute("style", "display: none;");
+    changeTabsVisibilityStatus(false, false);
     }
 }
 
 function showFullScreenToolBar() {
     document.getElementById('tool-bar').setAttribute("style", "display: visible;");
+    if (_restore_tab)
+        changeTabsVisibilityStatus(true, false);
+
 }
 
 function hideFullScreenToolBox() {
     _showFullScreenToolBar = false;
+    if (_restore_tab == null)
+        _restore_tab = tabsAreVisible();
     delay(hideFullScreenToolBar, 2000);
 }
 
@@ -349,16 +356,23 @@ function UIToggleFullScreen (save) {
 
     /* Configuration changes */
     if (_winIsFullScreen) {
+    _restore_tab = null;
 	toolBox.addEventListener("mouseover", showFullScreenToolBox, false);
-	getHtmlRenderer().addEventListener("mouseover", hideFullScreenToolBox, false);
-	toolBox.setAttribute("style", "height: 4px;");
+
+    addFSEventToTab(currentTabId);
+	//getHtmlRenderer().addEventListener("mouseover", hideFullScreenToolBox, false);
+	
+    toolBox.setAttribute("style", "height: 4px;");
 	changeStatusBarVisibilityStatus(false);
 	document.getElementById('menu-bar').collapsed = true;
 	hideFullScreenToolBox();
 	getFullscreenButton().setAttribute("tooltiptext", "Windowed");
     } else {
 	toolBox.removeEventListener("mouseover", showFullScreenToolBox, false);
-	getHtmlRenderer().removeEventListener("mouseover", hideFullScreenToolBox, false);
+	//getHtmlRenderer().removeEventListener("mouseover", hideFullScreenToolBox, false);
+
+    removeFSEventFromTabs();
+
 	toolBox.setAttribute("style", "height: auto;");
 	showFullScreenToolBox(_fullScreenStatusBar);
 	changeStatusBarVisibilityStatus(_fullScreenStatusBar);

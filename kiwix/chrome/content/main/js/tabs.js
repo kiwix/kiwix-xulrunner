@@ -6,10 +6,14 @@ function showTabHeaders() {
     tabHeaders.style.display = "block";
 }
 
+function tabsAreVisible() {
+    return document.getElementById('tab-headers').style.display != 'none';
+}
+
 /* Make the tabs (in)visible */
 function changeTabsVisibilityStatus(set_visible, save) {
     var tabHeaders = document.getElementById("tab-headers");
-    var is_visible = (tabHeaders.style.display == "block" ? true : false);
+    var is_visible = tabsAreVisible();
     var vis_value = (set_visible == undefined ? !is_visible : set_visible);
     tabHeaders.style.display = (vis_value == true ? "block" : "none");
     document.getElementById('display-tabs').setAttribute('checked', vis_value);
@@ -105,6 +109,7 @@ function closeThatTab(tabId) {
     if (document.getElementsByTagName('tab').length == 0) {
         showHelp(true);
         changeTabsVisibilityStatus(false, true);
+        _restore_tab = null;
         return;
     }
 
@@ -130,6 +135,9 @@ function switchTab(tabId, tab) {
     getFindBar().browser = getHtmlRenderer();
     var title = getHtmlRenderer(tabId).contentTitle;
     setWindowsTitle(title);
+
+    if (_winIsFullScreen)
+        addFSEventToTab(tabId);
 }
 
 /* Update the tab header */
@@ -163,4 +171,37 @@ function switchToNewTab() {
     openNewTab();
     getSearchBox().value = '';
     getSearchBox().focus();
+}
+
+/* return tab (tab-panel elem) from tabId */
+function tabById(tabId) {
+    return document.getElementById('tab-panel-' + tabId);
+}
+
+/* Add FullScreen MouseOver Event to tab's HTML renderer */
+function addFSEventToTab(tabId) {
+    var tab = tabById(tabId);
+    var html = tab.getElementsByTagName('browser');
+    html = html[0];
+    html.addEventListener("mouseover", hideFullScreenToolBox, false);
+}
+
+/* Remove FullScreen MouseOver Event from tab's HTML renderer */
+function removeFSEventFromTab(tabId) {
+    try {
+        var tab = tabById(tabId);
+        var html = tab.getElementsByTagName('browser');
+        html = html[0];
+    } catch (e) {
+        html = getHtmlRenderer();
+    }
+    html.removeEventListener("mouseover", hideFullScreenToolBox, false);
+}
+
+/* Launch removeFSEventFromTab for all tabs */
+function removeFSEventFromTabs() {
+    alltabs = document.getElementsByTagName('tabpanel');
+    for (var i=0; i < alltabs.length ; i++) {
+        removeFSEventFromTab(alltabs[i].id);
+    }
 }
