@@ -10,7 +10,6 @@ function showTabHeaders() {
 function changeTabsVisibilityStatus(set_visible, save) {
     var tabHeaders = document.getElementById("tab-headers");
     var is_visible = (tabHeaders.style.display == "block" ? true : false);
-    alert(set_visible);
     var vis_value = (set_visible == undefined ? !is_visible : set_visible);
     tabHeaders.style.display = (vis_value == true ? "block" : "none");
     document.getElementById('display-tabs').setAttribute('checked', vis_value);
