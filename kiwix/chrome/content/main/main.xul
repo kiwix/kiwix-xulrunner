@@ -260,7 +260,7 @@
     <page id="rendering-page" flex="1">
       <vbox flex="1">
 	<tabbox flex="1" id="tab-box">
-	  <tabs id="tab-headers" style="">
+	  <tabs id="tab-headers">
         <tab id="tab-header-00000000" onclick="switchTab(null, this)" class="tab-header" selected="true">
 	      <label value="No Name" crop="right" class="tab-header-label"/>
 	    </tab>

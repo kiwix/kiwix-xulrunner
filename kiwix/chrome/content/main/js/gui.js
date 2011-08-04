@@ -921,7 +921,9 @@ function initUserInterface() {
     if (settings.displayStatusBar() != undefined) { changeStatusBarVisibilityStatus(settings.displayStatusBar()); }
     if (settings.displayFullScreen() != undefined) { if (settings.displayFullScreen()) { UIToggleFullScreen(); } }
     if (settings.displayBookmarksBar() === true) { UIToggleBookmarksBar(); }
-    if (settings.displayTabs() === true) { changeTabsVisibilityStatus(settings.displayTabs()); }
+
+    /* Display tabs or not */
+    changeTabsVisibilityStatus(settings.displayTabs());
 
     /* Activate (or not) the Home button */
     if (getCurrentZimFileHomePageUrl()) {

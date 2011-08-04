@@ -206,7 +206,7 @@ let settings = {
     windowY: function(value) { return this.intSettingParameter("windowY", value); },
     windowMaximized: function(value) { return this.boolSettingParameter("windowMaximized", value); },
     doOnCloseClean: function(value) { return this.boolSettingParameter("doOnCloseClean", value); },
-    displayTabs: function(value) { return this.boolSettingParameter("displayTabs", value); },
+    displayTabs: function(value) { return this.boolSettingParameter("kiwix.displayTabs", value); },
     defaultFilePickerPath: function(value) { return this.charSettingParameter("defaultFilePickerPath", value); },
     profileToRemove: function(value) { return this.charSettingParameter("profileToRemove", value); },
     libraryUrls: function(value) { return this.charSettingParameter("kiwix.libraryUrls", value); },
