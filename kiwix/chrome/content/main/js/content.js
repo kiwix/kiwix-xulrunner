@@ -656,7 +656,8 @@ function toggleLibrary(visible) {
     var libraryButton = getLibraryButton();
     var renderingPage = document.getElementById("rendering-page");
     var libraryPage = document.getElementById("library-page");
-
+    var newWindowTitle = "Content manager - Kiwix";
+    
     if (visible == undefined) {
 	visible = isLibraryVisible() ? false : true;
     }
@@ -674,6 +675,8 @@ function toggleLibrary(visible) {
 	renderingPage.hidden = false;
 	libraryPage.hidden = true;
 	activateGuiSearchComponents();
+	if (getWindow().getAttribute("title") == newWindowTitle)
+	    getWindow().setAttribute("title", _oldWindowTitle);
     } else {
 	desactivateHomeButton();
 	desactivateBackButton();
@@ -687,6 +690,8 @@ function toggleLibrary(visible) {
 	renderingPage.hidden = true;
 	libraryPage.hidden = false;
 	desactivateGuiSearchComponents();
+	_oldWindowTitle = getWindow().getAttribute("title");
+	getWindow().setAttribute("title", newWindowTitle);
     }
 }
 
