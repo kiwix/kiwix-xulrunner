@@ -175,7 +175,7 @@ function switchToNewTab() {
 
 /* Close all tabs */
 function closeAllTabs() {
-    var tabHeaders = document.getElementsByTagName('tab');
+    var tabHeaders = getTabHeaders().getElementsByTagName('tab');
     var tabHeadersLength = tabHeaders.length
 
     if (tabHeadersLength > 1) {
