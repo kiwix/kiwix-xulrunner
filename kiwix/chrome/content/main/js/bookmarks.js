@@ -236,7 +236,7 @@ function DisplayBookmarkSet (set) {
 	//var dbss = set.items.length;
 	for (var i in set.items) {
 		var bk = set.itemAt(i);
-		AddBookmarkLine (set.itemAt(i)['title'], set.itemAt(i)['uri']);
+	    AddBookmarkLine (set.itemAt(i)['title'], set.itemAt(i)['uri'], set.itemAt(i)['book']);
 	}
 }
 
@@ -378,24 +378,42 @@ function UIResetBookmarkSet () {
  * Called by click on a bk in the list ; calls the browser
  */
 function onBookmarkItemClicked (aListItem) {
-	var uri = aListItem.value;
-	loadContent (uri);
+    var uri = aListItem.value;
+    var bookId = aListItem.getAttribute("book");
+    var currentBook = library.getCurrentBook();
+    var currentBookId = currentBook != undefined ? currentBook.id : undefined;
+
+    if (bookId != currentBookId) {
+	if (displayConfirmDialog("This bookmark is refering to an other content, do you want to load it?")) {
+	    var book = library.getBookById(bookId);
+	    manageOpenFile(book.path, true);
+	} else {
+	    return;
+	}
+    }
+
+    loadContent(uri);
 }
 
 /*
  * Called by the "mark" button ; adds to set if not-exist then to the box
  */
 function bookmarkCurrentPage () {
-	var title	= getHtmlRenderer().contentTitle;
-	var uri		= getHtmlRenderer().currentURI;
-	if ( !uri.scheme.match (/^zim/))
-		return false;
-	if (AddBookmarkToDatasource (title, uri.spec)) {
-		AddBookmarkLine (title, uri.spec);
-		UIBookmarkFocus(uri.spec);
-	}
-	// Enable Notes
-	return true;
+    var title = getHtmlRenderer().contentTitle;
+    var uri = getHtmlRenderer().currentURI;
+    var currentBook = library.getCurrentBook();
+    var currentBookId = currentBook != undefined ? currentBook.id : undefined;
+    
+    if ( !uri.scheme.match (/^zim/))
+	return false;
+    
+    if (AddBookmarkToDatasource (title, uri.spec)) {
+	AddBookmarkLine (title, uri.spec, currentBookId);
+	UIBookmarkFocus(uri.spec);
+    }
+    
+    // Enable Notes
+    return true;
 }
 
 /*
@@ -443,11 +461,12 @@ function CreateBookmarkItem (aLabel, aURI, aTooltip) {
 /*
  * UI function to create bookmark in list
  */
-function AddBookmarkLine (aLabel, aURI) {
-	var listItem= CreateBookmarkItem (aLabel, aURI, aLabel);
-	var list    = getBookmarksList();
-	var index   = list.childNodes.length;
-	list.appendChild (listItem);
+function AddBookmarkLine (aLabel, aURI, bookId) {
+    var listItem = CreateBookmarkItem (aLabel, aURI, aLabel);
+    listItem.setAttribute("book", bookId);
+    var list    = getBookmarksList();
+    var index   = list.childNodes.length;
+    list.appendChild (listItem);
     list.selectedIndex  = index;
 }
 

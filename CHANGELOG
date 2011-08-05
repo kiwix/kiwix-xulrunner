@@ -4,6 +4,7 @@ Kiwix 0.9 beta2
 * Now able to load on GNU/Linux with the command line ZIM files with " " in their path
 * Add menuitem File > Browse Library (ID: 3377139)
 * Avoid segfault by bookmarks pointing to a missing ZIM file (ID: 3376642)
+* Bookmarks now compatible with multizim
 * Fixed the searchindex assignement problem if the current ZIM file is changed during indexing process (ID: 3377136)
 * Fixed broken locales it and ar
 * Fixed OSX crashes if previous ZIM was gone (ID: 3243147)
