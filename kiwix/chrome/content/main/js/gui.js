@@ -685,7 +685,10 @@ function showAbout() {
 /* Display the help */
 function showHelp(create_tab) {
     if (settings.displayTabs() || create_tab) 
-	    openNewTab();
+	openNewTab();
+
+    /* Force to hide the library manager */
+    toggleLibrary(false);
 
     loadContent("chrome://main/locale/help.html");
 }
