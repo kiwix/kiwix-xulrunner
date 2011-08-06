@@ -37,6 +37,10 @@
 <script language="javaScript" type="text/javascript" src="js/preferences.js"/>
 <script language="javaScript" type="text/javascript" src="resource://modules/settings.jsm"/>
 
+<keyset>
+  <key id="escape" keycode="VK_ESCAPE" oncommand="window.close()"/>
+</keyset>
+
 <hbox style="text-align: center; width: 600px;" align="center">
   <description>&preferences.profileDirectory;</description>
   <textbox  style="text-align: left;" id="profileDirectory-textbox" flex="1" disabled="true"/>
