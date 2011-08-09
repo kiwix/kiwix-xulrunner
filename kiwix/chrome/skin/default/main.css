@@ -1,3 +1,4 @@
+
 /* Menuitems */
 #file-open {
     list-style-image: url("chrome://main/skin/icon/open16.png");
@@ -258,131 +259,194 @@ window[langdir="rtl"] #button-next {
 
 /* Tabs */
 #tab-box {
-    margin: 0px;
+    margin: 0;
+    position: relative;
+    padding-top: 4px;
+    background-color: #f2f1f0;
 }
 
 #tab-panels {
     padding: 0;
 }
 
-.tabs-close-button {
-    list-style-image: url("chrome://main/skin/icon/close12.png");
-    padding: 0px;
-    margin: 0px;
+#tab-headers {
+    position: relative;
+    border-bottom: 1px solid #cdcdcd;
+    margin-bottom: 6px;
+    background-color: #f2f1f0;
 }
 
-#tabs-add-button {
-    list-style-image: url("chrome://main/skin/icon/add12.png");
+#main * .tabs-close-button {
+    list-style-image: none;
+    background-image: url("chrome://main/skin/icon/close12_2.png") !important;
     padding: 0px;
     margin: 0px;
+    width: 10px;
+    height: 10px;
+    position: relative;
+    left: -16px;
+    z-index: 99;
+    background-color: transparent !important;
+    top: -10px;
+}
+
+#main * .tabs-close-button:hover {
+    -moz-box-shadow: 2px 2px 5px #888;
 }
 
 /* Under Linux, never set margin or paddin, this generate displaying issues */
-.tab-header {
+#main * .tab-header {
+    height: 25px;
     width: 150px;
+    position: relative;
+    margin-left: -11px;
+    bottom: auto;
+    top: 3px;
+    width: 160px;
 }
 
 .tab-header-label {
     text-align: left;
-    width: 130px;
+    width: 120px;
     margin: 0px;
     padding: 0px;
+    overflow: hidden;
+    margin-left: -20px;
+    padding-left: 0px;
+    color: #4c4c4c;
 }
 
-/* mac tabs UI */
-#main.mac * #tab-panels {
-    padding: 0;
+#tab-headers tab, #tab-headers tab *, #tab-headers * {
+    -moz-appearance: none !important;
+    background-color: inherit !important;
+    background-image: none !important;
+    border: none !important;
+    -moz-border-top-colors: none !important;
+    -moz-border-bottom-colors: none !important;
+    -moz-border-left-colors: none !important;
+    -moz-border-right-colors: none !important;
 }
 
-#main.mac * #tab-panels {
+#tab-headers tab {
+    -moz-border-radius: 5px 5px 0 0;
+    border: 1px solid #cdcdcd !important;
+    border-bottom: 0 !important;
+    background-color: #dfdbd2 !important;
+}
+
+#tab-headers tab[selected="true"] {
+    background-color: #f2f1f0 !important;
+    border-bottom: none;
+
+
+    top: -1px;
+    height: 31px;
+}
+
+#tab-headers tab:hover {
+    background-color: #f2f1f0 !important;
+}
+
+tab[selected="true"] label {
+    font-weight: bold;
+}
+
+#tab-headers tab.tab-header:first-child {
+    margin-left: 0px;
+}
+
+#tabs-add-button {
     -moz-appearance: none;
-    margin-left: -4px;
-    margin-right: -4px;
-    border-top: 1px dotted #999999;
-    padding-right: 4px;
-}
-
-.tabs-close-button {
-    list-style-image: url("chrome://main/skin/icon/close12.png");
+    list-style-image: url("chrome://main/skin/icon/add12.png");
     padding: 0px;
     margin: 0px;
-    position: relative;
-    left: -26px;
-    z-index: 99;
+    -moz-border-radius: 5px 5px 0 0;
+    border: 1px solid #cdcdcd !important;
+    border-bottom: none !important;
+    background-color: #f2f1f0;
+    background-color: #dfdbd2 !important;
+    width: 25px;
+    height: 25px;
+    padding-left: 5px;
+    padding-top: 2px;
+    padding-bottom: 5px;
 }
+
+#tabs-add-button:hover {
+    background-color: #f2f1f0 !important;
+}
+
+/******** WINDOWS */
+
+#main.win #tool-box {
+	margin-left: 0 !important;
+}
+
+#main.win * .tab-header  {
+	top: 6px;
+	bottom: auto;
+}
+
+#main.win * tab[selected="true"] {
+    top: 1px;
+}
+
+#main.win * .tabs-close-button {
+	top: -2px;
+}
+
+#main.win * #tabs-add-button {
+	position: relative;
+    height: 22px;
+	bottom: -11px;
+}
+
+#main.win * tab[selected="true"] .tab-header-label {
+	margin-bottom: -5px !important;
+}
+
+
+/******** MAC */
 
 #main.mac * .tabs-close-button {
-    left: -15px;
+    left: -16px;
+    top: -6px;
 }
 
 #main.mac * #tabs-add-button {
-    list-style-image: none;
-    padding: 0px;
-    margin: 0px;
-    background-image: url("chrome://main/skin/icon/add12.png");
-    background-position: 4px center;
-    background-repeat: no-repeat;
-    position: relative;
-    top: -4px;
-    width: 18px;
-    height: 8px;
+    height: 22px;
+    padding-left: 8px;
+    width: 22px;
+    padding-top: 1px;
 }
-
 
 #main.mac * .tab-header {
-}
-
-#main.mac * #tab-panels {
-    -moz-appearance: none;
-    margin-left: -4px;
-    margin-right: -4px;
-}
-
-
-#main.mac * tabbox {
-    -moz-appearance: none;
-    text-align: left;
-    padding:0;
-    margin: 0;
-}
-
-#main.mac * tabs {
-    position: absolute;
-    left: 0;
-    padding:0;
-    margin: 0;    
-    background-color: #dedede;
-    border: 0;
+    height: 22px;
 }
 
 #main.mac * tab {
     left: 0;
+    top: 2px;
     -moz-appearance: none;
-    background-color: #dedede;
-    border: 1px solid #999999;
-    border-bottom: 0;
-    padding-left: 1px;
-    margin-top: 5px;
-    margin-left: 3px;
+    padding-top: 3px;
+    padding-left: 0px;
+    margin-left: -11px;
     -moz-border-radius: 4px 4px 0 0;
 }
 
 #main.mac * tab[selected="true"] {
-    background-color: white;
+    height: 27px;
+    padding-top: 7px;
+    -moz-border-radius: 6px 6px 0 0;
 }
 
 #main.mac * .tab-header-label {
-    text-align: left;
-    width: 130px;
-    margin: 0px;
-    padding: 0px;
-    color: #333333;
     font-size: 110%;
-    padding-bottom: 1px;
-    overflow: hidden;
-    padding-right: 2px;
 }
 
+#main.mac * browser {
+    border-top: 1px solid #cdcdcd !important;
+}
 
 /* Status bar */
 #status-bar {

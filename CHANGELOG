@@ -17,7 +17,9 @@ Kiwix 0.9 beta2
 * Implement ctrl+w keyboard shortcut to close the current tab
 * Implement ctrl+W keyboard shortcut to close all tabs
 * Close all tabs before opening new ZIM file, avoid weird situations (ID: 3372140)
-* Fixed tabs behavior + fullScreen
+* Fixed tabs behavior
+* FullScreen support for Tabs
+* Revamped Tabs UI on Linux, OSX and Windows
 
 Kiwix 0.9 beta1
 * Remove a hard coded path in kiwix-compact.sh (ID: 3135956)

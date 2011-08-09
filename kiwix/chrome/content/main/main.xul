@@ -266,7 +266,7 @@
 	      <label value="No Name" crop="right" class="tab-header-label"/>
 	    </tab>
         <toolbarbutton id="tab-close-button-00000000" class="tabs-close-button" oncommand="closeThatTab('00000000')"/>
-        <toolbarbutton id="tabs-add-button" oncommand="switchToNewTab();"/>
+        <toolbarbutton id="tabs-add-button" oncommand="switchToNewTab();" tooltiptext="Open a new Tab"/>
 	  </tabs>
 	  <tabpanels id="tab-panels" flex="1">
             <tabpanel id="tab-panel-00000000">
