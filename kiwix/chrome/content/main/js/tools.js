@@ -104,8 +104,10 @@ function onStart() {
     /* Check the XPCOM registration */
     if (Components.classes["@kiwix.org/zimAccessor"] == undefined)
 	dump("Unable to register the zimAccessor XPCOM, Kiwix will be unable to read ZIM files.\n");
-    if (Components.classes["@kiwix.org/xapianAccessor"] == undefined)
+    if (Components.classes["@kiwix.org/xapianAccessor"] == undefined) {
 	dump("Unable to register the xapianAccessor XPCOM, Kiwix will be unable to provide the search engine.\n");
+	    displayErrorDialog("You are maybe impacted by a known issue. Please try to install vcredist_x86.exe located in the 'install' directory and restart kiwix.");
+    }
     if (Components.classes["@kiwix.org/zimXapianIndexer"] == undefined)
 	dump("Unable to register the zimXapianIndexer XPCOM, Kiwix will be unable to index ZIM files.\n");
     if (Components.classes["@kiwix.org/cluceneAccessor"] == undefined)
