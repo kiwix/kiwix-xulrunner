@@ -176,6 +176,10 @@
   <key id="escape" keycode="VK_ESCAPE" oncommand="handleEscape()"/>
   <key id="pageback-key" keycode="VK_LEFT" modifiers="control" oncommand="pageBack()"/>
   <key id="pagenext-key" keycode="VK_RIGHT" modifiers="control" oncommand="pageNext()"/>
+  <key id="arrowup-key" keycode="VK_UP" oncommand="scrollLineUp()"/>
+  <key id="arrowdown-key" keycode="VK_DOWN" oncommand="scrollLineDown()"/>
+  <key id="pageup-key" keycode="VK_PAGE_UP" oncommand="scrollPageUp()"/>
+  <key id="pagedown-key" keycode="VK_PAGE_DOWN" oncommand="scrollPageDown()"/>
 </keyset>
 
 <!-- Contextual menu (should be implemented after menubar otherwise generate a 1 pixel big space between windows decoration and menubar) -->

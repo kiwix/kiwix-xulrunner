@@ -159,6 +159,39 @@ function isInternalUrl(url) {
 		url.indexOf("chrome:", 0)==0 || url.indexOf("search://", 0)==0);
 }
 
+/* Deal with scroll */
+function scrollLineUp() {
+    getHtmlRenderer().focus();
+    try {
+	document.commandDispatcher.getControllerForCommand("cmd_scrollLineUp").doCommand('cmd_scrollLineUp');
+    } catch (error) {
+    }
+}
+
+function scrollLineDown() {
+    getHtmlRenderer().focus();
+    try {
+	document.commandDispatcher.getControllerForCommand("cmd_scrollLineDown").doCommand('cmd_scrollLineDown');
+    } catch (error) {
+    }
+}
+
+function scrollPageUp() {
+    getHtmlRenderer().focus();
+    try {
+	document.commandDispatcher.getControllerForCommand("cmd_scrollPageUp").doCommand('cmd_scrollPageUp');
+    } catch (error) {
+    }
+}
+
+function scrollPageDown() {
+    getHtmlRenderer().focus();
+    try {
+	document.commandDispatcher.getControllerForCommand("cmd_scrollPageDown").doCommand('cmd_scrollPageDown');
+    } catch (error) {
+    }
+}
+
 /* Allowing zoom/history function by combining mouse & ctrl */
 function htmlRendererMouseScroll(aEvent) {
     /* Deal the with the scroll in case of alt is pressed */
@@ -642,8 +675,9 @@ function manageOpenFile(path, noSearchIndexCheck) {
 
     } else {
 	displayErrorDialog(getProperty("loadZimFileError", path));
-	if (env.isWindows())
-	    displayErrorDialog(getProperty("You are maybe impacted by a known issue. Please rename your file '" + path + "' to test.zim and move it to the root of the disk.");
+	if (env.isWindows()) {
+	    displayErrorDialog("You are maybe impacted by a known issue. Please rename your file '" + path + "' to test.zim and move it to the root of the disk.");
+	}
 	return false;
     }
 
@@ -1039,7 +1073,7 @@ function dropOnWindows (aEvent) {
 }
 
 /* Allow to deal with mouse thumb buttons back/forward*/
-function HandleAppCommandEvent(evt) {
+function handleAppCommandEvent(evt) {
     evt.stopPropagation();
     switch (evt.command) {
     case "Back":
@@ -1072,7 +1106,7 @@ function initHtmlRendererEventListeners() {
     htmlRenderer.addEventListener("mouseup", htmlRendererMouseUp, true);
     htmlRenderer.addEventListener("pageshow", updateHistoryNavigationButtons, true);
     htmlRenderer.addEventListener("contextmenu", toggleBrowserContextualMenu, true);
-    htmlRenderer.addEventListener("AppCommand", HandleAppCommandEvent, true);
+    htmlRenderer.addEventListener("AppCommand", handleAppCommandEvent, true);
     htmlRenderer.addEventListener("DOMActivate", stopEventPropagation, true); 
 
     /* Necessary to update the tab header */
@@ -1084,6 +1118,22 @@ function initHtmlRendererEventListeners() {
 
     /* Drag & drop to open a link in a new tab */
     htmlRenderer.addEventListener ("dragend", htmlRendererDrop, true);
+
+    /* Intercept standard behaviour of tabheaders keypress */
+    getTabHeaders().addEventListener("keypress", handleTabHeadersKeyPress, true);
+}
+
+function handleTabHeadersKeyPress(aEvent) {
+    if (aEvent.keyCode == 38) {
+	scrollLineUp();
+    } else if (aEvent.keyCode == 40) {
+	scrollLineDown();
+    } else if (aEvent.keyCode == 33) {
+	scrollPageUp();
+    } else if (aEvent.keyCode == 34) {
+	scrollPageDown();
+    }
+    stopEventPropagation(aEvent); 
 }
 
 /* Deal with drag & drop to open a link in a new tab */

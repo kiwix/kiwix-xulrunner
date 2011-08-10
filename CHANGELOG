@@ -20,6 +20,7 @@ Kiwix 0.9 beta2
 * Fixed tabs behavior
 * FullScreen support for Tabs
 * Revamped Tabs UI on Linux, OSX and Windows
+* Introduce/Improve keyboard shortcuts behaviour for a better scrolling experience (ID: 3389521)
 
 Kiwix 0.9 beta1
 * Remove a hard coded path in kiwix-compact.sh (ID: 3135956)

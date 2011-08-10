@@ -35,7 +35,7 @@ function openNewTab() {
     var addButton = document.getElementById('tabs-add-button');
 
     var tabPanels = document.getElementById("tab-panels"); 
-   var newTabPanel = document.createElement("tabpanel");
+    var newTabPanel = document.createElement("tabpanel");
     newTabPanel.id = "tab-panel-" + id; 
     newTabPanel.appendChild(newHtmlRenderer);
     if (tabPanels.lastChild == null)
