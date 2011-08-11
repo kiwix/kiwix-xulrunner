@@ -155,8 +155,12 @@ function focusOnSearchBox() {
 
 /* Return true if the URL is internal */
 function isInternalUrl(url) {
-	return (url.indexOf("zim://", 0)==0 || url.indexOf("javascript:", 0)==0 || 
+    return (url.indexOf("zim://", 0)==0 || isJavascriptUrl(url) || 
 		url.indexOf("chrome:", 0)==0 || url.indexOf("search://", 0)==0);
+}
+
+function isJavascriptUrl(url) {
+    return (url.indexOf("javascript:", 0)==0);
 }
 
 /* Deal with scroll */
@@ -211,8 +215,8 @@ function htmlRendererMouseScroll(aEvent) {
         }
         
         if (!env.isMac()) {
-        	stopEventPropagation(aEvent);
-        	return;
+	    stopEventPropagation(aEvent);
+	    return;
         }
     }
         
@@ -268,13 +272,13 @@ function getNodeLinkUrl(node) {
     return (node instanceof HTMLAnchorElement ? node.href : undefined);
 }
 
-/* Double Click event handler */
+/* Mouse (double) Click event handler */
 function htmlRendererMouseUp(aEvent) {
     var url = getNodeLinkUrl(aEvent.target);
     var stopPropagation = false;
 
     if (url != undefined && aEvent.button < 2) {
-	if ((aEvent.button == 1 || aEvent.ctrlKey) && isInternalUrl(url)) {
+	if ((aEvent.button == 1 || aEvent.ctrlKey) && isInternalUrl(url) && !isJavascriptUrl(url)) {
 	    stopPropagation = manageOpenUrlInNewTab(url);
 	} else {
 	    stopPropagation = manageOpenUrl(url);
@@ -309,7 +313,7 @@ function manageOpenUrl(url) {
     }
 
     /* Return in case of javascript */
-    if (url.indexOf("javascript:",0) == 0) {
+    if (isJavascriptUrl(url)) {
 	return false;
     }
 
@@ -822,7 +826,7 @@ function toggleBrowserContextualMenu(event) {
     var openLinkInNewTabMenuItem = document.getElementById("browser-contextual-menu-openlinkinnewtab");
     var url = getNodeLinkUrl(target);
     if (url != undefined) {
-	if (isInternalUrl(url)) {
+	if (isInternalUrl(url) && !isJavascriptUrl(url)) {
 	    openLinkInNewTabMenuItem.setAttribute("style", "display: visible;");
 	    openLinkInNewTabMenuItem.setAttribute("onclick", "manageOpenUrlInNewTab('" + url + "')");
 	} else {
@@ -1095,8 +1099,9 @@ function toggleFindBarButton(aEvent) {
 }
 
 function handleMouseClick(aEvent) {
-    if (url.indexOf("javascript:",0) != 0) {
-	stopEventPropagation();
+    var url = getNodeLinkUrl(aEvent.target);
+    if (url != undefined && !isJavascriptUrl(url)) {
+	stopEventPropagation(aEvent);
     }
 }
 
