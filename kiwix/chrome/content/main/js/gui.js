@@ -1144,20 +1144,20 @@ function handleTabHeadersKeyPress(aEvent) {
 }
 
 /* Deal with drag & drop to open a link in a new tab */
-function htmlRendererDrop(event) {
-    var target = event.target;
+function htmlRendererDrop(aEvent) {
+    var url = getNodeLinkUrl(aEvent.target);
     var tabHeaders = getTabHeaders();
 
-    if (target.tagName == "A") {
+    if (url != undefined) {
 	var x1 = tabHeaders.boxObject.screenX;
 	var x2 = x1 + tabHeaders.boxObject.width;
 	var y1 = tabHeaders.boxObject.screenY;
 	var y2 = y1 + tabHeaders.boxObject.height;
-	var x = event.screenX;
-	var y = event.screenY;
+	var x = aEvent.screenX;
+	var y = aEvent.screenY;
 	if (x > x1 && x < x2 && y > y1 && y < y2) {
-	    if (isInternalUrl(target)) {
-		manageOpenUrlInNewTab(target.href);
+	    if (isInternalUrl(url)) {
+		manageOpenUrlInNewTab(url);
 	    }
 	}
     }
