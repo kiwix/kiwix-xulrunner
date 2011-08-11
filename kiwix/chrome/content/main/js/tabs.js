@@ -1,5 +1,27 @@
 var currentTabId = "00000000";
 
+/* adds a css class to an element */
+function addClass(elem, className) {
+    classes = elem.className.split(' ');
+    for (var i=0; i < classes.length; i++) {
+        if (className.toLowerCase() == classes[i].toLowerCase())
+            return;
+    }
+    elem.className += ' ' + className;
+    elem.className = elem.className.trim();
+}
+
+/* removes a css class from an element */
+function removeClass(elem, className) {
+    newClass = "";
+    classes = elem.className.split(' ');
+    for (var i=0; i < classes.length; i++) {
+        if (className.toLowerCase() != classes[i].toLowerCase())
+            newClass += classes[i] + ' ';
+    }
+    elem.className = newClass.trim();
+}
+
 /* Display the tab header */
 function showTabHeaders() {
     var tabHeaders = document.getElementById("tab-headers");
@@ -17,6 +39,14 @@ function changeTabsVisibilityStatus(set_visible, save) {
     var vis_value = (set_visible == undefined ? !is_visible : set_visible);
     tabHeaders.style.display = (vis_value == true ? "block" : "none");
     document.getElementById('display-tabs').setAttribute('checked', vis_value);
+    main = document.getElementById('main');
+    if (vis_value) {
+        removeClass(main, 'notabs');
+        addClass(main, 'tabs');
+    } else {
+        removeClass(main, 'tabs');
+        addClass(main, 'notabs');
+    }
     if (save) 
 	settings.displayTabs(vis_value);
 }

@@ -405,6 +405,10 @@ tab[selected="true"] label {
 	margin-bottom: -5px !important;
 }
 
+#main.win.notabs * #tab-box {
+    padding-top: 0 !important;
+}
+
 
 /******** MAC */
 
@@ -446,6 +450,14 @@ tab[selected="true"] label {
 
 #main.mac * browser {
     border-top: 1px solid #cdcdcd !important;
+}
+
+#main.mac.notabs * browser {
+    border-top: none !important;
+}
+
+#main.mac.notabs * #tab-box {
+    padding-top: 0 !important;
 }
 
 /* Status bar */
