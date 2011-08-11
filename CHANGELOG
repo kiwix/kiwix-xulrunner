@@ -22,6 +22,7 @@ Kiwix 0.9 beta2
 * Revamped Tabs UI on Linux, OSX and Windows
 * Introduce/Improve keyboard shortcuts behaviour for a better scrolling experience (ID: 3389521)
 * Fixed problem with not working content manager on Windows installed instances of Kiwix (ID: 3385476)
+* Fixed regression: scroll is funky on OSX (ID: 3385602)
 
 Kiwix 0.9 beta1
 * Remove a hard coded path in kiwix-compact.sh (ID: 3135956)

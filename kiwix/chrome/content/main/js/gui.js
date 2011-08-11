@@ -177,6 +177,7 @@ function scrollLineDown() {
 }
 
 function scrollPageUp() {
+    alert('scrollPageUp');
     getHtmlRenderer().focus();
     try {
 	document.commandDispatcher.getControllerForCommand("cmd_scrollPageUp").doCommand('cmd_scrollPageUp');
@@ -185,6 +186,7 @@ function scrollPageUp() {
 }
 
 function scrollPageDown() {
+    alert('scrollPageDown');
     getHtmlRenderer().focus();
     try {
 	document.commandDispatcher.getControllerForCommand("cmd_scrollPageDown").doCommand('cmd_scrollPageDown');
@@ -196,25 +198,26 @@ function scrollPageDown() {
 function htmlRendererMouseScroll(aEvent) {
     /* Deal the with the scroll in case of alt is pressed */
     if (aEvent.altKey) {
-	stopEventPropagation(aEvent);
-	return;
+
+        /* On Mac, alt+scroll raises back() or forward() */
+        if (env.isMac()) {
+            if (aEvent.detail == -1) {
+                pageBack();
+                stopEventPropagation(aEvent);
+                return;
+            } else if (aEvent.detail == 1) {
+                pageNext();
+                stopEventPropagation(aEvent);
+                return;
+            }
+        }
+        
+        if (!env.isMac()) {
+        	stopEventPropagation(aEvent);
+        	return;
+        }
     }
-    
-    /* following triggers weird behavior on OSX
-       scrolling up/down raises back() and next() */
-    if (env.isMac()) {
-	/* Deal with the left/right click */
-	if (aEvent.detail == -1) {
-	    pageBack();
-	    stopEventPropagation(aEvent);
-	    return;
-	} else if (aEvent.detail == 1) {
-	    pageNext();
-	    stopEventPropagation(aEvent);
-	    return;
-	}
-    }
-    
+        
     /* Deal with the roll + ctrl */
     if (aEvent.ctrlKey) {
 	if (aEvent.detail>0) { zoomOut() } ;
