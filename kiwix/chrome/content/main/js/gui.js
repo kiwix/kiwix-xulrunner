@@ -177,7 +177,6 @@ function scrollLineDown() {
 }
 
 function scrollPageUp() {
-    alert('scrollPageUp');
     getHtmlRenderer().focus();
     try {
 	document.commandDispatcher.getControllerForCommand("cmd_scrollPageUp").doCommand('cmd_scrollPageUp');
@@ -186,7 +185,6 @@ function scrollPageUp() {
 }
 
 function scrollPageDown() {
-    alert('scrollPageDown');
     getHtmlRenderer().focus();
     try {
 	document.commandDispatcher.getControllerForCommand("cmd_scrollPageDown").doCommand('cmd_scrollPageDown');
