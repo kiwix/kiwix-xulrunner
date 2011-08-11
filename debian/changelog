@@ -1,4 +1,4 @@
-kiwix (0.9-beta2~natty) natty; urgency=low
+kiwix (0.9-beta2-0~natty) natty; urgency=low
 
   * Regression fix, tabs should not be visible per default
   * Fixed deprecated tmp.kiwix.org/zim links in help files (ID: 3376641)
@@ -25,7 +25,7 @@ kiwix (0.9-beta2~natty) natty; urgency=low
   * Fixed problem with not working content manager on Windows installed instances of Kiwix (ID: 3385476)
   * Fixed regression: scroll is funky on OSX (ID: 3385602)
 
- -- Emmanuel Engelhart <kelson@kiwix.org>  Mon, 11 Aug 2011 13:00:00 +0200
+ -- Emmanuel Engelhart <kelson@kiwix.org>  Thu, 11 Aug 2011 11:00:00 +0200
 
 kiwix (0.9-beta1~natty) natty; urgency=low
 
