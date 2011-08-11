@@ -284,7 +284,7 @@ function htmlRendererMouseUp(aEvent) {
 	if (stopPropagation) {
 	    stopEventPropagation(aEvent);
 	}
-    }
+    } 
 }
 
 function stopEventPropagation(aEvent) {
@@ -1094,6 +1094,12 @@ function toggleFindBarButton(aEvent) {
     }
 }
 
+function handleMouseClick(aEvent) {
+    if (url.indexOf("javascript:",0) != 0) {
+	stopEventPropagation();
+    }
+}
+
 /* Add mouse scroll listener to allow zoon in/out with the mouse for example */
 function initHtmlRendererEventListeners() {
     var htmlRenderer =  getHtmlRenderer();
@@ -1108,7 +1114,7 @@ function initHtmlRendererEventListeners() {
     htmlRenderer.addEventListener("pageshow", updateHistoryNavigationButtons, true);
     htmlRenderer.addEventListener("contextmenu", toggleBrowserContextualMenu, true);
     htmlRenderer.addEventListener("AppCommand", handleAppCommandEvent, true);
-    htmlRenderer.addEventListener("DOMActivate", stopEventPropagation, true); 
+    htmlRenderer.addEventListener("DOMActivate", handleMouseClick, true); 
 
     /* Necessary to update the tab header */
     htmlRenderer.addEventListener("pageshow", function(){ updateTabHeader(id) }, true);
