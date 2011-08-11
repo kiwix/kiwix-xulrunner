@@ -1,3 +1,9 @@
+kiwix (0.9-beta2-1~natty) natty; urgency=low
+
+  * Fixed a regression impacting javascript links
+
+ -- Emmanuel Engelhart <kelson@kiwix.org>  Thu, 11 Aug 2011 16:00:00 +0200
+
 kiwix (0.9-beta2-0~natty) natty; urgency=low
 
   * Regression fix, tabs should not be visible per default

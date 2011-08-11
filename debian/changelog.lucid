@@ -1,3 +1,9 @@
+kiwix (0.9-beta2-1~lucid) lucid; urgency=low
+
+  * Fixed a regression impacting javascript links
+
+ -- Emmanuel Engelhart <kelson@kiwix.org>  Thu, 11 Aug 2011 16:00:00 +0200
+
 kiwix (0.9-beta1~lucid) lucid; urgency=low
 
   * Remove a hard coded path in kiwix-compact.sh (ID: 3135956)
