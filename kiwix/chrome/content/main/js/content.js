@@ -456,14 +456,18 @@ function createLibraryItem(book) {
     hbox.appendChild(detailsBox);
     
     var titleLabel = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
-					      "label");
+					      "textbox");
     titleLabel.setAttribute("class", "library-content-item-title");
+    titleLabel.setAttribute("readonly", true);
+    titleLabel.setAttribute("size", 100);
     titleLabel.setAttribute("value", book.title || book.path);
     detailsBox.appendChild(titleLabel);
     
     var description = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
-					       "description");
+					       "textbox");
     description.setAttribute("class", "library-content-item-description");
+    description.setAttribute("readonly", true);
+    description.setAttribute("size", 100);
     description.setAttribute("value", book.description);
     detailsBox.appendChild(description);
     
@@ -729,6 +733,14 @@ function selectLibraryMenu(menuItemId) {
 }
 
 function selectLibraryContentItem(box) {
+    var focused = document.commandDispatcher.focusedElement;
+    if (focused.tagName != "vbox") {
+	if (focused.selectionStart == focused.selectionEnd)
+	    focused.blur();
+	else
+	    return;
+    }
+
     if (_selectedLibraryContentItem != undefined) {
 	_selectedLibraryContentItem.setAttribute("style", _selectedLibraryContentItem.backGroundColorBackup);
     }
