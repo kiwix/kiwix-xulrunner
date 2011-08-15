@@ -1,6 +1,7 @@
 Kiwix 0.9 beta3
 
 * Add for GNU/Linux Freedesktop managers the kiwix icon to ZIM files
+* Fixed issue in the library manager concerning ZIM files with accented paths
 
 Kiwix 0.9 beta2
 * Regression fix, tabs should not be visible per default
