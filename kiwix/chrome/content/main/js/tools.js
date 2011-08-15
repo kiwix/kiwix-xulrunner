@@ -307,7 +307,6 @@ function openUrlWithExternalBrowser(url) {
     var externalProtocolService = Components.
 	classes["@mozilla.org/uriloader/external-protocol-service;1"].
 	getService(Components.interfaces.nsIExternalProtocolService);
-    
     externalProtocolService.loadURI(resolvedUrl, null);
 }
 
