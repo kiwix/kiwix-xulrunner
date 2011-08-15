@@ -141,20 +141,21 @@ function onStart() {
     InitializeBookmarks();
 
     /* Read the command line arguments */
+    var contentLoaded = false;
     var nsCommandLine = window.arguments[0];
     nsCommandLine = nsCommandLine.QueryInterface(Components.interfaces.nsICommandLine);
     var argumentCount = nsCommandLine.length;
     for (var argumentIndex=0; argumentIndex<argumentCount; argumentIndex++) {
 	var argument = nsCommandLine.getArgument(argumentIndex);
 	if (argument.match(/^.*\.(zim|zimaa)$/i)) {
-	   argument = pathFromURL(argument);
-	   argument = argument.replace('%20', ' ');
-	   manageOpenFile(argument, true);
+	    argument = pathFromURL(argument);
+	    argument = argument.replace('%20', ' ');
+	    contentLoaded = manageOpenFile(argument, true);
 	}
     }
 
     /* Open current book */
-    if (!openCurrentBook()) {
+    if (!contentLoaded && !openCurrentBook()) {
 	library.deleteCurrentBook();
 	showHelp();
     }
