@@ -3,6 +3,7 @@ var aria2Client = new xmlrpc_client ("rpc", "localhost", "42042", "http");
 var aria2Process = null;
 var jobTimer = null;
 var downloader = new Worker("js/downloader.js");
+var aria2StartCount = 0;
 
 downloader.onmessage = function(event) {
     var message = event.data;
@@ -34,59 +35,79 @@ function addMetalink(id, metalinkContent) {
     var param = new xmlrpcval(metalinkContent, "base64");
     var msg = new xmlrpcmsg("aria2.addMetalink", [ param ]);
     var response = aria2Client.send(msg);
-    var gid = response.val.arrayMem(0).scalarVal();
-
-    /* set the gid */
-    settings.setDownloadProperty(id, "gid", gid);
+    
+    /* If aria2c not running then exception */
+    try {
+	var gid = response.val.arrayMem(0).scalarVal();
+	/* set the gid */
+	settings.setDownloadProperty(id, "gid", gid);
+    } catch (error) {
+    }
 }
 
-function startDownloader() {
-    /* Check if aria2c is not already started */
-    var openPort = true;
-    try {
-	var req = new XMLHttpRequest();
-	req.open('GET', "http://localhost:42042/", false);
-	req.send(null);
-    } catch(error) {
-	openPort = false;
+function isDownloaderRunning() {
+    return (aria2Process != null && aria2Process.exitValue < 0);
+}
+
+function checkDownloader() {
+    if (!isDownloaderRunning()) {
+	/* Check if aria2c is not already started */
+	var openPort = true;
+	try {
+	    var req = new XMLHttpRequest();
+	    req.open('GET', "http://localhost:42042/", false);
+	    req.send(null);
+	} catch(error) {
+	    openPort = false;
+	}
+	
+	if (openPort == true) {
+	    return true;
+	} else {
+	    /* Need to wait wide usage of aria2c 1.11 or higher before using this version of the aria2c command line */
+	    var args = [ "--enable-rpc", "--rpc-listen-port=42042", "--dir=" + settings.getRootPath(), "--log=" + getDownloaderLogPath(), "--allow-overwrite=true", "--disable-ipv6=true", "--quiet=true", "--always-resume=true", "--max-concurrent-downloads=42", "--min-split-size=1M", "--rpc-max-request-size=6M" ];
+
+	    /* For backward compatibility */
+	    if (aria2StartCount > 0) {
+		args = [ "--enabled-xml-rpc", "--xml-rpc-listen-port=42042", "--dir=" + settings.getRootPath(), "--log=" + getDownloaderLogPath(), "--allow-overwrite=true", "--disable-ipv6=true", "--quiet=true", "--always-resume=true", "--max-concurrent-downloads=42", "--xml-rpc-max-request-size=6M" ];
+	    }
+
+	    startDownloader(args);
+	}
     }
+}
 
-    if (openPort == false) {
-	var binaryPath;
-
-	/* Need to wait wide usage of aria2c 1.11 or higher before using this version of the aria2c command line */
-	/* var args = [ "--enable-rpc", "--rpc-listen-port=42042", "--dir=" + settings.getRootPath(), "--log=" + getDownloaderLogPath(), "--allow-overwrite=true", "--disable-ipv6=true", "--quiet=true", "--always-resume=true", "--max-concurrent-downloads=42", "--min-split-size=1M", "--rpc-max-request-size=6M" ]; */
-
-	var args = [ "--enable-xml-rpc", "--xml-rpc-listen-port=42042", "--dir=" + settings.getRootPath(), "--log=" + getDownloaderLogPath(), "--allow-overwrite=true", "--disable-ipv6=true", "--quiet=true", "--always-resume=true", "--max-concurrent-downloads=42", "--xml-rpc-max-request-size=6M" ];
-
-	var ariaBinaryPath = whereis(env.isWindows() ? "aria2c.exe" : "aria2c");
-	if (ariaBinaryPath == undefined) {
-	    dump("Unable to find the aria2c binary.\n");
+function startDownloader(args) {
+    var binaryPath;
+    
+    var ariaBinaryPath = whereis(env.isWindows() ? "aria2c.exe" : "aria2c");
+    if (ariaBinaryPath == undefined) {
+	dump("Unable to find the aria2c binary.\n");
+	return;
+    }
+    
+    if (env.isWindows()) {
+	binaryPath = whereis("chp.exe");
+	if (binaryPath == undefined) {
+	    dump("Unable to find the chp binary.\n");
 	    return;
 	}
 	
-	if (env.isWindows()) {
-	    binaryPath = whereis("chp.exe");
-	    if (binaryPath == undefined) {
-		dump("Unable to find the chp binary.\n");
-		return;
-	    }
-	    
-	    args.splice(0, 0, ariaBinaryPath);
-	} else {
-	    binaryPath = ariaBinaryPath;
-	}
-
-	var binary = Components.classes["@mozilla.org/file/local;1"]
-	    .createInstance(Components.interfaces.nsILocalFile);
-	binary.initWithPath(binaryPath);
-
-	aria2Process = Components.classes["@mozilla.org/process/util;1"]
-	    .createInstance(Components.interfaces.nsIProcess);
-	aria2Process.init(binary);
-	
-	aria2Process.run(false, args, args.length);
+	args.splice(0, 0, ariaBinaryPath);
+    } else {
+	binaryPath = ariaBinaryPath;
     }
+    
+    var binary = Components.classes["@mozilla.org/file/local;1"]
+	.createInstance(Components.interfaces.nsILocalFile);
+    binary.initWithPath(binaryPath);
+    
+    aria2Process = Components.classes["@mozilla.org/process/util;1"]
+	.createInstance(Components.interfaces.nsIProcess);
+    aria2Process.init(binary);
+
+    aria2Process.run(false, args, args.length);
+    aria2StartCount += 1;
 }
 
 function stopDownloader() {
@@ -756,5 +777,6 @@ function selectLibraryContentItem(box) {
 }
 
 function startDownloadObserver() {
+    window.setInterval("checkDownloader()", 1000);
     window.setInterval("getDownloadStatus()", 1000);
 }

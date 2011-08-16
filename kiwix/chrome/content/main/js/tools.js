@@ -164,7 +164,7 @@ function onStart() {
     initUserInterface();
 
     /* Start aria */
-    startDownloader();
+    checkDownloader();
 }
 
 /* Clear the history and the cache */
