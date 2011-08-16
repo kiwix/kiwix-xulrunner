@@ -482,6 +482,7 @@ function createLibraryItem(book) {
     titleLabel.setAttribute("readonly", true);
     titleLabel.setAttribute("size", 100);
     titleLabel.setAttribute("value", book.title || book.path);
+
     detailsBox.appendChild(titleLabel);
     
     var description = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
@@ -755,7 +756,7 @@ function selectLibraryMenu(menuItemId) {
 
 function selectLibraryContentItem(box) {
     var focused = document.commandDispatcher.focusedElement;
-    if (focused.tagName != "vbox") {
+    if (focused != null && focused.tagName != "vbox") {
 	if (focused.selectionStart == focused.selectionEnd)
 	    focused.blur();
 	else
