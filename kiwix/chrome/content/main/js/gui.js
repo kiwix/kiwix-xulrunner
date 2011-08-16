@@ -320,9 +320,6 @@ function manageOpenUrl(url) {
     /* Open with extern browser if not an internal link */
     if (!isInternalUrl(url)) {
 	openUrlWithExternalBrowser(url);
-	
-	/* Purge the history of the last entry */
-	getHtmlRenderer().sessionHistory.PurgeHistory(1);
     } else { /* If the a ZIM or chrome url */ 	 
 	if (loadContent(url)) { 	 
 	    activateBackButton(); 	 
