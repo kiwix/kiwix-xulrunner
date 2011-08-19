@@ -98,12 +98,6 @@
 		accesskey="&main.checkIntegrity.accesskey;" oncommand="manageCheckIntegrity()" disabled="true"/>
       <menuitem id="tools-purgeHistory" label="&main.purgeHistory;" key="purge-history-key" class="menuitem-iconic" 
 		accesskey="&main.purgeHistory.accesskey;" oncommand="managePurgeHistory()"/>
-<!-- waiting for implementation
-      <menuitem id="tools-downloadStatus" label="getDownloadStatus" class="menuitem-iconic" 
-		oncommand="getDownloadStatus()"/>
-      <menuitem id="tools-downloadWikipediaIt" label="downloadWikipediaITgetDownloadStatus" class="menuitem-iconic" 
-		oncommand="startDownload('http://download.kiwix.org/zim/0.9/wikipedia_it_all_03_2010_alpha2.zim.torrent')"/>
--->
     </menupopup>
   </menu>
   <menu id="menu-help" label="&main.help;" accesskey="&main.help.accesskey;">
@@ -180,6 +174,8 @@
   <key id="arrowdown-key" keycode="VK_DOWN" oncommand="scrollLineDown()"/>
   <key id="pageup-key" keycode="VK_PAGE_UP" oncommand="scrollPageUp()"/>
   <key id="pagedown-key" keycode="VK_PAGE_DOWN" oncommand="scrollPageDown()"/>
+  <key id="tabback-key" keycode="VK_PAGE_UP" modifiers="control" oncommand="tabBack()"/>
+  <key id="tabnext-key" keycode="VK_PAGE_DOWN" modifiers="control" oncommand="tabNext()"/>
 </keyset>
 
 <!-- Contextual menu (should be implemented after menubar otherwise generate a 1 pixel big space between windows decoration and menubar) -->
@@ -264,13 +260,13 @@
   <stack flex="1">
     <page id="rendering-page" flex="1">
       <vbox flex="1">
-	<tabbox flex="1" id="tab-box">
+	<tabbox flex="1" id="tab-box" handleCtrlTab="false" handleCtrlPageUpDown="false">
 	  <tabs id="tab-headers">
-        <tab id="tab-header-00000000" onclick="switchTab(null, this)" class="tab-header" selected="true">
+            <tab id="tab-header-00000000" onclick="switchTab(null, this)" class="tab-header" selected="true">
 	      <label value="No Name" crop="right" class="tab-header-label"/>
 	    </tab>
-        <toolbarbutton id="tab-close-button-00000000" class="tabs-close-button" oncommand="closeThatTab('00000000')"/>
-        <toolbarbutton id="tabs-add-button" oncommand="switchToNewTab();" tooltiptext="Open a new Tab"/>
+            <toolbarbutton id="tab-close-button-00000000" class="tabs-close-button" oncommand="closeThatTab('00000000')"/>
+            <toolbarbutton id="tabs-add-button" oncommand="switchToNewTab();" tooltiptext="Open a new Tab"/>
 	  </tabs>
 	  <tabpanels id="tab-panels" flex="1">
             <tabpanel id="tab-panel-00000000">

@@ -255,3 +255,51 @@ function removeFSEventFromTabs() {
         removeFSEventFromTab(alltabs[i].id);
     }
 }
+
+/* Switch to the tab before */
+function tabBack() {
+    var tabHeaders = getTabHeaders().getElementsByTagName('tab');
+    var tabHeadersLength = tabHeaders.length;
+
+    if (tabHeadersLength > 1) {
+	for (var i=0; i<tabHeadersLength; i++) {
+	    var node = tabHeaders[i];
+	    var id = tabIDfromID(node.getAttribute('id'));
+	    if (id == currentTabId) {
+		if (i>0) {
+		    id = tabIDfromID(tabHeaders[i-1].getAttribute('id'));
+		} else {
+		    id = tabIDfromID(tabHeaders[tabHeadersLength-1].getAttribute('id'));
+		}
+		switchTab(id);
+		return true;
+	    }
+	}
+    }
+
+    return false;
+}
+
+/* Switch to next tab */
+function tabNext() {
+    var tabHeaders = getTabHeaders().getElementsByTagName('tab');
+    var tabHeadersLength = tabHeaders.length;
+
+    if (tabHeadersLength > 1) {
+	for (var i=0; i<tabHeadersLength; i++) {
+	    var node = tabHeaders[i];
+	    var id = tabIDfromID(node.getAttribute('id'));
+	    if (id == currentTabId) {
+		if (i<tabHeadersLength-1) {
+		    id = tabIDfromID(tabHeaders[i+1].getAttribute('id'));
+		} else {
+		    id = tabIDfromID(tabHeaders[0].getAttribute('id'));
+		}
+		switchTab(id);
+		return true;
+	    }
+	}
+    }
+
+    return false;
+}
