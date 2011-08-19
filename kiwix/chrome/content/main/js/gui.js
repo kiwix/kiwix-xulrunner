@@ -1132,17 +1132,9 @@ function initHtmlRendererEventListeners() {
     getTabHeaders().addEventListener("keypress", handleTabHeadersKeyPress, true);
 }
 
+/* Route all keypress event on the tabbox to the HTML renderer */
 function handleTabHeadersKeyPress(aEvent) {
-    if (aEvent.keyCode == 38) {
-	scrollLineUp();
-    } else if (aEvent.keyCode == 40) {
-	scrollLineDown();
-    } else if (aEvent.keyCode == 33) {
-	scrollPageUp();
-    } else if (aEvent.keyCode == 34) {
-	scrollPageDown();
-    }
-    stopEventPropagation(aEvent); 
+    document.getElementById('browser').contentDocument.dispatchEvent();
 }
 
 /* Deal with drag & drop to open a link in a new tab */
