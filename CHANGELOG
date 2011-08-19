@@ -5,6 +5,7 @@ Kiwix 0.9 beta3
 * Fix buggy history behaviour by opening external urls
 * Implement ctrl+[PAGE_UP|PAGE_DOWN] to navigate in tabs
 * Fix different issue impacting keypress event mgmt on Tabs
+* Add hour pointer during search or loading of articles (ID: 3362817)
 
 Kiwix 0.9 beta2
 * Regression fix, tabs should not be visible per default

@@ -22,6 +22,36 @@ _languagesHash['ca']        = "Català";
 _languagesHash['nl']        = "Nederlands";
 _languagesHash['ml']        = "മലയാളം";
 
+/* WebProgress listener */
+const STATE_START =  Components.interfaces.nsIWebProgressListener.STATE_START;
+const STATE_STOP =  Components.interfaces.nsIWebProgressListener.STATE_STOP;
+const NOTIFY_STATE_DOCUMENT   = Components.interfaces.nsIWebProgress.NOTIFY_STATE_DOCUMENT;
+var articleLoadingListener = {
+    QueryInterface: function(aIID){
+	if (aIID.equals(Components.interfaces.nsIWebProgressListener) ||
+	    aIID.equals(Components.interfaces.nsISupportsWeakReference) ||
+	    aIID.equals(Components.interfaces.nsISupports))
+            return this;
+	throw Components.results.NS_NOINTERFACE;
+    },
+
+    onStateChange: function(aProgress, aRequest, aFlag, aStatus){
+	if(aFlag & STATE_START){
+	    window.setCursor('wait'); 
+	}
+	if(aFlag & STATE_STOP){
+	    window.setCursor('auto');
+	}
+	return 0;
+    },
+
+    onLocationChange: function() {return 0;},
+    onProgressChange: function() { return 0;},
+    onStatusChange: function() {return 0;},
+    onSecurityChange: function() {return 0;},
+    onLinkIconAvailable: function() {return 0;}
+};
+
 /* Return the window object */
 function getWindow() {
     return document.getElementById("main");
@@ -1117,6 +1147,9 @@ function initHtmlRendererEventListeners() {
     htmlRenderer.addEventListener("contextmenu", toggleBrowserContextualMenu, true);
     htmlRenderer.addEventListener("AppCommand", handleAppCommandEvent, true);
     htmlRenderer.addEventListener("DOMActivate", handleMouseClick, true); 
+
+    /* Add ProgressListener */
+    htmlRenderer.addProgressListener(articleLoadingListener, NOTIFY_STATE_DOCUMENT);
 
     /* Necessary to update the tab header */
     htmlRenderer.addEventListener("pageshow", function(){ updateTabHeader(id) }, true);
