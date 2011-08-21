@@ -238,7 +238,9 @@
       <toolbar id="bookmarks-toolbar">
 	<toolbarbutton id="bookmarks-new-button" tooltiptext="&main.newbmk;" oncommand="javascript:UICreateNewBookmarkSet ();" />
 	<toolbarbutton id="bookmarks-load-button" tooltiptext="&main.loadbmk;" oncommand="javascript:UILoadExternalBookmarkFile ();" />
+<!-- Seems to be pretty dangerous and ambigous
 	<toolbarbutton id="bookmarks-reload-button" tooltiptext="&main.reload;" oncommand="javascript:UIResetBookmarkSet ();" />
+-->
 	<toolbarbutton id="bookmarks-mark-button" tooltiptext="&main.mark;" oncommand="javascript:bookmarkCurrentPage ();" />
 	<toolbarbutton id="bookmarks-unmark-button" tooltiptext="&main.unmark;" oncommand="javascript:removeCurrentBookmark ();" />
       </toolbar>
