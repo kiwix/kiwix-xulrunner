@@ -80,7 +80,7 @@
 <!ENTITY main.searchBar                 "Search bar">
 <!ENTITY main.search                    "Search">
 <!ENTITY main.findInText                "Find in text">
-<!ENTITY main.noSearchBar               "Search requires an indexed Zim file">
+<!ENTITY main.noSearchBar               "Search requires an indexed ZIM file">
 <!ENTITY main.bookmarks                 "Bookmarks">
 
 <!-- Results bar -->
