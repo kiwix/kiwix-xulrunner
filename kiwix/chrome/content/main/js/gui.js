@@ -173,6 +173,13 @@ function configureWindowGeometry(window) {
     }
 }
 
+/* Search for a custom string */
+function searchFor(text) {
+    focusOnSearchBox();
+    getSearchBox().value = text + " ";
+    manageSearchInIndex();
+}
+
 /* Get the focus on the search textbox */
 function focusOnSearchBox() {
     var searchBox = getSearchBox();
@@ -865,12 +872,24 @@ function toggleBrowserContextualMenu(event) {
 
     /* Selected text */
     var copySelectedTextMenuItem = document.getElementById("browser-contextual-menu-copyselectedtext");
+    var searchForMenuItem = document.getElementById("browser-contextual-menu-searchfor");
     var selectedText = document.commandDispatcher.focusedWindow.getSelection().toString();
     if (selectedText.length > 0) {
 	copySelectedTextMenuItem.setAttribute("style", "display: visible;");
-	copySelectedTextMenuItem.setAttribute("onclick", "copyTextToClipboard('" + selectedText + "')");
+	copySelectedTextMenuItem.setAttribute("onclick", "copySelectedContent()");
+	searchForMenuItem.setAttribute("style", "display: visible;");
+	searchForMenuItem.setAttribute("onclick", "searchFor('" + selectedText + "')");
     } else {
 	copySelectedTextMenuItem.setAttribute("style", "display: none;");
+	searchForMenuItem.setAttribute("style", "display: none;");
+    }
+
+    /* Select all */
+    var selectAllMenuItem = document.getElementById("browser-contextual-menu-selectall");
+    if (target.localName != "img" && selectedText.length <= 0 && url == undefined) {
+	selectAllMenuItem.setAttribute("style", "display: visible;");
+    } else {
+	selectAllMenuItem.setAttribute("style", "display: none;");
     }
 
     /* Show the contextual menu */

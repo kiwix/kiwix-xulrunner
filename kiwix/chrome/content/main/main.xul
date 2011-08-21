@@ -152,8 +152,8 @@
   <key id="save-file-key" key="S" modifiers="control" oncommand="saveDocument(window.content.document)"/>
   <key id="print-key" key="P" modifiers="control" oncommand="print()"/>
   <key id="print-pdf-key" key="D" modifiers="control" oncommand="printPdf()"/>
-  <key id="selectall" key="A" modifiers="control" oncommand="selectAll()"/>
-  <key id="copy" key="C" modifiers="control" oncommand="copySelectedContent()"/>
+  <key id="selectall-key" key="A" modifiers="control" oncommand="selectAll()"/>
+  <key id="copy-key" key="C" modifiers="control" oncommand="copySelectedContent()"/>
   <key id="findnext" key="g" modifiers="control" oncommand="getFindBar().onFindAgainCommand(false);"/>
   <key id="findnextbis" keycode="VK_F3" oncommand="getFindBar().onFindAgainCommand(false);"/>
   <key id="findprevious" key="G" modifiers="control,shift" oncommand="getFindBar().onFindAgainCommand(true);"/>
@@ -183,6 +183,8 @@
   <menuitem label="&main.saveImageAs;" id="browser-contextual-menu-saveimageas"/>
   <menuitem label="Open Link in New Tab" id="browser-contextual-menu-openlinkinnewtab"/>
   <menuitem label="Copy" id="browser-contextual-menu-copyselectedtext"/>
+  <menuitem label="Select all" id="browser-contextual-menu-selectall" onclick="selectAll()"/>
+  <menuitem label="Search for" id="browser-contextual-menu-searchfor"/>
 </menupopup>
 
 <!-- Tool bar -->
