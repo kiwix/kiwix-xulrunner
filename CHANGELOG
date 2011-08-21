@@ -7,6 +7,7 @@ Kiwix 0.9 beta3
 * Fix different issue impacting keypress event mgmt on Tabs
 * Add hour pointer during search or loading of articles (ID: 3362817)
 * Remove the reset button for the bookmarks, was dangerous and ambigous (ID: 3395239)
+* Add "Copy" in the right-click contextual menu (ID: 3015761)
 
 Kiwix 0.9 beta2
 * Regression fix, tabs should not be visible per default

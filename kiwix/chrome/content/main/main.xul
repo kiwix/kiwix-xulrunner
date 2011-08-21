@@ -182,6 +182,7 @@
 <menupopup id="browser-contextual-menu">
   <menuitem label="&main.saveImageAs;" id="browser-contextual-menu-saveimageas"/>
   <menuitem label="Open Link in New Tab" id="browser-contextual-menu-openlinkinnewtab"/>
+  <menuitem label="Copy" id="browser-contextual-menu-copyselectedtext"/>
 </menupopup>
 
 <!-- Tool bar -->

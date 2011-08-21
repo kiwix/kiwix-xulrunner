@@ -863,6 +863,16 @@ function toggleBrowserContextualMenu(event) {
 	openLinkInNewTabMenuItem.setAttribute("style", "display: none;");
     }
 
+    /* Selected text */
+    var copySelectedTextMenuItem = document.getElementById("browser-contextual-menu-copyselectedtext");
+    var selectedText = document.commandDispatcher.focusedWindow.getSelection().toString();
+    if (selectedText.length > 0) {
+	copySelectedTextMenuItem.setAttribute("style", "display: visible;");
+	copySelectedTextMenuItem.setAttribute("onclick", "copyTextToClipboard('" + selectedText + "')");
+    } else {
+	copySelectedTextMenuItem.setAttribute("style", "display: none;");
+    }
+
     /* Show the contextual menu */
     var browserContextualMenu = document.getElementById("browser-contextual-menu");
     browserContextualMenu.openPopupAtScreen(event.screenX, event.screenY, true);

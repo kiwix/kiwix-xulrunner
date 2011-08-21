@@ -491,3 +491,9 @@ function pathFromURL(aURL) {
     var baseURI = ioService.newURI(aURL, null, null);
     return baseURI.path;
 }
+
+function copyTextToClipboard(text) {
+    const gClipboardHelper = Components.classes["@mozilla.org/widget/clipboardhelper;1"].
+	getService(Components.interfaces.nsIClipboardHelper);
+    gClipboardHelper.copyString(text);
+}
