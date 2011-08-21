@@ -16,6 +16,7 @@ _languagesHash['it']        = "Italiano";
 _languagesHash['ar']        = "العربية";
 _languagesHash['fa']        = "فارسی";
 _languagesHash['he']        = "עברית";
+_languagesHash['hu']        = "Magyar";
 _languagesHash['pt']        = "Português";
 _languagesHash['pl']        = "Język polski";
 _languagesHash['ca']        = "Català";
