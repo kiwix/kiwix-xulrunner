@@ -9,6 +9,7 @@ Kiwix 0.9 beta3
 * Remove the reset button for the bookmarks, was dangerous and ambigous (ID: 3395239)
 * Add "Copy" and "Select all" in the right-click contextual menu if necessary (ID: 3015761)
 * Add the "Search for..." in the contextual menu
+* Lots of new locales supported (thx Translatewiki.net)
 
 Kiwix 0.9 beta2
 * Regression fix, tabs should not be visible per default

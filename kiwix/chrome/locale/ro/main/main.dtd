@@ -1,0 +1,111 @@
+<!-- Window -->
+<!ENTITY main.title                     "&brand.brandShortName;">
+<!ENTITY main.cssdirection              "ltr">
+
+<!-- File menu -->
+<!ENTITY main.file                      "Fișier">
+<!ENTITY main.file.accesskey            "F">
+<!ENTITY main.openFile                  "Deschide fișierul ...">
+<!ENTITY main.openFile.accesskey        "O">
+<!ENTITY main.lastOpen                  "Deschise recent...">
+<!ENTITY main.saveFile                  "Salvează pagina ca...">
+<!ENTITY main.saveFile.accesskey        "S">
+<!ENTITY main.print                     "Tipărește">
+<!ENTITY main.print.accesskey           "P">
+<!ENTITY main.printPdf                  "Tipărește ca PDF">
+<!ENTITY main.printPdf.accesskey        "D">
+<!ENTITY main.quit                      "Ieșire">
+<!ENTITY main.quit.accesskey            "Q">
+
+<!-- Edit menu -->
+<!ENTITY main.edit                      "Editare">
+<!ENTITY main.edit.accesskey            "E">
+<!ENTITY main.find                      "Căutare în pagină...">
+<!ENTITY main.find.accesskey            "S">
+<!ENTITY main.selectall                 "Selectează tot">
+<!ENTITY main.selectall.accesskey       "a">
+<!ENTITY main.copy                      "Copiază">
+<!ENTITY main.copy.accesskey            "p">
+<!ENTITY main.transliteration           "Transliterare">
+<!ENTITY main.transliteration.accesskey "T">
+<!ENTITY main.preferences               "Preferințe">
+<!ENTITY main.preferences.accesskey     "n">
+
+<!-- Display menu -->
+<!ENTITY main.display                   "Afișare">
+<!ENTITY main.display.accesskey         "D">
+<!ENTITY main.zoom                      "Zoom">
+<!ENTITY main.zoom.accesskey            "Z">
+<!ENTITY main.zoomin                    "Mărește">
+<!ENTITY main.zoomin.accesskey          "M">
+<!ENTITY main.zoomout                   "Micșorează">
+<!ENTITY main.zoomout.accesskey         "R">
+<!ENTITY main.zoomorig                  "Dimensiune originală">
+<!ENTITY main.zoomorig.accesskey        "O">
+<!ENTITY main.language                  "Limbă">
+<!ENTITY main.language.accesskey        "L">
+<!ENTITY main.skin                      "Aspect">
+<!ENTITY main.skin.accesskey            "S">
+<!ENTITY main.statusbar                 "Bara de stare">
+<!ENTITY main.statusbar.accesskey       "S">
+<!ENTITY main.resultsbar                "Bara de rezultate">
+<!ENTITY main.resultsbar.accesskey      "R">
+<!ENTITY main.tabs                      "File">
+<!ENTITY main.tabs.accesskey            "T">
+<!ENTITY main.fullscreen                "Ecran complet">
+<!ENTITY main.fullscreen.accesskey      "F">
+
+<!-- Tools menu -->
+<!ENTITY main.tools                     "Unelte">
+<!ENTITY main.tools.accesskey           "T">
+<!ENTITY main.randomArticle             "Articol aleatoriu">
+<!ENTITY main.randomArticle.accesskey   "R">
+<!ENTITY main.checkIntegrity            "Verificare integritate">
+<!ENTITY main.checkIntegrity.accesskey  "k">
+<!ENTITY main.purgeHistory              "Curăță istoricul">
+<!ENTITY main.purgeHistory.accesskey    "P">
+
+<!-- Help menu -->
+<!ENTITY main.help                      "Ajutor">
+<!ENTITY main.help.accesskey            "H">
+<!ENTITY main.reportabug                "Raportați o eroare">
+<!ENTITY main.requestafeature           "Solicitați o funcționalitate">
+<!ENTITY main.about                     "Despre &brand.brandShortName;">
+<!ENTITY main.about.accesskey           "A">
+
+<!-- Tool bar -->
+<!ENTITY main.back                      "Înapoi">
+<!ENTITY main.forward                   "Înainte">
+<!ENTITY main.home                      "Acasă">
+<!ENTITY main.searchBar                 "Bara de căutare">
+<!ENTITY main.search                    "Căutare">
+<!ENTITY main.findInText                "Căutare în text">
+<!ENTITY main.noSearchBar               "Căutarea necesită un fișier Zim indexat">
+<!ENTITY main.bookmarks                 "Semne de carte">
+
+<!-- Results bar -->
+<!ENTITY main.results.title             "Rezultatele căutării">
+
+<!-- Bookmarks Bar -->
+<!ENTITY main.bmkLabel                  "Semne de carte:">
+<!ENTITY main.notesLabel                "Note pentru semne de carte:">
+<!ENTITY main.loadbmk                   "Importă un set de semne de carte">
+<!ENTITY main.newbmk                    "Creează un set nou de semne de carte">
+<!ENTITY main.mark                      "Marchează această pagină">
+<!ENTITY main.unmark                    "Șterge marcajul selectat">
+<!ENTITY main.reload                    "Resetează setul de semne de carte">
+<!ENTITY main.defaultset                "Set implicit">
+
+<!-- Contextual Menu -->
+<!ENTITY main.saveImageAs               "Salvează imaginea ca...">
+
+<!-- About Window -->
+<!ENTITY main.close           		"Închide">
+
+<!-- Preferences Window -->
+<!ENTITY preferences.preferences        "Preferences">
+<!ENTITY preferences.save      		"Save">
+<!ENTITY preferences.cancel     	"Cancel">
+<!ENTITY preferences.profileDirectory  	"Profile directory">
+<!ENTITY preferences.browse  	        "Browse">
+

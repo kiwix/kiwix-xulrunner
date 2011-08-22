@@ -7,8 +7,8 @@ var _restore_tab            = null;
 var _firstSideBar	    = true;
 
 var _languagesHash          = Array();
-_languagesHash['fr']        = "Français";
 _languagesHash['de']        = "Deutsch";
+_languagesHash['fr']        = "Français";
 _languagesHash['en']        = "English";
 _languagesHash['zh']        = "中文";
 _languagesHash['es']        = "Español";
@@ -22,6 +22,7 @@ _languagesHash['pl']        = "Język polski";
 _languagesHash['ca']        = "Català";
 _languagesHash['nl']        = "Nederlands";
 _languagesHash['ml']        = "മലയാളം";
+_languagesHash['ro']        = "Română";
 
 /* WebProgress listener */
 const STATE_START =  Components.interfaces.nsIWebProgressListener.STATE_START;
