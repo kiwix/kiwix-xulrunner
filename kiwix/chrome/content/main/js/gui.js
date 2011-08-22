@@ -179,6 +179,7 @@ function configureWindowGeometry(window) {
 function searchFor(text) {
     focusOnSearchBox();
     getSearchBox().value = text + " ";
+    openNewTab();
     manageSearchInIndex();
 }
 
