@@ -21,6 +21,7 @@ _languagesHash['pt']        = "Português";
 _languagesHash['pl']        = "Język polski";
 _languagesHash['ca']        = "Català";
 _languagesHash['nl']        = "Nederlands";
+_languagesHash['no']        = "Norsk (bokmål)";
 _languagesHash['ml']        = "മലയാളം";
 _languagesHash['ro']        = "Română";
 
