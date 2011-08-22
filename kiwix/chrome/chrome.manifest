@@ -14,6 +14,7 @@ locale main fr    locale/fr/main/
 locale main he    locale/he/main/
 locale main hu    locale/hu/main/
 locale main it    locale/it/main/
+locale main mk    locale/mk/main/
 locale main ml    locale/ml/main/
 locale main no    locale/no/main/
 locale main nl    locale/nl/main/
@@ -32,6 +33,7 @@ locale branding fr    locale/branding/
 locale branding he    locale/branding/
 locale branding hu    locale/branding/
 locale branding it    locale/branding/
+locale branding mk    locale/branding/
 locale branding ml    locale/branding/
 locale branding nl    locale/branding/
 locale branding no    locale/branding/

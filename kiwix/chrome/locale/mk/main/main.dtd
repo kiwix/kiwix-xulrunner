@@ -1,0 +1,111 @@
+<!-- Window -->
+<!ENTITY main.title                     "&brand.brandShortName;">
+<!ENTITY main.cssdirection              "ltr">
+
+<!-- File menu -->
+<!ENTITY main.file                      "Податотека">
+<!ENTITY main.file.accesskey            "F">
+<!ENTITY main.openFile                  "Отвори податотека...">
+<!ENTITY main.openFile.accesskey        "O">
+<!ENTITY main.lastOpen                  "Неодамна отворени...">
+<!ENTITY main.saveFile                  "Зачувај ја страницата како...">
+<!ENTITY main.saveFile.accesskey        "S">
+<!ENTITY main.print                     "Печати">
+<!ENTITY main.print.accesskey           "P">
+<!ENTITY main.printPdf                  "Испечати како PDF">
+<!ENTITY main.printPdf.accesskey        "D">
+<!ENTITY main.quit                      "Излези">
+<!ENTITY main.quit.accesskey            "Q">
+
+<!-- Edit menu -->
+<!ENTITY main.edit                      "Уреди">
+<!ENTITY main.edit.accesskey            "E">
+<!ENTITY main.find                      "Пребарај во страницата...">
+<!ENTITY main.find.accesskey            "S">
+<!ENTITY main.selectall                 "Избери сè">
+<!ENTITY main.selectall.accesskey       "a">
+<!ENTITY main.copy                      "Копирај">
+<!ENTITY main.copy.accesskey            "p">
+<!ENTITY main.transliteration           "Транслитерација">
+<!ENTITY main.transliteration.accesskey "T">
+<!ENTITY main.preferences               "Нагодувања">
+<!ENTITY main.preferences.accesskey     "n">
+
+<!-- Display menu -->
+<!ENTITY main.display                   "Приказ">
+<!ENTITY main.display.accesskey         "D">
+<!ENTITY main.zoom                      "Размер">
+<!ENTITY main.zoom.accesskey            "Z">
+<!ENTITY main.zoomin                    "Зголеми">
+<!ENTITY main.zoomin.accesskey          "M">
+<!ENTITY main.zoomout                   "Намали">
+<!ENTITY main.zoomout.accesskey         "R">
+<!ENTITY main.zoomorig                  "Изворна големина">
+<!ENTITY main.zoomorig.accesskey        "O">
+<!ENTITY main.language                  "Јазик">
+<!ENTITY main.language.accesskey        "L">
+<!ENTITY main.skin                      "Изглед">
+<!ENTITY main.skin.accesskey            "S">
+<!ENTITY main.statusbar                 "Статусник">
+<!ENTITY main.statusbar.accesskey       "S">
+<!ENTITY main.resultsbar                "Резултатник">
+<!ENTITY main.resultsbar.accesskey      "R">
+<!ENTITY main.tabs                      "Јазичиња">
+<!ENTITY main.tabs.accesskey            "T">
+<!ENTITY main.fullscreen                "На цел екран">
+<!ENTITY main.fullscreen.accesskey      "F">
+
+<!-- Tools menu -->
+<!ENTITY main.tools                     "Алатки">
+<!ENTITY main.tools.accesskey           "T">
+<!ENTITY main.randomArticle             "Случајна статија">
+<!ENTITY main.randomArticle.accesskey   "R">
+<!ENTITY main.checkIntegrity            "Проверка на интегритет">
+<!ENTITY main.checkIntegrity.accesskey  "k">
+<!ENTITY main.purgeHistory              "Исчисти историја">
+<!ENTITY main.purgeHistory.accesskey    "P">
+
+<!-- Help menu -->
+<!ENTITY main.help                      "Помош">
+<!ENTITY main.help.accesskey            "H">
+<!ENTITY main.reportabug                "Пријави грешка">
+<!ENTITY main.requestafeature           "Побарај функција">
+<!ENTITY main.about                     "За &brand.brandShortName;">
+<!ENTITY main.about.accesskey           "A">
+
+<!-- Tool bar -->
+<!ENTITY main.back                      "Назад">
+<!ENTITY main.forward                   "Напред">
+<!ENTITY main.home                      "Почеток">
+<!ENTITY main.searchBar                 "Пребарување">
+<!ENTITY main.search                    "Пребарување">
+<!ENTITY main.findInText                "Пронајди во текстот">
+<!ENTITY main.noSearchBar               "Пребарувањето бара индексирана ZIM-податотека">
+<!ENTITY main.bookmarks                 "Обележувачи">
+
+<!-- Results bar -->
+<!ENTITY main.results.title             "Резултати од пребарувањето">
+
+<!-- Bookmarks Bar -->
+<!ENTITY main.bmkLabel                  "Обележувачи:">
+<!ENTITY main.notesLabel                "Забелешки за обележувачите:">
+<!ENTITY main.loadbmk                   "Увези збир обележувачи">
+<!ENTITY main.newbmk                    "Создај збир обележувачи">
+<!ENTITY main.mark                      "Означи ја страницава">
+<!ENTITY main.unmark                    "Тргни обележано">
+<!ENTITY main.reload                    "Одново">
+<!ENTITY main.defaultset                "Основен збир">
+
+<!-- Contextual Menu -->
+<!ENTITY main.saveImageAs               "Зачувај ја сликата како...">
+
+<!-- About Window -->
+<!ENTITY main.close           		"Затвори">
+
+<!-- Preferences Window -->
+<!ENTITY preferences.preferences        "Preferences">
+<!ENTITY preferences.save      		"Save">
+<!ENTITY preferences.cancel     	"Cancel">
+<!ENTITY preferences.profileDirectory  	"Profile directory">
+<!ENTITY preferences.browse  	        "Browse">
+

@@ -20,6 +20,7 @@ _languagesHash['hu']        = "Magyar";
 _languagesHash['pt']        = "Português";
 _languagesHash['pl']        = "Język polski";
 _languagesHash['ca']        = "Català";
+_languagesHash['mk']        = "Македонски";
 _languagesHash['nl']        = "Nederlands";
 _languagesHash['no']        = "Norsk (bokmål)";
 _languagesHash['ml']        = "മലയാളം";
