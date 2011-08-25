@@ -25,6 +25,7 @@ _languagesHash['nl']        = "Nederlands";
 _languagesHash['no']        = "Norsk (bokmål)";
 _languagesHash['ml']        = "മലയാളം";
 _languagesHash['ro']        = "Română";
+_languagesHash['sv']        = "Svenska";
 
 /* WebProgress listener */
 const STATE_START =  Components.interfaces.nsIWebProgressListener.STATE_START;

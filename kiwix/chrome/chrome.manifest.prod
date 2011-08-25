@@ -21,6 +21,7 @@ locale main no    jar:locale.jar!/locale/no/main/
 locale main pl    jar:locale.jar!/locale/pl/main/
 locale main pt    jar:locale.jar!/locale/pt/main/
 locale main ro    jar:locale.jar!/locale/ro/main/
+locale main sv    jar:locale.jar!/locale/sv/main/
 locale main zh	  jar:locale.jar!/locale/zh/main/
 
 locale branding ar    jar:locale.jar!/locale/branding/
@@ -40,6 +41,7 @@ locale branding no    jar:locale.jar!/locale/branding/
 locale branding pl    jar:locale.jar!/locale/branding/
 locale branding pt    jar:locale.jar!/locale/branding/
 locale branding ro    jar:locale.jar!/locale/branding/
+locale branding sv    jar:locale.jar!/locale/branding/
 locale branding zh    jar:locale.jar!/locale/branding/
 
 #skin packagename skinname uri/to/files/ [flags]

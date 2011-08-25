@@ -1,0 +1,111 @@
+<!-- Window -->
+<!ENTITY main.title                     "&brand.brandShortName;">
+<!ENTITY main.cssdirection              "ltr">
+
+<!-- File menu -->
+<!ENTITY main.file                      "Arkiv">
+<!ENTITY main.file.accesskey            "F">
+<!ENTITY main.openFile                  "Öppna fil...">
+<!ENTITY main.openFile.accesskey        "O">
+<!ENTITY main.lastOpen                  "Nyligen öppna...">
+<!ENTITY main.saveFile                  "Spara sida som...">
+<!ENTITY main.saveFile.accesskey        "S">
+<!ENTITY main.print                     "Skriv ut">
+<!ENTITY main.print.accesskey           "P">
+<!ENTITY main.printPdf                  "Skriv ut som PDF">
+<!ENTITY main.printPdf.accesskey        "D">
+<!ENTITY main.quit                      "Avsluta">
+<!ENTITY main.quit.accesskey            "Q">
+
+<!-- Edit menu -->
+<!ENTITY main.edit                      "Redigera">
+<!ENTITY main.edit.accesskey            "E">
+<!ENTITY main.find                      "Sök på sidan...">
+<!ENTITY main.find.accesskey            "S">
+<!ENTITY main.selectall                 "Markera allt">
+<!ENTITY main.selectall.accesskey       "a">
+<!ENTITY main.copy                      "Kopiera">
+<!ENTITY main.copy.accesskey            "p">
+<!ENTITY main.transliteration           "Translitteration">
+<!ENTITY main.transliteration.accesskey "T">
+<!ENTITY main.preferences               "Inställningar">
+<!ENTITY main.preferences.accesskey     "n">
+
+<!-- Display menu -->
+<!ENTITY main.display                   "Visa">
+<!ENTITY main.display.accesskey         "D">
+<!ENTITY main.zoom                      "Zooma">
+<!ENTITY main.zoom.accesskey            "Z">
+<!ENTITY main.zoomin                    "Förstora">
+<!ENTITY main.zoomin.accesskey          "M">
+<!ENTITY main.zoomout                   "Förminska">
+<!ENTITY main.zoomout.accesskey         "R">
+<!ENTITY main.zoomorig                  "Originalstorlek">
+<!ENTITY main.zoomorig.accesskey        "O">
+<!ENTITY main.language                  "Språk">
+<!ENTITY main.language.accesskey        "L">
+<!ENTITY main.skin                      "Utseende">
+<!ENTITY main.skin.accesskey            "S">
+<!ENTITY main.statusbar                 "Statusfält">
+<!ENTITY main.statusbar.accesskey       "S">
+<!ENTITY main.resultsbar                "Resultatfält">
+<!ENTITY main.resultsbar.accesskey      "R">
+<!ENTITY main.tabs                      "Flikar">
+<!ENTITY main.tabs.accesskey            "T">
+<!ENTITY main.fullscreen                "Helskärm">
+<!ENTITY main.fullscreen.accesskey      "F">
+
+<!-- Tools menu -->
+<!ENTITY main.tools                     "Verktyg">
+<!ENTITY main.tools.accesskey           "T">
+<!ENTITY main.randomArticle             "Slumpmässig artikel">
+<!ENTITY main.randomArticle.accesskey   "R">
+<!ENTITY main.checkIntegrity            "Integritetskontroll">
+<!ENTITY main.checkIntegrity.accesskey  "k">
+<!ENTITY main.purgeHistory              "Rensa historik">
+<!ENTITY main.purgeHistory.accesskey    "P">
+
+<!-- Help menu -->
+<!ENTITY main.help                      "Hjälp">
+<!ENTITY main.help.accesskey            "H">
+<!ENTITY main.reportabug                "Rapportera ett fel">
+<!ENTITY main.requestafeature           "Begär en funktion">
+<!ENTITY main.about                     "Om &brand.brandShortName;">
+<!ENTITY main.about.accesskey           "A">
+
+<!-- Tool bar -->
+<!ENTITY main.back                      "Tillbaka">
+<!ENTITY main.forward                   "Framåt">
+<!ENTITY main.home                      "Hem">
+<!ENTITY main.searchBar                 "Sökfält">
+<!ENTITY main.search                    "Sök">
+<!ENTITY main.findInText                "Hitta i text">
+<!ENTITY main.noSearchBar               "Sök kräver en indexerad Zim-fil">
+<!ENTITY main.bookmarks                 "Bokmärken">
+
+<!-- Results bar -->
+<!ENTITY main.results.title             "Sökresultat">
+
+<!-- Bookmarks Bar -->
+<!ENTITY main.bmkLabel                  "Bokmärken:">
+<!ENTITY main.notesLabel                "Bokmärkesanteckningar:">
+<!ENTITY main.loadbmk                   "Importera bokmärkessamling">
+<!ENTITY main.newbmk                    "Skapa ny bokmärkessamling">
+<!ENTITY main.mark                      "Markera denna sida">
+<!ENTITY main.unmark                    "Avmarkera valda">
+<!ENTITY main.reload                    "Återställ bokmärkessamling">
+<!ENTITY main.defaultset                "Standardsamling">
+
+<!-- Contextual Menu -->
+<!ENTITY main.saveImageAs               "Spara bild som...">
+
+<!-- About Window -->
+<!ENTITY main.close           		"Stäng">
+
+<!-- Preferences Window -->
+<!ENTITY preferences.preferences        "Preferences">
+<!ENTITY preferences.save      		"Save">
+<!ENTITY preferences.cancel     	"Cancel">
+<!ENTITY preferences.profileDirectory  	"Profile directory">
+<!ENTITY preferences.browse  	        "Browse">
+
