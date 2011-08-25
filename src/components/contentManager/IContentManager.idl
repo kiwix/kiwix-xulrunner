@@ -24,4 +24,5 @@ interface IContentManager : nsISupports
   boolean setBookPath(in ACString id, in ACString path);
   boolean updateBookLastOpenDateById(in ACString id);
   boolean listBooks(in ACString mode);
+  boolean getBookCount(in PRBool localBooks, in PRBool remoteBooks, out PRUint32 count);
 };

@@ -762,6 +762,16 @@ function showAbout() {
     var win = window.openDialog('about.xul','','centerscreen,resizable=no,scrollbars=no,modal,dialog,width=350,height=380,chrome');
 }
 
+/* Display the default view */
+function showDefault() {
+    if (library.getLocalBookCount() == 0 && library.getRemoteBookCount() > 0) {
+	selectLibraryMenu("library-menuitem-remote");
+	toggleLibrary(true);
+    } else {
+	showHelp();
+    }
+}
+
 /* Display the help */
 function showHelp(create_tab) {
     if (settings.displayTabs() || create_tab) 
@@ -1051,9 +1061,9 @@ function initUserInterface() {
 
     /* Activate (or not) the Home button */
     if (getCurrentZimFileHomePageUrl()) {
-    activateHomeButton();
+	activateHomeButton();
     } else {
-    desactivateHomeButton();
+	desactivateHomeButton();
     }
 
     /* Update the search bar */
@@ -1063,8 +1073,7 @@ function initUserInterface() {
     desactivateBackButton();
     desactivateNextButton();
     
-    /* Mac OSX specificities
-       disable Print as PDF menu */
+    /* Mac OSX specificities disable Print as PDF menu */
     if (env.isMac()) {
         fm = document.getElementById("file-popup");
         fp = document.getElementById("file-print-pdf");

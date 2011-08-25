@@ -10,6 +10,7 @@ Kiwix 0.9 beta3
 * Add "Copy" and "Select all" in the right-click contextual menu if necessary (ID: 3015761)
 * Add the "Search for..." in the contextual menu
 * Lots of new locales supported (thx Translatewiki.net)
+* Display the content manager per default if no local content detected (first start use case)
 
 Kiwix 0.9 beta2
 * Regression fix, tabs should not be visible per default

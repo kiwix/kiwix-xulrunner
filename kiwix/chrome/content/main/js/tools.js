@@ -154,17 +154,17 @@ function onStart() {
 	}
     }
 
-    /* Open current book */
-    if (!contentLoaded && !openCurrentBook()) {
-	library.deleteCurrentBook();
-	showHelp();
-    }
-
     /* Initialize the user interface */
     initUserInterface();
 
     /* Start aria */
     checkDownloader();
+
+    /* Open current book */
+    if (!contentLoaded && !openCurrentBook()) {
+	library.deleteCurrentBook();
+	showDefault();
+    }
 }
 
 /* Clear the history and the cache */

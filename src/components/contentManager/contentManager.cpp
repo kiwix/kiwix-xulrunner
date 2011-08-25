@@ -295,6 +295,19 @@ NS_IMETHODIMP ContentManager::UpdateBookLastOpenDateById(const nsACString &id, P
   return NS_OK;
 }
 
+NS_IMETHODIMP ContentManager::GetBookCount(const PRBool localBooks, const PRBool remoteBooks, PRUint32 *count, PRBool *retVal) {
+  *retVal = PR_TRUE;
+  *count = 0;
+
+  try {
+    *count = this->manager.getBookCount(localBooks, remoteBooks);
+  } catch (exception &e) {
+    cerr << e.what() << endl;
+  }
+
+  return NS_OK;
+}
+
 NS_IMETHODIMP ContentManager::ListBooks(const nsACString &mode, PRBool *retVal) {
   *retVal = PR_FALSE;
   const char *cmode;

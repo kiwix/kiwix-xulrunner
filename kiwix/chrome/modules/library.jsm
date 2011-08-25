@@ -146,6 +146,19 @@ let library = {
         return this.contentManager.removeBookById(id);
     },
 
+    /* Get book count */
+    getLocalBookCount: function() {
+        var count = new Object();
+	this.contentManager.getBookCount(true, false, count);
+	return count.value;
+    },
+
+    getRemoteBookCount: function() {
+        var count = new Object();
+	this.contentManager.getBookCount(false, true, count);
+	return count.value;
+    },
+
     /* Get a book by its id */
     getBookById: function(id) {
 	var path = new Object();
