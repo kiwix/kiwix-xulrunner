@@ -60,7 +60,7 @@
 <!ENTITY main.tools.accesskey           "H">
 <!ENTITY main.randomArticle             "Página aleatoria">
 <!ENTITY main.randomArticle.accesskey   "P">
-<!ENTITY main.checkIntegrity            "Verificar integridad">
+<!ENTITY main.checkIntegrity            "Comprobar integridad">
 <!ENTITY main.checkIntegrity.accesskey  "k">
 <!ENTITY main.purgeHistory              "Purgar historial">
 <!ENTITY main.purgeHistory.accesskey    "P">
@@ -68,7 +68,7 @@
 <!-- Help menu -->
 <!ENTITY main.help                      "Ayuda">
 <!ENTITY main.help.accesskey            "y">
-<!ENTITY main.reportabug                "Reportar un bug">
+<!ENTITY main.reportabug                "Informar de un error">
 <!ENTITY main.requestafeature           "Solicitar una característica">
 <!ENTITY main.about                     "Acerca de &brand.brandShortName;">
 <!ENTITY main.about.accesskey           "A">
@@ -79,22 +79,22 @@
 <!ENTITY main.home                      "Inicio">
 <!ENTITY main.searchBar                 "Barra de búsqueda">
 <!ENTITY main.search                    "Buscar">
-<!ENTITY main.findInText                "Find in text">
+<!ENTITY main.findInText                "Buscar en el texto">
 <!ENTITY main.noSearchBar               "La búsqueda requiere un archivo índice del ZIM">
 <!ENTITY main.bookmarks                 "Marcadores">
 
 <!-- Results bar -->
-<!ENTITY main.results.title             "Resultados">
+<!ENTITY main.results.title             "Resultados de la búsqueda">
 
 <!-- Bookmarks Bar -->
-<!ENTITY main.bmkLabel                  "Favoritos:">
-<!ENTITY main.notesLabel                "Notas de Favoritos:">
-<!ENTITY main.loadbmk                   "Importar Favoritos">
-<!ENTITY main.newbmk                    "Crear Favoritos">
+<!ENTITY main.bmkLabel                  "Marcadores:">
+<!ENTITY main.notesLabel                "Notas de marcador:">
+<!ENTITY main.loadbmk                   "Importar marcadores">
+<!ENTITY main.newbmk                    "Crear nuevo conjunto de marcadores">
 <!ENTITY main.mark                      "Marcar esta página">
-<!ENTITY main.unmark                    "Desmarcar esta página">
-<!ENTITY main.reload                    "Borrar Favoritos">
-<!ENTITY main.defaultset                "Predeterminado">
+<!ENTITY main.unmark                    "Desmarcar seleccionados">
+<!ENTITY main.reload                    "Restablecer conjunto de marcadores">
+<!ENTITY main.defaultset                "Conjunto predeterminado">
 
 <!-- Contextual Menu -->
 <!ENTITY main.saveImageAs               "Guardar imagen como...">
@@ -103,9 +103,9 @@
 <!ENTITY main.close           		"Cerrar">
 
 <!-- Preferences Window -->
-<!ENTITY preferences.preferences        "Preferencias">
-<!ENTITY preferences.save      		"Guardar">
-<!ENTITY preferences.cancel     	"Cancelar">
-<!ENTITY preferences.profileDirectory  	"Carpeta del perfil">
-<!ENTITY preferences.browse  	        "Examinar">
+<!ENTITY preferences.preferences        "Preferences">
+<!ENTITY preferences.save      		"Save">
+<!ENTITY preferences.cancel     	"Cancel">
+<!ENTITY preferences.profileDirectory  	"Profile directory">
+<!ENTITY preferences.browse  	        "Browse">
 

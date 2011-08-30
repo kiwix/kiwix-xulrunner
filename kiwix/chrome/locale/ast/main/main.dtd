@@ -1,0 +1,111 @@
+<!-- Window -->
+<!ENTITY main.title                     "&brand.brandShortName;">
+<!ENTITY main.cssdirection              "ltr">
+
+<!-- File menu -->
+<!ENTITY main.file                      "Ficheru">
+<!ENTITY main.file.accesskey            "F">
+<!ENTITY main.openFile                  "Abrir ficheru...">
+<!ENTITY main.openFile.accesskey        "O">
+<!ENTITY main.lastOpen                  "Abiertos de recién...">
+<!ENTITY main.saveFile                  "Guardar páxina como...">
+<!ENTITY main.saveFile.accesskey        "S">
+<!ENTITY main.print                     "Imprentar">
+<!ENTITY main.print.accesskey           "P">
+<!ENTITY main.printPdf                  "Esportar a PDF...">
+<!ENTITY main.printPdf.accesskey        "D">
+<!ENTITY main.quit                      "Colar">
+<!ENTITY main.quit.accesskey            "Q">
+
+<!-- Edit menu -->
+<!ENTITY main.edit                      "Editar">
+<!ENTITY main.edit.accesskey            "E">
+<!ENTITY main.find                      "Guetar na páxina...">
+<!ENTITY main.find.accesskey            "S">
+<!ENTITY main.selectall                 "Esbillar too">
+<!ENTITY main.selectall.accesskey       "a">
+<!ENTITY main.copy                      "Copiar">
+<!ENTITY main.copy.accesskey            "p">
+<!ENTITY main.transliteration           "Treslliteración">
+<!ENTITY main.transliteration.accesskey "T">
+<!ENTITY main.preferences               "Preferencies">
+<!ENTITY main.preferences.accesskey     "n">
+
+<!-- Display menu -->
+<!ENTITY main.display                   "Amosar">
+<!ENTITY main.display.accesskey         "D">
+<!ENTITY main.zoom                      "Zoom">
+<!ENTITY main.zoom.accesskey            "Z">
+<!ENTITY main.zoomin                    "Aumentar">
+<!ENTITY main.zoomin.accesskey          "M">
+<!ENTITY main.zoomout                   "Amenorgar">
+<!ENTITY main.zoomout.accesskey         "R">
+<!ENTITY main.zoomorig                  "Tamañu orixinal">
+<!ENTITY main.zoomorig.accesskey        "O">
+<!ENTITY main.language                  "Llingua">
+<!ENTITY main.language.accesskey        "L">
+<!ENTITY main.skin                      "Apariencia">
+<!ENTITY main.skin.accesskey            "S">
+<!ENTITY main.statusbar                 "Barra d'estáu">
+<!ENTITY main.statusbar.accesskey       "S">
+<!ENTITY main.resultsbar                "Barra de resultaos">
+<!ENTITY main.resultsbar.accesskey      "R">
+<!ENTITY main.tabs                      "Llingüetes">
+<!ENTITY main.tabs.accesskey            "T">
+<!ENTITY main.fullscreen                "Pantalla completa">
+<!ENTITY main.fullscreen.accesskey      "F">
+
+<!-- Tools menu -->
+<!ENTITY main.tools                     "Ferramientes">
+<!ENTITY main.tools.accesskey           "T">
+<!ENTITY main.randomArticle             "Artículu al debalu">
+<!ENTITY main.randomArticle.accesskey   "R">
+<!ENTITY main.checkIntegrity            "Comprobación d'integridá">
+<!ENTITY main.checkIntegrity.accesskey  "k">
+<!ENTITY main.purgeHistory              "Llimpiar historial">
+<!ENTITY main.purgeHistory.accesskey    "P">
+
+<!-- Help menu -->
+<!ENTITY main.help                      "Ayuda">
+<!ENTITY main.help.accesskey            "H">
+<!ENTITY main.reportabug                "Informar d'un fallu">
+<!ENTITY main.requestafeature           "Pidir una carauterística">
+<!ENTITY main.about                     "Tocante a &brand.brandShortName;">
+<!ENTITY main.about.accesskey           "A">
+
+<!-- Tool bar -->
+<!ENTITY main.back                      "Anterior">
+<!ENTITY main.forward                   "Siguiente">
+<!ENTITY main.home                      "Entamu">
+<!ENTITY main.searchBar                 "Barra de gueta">
+<!ENTITY main.search                    "Guetar">
+<!ENTITY main.findInText                "Alcontrar nel testu">
+<!ENTITY main.noSearchBar               "La gueta necesita un ficheru ZIM indexáu">
+<!ENTITY main.bookmarks                 "Marcadores">
+
+<!-- Results bar -->
+<!ENTITY main.results.title             "Resultaos de la gueta">
+
+<!-- Bookmarks Bar -->
+<!ENTITY main.bmkLabel                  "Marcadores:">
+<!ENTITY main.notesLabel                "Notes de marcador:">
+<!ENTITY main.loadbmk                   "Importar grupu de marcadores">
+<!ENTITY main.newbmk                    "Crear nuevu grupu de marcadores">
+<!ENTITY main.mark                      "Amestar la páxina a marcadores">
+<!ENTITY main.unmark                    "Desmarcar esbillaos">
+<!ENTITY main.reload                    "Reaniciar el grupu de marcadores">
+<!ENTITY main.defaultset                "Grupu predetermináu">
+
+<!-- Contextual Menu -->
+<!ENTITY main.saveImageAs               "Guardar imaxe como...">
+
+<!-- About Window -->
+<!ENTITY main.close           		"Zarrar">
+
+<!-- Preferences Window -->
+<!ENTITY preferences.preferences        "Preferences">
+<!ENTITY preferences.save      		"Save">
+<!ENTITY preferences.cancel     	"Cancel">
+<!ENTITY preferences.profileDirectory  	"Profile directory">
+<!ENTITY preferences.browse  	        "Browse">
+

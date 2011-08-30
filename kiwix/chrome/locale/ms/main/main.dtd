@@ -1,0 +1,111 @@
+<!-- Window -->
+<!ENTITY main.title                     "&brand.brandShortName;">
+<!ENTITY main.cssdirection              "ltr">
+
+<!-- File menu -->
+<!ENTITY main.file                      "Fail">
+<!ENTITY main.file.accesskey            "F">
+<!ENTITY main.openFile                  "Buka fail...">
+<!ENTITY main.openFile.accesskey        "O">
+<!ENTITY main.lastOpen                  "Baru dibuka">
+<!ENTITY main.saveFile                  "Simpan halaman sebagai...">
+<!ENTITY main.saveFile.accesskey        "S">
+<!ENTITY main.print                     "Cetak">
+<!ENTITY main.print.accesskey           "P">
+<!ENTITY main.printPdf                  "Cetak dalam bentuk PDF">
+<!ENTITY main.printPdf.accesskey        "D">
+<!ENTITY main.quit                      "Keluar">
+<!ENTITY main.quit.accesskey            "Q">
+
+<!-- Edit menu -->
+<!ENTITY main.edit                      "Sunting">
+<!ENTITY main.edit.accesskey            "E">
+<!ENTITY main.find                      "Cari dalam halaman...">
+<!ENTITY main.find.accesskey            "S">
+<!ENTITY main.selectall                 "Pilih semua">
+<!ENTITY main.selectall.accesskey       "a">
+<!ENTITY main.copy                      "Salin">
+<!ENTITY main.copy.accesskey            "p">
+<!ENTITY main.transliteration           "Alih huruf">
+<!ENTITY main.transliteration.accesskey "T">
+<!ENTITY main.preferences               "Keutamaan">
+<!ENTITY main.preferences.accesskey     "n">
+
+<!-- Display menu -->
+<!ENTITY main.display                   "Paparan">
+<!ENTITY main.display.accesskey         "D">
+<!ENTITY main.zoom                      "Zum">
+<!ENTITY main.zoom.accesskey            "Z">
+<!ENTITY main.zoomin                    "Besarkan">
+<!ENTITY main.zoomin.accesskey          "M">
+<!ENTITY main.zoomout                   "Kecilkan">
+<!ENTITY main.zoomout.accesskey         "R">
+<!ENTITY main.zoomorig                  "Saiz asal">
+<!ENTITY main.zoomorig.accesskey        "O">
+<!ENTITY main.language                  "Bahasa">
+<!ENTITY main.language.accesskey        "L">
+<!ENTITY main.skin                      "Kulit">
+<!ENTITY main.skin.accesskey            "S">
+<!ENTITY main.statusbar                 "Bar status">
+<!ENTITY main.statusbar.accesskey       "S">
+<!ENTITY main.resultsbar                "Bar hasil">
+<!ENTITY main.resultsbar.accesskey      "R">
+<!ENTITY main.tabs                      "Tab">
+<!ENTITY main.tabs.accesskey            "T">
+<!ENTITY main.fullscreen                "Skrin penuh">
+<!ENTITY main.fullscreen.accesskey      "F">
+
+<!-- Tools menu -->
+<!ENTITY main.tools                     "Peralatan">
+<!ENTITY main.tools.accesskey           "T">
+<!ENTITY main.randomArticle             "Rencana rawak">
+<!ENTITY main.randomArticle.accesskey   "R">
+<!ENTITY main.checkIntegrity            "Periksa Keutuhan">
+<!ENTITY main.checkIntegrity.accesskey  "k">
+<!ENTITY main.purgeHistory              "Singkirkan sejarah">
+<!ENTITY main.purgeHistory.accesskey    "P">
+
+<!-- Help menu -->
+<!ENTITY main.help                      "Bantuan">
+<!ENTITY main.help.accesskey            "H">
+<!ENTITY main.reportabug                "Laporkan pepijat">
+<!ENTITY main.requestafeature           "Minta ciri">
+<!ENTITY main.about                     "Perihal &brand.brandShortName;">
+<!ENTITY main.about.accesskey           "A">
+
+<!-- Tool bar -->
+<!ENTITY main.back                      "Ke belakang">
+<!ENTITY main.forward                   "Ke hadapan">
+<!ENTITY main.home                      "Laman utama">
+<!ENTITY main.searchBar                 "Bar carian">
+<!ENTITY main.search                    "Cari">
+<!ENTITY main.findInText                "Cari dalam teks">
+<!ENTITY main.noSearchBar               "Pencarian memerlukan fail ZIM berindeks">
+<!ENTITY main.bookmarks                 "Kegemaran">
+
+<!-- Results bar -->
+<!ENTITY main.results.title             "Hasil carian">
+
+<!-- Bookmarks Bar -->
+<!ENTITY main.bmkLabel                  "Kegemaran:">
+<!ENTITY main.notesLabel                "Catatan kegemaran:">
+<!ENTITY main.loadbmk                   "Import Set Kegemaran">
+<!ENTITY main.newbmk                    "Buat Set Kegemaran baru">
+<!ENTITY main.mark                      "Gemari halaman ini">
+<!ENTITY main.unmark                    "Buang yang dipilih">
+<!ENTITY main.reload                    "Set Semula Set Kegemaran">
+<!ENTITY main.defaultset                "Set Azali">
+
+<!-- Contextual Menu -->
+<!ENTITY main.saveImageAs               "Simpan imej sebagai...">
+
+<!-- About Window -->
+<!ENTITY main.close           		"Tutup">
+
+<!-- Preferences Window -->
+<!ENTITY preferences.preferences        "Preferences">
+<!ENTITY preferences.save      		"Save">
+<!ENTITY preferences.cancel     	"Cancel">
+<!ENTITY preferences.profileDirectory  	"Profile directory">
+<!ENTITY preferences.browse  	        "Browse">
+

@@ -1,0 +1,111 @@
+<!-- Window -->
+<!ENTITY main.title                     "&brand.brandShortName;">
+<!ENTITY main.cssdirection              "ltr">
+
+<!-- File menu -->
+<!ENTITY main.file                      "Fil">
+<!ENTITY main.file.accesskey            "F">
+<!ENTITY main.openFile                  "Åbn fil...">
+<!ENTITY main.openFile.accesskey        "O">
+<!ENTITY main.lastOpen                  "Nyligt åbnede...">
+<!ENTITY main.saveFile                  "Gem side som...">
+<!ENTITY main.saveFile.accesskey        "S">
+<!ENTITY main.print                     "Udskriv">
+<!ENTITY main.print.accesskey           "P">
+<!ENTITY main.printPdf                  "Udskriv til PDF">
+<!ENTITY main.printPdf.accesskey        "D">
+<!ENTITY main.quit                      "Afslut">
+<!ENTITY main.quit.accesskey            "Q">
+
+<!-- Edit menu -->
+<!ENTITY main.edit                      "Redigér">
+<!ENTITY main.edit.accesskey            "E">
+<!ENTITY main.find                      "Søg i side...">
+<!ENTITY main.find.accesskey            "S">
+<!ENTITY main.selectall                 "Marker alt">
+<!ENTITY main.selectall.accesskey       "a">
+<!ENTITY main.copy                      "Kopier">
+<!ENTITY main.copy.accesskey            "p">
+<!ENTITY main.transliteration           "Translitteration">
+<!ENTITY main.transliteration.accesskey "T">
+<!ENTITY main.preferences               "Indstillinger">
+<!ENTITY main.preferences.accesskey     "n">
+
+<!-- Display menu -->
+<!ENTITY main.display                   "Vis">
+<!ENTITY main.display.accesskey         "D">
+<!ENTITY main.zoom                      "Zoom">
+<!ENTITY main.zoom.accesskey            "Z">
+<!ENTITY main.zoomin                    "Forstør">
+<!ENTITY main.zoomin.accesskey          "M">
+<!ENTITY main.zoomout                   "Formindsk">
+<!ENTITY main.zoomout.accesskey         "R">
+<!ENTITY main.zoomorig                  "Oprindelig størrelse">
+<!ENTITY main.zoomorig.accesskey        "O">
+<!ENTITY main.language                  "Sprog">
+<!ENTITY main.language.accesskey        "L">
+<!ENTITY main.skin                      "Udseende">
+<!ENTITY main.skin.accesskey            "S">
+<!ENTITY main.statusbar                 "Statuslinje">
+<!ENTITY main.statusbar.accesskey       "S">
+<!ENTITY main.resultsbar                "Resultatlinje">
+<!ENTITY main.resultsbar.accesskey      "R">
+<!ENTITY main.tabs                      "Faneblade">
+<!ENTITY main.tabs.accesskey            "T">
+<!ENTITY main.fullscreen                "Fuld skærm">
+<!ENTITY main.fullscreen.accesskey      "F">
+
+<!-- Tools menu -->
+<!ENTITY main.tools                     "Værktøjer">
+<!ENTITY main.tools.accesskey           "T">
+<!ENTITY main.randomArticle             "Tilfældig artikel">
+<!ENTITY main.randomArticle.accesskey   "R">
+<!ENTITY main.checkIntegrity            "Integritetskontrol">
+<!ENTITY main.checkIntegrity.accesskey  "k">
+<!ENTITY main.purgeHistory              "Udrens historik">
+<!ENTITY main.purgeHistory.accesskey    "P">
+
+<!-- Help menu -->
+<!ENTITY main.help                      "Hjælp">
+<!ENTITY main.help.accesskey            "H">
+<!ENTITY main.reportabug                "Rapporter en fejl">
+<!ENTITY main.requestafeature           "Anmod om ny funktionalitet">
+<!ENTITY main.about                     "Om &brand.brandShortName;">
+<!ENTITY main.about.accesskey           "A">
+
+<!-- Tool bar -->
+<!ENTITY main.back                      "Tilbage">
+<!ENTITY main.forward                   "Fremad">
+<!ENTITY main.home                      "Hjem">
+<!ENTITY main.searchBar                 "Søgelinje">
+<!ENTITY main.search                    "Søg">
+<!ENTITY main.findInText                "Find i teksten">
+<!ENTITY main.noSearchBar               "Søgning kræver en indekseret ZIM-fil">
+<!ENTITY main.bookmarks                 "Bogmærker">
+
+<!-- Results bar -->
+<!ENTITY main.results.title             "Søgeresultater">
+
+<!-- Bookmarks Bar -->
+<!ENTITY main.bmkLabel                  "Bogmærker:">
+<!ENTITY main.notesLabel                "Bogmærkenoter:">
+<!ENTITY main.loadbmk                   "Importer bogmærkesamling">
+<!ENTITY main.newbmk                    "Opret ny bogmærkesamling">
+<!ENTITY main.mark                      "Marker denne side">
+<!ENTITY main.unmark                    "Fjern markering af valgte">
+<!ENTITY main.reload                    "Nulstil bogmærkesamling">
+<!ENTITY main.defaultset                "Standardsamling">
+
+<!-- Contextual Menu -->
+<!ENTITY main.saveImageAs               "Gem billede som...">
+
+<!-- About Window -->
+<!ENTITY main.close           		"Luk">
+
+<!-- Preferences Window -->
+<!ENTITY preferences.preferences        "Preferences">
+<!ENTITY preferences.save      		"Save">
+<!ENTITY preferences.cancel     	"Cancel">
+<!ENTITY preferences.profileDirectory  	"Profile directory">
+<!ENTITY preferences.browse  	        "Browse">
+

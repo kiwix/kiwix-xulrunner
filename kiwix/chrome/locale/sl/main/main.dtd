@@ -1,0 +1,111 @@
+<!-- Window -->
+<!ENTITY main.title                     "&brand.brandShortName;">
+<!ENTITY main.cssdirection              "ltr">
+
+<!-- File menu -->
+<!ENTITY main.file                      "Datoteka">
+<!ENTITY main.file.accesskey            "F">
+<!ENTITY main.openFile                  "Odpri datoteko ...">
+<!ENTITY main.openFile.accesskey        "O">
+<!ENTITY main.lastOpen                  "Nedavno odprto ...">
+<!ENTITY main.saveFile                  "Shrani stran kot ...">
+<!ENTITY main.saveFile.accesskey        "S">
+<!ENTITY main.print                     "Natisni">
+<!ENTITY main.print.accesskey           "P">
+<!ENTITY main.printPdf                  "Natisni kot PDF">
+<!ENTITY main.printPdf.accesskey        "D">
+<!ENTITY main.quit                      "Izhod">
+<!ENTITY main.quit.accesskey            "Q">
+
+<!-- Edit menu -->
+<!ENTITY main.edit                      "Uredi">
+<!ENTITY main.edit.accesskey            "E">
+<!ENTITY main.find                      "Išči na strani ...">
+<!ENTITY main.find.accesskey            "S">
+<!ENTITY main.selectall                 "Izberi vse">
+<!ENTITY main.selectall.accesskey       "a">
+<!ENTITY main.copy                      "Kopiraj">
+<!ENTITY main.copy.accesskey            "p">
+<!ENTITY main.transliteration           "Prečrkovanje">
+<!ENTITY main.transliteration.accesskey "T">
+<!ENTITY main.preferences               "Nastavitve">
+<!ENTITY main.preferences.accesskey     "n">
+
+<!-- Display menu -->
+<!ENTITY main.display                   "Prikaz">
+<!ENTITY main.display.accesskey         "D">
+<!ENTITY main.zoom                      "Povečava">
+<!ENTITY main.zoom.accesskey            "Z">
+<!ENTITY main.zoomin                    "Povečaj">
+<!ENTITY main.zoomin.accesskey          "M">
+<!ENTITY main.zoomout                   "Pomanjšaj">
+<!ENTITY main.zoomout.accesskey         "R">
+<!ENTITY main.zoomorig                  "Izvirna velikost">
+<!ENTITY main.zoomorig.accesskey        "O">
+<!ENTITY main.language                  "Jezik">
+<!ENTITY main.language.accesskey        "L">
+<!ENTITY main.skin                      "Koža">
+<!ENTITY main.skin.accesskey            "S">
+<!ENTITY main.statusbar                 "Vrstica stanja">
+<!ENTITY main.statusbar.accesskey       "S">
+<!ENTITY main.resultsbar                "Vrstica z rezultati">
+<!ENTITY main.resultsbar.accesskey      "R">
+<!ENTITY main.tabs                      "Zavihki">
+<!ENTITY main.tabs.accesskey            "T">
+<!ENTITY main.fullscreen                "Celoten zaslon">
+<!ENTITY main.fullscreen.accesskey      "F">
+
+<!-- Tools menu -->
+<!ENTITY main.tools                     "Orodja">
+<!ENTITY main.tools.accesskey           "T">
+<!ENTITY main.randomArticle             "Naključni članek">
+<!ENTITY main.randomArticle.accesskey   "R">
+<!ENTITY main.checkIntegrity            "Preverjanje celovitosti">
+<!ENTITY main.checkIntegrity.accesskey  "k">
+<!ENTITY main.purgeHistory              "Počisti zgodovino">
+<!ENTITY main.purgeHistory.accesskey    "P">
+
+<!-- Help menu -->
+<!ENTITY main.help                      "Pomoč">
+<!ENTITY main.help.accesskey            "H">
+<!ENTITY main.reportabug                "Prijavi hrošč">
+<!ENTITY main.requestafeature           "Predlagaj funkcijo">
+<!ENTITY main.about                     "O &brand.brandShortName;">
+<!ENTITY main.about.accesskey           "A">
+
+<!-- Tool bar -->
+<!ENTITY main.back                      "Nazaj">
+<!ENTITY main.forward                   "Naprej">
+<!ENTITY main.home                      "Domov">
+<!ENTITY main.searchBar                 "Iskalna vrstica">
+<!ENTITY main.search                    "Iskanje">
+<!ENTITY main.findInText                "Najdi v besedilu">
+<!ENTITY main.noSearchBar               "Iskanje zahteva indeksirano datoteko Zim">
+<!ENTITY main.bookmarks                 "Zaznamki">
+
+<!-- Results bar -->
+<!ENTITY main.results.title             "Rezultati iskanja">
+
+<!-- Bookmarks Bar -->
+<!ENTITY main.bmkLabel                  "Zaznamki:">
+<!ENTITY main.notesLabel                "Opombe zaznamkov:">
+<!ENTITY main.loadbmk                   "Uvozi množico zaznamkov">
+<!ENTITY main.newbmk                    "Ustvari novo množico zaznamkov">
+<!ENTITY main.mark                      "Označi to stran">
+<!ENTITY main.unmark                    "Odznači izbrane">
+<!ENTITY main.reload                    "Ponastavi množico zaznamkov">
+<!ENTITY main.defaultset                "Privzeta množica">
+
+<!-- Contextual Menu -->
+<!ENTITY main.saveImageAs               "Shrani sliko kot ...">
+
+<!-- About Window -->
+<!ENTITY main.close           		"Zapri">
+
+<!-- Preferences Window -->
+<!ENTITY preferences.preferences        "Preferences">
+<!ENTITY preferences.save      		"Save">
+<!ENTITY preferences.cancel     	"Cancel">
+<!ENTITY preferences.profileDirectory  	"Profile directory">
+<!ENTITY preferences.browse  	        "Browse">
+
