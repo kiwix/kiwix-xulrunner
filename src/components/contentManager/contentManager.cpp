@@ -243,9 +243,9 @@ NS_IMETHODIMP ContentManager::GetBookById(const nsACString &id,
     kiwix::Book book;
 
     if (this->manager.getBookById(cid, book)) {
-      path = nsDependentCString(book.path.data(), book.path.size());
+      path = nsDependentCString(book.pathAbsolute.data(), book.pathAbsolute.size());
       title = nsDependentCString(book.title.data(), book.title.size());
-      indexPath = nsDependentCString(book.indexPath.data(), book.indexPath.size());
+      indexPath = nsDependentCString(book.indexPathAbsolute.data(), book.indexPathAbsolute.size());
       articleCount = nsDependentCString(book.articleCount.data(), book.articleCount.size());
       mediaCount = nsDependentCString(book.mediaCount.data(), book.mediaCount.size());
       size = nsDependentCString(book.size.data(), book.size.size());
