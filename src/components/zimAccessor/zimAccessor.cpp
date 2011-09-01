@@ -85,12 +85,11 @@ ZimAccessor::~ZimAccessor() {
   }
 }
 
-NS_IMETHODIMP ZimAccessor::LoadFile(nsILocalFile *file, PRBool *retVal) {
+NS_IMETHODIMP ZimAccessor::LoadFile(const nsACString &path, PRBool *retVal) {
   *retVal = PR_TRUE;
-  nsString path;
-  file->GetPath(path);
-  const PRUnichar *wcPath = ToNewUnicode(path);
-  const char *cPath = ToNewUTF8String(path);
+
+  const char *cPath;
+  NS_CStringGetData(path, &cPath);
 
   /* Instanciate the ZIM file handler */
   try {
