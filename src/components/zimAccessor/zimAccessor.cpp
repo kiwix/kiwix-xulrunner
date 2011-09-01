@@ -85,11 +85,15 @@ ZimAccessor::~ZimAccessor() {
   }
 }
 
-NS_IMETHODIMP ZimAccessor::LoadFile(const nsACString &path, PRBool *retVal) {
+NS_IMETHODIMP ZimAccessor::LoadFile(const nsACString &unixPath, const nsACString &winPath, PRBool *retVal) {
   *retVal = PR_TRUE;
 
   const char *cPath;
-  NS_CStringGetData(path, &cPath);
+#ifdef _WIN32
+  NS_CStringGetData(winPath, &cPath);
+#else
+  NS_CStringGetData(unixPath, &cPath);
+#endif
 
   /* Instanciate the ZIM file handler */
   try {

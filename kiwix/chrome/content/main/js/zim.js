@@ -6,7 +6,8 @@ function openZimFile(path) {
     var zimAccessorService = Components.classes["@kiwix.org/zimAccessor"].getService();
     var zimAccessor = zimAccessorService.QueryInterface(Components.interfaces.IZimAccessor);
 
-    if (isFile(path) && zimAccessor.loadFile(path)) {
+    /* Do not remove a path, this is a workaround to allow opening paths with accents everywhere */
+    if (isFile(path) && zimAccessor.loadFile(path, path)) {
 	currentZimAccessor = zimAccessor;
 	return currentZimAccessor;
     }
