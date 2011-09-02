@@ -634,6 +634,7 @@ function manageUnload(clearCurrentAccessor) {
     getSearchBox().value = "";
     
     if (clearCurrentAccessor) {
+	desactivateHomeButton();
 	library.setCurrentId("");
 	currentZimAccessor = undefined;
     } 

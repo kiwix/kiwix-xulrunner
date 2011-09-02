@@ -687,6 +687,8 @@ function toggleLibrary(visible) {
     
     if (visible == undefined) {
 	visible = isLibraryVisible() ? false : true;
+    } else if (visible == isLibraryVisible()) {
+	return;
     }
 
     if (!visible) {
