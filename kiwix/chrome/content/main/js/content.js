@@ -4,6 +4,7 @@ var aria2Process = null;
 var jobTimer = null;
 var downloader = new Worker("js/downloader.js");
 var aria2StartCount = 0;
+var _oldWindowTitle = "";
 
 downloader.onmessage = function(event) {
     var message = event.data;

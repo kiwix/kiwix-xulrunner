@@ -137,6 +137,7 @@ function closeThatTab(tabId) {
 
     // if we removed all tabs, disable tab mode and display help page.
     if (document.getElementsByTagName('tab').length == 0) {
+	manageUnload(true);
         showHelp(true);
         changeTabsVisibilityStatus(false, true);
         _restore_tab = null;

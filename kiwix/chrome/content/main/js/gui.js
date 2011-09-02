@@ -620,6 +620,25 @@ function pageNext() {
     return true;
 }
 
+/* Unload (the current Book) */
+function manageUnload(clearCurrentAccessor) {
+    desactivateBackButton();
+    desactivateNextButton();
+    
+    /* Purge the history */
+    if (getHtmlRenderer() != undefined && getHtmlRenderer().sessionHistory.count > 0) {
+	getHtmlRenderer().sessionHistory.PurgeHistory(getHtmlRenderer().sessionHistory.count);
+    }
+    
+    /* Empty the search box */
+    getSearchBox().value = "";
+    
+    if (clearCurrentAccessor) {
+	library.setCurrentId("");
+	currentZimAccessor = undefined;
+    } 
+}
+
 /* Try to open a ZIM file */
 function manageOpenFile(path, noSearchIndexCheck) {
     
@@ -672,6 +691,8 @@ function manageOpenFile(path, noSearchIndexCheck) {
     var zimAccessor = openZimFile(path);
 
     if (zimAccessor) {
+	manageUnload();
+
 	/* Get the MD5 id */
 	var zimId = new Object();
 	zimAccessor.getId(zimId);
@@ -698,14 +719,7 @@ function manageOpenFile(path, noSearchIndexCheck) {
 
 	/* Activate the Home button and desactivate the next/back buttons */
 	activateHomeButton();
-	desactivateBackButton();
-	desactivateNextButton();
 	
-	/* Purge the history */
-	if (getHtmlRenderer().sessionHistory.count > 0) {
-	    getHtmlRenderer().sessionHistory.PurgeHistory(getHtmlRenderer().sessionHistory.count);
-	}
-
 	/* Update the last open menu */
 	populateLastOpenMenu();
 
@@ -719,9 +733,6 @@ function manageOpenFile(path, noSearchIndexCheck) {
 
 	/* verify if we can check the integrity */
 	getCheckIntegrityMenuItem().disabled = !canCheckIntegrity();
-
-	/* Empty the search box */
-	getSearchBox().value = "";
 
 	/* Force to hide the library manager */
 	toggleLibrary(false);
@@ -740,9 +751,9 @@ function manageOpenFile(path, noSearchIndexCheck) {
 /* Got the welcome page of the current zim file */
 function goHome() {
     var homeUrl = getCurrentZimFileHomePageUrl();
-    var htmlRenderer = getHtmlRenderer();
 
     if (homeUrl) {
+	var htmlRenderer = getHtmlRenderer();
 	loadContent(homeUrl);
 	
 	/* activate if necessary the back button */

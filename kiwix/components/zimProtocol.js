@@ -37,7 +37,7 @@ ZimprotocolHandler.prototype = {
 	} else {
 	    var prefix = spec.indexOf("zim://");
 	    if (prefix == -1) {
-		if (spec[1] != '/' && spec[0] != '/') {
+		if (spec.length < 2 || spec[1] != '/' && spec[0] != '/') {
 	            spec = 'A/' + spec;
 		}
 		uri.spec = "zim://" + spec;
