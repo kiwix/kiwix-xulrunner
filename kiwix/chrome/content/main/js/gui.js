@@ -782,9 +782,10 @@ function showDefault() {
 }
 
 /* Display the help */
-function showHelp(create_tab) {
-    if (settings.displayTabs() || create_tab) 
+function showHelp(createTab) {
+    if (settings.displayTabs() && createTab) { 
 	openNewTab();
+    }
 
     /* Force to hide the library manager */
     toggleLibrary(false);
