@@ -13,6 +13,7 @@ Kiwix 0.9 beta3
 * Display the content manager per default if no local content detected (first start use case)
 * Kiwix again (was a regression) able to deal with relative paths in the library.xml (ID: 3397592)
 * Now possible to open ZIM file with accented paths on Windows (ID: 3107895)
+* New keyboard shortcuts to deal with bookmarks
 
 Kiwix 0.9 beta2
 * Regression fix, tabs should not be visible per default
