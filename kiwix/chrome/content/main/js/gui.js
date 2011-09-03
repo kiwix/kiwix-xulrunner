@@ -694,6 +694,9 @@ function manageOpenFile(path, noSearchIndexCheck) {
     if (zimAccessor) {
 	manageUnload();
 
+	/* Force to hide the library manager */
+	toggleLibrary(false);
+
 	/* Get the MD5 id */
 	var zimId = new Object();
 	zimAccessor.getId(zimId);
@@ -734,10 +737,6 @@ function manageOpenFile(path, noSearchIndexCheck) {
 
 	/* verify if we can check the integrity */
 	getCheckIntegrityMenuItem().disabled = !canCheckIntegrity();
-
-	/* Force to hide the library manager */
-	toggleLibrary(false);
-
     } else {
 	displayErrorDialog(getProperty("loadZimFileError", path));
 	if (env.isWindows()) {
@@ -785,9 +784,8 @@ function showAbout() {
 
 /* Display the default view */
 function showDefault() {
-    if (library.getLocalBookCount() == 0) {
-	selectLibraryMenu("library-menuitem-remote");
-	toggleLibrary(true);
+    if (library.getLocalBookCount() == 0 && library.getRemoteBookCount() > 0) {
+	showRemoteBooks();
     } else {
 	showHelp();
     }
@@ -1148,19 +1146,19 @@ function dropOnWindows (aEvent) {
 	trans.getAnyTransferData(flavor, data, length);
 	if (data) {
 	    try {
-            if (env.isMac()) {
-                var file = data.value.QueryInterface(Components.interfaces.nsIFile);
-            } else {
-        		var str = data.value.QueryInterface(Components.interfaces.nsISupportsString);
-
-		        if (str) {
-		            var ios = Components.classes['@mozilla.org/network/io-service;1']
-			        .getService(Components.interfaces.nsIIOService);
-		            var uri = ios.newURI(str.data.split("\n")[0], null, null);
-		            var file = uri.QueryInterface(Components.interfaces.nsIFileURL).file;
-		        }
-            }
-            if (file)
+		if (env.isMac()) {
+                    var file = data.value.QueryInterface(Components.interfaces.nsIFile);
+		} else {
+        	    var str = data.value.QueryInterface(Components.interfaces.nsISupportsString);
+		    
+		    if (str) {
+			var ios = Components.classes['@mozilla.org/network/io-service;1']
+			    .getService(Components.interfaces.nsIIOService);
+			var uri = ios.newURI(str.data.split("\n")[0], null, null);
+			var file = uri.QueryInterface(Components.interfaces.nsIFileURL).file;
+		    }
+		}
+		if (file)
     		    manageOpenFile(file.path);
 	    }
 	    catch(e) {

@@ -15,11 +15,16 @@ downloader.onmessage = function(event) {
 	if (xml == undefined || xml == "") {
 	    dump("Unable to download the Metalink...\n");
 	} else {
+	    var oldRemoteBookCount = library.getRemoteBookCount();
 	    library.readFromText(xml, false);
 	    if (message.parameters[1])
 		populateRemoteBookList();
 	    if (message.parameters[2])
 		resumeDownloads();
+	    if (oldRemoteBookCount < library.getRemoteBookCount() && 
+		displayConfirmDialog("They are new content available for download, do you want to see them?")) {
+		showRemoteBooks();
+	    }
 	}
     }
 };
@@ -784,3 +789,8 @@ function startDownloadObserver() {
     window.setInterval("checkDownloader()", 1000);
     window.setInterval("getDownloadStatus()", 1000);
 }
+    
+    function showRemoteBooks() {
+	selectLibraryMenu("library-menuitem-remote");
+	toggleLibrary(true);
+    }
