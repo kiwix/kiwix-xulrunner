@@ -789,8 +789,8 @@ function startDownloadObserver() {
     window.setInterval("checkDownloader()", 1000);
     window.setInterval("getDownloadStatus()", 1000);
 }
-    
-    function showRemoteBooks() {
-	selectLibraryMenu("library-menuitem-remote");
-	toggleLibrary(true);
-    }
+
+function showRemoteBooks() {
+    selectLibraryMenu("library-menuitem-remote");
+    toggleLibrary(true);
+}

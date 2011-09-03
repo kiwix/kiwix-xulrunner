@@ -638,6 +638,9 @@ function manageUnload(clearCurrentAccessor) {
 	library.setCurrentId("");
 	currentZimAccessor = undefined;
     } 
+
+    /* Re-arrange the last open files */
+    populateLastOpenMenu();
 }
 
 /* Try to open a ZIM file */
@@ -712,9 +715,9 @@ function manageOpenFile(path, noSearchIndexCheck) {
 	library.updateBookLastOpenDateById(zimId);
 	library.setCurrentId(zimId);
 
-	/* Re-arrange the last open files */
+	/* Populate the lastopen menu */
 	populateLastOpenMenu();
-	
+
 	/* Populate the library */
 	populateContentManager(false, false);
 
@@ -723,9 +726,6 @@ function manageOpenFile(path, noSearchIndexCheck) {
 
 	/* Activate the Home button and desactivate the next/back buttons */
 	activateHomeButton();
-	
-	/* Update the last open menu */
-	populateLastOpenMenu();
 
 	/* Ask to index if this files has not already an index */
 	if (!isIndexing() && !noSearchIndexCheck && !checkSearchIndex()) {
@@ -1023,7 +1023,8 @@ function populateLastOpenMenu() {
     var book = library.getNextBookInList();
 
     /* Skip the first, it's already open */
-    book = library.getNextBookInList();
+    if (book.id == library.getCurrentId())
+	book = library.getNextBookInList();
 
     /* Disable the menu if no book */
     if (book == undefined) {
