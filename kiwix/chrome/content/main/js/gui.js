@@ -793,7 +793,7 @@ function showDefault() {
 
 /* Display the help */
 function showHelp(createTab) {
-    if (settings.displayTabs() && createTab) { 
+    if (createTab) { 
 	openNewTab();
     }
 
@@ -1023,7 +1023,7 @@ function populateLastOpenMenu() {
     var book = library.getNextBookInList();
 
     /* Skip the first, it's already open */
-    if (book.id == library.getCurrentId())
+    if (book != undefined && book.id == library.getCurrentId())
 	book = library.getNextBookInList();
 
     /* Disable the menu if no book */
