@@ -666,6 +666,9 @@ function manageOpenFile(path, noSearchIndexCheck) {
 	}
     }
 
+    /* Force to hide the library manager */
+    toggleLibrary(false);
+
     /* Close all tabs */
     if (!closeAllTabs()) {
 	return true;
@@ -682,9 +685,6 @@ function manageOpenFile(path, noSearchIndexCheck) {
 
     if (zimAccessor) {
 	manageUnload();
-
-	/* Force to hide the library manager */
-	toggleLibrary(false);
 
 	/* Get the MD5 id */
 	var zimId = new Object();
