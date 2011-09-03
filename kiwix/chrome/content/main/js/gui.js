@@ -785,7 +785,7 @@ function showAbout() {
 
 /* Display the default view */
 function showDefault() {
-    if (library.getLocalBookCount() == 0 && library.getRemoteBookCount() > 0) {
+    if (library.getLocalBookCount() == 0) {
 	selectLibraryMenu("library-menuitem-remote");
 	toggleLibrary(true);
     } else {
