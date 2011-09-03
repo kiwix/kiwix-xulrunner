@@ -486,4 +486,23 @@ function RemoveBookmarkLine (aURI) {
 	return false;
 }
 
+/*
+ * Display/Hide the Bookmarks&Notes sidebar.
+ */
+function UIToggleBookmarksBar(visible) {
+    var bar = getBookmarksBar();
+
+    if (bar.hidden) {
+	WarnOnSideBar();
+    }
+
+    if (visible == undefined) {
+	visible = bar.hidden;
+    }
+
+    bar.hidden  = !visible;
+    settings.displayBookmarksBar(!bar.hidden);
+    getBookmarksButton().setAttribute('checked', !bar.hidden);
+}
+
 

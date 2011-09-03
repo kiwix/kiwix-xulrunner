@@ -151,7 +151,8 @@
   <key id="open-file-key" key="O" modifiers="control" oncommand="manageOpenFile()"/>
   <key id="save-file-key" key="S" modifiers="control" oncommand="saveDocument(window.content.document)"/>
   <key id="print-key" key="P" modifiers="control" oncommand="print()"/>
-  <key id="print-pdf-key" key="D" modifiers="control" oncommand="printPdf()"/>
+  <key id="print-pdf-key" key="d" modifiers="control,shift" oncommand="printPdf()"/>
+  <key id="add-bookmark-key" key="d" modifiers="control" oncommand="bookmarkCurrentPage(); UIToggleBookmarksBar(true)"/>
   <key id="selectall-key" key="A" modifiers="control" oncommand="selectAll()"/>
   <key id="bookmarks-key" key="b" modifiers="control" oncommand="UIToggleBookmarksBar()"/>
   <key id="copy-key" key="C" modifiers="control" oncommand="copySelectedContent()"/>

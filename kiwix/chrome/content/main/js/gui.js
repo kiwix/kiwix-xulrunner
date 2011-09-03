@@ -487,20 +487,6 @@ function UIToggleFullScreen (save) {
     
 }
 
-/*
- * Display/Hide the Bookmarks&Notes sidebar.
- */
-function UIToggleBookmarksBar () {
-    var bar = getBookmarksBar();
-    if (bar.hidden) {
-	WarnOnSideBar ();
-    }
-
-    bar.hidden  = !bar.hidden;
-    settings.displayBookmarksBar(!bar.hidden);
-    getBookmarksButton().setAttribute('checked', !bar.hidden);
-}
-
 /* Make the status bar (in)visible */
 function changeStatusBarVisibilityStatus(visible, save) {
 
