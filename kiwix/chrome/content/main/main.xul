@@ -153,6 +153,7 @@
   <key id="print-key" key="P" modifiers="control" oncommand="print()"/>
   <key id="print-pdf-key" key="D" modifiers="control" oncommand="printPdf()"/>
   <key id="selectall-key" key="A" modifiers="control" oncommand="selectAll()"/>
+  <key id="bookmarks-key" key="b" modifiers="control" oncommand="UIToggleBookmarksBar()"/>
   <key id="copy-key" key="C" modifiers="control" oncommand="copySelectedContent()"/>
   <key id="findnext" key="g" modifiers="control" oncommand="getFindBar().onFindAgainCommand(false);"/>
   <key id="findnextbis" keycode="VK_F3" oncommand="getFindBar().onFindAgainCommand(false);"/>
