@@ -63,8 +63,8 @@
 }
 
 #main.mac * toolbarbutton {
-	padding: 0;
-	margin: 0;
+	padding: 0px;
+	margin: 0px;
 }
 
 /* Buttons */
@@ -178,8 +178,8 @@ window[langdir="rtl"] #button-next {
 
 /* Main window*/
 #main {
-    margin: 0;
-    padding: 0;
+    margin: 0px;
+    padding: 0px;
 }
 
 /* Results bar */
@@ -265,7 +265,7 @@ window[langdir="rtl"] #button-next {
 }
 
 #tab-panels {
-    padding: 0;
+    padding: 0px;
 }
 
 #tab-headers {
@@ -527,8 +527,8 @@ tab[selected="true"] label {
     display: block;
     background-color: transparent;
     border: none;
-    padding: none;
-    margin: 0px;
+    padding: 0px;
+    margin: 0px 0px 0px 5px;
     -moz-appearance: none;
 }
 
@@ -538,8 +538,8 @@ tab[selected="true"] label {
     display: block;
     background-color: transparent;
     border: none;
-    padding: none;
-    margin: 0px;
+    padding: 0px;
+    margin: 0px 0px 0px 5px;
     -moz-appearance: none;
 }
 
@@ -553,10 +553,10 @@ tab[selected="true"] label {
   -moz-appearance: none;
   background-color: transparent;
   border: none;
-  padding: 0;
-  margin: 0;
-  min-width: 0;
-  min-height: 0;
+  padding: 0px;
+  margin: 0px;
+  min-width: 0px;
+  min-height: 0px;
 }
 
 .pause {

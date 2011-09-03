@@ -2,7 +2,7 @@ var currentTabId = "00000000";
 
 /* adds a css class to an element */
 function addClass(elem, className) {
-    classes = elem.className.split(' ');
+    var classes = elem.className.split(' ');
     for (var i=0; i < classes.length; i++) {
         if (className.toLowerCase() == classes[i].toLowerCase())
             return;
@@ -13,8 +13,8 @@ function addClass(elem, className) {
 
 /* removes a css class from an element */
 function removeClass(elem, className) {
-    newClass = "";
-    classes = elem.className.split(' ');
+    var newClass = "";
+    var classes = elem.className.split(' ');
     for (var i=0; i < classes.length; i++) {
         if (className.toLowerCase() != classes[i].toLowerCase())
             newClass += classes[i] + ' ';
@@ -37,9 +37,9 @@ function changeTabsVisibilityStatus(set_visible, save) {
     var tabHeaders = document.getElementById("tab-headers");
     var is_visible = tabsAreVisible();
     var vis_value = (set_visible == undefined ? !is_visible : set_visible);
+    var main = document.getElementById('main');
     tabHeaders.style.display = (vis_value == true ? "block" : "none");
     document.getElementById('display-tabs').setAttribute('checked', vis_value);
-    main = document.getElementById('main');
     if (vis_value) {
         removeClass(main, 'notabs');
         addClass(main, 'tabs');

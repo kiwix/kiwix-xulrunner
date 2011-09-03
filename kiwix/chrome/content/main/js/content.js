@@ -204,19 +204,19 @@ function removeDownload(index) {
 }
 
 function getDownloadStatus() {
-    /* Get aria2 active downloads */
-    var ariaDownloadsCount = 0;
-    var ariaResponse;
-    if (aria2Process != null) {
-	var ariaMessage = new xmlrpcmsg("aria2.tellActive");
-	ariaResponse = aria2Client.send(ariaMessage);
-	ariaDownloadsCount = ariaResponse.val.arraySize();
-    }
-
     /* Get Kiwix list of downloads */
     var kiwixDownloadsString = settings.downloads();
     var kiwixDownloads = settings.unserializeDownloads(kiwixDownloadsString);
     var kiwixDownloadsCount = kiwixDownloads.length;
+
+    /* Get aria2 active downloads */
+    var ariaDownloadsCount = 0;
+    var ariaResponse;
+    if (kiwixDownloadsCount > 0 && aria2Process != null) {
+	var ariaMessage = new xmlrpcmsg("aria2.tellActive");
+	ariaResponse = aria2Client.send(ariaMessage);
+	ariaDownloadsCount = ariaResponse.val.arraySize();
+    }
 
     /* Get through all known downloads */
     for (var i=0; i<kiwixDownloadsCount; i++) {
