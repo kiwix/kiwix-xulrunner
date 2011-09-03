@@ -459,7 +459,7 @@ function createLibraryItem(book) {
 
     /* Create item box */
     var box = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
-				       "box");
+				       "richlistitem");
     box.setAttribute("class", "library-content-item");
     box.setAttribute("id", "library-content-item-" + book.id);
     box.setAttribute("onclick", "selectLibraryContentItem(this);");
@@ -675,6 +675,7 @@ function downloadRemoteBookList(populateRemoteBookList, resumeDownloads) {
 
 function populateContentManager(populateRemoteBookList, resumeDownloads) {
     populateLocalBookList();
+    selectLibraryMenu("library-menuitem-local");
     downloadRemoteBookList(populateRemoteBookList, resumeDownloads);
 }
 
@@ -726,6 +727,10 @@ function toggleLibrary(visible) {
 	desactivateGuiSearchComponents();
 	_oldWindowTitle = getWindow().getAttribute("title");
 	getWindow().setAttribute("title", newWindowTitle);
+
+	/* Reinitialize the scrollbar - seems to be necessary */
+	var libraryDeck = document.getElementById("library-deck");
+	libraryDeck.selectedPanel.ensureIndexIsVisible(libraryDeck.selectedPanel.selectedIndex); 
     }
 }
 
@@ -760,28 +765,26 @@ function selectLibraryMenu(menuItemId) {
 	menuItemRemote.setAttribute("style", "background-color: white;")
 	libraryDeck.selectedIndex = 1;
     }
+
+    selectLibraryContentItem(libraryDeck.selectedPanel.firstChild);
 }
 
 function selectLibraryContentItem(box) {
-    var focused = document.commandDispatcher.focusedElement;
-    if (focused != null && focused.tagName != "vbox") {
-	if (focused.selectionStart == focused.selectionEnd)
-	    focused.blur();
-	else
-	    return;
-    }
+    if (box == undefined)
+	return;
 
-    if (_selectedLibraryContentItem != undefined) {
-	_selectedLibraryContentItem.setAttribute("style", _selectedLibraryContentItem.backGroundColorBackup);
-    }
-
-    if (box == _selectedLibraryContentItem) {
-	_selectedLibraryContentItem = undefined;
+    if (_selectedLibraryContentItem != undefined && box == _selectedLibraryContentItem) {
 	return;
     } else {
+	if (_selectedLibraryContentItem != undefined)
+	    _selectedLibraryContentItem.setAttribute("style", _selectedLibraryContentItem.backGroundColorBackup);
+
 	box.backGroundColorBackup = box.getAttribute("style");
 	box.setAttribute("style", "background-color: Highlight;");
+	box.parentNode.selectedItem = box;
 	_selectedLibraryContentItem = box;
+	var libraryDeck = document.getElementById("library-deck");
+	libraryDeck.selectedPanel.ensureIndexIsVisible(libraryDeck.selectedPanel.selectedIndex); 
     }
 }
 
@@ -790,7 +793,18 @@ function startDownloadObserver() {
     window.setInterval("getDownloadStatus()", 1000);
 }
 
+function showLocalBooks() {
+    selectLibraryMenu("library-menuitem-local");
+    toggleLibrary(true);
+}
+
 function showRemoteBooks() {
     selectLibraryMenu("library-menuitem-remote");
     toggleLibrary(true);
+}
+
+function getCurrentBookListContainer() {
+    if (isLibraryVisible) {
+	return document.getElementById("library-deck").selectedPanel;
+    }
 }

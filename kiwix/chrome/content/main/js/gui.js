@@ -1213,6 +1213,28 @@ function initHtmlRendererEventListeners() {
 
     /* Intercept standard behaviour of tabheaders keypress */
     getTabHeaders().addEventListener("keypress", handleTabHeadersKeyPress, true);
+
+    /* Deal with key press */
+    document.getElementById("main").addEventListener("keypress", handleKeyPress, true);
+}
+
+function handleKeyPress(aEvent) {
+    if (isLibraryVisible()) {
+	var keyCode = aEvent.keyCode;
+	var container = getCurrentBookListContainer();
+	var box = _selectedLibraryContentItem;
+
+	if (keyCode == 38) {
+	    box = box == undefined ? container.lastChild : 
+		(box == container.firstChild ? container.firstChild : box.previousSibling);
+	} else if (keyCode == 40) {
+	    box = box == undefined ? container.getItemAtIndex(container.itemCount - 1) : 
+		(box == container.lastChild ? container.getItemAtIndex(container.itemCount - 1) : box.nextSibling);
+	}
+
+	if (box != _selectedLibraryContentItem)
+	    selectLibraryContentItem(box);
+    }
 }
 
 /* Route all keypress event on the tabbox to the HTML renderer */

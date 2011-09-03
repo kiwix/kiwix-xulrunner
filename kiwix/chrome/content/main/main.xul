@@ -250,18 +250,18 @@
 	<toolbarbutton id="bookmarks-unmark-button" tooltiptext="&main.unmark;" oncommand="javascript:removeCurrentBookmark ();" />
       </toolbar>
     </hbox>
-    <menulist id="bookmarks-sets-list">
-        <menupopup id="bookmarks-sets">
-            <menuitem label="&main.defaultset;" value="default" oncommand="UIBookmarkSetSwitch(this.value);"/>
-        </menupopup>
-  </menulist>
 
-	<listbox flex="1" id="bookmarks-list">
-    </listbox>
+    <menulist id="bookmarks-sets-list">
+      <menupopup id="bookmarks-sets">
+	<menuitem label="&main.defaultset;" value="default" oncommand="UIBookmarkSetSwitch(this.value);"/>
+      </menupopup>
+    </menulist>
+
+    <listbox flex="1" id="bookmarks-list" />
 	
-	<label id="notesLabel" value="&main.notesLabel;" />
-	<textbox id="notesTextBox" onchange="UISaveCurrentNote(null);" multiline="true" flex="1" dir="&main.cssdirection;" disabled="true" />
-	</vbox>
+    <label id="notesLabel" value="&main.notesLabel;" />
+    <textbox id="notesTextBox" onchange="UISaveCurrentNote(null);" multiline="true" flex="1" dir="&main.cssdirection;" disabled="true" />
+  </vbox>
   
   <!-- Rendering space -->
   <stack flex="1">
@@ -297,8 +297,8 @@
 	</vbox>
 	<box class="library-content" flex="1">
 	  <deck id="library-deck" selectedIndex="0" flex="1">
-	    <vbox id="library-content-local" style="overflow:auto" />
-	    <vbox id="library-content-remote" style="overflow:auto" />
+	    <richlistbox id="library-content-local"/>
+	    <richlistbox id="library-content-remote"/>
 	  </deck>
 	</box>
       </hbox>

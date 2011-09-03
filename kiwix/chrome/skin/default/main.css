@@ -502,12 +502,21 @@ tab[selected="true"] label {
     -moz-border-radius: 5px 0px 0px 5px;
 }
 
-.library-content {
+richlistbox {
+    -moz-appearance: none;
+    -moz-user-focus: normal;
+    -moz-user-select: normal;
     background-color: white;
+    border: none;
+    padding: 0px;
+    margin: 0px;
 }
 
 .library-content-item {
     height: 90px;
+    border: none;
+    padding: 0px;
+    margin: 0px;
 }
 
 .library-content-item-favicon {
