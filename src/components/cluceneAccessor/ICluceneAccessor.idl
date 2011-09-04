@@ -5,7 +5,7 @@ interface nsIURI;
 [scriptable, uuid(ad34daa0-e072-11df-85ca-0800200c9a66)]
 interface ICluceneAccessor : nsISupports
 {
-  boolean openReadableDatabase(in AUTF8String cluceneDirectoryPath);
+  boolean openReadableDatabase(in AUTF8String unixXapianDirectoryPath, in ACString winXapianDirectoryPath);
   boolean search(in AUTF8String search, in PRUint32 resultStart, in PRUint32 resultEnd);
   boolean reset();
   boolean getNextResult(out AUTF8String url, out AUTF8String title, out PRUint32 score);

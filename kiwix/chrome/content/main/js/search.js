@@ -135,7 +135,7 @@ function indexZimFile(zimFilePath, xapianDirectory) {
 	    }
 
 	    /* Load the ZIM file */
-	    zimIndexer.startIndexing(zimFilePath, indexTmpDirectory);
+	    zimIndexer.startIndexing(zimFilePath, zimFilePath, indexTmpDirectory, indexTmpDirectory);
 
 	    /* Default start value */
 	    var currentProgressBarPosition = 0;
@@ -205,7 +205,7 @@ function openSearchIndex(path) {
     }
 
     /* Open the search engine index */
-    if (!indexAccessor.openReadableDatabase(path))
+    if (!indexAccessor.openReadableDatabase(path, path))
 	return;    
 
     return indexAccessor;
@@ -222,6 +222,7 @@ function manageSearchInIndex(stringToSearch, start, end) {
     }
 
     if (stringToSearch != "") {
+
 	/* Try to load the article */
 	if (loadArticleFromTitle(stringToSearch))
 	    return true;
@@ -241,7 +242,6 @@ function manageSearchInIndex(stringToSearch, start, end) {
 	/* Try to lowercase the strintToSearch and ucfirst */
 	if (loadArticleFromTitle(stringToSearch[0].toUpperCase() + stringToSearch.toLowerCase().substring(1)))
 	    return true;
-
 
 	/* Check if a search index exists */
 	if (!checkSearchIndex()) {
@@ -320,5 +320,6 @@ function computeLevenshteinDistance (s1, s2) {
 /* Check if we have a current search index */
 function checkSearchIndex() {
     var currentBook = library.getCurrentBook();
-    return (currentBook && currentBook.indexPath.length > 0 && openSearchIndex(currentBook.indexPath));
+    return (currentBook && currentBook.indexPath.length > 0 && 
+	    openSearchIndex(currentBook.indexPath));
 }

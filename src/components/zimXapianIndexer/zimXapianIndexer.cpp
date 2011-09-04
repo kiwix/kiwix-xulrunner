@@ -83,14 +83,23 @@ ZimXapianIndexer::~ZimXapianIndexer() {
 }
 
 /* Start indexing */
-NS_IMETHODIMP ZimXapianIndexer::StartIndexing(const nsACString &zimFilePath, 
-					      const nsACString &xapianDirectoryPath, 
+NS_IMETHODIMP ZimXapianIndexer::StartIndexing(const nsACString &unixZimFilePath, 
+					      const nsACString &winZimFilePath, 
+					      const nsACString &unixXapianDirectoryPath, 
+					      const nsACString &winXapianDirectoryPath, 
 					      PRBool *retVal) {
+
   *retVal = PR_FALSE;
+
   const char *cZimFilePath;
-  NS_CStringGetData(zimFilePath, &cZimFilePath);
   const char *cXapianDirectoryPath;
-  NS_CStringGetData(xapianDirectoryPath, &cXapianDirectoryPath);
+#ifdef _WIN32
+  NS_CStringGetData(winZimFilePath, &cZimFilePath);
+  NS_CStringGetData(winXapianDirectoryPath, &cXapianDirectoryPath);
+#else
+  NS_CStringGetData(uniZimFilePath, &cZimFilePath);
+  NS_CStringGetData(unixXapianDirectoryPath, &cXapianDirectoryPath);
+#endif
 
   /* Create the indexer */
   try {    

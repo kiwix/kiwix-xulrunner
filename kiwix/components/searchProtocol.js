@@ -172,7 +172,7 @@ SearchPipeChannel.prototype = {
 	}
 	
 	/* Open the xapian readable database */
-	if (!indexAccessor.openReadableDatabase(path))
+	if (!indexAccessor.openReadableDatabase(path, path))
 	    return;    
 	
 	return indexAccessor;
@@ -194,7 +194,8 @@ SearchPipeChannel.prototype = {
 	if (indexAccessor.search(query, start, end)) {
 	    
 	    /* Set the template */
-	    indexAccessor.setResultTemplatePath(env.chromeToPath("chrome://static/content/results.tmpl"));
+	    indexAccessor.setResultTemplatePath(env.chromeToPath("chrome://static/content/results.tmpl"), 
+						env.chromeToPath("chrome://static/content/results.tmpl"));
 	    
 	    /* Display the HTML */
 	    var html = new Object();

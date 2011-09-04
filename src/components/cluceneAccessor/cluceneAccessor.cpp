@@ -81,11 +81,15 @@ CluceneAccessor::~CluceneAccessor() {
 }
 
 /* Open Clucene readable database */
-NS_IMETHODIMP CluceneAccessor::OpenReadableDatabase(const nsACString &directory, PRBool *retVal) {
+NS_IMETHODIMP CluceneAccessor::OpenReadableDatabase(const nsACString &unixDirectory, const nsACString &winDirectory, PRBool *retVal) {
   *retVal = PR_TRUE;
-  
+
   const char *directoryPath;
-  NS_CStringGetData(directory, &directoryPath);
+#ifdef _WIN32
+  NS_CStringGetData(winDirectory, &directoryPath);
+#else
+  NS_CStringGetData(unixDirectory, &directoryPath);
+#endif
   
   try {
     this->searcher = new kiwix::CluceneSearcher(directoryPath);

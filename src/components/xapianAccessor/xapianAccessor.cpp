@@ -81,12 +81,17 @@ XapianAccessor::~XapianAccessor() {
 }
 
 /* Open Xapian readable database */
-NS_IMETHODIMP XapianAccessor::OpenReadableDatabase(const nsACString &directory, PRBool *retVal) {
+NS_IMETHODIMP XapianAccessor::OpenReadableDatabase(const nsACString &unixDirectory, 
+						   const nsACString &winDirectory, PRBool *retVal) {
   *retVal = PR_TRUE;
   
   const char *directoryPath;
-  NS_CStringGetData(directory, &directoryPath);
-  
+#ifdef _WIN32
+  NS_CStringGetData(winDirectory, &directoryPath);
+#else
+  NS_CStringGetData(unixDirectory, &directoryPath);
+#endif
+
   try {
     this->searcher = new kiwix::XapianSearcher(directoryPath);
   } catch (...) {
@@ -97,11 +102,16 @@ NS_IMETHODIMP XapianAccessor::OpenReadableDatabase(const nsACString &directory, 
   return NS_OK;
 }
 
-NS_IMETHODIMP XapianAccessor::SetResultTemplatePath(const nsACString &resultTemplate, PRBool *retVal) {
+NS_IMETHODIMP XapianAccessor::SetResultTemplatePath(const nsACString &unixResultTemplate, 
+						    const nsACString &winResultTemplate, PRBool *retVal) {
   *retVal = PR_TRUE;
   
   const char *resultTemplatePath;
-  NS_CStringGetData(resultTemplate, &resultTemplatePath);
+#ifdef _WIN32
+  NS_CStringGetData(winResultTemplate, &resultTemplatePath);
+#else
+  NS_CStringGetData(unixResultTemplate, &resultTemplatePath);
+#endif
   
   try {
     this->searcher->setResultTemplatePath(resultTemplatePath);
