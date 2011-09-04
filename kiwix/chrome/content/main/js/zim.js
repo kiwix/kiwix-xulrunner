@@ -6,8 +6,17 @@ function openZimFile(path) {
     var zimAccessorService = Components.classes["@kiwix.org/zimAccessor"].getService();
     var zimAccessor = zimAccessorService.QueryInterface(Components.interfaces.IZimAccessor);
 
-    /* Do not remove a path, this is a workaround to allow opening paths with accents everywhere */
-    if (isFile(path) && zimAccessor.loadFile(path, path)) {
+    /* Return if not able to open the file */
+    var file =
+	Components.classes["@mozilla.org/file/local;1"].
+	createInstance(Components.interfaces.nsILocalFile);
+    try {
+	file.initWithPath(path);
+    } catch(er) {
+	return;
+    }
+
+    if (isFile(file.path) && zimAccessor.loadFile(file)) {
 	currentZimAccessor = zimAccessor;
 	return currentZimAccessor;
     }
