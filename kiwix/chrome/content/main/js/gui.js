@@ -725,9 +725,6 @@ function manageOpenFile(path, noSearchIndexCheck) {
 	getCheckIntegrityMenuItem().disabled = !canCheckIntegrity();
     } else {
 	displayErrorDialog(getProperty("loadZimFileError", path));
-	if (env.isWindows()) {
-	    displayErrorDialog("You are maybe impacted by a known issue. Please rename your file '" + path + "' to test.zim and move it to the root of the disk.");
-	}
 	return false;
     }
 
