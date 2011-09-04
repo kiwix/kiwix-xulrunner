@@ -83,14 +83,23 @@ ZimCluceneIndexer::~ZimCluceneIndexer() {
 }
 
 /* Start indexing */
-NS_IMETHODIMP ZimCluceneIndexer::StartIndexing(const nsACString &zimFilePath, 
-					      const nsACString &cluceneDirectoryPath, 
+NS_IMETHODIMP ZimCluceneIndexer::StartIndexing(const nsACString &unixZimFilePath, 
+					      const nsACString &winZimFilePath, 
+					      const nsACString &unixCluceneDirectoryPath, 
+					      const nsACString &winCluceneDirectoryPath, 
 					      PRBool *retVal) {
+
   *retVal = PR_FALSE;
+
   const char *cZimFilePath;
-  NS_CStringGetData(zimFilePath, &cZimFilePath);
   const char *cCluceneDirectoryPath;
-  NS_CStringGetData(cluceneDirectoryPath, &cCluceneDirectoryPath);
+#ifdef _WIN32
+  NS_CStringGetData(winZimFilePath, &cZimFilePath);
+  NS_CStringGetData(winCluceneDirectoryPath, &cCluceneDirectoryPath);
+#else
+  NS_CStringGetData(unixZimFilePath, &cZimFilePath);
+  NS_CStringGetData(unixCluceneDirectoryPath, &cCluceneDirectoryPath);
+#endif
 
   /* Create the indexer */
   try {    

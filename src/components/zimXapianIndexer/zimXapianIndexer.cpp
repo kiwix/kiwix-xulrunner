@@ -97,7 +97,7 @@ NS_IMETHODIMP ZimXapianIndexer::StartIndexing(const nsACString &unixZimFilePath,
   NS_CStringGetData(winZimFilePath, &cZimFilePath);
   NS_CStringGetData(winXapianDirectoryPath, &cXapianDirectoryPath);
 #else
-  NS_CStringGetData(uniZimFilePath, &cZimFilePath);
+  NS_CStringGetData(unixZimFilePath, &cZimFilePath);
   NS_CStringGetData(unixXapianDirectoryPath, &cXapianDirectoryPath);
 #endif
 

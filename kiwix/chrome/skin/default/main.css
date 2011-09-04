@@ -506,7 +506,6 @@ tab[selected="true"] label {
 richlistbox {
     -moz-appearance: none;
     -moz-user-focus: normal;
-    -moz-user-select: normal;
     background-color: white;
     border: none;
     padding: 0px;

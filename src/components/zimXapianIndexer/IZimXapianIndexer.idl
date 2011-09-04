@@ -5,7 +5,6 @@ interface nsIURI;
 [scriptable, uuid(9be3f6b2-31a3-4aed-8e58-2b6ca04babf0)]
 interface IZimXapianIndexer : nsISupports
 {
-  boolean openReadableDatabase(in AUTF8String unixXapianDirectoryPath, in ACString winXapianDirectoryPath);
   boolean startIndexing(in AUTF8String unixZimFilePath, in ACString winZimFilePath, in AUTF8String unixXapianDirectoryPath, in ACString winXapianDirectoryPath);
   boolean stopIndexing();
   boolean indexNextPercent();
