@@ -286,15 +286,15 @@
     </page>
     <page id="library-page" flex="1" hidden="true">
       <hbox flex="1">
-	<vbox class="library-menu">
-	  <box id="library-menuitem-local" class="library-menuitem" 
+	<richlistbox class="library-menu">
+	  <richlistitem id="library-menuitem-local" class="library-menuitem" 
 	       style="background-color: white;" onclick="selectLibraryMenu(this.id);">
 	    <description>My Library</description>
-	  </box> 
-	  <box id="library-menuitem-remote" class="library-menuitem" onclick="selectLibraryMenu(this.id);">
+	  </richlistitem> 
+	  <richlistitem id="library-menuitem-remote" class="library-menuitem" onclick="selectLibraryMenu(this.id);">
 	    <description>Get New Files</description>
-	  </box>
-	</vbox>
+	  </richlistitem>
+	</richlistbox>
 	<box class="library-content" flex="1">
 	  <deck id="library-deck" selectedIndex="0" flex="1">
 	    <richlistbox id="library-content-local"/>

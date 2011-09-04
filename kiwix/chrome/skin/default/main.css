@@ -499,6 +499,7 @@ tab[selected="true"] label {
     margin: 0px 0px 0px 10px;
     padding: 5px;
     font-size: 110%;
+    color: black;
     -moz-border-radius: 5px 0px 0px 5px;
 }
 
