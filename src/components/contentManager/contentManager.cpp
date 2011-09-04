@@ -81,13 +81,16 @@ ContentManager::ContentManager() {
 ContentManager::~ContentManager() {
 }
 
-NS_IMETHODIMP ContentManager::OpenLibraryFromFile(nsILocalFile *file, PRBool readOnly, PRBool *retVal) {
+NS_IMETHODIMP ContentManager::OpenLibraryFromFile(const nsACString &unixPath, const nsACString &winPath, PRBool readOnly, PRBool *retVal) {
   *retVal = PR_TRUE;
-  nsString path;
-  file->GetPath(path);
-  const PRUnichar *wcPath = ToNewUnicode(path);
-  const char *cPath = ToNewUTF8String(path);
   bool returnValue = true;
+
+  const char *cPath;
+#ifdef _WIN32
+  NS_CStringGetData(winPath, &cPath);
+#else
+  NS_CStringGetData(unixPath, &cPath);
+#endif
 
   try {
     returnValue = this->manager.readFile(cPath, readOnly == PR_TRUE ? true : false);
@@ -135,13 +138,16 @@ NS_IMETHODIMP ContentManager::WriteLibrary(PRBool *retVal) {
   return NS_OK;
 }
 
-NS_IMETHODIMP ContentManager::WriteLibraryToFile(nsILocalFile *file, PRBool *retVal) {
+NS_IMETHODIMP ContentManager::WriteLibraryToFile(const nsACString &unixPath, const nsACString &winPath, PRBool *retVal) {
   *retVal = PR_TRUE;
-  nsString path;
-  file->GetPath(path);
-  const PRUnichar *wcPath = ToNewUnicode(path);
-  const char *cPath = ToNewUTF8String(path);
   bool returnValue = true;
+
+  const char *cPath;
+#ifdef _WIN32
+  NS_CStringGetData(winPath, &cPath);
+#else
+  NS_CStringGetData(unixPath, &cPath);
+#endif
 
   try {
     returnValue = this->manager.writeFile(cPath);
@@ -155,13 +161,16 @@ NS_IMETHODIMP ContentManager::WriteLibraryToFile(nsILocalFile *file, PRBool *ret
   return NS_OK;
 }
 
-NS_IMETHODIMP ContentManager::AddBookFromPath(nsILocalFile *file, PRBool *retVal) {
+NS_IMETHODIMP ContentManager::AddBookFromPath(const nsACString &unixPath, const nsACString &winPath, PRBool *retVal) {
   *retVal = PR_TRUE;
-  nsString path;
-  file->GetPath(path);
-  const PRUnichar *wcPath = ToNewUnicode(path);
-  const char *cPath = ToNewUTF8String(path);
   bool returnValue = true;
+
+  const char *cPath;
+#ifdef _WIN32
+  NS_CStringGetData(winPath, &cPath);
+#else
+  NS_CStringGetData(unixPath, &cPath);
+#endif
 
   try {
     returnValue = this->manager.addBookFromPath(cPath);
@@ -349,16 +358,22 @@ NS_IMETHODIMP ContentManager::GetListNextBookId(nsACString &id, PRBool *retVal) 
   return NS_OK;
 }
 
-NS_IMETHODIMP ContentManager::SetBookIndex(const nsACString &id, const nsACString &indexPath, 
-					   const nsACString &indexType, PRBool *retVal) {
+NS_IMETHODIMP ContentManager::SetBookIndex(const nsACString &id, const nsACString &unixIndexPath, 
+					   const nsACString &winIndexPath, const nsACString &indexType, PRBool *retVal) {
   *retVal = PR_FALSE;
+
   const char *cid;
   NS_CStringGetData(id, &cid);
-  const char *cindexPath;
-  NS_CStringGetData(indexPath, &cindexPath);
   const char *cindexType;
   NS_CStringGetData(indexType, &cindexType);
-  
+
+  const char *cindexPath;
+#ifdef _WIN32
+  NS_CStringGetData(winIndexPath, &cindexPath);
+#else
+  NS_CStringGetData(unixIndexPath, &cindexPath);
+#endif
+
   try {
     kiwix::supportedIndexType iType;
     if (std::string(cindexType) == "clucene") {
@@ -377,12 +392,18 @@ NS_IMETHODIMP ContentManager::SetBookIndex(const nsACString &id, const nsACStrin
   return NS_OK;
 }
 
-NS_IMETHODIMP ContentManager::SetBookPath(const nsACString &id, const nsACString &path, PRBool *retVal) {
+NS_IMETHODIMP ContentManager::SetBookPath(const nsACString &id, const nsACString &unixPath, 
+					  const nsACString &winPath, PRBool *retVal) {
   *retVal = PR_FALSE;
   const char *cid;
   NS_CStringGetData(id, &cid);
+
   const char *cPath;
-  NS_CStringGetData(path, &cPath);
+#ifdef _WIN32
+  NS_CStringGetData(winPath, &cPath);
+#else
+  NS_CStringGetData(unixPath, &cPath);
+#endif
   
   try {
     if (this->manager.setBookPath(cid, cPath)) {

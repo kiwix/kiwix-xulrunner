@@ -6,12 +6,12 @@ interface nsILocalFile;
 [scriptable, uuid(041c2a90-74f1-11e0-a1f0-0800200c9a66)]
 interface IContentManager : nsISupports
 {
-  boolean openLibraryFromFile(in nsILocalFile path, in PRBool readOnly);
+  boolean openLibraryFromFile(in AUTF8String unixPath, in ACString winPath, in PRBool readOnly);
   boolean openLibraryFromText(in ACString xml, in PRBool readOnly);
-  boolean writeLibraryToFile(in nsILocalFile path);
+  boolean writeLibraryToFile(in AUTF8String unixPath, in ACString winPath);
   boolean writeLibrary();
   boolean removeBookById(in ACString id);
-  boolean addBookFromPath(in nsILocalFile path);
+  boolean addBookFromPath(in AUTF8String unixPath, in ACString winPath);
   boolean getBookById(in ACString id, out AUTF8String path, out AUTF8String title, 
 		      out AUTF8String indexPath, out AUTF8String indexType, out AUTF8String description,
 		      out AUTF8String articleCount, out AUTF8String mediaCount, out AUTF8String size,
@@ -20,8 +20,8 @@ interface IContentManager : nsISupports
   boolean setCurrentBookId(in ACString id);
   boolean getCurrentBookId(out ACString id);
   boolean getListNextBookId(out ACString id);
-  boolean setBookIndex(in ACString id, in ACString indexPath, in ACString indexType);
-  boolean setBookPath(in ACString id, in AUTF8String path);
+  boolean setBookIndex(in ACString id, in AUTF8String unixIndexPath, in ACString winIndexPath, in ACString indexType);
+  boolean setBookPath(in ACString id, in AUTF8String unixPath, in ACString winPath);
   boolean updateBookLastOpenDateById(in ACString id);
   boolean listBooks(in ACString mode);
   boolean getBookCount(in PRBool localBooks, in PRBool remoteBooks, out PRUint32 count);

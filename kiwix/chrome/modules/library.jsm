@@ -100,7 +100,7 @@ let library = {
 	if (!fileDescriptor)
 	   return;
 
-        this.contentManager.openLibraryFromFile(fileDescriptor, readOnly);
+        this.contentManager.openLibraryFromFile(libraryPath, libraryPath, readOnly);
     },
 
     /* Open the XML file */
@@ -136,7 +136,7 @@ let library = {
 	if (!fileDescriptor)
 	   return;
 
-        this.contentManager.addBookFromPath(fileDescriptor);
+        this.contentManager.addBookFromPath(path, path);
 	this.writeToFile();
 	return this.getBookById(id);
     },
@@ -182,7 +182,7 @@ let library = {
 
     /* Set the index information for a book */
     setBookIndex: function(id, indexPath, indexType) {
-    	if (this.contentManager.setBookIndex(id, indexPath, indexType)) {
+    	if (this.contentManager.setBookIndex(id, indexPath, indexType, indexType)) {
 	   this.writeToFile();
 	   return true;
 	}
@@ -190,7 +190,7 @@ let library = {
     },
 
     setBookPath: function(id, path) {
-    	if (this.contentManager.setBookPath(id, path)) {
+    	if (this.contentManager.setBookPath(id, path, path)) {
 	   this.writeToFile();
 	   return true;
 	}
