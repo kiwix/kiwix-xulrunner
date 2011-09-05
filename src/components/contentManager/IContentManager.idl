@@ -6,9 +6,9 @@ interface nsILocalFile;
 [scriptable, uuid(041c2a90-74f1-11e0-a1f0-0800200c9a66)]
 interface IContentManager : nsISupports
 {
-  boolean openLibraryFromFile(in AUTF8String unixPath, in ACString winPath, in PRBool readOnly);
+  boolean openLibraryFromFile(in AString path, in PRBool readOnly);
   boolean openLibraryFromText(in ACString xml, in PRBool readOnly);
-  boolean writeLibraryToFile(in AUTF8String unixPath, in ACString winPath);
+  boolean writeLibraryToFile(in AString path);
   boolean writeLibrary();
   boolean removeBookById(in ACString id);
   boolean addBookFromPath(in AString path);

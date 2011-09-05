@@ -100,7 +100,7 @@ let library = {
 	if (!fileDescriptor)
 	   return;
 
-        this.contentManager.openLibraryFromFile(libraryPath, libraryPath, readOnly);
+        this.contentManager.openLibraryFromFile(fileDescriptor.path, readOnly);
     },
 
     /* Open the XML file */

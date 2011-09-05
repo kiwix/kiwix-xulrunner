@@ -82,16 +82,10 @@ ContentManager::ContentManager() {
 ContentManager::~ContentManager() {
 }
 
-NS_IMETHODIMP ContentManager::OpenLibraryFromFile(const nsACString &unixPath, const nsACString &winPath, PRBool readOnly, PRBool *retVal) {
+NS_IMETHODIMP ContentManager::OpenLibraryFromFile(const nsAString &path, PRBool readOnly, PRBool *retVal) {
   *retVal = PR_TRUE;
   bool returnValue = true;
-
-  const char *cPath;
-#ifdef _WIN32
-  NS_CStringGetData(winPath, &cPath);
-#else
-  NS_CStringGetData(unixPath, &cPath);
-#endif
+  const char *cPath = nsStringToCString(path);
 
   try {
     returnValue = this->manager.readFile(cPath, readOnly == PR_TRUE ? true : false);
@@ -139,16 +133,10 @@ NS_IMETHODIMP ContentManager::WriteLibrary(PRBool *retVal) {
   return NS_OK;
 }
 
-NS_IMETHODIMP ContentManager::WriteLibraryToFile(const nsACString &unixPath, const nsACString &winPath, PRBool *retVal) {
+NS_IMETHODIMP ContentManager::WriteLibraryToFile(const nsAString &path, PRBool *retVal) {
   *retVal = PR_TRUE;
   bool returnValue = true;
-
-  const char *cPath;
-#ifdef _WIN32
-  NS_CStringGetData(winPath, &cPath);
-#else
-  NS_CStringGetData(unixPath, &cPath);
-#endif
+  const char *cPath = nsStringToCString(path);
 
   try {
     returnValue = this->manager.writeFile(cPath);
