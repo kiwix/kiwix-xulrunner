@@ -32,10 +32,10 @@ IZimAccessor.h:
 	$(XPIDL) -m header -I "$(XULRUNNER_IDL)" IZimAccessor.idl
 
 objs: IZimAccessor.xpt IZimAccessor.h
-	$(CC) $(CFLAGS) zimAccessor.cpp ../../common/kiwix/reader.cpp
+	$(CC) $(CFLAGS) zimAccessor.cpp ../../common/kiwix/reader.cpp ../../common/pathTools.cpp
 
 zimAccessor.lib: objs
-		       $(LD) -lib -OUT:libZimAccessor.lib $(LDFLAGS) reader.obj
+		       $(LD) -lib -OUT:libZimAccessor.lib $(LDFLAGS) reader.obj pathTools.obj
 
 zimAccessor.dll: zimAccessor.lib
 		    $(LD) -OUT:"zimAccessor.dll" -NOLOGO $(LDFLAGS) -DLL -NODEFAULTLIB:"MSVCRT" -OPT:REF -OPT:ICF -DYNAMICBASE -NXCOMPAT -MACHINE:X86 zim.lib libcmt.lib ws2_32.lib nspr4.lib xpcom.lib xpcomglue_s.lib DelayImp.lib winmm.lib libZimAccessor.lib zimAccessor.obj
