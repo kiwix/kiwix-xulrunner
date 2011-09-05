@@ -311,6 +311,7 @@ then
 	# BINDIST_INTRO_* values
 	BINDIST_INTRO_MESSAGE="echo You have to run configure with the '--without-dependences' argument."
 else
+    IS_STATIC=1
 	# Check if the 'wget' binary exists
 	AC_CHECK_TOOL(HAVE_WGET, wget)
 	if test [ ! "$HAVE_WGET" ]
@@ -349,7 +350,12 @@ else
 	
 	# libicu
 	# even in with-dep mode we don't get it
+    if test [ ! "$IS_OSX" ]
+    then
 	LIBICU_STATIC_LDFLAGS="/opt/local/lib/libicudata.a /opt/local/lib/libicui18n.a /opt/local/lib/libicuuc.a /opt/local/lib/libicuio.a /opt/local/lib/libicule.a /opt/local/lib/libiculx.a /opt/local/lib/libicutu.a /opt/local/lib/libicutest.a"
+    else
+    LIBICU_STATIC_LDFLAGS="/usr/lib/libicudata.a /usr/lib/libicui18n.a /usr/lib/libicuuc.a /usr/lib/libicuio.a /usr/lib/libicule.a /usr/lib/libiculx.a /usr/lib/libicutu.a /usr/lib/libicutest.a"
+    fi
 	
 	# pugixml
 	LIBPUGIXML_STATIC_LDFLAGS="${CURRENT_PATH}/src/pugixml/.libs/libpugixml.a"
@@ -367,6 +373,8 @@ else
 #	AC_SUBST(LIBMICROHTTPD_LDFLAGS)
 #	AC_SUBST(ESCAPED_PREFIX)
 fi
+
+AM_CONDITIONAL([IS_STATIC], [test "$IS_STATIC"])
 
 # default CXXFLAGS
 CXXFLAGS=${CFLAGS}
@@ -449,6 +457,7 @@ AC_SUBST(JAR)
 AC_SUBST(CURRENT_PATH)
 AC_SUBST(GECKO_VERSION)
 AC_SUBST(IS_OSX)
+AC_SUBST(IS_STATIC)
 
 # Check the existence of stat64 (to handle file >2GB) in the libc
 AC_CHECK_FUNCS([stat64])
