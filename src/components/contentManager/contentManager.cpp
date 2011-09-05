@@ -54,6 +54,7 @@
 #include "nsDirectoryServiceDefs.h"
 
 #include <kiwix/manager.h>
+#include <pathTools.h>
 
 class ContentManager : public IContentManager {
 
@@ -161,19 +162,15 @@ NS_IMETHODIMP ContentManager::WriteLibraryToFile(const nsACString &unixPath, con
   return NS_OK;
 }
 
-NS_IMETHODIMP ContentManager::AddBookFromPath(const nsACString &unixPath, const nsACString &winPath, PRBool *retVal) {
+NS_IMETHODIMP ContentManager::AddBookFromPath(const nsAString &path, PRBool *retVal) {
   *retVal = PR_TRUE;
   bool returnValue = true;
 
-  const char *cPath;
-#ifdef _WIN32
-  NS_CStringGetData(winPath, &cPath);
-#else
-  NS_CStringGetData(unixPath, &cPath);
-#endif
+  const char *pathToOpen = nsStringToCString(path);
+  const char *pathToSave = nsStringToUTF8(path);
 
   try {
-    returnValue = this->manager.addBookFromPath(cPath);
+    returnValue = this->manager.addBookFromPath(pathToOpen, pathToSave);
   } catch (exception &e) {
     cerr << e.what() << endl;
     *retVal = PR_FALSE;

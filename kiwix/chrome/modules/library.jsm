@@ -136,7 +136,7 @@ let library = {
 	if (!fileDescriptor)
 	   return;
 
-        this.contentManager.addBookFromPath(path, path);
+        this.contentManager.addBookFromPath(path);
 	this.writeToFile();
 	return this.getBookById(id);
     },

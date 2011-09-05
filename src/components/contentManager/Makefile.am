@@ -14,7 +14,9 @@ libContentManager_la_SOURCES= \
 	$(top_srcdir)/src/common/kiwix/manager.h \
 	$(top_srcdir)/src/common/kiwix/reader.h \
 	$(top_srcdir)/src/pugixml/pugixml.hpp \
-	$(top_srcdir)/src/common/base64.h
+	$(top_srcdir)/src/common/base64.h \
+	$(top_srcdir)/src/common/pathTools.h \
+	$(top_srcdir)/src/common/pathTools.cpp
 libContentManager_la_CXXFLAGS=$(LIBXUL_CFLAGS) $(LIBZIM_CFLAGS) $(LIBPUGIXML_CFLAGS) $(XPCOM_CFLAGS) -D GECKO_VERSION=$(GECKO_VERSION) -I$(top_srcdir)/src/common/
 if IS_OSX
 libContentManager_la_LDFLAGS=$(LIBXUL_LDFLAGS) $(LIBZIM_STATIC_LDFLAGS) $(LIBZIMSELF_STATIC_LDFLAGS) $(LIBPUGIXML_STATIC_LDFLAGS) $(XPCOM_LDFLAGS)
