@@ -166,8 +166,8 @@ NS_IMETHODIMP ContentManager::AddBookFromPath(const nsAString &path, PRBool *ret
   *retVal = PR_TRUE;
   bool returnValue = true;
 
-  const char *pathToOpen = nsStringToCString(path);
-  const char *pathToSave = nsStringToUTF8(path);
+  const char *pathToOpen = strdup(nsStringToCString(path));
+  const char *pathToSave = strdup(nsStringToUTF8(path));
 
   try {
     returnValue = this->manager.addBookFromPath(pathToOpen, pathToSave);
@@ -177,6 +177,9 @@ NS_IMETHODIMP ContentManager::AddBookFromPath(const nsAString &path, PRBool *ret
   }
 
   *retVal = (returnValue ? PR_TRUE : PR_FALSE);
+
+  free((void*)pathToOpen);
+  free((void*)pathToSave);
 
   return NS_OK;
 }
