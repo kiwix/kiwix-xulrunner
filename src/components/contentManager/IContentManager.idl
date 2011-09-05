@@ -20,8 +20,8 @@ interface IContentManager : nsISupports
   boolean setCurrentBookId(in ACString id);
   boolean getCurrentBookId(out ACString id);
   boolean getListNextBookId(out ACString id);
-  boolean setBookIndex(in ACString id, in AUTF8String unixIndexPath, in ACString winIndexPath, in ACString indexType);
-  boolean setBookPath(in ACString id, in AUTF8String unixPath, in ACString winPath);
+  boolean setBookIndex(in ACString id, in AString path, in ACString indexType);
+  boolean setBookPath(in ACString id, in AString path);
   boolean updateBookLastOpenDateById(in ACString id);
   boolean listBooks(in ACString mode);
   boolean getBookCount(in PRBool localBooks, in PRBool remoteBooks, out PRUint32 count);

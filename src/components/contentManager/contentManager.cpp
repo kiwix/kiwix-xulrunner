@@ -358,21 +358,14 @@ NS_IMETHODIMP ContentManager::GetListNextBookId(nsACString &id, PRBool *retVal) 
   return NS_OK;
 }
 
-NS_IMETHODIMP ContentManager::SetBookIndex(const nsACString &id, const nsACString &unixIndexPath, 
-					   const nsACString &winIndexPath, const nsACString &indexType, PRBool *retVal) {
+NS_IMETHODIMP ContentManager::SetBookIndex(const nsACString &id, const nsAString &path, const nsACString &indexType, PRBool *retVal) {
   *retVal = PR_FALSE;
 
   const char *cid;
   NS_CStringGetData(id, &cid);
   const char *cindexType;
   NS_CStringGetData(indexType, &cindexType);
-
-  const char *cindexPath;
-#ifdef _WIN32
-  NS_CStringGetData(winIndexPath, &cindexPath);
-#else
-  NS_CStringGetData(unixIndexPath, &cindexPath);
-#endif
+  const char *pathToSave = strdup(nsStringToUTF8(path));
 
   try {
     kiwix::supportedIndexType iType;
@@ -382,37 +375,35 @@ NS_IMETHODIMP ContentManager::SetBookIndex(const nsACString &id, const nsACStrin
       iType = kiwix::XAPIAN;
     }
 
-    if (this->manager.setBookIndex(cid, cindexPath, iType)) {
+    if (this->manager.setBookIndex(cid, pathToSave, iType)) {
       *retVal = PR_TRUE;
     }
   } catch (exception &e) {
     cerr << e.what() << endl;
   }
   
+  free((void*)pathToSave);
+
   return NS_OK;
 }
 
-NS_IMETHODIMP ContentManager::SetBookPath(const nsACString &id, const nsACString &unixPath, 
-					  const nsACString &winPath, PRBool *retVal) {
+NS_IMETHODIMP ContentManager::SetBookPath(const nsACString &id, const nsAString &path, PRBool *retVal) {
   *retVal = PR_FALSE;
+
   const char *cid;
   NS_CStringGetData(id, &cid);
+  const char *pathToSave = strdup(nsStringToUTF8(path));
 
-  const char *cPath;
-#ifdef _WIN32
-  NS_CStringGetData(winPath, &cPath);
-#else
-  NS_CStringGetData(unixPath, &cPath);
-#endif
-  
   try {
-    if (this->manager.setBookPath(cid, cPath)) {
+    if (this->manager.setBookPath(cid, pathToSave)) {
       *retVal = PR_TRUE;
     }
   } catch (exception &e) {
     cerr << e.what() << endl;
   }
   
+  free((void*)pathToSave);
+
   return NS_OK;
 }
 

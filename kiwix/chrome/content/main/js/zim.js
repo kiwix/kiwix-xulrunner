@@ -16,7 +16,7 @@ function openZimFile(path) {
 	return;
     }
 
-    if (isFile(file.path) && zimAccessor.loadFile(path)) {
+    if (isFile(file.path) && zimAccessor.loadFile(file.path)) {
 	currentZimAccessor = zimAccessor;
 	return currentZimAccessor;
     }

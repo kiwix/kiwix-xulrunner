@@ -182,7 +182,14 @@ let library = {
 
     /* Set the index information for a book */
     setBookIndex: function(id, indexPath, indexType) {
-    	if (this.contentManager.setBookIndex(id, indexPath, indexType, indexType)) {
+	/* Create the file descriptor */
+	var fileDescriptor = this.openFile(indexPath);
+
+	/* Return if !fileDescriptor */
+	if (!fileDescriptor)
+	   return false;
+
+    	if (this.contentManager.setBookIndex(id, fileDescriptor.path, indexType, indexType)) {
 	   this.writeToFile();
 	   return true;
 	}
@@ -190,7 +197,14 @@ let library = {
     },
 
     setBookPath: function(id, path) {
-    	if (this.contentManager.setBookPath(id, path, path)) {
+	/* Create the file descriptor */
+	var fileDescriptor = this.openFile(path);
+
+	/* Return if !fileDescriptor */
+	if (!fileDescriptor)
+	   return false;
+
+    	if (this.contentManager.setBookPath(id, fileDescriptor.path)) {
 	   this.writeToFile();
 	   return true;
 	}
