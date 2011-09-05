@@ -18,8 +18,12 @@ libZimCluceneIndexer_la_SOURCES= \
 	$(top_srcdir)/src/common/kiwix/indexer.h \
 	$(top_srcdir)/src/common/kiwix/cluceneIndexer.h
 libZimCluceneIndexer_la_CXXFLAGS=$(LIBXUL_CFLAGS) $(LIBXAPIAN_CFLAGS) $(LIBCLUCENE_CFLAGS) $(LIBICU_CFLAGS) $(LIBZIM_CFLAGS) $(XPCOM_CFLAGS) -D GECKO_VERSION=$(GECKO_VERSION) -I$(top_srcdir)/src/common/
+if IS_STATIC
+libZimCluceneIndexer_la_LDFLAGS=$(LIBXUL_LDFLAGS) $(LIBCLUCENE_STATIC_LDFLAGS) $(LIBXAPIAN_STATIC_LDFLAGS) $(LIBICU_STATIC_LDFLAGS) $(LIBZIMSELF_STATIC_LDFLAGS) $(LIBLZMA_STATIC_LDFLAGS) $(XPCOM_LDFLAGS)
+else
 libZimCluceneIndexer_la_LDFLAGS=$(LIBXUL_LDFLAGS) $(LIBXAPIAN_LDFLAGS) $(LIBCLUCENE_LDFLAGS) $(LIBICU_LDFLAGS) $(LIBZIM_LDFLAGS) $(XPCOM_LDFLAGS)
 libZimCluceneIndexer_la_LIBADD=$(top_builddir)/src/zimlib/src/libzim.la
+endif
 EXTRA_DIST=IZimCluceneIndexer.idl
 BUILT_SOURCES=zimCluceneIndexer.xpt IZimCluceneIndexer.h
 CLEANFILES=zimCluceneIndexer.xpt IZimCluceneIndexer.h *.lib *.obj *.dll

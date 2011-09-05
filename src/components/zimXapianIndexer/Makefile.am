@@ -18,12 +18,15 @@ libZimXapianIndexer_la_SOURCES= \
 	$(top_srcdir)/src/common/kiwix/indexer.h \
 	$(top_srcdir)/src/common/kiwix/xapianIndexer.h
 libZimXapianIndexer_la_CXXFLAGS=$(LIBXUL_CFLAGS) $(LIBXAPIAN_CFLAGS) $(LIBICU_CFLAGS) $(LIBZIM_CFLAGS) $(XPCOM_CFLAGS) -D GECKO_VERSION=$(GECKO_VERSION) -I$(top_srcdir)/src/common/
-if IS_OSX
-libZimXapianIndexer_la_CXXFLAGS += -I/opt/local/include
-libZimXapianIndexer_la_LDFLAGS=$(LIBXUL_LDFLAGS) $(LIBXAPIAN_STATIC_LDFLAGS) $(LIBICU_STATIC_LDFLAGS) $(LIBZIM_STATIC_LDFLAGS) $(LIBZIMSELF_STATIC_LDFLAGS) $(XPCOM_LDFLAGS) 
+if IS_STATIC
+libZimXapianIndexer_la_LDFLAGS=$(LIBXUL_LDFLAGS) $(LIBXAPIAN_STATIC_LDFLAGS) $(LIBICU_STATIC_LDFLAGS) $(LIBZIMSELF_STATIC_LDFLAGS) $(LIBLZMA_STATIC_LDFLAGS) $(XPCOM_LDFLAGS) 
 else
 libZimXapianIndexer_la_LDFLAGS=$(LIBXUL_LDFLAGS) $(LIBXAPIAN_LDFLAGS) $(LIBICU_LDFLAGS) $(LIBZIM_LDFLAGS) $(XPCOM_LDFLAGS) 
 libZimXapianIndexer_la_LIBADD=$(top_builddir)/src/zimlib/src/libzim.la
+endif
+if IS_OSX
+libZimXapianIndexer_la_CXXFLAGS += -I/opt/local/include
+libZimXapianIndexer_la_LDFLAGS=$(LIBXUL_LDFLAGS) $(LIBXAPIAN_STATIC_LDFLAGS) $(LIBICU_STATIC_LDFLAGS) $(LIBZIM_STATIC_LDFLAGS) $(LIBZIMSELF_STATIC_LDFLAGS) $(XPCOM_LDFLAGS) 
 endif
 EXTRA_DIST=IZimXapianIndexer.idl
 BUILT_SOURCES=zimXapianIndexer.xpt IZimXapianIndexer.h

@@ -360,6 +360,8 @@ else
 	# pugixml
 	LIBPUGIXML_STATIC_LDFLAGS="${CURRENT_PATH}/src/pugixml/.libs/libpugixml.a"
 
+    LIBCLUCENE_STATIC_LDFLAGS="/usr/lib/libclucene.a"
+
 #	-Bstatic -lzim -lz -lzma -Wl,-Bdynamic
 
 	# Xapian part

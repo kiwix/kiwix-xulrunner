@@ -18,11 +18,14 @@ libContentManager_la_SOURCES= \
 	$(top_srcdir)/src/common/pathTools.h \
 	$(top_srcdir)/src/common/pathTools.cpp
 libContentManager_la_CXXFLAGS=$(LIBXUL_CFLAGS) $(LIBZIM_CFLAGS) $(LIBPUGIXML_CFLAGS) $(XPCOM_CFLAGS) -D GECKO_VERSION=$(GECKO_VERSION) -I$(top_srcdir)/src/common/
-if IS_OSX
-libContentManager_la_LDFLAGS=$(LIBXUL_LDFLAGS) $(LIBZIM_STATIC_LDFLAGS) $(LIBZIMSELF_STATIC_LDFLAGS) $(LIBPUGIXML_STATIC_LDFLAGS) $(XPCOM_LDFLAGS)
+if IS_STATIC
+libContentManager_la_LDFLAGS=$(LIBXUL_LDFLAGS) $(LIBZIM_STATIC_LDFLAGS) $(LIBZIMSELF_STATIC_LDFLAGS) $(LIBPUGIXML_STATIC_LDFLAGS) $(LIBLZMA_STATIC_LDFLAGS) $(XPCOM_LDFLAGS)
 else
 libContentManager_la_LDFLAGS=$(LIBXUL_LDFLAGS) $(LIBZIM_LDFLAGS) $(LIBPUGIXML_LDFLAGS) $(XPCOM_LDFLAGS)
 libContentManager_la_LIBADD=$(top_builddir)/src/zimlib/src/libzim.la $(top_builddir)/src/pugixml/libpugixml.la
+endif
+if IS_OSX
+libContentManager_la_LDFLAGS=$(LIBXUL_LDFLAGS) $(LIBZIM_STATIC_LDFLAGS) $(LIBZIMSELF_STATIC_LDFLAGS) $(LIBPUGIXML_STATIC_LDFLAGS) $(XPCOM_LDFLAGS)
 endif
 EXTRA_DIST=IContentManager.idl
 BUILT_SOURCES=contentManager.xpt IContentManager.h
