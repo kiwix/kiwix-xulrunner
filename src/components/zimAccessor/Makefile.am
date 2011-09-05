@@ -7,7 +7,9 @@ libZimAccessor_la_SOURCES= \
 	zimAccessor.cpp \
 	$(top_srcdir)/src/common/kiwix/reader.cpp \
 	IZimAccessor.h \
-	$(top_srcdir)/src/common/kiwix/reader.h
+	$(top_srcdir)/src/common/kiwix/reader.h \
+	$(top_srcdir)/src/common/pathTools.h \
+	$(top_srcdir)/src/common/pathTools.cpp
 libZimAccessor_la_CXXFLAGS=$(LIBXUL_CFLAGS) $(LIBZIM_CFLAGS) $(XPCOM_CFLAGS) -D GECKO_VERSION=$(GECKO_VERSION) -I../../common/
 if IS_OSX
 libZimAccessor_la_LDFLAGS=$(LIBXUL_LDFLAGS) $(LIBZIM_STATIC_LDFLAGS) $(LIBZIMSELF_STATIC_LDFLAGS) $(XPCOM_LDFLAGS)

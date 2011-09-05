@@ -54,6 +54,7 @@
 #include "nsDirectoryServiceDefs.h"
 
 #include <kiwix/reader.h>
+#include <pathTools.h>
 
 class ZimAccessor : public IZimAccessor {
 
@@ -85,18 +86,9 @@ ZimAccessor::~ZimAccessor() {
   }
 }
 
-NS_IMETHODIMP ZimAccessor::LoadFile(nsILocalFile *file, PRBool *retVal) {
+NS_IMETHODIMP ZimAccessor::LoadFile(const nsAString &path, PRBool *retVal) {
   *retVal = PR_TRUE;
-  nsString path;
-  file->GetPath(path);
-
-#ifdef _WIN32
-  nsACString pathUTF8;
-  CopyUTF16toUTF8(path, pathUTF8);
-  const char *cPath = ToNewUTF8String(pathUTF8); 
-#else
-  const char *cPath = ToNewUTF8String(path); 
-#endif
+  const char *cPath = nsStringToCString(path);  
 
   /* Instanciate the ZIM file handler */
   try {
