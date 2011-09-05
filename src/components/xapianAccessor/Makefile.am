@@ -29,7 +29,7 @@ BUILT_SOURCES=xapianAccessor.xpt IXapianAccessor.h
 CLEANFILES=xapianAccessor.xpt IXapianAccessor.h *.lib *.obj *.dll
 
 xapianAccessor.xpt: 
-	$(XPIDL) -m typelib -o xapianAccessor -I $(GECKO_IDL_PATH) $(top_srcdir)/src/components/xapianAccessor/IXapianAccessor.idl
+	$(XPIDL_PATH) -m typelib -o xapianAccessor -I $(GECKO_IDL_PATH) $(top_srcdir)/src/components/xapianAccessor/IXapianAccessor.idl
 
 IXapianAccessor.h:
-	$(XPIDL) -m header -I $(GECKO_IDL_PATH) $(top_srcdir)/src/components/xapianAccessor/IXapianAccessor.idl
+	$(XPIDL_PATH) -m header -I $(GECKO_IDL_PATH) $(top_srcdir)/src/components/xapianAccessor/IXapianAccessor.idl
