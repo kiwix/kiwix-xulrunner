@@ -4,6 +4,7 @@ var aria2Process = null;
 var jobTimer = null;
 var downloader = new Worker("js/downloader.js");
 var aria2StartCount = 0;
+var downloadsResumed = false;
 var _oldWindowTitle = "";
 
 downloader.onmessage = function(event) {
@@ -19,8 +20,6 @@ downloader.onmessage = function(event) {
 	    library.readFromText(xml, false);
 	    if (message.parameters[1])
 		populateRemoteBookList();
-	    if (message.parameters[2])
-		resumeDownloads();
 	    if (oldRemoteBookCount < library.getRemoteBookCount() && 
 		displayConfirmDialog("They are new content available for download, do you want to see them?")) {
 		showRemoteBooks();
@@ -35,7 +34,7 @@ downloader.onerror = function(message) {
 function addMetalink(id, metalinkContent) {
     /* Make a cache if necessary */
     if (!isFile(appendToPath(settings.getRootPath(), id + ".metalink")))
-	writeFile(appendToPath(settings.getRootPath(), id + ".metalink"), metalinkContent);
+    	writeFile(appendToPath(settings.getRootPath(), id + ".metalink"), metalinkContent);
 
     /* Tell aria2c to start the download */
     var param = new xmlrpcval(metalinkContent, "base64");
@@ -77,9 +76,11 @@ function checkDownloader() {
 	    if (aria2StartCount > 0) {
 		args = [ "--enable-xml-rpc", "--xml-rpc-listen-port=42042", "--dir=" + settings.getRootPath(), "--log=" + getDownloaderLogPath(), "--allow-overwrite=true", "--disable-ipv6=true", "--quiet=true", "--always-resume=true", "--max-concurrent-downloads=42", "--xml-rpc-max-request-size=6M" ];
 	    }
-
+	    
 	    startDownloader(args);
 	}
+    } else if (!downloadsResumed && library.getRemoteBookCount() > 0) {
+	resumeDownloads();
     }
 }
 
@@ -215,7 +216,9 @@ function getDownloadStatus() {
     if (kiwixDownloadsCount > 0 && aria2Process != null) {
 	var ariaMessage = new xmlrpcmsg("aria2.tellActive");
 	ariaResponse = aria2Client.send(ariaMessage);
-	ariaDownloadsCount = ariaResponse.val.arraySize();
+	if (typeof ariaResponse.val == "object") {
+	    ariaDownloadsCount = ariaResponse.val.arraySize();
+	}
     }
 
     /* Get through all known downloads */
@@ -413,7 +416,7 @@ function manageResumeDownload(id) {
     if (gid != undefined) {
 	var downloadStatusLabel = document.getElementById("download-status-label-" + id);
 	downloadStatusLabel.setAttribute("value", "Resuming download...");
-
+	
 	if (getAriaDownloadStatus(gid) == "paused") {
 	    resumeDownload(gid);
 	} else {
@@ -749,6 +752,8 @@ function resumeDownloads() {
 	    managePauseDownload(download.id);
 	}
     }
+
+    downloadsResumed = true;
 }
 
 function selectLibraryMenu(menuItemId) {
