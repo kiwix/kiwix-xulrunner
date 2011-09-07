@@ -94,8 +94,10 @@ aria2/bin/aria2c: aria2.pkg
 xz/src/liblzma/.libs/liblzma.a: xz.tar.bz2
 if IS_OSX
 	lzma_conf_extra="--with-libiconv-prefix=/opt/local --with-libintl-prefix=/opt/local --disable-assembler"
+	cd xz; export CFLAGS=" -fPIC " ; ./configure $(lzma_conf_extra); make
+else
+	cd xz; ./configure ; make
 endif
-	cd xz; export CFLAGS=" -fPIC " ; ./configure $(lzma_conf_extra); make 
 
 xz/windows/liblzma.lib: xz.tar.bz2
 	cd xz/windows ; make liblzma
