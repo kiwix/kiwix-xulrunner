@@ -1,0 +1,5 @@
+#! /bin/sh
+
+WIKIPATH=/opt/wikipedia
+WIKINAME=wikipedia_en_wp1_0.7_30000+_05_2009_beta3
+DAEMON_ARGS="--index=$WIKIPATH/$WIKINAME.idx --port=80 --daemon $WIKIPATH/$WIKINAME.zim"
