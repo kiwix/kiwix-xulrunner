@@ -12,8 +12,11 @@ SUBDIRS = ${DEPENDENCES} \
 	ctpp2 \
 	pugixml \
 	components \
-	indexer \
-	searcher \
 	server \
-	manager 
+	manager
+if IS_STATIC
+else
+SUBDIRS += indexer \
+	searcher
+endif
 endif

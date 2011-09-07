@@ -339,9 +339,9 @@ else
 	LIBZ_STATIC_LDFLAGS="${CURRENT_PATH}/src/dependences/zlib-1.2.3/libz.a"
 
 	# liblzma
-	LIBLZMA_CFLAGS="-I${CURRENT_PATH}/src/dependences/xz-4.999.9beta/src/liblzma/api/"
-	LIBLZMA_LDFLAGS="-L${CURRENT_PATH}/src/dependences/xz-4.999.9beta/src/liblzma/.libs/ -Bstatic -llzma"
-	LIBLZMA_STATIC_LDFLAGS="${CURRENT_PATH}/src/dependences/xz-4.999.9beta/src/liblzma/.libs/liblzma.a"
+	LIBLZMA_CFLAGS="-I${CURRENT_PATH}/src/dependences/xz/src/liblzma/api/"
+	LIBLZMA_LDFLAGS="-L${CURRENT_PATH}/src/dependences/xz/src/liblzma/.libs/ -Bstatic -llzma"
+	LIBLZMA_STATIC_LDFLAGS="${CURRENT_PATH}/src/dependences/xz/src/liblzma/.libs/liblzma.a"
 
 	# libxapian
 	LIBXAPIAN_CFLAGS="-I${CURRENT_PATH}/src/dependences/xapian-core-1.2.3/include/";
@@ -391,6 +391,7 @@ LIBZIMSELF_STATIC_LDFLAGS="${CURRENT_PATH}/src/zimlib/src/.libs/libzim.a"
 LIBCTPP2_CFLAGS="-I${CURRENT_PATH}/src/ctpp2/include"
 LIBCTPP2_LDFLAGS=""
 LIBCTPP2_STATIC_LDFLAGS="${CURRENT_PATH}/src/ctpp2/src/.libs/libctpp2.a"
+LIBMICROHTTPD_STATIC_LDFLAGS="/usr/lib/libmicrohttpd.a"
 AC_DEFINE_UNQUOTED(CLUSTER_CACHE_SIZE, 16, [set zim cluster cache size to number of cached chunks])
 AC_DEFINE_UNQUOTED(DIRENT_CACHE_SIZE, 512, [set zim dirent cache size to number of cached chunks])
 AC_DEFINE_UNQUOTED(LZMA_MEMORY_SIZE, 128, [set lzma uncompress memory size to number of MB])
@@ -452,6 +453,7 @@ AC_SUBST(LIBCTPP2_LDFLAGS)
 AC_SUBST(LIBCTPP2_STATIC_LDFLAGS)
 AC_SUBST(LIBMICROHTTPD_CFLAGS)
 AC_SUBST(LIBMICROHTTPD_LDFLAGS)
+AC_SUBST(LIBMICROHTTPD_STATIC_LDFLAGS)
 AC_SUBST(ESCAPED_PREFIX)
 AC_SUBST(BINDIST_INTRO_MESSAGE)
 AC_SUBST(DEPENDENCES)
