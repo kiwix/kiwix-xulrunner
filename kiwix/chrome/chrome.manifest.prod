@@ -6,10 +6,12 @@ content static static/
 #locale packagename localename uri/to/files/ [flags]
 locale main ar    jar:locale.jar!/locale/ar/main/
 locale main ast   jar:locale.jar!/locale/ast/main/
+locale main bn    jar:locale.jar!/locale/bn/main/
 locale main ca    jar:locale.jar!/locale/ca/main/
 locale main da    jar:locale.jar!/locale/da/main/
 locale main de    jar:locale.jar!/locale/de/main/
 locale main en    jar:locale.jar!/locale/en/main/
+locale main eo    jar:locale.jar!/locale/eo/main/
 locale main es    jar:locale.jar!/locale/es/main/
 locale main fa	  jar:locale.jar!/locale/fa/main/
 locale main fi	  jar:locale.jar!/locale/fi/main/
@@ -18,8 +20,9 @@ locale main gl    jar:locale.jar!/locale/gl/main/
 locale main gsw   jar:locale.jar!/locale/gsw/main/
 locale main he    jar:locale.jar!/locale/he/main/
 locale main hu    jar:locale.jar!/locale/hu/main/
-locale main it    jar:locale.jar!/locale/it/main/
 locale main ia    jar:locale.jar!/locale/ia/main/
+locale main it    jar:locale.jar!/locale/it/main/
+locale main ja    jar:locale.jar!/locale/ja/main/
 locale main mk    jar:locale.jar!/locale/mk/main/
 locale main ml    jar:locale.jar!/locale/ml/main/
 locale main ms    jar:locale.jar!/locale/ms/main/
@@ -28,16 +31,19 @@ locale main no    jar:locale.jar!/locale/no/main/
 locale main pl    jar:locale.jar!/locale/pl/main/
 locale main pt    jar:locale.jar!/locale/pt/main/
 locale main ro    jar:locale.jar!/locale/ro/main/
+locale main ru    jar:locale.jar!/locale/ru/main/
 locale main sl    jar:locale.jar!/locale/sl/main/
 locale main sv    jar:locale.jar!/locale/sv/main/
 locale main zh	  jar:locale.jar!/locale/zh/main/
 
 locale branding ar    jar:locale.jar!/locale/branding/
 locale branding ast   jar:locale.jar!/locale/branding/
+locale branding bn    jar:locale.jar!/locale/branding/
 locale branding ca    jar:locale.jar!/locale/branding/
 locale branding da    jar:locale.jar!/locale/branding/
 locale branding de    jar:locale.jar!/locale/branding/
 locale branding en    jar:locale.jar!/locale/branding/
+locale branding eo    jar:locale.jar!/locale/branding/
 locale branding es    jar:locale.jar!/locale/branding/
 locale branding fa    jar:locale.jar!/locale/branding/
 locale branding fi    jar:locale.jar!/locale/branding/
@@ -47,6 +53,7 @@ locale branding he    jar:locale.jar!/locale/branding/
 locale branding hu    jar:locale.jar!/locale/branding/
 locale branding ia    jar:locale.jar!/locale/branding/
 locale branding it    jar:locale.jar!/locale/branding/
+locale branding ja    jar:locale.jar!/locale/branding/
 locale branding mk    jar:locale.jar!/locale/branding/
 locale branding ml    jar:locale.jar!/locale/branding/
 locale branding ms    jar:locale.jar!/locale/branding/
@@ -55,6 +62,7 @@ locale branding no    jar:locale.jar!/locale/branding/
 locale branding pl    jar:locale.jar!/locale/branding/
 locale branding pt    jar:locale.jar!/locale/branding/
 locale branding ro    jar:locale.jar!/locale/branding/
+locale branding ru    jar:locale.jar!/locale/branding/
 locale branding sv    jar:locale.jar!/locale/branding/
 locale branding sl    jar:locale.jar!/locale/branding/
 locale branding zh    jar:locale.jar!/locale/branding/

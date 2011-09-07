@@ -8,14 +8,17 @@ var _firstSideBar	    = true;
 
 var _languagesHash          = Array();
 _languagesHash['ast']       = "Asturianu";
+_languagesHash['bn']        = "বাংলা";
 _languagesHash['de']        = "Deutsch";
 _languagesHash['fr']        = "Français";
 _languagesHash['da']        = "Dansk";
 _languagesHash['en']        = "English";
 _languagesHash['zh']        = "中文";
+_languagesHash['eo']        = "Esperanto";
 _languagesHash['es']        = "Español";
 _languagesHash['ia']        = "Interlingua";
 _languagesHash['it']        = "Italiano";
+_languagesHash['ja']        = "日本語";
 _languagesHash['ar']        = "العربية";
 _languagesHash['fa']        = "فارسی";
 _languagesHash['fi']        = "Suomi";
@@ -32,6 +35,7 @@ _languagesHash['nl']        = "Nederlands";
 _languagesHash['no']        = "Norsk (bokmål)";
 _languagesHash['ml']        = "മലയാളം";
 _languagesHash['ro']        = "Română";
+_languagesHash['ru']        = "Русский";
 _languagesHash['sl']        = "Slovenščina";
 _languagesHash['sv']        = "Svenska";
 

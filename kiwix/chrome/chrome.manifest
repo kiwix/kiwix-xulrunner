@@ -6,10 +6,12 @@ content static static/
 #locale packagename localename uri/to/files/ [flags]
 locale main ar    locale/ar/main/
 locale main ast   locale/ast/main/
+locale main bn    locale/bn/main/
 locale main ca    locale/ca/main/
 locale main da    locale/da/main/
 locale main de    locale/de/main/
 locale main en    locale/en/main/
+locale main eo    locale/eo/main/
 locale main es    locale/es/main/
 locale main fa	  locale/fa/main/
 locale main fi	  locale/fi/main/
@@ -20,6 +22,7 @@ locale main he    locale/he/main/
 locale main hu    locale/hu/main/
 locale main ia    locale/ia/main/
 locale main it    locale/it/main/
+locale main ja    locale/ja/main/
 locale main mk    locale/mk/main/
 locale main ml    locale/ml/main/
 locale main ms    locale/ms/main/
@@ -28,16 +31,19 @@ locale main nl    locale/nl/main/
 locale main pl    locale/pl/main/
 locale main pt    locale/pt/main/
 locale main ro    locale/ro/main/
+locale main ru    locale/ru/main/
 locale main sl    locale/sl/main/
 locale main sv    locale/sv/main/
 locale main zh	  locale/zh/main/
 
 locale branding ar    locale/branding/
 locale branding ast   locale/branding/
+locale branding bn    locale/branding/
 locale branding ca    locale/branding/
 locale branding da    locale/branding/
 locale branding de    locale/branding/
 locale branding en    locale/branding/
+locale branding eo    locale/branding/
 locale branding es    locale/branding/
 locale branding fa    locale/branding/
 locale branding fi    locale/branding/
@@ -48,6 +54,7 @@ locale branding he    locale/branding/
 locale branding hu    locale/branding/
 locale branding ia    locale/branding/
 locale branding it    locale/branding/
+locale branding ja    locale/branding/
 locale branding mk    locale/branding/
 locale branding ml    locale/branding/
 locale branding ms    locale/branding/
@@ -56,6 +63,7 @@ locale branding no    locale/branding/
 locale branding pl    locale/branding/
 locale branding pt    locale/branding/
 locale branding ro    locale/branding/
+locale branding ru    locale/branding/
 locale branding sl    locale/branding/
 locale branding sv    locale/branding/
 locale branding zh    locale/branding/

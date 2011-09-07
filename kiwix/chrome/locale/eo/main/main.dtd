@@ -1,0 +1,111 @@
+<!-- Window -->
+<!ENTITY main.title                     "&brand.brandShortName;">
+<!ENTITY main.cssdirection              "ltr">
+
+<!-- File menu -->
+<!ENTITY main.file                      "Dosiero">
+<!ENTITY main.file.accesskey            "F">
+<!ENTITY main.openFile                  "Malfermi dosieron...">
+<!ENTITY main.openFile.accesskey        "O">
+<!ENTITY main.lastOpen                  "Freŝe malfermitaj...">
+<!ENTITY main.saveFile                  "Konservi paĝon kiel...">
+<!ENTITY main.saveFile.accesskey        "S">
+<!ENTITY main.print                     "Presi">
+<!ENTITY main.print.accesskey           "P">
+<!ENTITY main.printPdf                  "Presi kiel PDF">
+<!ENTITY main.printPdf.accesskey        "D">
+<!ENTITY main.quit                      "Eliri">
+<!ENTITY main.quit.accesskey            "Q">
+
+<!-- Edit menu -->
+<!ENTITY main.edit                      "Redakti">
+<!ENTITY main.edit.accesskey            "E">
+<!ENTITY main.find                      "Serĉi en paĝo">
+<!ENTITY main.find.accesskey            "S">
+<!ENTITY main.selectall                 "Elekti ĉiujn">
+<!ENTITY main.selectall.accesskey       "a">
+<!ENTITY main.copy                      "Kopii">
+<!ENTITY main.copy.accesskey            "p">
+<!ENTITY main.transliteration           "Transliterumado">
+<!ENTITY main.transliteration.accesskey "T">
+<!ENTITY main.preferences               "Agordoj">
+<!ENTITY main.preferences.accesskey     "n">
+
+<!-- Display menu -->
+<!ENTITY main.display                   "Montri">
+<!ENTITY main.display.accesskey         "D">
+<!ENTITY main.zoom                      "Pligrandigilo">
+<!ENTITY main.zoom.accesskey            "Z">
+<!ENTITY main.zoomin                    "Pligrandigi">
+<!ENTITY main.zoomin.accesskey          "M">
+<!ENTITY main.zoomout                   "Malpligrandigi">
+<!ENTITY main.zoomout.accesskey         "R">
+<!ENTITY main.zoomorig                  "Origina grando">
+<!ENTITY main.zoomorig.accesskey        "O">
+<!ENTITY main.language                  "Lingvo">
+<!ENTITY main.language.accesskey        "L">
+<!ENTITY main.skin                      "Etoso">
+<!ENTITY main.skin.accesskey            "S">
+<!ENTITY main.statusbar                 "Statbreto">
+<!ENTITY main.statusbar.accesskey       "S">
+<!ENTITY main.resultsbar                "Rezultbreto">
+<!ENTITY main.resultsbar.accesskey      "R">
+<!ENTITY main.tabs                      "Langetoj">
+<!ENTITY main.tabs.accesskey            "T">
+<!ENTITY main.fullscreen                "Plenekrane">
+<!ENTITY main.fullscreen.accesskey      "F">
+
+<!-- Tools menu -->
+<!ENTITY main.tools                     "Iloj">
+<!ENTITY main.tools.accesskey           "T">
+<!ENTITY main.randomArticle             "Hazarda artikolo">
+<!ENTITY main.randomArticle.accesskey   "R">
+<!ENTITY main.checkIntegrity            "Integreca kontrolo">
+<!ENTITY main.checkIntegrity.accesskey  "k">
+<!ENTITY main.purgeHistory              "Vakigi kronologion">
+<!ENTITY main.purgeHistory.accesskey    "P">
+
+<!-- Help menu -->
+<!ENTITY main.help                      "Helpo">
+<!ENTITY main.help.accesskey            "H">
+<!ENTITY main.reportabug                "Raporti cimon">
+<!ENTITY main.requestafeature           "Peti pri trajto">
+<!ENTITY main.about                     "Pri &brand.brandShortName;">
+<!ENTITY main.about.accesskey           "A">
+
+<!-- Tool bar -->
+<!ENTITY main.back                      "Reen">
+<!ENTITY main.forward                   "Antaŭen">
+<!ENTITY main.home                      "Hejmo">
+<!ENTITY main.searchBar                 "Serĉbreto">
+<!ENTITY main.search                    "Serĉi">
+<!ENTITY main.findInText                "Trovi en teksto">
+<!ENTITY main.noSearchBar               "Serĉo petas indeksitan ZIM-dosieron">
+<!ENTITY main.bookmarks                 "Legosignoj">
+
+<!-- Results bar -->
+<!ENTITY main.results.title             "Serĉrezultoj">
+
+<!-- Bookmarks Bar -->
+<!ENTITY main.bmkLabel                  "Legosignoj:">
+<!ENTITY main.notesLabel                "Notoj pri legosignoj:">
+<!ENTITY main.loadbmk                   "Importi legosignaron">
+<!ENTITY main.newbmk                    "Krei novan legosignaron">
+<!ENTITY main.mark                      "Marki ĉi tiun paĝon">
+<!ENTITY main.unmark                    "Malmarki elektitajn">
+<!ENTITY main.reload                    "Reŝarĝi legosignaron">
+<!ENTITY main.defaultset                "Apriora aro">
+
+<!-- Contextual Menu -->
+<!ENTITY main.saveImageAs               "Konservi bildon kiel...">
+
+<!-- About Window -->
+<!ENTITY main.close           		"Fermi">
+
+<!-- Preferences Window -->
+<!ENTITY preferences.preferences        "Preferences">
+<!ENTITY preferences.save      		"Save">
+<!ENTITY preferences.cancel     	"Cancel">
+<!ENTITY preferences.profileDirectory  	"Profile directory">
+<!ENTITY preferences.browse  	        "Browse">
+
