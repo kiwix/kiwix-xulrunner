@@ -15,6 +15,8 @@ done.
   necessary libraries are installed. You may get more information by
   running ./configure --help
 
+* Use ./configure --without-dependences to compile a static version
+
 * make to compile kiwix
 
 * make install to install it on the system

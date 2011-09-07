@@ -15,6 +15,7 @@ Kiwix 0.9 beta3
 * Now possible to open ZIM file with accented paths on Windows (ID: 3107895)
 * New keyboard shortcuts to deal with bookmarks
 * Add arrow keys handling to navigate in the content manager (ID: 3389511)
+* Added static compilation of components for Linux.
 
 Kiwix 0.9 beta2
 * Regression fix, tabs should not be visible per default

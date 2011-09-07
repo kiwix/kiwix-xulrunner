@@ -352,9 +352,9 @@ else
 	# even in with-dep mode we don't get it
     if test [ ! "$IS_OSX" ]
     then
-	LIBICU_STATIC_LDFLAGS="/opt/local/lib/libicudata.a /opt/local/lib/libicui18n.a /opt/local/lib/libicuuc.a /opt/local/lib/libicuio.a /opt/local/lib/libicule.a /opt/local/lib/libiculx.a /opt/local/lib/libicutu.a /opt/local/lib/libicutest.a"
+	LIBICU_STATIC_LDFLAGS="/opt/local/lib/libicui18n.a /opt/local/lib/libicuuc.a /opt/local/lib/libicuio.a /opt/local/lib/libicule.a /opt/local/lib/libiculx.a /opt/local/lib/libicutu.a /opt/local/lib/libicutest.a /opt/local/lib/libicudata.a"
     else
-    LIBICU_STATIC_LDFLAGS="/usr/lib/libicudata.a /usr/lib/libicui18n.a /usr/lib/libicuuc.a /usr/lib/libicuio.a /usr/lib/libicule.a /usr/lib/libiculx.a /usr/lib/libicutu.a /usr/lib/libicutest.a"
+    LIBICU_STATIC_LDFLAGS="/usr/lib/libicui18n.a /usr/lib/libicuuc.a /usr/lib/libicuio.a /usr/lib/libicule.a /usr/lib/libiculx.a /usr/lib/libicutu.a /usr/lib/libicutest.a /usr/lib/libicudata.a"
     fi
 	
 	# pugixml
