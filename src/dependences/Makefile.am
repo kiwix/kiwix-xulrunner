@@ -43,11 +43,16 @@ xulrunner.dmg:
 	hdiutil detach /Volumes/XULRunner/
 
 xz.tar.bz2:
+if IS_OSX
 	wget -c http://download.kiwix.org/dev/xz-4.999.9beta.tar.bz2 -O xz.tar.bz2
 	tar -xf xz.tar.bz2
-if IS_OSX
+	mv xz-4.999.9beta xz
 	echo "patching liblzma for OSX"
-	cd xz-4.999.9beta ; patch -p0 < ../patches/xz-4.999.9beta-sysctl-darwin.patch ; patch -p0 < ../patches/xz-4.999.9beta-lzma-versioninfo.patch
+	cd xz ; patch -p0 < ../patches/xz-4.999.9beta-sysctl-darwin.patch ; patch -p0 < ../patches/xz-4.999.9beta-lzma-versioninfo.patch
+else
+	wget -c http://tukaani.org/xz/xz-5.0.3.tar.bz2 -O xz.tar.bz2
+	tar xf xz.tar.bz2
+	mv xz-5.0.3 xz
 endif
 
 # compile
@@ -86,17 +91,17 @@ aria2.pkg: aria2-1.10.9.dmg
 aria2/bin/aria2c: aria2.pkg
 	${CURRENT_PATH}/../maintenance_tools/unpkg.py aria2.pkg
 
-xz-4.999.9beta/src/liblzma/.libs/liblzma.a: xz.tar.bz2
+xz/src/liblzma/.libs/liblzma.a: xz.tar.bz2
 if IS_OSX
 	lzma_conf_extra="--with-libiconv-prefix=/opt/local --with-libintl-prefix=/opt/local --disable-assembler"
 endif
-	cd xz-4.999.9beta ; export CFLAGS=" -fPIC " ; ./configure $(lzma_conf_extra); make 
+	cd xz; export CFLAGS=" -fPIC " ; ./configure $(lzma_conf_extra); make 
 
-xz-4.999.9beta/windows/liblzma.lib: xz.tar.bz2
-	cd xz-4.999.9beta/windows ; make liblzma
-	cd xz-4.999.9beta/windows ; lib /def:liblzma.def /out:liblzma.lib /machine:ix86	
+xz/windows/liblzma.lib: xz.tar.bz2
+	cd xz/windows ; make liblzma
+	cd xz/windows ; lib /def:liblzma.def /out:liblzma.lib /machine:ix86	
 
-linux: zlib-1.2.3/libz.a xapian-core-1.2.3/.libs/libxapian.a xz-4.999.9beta/src/liblzma/.libs/liblzma.a xulrunner-sdk/bin/xulrunner
+linux: zlib-1.2.3/libz.a xapian-core-1.2.3/.libs/libxapian.a xz/src/liblzma/.libs/liblzma.a xulrunner-sdk/bin/xulrunner
 
 mac: linux xulrunner.dmg aria2/bin/aria2c
 
@@ -106,18 +111,18 @@ else
 all: linux
 endif
 
-win: zlib-1.2.3/zlib.lib xapian-core-1.2.3/win32/Release/libs/libunicode.lib icu.zip xz-4.999.9beta/windows/liblzma.lib xulrunner-sdk-win.zip xulrunner-win.zip
+win: zlib-1.2.3/zlib.lib xapian-core-1.2.3/win32/Release/libs/libunicode.lib icu.zip xz/windows/liblzma.lib xulrunner-sdk-win.zip xulrunner-win.zip
 
 # clean
 clean:
 	rm -rf zlib-1.2.3/libz.a zlib-1.2.3/libz.lib
 	rm -rf xapian-core-1.2.3/.libs/libxapian.a xapian-core-1.2.3/win32/Release/libs/libunicode.lib
-	rm -rf xz-4.999.9beta/src/liblzma/.libs/liblzma.a  xz-4.999.9beta/windows/liblzma.lib
+	rm -rf xz/src/liblzma/.libs/liblzma.a  xz/windows/liblzma.lib
 
 # distclean
 distclean:
 	rm -rf xapian-core.tar.gz xapian-win32.zip xapian-core-1.2.3 win32
-	rm -rf xz.tar.bz2 xz-4.999.9beta
+	rm -rf xz.tar.bz2 xz-4.999.9beta xz-5.0.3
 	rm -rf xulrunner-sdk-linux.tar.bz2
 	rm -rf xulrunner-sdk-win.zip xulrunner-sdk
 	rm -rf xulrunner-win.zip xulrunner
