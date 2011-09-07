@@ -1,5 +1,5 @@
 <!-- Window -->
-<!ENTITY main.title                     "קיוויקס">
+<!ENTITY main.title                     "&brand.brandShortName;">
 <!ENTITY main.cssdirection              "rtl">
 
 <!-- File menu -->
@@ -28,7 +28,7 @@
 <!ENTITY main.copy.accesskey            "p">
 <!ENTITY main.transliteration           "תעתיק">
 <!ENTITY main.transliteration.accesskey "T">
-<!ENTITY main.preferences               "Preferences">
+<!ENTITY main.preferences               "העדפות">
 <!ENTITY main.preferences.accesskey     "n">
 
 <!-- Display menu -->
@@ -40,11 +40,11 @@
 <!ENTITY main.zoomin.accesskey          "M">
 <!ENTITY main.zoomout                   "התרחקות">
 <!ENTITY main.zoomout.accesskey         "R">
-<!ENTITY main.zoomorig                  "מרחק מקורי">
+<!ENTITY main.zoomorig                  "גודל מקורי">
 <!ENTITY main.zoomorig.accesskey        "O">
 <!ENTITY main.language                  "שפה">
 <!ENTITY main.language.accesskey        "L">
-<!ENTITY main.skin                      "סקין">
+<!ENTITY main.skin                      "ערכת עיצוב">
 <!ENTITY main.skin.accesskey            "S">
 <!ENTITY main.statusbar                 "שורת מצב">
 <!ENTITY main.statusbar.accesskey       "S">
@@ -60,16 +60,16 @@
 <!ENTITY main.tools.accesskey           "T">
 <!ENTITY main.randomArticle             "ערך אקראי">
 <!ENTITY main.randomArticle.accesskey   "R">
-<!ENTITY main.checkIntegrity            "Integrity check">
+<!ENTITY main.checkIntegrity            "בדיקת שלמות">
 <!ENTITY main.checkIntegrity.accesskey  "k">
-<!ENTITY main.purgeHistory              "מחק היסטוריה">
+<!ENTITY main.purgeHistory              "מחיקת היסטוריה">
 <!ENTITY main.purgeHistory.accesskey    "P">
 
 <!-- Help menu -->
 <!ENTITY main.help                      "עזרה">
 <!ENTITY main.help.accesskey            "H">
-<!ENTITY main.reportabug                "דווח על באג">
-<!ENTITY main.requestafeature           "בקש שיפור לתוכנה">
+<!ENTITY main.reportabug                "דיווח על באג">
+<!ENTITY main.requestafeature           "בקשת שיפור לתוכנה">
 <!ENTITY main.about                     "אודות">
 <!ENTITY main.about.accesskey           "A">
 
@@ -79,7 +79,7 @@
 <!ENTITY main.home                      "דף הבית">
 <!ENTITY main.searchBar                 "שורת חיפוש">
 <!ENTITY main.search                    "חיפוש">
-<!ENTITY main.findInText                "Find in text">
+<!ENTITY main.findInText                "חיפוש בטקסט">
 <!ENTITY main.noSearchBar               "החיפוש אפשרי רק אם יש קובץ ZIM מאונדקס">
 <!ENTITY main.bookmarks                 "סימניות">
 
@@ -89,15 +89,15 @@
 <!-- Bookmarks Bar -->
 <!ENTITY main.bmkLabel                  "סימניות:">
 <!ENTITY main.notesLabel                "הערות לסימניות:">
-<!ENTITY main.loadbmk                   "יבא קובץ סימניות">
-<!ENTITY main.newbmk                    "צור קובץ סימניות חדש">
-<!ENTITY main.mark                      "סמן דף זה">
-<!ENTITY main.unmark                    "בטל סימון בקטע הנבחר">
-<!ENTITY main.reload                    "אפס קובץ סימניות">
-<!ENTITY main.defaultset                "קובץ ברירת מחדל">
+<!ENTITY main.loadbmk                   "יבוא קובץ סימניות">
+<!ENTITY main.newbmk                    "יצירת קובץ סימניות חדש">
+<!ENTITY main.mark                      "סימון דף זה">
+<!ENTITY main.unmark                    "ביטול סימון בקטע הנבחר">
+<!ENTITY main.reload                    "איפוס קובץ סימניות">
+<!ENTITY main.defaultset                "ערכה לפי בררת מחדל">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveImageAs               "שמור תמונה בשם...">
+<!ENTITY main.saveImageAs               "שמירת תמונה בשם...">
 
 <!-- About Window -->
 <!ENTITY main.close           		"סגור">

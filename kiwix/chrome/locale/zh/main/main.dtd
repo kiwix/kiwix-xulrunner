@@ -1,5 +1,5 @@
 <!-- Window -->
-<!ENTITY main.title                     "中文维基">
+<!ENTITY main.title                     "&brand.brandShortName;">
 <!ENTITY main.cssdirection              "ltr">
 
 <!-- File menu -->
@@ -103,9 +103,9 @@
 <!ENTITY main.close           		"关闭">
 
 <!-- Preferences Window -->
-<!ENTITY preferences.preferences        "首选项">
-<!ENTITY preferences.save      		"保存">
-<!ENTITY preferences.cancel     	"取消">
-<!ENTITY preferences.profileDirectory  	"设置目录">
-<!ENTITY preferences.browse  	        "浏览">
+<!ENTITY preferences.preferences        "Preferences">
+<!ENTITY preferences.save      		"Save">
+<!ENTITY preferences.cancel     	"Cancel">
+<!ENTITY preferences.profileDirectory  	"Profile directory">
+<!ENTITY preferences.browse  	        "Browse">
 

@@ -3,16 +3,16 @@
 <!ENTITY main.cssdirection              "rtl">
 
 <!-- File menu -->
-<!ENTITY main.file                      "فایل">
+<!ENTITY main.file                      "پرونده">
 <!ENTITY main.file.accesskey            "F">
-<!ENTITY main.openFile                  "...باز کردن فایل">
+<!ENTITY main.openFile                  "گشودن پرونده...">
 <!ENTITY main.openFile.accesskey        "O">
-<!ENTITY main.lastOpen                  "...اخیرا باز شده">
+<!ENTITY main.lastOpen                  "اخیراً گشوده شده...">
 <!ENTITY main.saveFile                  "...ذخیره صفحه به عنوان">
 <!ENTITY main.saveFile.accesskey        "S">
-<!ENTITY main.print                     "پرینت">
+<!ENTITY main.print                     "چاپ">
 <!ENTITY main.print.accesskey           "P">
-<!ENTITY main.printPdf                  "PDF پرینت به صورت">
+<!ENTITY main.printPdf                  "چاپ به‌صورت پی‌دی‌اف">
 <!ENTITY main.printPdf.accesskey        "D">
 <!ENTITY main.quit                      "خروج">
 <!ENTITY main.quit.accesskey            "Q">
@@ -24,17 +24,17 @@
 <!ENTITY main.find.accesskey            "S">
 <!ENTITY main.selectall                 "انتخاب همه">
 <!ENTITY main.selectall.accesskey       "a">
-<!ENTITY main.copy                      "کپی">
+<!ENTITY main.copy                      "رونوشت">
 <!ENTITY main.copy.accesskey            "p">
 <!ENTITY main.transliteration           "نويسه گردانى">
 <!ENTITY main.transliteration.accesskey "T">
-<!ENTITY main.preferences               "Preferences">
+<!ENTITY main.preferences               "ترجیحات">
 <!ENTITY main.preferences.accesskey     "n">
 
 <!-- Display menu -->
 <!ENTITY main.display                   "نمایش">
 <!ENTITY main.display.accesskey         "D">
-<!ENTITY main.zoom                      "زوم">
+<!ENTITY main.zoom                      "اندازه‌نمایی">
 <!ENTITY main.zoom.accesskey            "Z">
 <!ENTITY main.zoomin                    "افزایش اندازه">
 <!ENTITY main.zoomin.accesskey          "M">
@@ -44,7 +44,7 @@
 <!ENTITY main.zoomorig.accesskey        "O">
 <!ENTITY main.language                  "زبان">
 <!ENTITY main.language.accesskey        "L">
-<!ENTITY main.skin                      "Skin">
+<!ENTITY main.skin                      "پوسته">
 <!ENTITY main.skin.accesskey            "S">
 <!ENTITY main.statusbar                 "نوار وضعیت">
 <!ENTITY main.statusbar.accesskey       "S">
@@ -60,7 +60,7 @@
 <!ENTITY main.tools.accesskey           "T">
 <!ENTITY main.randomArticle             "مقاله تصادفی">
 <!ENTITY main.randomArticle.accesskey   "R">
-<!ENTITY main.checkIntegrity            "Integrity check">
+<!ENTITY main.checkIntegrity            "بررسی یکپارچگی">
 <!ENTITY main.checkIntegrity.accesskey  "k">
 <!ENTITY main.purgeHistory              "پاکسازی تاریخچه">
 <!ENTITY main.purgeHistory.accesskey    "P">
@@ -79,7 +79,7 @@
 <!ENTITY main.home                      "خانه">
 <!ENTITY main.searchBar                 "نوار جستجو">
 <!ENTITY main.search                    "جستجو">
-<!ENTITY main.findInText                "Find in text">
+<!ENTITY main.findInText                "جستجو در متن">
 <!ENTITY main.noSearchBar               "جستجو نیاز به یک فایل ZIM فهرست بندی شده دارد">
 <!ENTITY main.bookmarks                 "نشانکها">
 
@@ -100,7 +100,7 @@
 <!ENTITY main.saveImageAs               "...ذخیره عکس به صورت">
 
 <!-- About Window -->
-<!ENTITY main.close           		"Close">
+<!ENTITY main.close           		"بستن">
 
 <!-- Preferences Window -->
 <!ENTITY preferences.preferences        "Preferences">

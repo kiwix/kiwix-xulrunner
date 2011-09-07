@@ -5,42 +5,42 @@
 <!-- File menu -->
 <!ENTITY main.file                      "Datei">
 <!ENTITY main.file.accesskey            "D">
-<!ENTITY main.openFile                  "Datei öffnen...">
+<!ENTITY main.openFile                  "Datei öffnen …">
 <!ENTITY main.openFile.accesskey        "O">
-<!ENTITY main.lastOpen                  "Vor Kurzem geöffnet...">
-<!ENTITY main.saveFile                  "Artikel speichern als...">
+<!ENTITY main.lastOpen                  "Vor Kurzem geöffnet ...">
+<!ENTITY main.saveFile                  "Artikel speichern als ...">
 <!ENTITY main.saveFile.accesskey        "S">
-<!ENTITY main.print                     "Drucken...">
-<!ENTITY main.print.accesskey           "r">
+<!ENTITY main.print                     "Drucken">
+<!ENTITY main.print.accesskey           "d">
 <!ENTITY main.printPdf                  "Als PDF drucken">
-<!ENTITY main.printPdf.accesskey        "D">
+<!ENTITY main.printPdf.accesskey        "p">
 <!ENTITY main.quit                      "Schliessen">
-<!ENTITY main.quit.accesskey            "S">
+<!ENTITY main.quit.accesskey            "s">
 
 <!-- Edit menu -->
 <!ENTITY main.edit                      "Bearbeiten">
-<!ENTITY main.edit.accesskey            "B">
-<!ENTITY main.find                      "Seite durchsuchen...">
-<!ENTITY main.find.accesskey            "S">
+<!ENTITY main.edit.accesskey            "b">
+<!ENTITY main.find                      "Seite durchsuchen ...">
+<!ENTITY main.find.accesskey            "f">
 <!ENTITY main.selectall                 "Alles auswählen">
 <!ENTITY main.selectall.accesskey       "a">
 <!ENTITY main.copy                      "Kopieren">
-<!ENTITY main.copy.accesskey            "K">
+<!ENTITY main.copy.accesskey            "k">
 <!ENTITY main.transliteration           "Transliteration">
 <!ENTITY main.transliteration.accesskey "T">
-<!ENTITY main.preferences               "Preferences">
-<!ENTITY main.preferences.accesskey     "n">
+<!ENTITY main.preferences               "Einstellungen">
+<!ENTITY main.preferences.accesskey     "E">
 
 <!-- Display menu -->
 <!ENTITY main.display                   "Bildschirm">
 <!ENTITY main.display.accesskey         "B">
 <!ENTITY main.zoom                      "Zoom">
 <!ENTITY main.zoom.accesskey            "Z">
-<!ENTITY main.zoomin                    "Grösser">
+<!ENTITY main.zoomin                    "Größer">
 <!ENTITY main.zoomin.accesskey          "g">
 <!ENTITY main.zoomout                   "Kleiner">
 <!ENTITY main.zoomout.accesskey         "k">
-<!ENTITY main.zoomorig                  "Ursprüngliche Grösse">
+<!ENTITY main.zoomorig                  "Ursprüngliche Größe">
 <!ENTITY main.zoomorig.accesskey        "U">
 <!ENTITY main.language                  "Sprache">
 <!ENTITY main.language.accesskey        "p">
@@ -49,9 +49,9 @@
 <!ENTITY main.statusbar                 "Statusleiste">
 <!ENTITY main.statusbar.accesskey       "S">
 <!ENTITY main.resultsbar                "Ergebnisleiste">
-<!ENTITY main.resultsbar.accesskey      "E">
-<!ENTITY main.tabs                      "Tabs">
-<!ENTITY main.tabs.accesskey            "T">
+<!ENTITY main.resultsbar.accesskey      "R">
+<!ENTITY main.tabs                      "Reiter">
+<!ENTITY main.tabs.accesskey            "R">
 <!ENTITY main.fullscreen                "Vollbildmodus">
 <!ENTITY main.fullscreen.accesskey      "V">
 
@@ -60,9 +60,9 @@
 <!ENTITY main.tools.accesskey           "W">
 <!ENTITY main.randomArticle             "Zufälliger Artikel">
 <!ENTITY main.randomArticle.accesskey   "Z">
-<!ENTITY main.checkIntegrity            "Integrity check">
+<!ENTITY main.checkIntegrity            "Integritätsprüfung">
 <!ENTITY main.checkIntegrity.accesskey  "k">
-<!ENTITY main.purgeHistory              "Geschichte löschen">
+<!ENTITY main.purgeHistory              "Verlauf löschen">
 <!ENTITY main.purgeHistory.accesskey    "G">
 
 <!-- Help menu -->
@@ -76,11 +76,11 @@
 <!-- Tool bar -->
 <!ENTITY main.back                      "Rückwärts">
 <!ENTITY main.forward                   "Vorwärts">
-<!ENTITY main.home                      "Home">
+<!ENTITY main.home                      "Startseite">
 <!ENTITY main.searchBar                 "Suchleiste">
 <!ENTITY main.search                    "Suche">
-<!ENTITY main.findInText                "Find in text">
-<!ENTITY main.noSearchBar               "Suche erfordert eine indexierte Zim Akte">
+<!ENTITY main.findInText                "Im Text suchen">
+<!ENTITY main.noSearchBar               "Die Suche erfordert eine indexierte ZIM-Datei">
 <!ENTITY main.bookmarks                 "Lesezeichen">
 
 <!-- Results bar -->
@@ -90,17 +90,17 @@
 <!ENTITY main.bmkLabel                  "Lesezeichen:">
 <!ENTITY main.notesLabel                "Bemerkung:">
 <!ENTITY main.loadbmk                   "Lesezeichen importieren">
-<!ENTITY main.newbmk                    "neuen Lesezeichendatei anlegen">
+<!ENTITY main.newbmk                    "Neue Lesezeichendatei anlegen">
 <!ENTITY main.mark                      "Seite markieren">
 <!ENTITY main.unmark                    "Markierung aufheben">
 <!ENTITY main.reload                    "Nochmal laden">
 <!ENTITY main.defaultset                "Defaultdatei">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveImageAs               "Bild speichern als...">
+<!ENTITY main.saveImageAs               "Bild speichern als ...">
 
 <!-- About Window -->
-<!ENTITY main.close           		"Schliessen">
+<!ENTITY main.close           		"Schließen">
 
 <!-- Preferences Window -->
 <!ENTITY preferences.preferences        "Preferences">

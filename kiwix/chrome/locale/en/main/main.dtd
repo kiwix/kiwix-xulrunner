@@ -93,7 +93,7 @@
 <!ENTITY main.newbmk                    "Create new Bookmark Set">
 <!ENTITY main.mark                      "Mark this page">
 <!ENTITY main.unmark                    "Unmark selected">
-<!ENTITY main.reload                    "Reset Bookmark Set">
+<!ENTITY main.reload                    "Reload Bookmark Set">
 <!ENTITY main.defaultset                "Default Set">
 
 <!-- Contextual Menu -->

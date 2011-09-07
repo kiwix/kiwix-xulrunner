@@ -1,11 +1,11 @@
 <!-- Window -->
 <!ENTITY main.title                     "&brand.brandShortName;">
-<!ENTITY main.cssdirection              "إتجاه اللغة من اليمين لليسار ">
+<!ENTITY main.cssdirection              "rtl">
 
 <!-- File menu -->
 <!ENTITY main.file                      "ملف">
 <!ENTITY main.file.accesskey            "م">
-<!ENTITY main.openFile                  "فتح ملف...">
+<!ENTITY main.openFile                  "افتح ملفا...">
 <!ENTITY main.openFile.accesskey        "ف">
 <!ENTITY main.lastOpen                  "المفتوح مؤخراً...">
 <!ENTITY main.saveFile                  "حفظ الصفحة ك...">
@@ -22,9 +22,9 @@
 <!ENTITY main.edit.accesskey            "ت">
 <!ENTITY main.find                      "بحث في الصفحة...">
 <!ENTITY main.find.accesskey            "ب">
-<!ENTITY main.selectall                 "تحديد الكل">
+<!ENTITY main.selectall                 "اختر الكل">
 <!ENTITY main.selectall.accesskey       "ح">
-<!ENTITY main.copy                      "نسخ">
+<!ENTITY main.copy                      "انسخ">
 <!ENTITY main.copy.accesskey            "ن">
 <!ENTITY main.transliteration           "تحويل لغة الكتابة">
 <!ENTITY main.transliteration.accesskey "T">
@@ -36,9 +36,9 @@
 <!ENTITY main.display.accesskey         "ع">
 <!ENTITY main.zoom                      "تكبير/تصغير">
 <!ENTITY main.zoom.accesskey            "ت">
-<!ENTITY main.zoomin                    "تكبير">
+<!ENTITY main.zoomin                    "كبّر">
 <!ENTITY main.zoomin.accesskey          "ك">
-<!ENTITY main.zoomout                   "تصغير">
+<!ENTITY main.zoomout                   "صغّر">
 <!ENTITY main.zoomout.accesskey         "ص">
 <!ENTITY main.zoomorig                  "الحجم الأصلي">
 <!ENTITY main.zoomorig.accesskey        "ح">
@@ -68,8 +68,8 @@
 <!-- Help menu -->
 <!ENTITY main.help                      "مساعدة">
 <!ENTITY main.help.accesskey            "س">
-<!ENTITY main.reportabug                "إرسال تقرير بخطأ">
-<!ENTITY main.requestafeature           "طلب ميزة">
+<!ENTITY main.reportabug                "بلغ عن علة">
+<!ENTITY main.requestafeature           "اطلب ميزة">
 <!ENTITY main.about                     "حول &#38;#38;شعار.اسم الشعار;">
 <!ENTITY main.about.accesskey           "ح">
 
@@ -78,7 +78,7 @@
 <!ENTITY main.forward                   "التالي">
 <!ENTITY main.home                      "صفحة البداية">
 <!ENTITY main.searchBar                 "شريط البحث">
-<!ENTITY main.search                    "البحث">
+<!ENTITY main.search                    "ابحث">
 <!ENTITY main.findInText                "Find in text">
 <!ENTITY main.noSearchBar               "يتطلب البحث عن الملفات وفهرستها Zim">
 <!ENTITY main.bookmarks                 "المفضلة">
@@ -94,13 +94,13 @@
 <!ENTITY main.mark                      "علم هذه الصفحة">
 <!ENTITY main.unmark                    "أزل تعليم المحدد">
 <!ENTITY main.reload                    "إعادة تعيين المفضلة">
-<!ENTITY main.defaultset                "الإفتراضية">
+<!ENTITY main.defaultset                "الخيارات المبدئية">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveImageAs               "حفظ الصورة ك...">
+<!ENTITY main.saveImageAs               "احفظ الصورة ك...">
 
 <!-- About Window -->
-<!ENTITY main.close           		"إغلاق">
+<!ENTITY main.close           		"أغلق">
 
 <!-- Preferences Window -->
 <!ENTITY preferences.preferences        "Preferences">

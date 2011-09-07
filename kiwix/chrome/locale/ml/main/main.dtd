@@ -103,9 +103,9 @@
 <!ENTITY main.close           		"അടയ്ക്കുക">
 
 <!-- Preferences Window -->
-<!ENTITY preferences.preferences        "ഐച്ഛികങ്ങള്‍">
-<!ENTITY preferences.save      		"സൂക്ഷിക്കുക">
-<!ENTITY preferences.cancel     	"റദ്ദാക്കുക">
-<!ENTITY preferences.profileDirectory  	"പ്രൊഫൈല്‍ ഡയറക്ടറി">
-<!ENTITY preferences.browse  	        "പരതുക">
+<!ENTITY preferences.preferences        "Preferences">
+<!ENTITY preferences.save      		"Save">
+<!ENTITY preferences.cancel     	"Cancel">
+<!ENTITY preferences.profileDirectory  	"Profile directory">
+<!ENTITY preferences.browse  	        "Browse">
 
