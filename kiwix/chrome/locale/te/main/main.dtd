@@ -1,0 +1,111 @@
+<!-- Window -->
+<!ENTITY main.title                     "&brand.brandShortName;">
+<!ENTITY main.cssdirection              "ltr">
+
+<!-- File menu -->
+<!ENTITY main.file                      "File">
+<!ENTITY main.file.accesskey            "F">
+<!ENTITY main.openFile                  "Open file...">
+<!ENTITY main.openFile.accesskey        "O">
+<!ENTITY main.lastOpen                  "Recently open...">
+<!ENTITY main.saveFile                  "Save page as...">
+<!ENTITY main.saveFile.accesskey        "S">
+<!ENTITY main.print                     "ముద్రించు">
+<!ENTITY main.print.accesskey           "P">
+<!ENTITY main.printPdf                  "PDF గా ప్రచురించు">
+<!ENTITY main.printPdf.accesskey        "D">
+<!ENTITY main.quit                      "Quit">
+<!ENTITY main.quit.accesskey            "Q">
+
+<!-- Edit menu -->
+<!ENTITY main.edit                      "సవరించు">
+<!ENTITY main.edit.accesskey            "E">
+<!ENTITY main.find                      "పుటలో వెతుకు...">
+<!ENTITY main.find.accesskey            "S">
+<!ENTITY main.selectall                 "అన్నీ ఎంచుకో">
+<!ENTITY main.selectall.accesskey       "a">
+<!ENTITY main.copy                      "Copy">
+<!ENTITY main.copy.accesskey            "p">
+<!ENTITY main.transliteration           "లిప్యంతరీకరణ">
+<!ENTITY main.transliteration.accesskey "T">
+<!ENTITY main.preferences               "అభిరుచులు">
+<!ENTITY main.preferences.accesskey     "n">
+
+<!-- Display menu -->
+<!ENTITY main.display                   "Display">
+<!ENTITY main.display.accesskey         "D">
+<!ENTITY main.zoom                      "Zoom">
+<!ENTITY main.zoom.accesskey            "Z">
+<!ENTITY main.zoomin                    "Magnify">
+<!ENTITY main.zoomin.accesskey          "M">
+<!ENTITY main.zoomout                   "Reduce">
+<!ENTITY main.zoomout.accesskey         "R">
+<!ENTITY main.zoomorig                  "అసలు పరిమాణం">
+<!ENTITY main.zoomorig.accesskey        "O">
+<!ENTITY main.language                  "భాష">
+<!ENTITY main.language.accesskey        "L">
+<!ENTITY main.skin                      "అలంకారం">
+<!ENTITY main.skin.accesskey            "S">
+<!ENTITY main.statusbar                 "స్థితి పట్టీ">
+<!ENTITY main.statusbar.accesskey       "S">
+<!ENTITY main.resultsbar                "ఫలితాల పట్టీ">
+<!ENTITY main.resultsbar.accesskey      "R">
+<!ENTITY main.tabs                      "Tabs">
+<!ENTITY main.tabs.accesskey            "T">
+<!ENTITY main.fullscreen                "నిండుతెర">
+<!ENTITY main.fullscreen.accesskey      "F">
+
+<!-- Tools menu -->
+<!ENTITY main.tools                     "పనిముట్లు">
+<!ENTITY main.tools.accesskey           "T">
+<!ENTITY main.randomArticle             "యాదృచ్చిక వ్యాసం">
+<!ENTITY main.randomArticle.accesskey   "R">
+<!ENTITY main.checkIntegrity            "Integrity check">
+<!ENTITY main.checkIntegrity.accesskey  "k">
+<!ENTITY main.purgeHistory              "Purge history">
+<!ENTITY main.purgeHistory.accesskey    "P">
+
+<!-- Help menu -->
+<!ENTITY main.help                      "సహాయం">
+<!ENTITY main.help.accesskey            "H">
+<!ENTITY main.reportabug                "Report a bug">
+<!ENTITY main.requestafeature           "Request a feature">
+<!ENTITY main.about                     "About &brand.brandShortName;">
+<!ENTITY main.about.accesskey           "A">
+
+<!-- Tool bar -->
+<!ENTITY main.back                      "వెనుకకు">
+<!ENTITY main.forward                   "ముందుకు">
+<!ENTITY main.home                      "ముంగిలి">
+<!ENTITY main.searchBar                 "అన్వేషణ పట్టీ">
+<!ENTITY main.search                    "వెతుకు">
+<!ENTITY main.findInText                "Find in text">
+<!ENTITY main.noSearchBar               "Search requires an indexed ZIM file">
+<!ENTITY main.bookmarks                 "Bookmarks">
+
+<!-- Results bar -->
+<!ENTITY main.results.title             "Search results">
+
+<!-- Bookmarks Bar -->
+<!ENTITY main.bmkLabel                  "Bookmarks:">
+<!ENTITY main.notesLabel                "Bookmark notes:">
+<!ENTITY main.loadbmk                   "Import Bookmark Set">
+<!ENTITY main.newbmk                    "Create new Bookmark Set">
+<!ENTITY main.mark                      "Mark this page">
+<!ENTITY main.unmark                    "Unmark selected">
+<!ENTITY main.reload                    "Reload Bookmark Set">
+<!ENTITY main.defaultset                "Default Set">
+
+<!-- Contextual Menu -->
+<!ENTITY main.saveImageAs               "Save image as...">
+
+<!-- About Window -->
+<!ENTITY main.close           		"మూసివేయి">
+
+<!-- Preferences Window -->
+<!ENTITY preferences.preferences        "Preferences">
+<!ENTITY preferences.save      		"Save">
+<!ENTITY preferences.cancel     	"Cancel">
+<!ENTITY preferences.profileDirectory  	"Profile directory">
+<!ENTITY preferences.browse  	        "Browse">
+
