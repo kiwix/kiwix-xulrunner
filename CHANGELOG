@@ -17,6 +17,7 @@ Kiwix 0.9 beta3
 * Add arrow keys handling to navigate in the content manager (ID: 3389511)
 * Added static compilation of components for Linux.
 * Added debian init script for Kiwix-serve (ID: 2976515)
+* Added static version capability to build-kiwix-release script
 
 Kiwix 0.9 beta2
 * Regression fix, tabs should not be visible per default

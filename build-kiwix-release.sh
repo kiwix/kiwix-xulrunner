@@ -1,35 +1,92 @@
 #!/bin/bash
 
-function getFirefoxLocalization {
-    CODE=$1
-    rm firefox-3.5.tar.bz2
-    wget -c http://releases.mozilla.org/pub/mozilla.org/firefox/releases/3.5/linux-i686/$CODE/firefox-3.5.tar.bz2
-    rm -rf ./firefox
-    tar -xvjf firefox-3.5.tar.bz2
-    cp ./firefox/chrome/$CODE.* ./kiwix/xulrunner/chrome/
-} 
+#Usage: build-kiwix-release.sh [static]
+#
+#   Generates a bundle version of Kiwix. Default with shared linked libraries.
+#
+#   You should run it from outside the moulinkiwix directory.
+#
+#   --static      creates a portable version of Kiwix
+#   --help      displays this help message
+#
 
-# Go the the /tmp directory
-cd /tmp
+if [ "$1" = "--static" ]
+then
+STATIC=1
+elif [ "$1" = "--help" ]
+then
+head -n 11 $0 |grep -e '^#' |grep -v '^#!'|cut -c 2-
+exit
+else
+STATIC=0
+fi
+
+if [ $STATIC -gt 0 ]
+then
+echo "Building a static (portable) version of Kiwix"
+else
+echo "Building a regular (linked) version of Kiwix"
+fi
+
+function getFirefoxLocalization {
+    echo "Downloading Firefox for language code $CODE"
+    CODE=$1
+    #rm ff_$CODE-3.6.22.tar.bz2
+    wget -c http://releases.mozilla.org/pub/mozilla.org/firefox/releases/3.6.22/linux-i686/$CODE/firefox-3.6.22.tar.bz2 -O ff_$CODE-3.6.22.tar.bz2
+    rm -rf ./firefox
+    tar xf ff_$CODE-3.6.22.tar.bz2
+    cp ./firefox/chrome/$CODE.* ./kiwix/xulrunner/chrome/
+}
+
+bname=$(dirname $(readlink -f $0))
+
+# make sure we're not in moulinkiwix folder
+# as we want to copy that folder 
+if [ "$bname" = `pwd` ]
+then
+echo "/!\ WARNING: You seem to be running this script from within the \
+moulinkiwix directory.
+You must run it from another location; preferably its parent directory ("$(dirname $(pwd))")"
+exit
+fi
+
+# Create and move to a staging directory
+mkdir -p tmp
+cd tmp
 
 # Download code
+echo "Grabbing Kiwix source code"
 rm -rf moulinkiwix
+if [ -d "../moulinkiwix" ]
+then
+rsync -ar ../moulinkiwix .
+else
 svn co https://kiwix.svn.sourceforge.net/svnroot/kiwix/moulinkiwix moulinkiwix
+fi
 
-# Get and compile the dependences
-cd ./moulinkiwix/dependences
+# Prepares Makefiles
+echo "Prepares Kiwix compilation"
+cd ./moulinkiwix
+./autogen.sh && ./configure
+make clean
+cd -
+
+# Compile dependences
+echo "Build Kiwix dependences"
+cd ./moulinkiwix/src/dependences
 make
+cd -
 
 # Compile the components
-cd ../components
-cd zimAccessor ; ./autogen.sh ; ./configure ; make clean all
-cd ../xapianAccessor ; ./autogen.sh ; ./configure ; make clean all
-cd ../zimXapianIndexer ; ./autogen.sh ; ./configure ; make clean all
+echo "Build Kiwix components"
+cd ./moulinkiwix/
+make
+cd -
 
 # Copy the kiwix directory
-cd /tmp
+echo "Files clean up"
 rm -rf ./kiwix
-cp -r -L /tmp/moulinkiwix/kiwix ./kiwix
+cp -r -L ./moulinkiwix/kiwix ./kiwix
 
 # Remove svn stuff
 for i in `find ./kiwix -name ".svn"` ; do rm -rf $i ; done
@@ -38,16 +95,22 @@ for i in `find ./kiwix -name ".svn"` ; do rm -rf $i ; done
 mv ./kiwix/chrome/content/main/js/logger_rlz.js ./kiwix/chrome/content/main/js/logger.js
 
 # Download and copy xulrunner
-wget http://releases.mozilla.org/pub/mozilla.org/xulrunner/releases/1.9.0.13/runtimes/xulrunner-1.9.0.13.en-US.linux-i686.tar.bz2
-tar -xvjf xulrunner-1.9.0.13.en-US.linux-i686.tar.bz2
+echo "Grabbing XulRunner runtime"
+if [ -f xulrunner-runtime.tar.bz2 ]
+then
+echo "  already present"
+else
+wget http://releases.mozilla.org/pub/mozilla.org/xulrunner/releases/3.6.22/runtimes/xulrunner-3.6.22.en-US.linux-i686.tar.bz2 -O xulrunner-runtime.tar.bz2
+fi
+tar xf xulrunner-runtime.tar.bz2
 mv ./xulrunner/ ./kiwix/
 
 # Additional dynlib symlinks
 cd ./kiwix/xulrunner
-ln -s libplc4.so libplc4.so.0d 
-ln -s libnspr4.so libnspr4.so.0d  
-ln -s libplds4.so libplds4.so.0d 
-cd ../..
+ln -sf libplc4.so libplc4.so.0d
+ln -sf libnspr4.so libnspr4.so.0d
+ln -sf libplds4.so libplds4.so.0d
+cd -
 
 # Create the kiwix binary
 mv ./kiwix/xulrunner/xulrunner-stub ./kiwix/kiwix
@@ -64,12 +127,12 @@ getFirefoxLocalization zh-CN
 
 # xapian-compact
 mkdir ./kiwix/bin
-cp moulinkiwix/dependences/xapian*/bin/xapian-compact ./kiwix/bin
+cp moulinkiwix/src/dependences/xapian*/bin/xapian-compact ./kiwix/bin
 
 # Tar & clean
+echo "Clean Up"
 rm kiwix.tar.bz2
 tar -cvjf kiwix.tar.bz2 ./kiwix
-rm -rf ./firefox*
-rm -rf ./xulrunner*
+rm -rf ./firefox/
 rm -rf ./moulinkiwix*
 rm -rf ./kiwix/
