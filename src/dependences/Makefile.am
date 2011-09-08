@@ -3,8 +3,13 @@ zlib.tar.gz:
 	wget -c http://download.kiwix.org/dev/zlib-1.2.3.tar.gz -O zlib.tar.gz
 	tar -xf zlib.tar.gz
 
+zlib-1.2.3: zlib.tar.gz
+	tar -xf zlib.tar.gz
+
 xapian-core.tar.gz:
 	wget -c http://download.kiwix.org/dev/xapian-core-1.2.3.tar.gz -O xapian-core.tar.gz
+
+xapian-core-1.2.3: xapian-core.tar.gz
 	tar -xf xapian-core.tar.gz
 
 xapian-win32.zip:
@@ -45,27 +50,31 @@ xulrunner.dmg:
 xz.tar.bz2:
 if IS_OSX
 	wget -c http://download.kiwix.org/dev/xz-4.999.9beta.tar.bz2 -O xz.tar.bz2
+else
+	wget -c http://tukaani.org/xz/xz-5.0.3.tar.bz2 -O xz.tar.bz2
+endif
+
+xz: xz.tar.bz2
 	tar -xf xz.tar.bz2
+if IS_OSX
 	mv xz-4.999.9beta xz
 	echo "patching liblzma for OSX"
 	cd xz ; patch -p0 < ../patches/xz-4.999.9beta-sysctl-darwin.patch ; patch -p0 < ../patches/xz-4.999.9beta-lzma-versioninfo.patch
 else
-	wget -c http://tukaani.org/xz/xz-5.0.3.tar.bz2 -O xz.tar.bz2
-	tar xf xz.tar.bz2
 	mv xz-5.0.3 xz
 endif
 
 # compile
-zlib-1.2.3/libz.a: zlib.tar.gz
+zlib-1.2.3/libz.a: zlib-1.2.3
 	cd zlib-1.2.3 ; export CFLAGS=" -fPIC " ; ./configure ; make ; ./configure ; make	
 
-zlib-1.2.3/zlib.lib: zlib.tar.gz
+zlib-1.2.3/zlib.lib: zlib-1.2.3
 	cd zlib-1.2.3 ; cp ./win32/Makefile.msc ./ ; sed -e "s/\\-MD/\\-MT/" Makefile.msc > Makefile.msc.custom ; export MAKEFLAGS=; nmake.exe -f Makefile.msc.custom
 
-xapian-core-1.2.3/.libs/libxapian.a: xapian-core.tar.gz 
+xapian-core-1.2.3/.libs/libxapian.a: xapian-core-1.2.3
 	cd xapian-core-1.2.3 ; export EXTERN_PATH=`pwd` ; export CPPFLAGS="-I${CURRENT_PATH}/src/dependences/zlib-1.2.3/" ; export CXXFLAGS=" -fPIC -L${CURRENT_PATH}/src/dependences/zlib-1.2.3" ; ./configure --enable-static ; make
 
-xapian-core-1.2.3/win32/Release/libs/libunicode.lib: xapian-core.tar.gz xapian-win32.zip
+xapian-core-1.2.3/win32/Release/libs/libunicode.lib: xapian-core-1.2.3 xapian-win32.zip
 	cd xapian-core-1.2.3/win32; sed -e "s/\\-MD/\\-MT/" config.mak > config.mak.bis
 	cd xapian-core-1.2.3/win32; sed -e "s/C\\:\\\gnu\\\zlib123-dll/C\\:\\\mozilla\\-build\\\moulinkiwix\\\src\\\dependences\\\zlib\\-1\\.2\\.3/" config.mak.bis > config.mak
 	cd xapian-core-1.2.3/win32; sed -e "s/zdll\\.lib/zlib\\.lib/" config.mak > config.mak.bis
@@ -99,7 +108,7 @@ aria2-1.12.1/src/aria2c: aria2-1.12.1.tar.bz2
 	cd aria2-1.12.1 ; export ZLIB_LIBS=/usr/lib/i386-linux-gnu/libz.a ; export SQLITE3_LIBS=/usr/lib/i386-linux-gnu/libsqlite3.a ; LIBCARES_LIBS=/usr/lib/libcares.a
 	./configure --with-libcares --with-libz --with-sqlite3 ; make
 
-xz/src/liblzma/.libs/liblzma.a: xz.tar.bz2
+xz/src/liblzma/.libs/liblzma.a: xz
 if IS_OSX
 	lzma_conf_extra="--with-libiconv-prefix=/opt/local --with-libintl-prefix=/opt/local --disable-assembler"
 	cd xz; export CFLAGS=" -fPIC " ; ./configure $(lzma_conf_extra); make
@@ -107,7 +116,7 @@ else
 	cd xz; ./configure ; make
 endif
 
-xz/windows/liblzma.lib: xz.tar.bz2
+xz/windows/liblzma.lib: xz
 	cd xz/windows ; make liblzma
 	cd xz/windows ; lib /def:liblzma.def /out:liblzma.lib /machine:ix86	
 
@@ -125,12 +134,9 @@ win: zlib-1.2.3/zlib.lib xapian-core-1.2.3/win32/Release/libs/libunicode.lib icu
 
 # clean
 clean:
-	cd xapian-core-1.2.3 ; make clean ; cd -
-	cd zlib-1.2.3 ; make clean ; cd -
-	cd xz/src ; make clean ; cd -
-	rm -rf zlib-1.2.3/libz.a zlib-1.2.3/libz.lib
-	rm -rf xapian-core-1.2.3/.libs xapian-core-1.2.3/win32/Release/libs/libunicode.lib
-	rm -rf xz/src/liblzma/.libs  xz/windows/liblzma.lib
+	rm -rf xapian-core-1.2.3
+	rm -rf zlib-1.2.3
+	rm -rf xz
 
 # distclean
 distclean:
