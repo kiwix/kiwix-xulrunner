@@ -1,0 +1,111 @@
+<!-- Window -->
+<!ENTITY main.title                     "&brand.brandShortName;">
+<!ENTITY main.cssdirection              "ltr">
+
+<!-- File menu -->
+<!ENTITY main.file                      "Fails">
+<!ENTITY main.file.accesskey            "F">
+<!ENTITY main.openFile                  "Atvērt failu...">
+<!ENTITY main.openFile.accesskey        "O">
+<!ENTITY main.lastOpen                  "Nesen atvērtie...">
+<!ENTITY main.saveFile                  "Saglabāt lapu kā...">
+<!ENTITY main.saveFile.accesskey        "S">
+<!ENTITY main.print                     "Drukāt">
+<!ENTITY main.print.accesskey           "P">
+<!ENTITY main.printPdf                  "Drukāt kā PDF">
+<!ENTITY main.printPdf.accesskey        "D">
+<!ENTITY main.quit                      "Iziet">
+<!ENTITY main.quit.accesskey            "Q">
+
+<!-- Edit menu -->
+<!ENTITY main.edit                      "Rediģēt">
+<!ENTITY main.edit.accesskey            "E">
+<!ENTITY main.find                      "Meklēt lapā...">
+<!ENTITY main.find.accesskey            "S">
+<!ENTITY main.selectall                 "Izvēlēties visu">
+<!ENTITY main.selectall.accesskey       "a">
+<!ENTITY main.copy                      "Kopēt">
+<!ENTITY main.copy.accesskey            "p">
+<!ENTITY main.transliteration           "Transliterācija">
+<!ENTITY main.transliteration.accesskey "T">
+<!ENTITY main.preferences               "Izvēles">
+<!ENTITY main.preferences.accesskey     "n">
+
+<!-- Display menu -->
+<!ENTITY main.display                   "Displejs">
+<!ENTITY main.display.accesskey         "D">
+<!ENTITY main.zoom                      "Tālummaiņa">
+<!ENTITY main.zoom.accesskey            "Z">
+<!ENTITY main.zoomin                    "Palielināt">
+<!ENTITY main.zoomin.accesskey          "M">
+<!ENTITY main.zoomout                   "Samazināt">
+<!ENTITY main.zoomout.accesskey         "R">
+<!ENTITY main.zoomorig                  "Sākotnējais izmērs">
+<!ENTITY main.zoomorig.accesskey        "O">
+<!ENTITY main.language                  "Valoda">
+<!ENTITY main.language.accesskey        "L">
+<!ENTITY main.skin                      "Apdare">
+<!ENTITY main.skin.accesskey            "S">
+<!ENTITY main.statusbar                 "Statusa josla">
+<!ENTITY main.statusbar.accesskey       "S">
+<!ENTITY main.resultsbar                "Rezultātu josla">
+<!ENTITY main.resultsbar.accesskey      "R">
+<!ENTITY main.tabs                      "Cilnes">
+<!ENTITY main.tabs.accesskey            "T">
+<!ENTITY main.fullscreen                "Pilnekrāna režīms">
+<!ENTITY main.fullscreen.accesskey      "F">
+
+<!-- Tools menu -->
+<!ENTITY main.tools                     "Rīki">
+<!ENTITY main.tools.accesskey           "T">
+<!ENTITY main.randomArticle             "Nejaušs raksts">
+<!ENTITY main.randomArticle.accesskey   "R">
+<!ENTITY main.checkIntegrity            "Integritātes pārbaude">
+<!ENTITY main.checkIntegrity.accesskey  "k">
+<!ENTITY main.purgeHistory              "Notīrīt vēsturi">
+<!ENTITY main.purgeHistory.accesskey    "P">
+
+<!-- Help menu -->
+<!ENTITY main.help                      "Palīdzība">
+<!ENTITY main.help.accesskey            "H">
+<!ENTITY main.reportabug                "Ziņot par kļūdu">
+<!ENTITY main.requestafeature           "Pieprasīt funkciju">
+<!ENTITY main.about                     "Par &brand.brandShortName;">
+<!ENTITY main.about.accesskey           "A">
+
+<!-- Tool bar -->
+<!ENTITY main.back                      "Atpakaļ">
+<!ENTITY main.forward                   "Uz priekšu">
+<!ENTITY main.home                      "Sākums">
+<!ENTITY main.searchBar                 "Meklēšanas josla">
+<!ENTITY main.search                    "Meklēt">
+<!ENTITY main.findInText                "Atrast tekstā">
+<!ENTITY main.noSearchBar               "Meklēšanai ir nepieciešams indeksēts ZIM fails">
+<!ENTITY main.bookmarks                 "Grāmatzīmes">
+
+<!-- Results bar -->
+<!ENTITY main.results.title             "Meklēšanas rezultāti">
+
+<!-- Bookmarks Bar -->
+<!ENTITY main.bmkLabel                  "Grāmatzīmes:">
+<!ENTITY main.notesLabel                "Grāmatzīmes piezīmes:">
+<!ENTITY main.loadbmk                   "Importēt grāmatzīmju kopu">
+<!ENTITY main.newbmk                    "Izveidotu jaunu grāmatzīmju kopu">
+<!ENTITY main.mark                      "Atzīmēt šo lapu">
+<!ENTITY main.unmark                    "Atcelt atzīmēšanu">
+<!ENTITY main.reload                    "Atiestatīt grāmatzīmju kopu">
+<!ENTITY main.defaultset                "Noklusētā kopa">
+
+<!-- Contextual Menu -->
+<!ENTITY main.saveImageAs               "Saglabāt attēlu kā...">
+
+<!-- About Window -->
+<!ENTITY main.close           		"Aizvērt">
+
+<!-- Preferences Window -->
+<!ENTITY preferences.preferences        "Preferences">
+<!ENTITY preferences.save      		"Save">
+<!ENTITY preferences.cancel     	"Cancel">
+<!ENTITY preferences.profileDirectory  	"Profile directory">
+<!ENTITY preferences.browse  	        "Browse">
+

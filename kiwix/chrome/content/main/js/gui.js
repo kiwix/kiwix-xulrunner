@@ -26,6 +26,7 @@ _languagesHash['hu']        = "Magyar";
 _languagesHash['ia']        = "Interlingua";
 _languagesHash['it']        = "Italiano";
 _languagesHash['ja']        = "日本語";
+_languagesHash['lc']        = "Latviešu";
 _languagesHash['mk']        = "Македонски";
 _languagesHash['ms']        = "Bahasa Melayu";
 _languagesHash['nl']        = "Nederlands";
