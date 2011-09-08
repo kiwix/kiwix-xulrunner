@@ -13,6 +13,7 @@ _languagesHash['bn']        = "বাংলা";
 _languagesHash['ca']        = "Català";
 _languagesHash['de']        = "Deutsch";
 _languagesHash['da']        = "Dansk";
+_languagesHash['el']        = "Ελληνικά";
 _languagesHash['en']        = "English";
 _languagesHash['eo']        = "Esperanto";
 _languagesHash['es']        = "Español";

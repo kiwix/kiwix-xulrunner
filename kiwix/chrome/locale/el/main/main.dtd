@@ -1,0 +1,111 @@
+<!-- Window -->
+<!ENTITY main.title                     "&brand.brandShortName;">
+<!ENTITY main.cssdirection              "ltr">
+
+<!-- File menu -->
+<!ENTITY main.file                      "Αρχείο">
+<!ENTITY main.file.accesskey            "F">
+<!ENTITY main.openFile                  "Άνοιγμα αρχείου...">
+<!ENTITY main.openFile.accesskey        "O">
+<!ENTITY main.lastOpen                  "Ανοίχτηκε πρόσφατα...">
+<!ENTITY main.saveFile                  "Αποθήκευση σελίδας ως...">
+<!ENTITY main.saveFile.accesskey        "S">
+<!ENTITY main.print                     "Εκτύπωση">
+<!ENTITY main.print.accesskey           "P">
+<!ENTITY main.printPdf                  "Εκτύπωση ως PDF">
+<!ENTITY main.printPdf.accesskey        "D">
+<!ENTITY main.quit                      "Έξοδος">
+<!ENTITY main.quit.accesskey            "Q">
+
+<!-- Edit menu -->
+<!ENTITY main.edit                      "Επεξεργασία">
+<!ENTITY main.edit.accesskey            "E">
+<!ENTITY main.find                      "Αναζήτηση στη σελίδα...">
+<!ENTITY main.find.accesskey            "S">
+<!ENTITY main.selectall                 "Επιλογή όλων">
+<!ENTITY main.selectall.accesskey       "a">
+<!ENTITY main.copy                      "Αντιγραφή">
+<!ENTITY main.copy.accesskey            "p">
+<!ENTITY main.transliteration           "Μεταγραφή">
+<!ENTITY main.transliteration.accesskey "T">
+<!ENTITY main.preferences               "Προτιμήσεις">
+<!ENTITY main.preferences.accesskey     "n">
+
+<!-- Display menu -->
+<!ENTITY main.display                   "Εμφάνιση">
+<!ENTITY main.display.accesskey         "D">
+<!ENTITY main.zoom                      "Εστίαση">
+<!ENTITY main.zoom.accesskey            "Z">
+<!ENTITY main.zoomin                    "Μεγέθυνση">
+<!ENTITY main.zoomin.accesskey          "M">
+<!ENTITY main.zoomout                   "Μειώστε">
+<!ENTITY main.zoomout.accesskey         "R">
+<!ENTITY main.zoomorig                  "Αρχικό μέγεθος">
+<!ENTITY main.zoomorig.accesskey        "O">
+<!ENTITY main.language                  "Γλώσσα">
+<!ENTITY main.language.accesskey        "L">
+<!ENTITY main.skin                      "Οπτική οργάνωση (skin)">
+<!ENTITY main.skin.accesskey            "S">
+<!ENTITY main.statusbar                 "Γραμμή κατάστασης">
+<!ENTITY main.statusbar.accesskey       "S">
+<!ENTITY main.resultsbar                "Γραμμή αποτελεσμάτων">
+<!ENTITY main.resultsbar.accesskey      "R">
+<!ENTITY main.tabs                      "Καρτέλες">
+<!ENTITY main.tabs.accesskey            "T">
+<!ENTITY main.fullscreen                "Πλήρης οθόνη">
+<!ENTITY main.fullscreen.accesskey      "F">
+
+<!-- Tools menu -->
+<!ENTITY main.tools                     "Εργαλεία">
+<!ENTITY main.tools.accesskey           "T">
+<!ENTITY main.randomArticle             "Τυχαίο άρθρο">
+<!ENTITY main.randomArticle.accesskey   "R">
+<!ENTITY main.checkIntegrity            "Έλεγχος ακεραιότητας">
+<!ENTITY main.checkIntegrity.accesskey  "k">
+<!ENTITY main.purgeHistory              "Εκκαθάριση ιστορικού">
+<!ENTITY main.purgeHistory.accesskey    "P">
+
+<!-- Help menu -->
+<!ENTITY main.help                      "Βοήθεια">
+<!ENTITY main.help.accesskey            "H">
+<!ENTITY main.reportabug                "Αναφορά σφάλματος">
+<!ENTITY main.requestafeature           "Ζητήστε ένα χαρακτηριστικό">
+<!ENTITY main.about                     "Σχετικά με το &brand.brandShortName;">
+<!ENTITY main.about.accesskey           "A">
+
+<!-- Tool bar -->
+<!ENTITY main.back                      "Πίσω">
+<!ENTITY main.forward                   "Μπροστά">
+<!ENTITY main.home                      "Αρχή">
+<!ENTITY main.searchBar                 "Γραμμή αναζήτησης">
+<!ENTITY main.search                    "Αναζήτηση">
+<!ENTITY main.findInText                "Εύρεση στο κείμενο">
+<!ENTITY main.noSearchBar               "Η αναζήτηση απαιτεί ένα καταχωρημένο αρχείο ZIM">
+<!ENTITY main.bookmarks                 "Σελιδοδείκτες">
+
+<!-- Results bar -->
+<!ENTITY main.results.title             "Αποτελέσματα αναζήτησης">
+
+<!-- Bookmarks Bar -->
+<!ENTITY main.bmkLabel                  "Σελιδοδείκτες:">
+<!ENTITY main.notesLabel                "Σημειώσεις σελιδοδείκτη:">
+<!ENTITY main.loadbmk                   "Εισαγωγή Συνόλου Σελιδοδεικτών">
+<!ENTITY main.newbmk                    "Δημιουργία νέου Συνόλου Σελιδοδεικτών">
+<!ENTITY main.mark                      "Σημειώστε αυτή τη σελίδα">
+<!ENTITY main.unmark                    "Κατάργηση σήμανσης επιλεγμένο">
+<!ENTITY main.reload                    "Επαναφόρτωση Συνόλου Σελιδοδεικτών">
+<!ENTITY main.defaultset                "Προεπιλεγμένο Σύνολο">
+
+<!-- Contextual Menu -->
+<!ENTITY main.saveImageAs               "Αποθήκευση εικόνας ως...">
+
+<!-- About Window -->
+<!ENTITY main.close           		"Κλείσιμο">
+
+<!-- Preferences Window -->
+<!ENTITY preferences.preferences        "Preferences">
+<!ENTITY preferences.save      		"Save">
+<!ENTITY preferences.cancel     	"Cancel">
+<!ENTITY preferences.profileDirectory  	"Profile directory">
+<!ENTITY preferences.browse  	        "Browse">
+

@@ -10,6 +10,7 @@ locale main bn    jar:locale.jar!/locale/bn/main/
 locale main ca    jar:locale.jar!/locale/ca/main/
 locale main da    jar:locale.jar!/locale/da/main/
 locale main de    jar:locale.jar!/locale/de/main/
+locale main el    jar:locale.jar!/locale/el/main/
 locale main en    jar:locale.jar!/locale/en/main/
 locale main eo    jar:locale.jar!/locale/eo/main/
 locale main es    jar:locale.jar!/locale/es/main/
@@ -45,6 +46,7 @@ locale branding bn    jar:locale.jar!/locale/branding/
 locale branding ca    jar:locale.jar!/locale/branding/
 locale branding da    jar:locale.jar!/locale/branding/
 locale branding de    jar:locale.jar!/locale/branding/
+locale branding el    jar:locale.jar!/locale/branding/
 locale branding en    jar:locale.jar!/locale/branding/
 locale branding eo    jar:locale.jar!/locale/branding/
 locale branding es    jar:locale.jar!/locale/branding/
