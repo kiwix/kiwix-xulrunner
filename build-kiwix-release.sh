@@ -24,8 +24,10 @@ fi
 if [ $STATIC -gt 0 ]
 then
 echo "Building a static (portable) version of Kiwix"
+confopt=" --without-dependences"
 else
 echo "Building a regular (linked) version of Kiwix"
+confopt=""
 fi
 
 function getFirefoxLocalization {
@@ -67,19 +69,20 @@ fi
 # Prepares Makefiles
 echo "Prepares Kiwix compilation"
 cd ./moulinkiwix
-./autogen.sh && ./configure
 make clean
+./autogen.sh && ./configure $confopt
 cd -
 
 # Compile dependences
 echo "Build Kiwix dependences"
 cd ./moulinkiwix/src/dependences
+make clean
 make
 cd -
 
-# Compile the components
+# Compile components
 echo "Build Kiwix components"
-cd ./moulinkiwix/
+cd ./moulinkiwix
 make
 cd -
 
@@ -88,8 +91,12 @@ echo "Files clean up"
 rm -rf ./kiwix
 cp -r -L ./moulinkiwix/kiwix ./kiwix
 
-# Remove svn stuff
-for i in `find ./kiwix -name ".svn"` ; do rm -rf $i ; done
+# Remove svn/repo stuff
+find ./kiwix -name '.svn' -delete
+find ./kiwix -name '*.inised' -delete
+find ./kiwix -name 'Makefile' -delete
+find ./kiwix -name 'Makefile.in' -delete
+find ./kiwix -name 'Makefile.am' -delete
 
 # Replace logger
 mv ./kiwix/chrome/content/main/js/logger_rlz.js ./kiwix/chrome/content/main/js/logger.js
@@ -115,6 +122,9 @@ cd -
 # Create the kiwix binary
 mv ./kiwix/xulrunner/xulrunner-stub ./kiwix/kiwix
 
+# Copy aria2c binary
+cp -v ./moulinkiwix/src/dependences/aria2-1.12.1/src/aria2c ./kiwix/
+
 # Download the firefox en copy the locales JAR
 getFirefoxLocalization de
 getFirefoxLocalization it
@@ -131,8 +141,15 @@ cp moulinkiwix/src/dependences/xapian*/bin/xapian-compact ./kiwix/bin
 
 # Tar & clean
 echo "Clean Up"
-rm kiwix.tar.bz2
-tar -cvjf kiwix.tar.bz2 ./kiwix
+aname="kiwix"
+if [ $STATIC -gt 0 ]
+then
+aname="$aname-static"
+fi
+aname="$aname.tar.bz2"
+rm $aname
+tar -cvjf $aname ./kiwix
 rm -rf ./firefox/
-rm -rf ./moulinkiwix*
-rm -rf ./kiwix/
+cd ..
+ls -lh ./tmp/$aname
+echo "All done. Your archive is ready in `readlink -f ./tmp/$aname`"
