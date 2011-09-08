@@ -113,7 +113,8 @@ kiwix/components/contentManager.dylib:
 	ln -f -s ../../src/components/contentManager/.libs/libContentManager.dylib ./kiwix/components/contentManager.dylib
 
 bindist: 
-	${BINDIST_INTRO_MESSAGE}
+    bscript := $(shell readlink -f ./build-kiwix-release.sh)
+	cd /tmp && ${bscript} --static $(VERSION)
 
 deb: dist
 	if [ `whereis dpkg-buildpackage | cut -f2 -d" "` == "dpkg-buildpackage:" ] ; then echo "You have to install dpkg-buildpackage" ; exit 1 ; fi
