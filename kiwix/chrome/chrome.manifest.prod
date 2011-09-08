@@ -34,6 +34,7 @@ locale main ro    jar:locale.jar!/locale/ro/main/
 locale main ru    jar:locale.jar!/locale/ru/main/
 locale main sl    jar:locale.jar!/locale/sl/main/
 locale main sv    jar:locale.jar!/locale/sv/main/
+locale main uk    jar:locale.jar!/locale/uk/main/
 locale main zh	  jar:locale.jar!/locale/zh/main/
 
 locale branding ar    jar:locale.jar!/locale/branding/
@@ -65,6 +66,7 @@ locale branding ro    jar:locale.jar!/locale/branding/
 locale branding ru    jar:locale.jar!/locale/branding/
 locale branding sv    jar:locale.jar!/locale/branding/
 locale branding sl    jar:locale.jar!/locale/branding/
+locale branding uk    jar:locale.jar!/locale/branding/
 locale branding zh    jar:locale.jar!/locale/branding/
 
 #skin packagename skinname uri/to/files/ [flags]
