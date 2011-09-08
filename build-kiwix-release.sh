@@ -137,7 +137,7 @@ getFirefoxLocalization zh-CN
 
 # xapian-compact
 mkdir ./kiwix/bin
-cp moulinkiwix/src/dependences/xapian*/bin/xapian-compact ./kiwix/bin
+cp moulinkiwix/src/dependences/xapian*/bin/.libs/xapian-compact ./kiwix/bin
 
 # Tar & clean
 echo "Clean Up"
