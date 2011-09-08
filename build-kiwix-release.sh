@@ -7,15 +7,22 @@
 #   You should run it from outside the moulinkiwix directory.
 #
 #   --static      creates a portable version of Kiwix
+#   --regular   creates a normal (shared links) version of Kiwix
 #   --help      displays this help message
 #
+
+VERSION="0.9x"
+if [ "$2" ]
+then
+VERSION=$2
+fi
 
 if [ "$1" = "--static" ]
 then
 STATIC=1
 elif [ "$1" = "--help" ]
 then
-head -n 11 $0 |grep -e '^#' |grep -v '^#!'|cut -c 2-
+head -n 12 $0 |grep -e '^#' |grep -v '^#!'|cut -c 2-
 exit
 else
 STATIC=0
@@ -147,7 +154,7 @@ if [ $STATIC -gt 0 ]
 then
 aname="$aname-static"
 fi
-aname="$aname.tar.bz2"
+aname="$aname-$VERSION.tar.bz2"
 rm $aname
 tar -cvjf $aname ./kiwix
 rm -rf ./firefox/
