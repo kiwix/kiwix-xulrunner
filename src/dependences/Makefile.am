@@ -63,7 +63,7 @@ zlib-1.2.3/zlib.lib: zlib.tar.gz
 	cd zlib-1.2.3 ; cp ./win32/Makefile.msc ./ ; sed -e "s/\\-MD/\\-MT/" Makefile.msc > Makefile.msc.custom ; export MAKEFLAGS=; nmake.exe -f Makefile.msc.custom
 
 xapian-core-1.2.3/.libs/libxapian.a: xapian-core.tar.gz 
-	cd xapian-core-1.2.3 ; export EXTERN_PATH=`pwd` ; export CPPFLAGS="-I${CURRENT_PATH}/src/dependences/zlib-1.2.3/" ; export CXXFLAGS=" -fPIC -L${CURRENT_PATH}/src/dependences/zlib-1.2.3" ; ./configure ; make
+	cd xapian-core-1.2.3 ; export EXTERN_PATH=`pwd` ; export CPPFLAGS="-I${CURRENT_PATH}/src/dependences/zlib-1.2.3/" ; export CXXFLAGS=" -fPIC -L${CURRENT_PATH}/src/dependences/zlib-1.2.3" ; ./configure --enable-static ; make
 
 xapian-core-1.2.3/win32/Release/libs/libunicode.lib: xapian-core.tar.gz xapian-win32.zip
 	cd xapian-core-1.2.3/win32; sed -e "s/\\-MD/\\-MT/" config.mak > config.mak.bis
@@ -91,6 +91,14 @@ aria2.pkg: aria2-1.10.9.dmg
 aria2/bin/aria2c: aria2.pkg
 	${CURRENT_PATH}/../maintenance_tools/unpkg.py aria2.pkg
 
+aria2-1.12.1.tar.bz2:
+	wget -c http://garr.dl.sourceforge.net/project/aria2/stable/aria2-1.12.1/aria2-1.12.1.tar.bz2 -O aria2-1.12.1.tar.bz2
+	tar xf aria2-1.12.1.tar.bz2
+
+aria2-1.12.1/src/aria2c: aria2-1.12.1.tar.bz2
+	cd aria2-1.12.1 ; export ZLIB_LIBS=/usr/lib/i386-linux-gnu/libz.a ; export SQLITE3_LIBS=/usr/lib/i386-linux-gnu/libsqlite3.a ; LIBCARES_LIBS=/usr/lib/libcares.a
+	./configure --with-libcares --with-libz --with-sqlite3 ; make
+
 xz/src/liblzma/.libs/liblzma.a: xz.tar.bz2
 if IS_OSX
 	lzma_conf_extra="--with-libiconv-prefix=/opt/local --with-libintl-prefix=/opt/local --disable-assembler"
@@ -117,9 +125,12 @@ win: zlib-1.2.3/zlib.lib xapian-core-1.2.3/win32/Release/libs/libunicode.lib icu
 
 # clean
 clean:
+	cd xapian-core-1.2.3 ; make clean ; cd -
+	cd zlib-1.2.3 ; make clean ; cd -
+	cd xz/src ; make clean ; cd -
 	rm -rf zlib-1.2.3/libz.a zlib-1.2.3/libz.lib
-	rm -rf xapian-core-1.2.3/.libs/libxapian.a xapian-core-1.2.3/win32/Release/libs/libunicode.lib
-	rm -rf xz/src/liblzma/.libs/liblzma.a  xz/windows/liblzma.lib
+	rm -rf xapian-core-1.2.3/.libs xapian-core-1.2.3/win32/Release/libs/libunicode.lib
+	rm -rf xz/src/liblzma/.libs  xz/windows/liblzma.lib
 
 # distclean
 distclean:
