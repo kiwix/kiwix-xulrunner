@@ -7,6 +7,7 @@ var _restore_tab            = null;
 var _firstSideBar	    = true;
 
 var _languagesHash          = Array();
+_languagesHash['af']        = "Afrikaans";
 _languagesHash['ar']        = "العربية";
 _languagesHash['ast']       = "Asturianu";
 _languagesHash['bn']        = "বাংলা";

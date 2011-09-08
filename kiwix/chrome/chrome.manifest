@@ -4,6 +4,7 @@ content branding content/branding/
 content static static/
 
 #locale packagename localename uri/to/files/ [flags]
+locale main af    locale/af/main/
 locale main ar    locale/ar/main/
 locale main ast   locale/ast/main/
 locale main bn    locale/bn/main/
@@ -40,6 +41,7 @@ locale main te    locale/te/main/
 locale main uk    locale/uk/main/
 locale main zh	  locale/zh/main/
 
+locale branding af    locale/branding/
 locale branding ar    locale/branding/
 locale branding ast   locale/branding/
 locale branding bn    locale/branding/
