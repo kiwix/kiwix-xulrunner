@@ -5,6 +5,11 @@ PROFILES_PATH=~/.www.kiwix.org/kiwix/ ;
 # Get the path of the xapian-compact install of the system
 XAPIAN_COMPACT=`whereis xapian-compact | cut -d" " -f2`
 
+# previous test will not be false if not found
+if [[ "$XAPIAN_COMPACT" =~ ":" ]]; then
+    XAPIAN_COMPACT=""
+fi
+
 # If no xapian-compact, take a look to the current directory
 if [ ! "$XAPIAN_COMPACT" ] ; then
     XAPIAN_COMPACT=`find ./ -type f -name xapian-compact`
