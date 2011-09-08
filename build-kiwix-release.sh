@@ -77,7 +77,6 @@ fi
 echo "Prepares Kiwix compilation"
 cd ./moulinkiwix
 if [ -f Makefile ]; then make clean; fi
-fi
 ./autogen.sh && ./configure $confopt
 cd -
 
