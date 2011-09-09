@@ -126,9 +126,9 @@ mv ./xulrunner/ ./kiwix/
 
 # Additional dynlib symlinks
 cd ./kiwix/xulrunner
-ln -sf libplc4.so libplc4.so.0d
-ln -sf libnspr4.so libnspr4.so.0d
-ln -sf libplds4.so libplds4.so.0d
+cp -v libplc4.so libplc4.so.0d
+cp -v libnspr4.so libnspr4.so.0d
+cp -v libplds4.so libplds4.so.0d
 cd -
 
 # Create the kiwix binary
