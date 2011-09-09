@@ -211,6 +211,7 @@ let settings = {
     profileToRemove: function(value) { return this.charSettingParameter("profileToRemove", value); },
     libraryUrls: function(value) { return this.charSettingParameter("kiwix.libraryUrls", value); },
     downloads: function(value) { return this.charSettingParameter("kiwix.downloads", value); },
+    zoomFactor: function(id, zoomFactor) { return this.charSettingParameter("kiwix.zoomFactor." + id, zoomFactor); },   
     displayOnCloseCleanConfirmDialog: function(value) { 
     	return this.boolSettingParameter("displayOnCloseCleanConfirmDialog", value); 
     }

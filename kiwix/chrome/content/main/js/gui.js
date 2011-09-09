@@ -404,11 +404,13 @@ function zoomOriginal() {
 /* Zoom in (bigger font) */
 function zoomIn() {
     getHtmlRenderer().markupDocumentViewer.textZoom *= _zoomFactor;
+    settings.zoomFactor(library.getCurrentId(), getHtmlRenderer().markupDocumentViewer.textZoom);
 }
 
 /* Zoom out (smaller font) */
 function zoomOut() {
     getHtmlRenderer().markupDocumentViewer.textZoom /= _zoomFactor;
+    settings.zoomFactor(library.getCurrentId(), getHtmlRenderer().markupDocumentViewer.textZoom);
 }
 
 /* Fullscreen mode functions */
@@ -721,6 +723,10 @@ function manageOpenFile(path, noSearchIndexCheck) {
 
 	/* Activate the Home button and desactivate the next/back buttons */
 	activateHomeButton();
+
+	/* Set the zoom */
+	getHtmlRenderer().markupDocumentViewer.textZoom = 
+	    settings.zoomFactor(library.getCurrentId()) != undefined ? settings.zoomFactor(library.getCurrentId()) : 1;
 
 	/* Ask to index if this files has not already an index */
 	if (!isIndexing() && !noSearchIndexCheck && !checkSearchIndex()) {
