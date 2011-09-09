@@ -399,6 +399,7 @@ function clearStatusBar() {
 /* Zoom normal */
 function zoomOriginal() {
     getHtmlRenderer().markupDocumentViewer.textZoom = 1;
+    settings.zoomFactor(library.getCurrentId(), getHtmlRenderer().markupDocumentViewer.textZoom);
 }
 
 /* Zoom in (bigger font) */
