@@ -921,6 +921,9 @@ function toggleBrowserContextualMenu(event) {
     /* Show the contextual menu */
     var browserContextualMenu = document.getElementById("browser-contextual-menu");
     browserContextualMenu.openPopupAtScreen(event.screenX, event.screenY, true);
+
+    /* Stop event propagation */
+    stopEventPropagation(event);
 }
 
 /* Display a confirm dialog box like confirm() */
