@@ -87,6 +87,11 @@ make clean
 make
 cd -
 
+# Relaunch configure with deps
+cd ./moulinkiwix
+./configure $confopt
+cd -
+
 # Compile components
 echo "Build Kiwix components"
 cd ./moulinkiwix
