@@ -776,10 +776,9 @@ function showAbout() {
 
 /* Display the default view */
 function showDefault() {
+    showHelp();
     if (library.getLocalBookCount() == 0 && library.getRemoteBookCount() > 0) {
 	showRemoteBooks();
-    } else {
-	showHelp();
     }
 }
 
