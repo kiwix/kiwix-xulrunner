@@ -16,11 +16,11 @@ Kiwix 0.9 beta3
 * New keyboard shortcuts to deal with bookmarks
 * Add arrow keys handling to navigate in the content manager (ID: 3389511)
 * Added static compilation of components for Linux.
-* Added debian init script for Kiwix-serve (ID: 2976515)
+* Added debian init script for kiwix-serve (ID: 2976515)
 * Added static version capability to build-kiwix-release script
 * Improve the 'show' action in kiwix-manage
-* Fix contextual menu display (mous right click) on Windows (ID: 3406801)
-* Save zoom factor over reboots (ID: 3367428)
+* Fix contextual menu display (mouse right click) on Windows (ID: 3406801)
+* Save zoom factor over kiwix restarts (ID: 3367428)
 
 Kiwix 0.9 beta2
 * Regression fix, tabs should not be visible per default
