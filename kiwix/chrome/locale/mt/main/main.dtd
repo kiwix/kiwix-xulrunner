@@ -1,0 +1,111 @@
+<!-- Window -->
+<!ENTITY main.title                     "&brand.brandShortName;">
+<!ENTITY main.cssdirection              "ltr">
+
+<!-- File menu -->
+<!ENTITY main.file                      "Fajl">
+<!ENTITY main.file.accesskey            "F">
+<!ENTITY main.openFile                  "Iftaħ il-fajl...">
+<!ENTITY main.openFile.accesskey        "O">
+<!ENTITY main.lastOpen                  "Miftuħin riċentament...">
+<!ENTITY main.saveFile                  "Salva l-paġna bħala...">
+<!ENTITY main.saveFile.accesskey        "S">
+<!ENTITY main.print                     "Ipprintja">
+<!ENTITY main.print.accesskey           "P">
+<!ENTITY main.printPdf                  "Ipprintja bħala PDF">
+<!ENTITY main.printPdf.accesskey        "D">
+<!ENTITY main.quit                      "Oħroġ">
+<!ENTITY main.quit.accesskey            "Q">
+
+<!-- Edit menu -->
+<!ENTITY main.edit                      "Immodifika">
+<!ENTITY main.edit.accesskey            "E">
+<!ENTITY main.find                      "Sib fil-paġna...">
+<!ENTITY main.find.accesskey            "S">
+<!ENTITY main.selectall                 "Agħżel kollox">
+<!ENTITY main.selectall.accesskey       "a">
+<!ENTITY main.copy                      "Ikkopja">
+<!ENTITY main.copy.accesskey            "p">
+<!ENTITY main.transliteration           "Trażlitterazzjoni">
+<!ENTITY main.transliteration.accesskey "T">
+<!ENTITY main.preferences               "Preferenzi">
+<!ENTITY main.preferences.accesskey     "n">
+
+<!-- Display menu -->
+<!ENTITY main.display                   "Viżwal">
+<!ENTITY main.display.accesskey         "D">
+<!ENTITY main.zoom                      "Iffoka">
+<!ENTITY main.zoom.accesskey            "Z">
+<!ENTITY main.zoomin                    "Kabbar">
+<!ENTITY main.zoomin.accesskey          "M">
+<!ENTITY main.zoomout                   "Naqqas">
+<!ENTITY main.zoomout.accesskey         "R">
+<!ENTITY main.zoomorig                  "Daqs oriġinali">
+<!ENTITY main.zoomorig.accesskey        "O">
+<!ENTITY main.language                  "Lingwa">
+<!ENTITY main.language.accesskey        "L">
+<!ENTITY main.skin                      "Aspett">
+<!ENTITY main.skin.accesskey            "S">
+<!ENTITY main.statusbar                 "Status bar">
+<!ENTITY main.statusbar.accesskey       "S">
+<!ENTITY main.resultsbar                "Barra tar-riżultati">
+<!ENTITY main.resultsbar.accesskey      "R">
+<!ENTITY main.tabs                      "Twieqi">
+<!ENTITY main.tabs.accesskey            "T">
+<!ENTITY main.fullscreen                "Skrin sħiħ">
+<!ENTITY main.fullscreen.accesskey      "F">
+
+<!-- Tools menu -->
+<!ENTITY main.tools                     "Għodda">
+<!ENTITY main.tools.accesskey           "T">
+<!ENTITY main.randomArticle             "Artiklu kwalunkwe">
+<!ENTITY main.randomArticle.accesskey   "R">
+<!ENTITY main.checkIntegrity            "Verifika tal-integrità">
+<!ENTITY main.checkIntegrity.accesskey  "k">
+<!ENTITY main.purgeHistory              "Ħassar il-kronoloġija">
+<!ENTITY main.purgeHistory.accesskey    "P">
+
+<!-- Help menu -->
+<!ENTITY main.help                      "Għajnuna">
+<!ENTITY main.help.accesskey            "H">
+<!ENTITY main.reportabug                "Irrapporta xi problema">
+<!ENTITY main.requestafeature           "Itlob funzjoni ġdida">
+<!ENTITY main.about                     "Dwar &brand.brandShortName;">
+<!ENTITY main.about.accesskey           "A">
+
+<!-- Tool bar -->
+<!ENTITY main.back                      "Lura">
+<!ENTITY main.forward                   "'Il quddiem">
+<!ENTITY main.home                      "Daħla">
+<!ENTITY main.searchBar                 "Kaxxa tat-tfittxija">
+<!ENTITY main.search                    "Fittex">
+<!ENTITY main.findInText                "Sib fit-test">
+<!ENTITY main.noSearchBar               "It-tfittxija għandha bżonn ta' ZIM indiċizzat">
+<!ENTITY main.bookmarks                 "Werrejja">
+
+<!-- Results bar -->
+<!ENTITY main.results.title             "Riżultati">
+
+<!-- Bookmarks Bar -->
+<!ENTITY main.bmkLabel                  "Werrejja:">
+<!ENTITY main.notesLabel                "Noti tal-werrejja:">
+<!ENTITY main.loadbmk                   "Importa kollezzjoni ta' werrejja">
+<!ENTITY main.newbmk                    "Oħloq kollezzjoni ġdida ta' werrejja">
+<!ENTITY main.mark                      "Żid din il-paġna mal-werrejja">
+<!ENTITY main.unmark                    "Neħħi din il-paġna mill-werrejja">
+<!ENTITY main.reload                    "Erġa' tella' l-kollezzjoni tal-werrejja">
+<!ENTITY main.defaultset                "Kollezzjoni oriġinali">
+
+<!-- Contextual Menu -->
+<!ENTITY main.saveImageAs               "Salva l-istampa bħala...">
+
+<!-- About Window -->
+<!ENTITY main.close           		"Agħlaq">
+
+<!-- Preferences Window -->
+<!ENTITY preferences.preferences        "Preferences">
+<!ENTITY preferences.save      		"Save">
+<!ENTITY preferences.cancel     	"Cancel">
+<!ENTITY preferences.profileDirectory  	"Profile directory">
+<!ENTITY preferences.browse  	        "Browse">
+

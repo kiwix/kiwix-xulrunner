@@ -31,6 +31,7 @@ _languagesHash['ja']        = "日本語";
 _languagesHash['lc']        = "Latviešu";
 _languagesHash['mk']        = "Македонски";
 _languagesHash['ms']        = "Bahasa Melayu";
+_languagesHash['mt']        = "Malti";
 _languagesHash['nl']        = "Nederlands";
 _languagesHash['no']        = "Norsk (bokmål)";
 _languagesHash['ml']        = "മലയാളം";
