@@ -38,6 +38,7 @@ locale main ru    locale/ru/main/
 locale main sl    locale/sl/main/
 locale main sv    locale/sv/main/
 locale main te    locale/te/main/
+locale main th    locale/th/main/
 locale main uk    locale/uk/main/
 locale main zh	  locale/zh/main/
 
@@ -74,6 +75,7 @@ locale branding ro    locale/branding/
 locale branding ru    locale/branding/
 locale branding sl    locale/branding/
 locale branding te    locale/branding/
+locale branding th    locale/branding/
 locale branding sv    locale/branding/
 locale branding uk    locale/branding/
 locale branding zh    locale/branding/
