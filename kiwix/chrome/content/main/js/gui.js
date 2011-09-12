@@ -883,7 +883,7 @@ function toggleBrowserContextualMenu(event) {
     var saveImageAsMenuItem = document.getElementById("browser-contextual-menu-saveimageas");
     if (target.localName == "img") {
 	var src = target.getAttribute("src");
-	saveImageAsMenuItem.setAttribute("onclick", "manageImageDownload('" + src + "')");
+	saveImageAsMenuItem.setAttribute("onclick", "manageImageDownload(\"" + src.replace("\"", "\\\"") + "\")");
 	saveImageAsMenuItem.setAttribute("style", "display: visible;");
     } else {
 	saveImageAsMenuItem.setAttribute("style", "display: none;");
@@ -895,7 +895,7 @@ function toggleBrowserContextualMenu(event) {
     if (url != undefined) {
 	if (isInternalUrl(url) && !isJavascriptUrl(url)) {
 	    openLinkInNewTabMenuItem.setAttribute("style", "display: visible;");
-	    openLinkInNewTabMenuItem.setAttribute("onclick", "manageOpenUrlInNewTab('" + url + "')");
+	    openLinkInNewTabMenuItem.setAttribute("onclick", "manageOpenUrlInNewTab(\"" + url.replace("\"", "\\\"") + "\")");
 	} else {
 	    openLinkInNewTabMenuItem.setAttribute("style", "display: none;");
 	}
@@ -911,7 +911,7 @@ function toggleBrowserContextualMenu(event) {
 	copySelectedTextMenuItem.setAttribute("style", "display: visible;");
 	copySelectedTextMenuItem.setAttribute("onclick", "copySelectedContent()");
 	searchForMenuItem.setAttribute("style", "display: visible;");
-	searchForMenuItem.setAttribute("onclick", "searchFor('" + selectedText + "')");
+	searchForMenuItem.setAttribute("onclick", "searchFor(\"" + selectedText.replace("\"", "\\\"") + "\")");
     } else {
 	copySelectedTextMenuItem.setAttribute("style", "display: none;");
 	searchForMenuItem.setAttribute("style", "display: none;");
