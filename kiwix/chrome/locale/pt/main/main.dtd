@@ -8,11 +8,11 @@
 <!ENTITY main.openFile                  "Abrir ficheiro...">
 <!ENTITY main.openFile.accesskey        "A">
 <!ENTITY main.lastOpen                  "Aberto recentemente...">
-<!ENTITY main.saveFile                  "Gravar Página como...">
+<!ENTITY main.saveFile                  "Gravar página como...">
 <!ENTITY main.saveFile.accesskey        "S">
 <!ENTITY main.print                     "Imprimir">
 <!ENTITY main.print.accesskey           "I">
-<!ENTITY main.printPdf                  "IMprimir para PDF">
+<!ENTITY main.printPdf                  "Imprimir para PDF">
 <!ENTITY main.printPdf.accesskey        "D">
 <!ENTITY main.quit                      "Sair">
 <!ENTITY main.quit.accesskey            "R">
@@ -28,7 +28,7 @@
 <!ENTITY main.copy.accesskey            "C">
 <!ENTITY main.transliteration           "Translineação">
 <!ENTITY main.transliteration.accesskey "T">
-<!ENTITY main.preferences               "Preferences">
+<!ENTITY main.preferences               "Preferências">
 <!ENTITY main.preferences.accesskey     "n">
 
 <!-- Display menu -->
@@ -44,13 +44,13 @@
 <!ENTITY main.zoomorig.accesskey        "T">
 <!ENTITY main.language                  "Língua">
 <!ENTITY main.language.accesskey        "L">
-<!ENTITY main.skin                      "Skin">
+<!ENTITY main.skin                      "Aparência">
 <!ENTITY main.skin.accesskey            "S">
 <!ENTITY main.statusbar                 "Barra de estado">
 <!ENTITY main.statusbar.accesskey       "B">
 <!ENTITY main.resultsbar                "Barra de resultados">
 <!ENTITY main.resultsbar.accesskey      "T">
-<!ENTITY main.tabs                      "Tabs">
+<!ENTITY main.tabs                      "Separadores">
 <!ENTITY main.tabs.accesskey            "T">
 <!ENTITY main.fullscreen                "Ecrã completo">
 <!ENTITY main.fullscreen.accesskey      "E">
@@ -60,7 +60,7 @@
 <!ENTITY main.tools.accesskey           "R">
 <!ENTITY main.randomArticle             "Artigo aleatório">
 <!ENTITY main.randomArticle.accesskey   "A">
-<!ENTITY main.checkIntegrity            "Integrity check">
+<!ENTITY main.checkIntegrity            "Verificação de integridade">
 <!ENTITY main.checkIntegrity.accesskey  "k">
 <!ENTITY main.purgeHistory              "Limpar histórico">
 <!ENTITY main.purgeHistory.accesskey    "P">
@@ -79,7 +79,7 @@
 <!ENTITY main.home                      "Início">
 <!ENTITY main.searchBar                 "Barra de pesquisa">
 <!ENTITY main.search                    "Pesquisar">
-<!ENTITY main.findInText                "Find in text">
+<!ENTITY main.findInText                "Procurar no texto">
 <!ENTITY main.noSearchBar               "A pesquisa requere um ficheiro Zim indexado">
 <!ENTITY main.bookmarks                 "Favoritos">
 
@@ -92,15 +92,15 @@
 <!ENTITY main.loadbmk                   "Importar Conjunto de Favoritos">
 <!ENTITY main.newbmk                    "Criar novo Conjunto de Favoritos">
 <!ENTITY main.mark                      "Marcar esta página">
-<!ENTITY main.unmark                    "Desmarcar selecionadas">
-<!ENTITY main.reload                    "Repor Conjunto de Favoritos">
+<!ENTITY main.unmark                    "Desmarcar seleccionadas">
+<!ENTITY main.reload                    "Recarregar Conjunto de Favoritos">
 <!ENTITY main.defaultset                "Conjunto Padrão">
 
 <!-- Contextual Menu -->
 <!ENTITY main.saveImageAs               "Guardar a imagem como ...">
 
 <!-- About Window -->
-<!ENTITY main.close           		"Close">
+<!ENTITY main.close           		"Fechar">
 
 <!-- Preferences Window -->
 <!ENTITY preferences.preferences        "Preferences">

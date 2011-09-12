@@ -5,14 +5,14 @@
 <!-- File menu -->
 <!ENTITY main.file                      "Archivo">
 <!ENTITY main.file.accesskey            "A">
-<!ENTITY main.openFile                  "Abrir...">
+<!ENTITY main.openFile                  "Abrir archivo...">
 <!ENTITY main.openFile.accesskey        "A">
-<!ENTITY main.lastOpen                  "Recientemente abiertos...">
+<!ENTITY main.lastOpen                  "Abiertos recientemente...">
 <!ENTITY main.saveFile                  "Guardar página como...">
 <!ENTITY main.saveFile.accesskey        "S">
 <!ENTITY main.print                     "Imprimir...">
 <!ENTITY main.print.accesskey           "I">
-<!ENTITY main.printPdf                  "Guardar como PDF...">
+<!ENTITY main.printPdf                  "Imprimir en formato PDF">
 <!ENTITY main.printPdf.accesskey        "D">
 <!ENTITY main.quit                      "Salir">
 <!ENTITY main.quit.accesskey            "S">
@@ -20,7 +20,7 @@
 <!-- Edit menu -->
 <!ENTITY main.edit                      "Editar">
 <!ENTITY main.edit.accesskey            "E">
-<!ENTITY main.find                      "Buscar en página...">
+<!ENTITY main.find                      "Buscar en la página...">
 <!ENTITY main.find.accesskey            "u">
 <!ENTITY main.selectall                 "Seleccionar todo">
 <!ENTITY main.selectall.accesskey       "a">
@@ -36,9 +36,9 @@
 <!ENTITY main.display.accesskey         "P">
 <!ENTITY main.zoom                      "Zoom">
 <!ENTITY main.zoom.accesskey            "Z">
-<!ENTITY main.zoomin                    "Aumentar">
+<!ENTITY main.zoomin                    "Ampliar">
 <!ENTITY main.zoomin.accesskey          "u">
-<!ENTITY main.zoomout                   "Disminuir">
+<!ENTITY main.zoomout                   "Reducir">
 <!ENTITY main.zoomout.accesskey         "D">
 <!ENTITY main.zoomorig                  "Normal">
 <!ENTITY main.zoomorig.accesskey        "N">
@@ -80,7 +80,7 @@
 <!ENTITY main.searchBar                 "Barra de búsqueda">
 <!ENTITY main.search                    "Buscar">
 <!ENTITY main.findInText                "Buscar en el texto">
-<!ENTITY main.noSearchBar               "La búsqueda requiere un archivo índice del ZIM">
+<!ENTITY main.noSearchBar               "La búsqueda requiere un archivo ZIM indizado">
 <!ENTITY main.bookmarks                 "Marcadores">
 
 <!-- Results bar -->
@@ -89,11 +89,11 @@
 <!-- Bookmarks Bar -->
 <!ENTITY main.bmkLabel                  "Marcadores:">
 <!ENTITY main.notesLabel                "Notas de marcador:">
-<!ENTITY main.loadbmk                   "Importar marcadores">
+<!ENTITY main.loadbmk                   "Importar conjunto de marcadores">
 <!ENTITY main.newbmk                    "Crear nuevo conjunto de marcadores">
 <!ENTITY main.mark                      "Marcar esta página">
 <!ENTITY main.unmark                    "Desmarcar seleccionados">
-<!ENTITY main.reload                    "Restablecer conjunto de marcadores">
+<!ENTITY main.reload                    "Recargar el conjunto de marcadores">
 <!ENTITY main.defaultset                "Conjunto predeterminado">
 
 <!-- Contextual Menu -->

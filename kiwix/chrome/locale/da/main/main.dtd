@@ -93,7 +93,7 @@
 <!ENTITY main.newbmk                    "Opret ny bogmærkesamling">
 <!ENTITY main.mark                      "Marker denne side">
 <!ENTITY main.unmark                    "Fjern markering af valgte">
-<!ENTITY main.reload                    "Nulstil bogmærkesamling">
+<!ENTITY main.reload                    "Genindlæs bogmærkesamling">
 <!ENTITY main.defaultset                "Standardsamling">
 
 <!-- Contextual Menu -->

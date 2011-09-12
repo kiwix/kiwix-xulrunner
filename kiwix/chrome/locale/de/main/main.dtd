@@ -93,7 +93,7 @@
 <!ENTITY main.newbmk                    "Neue Lesezeichendatei anlegen">
 <!ENTITY main.mark                      "Seite markieren">
 <!ENTITY main.unmark                    "Markierung aufheben">
-<!ENTITY main.reload                    "Nochmal laden">
+<!ENTITY main.reload                    "Lesezeichen nochmals laden">
 <!ENTITY main.defaultset                "Defaultdatei">
 
 <!-- Contextual Menu -->

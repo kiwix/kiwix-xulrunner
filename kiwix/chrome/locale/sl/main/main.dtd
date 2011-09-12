@@ -93,7 +93,7 @@
 <!ENTITY main.newbmk                    "Ustvari novo množico zaznamkov">
 <!ENTITY main.mark                      "Označi to stran">
 <!ENTITY main.unmark                    "Odznači izbrane">
-<!ENTITY main.reload                    "Ponastavi množico zaznamkov">
+<!ENTITY main.reload                    "Ponovno naloži množico zaznamkov">
 <!ENTITY main.defaultset                "Privzeta množica">
 
 <!-- Contextual Menu -->

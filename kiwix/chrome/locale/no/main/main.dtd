@@ -32,7 +32,7 @@
 <!ENTITY main.preferences.accesskey     "n">
 
 <!-- Display menu -->
-<!ENTITY main.display                   "Display">
+<!ENTITY main.display                   "Skjerm">
 <!ENTITY main.display.accesskey         "D">
 <!ENTITY main.zoom                      "Zoom">
 <!ENTITY main.zoom.accesskey            "Z">
@@ -48,7 +48,7 @@
 <!ENTITY main.skin.accesskey            "S">
 <!ENTITY main.statusbar                 "Statuslinje">
 <!ENTITY main.statusbar.accesskey       "S">
-<!ENTITY main.resultsbar                "Results bar">
+<!ENTITY main.resultsbar                "Resultatlinje">
 <!ENTITY main.resultsbar.accesskey      "R">
 <!ENTITY main.tabs                      "Faner">
 <!ENTITY main.tabs.accesskey            "T">
@@ -93,8 +93,8 @@
 <!ENTITY main.newbmk                    "Opprett nytt bokmerkesamling">
 <!ENTITY main.mark                      "Marker denne siden">
 <!ENTITY main.unmark                    "Fjern markering for valgte">
-<!ENTITY main.reload                    "Nullstill bokmerkesamling">
-<!ENTITY main.defaultset                "Default Set">
+<!ENTITY main.reload                    "Last inn bokmerkesamling på nytt">
+<!ENTITY main.defaultset                "Standardsamling">
 
 <!-- Contextual Menu -->
 <!ENTITY main.saveImageAs               "Lagre bilde som...">

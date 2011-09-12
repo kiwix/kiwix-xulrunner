@@ -7,9 +7,9 @@
 <!ENTITY main.file.accesskey            "P">
 <!ENTITY main.openFile                  "Otwórz plik...">
 <!ENTITY main.openFile.accesskey        "O">
-<!ENTITY main.lastOpen                  "Ostatnio otwarte...">
+<!ENTITY main.lastOpen                  "Ostatnio otwierane...">
 <!ENTITY main.saveFile                  "Zapisz stronę jako...">
-<!ENTITY main.saveFile.accesskey        "P">
+<!ENTITY main.saveFile.accesskey        "Z">
 <!ENTITY main.print                     "Drukuj">
 <!ENTITY main.print.accesskey           "D">
 <!ENTITY main.printPdf                  "Drukuj do PDF">
@@ -28,14 +28,14 @@
 <!ENTITY main.copy.accesskey            "c">
 <!ENTITY main.transliteration           "Transliteracja">
 <!ENTITY main.transliteration.accesskey "T">
-<!ENTITY main.preferences               "Preferences">
+<!ENTITY main.preferences               "Preferencje">
 <!ENTITY main.preferences.accesskey     "n">
 
 <!-- Display menu -->
 <!ENTITY main.display                   "Widok">
 <!ENTITY main.display.accesskey         "W">
 <!ENTITY main.zoom                      "Powiększenie">
-<!ENTITY main.zoom.accesskey            "w">
+<!ENTITY main.zoom.accesskey            "W">
 <!ENTITY main.zoomin                    "Powiększ">
 <!ENTITY main.zoomin.accesskey          "+">
 <!ENTITY main.zoomout                   "Pomniejsz">
@@ -49,7 +49,7 @@
 <!ENTITY main.statusbar                 "Pasek stanu">
 <!ENTITY main.statusbar.accesskey       "S">
 <!ENTITY main.resultsbar                "Panel wyników">
-<!ENTITY main.resultsbar.accesskey      "w">
+<!ENTITY main.resultsbar.accesskey      "W">
 <!ENTITY main.tabs                      "Zakładki">
 <!ENTITY main.tabs.accesskey            "Z">
 <!ENTITY main.fullscreen                "Pełny ekran">
@@ -60,16 +60,16 @@
 <!ENTITY main.tools.accesskey           "N">
 <!ENTITY main.randomArticle             "Losowy artykuł">
 <!ENTITY main.randomArticle.accesskey   "L">
-<!ENTITY main.checkIntegrity            "Integrity check">
+<!ENTITY main.checkIntegrity            "Sprawdzenie integralności">
 <!ENTITY main.checkIntegrity.accesskey  "k">
 <!ENTITY main.purgeHistory              "Wyczyść historię">
 <!ENTITY main.purgeHistory.accesskey    "W">
 
 <!-- Help menu -->
 <!ENTITY main.help                      "Pomoc">
-<!ENTITY main.help.accesskey            "c">
+<!ENTITY main.help.accesskey            "C">
 <!ENTITY main.reportabug                "Zgłoś błąd">
-<!ENTITY main.requestafeature           "Zaproponuj opcję">
+<!ENTITY main.requestafeature           "Zaproponuj nową funkcję">
 <!ENTITY main.about                     "O &brand.brandShortName;">
 <!ENTITY main.about.accesskey           "O">
 
@@ -79,8 +79,8 @@
 <!ENTITY main.home                      "Strona główna">
 <!ENTITY main.searchBar                 "Pole wyszukiwania">
 <!ENTITY main.search                    "Szukaj">
-<!ENTITY main.findInText                "Find in text">
-<!ENTITY main.noSearchBar               "Wyszukiwanie wymaga zaindeksowanego pliku Zim">
+<!ENTITY main.findInText                "Znajdź w tekście">
+<!ENTITY main.noSearchBar               "Wyszukiwanie wymaga zindeksowanego pliku ZIM">
 <!ENTITY main.bookmarks                 "Zakładki">
 
 <!-- Results bar -->
@@ -90,17 +90,17 @@
 <!ENTITY main.bmkLabel                  "Zakładki:">
 <!ENTITY main.notesLabel                "Notatki:">
 <!ENTITY main.loadbmk                   "Importuj zestaw zakładek">
-<!ENTITY main.newbmk                    "Stwórz nowy zestaw zakładek">
+<!ENTITY main.newbmk                    "Utwórz nowy zestaw zakładek">
 <!ENTITY main.mark                      "Zaznacz bieżącą stronę">
 <!ENTITY main.unmark                    "Odznacz wybrane">
-<!ENTITY main.reload                    "Usuń wszystkie zakładki z bieżącego zestawu">
+<!ENTITY main.reload                    "Przeładuj wszystkie zakładki z bieżącego zestawu">
 <!ENTITY main.defaultset                "Zestaw domyślny">
 
 <!-- Contextual Menu -->
 <!ENTITY main.saveImageAs               "Zapisz obrazek jako...">
 
 <!-- About Window -->
-<!ENTITY main.close           		"Close">
+<!ENTITY main.close           		"Zamknij">
 
 <!-- Preferences Window -->
 <!ENTITY preferences.preferences        "Preferences">

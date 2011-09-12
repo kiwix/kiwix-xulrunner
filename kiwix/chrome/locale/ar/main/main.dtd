@@ -93,7 +93,7 @@
 <!ENTITY main.newbmk                    "إنشاء مجموعة مفضلة جديدة">
 <!ENTITY main.mark                      "علم هذه الصفحة">
 <!ENTITY main.unmark                    "أزل تعليم المحدد">
-<!ENTITY main.reload                    "إعادة تعيين المفضلة">
+<!ENTITY main.reload                    "أعد تحميل مجموعة المفضلة">
 <!ENTITY main.defaultset                "الخيارات المبدئية">
 
 <!-- Contextual Menu -->

@@ -93,7 +93,7 @@
 <!ENTITY main.newbmk                    "Crear un novo conxunto de favoritos">
 <!ENTITY main.mark                      "Marcar esta páxina">
 <!ENTITY main.unmark                    "Desmarcar a selección">
-<!ENTITY main.reload                    "Restablecer o conxunto de favoritos">
+<!ENTITY main.reload                    "Recargar o conxunto de favoritos">
 <!ENTITY main.defaultset                "Conxunto predeterminado">
 
 <!-- Contextual Menu -->

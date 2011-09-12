@@ -93,7 +93,7 @@
 <!ENTITY main.newbmk                    "Buat Set Kegemaran baru">
 <!ENTITY main.mark                      "Gemari halaman ini">
 <!ENTITY main.unmark                    "Buang yang dipilih">
-<!ENTITY main.reload                    "Set Semula Set Kegemaran">
+<!ENTITY main.reload                    "Muatkan Semula Set Kegemaran">
 <!ENTITY main.defaultset                "Set Azali">
 
 <!-- Contextual Menu -->

@@ -93,7 +93,7 @@
 <!ENTITY main.newbmk                    "Nieuwe bladwijzergroep aanmaken">
 <!ENTITY main.mark                      "Pagina markeren">
 <!ENTITY main.unmark                    "Markering voor geselecteerde verwijderen">
-<!ENTITY main.reload                    "Bladwijzergroep opschonen">
+<!ENTITY main.reload                    "Bladwijzergroep opnieuw laden">
 <!ENTITY main.defaultset                "Standaardgroep">
 
 <!-- Contextual Menu -->

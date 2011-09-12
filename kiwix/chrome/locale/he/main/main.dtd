@@ -89,11 +89,11 @@
 <!-- Bookmarks Bar -->
 <!ENTITY main.bmkLabel                  "סימניות:">
 <!ENTITY main.notesLabel                "הערות לסימניות:">
-<!ENTITY main.loadbmk                   "יבוא קובץ סימניות">
-<!ENTITY main.newbmk                    "יצירת קובץ סימניות חדש">
+<!ENTITY main.loadbmk                   "יבוא אוסף סימניות">
+<!ENTITY main.newbmk                    "יצירת אוסף סימניות חדש">
 <!ENTITY main.mark                      "סימון דף זה">
 <!ENTITY main.unmark                    "ביטול סימון בקטע הנבחר">
-<!ENTITY main.reload                    "איפוס קובץ סימניות">
+<!ENTITY main.reload                    "איפוס אוסף סימניות">
 <!ENTITY main.defaultset                "ערכה לפי בררת מחדל">
 
 <!-- Contextual Menu -->

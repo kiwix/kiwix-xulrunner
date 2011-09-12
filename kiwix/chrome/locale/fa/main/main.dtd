@@ -93,7 +93,7 @@
 <!ENTITY main.newbmk                    "ایجاد تنظیمات جدید نشانک">
 <!ENTITY main.mark                      "این صفحه را علامت بزن">
 <!ENTITY main.unmark                    "علامت انتخاب شده را بردار">
-<!ENTITY main.reload                    "ریست کردن تنظیمات نشانک">
+<!ENTITY main.reload                    "بارگذاری مجدد مجموعه نشانک">
 <!ENTITY main.defaultset                "تنظیمات نشانک">
 
 <!-- Contextual Menu -->

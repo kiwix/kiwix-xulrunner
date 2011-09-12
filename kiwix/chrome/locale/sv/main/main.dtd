@@ -93,7 +93,7 @@
 <!ENTITY main.newbmk                    "Skapa ny bokmärkessamling">
 <!ENTITY main.mark                      "Markera denna sida">
 <!ENTITY main.unmark                    "Avmarkera valda">
-<!ENTITY main.reload                    "Återställ bokmärkessamling">
+<!ENTITY main.reload                    "Ladda om bokmärkessamling">
 <!ENTITY main.defaultset                "Standardsamling">
 
 <!-- Contextual Menu -->

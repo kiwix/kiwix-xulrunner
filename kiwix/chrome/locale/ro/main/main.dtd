@@ -93,7 +93,7 @@
 <!ENTITY main.newbmk                    "Creează un set nou de semne de carte">
 <!ENTITY main.mark                      "Marchează această pagină">
 <!ENTITY main.unmark                    "Șterge marcajul selectat">
-<!ENTITY main.reload                    "Resetează setul de semne de carte">
+<!ENTITY main.reload                    "Reîncarcă setul de semne de carte">
 <!ENTITY main.defaultset                "Set implicit">
 
 <!-- Contextual Menu -->

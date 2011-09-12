@@ -93,7 +93,7 @@
 <!ENTITY main.newbmk                    "Crear nove collection de marcapaginas">
 <!ENTITY main.mark                      "Marcar iste pagina">
 <!ENTITY main.unmark                    "Dismarcar selection">
-<!ENTITY main.reload                    "Reinitialisar collection de marcapaginas">
+<!ENTITY main.reload                    "Recargar collection de marcapaginas">
 <!ENTITY main.defaultset                "Collection predefinite">
 
 <!-- Contextual Menu -->

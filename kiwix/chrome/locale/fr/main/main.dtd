@@ -48,7 +48,7 @@
 <!ENTITY main.skin.accesskey            "H">
 <!ENTITY main.statusbar                 "Barre d'état">
 <!ENTITY main.statusbar.accesskey       "B">
-<!ENTITY main.resultsbar                "Resultats">
+<!ENTITY main.resultsbar                "Résultats">
 <!ENTITY main.resultsbar.accesskey      "R">
 <!ENTITY main.tabs                      "Onglets">
 <!ENTITY main.tabs.accesskey            "T">
@@ -81,20 +81,20 @@
 <!ENTITY main.search                    "Rechercher">
 <!ENTITY main.findInText                "Rechercher">
 <!ENTITY main.noSearchBar               "La recherche nécessite un fichier ZIM indexé.">
-<!ENTITY main.bookmarks                 "Marques pages">
+<!ENTITY main.bookmarks                 "Marque-pages">
 
 <!-- Results bar -->
 <!ENTITY main.results.title             "Resultats de recherche">
 
 <!-- Bookmarks Bar -->
-<!ENTITY main.bmkLabel                  "Marques pages :">
-<!ENTITY main.notesLabel                "Notes du marque page :">
-<!ENTITY main.loadbmk                   "Importer un jeu de marques-pages">
-<!ENTITY main.newbmk                    "Créer un nouveau jeu de marques-pages">
+<!ENTITY main.bmkLabel                  "Marque-pages :">
+<!ENTITY main.notesLabel                "Notes du marque-page :">
+<!ENTITY main.loadbmk                   "Importer un jeu de marque-pages">
+<!ENTITY main.newbmk                    "Créer un nouveau jeu de marque-pages">
 <!ENTITY main.mark                      "Marquer cette page">
-<!ENTITY main.unmark                    "Supprimer le marque page séléctionné">
-<!ENTITY main.reload                    "Supprimer tous les marques pages de ce jeu">
-<!ENTITY main.defaultset                "Mes marques pages">
+<!ENTITY main.unmark                    "Supprimer le marque-page sélectionné">
+<!ENTITY main.reload                    "Recharger le jeu de marque-pages">
+<!ENTITY main.defaultset                "Mes marque-pages">
 
 <!-- Contextual Menu -->
 <!ENTITY main.saveImageAs               "Enregistrer l'image sous...">

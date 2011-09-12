@@ -93,7 +93,7 @@
 <!ENTITY main.newbmk                    "Luo uusi kirjanmerkkikokoelma">
 <!ENTITY main.mark                      "Merkitse tämä sivu">
 <!ENTITY main.unmark                    "Poista merkintä valituista">
-<!ENTITY main.reload                    "Alusta kirjanmerkkikokoelma">
+<!ENTITY main.reload                    "Lataa kirjanmerkkikokoelma uudelleen">
 <!ENTITY main.defaultset                "Oletuskokoelma">
 
 <!-- Contextual Menu -->

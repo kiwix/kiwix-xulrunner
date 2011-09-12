@@ -93,7 +93,7 @@
 <!ENTITY main.newbmk                    "Izveidotu jaunu grāmatzīmju kopu">
 <!ENTITY main.mark                      "Atzīmēt šo lapu">
 <!ENTITY main.unmark                    "Atcelt atzīmēšanu">
-<!ENTITY main.reload                    "Atiestatīt grāmatzīmju kopu">
+<!ENTITY main.reload                    "Pārlādēt grāmatzīmju kopu">
 <!ENTITY main.defaultset                "Noklusētā kopa">
 
 <!-- Contextual Menu -->

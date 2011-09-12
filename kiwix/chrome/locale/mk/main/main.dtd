@@ -93,7 +93,7 @@
 <!ENTITY main.newbmk                    "Создај збир обележувачи">
 <!ENTITY main.mark                      "Означи ја страницава">
 <!ENTITY main.unmark                    "Тргни обележано">
-<!ENTITY main.reload                    "Одново">
+<!ENTITY main.reload                    "Превчит. збир обележувачи">
 <!ENTITY main.defaultset                "Основен збир">
 
 <!-- Contextual Menu -->
