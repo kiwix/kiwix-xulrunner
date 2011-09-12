@@ -85,7 +85,7 @@ ContentManager::~ContentManager() {
 NS_IMETHODIMP ContentManager::OpenLibraryFromFile(const nsAString &path, PRBool readOnly, PRBool *retVal) {
   *retVal = PR_TRUE;
   bool returnValue = true;
-  const char *cPath = nsStringToCString(path);
+  const char *cPath = strdup(nsStringToCString(path));
 
   try {
     returnValue = this->manager.readFile(cPath, readOnly == PR_TRUE ? true : false);
@@ -94,6 +94,7 @@ NS_IMETHODIMP ContentManager::OpenLibraryFromFile(const nsAString &path, PRBool 
     *retVal = PR_FALSE;
   }
 
+  free((void*)cPath);
   *retVal = (returnValue ? PR_TRUE : PR_FALSE);
 
   return NS_OK;
