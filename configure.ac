@@ -83,8 +83,8 @@ then
   AC_PROG_MAKE_SET
 
   # default $CPPFLAGS and $LDFLAGS
-  # CLucene has headers in /usr/lib
-  CPPFLAGS="${CPPFLAGS} -I/usr/lib"
+  # CLucene has headers in /usr/lib (or /usr/lib64 with x86_64)
+  CPPFLAGS="${CPPFLAGS} -I/usr/lib -I/usr/lib64"
   if test "x${CFLAGS}" = "x"; then
     CFLAGS="-O6"
   fi
