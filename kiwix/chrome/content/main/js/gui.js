@@ -35,6 +35,7 @@ _languagesHash['nl']        = "Nederlands";
 _languagesHash['no']        = "Norsk (bokmål)";
 _languagesHash['ml']        = "മലയാളം";
 _languagesHash['pt']        = "Português";
+_languagesHash['pt-br']     = "Português do Brasil";
 _languagesHash['pl']        = "Język polski";
 _languagesHash['ro']        = "Română";
 _languagesHash['ru']        = "Русский";

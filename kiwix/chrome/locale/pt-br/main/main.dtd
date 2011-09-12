@@ -1,0 +1,111 @@
+<!-- Window -->
+<!ENTITY main.title                     "&brand.brandShortName;">
+<!ENTITY main.cssdirection              "ltr">
+
+<!-- File menu -->
+<!ENTITY main.file                      "Arquivo">
+<!ENTITY main.file.accesskey            "F">
+<!ENTITY main.openFile                  "Abrir arquivo...">
+<!ENTITY main.openFile.accesskey        "O">
+<!ENTITY main.lastOpen                  "Aberto recentemente...">
+<!ENTITY main.saveFile                  "Salvar  página como...">
+<!ENTITY main.saveFile.accesskey        "S">
+<!ENTITY main.print                     "Imprimir">
+<!ENTITY main.print.accesskey           "P">
+<!ENTITY main.printPdf                  "Imprimir como PDF">
+<!ENTITY main.printPdf.accesskey        "D">
+<!ENTITY main.quit                      "Sair">
+<!ENTITY main.quit.accesskey            "Q">
+
+<!-- Edit menu -->
+<!ENTITY main.edit                      "Editar">
+<!ENTITY main.edit.accesskey            "E">
+<!ENTITY main.find                      "Procurar na página...">
+<!ENTITY main.find.accesskey            "S">
+<!ENTITY main.selectall                 "Selecionar tudo">
+<!ENTITY main.selectall.accesskey       "a">
+<!ENTITY main.copy                      "Copiar">
+<!ENTITY main.copy.accesskey            "p">
+<!ENTITY main.transliteration           "Transliteração">
+<!ENTITY main.transliteration.accesskey "T">
+<!ENTITY main.preferences               "Preferências">
+<!ENTITY main.preferences.accesskey     "n">
+
+<!-- Display menu -->
+<!ENTITY main.display                   "Exibição">
+<!ENTITY main.display.accesskey         "D">
+<!ENTITY main.zoom                      "Zoom">
+<!ENTITY main.zoom.accesskey            "Z">
+<!ENTITY main.zoomin                    "Ampliar">
+<!ENTITY main.zoomin.accesskey          "M">
+<!ENTITY main.zoomout                   "Reduzir">
+<!ENTITY main.zoomout.accesskey         "R">
+<!ENTITY main.zoomorig                  "Tamanho original">
+<!ENTITY main.zoomorig.accesskey        "O">
+<!ENTITY main.language                  "Língua">
+<!ENTITY main.language.accesskey        "L">
+<!ENTITY main.skin                      "Aparência">
+<!ENTITY main.skin.accesskey            "S">
+<!ENTITY main.statusbar                 "Barra de status">
+<!ENTITY main.statusbar.accesskey       "S">
+<!ENTITY main.resultsbar                "Barra de resultados">
+<!ENTITY main.resultsbar.accesskey      "R">
+<!ENTITY main.tabs                      "Abas">
+<!ENTITY main.tabs.accesskey            "T">
+<!ENTITY main.fullscreen                "Tela inteira">
+<!ENTITY main.fullscreen.accesskey      "F">
+
+<!-- Tools menu -->
+<!ENTITY main.tools                     "Ferramentas">
+<!ENTITY main.tools.accesskey           "T">
+<!ENTITY main.randomArticle             "Artigo aleatório">
+<!ENTITY main.randomArticle.accesskey   "R">
+<!ENTITY main.checkIntegrity            "Verificação de integridade">
+<!ENTITY main.checkIntegrity.accesskey  "k">
+<!ENTITY main.purgeHistory              "Limpar histórico">
+<!ENTITY main.purgeHistory.accesskey    "P">
+
+<!-- Help menu -->
+<!ENTITY main.help                      "Ajuda">
+<!ENTITY main.help.accesskey            "H">
+<!ENTITY main.reportabug                "Reportar um erro">
+<!ENTITY main.requestafeature           "Solicitar um recurso">
+<!ENTITY main.about                     "Sobre &brand.brandShortName;">
+<!ENTITY main.about.accesskey           "A">
+
+<!-- Tool bar -->
+<!ENTITY main.back                      "Voltar">
+<!ENTITY main.forward                   "Avançar">
+<!ENTITY main.home                      "Início">
+<!ENTITY main.searchBar                 "Buscador">
+<!ENTITY main.search                    "Buscar">
+<!ENTITY main.findInText                "Buscar no texto">
+<!ENTITY main.noSearchBar               "A busca requer um arquivo ZIM indexado">
+<!ENTITY main.bookmarks                 "Favoritos">
+
+<!-- Results bar -->
+<!ENTITY main.results.title             "Resultados da Busca">
+
+<!-- Bookmarks Bar -->
+<!ENTITY main.bmkLabel                  "Favoritos">
+<!ENTITY main.notesLabel                "Notas dos Favoritos">
+<!ENTITY main.loadbmk                   "Importar Favoritos">
+<!ENTITY main.newbmk                    "Criar novo grupo de Favoritos">
+<!ENTITY main.mark                      "Marcar esta página">
+<!ENTITY main.unmark                    "Desmarcar a seleção">
+<!ENTITY main.reload                    "Restabelecer grupo de Favoritos">
+<!ENTITY main.defaultset                "Conjunto padrão">
+
+<!-- Contextual Menu -->
+<!ENTITY main.saveImageAs               "Salvar imagem como...">
+
+<!-- About Window -->
+<!ENTITY main.close           		"Fechar">
+
+<!-- Preferences Window -->
+<!ENTITY preferences.preferences        "Preferences">
+<!ENTITY preferences.save      		"Save">
+<!ENTITY preferences.cancel     	"Cancel">
+<!ENTITY preferences.profileDirectory  	"Profile directory">
+<!ENTITY preferences.browse  	        "Browse">
+

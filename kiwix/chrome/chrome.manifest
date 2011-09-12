@@ -33,6 +33,7 @@ locale main no    locale/no/main/
 locale main nl    locale/nl/main/
 locale main pl    locale/pl/main/
 locale main pt    locale/pt/main/
+locale main pt-br locale/pt-br/main/
 locale main ro    locale/ro/main/
 locale main ru    locale/ru/main/
 locale main sl    locale/sl/main/
@@ -71,6 +72,7 @@ locale branding nl    locale/branding/
 locale branding no    locale/branding/
 locale branding pl    locale/branding/
 locale branding pt    locale/branding/
+locale branding pt-br locale/branding/
 locale branding ro    locale/branding/
 locale branding ru    locale/branding/
 locale branding sl    locale/branding/
