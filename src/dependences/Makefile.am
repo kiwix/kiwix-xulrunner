@@ -84,8 +84,6 @@ xapian-core-1.2.3/win32/Release/libs/libunicode.lib: xapian-core-1.2.3 xapian-wi
 	cd xapian-core-1.2.3/win32; sed "/harness/{x;p;x;}" Makefile > Makefile.bis
 	cd xapian-core-1.2.3/win32; sed "s/^.*harness.*$$/42:/" Makefile.bis > Makefile
 	cd xapian-core-1.2.3/win32; export MAKEFLAGS=; nmake.exe -f Makefile
-	cp Makefile.xapian.mvsc xapian-core-1.2.3/Makefile.mvsc
-	cd xapian-core-1.2.3/win32; make -f Makefile.mvsc
 
 xulrunner-sdk/bin/xulrunner: xulrunner-sdk.tar.bz2
 	echo "xulrunner SDK present."
