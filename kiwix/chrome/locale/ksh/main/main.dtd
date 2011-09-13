@@ -1,0 +1,111 @@
+<!-- Window -->
+<!ENTITY main.title                     "&brand.brandShortName;">
+<!ENTITY main.cssdirection              "ltr">
+
+<!-- File menu -->
+<!ENTITY main.file                      "Dattei">
+<!ENTITY main.file.accesskey            "F">
+<!ENTITY main.openFile                  "Dattei opmaache...">
+<!ENTITY main.openFile.accesskey        "O">
+<!ENTITY main.lastOpen                  "Köözlesch opjehatt...">
+<!ENTITY main.saveFile                  "Di Sigg faßhallde onger...">
+<!ENTITY main.saveFile.accesskey        "S">
+<!ENTITY main.print                     "Dröcke">
+<!ENTITY main.print.accesskey           "P">
+<!ENTITY main.printPdf                  "Als PDF-Datei dröcke">
+<!ENTITY main.printPdf.accesskey        "D">
+<!ENTITY main.quit                      "Ophüüre!">
+<!ENTITY main.quit.accesskey            "Q">
+
+<!-- Edit menu -->
+<!ENTITY main.edit                      "Ändere">
+<!ENTITY main.edit.accesskey            "E">
+<!ENTITY main.find                      "En dä Sigg söhke...">
+<!ENTITY main.find.accesskey            "S">
+<!ENTITY main.selectall                 "Alles ußwähle">
+<!ENTITY main.selectall.accesskey       "a">
+<!ENTITY main.copy                      "Kopeere">
+<!ENTITY main.copy.accesskey            "p">
+<!ENTITY main.transliteration           "Bochschtabe tuusche">
+<!ENTITY main.transliteration.accesskey "T">
+<!ENTITY main.preferences               "Enschtellunge">
+<!ENTITY main.preferences.accesskey     "n">
+
+<!-- Display menu -->
+<!ENTITY main.display                   "Aanzeije">
+<!ENTITY main.display.accesskey         "D">
+<!ENTITY main.zoom                      "Zoome">
+<!ENTITY main.zoom.accesskey            "Z">
+<!ENTITY main.zoomin                    "jrüüßer maache">
+<!ENTITY main.zoomin.accesskey          "M">
+<!ENTITY main.zoomout                   "Kleiner maache">
+<!ENTITY main.zoomout.accesskey         "R">
+<!ENTITY main.zoomorig                  "Ojinal">
+<!ENTITY main.zoomorig.accesskey        "O">
+<!ENTITY main.language                  "Schprooch">
+<!ENTITY main.language.accesskey        "L">
+<!ENTITY main.skin                      "Et Ussinn">
+<!ENTITY main.skin.accesskey            "S">
+<!ENTITY main.statusbar                 "De Zohschtands-Reih">
+<!ENTITY main.statusbar.accesskey       "S">
+<!ENTITY main.resultsbar                "De Äjeebnis-Reih">
+<!ENTITY main.resultsbar.accesskey      "R">
+<!ENTITY main.tabs                      "Zubbel">
+<!ENTITY main.tabs.accesskey            "T">
+<!ENTITY main.fullscreen                "Op  der kumplääte Beldscherm">
+<!ENTITY main.fullscreen.accesskey      "F">
+
+<!-- Tools menu -->
+<!ENTITY main.tools                     "Werkzüch">
+<!ENTITY main.tools.accesskey           "T">
+<!ENTITY main.randomArticle             "Ene zohfälleje Atikel">
+<!ENTITY main.randomArticle.accesskey   "R">
+<!ENTITY main.checkIntegrity            "Der ennere Zosammehald vun dä ZIM-Dattei prööfe">
+<!ENTITY main.checkIntegrity.accesskey  "k">
+<!ENTITY main.purgeHistory              "Schmieß de Leß met de köözlesch opjemaate Deieje fott">
+<!ENTITY main.purgeHistory.accesskey    "P">
+
+<!-- Help menu -->
+<!ENTITY main.help                      "Hölp">
+<!ENTITY main.help.accesskey            "H">
+<!ENTITY main.reportabug                "Ene Fähler mälde">
+<!ENTITY main.requestafeature           "Verbäßerung vörschlonn">
+<!ENTITY main.about                     "Övver &brand.brandShortName;">
+<!ENTITY main.about.accesskey           "A">
+
+<!-- Tool bar -->
+<!ENTITY main.back                      "Retuur">
+<!ENTITY main.forward                   "Wigger jon">
+<!ENTITY main.home                      "Houpsigg">
+<!ENTITY main.searchBar                 "Söhk noh">
+<!ENTITY main.search                    "Söhke">
+<!ENTITY main.findInText                "En Täx fenge">
+<!ENTITY main.noSearchBar               "Öm söhke ze künne, bruch mer en ZIM-Dattei met enem Index.">
+<!ENTITY main.bookmarks                 "Lesezeiche">
+
+<!-- Results bar -->
+<!ENTITY main.results.title             "Wat bem Söke eruß kohm">
+
+<!-- Bookmarks Bar -->
+<!ENTITY main.bmkLabel                  "Lesezeiche:">
+<!ENTITY main.notesLabel                "Notize:">
+<!ENTITY main.loadbmk                   "Ene Pöngel Lesezeiche us ene Dattei empoteere">
+<!ENTITY main.newbmk                    "Ene neue Pöngel Lesezeiche aanfange">
+<!ENTITY main.mark                      "Heh di Sigg makeere">
+<!ENTITY main.unmark                    "Makeerung fottnämme">
+<!ENTITY main.reload                    "Donn dä Pöngel Lesezeiche norr_ens neu vun dä Dattei laade">
+<!ENTITY main.defaultset                "Der schtandatmääßeje Pöngel">
+
+<!-- Contextual Menu -->
+<!ENTITY main.saveImageAs               "Dat Beld faßhallde onger...">
+
+<!-- About Window -->
+<!ENTITY main.close           		"Zohmaache">
+
+<!-- Preferences Window -->
+<!ENTITY preferences.preferences        "Preferences">
+<!ENTITY preferences.save      		"Save">
+<!ENTITY preferences.cancel     	"Cancel">
+<!ENTITY preferences.profileDirectory  	"Profile directory">
+<!ENTITY preferences.browse  	        "Browse">
+

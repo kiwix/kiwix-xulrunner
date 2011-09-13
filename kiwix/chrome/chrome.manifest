@@ -27,6 +27,7 @@ locale main hu    locale/hu/main/
 locale main ia    locale/ia/main/
 locale main it    locale/it/main/
 locale main ja    locale/ja/main/
+locale main ksh   locale/ksh/main/
 locale main lv    locale/lv/main/
 locale main mk    locale/mk/main/
 locale main ml    locale/ml/main/
@@ -70,6 +71,7 @@ locale branding hu    locale/branding/
 locale branding ia    locale/branding/
 locale branding it    locale/branding/
 locale branding ja    locale/branding/
+locale branding ksh   locale/branding/
 locale branding lv    locale/branding/
 locale branding mk    locale/branding/
 locale branding ml    locale/branding/
