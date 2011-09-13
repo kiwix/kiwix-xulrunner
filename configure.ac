@@ -22,9 +22,8 @@ AC_CHECK_TOOL(HAVE_JAR, cl)
 
 # Check cl.exe
 # Check if their is a Perl binary
-AC_CHECK_TOOL(HAVE_CL, cl)
-
-# Check the platform
+AC_CHECK_PROG(HAVE_CL, cl, yes, no)
+AM_CONDITIONAL([IS_WIN], [test "$HAVE_CL" = yes])
 if test [ "$HAVE_CL" ]
 then
   IS_WIN=1
@@ -461,6 +460,7 @@ AC_SUBST(JAR)
 AC_SUBST(CURRENT_PATH)
 AC_SUBST(GECKO_VERSION)
 AC_SUBST(IS_OSX)
+AC_SUBST(IS_WIN)
 AC_SUBST(IS_STATIC)
 
 # Check the existence of stat64 (to handle file >2GB) in the libc
