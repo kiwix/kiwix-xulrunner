@@ -189,6 +189,7 @@ win:
 	cp src/components/contentManager/contentManager.dll kiwix/components/
 	cp src/components/contentManager/IContentManager.xpt kiwix/components/contentManager.xpt
 	cp -r src/dependences/xulrunner ./kiwix
-	cp -r src/dependences/xz-4.999.9beta/windows/liblzma.dll ./kiwix/xulrunner
+	cp /c/Program\ Files/Microsoft\ Visual\ Studio\ 9.0/VC/redist/x86/Microsoft.VC90.CRT/* kiwix/xulrunner/
+	cp -r src/dependences/xz/windows/liblzma.dll ./kiwix/xulrunner
 	cp -r src/dependences/icu/bin/*dll ./kiwix/xulrunner
 	cp static/results.tmpl kiwix/chrome/static/results.tmpl

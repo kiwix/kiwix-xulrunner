@@ -48,20 +48,28 @@ xulrunner.dmg:
 	hdiutil detach /Volumes/XULRunner/
 
 xz.tar.bz2:
+if IS_WIN
+	wget -c http://download.kiwix.org/dev/xz-4.999.9beta.tar.bz2 -O xz.tar.bz2
+else 
 if IS_OSX
 	wget -c http://download.kiwix.org/dev/xz-4.999.9beta.tar.bz2 -O xz.tar.bz2
 else
-	wget -c http://tukaani.org/xz/xz-5.0.3.tar.bz2 -O xz.tar.bz2
+	wget -c http://download.kiwix.org/dev/xz-5.0.3.tar.bz2 -O xz.tar.bz2
+endif
 endif
 
 xz: xz.tar.bz2
 	tar -xf xz.tar.bz2
+if IS_WIN
+	mv xz-4.999.9beta xz
+else
 if IS_OSX
 	mv xz-4.999.9beta xz
 	echo "patching liblzma for OSX"
 	cd xz ; patch -p0 < ../patches/xz-4.999.9beta-sysctl-darwin.patch ; patch -p0 < ../patches/xz-4.999.9beta-lzma-versioninfo.patch
 else
 	mv xz-5.0.3 xz
+endif
 endif
 
 # compile
