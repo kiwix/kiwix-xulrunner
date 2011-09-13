@@ -1,0 +1,111 @@
+<!-- Window -->
+<!ENTITY main.title                     "&brand.brandShortName;">
+<!ENTITY main.cssdirection              "ltr">
+
+<!-- File menu -->
+<!ENTITY main.file                      "mileff">
+<!ENTITY main.file.accesskey            "F">
+<!ENTITY main.openFile                  "ḫell l-milef...">
+<!ENTITY main.openFile.accesskey        "O">
+<!ENTITY main.lastOpen                  "mfṫoḫ mo'eĥaran...">
+<!ENTITY main.saveFile                  "ḫfd ṣfḫa ka...">
+<!ENTITY main.saveFile.accesskey        "S">
+<!ENTITY main.print                     "tbeĝ">
+<!ENTITY main.print.accesskey           "P">
+<!ENTITY main.printPdf                  "tbeĝ ka PDF">
+<!ENTITY main.printPdf.accesskey        "D">
+<!ENTITY main.quit                      "ĥrej">
+<!ENTITY main.quit.accesskey            "Q">
+
+<!-- Edit menu -->
+<!ENTITY main.edit                      "ĝddel">
+<!ENTITY main.edit.accesskey            "E">
+<!ENTITY main.find                      "qllb f-ṣṣfḫa...">
+<!ENTITY main.find.accesskey            "S">
+<!ENTITY main.selectall                 "ĥṫar kolċi">
+<!ENTITY main.selectall.accesskey       "a">
+<!ENTITY main.copy                      "nseĥ">
+<!ENTITY main.copy.accesskey            "p">
+<!ENTITY main.transliteration           "nasĥ ḫrfi">
+<!ENTITY main.transliteration.accesskey "T">
+<!ENTITY main.preferences               "ṫfḍilaṫ">
+<!ENTITY main.preferences.accesskey     "n">
+
+<!-- Display menu -->
+<!ENTITY main.display                   "ĝarḍ">
+<!ENTITY main.display.accesskey         "D">
+<!ENTITY main.zoom                      "zoom">
+<!ENTITY main.zoom.accesskey            "Z">
+<!ENTITY main.zoomin                    "kḅḅeṛ">
+<!ENTITY main.zoomin.accesskey          "M">
+<!ENTITY main.zoomout                   "ṣġġeṛ">
+<!ENTITY main.zoomout.accesskey         "R">
+<!ENTITY main.zoomorig                  "l-ḫajm l-'aṣli">
+<!ENTITY main.zoomorig.accesskey        "O">
+<!ENTITY main.language                  "loġa">
+<!ENTITY main.language.accesskey        "L">
+<!ENTITY main.skin                      "skin">
+<!ENTITY main.skin.accesskey            "S">
+<!ENTITY main.statusbar                 "ċarit l-ḫala">
+<!ENTITY main.statusbar.accesskey       "S">
+<!ENTITY main.resultsbar                "ṣarit n-naṫa'ij">
+<!ENTITY main.resultsbar.accesskey      "R">
+<!ENTITY main.tabs                      "t-tab">
+<!ENTITY main.tabs.accesskey            "T">
+<!ENTITY main.fullscreen                "ṣṣaṣa kollha">
+<!ENTITY main.fullscreen.accesskey      "F">
+
+<!-- Tools menu -->
+<!ENTITY main.tools                     "adawaṫ">
+<!ENTITY main.tools.accesskey           "T">
+<!ENTITY main.randomArticle             "maqala ĝṣwa'iyya">
+<!ENTITY main.randomArticle.accesskey   "R">
+<!ENTITY main.checkIntegrity            "ṫ'ked mn ṣ-ṣalaḫiyya">
+<!ENTITY main.checkIntegrity.accesskey  "k">
+<!ENTITY main.purgeHistory              "msḫ listorik">
+<!ENTITY main.purgeHistory.accesskey    "P">
+
+<!-- Help menu -->
+<!ENTITY main.help                      "mosa'ada">
+<!ENTITY main.help.accesskey            "H">
+<!ENTITY main.reportabug                "bllġ ĝla ċi bog">
+<!ENTITY main.requestafeature           "tlḅ ċi ĥassiyya">
+<!ENTITY main.about                     "ĝla &brand.brandShortName;">
+<!ENTITY main.about.accesskey           "A">
+
+<!-- Tool bar -->
+<!ENTITY main.back                      "rjeĝ">
+<!ENTITY main.forward                   "zid">
+<!ENTITY main.home                      "ra'isiyya">
+<!ENTITY main.searchBar                 "ċarit l-behṫ">
+<!ENTITY main.search                    "bheṫ">
+<!ENTITY main.findInText                "lqa f-naṣṣ">
+<!ENTITY main.noSearchBar               "l-behṫ ĥaṣṣo ċi milef ZIM indexé">
+<!ENTITY main.bookmarks                 "mofaḍḍalat">
+
+<!-- Results bar -->
+<!ENTITY main.results.title             "qllb ĝla naṫa'ij">
+
+<!-- Bookmarks Bar -->
+<!ENTITY main.bmkLabel                  "mafaḍḍalat:">
+<!ENTITY main.notesLabel                "molaḫaḍat ĝla l-mofaḍḍalaṫ:">
+<!ENTITY main.loadbmk                   "jib mjmoĝt l-mofaḍḍalat">
+<!ENTITY main.newbmk                    "ṣayb ċi mjmoĝa dial l-mofaḍḍalaṫ">
+<!ENTITY main.mark                      "marki had ṣ-ṣfḫa">
+<!ENTITY main.unmark                    "ḫyyed lli ĥtariṫ mn mofaḍḍalaṫ">
+<!ENTITY main.reload                    "reċarji mjmo'ṫ l-mofaḍḍalaṫ">
+<!ENTITY main.defaultset                "ḍḅṫ fṫiraḍi">
+
+<!-- Contextual Menu -->
+<!ENTITY main.saveImageAs               "ḫfeḍ ṫ-ṫṣwira ka...">
+
+<!-- About Window -->
+<!ENTITY main.close           		"sedd">
+
+<!-- Preferences Window -->
+<!ENTITY preferences.preferences        "Preferences">
+<!ENTITY preferences.save      		"Save">
+<!ENTITY preferences.cancel     	"Cancel">
+<!ENTITY preferences.profileDirectory  	"Profile directory">
+<!ENTITY preferences.browse  	        "Browse">
+

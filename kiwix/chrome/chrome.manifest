@@ -6,6 +6,7 @@ content static static/
 #locale packagename localename uri/to/files/ [flags]
 locale main af    locale/af/main/
 locale main ar    locale/ar/main/
+locale main ary   locale/ary/main/
 locale main ast   locale/ast/main/
 locale main bjn   locale/bjn/main/
 locale main bn    locale/bn/main/
@@ -52,6 +53,7 @@ locale main zh-hant  locale/zh-hant/main/
 
 locale branding af    locale/branding/
 locale branding ar    locale/branding/
+locale branding ary   locale/branding/
 locale branding ast   locale/branding/
 locale branding bjn   locale/branding/
 locale branding bn    locale/branding/
