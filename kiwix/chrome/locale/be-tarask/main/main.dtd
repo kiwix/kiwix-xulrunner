@@ -1,0 +1,111 @@
+<!-- Window -->
+<!ENTITY main.title                     "&brand.brandShortName;">
+<!ENTITY main.cssdirection              "ltr">
+
+<!-- File menu -->
+<!ENTITY main.file                      "Файл">
+<!ENTITY main.file.accesskey            "F">
+<!ENTITY main.openFile                  "Адкрыць файл…">
+<!ENTITY main.openFile.accesskey        "O">
+<!ENTITY main.lastOpen                  "Апошнія адкрытыя…">
+<!ENTITY main.saveFile                  "Захаваць старонку як…">
+<!ENTITY main.saveFile.accesskey        "S">
+<!ENTITY main.print                     "Друкаваць">
+<!ENTITY main.print.accesskey           "P">
+<!ENTITY main.printPdf                  "Друкаваць у PDF">
+<!ENTITY main.printPdf.accesskey        "D">
+<!ENTITY main.quit                      "Выйсьці">
+<!ENTITY main.quit.accesskey            "Q">
+
+<!-- Edit menu -->
+<!ENTITY main.edit                      "Рэдагаваць">
+<!ENTITY main.edit.accesskey            "E">
+<!ENTITY main.find                      "Шукаць на старонцы…">
+<!ENTITY main.find.accesskey            "S">
+<!ENTITY main.selectall                 "Выбраць усё">
+<!ENTITY main.selectall.accesskey       "a">
+<!ENTITY main.copy                      "Капіяваць">
+<!ENTITY main.copy.accesskey            "p">
+<!ENTITY main.transliteration           "Трансьлітарацыя">
+<!ENTITY main.transliteration.accesskey "T">
+<!ENTITY main.preferences               "Налады">
+<!ENTITY main.preferences.accesskey     "n">
+
+<!-- Display menu -->
+<!ENTITY main.display                   "Паказаць">
+<!ENTITY main.display.accesskey         "D">
+<!ENTITY main.zoom                      "Маштаб">
+<!ENTITY main.zoom.accesskey            "Z">
+<!ENTITY main.zoomin                    "Павялічыць">
+<!ENTITY main.zoomin.accesskey          "M">
+<!ENTITY main.zoomout                   "Паменшыць">
+<!ENTITY main.zoomout.accesskey         "R">
+<!ENTITY main.zoomorig                  "Зыходны памер">
+<!ENTITY main.zoomorig.accesskey        "O">
+<!ENTITY main.language                  "Мова">
+<!ENTITY main.language.accesskey        "L">
+<!ENTITY main.skin                      "Афармленьне">
+<!ENTITY main.skin.accesskey            "S">
+<!ENTITY main.statusbar                 "Панэль стану">
+<!ENTITY main.statusbar.accesskey       "S">
+<!ENTITY main.resultsbar                "Панэль вынікаў">
+<!ENTITY main.resultsbar.accesskey      "R">
+<!ENTITY main.tabs                      "Закладкі">
+<!ENTITY main.tabs.accesskey            "T">
+<!ENTITY main.fullscreen                "На ўвесь экран">
+<!ENTITY main.fullscreen.accesskey      "F">
+
+<!-- Tools menu -->
+<!ENTITY main.tools                     "Інструмэнты">
+<!ENTITY main.tools.accesskey           "T">
+<!ENTITY main.randomArticle             "Выпадковы артыкул">
+<!ENTITY main.randomArticle.accesskey   "R">
+<!ENTITY main.checkIntegrity            "Праверка цэласнасьці">
+<!ENTITY main.checkIntegrity.accesskey  "k">
+<!ENTITY main.purgeHistory              "Ачысьціць гісторыю">
+<!ENTITY main.purgeHistory.accesskey    "P">
+
+<!-- Help menu -->
+<!ENTITY main.help                      "Дапамога">
+<!ENTITY main.help.accesskey            "H">
+<!ENTITY main.reportabug                "Паведаміць пра памылку">
+<!ENTITY main.requestafeature           "Запытаць опцыю">
+<!ENTITY main.about                     "Пра &brand.brandShortName;">
+<!ENTITY main.about.accesskey           "A">
+
+<!-- Tool bar -->
+<!ENTITY main.back                      "Назад">
+<!ENTITY main.forward                   "Наперад">
+<!ENTITY main.home                      "Пачатак">
+<!ENTITY main.searchBar                 "Панэль пошуку">
+<!ENTITY main.search                    "Шукаць">
+<!ENTITY main.findInText                "Знайсьці ў тэксьце">
+<!ENTITY main.noSearchBar               "Пошук вымагае індэксаванага файлу ZIM">
+<!ENTITY main.bookmarks                 "Закладкі">
+
+<!-- Results bar -->
+<!ENTITY main.results.title             "Вынікі пошуку">
+
+<!-- Bookmarks Bar -->
+<!ENTITY main.bmkLabel                  "Закладкі:">
+<!ENTITY main.notesLabel                "Нататкі:">
+<!ENTITY main.loadbmk                   "Імпартаваць набор закладак">
+<!ENTITY main.newbmk                    "Стварыць новы набор закладак">
+<!ENTITY main.mark                      "Пазначыць гэтую старонку">
+<!ENTITY main.unmark                    "Зьняць пазначэньне з вылучаных">
+<!ENTITY main.reload                    "Перагрузіць набор закладак">
+<!ENTITY main.defaultset                "Дапомны набор">
+
+<!-- Contextual Menu -->
+<!ENTITY main.saveImageAs               "Захаваць выяву як…">
+
+<!-- About Window -->
+<!ENTITY main.close           		"Зачыніць">
+
+<!-- Preferences Window -->
+<!ENTITY preferences.preferences        "Preferences">
+<!ENTITY preferences.save      		"Save">
+<!ENTITY preferences.cancel     	"Cancel">
+<!ENTITY preferences.profileDirectory  	"Profile directory">
+<!ENTITY preferences.browse  	        "Browse">
+

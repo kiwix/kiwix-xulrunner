@@ -11,6 +11,7 @@ _languagesHash['af']        = "Afrikaans";
 _languagesHash['ar']        = "العربية";
 _languagesHash['ary']       = "الدارجة";
 _languagesHash['ast']       = "Asturianu";
+_languagesHash['be-tarask'] = "тарашкевіца, клясычны правапіс";
 _languagesHash['bjn']       = "Bahasa Banjar";
 _languagesHash['bn']        = "বাংলা";
 _languagesHash['ca']        = "Català";
