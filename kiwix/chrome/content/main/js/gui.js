@@ -1134,6 +1134,13 @@ function initUserInterface() {
         fkey.setAttribute('modifiers', 'meta,shift');
         fkey.setAttribute('keycode', 'F');
     }
+
+    /* Sugar U.I is slightly different than regular one */
+    if (env.isSugar()) {
+        // remove menubar (File, Edition, etc)
+        menu = document.getElementById('menu-bar');
+        menu.setAttribute("style", "display: none;");
+    }
     
     /* Start the download observer */
     startDownloadObserver();
