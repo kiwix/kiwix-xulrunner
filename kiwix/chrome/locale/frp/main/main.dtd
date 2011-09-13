@@ -1,0 +1,111 @@
+<!-- Window -->
+<!ENTITY main.title                     "&brand.brandShortName;">
+<!ENTITY main.cssdirection              "ltr">
+
+<!-- File menu -->
+<!ENTITY main.file                      "Fichiér">
+<!ENTITY main.file.accesskey            "F">
+<!ENTITY main.openFile                  "Uvrir un fichiér...">
+<!ENTITY main.openFile.accesskey        "O">
+<!ENTITY main.lastOpen                  "Uvèrt dês pou...">
+<!ENTITY main.saveFile                  "Encartar la pâge coment...">
+<!ENTITY main.saveFile.accesskey        "S">
+<!ENTITY main.print                     "Emprimar">
+<!ENTITY main.print.accesskey           "p">
+<!ENTITY main.printPdf                  "Fâre un PDF">
+<!ENTITY main.printPdf.accesskey        "D">
+<!ENTITY main.quit                      "Quitar">
+<!ENTITY main.quit.accesskey            "Q">
+
+<!-- Edit menu -->
+<!ENTITY main.edit                      "Changiér">
+<!ENTITY main.edit.accesskey            "n">
+<!ENTITY main.find                      "Chèrchiér dens la pâge...">
+<!ENTITY main.find.accesskey            "c">
+<!ENTITY main.selectall                 "Chouèsir tot">
+<!ENTITY main.selectall.accesskey       "T">
+<!ENTITY main.copy                      "Copiyér">
+<!ENTITY main.copy.accesskey            "p">
+<!ENTITY main.transliteration           "Translitèracion">
+<!ENTITY main.transliteration.accesskey "T">
+<!ENTITY main.preferences               "Prèferences">
+<!ENTITY main.preferences.accesskey     "n">
+
+<!-- Display menu -->
+<!ENTITY main.display                   "Fâre vêre">
+<!ENTITY main.display.accesskey         "V">
+<!ENTITY main.zoom                      "Zoome">
+<!ENTITY main.zoom.accesskey            "Z">
+<!ENTITY main.zoomin                    "Agrantir">
+<!ENTITY main.zoomin.accesskey          "A">
+<!ENTITY main.zoomout                   "Rèduire">
+<!ENTITY main.zoomout.accesskey         "R">
+<!ENTITY main.zoomorig                  "Talye originâla">
+<!ENTITY main.zoomorig.accesskey        "N">
+<!ENTITY main.language                  "Lengoua">
+<!ENTITY main.language.accesskey        "L">
+<!ENTITY main.skin                      "Habelyâjo">
+<!ENTITY main.skin.accesskey            "H">
+<!ENTITY main.statusbar                 "Bârra d’ètat">
+<!ENTITY main.statusbar.accesskey       "B">
+<!ENTITY main.resultsbar                "Bârra de rèsultats">
+<!ENTITY main.resultsbar.accesskey      "R">
+<!ENTITY main.tabs                      "Ongllètes">
+<!ENTITY main.tabs.accesskey            "O">
+<!ENTITY main.fullscreen                "Plen ècran">
+<!ENTITY main.fullscreen.accesskey      "P">
+
+<!-- Tools menu -->
+<!ENTITY main.tools                     "Outils">
+<!ENTITY main.tools.accesskey           "O">
+<!ENTITY main.randomArticle             "Articllo a l’hasârd">
+<!ENTITY main.randomArticle.accesskey   "A">
+<!ENTITY main.checkIntegrity            "Contrôlo d’entègritât">
+<!ENTITY main.checkIntegrity.accesskey  "k">
+<!ENTITY main.purgeHistory              "Purgiér l’historico">
+<!ENTITY main.purgeHistory.accesskey    "P">
+
+<!-- Help menu -->
+<!ENTITY main.help                      "Éde">
+<!ENTITY main.help.accesskey            "E">
+<!ENTITY main.reportabug                "Raportar una cofierie">
+<!ENTITY main.requestafeature           "Demandar una fonccionalitât">
+<!ENTITY main.about                     "A propôs de &brand.brandShortName;">
+<!ENTITY main.about.accesskey           "P">
+
+<!-- Tool bar -->
+<!ENTITY main.back                      "Devant">
+<!ENTITY main.forward                   "Aprés">
+<!ENTITY main.home                      "Reçua">
+<!ENTITY main.searchBar                 "Bârra de rechèrche">
+<!ENTITY main.search                    "Rechèrche">
+<!ENTITY main.findInText                "Rechèrchiér dens lo tèxto">
+<!ENTITY main.noSearchBar               "La rechèrche at fôta d’un fichiér ZIM endèxâ">
+<!ENTITY main.bookmarks                 "Mârca-pâges">
+
+<!-- Results bar -->
+<!ENTITY main.results.title             "Rèsultats de la rechèrche">
+
+<!-- Bookmarks Bar -->
+<!ENTITY main.bmkLabel                  "Mârca-pâges :">
+<!ENTITY main.notesLabel                "Notes du mârca-pâge :">
+<!ENTITY main.loadbmk                   "Importar un juè de mârca-pâges">
+<!ENTITY main.newbmk                    "Fâre un juè de mârca-pâges novél">
+<!ENTITY main.mark                      "Marcar ceta pâge">
+<!ENTITY main.unmark                    "Dèmarcar lo chouèx">
+<!ENTITY main.reload                    "Rechargiér lo juè de mârca-pâges">
+<!ENTITY main.defaultset                "Juè per dèfôt">
+
+<!-- Contextual Menu -->
+<!ENTITY main.saveImageAs               "Encartar l’émâge coment...">
+
+<!-- About Window -->
+<!ENTITY main.close           		"Cllôre">
+
+<!-- Preferences Window -->
+<!ENTITY preferences.preferences        "Preferences">
+<!ENTITY preferences.save      		"Save">
+<!ENTITY preferences.cancel     	"Cancel">
+<!ENTITY preferences.profileDirectory  	"Profile directory">
+<!ENTITY preferences.browse  	        "Browse">
+

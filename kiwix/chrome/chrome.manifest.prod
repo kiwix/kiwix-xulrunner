@@ -18,6 +18,7 @@ locale main es    jar:locale.jar!/locale/es/main/
 locale main fa	  jar:locale.jar!/locale/fa/main/
 locale main fi	  jar:locale.jar!/locale/fi/main/
 locale main fr    jar:locale.jar!/locale/fr/main/
+locale main frp   jar:locale.jar!/locale/frp/main/
 locale main gl    jar:locale.jar!/locale/gl/main/
 locale main gsw   jar:locale.jar!/locale/gsw/main/
 locale main he    jar:locale.jar!/locale/he/main/
@@ -59,6 +60,7 @@ locale branding es    jar:locale.jar!/locale/branding/
 locale branding fa    jar:locale.jar!/locale/branding/
 locale branding fi    jar:locale.jar!/locale/branding/
 locale branding fr    jar:locale.jar!/locale/branding/
+locale branding frp   jar:locale.jar!/locale/branding/
 locale branding gl    jar:locale.jar!/locale/branding/
 locale branding he    jar:locale.jar!/locale/branding/
 locale branding hu    jar:locale.jar!/locale/branding/

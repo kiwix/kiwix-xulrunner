@@ -21,6 +21,7 @@ _languagesHash['es']        = "Español";
 _languagesHash['fa']        = "فارسی";
 _languagesHash['fi']        = "Suomi";
 _languagesHash['fr']        = "Français";
+_languagesHash['frp']       = "Provençau";
 _languagesHash['gl']        = "Galego";
 _languagesHash['gsw']       = "Schwyzerdütsch";
 _languagesHash['he']        = "עברית";
