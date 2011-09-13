@@ -45,6 +45,12 @@ let env = {
       return this.platform.type == "mac" ? true : false;
     },
 
+    /* Return true if running on Sugar, false otherwise */
+    isSugar: function() {
+        var environment = Components.classes["@mozilla.org/process/environment;1"].getService(Components.interfaces.nsIEnvironment);
+        return environment.exists("SUGAR_BUNDLE_PATH");
+    },
+
     /* Check if this is a live instance */
     isLive: function() {
       var liveFile = Components.classes["@mozilla.org/file/directory_service;1"].getService(Components.interfaces.nsIProperties).get("resource:app", Components.interfaces.nsIFile);
