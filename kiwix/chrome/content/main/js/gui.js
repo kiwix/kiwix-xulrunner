@@ -10,6 +10,7 @@ var _languagesHash          = Array();
 _languagesHash['af']        = "Afrikaans";
 _languagesHash['ar']        = "العربية";
 _languagesHash['ast']       = "Asturianu";
+_languagesHash['bjn']       = "Bahasa Banjar";
 _languagesHash['bn']        = "বাংলা";
 _languagesHash['ca']        = "Català";
 _languagesHash['de']        = "Deutsch";

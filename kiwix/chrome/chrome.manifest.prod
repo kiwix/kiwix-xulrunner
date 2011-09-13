@@ -7,6 +7,7 @@ content static static/
 locale main af    jar:locale.jar!/locale/af/main/
 locale main ar    jar:locale.jar!/locale/ar/main/
 locale main ast   jar:locale.jar!/locale/ast/main/
+locale main bjn   jar:locale.jar!/locale/bjn/main/
 locale main bn    jar:locale.jar!/locale/bn/main/
 locale main ca    jar:locale.jar!/locale/ca/main/
 locale main da    jar:locale.jar!/locale/da/main/
@@ -49,6 +50,7 @@ locale main zh	  jar:locale.jar!/locale/zh/main/
 locale branding af    jar:locale.jar!/locale/branding/
 locale branding ar    jar:locale.jar!/locale/branding/
 locale branding ast   jar:locale.jar!/locale/branding/
+locale branding bjn   jar:locale.jar!/locale/branding/
 locale branding bn    jar:locale.jar!/locale/branding/
 locale branding ca    jar:locale.jar!/locale/branding/
 locale branding da    jar:locale.jar!/locale/branding/

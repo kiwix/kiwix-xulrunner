@@ -7,6 +7,7 @@ content static static/
 locale main af    locale/af/main/
 locale main ar    locale/ar/main/
 locale main ast   locale/ast/main/
+locale main bjn   locale/bjn/main/
 locale main bn    locale/bn/main/
 locale main ca    locale/ca/main/
 locale main da    locale/da/main/
@@ -49,6 +50,7 @@ locale main zh	  locale/zh/main/
 locale branding af    locale/branding/
 locale branding ar    locale/branding/
 locale branding ast   locale/branding/
+locale branding bjn   locale/branding/
 locale branding bn    locale/branding/
 locale branding ca    locale/branding/
 locale branding da    locale/branding/
