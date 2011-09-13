@@ -47,6 +47,8 @@ locale main te    locale/te/main/
 locale main th    locale/th/main/
 locale main uk    locale/uk/main/
 locale main zh	  locale/zh/main/
+locale main zh-hans  locale/zh-hans/main/
+locale main zh-hant  locale/zh-hant/main/
 
 locale branding af    locale/branding/
 locale branding ar    locale/branding/
@@ -80,17 +82,19 @@ locale branding mt    locale/branding/
 locale branding nl    locale/branding/
 locale branding no    locale/branding/
 locale branding pl    locale/branding/
-locale branding pms   locale/branding/
-locale branding pt    locale/branding/
-locale branding pt-br locale/branding/
-locale branding ro    locale/branding/
-locale branding ru    locale/branding/
-locale branding sl    locale/branding/
-locale branding te    locale/branding/
-locale branding th    locale/branding/
-locale branding sv    locale/branding/
-locale branding uk    locale/branding/
-locale branding zh    locale/branding/
+locale branding pms        locale/branding/
+locale branding pt         locale/branding/
+locale branding pt-br      locale/branding/
+locale branding ro         locale/branding/
+locale branding ru         locale/branding/
+locale branding sl         locale/branding/
+locale branding te         locale/branding/
+locale branding th         locale/branding/
+locale branding sv         locale/branding/
+locale branding uk         locale/branding/
+locale branding zh         locale/branding/
+locale branding zh-hans    locale/branding/
+locale branding zh-hant    locale/branding/
 
 #skin packagename skinname uri/to/files/ [flags]
 skin main default skin/default/

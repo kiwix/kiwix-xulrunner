@@ -1,0 +1,111 @@
+<!-- Window -->
+<!ENTITY main.title                     "&brand.brandShortName;">
+<!ENTITY main.cssdirection              "ltr">
+
+<!-- File menu -->
+<!ENTITY main.file                      "文件">
+<!ENTITY main.file.accesskey            "F">
+<!ENTITY main.openFile                  "打开文件">
+<!ENTITY main.openFile.accesskey        "O">
+<!ENTITY main.lastOpen                  "最近打开...">
+<!ENTITY main.saveFile                  "页面另存为...">
+<!ENTITY main.saveFile.accesskey        "S">
+<!ENTITY main.print                     "打印">
+<!ENTITY main.print.accesskey           "P">
+<!ENTITY main.printPdf                  "以PDF格式打印">
+<!ENTITY main.printPdf.accesskey        "D">
+<!ENTITY main.quit                      "退出">
+<!ENTITY main.quit.accesskey            "Q">
+
+<!-- Edit menu -->
+<!ENTITY main.edit                      "编辑">
+<!ENTITY main.edit.accesskey            "E">
+<!ENTITY main.find                      "在页面内搜索...">
+<!ENTITY main.find.accesskey            "S">
+<!ENTITY main.selectall                 "全选">
+<!ENTITY main.selectall.accesskey       "a">
+<!ENTITY main.copy                      "复制">
+<!ENTITY main.copy.accesskey            "p">
+<!ENTITY main.transliteration           "翻译工具">
+<!ENTITY main.transliteration.accesskey "T">
+<!ENTITY main.preferences               "参数设置">
+<!ENTITY main.preferences.accesskey     "n">
+
+<!-- Display menu -->
+<!ENTITY main.display                   "显示">
+<!ENTITY main.display.accesskey         "D">
+<!ENTITY main.zoom                      "缩放">
+<!ENTITY main.zoom.accesskey            "Z">
+<!ENTITY main.zoomin                    "放大">
+<!ENTITY main.zoomin.accesskey          "M">
+<!ENTITY main.zoomout                   "缩小">
+<!ENTITY main.zoomout.accesskey         "R">
+<!ENTITY main.zoomorig                  "原始尺寸">
+<!ENTITY main.zoomorig.accesskey        "O">
+<!ENTITY main.language                  "界面语言">
+<!ENTITY main.language.accesskey        "L">
+<!ENTITY main.skin                      "皮肤">
+<!ENTITY main.skin.accesskey            "S">
+<!ENTITY main.statusbar                 "状态栏">
+<!ENTITY main.statusbar.accesskey       "S">
+<!ENTITY main.resultsbar                "结果栏">
+<!ENTITY main.resultsbar.accesskey      "R">
+<!ENTITY main.tabs                      "标签">
+<!ENTITY main.tabs.accesskey            "T">
+<!ENTITY main.fullscreen                "全屏">
+<!ENTITY main.fullscreen.accesskey      "F">
+
+<!-- Tools menu -->
+<!ENTITY main.tools                     "工具">
+<!ENTITY main.tools.accesskey           "T">
+<!ENTITY main.randomArticle             "随机条目">
+<!ENTITY main.randomArticle.accesskey   "R">
+<!ENTITY main.checkIntegrity            "完整性检查">
+<!ENTITY main.checkIntegrity.accesskey  "k">
+<!ENTITY main.purgeHistory              "清空历史">
+<!ENTITY main.purgeHistory.accesskey    "P">
+
+<!-- Help menu -->
+<!ENTITY main.help                      "帮助">
+<!ENTITY main.help.accesskey            "H">
+<!ENTITY main.reportabug                "错误报告">
+<!ENTITY main.requestafeature           "功能请求">
+<!ENTITY main.about                     "关于&brand.brandShortName;">
+<!ENTITY main.about.accesskey           "A">
+
+<!-- Tool bar -->
+<!ENTITY main.back                      "返回">
+<!ENTITY main.forward                   "前进">
+<!ENTITY main.home                      "首页">
+<!ENTITY main.searchBar                 "搜索栏">
+<!ENTITY main.search                    "搜索">
+<!ENTITY main.findInText                " 文内查找">
+<!ENTITY main.noSearchBar               "需要已索引的ZIM文件进行搜索">
+<!ENTITY main.bookmarks                 "书签">
+
+<!-- Results bar -->
+<!ENTITY main.results.title             "搜索结果">
+
+<!-- Bookmarks Bar -->
+<!ENTITY main.bmkLabel                  "书签：">
+<!ENTITY main.notesLabel                "书签注记：">
+<!ENTITY main.loadbmk                   "导入书签设置">
+<!ENTITY main.newbmk                    "创建新的书签设置">
+<!ENTITY main.mark                      "标记此页">
+<!ENTITY main.unmark                    "取消选中">
+<!ENTITY main.reload                    "重新加载书签设置">
+<!ENTITY main.defaultset                "默认设置">
+
+<!-- Contextual Menu -->
+<!ENTITY main.saveImageAs               "保存图像为....">
+
+<!-- About Window -->
+<!ENTITY main.close           		"关闭">
+
+<!-- Preferences Window -->
+<!ENTITY preferences.preferences        "Preferences">
+<!ENTITY preferences.save      		"Save">
+<!ENTITY preferences.cancel     	"Cancel">
+<!ENTITY preferences.profileDirectory  	"Profile directory">
+<!ENTITY preferences.browse  	        "Browse">
+

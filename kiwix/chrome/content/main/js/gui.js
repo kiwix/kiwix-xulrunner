@@ -50,6 +50,8 @@ _languagesHash['te']        = "తెలుగు";
 _languagesHash['th']        = "ไทย";
 _languagesHash['uk']        = "Українська";
 _languagesHash['zh']        = "中文";
+_languagesHash['zh-hans']   = "中文(简体)";
+_languagesHash['zh-hant']   = "中文(繁體)";
 
 /* WebProgress listener */
 const STATE_START =  Components.interfaces.nsIWebProgressListener.STATE_START;
