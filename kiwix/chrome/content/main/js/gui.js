@@ -46,6 +46,7 @@ _languagesHash['pt']        = "Português";
 _languagesHash['pt-br']     = "Português do Brasil";
 _languagesHash['ro']        = "Română";
 _languagesHash['ru']        = "Русский";
+_languagesHash['rue']       = "Русиньскый";
 _languagesHash['sl']        = "Slovenščina";
 _languagesHash['sv']        = "Svenska";
 _languagesHash['te']        = "తెలుగు";
