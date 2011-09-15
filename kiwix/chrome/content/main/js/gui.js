@@ -988,7 +988,7 @@ function populateLanguagesMenu() {
 	    menuItem.setAttribute('checked', true);
 	}
 	
-	languagesMenu.appendChild(menuItem);
+	languagesMenu.insertBefore(menuItem, languagesMenu.firstChild);
     }
 }
 
