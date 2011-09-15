@@ -21,17 +21,16 @@ fi
 AC_CHECK_TOOL(HAVE_JAR, cl)
 
 # Check cl.exe
-# Check if their is a Perl binary
-AC_CHECK_PROG(HAVE_CL, cl, yes, no)
+AC_CHECK_PROG(HAVE_CL, cl.exe, yes, no)
 AM_CONDITIONAL([IS_WIN], [test "$HAVE_CL" = yes])
-if test [ "$HAVE_CL" ]
+if test [ "$HAVE_CL" = yes ]
 then
   IS_WIN=1
 fi
 
 AC_CHECK_PROG(HAVE_XCODE, Xcode, yes, no, [$PATH$PATH_SEPARATOR/Developer/Applications/Xcode.app/Contents/MacOS/$PATH_SEPARATOR])
 AM_CONDITIONAL([IS_OSX], [test "$HAVE_XCODE" = yes])
-if test [ "$HAVE_XCODE" ]
+if test [ "$HAVE_XCODE" = yes ]
 then
   IS_OSX=1
 fi
@@ -115,6 +114,7 @@ AC_CHECK_TOOL(HAVE_PERL, perl)
 # Check if user want local dependences
 if test [ ! "$IS_WIN" ]
 then
+
   AC_ARG_WITH(dependences, [  --with-dependences      use system or custom libraries, otherwise download them and compile staticaly against them [[default=yes]]], WITH_DEPENDENCES=${withval}, WITH_DEPENDENCES=${withval})
 
   # Checks for header files.
@@ -415,7 +415,7 @@ XPCOM_LDFLAGS="-Xcompiler -shared -Wl"
 if test [ ! "$IS_OSX" ]
 then
 # osx don't need for rpath-link as we build static
-XPCOM_LDFLAGS +=",-rpath-link,$GECKO_SDK_PATH/bin"
+XPCOM_LDFLAGS=${XPCOM_LDFLAGS}",-rpath-link,$GECKO_SDK_PATH/bin"
 fi
 
 # Export variables
