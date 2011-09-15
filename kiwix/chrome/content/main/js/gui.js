@@ -53,6 +53,7 @@ _languagesHash['sr-el']     = "Srpski (latinica)";
 _languagesHash['sv']        = "Svenska";
 _languagesHash['te']        = "తెలుగు";
 _languagesHash['th']        = "ไทย";
+_languagesHash['ug-arab']   = "ئۇيغۇرچە";
 _languagesHash['uk']        = "Українська";
 _languagesHash['zh']        = "中文";
 _languagesHash['zh-hans']   = "中文(简体)";
