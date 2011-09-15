@@ -104,8 +104,8 @@ rm -rf ./kiwix
 cp -r -L ./moulinkiwix/kiwix ./kiwix
 
 # Remove svn/repo stuff
-find ./kiwix -name '.svn' -delete
-find ./kiwix -name '*.inised' -delete
+find ./kiwix -name '.svn' -exec rm -rf {} \;
+find ./kiwix -name '*.inised' -exec rm -rf {} \;
 find ./kiwix -name 'Makefile' -delete
 find ./kiwix -name 'Makefile.in' -delete
 find ./kiwix -name 'Makefile.am' -delete
