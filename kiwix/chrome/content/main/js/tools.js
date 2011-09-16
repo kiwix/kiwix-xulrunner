@@ -154,21 +154,23 @@ function onStart() {
 	}
     }
 
-    /* Initialize the user interface */
-    initUserInterface();
-
-    /* Start aria */
-    checkDownloader();
-
     /* Open current book */
     if (!contentLoaded && !openCurrentBook()) {
 	library.deleteCurrentBook();
 	showDefault();
     }
+
+    /* Initialize the user interface */
+    initUserInterface();
+
+    /* Start aria */
+    checkDownloader();
 }
 
 /* Clear the history and the cache */
 function managePurgeHistory() {
+    saveTabs();
+
     /* cache */
     const cc = Components.classes;
     const ci = Components.interfaces;
@@ -207,6 +209,9 @@ function onClose() {
 
     /* Stop downloader */
     stopDownloader();
+
+    /* Save tabs content */
+    saveTabs();
 
     var doClean = doOnCloseClean();
     if (env.isLive()) {

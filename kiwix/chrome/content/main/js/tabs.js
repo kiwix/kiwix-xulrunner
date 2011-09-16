@@ -52,7 +52,8 @@ function changeTabsVisibilityStatus(set_visible, save) {
 }
 
 /* Add a new tab */
-function openNewTab() {
+function openNewTab(focus) {
+    focus = (focus == undefined ? true : focus);
     changeTabsVisibilityStatus(true);
 
     var id=randomString();
@@ -91,9 +92,12 @@ function openNewTab() {
     tabHeaders.insertBefore(newTabHeader, addButton);
     tabHeaders.insertBefore(closeButton, tabHeaders.lastChild);
 
-    switchTab(id);
+    initHtmlRendererEventListeners(id);
 
-    initHtmlRendererEventListeners();
+    if (focus)
+	switchTab(id);
+
+    return id;
 }
 
 function closeCurrentTab() {
@@ -251,7 +255,7 @@ function removeFSEventFromTab(tabId) {
 
 /* Launch removeFSEventFromTab for all tabs */
 function removeFSEventFromTabs() {
-    alltabs = document.getElementsByTagName('tabpanel');
+    var alltabs = document.getElementsByTagName('tabpanel');
     for (var i=0; i < alltabs.length ; i++) {
         removeFSEventFromTab(alltabs[i].id);
     }
@@ -303,4 +307,38 @@ function tabNext() {
     }
 
     return false;
+}
+
+/* Save and load all tabs content */
+function saveTabs() {
+    var tabPanels = document.getElementById("tab-panels"); 
+    var browsers = tabPanels.getElementsByTagName('browser');
+    var savedTabs = ""
+    for (var i=0; i < browsers.length ; i++) {
+	var browser = browsers[i];
+	var uri = browser.currentURI;
+	savedTabs += (browser == getHtmlRenderer() ? "F" : "") + uri.spec + ";";
+    }
+    settings.savedTabs(savedTabs);
+}
+
+function restoreTabs() {
+    var savedTabsString = settings.savedTabs();
+    var savedTabs = savedTabsString.split(';');
+    for (var i=0; i < savedTabs.length; i++) {
+	var uri = savedTabs[i];
+	if (uri != "") {
+	    var focus = false;
+	    if (uri.substring(0, 1) == "F") {
+		focus = true;
+		uri = uri.substring(1);
+	    }
+
+	    if (i > 0) {
+		manageOpenUrlInNewTab(uri, focus);
+	    } else {
+		manageOpenUrl(uri);
+	    }
+	}
+    }
 }

@@ -35,11 +35,12 @@ function getCurrentZimFileHomePageUrl() {
 
     if (currentZimAccessor) {
 	var url = new Object();
-	
+
 	/* Return the welcome path if exists */
 	currentZimAccessor.getMainPageUrl(url);
-	if (url.value != undefined && url.value != '')
-	    return "zim://" + url.value;		
+	if (url.value != undefined && url.value != '') {
+	    homePageUrl = "zim://" + url.value;	
+	}
     }
     
     return homePageUrl;

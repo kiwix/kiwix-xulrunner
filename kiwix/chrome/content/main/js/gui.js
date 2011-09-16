@@ -95,9 +95,9 @@ function getWindow() {
 }
 
 /* Load an url in the HTML render element */
-function loadContent(url) {
+function loadContent(url, id) {
     try {
-	getHtmlRenderer().loadURI(url, null, null);
+	getHtmlRenderer(id).loadURI(url, null, null);
     } catch(e) {
 	displayErrorDialog(getProperty("loadArticleError"));
 	return false;
@@ -372,16 +372,17 @@ function stopEventPropagation(aEvent) {
 }
 
 /* Open a link in a new tab */
-function manageOpenUrlInNewTab(url) {
+function manageOpenUrlInNewTab(url, focus) {
+    focus = (focus == undefined ? true : focus);
     changeTabsVisibilityStatus(true);
-    openNewTab();
-    return manageOpenUrl(url);
+    var id = openNewTab(focus);
+    return manageOpenUrl(url, id);
 }
 
 /* Open a link. Returns true if everything OK */
-function manageOpenUrl(url) {
+function manageOpenUrl(url, id) {
     /* Clear status bar */
-    if (url == undefined) {
+    if (url == undefined || url == "" || url == "about:blank") {
 	return false;
     } else {
 	clearStatusBar();
@@ -396,7 +397,7 @@ function manageOpenUrl(url) {
     if (!isInternalUrl(url)) {
 	openUrlWithExternalBrowser(url);
     } else { /* If the a ZIM or chrome url */ 	 
-	if (loadContent(url)) { 	 
+	if (loadContent(url, id)) { 	 
 	    activateBackButton(); 	 
 	}
     }
@@ -1099,6 +1100,7 @@ function initUserInterface() {
     /* Activate (or not) the Home button */
     if (getCurrentZimFileHomePageUrl()) {
 	activateHomeButton();
+	restoreTabs();
     } else {
 	desactivateHomeButton();
     }
@@ -1220,8 +1222,8 @@ function handleMouseClick(aEvent) {
 }
 
 /* Add mouse scroll listener to allow zoon in/out with the mouse for example */
-function initHtmlRendererEventListeners() {
-    var htmlRenderer =  getHtmlRenderer();
+function initHtmlRendererEventListeners(id) {
+    var htmlRenderer =  getHtmlRenderer(id);
     var htmlRendererId = htmlRenderer.id;
     var regexResults = htmlRendererId.match(/html-renderer-(.*)/);
     var id = regexResults[1];
