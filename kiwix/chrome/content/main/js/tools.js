@@ -23,6 +23,9 @@ function quit() {
 	}
     }
 
+    /* Save tabs */
+    manageSaveTabs();
+
     /* Save settings */
     settings.save();
 
@@ -169,8 +172,6 @@ function onStart() {
 
 /* Clear the history and the cache */
 function managePurgeHistory() {
-    saveTabs();
-
     /* cache */
     const cc = Components.classes;
     const ci = Components.interfaces;
@@ -206,12 +207,8 @@ function managePurgeHistory() {
 
 /* Things to do before exit Kiwix */
 function onClose() {
-
     /* Stop downloader */
     stopDownloader();
-
-    /* Save tabs content */
-    saveTabs();
 
     var doClean = doOnCloseClean();
     if (env.isLive()) {

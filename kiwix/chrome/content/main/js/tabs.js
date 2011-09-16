@@ -310,6 +310,14 @@ function tabNext() {
 }
 
 /* Save and load all tabs content */
+function manageSaveTabs() {
+    if (settings.saveTabs()) {
+	saveTabs();
+    } else {
+	settings.savedTabs("");
+    }
+}
+
 function saveTabs() {
     var tabPanels = document.getElementById("tab-panels"); 
     var browsers = tabPanels.getElementsByTagName('browser');

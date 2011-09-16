@@ -23,6 +23,7 @@ Kiwix 0.9 beta3
 * Save zoom factor over kiwix restarts (ID: 3367428)
 * Avoid sporadic problems with indexing/searching and certain Windows version (was necessary to install vcredist_x86.exe)
 * Fix configure for CLucene and Slackware (ID: 3408023)
+* Optionaly remember tabs over reboots
 
 Kiwix 0.9 beta2
 * Regression fix, tabs should not be visible per default

@@ -43,13 +43,17 @@
 
 <hbox style="text-align: center; width: 600px;" align="center">
   <description>&preferences.profileDirectory;</description>
-  <textbox  style="text-align: left;" id="profileDirectory-textbox" flex="1" disabled="true"/>
+  <textbox style="text-align: left;" id="profileDirectory-textbox" flex="1" disabled="true"/>
   <button oncommand="manageChangeProfileDirectory()" label="&preferences.browse;..." />
+</hbox>
+
+<hbox style="text-align: center; width: 600px;" align="center">
+  <checkbox id="saveTabs-checkbox" label="Remembers tabs"/>
 </hbox>
 
 <hbox>
   <spacer flex="1"/>
   <button oncommand="window.close();" label="&preferences.cancel;" />
-  <button oncommand="window.close();" label="&preferences.save;" />
+  <button oncommand="savePreferences(); window.close();" label="&preferences.save;" />
 </hbox>
 </window>

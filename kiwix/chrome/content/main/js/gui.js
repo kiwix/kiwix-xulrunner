@@ -962,6 +962,19 @@ function displayConfirmDialog(message, title) {
     return promptService.confirm(window, title, message);
 }
 
+/* Display a confirm dialog box like confirm() but with an additional checkbox */
+function displayConfirmDialogEx(message, title, checkboxMessage, checkboxValue) {
+    /* Default values */
+    title = (title == undefined ? getProperty("confirm") : title);
+    checkboxMessage = (checkboxMessage == undefined ? "" : checkboxMessage);
+    
+    var promptService = Components.classes["@mozilla.org/embedcomp/prompt-service;1"]
+        .getService(Components.interfaces.nsIPromptService);
+    var flags=promptService.BUTTON_TITLE_YES * promptService.BUTTON_POS_0 +
+        promptService.BUTTON_TITLE_NO * promptService.BUTTON_POS_1;
+    return promptService.confirmEx(window, title, message, flags, null, null, null, checkboxMessage, checkboxValue);
+}
+
 /* Fill the languages-menu with all available languages */
 function populateLanguagesMenu() {
     /* Get informations about locales */
@@ -1244,17 +1257,11 @@ function initHtmlRendererEventListeners(id) {
     htmlRenderer.addEventListener("pageshow", function(){ updateTabHeader(id) }, true);
     htmlRenderer.addEventListener("load", function(){ updateTabHeader(id) }, true);
     
-    /* finbar event */
-    getFindBar().addEventListener ("DOMAttrModified", toggleFindBarButton, true);
-
     /* Drag & drop to open a link in a new tab */
     htmlRenderer.addEventListener ("dragend", htmlRendererDrop, true);
 
     /* Intercept standard behaviour of tabheaders keypress */
     getTabHeaders().addEventListener("keypress", handleTabHeadersKeyPress, true);
-
-    /* Deal with key press */
-    document.getElementById("main").addEventListener("keypress", handleKeyPress, true);
 }
 
 function handleKeyPress(aEvent) {
@@ -1318,6 +1325,12 @@ function initEventListeners() {
     dls.addProgressListener (UIBrowserProgressListener,
 			     nsIWebProgress.NOTIFY_LOCATION |
 			     nsIWebProgress.NOTIFY_STATE_DOCUMENT);
+
+    /* finbar event */
+    getFindBar().addEventListener ("DOMAttrModified", toggleFindBarButton, true);
+
+    /* Deal with key press */
+    document.getElementById("main").addEventListener("keypress", handleKeyPress, true);
 }
 
 /* Event Listener */

@@ -10,6 +10,14 @@ function getPreferencesWindow() {
 function onPreferencesDialogStart() {
     var profileDirectoryTextbox = document.getElementById("profileDirectory-textbox");
     profileDirectoryTextbox.value = settings.getRootPath();
+
+    var saveTabsCheckbox = document.getElementById("saveTabs-checkbox");
+    saveTabsCheckbox.checked = settings.saveTabs();
+}
+
+function savePreferences() {
+    var saveTabsCheckbox = document.getElementById("saveTabs-checkbox");
+    settings.saveTabs(saveTabsCheckbox.checked);
 }
 
 /* Choose new profile directory */
