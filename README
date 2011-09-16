@@ -2,23 +2,20 @@
 * Kiwix                                *
 ****************************************
 
-Presentation ___________________________
+Presentation:
+Kiwix is an offline reader for Web content. It's especially thought to
+make Wikipedia available offline.  This is done by reading the content
+of the project stored in a file format ZIM, a high compressed open
+format with additional meta-data.
 
-Kiwix is an offline reader for Web content. It's especially thought to make Wikipedia available offline. 
-This is done by reading the content of the project stored in a file format ZIM, 
-a high compressed open format with additional meta-data. 
-
-Contact
-
-Email: kiwix-developer@lists.sourceforge.net or kelson@kiwix.org
+Contact:
+Email: kiwix-developer@lists.sourceforge.net or contact@kiwix.org
 Jabber: kelson@kiwix.org
-IRC: #kiwix on irc.freenode.net join or use web interface
+IRC: #kiwix on irc.freenode.net join or use web interface http://www.kiwix.org/chat
 SVN: to be kept informed per email about SVN commits, kiwix-svn@lists.sourceforge.net. 
 
-Installation ___________________________
+Installation:
+See COMPILE
 
-TODO
-
-Legal and disclaimer ___________________
-
-see COPYING
+Legal and disclaimer
+See COPYING
