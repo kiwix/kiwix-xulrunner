@@ -324,13 +324,15 @@ function saveTabs() {
     var savedTabs = ""
     for (var i=0; i < browsers.length ; i++) {
 	var browser = browsers[i];
+	var scrollY = browser.contentWindow.scrollY;
 	var uri = browser.currentURI;
-	savedTabs += (browser == getHtmlRenderer() ? "F" : "") + uri.spec + ";";
+	savedTabs += (browser == getHtmlRenderer() ? "F" : "") + scrollY + "|" + uri.spec + ";";
     }
     settings.savedTabs(savedTabs);
 }
 
 function restoreTabs() {
+    var tabPanels = document.getElementById("tab-panels"); 
     var savedTabsString = settings.savedTabs();
     var savedTabs = savedTabsString.split(';');
     for (var i=0; i < savedTabs.length; i++) {
@@ -342,11 +344,18 @@ function restoreTabs() {
 		uri = uri.substring(1);
 	    }
 
+	    var tmp = uri.split('|');
+	    var scrollY = tmp[0];
+	    uri = tmp[1];
+
+	    var id;
 	    if (i > 0) {
-		manageOpenUrlInNewTab(uri, focus);
+		id = manageOpenUrlInNewTab(uri, focus);
 	    } else {
-		manageOpenUrl(uri);
+		id = manageOpenUrl(uri);
 	    }
+
+	    tabPanels.lastChild.firstChild.contentWindow.scroll(0, scrollY);
 	}
     }
 }
