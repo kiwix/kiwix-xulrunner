@@ -350,12 +350,10 @@ function restoreTabs() {
 
 	    var id;
 	    if (i > 0) {
-		id = manageOpenUrlInNewTab(uri, focus);
+		manageOpenUrlInNewTab(uri, focus, scrollY);
 	    } else {
-		id = manageOpenUrl(uri);
+		manageOpenUrl(uri, undefined, scrollY);
 	    }
-
-	    tabPanels.lastChild.firstChild.contentWindow.scroll(0, scrollY);
 	}
     }
 }

@@ -95,9 +95,11 @@ function getWindow() {
 }
 
 /* Load an url in the HTML render element */
-function loadContent(url, id) {
+function loadContent(url, id, scrollY) {
     try {
 	getHtmlRenderer(id).loadURI(url, null, null);
+	if (scrollY)
+	    getHtmlRenderer(id).setAttribute("initScrollY", scrollY);
     } catch(e) {
 	displayErrorDialog(getProperty("loadArticleError"));
 	return false;
@@ -372,15 +374,15 @@ function stopEventPropagation(aEvent) {
 }
 
 /* Open a link in a new tab */
-function manageOpenUrlInNewTab(url, focus) {
+function manageOpenUrlInNewTab(url, focus, scrollY) {
     focus = (focus == undefined ? true : focus);
     changeTabsVisibilityStatus(true);
     var id = openNewTab(focus);
-    return manageOpenUrl(url, id);
+    return manageOpenUrl(url, id, scrollY);
 }
 
 /* Open a link. Returns true if everything OK */
-function manageOpenUrl(url, id) {
+function manageOpenUrl(url, id, scrollY) {
     /* Clear status bar */
     if (url == undefined || url == "" || url == "about:blank") {
 	return false;
@@ -397,7 +399,7 @@ function manageOpenUrl(url, id) {
     if (!isInternalUrl(url)) {
 	openUrlWithExternalBrowser(url);
     } else { /* If the a ZIM or chrome url */ 	 
-	if (loadContent(url, id)) { 	 
+	if (loadContent(url, id, scrollY)) { 	 
 	    activateBackButton(); 	 
 	}
     }
@@ -1255,13 +1257,21 @@ function initHtmlRendererEventListeners(id) {
 
     /* Necessary to update the tab header */
     htmlRenderer.addEventListener("pageshow", function(){ updateTabHeader(id) }, true);
-    htmlRenderer.addEventListener("load", function(){ updateTabHeader(id) }, true);
+    htmlRenderer.addEventListener("load", function(){ updateTabHeader(id); applyInitScroll(this); }, true);
     
     /* Drag & drop to open a link in a new tab */
     htmlRenderer.addEventListener ("dragend", htmlRendererDrop, true);
 
     /* Intercept standard behaviour of tabheaders keypress */
     getTabHeaders().addEventListener("keypress", handleTabHeadersKeyPress, true);
+}
+
+function applyInitScroll(browser) {
+    var initScrollY = browser.getAttribute("initScrollY");
+    if (initScrollY) {
+	browser.contentWindow.scroll(0, initScrollY); 
+	browser.setAttribute("initScrollY", undefined);
+    }
 }
 
 function handleKeyPress(aEvent) {
