@@ -284,7 +284,7 @@ function getDownloadStatus() {
 		    populateRemoteBookList();
 		    settings.setDownloadProperty(kiwixDownload.id,  "id", "");
 		    removeDownload(kiwixDownload.gid);
-		    sendNotification("Download finished", "Download finished");
+    		    sendNotification(getProperty("information"), "Download of '" + book.title + "'is finished.");
 		} else if (ariaDownloadStatus == "waiting") {
 		}
 	    }
