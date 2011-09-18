@@ -23,10 +23,11 @@ downloader.onmessage = function(event) {
 	    if (message.parameters[1])
 		populateRemoteBookList();
 	    if (oldRemoteBookCount < remoteBookCount && 
-		displayConfirmDialog("They are new content available for download, do you want to see them?") ||
-		localBookCount == 0 && remoteBookCount >0 ) {
+		displayConfirmDialog("They are new content available for download, do you want to see them?")) {
 		showRemoteBooks();
 	    }
+	    if (localBookCount == 0 && remoteBookCount > 0)
+		selectLibraryMenu("library-menuitem-remote");
 	}
     }
 };
@@ -705,7 +706,7 @@ function downloadRemoteBookList(populateRemoteBookList, resumeDownloads) {
 
 function populateContentManager(populateRemoteBookList, resumeDownloads) {
     populateLocalBookList();
-    showLocalBooks();
+    selectLibraryMenu("library-menuitem-local");
     downloadRemoteBookList(populateRemoteBookList, resumeDownloads);
 }
 

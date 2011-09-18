@@ -802,22 +802,14 @@ function showAbout() {
     var win = window.openDialog('about.xul','','centerscreen,resizable=no,scrollbars=no,modal,dialog,width=350,height=380,chrome');
 }
 
-/* Display the default view */
-function showDefault() {
-    showHelp();
-    if (library.getLocalBookCount() == 0 && library.getRemoteBookCount() > 0) {
-	showRemoteBooks();
-    }
-}
-
 /* Display the help */
-function showHelp(createTab, toggleLibrary) {
+function showHelp(createTab, hideLibrary) {
     if (createTab) { 
 	openNewTab();
     }
 
     /* Force to hide the library manager */
-    if (toggleLibrary) {
+    if (hideLibrary) {
 	toggleLibrary(false);
     }
 
@@ -1098,6 +1090,9 @@ function preInitUserInterface() {
 
     /* Same for the skins */
     populateSkinsMenu();
+
+    /* Populate the library */
+    populateContentManager(true, true);
 }
 
 /* Initialize the user interface */
@@ -1105,9 +1100,6 @@ function initUserInterface() {
 
     /* Populates the last open menu */
     populateLastOpenMenu();
-
-    /* Populate the library */
-    populateContentManager(true, true);
 
     /* Apply GUI settings */
     if (settings.displayStatusBar() != undefined) { changeStatusBarVisibilityStatus(settings.displayStatusBar()); }

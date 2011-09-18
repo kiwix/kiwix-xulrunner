@@ -160,7 +160,7 @@ function onStart() {
     /* Open current book */
     if (!contentLoaded && !openCurrentBook()) {
 	library.deleteCurrentBook();
-	showDefault();
+	showHelp();
     }
 
     /* Initialize the user interface */
