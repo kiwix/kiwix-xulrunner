@@ -24,6 +24,7 @@ Kiwix 0.9 beta3
 * Avoid sporadic problems with indexing/searching and certain Windows version (was necessary to install vcredist_x86.exe)
 * Fix configure for CLucene and Slackware (ID: 3408023)
 * New option remember open tabs, focused tab and respective scroll postion in the tabs over reboots (ID: 3117123)
+* Fixing a bug responsible of masking ongoing downloads while deleting an other content
 
 Kiwix 0.9 beta2
 * Regression fix, tabs should not be visible per default

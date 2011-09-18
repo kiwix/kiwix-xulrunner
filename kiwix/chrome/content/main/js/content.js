@@ -18,10 +18,13 @@ downloader.onmessage = function(event) {
 	} else {
 	    var oldRemoteBookCount = library.getRemoteBookCount();
 	    library.readFromText(xml, false);
+	    var localBookCount = library.getLocalBookCount();
+	    var remoteBookCount = library.getRemoteBookCount();
 	    if (message.parameters[1])
 		populateRemoteBookList();
-	    if (oldRemoteBookCount < library.getRemoteBookCount() && 
-		displayConfirmDialog("They are new content available for download, do you want to see them?")) {
+	    if (oldRemoteBookCount < remoteBookCount && 
+		displayConfirmDialog("They are new content available for download, do you want to see them?") ||
+		localBookCount == 0 && remoteBookCount >0 ) {
 		showRemoteBooks();
 	    }
 	}
@@ -277,7 +280,8 @@ function getDownloadStatus() {
 		    var ariaDownloadPath = getAriaDownloadPath(kiwixDownload.gid);
 		    ariaDownloadPath = ariaDownloadPath.replace(/\\/g, "\\\\"); /* Necessary to avoid escaping */
 		    library.setBookPath(kiwixDownload.id, ariaDownloadPath);
- 		    moveFromRemoteToLocalLibrary(kiwixDownload.id);
+		    populateLocalBookList();
+		    populateRemoteBookList();
 		    settings.setDownloadProperty(kiwixDownload.id,  "id", "");
 		    removeDownload(kiwixDownload.gid);
 		    sendNotification("Download finished", "Download finished");
@@ -337,17 +341,22 @@ function formatFileSize(filesize) {
 function manageRemoveContent(id) {
     if (displayConfirmDialog("Are you sure you want to remove this content?")) {
 	var book = library.getBookById(id);
+
+	if (library.getCurrentId() == id) {
+	    manageUnload(true, true);
+	}
+
 	if (book != undefined) {
 	    deleteFile(book.path);
 	    deleteFile(book.indexPath);
-	    removeLibraryItem(id);
 	    
 	    if (book.url != "") {
 		library.setBookPath(id, "");
-		library.setBookIndex(id, "", "");
+		library.setBookIndex(id, "");
 	    } else {
 		library.deleteBookById(id);
 	    }
+
 	    populateLocalBookList();
 	    populateRemoteBookList();
 	}
@@ -356,10 +365,7 @@ function manageRemoveContent(id) {
     
 function manageStopDownload(id) {
     if (displayConfirmDialog("Are you sure you want to stop this download?")) {
-	var downloadButton = document.getElementById("download-button-" + id);
-	downloadButton.setAttribute("style", "display: block;");
-	var detailsDeck = document.getElementById("download-deck-" + id);
-	detailsDeck.setAttribute("selectedIndex", "0");
+	configureLibraryContentItemVisuals(id, "online");
 	
 	/* Get corresponding gid */
 	var kiwixDownloadGid = settings.getDownloadProperty(id, "gid");
@@ -376,18 +382,46 @@ function manageStopDownload(id) {
     }
 }
 
+function configureLibraryContentItemVisuals(id, mode) {
+    if (mode == "download") {
+	var downloadButton = document.getElementById("download-button-" + id);
+	downloadButton.setAttribute("style", "display: none;");
+	var loadButton = document.getElementById("load-button-" + id);
+	loadButton.setAttribute("style", "display: none;");
+	var removeButton = document.getElementById("remove-button-" + id);
+	removeButton.setAttribute("style", "display: none;");
+	var playButton = document.getElementById("play-button-" + id);
+	playButton.setAttribute("style", "display: none;");
+	var pauseButton = document.getElementById("pause-button-" + id);
+	pauseButton.setAttribute("style", "display: block;");
+	var downloadStatusLabel = document.getElementById("download-status-label-" + id);
+	downloadStatusLabel.setAttribute("value", "Preparing download...");
+	var detailsDeck = document.getElementById("download-deck-" + id);
+	detailsDeck.setAttribute("selectedIndex", "1");
+    } else if (mode == "online") {
+	var downloadButton = document.getElementById("download-button-" + id);
+	downloadButton.setAttribute("style", "display: block;");
+	var detailsDeck = document.getElementById("download-deck-" + id);
+	detailsDeck.setAttribute("selectedIndex", "0");
+	var loadButton = document.getElementById("load-button-" + id);
+	loadButton.setAttribute("style", "display: none;");
+	var removeButton = document.getElementById("remove-button-" + id);
+	removeButton.setAttribute("style", "display: none;");
+    } else if (mode == "offline") {
+	var downloadButton = document.getElementById("download-button-" + id);
+	downloadButton.setAttribute("style", "display: none;");
+	var detailsDeck = document.getElementById("download-deck-" + id);
+	detailsDeck.setAttribute("selectedIndex", "0");
+	var loadButton = document.getElementById("load-button-" + id);
+	loadButton.setAttribute("style", "display: block;");
+	var removeButton = document.getElementById("remove-button-" + id);
+	removeButton.setAttribute("style", "display: block;");
+    }
+}
+
 function manageStartDownload(id, completed) {
     settings.addDownload(id);
-    var downloadButton = document.getElementById("download-button-" + id);
-    downloadButton.setAttribute("style", "display: none;");
-    var playButton = document.getElementById("play-button-" + id);
-    playButton.setAttribute("style", "display: none;");
-    var pauseButton = document.getElementById("pause-button-" + id);
-    pauseButton.setAttribute("style", "display: block;");
-    var downloadStatusLabel = document.getElementById("download-status-label-" + id);
-    downloadStatusLabel.setAttribute("value", "Preparing download...");
-    var detailsDeck = document.getElementById("download-deck-" + id);
-    detailsDeck.setAttribute("selectedIndex", "1");
+    configureLibraryContentItemVisuals(id, "download");
 
     var book = library.getBookById(id);
     var progressbar = document.getElementById("progressbar-" + id);
@@ -443,16 +477,6 @@ function managePauseDownload(id) {
 
     /* Pause the download */
     pauseDownload(gid);
-}
-
-function moveFromRemoteToLocalLibrary(id) {
-    removeLibraryItem(id);
-    populateLocalBookList();
-}
-
-function removeLibraryItem(id) {
-    var box = document.getElementById("library-content-item-" + id);
-    box.parentNode.removeChild(box);
 }
 
 function createLibraryItem(book) {
@@ -611,7 +635,7 @@ function createLibraryItem(book) {
 					      "button");
     loadButton.setAttribute("label", "Load");
     loadButton.setAttribute("id", "load-button-" + book.id);
-    loadButton.setAttribute("onclick", "event.stopPropagation(); toggleLibrary(); manageOpenFile('" + book.path.replace(/\\/g, '\\\\') + "')");
+    loadButton.setAttribute("onclick", "event.stopPropagation(); manageOpenFile('" + book.path.replace(/\\/g, '\\\\') + "')");
     buttonBox.appendChild(loadButton);
     
     var downloadButton = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
@@ -620,16 +644,8 @@ function createLibraryItem(book) {
     downloadButton.setAttribute("id", "download-button-" + book.id);
     downloadButton.setAttribute("onclick", "event.stopPropagation(); manageStartDownload('" + book.id + "')");
     buttonBox.appendChild(downloadButton);
-    
-    if (book.path != "") {
-	downloadButton.setAttribute("style", "display: none;");
-    } else {
-	loadButton.setAttribute("style", "display: none;");
-	removeButton.setAttribute("style", "display: none;");
-    }
-    
-    hbox.appendChild(buttonBox);
 
+    hbox.appendChild(buttonBox);
     return box
 }
 
@@ -651,6 +667,17 @@ function populateBookList(container) {
 
 	/* Add the new item to the UI */
 	container.appendChild(box);
+
+        if (book.path != "") {
+           configureLibraryContentItemVisuals(book.id, "offline");
+        } else {
+           var downloadStatus = settings.getDownloadProperty(book.id, "status");
+           if (downloadStatus != undefined) {
+             configureLibraryContentItemVisuals(book.id, "download");
+           } else {
+             configureLibraryContentItemVisuals(book.id, "online");
+           }
+        }
 
 	/* Compute new item background color */
 	backgroundColor = (backgroundColor == "#FFFFFF" ? "#EEEEEE" : "#FFFFFF");
@@ -678,7 +705,7 @@ function downloadRemoteBookList(populateRemoteBookList, resumeDownloads) {
 
 function populateContentManager(populateRemoteBookList, resumeDownloads) {
     populateLocalBookList();
-    selectLibraryMenu("library-menuitem-local");
+    showLocalBooks();
     downloadRemoteBookList(populateRemoteBookList, resumeDownloads);
 }
 

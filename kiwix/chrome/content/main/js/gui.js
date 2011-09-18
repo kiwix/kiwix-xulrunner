@@ -637,7 +637,7 @@ function pageNext() {
 }
 
 /* Unload (the current Book) */
-function manageUnload(clearCurrentAccessor) {
+function manageUnload(clearCurrentAccessor, help) {
     desactivateBackButton();
     desactivateNextButton();
     
@@ -654,6 +654,10 @@ function manageUnload(clearCurrentAccessor) {
 	library.setCurrentId("");
 	currentZimAccessor = undefined;
     } 
+
+    if (help) {
+	showHelp(false, false);
+    }
 
     /* Re-arrange the last open files */
     populateLastOpenMenu();
@@ -696,9 +700,6 @@ function manageOpenFile(path, noSearchIndexCheck) {
 	}
     }
 
-    /* Force to hide the library manager */
-    toggleLibrary(false);
-
     /* Close all tabs */
     if (!closeAllTabs()) {
 	return true;
@@ -734,9 +735,11 @@ function manageOpenFile(path, noSearchIndexCheck) {
 	/* Populate the lastopen menu */
 	populateLastOpenMenu();
 
-	/* Populate the library */
-	populateContentManager(false, false);
-
+	/* Force to hide the library manager an update it*/
+	toggleLibrary(false);
+	populateRemoteBookList();
+	populateLocalBookList();
+	
 	/* Load the welcome page of the ZIM file */
 	goHome();
 
@@ -808,13 +811,15 @@ function showDefault() {
 }
 
 /* Display the help */
-function showHelp(createTab) {
+function showHelp(createTab, toggleLibrary) {
     if (createTab) { 
 	openNewTab();
     }
 
     /* Force to hide the library manager */
-    toggleLibrary(false);
+    if (toggleLibrary) {
+	toggleLibrary(false);
+    }
 
     loadContent("chrome://main/locale/help.html");
 }
