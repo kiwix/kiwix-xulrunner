@@ -37,16 +37,9 @@ let library = {
 	var directoryService = Components.classes["@mozilla.org/file/directory_service;1"].getService(Components.interfaces.nsIProperties);
 	var kiwixDirectory = directoryService.get("CurProcD", Components.interfaces.nsIFile);
 	
-	/* Compute the "content" directory */
+	/* Compute the "../data" directory */
 	var libraryDirectory;
-	if (env.isLinux()) {
-	  /* From /usr/lib/kiwix/ to /usr/share/kiwix */
-          libraryDirectory = kiwixDirectory.parent.parent.clone();
-	  libraryDirectory.append("share");
-	  libraryDirectory.append("kiwix");
-	} else {
-          libraryDirectory = kiwixDirectory.parent.clone();
-        }
+        libraryDirectory = kiwixDirectory.parent.clone();
 	libraryDirectory.append("data");
 	libraryDirectory.append("library");
 
@@ -60,6 +53,27 @@ let library = {
              this.readFromFile(file.path, true);
 	   }
 	}
+
+	/* For linux try to read ../share/kiwix */
+	if (env.isLinux()) {
+	  /* From /usr/lib/kiwix/ to /usr/share/kiwix */
+          libraryDirectory = kiwixDirectory.parent.parent.clone();
+	  libraryDirectory.append("share");
+	  libraryDirectory.append("kiwix");
+	  libraryDirectory.append("data");
+	  libraryDirectory.append("library");
+
+	  /* List xml library files in the data/library directory */
+	  if (libraryDirectory.exists() && libraryDirectory.isDirectory()) {
+	    var entries = libraryDirectory.directoryEntries;
+	    var array = [];  
+	    while(entries.hasMoreElements()) {
+	      var file = entries.getNext();  
+	      file.QueryInterface(Components.interfaces.nsIFile);  
+              this.readFromFile(file.path, true);
+	     }
+	  }
+        }
 
 	/* Check if this is a live instance */
 	if (!env.isLive()) {	
