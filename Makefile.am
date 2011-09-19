@@ -130,6 +130,10 @@ rpm: dist
 	rpmbuild -ba fedora/kiwix.spec
 	cp ~/rpmbuild/RPMS/*/*.rpm .
 
+xo: 
+    echo Not ready yet
+# alter preferences: default skin is sugar. probably content location too.
+
 # Mac OSX rule
 # requires install of XR
 distmac: dist

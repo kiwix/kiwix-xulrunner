@@ -1,0 +1,76 @@
+window {
+    position: relative;
+}
+
+#menu-bar, #bookmarks-bar, #status-bar, #tab-headers,
+#button-home, #button-back, #button-next, #button-sizeup, #button-sizedown,
+#button-print, #button-bookmarks, #button-fullscreen, #button-search-article,
+#button-library { display: none; }
+
+#tool-box {
+    margin: 0;
+    padding: 0;
+    background-color: red !important;
+}
+
+#sugar-tool-bar {
+    margin: 0;
+    padding: 0;
+    background-color: blue !important;
+}
+
+#tool-box * toolbarbutton {
+    -moz-appearance: none !important;
+    border: 2px solid transparent;
+    margin-left: 1px;
+    margin-right: 1px;
+}
+
+#tool-box * toolbarbutton:hover {
+    background-color: black;
+    border: 2px solid GrayText;
+    border-bottom: none;
+}
+
+tabpanels {
+    padding: 0 !important;
+}
+
+#sugar-button-quit { list-style-image: url("moz-icon://stock/activity-stop?size=toolbar"); }
+#sugar-button-home { list-style-image: url("moz-icon://stock/gtk-home?size=toolbar"); }
+#sugar-button-back { list-style-image: url("moz-icon://stock/go-previous-paired?size=toolbar"); }
+#sugar-button-next { list-style-image: url("moz-icon://stock/go-next-paired?size=toolbar"); }
+#sugar-button-sizeup { list-style-image: url("moz-icon://stock/gtk-zoom-in?size=toolbar"); }
+#sugar-button-sizedown { list-style-image: url("moz-icon://stock/gtk-zoom-out?size=toolbar"); }
+#sugar-button-fullscreen { list-style-image: url("moz-icon://stock/gtk-fullscreen?size=toolbar"); }
+#sugar-button-options { list-style-image: url("moz-icon://stock/view-source?size=toolbar"); }
+#sugar-button-bookmark { list-style-image: url("moz-icon://stock/emblem-favorite?size=toolbar"); }
+#sugar-button-display { list-style-image: url("moz-icon://stock/toolbar-view?size=toolbar"); }
+#sugar-button-bookmarks, #sugar-button-bookmarks.hidden { list-style-image: url("moz-icon://stock/tray-show?size=toolbar"); }
+#sugar-button-bookmarks.visible { list-style-image: url("moz-icon://stock/tray-hide?size=toolbar"); }
+#sugar-button-copy { list-style-image: url("moz-icon://stock/gtk-copy?size=toolbar"); }
+
+#tool-box {
+    -moz-appearance: none !important;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+#sugar-display-toolbar {
+    -moz-appearance: none !important;
+    background-color: #282828;
+    border-top: 2px solid GrayText !important;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+#sugar-button-display.open {
+    border: 2px solid GrayText;
+    border-bottom: none;
+}
+
+window * toolbar {
+    border: none;
+    padding: 0;
+    margin: 0;
+}
