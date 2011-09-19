@@ -191,12 +191,27 @@
   <menuitem label="Search for" id="browser-contextual-menu-searchfor"/>
 </menupopup>
 
+<menupopup id="sugar-options-menu">
+      <menuitem id="tools-randomArticle" label="&main.randomArticle;" key="random-article-key" accesskey="&main.randomArticle.accesskey;" oncommand="loadRandomArticle()"/>
+      <menuitem id="file-browse-library" label="Toggle library" oncommand="toggleLibrary();"/>
+      <menuitem id="file-open" label="&main.openFile;" key="open-file-key" accesskey="&main.openFile.accesskey;" oncommand="manageOpenFile()"/>
+      <menuitem id="file-save" label="&main.saveFile;" key="save-file-key" accesskey="&main.saveFile.accesskey;" oncommand="saveDocument(window.content.document);"/>
+      <menuitem id="file-print" label="&main.print;" key="print-key" accesskey="&main.print.accesskey;" oncommand="print()"/>
+      <menuitem id="file-print-pdf" label="&main.printPdf;" key="print-pdf-key" accesskey="&main.printPdf.accesskey;" oncommand="printPdf()"/>
+      <menuseparator />
+      <menuitem id="file-preferences" label="&main.preferences;" accesskey="&main.preferences.accesskey;" oncommand="showPreferences()"/>
+      <menuitem id="tools-purgeHistory" label="&main.purgeHistory;" key="purge-history-key" accesskey="&main.purgeHistory.accesskey;" oncommand="managePurgeHistory()"/>
+      <menuitem id="help-help" label="&main.help;" key="help-key" accesskey="&main.help.accesskey;" oncommand="showHelp()"/>
+</menupopup>
+
 <!-- Tool bar -->
 <toolbox id="tool-box">
   <toolbar id="tool-bar">
+    <toolbarbutton id="sugar-button-options" oncommand="openSugarOptionsMenu()"/>
     <toolbarbutton id="button-home" oncommand="goHome()" tooltiptext="&main.home;"/>
     <toolbarbutton id="button-back" oncommand="pageBack()" tooltiptext="&main.back;"/>
     <toolbarbutton id="button-next" oncommand="pageNext()" tooltiptext="&main.forward;"/>
+    <toolbarbutton id="sugar-button-display" oncommand="toggleSugarDisplayBar()" />
     <toolbarbutton id="button-sizeup" oncommand="zoomIn()" tooltiptext="&main.zoomin;"/>
     <toolbarbutton id="button-sizedown" oncommand="zoomOut()" tooltiptext="&main.zoomout;"/>
     <toolbarbutton id="button-fullscreen" oncommand="UIToggleFullScreen(true)" tooltiptext="&main.fullscreen;"/>
@@ -228,6 +243,17 @@
         </hbox>
       <label id="search-label" style="margin: 0px;" collapsed="true" onclick="if (!getSearchBox().disabled) { manageIndexZimFile() }" tooltiptext="&main.noSearchBar;"/>
     </stack>
+    <toolbarbutton id="sugar-button-back" oncommand="pageBack()" tooltiptext="&main.back;"/>
+    <toolbarbutton id="sugar-button-next" oncommand="pageNext()" tooltiptext="&main.forward;"/>
+    <toolbarbutton id="sugar-button-bookmark" tooltiptext="&main.mark;" oncommand="bookmarkCurrentPage()" />
+    <toolbarbutton id="sugar-button-quit" tooltiptext="Quit" oncommand="quit()"/>
+  </toolbar>
+  <toolbar id="sugar-display-toolbar">
+    <toolbarbutton id="sugar-button-sizeup" oncommand="zoomIn()" tooltiptext="&main.zoomin;"/>
+    <toolbarbutton id="sugar-button-sizedown" oncommand="zoomOut()" tooltiptext="&main.zoomout;"/>
+    <toolbarbutton id="sugar-button-copy" oncommand="copySelectedContent()" tooltiptext="&main.copy;"/>
+    <toolbarbutton id="sugar-button-bookmarks" oncommand="SugarToggleBookmarkTray()" tooltiptext="&main.bookmarks;"/>
+    <toolbarbutton id="sugar-button-find" oncommand="find()" tooltiptext="&main.find;"/>
   </toolbar>
 </toolbox>
 

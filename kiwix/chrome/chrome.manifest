@@ -111,6 +111,7 @@ locale branding zh-hant    locale/branding/
 #skin packagename skinname uri/to/files/ [flags]
 skin main default skin/default/
 skin main evolution skin/evolution/
+skin main sugar skin/sugar/
 
 #resource aliasname uri/to/files/
 resource modules modules/

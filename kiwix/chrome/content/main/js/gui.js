@@ -1440,3 +1440,22 @@ function sendNotification(title, message) {
 	displayInfoDialog(title, message);
     }
 }
+
+function openSugarOptionsMenu() {
+    menu = document.getElementById('sugar-options-menu');
+    buttrect = document.getElementById('sugar-button-options').getBoundingClientRect();
+    menu.openPopupAtScreen(buttrect.left, buttrect.bottom);
+}
+
+function toggleSugarDisplayBar() {
+    bar = document.getElementById('sugar-display-toolbar');
+    bar.style.display = (bar.style.display == 'block') ? 'none' : 'block';
+    butt = document.getElementById('sugar-button-display');
+    butt.className = (butt.className == 'open') ? 'close' : 'open';
+}
+
+function SugarToggleBookmarkTray() {
+
+}
+
+

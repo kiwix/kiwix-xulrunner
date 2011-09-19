@@ -21,15 +21,13 @@ window {
 
 #tool-box * toolbarbutton {
     -moz-appearance: none !important;
-    border: 2px solid transparent;
+    border: none;
     margin-left: 1px;
     margin-right: 1px;
 }
 
 #tool-box * toolbarbutton:hover {
     background-color: black;
-    border: 2px solid GrayText;
-    border-bottom: none;
 }
 
 tabpanels {
@@ -37,7 +35,7 @@ tabpanels {
 }
 
 #sugar-button-quit { list-style-image: url("moz-icon://stock/activity-stop?size=toolbar"); }
-#sugar-button-home { list-style-image: url("moz-icon://stock/gtk-home?size=toolbar"); }
+#sugar-button-find { list-style-image: url("moz-icon://stock/view-list?size=toolbar"); }
 #sugar-button-back { list-style-image: url("moz-icon://stock/go-previous-paired?size=toolbar"); }
 #sugar-button-next { list-style-image: url("moz-icon://stock/go-next-paired?size=toolbar"); }
 #sugar-button-sizeup { list-style-image: url("moz-icon://stock/gtk-zoom-in?size=toolbar"); }
@@ -62,6 +60,12 @@ tabpanels {
     border-top: 2px solid GrayText !important;
     padding-bottom: 0;
     margin-bottom: 0;
+    display: none;
+}
+
+#sugar-button-display, #sugar-button-display.close {
+    border: 2px solid transparent;
+    border-bottom: none;
 }
 
 #sugar-button-display.open {
