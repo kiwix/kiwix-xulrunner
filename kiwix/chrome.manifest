@@ -8,6 +8,9 @@ contract @mozilla.org/network/protocol;1?name=zim {ee042780-dcf9-11dd-8733-0002a
 component {7f7984b9-acc4-4da9-a159-c378fdca4f46} components/suggest.js
 contract @mozilla.org/autocomplete/search;1?name=kiwix-suggest {7f7984b9-acc4-4da9-a159-c378fdca4f46}
 
+component {080787ae-ddff-11e0-aa79-000c2983f4e1} components/sugar_bridge.py
+contract kiwix.org/SugarBridge;1 {080787ae-ddff-11e0-aa79-000c2983f4e1}
+
 interfaces components/xapianAccessor.xpt
 binary-component components/xapianAccessor.so ABI=Linux_x86-gcc3
 
