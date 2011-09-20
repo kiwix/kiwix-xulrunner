@@ -39,11 +39,11 @@ cp -rv src/sugar/bin/* /tmp/Kiwix.activity/bin/
 # if version specified, mark it in the info manifest
 if [ "$VERSION" ]
 then
-sed -ised -e "s/^activity_version = 1$/activity_version = $VERSION/" /tmp/Kiwix.activity/activity/activity.info
+sed -i -e "s/^activity_version = 1$/activity_version = $VERSION/" /tmp/Kiwix.activity/activity/activity.info
 fi
 
 # change default skin to sugar
-sed -ised -e "s/^pref(\"general.skins.selectedSkin\", \"default\");$/pref(\"general.skins.selectedSkin\", \"sugar\");/" /tmp/Kiwix.activity/defaults/preferences/preferences.js
+sed -i -e "s/^pref(\"general.skins.selectedSkin\", \"default\");$/pref(\"general.skins.selectedSkin\", \"sugar\");/" /tmp/Kiwix.activity/defaults/preferences/preferences.js
 
 # build .xo (write the manifest and zip the package)
 cd /tmp/Kiwix.activity
