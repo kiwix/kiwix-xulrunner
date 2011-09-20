@@ -1458,4 +1458,67 @@ function SugarToggleBookmarkTray() {
 
 }
 
+function testThumbnail() {
+    loadContent(thumbnailFromCurrentPage());
+}
 
+function thumbnailFromCurrentPage() 
+	{
+        var thumbnailBG = 'rgb(192,192,192)';
+        var size = 100;
+
+        var canvas = document.getElementById('thumbnail-saver-canvas');
+
+		var b   = document.getElementById('html-renderer-00000000');
+		var win = b.contentWindow;
+		var w   = win.innerWidth;
+		var h   = win.innerHeight;
+		var aspectRatio = 1 / 0.75;
+
+		var canvasW = Math.floor((aspectRatio < 1) ? (size * aspectRatio) : size );
+		var canvasH = Math.floor((aspectRatio > 1) ? (size / aspectRatio) : size );
+
+		var isImage = b.contentDocument.contentType.indexOf('image') == 0;
+
+		canvas.width  = canvasW;
+		canvas.height = canvasH;
+		canvas.style.width  = canvasW+'px';
+		canvas.style.height = canvasH+'px';
+		canvas.style.display = 'none';
+
+		var rendered = false;
+
+		var ctx = canvas.getContext('2d');
+		ctx.clearRect(0, 0, canvasW, canvasH);
+		ctx.save();
+		if (!isImage) {
+			if (h * canvasW/w < canvasH)
+				ctx.scale(canvasH/h, canvasH/h);
+			else
+				ctx.scale(canvasW/w, canvasW/w);
+			ctx.drawWindow(win, 0/*win.scrollX*/, 0/*win.scrollY*/, w, h, thumbnailBG);
+		}
+		else {
+			var image = b.contentDocument.getElementsByTagName('img')[0];
+			ctx.fillStyle = thumbnailBG;
+			ctx.fillRect(0, 0, canvasW, canvasH);
+			var iW = parseInt(image.width);
+			var iH = parseInt(image.height);
+			var x = 0;
+			var y = 0;
+			if ((iW / iH) < 1) {
+				iW = iW * canvasH / iH;
+				x = Math.floor((canvasW - iW) / 2 );
+				iH = canvasH;
+			}
+			else {
+				iH = iH * canvasW / iW;
+				y = Math.floor((canvasH - iH) / 2 );
+				iW = canvasW;
+			}
+			ctx.drawImage(image, x, y, iW, iH);
+		}
+		ctx.restore();
+
+        return canvas.toDataURL();
+	}
