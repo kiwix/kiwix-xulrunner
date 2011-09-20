@@ -583,3 +583,6 @@ richlistbox {
 treechildren::-moz-tree-cell-text(italic) {
     font-style: italic;
 }
+
+/* SUGAR REMOVAL */
+#sugar-display-toolbar, toolbarbutton[id^="sugar"] { display: none; }

@@ -113,7 +113,7 @@ kiwix/components/contentManager.dylib:
 	ln -f -s ../../src/components/contentManager/.libs/libContentManager.dylib ./kiwix/components/contentManager.dylib
 
 bindist: 
-    bscript := $(shell readlink -f ./build-kiwix-release.sh)
+	bscript := $(shell readlink -f ./build-kiwix-release.sh)
 	cd /tmp && ${bscript} --static $(VERSION)
 
 deb: dist
@@ -131,7 +131,8 @@ rpm: dist
 	cp ~/rpmbuild/RPMS/*/*.rpm .
 
 xo: 
-    echo Not ready yet
+	echo Not ready yet
+
 # alter preferences: default skin is sugar. probably content location too.
 
 # Mac OSX rule
