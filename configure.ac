@@ -349,7 +349,7 @@ else
 	
 	# libicu
 	# even in with-dep mode we don't get it
-    if test [ ! "$IS_OSX" ]
+    if test [ "$IS_OSX" ]
     then
 	LIBICU_STATIC_LDFLAGS="/opt/local/lib/libicui18n.a /opt/local/lib/libicuuc.a /opt/local/lib/libicuio.a /opt/local/lib/libicule.a /opt/local/lib/libiculx.a /opt/local/lib/libicutu.a /opt/local/lib/libicutest.a /opt/local/lib/libicudata.a"
     else

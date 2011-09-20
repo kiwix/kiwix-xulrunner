@@ -94,6 +94,7 @@ xapian-core-1.2.3/win32/Release/libs/libunicode.lib: xapian-core-1.2.3 xapian-wi
 	cd xapian-core-1.2.3/win32; export MAKEFLAGS=; nmake.exe -f Makefile
 
 xulrunner-sdk/bin/xulrunner: xulrunner-sdk.tar.bz2
+	tar xf xulrunner-sdk.tar.bz2
 	echo "xulrunner SDK present."
 
 aria2-1.10.9.dmg:
