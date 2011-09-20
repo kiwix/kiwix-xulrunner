@@ -36,6 +36,8 @@ UPDATE_DESKTOP = \
 		update-desktop-database; \
 	fi
 
+bscript := $(shell readlink -f ./build-kiwix-release.sh)
+
 if IS_OSX
 all-local: kiwix/components/xapianAccessor.dylib \
 	kiwix/components/xapianAccessor.xpt \
@@ -113,7 +115,6 @@ kiwix/components/contentManager.dylib:
 	ln -f -s ../../src/components/contentManager/.libs/libContentManager.dylib ./kiwix/components/contentManager.dylib
 
 bindist: 
-	bscript := $(shell readlink -f ./build-kiwix-release.sh)
 	cd /tmp && ${bscript} --static $(VERSION)
 
 deb: dist
