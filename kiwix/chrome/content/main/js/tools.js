@@ -1,11 +1,11 @@
 const nsIWebProgress = Components.interfaces.nsIWebProgress;
 const nsIWebProgressListener = Components.interfaces.nsIWebProgressListener;
+var _alreadyQuitOrRestart = false;
 
 /* Restart Kiwix */
 function restart(silent) {
     if (silent == true || displayConfirmDialog(getProperty("restartConfirm", getProperty("brand.brandShortName")))) {
-	/* Save settings */
-	settings.save();
+	prepareQuitAndRestart();
 
 	var applicationStartup = Components.classes["@mozilla.org/toolkit/app-startup;1"]
 	    .getService(Components.interfaces.nsIAppStartup);
@@ -14,8 +14,8 @@ function restart(silent) {
     }
 }
 
-/* Quit Kiwix */
-function quit() {
+/* Preparation before quit or restart */
+function prepareQuitAndRestart() {
     /* Check if an indexing process is currently running */
     if (isIndexing()) {
 	if (!displayConfirmDialog(getProperty("abortIndexingConfirm"))) {
@@ -23,12 +23,118 @@ function quit() {
 	}
     }
 
+    /* Stop downloader */
+    stopDownloader();
+
+    var doClean = doOnCloseClean();
+    if (env.isLive()) {
+
+	/* Ask before removing */
+	if (displayOnCloseCleanConfirmDialog()) {
+
+	    /* Prepare the strings for the confirm dialog box */
+	    var title = getProperty("confirm");
+	    var message = getProperty("removeProfileConfirm");
+	    var ok = getProperty("ok");
+	    var cancel = getProperty("cancel");
+	    var checkMessage = getProperty("dontDisplayAnymore");
+
+	    /* Prepare the confirm dialog box */
+	    var prompts = Components.classes["@mozilla.org/embedcomp/prompt-service;1"]
+		.getService(Components.interfaces.nsIPromptService);
+	    
+	    /* Prepare the buttons */
+	    var flags = prompts.BUTTON_POS_0 * prompts.BUTTON_TITLE_IS_STRING +
+		prompts.BUTTON_POS_1 * prompts.BUTTON_TITLE_IS_STRING;
+	    
+	    /* Prepare the check box */
+	    /* Default the checkbox to false */
+	    var check = {value: false};
+
+	    /* Display the confirm dialog and get the values back */
+	    var doClean = (prompts.confirmEx(null, title, message, flags, ok, cancel, "", checkMessage, check) == 0);
+	    var doDisplay = !check.value;
+	    
+	    /* Save the values in the settings */
+	    settings.displayOnCloseCleanConfirmDialog(doDisplay);
+	    if (!doDisplay) {
+		settings.doOnCloseClean(doClean);
+	    }
+	}
+
+	/* Clean the profile if necessary */
+	if (doClean) {
+	    /* Remove the library */
+	    library.delete();
+
+	    /* Bookmarks */
+	    try {
+		purgeBookmarks();
+	    } catch (e) { L.info (e.toString ()); }
+	    
+	    /* History */
+	    var globalHistory = Components.classes["@mozilla.org/browser/global-history;2"]
+		.getService(Components.interfaces.nsIBrowserHistory);
+	    globalHistory.removeAllPages();
+	    
+	    try {
+		var os = Components.classes["@mozilla.org/observer-service;1"]
+		    .getService(Components.interfaces.nsIObserverService);
+		os.notifyObservers(null, "browser:purge-session-history", "");
+	    }
+	    catch (e) { L.info (e.toString ()); }
+	    
+	    /* Clear last URL of the Open Web Location dialog */
+	    var prefs = Components.classes["@mozilla.org/preferences-service;1"]
+		.getService(Components.interfaces.nsIPrefBranch2);
+	    try {
+		prefs.clearUserPref("general.open_location.last_url");
+	    }
+	    catch (e) { }
+	    
+	    /* cache */
+	    const cc = Components.classes;
+	    const ci = Components.interfaces;
+	    var cacheService = cc["@mozilla.org/network/cache-service;1"]
+		.getService(ci.nsICacheService);
+	    try {
+		cacheService.evictEntries(ci.nsICache.STORE_ANYWHERE);
+	    } catch(er) { L.info (e.toString ()); }
+	    
+	    /* cookies (shouldn't be any) */
+	    L.info ('purging Cookies');
+	    var cookieMgr = Components.classes["@mozilla.org/cookiemanager;1"]
+		.getService(Components.interfaces.nsICookieManager);
+	    cookieMgr.removeAll();
+
+	    /* delete settingsDirectoryRoot */
+	    var directoryService = Components.classes["@mozilla.org/file/directory_service;1"].getService(Components.interfaces.nsIProperties);
+	    var settingsDirectory = directoryService.get("DefProfRt", Components.interfaces.nsIFile);
+	    var settingsDirectoryRoot = settingsDirectory.parent.clone();
+	    dump("Removing whole kiwix profile " + settingsDirectoryRoot.path + "\n");
+	    settingsDirectoryRoot.remove(true);
+	}
+    }
+
+    /* Save Windows Geometry */
+    saveWindowGeometry(this.outerWidth, this.outerHeight, this.screenX, this.screenY, this.windowState);
+
     /* Save tabs */
     manageSaveTabs();
 
     /* Save settings */
     settings.save();
+    
+    _alreadyQuitOrRestart = true;
+}
 
+/* Quit Kiwix */
+function quit() {
+    if (_alreadyQuitOrRestart == true)
+	return;
+
+    prepareQuitAndRestart();
+    
     /* Quit the application */
     var applicationStartup = Components.classes['@mozilla.org/toolkit/app-startup;1'].
 	getService(Components.interfaces.nsIAppStartup);
@@ -200,102 +306,6 @@ function managePurgeHistory() {
     for (var tabPanelIndex = 0; tabPanelIndex<tabPanels.children.length; tabPanelIndex++) {
 	var htmlRenderer = tabPanels.children[tabPanelIndex].firstChild;
 	htmlRenderer.reload();
-    }
-}
-
-/* Things to do before exit Kiwix */
-function onClose() {
-    /* Stop downloader */
-    stopDownloader();
-
-    var doClean = doOnCloseClean();
-    if (env.isLive()) {
-
-	/* Ask before removing */
-	if (displayOnCloseCleanConfirmDialog()) {
-
-	    /* Prepare the strings for the confirm dialog box */
-	    var title = getProperty("confirm");
-	    var message = getProperty("removeProfileConfirm");
-	    var ok = getProperty("ok");
-	    var cancel = getProperty("cancel");
-	    var checkMessage = getProperty("dontDisplayAnymore");
-
-	    /* Prepare the confirm dialog box */
-	    var prompts = Components.classes["@mozilla.org/embedcomp/prompt-service;1"]
-		.getService(Components.interfaces.nsIPromptService);
-	    
-	    /* Prepare the buttons */
-	    var flags = prompts.BUTTON_POS_0 * prompts.BUTTON_TITLE_IS_STRING +
-		prompts.BUTTON_POS_1 * prompts.BUTTON_TITLE_IS_STRING;
-	    
-	    /* Prepare the check box */
-	    /* Default the checkbox to false */
-	    var check = {value: false};
-
-	    /* Display the confirm dialog and get the values back */
-	    var doClean = (prompts.confirmEx(null, title, message, flags, ok, cancel, "", checkMessage, check) == 0);
-	    var doDisplay = !check.value;
-	    
-	    /* Save the values in the settings */
-	    settings.displayOnCloseCleanConfirmDialog(doDisplay);
-	    if (!doDisplay) {
-		settings.doOnCloseClean(doClean);
-	    }
-	}
-
-	/* Clean the profile if necessary */
-	if (doClean) {
-	    /* Remove the library */
-	    library.delete();
-
-	    /* Bookmarks */
-	    try {
-		purgeBookmarks();
-	    } catch (e) { L.info (e.toString ()); }
-	    
-	    /* History */
-	    var globalHistory = Components.classes["@mozilla.org/browser/global-history;2"]
-		.getService(Components.interfaces.nsIBrowserHistory);
-	    globalHistory.removeAllPages();
-	    
-	    try {
-		var os = Components.classes["@mozilla.org/observer-service;1"]
-		    .getService(Components.interfaces.nsIObserverService);
-		os.notifyObservers(null, "browser:purge-session-history", "");
-	    }
-	    catch (e) { L.info (e.toString ()); }
-	    
-	    /* Clear last URL of the Open Web Location dialog */
-	    var prefs = Components.classes["@mozilla.org/preferences-service;1"]
-		.getService(Components.interfaces.nsIPrefBranch2);
-	    try {
-		prefs.clearUserPref("general.open_location.last_url");
-	    }
-	    catch (e) { }
-	    
-	    /* cache */
-	    const cc = Components.classes;
-	    const ci = Components.interfaces;
-	    var cacheService = cc["@mozilla.org/network/cache-service;1"]
-		.getService(ci.nsICacheService);
-	    try {
-		cacheService.evictEntries(ci.nsICache.STORE_ANYWHERE);
-	    } catch(er) { L.info (e.toString ()); }
-	    
-	    /* cookies (shouldn't be any) */
-	    L.info ('purging Cookies');
-	    var cookieMgr = Components.classes["@mozilla.org/cookiemanager;1"]
-		.getService(Components.interfaces.nsICookieManager);
-	    cookieMgr.removeAll();
-
-	    /* delete settingsDirectoryRoot */
-	    var directoryService = Components.classes["@mozilla.org/file/directory_service;1"].getService(Components.interfaces.nsIProperties);
-	    var settingsDirectory = directoryService.get("DefProfRt", Components.interfaces.nsIFile);
-	    var settingsDirectoryRoot = settingsDirectory.parent.clone();
-	    dump("Removing whole kiwix profile " + settingsDirectoryRoot.path + "\n");
-	    settingsDirectoryRoot.remove(true);
-	}
     }
 }
 

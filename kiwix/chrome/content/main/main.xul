@@ -11,7 +11,7 @@
 <window	xmlns:html="http://www.w3.org/1999/xhtml" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
 	id        = "main"
 	onload    = "onStart()"
-	onunload  = "saveWindowGeometry(this.outerWidth, this.outerHeight, this.screenX, this.screenY, this.windowState); onClose();"
+	onunload  = "quit();"
 	titlemodifier = "&main.title;"
 	style = "direction: &main.cssdirection;"
 	langdir = "&main.cssdirection;"
@@ -146,7 +146,7 @@
 
 <!-- Keyset (should be implemented after menubar otherwise generate a 1 pixel big space between windows decoration and menubar) -->
 <keyset>
-  <!--<key id="thumb-key" key="b" modifiers="control" oncommand="testThumbnail()"/>-->
+  <key id="thumb-key" key="t" modifiers="control" oncommand="testThumbnail()"/>
   <key id="quit-key" key="Q" modifiers="control" oncommand="quit()"/>
   <key id="find-key" key="F" modifiers="control" oncommand="find()"/>
   <key id="goto-search-fiel-key" key="L" modifiers="control" oncommand="focusOnSearchBox()"/>
