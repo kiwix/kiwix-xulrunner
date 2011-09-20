@@ -1109,17 +1109,6 @@ function initUserInterface() {
     /* Display tabs or not */
     changeTabsVisibilityStatus(settings.displayTabs());
 
-    /* Activate (or not) the Home button */
-    if (getCurrentZimFileHomePageUrl()) {
-	activateHomeButton();
-	restoreTabs();
-    } else {
-	desactivateHomeButton();
-    }
-
-    /* Update the search bar */
-    updateGuiSearchComponents();
-
     /* Desactivate back/next buttons */
     desactivateBackButton();
     desactivateNextButton();
@@ -1162,6 +1151,29 @@ function initUserInterface() {
     
     /* Start the download observer */
     startDownloadObserver();
+}
+
+function postInitUserInterface() {
+
+    /* If there is no file open with the commandline try to open last open book */
+    if (currentZimAccessor == undefined) {
+	if (openCurrentBook()) {
+	    restoreTabs();
+	} else {
+	    library.deleteCurrentBook();
+	}
+    }
+
+    /* Adapt the UI depending of a book is open or not */
+    if (currentZimAccessor == undefined) {
+	showHelp();
+	desactivateHomeButton();
+    } else {
+	activateHomeButton();
+    }
+    
+    /* Update the search bar */
+    updateGuiSearchComponents();
 }
 
 /* Drop file on windows to open it */

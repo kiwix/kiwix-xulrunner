@@ -145,8 +145,10 @@ function onStart() {
     /* Initialize Bookmarks */
     InitializeBookmarks();
 
+    /* Initialize the user interface */
+    initUserInterface();
+
     /* Read the command line arguments */
-    var contentLoaded = false;
     var nsCommandLine = window.arguments[0];
     nsCommandLine = nsCommandLine.QueryInterface(Components.interfaces.nsICommandLine);
     var argumentCount = nsCommandLine.length;
@@ -155,18 +157,12 @@ function onStart() {
 	if (argument.match(/^.*\.(zim|zimaa)$/i)) {
 	    argument = pathFromURL(argument);
 	    argument = argument.replace('%20', ' ');
-	    contentLoaded = manageOpenFile(argument, true);
+	    manageOpenFile(argument, true);
 	}
     }
 
-    /* Open current book */
-    if (!contentLoaded && !openCurrentBook()) {
-	library.deleteCurrentBook();
-	showHelp();
-    }
-
-    /* Initialize the user interface */
-    initUserInterface();
+    /* Finish the user interface initialisation */
+    postInitUserInterface();
 
     /* Start aria */
     checkDownloader();
