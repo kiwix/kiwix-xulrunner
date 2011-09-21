@@ -199,7 +199,6 @@
       <menuitem id="file-print" label="&main.print;" key="print-key" accesskey="&main.print.accesskey;" oncommand="print()"/>
       <menuitem id="file-print-pdf" label="&main.printPdf;" key="print-pdf-key" accesskey="&main.printPdf.accesskey;" oncommand="printPdf()"/>
       <menuseparator />
-      <menuitem id="file-preferences" label="&main.preferences;" accesskey="&main.preferences.accesskey;" oncommand="showPreferences()"/>
       <menuitem id="tools-purgeHistory" label="&main.purgeHistory;" key="purge-history-key" accesskey="&main.purgeHistory.accesskey;" oncommand="managePurgeHistory()"/>
       <menuitem id="help-help" label="&main.help;" key="help-key" accesskey="&main.help.accesskey;" oncommand="showHelp()"/>
 </menupopup>
