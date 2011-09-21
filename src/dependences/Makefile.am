@@ -129,7 +129,7 @@ xz/windows/liblzma.lib: xz
 	cd xz/windows ; make liblzma
 	cd xz/windows ; lib /def:liblzma.def /out:liblzma.lib /machine:ix86	
 
-linux: zlib-1.2.3/libz.a xapian-core-1.2.3/.libs/libxapian.a xz/src/liblzma/.libs/liblzma.a xulrunner-sdk/bin/xulrunner
+linux: zlib-1.2.3/libz.a xapian-core-1.2.3/.libs/libxapian.a xz/src/liblzma/.libs/liblzma.a xulrunner-sdk/bin/xulrunner aria2-1.12.1/src/aria2c
 
 mac: linux xulrunner.dmg aria2/bin/aria2c
 
