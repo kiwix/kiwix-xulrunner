@@ -590,6 +590,10 @@ function updateHistoryNavigationButtons() {
     } else {
 	desactivateNextButton();
     }
+
+    // SUGAR: Update search box label with page name
+    if (env.isSugar())
+        getSearchBox().value = htmlRenderer.contentTitle;
 }
 
 /* Back to the previous rendered page */
@@ -651,7 +655,7 @@ function manageUnload(clearCurrentAccessor, help) {
     
     /* Empty the search box */
     getSearchBox().value = "";
-    
+   
     if (clearCurrentAccessor) {
 	desactivateHomeButton();
 	library.setCurrentId("");
@@ -1537,3 +1541,15 @@ function thumbnailFromCurrentPage()
 
         return canvas.toDataURL();
 	}
+
+function focusOnSearch() {
+    // SUGAR: remove content of search box
+    if (env.isSugar())
+        getSearchBox().value = '';
+}
+
+function LostFocusOnSearch() {
+    // SUGAR: Update search box label with page name
+    if (env.isSugar())
+        getSearchBox().value = getHtmlRenderer().contentTitle;
+}

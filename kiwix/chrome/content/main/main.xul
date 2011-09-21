@@ -226,7 +226,7 @@
 		 onkeydown="if (event.keyCode == 13) { if (this.keyPressed == false) { blur(); manageSearchInIndex() } else { this.keyPressed = false; } } else { this.keyPressed = true }"
 		 onkeypress="if (event.keyCode == 27) { this.value = '' }; this.keyPressed = true;"
 		 oninput="if (this.keyPressed == false) { blur(); manageSearchInIndex() }; this.keyPressed = false;"
-		 type="autocomplete" autocompletesearch="kiwix-suggest" maxrows="11">
+		 type="autocomplete" autocompletesearch="kiwix-suggest" maxrows="11" onfocus="focusOnSearch()" onblur="LostFocusOnSearch()">
 	  <hbox class="textbox-search-go-container">
 	    <image id="textbox-search-go-button" onclick="manageSearchInIndex();" tooltiptext="&main.search;"/>
 	  </hbox>
