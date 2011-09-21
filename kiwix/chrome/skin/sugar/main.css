@@ -80,3 +80,11 @@ window * toolbar {
     padding: 0;
     margin: 0;
 }
+
+/* Tabs */
+tab { margin-left: 1em; }
+#tab-headers tab.tab-header:first-child { margin-left: 0px; }
+tab[selected="true"] label { font-weight: bold; }
+#tabs-add-button { display: none; }
+toolbarbutton[id^='tab-close-button'] { display: none; }
+
