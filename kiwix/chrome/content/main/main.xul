@@ -245,14 +245,14 @@
     </stack>
     <toolbarbutton id="sugar-button-back" oncommand="pageBack()" tooltiptext="&main.back;"/>
     <toolbarbutton id="sugar-button-next" oncommand="pageNext()" tooltiptext="&main.forward;"/>
-    <toolbarbutton id="sugar-button-bookmark" tooltiptext="&main.mark;" oncommand="bookmarkCurrentPage()" />
+    <toolbarbutton id="sugar-button-bookmark" tooltiptext="&main.mark;" oncommand="toggleBookmarkStatusForCurrentPage()" />
     <toolbarbutton id="sugar-button-quit" tooltiptext="Quit" oncommand="quit()"/>
   </toolbar>
   <toolbar id="sugar-display-toolbar">
     <toolbarbutton id="sugar-button-sizeup" oncommand="zoomIn()" tooltiptext="&main.zoomin;"/>
     <toolbarbutton id="sugar-button-sizedown" oncommand="zoomOut()" tooltiptext="&main.zoomout;"/>
     <toolbarbutton id="sugar-button-copy" oncommand="copySelectedContent()" tooltiptext="&main.copy;"/>
-    <toolbarbutton id="sugar-button-bookmarks" oncommand="SugarToggleBookmarkTray()" tooltiptext="&main.bookmarks;"/>
+    <toolbarbutton id="sugar-button-bookmarks" oncommand="UIToggleBookmarksBar()" tooltiptext="&main.bookmarks;"/>
     <toolbarbutton id="sugar-button-find" oncommand="find()" tooltiptext="&main.find;"/>
   </toolbar>
 </toolbox>

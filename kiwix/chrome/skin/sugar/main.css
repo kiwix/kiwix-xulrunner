@@ -2,10 +2,11 @@ window {
     position: relative;
 }
 
-#menu-bar, #bookmarks-bar, #status-bar, #tab-headers,
+#menu-bar, #status-bar, #tab-headers,
 #button-home, #button-back, #button-next, #button-sizeup, #button-sizedown,
 #button-print, #button-bookmarks, #button-fullscreen, #button-search-article,
-#button-library { display: none; }
+#button-library,
+#bookmarks-bar-header, #bookmarks-toolbar, #bookmarks-sets-list, #notesLabel, #notesTextBox  { display: none; }
 
 #tool-box {
     margin: 0;
@@ -42,10 +43,11 @@ tabpanels {
 #sugar-button-sizedown { list-style-image: url("moz-icon://stock/gtk-zoom-out?size=toolbar"); }
 #sugar-button-fullscreen { list-style-image: url("moz-icon://stock/gtk-fullscreen?size=toolbar"); }
 #sugar-button-options { list-style-image: url("moz-icon://stock/view-source?size=toolbar"); }
-#sugar-button-bookmark { list-style-image: url("moz-icon://stock/emblem-favorite?size=toolbar"); }
+#sugar-button-bookmark, #sugar-button-bookmark.unmarked { list-style-image: url("moz-icon://stock/emblem-favorite?size=toolbar"); }
+#sugar-button-bookmark.marked { list-style-image: url("chrome://main/skin/icon/emblem-favorite_on.png"); }
 #sugar-button-display { list-style-image: url("moz-icon://stock/toolbar-view?size=toolbar"); }
-#sugar-button-bookmarks, #sugar-button-bookmarks.hidden { list-style-image: url("moz-icon://stock/tray-show?size=toolbar"); }
-#sugar-button-bookmarks.visible { list-style-image: url("moz-icon://stock/tray-hide?size=toolbar"); }
+#sugar-button-bookmarks, #sugar-button-bookmarks.hidden { list-style-image: url("moz-icon://stock/tray-show?size=toolbar"); -moz-transform:rotate(90deg); }
+#sugar-button-bookmarks.visible { -moz-transform:rotate(-90deg); }
 #sugar-button-copy { list-style-image: url("moz-icon://stock/gtk-copy?size=toolbar"); }
 
 #tool-box {

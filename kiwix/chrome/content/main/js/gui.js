@@ -104,6 +104,7 @@ function loadContent(url, id, scrollY) {
 	displayErrorDialog(getProperty("loadArticleError"));
 	return false;
     }
+    checkIfDocumentIsMarked(url);
     return true;
 }
 

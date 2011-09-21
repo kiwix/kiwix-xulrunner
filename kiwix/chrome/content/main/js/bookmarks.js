@@ -503,6 +503,22 @@ function UIToggleBookmarksBar(visible) {
     bar.hidden  = !visible;
     settings.displayBookmarksBar(!bar.hidden);
     getBookmarksButton().setAttribute('checked', !bar.hidden);
+    sugar_butt = document.getElementById('sugar-button-bookmarks');
+    sugar_butt.className = (!bar.hidden) ? 'visible' : 'hidden';
 }
 
+function checkIfDocumentIsMarked(url) {
+    var mark_butt = document.getElementById('sugar-button-bookmark');
+    mark_butt.className = (BookmarkNFO.currentSet.indexFor(url) != -1) ? 'marked' : 'unmarked';
+}
 
+function toggleBookmarkStatusForCurrentPage() {
+    var url = getHtmlRenderer().currentURI.spec;
+    var is_marked = BookmarkNFO.currentSet.indexFor(url) != -1;
+    if (is_marked) {
+        RemoveBookmarkFromDatasource(url);
+        RemoveBookmarkLine(url);
+    } else
+        bookmarkCurrentPage();
+    checkIfDocumentIsMarked(url);
+}
