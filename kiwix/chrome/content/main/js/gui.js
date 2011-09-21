@@ -104,6 +104,8 @@ function loadContent(url, id, scrollY) {
 	displayErrorDialog(getProperty("loadArticleError"));
 	return false;
     }
+
+    // SUGAR: change status of Mark button
     checkIfDocumentIsMarked(url);
     return true;
 }

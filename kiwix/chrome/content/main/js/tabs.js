@@ -171,6 +171,9 @@ function switchTab(tabId, tab) {
     var title = getHtmlRenderer(tabId).contentTitle;
     setWindowsTitle(title);
 
+    // SUGAR: change status of Mark button
+    checkIfDocumentIsMarked(getHtmlRenderer(tabId).currentURI.spec);
+
     if (_winIsFullScreen)
         addFSEventToTab(tabId);
 }
