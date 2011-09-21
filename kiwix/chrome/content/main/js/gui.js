@@ -592,8 +592,10 @@ function updateHistoryNavigationButtons() {
     }
 
     // SUGAR: Update search box label with page name
-    if (env.isSugar())
+    if (env.isSugar()) {
+        checkIfDocumentIsMarked(getHtmlRenderer().currentURI.spec);
         getSearchBox().value = htmlRenderer.contentTitle;
+    }
 }
 
 /* Back to the previous rendered page */
