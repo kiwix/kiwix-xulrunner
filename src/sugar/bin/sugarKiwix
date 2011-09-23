@@ -10,5 +10,6 @@ while [ -n "$2" ] ; do
      shift;shift
 done
 export LD_PRELOAD="$SUGAR_BUNDLE_PATH/lib/libsugarize.so"
+export LD_LIBRARY_PATH="$SUGAR_BUNDLE_PATH/xulrunner:$LD_LIBRARY_PATH"
 export NET_WM_NAME="Kiwix"
 exec $SUGAR_BUNDLE_PATH/kiwix
