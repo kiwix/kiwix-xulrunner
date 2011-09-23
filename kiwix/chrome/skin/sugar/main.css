@@ -88,3 +88,24 @@ tab[selected="true"] label { font-weight: bold; }
 #tabs-add-button { display: none; }
 toolbarbutton[id^='tab-close-button'] { display: none; }
 
+/* Textbox search */
+#textbox-search {
+    margin: 6px;
+    width: 100%;
+}
+
+#main.mac #textbox-search {
+	-moz-appearance: none;
+	background-color: #f1f1f1;
+	border: 1px solid #dedede;
+	padding-left: .5em;
+	padding-right: .5em;
+	-moz-border-radius: 1em;
+}
+
+#textbox-search-go-button {
+    list-style-image: url("chrome://main/skin/icon/magnify16.png");
+    margin-right: 2px;
+    cursor: pointer;
+}
+
