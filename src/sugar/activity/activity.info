@@ -3,5 +3,5 @@ name = Kiwix
 bundle_id = org.kiwix.Kiwix
 exec = sugarKiwix
 icon = activity-kiwix
-activity_version = 1
+activity_version = 5
 show_launcher = yes
