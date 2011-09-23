@@ -193,7 +193,7 @@
 
 <menupopup id="sugar-options-menu">
       <menuitem id="tools-randomArticle" label="&main.randomArticle;" key="random-article-key" accesskey="&main.randomArticle.accesskey;" oncommand="loadRandomArticle()"/>
-      <menuitem id="file-browse-library" label="Toggle library" oncommand="toggleLibrary();"/>
+      <!--<menuitem id="file-browse-library" label="Toggle library" oncommand="toggleLibrary();"/>-->
       <menuitem id="file-open" label="&main.openFile;" key="open-file-key" accesskey="&main.openFile.accesskey;" oncommand="manageOpenFile()"/>
       <menuitem id="file-save" label="&main.saveFile;" key="save-file-key" accesskey="&main.saveFile.accesskey;" oncommand="saveDocument(window.content.document);"/>
       <menuitem id="file-print" label="&main.print;" key="print-key" accesskey="&main.print.accesskey;" oncommand="print()"/>

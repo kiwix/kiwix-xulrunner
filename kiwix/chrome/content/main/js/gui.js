@@ -1101,7 +1101,9 @@ function preInitUserInterface() {
     populateSkinsMenu();
 
     /* Populate the library */
-    populateContentManager(true, true);
+    if (!env.isSugar()) {
+        populateContentManager(true, true);
+    }
 }
 
 /* Initialize the user interface */
@@ -1156,10 +1158,10 @@ function initUserInterface() {
         // remove menubar (File, Edition, etc)
         menu = document.getElementById('menu-bar');
         menu.setAttribute("style", "display: none;");
+    } else {
+        /* Start the download observer */
+        startDownloadObserver();
     }
-    
-    /* Start the download observer */
-    startDownloadObserver();
 }
 
 function postInitUserInterface() {
