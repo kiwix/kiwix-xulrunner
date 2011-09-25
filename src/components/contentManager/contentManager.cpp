@@ -137,7 +137,7 @@ NS_IMETHODIMP ContentManager::WriteLibrary(PRBool *retVal) {
 NS_IMETHODIMP ContentManager::WriteLibraryToFile(const nsAString &path, PRBool *retVal) {
   *retVal = PR_TRUE;
   bool returnValue = true;
-  const char *cPath = nsStringToCString(path);
+  const char *cPath = strdup(nsStringToCString(path));
 
   try {
     returnValue = this->manager.writeFile(cPath);
@@ -146,6 +146,7 @@ NS_IMETHODIMP ContentManager::WriteLibraryToFile(const nsAString &path, PRBool *
     *retVal = PR_FALSE;
   }
 
+  free((void*)cPath);
   *retVal = (returnValue ? PR_TRUE : PR_FALSE);
 
   return NS_OK;
