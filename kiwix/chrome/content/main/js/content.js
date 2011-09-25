@@ -286,7 +286,8 @@ function getDownloadStatus() {
 		    settings.setDownloadProperty(kiwixDownload.id,  "id", "");
 		    removeDownload(kiwixDownload.gid);
     		    sendNotification(getProperty("information"), "Download of '" + book.title + "'is finished.");
-   		    sendNotification("Feedback", "Help us, why did you downloaded " + book.title + "?", "http://input.kiwix.org/whycontent.html");
+   		    sendNotification("Feedback", "Help us, why did you downloaded " + book.title, 
+				     "http://input.kiwix.org/whycontent.html?version=" + book.url);
 		} else if (ariaDownloadStatus == "waiting") {
 		}
 	    }
