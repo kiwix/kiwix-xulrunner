@@ -8,27 +8,22 @@ window {
 #button-library,
 #bookmarks-bar-header, #bookmarks-toolbar, #bookmarks-sets-list, #notesLabel, #notesTextBox  { display: none; }
 
-#sugar-button-quit { list-style-image: url("moz-icon://stock/activity-stop?size=toolbar"); }
-#sugar-button-find { list-style-image: url("moz-icon://stock/view-list?size=toolbar"); }
-#sugar-button-back { list-style-image: url("moz-icon://stock/go-previous-paired?size=toolbar"); }
-#sugar-button-next { list-style-image: url("moz-icon://stock/go-next-paired?size=toolbar"); }
-#sugar-button-sizeup { list-style-image: url("moz-icon://stock/gtk-zoom-in?size=toolbar"); }
-#sugar-button-sizedown { list-style-image: url("moz-icon://stock/gtk-zoom-out?size=toolbar"); }
-#sugar-button-fullscreen { list-style-image: url("moz-icon://stock/gtk-fullscreen?size=toolbar"); }
-#sugar-button-options { list-style-image: url("moz-icon://stock/view-source?size=toolbar"); }
-#sugar-button-bookmark, #sugar-button-bookmark.unmarked { list-style-image: url("moz-icon://stock/emblem-favorite?size=toolbar"); }
-#sugar-button-bookmark.marked { list-style-image: url("chrome://main/skin/icon/emblem-favorite_on.png"); height: 6em; -moz-appearance: none; }
-#sugar-button-display { list-style-image: url("moz-icon://stock/toolbar-view?size=toolbar"); }
-#sugar-button-bookmarks, #sugar-button-bookmarks.hidden { list-style-image: url("moz-icon://stock/tray-show?size=toolbar"); -moz-transform:rotate(90deg); }
+#sugar-button-quit { list-style-image: url("chrome://main/skin/icon/activity-stop.png"); }
+#sugar-button-find { list-style-image: url("chrome://main/skin/icon/view-list.png"); }
+#sugar-button-back { list-style-image: url("chrome://main/skin/icon/go-previous-paired.png"); }
+#sugar-button-next { list-style-image: url("chrome://main/skin/icon/go-next-paired.png"); }
+#sugar-button-sizeup { list-style-image: url("chrome://main/skin/icon/gtk-zoom-in.png"); }
+#sugar-button-sizedown { list-style-image: url("chrome://main/skin/icon/gtk-zoom-out.png"); }
+#sugar-button-options { list-style-image: url("chrome://main/skin/icon/view-source.png"); }
+#sugar-button-bookmark, #sugar-button-bookmark.unmarked { list-style-image: url("chrome://main/skin/icon/emblem-favorite.png"); }
+#sugar-button-bookmark.marked { list-style-image: url("chrome://main/skin/icon/emblem-favorite_on.png"); }
+#sugar-button-display { list-style-image: url("chrome://main/skin/icon/toolbar-view.png"); }
+#sugar-button-bookmarks, #sugar-button-bookmarks.hidden { list-style-image: url("chrome://main/skin/icon/tray-show.png"); -moz-transform:rotate(90deg); }
 #sugar-button-bookmarks.visible { -moz-transform:rotate(-90deg); }
-#sugar-button-copy { list-style-image: url("moz-icon://stock/gtk-copy?size=toolbar"); }
+#sugar-button-copy { list-style-image: url("chrome://main/skin/icon/gtk-copy.png"); }
 
-window {
-    position: relative;
-}
 
 #tool-box {
-    position: relative;
     -moz-appearance: none;
     padding-bottom: 0;
     margin-bottom: 0;
@@ -38,7 +33,7 @@ window {
     position: relative;
     -moz-appearance: none;
     background-color: #282828;
-    height: 4em;
+    height: 54px;
 }
 
 #tool-box * toolbarbutton {
