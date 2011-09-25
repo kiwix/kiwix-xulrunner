@@ -8,16 +8,37 @@ window {
 #button-library,
 #bookmarks-bar-header, #bookmarks-toolbar, #bookmarks-sets-list, #notesLabel, #notesTextBox  { display: none; }
 
-#tool-box {
-    margin: 0;
-    padding: 0;
-    background-color: red !important;
+#sugar-button-quit { list-style-image: url("moz-icon://stock/activity-stop?size=toolbar"); }
+#sugar-button-find { list-style-image: url("moz-icon://stock/view-list?size=toolbar"); }
+#sugar-button-back { list-style-image: url("moz-icon://stock/go-previous-paired?size=toolbar"); }
+#sugar-button-next { list-style-image: url("moz-icon://stock/go-next-paired?size=toolbar"); }
+#sugar-button-sizeup { list-style-image: url("moz-icon://stock/gtk-zoom-in?size=toolbar"); }
+#sugar-button-sizedown { list-style-image: url("moz-icon://stock/gtk-zoom-out?size=toolbar"); }
+#sugar-button-fullscreen { list-style-image: url("moz-icon://stock/gtk-fullscreen?size=toolbar"); }
+#sugar-button-options { list-style-image: url("moz-icon://stock/view-source?size=toolbar"); }
+#sugar-button-bookmark, #sugar-button-bookmark.unmarked { list-style-image: url("moz-icon://stock/emblem-favorite?size=toolbar"); }
+#sugar-button-bookmark.marked { list-style-image: url("chrome://main/skin/icon/emblem-favorite_on.png"); height: 6em; -moz-appearance: none; }
+#sugar-button-display { list-style-image: url("moz-icon://stock/toolbar-view?size=toolbar"); }
+#sugar-button-bookmarks, #sugar-button-bookmarks.hidden { list-style-image: url("moz-icon://stock/tray-show?size=toolbar"); -moz-transform:rotate(90deg); }
+#sugar-button-bookmarks.visible { -moz-transform:rotate(-90deg); }
+#sugar-button-copy { list-style-image: url("moz-icon://stock/gtk-copy?size=toolbar"); }
+
+window {
+    position: relative;
 }
 
-#sugar-tool-bar {
-    margin: 0;
-    padding: 0;
-    background-color: blue !important;
+#tool-box {
+    position: relative;
+    -moz-appearance: none;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+#tool-box toolbar#tool-bar {
+    position: relative;
+    -moz-appearance: none;
+    background-color: #282828;
+    height: 4em;
 }
 
 #tool-box * toolbarbutton {
@@ -35,26 +56,6 @@ tabpanels {
     padding: 0 !important;
 }
 
-#sugar-button-quit { list-style-image: url("moz-icon://stock/activity-stop?size=toolbar"); }
-#sugar-button-find { list-style-image: url("moz-icon://stock/view-list?size=toolbar"); }
-#sugar-button-back { list-style-image: url("moz-icon://stock/go-previous-paired?size=toolbar"); }
-#sugar-button-next { list-style-image: url("moz-icon://stock/go-next-paired?size=toolbar"); }
-#sugar-button-sizeup { list-style-image: url("moz-icon://stock/gtk-zoom-in?size=toolbar"); }
-#sugar-button-sizedown { list-style-image: url("moz-icon://stock/gtk-zoom-out?size=toolbar"); }
-#sugar-button-fullscreen { list-style-image: url("moz-icon://stock/gtk-fullscreen?size=toolbar"); }
-#sugar-button-options { list-style-image: url("moz-icon://stock/view-source?size=toolbar"); }
-#sugar-button-bookmark, #sugar-button-bookmark.unmarked { list-style-image: url("moz-icon://stock/emblem-favorite?size=toolbar"); }
-#sugar-button-bookmark.marked { list-style-image: url("chrome://main/skin/icon/emblem-favorite_on.png"); }
-#sugar-button-display { list-style-image: url("moz-icon://stock/toolbar-view?size=toolbar"); }
-#sugar-button-bookmarks, #sugar-button-bookmarks.hidden { list-style-image: url("moz-icon://stock/tray-show?size=toolbar"); -moz-transform:rotate(90deg); }
-#sugar-button-bookmarks.visible { -moz-transform:rotate(-90deg); }
-#sugar-button-copy { list-style-image: url("moz-icon://stock/gtk-copy?size=toolbar"); }
-
-#tool-box {
-    -moz-appearance: none !important;
-    padding-bottom: 0;
-    margin-bottom: 0;
-}
 
 #sugar-display-toolbar {
     -moz-appearance: none !important;
@@ -92,15 +93,6 @@ toolbarbutton[id^='tab-close-button'] { display: none; }
 #textbox-search {
     margin: 6px;
     width: 100%;
-}
-
-#main.mac #textbox-search {
-	-moz-appearance: none;
-	background-color: #f1f1f1;
-	border: 1px solid #dedede;
-	padding-left: .5em;
-	padding-right: .5em;
-	-moz-border-radius: 1em;
 }
 
 #textbox-search-go-button {

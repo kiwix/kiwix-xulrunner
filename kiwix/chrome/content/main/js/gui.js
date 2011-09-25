@@ -1056,10 +1056,16 @@ function populateLastOpenMenu() {
     /* Render locale menu items */
     var lastOpenMenuTop = document.getElementById("menu-lastopen-top");
     var lastOpenMenu = document.getElementById("menu-lastopen");
+    var sugarmenutop = document.getElementById('sugar-menu-lastopen-top');
+    var sugarmenu = document.getElementById('sugar-menu-lastopen');
 
     /* Remove the child nodes */
     while (lastOpenMenu.firstChild) {
 	lastOpenMenu.removeChild(lastOpenMenu.firstChild);
+    };
+
+    while (sugarmenu.firstChild) {
+	sugarmenu.removeChild(sugarmenu.firstChild);
     };
 
     /* Prepare the list */
@@ -1072,9 +1078,9 @@ function populateLastOpenMenu() {
 
     /* Disable the menu if no book */
     if (book == undefined) {
-	lastOpenMenuTop.disabled = true;
+	lastOpenMenuTop.disabled = sugarmenutop.disabled = true;
     } else {/* Go through the book list an update the GUI */
-	lastOpenMenuTop.disabled = false;
+	lastOpenMenuTop.disabled = sugarmenutop.disabled = false;
 
 	while (book != undefined) {
 	    var label = book.title != "" && book.title != " " ? book.title : book.path;
@@ -1086,6 +1092,7 @@ function populateLastOpenMenu() {
 	    menuItem.setAttribute("tooltip", tooltip);
 	    menuItem.setAttribute("oncommand", "library.setCurrentId('" + book.id + "'); openCurrentBook();");
 	    lastOpenMenu.appendChild(menuItem);
+        sugarmenu.appendChild(menuItem);
 	    book = library.getNextBookInList();
 	}
     }
