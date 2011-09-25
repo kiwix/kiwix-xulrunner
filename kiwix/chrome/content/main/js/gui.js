@@ -546,12 +546,18 @@ function changeProgressBarVisibilityStatus(visible) {
 	visible = !getProgressBar().collapsed;
     }
 
+    var sb = document.getElementById('status-bar');
+
     if (visible) {
         getProgressBar().collapsed = false;
         getProgressBarLabel().collapsed = false;
+        if (env.isSugar())
+            sb.style.display = 'block';
     } else {
-	getProgressBar().collapsed = true;
+    	getProgressBar().collapsed = true;
         getProgressBarLabel().collapsed = true;
+        if (env.isSugar())
+            sb.style.display = 'none';
     }
     return;
 }
