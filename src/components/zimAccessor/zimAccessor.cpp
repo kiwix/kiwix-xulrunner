@@ -88,7 +88,7 @@ ZimAccessor::~ZimAccessor() {
 
 NS_IMETHODIMP ZimAccessor::LoadFile(const nsAString &path, PRBool *retVal) {
   *retVal = PR_TRUE;
-  const char *cPath = nsStringToCString(path);  
+  const char *cPath = strdup(nsStringToCString(path));
 
   /* Instanciate the ZIM file handler */
   try {
@@ -97,6 +97,8 @@ NS_IMETHODIMP ZimAccessor::LoadFile(const nsAString &path, PRBool *retVal) {
     cerr << e.what() << endl;
     *retVal = PR_FALSE;
   }
+
+  free((void*)cPath);
 
   return NS_OK;
 }
