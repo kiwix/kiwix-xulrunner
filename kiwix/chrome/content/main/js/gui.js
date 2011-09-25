@@ -380,6 +380,7 @@ function stopEventPropagation(aEvent) {
 function manageOpenUrlInNewTab(url, focus, scrollY) {
     focus = (focus == undefined ? true : focus);
     changeTabsVisibilityStatus(true);
+    
     var id = openNewTab(focus);
     return manageOpenUrl(url, id, scrollY);
 }
@@ -680,7 +681,6 @@ function manageUnload(clearCurrentAccessor, help) {
 
 /* Try to open a ZIM file */
 function manageOpenFile(path, noSearchIndexCheck) {
-    
     /* Display file picker if no given file path */
     if (!path) {
 
@@ -1465,13 +1465,23 @@ function manageCheckIntegrity() {
     }
 }
 
-function sendNotification(title, message) {
+function sendNotification(title, message, link) {
     try {
-        var alertsService = Components.classes["@mozilla.org/alerts-service;1"].
-    	getService(Components.interfaces.nsIAlertsService);
-        alertsService.showAlertNotification("chrome://mozapps/skin/downloads/downloadIcon.png", 
-    					title, message, 
-    					false, "", null, "");
+	if (link != undefined) {
+	    var listener = {  
+		observe: function(subject, topic, data) {  
+		    if (topic == "alertclickcallback")
+			openUrlWithExternalBrowser(link);
+		}  
+	    }  
+	}
+
+	var alertsService = Components.classes["@mozilla.org/alerts-service;1"].  
+            getService(Components.interfaces.nsIAlertsService);  
+	alertsService.showAlertNotification("chrome://mozapps/skin/downloads/downloadIcon.png",
+					    title, message,
+                                            link != undefined, link, listener, "");  
+	
     } catch(error) {
 	displayInfoDialog(title, message);
     }
