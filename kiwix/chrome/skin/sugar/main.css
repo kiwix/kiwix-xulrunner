@@ -59,6 +59,7 @@ tabpanels {
     padding-bottom: 0;
     margin-bottom: 0;
     display: none;
+    height: 36px;
 }
 
 #sugar-button-display, #sugar-button-display.close {
