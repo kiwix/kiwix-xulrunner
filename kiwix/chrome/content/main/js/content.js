@@ -137,7 +137,10 @@ function stopDownloader() {
 	    
 	    process.run(true, [ taskkillBinaryPath, "/PID", aria2Process.exitValue ], 3);
 	} else if (aria2Process != null) {
-	    aria2Process.kill();
+	    try {
+		aria2Process.kill();
+	    } catch (error) {
+	    }
 	}
     }
 }
