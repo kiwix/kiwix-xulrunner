@@ -1,0 +1,111 @@
+<!-- Window -->
+<!ENTITY main.title                     "&brand.brandShortName;">
+<!ENTITY main.cssdirection              "ltr">
+
+<!-- File menu -->
+<!ENTITY main.file                      "Berkas">
+<!ENTITY main.file.accesskey            "F">
+<!ENTITY main.openFile                  "Buka berkas...">
+<!ENTITY main.openFile.accesskey        "O">
+<!ENTITY main.lastOpen                  "Anyar dimuka...">
+<!ENTITY main.saveFile                  "Simpen kaca salaku...">
+<!ENTITY main.saveFile.accesskey        "S">
+<!ENTITY main.print                     "Citak">
+<!ENTITY main.print.accesskey           "P">
+<!ENTITY main.printPdf                  "Citak salaku PDF">
+<!ENTITY main.printPdf.accesskey        "D">
+<!ENTITY main.quit                      "Kaluar">
+<!ENTITY main.quit.accesskey            "Q">
+
+<!-- Edit menu -->
+<!ENTITY main.edit                      "Édit">
+<!ENTITY main.edit.accesskey            "E">
+<!ENTITY main.find                      "Paluruh dina kaca...">
+<!ENTITY main.find.accesskey            "S">
+<!ENTITY main.selectall                 "Pilih kabéh">
+<!ENTITY main.selectall.accesskey       "a">
+<!ENTITY main.copy                      "Salin">
+<!ENTITY main.copy.accesskey            "p">
+<!ENTITY main.transliteration           "Transliterasi">
+<!ENTITY main.transliteration.accesskey "T">
+<!ENTITY main.preferences               "Préferénsi">
+<!ENTITY main.preferences.accesskey     "n">
+
+<!-- Display menu -->
+<!ENTITY main.display                   "Panémbong">
+<!ENTITY main.display.accesskey         "D">
+<!ENTITY main.zoom                      "Gedéan">
+<!ENTITY main.zoom.accesskey            "Z">
+<!ENTITY main.zoomin                    "Gedéan">
+<!ENTITY main.zoomin.accesskey          "M">
+<!ENTITY main.zoomout                   "Leutikan">
+<!ENTITY main.zoomout.accesskey         "R">
+<!ENTITY main.zoomorig                  "Ukuran asli">
+<!ENTITY main.zoomorig.accesskey        "O">
+<!ENTITY main.language                  "Basa">
+<!ENTITY main.language.accesskey        "L">
+<!ENTITY main.skin                      "Kulit">
+<!ENTITY main.skin.accesskey            "S">
+<!ENTITY main.statusbar                 "Bar status">
+<!ENTITY main.statusbar.accesskey       "S">
+<!ENTITY main.resultsbar                "Bar hasil">
+<!ENTITY main.resultsbar.accesskey      "R">
+<!ENTITY main.tabs                      "Tab">
+<!ENTITY main.tabs.accesskey            "T">
+<!ENTITY main.fullscreen                "Layar pinuh">
+<!ENTITY main.fullscreen.accesskey      "F">
+
+<!-- Tools menu -->
+<!ENTITY main.tools                     "Parabot">
+<!ENTITY main.tools.accesskey           "T">
+<!ENTITY main.randomArticle             "Artikel acak">
+<!ENTITY main.randomArticle.accesskey   "R">
+<!ENTITY main.checkIntegrity            "Pamariksaan integritas">
+<!ENTITY main.checkIntegrity.accesskey  "k">
+<!ENTITY main.purgeHistory              "Hapus jujutan">
+<!ENTITY main.purgeHistory.accesskey    "P">
+
+<!-- Help menu -->
+<!ENTITY main.help                      "Pitulung">
+<!ENTITY main.help.accesskey            "H">
+<!ENTITY main.reportabug                "Laporkeun bug">
+<!ENTITY main.requestafeature           "Mundut fitur">
+<!ENTITY main.about                     "Ngeunaan &brand.brandShortName;">
+<!ENTITY main.about.accesskey           "A">
+
+<!-- Tool bar -->
+<!ENTITY main.back                      "Balik deui">
+<!ENTITY main.forward                   "Maju">
+<!ENTITY main.home                      "Tepas">
+<!ENTITY main.searchBar                 "Bar paluruh">
+<!ENTITY main.search                    "Paluruh">
+<!ENTITY main.findInText                "Téangan dina téks">
+<!ENTITY main.noSearchBar               "Pamaluruhan butuh berkas ZIM nu geus diindéx">
+<!ENTITY main.bookmarks                 "Tatanda buku">
+
+<!-- Results bar -->
+<!ENTITY main.results.title             "Hasil maluruh">
+
+<!-- Bookmarks Bar -->
+<!ENTITY main.bmkLabel                  "Tatanda buku:">
+<!ENTITY main.notesLabel                "Catetan tatanda buku:">
+<!ENTITY main.loadbmk                   "Impor Sét Tatanda Buku">
+<!ENTITY main.newbmk                    "Jieun Sét Tatanda Buku anyar">
+<!ENTITY main.mark                      "Cirian ieu kaca">
+<!ENTITY main.unmark                    "Cabut tanda nu dipilih">
+<!ENTITY main.reload                    "Muat ulang Sét Tatanda Buku">
+<!ENTITY main.defaultset                "Sét ti dituna">
+
+<!-- Contextual Menu -->
+<!ENTITY main.saveImageAs               "Simpen gambar salaku...">
+
+<!-- About Window -->
+<!ENTITY main.close           		"Tutup">
+
+<!-- Preferences Window -->
+<!ENTITY preferences.preferences        "Preferences">
+<!ENTITY preferences.save      		"Save">
+<!ENTITY preferences.cancel     	"Cancel">
+<!ENTITY preferences.profileDirectory  	"Profile directory">
+<!ENTITY preferences.browse  	        "Browse">
+

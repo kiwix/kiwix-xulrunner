@@ -93,7 +93,7 @@
 <!ENTITY main.newbmk                    "Crea grup de preferits">
 <!ENTITY main.mark                      "Afegeix als preferits">
 <!ENTITY main.unmark                    "Treu dels preferits">
-<!ENTITY main.reload                    "Reiniciar grup de preferits">
+<!ENTITY main.reload                    "Recarrega el grup de preferits">
 <!ENTITY main.defaultset                "Grup predeterminat">
 
 <!-- Contextual Menu -->

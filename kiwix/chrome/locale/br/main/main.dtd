@@ -1,0 +1,111 @@
+<!-- Window -->
+<!ENTITY main.title                     "&brand.brandShortName;">
+<!ENTITY main.cssdirection              "ltr">
+
+<!-- File menu -->
+<!ENTITY main.file                      "Restr">
+<!ENTITY main.file.accesskey            "F">
+<!ENTITY main.openFile                  "Digeriñ ur restr...">
+<!ENTITY main.openFile.accesskey        "O">
+<!ENTITY main.lastOpen                  "Digoret n'eus ket pell...">
+<!ENTITY main.saveFile                  "Enrollañ ar bajenn evel...">
+<!ENTITY main.saveFile.accesskey        "S">
+<!ENTITY main.print                     "Moullañ">
+<!ENTITY main.print.accesskey           "P">
+<!ENTITY main.printPdf                  "Moullañ er furmad PDF">
+<!ENTITY main.printPdf.accesskey        "D">
+<!ENTITY main.quit                      "Kuitaat">
+<!ENTITY main.quit.accesskey            "Q">
+
+<!-- Edit menu -->
+<!ENTITY main.edit                      "Kemmañ">
+<!ENTITY main.edit.accesskey            "E">
+<!ENTITY main.find                      "Klask er bajenn...">
+<!ENTITY main.find.accesskey            "S">
+<!ENTITY main.selectall                 "Diuzañ pep tra">
+<!ENTITY main.selectall.accesskey       "a">
+<!ENTITY main.copy                      "Eilañ">
+<!ENTITY main.copy.accesskey            "p">
+<!ENTITY main.transliteration           "Treuzlizherennadur">
+<!ENTITY main.transliteration.accesskey "T">
+<!ENTITY main.preferences               "Penndibaboù">
+<!ENTITY main.preferences.accesskey     "n">
+
+<!-- Display menu -->
+<!ENTITY main.display                   "Diskwel">
+<!ENTITY main.display.accesskey         "D">
+<!ENTITY main.zoom                      "Zoum">
+<!ENTITY main.zoom.accesskey            "Z">
+<!ENTITY main.zoomin                    "Brasaat">
+<!ENTITY main.zoomin.accesskey          "M">
+<!ENTITY main.zoomout                   "Bihanaat">
+<!ENTITY main.zoomout.accesskey         "R">
+<!ENTITY main.zoomorig                  "Ment orin">
+<!ENTITY main.zoomorig.accesskey        "O">
+<!ENTITY main.language                  "Yezh">
+<!ENTITY main.language.accesskey        "L">
+<!ENTITY main.skin                      "Gwiskadur">
+<!ENTITY main.skin.accesskey            "S">
+<!ENTITY main.statusbar                 "Barrenn stad">
+<!ENTITY main.statusbar.accesskey       "S">
+<!ENTITY main.resultsbar                "Barrenn an disoc'hoù">
+<!ENTITY main.resultsbar.accesskey      "R">
+<!ENTITY main.tabs                      "Ivinelloù">
+<!ENTITY main.tabs.accesskey            "T">
+<!ENTITY main.fullscreen                "Skramm leun">
+<!ENTITY main.fullscreen.accesskey      "F">
+
+<!-- Tools menu -->
+<!ENTITY main.tools                     "Ostilhoù">
+<!ENTITY main.tools.accesskey           "T">
+<!ENTITY main.randomArticle             "Ur pennad dre zegouezh">
+<!ENTITY main.randomArticle.accesskey   "R">
+<!ENTITY main.checkIntegrity            "Gwiriañ anterinded an danvez">
+<!ENTITY main.checkIntegrity.accesskey  "k">
+<!ENTITY main.purgeHistory              "Spurjañ istor ar bajenn">
+<!ENTITY main.purgeHistory.accesskey    "P">
+
+<!-- Help menu -->
+<!ENTITY main.help                      "Skoazell">
+<!ENTITY main.help.accesskey            "H">
+<!ENTITY main.reportabug                "Kas keloù diwar-benn un draen">
+<!ENTITY main.requestafeature           "Goulenn ur perzh nevez">
+<!ENTITY main.about                     "Diwar-benn &brand.brandShortName;">
+<!ENTITY main.about.accesskey           "A">
+
+<!-- Tool bar -->
+<!ENTITY main.back                      "Distreiñ">
+<!ENTITY main.forward                   "Da-heul">
+<!ENTITY main.home                      "Degemer">
+<!ENTITY main.searchBar                 "Barrenn klask">
+<!ENTITY main.search                    "Klask">
+<!ENTITY main.findInText                "Kavout en destenn">
+<!ENTITY main.noSearchBar               "Ezhomm en deus ar c'hlask eus ur restr ZIM menegeret">
+<!ENTITY main.bookmarks                 "Sinedoù">
+
+<!-- Results bar -->
+<!ENTITY main.results.title             "Disoc'hoù enklask">
+
+<!-- Bookmarks Bar -->
+<!ENTITY main.bmkLabel                  "Sinedoù :">
+<!ENTITY main.notesLabel                "Notennoù ar sined :">
+<!ENTITY main.loadbmk                   "Enporzhiañ ur rikoù sinedoù">
+<!ENTITY main.newbmk                    "Krouiñ ur rikoù sinedoù nevez">
+<!ENTITY main.mark                      "Merkañ ar bajenn-mañ">
+<!ENTITY main.unmark                    "Diverkañ ar sined diuzet">
+<!ENTITY main.reload                    "Adkargañ ar rikoù sinedoù">
+<!ENTITY main.defaultset                "Ma sinedoù">
+
+<!-- Contextual Menu -->
+<!ENTITY main.saveImageAs               "Enrollañ ar skeudenn evel...">
+
+<!-- About Window -->
+<!ENTITY main.close           		"Serriñ">
+
+<!-- Preferences Window -->
+<!ENTITY preferences.preferences        "Preferences">
+<!ENTITY preferences.save      		"Save">
+<!ENTITY preferences.cancel     	"Cancel">
+<!ENTITY preferences.profileDirectory  	"Profile directory">
+<!ENTITY preferences.browse  	        "Browse">
+
