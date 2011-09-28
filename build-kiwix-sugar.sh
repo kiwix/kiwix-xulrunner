@@ -44,6 +44,7 @@ fi
 
 # change default skin to sugar
 sed -i -e "s/^pref(\"general.skins.selectedSkin\", \"default\");$/pref(\"general.skins.selectedSkin\", \"sugar\");/" /tmp/Kiwix.activity/defaults/preferences/preferences.js
+echo -e "\npref(\"layout.css.dpi\", 96);" >> /tmp/Kiwix.activity/defaults/preferences/preferences.js
 
 # build .xo (write the manifest and zip the package)
 cd /tmp/Kiwix.activity
