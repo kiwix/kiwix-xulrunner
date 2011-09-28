@@ -97,3 +97,6 @@ toolbarbutton[id^='tab-close-button'] { display: none; }
     cursor: pointer;
 }
 
+treechildren::-moz-tree-cell-text(italic) {
+    font-style: italic;
+}
