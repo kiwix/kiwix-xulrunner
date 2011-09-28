@@ -132,10 +132,10 @@ xz/windows/liblzma.lib: xz
 
 linux: zlib-1.2.3/libz.a xapian-core-1.2.3/.libs/libxapian.a xz/src/liblzma/.libs/liblzma.a aria2-1.12.1/src/aria2c xulrunner-sdk/bin/xulrunner
 
-mac: linux xulrunner.dmg aria2/bin/aria2c
+mac: zlib-1.2.3/libz.a xapian-core-1.2.3/.libs/libxapian.a xz/src/liblzma/.libs/liblzma.a xulrunner-sdk/bin/xulrunner xulrunner.dmg aria2/bin/aria2c
 
 if IS_OSX
-all: linux mac
+all: mac
 else
 all: linux
 endif
