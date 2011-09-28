@@ -1,3 +1,29 @@
+kiwix (0.9-beta3-0~lucid) lucid; urgency=low
+
+  * Add for GNU/Linux Freedesktop managers the kiwix icon to ZIM files
+  * Fixed issue in the library manager concerning ZIM files with accented paths
+  * Selectable title and description in the content manager (ID: 3390514)
+  * Fix buggy history behaviour by opening external urls
+  * Implement ctrl+[PAGE_UP|PAGE_DOWN] to navigate in tabs
+  * Fix different issue impacting keypress event mgmt on Tabs
+  * Add hour pointer during search or loading of articles (ID: 3362817)
+  * Remove the reset button for the bookmarks, was dangerous and ambigous (ID: 3395239)
+  * Add "Copy" and "Select all" in the right-click contextual menu if necessary (ID: 3015761)
+  * Add the "Search for..." in the contextual menu
+  * ~50 of new locales supported (thx Translatewiki.net)
+  * Display the content manager per default if no local content detected (first start use case)
+  * Kiwix again (was a regression) able to deal with relative paths in the library.xml (ID: 3397592)
+  * New keyboard shortcuts to deal with bookmarks
+  * Add arrow keys handling to navigate in the content manager (ID: 3389511)
+  * Added debian init script for kiwix-serve (ID: 2976515)
+  * Improve the 'show' action in kiwix-manage
+  * Save zoom factor over kiwix restarts (ID: 3367428)
+  * Fix configure for CLucene and Slackware (ID: 3408023)
+  * New option remember open tabs, focused tab and respective scroll postion in the tabs over reboots (ID: 3117123)
+  * Fixing a bug responsible of masking ongoing downloads while deleting an other content
+
+ -- Emmanuel Engelhart <kelson@kiwix.org>  Wed, 28 Sep 2011 10:00:00 +0200
+
 kiwix (0.9-beta2-2~lucid) lucid; urgency=low
 
   * Fixed few points related to mouse left click
