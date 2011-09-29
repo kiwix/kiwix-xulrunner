@@ -1,0 +1,7 @@
+#include "nsISupports.idl"
+[scriptable, uuid(080787ae-ddff-11e0-aa79-000c2983f4e1)]
+interface ISugarBridge : nsISupports
+{
+    attribute string testAttr;
+    void test( );
+};
