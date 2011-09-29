@@ -225,8 +225,6 @@ function onStart() {
 	dump("Unable to register the zimCluceneIndexer XPCOM, Kiwix will be unable to index ZIM files with Clucene.\n");
     if (Components.classes["@kiwix.org/contentManager"] == undefined)
 	dump("Unable to register the contentManager XPCOM, Kiwix will be unable to deal with content.\n");
-    if (Components.classes["@kiwix.org/SugarBridge"] == undefined)
-	dump("Unable to register the SugarBridge XPCOM, Kiwix won't be optimized for Sugar.\n");
 
     /* Remove old profile if necessary */
     var profileToRemove = settings.profileToRemove();
