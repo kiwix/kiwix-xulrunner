@@ -315,15 +315,61 @@
     </page>
     <page id="library-page" flex="1" hidden="true">
       <hbox flex="1">
-	<richlistbox class="library-menu">
-	  <richlistitem id="library-menuitem-local" class="library-menuitem" 
-	       style="background-color: white;" onclick="selectLibraryMenu(this.id);">
-	    <description>My Library</description>
-	  </richlistitem> 
-	  <richlistitem id="library-menuitem-remote" class="library-menuitem" onclick="selectLibraryMenu(this.id);">
-	    <description>Get New Files</description>
-	  </richlistitem>
-	</richlistbox>
+	<vbox class="library-left">
+	  <richlistbox class="library-menu">
+	    <richlistitem id="library-menuitem-local" class="library-menuitem" 
+			  style="background-color: white;" onclick="selectLibraryMenu(this.id);">
+	      <description>My Library</description>
+	    </richlistitem> 
+	    <richlistitem id="library-menuitem-remote" class="library-menuitem" onclick="selectLibraryMenu(this.id);">
+	      <description>Get New Files</description>
+	    </richlistitem>
+	  </richlistbox>
+	  <vbox class="library-filter" style="-moz-border-radius: 5px 5px 0px 0px; margin: 10px 10px 2px 10px;">
+	    <label value="Search ZIM files"/>
+	    <textbox />
+	  </vbox>
+	  <vbox class="library-filter" style="margin: 0px 10px 2px 10px;">
+	    <label value="Sort by"/>
+	    <menulist>
+	      <menupopup>
+		<menuitem label="Title" selected="true"/>
+		<menuitem label="Size"/>
+		<menuitem label="Date"/>
+		<menuitem label="Publisher"/>
+	      </menupopup>
+	    </menulist>
+	  </vbox>
+	  <vbox class="library-filter" style="-moz-border-radius: 0px 0px 5px 5px; margin: 0px 10px 10px 10px;">
+	    <label value="Filter by"/>
+
+	    <label value="▾ File size"/>
+	    <box style="margin-left: 10px; font-size: smaller;" align="center">
+	      <label value="Less than"/>
+	      <textbox size="2"/>
+	      <label value="GB"/>
+	    </box>
+
+	    <label value="▾ Language"/>
+	    <box style="margin-left: 10px; font-size: smaller;" align="center">
+	      <menulist flex="1">
+		<menupopup>
+		  <menuitem label="All"/>
+		  <menuitem label="English"/>
+		  <menuitem label="Français"/>
+		  <menuitem label="Deutsch"/>
+		</menupopup>
+	      </menulist>
+	    </box>
+
+	    <label value="▾ Publisher"/>
+	    <vbox style="margin-left: 10px; font-size: smaller;">
+	      <checkbox label="Gutenberg library"/>
+	      <checkbox label="Wikimedia Foundation"/>
+	    </vbox>
+
+	  </vbox>
+	</vbox>
 	<box class="library-content" flex="1">
 	  <deck id="library-deck" selectedIndex="0" flex="1">
 	    <richlistbox id="library-content-local"/>

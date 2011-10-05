@@ -488,6 +488,10 @@ tab[selected="true"] label {
 
 /* Library manager */
 
+.library-left {
+    background: -moz-linear-gradient(left, #b8b5b0, #d2d2d2);
+}
+
 .library-menu {
     background: -moz-linear-gradient(left, #b8b5b0, #d2d2d2);
     padding-top: 10px;
@@ -501,6 +505,13 @@ tab[selected="true"] label {
     font-size: 110%;
     color: black;
     -moz-border-radius: 5px 0px 0px 5px;
+}
+
+.library-filter {
+    padding: 5px;
+    font-size: 110%;
+    color: black;
+    background-color: #dbdbdb;
 }
 
 richlistbox {
