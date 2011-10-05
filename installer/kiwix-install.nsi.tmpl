@@ -36,12 +36,14 @@
 !define PRODUCT_UNINST_KEY "Software\Microsoft\Windows\CurrentVersion\Uninstall\${PRODUCT_NAME}"
 !define PRODUCT_UNINST_ROOT_KEY "HKLM"
 
+
 ; Mandatory plugins
 !include "MUI2.nsh"
 !include "InstallOptions.nsh"
 !include "WinMessages.nsh"
 !include "LogicLib.nsh"
 !include "Locate.nsh"
+!include "FileAssociation.nsh"
 
 ; RequestExecutionLevel
 RequestExecutionLevel user
@@ -54,6 +56,23 @@ OutFile "kiwix-install.exe"
 ShowInstDetails show
 ShowUnInstDetails show
 InstallDir "$PROGRAMFILES\kiwix"
+
+; Code to refresh icons after file association
+!define SHCNE_ASSOCCHANGED 0x08000000
+!define SHCNF_IDLIST 0
+ 
+Function RefreshShellIcons
+  ; By jerome tremblay - april 2003
+  System::Call 'shell32.dll::SHChangeNotify(i, i, i, i) v \
+  (${SHCNE_ASSOCCHANGED}, ${SHCNF_IDLIST}, 0, 0)'
+FunctionEnd
+
+Function un.RefreshShellIcons
+  ; By jerome tremblay - april 2003
+  System::Call 'shell32.dll::SHChangeNotify(i, i, i, i) v \
+  (${SHCNE_ASSOCCHANGED}, ${SHCNF_IDLIST}, 0, 0)'
+FunctionEnd
+
 
 ; Reserve files to make the decompression faster
 ReserveFile "kiwix-install.ini"
@@ -366,6 +385,11 @@ ${EndIf}
   WriteRegStr ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}" "DisplayVersion" "${PRODUCT_VERSION}"
   WriteRegStr ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}" "URLInfoAbout" "${PRODUCT_WEB_SITE}"
   WriteRegStr ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}" "Publisher" "${PRODUCT_PUBLISHER}"
+
+; Create the file association
+  ${registerExtension} "$INSTDIR\kiwix\kiwix.exe" ".zim" "ZIM File"
+  Call RefreshShellIcons
+
 SectionEnd
 
 ; Create user shortcuts
@@ -427,6 +451,9 @@ FunctionEnd
 ; You don' t need to specify file to remove since we remove the whole
 ; $INSTDIR folder recursivly.
 Section Uninstall
+
+	${unregisterExtension} ".zim" "ZIM File"
+	Call un.RefreshShellIcons
 
         Delete "$INSTDIR\${PRODUCT_NAME}.url"
         Delete "$INSTDIR\uninst.exe"
