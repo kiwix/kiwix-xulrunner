@@ -25,6 +25,7 @@ Kiwix 0.9 beta3
 * Fix configure for CLucene and Slackware (ID: 3408023)
 * New option remember open tabs, focused tab and respective scroll postion in the tabs over reboots (ID: 3117123)
 * Fixing a bug responsible of masking ongoing downloads while deleting an other content
+* ZIM file association on Windows
 
 Kiwix 0.9 beta2
 * Regression fix, tabs should not be visible per default
