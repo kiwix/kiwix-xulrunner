@@ -1067,9 +1067,11 @@ function populateLastOpenMenu() {
 	lastOpenMenu.removeChild(lastOpenMenu.firstChild);
     };
 
-    while (sugarmenu.firstChild) {
-	sugarmenu.removeChild(sugarmenu.firstChild);
-    };
+    if (env.isSugar()) {
+	while (sugarmenu.firstChild) {
+	    sugarmenu.removeChild(sugarmenu.firstChild);
+	};
+    }
 
     /* Prepare the list */
     try {
@@ -1100,7 +1102,11 @@ function populateLastOpenMenu() {
 	    menuItem.setAttribute("tooltip", tooltip);
 	    menuItem.setAttribute("oncommand", "library.setCurrentId('" + book.id + "'); openCurrentBook();");
 	    lastOpenMenu.appendChild(menuItem);
-        sugarmenu.appendChild(menuItem);
+
+	    if (env.isSugar()) {
+		sugarmenu.appendChild(menuItem);
+	    }
+
 	    book = library.getNextBookInList();
 	}
     }
