@@ -133,7 +133,9 @@ function quit() {
     if (_alreadyQuitOrRestart == true)
 	return;
 
-    prepareQuitAndRestart();
+    try {
+        prepareQuitAndRestart();
+    } catch(e) { dump("prepareQuitAndRestart failed: " + e.toString() + "\n"); }
     
     /* Quit the application */
     var applicationStartup = Components.classes['@mozilla.org/toolkit/app-startup;1'].
@@ -206,7 +208,9 @@ function onStart() {
     /* Include jsm */
     Components.utils.import("resource://modules/env.jsm");
     Components.utils.import("resource://modules/settings.jsm");
-    Components.utils.import("resource://modules/library.jsm");
+    try {
+        Components.utils.import("resource://modules/library.jsm");
+    } catch(e) { dump("Unable to import library: " + e.toString() + "\n");}
 
     preInitUserInterface();
 
@@ -269,7 +273,9 @@ function onStart() {
     postInitUserInterface();
 
     /* Start aria */
-    checkDownloader();
+    try {
+        checkDownloader();
+    } catch(e) { dump("Unable to check Downloader: " + e.toString() + "\n"); }
 }
 
 /* Clear the history and the cache */

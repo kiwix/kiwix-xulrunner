@@ -1072,7 +1072,12 @@ function populateLastOpenMenu() {
     };
 
     /* Prepare the list */
-    library.listBooks("lastOpen");
+    try {
+        library.listBooks("lastOpen");
+    } catch(e) {
+        dump("Unable to populateLastOpenMenu(): " + e.toString() + "\n");
+        return false;
+    }
     var book = library.getNextBookInList();
 
     /* Skip the first, it's already open */
@@ -1118,7 +1123,9 @@ function preInitUserInterface() {
 
     /* Populate the library */
     if (!env.isSugar()) {
-        populateContentManager(true, true);
+        try {
+            populateContentManager(true, true);
+        } catch(e) { dump("Unable to populate Content Manager: " + e.toString() + "\n"); }
     }
 }
 
@@ -1184,11 +1191,13 @@ function postInitUserInterface() {
 
     /* If there is no file open with the commandline try to open last open book */
     if (currentZimAccessor == undefined) {
-	if (openCurrentBook()) {
-	    restoreTabs();
-	} else {
-	    library.deleteCurrentBook();
-	}
+	    try {
+            if (openCurrentBook()) {
+	            restoreTabs();
+	        } else {
+	            library.deleteCurrentBook();
+	        }
+        } catch(e) { dump("Unable to check current book: " + e.toString() + "\n"); }
     }
 
     /* Adapt the UI depending of a book is open or not */
