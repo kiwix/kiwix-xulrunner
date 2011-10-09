@@ -1,3 +1,6 @@
+Kiwix 0.9 beta4
+* Fix regression, menu "last open" where not working anymore
+
 Kiwix 0.9 beta3
 * Add for GNU/Linux Freedesktop managers the kiwix icon to ZIM files
 * Fixed issue in the library manager concerning ZIM files with accented paths
