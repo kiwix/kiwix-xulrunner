@@ -1,5 +1,6 @@
 Kiwix 0.9 beta4
 * Fix regression, menu "last open" where not working anymore
+* Fix regression, avoid restarting aria2 at program exit
 
 Kiwix 0.9 beta3
 * Add for GNU/Linux Freedesktop managers the kiwix icon to ZIM files

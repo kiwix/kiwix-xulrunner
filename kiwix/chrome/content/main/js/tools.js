@@ -24,6 +24,7 @@ function prepareQuitAndRestart() {
     }
 
     /* Stop downloader */
+    stopDownloaderObserver()
     stopDownloader();
 
     var doClean = doOnCloseClean();

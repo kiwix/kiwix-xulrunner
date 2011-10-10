@@ -6,6 +6,8 @@ var downloader = new Worker("js/downloader.js");
 var aria2StartCount = 0;
 var downloadsResumed = false;
 var _oldWindowTitle = "";
+var checkDownloaderId;
+var checkDownloadStatusId;
 
 downloader.onmessage = function(event) {
     var message = event.data;
@@ -827,8 +829,13 @@ function selectLibraryContentItem(box) {
 }
 
 function startDownloadObserver() {
-    window.setInterval("checkDownloader()", 1000);
-    window.setInterval("getDownloadStatus()", 1000);
+    checkDownloaderId = window.setInterval("checkDownloader()", 1000);
+    checkDownloadStatusId = window.setInterval("getDownloadStatus()", 1000);
+}
+
+function stopDownloaderObserver() {
+    clearInterval(checkDownloaderId);
+    clearInterval(checkDownloadStatusId);
 }
 
 function showLocalBooks() {
