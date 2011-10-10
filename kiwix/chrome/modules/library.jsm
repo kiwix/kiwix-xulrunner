@@ -266,9 +266,9 @@ let library = {
 
     /* Prepare a list of books */
     /* mode = [lastOpen|remote|local] */
-    listBooks: function(mode) {
-    	this.contentManager.listBooks(mode);
-	this.writeToFile();
+    listBooks: function(mode, sortBy) {
+    	this.contentManager.listBooks(mode, sortBy);
+	// Seems to be uselsess : this.writeToFile();
     },
 
     /* Pop up the next book in the list (see listBooks() */

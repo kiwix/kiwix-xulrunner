@@ -331,12 +331,12 @@
 	  </vbox>
 	  <vbox class="library-filter" style="margin: 0px 10px 2px 10px;">
 	    <label value="Sort by"/>
-	    <menulist>
+	    <menulist id="library-sortby" oncommand="populateBookList()">
 	      <menupopup>
-		<menuitem label="Title" selected="true"/>
-		<menuitem label="Size"/>
-		<menuitem label="Date"/>
-		<menuitem label="Publisher"/>
+		<menuitem label="Title" value="title" selected="true"/>
+		<menuitem label="Size" value="size"/>
+		<menuitem label="Date" value="date"/>
+		<menuitem label="Publisher" value="publisher"/>
 	      </menupopup>
 	    </menulist>
 	  </vbox>

@@ -307,12 +307,14 @@ NS_IMETHODIMP ContentManager::GetBookCount(const PRBool localBooks, const PRBool
   return NS_OK;
 }
 
-NS_IMETHODIMP ContentManager::ListBooks(const nsACString &mode, PRBool *retVal) {
+NS_IMETHODIMP ContentManager::ListBooks(const nsACString &mode, const nsACString &sortBy, PRBool *retVal) {
   *retVal = PR_FALSE;
-  const char *cmode;
-  NS_CStringGetData(mode, &cmode);
+  const char *cmode; NS_CStringGetData(mode, &cmode);
+  const char *csortBy; NS_CStringGetData(sortBy, &csortBy);
   
   try {
+
+    /* Set the mode enum */
     kiwix::supportedListMode listMode;
     if (std::string(cmode) == "lastOpen") {
       listMode = kiwix::LASTOPEN;
@@ -321,13 +323,27 @@ NS_IMETHODIMP ContentManager::ListBooks(const nsACString &mode, PRBool *retVal) 
     } else {
       listMode = kiwix::LOCAL;
     }
-    if (this->manager.listBooks(listMode)) {
+
+    /* Set the sortBy enum */
+    kiwix::supportedListSortBy listSortBy;
+    if (std::string(csortBy) == "publisher") {
+      listSortBy = kiwix::PUBLISHER;
+    } else if ( std::string(csortBy) == "date") {
+      listSortBy = kiwix::DATE;
+    } else if ( std::string(csortBy) == "size") {
+      listSortBy = kiwix::SIZE;
+    } else {
+      listSortBy = kiwix::TITLE;
+    }
+
+    if (this->manager.listBooks(listMode, listSortBy)) {
       *retVal = PR_TRUE;
     }
   } catch (exception &e) {
     cerr << e.what() << endl;
   }
   
+
   return NS_OK;
 }
 

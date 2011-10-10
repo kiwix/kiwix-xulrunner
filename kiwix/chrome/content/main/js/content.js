@@ -661,10 +661,20 @@ function populateBookList(container) {
     var book;
     var backgroundColor = "#FFFFFF";
 
+    /* Autotection of the container if necessary */
+    if (container == undefined) {
+	container = getCurrentBookListContainer()
+    }
+    
     /* Remove the child nodes */
     while (container.firstChild) {
 	container.removeChild(container.firstChild);
     };
+
+    /* Apply filter/sorting */
+    var mode = container.id == "library-content-local" ? "local" : "remote";
+    var sortBy = getBookListSortBy();
+    library.listBooks(mode, sortBy);
 
     /* Go through all books */
     book = library.getNextBookInList();
@@ -694,12 +704,10 @@ function populateBookList(container) {
 }
 
 function populateLocalBookList() {
-    library.listBooks("local");
     populateBookList(document.getElementById("library-content-local"));
 }
 
 function populateRemoteBookList() {
-    library.listBooks("remote");
     populateBookList(document.getElementById("library-content-remote"));
 }
 
@@ -852,4 +860,8 @@ function getCurrentBookListContainer() {
     if (isLibraryVisible) {
 	return document.getElementById("library-deck").selectedPanel;
     }
+}
+
+function getBookListSortBy() {
+    return document.getElementById("library-sortby").selectedItem.getAttribute("value");
 }
