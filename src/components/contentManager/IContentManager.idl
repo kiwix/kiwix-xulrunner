@@ -23,6 +23,6 @@ interface IContentManager : nsISupports
   boolean setBookIndex(in ACString id, in AString path, in ACString indexType);
   boolean setBookPath(in ACString id, in AString path);
   boolean updateBookLastOpenDateById(in ACString id);
-  boolean listBooks(in ACString mode, in ACString sortBy);
+  boolean listBooks(in ACString mode, in ACString sortBy, in PRUint32 maxSize);
   boolean getBookCount(in PRBool localBooks, in PRBool remoteBooks, out PRUint32 count);
 };

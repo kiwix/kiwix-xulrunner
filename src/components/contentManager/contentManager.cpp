@@ -307,11 +307,11 @@ NS_IMETHODIMP ContentManager::GetBookCount(const PRBool localBooks, const PRBool
   return NS_OK;
 }
 
-NS_IMETHODIMP ContentManager::ListBooks(const nsACString &mode, const nsACString &sortBy, PRBool *retVal) {
+NS_IMETHODIMP ContentManager::ListBooks(const nsACString &mode, const nsACString &sortBy, PRUint32 maxSize, PRBool *retVal) {
   *retVal = PR_FALSE;
   const char *cmode; NS_CStringGetData(mode, &cmode);
   const char *csortBy; NS_CStringGetData(sortBy, &csortBy);
-  
+
   try {
 
     /* Set the mode enum */
@@ -336,7 +336,7 @@ NS_IMETHODIMP ContentManager::ListBooks(const nsACString &mode, const nsACString
       listSortBy = kiwix::TITLE;
     }
 
-    if (this->manager.listBooks(listMode, listSortBy)) {
+    if (this->manager.listBooks(listMode, listSortBy, maxSize)) {
       *retVal = PR_TRUE;
     }
   } catch (exception &e) {

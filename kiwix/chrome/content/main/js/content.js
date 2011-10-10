@@ -674,7 +674,8 @@ function populateBookList(container) {
     /* Apply filter/sorting */
     var mode = container.id == "library-content-local" ? "local" : "remote";
     var sortBy = getBookListSortBy();
-    library.listBooks(mode, sortBy);
+    var maxSize = getBookListContentMaxSize();
+    library.listBooks(mode, sortBy, maxSize);
 
     /* Go through all books */
     book = library.getNextBookInList();
@@ -813,7 +814,7 @@ function selectLibraryMenu(menuItemId) {
 	menuItemRemote.setAttribute("style", "background-color: white;")
 	libraryDeck.selectedIndex = 1;
     }
-
+    populateBookList();
     selectLibraryContentItem(libraryDeck.selectedPanel.firstChild);
 }
 
@@ -864,4 +865,9 @@ function getCurrentBookListContainer() {
 
 function getBookListSortBy() {
     return document.getElementById("library-sortby").selectedItem.getAttribute("value");
+}
+
+function getBookListContentMaxSize() {
+    return document.getElementById("library-content-maxsize").value > 0 ? 
+	document.getElementById("library-content-maxsize").value : 99;
 }
