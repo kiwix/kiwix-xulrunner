@@ -757,6 +757,7 @@ function manageOpenFile(path, noSearchIndexCheck) {
 	toggleLibrary(false);
 	populateRemoteBookList();
 	populateLocalBookList();
+	populateLibraryFilters();	
 	
 	/* Load the welcome page of the ZIM file */
 	goHome();

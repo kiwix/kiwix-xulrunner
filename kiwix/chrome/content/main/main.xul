@@ -354,7 +354,7 @@
 	    <box style="margin-left: 10px; font-size: smaller;" align="center">
 	      <menulist id="library-filter-language" oncommand="populateBookList()" flex="1">
 		<menupopup>
-		  <menuitem label="All"/>
+		  <menuitem label="All" value=""/>
 		</menupopup>
 	      </menulist>
 	    </box>
@@ -363,7 +363,7 @@
 	    <vbox style="margin-left: 10px; font-size: smaller;">
 	      <menulist id="library-filter-publisher" oncommand="populateBookList()" flex="1">
 		<menupopup>
-		  <menuitem label="All"/>
+		  <menuitem label="All" value=""/>
 		</menupopup>
 	      </menulist>
 	    </vbox>

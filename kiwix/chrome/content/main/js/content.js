@@ -676,7 +676,9 @@ function populateBookList(container) {
     var mode = container.id == "library-content-local" ? "local" : "remote";
     var sortBy = getBookListSortBy();
     var maxSize = getBookListContentMaxSize();
-    library.listBooks(mode, sortBy, maxSize);
+    var publisher = getBookListPublisherFilter();
+    var language = getBookListLanguageFilter();
+    library.listBooks(mode, sortBy, maxSize, language, publisher);
 
     /* Go through all books */
     book = library.getNextBookInList();
@@ -737,7 +739,7 @@ function populateLibraryFilters() {
 	    menuItem.setAttribute("label", publishers[index]);
 	    publisherMenu.firstChild.insertBefore(menuItem, languageMenu.firstChild.lastChild.nextSibling);
 	}
-    }	
+    }
 }
     
 function downloadRemoteBookList(populateRemoteBookList, resumeDownloads) {
@@ -898,4 +900,12 @@ function getBookListSortBy() {
 function getBookListContentMaxSize() {
     return document.getElementById("library-content-maxsize").value > 0 ? 
 	document.getElementById("library-content-maxsize").value : 99;
+}
+
+function getBookListPublisherFilter() {
+    return document.getElementById('library-filter-publisher').value;
+}
+
+function getBookListLanguageFilter() {
+    return document.getElementById('library-filter-language').value;
 }
