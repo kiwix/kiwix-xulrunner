@@ -424,12 +424,20 @@ NS_IMETHODIMP ContentManager::GetBooksLanguages(nsACString &languages, PRBool *r
   }
 
   languages = nsDependentCString(languagesStr.data(), languagesStr.size());
-
   return NS_OK;
 }
 
 NS_IMETHODIMP ContentManager::GetBooksPublishers(nsACString &publishers, PRBool *retVal) {
   *retVal = PR_TRUE;
+  string publishersStr = "";
+  
+  vector<string> booksPublishers = this->manager.getBooksPublishers();
+  vector<string>::iterator itr;
+  for ( itr = booksPublishers.begin(); itr != booksPublishers.end(); ++itr ) {
+    publishersStr += *itr + ";";
+  }
+
+  publishers = nsDependentCString(publishersStr.data(), publishersStr.size());
   return NS_OK;
 }
 

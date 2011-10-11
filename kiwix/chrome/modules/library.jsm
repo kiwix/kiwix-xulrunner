@@ -173,6 +173,13 @@ let library = {
 	return languagesObj.value.split(';') ;
     },  
 
+    /* Get available books publishers */
+    getBooksPublishers: function() {
+        var publishersObj = new Object;
+	this.contentManager.getBooksPublishers(publishersObj);
+	return publishersObj.value.split(';');
+    },
+
     getRemoteBookCount: function() {
         var count = new Object();
 	this.contentManager.getBookCount(false, true, count);

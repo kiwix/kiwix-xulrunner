@@ -361,8 +361,11 @@
 
 	    <label value="▾ Publisher"/>
 	    <vbox style="margin-left: 10px; font-size: smaller;">
-	      <checkbox label="Gutenberg library"/>
-	      <checkbox label="Wikimedia Foundation"/>
+	      <menulist id="library-filter-publisher" oncommand="populateBookList()" flex="1">
+		<menupopup>
+		  <menuitem label="All"/>
+		</menupopup>
+	      </menulist>
 	    </vbox>
 
 	  </vbox>

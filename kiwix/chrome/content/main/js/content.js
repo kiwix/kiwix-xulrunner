@@ -715,19 +715,31 @@ function populateRemoteBookList() {
 
 function populateLibraryFilters() {
     var languages = library.getBooksLanguages();
-    var menu = document.getElementById("library-filter-language");
-
+    var languageMenu = document.getElementById('library-filter-language');
+    
     for(var index=0; index<languages.length; index++) {
-     if (languages[index].length > 0) {
-	var menuItem = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul",
-						"menuitem");
-	menuItem.setAttribute("value", languages[index]);
-	menuItem.setAttribute("label", _languagesHash[languages[index]] ? _languagesHash[languages[index]] : languages[index]);
-	menu.firstChild.insertBefore(menuItem, menu.firstChild.lastChild.nextSibling);
+	if (languages[index].length > 0) {
+	    var menuItem = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul",
+						    "menuitem");
+	    menuItem.setAttribute("value", languages[index]);
+	    menuItem.setAttribute("label", _languagesHash[languages[index]] ? _languagesHash[languages[index]] : languages[index]);
+	    languageMenu.firstChild.insertBefore(menuItem, languageMenu.firstChild.lastChild.nextSibling);
+	}
     }
+    
+    var publishers = library.getBooksPublishers();
+    var publisherMenu = document.getElementById('library-filter-publisher');
+    for(var index=0; index<publishers.length; index++) {
+	if (publishers[index].length > 0) {
+	    var menuItem = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul",
+						    "menuitem");
+	    menuItem.setAttribute("value", publishers[index]);
+	    menuItem.setAttribute("label", publishers[index]);
+	    publisherMenu.firstChild.insertBefore(menuItem, languageMenu.firstChild.lastChild.nextSibling);
+	}
+    }	
 }
-}
-
+    
 function downloadRemoteBookList(populateRemoteBookList, resumeDownloads) {
     populateRemoteBookList = (populateRemoteBookList == undefined ? false : populateRemoteBookList);
     resumeDownloads = (resumeDownloads == undefined ? false : resumeDownloads);
