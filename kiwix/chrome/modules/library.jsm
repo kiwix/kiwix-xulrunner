@@ -1,4 +1,3 @@
-
 var EXPORTED_SYMBOLS = [ "library" ];
 
 Components.utils.import("resource://modules/env.jsm");
@@ -166,6 +165,13 @@ let library = {
 	this.contentManager.getBookCount(true, false, count);
 	return count.value;
     },
+    
+    /* Get available books languages */
+    getBooksLanguages: function() {
+        var languagesObj = new Object;
+	this.contentManager.getBooksLanguages(languagesObj);
+	return languagesObj.value.split(';') ;
+    },  
 
     getRemoteBookCount: function() {
         var count = new Object();

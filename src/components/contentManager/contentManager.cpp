@@ -413,6 +413,26 @@ NS_IMETHODIMP ContentManager::SetBookPath(const nsACString &id, const nsAString 
   return NS_OK;
 }
 
+NS_IMETHODIMP ContentManager::GetBooksLanguages(nsACString &languages, PRBool *retVal) {
+  *retVal = PR_TRUE;
+  string languagesStr = "";
+  
+  vector<string> booksLanguages = this->manager.getBooksLanguages();
+  vector<string>::iterator itr;
+  for ( itr = booksLanguages.begin(); itr != booksLanguages.end(); ++itr ) {
+    languagesStr += *itr + ";";
+  }
+
+  languages = nsDependentCString(languagesStr.data(), languagesStr.size());
+
+  return NS_OK;
+}
+
+NS_IMETHODIMP ContentManager::GetBooksPublishers(nsACString &publishers, PRBool *retVal) {
+  *retVal = PR_TRUE;
+  return NS_OK;
+}
+
 #if GECKO_VERSION == 2
 
 NS_GENERIC_FACTORY_CONSTRUCTOR(ContentManager)

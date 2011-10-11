@@ -25,4 +25,6 @@ interface IContentManager : nsISupports
   boolean updateBookLastOpenDateById(in ACString id);
   boolean listBooks(in ACString mode, in ACString sortBy, in PRUint32 maxSize);
   boolean getBookCount(in PRBool localBooks, in PRBool remoteBooks, out PRUint32 count);
+  boolean getBooksLanguages(out AUTF8String languages);
+  boolean getBooksPublishers(out AUTF8String publishers);
 };

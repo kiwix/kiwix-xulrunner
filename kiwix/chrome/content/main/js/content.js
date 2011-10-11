@@ -29,7 +29,8 @@ downloader.onmessage = function(event) {
 		showRemoteBooks();
 	    }
 	    if (localBookCount == 0 && remoteBookCount > 0)
-		selectLibraryMenu("library-menuitem-remote");
+		selectLibraryMenu("library-menuitem-remote")
+	    populateLibraryFilters();
 	}
     }
 };
@@ -710,6 +711,21 @@ function populateLocalBookList() {
 
 function populateRemoteBookList() {
     populateBookList(document.getElementById("library-content-remote"));
+}
+
+function populateLibraryFilters() {
+    var languages = library.getBooksLanguages();
+    var menu = document.getElementById("library-filter-language");
+
+    for(var index=0; index<languages.length; index++) {
+     if (languages[index].length > 0) {
+	var menuItem = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul",
+						"menuitem");
+	menuItem.setAttribute("value", languages[index]);
+	menuItem.setAttribute("label", _languagesHash[languages[index]] ? _languagesHash[languages[index]] : languages[index]);
+	menu.firstChild.insertBefore(menuItem, menu.firstChild.lastChild.nextSibling);
+    }
+}
 }
 
 function downloadRemoteBookList(populateRemoteBookList, resumeDownloads) {

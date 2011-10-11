@@ -352,12 +352,9 @@
 
 	    <label value="▾ Language"/>
 	    <box style="margin-left: 10px; font-size: smaller;" align="center">
-	      <menulist flex="1">
+	      <menulist id="library-filter-language" oncommand="populateBookList()" flex="1">
 		<menupopup>
 		  <menuitem label="All"/>
-		  <menuitem label="English"/>
-		  <menuitem label="Français"/>
-		  <menuitem label="Deutsch"/>
 		</menupopup>
 	      </menulist>
 	    </box>
