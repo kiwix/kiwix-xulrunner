@@ -9,6 +9,8 @@ libContentManager_la_SOURCES= \
 	$(top_srcdir)/src/common/kiwix/manager.cpp \
 	$(top_srcdir)/src/common/kiwix/reader.cpp \
 	$(top_srcdir)/src/common/base64.cpp \
+	$(top_srcdir)/src/common/pathTools.cpp \
+	$(top_srcdir)/src/common/regexTools.cpp \
 	IContentManager.h \
 	$(top_srcdir)/src/common/kiwix/library.h \
 	$(top_srcdir)/src/common/kiwix/manager.h \
@@ -16,7 +18,7 @@ libContentManager_la_SOURCES= \
 	$(top_srcdir)/src/pugixml/pugixml.hpp \
 	$(top_srcdir)/src/common/base64.h \
 	$(top_srcdir)/src/common/pathTools.h \
-	$(top_srcdir)/src/common/pathTools.cpp
+	$(top_srcdir)/src/common/regexTools.h
 libContentManager_la_CXXFLAGS=$(LIBXUL_CFLAGS) $(LIBZIM_CFLAGS) $(LIBPUGIXML_CFLAGS) $(XPCOM_CFLAGS) -D GECKO_VERSION=$(GECKO_VERSION) -I$(top_srcdir)/src/common/
 if IS_STATIC
 libContentManager_la_LDFLAGS=$(LIBXUL_LDFLAGS) $(LIBZIM_STATIC_LDFLAGS) $(LIBZIMSELF_STATIC_LDFLAGS) $(LIBPUGIXML_STATIC_LDFLAGS) $(LIBLZMA_STATIC_LDFLAGS) $(XPCOM_LDFLAGS)

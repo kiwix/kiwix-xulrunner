@@ -55,6 +55,7 @@
 
 #include <kiwix/manager.h>
 #include <pathTools.h>
+#include <regexTools.h>
 
 class ContentManager : public IContentManager {
 
@@ -308,12 +309,13 @@ NS_IMETHODIMP ContentManager::GetBookCount(const PRBool localBooks, const PRBool
 }
 
 NS_IMETHODIMP ContentManager::ListBooks(const nsACString &mode, const nsACString &sortBy, PRUint32 maxSize, 
-					const nsACString &language, const nsACString &publisher, PRBool *retVal) {
+					const nsACString &language, const nsACString &publisher, const nsACString &search, PRBool *retVal) {
   *retVal = PR_FALSE;
   const char *cmode; NS_CStringGetData(mode, &cmode);
   const char *csortBy; NS_CStringGetData(sortBy, &csortBy);
   const char *clanguage; NS_CStringGetData(language, &clanguage);
   const char *cpublisher; NS_CStringGetData(publisher, &cpublisher);
+  const char *csearch; NS_CStringGetData(search, &csearch);
 
   try {
 
@@ -339,7 +341,7 @@ NS_IMETHODIMP ContentManager::ListBooks(const nsACString &mode, const nsACString
       listSortBy = kiwix::TITLE;
     }
 
-    if (this->manager.listBooks(listMode, listSortBy, maxSize, clanguage, cpublisher)) {
+    if (this->manager.listBooks(listMode, listSortBy, maxSize, clanguage, cpublisher, csearch)) {
       *retVal = PR_TRUE;
     }
   } catch (exception &e) {

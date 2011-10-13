@@ -279,8 +279,8 @@ let library = {
 
     /* Prepare a list of books */
     /* mode = [lastOpen|remote|local] */
-    listBooks: function(mode, sortBy, maxSize, language, publisher) {
-    	this.contentManager.listBooks(mode, sortBy, maxSize, language, publisher);
+    listBooks: function(mode, sortBy, maxSize, language, publisher, search) {
+    	this.contentManager.listBooks(mode, sortBy, maxSize, language, publisher, search);
 	// Seems to be uselsess : this.writeToFile();
     },
 

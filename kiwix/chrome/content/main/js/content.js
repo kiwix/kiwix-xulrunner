@@ -678,7 +678,8 @@ function populateBookList(container) {
     var maxSize = getBookListContentMaxSize();
     var publisher = getBookListPublisherFilter();
     var language = getBookListLanguageFilter();
-    library.listBooks(mode, sortBy, maxSize, language, publisher);
+    var search = getBookListSearchFilter();
+    library.listBooks(mode, sortBy, maxSize, language, publisher, search);
 
     /* Go through all books */
     book = library.getNextBookInList();
@@ -908,4 +909,8 @@ function getBookListPublisherFilter() {
 
 function getBookListLanguageFilter() {
     return document.getElementById('library-filter-language').value;
+}
+
+function getBookListSearchFilter() {
+    return document.getElementById('library-filter-search').value;
 }

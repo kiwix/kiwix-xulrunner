@@ -327,7 +327,7 @@
 	  </richlistbox>
 	  <vbox class="library-filter" style="-moz-border-radius: 5px 5px 0px 0px; margin: 10px 10px 2px 10px;">
 	    <label value="Search ZIM files"/>
-	    <textbox />
+	    <textbox id="library-filter-search" oninput="populateBookList()"/>
 	  </vbox>
 	  <vbox class="library-filter" style="margin: 0px 10px 2px 10px;">
 	    <label value="Sort by"/>
