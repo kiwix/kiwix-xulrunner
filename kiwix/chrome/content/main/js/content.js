@@ -34,17 +34,24 @@ downloader.onmessage = function(event) {
 		populateRemoteBookList();
 		populateLibraryFilters();
 	    }
-
+	    
+	    /* If no local content but remote, change the default view */
+	    if (localBookCount == 0 && remoteBookCount > 0)
+		selectLibraryMenu("library-menuitem-remote")
+	    
 	    /* New content are available online */
 	    if (oldRemoteBookCount < remoteBookCount) {
 		
+		/* Save XML */
+		library.writeToFile();
+
 		/* First start - online*/
 		if (oldRemoteBookCount == 0) {
 		    if (displayConfirmDialog("They are new content available for download, do you want to see them?")) {
 			showRemoteBooks();
 		    }
 		}
-
+		
 		/* New content released online */
 		else {
 		    sendNotification(getProperty("information"), "They are new content available for download.");
