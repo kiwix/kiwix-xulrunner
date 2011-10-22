@@ -18,19 +18,38 @@ downloader.onmessage = function(event) {
 	if (xml == undefined || xml == "") {
 	    dump("Unable to download the Metalink...\n");
 	} else {
+	    /* Backup the 'old' number of available books */
 	    var oldRemoteBookCount = library.getRemoteBookCount();
+
+	    /* Load the remote library xml in content manager */
 	    library.readFromText(xml, false);
+
+	    /* Get count of local&remote books */
 	    var localBookCount = library.getLocalBookCount();
 	    var remoteBookCount = library.getRemoteBookCount();
-	    if (message.parameters[1])
+
+	    /* Populate the book list ? */
+	    var doPopulateRemoteBookList = message.parameters[1];
+	    if (doPopulateRemoteBookList) {
 		populateRemoteBookList();
-	    if (oldRemoteBookCount < remoteBookCount && 
-		displayConfirmDialog("They are new content available for download, do you want to see them?")) {
-		showRemoteBooks();
+		populateLibraryFilters();
 	    }
-	    if (localBookCount == 0 && remoteBookCount > 0)
-		selectLibraryMenu("library-menuitem-remote")
-	    populateLibraryFilters();
+
+	    /* New content are available online */
+	    if (oldRemoteBookCount < remoteBookCount) {
+		
+		/* First start - online*/
+		if (oldRemoteBookCount == 0) {
+		    if (displayConfirmDialog("They are new content available for download, do you want to see them?")) {
+			showRemoteBooks();
+		    }
+		}
+
+		/* New content released online */
+		else {
+		    sendNotification(getProperty("information"), "They are new content available for download.");
+		}
+	    }
 	}
     }
 };
@@ -747,8 +766,12 @@ function downloadRemoteBookList(populateRemoteBookList, resumeDownloads) {
     populateRemoteBookList = (populateRemoteBookList == undefined ? false : populateRemoteBookList);
     resumeDownloads = (resumeDownloads == undefined ? false : resumeDownloads);
 
-    var message = new WorkerMessage("downloadBookList", [ settings.libraryUrls() ], [ populateRemoteBookList, resumeDownloads ]);
-    downloader.postMessage(message);
+    var libraryUrls = settings.libraryUrls().split(';');
+    for(var index=0; index<libraryUrls.length; index++) {
+	var libraryUrl = libraryUrls[index];
+	var message = new WorkerMessage("downloadBookList", [ libraryUrl ], [ populateRemoteBookList, resumeDownloads ]);
+	downloader.postMessage(message);
+    }
 }
 
 function populateContentManager(populateRemoteBookList, resumeDownloads) {
