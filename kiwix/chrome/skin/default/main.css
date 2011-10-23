@@ -490,6 +490,7 @@ tab[selected="true"] label {
 
 .library-left {
     background: -moz-linear-gradient(left, #b8b5b0, #d2d2d2);
+    width: 280px;
 }
 
 .library-menu {
