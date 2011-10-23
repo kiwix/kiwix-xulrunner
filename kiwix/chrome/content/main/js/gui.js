@@ -1522,7 +1522,10 @@ function sendNotification(title, message, link) {
                                             link != undefined, link, listener, "");  
 	
     } catch(error) {
-	displayInfoDialog(title, message);
+        if (link)
+            message = message + "\n" + link;
+        
+	   displayInfoDialog(message   , title);
     }
 }
 

@@ -3,6 +3,7 @@ Kiwix 0.9 beta4
 * Fix regression, avoid restarting aria2 at program exit
 * New content manager search/filter feature (ID: 3390515)
 * Newly able to deal with more than one XML library feed
+* Fixed missing link on feedback notification on OSX no growl (ID: 3419105)
 
 Kiwix 0.9 beta3
 * Add for GNU/Linux Freedesktop managers the kiwix icon to ZIM files
