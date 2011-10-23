@@ -1,3 +1,22 @@
+/*
+ * Copyright 2011 Emmanuel Engelhart <kelson@kiwix.org>
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU  General Public License as published by
+ * the Free Software Foundation; either version 3 of the License, or
+ * any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+ * MA 02110-1301, USA.
+ */
+
 var _selectedLibraryContentItem = undefined;
 var aria2Client = new xmlrpc_client ("rpc", "localhost", "42042", "http");
 var aria2Process = null;
@@ -42,10 +61,10 @@ downloader.onmessage = function(event) {
 	    /* New content are available online */
 	    if (oldRemoteBookCount < remoteBookCount) {
 		
-		/* Save XML */
+		/* Save library (library.xml in the user profile) */
 		library.writeToFile();
 
-		/* First start - online*/
+		/* First start - online */
 		if (oldRemoteBookCount == 0) {
 		    if (displayConfirmDialog("They are new content available for download, do you want to see them?")) {
 			showRemoteBooks();
