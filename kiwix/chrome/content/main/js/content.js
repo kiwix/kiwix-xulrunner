@@ -117,6 +117,7 @@ function checkDownloader() {
 	try {
 	    var req = new XMLHttpRequest();
 	    req.open('GET', "http://localhost:42042/", false);
+	    req.timeout = 100;
 	    req.send(null);
 	} catch(error) {
 	    openPort = false;
