@@ -5,6 +5,7 @@ Kiwix 0.9 beta4
 * Newly able to deal with more than one XML library feed
 * Fixed missing link on feedback notification on OSX no growl (ID: 3419105)
 * Better kiwix-serve default loading if no welcome page is defined in ZIM (ID: 3417227)
+* Fixed Freezes on Windows 7 (ID: 3422838)
 
 Kiwix 0.9 beta3
 * Add for GNU/Linux Freedesktop managers the kiwix icon to ZIM files
