@@ -103,7 +103,11 @@ function addMetalink(id, metalinkContent) {
 }
 
 function isDownloaderRunning() {
-    return (aria2Process != null && aria2Process.exitValue < 0);
+    if (env.isWindows()) {
+	return (aria2Process != null);
+    } else {
+	return (aria2Process != null && aria2Process.exitValue < 0);
+    }
 }
 
 function checkDownloader() {
