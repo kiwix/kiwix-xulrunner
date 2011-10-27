@@ -232,6 +232,9 @@ function onStart() {
     try {
         Components.utils.import("resource://modules/library.jsm");
     } catch(e) { dump("Unable to import library: " + e.toString() + "\n");}
+    try {
+        Components.utils.import("resource://modules/libzimAccessor.jsm");
+    } catch(e) { dump("Unable to import libzimAccessor module: " + e.toString() + "\n"); libzimAccessor = null; }
 
     preInitUserInterface();
 
