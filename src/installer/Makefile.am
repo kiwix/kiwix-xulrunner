@@ -12,7 +12,8 @@ kiwix_install_SOURCES= \
 	../common/kiwix/reader.cpp \
 	../common/kiwix/library.cpp \
 	../common/kiwix/manager.cpp \
-	../common/regexTools.cpp
+	../common/regexTools.cpp \
+	../common/pathTools.cpp 
 include_HEADERS= \
 	../common/kiwix/xapian/myhtmlparse.h \
 	../common/kiwix/xapian/namedentities.h \
@@ -25,7 +26,8 @@ include_HEADERS= \
 	../common/kiwix/reader.h \
 	../common/kiwix/library.h \
 	../common/kiwix/manager.h \
-	../common/regexTools.h
+	../common/regexTools.h \
+	../common/pathTools.h 
 kiwix_install_CXXFLAGS=$(LIBXAPIAN_CFLAGS) $(LIBICU_CFLAGS) $(LIBPUGIXML_CFLAGS) -I../common/
 kiwix_install_LDFLAGS=$(LIBXAPIAN_LDFLAGS) $(LIBICU_LDFLAGS) $(LIBPUGIXML_LDFLAGS)
 kiwix_install_LDADD=../zimlib/src/libzim.la ../pugixml/libpugixml.la
