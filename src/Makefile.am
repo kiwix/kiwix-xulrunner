@@ -17,6 +17,7 @@ SUBDIRS = ${DEPENDENCES} \
 if IS_STATIC
 else
 SUBDIRS += indexer \
+	installer \
 	searcher
 endif
 endif
