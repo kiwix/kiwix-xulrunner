@@ -6,13 +6,15 @@ kiwix_manage_SOURCES= \
 	../common/kiwix/library.cpp \
 	../common/kiwix/reader.cpp \
 	../common/base64.cpp \
-	../common/regexTools.cpp
+	../common/regexTools.cpp \
+	../common/pathTools.cpp \
 include_HEADERS= \
 	../common/kiwix/manager.h \
 	../common/kiwix/library.h \
 	../common/kiwix/reader.h \
 	../common/base64.h \
-	../common/regexTools.h
+	../common/regexTools.h \
+	../common/pathTools.h 
 kiwix_manage_CXXFLAGS=$(LIBZIM_CFLAGS) -I../common/
 kiwix_manage_LDFLAGS=$(LIBZIM_LDFLAGS)
 kiwix_manage_LDADD=../zimlib/src/libzim.la ../pugixml/libpugixml.la
