@@ -55,6 +55,7 @@
 
 #include <kiwix/reader.h>
 #include <pathTools.h>
+#include <componentTools.h>
 
 class ZimAccessor : public IZimAccessor {
 
