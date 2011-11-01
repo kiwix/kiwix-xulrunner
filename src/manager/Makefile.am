@@ -16,5 +16,12 @@ include_HEADERS= \
 	../common/regexTools.h \
 	../common/pathTools.h 
 kiwix_manage_CXXFLAGS=$(LIBZIM_CFLAGS) $(LIBICU_CFLAGS) -I../common/
+if IS_STATIC
+kiwix_manage_LDFLAGS=$(LIBZIM_STATIC_LDFLAGS) $(LIBICU_STATIC_LDFLAGS)
+else
 kiwix_manage_LDFLAGS=$(LIBZIM_LDFLAGS) $(LIBICU_LDFLAGS)
 kiwix_manage_LDADD=../zimlib/src/libzim.la ../pugixml/libpugixml.la
+endif
+if IS_OSX
+kiwix_manage_LDFLAGS=$(LIBZIM_STATIC_LDFLAGS) $(LIBICU_STATIC_LDFLAGS)
+endif

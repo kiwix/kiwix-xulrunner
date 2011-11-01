@@ -36,7 +36,11 @@ UPDATE_DESKTOP = \
 		update-desktop-database; \
 	fi
 
+if IS_OSX
+bscript := ""
+else
 bscript := $(shell readlink -f ./build-kiwix-release.sh)
+endif
 
 if IS_OSX
 all-local: kiwix/components/xapianAccessor.dylib \

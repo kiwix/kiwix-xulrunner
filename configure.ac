@@ -380,6 +380,14 @@ AM_CONDITIONAL([IS_STATIC], [test "$IS_STATIC"])
 # default CXXFLAGS
 CXXFLAGS=${CFLAGS}
 
+# LIBUCI CFLAGS if not present
+if test [ ! "$LIBICU_CFLAGS" ]
+then
+    LIBICU_CFLAGS=`icu-config --cppflags-searchpath`
+    LIBICULDPATH="`icu-config --prefix`/lib"
+    LIBICU_STATIC_LDFLAGS="$LIBICULDPATH/libicui18n.a $LIBICULDPATH/libicuuc.a $LIBICULDPATH/libicuio.a $LIBICULDPATH/libicule.a $LIBICULDPATH/libiculx.a $LIBICULDPATH/libicutu.a $LIBICULDPATH/libicutest.a $LIBICULDPATH/libicudata.a"
+fi
+
 # libzim flags
 LIBZIM_CFLAGS=""
 LIBZIM_LDFLAGS="${LIBLZMA_LDFLAGS}"
