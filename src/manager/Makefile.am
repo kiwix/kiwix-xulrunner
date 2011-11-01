@@ -7,7 +7,7 @@ kiwix_manage_SOURCES= \
 	../common/kiwix/reader.cpp \
 	../common/base64.cpp \
 	../common/regexTools.cpp \
-	../common/pathTools.cpp \
+	../common/pathTools.cpp 
 include_HEADERS= \
 	../common/kiwix/manager.h \
 	../common/kiwix/library.h \
