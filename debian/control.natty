@@ -1,0 +1,58 @@
+Source: kiwix
+Section: misc
+Priority: optional
+Maintainer: Emmanuel Engelhart <kelson@kiwix.org>
+Build-Depends: binutils,
+	debhelper,
+	g++,
+	libxapian-dev,
+	libclucene-dev,
+	libicu-dev,
+	liblzma-dev,
+	xulrunner-1.9.2-dev,
+	aria2,
+	fastjar,
+	m4,
+	zlib1g-dev,
+	libmicrohttpd-dev,
+	libtool,
+	python-support
+Standards-Version: 0.9
+Homepage: http://www.kiwix.org/
+
+Package: kiwix
+Architecture: any
+Depends: debianutils, 
+	 ${misc:Depends},
+	 libicu44,
+	 libxapian22,
+	 libclucene0ldbl,
+	 xapian-tools,
+	 xulrunner-1.9.2,
+	 aria2,
+ 	 zlib1g,
+	 liblzma2,
+	 libmicrohttpd5
+Recommends: 
+Suggests: 
+Conflicts: 
+Replaces: 
+Provides: 
+Section: misc
+HomePage: http://www.kiwix.org
+Description: Wikipedia offline reader
+ Kiwix allows you to read and search through offline content
+ as they were online on the Web. Similar to a browser, Kiwix works with
+ the highly compressed ZIM file format.
+ .
+ Features:
+  * Pure ZIM file reader
+  * Case and diacritics insensitve full text search engine
+  * Bookmarks & Notes
+  * ZIM base HTTP server
+  * PDF/HTML export
+  * Localized
+  * Search suggestions
+  * ZIM file Index capacity
+  * Tabs navigation
+  * Content manager

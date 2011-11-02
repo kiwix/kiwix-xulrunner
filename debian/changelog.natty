@@ -1,4 +1,4 @@
-kiwix (0.9-beta4-0~maverick) maverick; urgency=low
+kiwix (0.9-beta4-0~natty) natty; urgency=low
 
   * Fix regression, menu "last open" where not working anymore
   * Fix regression, avoid restarting aria2 at program exit
@@ -11,7 +11,7 @@ kiwix (0.9-beta4-0~maverick) maverick; urgency=low
 
  -- Emmanuel Engelhart <kelson@kiwix.org>  Wed, 02 Nov 2011 14:00:00 +0200
 
-kiwix (0.9-beta3-0~maverick) maverick; urgency=low
+kiwix (0.9-beta3-0~natty) natty; urgency=low
 
   * Add for GNU/Linux Freedesktop managers the kiwix icon to ZIM files
   * Fixed issue in the library manager concerning ZIM files with accented paths
@@ -37,19 +37,19 @@ kiwix (0.9-beta3-0~maverick) maverick; urgency=low
 
  -- Emmanuel Engelhart <kelson@kiwix.org>  Wed, 28 Sep 2011 10:00:00 +0200
 
-kiwix (0.9-beta2-2~maverick) maverick; urgency=low
+kiwix (0.9-beta2-2~natty) natty; urgency=low
 
   * Fixed few points related to mouse left click
 
  -- Emmanuel Engelhart <kelson@kiwix.org>  Thu, 11 Aug 2011 19:00:00 +0200
 
-kiwix (0.9-beta2-1~maverick) maverick; urgency=low
+kiwix (0.9-beta2-1~natty) natty; urgency=low
 
   * Fixed a regression impacting javascript links
 
  -- Emmanuel Engelhart <kelson@kiwix.org>  Thu, 11 Aug 2011 16:00:00 +0200
 
-kiwix (0.9-beta2-0~maverick) maverick; urgency=low
+kiwix (0.9-beta2-0~natty) natty; urgency=low
 
   * Regression fix, tabs should not be visible per default
   * Fixed deprecated tmp.kiwix.org/zim links in help files (ID: 3376641)
@@ -78,7 +78,7 @@ kiwix (0.9-beta2-0~maverick) maverick; urgency=low
 
  -- Emmanuel Engelhart <kelson@kiwix.org>  Thu, 11 Aug 2011 11:00:00 +0200
 
-kiwix (0.9-beta1~maverick) maverick; urgency=low
+kiwix (0.9-beta1~natty) natty; urgency=low
 
   * Remove a hard coded path in kiwix-compact.sh (ID: 3135956)
   * Avoid the flickering during mouseover links after canceling the indexing
@@ -111,6 +111,7 @@ kiwix (0.9-alpha7.1) natty; urgency=low
  -- Emmanuel Engelhart <kelson@kiwix.org>  Mon, 22 Nov 2010 22:00:00 +0200
 
 kiwix (0.9-alpha7) natty; urgency=low
+
   * Fix the encoding issue in the help in Parsi (ID: 3060250)
   * Fix an URL parsing issue impacting title containing a '/' (ID: 3065286)
   * Add mouse thumb buttons back/forward support (ID: 3063304)
