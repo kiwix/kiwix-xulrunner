@@ -76,7 +76,8 @@ pref("network.dns.disablePrefetchFromHTTPS", true);
 pref("accessibility.typeaheadfind.flashBar", 1);
 
 /* Online library */
-pref("kiwix.libraryUrls", "http://www.kiwix.org/library.xml");
+//pref("kiwix.libraryUrls", "http://www.kiwix.org/library.xml");
+pref("kiwix.libraryUrls", "http://pediapress.com/files/zim/zim_feed.xml;http://www.kiwix.org/library.xml");
 
 /* Remove accept-encoding HTTP request header for aria2 xml-rpc for debugging purpose */
 //pref("network.http.accept-encoding", "gzip;q=0,deflate;q=0");

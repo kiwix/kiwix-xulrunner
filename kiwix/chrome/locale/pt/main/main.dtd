@@ -68,6 +68,7 @@
 <!-- Help menu -->
 <!ENTITY main.help                      "Ajuda">
 <!ENTITY main.help.accesskey            "A">
+<!ENTITY main.feedback                  "Feedback">
 <!ENTITY main.reportabug                "Reportar um erro">
 <!ENTITY main.requestafeature           "Solicitar recursos">
 <!ENTITY main.about                     "Sobre &brand.brandShortName;">

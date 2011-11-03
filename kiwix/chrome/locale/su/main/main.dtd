@@ -68,6 +68,7 @@
 <!-- Help menu -->
 <!ENTITY main.help                      "Pitulung">
 <!ENTITY main.help.accesskey            "H">
+<!ENTITY main.feedback                  "Feedback">
 <!ENTITY main.reportabug                "Laporkeun bug">
 <!ENTITY main.requestafeature           "Mundut fitur">
 <!ENTITY main.about                     "Ngeunaan &brand.brandShortName;">

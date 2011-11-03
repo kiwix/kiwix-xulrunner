@@ -68,6 +68,7 @@
 <!-- Help menu -->
 <!ENTITY main.help                      "مساعدة">
 <!ENTITY main.help.accesskey            "س">
+<!ENTITY main.feedback                  "Feedback">
 <!ENTITY main.reportabug                "بلغ عن علة">
 <!ENTITY main.requestafeature           "اطلب ميزة">
 <!ENTITY main.about                     "حول &#38;#38;شعار.اسم الشعار;">

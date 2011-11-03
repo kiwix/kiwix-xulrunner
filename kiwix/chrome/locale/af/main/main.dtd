@@ -68,6 +68,7 @@
 <!-- Help menu -->
 <!ENTITY main.help                      "Hulp">
 <!ENTITY main.help.accesskey            "H">
+<!ENTITY main.feedback                  "Feedback">
 <!ENTITY main.reportabug                "Rapporteer 'n fout">
 <!ENTITY main.requestafeature           "Vra vir nuwe funksionaliteit">
 <!ENTITY main.about                     "Oor &brand.brandShortName;">

@@ -68,6 +68,7 @@
 <!-- Help menu -->
 <!ENTITY main.help                      "Hjælp">
 <!ENTITY main.help.accesskey            "H">
+<!ENTITY main.feedback                  "Feedback">
 <!ENTITY main.reportabug                "Rapporter en fejl">
 <!ENTITY main.requestafeature           "Anmod om ny funktionalitet">
 <!ENTITY main.about                     "Om &brand.brandShortName;">

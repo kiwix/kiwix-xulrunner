@@ -68,6 +68,7 @@
 <!-- Help menu -->
 <!ENTITY main.help                      "Aiuto">
 <!ENTITY main.help.accesskey            "i">
+<!ENTITY main.feedback                  "Feedback">
 <!ENTITY main.reportabug                "Segnala un malfunzionamento">
 <!ENTITY main.requestafeature           "Richiedi una funzionalità">
 <!ENTITY main.about                     "Chi &brand.brandShortName;">

@@ -68,6 +68,7 @@
 <!-- Help menu -->
 <!ENTITY main.help                      "সাহায্য">
 <!ENTITY main.help.accesskey            "H">
+<!ENTITY main.feedback                  "Feedback">
 <!ENTITY main.reportabug                "বাগ রিপোর্ট করুন">
 <!ENTITY main.requestafeature           "সুবিধার অনুরোধ জানান">
 <!ENTITY main.about                     "&brand.brandShortName; সম্পর্কে">

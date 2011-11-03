@@ -68,6 +68,7 @@
 <!-- Help menu -->
 <!ENTITY main.help                      "Trợ giúp">
 <!ENTITY main.help.accesskey            "H">
+<!ENTITY main.feedback                  "Feedback">
 <!ENTITY main.reportabug                "Báo cáo Lỗi">
 <!ENTITY main.requestafeature           "Yêu cầu Tính năng">
 <!ENTITY main.about                     "Giới thiệu &brand.brandShortName;">

@@ -66,14 +66,14 @@ downloader.onmessage = function(event) {
 
 		/* First start - online */
 		if (oldRemoteBookCount == 0) {
-		    if (displayConfirmDialog("They are new content available for download, do you want to see them?")) {
+		    if (displayConfirmDialog(getProperty("newContentAvailableInvitation"))) {
 			showRemoteBooks();
 		    }
 		}
 		
 		/* New content released online */
 		else {
-		    sendNotification(getProperty("information"), "They are new content available for download.");
+		    sendNotification(getProperty("information"), getProperty("newContentAvailable"));
 		}
 	    }
 	}
@@ -312,7 +312,7 @@ function getDownloadStatus() {
 
 		/* Update download status lebel */
 		var downloadStatusLabel = document.getElementById("download-status-label-" + book.id);
-		var downloadStatusLabelString = "Preparing download...";
+		var downloadStatusLabelString = getProperty("preparingContentDownload");
 
 		/* Download started */
 		if (ariaDownloadCompleted > 0 || ariaDownloadSpeed > 0) {
@@ -339,10 +339,10 @@ function getDownloadStatus() {
 		    library.setBookPath(kiwixDownload.id, ariaDownloadPath);
 		    populateLocalBookList();
 		    populateRemoteBookList();
-		    settings.setDownloadProperty(kiwixDownload.id,  "id", "");
+		    settings.setDownloadProperty(kiwixDownload.id, "id", "");
 		    removeDownload(kiwixDownload.gid);
-    		    sendNotification(getProperty("information"), "Download of '" + book.title + "'is finished.");
-   		    sendNotification("Feedback", "Help us, why did you downloaded " + book.title, 
+  		    sendNotification(getProperty("information"), getProperty("contentDownloadFinished",  book.title));
+   		    sendNotification(getProperty("feedback"), "Help us! Why did you downloaded '" + book.title + "'?", 
 				     "http://input.kiwix.org/whycontent.html?version=" + book.url);
 		} else if (ariaDownloadStatus == "waiting") {
 		}
@@ -454,7 +454,7 @@ function configureLibraryContentItemVisuals(id, mode) {
 	var pauseButton = document.getElementById("pause-button-" + id);
 	pauseButton.setAttribute("style", "display: block;");
 	var downloadStatusLabel = document.getElementById("download-status-label-" + id);
-	downloadStatusLabel.setAttribute("value", "Preparing download...");
+	downloadStatusLabel.setAttribute("value", getProperty("preparingContentDownload"));
 	var detailsDeck = document.getElementById("download-deck-" + id);
 	detailsDeck.setAttribute("selectedIndex", "1");
     } else if (mode == "online") {

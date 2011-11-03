@@ -68,6 +68,7 @@
 <!-- Help menu -->
 <!ENTITY main.help                      "Справка">
 <!ENTITY main.help.accesskey            "H">
+<!ENTITY main.feedback                  "Feedback">
 <!ENTITY main.reportabug                "Сообщить об ошибке">
 <!ENTITY main.requestafeature           "Запросить функцию">
 <!ENTITY main.about                     "О & brand.brandShortName;">

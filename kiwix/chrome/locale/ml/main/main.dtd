@@ -68,6 +68,7 @@
 <!-- Help menu -->
 <!ENTITY main.help                      "സഹായം">
 <!ENTITY main.help.accesskey            "സ">
+<!ENTITY main.feedback                  "Feedback">
 <!ENTITY main.reportabug                "പിഴവു് ചൂണ്ടിക്കാണിയ്ക്കുക">
 <!ENTITY main.requestafeature           "പരിഷ്കാരങ്ങള്‍ നിര്‍ദ്ദേശിക്കുക">
 <!ENTITY main.about                     "&brand.brandShortName;നെ പറ്റി">

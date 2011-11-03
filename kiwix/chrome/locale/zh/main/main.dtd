@@ -68,6 +68,7 @@
 <!-- Help menu -->
 <!ENTITY main.help                      "帮助">
 <!ENTITY main.help.accesskey            "H">
+<!ENTITY main.feedback                  "Feedback">
 <!ENTITY main.reportabug                "报告bug">
 <!ENTITY main.requestafeature           "新功能要求">
 <!ENTITY main.about                     "关于中文维基">

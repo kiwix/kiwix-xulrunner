@@ -68,6 +68,7 @@
 <!-- Help menu -->
 <!ENTITY main.help                      "Palīdzība">
 <!ENTITY main.help.accesskey            "H">
+<!ENTITY main.feedback                  "Feedback">
 <!ENTITY main.reportabug                "Ziņot par kļūdu">
 <!ENTITY main.requestafeature           "Pieprasīt funkciju">
 <!ENTITY main.about                     "Par &brand.brandShortName;">

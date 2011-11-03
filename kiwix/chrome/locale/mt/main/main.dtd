@@ -68,6 +68,7 @@
 <!-- Help menu -->
 <!ENTITY main.help                      "Għajnuna">
 <!ENTITY main.help.accesskey            "H">
+<!ENTITY main.feedback                  "Feedback">
 <!ENTITY main.reportabug                "Irrapporta xi problema">
 <!ENTITY main.requestafeature           "Itlob funzjoni ġdida">
 <!ENTITY main.about                     "Dwar &brand.brandShortName;">

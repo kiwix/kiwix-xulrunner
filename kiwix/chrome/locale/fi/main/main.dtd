@@ -68,6 +68,7 @@
 <!-- Help menu -->
 <!ENTITY main.help                      "Ohje">
 <!ENTITY main.help.accesskey            "H">
+<!ENTITY main.feedback                  "Feedback">
 <!ENTITY main.reportabug                "Ilmoita virheestä">
 <!ENTITY main.requestafeature           "Ehdota ominaisuutta">
 <!ENTITY main.about                     "Tietoja sovelluksesta &brand.brandShortName;">

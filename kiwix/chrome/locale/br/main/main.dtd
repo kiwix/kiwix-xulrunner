@@ -68,6 +68,7 @@
 <!-- Help menu -->
 <!ENTITY main.help                      "Skoazell">
 <!ENTITY main.help.accesskey            "H">
+<!ENTITY main.feedback                  "Feedback">
 <!ENTITY main.reportabug                "Kas keloù diwar-benn un draen">
 <!ENTITY main.requestafeature           "Goulenn ur perzh nevez">
 <!ENTITY main.about                     "Diwar-benn &brand.brandShortName;">

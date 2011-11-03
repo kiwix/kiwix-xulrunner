@@ -68,6 +68,7 @@
 <!-- Help menu -->
 <!ENTITY main.help                      "Ajutor">
 <!ENTITY main.help.accesskey            "H">
+<!ENTITY main.feedback                  "Feedback">
 <!ENTITY main.reportabug                "Raportați o eroare">
 <!ENTITY main.requestafeature           "Solicitați o funcționalitate">
 <!ENTITY main.about                     "Despre &brand.brandShortName;">
