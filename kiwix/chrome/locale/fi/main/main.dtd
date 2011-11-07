@@ -6,6 +6,8 @@
 <!ENTITY main.file                      "Tiedosto">
 <!ENTITY main.file.accesskey            "F">
 <!ENTITY main.openFile                  "Avaa tiedosto...">
+<!ENTITY main.browseLibrary.accesskey   "B">
+<!ENTITY main.browseLibrary             "Browse library">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "Hiljattain avatut...">
 <!ENTITY main.saveFile                  "Tallenna sivu nimellä...">
@@ -99,6 +101,8 @@
 
 <!-- Contextual Menu -->
 <!ENTITY main.saveImageAs               "Tallenna kuva nimellä...">
+<!ENTITY main.openLinkInNewTab          "Open Link in New Tab">
+<!ENTITY main.searchFor                 "Search for">
 
 <!-- About Window -->
 <!ENTITY main.close           		"Sulje">

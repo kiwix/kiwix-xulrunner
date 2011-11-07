@@ -6,6 +6,8 @@
 <!ENTITY main.file                      "Fail">
 <!ENTITY main.file.accesskey            "F">
 <!ENTITY main.openFile                  "Buka fail...">
+<!ENTITY main.browseLibrary.accesskey   "B">
+<!ENTITY main.browseLibrary             "Browse library">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "Baru dibuka">
 <!ENTITY main.saveFile                  "Simpan halaman sebagai...">
@@ -99,6 +101,8 @@
 
 <!-- Contextual Menu -->
 <!ENTITY main.saveImageAs               "Simpan imej sebagai...">
+<!ENTITY main.openLinkInNewTab          "Open Link in New Tab">
+<!ENTITY main.searchFor                 "Search for">
 
 <!-- About Window -->
 <!ENTITY main.close           		"Tutup">

@@ -6,6 +6,8 @@
 <!ENTITY main.file                      "แฟ้ม">
 <!ENTITY main.file.accesskey            "F">
 <!ENTITY main.openFile                  "เปิดแฟ้ม...">
+<!ENTITY main.browseLibrary.accesskey   "B">
+<!ENTITY main.browseLibrary             "Browse library">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "เปิดล่าสุด...">
 <!ENTITY main.saveFile                  "บันทึกหน้าเป็น...">
@@ -99,6 +101,8 @@
 
 <!-- Contextual Menu -->
 <!ENTITY main.saveImageAs               "บันทึกภาพเป็น...">
+<!ENTITY main.openLinkInNewTab          "Open Link in New Tab">
+<!ENTITY main.searchFor                 "Search for">
 
 <!-- About Window -->
 <!ENTITY main.close           		"ปิด">

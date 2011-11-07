@@ -6,6 +6,8 @@
 <!ENTITY main.file                      "Tập tin">
 <!ENTITY main.file.accesskey            "F">
 <!ENTITY main.openFile                  "Mở Tập tin…">
+<!ENTITY main.browseLibrary.accesskey   "B">
+<!ENTITY main.browseLibrary             "Browse library">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "Mở Gần đây…">
 <!ENTITY main.saveFile                  "Lưu Trang Như…">
@@ -99,6 +101,8 @@
 
 <!-- Contextual Menu -->
 <!ENTITY main.saveImageAs               "Lưu Hình Như…">
+<!ENTITY main.openLinkInNewTab          "Open Link in New Tab">
+<!ENTITY main.searchFor                 "Search for">
 
 <!-- About Window -->
 <!ENTITY main.close           		"Đóng">

@@ -6,6 +6,8 @@
 <!ENTITY main.file                      "Berkas">
 <!ENTITY main.file.accesskey            "F">
 <!ENTITY main.openFile                  "Buka berkas...">
+<!ENTITY main.browseLibrary.accesskey   "B">
+<!ENTITY main.browseLibrary             "Browse library">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "Anyar dimuka...">
 <!ENTITY main.saveFile                  "Simpen kaca salaku...">
@@ -99,6 +101,8 @@
 
 <!-- Contextual Menu -->
 <!ENTITY main.saveImageAs               "Simpen gambar salaku...">
+<!ENTITY main.openLinkInNewTab          "Open Link in New Tab">
+<!ENTITY main.searchFor                 "Search for">
 
 <!-- About Window -->
 <!ENTITY main.close           		"Tutup">

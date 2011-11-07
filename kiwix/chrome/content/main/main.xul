@@ -21,8 +21,8 @@
 <menubar id="menu-bar"> 
   <menu id="menu-file" label="&main.file;" accesskey="&main.file.accesskey;">
     <menupopup id="file-popup">
-      <menuitem id="file-browse-library" label="Browse library" class="menuitem-iconic"
-		oncommand="toggleLibrary(true);"/>
+      <menuitem id="file-browse-library" label="&main.browseLibrary;" class="menuitem-iconic"
+		accesskey="&main.browseLibrary.accesskey;" oncommand="toggleLibrary(true);"/>
       <menuitem id="file-open" label="&main.openFile;" key="open-file-key" class="menuitem-iconic"
 		accesskey="&main.openFile.accesskey;" oncommand="manageOpenFile()"/>
       <menu label="&main.lastOpen;" id="menu-lastopen-top">
@@ -185,10 +185,10 @@
 <!-- Contextual menu (should be implemented after menubar otherwise generate a 1 pixel big space between windows decoration and menubar) -->
 <menupopup id="browser-contextual-menu">
   <menuitem label="&main.saveImageAs;" id="browser-contextual-menu-saveimageas"/>
-  <menuitem label="Open Link in New Tab" id="browser-contextual-menu-openlinkinnewtab"/>
-  <menuitem label="Copy" id="browser-contextual-menu-copyselectedtext"/>
-  <menuitem label="Select all" id="browser-contextual-menu-selectall" onclick="selectAll()"/>
-  <menuitem label="Search for" id="browser-contextual-menu-searchfor"/>
+  <menuitem label="&main.openLinkInNewTab;" id="browser-contextual-menu-openlinkinnewtab"/>
+  <menuitem label="&main.copy;" id="browser-contextual-menu-copyselectedtext"/>
+  <menuitem label="&main.selectall;" id="browser-contextual-menu-selectall" onclick="selectAll()"/>
+  <menuitem label="&main.searchFor;" id="browser-contextual-menu-searchfor"/>
 </menupopup>
 
 <menupopup id="sugar-options-menu">

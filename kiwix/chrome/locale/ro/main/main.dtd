@@ -6,6 +6,8 @@
 <!ENTITY main.file                      "Fișier">
 <!ENTITY main.file.accesskey            "F">
 <!ENTITY main.openFile                  "Deschide fișierul ...">
+<!ENTITY main.browseLibrary.accesskey   "B">
+<!ENTITY main.browseLibrary             "Browse library">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "Deschise recent...">
 <!ENTITY main.saveFile                  "Salvează pagina ca...">
@@ -99,6 +101,8 @@
 
 <!-- Contextual Menu -->
 <!ENTITY main.saveImageAs               "Salvează imaginea ca...">
+<!ENTITY main.openLinkInNewTab          "Open Link in New Tab">
+<!ENTITY main.searchFor                 "Search for">
 
 <!-- About Window -->
 <!ENTITY main.close           		"Închide">

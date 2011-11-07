@@ -6,6 +6,8 @@
 <!ENTITY main.file                      "Податотека">
 <!ENTITY main.file.accesskey            "F">
 <!ENTITY main.openFile                  "Отвори податотека...">
+<!ENTITY main.browseLibrary.accesskey   "B">
+<!ENTITY main.browseLibrary             "Browse library">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "Неодамна отворени...">
 <!ENTITY main.saveFile                  "Зачувај ја страницата како...">
@@ -99,6 +101,8 @@
 
 <!-- Contextual Menu -->
 <!ENTITY main.saveImageAs               "Зачувај ја сликата како...">
+<!ENTITY main.openLinkInNewTab          "Open Link in New Tab">
+<!ENTITY main.searchFor                 "Search for">
 
 <!-- About Window -->
 <!ENTITY main.close           		"Затвори">

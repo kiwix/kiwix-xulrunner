@@ -6,6 +6,8 @@
 <!ENTITY main.file                      "ملف">
 <!ENTITY main.file.accesskey            "م">
 <!ENTITY main.openFile                  "افتح ملفا...">
+<!ENTITY main.browseLibrary.accesskey   "B">
+<!ENTITY main.browseLibrary             "Browse library">
 <!ENTITY main.openFile.accesskey        "ف">
 <!ENTITY main.lastOpen                  "المفتوح مؤخراً...">
 <!ENTITY main.saveFile                  "حفظ الصفحة ك...">
@@ -99,6 +101,8 @@
 
 <!-- Contextual Menu -->
 <!ENTITY main.saveImageAs               "احفظ الصورة ك...">
+<!ENTITY main.openLinkInNewTab          "Open Link in New Tab">
+<!ENTITY main.searchFor                 "Search for">
 
 <!-- About Window -->
 <!ENTITY main.close           		"أغلق">

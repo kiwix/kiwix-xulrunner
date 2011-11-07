@@ -6,6 +6,8 @@
 <!ENTITY main.file                      "Fajl">
 <!ENTITY main.file.accesskey            "F">
 <!ENTITY main.openFile                  "Iftaħ il-fajl...">
+<!ENTITY main.browseLibrary.accesskey   "B">
+<!ENTITY main.browseLibrary             "Browse library">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "Miftuħin riċentament...">
 <!ENTITY main.saveFile                  "Salva l-paġna bħala...">
@@ -99,6 +101,8 @@
 
 <!-- Contextual Menu -->
 <!ENTITY main.saveImageAs               "Salva l-istampa bħala...">
+<!ENTITY main.openLinkInNewTab          "Open Link in New Tab">
+<!ENTITY main.searchFor                 "Search for">
 
 <!-- About Window -->
 <!ENTITY main.close           		"Agħlaq">

@@ -6,6 +6,8 @@
 <!ENTITY main.file                      "Restr">
 <!ENTITY main.file.accesskey            "F">
 <!ENTITY main.openFile                  "Digeriñ ur restr...">
+<!ENTITY main.browseLibrary.accesskey   "B">
+<!ENTITY main.browseLibrary             "Browse library">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "Digoret n'eus ket pell...">
 <!ENTITY main.saveFile                  "Enrollañ ar bajenn evel...">
@@ -99,6 +101,8 @@
 
 <!-- Contextual Menu -->
 <!ENTITY main.saveImageAs               "Enrollañ ar skeudenn evel...">
+<!ENTITY main.openLinkInNewTab          "Open Link in New Tab">
+<!ENTITY main.searchFor                 "Search for">
 
 <!-- About Window -->
 <!ENTITY main.close           		"Serriñ">

@@ -6,6 +6,8 @@
 <!ENTITY main.file                      "文件">
 <!ENTITY main.file.accesskey            "F">
 <!ENTITY main.openFile                  "打开文件...">
+<!ENTITY main.browseLibrary.accesskey   "B">
+<!ENTITY main.browseLibrary             "Browse library">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "最近打开文件...">
 <!ENTITY main.saveFile                  "页面保存为...">
@@ -99,6 +101,8 @@
 
 <!-- Contextual Menu -->
 <!ENTITY main.saveImageAs               "图片另存为...">
+<!ENTITY main.openLinkInNewTab          "Open Link in New Tab">
+<!ENTITY main.searchFor                 "Search for">
 
 <!-- About Window -->
 <!ENTITY main.close           		"关闭">

@@ -6,6 +6,8 @@
 <!ENTITY main.file                      "Fájl">
 <!ENTITY main.file.accesskey            "F">
 <!ENTITY main.openFile                  "Fájl megnyitása...">
+<!ENTITY main.browseLibrary.accesskey   "B">
+<!ENTITY main.browseLibrary             "Browse library">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "Legutóbb megnyitott...">
 <!ENTITY main.saveFile                  "Oldal mentése másként...">
@@ -99,6 +101,8 @@
 
 <!-- Contextual Menu -->
 <!ENTITY main.saveImageAs               "Kép mentése másként...">
+<!ENTITY main.openLinkInNewTab          "Open Link in New Tab">
+<!ENTITY main.searchFor                 "Search for">
 
 <!-- About Window -->
 <!ENTITY main.close           		"Bezárás">

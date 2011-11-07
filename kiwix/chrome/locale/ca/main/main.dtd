@@ -6,6 +6,8 @@
 <!ENTITY main.file                      "Fitxer">
 <!ENTITY main.file.accesskey            "F">
 <!ENTITY main.openFile                  "Obre...">
+<!ENTITY main.browseLibrary.accesskey   "B">
+<!ENTITY main.browseLibrary             "Browse library">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "Oberts recentment...">
 <!ENTITY main.saveFile                  "Desa pàgina com a...">
@@ -99,6 +101,8 @@
 
 <!-- Contextual Menu -->
 <!ENTITY main.saveImageAs               "Desa imatge com a...">
+<!ENTITY main.openLinkInNewTab          "Open Link in New Tab">
+<!ENTITY main.searchFor                 "Search for">
 
 <!-- About Window -->
 <!ENTITY main.close           		"Close">

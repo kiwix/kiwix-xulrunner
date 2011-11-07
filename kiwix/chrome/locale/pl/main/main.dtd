@@ -6,6 +6,8 @@
 <!ENTITY main.file                      "Plik">
 <!ENTITY main.file.accesskey            "P">
 <!ENTITY main.openFile                  "Otwórz plik...">
+<!ENTITY main.browseLibrary.accesskey   "B">
+<!ENTITY main.browseLibrary             "Browse library">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "Ostatnio otwierane...">
 <!ENTITY main.saveFile                  "Zapisz stronę jako...">
@@ -99,6 +101,8 @@
 
 <!-- Contextual Menu -->
 <!ENTITY main.saveImageAs               "Zapisz obrazek jako...">
+<!ENTITY main.openLinkInNewTab          "Open Link in New Tab">
+<!ENTITY main.searchFor                 "Search for">
 
 <!-- About Window -->
 <!ENTITY main.close           		"Zamknij">

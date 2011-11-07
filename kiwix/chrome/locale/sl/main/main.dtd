@@ -6,6 +6,8 @@
 <!ENTITY main.file                      "Datoteka">
 <!ENTITY main.file.accesskey            "F">
 <!ENTITY main.openFile                  "Odpri datoteko ...">
+<!ENTITY main.browseLibrary.accesskey   "B">
+<!ENTITY main.browseLibrary             "Browse library">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "Nedavno odprto ...">
 <!ENTITY main.saveFile                  "Shrani stran kot ...">
@@ -99,6 +101,8 @@
 
 <!-- Contextual Menu -->
 <!ENTITY main.saveImageAs               "Shrani sliko kot ...">
+<!ENTITY main.openLinkInNewTab          "Open Link in New Tab">
+<!ENTITY main.searchFor                 "Search for">
 
 <!-- About Window -->
 <!ENTITY main.close           		"Zapri">

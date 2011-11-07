@@ -6,6 +6,8 @@
 <!ENTITY main.file                      "ഫയല്‍">
 <!ENTITY main.file.accesskey            "ഫ">
 <!ENTITY main.openFile                  "ഫയല്‍ തുറക്കുക...">
+<!ENTITY main.browseLibrary.accesskey   "B">
+<!ENTITY main.browseLibrary             "Browse library">
 <!ENTITY main.openFile.accesskey        "ത">
 <!ENTITY main.lastOpen                  "ഈയിടെ തുറന്നതു്...">
 <!ENTITY main.saveFile                  "താള്‍ സൂക്ഷിക്കുക...">
@@ -99,6 +101,8 @@
 
 <!-- Contextual Menu -->
 <!ENTITY main.saveImageAs               "ചിത്രം സൂക്ഷിക്കുക...">
+<!ENTITY main.openLinkInNewTab          "Open Link in New Tab">
+<!ENTITY main.searchFor                 "Search for">
 
 <!-- About Window -->
 <!ENTITY main.close           		"അടയ്ക്കുക">
