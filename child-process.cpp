@@ -8,22 +8,22 @@
 using namespace std;
 
 int main(int argc, char* argv[]) {
-  if (argc<1) {
+  if (argc<2) {
     cerr << "Usage: child-process PPID" << endl;
     return 1;
   }
 
-  unsigned int PPID = atoi(argv[0]);
+  unsigned int PPID = atoi(argv[1]);
   cout << "child-process: PPID is " << PPID << endl; 
 
-  string procPath = "/proc/" + string(argv[0]);
+  string procPath = "/proc/" + string(argv[1]);
   bool waiting = true;
   do {
     if (access(procPath.c_str(), F_OK) != -1) {
-      cout << "child-process: PPID " << argv[0] << " is running" << endl;
+      cout << "child-process: PPID " << argv[1] << " is running" << endl;
       sleep(1);
     } else {
-      cout << "child-process: PPID " << argv[0] << " is NOT running" << endl;
+      cout << "child-process: PPID " << argv[1] << " is NOT running" << endl;
       waiting = false;
     }
   } while (waiting);

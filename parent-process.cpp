@@ -45,7 +45,7 @@ int main(int argc, char** argv) {
     return 1;
     break;
   case 0: /* This is the child process */
-    if (execl(childBinaryPath.c_str(), PIDStr, NULL) == -1) {
+    if (execl(childBinaryPath.c_str(), childBinaryPath.c_str(), PIDStr, NULL) == -1) {
       cerr << "parent-process: unable to start child-process from path " << childBinaryPath << endl;
       return 1;
     }
