@@ -105,7 +105,7 @@
 		key="help-key" accesskey="&main.help.accesskey;" oncommand="showHelp(undefined, true)"/>
       <menuseparator/>
       <menuitem id="help-feedback" label="&main.feedback;" class="menuitem-iconic" 
-		oncommand="openUrlWithExternalBrowser('http://input.kiwix.org/feedback.html?version=0.9-beta4')"/>
+		oncommand="openUrlWithExternalBrowser('http://input.kiwix.org/feedback.html?version=0.9-beta5')"/>
       <menuitem id="help-reportabug" label="&main.reportabug;" class="menuitem-iconic" 
 		oncommand="openUrlWithExternalBrowser('http://reportabug.kiwix.org')"/>
       <menuitem id="help-requestafeature" label="&main.requestafeature;" class="menuitem-iconic" 
