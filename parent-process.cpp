@@ -32,7 +32,11 @@ using namespace std;
 
 int main(int argc, char** argv) {
   unsigned int delay = 10;
+#ifdef _WIN32
   string childBinaryPath = "child-process.exe";
+#else
+  string childBinaryPath = "child-process";
+#endif
 
   /* Get PPID */
 #ifdef _WIN32
