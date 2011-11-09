@@ -20,17 +20,36 @@
 #include <string>
 #include <iostream>
 #include <sys/types.h>
-#include <unistd.h>
 #include <stdio.h>
+
+#ifdef _WIN32
+#include <Windows.h>
+#using <System.dll>
+using namespace System;
+using namespace System::Diagnostics;
+using namespace System::ComponentModel;
+#else
+#include <unistd.h>
+#endif
 
 using namespace std;
 
 int main(int argc, char** argv) {
   unsigned int delay = 10;
+
+#ifdef _WIN32
+  string childBinaryPath = "child-process.exe";
+  System::String^ childBinaryPathSystem = "child-process.exe";
+#else
   string childBinaryPath="child-process";
+#endif
 
   /* Get PPID */
+#ifdef _WIN32
+  int PID = GetCurrentProcessId();
+#else
   pid_t PID = getpid(); 
+#endif
   cout << "parent-process: PID is " << PID << endl;
 
   /* Launch child-process */
@@ -38,6 +57,14 @@ int main(int argc, char** argv) {
   sprintf(PIDStr, "%d", PID);
   cout << "parent-process: launching child-process from path " << childBinaryPath << "..."<< endl;
 
+#ifdef _WIN32
+  try {
+    Process::Start(childBinaryPathSystem, " 4242");
+  } catch (...) {
+      cerr << "parent-process: unable to start child-process from path " << childBinaryPath << endl;
+      return 1;
+  }
+#else
   PID = fork();
   switch (PID) {
   case -1:
@@ -56,12 +83,17 @@ int main(int argc, char** argv) {
     cout << "parent-process: child-process PID is " << PID << endl;
     break;
   }
+#endif
 
   /* Start countdown */
   cout << "parent-process: countdown started..." << endl;
   do {
     cout << "parent-process:" << delay << endl;
+#ifdef _WIN32
+    Sleep(1000);
+#else
     sleep(1);
+#endif
   } while (delay-- > 0);
 
   /* Exit, child-process should also exit consequently */
