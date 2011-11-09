@@ -52,8 +52,14 @@ int main(int argc, char** argv) {
   STARTUPINFO startInfo = {0};
   PROCESS_INFORMATION procInfo;
   startInfo.cb = sizeof(startInfo);
+
+  /* Code to avoid console window creation
   if(CreateProcess(childBinaryPath.c_str(), _strdup(commandLine.c_str()), NULL, NULL, FALSE, 
 		   CREATE_NO_WINDOW, NULL, NULL, &startInfo, &procInfo)) {
+   */
+
+  if(CreateProcess(childBinaryPath.c_str(), _strdup(commandLine.c_str()), NULL, NULL, FALSE, 
+		   CREATE_NEW_CONSOLE, NULL, NULL, &startInfo, &procInfo)) {
     CloseHandle(procInfo.hProcess);
     CloseHandle(procInfo.hThread);
   } else {
