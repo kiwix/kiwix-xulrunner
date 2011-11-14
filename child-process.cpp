@@ -46,10 +46,15 @@ int main(int argc, char* argv[]) {
     CloseHandle(process);
     if (ret == WAIT_TIMEOUT) {
       Sleep(1000);
+#elif __APPLE__
+    const string PNAME = "parent-process";
+    string procPath = "/usr/bin/killall -s " + PNAME + " &> /dev/null";
+    if (system(procPath.c_str()) == 0) {
+      sleep(1);
 #else
     string procPath = "/proc/" + string(PPIDString);
     if (access(procPath.c_str(), F_OK) != -1) {
-      sleep(1);
+     sleep(1);
 #endif
       cout << "child-process: PPID " << PPIDString << " is running" << endl;
     } else {
