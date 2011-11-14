@@ -22,6 +22,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#ifdef __APPLE__
+#import <sys/types.h>
+#import <sys/sysctl.h>
+#define MIBSIZE 4
+#endif
+
 #ifdef _WIN32
 #include <Windows.h>
 #endif
@@ -47,9 +53,17 @@ int main(int argc, char* argv[]) {
     if (ret == WAIT_TIMEOUT) {
       Sleep(1000);
 #elif __APPLE__
-    const string PNAME = "parent-process";
-    string procPath = "/usr/bin/killall -s " + PNAME + " &> /dev/null";
-    if (system(procPath.c_str()) == 0) {
+    int mib[MIBSIZE];
+    struct kinfo_proc kp;
+    size_t len = sizeof(kp);
+    
+    mib[0]=CTL_KERN;
+    mib[1]=KERN_PROC;
+    mib[2]=KERN_PROC_PID;
+    mib[3]=PPID;
+
+    int ret = sysctl(mib, MIBSIZE, &kp, &len, NULL, 0);
+    if (ret != -1 && len > 0) {
       sleep(1);
 #else
     string procPath = "/proc/" + string(PPIDString);
