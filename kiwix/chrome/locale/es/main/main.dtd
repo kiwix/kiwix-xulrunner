@@ -5,14 +5,14 @@
 <!-- File menu -->
 <!ENTITY main.file                      "Archivo">
 <!ENTITY main.file.accesskey            "A">
-<!ENTITY main.openFile                  "Abrir archivo...">
+<!ENTITY main.openFile                  "Abrir archivo…">
 <!ENTITY main.browseLibrary.accesskey   "B">
 <!ENTITY main.browseLibrary             "Browse library">
 <!ENTITY main.openFile.accesskey        "A">
-<!ENTITY main.lastOpen                  "Abiertos recientemente...">
-<!ENTITY main.saveFile                  "Guardar página como...">
+<!ENTITY main.lastOpen                  "Abiertos recientemente…">
+<!ENTITY main.saveFile                  "Guardar página como…">
 <!ENTITY main.saveFile.accesskey        "S">
-<!ENTITY main.print                     "Imprimir...">
+<!ENTITY main.print                     "Imprimir…">
 <!ENTITY main.print.accesskey           "I">
 <!ENTITY main.printPdf                  "Imprimir en formato PDF">
 <!ENTITY main.printPdf.accesskey        "D">
@@ -22,7 +22,7 @@
 <!-- Edit menu -->
 <!ENTITY main.edit                      "Editar">
 <!ENTITY main.edit.accesskey            "E">
-<!ENTITY main.find                      "Buscar en la página...">
+<!ENTITY main.find                      "Buscar en la página…">
 <!ENTITY main.find.accesskey            "u">
 <!ENTITY main.selectall                 "Seleccionar todo">
 <!ENTITY main.selectall.accesskey       "a">
@@ -34,15 +34,15 @@
 <!ENTITY main.preferences.accesskey     "n">
 
 <!-- Display menu -->
-<!ENTITY main.display                   "Pantalla">
+<!ENTITY main.display                   "Mostrar">
 <!ENTITY main.display.accesskey         "P">
-<!ENTITY main.zoom                      "Zoom">
+<!ENTITY main.zoom                      "Ampliación">
 <!ENTITY main.zoom.accesskey            "Z">
 <!ENTITY main.zoomin                    "Ampliar">
 <!ENTITY main.zoomin.accesskey          "u">
 <!ENTITY main.zoomout                   "Reducir">
 <!ENTITY main.zoomout.accesskey         "D">
-<!ENTITY main.zoomorig                  "Normal">
+<!ENTITY main.zoomorig                  "Tamaño original">
 <!ENTITY main.zoomorig.accesskey        "N">
 <!ENTITY main.language                  "Idioma">
 <!ENTITY main.language.accesskey        "I">
@@ -100,7 +100,7 @@
 <!ENTITY main.defaultset                "Conjunto predeterminado">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveImageAs               "Guardar imagen como...">
+<!ENTITY main.saveImageAs               "Guardar imagen como…">
 <!ENTITY main.openLinkInNewTab          "Open Link in New Tab">
 <!ENTITY main.searchFor                 "Search for">
 
@@ -113,4 +113,5 @@
 <!ENTITY preferences.cancel     	"Cancel">
 <!ENTITY preferences.profileDirectory  	"Profile directory">
 <!ENTITY preferences.browse  	        "Browse">
+<!ENTITY preferences.tabs			"Remember tabs">
 
