@@ -74,6 +74,7 @@ function loadRandomArticle() {
 	if (url.value != undefined && url.value != '')
 	    url.value = "zim://" + url.value;	
 	
+	toggleLibrary(false);
 	loadContent(url.value);
 	activateBackButton();
     }
