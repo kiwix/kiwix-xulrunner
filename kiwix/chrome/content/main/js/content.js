@@ -769,7 +769,7 @@ function populateRemoteBookList() {
 function populateLibraryFilters() {
     var languages = library.getBooksLanguages();
     var languageMenu = document.getElementById('library-filter-language');
-    languageMenu.innerHTML = '';
+    while (languageMenu.firstChild.childNodes.length>1) { languageMenu.firstChild.removeChild(languageMenu.firstChild.lastChild); }
     var tmpHash = new Array();
 
     for(var index=0; index<languages.length; index++) {
@@ -786,7 +786,7 @@ function populateLibraryFilters() {
     
     var publishers = library.getBooksPublishers();
     var publisherMenu = document.getElementById('library-filter-publisher');
-    publisherMenu.innerHTML = '';
+    while (publisherMenu.firstChild.childNodes.length>1) { publisherMenu.firstChild.removeChild(publisherMenu.firstChild.lastChild); }
     tmpHash = new Array();
 
     for(var index=0; index<publishers.length; index++) {
