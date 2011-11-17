@@ -1,0 +1,117 @@
+<!-- Window -->
+<!ENTITY main.title                     "&brand.brandShortName;">
+<!ENTITY main.cssdirection              "ltr">
+
+<!-- File menu -->
+<!ENTITY main.file                      "Soubor">
+<!ENTITY main.file.accesskey            "F">
+<!ENTITY main.openFile                  "Otevřít soubor...">
+<!ENTITY main.browseLibrary.accesskey   "B">
+<!ENTITY main.browseLibrary             "Browse library">
+<!ENTITY main.openFile.accesskey        "O">
+<!ENTITY main.lastOpen                  "Nedávno otevřené...">
+<!ENTITY main.saveFile                  "Uložit stránku jako....">
+<!ENTITY main.saveFile.accesskey        "S">
+<!ENTITY main.print                     "Tisk">
+<!ENTITY main.print.accesskey           "P">
+<!ENTITY main.printPdf                  "Vytisknout jako PDF">
+<!ENTITY main.printPdf.accesskey        "D">
+<!ENTITY main.quit                      "Konec">
+<!ENTITY main.quit.accesskey            "Q">
+
+<!-- Edit menu -->
+<!ENTITY main.edit                      "Upravit">
+<!ENTITY main.edit.accesskey            "E">
+<!ENTITY main.find                      "Hledat na stránce...">
+<!ENTITY main.find.accesskey            "S">
+<!ENTITY main.selectall                 "Vybrat vše">
+<!ENTITY main.selectall.accesskey       "a">
+<!ENTITY main.copy                      "Kopírovat">
+<!ENTITY main.copy.accesskey            "p">
+<!ENTITY main.transliteration           "Transliterace">
+<!ENTITY main.transliteration.accesskey "T">
+<!ENTITY main.preferences               "Možnosti">
+<!ENTITY main.preferences.accesskey     "n">
+
+<!-- Display menu -->
+<!ENTITY main.display                   "Zobrazení">
+<!ENTITY main.display.accesskey         "D">
+<!ENTITY main.zoom                      "Přiblížení">
+<!ENTITY main.zoom.accesskey            "Z">
+<!ENTITY main.zoomin                    "Zvětšit">
+<!ENTITY main.zoomin.accesskey          "M">
+<!ENTITY main.zoomout                   "Omezit">
+<!ENTITY main.zoomout.accesskey         "R">
+<!ENTITY main.zoomorig                  "Původní velikost">
+<!ENTITY main.zoomorig.accesskey        "O">
+<!ENTITY main.language                  "Jazyk">
+<!ENTITY main.language.accesskey        "L">
+<!ENTITY main.skin                      "Vzhled">
+<!ENTITY main.skin.accesskey            "S">
+<!ENTITY main.statusbar                 "Stavový řádek">
+<!ENTITY main.statusbar.accesskey       "S">
+<!ENTITY main.resultsbar                "Panel výsledků">
+<!ENTITY main.resultsbar.accesskey      "R">
+<!ENTITY main.tabs                      "Záložky">
+<!ENTITY main.tabs.accesskey            "T">
+<!ENTITY main.fullscreen                "Celá obrazovka">
+<!ENTITY main.fullscreen.accesskey      "F">
+
+<!-- Tools menu -->
+<!ENTITY main.tools                     "Nástroje">
+<!ENTITY main.tools.accesskey           "T">
+<!ENTITY main.randomArticle             "Náhodný článek">
+<!ENTITY main.randomArticle.accesskey   "R">
+<!ENTITY main.checkIntegrity            "Kontrola integrity">
+<!ENTITY main.checkIntegrity.accesskey  "k">
+<!ENTITY main.purgeHistory              "Vymazat historii">
+<!ENTITY main.purgeHistory.accesskey    "P">
+
+<!-- Help menu -->
+<!ENTITY main.help                      "Nápověda">
+<!ENTITY main.help.accesskey            "H">
+<!ENTITY main.feedback                  "Feedback">
+<!ENTITY main.reportabug                "Nahlásit chybu">
+<!ENTITY main.requestafeature           "Navrhnout novou funkci">
+<!ENTITY main.about                     "O &brand.brandShortName;">
+<!ENTITY main.about.accesskey           "A">
+
+<!-- Tool bar -->
+<!ENTITY main.back                      "Zpět">
+<!ENTITY main.forward                   "Vpřed">
+<!ENTITY main.home                      "Domů">
+<!ENTITY main.searchBar                 "Řádek vyhledávání">
+<!ENTITY main.search                    "Vyhledávání">
+<!ENTITY main.findInText                "Najít v textu">
+<!ENTITY main.noSearchBar               "Hledání vyžaduje indexovaný soubor ZIM">
+<!ENTITY main.bookmarks                 "Záložky">
+
+<!-- Results bar -->
+<!ENTITY main.results.title             "Výsledky vyhledávání">
+
+<!-- Bookmarks Bar -->
+<!ENTITY main.bmkLabel                  "Záložky:">
+<!ENTITY main.notesLabel                "Poznámky k záložkám:">
+<!ENTITY main.loadbmk                   "Importovat sadu záložek">
+<!ENTITY main.newbmk                    "Vytvořit novou sadu záložek">
+<!ENTITY main.mark                      "Označit tuto stránku">
+<!ENTITY main.unmark                    "Odznačit vybrané">
+<!ENTITY main.reload                    "Znovu nahrát sadu záložek">
+<!ENTITY main.defaultset                "Výchozí sada">
+
+<!-- Contextual Menu -->
+<!ENTITY main.saveImageAs               "Uložit obrázek jako...">
+<!ENTITY main.openLinkInNewTab          "Open Link in New Tab">
+<!ENTITY main.searchFor                 "Search for">
+
+<!-- About Window -->
+<!ENTITY main.close           		"Zavřít">
+
+<!-- Preferences Window -->
+<!ENTITY preferences.preferences        "Preferences">
+<!ENTITY preferences.save      		"Save">
+<!ENTITY preferences.cancel     	"Cancel">
+<!ENTITY preferences.profileDirectory  	"Profile directory">
+<!ENTITY preferences.browse  	        "Browse">
+<!ENTITY preferences.tabs			"Remember tabs">
+

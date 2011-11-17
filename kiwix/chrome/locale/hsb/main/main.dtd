@@ -1,0 +1,117 @@
+<!-- Window -->
+<!ENTITY main.title                     "&brand.brandShortName;">
+<!ENTITY main.cssdirection              "ltr">
+
+<!-- File menu -->
+<!ENTITY main.file                      "Dataja">
+<!ENTITY main.file.accesskey            "F">
+<!ENTITY main.openFile                  "Dataju wočinić...">
+<!ENTITY main.browseLibrary.accesskey   "B">
+<!ENTITY main.browseLibrary             "Browse library">
+<!ENTITY main.openFile.accesskey        "O">
+<!ENTITY main.lastOpen                  "Njedawno wočinjeny...">
+<!ENTITY main.saveFile                  "Stronu składować jako...">
+<!ENTITY main.saveFile.accesskey        "S">
+<!ENTITY main.print                     "Ćišćeć">
+<!ENTITY main.print.accesskey           "P">
+<!ENTITY main.printPdf                  "Jako PDF ćišćeć">
+<!ENTITY main.printPdf.accesskey        "D">
+<!ENTITY main.quit                      "Skónčić">
+<!ENTITY main.quit.accesskey            "Q">
+
+<!-- Edit menu -->
+<!ENTITY main.edit                      "Wobdźěłać">
+<!ENTITY main.edit.accesskey            "E">
+<!ENTITY main.find                      "Stronu přepytać...">
+<!ENTITY main.find.accesskey            "S">
+<!ENTITY main.selectall                 "Wšo wubrać">
+<!ENTITY main.selectall.accesskey       "a">
+<!ENTITY main.copy                      "Kopěrować">
+<!ENTITY main.copy.accesskey            "p">
+<!ENTITY main.transliteration           "Transliteracija">
+<!ENTITY main.transliteration.accesskey "T">
+<!ENTITY main.preferences               "Nastajenja">
+<!ENTITY main.preferences.accesskey     "n">
+
+<!-- Display menu -->
+<!ENTITY main.display                   "Zwobraznić">
+<!ENTITY main.display.accesskey         "D">
+<!ENTITY main.zoom                      "Skalowanje">
+<!ENTITY main.zoom.accesskey            "Z">
+<!ENTITY main.zoomin                    "Powjetšić">
+<!ENTITY main.zoomin.accesskey          "M">
+<!ENTITY main.zoomout                   "Pomjeńšić">
+<!ENTITY main.zoomout.accesskey         "R">
+<!ENTITY main.zoomorig                  "Prěnjotna wulkosć">
+<!ENTITY main.zoomorig.accesskey        "O">
+<!ENTITY main.language                  "Rěč">
+<!ENTITY main.language.accesskey        "L">
+<!ENTITY main.skin                      "Drasta">
+<!ENTITY main.skin.accesskey            "S">
+<!ENTITY main.statusbar                 "Statusowa lajsta">
+<!ENTITY main.statusbar.accesskey       "S">
+<!ENTITY main.resultsbar                "Wuslědkowa lajsta">
+<!ENTITY main.resultsbar.accesskey      "R">
+<!ENTITY main.tabs                      "Rajtarki">
+<!ENTITY main.tabs.accesskey            "T">
+<!ENTITY main.fullscreen                "Połna wobrazowka">
+<!ENTITY main.fullscreen.accesskey      "F">
+
+<!-- Tools menu -->
+<!ENTITY main.tools                     "Nastroje">
+<!ENTITY main.tools.accesskey           "T">
+<!ENTITY main.randomArticle             "Připadny nastawk">
+<!ENTITY main.randomArticle.accesskey   "R">
+<!ENTITY main.checkIntegrity            "Kontrola integrity">
+<!ENTITY main.checkIntegrity.accesskey  "k">
+<!ENTITY main.purgeHistory              "Stawizny wuprózdnić">
+<!ENTITY main.purgeHistory.accesskey    "P">
+
+<!-- Help menu -->
+<!ENTITY main.help                      "Pomoc">
+<!ENTITY main.help.accesskey            "H">
+<!ENTITY main.feedback                  "Feedback">
+<!ENTITY main.reportabug                "Programowy zmylk zdźělić">
+<!ENTITY main.requestafeature           "Funkciju požadać">
+<!ENTITY main.about                     "Wo &brand.brandShortName;">
+<!ENTITY main.about.accesskey           "A">
+
+<!-- Tool bar -->
+<!ENTITY main.back                      "Wróćo">
+<!ENTITY main.forward                   "Doprědka">
+<!ENTITY main.home                      "Startowa strona">
+<!ENTITY main.searchBar                 "Pytanska lajsta">
+<!ENTITY main.search                    "Pytać">
+<!ENTITY main.findInText                "W teksće pytać">
+<!ENTITY main.noSearchBar               "Pytanje sej indeksowanu ZIM-dataju wužaduje">
+<!ENTITY main.bookmarks                 "Zapołožki">
+
+<!-- Results bar -->
+<!ENTITY main.results.title             "Pytanske wuslědki">
+
+<!-- Bookmarks Bar -->
+<!ENTITY main.bmkLabel                  "Zapołožki:">
+<!ENTITY main.notesLabel                "Přispomnjenki:">
+<!ENTITY main.loadbmk                   "Zapołožki importować">
+<!ENTITY main.newbmk                    "Nowu skupinu zapołožkow wutworić">
+<!ENTITY main.mark                      "Tutu stronu markěrować">
+<!ENTITY main.unmark                    "Markěrowanje za wubrany wotstronić">
+<!ENTITY main.reload                    "Zapołožki znowa začitać">
+<!ENTITY main.defaultset                "Standardna skupina">
+
+<!-- Contextual Menu -->
+<!ENTITY main.saveImageAs               "Wobraz składować jako...">
+<!ENTITY main.openLinkInNewTab          "Open Link in New Tab">
+<!ENTITY main.searchFor                 "Search for">
+
+<!-- About Window -->
+<!ENTITY main.close           		"Začinić">
+
+<!-- Preferences Window -->
+<!ENTITY preferences.preferences        "Preferences">
+<!ENTITY preferences.save      		"Save">
+<!ENTITY preferences.cancel     	"Cancel">
+<!ENTITY preferences.profileDirectory  	"Profile directory">
+<!ENTITY preferences.browse  	        "Browse">
+<!ENTITY preferences.tabs			"Remember tabs">
+
