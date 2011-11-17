@@ -91,7 +91,8 @@
   </menu>
   <menu id="menu-tools" label="&main.tools;" accesskey="&main.tools.accesskey;">
     <menupopup id="tools-popup">
-      <menuitem id="tools-randomArticle" label="&main.randomArticle;" key="random-article-key" class="menuitem-iconic" 
+      <menuitem id="tools-randomArticle" label="&main.randomArticle;" key="random-article-key" 
+		class="menuitem-iconic" disabled="true"
 		accesskey="&main.randomArticle.accesskey;" oncommand="loadRandomArticle()"/>
       <menuitem id="tools-checkIntegrity" label="&main.checkIntegrity;" class="menuitem-iconic" 
 		accesskey="&main.checkIntegrity.accesskey;" oncommand="manageCheckIntegrity()" disabled="true"/>

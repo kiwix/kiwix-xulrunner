@@ -175,6 +175,7 @@ function getFindBar() { return document.getElementById("find-bar"); }
 function getNextButton() { return document.getElementById("button-next"); }
 function getSearchLabel() { return document.getElementById("search-label"); }
 function getCheckIntegrityMenuItem() { return document.getElementById("tools-checkIntegrity"); }
+function getLoadRandomArticleMenuItem() { return document.getElementById("tools-randomArticle"); }
 function getProgressBar() { return document.getElementById("progress-bar"); }
 function getProgressBarLabel() { return document.getElementById("progress-bar-label"); }
 function getBookmarksBar() { return document.getElementById("bookmarks-bar"); }
@@ -695,6 +696,8 @@ function manageUnload(clearCurrentAccessor, help) {
 	desactivateHomeButton();
 	library.setCurrentId("");
 	currentZimAccessor = undefined;
+	getLoadRandomArticleMenuItem().disabled = true;
+	getCheckIntegrityMenuItem().disabled = true;
     } 
 
     if (help) {
@@ -802,6 +805,9 @@ function manageOpenFile(path, noSearchIndexCheck) {
 
 	/* verify if we can check the integrity */
 	getCheckIntegrityMenuItem().disabled = !canCheckIntegrity();
+	
+	/* Enable load random article */
+	getLoadRandomArticleMenuItem().disabled = false;
     } else {
 	displayErrorDialog(getProperty("loadZimFileError", path));
 	return false;
