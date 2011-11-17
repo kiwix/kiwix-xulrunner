@@ -48,7 +48,7 @@
 </hbox>
 
 <hbox style="text-align: center; width: 600px;" align="center">
-  <checkbox id="saveTabs-checkbox" label="Remembers tabs"/>
+  <checkbox id="saveTabs-checkbox" label="&preferences.tabs;"/>
 </hbox>
 
 <hbox>
