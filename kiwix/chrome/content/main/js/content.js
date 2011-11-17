@@ -769,21 +769,29 @@ function populateRemoteBookList() {
 function populateLibraryFilters() {
     var languages = library.getBooksLanguages();
     var languageMenu = document.getElementById('library-filter-language');
-    
+    languageMenu.innerHTML = '';
+    var tmpHash = new Array();
+
     for(var index=0; index<languages.length; index++) {
-	if (languages[index].length > 0) {
+	if (languages[index].length > 0 && tmpHash[_languagesHash[languages[index]]] === undefined) {
+	    tmpHash[_languagesHash[languages[index]]] = 42;
 	    var menuItem = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul",
 						    "menuitem");
 	    menuItem.setAttribute("value", languages[index]);
-	    menuItem.setAttribute("label", _languagesHash[languages[index]] ? _languagesHash[languages[index]] : languages[index]);
+	    menuItem.setAttribute("label", _languagesHash[languages[index]] ? 
+				  _languagesHash[languages[index]] : languages[index]);
 	    languageMenu.firstChild.insertBefore(menuItem, languageMenu.firstChild.lastChild.nextSibling);
 	}
     }
     
     var publishers = library.getBooksPublishers();
     var publisherMenu = document.getElementById('library-filter-publisher');
+    publisherMenu.innerHTML = '';
+    tmpHash = new Array();
+
     for(var index=0; index<publishers.length; index++) {
-	if (publishers[index].length > 0) {
+	if (publishers[index].length > 0 && tmpHash[publishers[index]] === undefined) {
+	    tmpHash[publishers[index]] = 42;
 	    var menuItem = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul",
 						    "menuitem");
 	    menuItem.setAttribute("value", publishers[index]);
