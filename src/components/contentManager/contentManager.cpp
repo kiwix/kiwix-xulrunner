@@ -39,8 +39,17 @@
 #endif
 
 #include "IContentManager.h"
+#include <string>
+#include <iostream>
+#include <sys/types.h>
 #include <stdio.h>
 #include <stdlib.h>
+
+#ifdef _WIN32
+#include <Windows.h>
+#else
+#include <unistd.h>
+#endif
 
 #include "nsXPCOM.h"
 #include "nsEmbedString.h"
@@ -57,6 +66,8 @@
 #include <pathTools.h>
 #include <componentTools.h>
 #include <regexTools.h>
+
+using namespace std;
 
 class ContentManager : public IContentManager {
 
@@ -232,6 +243,7 @@ NS_IMETHODIMP ContentManager::GetBookById(const nsACString &id,
 					  nsACString &mediaCount, 
 					  nsACString &size,
 					  nsACString &creator,
+					  nsACString &publisher,
 					  nsACString &date,
 					  nsACString &language, 
 					  nsACString &favicon, 
@@ -251,6 +263,7 @@ NS_IMETHODIMP ContentManager::GetBookById(const nsACString &id,
       mediaCount = nsDependentCString(book.mediaCount.data(), book.mediaCount.size());
       size = nsDependentCString(book.size.data(), book.size.size());
       creator = nsDependentCString(book.creator.data(), book.creator.size());
+      publisher = nsDependentCString(book.publisher.data(), book.publisher.size());
       date = nsDependentCString(book.date.data(), book.date.size());
       language = nsDependentCString(book.language.data(), book.language.size());
       url = nsDependentCString(book.url.data(), book.url.size());
@@ -310,11 +323,13 @@ NS_IMETHODIMP ContentManager::GetBookCount(const PRBool localBooks, const PRBool
 }
 
 NS_IMETHODIMP ContentManager::ListBooks(const nsACString &mode, const nsACString &sortBy, PRUint32 maxSize, 
-					const nsACString &language, const nsACString &publisher, const nsACString &search, PRBool *retVal) {
+					const nsACString &language, const nsACString &creator, 
+					const nsACString &publisher, const nsACString &search, PRBool *retVal) {
   *retVal = PR_FALSE;
   const char *cmode; NS_CStringGetData(mode, &cmode);
   const char *csortBy; NS_CStringGetData(sortBy, &csortBy);
   const char *clanguage; NS_CStringGetData(language, &clanguage);
+  const char *ccreator; NS_CStringGetData(creator, &ccreator);
   const char *cpublisher; NS_CStringGetData(publisher, &cpublisher);
   const char *csearch; NS_CStringGetData(search, &csearch);
 
@@ -334,6 +349,8 @@ NS_IMETHODIMP ContentManager::ListBooks(const nsACString &mode, const nsACString
     kiwix::supportedListSortBy listSortBy;
     if (std::string(csortBy) == "publisher") {
       listSortBy = kiwix::PUBLISHER;
+    } else if (std::string(csortBy) == "creator") {
+      listSortBy = kiwix::CREATOR;
     } else if ( std::string(csortBy) == "date") {
       listSortBy = kiwix::DATE;
     } else if ( std::string(csortBy) == "size") {
@@ -342,7 +359,7 @@ NS_IMETHODIMP ContentManager::ListBooks(const nsACString &mode, const nsACString
       listSortBy = kiwix::TITLE;
     }
 
-    if (this->manager.listBooks(listMode, listSortBy, maxSize, clanguage, cpublisher, csearch)) {
+    if (this->manager.listBooks(listMode, listSortBy, maxSize, clanguage, ccreator, cpublisher, csearch)) {
       *retVal = PR_TRUE;
     }
   } catch (exception &e) {
@@ -433,6 +450,20 @@ NS_IMETHODIMP ContentManager::GetBooksLanguages(nsACString &languages, PRBool *r
   return NS_OK;
 }
 
+NS_IMETHODIMP ContentManager::GetBooksCreators(nsACString &creators, PRBool *retVal) {
+  *retVal = PR_TRUE;
+  string creatorsStr = "";
+  
+  vector<string> booksCreators = this->manager.getBooksCreators();
+  vector<string>::iterator itr;
+  for ( itr = booksCreators.begin(); itr != booksCreators.end(); ++itr ) {
+    creatorsStr += *itr + ";";
+  }
+
+  creators = nsDependentCString(creatorsStr.data(), creatorsStr.size());
+  return NS_OK;
+}
+
 NS_IMETHODIMP ContentManager::GetBooksPublishers(nsACString &publishers, PRBool *retVal) {
   *retVal = PR_TRUE;
   string publishersStr = "";
@@ -444,6 +475,72 @@ NS_IMETHODIMP ContentManager::GetBooksPublishers(nsACString &publishers, PRBool 
   }
 
   publishers = nsDependentCString(publishersStr.data(), publishersStr.size());
+  return NS_OK;
+}
+
+NS_IMETHODIMP ContentManager::LaunchAria2c(const nsAString &binaryPath, PRBool *retVal) {
+  *retVal = PR_TRUE;
+  const char *cBinaryPath = strdup(nsStringToCString(binaryPath));
+
+#ifdef _WIN32
+  string childBinaryPath = "child-process.exe";
+#else
+  string childBinaryPath = "child-process";
+#endif
+
+  /* Get PPID */
+#ifdef _WIN32
+  int PID = GetCurrentProcessId();
+#else
+  pid_t PID = getpid(); 
+#endif
+  cout << "parent-process: PID is " << PID << endl;
+
+  /* Launch child-process */
+  char PIDStr[10];
+  sprintf(PIDStr, "%d", PID);
+  cout << "parent-process: launching child-process from path " << childBinaryPath << "..."<< endl;
+
+#ifdef _WIN32
+  string commandLine = binaryPath + " " + string(PIDStr);
+  STARTUPINFO startInfo = {0};
+  PROCESS_INFORMATION procInfo;
+  startInfo.cb = sizeof(startInfo);
+
+  /* Code to avoid console window creation
+  if(CreateProcess(childBinaryPath.c_str(), _strdup(commandLine.c_str()), NULL, NULL, FALSE, 
+		   CREATE_NEW_CONSOLE, NULL, NULL, &startInfo, &procInfo)) {
+   */
+
+  if(CreateProcess(binaryPath.c_str(), _strdup(commandLine.c_str()), NULL, NULL, FALSE, 
+		   CREATE_NO_WINDOW, NULL, NULL, &startInfo, &procInfo)) {
+    CloseHandle(procInfo.hProcess);
+    CloseHandle(procInfo.hThread);
+  } else {
+    cerr << "parent-process: unable to start child-process from path " << childBinaryPath << endl;
+    return 1;
+  }
+#else
+  PID = fork();
+  switch (PID) {
+  case -1:
+    cerr << "parent-process: Unable to fork" << endl;
+    return 1;
+    break;
+  case 0: /* This is the child process */
+    if (execl(childBinaryPath.c_str(), childBinaryPath.c_str(), PIDStr, NULL) == -1) {
+      cerr << "parent-process: unable to start child-process from path " << childBinaryPath << endl;
+      return 1;
+    }
+    return 0;
+    break;
+  default:
+    cout << "parent-process: has forked successfuly" << endl;
+    cout << "parent-process: child-process PID is " << PID << endl;
+    break;
+  }
+#endif
+
   return NS_OK;
 }
 

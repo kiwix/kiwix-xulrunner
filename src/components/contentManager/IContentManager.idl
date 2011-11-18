@@ -15,16 +15,19 @@ interface IContentManager : nsISupports
   boolean getBookById(in ACString id, out AUTF8String path, out AUTF8String title, 
 		      out AUTF8String indexPath, out AUTF8String indexType, out AUTF8String description,
 		      out AUTF8String articleCount, out AUTF8String mediaCount, out AUTF8String size,
-		      out AUTF8String creator, out AUTF8String date, out AUTF8String language, 
-		      out AUTF8String favicon, out AUTF8String url);
+		      out AUTF8String creator, out AUTF8String publisher, out AUTF8String date, 
+		      out AUTF8String language, out AUTF8String favicon, out AUTF8String url);
   boolean setCurrentBookId(in ACString id);
   boolean getCurrentBookId(out ACString id);
   boolean getListNextBookId(out ACString id);
   boolean setBookIndex(in ACString id, in AString path, in ACString indexType);
   boolean setBookPath(in ACString id, in AString path);
   boolean updateBookLastOpenDateById(in ACString id);
-  boolean listBooks(in ACString mode, in ACString sortBy, in PRUint32 maxSize, in ACString language, in ACString publisher, in ACString search);
+  boolean listBooks(in ACString mode, in ACString sortBy, in PRUint32 maxSize, 
+		    in ACString language, in ACString creator, in ACString publisher, in ACString search);
   boolean getBookCount(in PRBool localBooks, in PRBool remoteBooks, out PRUint32 count);
   boolean getBooksLanguages(out AUTF8String languages);
+  boolean getBooksCreators(out AUTF8String creators);
   boolean getBooksPublishers(out AUTF8String publishers);
+  boolean launchAria2c(in AString binaryPath);
 };

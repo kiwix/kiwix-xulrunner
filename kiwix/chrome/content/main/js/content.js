@@ -548,6 +548,7 @@ function createLibraryItem(book) {
 				       "richlistitem");
     box.setAttribute("class", "library-content-item");
     box.setAttribute("id", "library-content-item-" + book.id);
+    box.setAttribute("bookId", book.id);
     box.setAttribute("onclick", "selectLibraryContentItem(this);");
     
     var hbox = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
@@ -603,8 +604,14 @@ function createLibraryItem(book) {
     var creatorLabel = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
 						"label");
     creatorLabel.setAttribute("class", "library-content-item-detail");
-    creatorLabel.setAttribute("value", "Creator: " + book.creator);
+    creatorLabel.setAttribute("value", "Author(s): " + book.creator);
     leftColumn.appendChild(creatorLabel);
+
+    var publisherLabel = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
+						"label");
+    publisherLabel.setAttribute("class", "library-content-item-detail");
+    publisherLabel.setAttribute("value", "Publisher: " + book.publisher);
+    leftColumn.appendChild(publisherLabel);
     
     columns.appendChild(leftColumn);
     
@@ -680,7 +687,6 @@ function createLibraryItem(book) {
     /* Button box */
     var buttonBox = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
 					     "vbox");
-    buttonBox.setAttribute("style", "margin: 5px;");
     buttonBox.appendChild(spacer.cloneNode(true));
     
     var removeButton = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
@@ -726,10 +732,12 @@ function populateBookList(container) {
     var mode = container.id == "library-content-local" ? "local" : "remote";
     var sortBy = getBookListSortBy();
     var maxSize = getBookListContentMaxSize();
+    var creator = getBookListCreatorFilter();
     var publisher = getBookListPublisherFilter();
     var language = getBookListLanguageFilter();
     var search = getBookListSearchFilter();
-    library.listBooks(mode, sortBy, maxSize, language, publisher, search);
+
+    library.listBooks(mode, sortBy, maxSize, language, creator, publisher, search);
 
     /* Go through all books */
     book = library.getNextBookInList();
@@ -784,6 +792,22 @@ function populateLibraryFilters() {
 	}
     }
     
+    var creators = library.getBooksCreators();
+    var creatorMenu = document.getElementById('library-filter-creator');
+    while (creatorMenu.firstChild.childNodes.length>1) { creatorMenu.firstChild.removeChild(creatorMenu.firstChild.lastChild); }
+    tmpHash = new Array();
+
+    for(var index=0; index<creators.length; index++) {
+	if (creators[index].length > 0 && tmpHash[creators[index]] === undefined) {
+	    tmpHash[creators[index]] = 42;
+	    var menuItem = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul",
+						    "menuitem");
+	    menuItem.setAttribute("value", creators[index]);
+	    menuItem.setAttribute("label", creators[index]);
+	    creatorMenu.firstChild.insertBefore(menuItem, languageMenu.firstChild.lastChild.nextSibling);
+	}
+    }
+
     var publishers = library.getBooksPublishers();
     var publisherMenu = document.getElementById('library-filter-publisher');
     while (publisherMenu.firstChild.childNodes.length>1) { publisherMenu.firstChild.removeChild(publisherMenu.firstChild.lastChild); }
@@ -918,8 +942,9 @@ function selectLibraryContentItem(box) {
     if (_selectedLibraryContentItem != undefined && box == _selectedLibraryContentItem) {
 	return;
     } else {
-	if (_selectedLibraryContentItem != undefined)
-	    _selectedLibraryContentItem.setAttribute("style", _selectedLibraryContentItem.backGroundColorBackup);
+	if (_selectedLibraryContentItem != undefined) 
+	    _selectedLibraryContentItem.setAttribute("style", 
+						     _selectedLibraryContentItem.backGroundColorBackup);
 
 	box.backGroundColorBackup = box.getAttribute("style");
 	box.setAttribute("style", "background-color: Highlight;");
@@ -927,6 +952,7 @@ function selectLibraryContentItem(box) {
 	_selectedLibraryContentItem = box;
 	var libraryDeck = document.getElementById("library-deck");
 	libraryDeck.selectedPanel.ensureIndexIsVisible(libraryDeck.selectedPanel.selectedIndex); 
+	toggleLibrary(true);
     }
 }
 
@@ -963,6 +989,10 @@ function getBookListSortBy() {
 function getBookListContentMaxSize() {
     return document.getElementById("library-content-maxsize").value > 0 ? 
 	document.getElementById("library-content-maxsize").value : 99;
+}
+
+function getBookListCreatorFilter() {
+    return document.getElementById('library-filter-creator').value;
 }
 
 function getBookListPublisherFilter() {

@@ -127,6 +127,7 @@
 <script language="javaScript" type="text/javascript" src="chrome://global/content/nsTransferable.js"/>
 
 <!-- Custom Javascript scripts (should be implemented after menubar otherwise generate a 1 pixel big space between windows decoration and menubar) -->
+<script language="javaScript" type="text/javascript" src="js/languages.js"/>
 <script language="javaScript" type="text/javascript" src="js/zim.js"/>
 <script language="javaScript" type="text/javascript" src="js/logger.js"/>
 <script language="javaScript" type="text/javascript" src="js/search.js"/>
@@ -337,6 +338,7 @@
 		<menuitem label="Title" value="title" selected="true"/>
 		<menuitem label="Size" value="size"/>
 		<menuitem label="Date" value="date"/>
+		<menuitem label="Author" value="creator"/>
 		<menuitem label="Publisher" value="publisher"/>
 	      </menupopup>
 	    </menulist>
@@ -359,6 +361,15 @@
 		</menupopup>
 	      </menulist>
 	    </box>
+
+	    <label value="▾ Author(s)"/>
+	    <vbox style="margin-left: 10px; font-size: smaller;">
+	      <menulist id="library-filter-creator" oncommand="populateBookList()" flex="1">
+		<menupopup>
+		  <menuitem label="All" value=""/>
+		</menupopup>
+	      </menulist>
+	    </vbox>
 
 	    <label value="▾ Publisher"/>
 	    <vbox style="margin-left: 10px; font-size: smaller;">

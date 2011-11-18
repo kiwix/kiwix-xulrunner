@@ -3,7 +3,7 @@ var EXPORTED_SYMBOLS = [ "library" ];
 Components.utils.import("resource://modules/env.jsm");
 
 /* Define the Book class */
-function Book(id, path, indexPath, indexType, readOnly, last, title, description, articleCount, mediaCount, size, creator, date, language, favicon, url) {
+function Book(id, path, indexPath, indexType, readOnly, last, title, description, articleCount, mediaCount, size, creator, publisher, date, language, favicon, url) {
         this.id = id;
         this.path = path;
 	this.indexPath = indexPath;
@@ -16,6 +16,7 @@ function Book(id, path, indexPath, indexType, readOnly, last, title, description
 	this.mediaCount = mediaCount;
 	this.size = size;
 	this.creator = creator;
+	this.publisher = publisher;
 	this.date = date;
 	this.language = language;
 	this.favicon = favicon;
@@ -174,6 +175,13 @@ let library = {
     },  
 
     /* Get available books publishers */
+    getBooksCreators: function() {
+        var creatorsObj = new Object;
+	this.contentManager.getBooksCreators(creatorsObj);
+	return creatorsObj.value.split(';');
+    },
+
+    /* Get available books publishers */
     getBooksPublishers: function() {
         var publishersObj = new Object;
 	this.contentManager.getBooksPublishers(publishersObj);
@@ -197,13 +205,14 @@ let library = {
 	var mediaCount = new Object();
 	var size = new Object();
 	var creator = new Object();
+	var publisher = new Object();
 	var date = new Object();
 	var language = new Object();
 	var favicon = new Object();
 	var url = new Object();
 
-	if (this.contentManager.getBookById(id, path, title, indexPath, indexType, description, articleCount, mediaCount, size, creator, date, language, favicon, url)) {
-	   return new Book(id, path.value, indexPath.value, indexType.value, false, "", title.value, description.value, articleCount.value, mediaCount.value, size.value, creator.value, date.value, language.value, favicon.value, url.value);
+	if (this.contentManager.getBookById(id, path, title, indexPath, indexType, description, articleCount, mediaCount, size, creator, publisher, date, language, favicon, url)) {
+	   return new Book(id, path.value, indexPath.value, indexType.value, false, "", title.value, description.value, articleCount.value, mediaCount.value, size.value, creator.value, publisher.value, date.value, language.value, favicon.value, url.value);
 	}
     },
 
@@ -279,9 +288,8 @@ let library = {
 
     /* Prepare a list of books */
     /* mode = [lastOpen|remote|local] */
-    listBooks: function(mode, sortBy, maxSize, language, publisher, search) {
-    	this.contentManager.listBooks(mode, sortBy, maxSize, language, publisher, search);
-	// Seems to be uselsess : this.writeToFile();
+    listBooks: function(mode, sortBy, maxSize, language, creator, publisher, search) {
+    	this.contentManager.listBooks(mode, sortBy, maxSize, language, creator, publisher, search);
     },
 
     /* Pop up the next book in the list (see listBooks() */

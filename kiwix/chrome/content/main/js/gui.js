@@ -26,65 +26,6 @@ var _fullScreenStatusBar    = true;
 var _restore_tab            = null;
 var _firstSideBar	    = true;
 
-var _languagesHash          = Array();
-_languagesHash['af']        = "Afrikaans";
-_languagesHash['ar']        = "العربية";
-_languagesHash['ary']       = "الدارجة";
-_languagesHash['ast']       = "Asturianu";
-_languagesHash['be-tarask'] = "тарашкевіца, клясычны правапіс";
-_languagesHash['bjn']       = "Bahasa Banjar";
-_languagesHash['bn']        = "বাংলা";
-_languagesHash['br']        = "Brezhoneg";
-_languagesHash['ca']        = "Català";
-_languagesHash['cs']        = "Česky";
-_languagesHash['de']        = "Deutsch";
-_languagesHash['da']        = "Dansk";
-_languagesHash['el']        = "Ελληνικά";
-_languagesHash['en']        = "English";
-_languagesHash['eo']        = "Esperanto";
-_languagesHash['es']        = "Español";
-_languagesHash['fa']        = "فارسی";
-_languagesHash['fi']        = "Suomi";
-_languagesHash['fr']        = "Français";
-_languagesHash['frp']       = "Provençau";
-_languagesHash['gl']        = "Galego";
-_languagesHash['gsw']       = "Schwyzerdütsch";
-_languagesHash['he']        = "עברית";
-_languagesHash['hsb']        = "Hornjoserbsce";
-_languagesHash['hu']        = "Magyar";
-_languagesHash['ia']        = "Interlingua";
-_languagesHash['it']        = "Italiano";
-_languagesHash['ja']        = "日本語";
-_languagesHash['ksh']       = "Ripoarisch";
-_languagesHash['lv']        = "Latviešu";
-_languagesHash['mk']        = "Македонски";
-_languagesHash['ml']        = "മലയാളം";
-_languagesHash['ms']        = "Bahasa Melayu";
-_languagesHash['mt']        = "Malti";
-_languagesHash['nl']        = "Nederlands";
-_languagesHash['no']        = "Norsk (bokmål)";
-_languagesHash['pl']        = "Język polski";
-_languagesHash['pms']       = "Piemontèis";
-_languagesHash['pt']        = "Português";
-_languagesHash['pt-br']     = "Português do Brasil";
-_languagesHash['ro']        = "Română";
-_languagesHash['ru']        = "Русский";
-_languagesHash['rue']       = "Русиньскый";
-_languagesHash['sl']        = "Slovenščina";
-_languagesHash['sr-ec']     = "Српски (ћирилица)";
-_languagesHash['sr-el']     = "Srpski (latinica)";
-_languagesHash['su']        = "Basa Sunda";
-_languagesHash['sv']        = "Svenska";
-_languagesHash['te']        = "తెలుగు";
-_languagesHash['th']        = "ไทย";
-_languagesHash['tt-cyrl']   = "Татарча";
-_languagesHash['ug-arab']   = "ئۇيغۇرچە";
-_languagesHash['uk']        = "Українська";
-_languagesHash['vi']        = "Tiếng Việt";
-_languagesHash['zh']        = "中文";
-_languagesHash['zh-hans']   = "中文(简体)";
-_languagesHash['zh-hant']   = "中文(繁體)";
-
 /* WebProgress listener */
 const STATE_START =  Components.interfaces.nsIWebProgressListener.STATE_START;
 const STATE_STOP =  Components.interfaces.nsIWebProgressListener.STATE_STOP;
@@ -781,8 +722,6 @@ function manageOpenFile(path, noSearchIndexCheck) {
 
 	/* Force to hide the library manager an update it*/
 	toggleLibrary(false);
-	populateRemoteBookList();
-	populateLocalBookList();
 	populateLibraryFilters();	
 	
 	/* Load the welcome page of the ZIM file */
@@ -1167,7 +1106,6 @@ function preInitUserInterface() {
 
 /* Initialize the user interface */
 function initUserInterface() {
-
     /* Populates the last open menu */
     populateLastOpenMenu();
 
@@ -1227,12 +1165,12 @@ function postInitUserInterface() {
 
     /* If there is no file open with the commandline try to open last open book */
     if (currentZimAccessor == undefined) {
-	    try {
+	try {
             if (openCurrentBook()) {
-	            restoreTabs();
-	        } else {
-	            library.deleteCurrentBook();
-	        }
+	        restoreTabs();
+	    } else {
+	        library.deleteCurrentBook();
+	    }
         } catch(e) { dump("Unable to check current book: " + e.toString() + "\n"); }
     }
 
@@ -1367,6 +1305,12 @@ function handleKeyPress(aEvent) {
 	} else if (keyCode == 40) {
 	    box = box == undefined ? container.getItemAtIndex(container.itemCount - 1) : 
 		(box == container.lastChild ? container.getItemAtIndex(container.itemCount - 1) : box.nextSibling);
+	} else if (keyCode == 13 && container.id == "library-content-local") {
+	    var bookId  = box.getAttribute("bookId");
+	    var book = library.getBookById(bookId);
+	    if (book != undefined) {
+		manageOpenFile(book.path, true);
+	    }
 	}
 
 	if (box != _selectedLibraryContentItem)
