@@ -7,7 +7,7 @@
 <!ENTITY main.file.accesskey            "F">
 <!ENTITY main.openFile                  "Öppna fil...">
 <!ENTITY main.browseLibrary.accesskey   "B">
-<!ENTITY main.browseLibrary             "Browse library">
+<!ENTITY main.browseLibrary             "Bläddra i biblioteket">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "Nyligen öppna...">
 <!ENTITY main.saveFile                  "Spara sida som...">
@@ -101,8 +101,8 @@
 
 <!-- Contextual Menu -->
 <!ENTITY main.saveImageAs               "Spara bild som...">
-<!ENTITY main.openLinkInNewTab          "Open Link in New Tab">
-<!ENTITY main.searchFor                 "Search for">
+<!ENTITY main.openLinkInNewTab          "Öppna länk i ny flik">
+<!ENTITY main.searchFor                 "Sök efter">
 
 <!-- About Window -->
 <!ENTITY main.close           		"Stäng">

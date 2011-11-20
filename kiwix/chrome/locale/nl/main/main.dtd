@@ -7,7 +7,7 @@
 <!ENTITY main.file.accesskey            "B">
 <!ENTITY main.openFile                  "Bestand openen...">
 <!ENTITY main.browseLibrary.accesskey   "B">
-<!ENTITY main.browseLibrary             "Browse library">
+<!ENTITY main.browseLibrary             "Bibliotheek doorbladeren">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "Recent geopend...">
 <!ENTITY main.saveFile                  "Pagina opslaan als...">
@@ -70,7 +70,7 @@
 <!-- Help menu -->
 <!ENTITY main.help                      "Hulp">
 <!ENTITY main.help.accesskey            "H">
-<!ENTITY main.feedback                  "Feedback">
+<!ENTITY main.feedback                  "Terugkoppeling">
 <!ENTITY main.reportabug                "Probleem melden">
 <!ENTITY main.requestafeature           "Nieuwe functionaliteit aanvragen">
 <!ENTITY main.about                     "Over &brand.brandShortName;">
@@ -101,8 +101,8 @@
 
 <!-- Contextual Menu -->
 <!ENTITY main.saveImageAs               "Afbeelding opslaan als...">
-<!ENTITY main.openLinkInNewTab          "Open Link in New Tab">
-<!ENTITY main.searchFor                 "Search for">
+<!ENTITY main.openLinkInNewTab          "Verwijzing openen in nieuw tabblad">
+<!ENTITY main.searchFor                 "Zoeken naar">
 
 <!-- About Window -->
 <!ENTITY main.close           		"Sluiten">

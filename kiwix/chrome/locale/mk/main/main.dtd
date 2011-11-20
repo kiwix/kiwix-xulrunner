@@ -7,7 +7,7 @@
 <!ENTITY main.file.accesskey            "F">
 <!ENTITY main.openFile                  "Отвори податотека...">
 <!ENTITY main.browseLibrary.accesskey   "B">
-<!ENTITY main.browseLibrary             "Browse library">
+<!ENTITY main.browseLibrary             "Прелистување на библиотеката">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "Неодамна отворени...">
 <!ENTITY main.saveFile                  "Зачувај ја страницата како...">
@@ -70,7 +70,7 @@
 <!-- Help menu -->
 <!ENTITY main.help                      "Помош">
 <!ENTITY main.help.accesskey            "H">
-<!ENTITY main.feedback                  "Feedback">
+<!ENTITY main.feedback                  "Мислења">
 <!ENTITY main.reportabug                "Пријави грешка">
 <!ENTITY main.requestafeature           "Побарај функција">
 <!ENTITY main.about                     "За &brand.brandShortName;">
@@ -84,7 +84,7 @@
 <!ENTITY main.search                    "Пребарување">
 <!ENTITY main.findInText                "Пронајди во текстот">
 <!ENTITY main.noSearchBar               "Пребарувањето бара индексирана ZIM-податотека">
-<!ENTITY main.bookmarks                 "Обележувачи">
+<!ENTITY main.bookmarks                 "Обележани">
 
 <!-- Results bar -->
 <!ENTITY main.results.title             "Резултати од пребарувањето">
@@ -101,8 +101,8 @@
 
 <!-- Contextual Menu -->
 <!ENTITY main.saveImageAs               "Зачувај ја сликата како...">
-<!ENTITY main.openLinkInNewTab          "Open Link in New Tab">
-<!ENTITY main.searchFor                 "Search for">
+<!ENTITY main.openLinkInNewTab          "Отвори ја врската во ново јазиче">
+<!ENTITY main.searchFor                 "Пребарување на">
 
 <!-- About Window -->
 <!ENTITY main.close           		"Затвори">

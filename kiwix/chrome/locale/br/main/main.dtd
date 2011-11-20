@@ -7,7 +7,7 @@
 <!ENTITY main.file.accesskey            "F">
 <!ENTITY main.openFile                  "Digeriñ ur restr...">
 <!ENTITY main.browseLibrary.accesskey   "B">
-<!ENTITY main.browseLibrary             "Browse library">
+<!ENTITY main.browseLibrary             "Furchal el levraoueg">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "Digoret n'eus ket pell...">
 <!ENTITY main.saveFile                  "Enrollañ ar bajenn evel...">
@@ -70,7 +70,7 @@
 <!-- Help menu -->
 <!ENTITY main.help                      "Skoazell">
 <!ENTITY main.help.accesskey            "H">
-<!ENTITY main.feedback                  "Feedback">
+<!ENTITY main.feedback                  "Sonjoù">
 <!ENTITY main.reportabug                "Kas keloù diwar-benn un draen">
 <!ENTITY main.requestafeature           "Goulenn ur perzh nevez">
 <!ENTITY main.about                     "Diwar-benn &brand.brandShortName;">
@@ -101,8 +101,8 @@
 
 <!-- Contextual Menu -->
 <!ENTITY main.saveImageAs               "Enrollañ ar skeudenn evel...">
-<!ENTITY main.openLinkInNewTab          "Open Link in New Tab">
-<!ENTITY main.searchFor                 "Search for">
+<!ENTITY main.openLinkInNewTab          "Digeriñ al liamm en un ivinell nevez">
+<!ENTITY main.searchFor                 "Klask">
 
 <!-- About Window -->
 <!ENTITY main.close           		"Serriñ">

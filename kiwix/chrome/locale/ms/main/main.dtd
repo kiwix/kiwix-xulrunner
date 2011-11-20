@@ -7,7 +7,7 @@
 <!ENTITY main.file.accesskey            "F">
 <!ENTITY main.openFile                  "Buka fail...">
 <!ENTITY main.browseLibrary.accesskey   "B">
-<!ENTITY main.browseLibrary             "Browse library">
+<!ENTITY main.browseLibrary             "Semak imbas perpustakaan">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "Baru dibuka">
 <!ENTITY main.saveFile                  "Simpan halaman sebagai...">
@@ -70,7 +70,7 @@
 <!-- Help menu -->
 <!ENTITY main.help                      "Bantuan">
 <!ENTITY main.help.accesskey            "H">
-<!ENTITY main.feedback                  "Feedback">
+<!ENTITY main.feedback                  "Maklum Balas">
 <!ENTITY main.reportabug                "Laporkan pepijat">
 <!ENTITY main.requestafeature           "Minta ciri">
 <!ENTITY main.about                     "Perihal &brand.brandShortName;">
@@ -101,8 +101,8 @@
 
 <!-- Contextual Menu -->
 <!ENTITY main.saveImageAs               "Simpan imej sebagai...">
-<!ENTITY main.openLinkInNewTab          "Open Link in New Tab">
-<!ENTITY main.searchFor                 "Search for">
+<!ENTITY main.openLinkInNewTab          "Buka Pautan dalam Tab Baru">
+<!ENTITY main.searchFor                 "Cari">
 
 <!-- About Window -->
 <!ENTITY main.close           		"Tutup">

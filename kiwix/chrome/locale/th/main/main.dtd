@@ -68,7 +68,7 @@
 <!ENTITY main.purgeHistory.accesskey    "P">
 
 <!-- Help menu -->
-<!ENTITY main.help                      "ช่วยเหลือ">
+<!ENTITY main.help                      "วิธีใช้">
 <!ENTITY main.help.accesskey            "H">
 <!ENTITY main.feedback                  "Feedback">
 <!ENTITY main.reportabug                "รายงานข้อผิดพลาด">

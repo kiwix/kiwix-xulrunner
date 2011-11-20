@@ -7,7 +7,7 @@
 <!ENTITY main.file.accesskey            "F">
 <!ENTITY main.openFile                  "Odpri datoteko ...">
 <!ENTITY main.browseLibrary.accesskey   "B">
-<!ENTITY main.browseLibrary             "Browse library">
+<!ENTITY main.browseLibrary             "Prebrskaj knjižnico">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "Nedavno odprto ...">
 <!ENTITY main.saveFile                  "Shrani stran kot ...">
@@ -70,7 +70,7 @@
 <!-- Help menu -->
 <!ENTITY main.help                      "Pomoč">
 <!ENTITY main.help.accesskey            "H">
-<!ENTITY main.feedback                  "Feedback">
+<!ENTITY main.feedback                  "Povratna informacija">
 <!ENTITY main.reportabug                "Prijavi hrošč">
 <!ENTITY main.requestafeature           "Predlagaj funkcijo">
 <!ENTITY main.about                     "O &brand.brandShortName;">
@@ -101,8 +101,8 @@
 
 <!-- Contextual Menu -->
 <!ENTITY main.saveImageAs               "Shrani sliko kot ...">
-<!ENTITY main.openLinkInNewTab          "Open Link in New Tab">
-<!ENTITY main.searchFor                 "Search for">
+<!ENTITY main.openLinkInNewTab          "Odpri povezavo na novem zavihku">
+<!ENTITY main.searchFor                 "Išči">
 
 <!-- About Window -->
 <!ENTITY main.close           		"Zapri">

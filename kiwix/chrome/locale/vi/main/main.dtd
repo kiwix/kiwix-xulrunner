@@ -7,7 +7,7 @@
 <!ENTITY main.file.accesskey            "F">
 <!ENTITY main.openFile                  "Mở Tập tin…">
 <!ENTITY main.browseLibrary.accesskey   "B">
-<!ENTITY main.browseLibrary             "Browse library">
+<!ENTITY main.browseLibrary             "Duyệt thư viện">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "Mở Gần đây…">
 <!ENTITY main.saveFile                  "Lưu Trang Như…">
@@ -70,7 +70,7 @@
 <!-- Help menu -->
 <!ENTITY main.help                      "Trợ giúp">
 <!ENTITY main.help.accesskey            "H">
-<!ENTITY main.feedback                  "Feedback">
+<!ENTITY main.feedback                  "Phản hồi">
 <!ENTITY main.reportabug                "Báo cáo Lỗi">
 <!ENTITY main.requestafeature           "Yêu cầu Tính năng">
 <!ENTITY main.about                     "Giới thiệu &brand.brandShortName;">
@@ -101,8 +101,8 @@
 
 <!-- Contextual Menu -->
 <!ENTITY main.saveImageAs               "Lưu Hình Như…">
-<!ENTITY main.openLinkInNewTab          "Open Link in New Tab">
-<!ENTITY main.searchFor                 "Search for">
+<!ENTITY main.openLinkInNewTab          "Mở liên kết trong thẻ mới">
+<!ENTITY main.searchFor                 "Tìm kiếm">
 
 <!-- About Window -->
 <!ENTITY main.close           		"Đóng">

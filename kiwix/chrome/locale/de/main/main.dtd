@@ -7,7 +7,7 @@
 <!ENTITY main.file.accesskey            "D">
 <!ENTITY main.openFile                  "Datei öffnen …">
 <!ENTITY main.browseLibrary.accesskey   "B">
-<!ENTITY main.browseLibrary             "Browse library">
+<!ENTITY main.browseLibrary             "Bibliothek durchsuchen">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "Vor Kurzem geöffnet ...">
 <!ENTITY main.saveFile                  "Artikel speichern als ...">
@@ -70,7 +70,7 @@
 <!-- Help menu -->
 <!ENTITY main.help                      "Hilfe">
 <!ENTITY main.help.accesskey            "H">
-<!ENTITY main.feedback                  "Feedback">
+<!ENTITY main.feedback                  "Rückmeldungen">
 <!ENTITY main.reportabug                "Fehler melden">
 <!ENTITY main.requestafeature           "Erweiterung vorschlagen">
 <!ENTITY main.about                     "Über &brand.brandShortName;">
@@ -97,12 +97,12 @@
 <!ENTITY main.mark                      "Seite markieren">
 <!ENTITY main.unmark                    "Markierung aufheben">
 <!ENTITY main.reload                    "Lesezeichen nochmals laden">
-<!ENTITY main.defaultset                "Defaultdatei">
+<!ENTITY main.defaultset                "Standarddatei">
 
 <!-- Contextual Menu -->
 <!ENTITY main.saveImageAs               "Bild speichern als ...">
-<!ENTITY main.openLinkInNewTab          "Open Link in New Tab">
-<!ENTITY main.searchFor                 "Search for">
+<!ENTITY main.openLinkInNewTab          "Link in einem neuen Fenster öffnen">
+<!ENTITY main.searchFor                 "Suche nach">
 
 <!-- About Window -->
 <!ENTITY main.close           		"Schließen">

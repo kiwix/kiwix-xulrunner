@@ -7,7 +7,7 @@
 <!ENTITY main.file.accesskey            "F">
 <!ENTITY main.openFile                  "Buka berkas...">
 <!ENTITY main.browseLibrary.accesskey   "B">
-<!ENTITY main.browseLibrary             "Browse library">
+<!ENTITY main.browseLibrary             "Kotéktak pabukon">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "Anyar dimuka...">
 <!ENTITY main.saveFile                  "Simpen kaca salaku...">
@@ -70,7 +70,7 @@
 <!-- Help menu -->
 <!ENTITY main.help                      "Pitulung">
 <!ENTITY main.help.accesskey            "H">
-<!ENTITY main.feedback                  "Feedback">
+<!ENTITY main.feedback                  "Eupan balik">
 <!ENTITY main.reportabug                "Laporkeun bug">
 <!ENTITY main.requestafeature           "Mundut fitur">
 <!ENTITY main.about                     "Ngeunaan &brand.brandShortName;">
@@ -101,8 +101,8 @@
 
 <!-- Contextual Menu -->
 <!ENTITY main.saveImageAs               "Simpen gambar salaku...">
-<!ENTITY main.openLinkInNewTab          "Open Link in New Tab">
-<!ENTITY main.searchFor                 "Search for">
+<!ENTITY main.openLinkInNewTab          "Buka Tutumbu dina Tab Anyar">
+<!ENTITY main.searchFor                 "Paluruh">
 
 <!-- About Window -->
 <!ENTITY main.close           		"Tutup">

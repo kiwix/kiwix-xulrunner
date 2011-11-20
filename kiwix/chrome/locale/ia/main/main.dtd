@@ -7,7 +7,7 @@
 <!ENTITY main.file.accesskey            "F">
 <!ENTITY main.openFile                  "Aperir file...">
 <!ENTITY main.browseLibrary.accesskey   "B">
-<!ENTITY main.browseLibrary             "Browse library">
+<!ENTITY main.browseLibrary             "Explorar bibliotheca">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "Recentemente aperte...">
 <!ENTITY main.saveFile                  "Salveguardar pagina sub nomine...">
@@ -70,7 +70,7 @@
 <!-- Help menu -->
 <!ENTITY main.help                      "Adjuta">
 <!ENTITY main.help.accesskey            "H">
-<!ENTITY main.feedback                  "Feedback">
+<!ENTITY main.feedback                  "Retroaction">
 <!ENTITY main.reportabug                "Reportar un defecto">
 <!ENTITY main.requestafeature           "Requestar functionalitate">
 <!ENTITY main.about                     "A proposito de &brand.brandShortName;">
@@ -101,8 +101,8 @@
 
 <!-- Contextual Menu -->
 <!ENTITY main.saveImageAs               "Salveguardar imagine sub nomine...">
-<!ENTITY main.openLinkInNewTab          "Open Link in New Tab">
-<!ENTITY main.searchFor                 "Search for">
+<!ENTITY main.openLinkInNewTab          "Aperir ligamine in nove scheda">
+<!ENTITY main.searchFor                 "Cercar">
 
 <!-- About Window -->
 <!ENTITY main.close           		"Clauder">

@@ -7,7 +7,7 @@
 <!ENTITY main.file.accesskey            "F">
 <!ENTITY main.openFile                  "Åpne fil...">
 <!ENTITY main.browseLibrary.accesskey   "B">
-<!ENTITY main.browseLibrary             "Browse library">
+<!ENTITY main.browseLibrary             "Bla gjennom biblioteket">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "Nylig åpnet...">
 <!ENTITY main.saveFile                  "Lagre side som...">
@@ -70,7 +70,7 @@
 <!-- Help menu -->
 <!ENTITY main.help                      "Hjelp">
 <!ENTITY main.help.accesskey            "H">
-<!ENTITY main.feedback                  "Feedback">
+<!ENTITY main.feedback                  "Tilbakemelding">
 <!ENTITY main.reportabug                "Rapporter feil">
 <!ENTITY main.requestafeature           "Be om funksjonalitet">
 <!ENTITY main.about                     "Om &brand.brandShortName;">
@@ -101,8 +101,8 @@
 
 <!-- Contextual Menu -->
 <!ENTITY main.saveImageAs               "Lagre bilde som...">
-<!ENTITY main.openLinkInNewTab          "Open Link in New Tab">
-<!ENTITY main.searchFor                 "Search for">
+<!ENTITY main.openLinkInNewTab          "Åpne lenke i ny fane">
+<!ENTITY main.searchFor                 "Søk etter">
 
 <!-- About Window -->
 <!ENTITY main.close           		"Lukk">

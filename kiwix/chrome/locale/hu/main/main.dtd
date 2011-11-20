@@ -7,7 +7,7 @@
 <!ENTITY main.file.accesskey            "F">
 <!ENTITY main.openFile                  "Fájl megnyitása...">
 <!ENTITY main.browseLibrary.accesskey   "B">
-<!ENTITY main.browseLibrary             "Browse library">
+<!ENTITY main.browseLibrary             "Könyvtár böngészése">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "Legutóbb megnyitott...">
 <!ENTITY main.saveFile                  "Oldal mentése másként...">
@@ -70,7 +70,7 @@
 <!-- Help menu -->
 <!ENTITY main.help                      "Súgó">
 <!ENTITY main.help.accesskey            "H">
-<!ENTITY main.feedback                  "Feedback">
+<!ENTITY main.feedback                  "Visszajelzés">
 <!ENTITY main.reportabug                "Hibajelentés">
 <!ENTITY main.requestafeature           "Javaslat új funkciókra">
 <!ENTITY main.about                     "&brand.brandShortName; névjegye">
@@ -96,13 +96,13 @@
 <!ENTITY main.newbmk                    "Új könyvjelzőkészlet létrehozása">
 <!ENTITY main.mark                      "Oldal megjelölése">
 <!ENTITY main.unmark                    "Kijelöltek megjelölésének törlése">
-<!ENTITY main.reload                    "Könyvjelzőkészlet visszaállítása">
+<!ENTITY main.reload                    "!Könyvjelzőkészlet visszaátöltése">
 <!ENTITY main.defaultset                "Alapértelmezett készlet">
 
 <!-- Contextual Menu -->
 <!ENTITY main.saveImageAs               "Kép mentése másként...">
-<!ENTITY main.openLinkInNewTab          "Open Link in New Tab">
-<!ENTITY main.searchFor                 "Search for">
+<!ENTITY main.openLinkInNewTab          "A hivatkozás megnyitása új lapon">
+<!ENTITY main.searchFor                 "Keresés">
 
 <!-- About Window -->
 <!ENTITY main.close           		"Bezárás">
