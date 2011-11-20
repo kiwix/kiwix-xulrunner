@@ -1,0 +1,117 @@
+<!-- Window -->
+<!ENTITY main.title                     "&brand.brandShortName;">
+<!ENTITY main.cssdirection              "ltr">
+
+<!-- File menu -->
+<!ENTITY main.file                      "फ़ाइल">
+<!ENTITY main.file.accesskey            "F">
+<!ENTITY main.openFile                  "फ़ाइल खोलें...">
+<!ENTITY main.browseLibrary.accesskey   "B">
+<!ENTITY main.browseLibrary             "लायब्रेरी ब्राउज़ करें">
+<!ENTITY main.openFile.accesskey        "O">
+<!ENTITY main.lastOpen                  "हाल ही में खोला हुआ...">
+<!ENTITY main.saveFile                  "पृष्ठ के रूप में सहेजें...">
+<!ENTITY main.saveFile.accesskey        "S">
+<!ENTITY main.print                     "मुद्रित करें">
+<!ENTITY main.print.accesskey           "P">
+<!ENTITY main.printPdf                  "PDF के रूप में प्रिंट  करें">
+<!ENTITY main.printPdf.accesskey        "D">
+<!ENTITY main.quit                      "बाहर निकलें">
+<!ENTITY main.quit.accesskey            "Q">
+
+<!-- Edit menu -->
+<!ENTITY main.edit                      "संपादित करें">
+<!ENTITY main.edit.accesskey            "E">
+<!ENTITY main.find                      "पृष्ठ में खोज...">
+<!ENTITY main.find.accesskey            "S">
+<!ENTITY main.selectall                 "सभी का चयन करें">
+<!ENTITY main.selectall.accesskey       "a">
+<!ENTITY main.copy                      "कॉपी करें">
+<!ENTITY main.copy.accesskey            "p">
+<!ENTITY main.transliteration           "लिप्यंतरण">
+<!ENTITY main.transliteration.accesskey "T">
+<!ENTITY main.preferences               "वरीयताएँ">
+<!ENTITY main.preferences.accesskey     "n">
+
+<!-- Display menu -->
+<!ENTITY main.display                   "डिस्प्ले">
+<!ENTITY main.display.accesskey         "D">
+<!ENTITY main.zoom                      "ज़ूम करें">
+<!ENTITY main.zoom.accesskey            "Z">
+<!ENTITY main.zoomin                    "Magnify करें">
+<!ENTITY main.zoomin.accesskey          "M">
+<!ENTITY main.zoomout                   "कम करें">
+<!ENTITY main.zoomout.accesskey         "R">
+<!ENTITY main.zoomorig                  "मूल आकार">
+<!ENTITY main.zoomorig.accesskey        "O">
+<!ENTITY main.language                  "भाषा">
+<!ENTITY main.language.accesskey        "L">
+<!ENTITY main.skin                      "त्वचा">
+<!ENTITY main.skin.accesskey            "S">
+<!ENTITY main.statusbar                 "स्थिति पट्टी">
+<!ENTITY main.statusbar.accesskey       "S">
+<!ENTITY main.resultsbar                "परिणाम पट्टी">
+<!ENTITY main.resultsbar.accesskey      "R">
+<!ENTITY main.tabs                      "टैब्स">
+<!ENTITY main.tabs.accesskey            "T">
+<!ENTITY main.fullscreen                "संपूर्ण स्क्रीन">
+<!ENTITY main.fullscreen.accesskey      "F">
+
+<!-- Tools menu -->
+<!ENTITY main.tools                     "उपकरण">
+<!ENTITY main.tools.accesskey           "T">
+<!ENTITY main.randomArticle             "यादृच्छिक अनुच्छेद">
+<!ENTITY main.randomArticle.accesskey   "R">
+<!ENTITY main.checkIntegrity            "अखंडता की जाँच करें">
+<!ENTITY main.checkIntegrity.accesskey  "k">
+<!ENTITY main.purgeHistory              "इतिहास को पर्ज करें">
+<!ENTITY main.purgeHistory.accesskey    "P">
+
+<!-- Help menu -->
+<!ENTITY main.help                      "सहायता">
+<!ENTITY main.help.accesskey            "H">
+<!ENTITY main.feedback                  "आपके सुझाव">
+<!ENTITY main.reportabug                "बग रिपोर्ट करें">
+<!ENTITY main.requestafeature           "सुविधा का अनुरोध करें">
+<!ENTITY main.about                     "के बारे में &brand.brandShortName;">
+<!ENTITY main.about.accesskey           "A">
+
+<!-- Tool bar -->
+<!ENTITY main.back                      "पीछे जाएँ">
+<!ENTITY main.forward                   "आगे जाएँ">
+<!ENTITY main.home                      "होम">
+<!ENTITY main.searchBar                 "खोज पट्टी">
+<!ENTITY main.search                    "खोजें">
+<!ENTITY main.findInText                "पाठ में खोजें">
+<!ENTITY main.noSearchBar               "खोज के लिए अनुक्रमणित ZIM फ़ाइल की आवश्यकता है">
+<!ENTITY main.bookmarks                 "बुकमार्क्स">
+
+<!-- Results bar -->
+<!ENTITY main.results.title             "खोज परिणाम">
+
+<!-- Bookmarks Bar -->
+<!ENTITY main.bmkLabel                  "बुकमार्क्स">
+<!ENTITY main.notesLabel                "बुकमार्क नोट्स:">
+<!ENTITY main.loadbmk                   "बुकमार्क सेट आयात करें">
+<!ENTITY main.newbmk                    "नई बुकमार्क सेट बनाएँ">
+<!ENTITY main.mark                      "इस पृष्ठ को चिह्नित करें">
+<!ENTITY main.unmark                    "चयनित अचिह्नित करें">
+<!ENTITY main.reload                    "बुकमार्क सेट पुनः लोड करें">
+<!ENTITY main.defaultset                "डिफ़ॉल्ट सेट">
+
+<!-- Contextual Menu -->
+<!ENTITY main.saveImageAs               "के रूप में छवि सहेजें...">
+<!ENTITY main.openLinkInNewTab          "नए टैब में लिंक खोलें">
+<!ENTITY main.searchFor                 "के लिए खोजें">
+
+<!-- About Window -->
+<!ENTITY main.close           		"बंद करें">
+
+<!-- Preferences Window -->
+<!ENTITY preferences.preferences        "Preferences">
+<!ENTITY preferences.save      		"Save">
+<!ENTITY preferences.cancel     	"Cancel">
+<!ENTITY preferences.profileDirectory  	"Profile directory">
+<!ENTITY preferences.browse  	        "Browse">
+<!ENTITY preferences.tabs			"Remember tabs">
+

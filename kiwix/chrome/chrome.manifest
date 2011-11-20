@@ -16,6 +16,7 @@ locale main ca             locale/ca/main/
 locale main cs             locale/cs/main/
 locale main da             locale/da/main/
 locale main de             locale/de/main/
+locale main dsb            locale/dsb/main/
 locale main el             locale/el/main/
 locale main en             locale/en/main/
 locale main eo             locale/eo/main/
@@ -27,6 +28,7 @@ locale main frp            locale/frp/main/
 locale main gl             locale/gl/main/
 locale main gsw            locale/gsw/main/
 locale main he             locale/he/main/
+locale main hi             locale/hi/main/
 locale main hsb            locale/hsb/main/
 locale main hu             locale/hu/main/
 locale main ia             locale/ia/main/
@@ -74,6 +76,7 @@ locale branding ca         locale/branding/
 locale branding cs         locale/branding/
 locale branding da         locale/branding/
 locale branding de         locale/branding/
+locale branding dsb        locale/branding/
 locale branding el         locale/branding/
 locale branding en         locale/branding/
 locale branding eo         locale/branding/
