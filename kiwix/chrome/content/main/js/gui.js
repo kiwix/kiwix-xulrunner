@@ -1305,13 +1305,16 @@ function handleKeyPress(aEvent) {
 		(box == container.firstChild ? container.firstChild : box.previousSibling);
 	} else if (keyCode == 40) {
 	    box = box == undefined ? container.getItemAtIndex(container.itemCount - 1) : 
-		(box == container.lastChild ? container.getItemAtIndex(container.itemCount - 1) : box.nextSibling);
+		(box == container.lastChild ? 
+		 container.getItemAtIndex(container.itemCount - 1) : box.nextSibling);
 	} else if (keyCode == 13 && container.id == "library-content-local") {
 	    var bookId  = box.getAttribute("bookId");
 	    var book = library.getBookById(bookId);
 	    if (book != undefined) {
 		manageOpenFile(book.path, true);
 	    }
+	} else if (keyCode == 27) {
+	    toggleLibrary(false);
 	}
 
 	if (box != _selectedLibraryContentItem)
