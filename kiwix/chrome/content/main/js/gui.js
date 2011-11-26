@@ -965,7 +965,7 @@ function displayConfirmDialogEx(message, title, checkboxMessage, checkboxValue) 
 function populateLanguagesMenu() {
     /* Get informations about locales */
     var selectedLocale = getCurrentLocale();
-    var availableLocales =  getAvailableLocales();
+    var availableLocales = getAvailableLocales();
     
     /* Render locale menu items */
     var languagesMenu = document.getElementById("menu-languages");
@@ -973,7 +973,8 @@ function populateLanguagesMenu() {
     /* Go through the locale list an update the GUI */
     while(availableLocales.hasMore()) {
 	var locale = availableLocales.getNext();
-	var label = _languagesHash[locale] == undefined ? locale : _languagesHash[locale];
+	var language = getLanguageNameFromISO(locale);
+	var label = language === undefined || language == "" ? locale : language;
 	var menuItem = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
 						"menuitem");
 
