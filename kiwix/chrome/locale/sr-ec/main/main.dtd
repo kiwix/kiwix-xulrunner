@@ -6,6 +6,8 @@
 <!ENTITY main.file                      "Датотека">
 <!ENTITY main.file.accesskey            "F">
 <!ENTITY main.openFile                  "Отвори датотеку…">
+<!ENTITY main.browseLibrary.accesskey   "B">
+<!ENTITY main.browseLibrary             "Прегледај библиотеку">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "Недавно отворено…">
 <!ENTITY main.saveFile                  "Сачувај страницу као…">
@@ -68,6 +70,7 @@
 <!-- Help menu -->
 <!ENTITY main.help                      "Помоћ">
 <!ENTITY main.help.accesskey            "H">
+<!ENTITY main.feedback                  "Повратна информација">
 <!ENTITY main.reportabug                "Пријави грешку">
 <!ENTITY main.requestafeature           "Затражи могућност">
 <!ENTITY main.about                     "О &brand.brandShortName;">
@@ -98,6 +101,8 @@
 
 <!-- Contextual Menu -->
 <!ENTITY main.saveImageAs               "Сачувај слику као…">
+<!ENTITY main.openLinkInNewTab          "Отвори везу у новом језичку">
+<!ENTITY main.searchFor                 "Тражи">
 
 <!-- About Window -->
 <!ENTITY main.close           		"Затвори">
@@ -108,4 +113,5 @@
 <!ENTITY preferences.cancel     	"Cancel">
 <!ENTITY preferences.profileDirectory  	"Profile directory">
 <!ENTITY preferences.browse  	        "Browse">
+<!ENTITY preferences.tabs			"Remember tabs">
 

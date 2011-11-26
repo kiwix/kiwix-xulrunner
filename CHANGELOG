@@ -6,6 +6,7 @@ Kiwix 0.9 beta5
 * In the library, pressing <ENTER> in your local library directly open the file
 * Greying "Load random article" menu entry if no content is loaded (ID: 3439112)
 * Add the support of the "publisher" ZIM Metadata
+* Fix many localisation files which were broken due to a buggy script (ID: 3440627)
 
 Kiwix 0.9 beta4
 * Fix regression, menu "last open" where not working anymore

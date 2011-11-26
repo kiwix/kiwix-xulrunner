@@ -6,6 +6,8 @@
 <!ENTITY main.file                      "Ficheru">
 <!ENTITY main.file.accesskey            "F">
 <!ENTITY main.openFile                  "Abrir ficheru...">
+<!ENTITY main.browseLibrary.accesskey   "B">
+<!ENTITY main.browseLibrary             "Navegar pela biblioteca">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "Abiertos de recién...">
 <!ENTITY main.saveFile                  "Guardar páxina como...">
@@ -68,6 +70,7 @@
 <!-- Help menu -->
 <!ENTITY main.help                      "Ayuda">
 <!ENTITY main.help.accesskey            "H">
+<!ENTITY main.feedback                  "La to opinión">
 <!ENTITY main.reportabug                "Informar d'un fallu">
 <!ENTITY main.requestafeature           "Pidir una carauterística">
 <!ENTITY main.about                     "Tocante a &brand.brandShortName;">
@@ -93,11 +96,13 @@
 <!ENTITY main.newbmk                    "Crear nuevu grupu de marcadores">
 <!ENTITY main.mark                      "Amestar la páxina a marcadores">
 <!ENTITY main.unmark                    "Desmarcar esbillaos">
-<!ENTITY main.reload                    "Reaniciar el grupu de marcadores">
+<!ENTITY main.reload                    "Recargar el grupu de marcadores">
 <!ENTITY main.defaultset                "Grupu predetermináu">
 
 <!-- Contextual Menu -->
 <!ENTITY main.saveImageAs               "Guardar imaxe como...">
+<!ENTITY main.openLinkInNewTab          "Abrir enllaz en llingüeta nueva">
+<!ENTITY main.searchFor                 "Buscar">
 
 <!-- About Window -->
 <!ENTITY main.close           		"Zarrar">
@@ -108,4 +113,5 @@
 <!ENTITY preferences.cancel     	"Cancel">
 <!ENTITY preferences.profileDirectory  	"Profile directory">
 <!ENTITY preferences.browse  	        "Browse">
+<!ENTITY preferences.tabs			"Remember tabs">
 

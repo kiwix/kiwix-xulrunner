@@ -6,6 +6,8 @@
 <!ENTITY main.file                      "Fichiér">
 <!ENTITY main.file.accesskey            "F">
 <!ENTITY main.openFile                  "Uvrir un fichiér...">
+<!ENTITY main.browseLibrary.accesskey   "B">
+<!ENTITY main.browseLibrary             "Parcorir la bibliotèca">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "Uvèrt dês pou...">
 <!ENTITY main.saveFile                  "Encartar la pâge coment...">
@@ -68,6 +70,7 @@
 <!-- Help menu -->
 <!ENTITY main.help                      "Éde">
 <!ENTITY main.help.accesskey            "E">
+<!ENTITY main.feedback                  "Avis">
 <!ENTITY main.reportabug                "Raportar una cofierie">
 <!ENTITY main.requestafeature           "Demandar una fonccionalitât">
 <!ENTITY main.about                     "A propôs de &brand.brandShortName;">
@@ -98,6 +101,8 @@
 
 <!-- Contextual Menu -->
 <!ENTITY main.saveImageAs               "Encartar l’émâge coment...">
+<!ENTITY main.openLinkInNewTab          "Uvrir lo lim dens una ongllèta novèla">
+<!ENTITY main.searchFor                 "Rechèrchiér">
 
 <!-- About Window -->
 <!ENTITY main.close           		"Cllôre">
@@ -108,4 +113,5 @@
 <!ENTITY preferences.cancel     	"Cancel">
 <!ENTITY preferences.profileDirectory  	"Profile directory">
 <!ENTITY preferences.browse  	        "Browse">
+<!ENTITY preferences.tabs			"Remember tabs">
 

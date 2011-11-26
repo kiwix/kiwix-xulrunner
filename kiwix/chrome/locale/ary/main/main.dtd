@@ -6,6 +6,8 @@
 <!ENTITY main.file                      "mileff">
 <!ENTITY main.file.accesskey            "F">
 <!ENTITY main.openFile                  "ḫell l-milef...">
+<!ENTITY main.browseLibrary.accesskey   "B">
+<!ENTITY main.browseLibrary             "Browse library">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "mfṫoḫ mo'eĥaran...">
 <!ENTITY main.saveFile                  "ḫfd ṣfḫa ka...">
@@ -68,6 +70,7 @@
 <!-- Help menu -->
 <!ENTITY main.help                      "mosa'ada">
 <!ENTITY main.help.accesskey            "H">
+<!ENTITY main.feedback                  "Feedback">
 <!ENTITY main.reportabug                "bllġ ĝla ċi bog">
 <!ENTITY main.requestafeature           "tlḅ ċi ĥassiyya">
 <!ENTITY main.about                     "ĝla &brand.brandShortName;">
@@ -98,6 +101,8 @@
 
 <!-- Contextual Menu -->
 <!ENTITY main.saveImageAs               "ḫfeḍ ṫ-ṫṣwira ka...">
+<!ENTITY main.openLinkInNewTab          "Open Link in New Tab">
+<!ENTITY main.searchFor                 "Search for">
 
 <!-- About Window -->
 <!ENTITY main.close           		"sedd">
@@ -108,4 +113,5 @@
 <!ENTITY preferences.cancel     	"Cancel">
 <!ENTITY preferences.profileDirectory  	"Profile directory">
 <!ENTITY preferences.browse  	        "Browse">
+<!ENTITY preferences.tabs			"Remember tabs">
 

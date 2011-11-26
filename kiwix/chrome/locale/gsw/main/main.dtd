@@ -6,8 +6,10 @@
 <!ENTITY main.file                      "Datei">
 <!ENTITY main.file.accesskey            "F">
 <!ENTITY main.openFile                  "Datei uffmache...">
+<!ENTITY main.browseLibrary.accesskey   "B">
+<!ENTITY main.browseLibrary             "Browse library">
 <!ENTITY main.openFile.accesskey        "O">
-<!ENTITY main.lastOpen                  "Z'letscht uffgmacht...">
+<!ENTITY main.lastOpen                  "Zletscht uffgmacht...">
 <!ENTITY main.saveFile                  "Syte spychere als...">
 <!ENTITY main.saveFile.accesskey        "S">
 <!ENTITY main.print                     "Drucke">
@@ -46,9 +48,9 @@
 <!ENTITY main.language.accesskey        "L">
 <!ENTITY main.skin                      "Benutzeroberflechi">
 <!ENTITY main.skin.accesskey            "S">
-<!ENTITY main.statusbar                 "Schtatuslieschte">
+<!ENTITY main.statusbar                 "Schtatusliischte">
 <!ENTITY main.statusbar.accesskey       "S">
-<!ENTITY main.resultsbar                "Ergäbnislieschte">
+<!ENTITY main.resultsbar                "Ergäbnisliischte">
 <!ENTITY main.resultsbar.accesskey      "R">
 <!ENTITY main.tabs                      "Ryter">
 <!ENTITY main.tabs.accesskey            "T">
@@ -60,7 +62,7 @@
 <!ENTITY main.tools.accesskey           "T">
 <!ENTITY main.randomArticle             "Zuefälligi Syte">
 <!ENTITY main.randomArticle.accesskey   "R">
-<!ENTITY main.checkIntegrity            "Integrietätspruefig">
+<!ENTITY main.checkIntegrity            "Integrietätsprüefig">
 <!ENTITY main.checkIntegrity.accesskey  "k">
 <!ENTITY main.purgeHistory              "Verlauf lösche">
 <!ENTITY main.purgeHistory.accesskey    "P">
@@ -68,19 +70,20 @@
 <!-- Help menu -->
 <!ENTITY main.help                      "Hilf">
 <!ENTITY main.help.accesskey            "H">
+<!ENTITY main.feedback                  "Feedback">
 <!ENTITY main.reportabug                "Fähler mälde">
 <!ENTITY main.requestafeature           "Erwyterig vorschlage">
-<!ENTITY main.about                     "Übr &brand.brandShortName;">
+<!ENTITY main.about                     "Über &brand.brandShortName;">
 <!ENTITY main.about.accesskey           "A">
 
 <!-- Tool bar -->
 <!ENTITY main.back                      "Zruck">
 <!ENTITY main.forward                   "Wyter">
 <!ENTITY main.home                      "Hauptsyte">
-<!ENTITY main.searchBar                 "Suechlieschte">
+<!ENTITY main.searchBar                 "Suechliischte">
 <!ENTITY main.search                    "Sueche">
 <!ENTITY main.findInText                "Ir Syte sueche">
-<!ENTITY main.noSearchBar               "D'Suechi bruucht e indizierti ZIM-Datei">
+<!ENTITY main.noSearchBar               "D Suechi bruucht e indizierti ZIM-Datei">
 <!ENTITY main.bookmarks                 "Läsezeiche">
 
 <!-- Results bar -->
@@ -93,11 +96,13 @@
 <!ENTITY main.newbmk                    "Neui Datei für Läsezeiche aalege">
 <!ENTITY main.mark                      "Syte markiere">
 <!ENTITY main.unmark                    "Markierig uffhebe">
-<!ENTITY main.reload                    "Läsezeiche zrucksetze">
+<!ENTITY main.reload                    "Läsezeiche nomol lade">
 <!ENTITY main.defaultset                "Schtandarddatei">
 
 <!-- Contextual Menu -->
 <!ENTITY main.saveImageAs               "Bild spychere als...">
+<!ENTITY main.openLinkInNewTab          "Open Link in New Tab">
+<!ENTITY main.searchFor                 "Search for">
 
 <!-- About Window -->
 <!ENTITY main.close           		"Zuemache">
@@ -108,4 +113,5 @@
 <!ENTITY preferences.cancel     	"Cancel">
 <!ENTITY preferences.profileDirectory  	"Profile directory">
 <!ENTITY preferences.browse  	        "Browse">
+<!ENTITY preferences.tabs			"Remember tabs">
 

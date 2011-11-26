@@ -7,7 +7,7 @@
 <!ENTITY main.file.accesskey            "F">
 <!ENTITY main.openFile                  "Dataju wočinić...">
 <!ENTITY main.browseLibrary.accesskey   "B">
-<!ENTITY main.browseLibrary             "Browse library">
+<!ENTITY main.browseLibrary             "Biblioteku přepytać">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "Njedawno wočinjeny...">
 <!ENTITY main.saveFile                  "Stronu składować jako...">
@@ -70,7 +70,7 @@
 <!-- Help menu -->
 <!ENTITY main.help                      "Pomoc">
 <!ENTITY main.help.accesskey            "H">
-<!ENTITY main.feedback                  "Feedback">
+<!ENTITY main.feedback                  "Komentary">
 <!ENTITY main.reportabug                "Programowy zmylk zdźělić">
 <!ENTITY main.requestafeature           "Funkciju požadać">
 <!ENTITY main.about                     "Wo &brand.brandShortName;">
@@ -101,8 +101,8 @@
 
 <!-- Contextual Menu -->
 <!ENTITY main.saveImageAs               "Wobraz składować jako...">
-<!ENTITY main.openLinkInNewTab          "Open Link in New Tab">
-<!ENTITY main.searchFor                 "Search for">
+<!ENTITY main.openLinkInNewTab          "Wotkaz w nowym rajtarku wočinić">
+<!ENTITY main.searchFor                 "Pytać za">
 
 <!-- About Window -->
 <!ENTITY main.close           		"Začinić">
