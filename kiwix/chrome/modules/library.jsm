@@ -3,9 +3,10 @@ var EXPORTED_SYMBOLS = [ "library" ];
 Components.utils.import("resource://modules/env.jsm");
 
 /* Define the Book class */
-function Book(id, path, indexPath, indexType, readOnly, last, title, description, articleCount, mediaCount, size, creator, publisher, date, language, favicon, url) {
+function Book(id, path, relativeLibraryPath, indexPath, indexType, readOnly, last, title, description, articleCount, mediaCount, size, creator, publisher, date, language, favicon, url) {
         this.id = id;
         this.path = path;
+        this.relativeLibraryPath = relativeLibraryPath;
 	this.indexPath = indexPath;
 	this.indexType = indexType;
 	this.readOnly = readOnly;
@@ -197,6 +198,7 @@ let library = {
     /* Get a book by its id */
     getBookById: function(id) {
 	var path = new Object();
+	var relativeLibraryPath = new Object();
 	var title = new Object();
 	var indexPath = new Object();
 	var indexType = new Object();
@@ -211,8 +213,8 @@ let library = {
 	var favicon = new Object();
 	var url = new Object();
 
-	if (this.contentManager.getBookById(id, path, title, indexPath, indexType, description, articleCount, mediaCount, size, creator, publisher, date, language, favicon, url)) {
-	   return new Book(id, path.value, indexPath.value, indexType.value, false, "", title.value, description.value, articleCount.value, mediaCount.value, size.value, creator.value, publisher.value, date.value, language.value, favicon.value, url.value);
+	if (this.contentManager.getBookById(id, path, relativeLibraryPath, title, indexPath, indexType, description, articleCount, mediaCount, size, creator, publisher, date, language, favicon, url)) {
+	   return new Book(id, path.value, relativeLibraryPath.value, indexPath.value, indexType.value, false, "", title.value, description.value, articleCount.value, mediaCount.value, size.value, creator.value, publisher.value, date.value, language.value, favicon.value, url.value);
 	}
     },
 

@@ -7,6 +7,7 @@ Kiwix 0.9 beta5
 * Greying "Load random article" menu entry if no content is loaded (ID: 3439112)
 * Add the support of the "publisher" ZIM Metadata
 * Fix many localisation files which were broken due to a buggy script (ID: 3440627)
+* Fix a wrong behaviour in case of two portable kiwix consecutive runs (ID: 3442083)
 
 Kiwix 0.9 beta4
 * Fix regression, menu "last open" where not working anymore

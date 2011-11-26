@@ -41,11 +41,31 @@ function openZimFile(path) {
     }
 }
 
-/* Load the current ZIM file */
+/* 
+ * Load the current ZIM file. The code is a little bit complicated to
+ * understand. In fact this loops through all the currentId which are
+ * potentialy in the different library XML files. In addition, if the
+ * path of the current book is stored as a relative path, it does not
+ * show a warning. This is done to be able to run consequtively two
+ * separates portables instances of Kiwix, each one with its own
+ * content.
+ */
+
 function openCurrentBook() {
-    var currentBook = library.getCurrentBook();
-    if (!currentBook) return false;
-    return manageOpenFile(currentBook.path, true);
+    var currentBook;
+    var currentBookId;
+    var showErrorMessage;
+    var successfullyLoaded;
+    do {
+	if (currentBookId != undefined && currentBookId != "")
+	    library.setCurrentId("");
+	currentBook = library.getCurrentBook();
+	currentBookId = library.getCurrentId();
+	showErrorMessage = currentBook && !currentBook.relativeLibraryPath;
+	successfullyLoaded = 
+	    currentBook != undefined ? manageOpenFile(currentBook.path, showErrorMessage) : false;
+    } while (currentBookId != undefined && currentBookId != "" && !successfullyLoaded);
+    return (currentBook != undefined);
 }
 
 /* Return the homepage of a ZIM file */

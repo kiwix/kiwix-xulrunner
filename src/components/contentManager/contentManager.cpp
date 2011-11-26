@@ -235,6 +235,7 @@ NS_IMETHODIMP ContentManager::GetCurrentBookId(nsACString &id, PRBool *retVal) {
 
 NS_IMETHODIMP ContentManager::GetBookById(const nsACString &id, 
 					  nsACString &path, 
+					  PRBool *relativeLibraryPath,
 					  nsACString &title,
 					  nsACString &indexPath, 
 					  nsACString &indexType, 
@@ -257,6 +258,7 @@ NS_IMETHODIMP ContentManager::GetBookById(const nsACString &id,
 
     if (this->manager.getBookById(cid, book)) {
       path = nsDependentCString(book.pathAbsolute.data(), book.pathAbsolute.size());
+      *relativeLibraryPath = book.pathAbsolute != book.path;
       title = nsDependentCString(book.title.data(), book.title.size());
       indexPath = nsDependentCString(book.indexPathAbsolute.data(), book.indexPathAbsolute.size());
       articleCount = nsDependentCString(book.articleCount.data(), book.articleCount.size());
