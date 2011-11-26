@@ -923,12 +923,12 @@ function selectLibraryMenu(menuItemId) {
     var libraryDeck = document.getElementById("library-deck");
 
     if (menuItemId == "library-menuitem-local") {
-	menuItemLocal.setAttribute("style", "background-color: white;");
-	menuItemRemote.setAttribute("style", "background-color: transparent;");
+	menuItemLocal.setAttribute("class", "library-menuitem-selected");
+	menuItemRemote.setAttribute("class", "library-menuitem-unselected");
 	libraryDeck.selectedIndex = 0;
     } else {
-	menuItemLocal.setAttribute("style", "background-color: transparent;");
-	menuItemRemote.setAttribute("style", "background-color: white;")
+	menuItemRemote.setAttribute("class", "library-menuitem-selected");
+	menuItemLocal.setAttribute("class", "library-menuitem-unselected");
 	libraryDeck.selectedIndex = 1;
     }
     populateBookList();
