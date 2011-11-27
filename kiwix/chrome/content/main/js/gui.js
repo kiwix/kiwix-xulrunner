@@ -1300,25 +1300,47 @@ function handleKeyPress(aEvent) {
 	var container = getCurrentBookListContainer();
 	var box = _selectedLibraryContentItem;
 
-	if (keyCode == 38) {
-	    box = box == undefined ? container.lastChild : 
-		(box == container.firstChild ? container.firstChild : box.previousSibling);
-	} else if (keyCode == 40) {
-	    box = box == undefined ? container.getItemAtIndex(container.itemCount - 1) : 
-		(box == container.lastChild ? 
-		 container.getItemAtIndex(container.itemCount - 1) : box.nextSibling);
-	} else if (keyCode == 13 && container.id == "library-content-local") {
-	    var bookId  = box.getAttribute("bookId");
-	    var book = library.getBookById(bookId);
-	    if (book != undefined) {
-		manageOpenFile(book.path, true);
-	    }
-	} else if (keyCode == 27) {
+	/* Escape, quit the library */
+	if (keyCode == 27) {
 	    toggleLibrary(false);
+	    return;
 	}
 
-	if (box != _selectedLibraryContentItem)
-	    selectLibraryContentItem(box);
+	/* Key focus are on the content */
+	if (!_libraryKeyCursorOnMenu) {
+	    if (keyCode == 38) {
+		box = box == undefined ? container.lastChild : 
+		    (box == container.firstChild ? container.firstChild : box.previousSibling);
+	    } else if (keyCode == 40) {
+		box = box == undefined ? container.getItemAtIndex(container.itemCount - 1) : 
+		    (box == container.lastChild ? 
+		     container.getItemAtIndex(container.itemCount - 1) : box.nextSibling);
+	    } else if (keyCode == 13 && container.id == "library-content-local") {
+		var bookId  = box.getAttribute("bookId");
+		var book = library.getBookById(bookId);
+		if (book != undefined) {
+		    manageOpenFile(book.path, true);
+		}
+	    } else if (keyCode == 37) {
+		_libraryKeyCursorOnMenu = true;
+	    }
+
+	    if (box != _selectedLibraryContentItem)
+		selectLibraryContentItem(box);
+	}
+
+	/* Key focus are on the two menus */
+	else {
+	    if (keyCode == 39) {
+		_libraryKeyCursorOnMenu = false;
+	    } else if (keyCode == 38 && document.getElementById("library-deck").selectedIndex == 1) {
+		selectLibraryMenu("library-menuitem-local");
+		_libraryKeyCursorOnMenu = false;
+	    } else if (keyCode == 40 && document.getElementById("library-deck").selectedIndex == 0) {
+		selectLibraryMenu("library-menuitem-remote");
+		_libraryKeyCursorOnMenu = false;
+	    }
+	}
     }
 }
 

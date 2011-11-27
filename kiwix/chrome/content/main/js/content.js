@@ -25,6 +25,7 @@ var downloader = new Worker("js/downloader.js");
 var aria2StartCount = 0;
 var downloadsResumed = false;
 var _oldWindowTitle = "";
+var _librarykeyCursorOnMenu = false;
 var checkDownloaderId;
 var checkDownloadStatusId;
 
@@ -894,7 +895,9 @@ function toggleLibrary(visible) {
 
 	/* Reinitialize the scrollbar - seems to be necessary */
 	var libraryDeck = document.getElementById("library-deck");
-	libraryDeck.selectedPanel.ensureIndexIsVisible(libraryDeck.selectedPanel.selectedIndex); 
+	libraryDeck.selectedPanel.ensureIndexIsVisible(libraryDeck.selectedPanel.selectedIndex);
+
+	_libraryKeyCursorOnMenu = false;
     }
 }
 
