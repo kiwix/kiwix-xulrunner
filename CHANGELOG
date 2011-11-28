@@ -10,6 +10,7 @@ Kiwix 0.9 beta5
 * Fix a wrong behaviour in case of two portable kiwix consecutive runs (ID: 3442083)
 * Improve the library menus visibility (ID: 3439109)
 * Fix different issues relative to ISO language codes (ID: 3439293)
+* Improve and better document kiwix-manage
 
 Kiwix 0.9 beta4
 * Fix regression, menu "last open" where not working anymore
