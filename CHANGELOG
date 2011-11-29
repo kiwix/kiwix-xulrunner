@@ -1,5 +1,5 @@
 Kiwix 0.9 beta5
-* New supported user interface languages: cs, hsb, tt-cyrl, dsb, hi
+* New supported user interface languages: cs, hsb, tt-cyrl, dsb, hi, gu
 * Fixed the letton language menu item (ID: 3439113)
 * Switch off automatically if loading random article
 * Avoiding duplicates in publisher & language filters in the content manager (ID: 3439108)	

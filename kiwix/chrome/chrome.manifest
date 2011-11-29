@@ -27,6 +27,7 @@ locale main fr             locale/fr/main/
 locale main frp            locale/frp/main/
 locale main gl             locale/gl/main/
 locale main gsw            locale/gsw/main/
+locale main gu             locale/gu/main/
 locale main he             locale/he/main/
 locale main hi             locale/hi/main/
 locale main hsb            locale/hsb/main/
@@ -87,6 +88,7 @@ locale branding fr         locale/branding/
 locale branding frp        locale/branding/
 locale branding gl         locale/branding/
 locale branding gsw        locale/branding/
+locale branding gu         locale/branding/
 locale branding he         locale/branding/
 locale branding hsb        locale/branding/
 locale branding hu         locale/branding/
