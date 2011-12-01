@@ -399,7 +399,10 @@ function formatFileSize(filesize) {
 };
 
 function manageRemoveContent(id) {
-    if (displayConfirmDialog("Are you sure you want to remove this content?")) {
+    var keepContent = new Object();
+    if (displayConfirmDialogEx("Are you sure you want to remove this entry from the list and all related files?", 
+			       undefined, "Do not delete content (ZIM) file.", keepContent)) {
+	keepContent = keepContent.value;
 	var book = library.getBookById(id);
 
 	if (library.getCurrentId() == id) {
@@ -407,20 +410,27 @@ function manageRemoveContent(id) {
 	}
 
 	if (book != undefined) {
-	    deleteFile(book.path);
+
+	    /* Delete content (zim/epub) file */
+	    if (!keepContent)
+		deleteFile(book.path);
+
+	    /* Delete related fulltext search index files */
 	    deleteFile(book.indexPath);
 	    
+	    /* Remove paths information in the library */
 	    if (book.url != "") {
 		library.setBookPath(id, "");
 		library.setBookIndex(id, "");
 	    } else {
 		library.deleteBookById(id);
 	    }
-
+	    
+	    /* Update the user interface */
 	    populateLocalBookList();
 	    populateRemoteBookList();
 	}
-    }
+    }    
 };
     
 function manageStopDownload(id) {

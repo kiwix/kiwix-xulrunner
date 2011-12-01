@@ -10,7 +10,8 @@ Kiwix 0.9 beta5
 * Fix a wrong behaviour in case of two portable kiwix consecutive runs (ID: 3442083)
 * Improve the library menus visibility (ID: 3439109)
 * Fix different issues relative to ISO language codes (ID: 3439293)
-* Improve and better document kiwix-manage
+* Improve code and documentation of kiwix-manage
+* In library, add a option to keep ZIM file in case of content deletion (ID: 3442084)
 
 Kiwix 0.9 beta4
 * Fix regression, menu "last open" where not working anymore

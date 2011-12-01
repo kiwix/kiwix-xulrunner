@@ -958,7 +958,8 @@ function displayConfirmDialogEx(message, title, checkboxMessage, checkboxValue) 
         .getService(Components.interfaces.nsIPromptService);
     var flags=promptService.BUTTON_TITLE_YES * promptService.BUTTON_POS_0 +
         promptService.BUTTON_TITLE_NO * promptService.BUTTON_POS_1;
-    return promptService.confirmEx(window, title, message, flags, null, null, null, checkboxMessage, checkboxValue);
+    return (promptService.confirmEx(window, title, message, flags, null, null, null, 
+				   checkboxMessage, checkboxValue) == 0);
 }
 
 /* Fill the languages-menu with all available languages */
