@@ -7,7 +7,7 @@
 <!ENTITY main.file.accesskey            "F">
 <!ENTITY main.openFile                  "Відкрити файл ...">
 <!ENTITY main.browseLibrary.accesskey   "B">
-<!ENTITY main.browseLibrary             "Browse library">
+<!ENTITY main.browseLibrary             "Огляд бібліотеки">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "Нещодавно відкриті ...">
 <!ENTITY main.saveFile                  "Зберегти сторінку як...">
@@ -70,7 +70,7 @@
 <!-- Help menu -->
 <!ENTITY main.help                      "Довідка">
 <!ENTITY main.help.accesskey            "H">
-<!ENTITY main.feedback                  "Feedback">
+<!ENTITY main.feedback                  "Зворотний зв'язок">
 <!ENTITY main.reportabug                "Повідомити про помилку">
 <!ENTITY main.requestafeature           "Запит функцій">
 <!ENTITY main.about                     "Про & brand.brandShortName;">
@@ -101,8 +101,8 @@
 
 <!-- Contextual Menu -->
 <!ENTITY main.saveImageAs               "Зберегти зображення як ...">
-<!ENTITY main.openLinkInNewTab          "Open Link in New Tab">
-<!ENTITY main.searchFor                 "Search for">
+<!ENTITY main.openLinkInNewTab          "Відкрити посилання у новій вкладці">
+<!ENTITY main.searchFor                 "Шукати">
 
 <!-- About Window -->
 <!ENTITY main.close           		"Закрити">

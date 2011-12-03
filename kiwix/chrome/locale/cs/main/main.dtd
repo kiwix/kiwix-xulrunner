@@ -7,7 +7,7 @@
 <!ENTITY main.file.accesskey            "F">
 <!ENTITY main.openFile                  "Otevřít soubor...">
 <!ENTITY main.browseLibrary.accesskey   "B">
-<!ENTITY main.browseLibrary             "Browse library">
+<!ENTITY main.browseLibrary             "Prohlížet knihovnu">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "Nedávno otevřené...">
 <!ENTITY main.saveFile                  "Uložit stránku jako....">
@@ -70,7 +70,7 @@
 <!-- Help menu -->
 <!ENTITY main.help                      "Nápověda">
 <!ENTITY main.help.accesskey            "H">
-<!ENTITY main.feedback                  "Feedback">
+<!ENTITY main.feedback                  "Zpětná vazba">
 <!ENTITY main.reportabug                "Nahlásit chybu">
 <!ENTITY main.requestafeature           "Navrhnout novou funkci">
 <!ENTITY main.about                     "O &brand.brandShortName;">
@@ -101,8 +101,8 @@
 
 <!-- Contextual Menu -->
 <!ENTITY main.saveImageAs               "Uložit obrázek jako...">
-<!ENTITY main.openLinkInNewTab          "Open Link in New Tab">
-<!ENTITY main.searchFor                 "Search for">
+<!ENTITY main.openLinkInNewTab          "Otevřít odkaz v nové záložce">
+<!ENTITY main.searchFor                 "Vyhledat">
 
 <!-- About Window -->
 <!ENTITY main.close           		"Zavřít">

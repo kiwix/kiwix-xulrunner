@@ -7,7 +7,7 @@
 <!ENTITY main.file.accesskey            "F">
 <!ENTITY main.openFile                  "Dattei opmaache...">
 <!ENTITY main.browseLibrary.accesskey   "B">
-<!ENTITY main.browseLibrary             "Browse library">
+<!ENTITY main.browseLibrary             "En de Bilijotheek bläddere">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "Köözlesch opjehatt...">
 <!ENTITY main.saveFile                  "Di Sigg faßhallde onger...">
@@ -70,7 +70,7 @@
 <!-- Help menu -->
 <!ENTITY main.help                      "Hölp">
 <!ENTITY main.help.accesskey            "H">
-<!ENTITY main.feedback                  "Feedback">
+<!ENTITY main.feedback                  "Röckmäldonge">
 <!ENTITY main.reportabug                "Ene Fähler mälde">
 <!ENTITY main.requestafeature           "Verbäßerung vörschlonn">
 <!ENTITY main.about                     "Övver &brand.brandShortName;">
@@ -101,8 +101,8 @@
 
 <!-- Contextual Menu -->
 <!ENTITY main.saveImageAs               "Dat Beld faßhallde onger...">
-<!ENTITY main.openLinkInNewTab          "Open Link in New Tab">
-<!ENTITY main.searchFor                 "Search for">
+<!ENTITY main.openLinkInNewTab          "Donn dä Lengk en enem neue Ongerfinster op maache">
+<!ENTITY main.searchFor                 "Söhk noh">
 
 <!-- About Window -->
 <!ENTITY main.close           		"Zohmaache">

@@ -101,7 +101,7 @@
 
 <!-- Contextual Menu -->
 <!ENTITY main.saveImageAs               "Salva immagine con nome...">
-<!ENTITY main.openLinkInNewTab          "Open Link in New Tab">
+<!ENTITY main.openLinkInNewTab          "Apri il Collegamento in una Nuova Scheda">
 <!ENTITY main.searchFor                 "Search for">
 
 <!-- About Window -->
