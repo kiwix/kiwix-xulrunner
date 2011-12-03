@@ -103,6 +103,7 @@
 <!ENTITY main.saveImageAs               "Simpen gambar salaku...">
 <!ENTITY main.openLinkInNewTab          "Buka Tutumbu dina Tab Anyar">
 <!ENTITY main.searchFor                 "Paluruh">
+<!ENTITY main.copyLinkAdress            "Copy link address">
 
 <!-- About Window -->
 <!ENTITY main.close           		"Tutup">
@@ -113,5 +114,5 @@
 <!ENTITY preferences.cancel     	"Cancel">
 <!ENTITY preferences.profileDirectory  	"Profile directory">
 <!ENTITY preferences.browse  	        "Browse">
-<!ENTITY preferences.tabs			"Remember tabs">
+<!ENTITY preferences.tabs               "Remember tabs">
 

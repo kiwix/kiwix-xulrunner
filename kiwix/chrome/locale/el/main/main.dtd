@@ -103,6 +103,7 @@
 <!ENTITY main.saveImageAs               "Αποθήκευση εικόνας ως...">
 <!ENTITY main.openLinkInNewTab          "Open Link in New Tab">
 <!ENTITY main.searchFor                 "Search for">
+<!ENTITY main.copyLinkAdress            "Copy link address">
 
 <!-- About Window -->
 <!ENTITY main.close           		"Κλείσιμο">
@@ -113,5 +114,5 @@
 <!ENTITY preferences.cancel     	"Cancel">
 <!ENTITY preferences.profileDirectory  	"Profile directory">
 <!ENTITY preferences.browse  	        "Browse">
-<!ENTITY preferences.tabs			"Remember tabs">
+<!ENTITY preferences.tabs               "Remember tabs">
 

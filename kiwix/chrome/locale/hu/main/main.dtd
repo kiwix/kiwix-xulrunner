@@ -103,6 +103,7 @@
 <!ENTITY main.saveImageAs               "Kép mentése másként...">
 <!ENTITY main.openLinkInNewTab          "A hivatkozás megnyitása új lapon">
 <!ENTITY main.searchFor                 "Keresés">
+<!ENTITY main.copyLinkAdress            "Copy link address">
 
 <!-- About Window -->
 <!ENTITY main.close           		"Bezárás">
@@ -113,5 +114,5 @@
 <!ENTITY preferences.cancel     	"Cancel">
 <!ENTITY preferences.profileDirectory  	"Profile directory">
 <!ENTITY preferences.browse  	        "Browse">
-<!ENTITY preferences.tabs			"Remember tabs">
+<!ENTITY preferences.tabs               "Remember tabs">
 

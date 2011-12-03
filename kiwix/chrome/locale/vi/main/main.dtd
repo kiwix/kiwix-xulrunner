@@ -103,6 +103,7 @@
 <!ENTITY main.saveImageAs               "Lưu Hình Như…">
 <!ENTITY main.openLinkInNewTab          "Mở liên kết trong thẻ mới">
 <!ENTITY main.searchFor                 "Tìm kiếm">
+<!ENTITY main.copyLinkAdress            "Copy link address">
 
 <!-- About Window -->
 <!ENTITY main.close           		"Đóng">
@@ -113,5 +114,5 @@
 <!ENTITY preferences.cancel     	"Cancel">
 <!ENTITY preferences.profileDirectory  	"Profile directory">
 <!ENTITY preferences.browse  	        "Browse">
-<!ENTITY preferences.tabs			"Remember tabs">
+<!ENTITY preferences.tabs               "Remember tabs">
 

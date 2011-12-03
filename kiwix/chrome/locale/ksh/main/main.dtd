@@ -103,6 +103,7 @@
 <!ENTITY main.saveImageAs               "Dat Beld faßhallde onger...">
 <!ENTITY main.openLinkInNewTab          "Donn dä Lengk en enem neue Ongerfinster op maache">
 <!ENTITY main.searchFor                 "Söhk noh">
+<!ENTITY main.copyLinkAdress            "Copy link address">
 
 <!-- About Window -->
 <!ENTITY main.close           		"Zohmaache">
@@ -113,5 +114,5 @@
 <!ENTITY preferences.cancel     	"Cancel">
 <!ENTITY preferences.profileDirectory  	"Profile directory">
 <!ENTITY preferences.browse  	        "Browse">
-<!ENTITY preferences.tabs			"Remember tabs">
+<!ENTITY preferences.tabs               "Remember tabs">
 

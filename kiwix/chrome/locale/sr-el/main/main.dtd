@@ -103,6 +103,7 @@
 <!ENTITY main.saveImageAs               "Sačuvaj sliku kao…">
 <!ENTITY main.openLinkInNewTab          "Otvori vezu u novom jezičku">
 <!ENTITY main.searchFor                 "Traži">
+<!ENTITY main.copyLinkAdress            "Copy link address">
 
 <!-- About Window -->
 <!ENTITY main.close           		"Zatvori">
@@ -113,5 +114,5 @@
 <!ENTITY preferences.cancel     	"Cancel">
 <!ENTITY preferences.profileDirectory  	"Profile directory">
 <!ENTITY preferences.browse  	        "Browse">
-<!ENTITY preferences.tabs			"Remember tabs">
+<!ENTITY preferences.tabs               "Remember tabs">
 

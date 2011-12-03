@@ -191,6 +191,7 @@
   <menuitem label="&main.copy;" id="browser-contextual-menu-copyselectedtext"/>
   <menuitem label="&main.selectall;" id="browser-contextual-menu-selectall" onclick="selectAll()"/>
   <menuitem label="&main.searchFor;" id="browser-contextual-menu-searchfor"/>
+  <menuitem label="&main.copyLinkAdress;" id="browser-contextual-menu-copylinkaddress"/>
 </menupopup>
 
 <menupopup id="sugar-options-menu">

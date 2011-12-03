@@ -905,6 +905,20 @@ function toggleBrowserContextualMenu(event) {
 	openLinkInNewTabMenuItem.setAttribute("style", "display: none;");
     }
 
+    /* Copy Link address */
+    var copyLinkAddressMenuItem = document.getElementById("browser-contextual-menu-copylinkaddress");
+    var url = getNodeLinkUrl(target);
+    if (url != undefined) {
+	if (!isInternalUrl(url)) {
+	    copyLinkAddressMenuItem.setAttribute("style", "display: visible;");
+	    copyLinkAddressMenuItem.setAttribute("onclick", "copyTextToClipboard(\"" + url.replace("\"", "\\\"") + "\")");
+	} else {
+	    copyLinkAddressMenuItem.setAttribute("style", "display: none;");
+	}
+    } else {
+	copyLinkAddressMenuItem.setAttribute("style", "display: none;");
+    }    
+
     /* Selected text */
     var copySelectedTextMenuItem = document.getElementById("browser-contextual-menu-copyselectedtext");
     var searchForMenuItem = document.getElementById("browser-contextual-menu-searchfor");
