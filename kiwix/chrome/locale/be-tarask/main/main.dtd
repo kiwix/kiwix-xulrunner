@@ -6,13 +6,15 @@
 <!ENTITY main.file                      "Файл">
 <!ENTITY main.file.accesskey            "F">
 <!ENTITY main.openFile                  "Адкрыць файл…">
+<!ENTITY main.browseLibrary.accesskey   "B">
+<!ENTITY main.browseLibrary             "Праглядзець бібліятэку">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "Апошнія адкрытыя…">
 <!ENTITY main.saveFile                  "Захаваць старонку як…">
 <!ENTITY main.saveFile.accesskey        "S">
 <!ENTITY main.print                     "Друкаваць">
 <!ENTITY main.print.accesskey           "P">
-<!ENTITY main.printPdf                  "Друкаваць у PDF">
+<!ENTITY main.printPdf                  "Друкаваць у фармаце PDF">
 <!ENTITY main.printPdf.accesskey        "D">
 <!ENTITY main.quit                      "Выйсьці">
 <!ENTITY main.quit.accesskey            "Q">
@@ -20,7 +22,7 @@
 <!-- Edit menu -->
 <!ENTITY main.edit                      "Рэдагаваць">
 <!ENTITY main.edit.accesskey            "E">
-<!ENTITY main.find                      "Шукаць на старонцы…">
+<!ENTITY main.find                      "Пошук на старонцы…">
 <!ENTITY main.find.accesskey            "S">
 <!ENTITY main.selectall                 "Выбраць усё">
 <!ENTITY main.selectall.accesskey       "a">
@@ -68,8 +70,9 @@
 <!-- Help menu -->
 <!ENTITY main.help                      "Дапамога">
 <!ENTITY main.help.accesskey            "H">
+<!ENTITY main.feedback                  "Водгук">
 <!ENTITY main.reportabug                "Паведаміць пра памылку">
-<!ENTITY main.requestafeature           "Запытаць опцыю">
+<!ENTITY main.requestafeature           "Запытаць магчымасьць">
 <!ENTITY main.about                     "Пра &brand.brandShortName;">
 <!ENTITY main.about.accesskey           "A">
 
@@ -78,9 +81,9 @@
 <!ENTITY main.forward                   "Наперад">
 <!ENTITY main.home                      "Пачатак">
 <!ENTITY main.searchBar                 "Панэль пошуку">
-<!ENTITY main.search                    "Шукаць">
+<!ENTITY main.search                    "Пошук">
 <!ENTITY main.findInText                "Знайсьці ў тэксьце">
-<!ENTITY main.noSearchBar               "Пошук вымагае індэксаванага файлу ZIM">
+<!ENTITY main.noSearchBar               "Пошук патрабуе індэксаванага ZIM-файлу">
 <!ENTITY main.bookmarks                 "Закладкі">
 
 <!-- Results bar -->
@@ -94,10 +97,12 @@
 <!ENTITY main.mark                      "Пазначыць гэтую старонку">
 <!ENTITY main.unmark                    "Зьняць пазначэньне з вылучаных">
 <!ENTITY main.reload                    "Перагрузіць набор закладак">
-<!ENTITY main.defaultset                "Дапомны набор">
+<!ENTITY main.defaultset                "Набор па змоўчваньні">
 
 <!-- Contextual Menu -->
 <!ENTITY main.saveImageAs               "Захаваць выяву як…">
+<!ENTITY main.openLinkInNewTab          "Адкрыць спасылку ў новай закладцы">
+<!ENTITY main.searchFor                 "Шукаць">
 
 <!-- About Window -->
 <!ENTITY main.close           		"Зачыніць">
@@ -108,4 +113,5 @@
 <!ENTITY preferences.cancel     	"Cancel">
 <!ENTITY preferences.profileDirectory  	"Profile directory">
 <!ENTITY preferences.browse  	        "Browse">
+<!ENTITY preferences.tabs			"Remember tabs">
 

@@ -8,7 +8,7 @@ locale main af             locale/af/main/
 locale main ar             locale/ar/main/
 locale main ary            locale/ary/main/
 locale main ast            locale/ast/main/
-locale main be-tarask      locale/bjn/main/
+locale main be-tarask      locale/be-tarask/main/
 locale main bjn            locale/bjn/main/
 locale main bn             locale/bn/main/
 locale main br             locale/br/main/

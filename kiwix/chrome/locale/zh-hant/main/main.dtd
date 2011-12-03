@@ -6,6 +6,8 @@
 <!ENTITY main.file                      "檔案">
 <!ENTITY main.file.accesskey            "F">
 <!ENTITY main.openFile                  "開啟舊檔...">
+<!ENTITY main.browseLibrary.accesskey   "B">
+<!ENTITY main.browseLibrary             "Browse library">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "最近使用...">
 <!ENTITY main.saveFile                  "另存為...">
@@ -68,6 +70,7 @@
 <!-- Help menu -->
 <!ENTITY main.help                      "說明">
 <!ENTITY main.help.accesskey            "H">
+<!ENTITY main.feedback                  "Feedback">
 <!ENTITY main.reportabug                "報告錯誤">
 <!ENTITY main.requestafeature           "建議新功能">
 <!ENTITY main.about                     "關於 &brand.brandShortName;">
@@ -98,6 +101,8 @@
 
 <!-- Contextual Menu -->
 <!ENTITY main.saveImageAs               "另存圖像為 ...">
+<!ENTITY main.openLinkInNewTab          "Open Link in New Tab">
+<!ENTITY main.searchFor                 "Search for">
 
 <!-- About Window -->
 <!ENTITY main.close           		"關閉">
@@ -108,4 +113,5 @@
 <!ENTITY preferences.cancel     	"Cancel">
 <!ENTITY preferences.profileDirectory  	"Profile directory">
 <!ENTITY preferences.browse  	        "Browse">
+<!ENTITY preferences.tabs			"Remember tabs">
 
