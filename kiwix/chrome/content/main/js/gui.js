@@ -171,22 +171,23 @@ function saveWindowGeometry(width, height, x, y, windowState) {
 
 /* Compute position and size of the window */
 function configureWindowGeometry(window) {
-    var margin = 100;
-    var width = settings.windowWidth() || screen.width / 100 * 90;
-    var height = settings.windowHeight() || screen.height / 100 * 90;
-    var x = (settings.windowX() != undefined && 
-	     settings.windowX() > 0 && 
-	     settings.windowX() < screen.width - margin) ? settings.windowX() : (screen.width - width) / 2;
-    var y = (settings.windowY() != undefined && 
-	     settings.windowY() > 0 &&
-	     settings.windowY() < screen.height - margin) ? settings.windowY() : (screen.height - height) / 2;
-
-    saveWindowGeometry(this.outerWidth, this.outerHeight, this.screenX, this.screenY, this.windowState);
-
-    window.resizeTo(width, height);
-    window.moveTo(x, y);
     if (settings.windowMaximized()) {
         setTimeout('window.maximize();', 1);
+    } else {
+	var margin = 100;
+	var width = settings.windowWidth() || screen.width / 100 * 90;
+	var height = settings.windowHeight() || screen.height / 100 * 90;
+	var x = (settings.windowX() != undefined && 
+		 settings.windowX() > 0 && 
+		 settings.windowX() < screen.width - margin) ? settings.windowX() : (screen.width - width) / 2;
+	var y = (settings.windowY() != undefined && 
+		 settings.windowY() > 0 &&
+		 settings.windowY() < screen.height - margin) ? settings.windowY() : (screen.height - height) / 2;
+	
+	saveWindowGeometry(this.outerWidth, this.outerHeight, this.screenX, this.screenY, this.windowState);
+	
+	window.resizeTo(width, height);
+	window.moveTo(x, y);
     }
 }
 
