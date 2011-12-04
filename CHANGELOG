@@ -13,6 +13,7 @@ Kiwix 0.9 beta5
 * Improve code and documentation of kiwix-manage
 * In library, add a option to keep ZIM file in case of content deletion (ID: 3442084)
 * Add "Copy Link Address" in contextual menu for external links (ID: 3444066)
+* Add a security to avoid "displaying" window outside the screen (ID: 3415334)
 
 Kiwix 0.9 beta4
 * Fix regression, menu "last open" where not working anymore
