@@ -655,7 +655,6 @@ function createLibraryItem(book) {
 
     var progressmeterBox = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
 						    "hbox");
-    progressmeterBox.setAttribute("flex", "1");
     var progressmeter = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
 						 "progressmeter");
     progressmeter.setAttribute("flex", "1");
