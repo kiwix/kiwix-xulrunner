@@ -49,6 +49,7 @@
 #include <Windows.h>
 #else
 #include <unistd.h>
+#include <signal.h>
 #endif
 
 #include "nsXPCOM.h"
@@ -82,6 +83,12 @@ private:
 
 protected:
   kiwix::Manager manager;
+#ifdef _WIN32
+  int aria2cPid;
+#else
+  pid_t aria2cPid;
+#endif
+
 };
 
 /* Implementation file */
@@ -480,15 +487,58 @@ NS_IMETHODIMP ContentManager::GetBooksPublishers(nsACString &publishers, PRBool 
   return NS_OK;
 }
 
-NS_IMETHODIMP ContentManager::LaunchAria2c(const nsAString &binaryPath, PRBool *retVal) {
+NS_IMETHODIMP ContentManager::KillAria2c(PRBool *retVal) {
   *retVal = PR_TRUE;
-  const char *cBinaryPath = strdup(nsStringToCString(binaryPath));
 
 #ifdef _WIN32
-  string childBinaryPath = "child-process.exe";
 #else
-  string childBinaryPath = "child-process";
+  kill(this->aria2cPid, SIGTERM);
+  this->aria2cPid = NULL;
 #endif
+  
+  return NS_OK;
+}
+
+NS_IMETHODIMP ContentManager::IsAria2cRunning(PRBool *retVal) {
+  *retVal = PR_FALSE;
+
+#ifdef _WIN32
+  HANDLE process = OpenProcess(SYNCHRONIZE, FALSE, this->aria2cPid);
+  DWORD ret = WaitForSingleObject(process, 0);
+  CloseHandle(process);
+  if (ret == WAIT_TIMEOUT)
+    *retVal = PR_TRUE;
+#elif __APPLE__
+  int mib[MIBSIZE];
+  struct kinfo_proc kp;
+  size_t len = sizeof(kp);
+  
+  mib[0]=CTL_KERN;
+  mib[1]=KERN_PROC;
+  mib[2]=KERN_PROC_PID;
+  mib[3]=this->aria2cPid;
+  
+  int ret = sysctl(mib, MIBSIZE, &kp, &len, NULL, 0);
+  if (ret != -1 && len > 0) {
+    *retVal = PR_TRUE;
+#else
+    char PIDStr[10];
+    sprintf(PIDStr, "%d", this->aria2cPid);
+    string procPath = "/proc/" + string(PIDStr);
+    if (access(procPath.c_str(), F_OK) != -1)
+      *retVal = PR_TRUE;
+#endif
+
+  return NS_OK;
+}
+
+NS_IMETHODIMP ContentManager::LaunchAria2c(const nsAString &binaryPath, const nsAString &downloadPath, 
+					   const nsAString &logPath, PRBool *retVal) {
+  *retVal = PR_TRUE;
+  const char *cBinaryPath = strdup(nsStringToCString(binaryPath));
+  const char *cDownloadPath = strdup(nsStringToCString(downloadPath));
+  const char *cLogPath = strdup(nsStringToCString(logPath));
+  string commandLine;
 
   /* Get PPID */
 #ifdef _WIN32
@@ -496,49 +546,53 @@ NS_IMETHODIMP ContentManager::LaunchAria2c(const nsAString &binaryPath, PRBool *
 #else
   pid_t PID = getpid(); 
 #endif
-  cout << "parent-process: PID is " << PID << endl;
 
   /* Launch child-process */
   char PIDStr[10];
   sprintf(PIDStr, "%d", PID);
-  cout << "parent-process: launching child-process from path " << childBinaryPath << "..."<< endl;
 
 #ifdef _WIN32
-  string commandLine = binaryPath + " " + string(PIDStr);
+  commandLine = string(cBinaryPath) + " --enable-xml-rpc --xml-rpc-listen-port=42042 --dir=\"" + string(cDownloadPath) + "\" \
+     --allow-overwrite=true --disable-ipv6=true --quiet=true --always-resume=true \
+     --max-concurrent-downloads=42 --xml-rpc-max-request-size=6M";
   STARTUPINFO startInfo = {0};
   PROCESS_INFORMATION procInfo;
   startInfo.cb = sizeof(startInfo);
 
-  /* Code to avoid console window creation
-  if(CreateProcess(childBinaryPath.c_str(), _strdup(commandLine.c_str()), NULL, NULL, FALSE, 
+  if(CreateProcess(commandLine.c_str(), _strdup(commandLine.c_str()), NULL, NULL, FALSE, 
 		   CREATE_NEW_CONSOLE, NULL, NULL, &startInfo, &procInfo)) {
-   */
-
-  if(CreateProcess(binaryPath.c_str(), _strdup(commandLine.c_str()), NULL, NULL, FALSE, 
-		   CREATE_NO_WINDOW, NULL, NULL, &startInfo, &procInfo)) {
+    this->aria2cPid = procInfo.dwProcessId;
     CloseHandle(procInfo.hProcess);
     CloseHandle(procInfo.hThread);
   } else {
-    cerr << "parent-process: unable to start child-process from path " << childBinaryPath << endl;
-    return 1;
+    cerr << "Unable to start aria2c.exe from path " << commandLine << endl;
+    *retVal = PR_FALSE;
+    return NS_OK;
   }
 #else
   PID = fork();
+  const string downloadPathArgument = "--dir=\"" + string(cDownloadPath) + "\"";
+  const string logPathArgument = "--log=\"" + string(cLogPath) + "\"";
+  
   switch (PID) {
   case -1:
-    cerr << "parent-process: Unable to fork" << endl;
-    return 1;
+    cerr << "Unable to fork before launching aria2c" << endl;
+    *retVal = PR_FALSE;
+    return NS_OK;
     break;
   case 0: /* This is the child process */
-    if (execl(childBinaryPath.c_str(), childBinaryPath.c_str(), PIDStr, NULL) == -1) {
-      cerr << "parent-process: unable to start child-process from path " << childBinaryPath << endl;
-      return 1;
+    commandLine = string(cBinaryPath);
+    if (execl(commandLine.c_str(), commandLine.c_str(), "--enable-xml-rpc", "--xml-rpc-listen-port=42042", 
+	      downloadPathArgument.c_str(), "--allow-overwrite=true", 
+	      "--disable-ipv6=true", "--quiet=true", "--always-resume=true", "--max-concurrent-downloads=42", 
+	      "--xml-rpc-max-request-size=6M", NULL) == -1) {
+      cerr << "Unable to start aria2c from path " << commandLine << endl;
+      *retVal = PR_FALSE;
     }
-    return 0;
+    return NS_OK;
     break;
   default:
-    cout << "parent-process: has forked successfuly" << endl;
-    cout << "parent-process: child-process PID is " << PID << endl;
+    this->aria2cPid = PID;
     break;
   }
 #endif

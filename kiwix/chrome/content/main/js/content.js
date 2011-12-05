@@ -19,10 +19,8 @@
 
 var _selectedLibraryContentItem = undefined;
 var aria2Client = new xmlrpc_client ("rpc", "localhost", "42042", "http");
-var aria2Process = null;
 var jobTimer = null;
 var downloader = new Worker("js/downloader.js");
-var aria2StartCount = 0;
 var downloadsResumed = false;
 var _oldWindowTitle = "";
 var _librarykeyCursorOnMenu = false;
@@ -104,99 +102,37 @@ function addMetalink(id, metalinkContent) {
 }
 
 function isDownloaderRunning() {
-    if (env.isWindows()) {
-	return (aria2Process != null);
-    } else {
-	return (aria2Process != null && aria2Process.exitValue < 0);
-    }
+    var contentManager = Components.classes["@kiwix.org/contentManager"].getService().
+	QueryInterface(Components.interfaces.IContentManager);
+    return contentManager.isAria2cRunning();
 }
 
 function checkDownloader() {
-    if (!isDownloaderRunning()) {
-	/* Check if aria2c is not already started */
-	var openPort = true;
-	try {
-	    var req = new XMLHttpRequest();
-	    req.open('GET', "http://localhost:42042/", false);
-	    req.timeout = 100;
-	    req.send(null);
-	} catch(error) {
-	    openPort = false;
-	}
-	
-	if (openPort == true) {
-	    return true;
-	} else {
-	    /* Need to wait wide usage of aria2c 1.11 or higher before using this version of the aria2c command line */
-	    var args = [ "--enable-rpc", "--rpc-listen-port=42042", "--dir=" + settings.getRootPath(), "--log=" + getDownloaderLogPath(), "--allow-overwrite=true", "--disable-ipv6=true", "--quiet=true", "--always-resume=true", "--max-concurrent-downloads=42", "--min-split-size=1M", "--rpc-max-request-size=6M" ];
-
-	    /* For backward compatibility */
-	    if (aria2StartCount > 0) {
-		args = [ "--enable-xml-rpc", "--xml-rpc-listen-port=42042", "--dir=" + settings.getRootPath(), "--log=" + getDownloaderLogPath(), "--allow-overwrite=true", "--disable-ipv6=true", "--quiet=true", "--always-resume=true", "--max-concurrent-downloads=42", "--xml-rpc-max-request-size=6M" ];
-	    }
-	    
-	    startDownloader(args);
-	}
-    } else if (!downloadsResumed && library.getRemoteBookCount() > 0) {
+    if (isDownloaderRunning() && !downloadsResumed && library.getRemoteBookCount() > 0) {
 	resumeDownloads();
     }
 }
 
-function startDownloader(args) {
-    var binaryPath;
-    
-    var ariaBinaryPath = whereis(env.isWindows() ? "aria2c.exe" : "aria2c");
-    if (ariaBinaryPath == undefined) {
+function startDownloader() {
+    /* Get the aria2c binary whole path */
+    var binaryPath = whereis(env.isWindows() ? "aria2c.exe" : "aria2c");
+    if (binaryPath == undefined) {
 	dump("Unable to find the aria2c binary.\n");
 	return;
     }
     
-    if (env.isWindows()) {
-	binaryPath = whereis("chp.exe");
-	if (binaryPath == undefined) {
-	    dump("Unable to find the chp binary.\n");
-	    return;
-	}
-	
-	args.splice(0, 0, ariaBinaryPath);
-    } else {
-	binaryPath = ariaBinaryPath;
+    /* Start the aria2c binary */
+    var contentManager = Components.classes["@kiwix.org/contentManager"].getService().
+	QueryInterface(Components.interfaces.IContentManager);
+    if (!contentManager.launchAria2c(binaryPath, settings.getRootPath(), getDownloaderLogPath())) {
+	dump("Unable to launch the aria2c binary.\n");
     }
-    
-    var binary = Components.classes["@mozilla.org/file/local;1"]
-	.createInstance(Components.interfaces.nsILocalFile);
-    binary.initWithPath(binaryPath);
-    
-    aria2Process = Components.classes["@mozilla.org/process/util;1"]
-	.createInstance(Components.interfaces.nsIProcess);
-    aria2Process.init(binary);
-
-    aria2Process.run(false, args, args.length);
-    aria2StartCount += 1;
 }
 
 function stopDownloader() {
-    if (aria2Process != null) {
-	if (env.isWindows()) {
-	    var taskkillBinaryPath = whereis("taskkill.exe");
-	    var chpBinaryPath = whereis("chp.exe");
-
-	    var binary = Components.classes["@mozilla.org/file/local;1"]
-		.createInstance(Components.interfaces.nsILocalFile);
-	    binary.initWithPath(chpBinaryPath);
-	    
-	    var process = Components.classes["@mozilla.org/process/util;1"]
-		.createInstance(Components.interfaces.nsIProcess);
-	    process.init(binary);
-	    
-	    process.run(true, [ taskkillBinaryPath, "/PID", aria2Process.exitValue ], 3);
-	} else if (aria2Process != null) {
-	    try {
-		aria2Process.kill();
-	    } catch (error) {
-	    }
-	}
-    }
+    var contentManager = Components.classes["@kiwix.org/contentManager"].getService().
+	QueryInterface(Components.interfaces.IContentManager);
+    contentManager.killAria2c();
 }
 
 function getAriaDownloadStatus(gid) {
@@ -274,7 +210,7 @@ function getDownloadStatus() {
     /* Get aria2 active downloads */
     var ariaDownloadsCount = 0;
     var ariaResponse;
-    if (kiwixDownloadsCount > 0 && aria2Process != null) {
+    if (kiwixDownloadsCount > 0 && isDownloaderRunning()) {
 	var ariaMessage = new xmlrpcmsg("aria2.tellActive");
 	ariaResponse = aria2Client.send(ariaMessage);
 	if (typeof ariaResponse.val == "object") {

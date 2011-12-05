@@ -296,10 +296,8 @@ function onStart() {
     /* Finish the user interface initialisation */
     postInitUserInterface();
 
-    /* Start aria */
-    try {
-        checkDownloader();
-    } catch(e) { dump("Unable to check Downloader: " + e.toString() + "\n"); }
+    /* Start aria downloader */
+    startDownloader();
 }
 
 /* Clear the history and the cache */

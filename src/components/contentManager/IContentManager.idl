@@ -30,5 +30,7 @@ interface IContentManager : nsISupports
   boolean getBooksLanguages(out AUTF8String languages);
   boolean getBooksCreators(out AUTF8String creators);
   boolean getBooksPublishers(out AUTF8String publishers);
-  boolean launchAria2c(in AString binaryPath);
+  boolean launchAria2c(in AString binaryPath, in AString downloadPath, in AString logPath);
+  boolean isAria2cRunning();
+  boolean killAria2c();
 };
