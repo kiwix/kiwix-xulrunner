@@ -24,6 +24,8 @@ var downloader = new Worker("js/downloader.js");
 var downloadsResumed = false;
 var _oldWindowTitle = "";
 var _librarykeyCursorOnMenu = false;
+var _isDownloaderRunningTimestamp = Number(new Date());
+var _isDownloaderRunning = false;
 var checkDownloaderId;
 var checkDownloadStatusId;
 
@@ -102,9 +104,14 @@ function addMetalink(id, metalinkContent) {
 }
 
 function isDownloaderRunning() {
-    var contentManager = Components.classes["@kiwix.org/contentManager"].getService().
-	QueryInterface(Components.interfaces.IContentManager);
-    return contentManager.isAria2cRunning();
+    var timestamp = Number(new Date());
+    if (timestamp > _isDownloaderRunningTimestamp + 1000) {
+	var contentManager = Components.classes["@kiwix.org/contentManager"].getService().
+	    QueryInterface(Components.interfaces.IContentManager);
+	_isDownloaderRunning = contentManager.isAria2cRunning();
+	_isDownloaderRunningTimestamp = timestamp;
+    }
+    return _isDownloaderRunning;
 }
 
 function checkDownloader() {
@@ -164,6 +171,7 @@ function startDownload(url, id) {
     if (isFile(appendToPath(settings.getRootPath(), id + ".metalink"))) {
 	addMetalink(id, readFile(appendToPath(settings.getRootPath(), id + ".metalink")));
     } else {
+	alert(url);
 	var message = new WorkerMessage("downloadMetalink", [ url ], [ id ] );
 	downloader.postMessage(message);
     }
@@ -208,9 +216,10 @@ function getDownloadStatus() {
     var kiwixDownloadsCount = kiwixDownloads.length;
 
     /* Get aria2 active downloads */
+    var ariaRunning = isDownloaderRunning();
     var ariaDownloadsCount = 0;
     var ariaResponse;
-    if (kiwixDownloadsCount > 0 && isDownloaderRunning()) {
+    if (kiwixDownloadsCount > 0 && ariaRunning) {
 	var ariaMessage = new xmlrpcmsg("aria2.tellActive");
 	ariaResponse = aria2Client.send(ariaMessage);
 	if (typeof ariaResponse.val == "object") {
