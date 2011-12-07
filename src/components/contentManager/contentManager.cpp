@@ -570,6 +570,9 @@ NS_IMETHODIMP ContentManager::LaunchAria2c(const nsAString &binaryPath, const ns
     return NS_OK;
   }
 #else
+  /* Essential to avoid zombie aria2c process */
+  signal(SIGCHLD, SIG_IGN);
+
   PID = fork();
   const string downloadPathArgument = "--dir=\"" + string(cDownloadPath) + "\"";
   const string logPathArgument = "--log=\"" + string(cLogPath) + "\"";
