@@ -103,6 +103,24 @@ function addMetalink(id, metalinkContent) {
     }
 }
 
+function addUri(id, uri) {
+    /* Tell aria2c to start the download */
+    var xmlrpcvalue = new xmlrpcval(uri, "string");
+    var arr = [ xmlrpcvalue ];
+    var param = new xmlrpcval(arr, 'array');
+    var msg = new xmlrpcmsg("aria2.addUri", [ param ]);
+    var response = aria2Client.send(msg);
+    
+    /* If aria2c not running then exception */
+    try {
+	var gid = response.val.arrayMem(0);
+	/* set the gid */
+	settings.setDownloadProperty(id, "gid", gid);
+    } catch (error) {
+    }
+    alert(uri);
+}
+
 function isDownloaderRunning() {
     var timestamp = Number(new Date());
     if (timestamp > _isDownloaderRunningTimestamp + 1000) {
@@ -167,13 +185,20 @@ function getAriaDownloadPath(gid) {
     return path;
 }
 
+function isMetalinkUrl(url) {
+    return true;
+}
+
 function startDownload(url, id) {
-    if (isFile(appendToPath(settings.getRootPath(), id + ".metalink"))) {
-	addMetalink(id, readFile(appendToPath(settings.getRootPath(), id + ".metalink")));
-    } else {
-	alert(url);
-	var message = new WorkerMessage("downloadMetalink", [ url ], [ id ] );
+    if (isMetalinkUrl()) {
+	if (isFile(appendToPath(settings.getRootPath(), id + ".metalink"))) {
+	    addMetalink(id, readFile(appendToPath(settings.getRootPath(), id + ".metalink")));
+	} else {
+	    var message = new WorkerMessage("downloadMetalink", [ url ], [ id ] );
 	downloader.postMessage(message);
+	}
+    } else {
+	addUri(id, url);
     }
 }
 
