@@ -495,7 +495,7 @@ tab[selected="true"] label {
 
 .library-left-stuffer {
     border-color: #777777; 
-    border-width: 0px 2px 0px 0px; 
+    border-width: 0px 1px 0px 0px; 
     border-style: solid;
 }
 
@@ -517,13 +517,13 @@ tab[selected="true"] label {
 .library-menuitem-unselected {
     background-color: transparent;
     border-color: #777777; 
-    border-width: 0px 2px 0px 0px; 
+    border-width: 0px 1px 0px 0px; 
     border-style: solid;
 }
 
 .library-menuitem-selected {
     border-color: #777777;
-    border-width: 2px 0px 2px 2px;
+    border-width: 1px 0px 1px 1px;
     border-style: solid;
     background-color: Highlight;
 }
