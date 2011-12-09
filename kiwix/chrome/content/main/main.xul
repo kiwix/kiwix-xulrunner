@@ -132,6 +132,7 @@
 <script language="javaScript" type="text/javascript" src="js/logger.js"/>
 <script language="javaScript" type="text/javascript" src="js/search.js"/>
 <script language="javaScript" type="text/javascript" src="js/tools.js"/>
+<script language="javaScript" type="text/javascript" src="js/dom.js"/>
 <script language="javaScript" type="text/javascript" src="js/gui.js"/>
 <script language="javaScript" type="text/javascript" src="js/bookmarks.js"/>
 <script language="javaScript" type="text/javascript" src="js/contentAreaUtils.js"/>

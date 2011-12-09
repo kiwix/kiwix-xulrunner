@@ -56,11 +56,6 @@ var articleLoadingListener = {
     onLinkIconAvailable: function() {return 0;}
 };
 
-/* Return the window object */
-function getWindow() {
-    return document.getElementById("main");
-}
-
 /* Load an url in the HTML render element */
 function loadContent(url, id, scrollY) {
     try {
@@ -96,65 +91,6 @@ function updateGuiSearchComponents() {
     } else {
 	desactivateGuiSearchComponents();
     }
-}
-
-/* Return DOM Element */
-function getTabHeaders() { return document.getElementById("tab-headers"); }
-function getSearchBox() { return document.getElementById("textbox-search"); }
-function getHomeButton() { return document.getElementById("button-home"); }
-function getBookmarksButton() { return document.getElementById("button-bookmarks"); }
-function getFindButton() { return document.getElementById("button-search-article"); }
-function getFullscreenButton() { return document.getElementById("button-fullscreen"); }
-function getPrintButton() { return document.getElementById("button-print"); }
-function getBookmarksButton() { return document.getElementById("button-bookmarks"); }
-function getSearchInPlaceButton() { return document.getElementById("button-search-article"); }
-function getBackButton() { return document.getElementById("button-back"); }
-function getSizeUpButton() { return document.getElementById("button-sizeup"); }
-function getSizeDownButton() { return document.getElementById("button-sizedown"); }
-function getLibraryButton() { return document.getElementById("button-library"); }
-function getFindBar() { return document.getElementById("find-bar"); }
-function getNextButton() { return document.getElementById("button-next"); }
-function getSearchLabel() { return document.getElementById("search-label"); }
-function getCheckIntegrityMenuItem() { return document.getElementById("tools-checkIntegrity"); }
-function getLoadRandomArticleMenuItem() { return document.getElementById("tools-randomArticle"); }
-function getProgressBar() { return document.getElementById("progress-bar"); }
-function getProgressBarLabel() { return document.getElementById("progress-bar-label"); }
-function getBookmarksBar() { return document.getElementById("bookmarks-bar"); }
-function getBookmarksList() { return document.getElementById("bookmarks-list"); }
-function getNotesBox() { return document.getElementById("notesTextBox"); }
-function GetBookmarksSetsList() { return document.getElementById('bookmarks-sets-list'); }
-function getBookmarksSetsPopup() { return document.getElementById('bookmarks-sets'); }
-
-/* Des/Activate a button */
-function activateToolbarButton(button) {
-    button.disabled = false; 
-    button.className = "";  
-}
-
-function desactivateToolbarButton(button) {
-    button.disabled = true; 
-    button.className = "disabled";  
-}
-
-/* Des/Activate Specific buttons */
-function activateHomeButton() { activateToolbarButton(getHomeButton()); }
-function desactivateHomeButton() { desactivateToolbarButton(getHomeButton()); }
-function activateFullscreenButton() { activateToolbarButton(getFullscreenButton()); }
-function desactivateFullscreenButton() { desactivateToolbarButton(getFullscreenButton()); }
-function activateBackButton() { activateToolbarButton(getBackButton()); }
-function desactivateBackButton() { desactivateToolbarButton(getBackButton()); }
-function activateNextButton() { activateToolbarButton(getNextButton()); }
-function desactivateNextButton() { desactivateToolbarButton(getNextButton()); }
-
-/* Des/Activate Zoom buttons */
-function activateZoomButtons() {
-    activateToolbarButton(getSizeUpButton());
-    activateToolbarButton(getSizeDownButton());
-}
-
-function desactivateZoomButtons() {
-    desactivateToolbarButton(getSizeUpButton());
-    desactivateToolbarButton(getSizeDownButton());
 }
 
 /* Save window geometry */
