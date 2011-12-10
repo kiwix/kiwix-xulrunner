@@ -553,7 +553,7 @@ NS_IMETHODIMP ContentManager::LaunchAria2c(const nsAString &binaryPath, const ns
 
 #ifdef _WIN32
   commandLine = string(cBinaryPath) + " --enable-xml-rpc --xml-rpc-listen-port=42042 --dir=\"" + string(cDownloadPath) + "\" \
-     --allow-overwrite=true --disable-ipv6=true --quiet=true --always-resume=true \
+     --log=" + string(cLogPath) + " --allow-overwrite=true --disable-ipv6=true --quiet=true --always-resume=true \
      --max-concurrent-downloads=42 --xml-rpc-max-request-size=6M";
   STARTUPINFO startInfo = {0};
   PROCESS_INFORMATION procInfo;
@@ -574,8 +574,8 @@ NS_IMETHODIMP ContentManager::LaunchAria2c(const nsAString &binaryPath, const ns
   signal(SIGCHLD, SIG_IGN);
 
   PID = fork();
-  const string downloadPathArgument = "--dir=\"" + string(cDownloadPath) + "\"";
-  const string logPathArgument = "--log=\"" + string(cLogPath) + "\"";
+  const string downloadPathArgument = "--dir=" + string(cDownloadPath);
+  const string logPathArgument = "--log=" + string(cLogPath);
   
   switch (PID) {
   case -1:
@@ -586,7 +586,7 @@ NS_IMETHODIMP ContentManager::LaunchAria2c(const nsAString &binaryPath, const ns
   case 0: /* This is the child process */
     commandLine = string(cBinaryPath);
     if (execl(commandLine.c_str(), commandLine.c_str(), "--enable-xml-rpc", "--xml-rpc-listen-port=42042", 
-	      downloadPathArgument.c_str(), "--allow-overwrite=true", 
+	      downloadPathArgument.c_str(), logPathArgument.c_str(), "--allow-overwrite=true", 
 	      "--disable-ipv6=true", "--quiet=true", "--always-resume=true", "--max-concurrent-downloads=42", 
 	      "--xml-rpc-max-request-size=6M", NULL) == -1) {
       cerr << "Unable to start aria2c from path " << commandLine << endl;
