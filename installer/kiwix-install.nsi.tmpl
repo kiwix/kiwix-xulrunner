@@ -234,7 +234,7 @@ FunctionEnd
 ; Abort installation
 Function rollback
 	Delete "$INSTDIR\${PRODUCT_NAME}.url"
-	Delete "$INSTDIR\uninst.exe"
+	Delete "$INSTDIR\kiwix-uninstall.exe"
 	Delete "$SMPROGRAMS\Kiwix\Uninstall.lnk"
 	Delete "$SMPROGRAMS\Kiwix\kiwix.lnk"
 	Delete "$SMPROGRAMS\Kiwix\kiwix Website.lnk"
@@ -379,9 +379,9 @@ ${EndIf}
   UAC::ExecCodeSegment $0
 
 ; Write in the registry necessary keys to uninstall Kiwix
-  WriteUninstaller "$INSTDIR\uninst.exe"
+  WriteUninstaller "$INSTDIR\kiwix-uninstall.exe"
   WriteRegStr ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}" "DisplayName" "$(^Name)"
-  WriteRegStr ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}" "UninstallString" "$INSTDIR\uninst.exe"
+  WriteRegStr ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}" "UninstallString" "$INSTDIR\kiwix-uninstall.exe"
   WriteRegStr ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}" "DisplayVersion" "${PRODUCT_VERSION}"
   WriteRegStr ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}" "URLInfoAbout" "${PRODUCT_WEB_SITE}"
   WriteRegStr ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}" "Publisher" "${PRODUCT_PUBLISHER}"
@@ -398,7 +398,7 @@ Function CreateShortcuts
   CreateDirectory "$SMPROGRAMS\Kiwix"
   CreateShortCut "$SMPROGRAMS\Kiwix\Kiwix.lnk" "$INSTDIR\kiwix\kiwix.exe"
   CreateShortCut "$SMPROGRAMS\Kiwix\Kiwix Website.lnk" "$INSTDIR\${PRODUCT_NAME}.url"
-  CreateShortCut "$SMPROGRAMS\Kiwix\Uninstall.lnk" "$INSTDIR\uninst.exe"
+  CreateShortCut "$SMPROGRAMS\Kiwix\Uninstall.lnk" "$INSTDIR\kiwix-uninstall.exe"
 FunctionEnd
 
 Function un.onUninstSuccess
@@ -456,7 +456,7 @@ Section Uninstall
 	Call un.RefreshShellIcons
 
         Delete "$INSTDIR\${PRODUCT_NAME}.url"
-        Delete "$INSTDIR\uninst.exe"
+        Delete "$INSTDIR\kiwix-uninstall.exe"
 
 	GetFunctionAddress $0 un.RemoveShortcuts
 	UAC::ExecCodeSegment $0
