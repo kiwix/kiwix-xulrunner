@@ -1442,16 +1442,16 @@ function manageCheckIntegrity() {
     }
 }
 
-function sendNotification(title, message, link) {
+function sendNotification(title, message, link, callback) {
     try {
-	if (link != undefined) {
-	    var listener = {  
-		observe: function(subject, topic, data) {  
-		    if (topic == "alertclickcallback")
-			openUrlWithExternalBrowser(link);
-		}  
+	var listener = {  
+	    observe: function(subject, topic, data) {  
+		if (topic == "alertclickcallback" && link != undefined)
+		    openUrlWithExternalBrowser(link);
+		if (callback && typeof(callback) === "function")
+		    callback(subject, topic, data);
 	    }  
-	}
+	}  
 
 	var alertsService = Components.classes["@mozilla.org/alerts-service;1"].  
             getService(Components.interfaces.nsIAlertsService);  
