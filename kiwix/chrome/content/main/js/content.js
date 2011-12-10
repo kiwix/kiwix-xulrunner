@@ -114,11 +114,9 @@ function addUri(id, uri) {
     /* If aria2c not running then exception */
     try {
 	var gid = response.val.arrayMem(0);
-	/* set the gid */
 	settings.setDownloadProperty(id, "gid", gid);
     } catch (error) {
     }
-    alert(uri);
 }
 
 function isDownloaderRunning() {
@@ -186,11 +184,12 @@ function getAriaDownloadPath(gid) {
 }
 
 function isMetalinkUrl(url) {
-    return true;
+    var metalinkUrlRegexp = new RegExp("^.*\.(metalink|meta4)$","");
+    return metalinkUrlRegexp.test(url);
 }
 
 function startDownload(url, id) {
-    if (isMetalinkUrl()) {
+    if (isMetalinkUrl(url)) {
 	if (isFile(appendToPath(settings.getRootPath(), id + ".metalink"))) {
 	    addMetalink(id, readFile(appendToPath(settings.getRootPath(), id + ".metalink")));
 	} else {
