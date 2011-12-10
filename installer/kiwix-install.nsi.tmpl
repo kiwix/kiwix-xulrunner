@@ -27,7 +27,7 @@
 !define CSIDL_LOCALAPPDATA '0x1C'
 
 ; Define installer registry string contants
-!define PRODUCT_NAME "kiwix"
+!define PRODUCT_NAME "Kiwix"
 !define PRODUCT_VERSION "0.9 beta5"
 !define PRODUCT_PUBLISHER "Kiwix"
 !define PRODUCT_WEB_SITE "http://www.kiwix.org"
@@ -55,7 +55,7 @@ Name "${PRODUCT_NAME} ${PRODUCT_VERSION}"
 OutFile "kiwix-install.exe"
 ShowInstDetails show
 ShowUnInstDetails show
-InstallDir "$PROGRAMFILES\kiwix"
+InstallDir "$PROGRAMFILES\Kiwix"
 
 ; Code to refresh icons after file association
 !define SHCNE_ASSOCCHANGED 0x08000000
@@ -235,11 +235,11 @@ FunctionEnd
 Function rollback
 	Delete "$INSTDIR\${PRODUCT_NAME}.url"
 	Delete "$INSTDIR\uninst.exe"
-	Delete "$SMPROGRAMS\kiwix\Uninstall.lnk"
-	Delete "$SMPROGRAMS\kiwix\kiwix.lnk"
-	Delete "$SMPROGRAMS\kiwix\kiwix Website.lnk"
+	Delete "$SMPROGRAMS\Kiwix\Uninstall.lnk"
+	Delete "$SMPROGRAMS\Kiwix\kiwix.lnk"
+	Delete "$SMPROGRAMS\Kiwix\kiwix Website.lnk"
 
-	RMDir /R "$SMPROGRAMS\kiwix"
+	RMDir /R "$SMPROGRAMS\Kiwix"
 	RMDir /R "$INSTDIR"
 	DeleteRegKey ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}"
 
