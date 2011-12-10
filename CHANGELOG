@@ -18,6 +18,7 @@ Kiwix 0.9 beta5
 * On Windows, Windows Media Defender does not complain anymore about chp.exe (ID: 3389953)
 * Newly able to download ZIM files directly from HTTP, so without using metalink (ID: 3450237)
 * Fixed an issue by displaying two notifications consecutivly: only the last one was displayed.
+* Rename Windows default install directory to match standarts
 
 Kiwix 0.9 beta4
 * Fix regression, menu "last open" where not working anymore
