@@ -514,8 +514,17 @@ function whereis(binary) {
     }
 }
 
-function delay (f, t) {
+function delay(f, t) {
     setTimeout(f, t || 0);
+}
+
+function sleep(milliseconds) {
+    setTimeout(function() {
+	var start = new Date().getTime();
+	while ((new Date().getTime() - start) < milliseconds){
+	    // Do nothing
+	}
+    },0);
 }
 
 function pathFromURL(aURL) {
