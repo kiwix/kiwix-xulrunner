@@ -311,14 +311,20 @@ function getDownloadStatus() {
 		    populateRemoteBookList();
 		    settings.setDownloadProperty(kiwixDownload.id, "id", "");
 		    removeDownload(kiwixDownload.gid);
-  		    sendNotification(getProperty("information"), getProperty("contentDownloadFinished",  book.title));
-   		    sendNotification(getProperty("feedback"), "Help us! Why did you downloaded '" + book.title + "'?", 
-				     "http://input.kiwix.org/whycontent.html?version=" + book.url);
+                    
+		    /* Show the notifications */
+  		    var callback = function(subject, topic, data) {  
+			if (topic == "alertfinished")
+			    sendNotification(getProperty("feedback"), "Help us! Why did you downloaded '" + book.title + "'?", 
+					     "http://input.kiwix.org/whycontent.html?version=" + book.url);
+		    };
+		    sendNotification(getProperty("information"), getProperty("contentDownloadFinished",  book.title), 
+				     undefined, callback);
 		} else if (ariaDownloadStatus == "waiting") {
 		}
 	    }
 	}
-	
+	    
 	/* Download is paused */
 	var downloadStatusLabel = document.getElementById("download-status-label-" + kiwixDownload.id);
 	if (downloadStatusLabel != undefined && kiwixDownload.status == 0 && kiwixDownload.completed > 1) { 
