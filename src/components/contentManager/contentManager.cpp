@@ -491,6 +491,9 @@ NS_IMETHODIMP ContentManager::KillAria2c(PRBool *retVal) {
   *retVal = PR_TRUE;
 
 #ifdef _WIN32
+  HANDLE ps = OpenProcess( SYNCHRONIZE|PROCESS_TERMINATE, 
+			   FALSE, this->aria2cPid);
+  TerminateProcess(ps, 0);
 #else
   kill(this->aria2cPid, SIGTERM);
   this->aria2cPid = NULL;
@@ -552,15 +555,15 @@ NS_IMETHODIMP ContentManager::LaunchAria2c(const nsAString &binaryPath, const ns
   sprintf(PIDStr, "%d", PID);
 
 #ifdef _WIN32
-  commandLine = string(cBinaryPath) + " --enable-xml-rpc --xml-rpc-listen-port=42042 --dir=\"" + string(cDownloadPath) + "\" \
-     --log=" + string(cLogPath) + " --allow-overwrite=true --disable-ipv6=true --quiet=true --always-resume=true \
-     --max-concurrent-downloads=42 --xml-rpc-max-request-size=6M";
+  commandLine = string(cBinaryPath) + " --enable-rpc --rpc-listen-port=42042 --dir=\"" + string(cDownloadPath) + "\" \
+     --log=\"" + string(cLogPath) + "\" --allow-overwrite=true --disable-ipv6=true --quiet=true --always-resume=true \
+     --max-concurrent-downloads=42 --rpc-max-request-size=6M";
   STARTUPINFO startInfo = {0};
   PROCESS_INFORMATION procInfo;
   startInfo.cb = sizeof(startInfo);
 
-  if(CreateProcess(commandLine.c_str(), _strdup(commandLine.c_str()), NULL, NULL, FALSE, 
-		   CREATE_NEW_CONSOLE, NULL, NULL, &startInfo, &procInfo)) {
+  if(CreateProcess(NULL, _strdup(commandLine.c_str()),  NULL, NULL, FALSE, 
+		   CREATE_NO_WINDOW, NULL, NULL, &startInfo, &procInfo)) {
     this->aria2cPid = procInfo.dwProcessId;
     CloseHandle(procInfo.hProcess);
     CloseHandle(procInfo.hThread);
