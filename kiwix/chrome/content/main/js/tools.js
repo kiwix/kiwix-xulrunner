@@ -25,12 +25,12 @@ var _alreadyQuitOrRestart = false;
 /* Restart Kiwix */
 function restart(silent) {
     if (silent == true || displayConfirmDialog(getProperty("restartConfirm", getProperty("brand.brandShortName")))) {
-	prepareQuitAndRestart();
-
-	var applicationStartup = Components.classes["@mozilla.org/toolkit/app-startup;1"]
-	    .getService(Components.interfaces.nsIAppStartup);
-	applicationStartup.quit(Components.interfaces.nsIAppStartup.eRestart |
-				Components.interfaces.nsIAppStartup.eAttemptQuit);
+	if (prepareQuitAndRestart()) {
+	    var applicationStartup = Components.classes["@mozilla.org/toolkit/app-startup;1"]
+		.getService(Components.interfaces.nsIAppStartup);
+	    applicationStartup.quit(Components.interfaces.nsIAppStartup.eRestart |
+				    Components.interfaces.nsIAppStartup.eAttemptQuit);
+	}
     }
 }
 
@@ -149,6 +149,7 @@ function prepareQuitAndRestart() {
     settings.save();
     
     _alreadyQuitOrRestart = true;
+    return true;
 }
 
 /* Quit Kiwix */
