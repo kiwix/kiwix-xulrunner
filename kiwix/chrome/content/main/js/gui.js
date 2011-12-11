@@ -111,16 +111,21 @@ function configureWindowGeometry(window) {
         setTimeout('window.maximize();', 1);
     } else {
 	var margin = 100;
-	var width = settings.windowWidth() || screen.width / 100 * 90;
-	var height = settings.windowHeight() || screen.height / 100 * 90;
+	var minSize = 200;
+
+	var width = (settings.windowWidth() != undefined && 
+		     settings.windowWidth() > minSize) ? settings.windowWidth() : screen.width / 100 * 80;
+	var height = (settings.windowHeight() != undefined &&
+		      settings.windowHeight() > minSize) ? settings.windowHeight() : screen.height / 100 * 80;
 	var x = (settings.windowX() != undefined && 
 		 settings.windowX() > 0 && 
 		 settings.windowX() < screen.width - margin) ? settings.windowX() : (screen.width - width) / 2;
 	var y = (settings.windowY() != undefined && 
 		 settings.windowY() > 0 &&
 		 settings.windowY() < screen.height - margin) ? settings.windowY() : (screen.height - height) / 2;
-	window.resizeTo(width, height);
 	window.moveTo(x, y);
+	window.resizeTo(width, height);
+
 	saveWindowGeometry(this.outerWidth, this.outerHeight, this.screenX, this.screenY, this.windowState);
     }
 }
