@@ -119,11 +119,9 @@ function configureWindowGeometry(window) {
 	var y = (settings.windowY() != undefined && 
 		 settings.windowY() > 0 &&
 		 settings.windowY() < screen.height - margin) ? settings.windowY() : (screen.height - height) / 2;
-	
-	saveWindowGeometry(this.outerWidth, this.outerHeight, this.screenX, this.screenY, this.windowState);
-	
 	window.resizeTo(width, height);
 	window.moveTo(x, y);
+	saveWindowGeometry(this.outerWidth, this.outerHeight, this.screenX, this.screenY, this.windowState);
     }
 }
 

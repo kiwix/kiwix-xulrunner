@@ -36,10 +36,12 @@ function restart(silent) {
 
 /* Preparation before quit or restart */
 function prepareQuitAndRestart() {
+    _alreadyQuitOrRestart = false;
+
     /* Check if an indexing process is currently running */
     if (isIndexing()) {
 	if (!displayConfirmDialog(getProperty("abortIndexingConfirm"))) {
-	    return;
+	    return false;
 	}
     }
 
@@ -155,7 +157,8 @@ function quit() {
 	return;
 
     try {
-        prepareQuitAndRestart();
+        if (!prepareQuitAndRestart())
+	    return;
     } catch(e) { dump("prepareQuitAndRestart failed: " + e.toString() + "\n"); }
     
     /* Quit the application */
