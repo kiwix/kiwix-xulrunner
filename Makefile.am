@@ -201,5 +201,7 @@ win:
 	cp -r src/dependences/xulrunner ./kiwix
 	cp /c/Program\ Files/Microsoft\ Visual\ Studio\ 9.0/VC/redist/x86/Microsoft.VC90.CRT/* kiwix/xulrunner/
 	cp -r src/dependences/xz/windows/liblzma.dll ./kiwix/xulrunner
-	cp -r src/dependences/icu/bin/*dll ./kiwix/xulrunner
+	cp src/dependences/icu/bin/icudt*.dll ./kiwix/xulrunner
+	cp src/dependences/icu/bin/icuin*.dll ./kiwix/xulrunner
+	cp src/dependences/icu/bin/icuuc*.dll ./kiwix/xulrunner
 	cp static/results.tmpl kiwix/chrome/static/results.tmpl
