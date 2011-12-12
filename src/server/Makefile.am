@@ -7,6 +7,7 @@ kiwix_serve_SOURCES= \
 	../common/kiwix/xapianSearcher.cpp \
 	../common/kiwix/cluceneSearcher.cpp \
 	../common/unaccent.cpp \
+	../common/pathTools.cpp \
 	../common/splitString.cpp 
 include_HEADERS= \
 	../common/kiwix/reader.h \
@@ -14,6 +15,7 @@ include_HEADERS= \
 	../common/kiwix/xapianSearcher.h \
 	../common/kiwix/cluceneSearcher.h \
 	../common/unaccent.h \
+	../common/pathTools.h \
 	../common/splitString.cpp 
 kiwix_serve_CXXFLAGS=${LIBMICROHTTPD_CFLAGS} $(LIBCTPP2_CFLAGS) $(LIBCLUCENE_CFLAGS) $(LIBXAPIAN_CFLAGS) $(LIBICU_CFLAGS) $(LIBZIM_CFLAGS) -I../common/
 if IS_STATIC
