@@ -20,6 +20,7 @@ Kiwix 0.9 beta5
 * Fixed an issue by displaying two notifications consecutivly: only the last one was displayed.
 * Renamed Windows default install directory to match standarts
 * Fixed missing Kiwix shortcuts menu entry on Win7 Application menu (ID: 3456428)
+* Fixed win7 installer which was failing time to time in permission eskalation (ID: 3442074)
 
 Kiwix 0.9 beta4
 * Fix regression, menu "last open" where not working anymore
