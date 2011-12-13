@@ -93,7 +93,7 @@ function prepareQuitAndRestart() {
 	    /* Bookmarks */
 	    try {
 		purgeBookmarks();
-	    } catch (e) { L.info (e.toString ()); }
+	    } catch (e) { L.error (e.toString ()); }
 	    
 	    /* History */
 	    var globalHistory = Components.classes["@mozilla.org/browser/global-history;2"]
@@ -374,9 +374,11 @@ function deleteFile(path) {
 	var fileService = Components.classes["@mozilla.org/file/local;1"].createInstance();
 	if (fileService instanceof Components.interfaces.nsILocalFile) {
 	    fileService.initWithPath(path);
-	    return fileService.remove(true);
+	    fileService.remove(true);
+	    return true;
 	}
     } catch(error) {
+	L.error ("Unable to delete " + path);
 	return false;
     }
     return true;
