@@ -323,63 +323,63 @@
 	  <box class="library-left-stuffer" style="height: 10px;" />
 	  <richlistbox class="library-menu">
 	    <richlistitem id="library-menuitem-local" onclick="selectLibraryMenu(this.id);">
-	      <description>My Library</description>
+	      <description>&main.library.myLibrary;</description>
 	    </richlistitem> 
 	    <richlistitem id="library-menuitem-remote" onclick="selectLibraryMenu(this.id);">
-	      <description>Get New Files</description>
+	      <description>&main.library.getNewFiles;</description>
 	    </richlistitem>
 	  </richlistbox>
 	  
 	  <vbox class="library-left-stuffer" flex="1">
 	    <vbox class="library-filter" style="-moz-border-radius: 5px 5px 0px 0px; margin: 10px 10px 2px 10px;">
-	      <label value="Search ZIM files"/>
+	      <label value="&main.library.searchZimFiles;"/>
 	      <textbox id="library-filter-search" oninput="populateBookList()"/>
 	    </vbox>
 	    <vbox class="library-filter" style="margin: 0px 10px 2px 10px;">
-	      <label value="Sort by"/>
+	      <label value="&main.library.sortBy;"/>
 	      <menulist id="library-sortby" oncommand="populateBookList()">
 		<menupopup>
-		  <menuitem label="Title" value="title" selected="true"/>
-		  <menuitem label="Size" value="size"/>
-		  <menuitem label="Date" value="date"/>
-		  <menuitem label="Author" value="creator"/>
-		  <menuitem label="Publisher" value="publisher"/>
+		  <menuitem label="&main.library.sortBy.title;" value="title" selected="true"/>
+		  <menuitem label="&main.library.sortBy.size;" value="size"/>
+		  <menuitem label="&main.library.sortBy.date;" value="date"/>
+		  <menuitem label="&main.library.sortBy.author;" value="creator"/>
+		  <menuitem label="&main.library.sortBy.publisher;" value="publisher"/>
 		</menupopup>
 	      </menulist>
 	    </vbox>
 	    <vbox class="library-filter" style="-moz-border-radius: 0px 0px 5px 5px; margin: 0px 10px 10px 10px;">
-	      <label value="Filter by"/>
+	      <label value="&main.library.filterBy;"/>
 	      
-	      <label value="▾ File size"/>
+	      <label value="▾ &main.library.filterBy.fileSize;"/>
 	      <box style="margin-left: 10px; font-size: smaller;" align="center">
 		<label value="Less than"/>
 		<textbox id="library-content-maxsize" size="2" type="number" min="0" max="99" onchange="populateBookList()"/>
 		<label value="GB"/>
 	      </box>
 	      
-	      <label value="▾ Language"/>
+	      <label value="▾ &main.library.filterBy.language;"/>
 	      <box style="margin-left: 10px; font-size: smaller;" align="center">
 		<menulist id="library-filter-language" oncommand="populateBookList()" flex="1">
 		  <menupopup>
-		    <menuitem label="All" value=""/>
+		    <menuitem label="&main.library.filterBy.language.all;" value=""/>
 		  </menupopup>
 		</menulist>
 	      </box>
 	      
-	      <label value="▾ Author(s)"/>
+	      <label value="▾ &main.library.filterBy.author;"/>
 	      <vbox style="margin-left: 10px; font-size: smaller;">
 		<menulist id="library-filter-creator" oncommand="populateBookList()" flex="1">
 		  <menupopup>
-		    <menuitem label="All" value=""/>
+		    <menuitem label="&main.library.filterBy.author.all;" value=""/>
 		  </menupopup>
 		</menulist>
 	      </vbox>
 	      
-	      <label value="▾ Publisher"/>
+	      <label value="▾ &main.library.filterBy.publisher;"/>
 	      <vbox style="margin-left: 10px; font-size: smaller;">
 		<menulist id="library-filter-publisher" oncommand="populateBookList()" flex="1">
 		  <menupopup>
-		    <menuitem label="All" value=""/>
+		    <menuitem label="&main.library.filterBy.publisher.all;" value=""/>
 		  </menupopup>
 		</menulist>
 	      </vbox>

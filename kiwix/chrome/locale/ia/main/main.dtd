@@ -100,19 +100,38 @@
 <!ENTITY main.defaultset                "Collection predefinite">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveImageAs               "Salveguardar imagine sub nomine...">
-<!ENTITY main.openLinkInNewTab          "Aperir ligamine in nove scheda">
-<!ENTITY main.searchFor                 "Cercar">
-<!ENTITY main.copyLinkAdress            "Copy link address">
+<!ENTITY main.saveImageAs			"Salveguardar imagine sub nomine...">
+<!ENTITY main.openLinkInNewTab		"Aperir ligamine in nove scheda">
+<!ENTITY main.searchFor				"Cercar">
+<!ENTITY main.copyLinkAdress			"Copy link address">
 
 <!-- About Window -->
-<!ENTITY main.close           		"Clauder">
+<!ENTITY main.close				"Clauder">
 
 <!-- Preferences Window -->
-<!ENTITY preferences.preferences        "Preferences">
-<!ENTITY preferences.save      		"Save">
-<!ENTITY preferences.cancel     	"Cancel">
-<!ENTITY preferences.profileDirectory  	"Profile directory">
-<!ENTITY preferences.browse  	        "Browse">
-<!ENTITY preferences.tabs               "Remember tabs">
+<!ENTITY preferences.preferences		"Preferences">
+<!ENTITY preferences.save			"Save">
+<!ENTITY preferences.cancel			"Cancel">
+<!ENTITY preferences.profileDirectory	"Profile directory">
+<!ENTITY preferences.browse			"Browse">
+<!ENTITY preferences.tabs			"Remember tabs">
+
+<!-- Library filter/sort sidebar -->
+<!ENTITY main.library.myLibrary		"My library">
+<!ENTITY main.library.getNewFiles		"Get new files">
+<!ENTITY main.library.searchZimFiles	"Search ZIM files">
+<!ENTITY main.library.sortBy			"Sort by">
+<!ENTITY main.library.sortBy.title		"Title">
+<!ENTITY main.library.sortBy.size		"Size">
+<!ENTITY main.library.sortBy.date		"Date">
+<!ENTITY main.library.sortBy.author		"Author">
+<!ENTITY main.library.sortBy.publisher	"Publisher">
+<!ENTITY main.library.filterBy			"Filter by">
+<!ENTITY main.library.filterBy.fileSize		"File size">
+<!ENTITY main.library.filterBy.language		"Language">
+<!ENTITY main.library.filterBy.language.all	"All">
+<!ENTITY main.library.filterBy.author		"Author(s)">
+<!ENTITY main.library.filterBy.author.all		"All">
+<!ENTITY main.library.filterBy.publisher		"Publisher">
+<!ENTITY main.library.filterBy.publisher.all	"All">
 
