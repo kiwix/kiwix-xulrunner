@@ -101,7 +101,7 @@
 
 <!-- Contextual Menu -->
 <!ENTITY main.saveImageAs			"Saglabāt attēlu kā...">
-<!ENTITY main.openLinkInNewTab		"Open Link in New Tab">
+<!ENTITY main.openLinkInNewTab		"Open link in new tab">
 <!ENTITY main.searchFor				"Search for">
 <!ENTITY main.copyLinkAdress			"Copy link address">
 

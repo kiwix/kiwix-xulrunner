@@ -128,7 +128,7 @@
 <!ENTITY main.library.sortBy.publisher	"Publisher">
 <!ENTITY main.library.filterBy			"Filter by">
 <!ENTITY main.library.filterBy.fileSize		"File size">
-<!ENTITY main.library.filterBy.language		"Language">
+<!ENTITY main.library.filterBy.language		"Sprache">
 <!ENTITY main.library.filterBy.language.all	"All">
 <!ENTITY main.library.filterBy.author		"Author(s)">
 <!ENTITY main.library.filterBy.author.all		"All">
