@@ -136,32 +136,38 @@ function indexZimFile(zimFilePath, xapianDirectory) {
 	    var progressBar = getProgressBar();
 	    var settingsRootPath = settings.getRootPath();
 	    var backend = settings.defaultSearchBackend();
+	    
+	    /* Remove the xapian tmp directory */
+	    if (isDirectory(indexTmpDirectory)) {
+		deleteFile(indexTmpDirectory);
+	    } 
 
 	    /* show the indexing progress bar */
 	    proxiedZimIndexerObserver.notifyObservers(this, "startIndexing", "");
-
-	    /* Remove the xapian tmp directory */
-	    if (isFile(indexTmpDirectory)) 
-		deleteFile(indexTmpDirectory);	    
-
-	    /* Create the ZIM Xapian Indexer */
-	    if (backend == "clucene") {
-		zimIndexer = Components.classes["@kiwix.org/zimCluceneIndexer"].getService();
-		zimIndexer = zimIndexer.QueryInterface(Components.interfaces.IZimCluceneIndexer);
-	    } else {
-		zimIndexer = Components.classes["@kiwix.org/zimXapianIndexer"].getService();
-		zimIndexer = zimIndexer.QueryInterface(Components.interfaces.IZimXapianIndexer);
-	    }
-
-	    /* Load the ZIM file */
-	    zimIndexer.startIndexing(zimFilePath, zimFilePath, indexTmpDirectory, indexTmpDirectory);
 
 	    /* Default start value */
 	    var currentProgressBarPosition = 0;
 	    proxiedZimIndexerObserver.notifyObservers(this, "indexingProgress", currentProgressBarPosition);
 
-	    /* Check if the index directory exits (more robust, in case of the library file is wrong) */
-	    if (!isDirectory(indexDirectory)) {
+	    /* Check if the index directory exists and is valid (more robust, in case of the library file is wrong) */
+	    if (!isDirectory(indexDirectory) && !openSearchIndex(indexDirectory)) {
+
+		/* Delete indexDirectory if necessary - can happens in case of corrupted index */
+		if (isDirectory(indexDirectory)) {
+		    deleteFile(indexDirectory);
+		} 
+
+		/* Create the ZIM Xapian Indexer */
+		if (backend == "clucene") {
+		    zimIndexer = Components.classes["@kiwix.org/zimCluceneIndexer"].getService();
+		    zimIndexer = zimIndexer.QueryInterface(Components.interfaces.IZimCluceneIndexer);
+		} else {
+		    zimIndexer = Components.classes["@kiwix.org/zimXapianIndexer"].getService();
+		    zimIndexer = zimIndexer.QueryInterface(Components.interfaces.IZimXapianIndexer);
+		}
+		
+		/* Load the ZIM file */
+		zimIndexer.startIndexing(zimFilePath, zimFilePath, indexTmpDirectory, indexTmpDirectory);
 
 		/* Add each article of the ZIM file in the xapian database */
 		while (zimIndexer.indexNextPercent()) {
