@@ -511,11 +511,12 @@ tab[selected="true"] label {
     padding: 5px;
     font-size: 110%;
     color: black;
+    cursor: pointer;
     -moz-border-radius: 5px 0px 0px 5px;
 }
 
 .library-menuitem-unselected {
-    background-color: transparent;
+    background-color: white;
     border-color: #777777; 
     border-width: 0px 1px 0px 0px; 
     border-style: solid;
