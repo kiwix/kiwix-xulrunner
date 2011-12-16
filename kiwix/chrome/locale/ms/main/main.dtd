@@ -117,21 +117,21 @@
 <!ENTITY preferences.tabs			"Remember tabs">
 
 <!-- Library filter/sort sidebar -->
-<!ENTITY main.library.myLibrary		"My library">
-<!ENTITY main.library.getNewFiles		"Get new files">
-<!ENTITY main.library.searchZimFiles	"Search ZIM files">
-<!ENTITY main.library.sortBy			"Sort by">
-<!ENTITY main.library.sortBy.title		"Title">
-<!ENTITY main.library.sortBy.size		"Size">
-<!ENTITY main.library.sortBy.date		"Date">
-<!ENTITY main.library.sortBy.author		"Author">
-<!ENTITY main.library.sortBy.publisher	"Publisher">
-<!ENTITY main.library.filterBy			"Filter by">
-<!ENTITY main.library.filterBy.fileSize		"File size">
-<!ENTITY main.library.filterBy.language		"Language">
-<!ENTITY main.library.filterBy.language.all	"All">
-<!ENTITY main.library.filterBy.author		"Author(s)">
-<!ENTITY main.library.filterBy.author.all		"All">
-<!ENTITY main.library.filterBy.publisher		"Publisher">
-<!ENTITY main.library.filterBy.publisher.all	"All">
+<!ENTITY main.library.myLibrary		"Perpustakaan saya">
+<!ENTITY main.library.getNewFiles		"Dapatkan fail baru">
+<!ENTITY main.library.searchZimFiles	"Cari fail ZIM">
+<!ENTITY main.library.sortBy			"Isih mengikut">
+<!ENTITY main.library.sortBy.title		"Tajuk">
+<!ENTITY main.library.sortBy.size		"Saiz">
+<!ENTITY main.library.sortBy.date		"Tarikh">
+<!ENTITY main.library.sortBy.author		"Pengarang">
+<!ENTITY main.library.sortBy.publisher	"Penerbit">
+<!ENTITY main.library.filterBy			"Tapis mengikut">
+<!ENTITY main.library.filterBy.fileSize		"Saiz fail">
+<!ENTITY main.library.filterBy.language		"Bahasa">
+<!ENTITY main.library.filterBy.language.all	"Semua">
+<!ENTITY main.library.filterBy.author		"Pengarang">
+<!ENTITY main.library.filterBy.author.all		"Semua">
+<!ENTITY main.library.filterBy.publisher		"Pengarang">
+<!ENTITY main.library.filterBy.publisher.all	"Semua">
 

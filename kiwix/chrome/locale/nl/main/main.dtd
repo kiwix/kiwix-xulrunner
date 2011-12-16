@@ -130,7 +130,7 @@
 <!ENTITY main.library.filterBy.fileSize		"Bestandsgrootte">
 <!ENTITY main.library.filterBy.language		"Taal">
 <!ENTITY main.library.filterBy.language.all	"Alle">
-<!ENTITY main.library.filterBy.author		"Auteur(en)">
+<!ENTITY main.library.filterBy.author		"Auteur(s)">
 <!ENTITY main.library.filterBy.author.all		"Alle">
 <!ENTITY main.library.filterBy.publisher		"Uitgever">
 <!ENTITY main.library.filterBy.publisher.all	"Alle">

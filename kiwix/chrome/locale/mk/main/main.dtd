@@ -117,21 +117,21 @@
 <!ENTITY preferences.tabs			"Remember tabs">
 
 <!-- Library filter/sort sidebar -->
-<!ENTITY main.library.myLibrary		"My library">
-<!ENTITY main.library.getNewFiles		"Get new files">
-<!ENTITY main.library.searchZimFiles	"Search ZIM files">
-<!ENTITY main.library.sortBy			"Sort by">
-<!ENTITY main.library.sortBy.title		"Title">
-<!ENTITY main.library.sortBy.size		"Size">
-<!ENTITY main.library.sortBy.date		"Date">
-<!ENTITY main.library.sortBy.author		"Author">
-<!ENTITY main.library.sortBy.publisher	"Publisher">
-<!ENTITY main.library.filterBy			"Filter by">
-<!ENTITY main.library.filterBy.fileSize		"File size">
-<!ENTITY main.library.filterBy.language		"Language">
-<!ENTITY main.library.filterBy.language.all	"All">
-<!ENTITY main.library.filterBy.author		"Author(s)">
-<!ENTITY main.library.filterBy.author.all		"All">
-<!ENTITY main.library.filterBy.publisher		"Publisher">
-<!ENTITY main.library.filterBy.publisher.all	"All">
+<!ENTITY main.library.myLibrary		"Моја библиотека">
+<!ENTITY main.library.getNewFiles		"Преземете нови податотеки">
+<!ENTITY main.library.searchZimFiles	"Пребарување на ZIM податотеки">
+<!ENTITY main.library.sortBy			"Подреди по">
+<!ENTITY main.library.sortBy.title		"Наслов">
+<!ENTITY main.library.sortBy.size		"Големина">
+<!ENTITY main.library.sortBy.date		"Датум">
+<!ENTITY main.library.sortBy.author		"Автор">
+<!ENTITY main.library.sortBy.publisher	"Издавач">
+<!ENTITY main.library.filterBy			"Филтрирај по">
+<!ENTITY main.library.filterBy.fileSize		"Големина на податотеката">
+<!ENTITY main.library.filterBy.language		"Јазик">
+<!ENTITY main.library.filterBy.language.all	"Сите">
+<!ENTITY main.library.filterBy.author		"Автор(и)">
+<!ENTITY main.library.filterBy.author.all		"Сите">
+<!ENTITY main.library.filterBy.publisher		"Издавач">
+<!ENTITY main.library.filterBy.publisher.all	"Сите">
 
