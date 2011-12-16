@@ -1,0 +1,137 @@
+<!-- Window -->
+<!ENTITY main.title                     "&brand.brandShortName;">
+<!ENTITY main.cssdirection              "ltr">
+
+<!-- File menu -->
+<!ENTITY main.file                      "கோப்பு">
+<!ENTITY main.file.accesskey            "F">
+<!ENTITY main.openFile                  "கோப்பை திறக்கவும்...">
+<!ENTITY main.browseLibrary.accesskey   "B">
+<!ENTITY main.browseLibrary             "நூலகத்தில் தேடவும்">
+<!ENTITY main.openFile.accesskey        "O">
+<!ENTITY main.lastOpen                  "சமீபத்தில் திற...">
+<!ENTITY main.saveFile                  "பக்கத்தை இவ்வாறாக சேமி...">
+<!ENTITY main.saveFile.accesskey        "S">
+<!ENTITY main.print                     "அச்சிடு">
+<!ENTITY main.print.accesskey           "P">
+<!ENTITY main.printPdf                  "PDF ஆக அச்சிடு">
+<!ENTITY main.printPdf.accesskey        "D">
+<!ENTITY main.quit                      "முடித்துக்கொள்">
+<!ENTITY main.quit.accesskey            "Q">
+
+<!-- Edit menu -->
+<!ENTITY main.edit                      "திருத்து">
+<!ENTITY main.edit.accesskey            "E">
+<!ENTITY main.find                      "பக்கத்தில் தேடு...">
+<!ENTITY main.find.accesskey            "S">
+<!ENTITY main.selectall                 "எல்லாவற்றையும் தேர்வுசெய்யவும்">
+<!ENTITY main.selectall.accesskey       "a">
+<!ENTITY main.copy                      "நகல் எடு">
+<!ENTITY main.copy.accesskey            "p">
+<!ENTITY main.transliteration           "ஒலிப்பெயர்ப்பு">
+<!ENTITY main.transliteration.accesskey "T">
+<!ENTITY main.preferences               "விருப்பங்கள்">
+<!ENTITY main.preferences.accesskey     "n">
+
+<!-- Display menu -->
+<!ENTITY main.display                   "காண்பி">
+<!ENTITY main.display.accesskey         "D">
+<!ENTITY main.zoom                      "அணுகிக் காண்">
+<!ENTITY main.zoom.accesskey            "Z">
+<!ENTITY main.zoomin                    "பெரிதாக்கு">
+<!ENTITY main.zoomin.accesskey          "M">
+<!ENTITY main.zoomout                   "குறை">
+<!ENTITY main.zoomout.accesskey         "R">
+<!ENTITY main.zoomorig                  "மூல அளவு">
+<!ENTITY main.zoomorig.accesskey        "O">
+<!ENTITY main.language                  "மொழி">
+<!ENTITY main.language.accesskey        "L">
+<!ENTITY main.skin                      "தோல்">
+<!ENTITY main.skin.accesskey            "S">
+<!ENTITY main.statusbar                 "நிலை பட்டி">
+<!ENTITY main.statusbar.accesskey       "S">
+<!ENTITY main.resultsbar                "முடிவு பட்டி">
+<!ENTITY main.resultsbar.accesskey      "R">
+<!ENTITY main.tabs                      "தாவல்கள்">
+<!ENTITY main.tabs.accesskey            "T">
+<!ENTITY main.fullscreen                "முழு திரை">
+<!ENTITY main.fullscreen.accesskey      "F">
+
+<!-- Tools menu -->
+<!ENTITY main.tools                     "கருவிகள்">
+<!ENTITY main.tools.accesskey           "T">
+<!ENTITY main.randomArticle             "தொடர்பற்ற கட்டுரை">
+<!ENTITY main.randomArticle.accesskey   "R">
+<!ENTITY main.checkIntegrity            "நேர்மை சரிபார்த்தல்">
+<!ENTITY main.checkIntegrity.accesskey  "k">
+<!ENTITY main.purgeHistory              "வரலாற்றை நீக்கவும்">
+<!ENTITY main.purgeHistory.accesskey    "P">
+
+<!-- Help menu -->
+<!ENTITY main.help                      "உதவி">
+<!ENTITY main.help.accesskey            "H">
+<!ENTITY main.feedback                  "கருத்து">
+<!ENTITY main.reportabug                "பிழை கூறு">
+<!ENTITY main.requestafeature           "ஒரு அம்சம் கோரவும்">
+<!ENTITY main.about                     "பற்றி &brand.brandShortName;">
+<!ENTITY main.about.accesskey           "A">
+
+<!-- Tool bar -->
+<!ENTITY main.back                      "பின்செல்">
+<!ENTITY main.forward                   "முன் செல்">
+<!ENTITY main.home                      "முகப்பு">
+<!ENTITY main.searchBar                 "தேடல் பட்டி">
+<!ENTITY main.search                    "தேடு">
+<!ENTITY main.findInText                "உரையில் கண்டுபிடி">
+<!ENTITY main.noSearchBar               "தேடலுக்கு அடைவாக்கப்பட்ட ZIM கோப்பு தேவைப்படுகிறது">
+<!ENTITY main.bookmarks                 "புத்தகக்குறிகள்">
+
+<!-- Results bar -->
+<!ENTITY main.results.title             "தேடல் முடிவுகள்">
+
+<!-- Bookmarks Bar -->
+<!ENTITY main.bmkLabel                  "புத்தகக்குறிகள்">
+<!ENTITY main.notesLabel                "புத்தகக்குறி குறிப்புகள்:">
+<!ENTITY main.loadbmk                   "புத்தகக்குறி அமைவை இறக்குமதி செய்">
+<!ENTITY main.newbmk                    "புதிய புத்தகக்குறி அமை உருவாக்கு">
+<!ENTITY main.mark                      "இப்பக்கத்தை  குறியிடு">
+<!ENTITY main.unmark                    "தேர்ந்தெடுத்ததை குறியிட்டதை அழி">
+<!ENTITY main.reload                    "புத்தகக்குறி அமைவை மறுபடியும் ஏற்று">
+<!ENTITY main.defaultset                "இயல்புநிலை அமை">
+
+<!-- Contextual Menu -->
+<!ENTITY main.saveImageAs			"படத்தை இவ்வாறாக சேமி...">
+<!ENTITY main.openLinkInNewTab		"புதிய தாவலில் இணைப்பை திற">
+<!ENTITY main.searchFor				"இதை தேடு">
+<!ENTITY main.copyLinkAdress			"Copy link address">
+
+<!-- About Window -->
+<!ENTITY main.close				"மூடு">
+
+<!-- Preferences Window -->
+<!ENTITY preferences.preferences		"Preferences">
+<!ENTITY preferences.save			"Save">
+<!ENTITY preferences.cancel			"Cancel">
+<!ENTITY preferences.profileDirectory	"Profile directory">
+<!ENTITY preferences.browse			"Browse">
+<!ENTITY preferences.tabs			"Remember tabs">
+
+<!-- Library filter/sort sidebar -->
+<!ENTITY main.library.myLibrary		"My library">
+<!ENTITY main.library.getNewFiles		"Get new files">
+<!ENTITY main.library.searchZimFiles	"Search ZIM files">
+<!ENTITY main.library.sortBy			"Sort by">
+<!ENTITY main.library.sortBy.title		"Title">
+<!ENTITY main.library.sortBy.size		"Size">
+<!ENTITY main.library.sortBy.date		"Date">
+<!ENTITY main.library.sortBy.author		"Author">
+<!ENTITY main.library.sortBy.publisher	"Publisher">
+<!ENTITY main.library.filterBy			"Filter by">
+<!ENTITY main.library.filterBy.fileSize		"File size">
+<!ENTITY main.library.filterBy.language		"Language">
+<!ENTITY main.library.filterBy.language.all	"All">
+<!ENTITY main.library.filterBy.author		"Author(s)">
+<!ENTITY main.library.filterBy.author.all		"All">
+<!ENTITY main.library.filterBy.publisher		"Publisher">
+<!ENTITY main.library.filterBy.publisher.all	"All">
+
