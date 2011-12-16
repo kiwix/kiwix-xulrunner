@@ -495,8 +495,10 @@ tab[selected="true"] label {
 
 .library-left-stuffer {
     border-color: #777777; 
-    border-width: 0px 1px 0px 0px; 
+    border-width: 0px 6px 0px 0px; 
     border-style: solid;
+    border-radius: 6px;
+    -moz-border-right-colors: #777777 #888888 #999999 #AAAAAA #BBBBBB #CCCCCC
 }
 
 .library-menu {
@@ -522,8 +524,10 @@ tab[selected="true"] label {
 .library-menuitem-unselected {
     background-color: white;
     border-color: #777777; 
-    border-width: 0px 1px 0px 0px; 
+    border-width: 0px 6px 0px 0px; 
     border-style: solid;
+    border-radius: 6px;
+    -moz-border-right-colors: #777777 #999999 #BBBBBB #CCCCCC #EEEEEE
 }
 
 .library-menuitem-selected {
