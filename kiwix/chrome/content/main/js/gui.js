@@ -583,6 +583,7 @@ function manageUnload(clearCurrentAccessor, help) {
     if (clearCurrentAccessor) {
 	desactivateHomeButton();
 	library.setCurrentId("");
+	currentZimAccessor.unload();
 	currentZimAccessor = undefined;
 	getLoadRandomArticleMenuItem().disabled = true;
 	getCheckIntegrityMenuItem().disabled = true;
