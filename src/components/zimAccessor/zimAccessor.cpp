@@ -82,8 +82,6 @@ ZimAccessor::ZimAccessor()
 
 /* Destructor */
 ZimAccessor::~ZimAccessor() {
-  PRBool *retVal;
-  this->Unload(retVal);
 }
 
 NS_IMETHODIMP ZimAccessor::LoadFile(const nsAString &path, PRBool *retVal) {
