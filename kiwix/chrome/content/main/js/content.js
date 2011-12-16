@@ -23,7 +23,7 @@ var jobTimer = null;
 var downloader = new Worker("js/downloader.js");
 var downloadsResumed = false;
 var _oldWindowTitle = "";
-var _librarykeyCursorOnMenu = false;
+var _libraryKeyCursorOnMenu = false;
 var _isDownloaderRunningTimestamp = Number(new Date());
 var _isDownloaderRunning = false;
 var checkDownloaderId;
