@@ -114,6 +114,12 @@ function openNewTab(focus) {
 
     initHtmlRendererEventListeners(id);
 
+    /* If only one tab was displayed, then the tab close button was
+     * masked. This code make it again visible */
+    if (document.getElementsByTagName('tab').length == 2) {
+	document.getElementsByClassName('tabs-close-button')[0].setAttribute("style", "display: visible;");
+    }
+
     if (focus)
 	switchTab(id);
 
@@ -150,8 +156,8 @@ function closeThatTab(tabId) {
     }
 
     // remove tab elements including close button.
-	tabHeaders.removeChild(tabHeader);
-	tabPanels.removeChild(tabPanel);
+    tabHeaders.removeChild(tabHeader);
+    tabPanels.removeChild(tabPanel);
     tabHeaders.removeChild(closeButton);
 
     // if current page is not the one being deleted
@@ -159,8 +165,15 @@ function closeThatTab(tabId) {
     if (currentTabId != tabId)
         newCurrentTab = currentTabId;
 
-    // if we removed all tabs, disable tab mode and display help page.
-    if (document.getElementsByTagName('tab').length == 0) {
+    /* If only one tab is displayed, then mask the tab close button So
+        we should never trigger the else condition, but this is still
+        in experimentation stage */
+    if (document.getElementsByTagName('tab').length == 1) {
+	document.getElementsByClassName('tabs-close-button')[0].setAttribute("style", "display: none;");
+    }
+    
+    /* If we removed all tabs, disable tab mode and display help page. */
+    else if (document.getElementsByTagName('tab').length == 0) {
 	manageUnload(true);
         showHelp(true);
         changeTabsVisibilityStatus(false, true);

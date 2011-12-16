@@ -497,7 +497,6 @@ tab[selected="true"] label {
     border-color: #777777; 
     border-width: 0px 6px 0px 0px; 
     border-style: solid;
-    border-radius: 6px;
     -moz-border-right-colors: #777777 #888888 #999999 #AAAAAA #BBBBBB #CCCCCC
 }
 
@@ -526,7 +525,6 @@ tab[selected="true"] label {
     border-color: #777777; 
     border-width: 0px 6px 0px 0px; 
     border-style: solid;
-    border-radius: 6px;
     -moz-border-right-colors: #777777 #999999 #AAAAAA #BBBBBB #DDDDDD
 }
 

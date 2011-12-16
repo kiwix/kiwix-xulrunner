@@ -305,7 +305,7 @@
             <tab id="tab-header-00000000" onclick="switchTab(null, this)" class="tab-header" selected="true">
 	      <label value="No Name" crop="right" class="tab-header-label"/>
 	    </tab>
-            <toolbarbutton id="tab-close-button-00000000" class="tabs-close-button" oncommand="closeThatTab('00000000')"/>
+            <toolbarbutton id="tab-close-button-00000000" class="tabs-close-button" oncommand="closeThatTab('00000000')" style="display: none;"/>
             <toolbarbutton id="tabs-add-button" oncommand="switchToNewTab();" tooltiptext="Open a new Tab"/>
 	  </tabs>
 	  <tabpanels id="tab-panels" flex="1">
