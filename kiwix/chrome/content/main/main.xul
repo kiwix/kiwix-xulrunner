@@ -323,11 +323,11 @@
 	  <box class="library-left-stuffer" style="height: 10px;" />
 	  <richlistbox class="library-menu">
 	    <richlistitem id="library-menuitem-local" onclick="selectLibraryMenu(this.id);">
-	      <description>&main.library.myLibrary;</description>
+	      <description class="library-menuitem-description">&main.library.myLibrary;</description>
 	    </richlistitem> 
 	    <div style="height: 6px;" class="library-left-stuffer"/>
 	    <richlistitem id="library-menuitem-remote" onclick="selectLibraryMenu(this.id);">
-	      <description>&main.library.getNewFiles;</description>
+	      <description class="library-menuitem-description">&main.library.getNewFiles;</description>
 	    </richlistitem>
 	  </richlistbox>
 	  
