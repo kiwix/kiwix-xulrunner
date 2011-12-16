@@ -55,6 +55,7 @@ _languagesHash['sr-el']     = "Srpski (latinica)";
 _languagesHash['su']        = "Basa Sunda";
 _languagesHash['sv']        = "Svenska";
 _languagesHash['sw']        = "Kiswahili";
+_languagesHash['ta']        = "தமிழ்";
 _languagesHash['te']        = "తెలుగు";
 _languagesHash['th']        = "ไทย";
 _languagesHash['tt-cyrl']   = "Татарча";
