@@ -1118,14 +1118,10 @@ function initUserInterface() {
         // remove menubar (File, Edition, etc)
         menu = document.getElementById('menu-bar');
         menu.setAttribute("style", "display: none;");
-    } else {
-        /* Start the download observer */
-        startDownloadObserver();
     }
 }
 
 function postInitUserInterface() {
-
     /* If there is no file open with the commandline try to open last open book */
     if (currentZimAccessor == undefined) {
 	try {

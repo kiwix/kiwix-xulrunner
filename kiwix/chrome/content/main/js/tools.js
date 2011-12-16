@@ -235,7 +235,7 @@ function onStart() {
     Components.utils.import("resource://modules/settings.jsm");
     Components.utils.import("resource://modules/library.jsm");
 
-    /* cjstype expirimental code */
+    /* cjstype experimental code */
     /*
     try {
         Components.utils.import("resource://modules/libzimAccessor.jsm");
@@ -302,6 +302,9 @@ function onStart() {
 
     /* Start aria downloader */
     startDownloader();
+    if (!env.isSugar()) { /* Sugar U.I is slightly different than regular one */
+        startDownloadObserver();
+    }
 }
 
 /* Clear the history and the cache */
