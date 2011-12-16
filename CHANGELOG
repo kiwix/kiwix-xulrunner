@@ -23,6 +23,7 @@ Kiwix 0.9 beta5
 * Fixed missing Kiwix shortcuts menu entry on Win7 Application menu (ID: 3456428)
 * Fixed win7 installer which had a buggy permission eskalation (ID: 3442074)
 * Fixed buggy behaviour if you close the last tab (ID: 3459365)
+* Add Ctrl+ modifier to Home, Back and Forward buttons to branch to new tabs (ID: 3459481)
 
 Kiwix 0.9 beta4
 * Fix regression, menu "last open" where not working anymore

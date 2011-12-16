@@ -25,6 +25,7 @@ var _showFullScreenToolBar  = false;
 var _fullScreenStatusBar    = true;
 var _restore_tab            = null;
 var _firstSideBar	    = true;
+var _isCtrlDown             = false;
 
 /* WebProgress listener */
 const STATE_START =  Components.interfaces.nsIWebProgressListener.STATE_START;
@@ -521,13 +522,20 @@ function updateHistoryNavigationButtons() {
 }
 
 /* Back to the previous rendered page */
-function pageBack() {
+function pageBack(openInNewTab) {
     try {
 	var htmlRenderer = getHtmlRenderer();
 
 	if (htmlRenderer.canGoBack == true) {
 	    htmlRenderer.stop();
-	    htmlRenderer.goBack();
+
+	    /* Open in current or new Tab */
+	    var url = htmlRenderer.sessionHistory.getEntryAtIndex(htmlRenderer.sessionHistory.index-1, false).URI.spec;
+	    if (openInNewTab) {
+		manageOpenUrlInNewTab(url);
+	    } else {
+		manageOpenUrl(url);
+	    }
 
 	    /* activate if necessary the back button */
 	    activateNextButton();
@@ -545,12 +553,19 @@ function pageBack() {
 }
 
 /* Next to the next rendered page */
-function pageNext() {
+function pageNext(openInNewTab) {
     try { 
 	var htmlRenderer = getHtmlRenderer();
 	if (htmlRenderer.canGoForward == true) {
 	    htmlRenderer.stop();
-	    htmlRenderer.goForward();
+
+	    /* Open in current or new Tab */
+	    var url = htmlRenderer.sessionHistory.getEntryAtIndex(htmlRenderer.sessionHistory.index+1, false).URI.spec;
+	    if (openInNewTab) {
+		manageOpenUrlInNewTab(url);
+	    } else {
+		manageOpenUrl(url);
+	    }
 	    
 	    /* activate if necessary the back button */
 	    activateBackButton();
@@ -706,12 +721,18 @@ function manageOpenFile(path, noSearchIndexCheck) {
 }
 
 /* Got the welcome page of the current zim file */
-function goHome() {
+function goHome(openInNewTab) {
     var homeUrl = getCurrentZimFileHomePageUrl();
 
     if (homeUrl) {
 	var htmlRenderer = getHtmlRenderer();
-	loadContent(homeUrl);
+
+	/* Open in current or new Tab */
+	if (openInNewTab) {
+	    manageOpenUrlInNewTab(homeUrl);
+	} else {
+	    manageOpenUrl(homeUrl);
+	}
 	
 	/* activate if necessary the back button */
 	if (htmlRenderer.sessionHistory.count > 1) {
@@ -1245,6 +1266,30 @@ function initHtmlRendererEventListeners(id) {
 
     /* Intercept standard behaviour of tabheaders keypress */
     getTabHeaders().addEventListener("keypress", handleTabHeadersKeyPress, true);
+
+    /* Intercept global keydown and keyup events */
+    getWindow().addEventListener("keydown", handleWindowKeyDown, true);
+    getWindow().addEventListener("keyup", handleWindowKeyUp, true);
+}
+
+function handleWindowKeyDown(aEvent) {
+    var keyCode = aEvent.keyCode;
+
+    /* ctrl */
+    if (keyCode == 17) 
+	_isCtrlDown = true;
+}
+
+function handleWindowKeyUp(aEvent) {
+    var keyCode = aEvent.keyCode;
+
+    /* ctrl */
+    if (keyCode == 17) 
+	_isCtrlDown = false;
+}
+
+function isCtrlDown() {
+    return _isCtrlDown;
 }
 
 function applyInitScroll(browser) {
@@ -1344,12 +1389,12 @@ function initEventListeners() {
     /* register WebProgress listener */
     var dls = Components.classes["@mozilla.org/docloaderservice;1"]
 	.getService(nsIWebProgress);
-    dls.addProgressListener (UIBrowserProgressListener,
-			     nsIWebProgress.NOTIFY_LOCATION |
-			     nsIWebProgress.NOTIFY_STATE_DOCUMENT);
+    dls.addProgressListener(UIBrowserProgressListener,
+			    nsIWebProgress.NOTIFY_LOCATION |
+			    nsIWebProgress.NOTIFY_STATE_DOCUMENT);
 
     /* finbar event */
-    getFindBar().addEventListener ("DOMAttrModified", toggleFindBarButton, true);
+    getFindBar().addEventListener("DOMAttrModified", toggleFindBarButton, true);
 
     /* Deal with key press */
     document.getElementById("main").addEventListener("keypress", handleKeyPress, true);
