@@ -82,9 +82,8 @@ ZimAccessor::ZimAccessor()
 
 /* Destructor */
 ZimAccessor::~ZimAccessor() {
-  if (this->reader != NULL) {
-    delete this->reader;
-  }
+  PRBool *retVal;
+  this->Unload(retVal);
 }
 
 NS_IMETHODIMP ZimAccessor::LoadFile(const nsAString &path, PRBool *retVal) {
@@ -101,6 +100,15 @@ NS_IMETHODIMP ZimAccessor::LoadFile(const nsAString &path, PRBool *retVal) {
 
   free((void*)cPath);
 
+  return NS_OK;
+}
+
+NS_IMETHODIMP ZimAccessor::Unload(PRBool *retVal) {
+  *retVal = PR_TRUE;
+  if (this->reader != NULL) {
+    delete this->reader;
+    this->reader = NULL;
+  }
   return NS_OK;
 }
 

@@ -7,6 +7,7 @@ interface nsILocalFile;
 interface IZimAccessor : nsISupports
 {
   boolean loadFile(in AString winPath);
+  boolean unload();
   boolean getMainPageUrl(out AUTF8String url);
   boolean getRandomPageUrl(out AUTF8String url);
   boolean getId(out ACString id);
