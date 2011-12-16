@@ -216,7 +216,7 @@ function indexZimFile(zimFilePath, xapianDirectory) {
     return;
 }
 
-function openSearchIndex(path) {
+function openSearchIndex(path, quiet) {
     var backend = settings.defaultSearchBackend();
     var indexAccessor;
 
@@ -230,8 +230,10 @@ function openSearchIndex(path) {
     }
 
     /* Open the search engine index */
-    if (!indexAccessor.openReadableDatabase(path, path))
-	return;    
+    if (!indexAccessor.openReadableDatabase(path, path) && !quiet) {
+	L.error("Not able to open xapian database " + path);
+	return false;    
+    }
 
     return indexAccessor;
 }
@@ -346,5 +348,5 @@ function computeLevenshteinDistance (s1, s2) {
 function checkSearchIndex() {
     var currentBook = library.getCurrentBook();
     return (currentBook && currentBook.indexPath.length > 0 && 
-	    openSearchIndex(currentBook.indexPath));
+	    openSearchIndex(currentBook.indexPath, true));
 }

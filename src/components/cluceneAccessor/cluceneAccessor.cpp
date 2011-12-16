@@ -94,7 +94,6 @@ NS_IMETHODIMP CluceneAccessor::OpenReadableDatabase(const nsACString &unixDirect
   try {
     this->searcher = new kiwix::CluceneSearcher(directoryPath);
   } catch (...) {
-    cerr << "Not able to open clucene database " << directoryPath <<  endl;
     *retVal = PR_FALSE;
   }
 

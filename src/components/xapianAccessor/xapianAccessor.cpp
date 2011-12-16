@@ -95,7 +95,6 @@ NS_IMETHODIMP XapianAccessor::OpenReadableDatabase(const nsACString &unixDirecto
   try {
     this->searcher = new kiwix::XapianSearcher(directoryPath);
   } catch (...) {
-    std::cerr << "Not able to open xapian database " << directoryPath << std::endl;
     *retVal = PR_FALSE;
   }
 
