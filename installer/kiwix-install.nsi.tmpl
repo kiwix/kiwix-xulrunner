@@ -219,6 +219,7 @@ UAC_Success:
   ${EndIf}
 
   !insertmacro MUI_LANGDLL_DISPLAY
+
 FunctionEnd
 
 ; Triggered by welcome page creation
@@ -402,8 +403,9 @@ Function CreateShortcuts
 FunctionEnd
 
 Function un.onUninstSuccess
-  HideWindow
-  MessageBox MB_ICONINFORMATION|MB_OK "$(^Name) was successfully removed from your computer."
+  IfSilent +3
+    HideWindow
+    MessageBox MB_ICONINFORMATION|MB_OK "$(^Name) was successfully removed from your computer."
 FunctionEnd
 
 Function .OnInstFailed
@@ -464,8 +466,9 @@ Section Uninstall
 	RMDir /R "$INSTDIR"
 	DeleteRegKey ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}"
 
-	MessageBox MB_ICONQUESTION|MB_YESNO|MB_DEFBUTTON2 "Do you want to KEEP your personnal datas (bookmarks, notes) ?" IDYES +2
-	Call un.removeProfile
+	IfSilent +3
+	  MessageBox MB_ICONQUESTION|MB_YESNO|MB_DEFBUTTON2 "Do you want to KEEP your personnal datas (bookmarks, notes) ?" IDYES +2
+	  Call un.removeProfile
 
 	SetAutoClose true
 SectionEnd
