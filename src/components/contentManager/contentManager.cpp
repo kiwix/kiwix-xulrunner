@@ -52,6 +52,12 @@
 #include <signal.h>
 #endif
 
+#ifdef __APPLE__
+#import <sys/types.h>
+#import <sys/sysctl.h>
+#define MIBSIZE 4
+#endif
+
 #include "nsXPCOM.h"
 #include "nsEmbedString.h"
 #include "nsIURI.h"
@@ -524,6 +530,7 @@ NS_IMETHODIMP ContentManager::IsAria2cRunning(PRBool *retVal) {
   int ret = sysctl(mib, MIBSIZE, &kp, &len, NULL, 0);
   if (ret != -1 && len > 0) {
     *retVal = PR_TRUE;
+  }
 #else
     char PIDStr[10];
     sprintf(PIDStr, "%d", this->aria2cPid);
