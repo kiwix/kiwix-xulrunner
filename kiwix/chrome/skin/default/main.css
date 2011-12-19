@@ -165,13 +165,23 @@ window[langdir="rtl"] #button-next {
     width: 100%;
 }
 
+#main.win #textbox-search {
+    -moz-appearance: none;
+    border: 1px solid #dedede;
+    padding-left: .5em;
+    padding-right: .5em;
+    margin-top: .3em;
+    margin-bottom: .3em;
+    -moz-border-radius: 0.8em;
+}
+
 #main.mac #textbox-search {
-	-moz-appearance: none;
-	background-color: #f1f1f1;
-	border: 1px solid #dedede;
-	padding-left: .5em;
-	padding-right: .5em;
-	-moz-border-radius: 1em;
+    -moz-appearance: none;
+    background-color: #f1f1f1;
+    border: 1px solid #dedede;
+    padding-left: .5em;
+    padding-right: .5em;
+    -moz-border-radius: 1em;
 }
 
 #textbox-search-go-button {
