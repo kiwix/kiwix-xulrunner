@@ -63,8 +63,8 @@
 }
 
 #main.mac * toolbarbutton {
-	padding: 0px;
-	margin: 0px;
+    padding: 0px;
+    margin: 0px;
 }
 
 /* Buttons */
@@ -264,6 +264,10 @@ window[langdir="rtl"] #button-next {
     background-color: #f2f1f0;
 }
 
+#main.notabs * #tab-box {
+    padding-top: 0 !important;
+}
+
 #tab-panels {
     padding: 0px;
 }
@@ -407,7 +411,6 @@ tab[selected="true"] label {
 #main.win.notabs * #tab-box {
     padding-top: 0 !important;
 }
-
 
 /******** MAC */
 
