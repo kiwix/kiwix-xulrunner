@@ -57,6 +57,10 @@
     margin-right: 5px;
 }
 
+#main.win #tool-box {
+    padding: 5px;
+}
+
 #main.mac #tool-box {
     margin-left: auto;
     margin-right: auto;
@@ -507,7 +511,14 @@ tab[selected="true"] label {
     padding-top: 0px;
     padding-right: 0px;
     width: 200px;
+}
+
+#main .library-menu {
     height: 80px;
+}
+
+#main.win .library-menu {
+    height: 68px;
 }
 
 .library-menuitem-description {
