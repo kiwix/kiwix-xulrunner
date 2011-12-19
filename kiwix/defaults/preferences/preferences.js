@@ -75,6 +75,9 @@ pref("network.dns.disablePrefetchFromHTTPS", true);
 /* Findbar */
 pref("accessibility.typeaheadfind.flashBar", 1);
 
+/* Allow to close windows from javascript */
+pref("dom.allow_scripts_to_close_windows", true);
+
 /* Online library */
 pref("kiwix.libraryUrls", "http://www.kiwix.org/library.xml");
 //pref("kiwix.libraryUrls", "http://pediapress.com/files/zim/zim_feed.xml;http://www.kiwix.org/library.xml");
