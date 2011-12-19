@@ -20,6 +20,7 @@
 
 const nsIWebProgress = Components.interfaces.nsIWebProgress;
 const nsIWebProgressListener = Components.interfaces.nsIWebProgressListener;
+var _alreadyHaveQuitOrRestart = false;
 
 /* Preparation before quit or restart */
 function prepareQuitOrRestart() {
@@ -132,15 +133,17 @@ function prepareQuitOrRestart() {
 /* Restart Kiwix */
 function askPermissionToRestart() {
     var ok = displayConfirmDialog(getProperty("restartConfirm", getProperty("brand.brandShortName")));
-    
     /* Check if an indexing process is currently running */
-    if (isIndexing())
+    if (isIndexing()) {
 	ok = displayConfirmDialog(getProperty("abortIndexingConfirm"));
-
+    }
     return ok;
 }
 
 function restart(silent) {
+    if (_alreadyHaveQuitOrRestart)
+	return;
+
     if (silent == true || askPermissionToRestart()) {
 	prepareQuitOrRestart();
 
@@ -149,6 +152,7 @@ function restart(silent) {
 	    .getService(Components.interfaces.nsIAppStartup);
 	applicationStartup.quit(Components.interfaces.nsIAppStartup.eRestart |
 				Components.interfaces.nsIAppStartup.eAttemptQuit);
+	_alreadyHaveQuitOrRestart = true;
     } else {
 	return false;
     }
@@ -159,7 +163,6 @@ function restart(silent) {
 /* Quit Kiwix */
 function askPermissionToQuit() {
     var ok = true;
-
     /* Check if an indexing process is currently running */
     if (isIndexing())
 	ok = displayConfirmDialog(getProperty("abortIndexingConfirm"));
@@ -168,6 +171,9 @@ function askPermissionToQuit() {
 }
 
 function quit(silent) {
+    if (_alreadyHaveQuitOrRestart)
+	return;
+
     if (silent == true || askPermissionToQuit()) {
 	prepareQuitOrRestart();
 	
@@ -175,6 +181,7 @@ function quit(silent) {
 	var applicationStartup = Components.classes['@mozilla.org/toolkit/app-startup;1'].
 	    getService(Components.interfaces.nsIAppStartup);
 	applicationStartup.quit(Components.interfaces.nsIAppStartup.eForceQuit);
+	_alreadyHaveQuitOrRestart = true;
     } else {
 	return false;
     }
@@ -344,16 +351,15 @@ function managePurgeHistory() {
     }
     catch (e) { L.info (e.toString ()); }
 
-    /* Update the back/next buttons */
-    desactivateBackButton();
-    desactivateNextButton();
-
     /* Update the htmlrenderers */
     var tabPanels = document.getElementById("tab-panels");
     for (var tabPanelIndex = 0; tabPanelIndex<tabPanels.children.length; tabPanelIndex++) {
 	var htmlRenderer = tabPanels.children[tabPanelIndex].firstChild;
 	htmlRenderer.reload();
     }
+
+    /* Update the UI */
+    updateGuiHistoryComponents();
 }
 
 /* Load the page with the external browser */

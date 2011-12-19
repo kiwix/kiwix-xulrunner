@@ -38,6 +38,7 @@ function getNextButton() { return document.getElementById("button-next"); }
 function getSearchLabel() { return document.getElementById("search-label"); }
 function getCheckIntegrityMenuItem() { return document.getElementById("tools-checkIntegrity"); }
 function getLoadRandomArticleMenuItem() { return document.getElementById("tools-randomArticle"); }
+function getPurgeHistoryMenuItem() { return document.getElementById("tools-purgeHistory"); }
 function getProgressBar() { return document.getElementById("progress-bar"); }
 function getProgressBarLabel() { return document.getElementById("progress-bar-label"); }
 function getBookmarksBar() { return document.getElementById("bookmarks-bar"); }

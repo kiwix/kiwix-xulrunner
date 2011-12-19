@@ -94,6 +94,21 @@ function updateGuiSearchComponents() {
     }
 }
 
+/* Activate history related UI components */
+function updateGuiHistoryComponents() {
+    if (!isLibraryVisible()) {
+	updateHistoryNavigationButtons();
+
+	var browserHistory = Components.classes["@mozilla.org/browser/nav-history-service;1"]
+            .getService(Components.interfaces.nsIBrowserHistory);
+	getPurgeHistoryMenuItem().disabled = browserHistory.count == 0 ? true : false;;
+    } else {
+	desactivateBackButton();
+	desactivateNextButton();
+	getPurgeHistoryMenuItem().disabled = true;
+    }
+}
+
 /* Save window geometry */
 function saveWindowGeometry(width, height, x, y, windowState) {
     var maximized = (windowState == 1);
@@ -320,7 +335,7 @@ function manageOpenUrl(url, id, scrollY) {
 	openUrlWithExternalBrowser(url);
     } else { /* If the a ZIM or chrome url */ 	 
 	if (loadContent(url, id, scrollY)) { 	 
-	    activateBackButton(); 	 
+	    updateGuiHistoryComponents();
 	}
     }
     
@@ -530,20 +545,15 @@ function pageBack(openInNewTab) {
 	    htmlRenderer.stop();
 
 	    /* Open in current or new Tab */
-	    var url = htmlRenderer.sessionHistory.getEntryAtIndex(htmlRenderer.sessionHistory.index-1, false).URI.spec;
 	    if (openInNewTab) {
+		var url = htmlRenderer.sessionHistory.getEntryAtIndex(htmlRenderer.sessionHistory.index-1, false).URI.spec;
 		manageOpenUrlInNewTab(url);
 	    } else {
-		manageOpenUrl(url);
+		htmlRenderer.goBack();
 	    }
 
-	    /* activate if necessary the back button */
-	    activateNextButton();
-
-	    /* desactivate if necessary the next button */
-	    if (htmlRenderer.canGoBack == false) {
-		desactivateBackButton();
-	    }
+	    /* update the UI */
+	    updateGuiHistoryComponents();
 	}
     } catch (exception) {
 	displayErrorDialog(exception);
@@ -560,20 +570,15 @@ function pageNext(openInNewTab) {
 	    htmlRenderer.stop();
 
 	    /* Open in current or new Tab */
-	    var url = htmlRenderer.sessionHistory.getEntryAtIndex(htmlRenderer.sessionHistory.index+1, false).URI.spec;
 	    if (openInNewTab) {
+		var url = htmlRenderer.sessionHistory.getEntryAtIndex(htmlRenderer.sessionHistory.index+1, false).URI.spec;
 		manageOpenUrlInNewTab(url);
 	    } else {
-		manageOpenUrl(url);
+		htmlRenderer.goForward();
 	    }
 	    
-	    /* activate if necessary the back button */
-	    activateBackButton();
-	    
-	    /* desactivate if necessary the next button */
-	    if (htmlRenderer.canGoForward == false) {
-		desactivateNextButton();
-	    }
+	    /* update the UI */
+	    updateGuiHistoryComponents();
 	}
     } catch (exception) {
 	displayErrorDialog(exception);
@@ -584,13 +589,7 @@ function pageNext(openInNewTab) {
 
 /* Unload (the current Book) */
 function manageUnload(clearCurrentAccessor, help) {
-    desactivateBackButton();
-    desactivateNextButton();
-    
-    /* Purge the history */
-    if (getHtmlRenderer() != undefined && getHtmlRenderer().sessionHistory.count > 0) {
-	getHtmlRenderer().sessionHistory.PurgeHistory(getHtmlRenderer().sessionHistory.count);
-    }
+    managePurgeHistory();
     
     /* Empty the search box */
     getSearchBox().value = "";
@@ -735,13 +734,7 @@ function goHome(openInNewTab) {
 	}
 	
 	/* activate if necessary the back button */
-	if (htmlRenderer.sessionHistory.count > 1) {
-	    activateBackButton();
-	} else {
-	    if (htmlRenderer.sessionHistory.count > 0) {
-		htmlRenderer.sessionHistory.PurgeHistory(htmlRenderer.sessionHistory.count);
-	    }
-	}
+	updateGuiHistoryComponents();
     } else {
 	showHelp();
     }
@@ -1113,8 +1106,7 @@ function initUserInterface() {
     changeTabsVisibilityStatus(settings.displayTabs());
 
     /* Desactivate back/next buttons */
-    desactivateBackButton();
-    desactivateNextButton();
+    updateGuiHistoryComponents();
     
     /* Mac OSX specificities disable Print as PDF menu */
     if (env.isMac()) {
@@ -1257,7 +1249,7 @@ function initHtmlRendererEventListeners(id) {
     htmlRenderer.addEventListener("mouseover", htmlRendererMouseOver, true);
     htmlRenderer.addEventListener("mouseout", htmlRendererMouseOut, true);
     htmlRenderer.addEventListener("mouseup", htmlRendererMouseUp, true);
-    htmlRenderer.addEventListener("pageshow", updateHistoryNavigationButtons, true);
+    htmlRenderer.addEventListener("pageshow", updateGuiHistoryComponents, true);
     htmlRenderer.addEventListener("contextmenu", toggleBrowserContextualMenu, true);
     htmlRenderer.addEventListener("AppCommand", handleAppCommandEvent, true);
     htmlRenderer.addEventListener("DOMActivate", handleMouseClick, true); 

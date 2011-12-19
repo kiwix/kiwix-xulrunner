@@ -37,7 +37,7 @@
 		accesskey="&main.printPdf.accesskey;" oncommand="printPdf()"/>
       <menuseparator id="file-sep" />
       <menuitem id="file-quit" label="&main.quit;" key="quit-key" class="menuitem-iconic" 
-		accesskey="&main.quit.accesskey;" oncommand="quit()"/>
+		accesskey="&main.quit.accesskey;" oncommand="window.close()"/>
     </menupopup>
   </menu>
   <menu id="menu-edit" label="&main.edit;" accesskey="&main.edit.accesskey;">
@@ -297,8 +297,8 @@
   </vbox>
   
   <!-- Rendering space -->
-  <stack flex="1">
-    <page id="rendering-page" flex="1"  onclick="LostFocusOnSearch()">
+  <deck id="rendering-deck" flex="1">
+    <page id="rendering-page" flex="1" onclick="LostFocusOnSearch()">
       <vbox flex="1">
 	<tabbox flex="1" id="tab-box" handleCtrlTab="false" handleCtrlPageUpDown="false">
 	  <tabs id="tab-headers">
@@ -317,7 +317,7 @@
 	<findbar id="find-bar" browserid="html-renderer-00000000"/>
       </vbox>
     </page>
-    <page id="library-page" flex="1" hidden="true">
+    <page id="library-page" flex="1">
       <hbox flex="1">
 	<vbox class="library-left">
 	  <box class="library-left-stuffer" style="height: 10px;" />
@@ -330,7 +330,7 @@
 	      <description class="library-menuitem-description">&main.library.getNewFiles;</description>
 	    </richlistitem>
 	  </richlistbox>
-	  
+
 	  <vbox class="library-left-stuffer" flex="1">
 	    <vbox class="library-filter" style="-moz-border-radius: 5px 5px 0px 0px; margin: 10px 10px 2px 10px;">
 	      <label value="&main.library.searchZimFiles;"/>
@@ -395,7 +395,7 @@
 	</box>
       </hbox>
     </page>
-  </stack>
+  </deck>
 </hbox>
 
 <!-- Status bar -->

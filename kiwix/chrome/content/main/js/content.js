@@ -829,15 +829,15 @@ function populateContentManager(populateRemoteBookList, resumeDownloads) {
 }
 
 function isLibraryVisible() {
-    var libraryButton = getLibraryButton();
-    return libraryButton.getAttribute('checked') == "true";
+    var renderingDeck = document.getElementById("rendering-deck");
+    return renderingDeck.selectedIndex == 1;
 }
 
 /* Show/hide library manager */
 function toggleLibrary(visible) {
     var libraryButton = getLibraryButton();
-    var renderingPage = document.getElementById("rendering-page");
-    var libraryPage = document.getElementById("library-page");
+    var libraryDeck = document.getElementById("libarary-deck");
+    var renderingDeck = document.getElementById("rendering-deck");
     var newWindowTitle = "Content manager - Kiwix";
     
     if (visible == undefined) {
@@ -848,32 +848,28 @@ function toggleLibrary(visible) {
 
     if (!visible) {
 	activateHomeButton();
-	activateBackButton();
-	activateNextButton();
 	activateZoomButtons();
 	activateFullscreenButton();
 	activateToolbarButton(getPrintButton());
 	activateToolbarButton(getSearchInPlaceButton());
 	activateToolbarButton(getBookmarksButton())
 	libraryButton.setAttribute('checked', false);
-	renderingPage.hidden = false;
-	libraryPage.hidden = true;
+	renderingDeck.selectedIndex = 0;
 	activateGuiSearchComponents();
+	updateGuiHistoryComponents();
 	if (getWindow().getAttribute("title") == newWindowTitle)
 	    getWindow().setAttribute("title", _oldWindowTitle);
     } else {
 	desactivateHomeButton();
-	desactivateBackButton();
-	desactivateNextButton();
 	desactivateZoomButtons();
 	desactivateFullscreenButton();
 	desactivateToolbarButton(getPrintButton());
 	desactivateToolbarButton(getSearchInPlaceButton());
 	desactivateToolbarButton(getBookmarksButton())
 	libraryButton.setAttribute('checked', true);
-	renderingPage.hidden = true;
-	libraryPage.hidden = false;
+	renderingDeck.selectedIndex = 1;
 	desactivateGuiSearchComponents();
+	updateGuiHistoryComponents();
 	_oldWindowTitle = getWindow().getAttribute("title");
 	getWindow().setAttribute("title", newWindowTitle);
 
@@ -964,9 +960,7 @@ function showRemoteBooks() {
 }
 
 function getCurrentBookListContainer() {
-    if (isLibraryVisible) {
-	return document.getElementById("library-deck").selectedPanel;
-    }
+    return document.getElementById("library-deck").selectedPanel;
 }
 
 function getBookListSortBy() {
