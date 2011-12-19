@@ -100,38 +100,38 @@
 <!ENTITY main.defaultset                "Подразумевани скуп">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveImageAs			"Сачувај слику као…">
-<!ENTITY main.openLinkInNewTab		"Отвори везу у новом језичку">
-<!ENTITY main.searchFor				"Тражи">
-<!ENTITY main.copyLinkAdress			"Copy link address">
+<!ENTITY main.saveImageAs               "Сачувај слику као…">
+<!ENTITY main.openLinkInNewTab          "Отвори везу у новом језичку">
+<!ENTITY main.searchFor                 "Тражи">
+<!ENTITY main.copyLinkAdress            "Copy link address">
 
 <!-- About Window -->
-<!ENTITY main.close				"Затвори">
+<!ENTITY main.close                     "Затвори">
 
 <!-- Preferences Window -->
-<!ENTITY preferences.preferences		"Preferences">
-<!ENTITY preferences.save			"Save">
-<!ENTITY preferences.cancel			"Cancel">
-<!ENTITY preferences.profileDirectory	"Profile directory">
-<!ENTITY preferences.browse			"Browse">
-<!ENTITY preferences.tabs			"Remember tabs">
+<!ENTITY preferences.preferences        "Preferences">
+<!ENTITY preferences.save               "Save">
+<!ENTITY preferences.cancel             "Cancel">
+<!ENTITY preferences.profileDirectory   "Profile directory">
+<!ENTITY preferences.browse             "Browse">
+<!ENTITY preferences.tabs               "Remember tabs">
 
-<!-- Library filter/sort sidebar -->
-<!ENTITY main.library.myLibrary		"Моја библиотека">
-<!ENTITY main.library.getNewFiles		"Преузмите нове датотеке">
-<!ENTITY main.library.searchZimFiles	"Претрага датотека ZIM">
-<!ENTITY main.library.sortBy			"Поређај по">
-<!ENTITY main.library.sortBy.title		"наслову">
-<!ENTITY main.library.sortBy.size		"величини">
-<!ENTITY main.library.sortBy.date		"датуму">
-<!ENTITY main.library.sortBy.author		"аутору">
-<!ENTITY main.library.sortBy.publisher	"издавачу">
-<!ENTITY main.library.filterBy			"Филтрирај по">
-<!ENTITY main.library.filterBy.fileSize		"величини датотеке">
-<!ENTITY main.library.filterBy.language		"језику">
-<!ENTITY main.library.filterBy.language.all	"свим језицима">
-<!ENTITY main.library.filterBy.author		"аутору">
-<!ENTITY main.library.filterBy.author.all		"свим ауторима">
-<!ENTITY main.library.filterBy.publisher		"издавачу">
-<!ENTITY main.library.filterBy.publisher.all	"свим издавачима">
+<!-- Library -->
+<!ENTITY main.library.myLibrary                 "Моја библиотека">
+<!ENTITY main.library.getNewFiles               "Преузмите нове датотеке">
+<!ENTITY main.library.searchZimFiles            "Претрага датотека ZIM">
+<!ENTITY main.library.sortBy                    "Поређај по">
+<!ENTITY main.library.sortBy.title              "наслову">
+<!ENTITY main.library.sortBy.size               "величини">
+<!ENTITY main.library.sortBy.date               "датуму">
+<!ENTITY main.library.sortBy.author             "аутору">
+<!ENTITY main.library.sortBy.publisher          "издавачу">
+<!ENTITY main.library.filterBy                  "Филтрирај по">
+<!ENTITY main.library.filterBy.fileSize         "величини датотеке">
+<!ENTITY main.library.filterBy.language         "језику">
+<!ENTITY main.library.filterBy.language.all     "свим језицима">
+<!ENTITY main.library.filterBy.author           "аутору">
+<!ENTITY main.library.filterBy.author.all       "свим ауторима">
+<!ENTITY main.library.filterBy.publisher        "издавачу">
+<!ENTITY main.library.filterBy.publisher.all    "свим издавачима">
 

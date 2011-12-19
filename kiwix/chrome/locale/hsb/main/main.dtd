@@ -100,38 +100,38 @@
 <!ENTITY main.defaultset                "Standardna skupina">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveImageAs			"Wobraz składować jako...">
-<!ENTITY main.openLinkInNewTab		"Wotkaz w nowym rajtarku wočinić">
-<!ENTITY main.searchFor				"Pytać za">
-<!ENTITY main.copyLinkAdress			"Copy link address">
+<!ENTITY main.saveImageAs               "Wobraz składować jako...">
+<!ENTITY main.openLinkInNewTab          "Wotkaz w nowym rajtarku wočinić">
+<!ENTITY main.searchFor                 "Pytać za">
+<!ENTITY main.copyLinkAdress            "Copy link address">
 
 <!-- About Window -->
-<!ENTITY main.close				"Začinić">
+<!ENTITY main.close                     "Začinić">
 
 <!-- Preferences Window -->
-<!ENTITY preferences.preferences		"Preferences">
-<!ENTITY preferences.save			"Save">
-<!ENTITY preferences.cancel			"Cancel">
-<!ENTITY preferences.profileDirectory	"Profile directory">
-<!ENTITY preferences.browse			"Browse">
-<!ENTITY preferences.tabs			"Remember tabs">
+<!ENTITY preferences.preferences        "Preferences">
+<!ENTITY preferences.save               "Save">
+<!ENTITY preferences.cancel             "Cancel">
+<!ENTITY preferences.profileDirectory   "Profile directory">
+<!ENTITY preferences.browse             "Browse">
+<!ENTITY preferences.tabs               "Remember tabs">
 
-<!-- Library filter/sort sidebar -->
-<!ENTITY main.library.myLibrary		"Moja biblioteka">
-<!ENTITY main.library.getNewFiles		"Nowe dataje wotwołać">
-<!ENTITY main.library.searchZimFiles	"ZIM-dataje přepytać">
-<!ENTITY main.library.sortBy			"Sortěrować po">
-<!ENTITY main.library.sortBy.title		"Titul">
-<!ENTITY main.library.sortBy.size		"Wulkosć">
-<!ENTITY main.library.sortBy.date		"Datum">
-<!ENTITY main.library.sortBy.author		"Awtor">
-<!ENTITY main.library.sortBy.publisher	"Wudawaćel">
-<!ENTITY main.library.filterBy			"Filtrować po">
-<!ENTITY main.library.filterBy.fileSize		"Wulkosć dataje">
-<!ENTITY main.library.filterBy.language		"Rěč">
-<!ENTITY main.library.filterBy.language.all	"Wšě">
-<!ENTITY main.library.filterBy.author		"Awtorojo">
-<!ENTITY main.library.filterBy.author.all		"Wšě">
-<!ENTITY main.library.filterBy.publisher		"Wudawaćel">
-<!ENTITY main.library.filterBy.publisher.all	"Wšě">
+<!-- Library -->
+<!ENTITY main.library.myLibrary                 "Moja biblioteka">
+<!ENTITY main.library.getNewFiles               "Nowe dataje wotwołać">
+<!ENTITY main.library.searchZimFiles            "ZIM-dataje přepytać">
+<!ENTITY main.library.sortBy                    "Sortěrować po">
+<!ENTITY main.library.sortBy.title              "Titul">
+<!ENTITY main.library.sortBy.size               "Wulkosć">
+<!ENTITY main.library.sortBy.date               "Datum">
+<!ENTITY main.library.sortBy.author             "Awtor">
+<!ENTITY main.library.sortBy.publisher          "Wudawaćel">
+<!ENTITY main.library.filterBy                  "Filtrować po">
+<!ENTITY main.library.filterBy.fileSize         "Wulkosć dataje">
+<!ENTITY main.library.filterBy.language         "Rěč">
+<!ENTITY main.library.filterBy.language.all     "Wšě">
+<!ENTITY main.library.filterBy.author           "Awtorojo">
+<!ENTITY main.library.filterBy.author.all       "Wšě">
+<!ENTITY main.library.filterBy.publisher        "Wudawaćel">
+<!ENTITY main.library.filterBy.publisher.all    "Wšě">
 

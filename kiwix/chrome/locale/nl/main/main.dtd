@@ -100,38 +100,38 @@
 <!ENTITY main.defaultset                "Standaardgroep">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveImageAs			"Afbeelding opslaan als...">
-<!ENTITY main.openLinkInNewTab		"Verwijzing openen in nieuw tabblad">
-<!ENTITY main.searchFor				"Zoeken naar">
-<!ENTITY main.copyLinkAdress			"Copy link address">
+<!ENTITY main.saveImageAs               "Afbeelding opslaan als...">
+<!ENTITY main.openLinkInNewTab          "Verwijzing openen in nieuw tabblad">
+<!ENTITY main.searchFor                 "Zoeken naar">
+<!ENTITY main.copyLinkAdress            "Copy link address">
 
 <!-- About Window -->
-<!ENTITY main.close				"Sluiten">
+<!ENTITY main.close                     "Sluiten">
 
 <!-- Preferences Window -->
-<!ENTITY preferences.preferences		"Preferences">
-<!ENTITY preferences.save			"Save">
-<!ENTITY preferences.cancel			"Cancel">
-<!ENTITY preferences.profileDirectory	"Profile directory">
-<!ENTITY preferences.browse			"Browse">
-<!ENTITY preferences.tabs			"Remember tabs">
+<!ENTITY preferences.preferences        "Preferences">
+<!ENTITY preferences.save               "Save">
+<!ENTITY preferences.cancel             "Cancel">
+<!ENTITY preferences.profileDirectory   "Profile directory">
+<!ENTITY preferences.browse             "Browse">
+<!ENTITY preferences.tabs               "Remember tabs">
 
-<!-- Library filter/sort sidebar -->
-<!ENTITY main.library.myLibrary		"Mijn bibliotheek">
-<!ENTITY main.library.getNewFiles		"Nieuwe bestanden verkijgen">
-<!ENTITY main.library.searchZimFiles	"ZIM-bestanden zoeken">
-<!ENTITY main.library.sortBy			"Sorteren op">
-<!ENTITY main.library.sortBy.title		"Titel">
-<!ENTITY main.library.sortBy.size		"Grootte">
-<!ENTITY main.library.sortBy.date		"Datum">
-<!ENTITY main.library.sortBy.author		"Auteur">
-<!ENTITY main.library.sortBy.publisher	"Uitgever">
-<!ENTITY main.library.filterBy			"Filteren op">
-<!ENTITY main.library.filterBy.fileSize		"Bestandsgrootte">
-<!ENTITY main.library.filterBy.language		"Taal">
-<!ENTITY main.library.filterBy.language.all	"Alle">
-<!ENTITY main.library.filterBy.author		"Auteur(s)">
-<!ENTITY main.library.filterBy.author.all		"Alle">
-<!ENTITY main.library.filterBy.publisher		"Uitgever">
-<!ENTITY main.library.filterBy.publisher.all	"Alle">
+<!-- Library -->
+<!ENTITY main.library.myLibrary                 "Mijn bibliotheek">
+<!ENTITY main.library.getNewFiles               "Nieuwe bestanden verkijgen">
+<!ENTITY main.library.searchZimFiles            "ZIM-bestanden zoeken">
+<!ENTITY main.library.sortBy                    "Sorteren op">
+<!ENTITY main.library.sortBy.title              "Titel">
+<!ENTITY main.library.sortBy.size               "Grootte">
+<!ENTITY main.library.sortBy.date               "Datum">
+<!ENTITY main.library.sortBy.author             "Auteur">
+<!ENTITY main.library.sortBy.publisher          "Uitgever">
+<!ENTITY main.library.filterBy                  "Filteren op">
+<!ENTITY main.library.filterBy.fileSize         "Bestandsgrootte">
+<!ENTITY main.library.filterBy.language         "Taal">
+<!ENTITY main.library.filterBy.language.all     "Alle">
+<!ENTITY main.library.filterBy.author           "Auteur">
+<!ENTITY main.library.filterBy.author.all       "Alle">
+<!ENTITY main.library.filterBy.publisher        "Uitgever">
+<!ENTITY main.library.filterBy.publisher.all    "Alle">
 

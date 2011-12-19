@@ -100,38 +100,38 @@
 <!ENTITY main.defaultset                "Набор па змоўчваньні">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveImageAs			"Захаваць выяву як…">
-<!ENTITY main.openLinkInNewTab		"Адкрыць спасылку ў новай закладцы">
-<!ENTITY main.searchFor				"Шукаць">
-<!ENTITY main.copyLinkAdress			"Copy link address">
+<!ENTITY main.saveImageAs               "Захаваць выяву як…">
+<!ENTITY main.openLinkInNewTab          "Адкрыць спасылку ў новай закладцы">
+<!ENTITY main.searchFor                 "Шукаць">
+<!ENTITY main.copyLinkAdress            "Copy link address">
 
 <!-- About Window -->
-<!ENTITY main.close				"Зачыніць">
+<!ENTITY main.close                     "Зачыніць">
 
 <!-- Preferences Window -->
-<!ENTITY preferences.preferences		"Preferences">
-<!ENTITY preferences.save			"Save">
-<!ENTITY preferences.cancel			"Cancel">
-<!ENTITY preferences.profileDirectory	"Profile directory">
-<!ENTITY preferences.browse			"Browse">
-<!ENTITY preferences.tabs			"Remember tabs">
+<!ENTITY preferences.preferences        "Preferences">
+<!ENTITY preferences.save               "Save">
+<!ENTITY preferences.cancel             "Cancel">
+<!ENTITY preferences.profileDirectory   "Profile directory">
+<!ENTITY preferences.browse             "Browse">
+<!ENTITY preferences.tabs               "Remember tabs">
 
-<!-- Library filter/sort sidebar -->
-<!ENTITY main.library.myLibrary		"Мая бібліятэка">
-<!ENTITY main.library.getNewFiles		"Атрымаць новыя файлы">
-<!ENTITY main.library.searchZimFiles	"Пошук ZIM-файлаў">
-<!ENTITY main.library.sortBy			"Сартаваць па">
-<!ENTITY main.library.sortBy.title		"Назве">
-<!ENTITY main.library.sortBy.size		"Памеру">
-<!ENTITY main.library.sortBy.date		"Даце">
-<!ENTITY main.library.sortBy.author		"Аўтару">
-<!ENTITY main.library.sortBy.publisher	"Выдавецтву">
-<!ENTITY main.library.filterBy			"Фільтраваць па">
-<!ENTITY main.library.filterBy.fileSize		"Памеру файла">
-<!ENTITY main.library.filterBy.language		"Мове">
-<!ENTITY main.library.filterBy.language.all	"Усе">
-<!ENTITY main.library.filterBy.author		"Аўтару(ам)">
-<!ENTITY main.library.filterBy.author.all		"Усе">
-<!ENTITY main.library.filterBy.publisher		"Выдавецтву">
-<!ENTITY main.library.filterBy.publisher.all	"Усе">
+<!-- Library -->
+<!ENTITY main.library.myLibrary                 "Мая бібліятэка">
+<!ENTITY main.library.getNewFiles               "Атрымаць новыя файлы">
+<!ENTITY main.library.searchZimFiles            "Пошук ZIM-файлаў">
+<!ENTITY main.library.sortBy                    "Сартаваць па">
+<!ENTITY main.library.sortBy.title              "Назве">
+<!ENTITY main.library.sortBy.size               "Памеру">
+<!ENTITY main.library.sortBy.date               "Даце">
+<!ENTITY main.library.sortBy.author             "Аўтару">
+<!ENTITY main.library.sortBy.publisher          "Выдавецтву">
+<!ENTITY main.library.filterBy                  "Фільтраваць па">
+<!ENTITY main.library.filterBy.fileSize         "Памеру файла">
+<!ENTITY main.library.filterBy.language         "Мове">
+<!ENTITY main.library.filterBy.language.all     "Усе">
+<!ENTITY main.library.filterBy.author           "Аўтару(ам)">
+<!ENTITY main.library.filterBy.author.all       "Усе">
+<!ENTITY main.library.filterBy.publisher        "Выдавецтву">
+<!ENTITY main.library.filterBy.publisher.all    "Усе">
 

@@ -100,38 +100,38 @@
 <!ENTITY main.defaultset                "Collection predefinite">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveImageAs			"Salveguardar imagine sub nomine...">
-<!ENTITY main.openLinkInNewTab		"Aperir ligamine in nove scheda">
-<!ENTITY main.searchFor				"Cercar">
-<!ENTITY main.copyLinkAdress			"Copy link address">
+<!ENTITY main.saveImageAs               "Salveguardar imagine sub nomine...">
+<!ENTITY main.openLinkInNewTab          "Aperir ligamine in nove scheda">
+<!ENTITY main.searchFor                 "Cercar">
+<!ENTITY main.copyLinkAdress            "Copy link address">
 
 <!-- About Window -->
-<!ENTITY main.close				"Clauder">
+<!ENTITY main.close                     "Clauder">
 
 <!-- Preferences Window -->
-<!ENTITY preferences.preferences		"Preferences">
-<!ENTITY preferences.save			"Save">
-<!ENTITY preferences.cancel			"Cancel">
-<!ENTITY preferences.profileDirectory	"Profile directory">
-<!ENTITY preferences.browse			"Browse">
-<!ENTITY preferences.tabs			"Remember tabs">
+<!ENTITY preferences.preferences        "Preferences">
+<!ENTITY preferences.save               "Save">
+<!ENTITY preferences.cancel             "Cancel">
+<!ENTITY preferences.profileDirectory   "Profile directory">
+<!ENTITY preferences.browse             "Browse">
+<!ENTITY preferences.tabs               "Remember tabs">
 
-<!-- Library filter/sort sidebar -->
-<!ENTITY main.library.myLibrary		"Mi bibliotheca">
-<!ENTITY main.library.getNewFiles		"Obtener nove files">
-<!ENTITY main.library.searchZimFiles	"Cercar in files ZIM">
-<!ENTITY main.library.sortBy			"Ordinar per">
-<!ENTITY main.library.sortBy.title		"Titulo">
-<!ENTITY main.library.sortBy.size		"Dimension">
-<!ENTITY main.library.sortBy.date		"Data">
-<!ENTITY main.library.sortBy.author		"Autor">
-<!ENTITY main.library.sortBy.publisher	"Editor">
-<!ENTITY main.library.filterBy			"Filtrar per">
-<!ENTITY main.library.filterBy.fileSize		"Dimension de file">
-<!ENTITY main.library.filterBy.language		"Lingua">
-<!ENTITY main.library.filterBy.language.all	"Totes">
-<!ENTITY main.library.filterBy.author		"Autor(es)">
-<!ENTITY main.library.filterBy.author.all		"Totes">
-<!ENTITY main.library.filterBy.publisher		"Editor">
-<!ENTITY main.library.filterBy.publisher.all	"Totes">
+<!-- Library -->
+<!ENTITY main.library.myLibrary                 "Mi bibliotheca">
+<!ENTITY main.library.getNewFiles               "Obtener nove files">
+<!ENTITY main.library.searchZimFiles            "Cercar in files ZIM">
+<!ENTITY main.library.sortBy                    "Ordinar per">
+<!ENTITY main.library.sortBy.title              "Titulo">
+<!ENTITY main.library.sortBy.size               "Dimension">
+<!ENTITY main.library.sortBy.date               "Data">
+<!ENTITY main.library.sortBy.author             "Autor">
+<!ENTITY main.library.sortBy.publisher          "Editor">
+<!ENTITY main.library.filterBy                  "Filtrar per">
+<!ENTITY main.library.filterBy.fileSize         "Dimension de file">
+<!ENTITY main.library.filterBy.language         "Lingua">
+<!ENTITY main.library.filterBy.language.all     "Totes">
+<!ENTITY main.library.filterBy.author           "Autor(es)">
+<!ENTITY main.library.filterBy.author.all       "Totes">
+<!ENTITY main.library.filterBy.publisher        "Editor">
+<!ENTITY main.library.filterBy.publisher.all    "Totes">
 
