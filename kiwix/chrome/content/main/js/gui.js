@@ -749,9 +749,15 @@ function goHome(openInNewTab) {
 
 /* Manage the change of the locale with the GUI */
 function manageChangeLocale(locale) {
+    var localeBackup = settings.locale();
     if (locale && (settings.locale() != locale)) {
 	settings.locale(locale);
-	restart();
+
+	/* Rollback the checked locale in the menu  */
+	if (!restart()) {
+	    settings.locale(localeBackup);
+	    populateLanguagesMenu();
+	}
     }
 }
 
@@ -988,6 +994,8 @@ function populateSkinsMenu() {
 	var menuItem = skinMenu.children[i];
 	if (menuItem.getAttribute("id") == "skin-" + currentSkin) {
 	    menuItem.setAttribute('checked', true);
+	} else {
+	    menuItem.setAttribute('checked', false);
 	}
     }
 }
@@ -1475,9 +1483,15 @@ function printPdf() {
 }
 
 function selectSkin(name) {
+    var skinBackup = settings.skin();
+
     if (displayConfirmDialog(getProperty("changeSkinNeedRestart"))) {
 	settings.skin(name);
 	restart(true);
+    } else {
+	/* Rollback the checked skin in the menu  */
+	settings.skin(skinBackup);
+	populateSkinsMenu();
     }
 }
 
