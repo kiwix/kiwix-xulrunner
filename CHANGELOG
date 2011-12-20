@@ -29,6 +29,7 @@ Kiwix 0.9 beta5
 * Improvement of the navigation history management (ID: 3444677)
 * Improve a little bit the Windows User Interface by tunning the CSS
 * Fix a regression impacting reading of splitted ZIM files (ID: 3463001)
+* Port of console tools kiwix-index, kiwix-manage and kiwix-install for Windows
 
 Kiwix 0.9 beta4
 * Fix regression, menu "last open" where not working anymore
