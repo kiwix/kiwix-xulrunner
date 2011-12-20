@@ -1515,8 +1515,7 @@ function sendNotification(title, message, link, callback) {
     } catch(error) {
         if (link)
             message = message + "\n" + link;
-        
-	   displayInfoDialog(message   , title);
+	displayInfoDialog(message   , title);
     }
 }
 
