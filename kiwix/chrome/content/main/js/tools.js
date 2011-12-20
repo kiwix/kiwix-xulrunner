@@ -166,7 +166,6 @@ function askPermissionToQuit() {
     /* Check if an indexing process is currently running */
     if (isIndexing())
 	ok = displayConfirmDialog(getProperty("abortIndexingConfirm"));
-
     return ok;
 }
 

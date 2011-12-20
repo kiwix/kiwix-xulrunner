@@ -37,7 +37,7 @@
 		accesskey="&main.printPdf.accesskey;" oncommand="printPdf()"/>
       <menuseparator id="file-sep" />
       <menuitem id="file-quit" label="&main.quit;" key="quit-key" class="menuitem-iconic" 
-		accesskey="&main.quit.accesskey;" oncommand="window.close()"/>
+		accesskey="&main.quit.accesskey;" oncommand="quit()"/>
     </menupopup>
   </menu>
   <menu id="menu-edit" label="&main.edit;" accesskey="&main.edit.accesskey;">
