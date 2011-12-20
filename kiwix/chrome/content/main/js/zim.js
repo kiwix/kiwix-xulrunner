@@ -46,16 +46,16 @@ function openZimFile(path) {
 function openCurrentBook() {
     var currentBook;
     var currentBookId;
-    var showErrorMessage;
+    var noSearchIndexCheck;
     var successfullyLoaded;
     do {
 	if (currentBookId != undefined && currentBookId != "")
 	    library.setCurrentId("");
 	currentBook = library.getCurrentBook();
 	currentBookId = library.getCurrentId();
-	showErrorMessage = currentBook && !currentBook.relativeLibraryPath;
+	noSearchIndexCheck = currentBook && currentBook.relativeLibraryPath;
 	successfullyLoaded = 
-	    currentBook != undefined ? manageOpenFile(currentBook.path, showErrorMessage) : false;
+	    currentBook != undefined ? manageOpenFile(currentBook.path, noSearchIndexCheck) : false;
     } while (currentBookId != undefined && currentBookId != "" && !successfullyLoaded);
     return (currentBook != undefined);
 }
