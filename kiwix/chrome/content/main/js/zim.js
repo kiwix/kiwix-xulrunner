@@ -25,17 +25,9 @@ function openZimFile(path) {
     var zimAccessorService = Components.classes["@kiwix.org/zimAccessor"].getService();
     var zimAccessor = zimAccessorService.QueryInterface(Components.interfaces.IZimAccessor);
 
-    /* Return if not able to open the file */
-    var file =
-	Components.classes["@mozilla.org/file/local;1"].
-	createInstance(Components.interfaces.nsILocalFile);
-    try {
-	file.initWithPath(path);
-    } catch(er) {
-	return;
-    }
-
-    if (isFile(file.path) && zimAccessor.loadFile(file.path)) {
+    /* Warning: here we should not test if the file exist, because the
+     * file could be splitted */
+    if (zimAccessor.loadFile(path)) {
 	currentZimAccessor = zimAccessor;
 	return currentZimAccessor;
     }
