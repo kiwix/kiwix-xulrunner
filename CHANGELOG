@@ -28,7 +28,7 @@ Kiwix 0.9 beta5
 * Avoid double-checked menu item in language/skin menus in cas of abandoned restart process
 * Improvement of the navigation history management (ID: 3444677)
 * Improve a little bit the Windows User Interface by tunning the CSS
-* Fix a regression impacting reading of splitted ZIM files
+* Fix a regression impacting reading of splitted ZIM files (ID: 3463001)
 
 Kiwix 0.9 beta4
 * Fix regression, menu "last open" where not working anymore
