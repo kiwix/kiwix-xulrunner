@@ -250,7 +250,7 @@ function closeAllTabs(noConfirm) {
     var tabHeadersLength = tabHeaders.length
 
     if (tabHeadersLength > 1) {
-	if (noConfirm || displayConfirmDialog("This will close all your tabs. Are you sure you want to continue?", "Close tabs")) {
+	if (noConfirm || !tabsAreVisible() || displayConfirmDialog("This will close all your tabs. Are you sure you want to continue?", "Close tabs")) {
 	    for (var i=tabHeadersLength-1; i>0; i--) {
 		var node = tabHeaders[i];
 		var id = node.getAttribute('id').replace("tab-header-", "");
