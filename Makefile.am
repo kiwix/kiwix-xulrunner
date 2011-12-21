@@ -208,3 +208,15 @@ win:
 	rm -rf kiwix/xulrunner/dictionaries
 	rm -rf kiwix/xulrunner/xulrunner-stub.exe
 	rm -rf kiwix/xulrunner/README
+	cd src/indexer ; if [ ! -f kiwix-index.exe ] ; then make -f Makefile.mvsc ; fi	
+	cd src/manager ; if [ ! -f kiwix-manage.exe ] ; then make -f Makefile.mvsc ; fi	
+	cd src/installer ; if [ ! -f kiwix-install.exe ] ; then make -f Makefile.mvsc ; fi	
+	cp src/indexer/kiwix-index.exe ./kiwix/xulrunner
+	cp src/manager/kiwix-manage.exe ./kiwix/xulrunner
+	cp src/installer/kiwix-install.exe ./kiwix/xulrunner
+
+windist: 
+	rm -rf dvd/install dvd/kiwix
+	svn update dvd/install
+	svn update dvd/kiwix
+	cp -rf kiwix dvd/
