@@ -314,7 +314,24 @@
             </tabpanel>
 	  </tabpanels>
 	</tabbox>
+
+	<!-- Find bar -->
 	<findbar id="find-bar" browserid="html-renderer-00000000"/>
+
+	<!-- Status bar -->
+	<hbox id="status-bar">
+	  <vbox>
+	    <image id="earth-icon" collapsed="true"/>
+	    <image id="book-icon" collapsed="true"/>
+	  </vbox>
+	  <label id="address-bar" crop="end" flex="1" value=" "/>
+	  <spacer flex="1"/>
+	  <stack>
+	    <progressmeter id="progress-bar" mode="determined" collapsed="true"/>
+	    <label id="progress-bar-label" collapsed="true"/>
+	  </stack>
+	</hbox>
+
       </vbox>
     </page>
     <page id="library-page" flex="1">
@@ -396,20 +413,6 @@
       </hbox>
     </page>
   </deck>
-</hbox>
-
-<!-- Status bar -->
-<hbox id="status-bar">
-  <vbox>
-  <image id="earth-icon" collapsed="true"/>
-  <image id="book-icon" collapsed="true"/>
-  </vbox>
-  <label id="address-bar" crop="end" flex="1" value=" "/>
-  <spacer flex="1"/>
-  <stack>
-    <progressmeter id="progress-bar" mode="determined" collapsed="true"/>
-    <label id="progress-bar-label" collapsed="true"/>
-  </stack>
 </hbox>
 <html:canvas style="background: white; display:none;" id="thumbnail-saver-canvas" />
 </window>
