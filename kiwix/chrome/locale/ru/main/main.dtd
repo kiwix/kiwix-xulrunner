@@ -73,7 +73,7 @@
 <!ENTITY main.feedback                  "Обратная связь">
 <!ENTITY main.reportabug                "Сообщить об ошибке">
 <!ENTITY main.requestafeature           "Запросить функцию">
-<!ENTITY main.about                     "О & brand.brandShortName;">
+<!ENTITY main.about                     "О &brand.brandShortName;">
 <!ENTITY main.about.accesskey           "A">
 
 <!-- Tool bar -->
