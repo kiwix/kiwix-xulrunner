@@ -338,15 +338,15 @@
       <hbox flex="1">
 	<vbox class="library-left">
 	  <box class="library-left-stuffer" style="height: 10px;" />
-	  <richlistbox class="library-menu">
-	    <richlistitem id="library-menuitem-local" onclick="selectLibraryMenu(this.id);">
+	  <vbox class="library-menu">
+	    <vbox id="library-menuitem-local" onclick="selectLibraryMenu(this.id);">
 	      <description class="library-menuitem-description">&main.library.myLibrary;</description>
-	    </richlistitem> 
+	    </vbox> 
 	    <div style="height: 6px;" class="library-left-stuffer"/>
-	    <richlistitem id="library-menuitem-remote" onclick="selectLibraryMenu(this.id);">
+	    <vbox id="library-menuitem-remote" onclick="selectLibraryMenu(this.id);">
 	      <description class="library-menuitem-description">&main.library.getNewFiles;</description>
-	    </richlistitem>
-	  </richlistbox>
+	    </vbox>
+	  </vbox>
 
 	  <vbox class="library-left-stuffer" flex="1">
 	    <vbox class="library-filter" style="-moz-border-radius: 5px 5px 0px 0px; margin: 10px 10px 2px 10px;">
