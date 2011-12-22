@@ -535,18 +535,6 @@ tab[selected="true"] label {
     width: 200px;
 }
 
-#main .library-menu {
-    height: 80px;
-}
-
-#main.win .library-menu {
-    height: 68px;
-}
-
-#main.mac .library-menu {
-    height: 68px;
-}
-
 .library-menuitem-description {
     cursor: pointer;
 }
