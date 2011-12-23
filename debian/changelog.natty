@@ -1,3 +1,31 @@
+kiwix (0.9-beta5-0~natty) natty; urgency=low
+
+  * FIXED: letton language menu item (ID: 3439113)
+  * FIXED: Duplicates in publisher & language filters in the content manager (ID: 3439108)
+  * FIXED: Many localisation files which were broken due to a buggy script (ID: 3440627)
+  * FIXED: Wrong behaviour in case of two different portable kiwix consecutive runs (ID: 3442083)
+  * FIXED: Different issues relative to ISO language codes (ID: 3439293)
+  * FIXED: Rendering issue when displaying two notifications consecutivly: only the last one was displayed.
+  * FIXED: Buggy behaviour if you close the last tab (ID: 3459365)
+  * FIXED: Double-checked menu items in language/skin menus in case of abandoned restart process
+  * FIXED: Few UI bugs related to the navigation history management (ID: 3444677)
+  * FIXED: Regression impacting reading of splitted big (more than 4GB) ZIM files (ID: 3463001)
+  * NEW: New supported user interface languages: Czech (cs), Upper Sorbian (hsb), Cyrillic Tatar (tt-cyrl), Lower Sorbian (dsb), Hindi (hi), Gujarati (gu), Tamil (ta)
+  * NEW: Switch off automatically if loading random article
+  * NEW: In the library, pressing <ENTER> in your local library directly open the file
+  * NEW: Greying "Load random article" menu entry if no content is loaded (ID: 3439112)
+  * NEW: Add the support of the "publisher" ZIM Metadata
+  * NEW: Improved library menus rendering (ID: 3439109)
+  * NEW: Improved code and documentation of kiwix-manage
+  * NEW: In library, option to keep ZIM file during content deletion (ID: 3442084)
+  * NEW: "Copy Link Address" in contextual menu for external links (ID: 3444066)
+  * NEW: Security code to avoid "displaying" main window outside the screen (ID: 3415334)
+  * NEW: "First" and "Last" arrows in the search result page (ID: 3442313)
+  * NEW: Download ZIM files directly from HTTP - without using metalink (ID: 3450237)
+  * NEW: Ctrl+ modifier to Home, Back and Forward buttons to branch to new tabs (ID: 3459481)
+
+ -- Emmanuel Engelhart <kelson@kiwix.org>  Fri, 23 Nov 2011 17:00:00 +0200
+
 kiwix (0.9-beta4-0~natty) natty; urgency=low
 
   * Fix regression, menu "last open" where not working anymore
