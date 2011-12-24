@@ -1,0 +1,137 @@
+<!-- Window -->
+<!ENTITY main.title                     "&brand.brandShortName;">
+<!ENTITY main.cssdirection              "ltr">
+
+<!-- File menu -->
+<!ENTITY main.file                      "Файл">
+<!ENTITY main.file.accesskey            "F">
+<!ENTITY main.openFile                  "Отваряне на файл...">
+<!ENTITY main.browseLibrary.accesskey   "B">
+<!ENTITY main.browseLibrary             "Преглед на библиотека">
+<!ENTITY main.openFile.accesskey        "O">
+<!ENTITY main.lastOpen                  "Последно отваряни...">
+<!ENTITY main.saveFile                  "Записване на страницата като...">
+<!ENTITY main.saveFile.accesskey        "S">
+<!ENTITY main.print                     "Отпечатване">
+<!ENTITY main.print.accesskey           "P">
+<!ENTITY main.printPdf                  "Отпечатване като PDF">
+<!ENTITY main.printPdf.accesskey        "D">
+<!ENTITY main.quit                      "Излизане">
+<!ENTITY main.quit.accesskey            "Q">
+
+<!-- Edit menu -->
+<!ENTITY main.edit                      "Редактиране">
+<!ENTITY main.edit.accesskey            "E">
+<!ENTITY main.find                      "Търсене в страницата...">
+<!ENTITY main.find.accesskey            "S">
+<!ENTITY main.selectall                 "Избиране на всички">
+<!ENTITY main.selectall.accesskey       "a">
+<!ENTITY main.copy                      "Копиране">
+<!ENTITY main.copy.accesskey            "p">
+<!ENTITY main.transliteration           "Транслитерация">
+<!ENTITY main.transliteration.accesskey "T">
+<!ENTITY main.preferences               "Предпочитания">
+<!ENTITY main.preferences.accesskey     "n">
+
+<!-- Display menu -->
+<!ENTITY main.display                   "Показване">
+<!ENTITY main.display.accesskey         "D">
+<!ENTITY main.zoom                      "Мащабиране">
+<!ENTITY main.zoom.accesskey            "Z">
+<!ENTITY main.zoomin                    "Увеличаване">
+<!ENTITY main.zoomin.accesskey          "M">
+<!ENTITY main.zoomout                   "Намаляване">
+<!ENTITY main.zoomout.accesskey         "R">
+<!ENTITY main.zoomorig                  "Оригинален размер">
+<!ENTITY main.zoomorig.accesskey        "O">
+<!ENTITY main.language                  "Език">
+<!ENTITY main.language.accesskey        "L">
+<!ENTITY main.skin                      "Облик">
+<!ENTITY main.skin.accesskey            "S">
+<!ENTITY main.statusbar                 "Лента на състоянието">
+<!ENTITY main.statusbar.accesskey       "S">
+<!ENTITY main.resultsbar                "Лента с резултатите">
+<!ENTITY main.resultsbar.accesskey      "R">
+<!ENTITY main.tabs                      "Раздели">
+<!ENTITY main.tabs.accesskey            "T">
+<!ENTITY main.fullscreen                "Цял екран">
+<!ENTITY main.fullscreen.accesskey      "F">
+
+<!-- Tools menu -->
+<!ENTITY main.tools                     "Инструменти">
+<!ENTITY main.tools.accesskey           "T">
+<!ENTITY main.randomArticle             "Случайна статия">
+<!ENTITY main.randomArticle.accesskey   "R">
+<!ENTITY main.checkIntegrity            "Проверка за цялост">
+<!ENTITY main.checkIntegrity.accesskey  "k">
+<!ENTITY main.purgeHistory              "Изчистване на историята">
+<!ENTITY main.purgeHistory.accesskey    "P">
+
+<!-- Help menu -->
+<!ENTITY main.help                      "Помощ">
+<!ENTITY main.help.accesskey            "H">
+<!ENTITY main.feedback                  "Обратна връзка">
+<!ENTITY main.reportabug                "Съобщаване за грешка">
+<!ENTITY main.requestafeature           "Заявяване на характеристики">
+<!ENTITY main.about                     "За &brand.brandShortName;">
+<!ENTITY main.about.accesskey           "A">
+
+<!-- Tool bar -->
+<!ENTITY main.back                      "Назад">
+<!ENTITY main.forward                   "Напред">
+<!ENTITY main.home                      "Начална страница">
+<!ENTITY main.searchBar                 "Лента за търсене">
+<!ENTITY main.search                    "Търсене">
+<!ENTITY main.findInText                "Откриване в текста">
+<!ENTITY main.noSearchBar               "Търсенето изисква индексиран ZIM файл">
+<!ENTITY main.bookmarks                 "Отметки">
+
+<!-- Results bar -->
+<!ENTITY main.results.title             "Резултати от търсенето">
+
+<!-- Bookmarks Bar -->
+<!ENTITY main.bmkLabel                  "Отметки:">
+<!ENTITY main.notesLabel                "Бележки към отметките:">
+<!ENTITY main.loadbmk                   "Импортиране на група отметки">
+<!ENTITY main.newbmk                    "Създаване на нова група отметки">
+<!ENTITY main.mark                      "Маркиране на тази страница">
+<!ENTITY main.unmark                    "Отмаркиране на избраното">
+<!ENTITY main.reload                    "Презареждане на група отметки">
+<!ENTITY main.defaultset                "Група по подразбиране">
+
+<!-- Contextual Menu -->
+<!ENTITY main.saveImageAs               "Записване на изображението като...">
+<!ENTITY main.openLinkInNewTab          "Отваряне на връзката в нов раздел">
+<!ENTITY main.searchFor                 "Търсене на">
+<!ENTITY main.copyLinkAdress            "Copy link address">
+
+<!-- About Window -->
+<!ENTITY main.close                     "Затваряне">
+
+<!-- Preferences Window -->
+<!ENTITY preferences.preferences        "Preferences">
+<!ENTITY preferences.save               "Save">
+<!ENTITY preferences.cancel             "Cancel">
+<!ENTITY preferences.profileDirectory   "Profile directory">
+<!ENTITY preferences.browse             "Browse">
+<!ENTITY preferences.tabs               "Remember tabs">
+
+<!-- Library -->
+<!ENTITY main.library.myLibrary                 "Моята библиотека">
+<!ENTITY main.library.getNewFiles               "Получаване на нови файлове">
+<!ENTITY main.library.searchZimFiles            "Търсене на ZIM файлове">
+<!ENTITY main.library.sortBy                    "Сортиране по">
+<!ENTITY main.library.sortBy.title              "Заглавие">
+<!ENTITY main.library.sortBy.size               "Размер">
+<!ENTITY main.library.sortBy.date               "Дата">
+<!ENTITY main.library.sortBy.author             "Автор">
+<!ENTITY main.library.sortBy.publisher          "Издател">
+<!ENTITY main.library.filterBy                  "Филтриране по">
+<!ENTITY main.library.filterBy.fileSize         "Размер на файла">
+<!ENTITY main.library.filterBy.language         "Език">
+<!ENTITY main.library.filterBy.language.all     "Всички">
+<!ENTITY main.library.filterBy.author           "Автор">
+<!ENTITY main.library.filterBy.author.all       "Всички">
+<!ENTITY main.library.filterBy.publisher        "Издател">
+<!ENTITY main.library.filterBy.publisher.all    "Всички">
+

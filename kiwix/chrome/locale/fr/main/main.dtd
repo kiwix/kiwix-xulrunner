@@ -118,7 +118,7 @@
 
 <!-- Library -->
 <!ENTITY main.library.myLibrary                 "Ma bibliothèque">
-<!ENTITY main.library.getNewFiles               "Obtenir des nouveaux fichiers">
+<!ENTITY main.library.getNewFiles               "Obtenir de nouveaux fichiers">
 <!ENTITY main.library.searchZimFiles            "Rechercher des fichiers ZIM">
 <!ENTITY main.library.sortBy                    "Trier par">
 <!ENTITY main.library.sortBy.title              "Titre">
@@ -130,7 +130,7 @@
 <!ENTITY main.library.filterBy.fileSize         "Taille du fichier">
 <!ENTITY main.library.filterBy.language         "Langue">
 <!ENTITY main.library.filterBy.language.all     "Toutes">
-<!ENTITY main.library.filterBy.author           "Auteur(s)">
+<!ENTITY main.library.filterBy.author           "Auteur">
 <!ENTITY main.library.filterBy.author.all       "Tous">
 <!ENTITY main.library.filterBy.publisher        "Éditeur">
 <!ENTITY main.library.filterBy.publisher.all    "Tous">

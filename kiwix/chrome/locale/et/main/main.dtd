@@ -1,0 +1,137 @@
+<!-- Window -->
+<!ENTITY main.title                     "&brand.brandShortName;">
+<!ENTITY main.cssdirection              "ltr">
+
+<!-- File menu -->
+<!ENTITY main.file                      "Fail">
+<!ENTITY main.file.accesskey            "F">
+<!ENTITY main.openFile                  "Ava fail...">
+<!ENTITY main.browseLibrary.accesskey   "B">
+<!ENTITY main.browseLibrary             "Sirvi raamatukogu">
+<!ENTITY main.openFile.accesskey        "O">
+<!ENTITY main.lastOpen                  "Viimati avatud...">
+<!ENTITY main.saveFile                  "Salvesta lehekülg nimega...">
+<!ENTITY main.saveFile.accesskey        "S">
+<!ENTITY main.print                     "Prindi">
+<!ENTITY main.print.accesskey           "P">
+<!ENTITY main.printPdf                  "Konverdi PDFiks">
+<!ENTITY main.printPdf.accesskey        "D">
+<!ENTITY main.quit                      "Välju">
+<!ENTITY main.quit.accesskey            "Q">
+
+<!-- Edit menu -->
+<!ENTITY main.edit                      "Redigeerimine">
+<!ENTITY main.edit.accesskey            "E">
+<!ENTITY main.find                      "Otsi leheküljelt...">
+<!ENTITY main.find.accesskey            "S">
+<!ENTITY main.selectall                 "Vali kõik">
+<!ENTITY main.selectall.accesskey       "a">
+<!ENTITY main.copy                      "Kopeeri">
+<!ENTITY main.copy.accesskey            "p">
+<!ENTITY main.transliteration           "Transliteratsioon">
+<!ENTITY main.transliteration.accesskey "T">
+<!ENTITY main.preferences               "Eelistused">
+<!ENTITY main.preferences.accesskey     "n">
+
+<!-- Display menu -->
+<!ENTITY main.display                   "Vaade">
+<!ENTITY main.display.accesskey         "D">
+<!ENTITY main.zoom                      "Suurendamine">
+<!ENTITY main.zoom.accesskey            "Z">
+<!ENTITY main.zoomin                    "Suurenda">
+<!ENTITY main.zoomin.accesskey          "M">
+<!ENTITY main.zoomout                   "Vähenda">
+<!ENTITY main.zoomout.accesskey         "R">
+<!ENTITY main.zoomorig                  "Algsuurus">
+<!ENTITY main.zoomorig.accesskey        "O">
+<!ENTITY main.language                  "Keel">
+<!ENTITY main.language.accesskey        "L">
+<!ENTITY main.skin                      "Kujundus">
+<!ENTITY main.skin.accesskey            "S">
+<!ENTITY main.statusbar                 "Olekuriba">
+<!ENTITY main.statusbar.accesskey       "S">
+<!ENTITY main.resultsbar                "Tulemusteriba">
+<!ENTITY main.resultsbar.accesskey      "R">
+<!ENTITY main.tabs                      "Kaardid">
+<!ENTITY main.tabs.accesskey            "T">
+<!ENTITY main.fullscreen                "Täisekraan">
+<!ENTITY main.fullscreen.accesskey      "F">
+
+<!-- Tools menu -->
+<!ENTITY main.tools                     "Tööriistad">
+<!ENTITY main.tools.accesskey           "T">
+<!ENTITY main.randomArticle             "Juhuslik artikkel">
+<!ENTITY main.randomArticle.accesskey   "R">
+<!ENTITY main.checkIntegrity            "Rikutuskontroll">
+<!ENTITY main.checkIntegrity.accesskey  "k">
+<!ENTITY main.purgeHistory              "Kustuta lehitsemise ajalugu">
+<!ENTITY main.purgeHistory.accesskey    "P">
+
+<!-- Help menu -->
+<!ENTITY main.help                      "Abi">
+<!ENTITY main.help.accesskey            "H">
+<!ENTITY main.feedback                  "Tagasiside">
+<!ENTITY main.reportabug                "Teata veast">
+<!ENTITY main.requestafeature           "Palu uusi funktsioone">
+<!ENTITY main.about                     "Programmi &brand.brandShortName; kohta">
+<!ENTITY main.about.accesskey           "A">
+
+<!-- Tool bar -->
+<!ENTITY main.back                      "Tagasi">
+<!ENTITY main.forward                   "Edasi">
+<!ENTITY main.home                      "Koduleht">
+<!ENTITY main.searchBar                 "Otsiriba">
+<!ENTITY main.search                    "Otsi">
+<!ENTITY main.findInText                "Otsi tekstist">
+<!ENTITY main.noSearchBar               "Otsimiseks on vaja indekseeritud ZIM-faili">
+<!ENTITY main.bookmarks                 "Järjehoidjad">
+
+<!-- Results bar -->
+<!ENTITY main.results.title             "Otsitulemused">
+
+<!-- Bookmarks Bar -->
+<!ENTITY main.bmkLabel                  "Järjehoidjad:">
+<!ENTITY main.notesLabel                "Järjehoidja märkmed:">
+<!ENTITY main.loadbmk                   "Impordi järjehoidjate komplekt">
+<!ENTITY main.newbmk                    "Koosta uus järjehoidjate komplekt">
+<!ENTITY main.mark                      "Märgi see lehekülg">
+<!ENTITY main.unmark                    "Eemalda valitud märgitute seast">
+<!ENTITY main.reload                    "Laadi järjehoidjate riba uuesti">
+<!ENTITY main.defaultset                "Vaikekomplekt">
+
+<!-- Contextual Menu -->
+<!ENTITY main.saveImageAs               "Salvesta pilt nimega...">
+<!ENTITY main.openLinkInNewTab          "Ava link uuel kaardil">
+<!ENTITY main.searchFor                 "Otsi fraasi">
+<!ENTITY main.copyLinkAdress            "Copy link address">
+
+<!-- About Window -->
+<!ENTITY main.close                     "Sule">
+
+<!-- Preferences Window -->
+<!ENTITY preferences.preferences        "Preferences">
+<!ENTITY preferences.save               "Save">
+<!ENTITY preferences.cancel             "Cancel">
+<!ENTITY preferences.profileDirectory   "Profile directory">
+<!ENTITY preferences.browse             "Browse">
+<!ENTITY preferences.tabs               "Remember tabs">
+
+<!-- Library -->
+<!ENTITY main.library.myLibrary                 "Minu raamatukogu">
+<!ENTITY main.library.getNewFiles               "Hangi uusi faile">
+<!ENTITY main.library.searchZimFiles            "Otsi ZIM-faile">
+<!ENTITY main.library.sortBy                    "Sortimisalus">
+<!ENTITY main.library.sortBy.title              "Pealkiri">
+<!ENTITY main.library.sortBy.size               "Suurus">
+<!ENTITY main.library.sortBy.date               "Kuupäev">
+<!ENTITY main.library.sortBy.author             "Autor">
+<!ENTITY main.library.sortBy.publisher          "Avaldaja">
+<!ENTITY main.library.filterBy                  "Filtrimisalus">
+<!ENTITY main.library.filterBy.fileSize         "Faili suurus">
+<!ENTITY main.library.filterBy.language         "Keel">
+<!ENTITY main.library.filterBy.language.all     "Kõik">
+<!ENTITY main.library.filterBy.author           "Autor">
+<!ENTITY main.library.filterBy.author.all       "Kõik">
+<!ENTITY main.library.filterBy.publisher        "Avaldaja">
+<!ENTITY main.library.filterBy.publisher.all    "Kõik">
+

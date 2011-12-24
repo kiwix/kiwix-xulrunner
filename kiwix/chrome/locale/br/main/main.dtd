@@ -130,7 +130,7 @@
 <!ENTITY main.library.filterBy.fileSize         "Ment ar restr">
 <!ENTITY main.library.filterBy.language         "Yezh">
 <!ENTITY main.library.filterBy.language.all     "An holl">
-<!ENTITY main.library.filterBy.author           "Aozer(ien)">
+<!ENTITY main.library.filterBy.author           "Aozer">
 <!ENTITY main.library.filterBy.author.all       "An holl">
 <!ENTITY main.library.filterBy.publisher        "Embanner">
 <!ENTITY main.library.filterBy.publisher.all    "An holl">

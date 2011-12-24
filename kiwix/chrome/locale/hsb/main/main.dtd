@@ -130,7 +130,7 @@
 <!ENTITY main.library.filterBy.fileSize         "Wulkosć dataje">
 <!ENTITY main.library.filterBy.language         "Rěč">
 <!ENTITY main.library.filterBy.language.all     "Wšě">
-<!ENTITY main.library.filterBy.author           "Awtorojo">
+<!ENTITY main.library.filterBy.author           "Awtor">
 <!ENTITY main.library.filterBy.author.all       "Wšě">
 <!ENTITY main.library.filterBy.publisher        "Wudawaćel">
 <!ENTITY main.library.filterBy.publisher.all    "Wšě">

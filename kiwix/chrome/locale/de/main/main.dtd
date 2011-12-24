@@ -130,7 +130,7 @@
 <!ENTITY main.library.filterBy.fileSize         "Dateigröße">
 <!ENTITY main.library.filterBy.language         "Sprache">
 <!ENTITY main.library.filterBy.language.all     "Alle">
-<!ENTITY main.library.filterBy.author           "Autor(en)">
+<!ENTITY main.library.filterBy.author           "Autor">
 <!ENTITY main.library.filterBy.author.all       "Alle">
 <!ENTITY main.library.filterBy.publisher        "Veröffentlicher">
 <!ENTITY main.library.filterBy.publisher.all    "Alle">

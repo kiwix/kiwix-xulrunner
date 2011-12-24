@@ -117,21 +117,21 @@
 <!ENTITY preferences.tabs               "Remember tabs">
 
 <!-- Library -->
-<!ENTITY main.library.myLibrary                 "My library">
-<!ENTITY main.library.getNewFiles               "Get new files">
-<!ENTITY main.library.searchZimFiles            "Search ZIM files">
-<!ENTITY main.library.sortBy                    "Sort by">
-<!ENTITY main.library.sortBy.title              "Title">
-<!ENTITY main.library.sortBy.size               "Size">
-<!ENTITY main.library.sortBy.date               "Date">
-<!ENTITY main.library.sortBy.author             "Author">
-<!ENTITY main.library.sortBy.publisher          "Publisher">
-<!ENTITY main.library.filterBy                  "Filter by">
-<!ENTITY main.library.filterBy.fileSize         "File size">
-<!ENTITY main.library.filterBy.language         "Language">
-<!ENTITY main.library.filterBy.language.all     "All">
-<!ENTITY main.library.filterBy.author           "Author">
-<!ENTITY main.library.filterBy.author.all       "All">
-<!ENTITY main.library.filterBy.publisher        "Publisher">
-<!ENTITY main.library.filterBy.publisher.all    "All">
+<!ENTITY main.library.myLibrary                 "Moja knjižnica">
+<!ENTITY main.library.getNewFiles               "Pridobi nove datoteke">
+<!ENTITY main.library.searchZimFiles            "Išči datoteke ZIM">
+<!ENTITY main.library.sortBy                    "Razporedi po">
+<!ENTITY main.library.sortBy.title              "naslovu">
+<!ENTITY main.library.sortBy.size               "velikosti">
+<!ENTITY main.library.sortBy.date               "datumu">
+<!ENTITY main.library.sortBy.author             "avtorju">
+<!ENTITY main.library.sortBy.publisher          "založniku">
+<!ENTITY main.library.filterBy                  "Filtriraj po">
+<!ENTITY main.library.filterBy.fileSize         "velikosti datoteke">
+<!ENTITY main.library.filterBy.language         "jeziku">
+<!ENTITY main.library.filterBy.language.all     "vseh">
+<!ENTITY main.library.filterBy.author           "avtorju">
+<!ENTITY main.library.filterBy.author.all       "vseh">
+<!ENTITY main.library.filterBy.publisher        "založniku">
+<!ENTITY main.library.filterBy.publisher.all    "vseh">
 

@@ -7,7 +7,7 @@
 <!ENTITY main.file.accesskey            "F">
 <!ENTITY main.openFile                  "Apri...">
 <!ENTITY main.browseLibrary.accesskey   "B">
-<!ENTITY main.browseLibrary             "Browse library">
+<!ENTITY main.browseLibrary             "Sfoglia la libreria">
 <!ENTITY main.openFile.accesskey        "A">
 <!ENTITY main.lastOpen                  "Aperti di recente...">
 <!ENTITY main.saveFile                  "Salva pagina con nome...">
@@ -102,7 +102,7 @@
 <!-- Contextual Menu -->
 <!ENTITY main.saveImageAs               "Salva immagine con nome...">
 <!ENTITY main.openLinkInNewTab          "Apri il Collegamento in una Nuova Scheda">
-<!ENTITY main.searchFor                 "Search for">
+<!ENTITY main.searchFor                 "Ricerca per">
 <!ENTITY main.copyLinkAdress            "Copy link address">
 
 <!-- About Window -->
@@ -117,9 +117,9 @@
 <!ENTITY preferences.tabs               "Remember tabs">
 
 <!-- Library -->
-<!ENTITY main.library.myLibrary                 "My library">
-<!ENTITY main.library.getNewFiles               "Get new files">
-<!ENTITY main.library.searchZimFiles            "Search ZIM files">
+<!ENTITY main.library.myLibrary                 "Mia libreria">
+<!ENTITY main.library.getNewFiles               "Ottieni nuovi file">
+<!ENTITY main.library.searchZimFiles            "Cerca file ZIM">
 <!ENTITY main.library.sortBy                    "Ordina per">
 <!ENTITY main.library.sortBy.title              "Titolo">
 <!ENTITY main.library.sortBy.size               "Dimensione">
@@ -130,7 +130,7 @@
 <!ENTITY main.library.filterBy.fileSize         "Dimensione del file">
 <!ENTITY main.library.filterBy.language         "Lingua">
 <!ENTITY main.library.filterBy.language.all     "Tutte">
-<!ENTITY main.library.filterBy.author           "Autore/i">
+<!ENTITY main.library.filterBy.author           "Autore">
 <!ENTITY main.library.filterBy.author.all       "Tutti">
 <!ENTITY main.library.filterBy.publisher        "Editore">
 <!ENTITY main.library.filterBy.publisher.all    "Tutti">

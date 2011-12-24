@@ -130,7 +130,7 @@
 <!ENTITY main.library.filterBy.fileSize         "Fájlméret">
 <!ENTITY main.library.filterBy.language         "Nyelv">
 <!ENTITY main.library.filterBy.language.all     "Mind">
-<!ENTITY main.library.filterBy.author           "Szerző(k)">
+<!ENTITY main.library.filterBy.author           "Szerző">
 <!ENTITY main.library.filterBy.author.all       "Mind">
 <!ENTITY main.library.filterBy.publisher        "Kiadó">
 <!ENTITY main.library.filterBy.publisher.all    "Mind">

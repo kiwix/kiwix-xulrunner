@@ -130,7 +130,7 @@
 <!ENTITY main.library.filterBy.fileSize         "Памеру файла">
 <!ENTITY main.library.filterBy.language         "Мове">
 <!ENTITY main.library.filterBy.language.all     "Усе">
-<!ENTITY main.library.filterBy.author           "Аўтару(ам)">
+<!ENTITY main.library.filterBy.author           "Аўтару">
 <!ENTITY main.library.filterBy.author.all       "Усе">
 <!ENTITY main.library.filterBy.publisher        "Выдавецтву">
 <!ENTITY main.library.filterBy.publisher.all    "Усе">

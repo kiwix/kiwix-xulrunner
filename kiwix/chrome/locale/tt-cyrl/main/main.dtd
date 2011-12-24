@@ -73,7 +73,7 @@
 <!ENTITY main.feedback                  "Feedback">
 <!ENTITY main.reportabug                "Хата барлыгын әйтү">
 <!ENTITY main.requestafeature           "Функция сорау">
-<!ENTITY main.about                     "&brand.brandShortName; турында">
+<!ENTITY main.about                     "& brand.brandShortName; турында">
 <!ENTITY main.about.accesskey           "A">
 
 <!-- Tool bar -->

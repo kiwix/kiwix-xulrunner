@@ -117,21 +117,21 @@
 <!ENTITY preferences.tabs               "Remember tabs">
 
 <!-- Library -->
-<!ENTITY main.library.myLibrary                 "My library">
-<!ENTITY main.library.getNewFiles               "Get new files">
-<!ENTITY main.library.searchZimFiles            "Search ZIM files">
-<!ENTITY main.library.sortBy                    "Sort by">
-<!ENTITY main.library.sortBy.title              "Title">
-<!ENTITY main.library.sortBy.size               "Size">
-<!ENTITY main.library.sortBy.date               "Date">
-<!ENTITY main.library.sortBy.author             "Author">
-<!ENTITY main.library.sortBy.publisher          "Publisher">
-<!ENTITY main.library.filterBy                  "Filter by">
-<!ENTITY main.library.filterBy.fileSize         "File size">
-<!ENTITY main.library.filterBy.language         "Language">
-<!ENTITY main.library.filterBy.language.all     "All">
-<!ENTITY main.library.filterBy.author           "Author">
-<!ENTITY main.library.filterBy.author.all       "All">
-<!ENTITY main.library.filterBy.publisher        "Publisher">
-<!ENTITY main.library.filterBy.publisher.all    "All">
+<!ENTITY main.library.myLibrary                 "Mitt bibliotek">
+<!ENTITY main.library.getNewFiles               "Få nye filer">
+<!ENTITY main.library.searchZimFiles            "Søk ZIM-filer">
+<!ENTITY main.library.sortBy                    "Sorter etter">
+<!ENTITY main.library.sortBy.title              "Tittel">
+<!ENTITY main.library.sortBy.size               "Størrelse">
+<!ENTITY main.library.sortBy.date               "Dato">
+<!ENTITY main.library.sortBy.author             "Forfatter">
+<!ENTITY main.library.sortBy.publisher          "Utgiver">
+<!ENTITY main.library.filterBy                  "Filtrer etter">
+<!ENTITY main.library.filterBy.fileSize         "Filstørrelse">
+<!ENTITY main.library.filterBy.language         "Språk">
+<!ENTITY main.library.filterBy.language.all     "Alle">
+<!ENTITY main.library.filterBy.author           "Forfatter">
+<!ENTITY main.library.filterBy.author.all       "Alle">
+<!ENTITY main.library.filterBy.publisher        "Utgiver">
+<!ENTITY main.library.filterBy.publisher.all    "Alle">
 

@@ -7,7 +7,7 @@
 <!ENTITY main.file.accesskey            "F">
 <!ENTITY main.openFile                  "פתיחת קובץ...">
 <!ENTITY main.browseLibrary.accesskey   "B">
-<!ENTITY main.browseLibrary             "Browse library">
+<!ENTITY main.browseLibrary             "עיון בספרייה">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "פתיחת קובץ מבין האחרונים...">
 <!ENTITY main.saveFile                  "שמירת דף בשם...">
@@ -70,7 +70,7 @@
 <!-- Help menu -->
 <!ENTITY main.help                      "עזרה">
 <!ENTITY main.help.accesskey            "H">
-<!ENTITY main.feedback                  "Feedback">
+<!ENTITY main.feedback                  "משוב">
 <!ENTITY main.reportabug                "דיווח על באג">
 <!ENTITY main.requestafeature           "בקשת שיפור לתוכנה">
 <!ENTITY main.about                     "אודות">
@@ -101,8 +101,8 @@
 
 <!-- Contextual Menu -->
 <!ENTITY main.saveImageAs               "שמירת תמונה בשם...">
-<!ENTITY main.openLinkInNewTab          "Open link in new tab">
-<!ENTITY main.searchFor                 "Search for">
+<!ENTITY main.openLinkInNewTab          "פתיחת קישור בלשונית חדשה">
+<!ENTITY main.searchFor                 "לחפש את זה">
 <!ENTITY main.copyLinkAdress            "Copy link address">
 
 <!-- About Window -->
@@ -117,21 +117,21 @@
 <!ENTITY preferences.tabs               "Remember tabs">
 
 <!-- Library -->
-<!ENTITY main.library.myLibrary                 "My library">
-<!ENTITY main.library.getNewFiles               "Get new files">
-<!ENTITY main.library.searchZimFiles            "Search ZIM files">
-<!ENTITY main.library.sortBy                    "Sort by">
-<!ENTITY main.library.sortBy.title              "Title">
-<!ENTITY main.library.sortBy.size               "Size">
-<!ENTITY main.library.sortBy.date               "Date">
-<!ENTITY main.library.sortBy.author             "Author">
-<!ENTITY main.library.sortBy.publisher          "Publisher">
-<!ENTITY main.library.filterBy                  "Filter by">
-<!ENTITY main.library.filterBy.fileSize         "File size">
-<!ENTITY main.library.filterBy.language         "Language">
-<!ENTITY main.library.filterBy.language.all     "All">
-<!ENTITY main.library.filterBy.author           "Author">
-<!ENTITY main.library.filterBy.author.all       "All">
-<!ENTITY main.library.filterBy.publisher        "Publisher">
-<!ENTITY main.library.filterBy.publisher.all    "All">
+<!ENTITY main.library.myLibrary                 "הספרייה שלי">
+<!ENTITY main.library.getNewFiles               "קבלת קבצים חדשים">
+<!ENTITY main.library.searchZimFiles            "חיפוש קובצי ZIM">
+<!ENTITY main.library.sortBy                    "מיון לפי">
+<!ENTITY main.library.sortBy.title              "כותרת">
+<!ENTITY main.library.sortBy.size               "גודל">
+<!ENTITY main.library.sortBy.date               "תאריך">
+<!ENTITY main.library.sortBy.author             "מחבר">
+<!ENTITY main.library.sortBy.publisher          "מוציא לאור">
+<!ENTITY main.library.filterBy                  "סינון לפי">
+<!ENTITY main.library.filterBy.fileSize         "גודל קובץ">
+<!ENTITY main.library.filterBy.language         "שפה">
+<!ENTITY main.library.filterBy.language.all     "הכול">
+<!ENTITY main.library.filterBy.author           "מחבר">
+<!ENTITY main.library.filterBy.author.all       "הכול">
+<!ENTITY main.library.filterBy.publisher        "מוציא לאור">
+<!ENTITY main.library.filterBy.publisher.all    "הכול">
 

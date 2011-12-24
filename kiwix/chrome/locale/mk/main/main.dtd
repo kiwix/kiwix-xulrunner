@@ -130,7 +130,7 @@
 <!ENTITY main.library.filterBy.fileSize         "Големина на податотеката">
 <!ENTITY main.library.filterBy.language         "Јазик">
 <!ENTITY main.library.filterBy.language.all     "Сите">
-<!ENTITY main.library.filterBy.author           "Автор(и)">
+<!ENTITY main.library.filterBy.author           "Автор">
 <!ENTITY main.library.filterBy.author.all       "Сите">
 <!ENTITY main.library.filterBy.publisher        "Издавач">
 <!ENTITY main.library.filterBy.publisher.all    "Сите">

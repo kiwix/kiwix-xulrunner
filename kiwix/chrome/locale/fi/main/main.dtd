@@ -70,7 +70,7 @@
 <!-- Help menu -->
 <!ENTITY main.help                      "Ohje">
 <!ENTITY main.help.accesskey            "H">
-<!ENTITY main.feedback                  "Feedback">
+<!ENTITY main.feedback                  "Palaute">
 <!ENTITY main.reportabug                "Ilmoita virheestä">
 <!ENTITY main.requestafeature           "Ehdota ominaisuutta">
 <!ENTITY main.about                     "Tietoja sovelluksesta &brand.brandShortName;">
@@ -101,7 +101,7 @@
 
 <!-- Contextual Menu -->
 <!ENTITY main.saveImageAs               "Tallenna kuva nimellä...">
-<!ENTITY main.openLinkInNewTab          "Open link in new tab">
+<!ENTITY main.openLinkInNewTab          "Avaa linkki uudessa välilehdessä">
 <!ENTITY main.searchFor                 "Search for">
 <!ENTITY main.copyLinkAdress            "Copy link address">
 
@@ -128,10 +128,10 @@
 <!ENTITY main.library.sortBy.publisher          "Publisher">
 <!ENTITY main.library.filterBy                  "Filter by">
 <!ENTITY main.library.filterBy.fileSize         "File size">
-<!ENTITY main.library.filterBy.language         "Language">
-<!ENTITY main.library.filterBy.language.all     "All">
+<!ENTITY main.library.filterBy.language         "Kieli">
+<!ENTITY main.library.filterBy.language.all     "Kaikki">
 <!ENTITY main.library.filterBy.author           "Author">
-<!ENTITY main.library.filterBy.author.all       "All">
+<!ENTITY main.library.filterBy.author.all       "Kaikki">
 <!ENTITY main.library.filterBy.publisher        "Publisher">
-<!ENTITY main.library.filterBy.publisher.all    "All">
+<!ENTITY main.library.filterBy.publisher.all    "Kaikki">
 

@@ -130,7 +130,7 @@
 <!ENTITY main.library.filterBy.fileSize         "Wjelikosć dataje">
 <!ENTITY main.library.filterBy.language         "Rěc">
 <!ENTITY main.library.filterBy.language.all     "Wšykne">
-<!ENTITY main.library.filterBy.author           "Awtory">
+<!ENTITY main.library.filterBy.author           "Awtor">
 <!ENTITY main.library.filterBy.author.all       "Wšykne">
 <!ENTITY main.library.filterBy.publisher        "Wudawaŕ">
 <!ENTITY main.library.filterBy.publisher.all    "Wšykne">

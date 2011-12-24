@@ -7,7 +7,7 @@
 <!ENTITY main.file.accesskey            "F">
 <!ENTITY main.openFile                  "Deschide fișierul ...">
 <!ENTITY main.browseLibrary.accesskey   "B">
-<!ENTITY main.browseLibrary             "Browse library">
+<!ENTITY main.browseLibrary             "Răsfoiți biblioteca">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "Deschise recent...">
 <!ENTITY main.saveFile                  "Salvează pagina ca...">
@@ -70,7 +70,7 @@
 <!-- Help menu -->
 <!ENTITY main.help                      "Ajutor">
 <!ENTITY main.help.accesskey            "H">
-<!ENTITY main.feedback                  "Feedback">
+<!ENTITY main.feedback                  "Părere">
 <!ENTITY main.reportabug                "Raportați o eroare">
 <!ENTITY main.requestafeature           "Solicitați o funcționalitate">
 <!ENTITY main.about                     "Despre &brand.brandShortName;">
@@ -101,8 +101,8 @@
 
 <!-- Contextual Menu -->
 <!ENTITY main.saveImageAs               "Salvează imaginea ca...">
-<!ENTITY main.openLinkInNewTab          "Open link in new tab">
-<!ENTITY main.searchFor                 "Search for">
+<!ENTITY main.openLinkInNewTab          "Deschideți legătura într-o filă nouă">
+<!ENTITY main.searchFor                 "Căutați">
 <!ENTITY main.copyLinkAdress            "Copy link address">
 
 <!-- About Window -->
@@ -117,21 +117,21 @@
 <!ENTITY preferences.tabs               "Remember tabs">
 
 <!-- Library -->
-<!ENTITY main.library.myLibrary                 "My library">
-<!ENTITY main.library.getNewFiles               "Get new files">
-<!ENTITY main.library.searchZimFiles            "Search ZIM files">
-<!ENTITY main.library.sortBy                    "Sort by">
-<!ENTITY main.library.sortBy.title              "Title">
-<!ENTITY main.library.sortBy.size               "Size">
-<!ENTITY main.library.sortBy.date               "Date">
-<!ENTITY main.library.sortBy.author             "Author">
-<!ENTITY main.library.sortBy.publisher          "Publisher">
-<!ENTITY main.library.filterBy                  "Filter by">
-<!ENTITY main.library.filterBy.fileSize         "File size">
-<!ENTITY main.library.filterBy.language         "Language">
-<!ENTITY main.library.filterBy.language.all     "All">
-<!ENTITY main.library.filterBy.author           "Author">
-<!ENTITY main.library.filterBy.author.all       "All">
-<!ENTITY main.library.filterBy.publisher        "Publisher">
-<!ENTITY main.library.filterBy.publisher.all    "All">
+<!ENTITY main.library.myLibrary                 "Biblioteca mea">
+<!ENTITY main.library.getNewFiles               "Obțineți fișiere noi">
+<!ENTITY main.library.searchZimFiles            "Căutați fișiere ZIM">
+<!ENTITY main.library.sortBy                    "Sortare după">
+<!ENTITY main.library.sortBy.title              "Titlu">
+<!ENTITY main.library.sortBy.size               "Dimensiunea">
+<!ENTITY main.library.sortBy.date               "Data">
+<!ENTITY main.library.sortBy.author             "Autor">
+<!ENTITY main.library.sortBy.publisher          "Editură">
+<!ENTITY main.library.filterBy                  "Filtrare după">
+<!ENTITY main.library.filterBy.fileSize         "Mărimea fișierului">
+<!ENTITY main.library.filterBy.language         "Limbă">
+<!ENTITY main.library.filterBy.language.all     "Toate">
+<!ENTITY main.library.filterBy.author           "Autor">
+<!ENTITY main.library.filterBy.author.all       "Toate">
+<!ENTITY main.library.filterBy.publisher        "Editură">
+<!ENTITY main.library.filterBy.publisher.all    "Toate">
 

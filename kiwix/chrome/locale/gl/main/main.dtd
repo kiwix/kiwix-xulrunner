@@ -130,7 +130,7 @@
 <!ENTITY main.library.filterBy.fileSize         "Tamaño do ficheiro">
 <!ENTITY main.library.filterBy.language         "Lingua">
 <!ENTITY main.library.filterBy.language.all     "Todas">
-<!ENTITY main.library.filterBy.author           "Autor(es)">
+<!ENTITY main.library.filterBy.author           "Autor">
 <!ENTITY main.library.filterBy.author.all       "Todos">
 <!ENTITY main.library.filterBy.publisher        "Editor">
 <!ENTITY main.library.filterBy.publisher.all    "Todos">
