@@ -169,7 +169,7 @@ function closeThatTab(tabId) {
         we should never trigger the else condition, but this is still
         in experimentation stage */
     if (document.getElementsByTagName('tab').length == 1) {
-	document.getElementsByClassName('tabs-close-button')[0].setAttribute("style", "display: none;");
+	document.getElementsByClassName('tabs-close-button')[0].setAttribute("style", "visibility: hidden;");
     }
     
     /* If we removed all tabs, disable tab mode and display help page. */

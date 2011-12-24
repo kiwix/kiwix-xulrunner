@@ -11,14 +11,14 @@
 <window	xmlns:html="http://www.w3.org/1999/xhtml" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
 	id        = "main"
 	onload    = "onStart()"
-	onunload  = "quit();"
+	onunload  = "quit()"
 	titlemodifier = "&main.title;"
 	style = "direction: &main.cssdirection;"
 	langdir = "&main.cssdirection;"
 	ondragdrop = "dropOnWindows(event);"
 	>
 <!-- Menu bar -->
-<menubar id="menu-bar"> 
+<menubar id="menu-bar">
   <menu id="menu-file" label="&main.file;" accesskey="&main.file.accesskey;">
     <menupopup id="file-popup">
       <menuitem id="file-browse-library" label="&main.browseLibrary;" class="menuitem-iconic"
@@ -305,7 +305,7 @@
             <tab id="tab-header-00000000" onclick="switchTab(null, this)" class="tab-header" selected="true">
 	      <label value="No Name" crop="right" class="tab-header-label"/>
 	    </tab>
-            <toolbarbutton id="tab-close-button-00000000" class="tabs-close-button" oncommand="closeThatTab('00000000')" style="display: none;"/>
+            <toolbarbutton id="tab-close-button-00000000" class="tabs-close-button" oncommand="closeThatTab('00000000')" style="visibility: hidden;"/>
             <toolbarbutton id="tabs-add-button" oncommand="switchToNewTab();" tooltiptext="Open a new Tab"/>
 	  </tabs>
 	  <tabpanels id="tab-panels" flex="1">
