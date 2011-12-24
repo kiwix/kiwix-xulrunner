@@ -39,13 +39,15 @@ locale main it             locale/it/main/
 locale main ja             locale/ja/main/
 locale main ka             locale/ka/main/
 locale main ksh            locale/ksh/main/
+locale main lt             locale/lt/main/
 locale main lv             locale/lv/main/
 locale main mk             locale/mk/main/
 locale main ml             locale/ml/main/
 locale main ms             locale/ms/main/
 locale main mt             locale/mt/main/
-locale main no             locale/no/main/
 locale main nl             locale/nl/main/
+locale main no             locale/no/main/
+locale main or             locale/or/main/
 locale main pl             locale/pl/main/
 locale main pms            locale/pms/main/
 locale main pt             locale/pt/main/
@@ -53,9 +55,10 @@ locale main pt-br          locale/pt-br/main/
 locale main ro             locale/ro/main/
 locale main ru             locale/ru/main/
 locale main rue            locale/rue/main/
+locale main sk             locale/sk/main/
+locale main sl             locale/sl/main/
 locale main sr-ec          locale/sr-ec/main/
 locale main sr-el          locale/sr-el/main/
-locale main sl             locale/sl/main/
 locale main su             locale/su/main/
 locale main sv             locale/sv/main/
 locale main ta             locale/ta/main/
@@ -103,6 +106,7 @@ locale branding it         locale/branding/
 locale branding ja         locale/branding/
 locale branding ka         locale/branding/
 locale branding ksh        locale/branding/
+locale branding lt         locale/branding/
 locale branding lv         locale/branding/
 locale branding mk         locale/branding/
 locale branding ml         locale/branding/
@@ -110,6 +114,7 @@ locale branding ms         locale/branding/
 locale branding mt         locale/branding/
 locale branding nl         locale/branding/
 locale branding no         locale/branding/
+locale branding or         locale/branding/
 locale branding pl         locale/branding/
 locale branding pms        locale/branding/
 locale branding pt         locale/branding/
@@ -117,6 +122,7 @@ locale branding pt-br      locale/branding/
 locale branding ro         locale/branding/
 locale branding ru         locale/branding/
 locale branding rue        locale/branding/
+locale branding sk         locale/branding/
 locale branding sl         locale/branding/
 locale branding sr-ec      locale/branding/
 locale branding sr-el      locale/branding/

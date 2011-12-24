@@ -15,7 +15,7 @@ Kiwix 0.9 beta5
 * FIXED: Regression impacting reading of splitted big (more than 4GB) ZIM files (ID: 3463001)
 * NEW: New supported user interface languages: Czech (cs), Upper Sorbian (hsb),
   Cyrillic Tatar (tt-cyrl), Lower Sorbian (dsb), Hindi (hi), Gujarati (gu), Tamil (ta),
-  Georgian (ka), Estonian (et), Bulgarian (bg)
+  Georgian (ka), Estonian (et), Bulgarian (bg), Lithuanian (lt), Oriya (or), Slovak (sk)
 * NEW: Switch off automatically if loading random article
 * NEW: In the library, pressing <ENTER> in your local library directly open the file
 * NEW: Greying "Load random article" menu entry if no content is loaded (ID: 3439112)

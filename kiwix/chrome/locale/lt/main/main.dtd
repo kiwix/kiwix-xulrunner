@@ -1,0 +1,137 @@
+<!-- Window -->
+<!ENTITY main.title                     "&brand.brandShortName;">
+<!ENTITY main.cssdirection              "ltr">
+
+<!-- File menu -->
+<!ENTITY main.file                      "Failas">
+<!ENTITY main.file.accesskey            "F">
+<!ENTITY main.openFile                  "Atidaryti failą...">
+<!ENTITY main.browseLibrary.accesskey   "B">
+<!ENTITY main.browseLibrary             "Naršyti biblioteką">
+<!ENTITY main.openFile.accesskey        "O">
+<!ENTITY main.lastOpen                  "Neseniai atidaryti...">
+<!ENTITY main.saveFile                  "Įrašyti puslapį kaip...">
+<!ENTITY main.saveFile.accesskey        "S">
+<!ENTITY main.print                     "Spausdinti">
+<!ENTITY main.print.accesskey           "P">
+<!ENTITY main.printPdf                  "Spausdinti kaip PDF">
+<!ENTITY main.printPdf.accesskey        "D">
+<!ENTITY main.quit                      "Išėiti">
+<!ENTITY main.quit.accesskey            "Q">
+
+<!-- Edit menu -->
+<!ENTITY main.edit                      "Redaguoti">
+<!ENTITY main.edit.accesskey            "E">
+<!ENTITY main.find                      "Paieškos puslapyje...">
+<!ENTITY main.find.accesskey            "S">
+<!ENTITY main.selectall                 "Pasirinkti visus">
+<!ENTITY main.selectall.accesskey       "a">
+<!ENTITY main.copy                      "Kopijuoti">
+<!ENTITY main.copy.accesskey            "p">
+<!ENTITY main.transliteration           "Transliteracijos">
+<!ENTITY main.transliteration.accesskey "T">
+<!ENTITY main.preferences               "Nustatymai">
+<!ENTITY main.preferences.accesskey     "n">
+
+<!-- Display menu -->
+<!ENTITY main.display                   "Rodyti">
+<!ENTITY main.display.accesskey         "D">
+<!ENTITY main.zoom                      "Padidinti">
+<!ENTITY main.zoom.accesskey            "Z">
+<!ENTITY main.zoomin                    "Perdėti">
+<!ENTITY main.zoomin.accesskey          "M">
+<!ENTITY main.zoomout                   "Sumažinti">
+<!ENTITY main.zoomout.accesskey         "R">
+<!ENTITY main.zoomorig                  "Originalus dydis">
+<!ENTITY main.zoomorig.accesskey        "O">
+<!ENTITY main.language                  "Kalba">
+<!ENTITY main.language.accesskey        "L">
+<!ENTITY main.skin                      "Oda">
+<!ENTITY main.skin.accesskey            "S">
+<!ENTITY main.statusbar                 "Būsenos juostoje">
+<!ENTITY main.statusbar.accesskey       "S">
+<!ENTITY main.resultsbar                "Rezultatų juosta">
+<!ENTITY main.resultsbar.accesskey      "R">
+<!ENTITY main.tabs                      "Skirtukai">
+<!ENTITY main.tabs.accesskey            "T">
+<!ENTITY main.fullscreen                "Visas ekranas">
+<!ENTITY main.fullscreen.accesskey      "F">
+
+<!-- Tools menu -->
+<!ENTITY main.tools                     "Priemonės">
+<!ENTITY main.tools.accesskey           "T">
+<!ENTITY main.randomArticle             "Atsitiktinis straipsnis">
+<!ENTITY main.randomArticle.accesskey   "R">
+<!ENTITY main.checkIntegrity            "Vientisumo tikrinimas">
+<!ENTITY main.checkIntegrity.accesskey  "k">
+<!ENTITY main.purgeHistory              "Puslapio istorija">
+<!ENTITY main.purgeHistory.accesskey    "P">
+
+<!-- Help menu -->
+<!ENTITY main.help                      "Pagalba">
+<!ENTITY main.help.accesskey            "H">
+<!ENTITY main.feedback                  "Atsiliepimas">
+<!ENTITY main.reportabug                "Pranešti apie klaidą">
+<!ENTITY main.requestafeature           "Prašyti funkcijos">
+<!ENTITY main.about                     "Apie &brand.brandShortName;">
+<!ENTITY main.about.accesskey           "A">
+
+<!-- Tool bar -->
+<!ENTITY main.back                      "Atgal">
+<!ENTITY main.forward                   "Pirmyn">
+<!ENTITY main.home                      "Pradžia">
+<!ENTITY main.searchBar                 "Paieškos juostą">
+<!ENTITY main.search                    "Paieška">
+<!ENTITY main.findInText                "Rasti tekste">
+<!ENTITY main.noSearchBar               "Paieškos reikalauja indeksuojami ZIM failo">
+<!ENTITY main.bookmarks                 "Žymės">
+
+<!-- Results bar -->
+<!ENTITY main.results.title             "Paieškos rezultatai">
+
+<!-- Bookmarks Bar -->
+<!ENTITY main.bmkLabel                  "Žymės:">
+<!ENTITY main.notesLabel                "Žymių užrašai:">
+<!ENTITY main.loadbmk                   "Importuoti Žymių Rinkinį">
+<!ENTITY main.newbmk                    "Sukurti naują Žymių Rinkinį">
+<!ENTITY main.mark                      "Pažymėti šį puslapį">
+<!ENTITY main.unmark                    "Atžymėti pasirinktus">
+<!ENTITY main.reload                    "Pakartotinai įkelti Žymių Rinkinį">
+<!ENTITY main.defaultset                "Numatytasis Rinkinys">
+
+<!-- Contextual Menu -->
+<!ENTITY main.saveImageAs               "Išsaugoti paveikslėlį kaip...">
+<!ENTITY main.openLinkInNewTab          "Atidaryti saitą naujame skirtuke">
+<!ENTITY main.searchFor                 "Ieškoti">
+<!ENTITY main.copyLinkAdress            "Copy link address">
+
+<!-- About Window -->
+<!ENTITY main.close                     "Uždaryti">
+
+<!-- Preferences Window -->
+<!ENTITY preferences.preferences        "Preferences">
+<!ENTITY preferences.save               "Save">
+<!ENTITY preferences.cancel             "Cancel">
+<!ENTITY preferences.profileDirectory   "Profile directory">
+<!ENTITY preferences.browse             "Browse">
+<!ENTITY preferences.tabs               "Remember tabs">
+
+<!-- Library -->
+<!ENTITY main.library.myLibrary                 "Mano biblioteka">
+<!ENTITY main.library.getNewFiles               "Gauti naujus failus">
+<!ENTITY main.library.searchZimFiles            "Ieškoti ZIM failų">
+<!ENTITY main.library.sortBy                    "Rūšiuoti pagal">
+<!ENTITY main.library.sortBy.title              "Pavadinimas">
+<!ENTITY main.library.sortBy.size               "Dydis">
+<!ENTITY main.library.sortBy.date               "Data">
+<!ENTITY main.library.sortBy.author             "Autorius">
+<!ENTITY main.library.sortBy.publisher          "Leidėjas">
+<!ENTITY main.library.filterBy                  "Filtruoti pagal">
+<!ENTITY main.library.filterBy.fileSize         "Failo dydis">
+<!ENTITY main.library.filterBy.language         "Kalba">
+<!ENTITY main.library.filterBy.language.all     "Visi">
+<!ENTITY main.library.filterBy.author           "Autorius">
+<!ENTITY main.library.filterBy.author.all       "Visi">
+<!ENTITY main.library.filterBy.publisher        "Leidėjas">
+<!ENTITY main.library.filterBy.publisher.all    "Visi">
+

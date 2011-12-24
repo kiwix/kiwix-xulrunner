@@ -1,0 +1,137 @@
+<!-- Window -->
+<!ENTITY main.title                     "&brand.brandShortName;">
+<!ENTITY main.cssdirection              "ltr">
+
+<!-- File menu -->
+<!ENTITY main.file                      "Súbor">
+<!ENTITY main.file.accesskey            "F">
+<!ENTITY main.openFile                  "Otvoriť súbor...">
+<!ENTITY main.browseLibrary.accesskey   "B">
+<!ENTITY main.browseLibrary             "Prehľadávať knižnicu">
+<!ENTITY main.openFile.accesskey        "O">
+<!ENTITY main.lastOpen                  "Nedávno otvorené...">
+<!ENTITY main.saveFile                  "Uložiť stránku ako...">
+<!ENTITY main.saveFile.accesskey        "S">
+<!ENTITY main.print                     "Tlačiť">
+<!ENTITY main.print.accesskey           "P">
+<!ENTITY main.printPdf                  "Tlačiť do PDF">
+<!ENTITY main.printPdf.accesskey        "D">
+<!ENTITY main.quit                      "Ukončiť">
+<!ENTITY main.quit.accesskey            "Q">
+
+<!-- Edit menu -->
+<!ENTITY main.edit                      "Upraviť">
+<!ENTITY main.edit.accesskey            "E">
+<!ENTITY main.find                      "Hľadať na stránke...">
+<!ENTITY main.find.accesskey            "S">
+<!ENTITY main.selectall                 "Vybrať všetky">
+<!ENTITY main.selectall.accesskey       "a">
+<!ENTITY main.copy                      "Kopírovať">
+<!ENTITY main.copy.accesskey            "p">
+<!ENTITY main.transliteration           "Transliterácia">
+<!ENTITY main.transliteration.accesskey "T">
+<!ENTITY main.preferences               "Nastavenia">
+<!ENTITY main.preferences.accesskey     "n">
+
+<!-- Display menu -->
+<!ENTITY main.display                   "Zobrazenie">
+<!ENTITY main.display.accesskey         "D">
+<!ENTITY main.zoom                      "Zväčšenie">
+<!ENTITY main.zoom.accesskey            "Z">
+<!ENTITY main.zoomin                    "Zväčšiť">
+<!ENTITY main.zoomin.accesskey          "M">
+<!ENTITY main.zoomout                   "Znížiť">
+<!ENTITY main.zoomout.accesskey         "R">
+<!ENTITY main.zoomorig                  "Pôvodná veľkosť">
+<!ENTITY main.zoomorig.accesskey        "O">
+<!ENTITY main.language                  "Jazyk">
+<!ENTITY main.language.accesskey        "L">
+<!ENTITY main.skin                      "Téma vzhľadu">
+<!ENTITY main.skin.accesskey            "S">
+<!ENTITY main.statusbar                 "Stavový riadok">
+<!ENTITY main.statusbar.accesskey       "S">
+<!ENTITY main.resultsbar                "Panel výsledkov">
+<!ENTITY main.resultsbar.accesskey      "R">
+<!ENTITY main.tabs                      "Karty">
+<!ENTITY main.tabs.accesskey            "T">
+<!ENTITY main.fullscreen                "Celá obrazovka">
+<!ENTITY main.fullscreen.accesskey      "F">
+
+<!-- Tools menu -->
+<!ENTITY main.tools                     "Nástroje">
+<!ENTITY main.tools.accesskey           "T">
+<!ENTITY main.randomArticle             "Náhodný článok">
+<!ENTITY main.randomArticle.accesskey   "R">
+<!ENTITY main.checkIntegrity            "Kontrola integrity">
+<!ENTITY main.checkIntegrity.accesskey  "k">
+<!ENTITY main.purgeHistory              "Vyčistiť históriu">
+<!ENTITY main.purgeHistory.accesskey    "P">
+
+<!-- Help menu -->
+<!ENTITY main.help                      "Pomocník">
+<!ENTITY main.help.accesskey            "H">
+<!ENTITY main.feedback                  "Spätná väzba">
+<!ENTITY main.reportabug                "Nahlásiť chybu">
+<!ENTITY main.requestafeature           "Požiadať o funkciu">
+<!ENTITY main.about                     "O &brand.brandShortName;">
+<!ENTITY main.about.accesskey           "A">
+
+<!-- Tool bar -->
+<!ENTITY main.back                      "Späť">
+<!ENTITY main.forward                   "Dopredu">
+<!ENTITY main.home                      "Domov">
+<!ENTITY main.searchBar                 "Vyhľadávací panel">
+<!ENTITY main.search                    "Hľadať">
+<!ENTITY main.findInText                "Nájsť v texte">
+<!ENTITY main.noSearchBar               "Hľadanie vyžaduje indexovaný súbor ZIM">
+<!ENTITY main.bookmarks                 "Záložky">
+
+<!-- Results bar -->
+<!ENTITY main.results.title             "Výsledky vyhľadávania">
+
+<!-- Bookmarks Bar -->
+<!ENTITY main.bmkLabel                  "Záložky:">
+<!ENTITY main.notesLabel                "Poznámky záložky:">
+<!ENTITY main.loadbmk                   "Importovať množinu záložiek">
+<!ENTITY main.newbmk                    "Vytvoriť novú množinu záložiek">
+<!ENTITY main.mark                      "Označiť túto stránku">
+<!ENTITY main.unmark                    "Zrušiť označenie vybraných">
+<!ENTITY main.reload                    "Znovu načítať množinu záložiek">
+<!ENTITY main.defaultset                "Predvolená množina">
+
+<!-- Contextual Menu -->
+<!ENTITY main.saveImageAs               "Uložiť obrázok ako...">
+<!ENTITY main.openLinkInNewTab          "Otvoriť odkaz v novej záložke">
+<!ENTITY main.searchFor                 "Hľadať">
+<!ENTITY main.copyLinkAdress            "Copy link address">
+
+<!-- About Window -->
+<!ENTITY main.close                     "Zatvoriť">
+
+<!-- Preferences Window -->
+<!ENTITY preferences.preferences        "Preferences">
+<!ENTITY preferences.save               "Save">
+<!ENTITY preferences.cancel             "Cancel">
+<!ENTITY preferences.profileDirectory   "Profile directory">
+<!ENTITY preferences.browse             "Browse">
+<!ENTITY preferences.tabs               "Remember tabs">
+
+<!-- Library -->
+<!ENTITY main.library.myLibrary                 "My library">
+<!ENTITY main.library.getNewFiles               "Get new files">
+<!ENTITY main.library.searchZimFiles            "Search ZIM files">
+<!ENTITY main.library.sortBy                    "Sort by">
+<!ENTITY main.library.sortBy.title              "Title">
+<!ENTITY main.library.sortBy.size               "Size">
+<!ENTITY main.library.sortBy.date               "Date">
+<!ENTITY main.library.sortBy.author             "Author">
+<!ENTITY main.library.sortBy.publisher          "Publisher">
+<!ENTITY main.library.filterBy                  "Filter by">
+<!ENTITY main.library.filterBy.fileSize         "File size">
+<!ENTITY main.library.filterBy.language         "Language">
+<!ENTITY main.library.filterBy.language.all     "Všetky">
+<!ENTITY main.library.filterBy.author           "Author">
+<!ENTITY main.library.filterBy.author.all       "Všetky">
+<!ENTITY main.library.filterBy.publisher        "Publisher">
+<!ENTITY main.library.filterBy.publisher.all    "Všetky">
+
