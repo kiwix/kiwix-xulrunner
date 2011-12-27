@@ -7,7 +7,7 @@
 <!ENTITY main.file.accesskey            "F">
 <!ENTITY main.openFile                  "Iftaħ il-fajl...">
 <!ENTITY main.browseLibrary.accesskey   "B">
-<!ENTITY main.browseLibrary             "Browse library">
+<!ENTITY main.browseLibrary             "Qalleb fil-librerija">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "Miftuħin riċentament...">
 <!ENTITY main.saveFile                  "Salva l-paġna bħala...">
@@ -70,7 +70,7 @@
 <!-- Help menu -->
 <!ENTITY main.help                      "Għajnuna">
 <!ENTITY main.help.accesskey            "H">
-<!ENTITY main.feedback                  "Feedback">
+<!ENTITY main.feedback                  "Rispons">
 <!ENTITY main.reportabug                "Irrapporta xi problema">
 <!ENTITY main.requestafeature           "Itlob funzjoni ġdida">
 <!ENTITY main.about                     "Dwar &brand.brandShortName;">
@@ -101,8 +101,8 @@
 
 <!-- Contextual Menu -->
 <!ENTITY main.saveImageAs               "Salva l-istampa bħala...">
-<!ENTITY main.openLinkInNewTab          "Open link in new tab">
-<!ENTITY main.searchFor                 "Search for">
+<!ENTITY main.openLinkInNewTab          "Iftaħ il-ħolqa f'tieqa ġdida">
+<!ENTITY main.searchFor                 "Fittex għal">
 <!ENTITY main.copyLinkAdress            "Copy link address">
 
 <!-- About Window -->
@@ -117,21 +117,21 @@
 <!ENTITY preferences.tabs               "Remember tabs">
 
 <!-- Library -->
-<!ENTITY main.library.myLibrary                 "My library">
-<!ENTITY main.library.getNewFiles               "Get new files">
-<!ENTITY main.library.searchZimFiles            "Search ZIM files">
-<!ENTITY main.library.sortBy                    "Sort by">
-<!ENTITY main.library.sortBy.title              "Title">
-<!ENTITY main.library.sortBy.size               "Size">
-<!ENTITY main.library.sortBy.date               "Date">
-<!ENTITY main.library.sortBy.author             "Author">
-<!ENTITY main.library.sortBy.publisher          "Publisher">
-<!ENTITY main.library.filterBy                  "Filter by">
-<!ENTITY main.library.filterBy.fileSize         "File size">
-<!ENTITY main.library.filterBy.language         "Language">
-<!ENTITY main.library.filterBy.language.all     "All">
-<!ENTITY main.library.filterBy.author           "Author">
-<!ENTITY main.library.filterBy.author.all       "All">
-<!ENTITY main.library.filterBy.publisher        "Publisher">
-<!ENTITY main.library.filterBy.publisher.all    "All">
+<!ENTITY main.library.myLibrary                 "Il-librerija tiegħi">
+<!ENTITY main.library.getNewFiles               "Ġib fajls ġodda">
+<!ENTITY main.library.searchZimFiles            "Fittex fajls ZIM">
+<!ENTITY main.library.sortBy                    "Irranġahom skont">
+<!ENTITY main.library.sortBy.title              "Titlu">
+<!ENTITY main.library.sortBy.size               "Daqs">
+<!ENTITY main.library.sortBy.date               "Data">
+<!ENTITY main.library.sortBy.author             "Awtur">
+<!ENTITY main.library.sortBy.publisher          "Editur">
+<!ENTITY main.library.filterBy                  "Iffiltra skont">
+<!ENTITY main.library.filterBy.fileSize         "Daqs tal-fajl">
+<!ENTITY main.library.filterBy.language         "Lingwa">
+<!ENTITY main.library.filterBy.language.all     "Kollox">
+<!ENTITY main.library.filterBy.author           "Awtur">
+<!ENTITY main.library.filterBy.author.all       "Kollha">
+<!ENTITY main.library.filterBy.publisher        "Editur">
+<!ENTITY main.library.filterBy.publisher.all    "Kollha">
 

@@ -1,0 +1,137 @@
+<!-- Window -->
+<!ENTITY main.title                     "&brand.brandShortName;">
+<!ENTITY main.cssdirection              "ltr">
+
+<!-- File menu -->
+<!ENTITY main.file                      "Fáìlì">
+<!ENTITY main.file.accesskey            "F">
+<!ENTITY main.openFile                  "Ṣí fáìlì...">
+<!ENTITY main.browseLibrary.accesskey   "B">
+<!ENTITY main.browseLibrary             "Ìsíwò ilé-ìwé">
+<!ENTITY main.openFile.accesskey        "O">
+<!ENTITY main.lastOpen                  "Fáìlì àìpẹ́...">
+<!ENTITY main.saveFile                  "Ìmúpamọ́ ojúewé bíi...">
+<!ENTITY main.saveFile.accesskey        "S">
+<!ENTITY main.print                     "Ìtẹ̀síìwé">
+<!ENTITY main.print.accesskey           "P">
+<!ENTITY main.printPdf                  "Ìtẹ̀síìwé bíi PDF">
+<!ENTITY main.printPdf.accesskey        "D">
+<!ENTITY main.quit                      "Kúrò">
+<!ENTITY main.quit.accesskey            "Q">
+
+<!-- Edit menu -->
+<!ENTITY main.edit                      "Àtúnṣe">
+<!ENTITY main.edit.accesskey            "E">
+<!ENTITY main.find                      "Ìwárí nínú ojúewé...">
+<!ENTITY main.find.accesskey            "S">
+<!ENTITY main.selectall                 "Ìṣàyàn ohun gbogbo">
+<!ENTITY main.selectall.accesskey       "a">
+<!ENTITY main.copy                      "Ìwòkọ">
+<!ENTITY main.copy.accesskey            "p">
+<!ENTITY main.transliteration           "Ìyítumọ̀dà">
+<!ENTITY main.transliteration.accesskey "T">
+<!ENTITY main.preferences               "Àwọn ìfẹ́ràn">
+<!ENTITY main.preferences.accesskey     "n">
+
+<!-- Display menu -->
+<!ENTITY main.display                   "Ìmúhàn">
+<!ENTITY main.display.accesskey         "D">
+<!ENTITY main.zoom                      "Zoom">
+<!ENTITY main.zoom.accesskey            "Z">
+<!ENTITY main.zoomin                    "Ìmútóbi">
+<!ENTITY main.zoomin.accesskey          "M">
+<!ENTITY main.zoomout                   "Ìmúkéré">
+<!ENTITY main.zoomout.accesskey         "R">
+<!ENTITY main.zoomorig                  "Ìtóbi àtìbẹ̀rẹ̀">
+<!ENTITY main.zoomorig.accesskey        "O">
+<!ENTITY main.language                  "Èdè">
+<!ENTITY main.language.accesskey        "L">
+<!ENTITY main.skin                      "Àwọ̀ ara">
+<!ENTITY main.skin.accesskey            "S">
+<!ENTITY main.statusbar                 "Pẹpẹ ibi-ipò">
+<!ENTITY main.statusbar.accesskey       "S">
+<!ENTITY main.resultsbar                "Pẹpẹ èsì">
+<!ENTITY main.resultsbar.accesskey      "R">
+<!ENTITY main.tabs                      "Àwọn àlẹ̀mọ́">
+<!ENTITY main.tabs.accesskey            "T">
+<!ENTITY main.fullscreen                "Ojúìran kíkúnrẹ́rẹ́">
+<!ENTITY main.fullscreen.accesskey      "F">
+
+<!-- Tools menu -->
+<!ENTITY main.tools                     "Àwọn irinṣẹ́">
+<!ENTITY main.tools.accesskey           "T">
+<!ENTITY main.randomArticle             "Àyọkà àrìnnàkò">
+<!ENTITY main.randomArticle.accesskey   "R">
+<!ENTITY main.checkIntegrity            "Ìyẹ̀wò áídíbájẹ́">
+<!ENTITY main.checkIntegrity.accesskey  "k">
+<!ENTITY main.purgeHistory              "Ìdànù ìtàn">
+<!ENTITY main.purgeHistory.accesskey    "P">
+
+<!-- Help menu -->
+<!ENTITY main.help                      "Ìrànwọ́">
+<!ENTITY main.help.accesskey            "H">
+<!ENTITY main.feedback                  "Ìdáhùn ìbéèrè">
+<!ENTITY main.reportabug                "Ìfẹjọ́rò àṣìṣe">
+<!ENTITY main.requestafeature           "Ìtọrọ ìní tuntun">
+<!ENTITY main.about                     "Nípa &brand.brandShortName;">
+<!ENTITY main.about.accesskey           "A">
+
+<!-- Tool bar -->
+<!ENTITY main.back                      "Ṣẹ́yìn">
+<!ENTITY main.forward                   "Síwájú">
+<!ENTITY main.home                      "Ìbẹ̀rẹ̀">
+<!ENTITY main.searchBar                 "Pẹpẹ àwáàrí">
+<!ENTITY main.search                    "Àwárí">
+<!ENTITY main.findInText                "Ìwárí nínú ìkọ">
+<!ENTITY main.noSearchBar               "Àwáàrí pọndandan kí fáìlì ZIM atọ́ka ó wà">
+<!ENTITY main.bookmarks                 "Àwọn ojúewé àdápamọ́">
+
+<!-- Results bar -->
+<!ENTITY main.results.title             "Àwọn èsì àwárí">
+
+<!-- Bookmarks Bar -->
+<!ENTITY main.bmkLabel                  "Àwọn ojúewé àdápamọ́:">
+<!ENTITY main.notesLabel                "Àwọn àkíyèsí ojúewé àdápamọ́:">
+<!ENTITY main.loadbmk                   "Ìkówọlé ìtò ojúewé àdápamọ́">
+<!ENTITY main.newbmk                    "Ìdá ìtò ojúewé àdápamọ́">
+<!ENTITY main.mark                      "Ṣàmì ojúewé yìí">
+<!ENTITY main.unmark                    "Múlà kúrò nínú àṣàyàn">
+<!ENTITY main.reload                    "Ìtúngbejáde ìtò ojúewé àdápamọ́">
+<!ENTITY main.defaultset                "Ìtò àkọ́kọ́ṣe">
+
+<!-- Contextual Menu -->
+<!ENTITY main.saveImageAs               "Ìmúpamọ́ àwòrán bíi...">
+<!ENTITY main.openLinkInNewTab          "Ṣí ìjápọ̀ nínú ìpele tuntun">
+<!ENTITY main.searchFor                 "Àwáàrí fún">
+<!ENTITY main.copyLinkAdress            "Copy link address">
+
+<!-- About Window -->
+<!ENTITY main.close                     "Padé">
+
+<!-- Preferences Window -->
+<!ENTITY preferences.preferences        "Preferences">
+<!ENTITY preferences.save               "Save">
+<!ENTITY preferences.cancel             "Cancel">
+<!ENTITY preferences.profileDirectory   "Profile directory">
+<!ENTITY preferences.browse             "Browse">
+<!ENTITY preferences.tabs               "Remember tabs">
+
+<!-- Library -->
+<!ENTITY main.library.myLibrary                 "Ilé-ìwé mi">
+<!ENTITY main.library.getNewFiles               "Pe àwọn fáìlì tuntun">
+<!ENTITY main.library.searchZimFiles            "Ṣàwáàrí àwọn faili ZIM">
+<!ENTITY main.library.sortBy                    "Ìtò gẹ́gẹ́bí">
+<!ENTITY main.library.sortBy.title              "Àkọlé">
+<!ENTITY main.library.sortBy.size               "Ìtóbi">
+<!ENTITY main.library.sortBy.date               "Ọjọ́ọdún">
+<!ENTITY main.library.sortBy.author             "Olùdá">
+<!ENTITY main.library.sortBy.publisher          "Olùtẹ̀jáde">
+<!ENTITY main.library.filterBy                  "Àjọ̀ gẹ́gẹ́bí">
+<!ENTITY main.library.filterBy.fileSize         "Ìtóbi fáìlì">
+<!ENTITY main.library.filterBy.language         "Èdè">
+<!ENTITY main.library.filterBy.language.all     "Gbogbo wọn">
+<!ENTITY main.library.filterBy.author           "Olùdá">
+<!ENTITY main.library.filterBy.author.all       "Gbogbo wọn">
+<!ENTITY main.library.filterBy.publisher        "Olùtẹ̀jáde">
+<!ENTITY main.library.filterBy.publisher.all    "Gbogbo wọn">
+

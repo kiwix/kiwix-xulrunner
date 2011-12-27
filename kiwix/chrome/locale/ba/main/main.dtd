@@ -1,0 +1,137 @@
+<!-- Window -->
+<!ENTITY main.title                     "&brand.brandShortName;">
+<!ENTITY main.cssdirection              "ltr">
+
+<!-- File menu -->
+<!ENTITY main.file                      "Файл">
+<!ENTITY main.file.accesskey            "F">
+<!ENTITY main.openFile                  "Файлды асырға...">
+<!ENTITY main.browseLibrary.accesskey   "B">
+<!ENTITY main.browseLibrary             "Китапхананы байҡарға">
+<!ENTITY main.openFile.accesskey        "O">
+<!ENTITY main.lastOpen                  "Яңыраҡ асылғандар...">
+<!ENTITY main.saveFile                  "Битте яңыса һаҡларға...">
+<!ENTITY main.saveFile.accesskey        "S">
+<!ENTITY main.print                     "Баҫтырыу">
+<!ENTITY main.print.accesskey           "P">
+<!ENTITY main.printPdf                  "PDF форматында баҫтырыу">
+<!ENTITY main.printPdf.accesskey        "D">
+<!ENTITY main.quit                      "Сығырға">
+<!ENTITY main.quit.accesskey            "Q">
+
+<!-- Edit menu -->
+<!ENTITY main.edit                      "Мөхәррирләү">
+<!ENTITY main.edit.accesskey            "E">
+<!ENTITY main.find                      "Биттә эҙләү...">
+<!ENTITY main.find.accesskey            "S">
+<!ENTITY main.selectall                 "Барыһын да һайларға">
+<!ENTITY main.selectall.accesskey       "a">
+<!ENTITY main.copy                      "Күсермәһен алырға">
+<!ENTITY main.copy.accesskey            "p">
+<!ENTITY main.transliteration           "Транслитерация">
+<!ENTITY main.transliteration.accesskey "T">
+<!ENTITY main.preferences               "Көйләүҙәр">
+<!ENTITY main.preferences.accesskey     "n">
+
+<!-- Display menu -->
+<!ENTITY main.display                   "Күрһәтергә">
+<!ENTITY main.display.accesskey         "D">
+<!ENTITY main.zoom                      "Масштаб">
+<!ENTITY main.zoom.accesskey            "Z">
+<!ENTITY main.zoomin                    "Ҙурайтырға">
+<!ENTITY main.zoomin.accesskey          "M">
+<!ENTITY main.zoomout                   "Бәләкәйләтергә">
+<!ENTITY main.zoomout.accesskey         "R">
+<!ENTITY main.zoomorig                  "Сығанаҡ ҙурлыҡ">
+<!ENTITY main.zoomorig.accesskey        "O">
+<!ENTITY main.language                  "Тел">
+<!ENTITY main.language.accesskey        "L">
+<!ENTITY main.skin                      "Күренеш">
+<!ENTITY main.skin.accesskey            "S">
+<!ENTITY main.statusbar                 "Торош юлы">
+<!ENTITY main.statusbar.accesskey       "S">
+<!ENTITY main.resultsbar                "Һөҙөмтәләр панеле">
+<!ENTITY main.resultsbar.accesskey      "R">
+<!ENTITY main.tabs                      "Һалынмалар">
+<!ENTITY main.tabs.accesskey            "T">
+<!ENTITY main.fullscreen                "Тулы экран">
+<!ENTITY main.fullscreen.accesskey      "F">
+
+<!-- Tools menu -->
+<!ENTITY main.tools                     "Ҡоралдар">
+<!ENTITY main.tools.accesskey           "T">
+<!ENTITY main.randomArticle             "Осраҡлы мәҡәлә">
+<!ENTITY main.randomArticle.accesskey   "R">
+<!ENTITY main.checkIntegrity            "Бөтөнлөгөн тикшереү">
+<!ENTITY main.checkIntegrity.accesskey  "k">
+<!ENTITY main.purgeHistory              "Тарихты таҙартырға">
+<!ENTITY main.purgeHistory.accesskey    "P">
+
+<!-- Help menu -->
+<!ENTITY main.help                      "Ярҙам">
+<!ENTITY main.help.accesskey            "H">
+<!ENTITY main.feedback                  "Кире бәйләнеш">
+<!ENTITY main.reportabug                "Хата белдерергә">
+<!ENTITY main.requestafeature           "Функция һорау">
+<!ENTITY main.about                     "&brand.brandShortName; тураһында">
+<!ENTITY main.about.accesskey           "A">
+
+<!-- Tool bar -->
+<!ENTITY main.back                      "Артҡа">
+<!ENTITY main.forward                   "Алға">
+<!ENTITY main.home                      "Төп Бит">
+<!ENTITY main.searchBar                 "Эҙләү панеле">
+<!ENTITY main.search                    "Эҙләү">
+<!ENTITY main.findInText                "Текста табырға">
+<!ENTITY main.noSearchBar               "Эҙләү индексланған ZIM файлын һорай">
+<!ENTITY main.bookmarks                 "Һалынмалар">
+
+<!-- Results bar -->
+<!ENTITY main.results.title             "Эҙләү һөҙөмтәләре">
+
+<!-- Bookmarks Bar -->
+<!ENTITY main.bmkLabel                  "Һалынмалар:">
+<!ENTITY main.notesLabel                "Һалынма яҙмалары:">
+<!ENTITY main.loadbmk                   "Һалынмалар йыйылмаһын импортлау">
+<!ENTITY main.newbmk                    "Яңы һалынмалар йыйылмаһын яһарға">
+<!ENTITY main.mark                      "Был битте билдәләргә">
+<!ENTITY main.unmark                    "Һайланған биттән билдәне алырға">
+<!ENTITY main.reload                    "Һалынмалар йыйылмаһын яңыртырға">
+<!ENTITY main.defaultset                "Ғәҙәттәге йыйылма">
+
+<!-- Contextual Menu -->
+<!ENTITY main.saveImageAs               "Рәсемде яңыса һаҡларға...">
+<!ENTITY main.openLinkInNewTab          "Битте яңы һалынмала асырға">
+<!ENTITY main.searchFor                 "Эҙләү">
+<!ENTITY main.copyLinkAdress            "Copy link address">
+
+<!-- About Window -->
+<!ENTITY main.close                     "Ябырға">
+
+<!-- Preferences Window -->
+<!ENTITY preferences.preferences        "Preferences">
+<!ENTITY preferences.save               "Save">
+<!ENTITY preferences.cancel             "Cancel">
+<!ENTITY preferences.profileDirectory   "Profile directory">
+<!ENTITY preferences.browse             "Browse">
+<!ENTITY preferences.tabs               "Remember tabs">
+
+<!-- Library -->
+<!ENTITY main.library.myLibrary                 "Китапханам">
+<!ENTITY main.library.getNewFiles               "Яңы файлдар алырға">
+<!ENTITY main.library.searchZimFiles            "ZIM файлдар эҙләү">
+<!ENTITY main.library.sortBy                    "Теҙеү">
+<!ENTITY main.library.sortBy.title              "Исем">
+<!ENTITY main.library.sortBy.size               "Үлсәм">
+<!ENTITY main.library.sortBy.date               "Дата">
+<!ENTITY main.library.sortBy.author             "Автор">
+<!ENTITY main.library.sortBy.publisher          "Нәшриәт">
+<!ENTITY main.library.filterBy                  "Һөҙгөс">
+<!ENTITY main.library.filterBy.fileSize         "Файл күләме">
+<!ENTITY main.library.filterBy.language         "Тел">
+<!ENTITY main.library.filterBy.language.all     "Барыһы">
+<!ENTITY main.library.filterBy.author           "Автор">
+<!ENTITY main.library.filterBy.author.all       "Барыһы">
+<!ENTITY main.library.filterBy.publisher        "Нәшриәт">
+<!ENTITY main.library.filterBy.publisher.all    "Барыһы">
+

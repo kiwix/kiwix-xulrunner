@@ -117,21 +117,21 @@
 <!ENTITY preferences.tabs               "Remember tabs">
 
 <!-- Library -->
-<!ENTITY main.library.myLibrary                 "My library">
-<!ENTITY main.library.getNewFiles               "Get new files">
-<!ENTITY main.library.searchZimFiles            "Search ZIM files">
-<!ENTITY main.library.sortBy                    "Sort by">
-<!ENTITY main.library.sortBy.title              "Title">
-<!ENTITY main.library.sortBy.size               "Size">
-<!ENTITY main.library.sortBy.date               "Date">
-<!ENTITY main.library.sortBy.author             "Author">
-<!ENTITY main.library.sortBy.publisher          "Publisher">
-<!ENTITY main.library.filterBy                  "Filter by">
-<!ENTITY main.library.filterBy.fileSize         "File size">
-<!ENTITY main.library.filterBy.language         "Language">
-<!ENTITY main.library.filterBy.language.all     "All">
-<!ENTITY main.library.filterBy.author           "Author">
-<!ENTITY main.library.filterBy.author.all       "All">
-<!ENTITY main.library.filterBy.publisher        "Publisher">
-<!ENTITY main.library.filterBy.publisher.all    "All">
+<!ENTITY main.library.myLibrary                 "என் நூலகம்">
+<!ENTITY main.library.getNewFiles               "புதிய கோப்புகளை பெறு">
+<!ENTITY main.library.searchZimFiles            " ZIM கோப்புகளைத் தேடு">
+<!ENTITY main.library.sortBy                    "வரிசைப்படுத்து">
+<!ENTITY main.library.sortBy.title              "தலைப்பு">
+<!ENTITY main.library.sortBy.size               "அளவு">
+<!ENTITY main.library.sortBy.date               "தேதி">
+<!ENTITY main.library.sortBy.author             "பங்களிப்பாளர்">
+<!ENTITY main.library.sortBy.publisher          "வெளியீட்டாளர்">
+<!ENTITY main.library.filterBy                  "இதன்படி வடிகட்டு">
+<!ENTITY main.library.filterBy.fileSize         "கோப்பின் அளவு">
+<!ENTITY main.library.filterBy.language         "மொழி">
+<!ENTITY main.library.filterBy.language.all     "அனைத்தும்">
+<!ENTITY main.library.filterBy.author           "ஆசிரியர்">
+<!ENTITY main.library.filterBy.author.all       "அனைத்தும்">
+<!ENTITY main.library.filterBy.publisher        "வெளியீட்டாளர்">
+<!ENTITY main.library.filterBy.publisher.all    "அனைத்தும்">
 

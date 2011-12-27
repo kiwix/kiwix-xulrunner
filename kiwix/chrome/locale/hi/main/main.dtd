@@ -117,21 +117,21 @@
 <!ENTITY preferences.tabs               "Remember tabs">
 
 <!-- Library -->
-<!ENTITY main.library.myLibrary                 "My library">
-<!ENTITY main.library.getNewFiles               "Get new files">
-<!ENTITY main.library.searchZimFiles            "Search ZIM files">
-<!ENTITY main.library.sortBy                    "Sort by">
-<!ENTITY main.library.sortBy.title              "Title">
-<!ENTITY main.library.sortBy.size               "Size">
-<!ENTITY main.library.sortBy.date               "Date">
-<!ENTITY main.library.sortBy.author             "Author">
-<!ENTITY main.library.sortBy.publisher          "Publisher">
-<!ENTITY main.library.filterBy                  "Filter by">
-<!ENTITY main.library.filterBy.fileSize         "File size">
-<!ENTITY main.library.filterBy.language         "Language">
-<!ENTITY main.library.filterBy.language.all     "All">
-<!ENTITY main.library.filterBy.author           "Author">
-<!ENTITY main.library.filterBy.author.all       "All">
-<!ENTITY main.library.filterBy.publisher        "Publisher">
-<!ENTITY main.library.filterBy.publisher.all    "All">
+<!ENTITY main.library.myLibrary                 "मेरे पुस्तकालय">
+<!ENTITY main.library.getNewFiles               "नई फाइलें लिजिए">
+<!ENTITY main.library.searchZimFiles            "ZIM फ़ाइलें खोज करें">
+<!ENTITY main.library.sortBy                    "क्रमबद्ध करें">
+<!ENTITY main.library.sortBy.title              "शीर्षक">
+<!ENTITY main.library.sortBy.size               "आकार">
+<!ENTITY main.library.sortBy.date               "दिनांक">
+<!ENTITY main.library.sortBy.author             "लेखक">
+<!ENTITY main.library.sortBy.publisher          "प्रकाशक">
+<!ENTITY main.library.filterBy                  "फ़िल्टर करें">
+<!ENTITY main.library.filterBy.fileSize         "फ़ाइल का आकार">
+<!ENTITY main.library.filterBy.language         "भाषा">
+<!ENTITY main.library.filterBy.language.all     "सभी">
+<!ENTITY main.library.filterBy.author           "लेखक">
+<!ENTITY main.library.filterBy.author.all       "सभी">
+<!ENTITY main.library.filterBy.publisher        "प्रकाशक">
+<!ENTITY main.library.filterBy.publisher.all    "सभी">
 

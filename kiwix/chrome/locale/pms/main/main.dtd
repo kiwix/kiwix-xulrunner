@@ -7,7 +7,7 @@
 <!ENTITY main.file.accesskey            "F">
 <!ENTITY main.openFile                  "Duverté n'archivi...">
 <!ENTITY main.browseLibrary.accesskey   "B">
-<!ENTITY main.browseLibrary             "Sfeuja la libreria">
+<!ENTITY main.browseLibrary             "Dësfujé la biblioteca">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "Duvertà ëd recent...">
 <!ENTITY main.saveFile                  "Salvé la pàgina com...">
@@ -117,9 +117,9 @@
 <!ENTITY preferences.tabs               "Remember tabs">
 
 <!-- Library -->
-<!ENTITY main.library.myLibrary                 "Mia libreria">
-<!ENTITY main.library.getNewFiles               "Pija archivi neuv">
-<!ENTITY main.library.searchZimFiles            "Sërché archivi ZIM">
+<!ENTITY main.library.myLibrary                 "Mia biblioteca">
+<!ENTITY main.library.getNewFiles               "Oten-e d'archivi neuv">
+<!ENTITY main.library.searchZimFiles            "Sërché dj'archivi ZIM">
 <!ENTITY main.library.sortBy                    "Ordiné për">
 <!ENTITY main.library.sortBy.title              "Tìtol">
 <!ENTITY main.library.sortBy.size               "Grandëssa">

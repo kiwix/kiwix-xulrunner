@@ -7,7 +7,7 @@
 <!ENTITY main.file.accesskey            "F">
 <!ENTITY main.openFile                  "Avaa tiedosto...">
 <!ENTITY main.browseLibrary.accesskey   "B">
-<!ENTITY main.browseLibrary             "Browse library">
+<!ENTITY main.browseLibrary             "Selaa kirjastoa">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "Hiljattain avatut...">
 <!ENTITY main.saveFile                  "Tallenna sivu nimellä...">
@@ -102,7 +102,7 @@
 <!-- Contextual Menu -->
 <!ENTITY main.saveImageAs               "Tallenna kuva nimellä...">
 <!ENTITY main.openLinkInNewTab          "Avaa linkki uudessa välilehdessä">
-<!ENTITY main.searchFor                 "Search for">
+<!ENTITY main.searchFor                 "Etsi">
 <!ENTITY main.copyLinkAdress            "Copy link address">
 
 <!-- About Window -->
@@ -117,21 +117,21 @@
 <!ENTITY preferences.tabs               "Remember tabs">
 
 <!-- Library -->
-<!ENTITY main.library.myLibrary                 "My library">
-<!ENTITY main.library.getNewFiles               "Get new files">
-<!ENTITY main.library.searchZimFiles            "Search ZIM files">
-<!ENTITY main.library.sortBy                    "Sort by">
-<!ENTITY main.library.sortBy.title              "Title">
-<!ENTITY main.library.sortBy.size               "Size">
-<!ENTITY main.library.sortBy.date               "Date">
-<!ENTITY main.library.sortBy.author             "Author">
-<!ENTITY main.library.sortBy.publisher          "Publisher">
-<!ENTITY main.library.filterBy                  "Filter by">
-<!ENTITY main.library.filterBy.fileSize         "File size">
+<!ENTITY main.library.myLibrary                 "Oma kirjasto">
+<!ENTITY main.library.getNewFiles               "Hae uudet tiedostot">
+<!ENTITY main.library.searchZimFiles            "Etsi ZIM-tiedostoja">
+<!ENTITY main.library.sortBy                    "Lajitteluperuste">
+<!ENTITY main.library.sortBy.title              "Otsikko">
+<!ENTITY main.library.sortBy.size               "Koko">
+<!ENTITY main.library.sortBy.date               "Päivämäärä">
+<!ENTITY main.library.sortBy.author             "Tekijä">
+<!ENTITY main.library.sortBy.publisher          "Julkaisija">
+<!ENTITY main.library.filterBy                  "Suodatusperuste">
+<!ENTITY main.library.filterBy.fileSize         "Tiedoston koko">
 <!ENTITY main.library.filterBy.language         "Kieli">
 <!ENTITY main.library.filterBy.language.all     "Kaikki">
-<!ENTITY main.library.filterBy.author           "Author">
+<!ENTITY main.library.filterBy.author           "Tekijä">
 <!ENTITY main.library.filterBy.author.all       "Kaikki">
-<!ENTITY main.library.filterBy.publisher        "Publisher">
+<!ENTITY main.library.filterBy.publisher        "Julkaisija">
 <!ENTITY main.library.filterBy.publisher.all    "Kaikki">
 

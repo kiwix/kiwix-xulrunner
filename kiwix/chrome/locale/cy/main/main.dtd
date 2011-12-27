@@ -1,0 +1,137 @@
+<!-- Window -->
+<!ENTITY main.title                     "&brand.brandShortName;">
+<!ENTITY main.cssdirection              "ltr">
+
+<!-- File menu -->
+<!ENTITY main.file                      "Ffeil">
+<!ENTITY main.file.accesskey            "F">
+<!ENTITY main.openFile                  "Agor ffeil...">
+<!ENTITY main.browseLibrary.accesskey   "B">
+<!ENTITY main.browseLibrary             "Pori'r llyfrgell">
+<!ENTITY main.openFile.accesskey        "O">
+<!ENTITY main.lastOpen                  "Agorwyd yn ddiweddar...">
+<!ENTITY main.saveFile                  "Cadw'r dudalen fel...">
+<!ENTITY main.saveFile.accesskey        "S">
+<!ENTITY main.print                     "Argraffu">
+<!ENTITY main.print.accesskey           "P">
+<!ENTITY main.printPdf                  "Argraffu ar ffurf PDF">
+<!ENTITY main.printPdf.accesskey        "D">
+<!ENTITY main.quit                      "Gorffen">
+<!ENTITY main.quit.accesskey            "Q">
+
+<!-- Edit menu -->
+<!ENTITY main.edit                      "Golygu">
+<!ENTITY main.edit.accesskey            "E">
+<!ENTITY main.find                      "Chwilio ar dudalen...">
+<!ENTITY main.find.accesskey            "S">
+<!ENTITY main.selectall                 "Dewis popeth">
+<!ENTITY main.selectall.accesskey       "a">
+<!ENTITY main.copy                      "Copïo">
+<!ENTITY main.copy.accesskey            "p">
+<!ENTITY main.transliteration           "Trawslythrennol">
+<!ENTITY main.transliteration.accesskey "T">
+<!ENTITY main.preferences               "Dewisiadau">
+<!ENTITY main.preferences.accesskey     "n">
+
+<!-- Display menu -->
+<!ENTITY main.display                   "Arddangos">
+<!ENTITY main.display.accesskey         "D">
+<!ENTITY main.zoom                      "Chwyddo">
+<!ENTITY main.zoom.accesskey            "Z">
+<!ENTITY main.zoomin                    "Chwyddo">
+<!ENTITY main.zoomin.accesskey          "M">
+<!ENTITY main.zoomout                   "Lleihau">
+<!ENTITY main.zoomout.accesskey         "R">
+<!ENTITY main.zoomorig                  "Maint gwreiddiol">
+<!ENTITY main.zoomorig.accesskey        "O">
+<!ENTITY main.language                  "Iaith">
+<!ENTITY main.language.accesskey        "L">
+<!ENTITY main.skin                      "Gwedd">
+<!ENTITY main.skin.accesskey            "S">
+<!ENTITY main.statusbar                 "Bar statws">
+<!ENTITY main.statusbar.accesskey       "S">
+<!ENTITY main.resultsbar                "Bar canlyniadau">
+<!ENTITY main.resultsbar.accesskey      "R">
+<!ENTITY main.tabs                      "Tabiau">
+<!ENTITY main.tabs.accesskey            "T">
+<!ENTITY main.fullscreen                "Sgrin lawn">
+<!ENTITY main.fullscreen.accesskey      "F">
+
+<!-- Tools menu -->
+<!ENTITY main.tools                     "Offer">
+<!ENTITY main.tools.accesskey           "T">
+<!ENTITY main.randomArticle             "Erthygl ar hap">
+<!ENTITY main.randomArticle.accesskey   "R">
+<!ENTITY main.checkIntegrity            "Gwiriad dilysrwydd">
+<!ENTITY main.checkIntegrity.accesskey  "k">
+<!ENTITY main.purgeHistory              "Purge history">
+<!ENTITY main.purgeHistory.accesskey    "P">
+
+<!-- Help menu -->
+<!ENTITY main.help                      "Cymorth">
+<!ENTITY main.help.accesskey            "H">
+<!ENTITY main.feedback                  "Adborth">
+<!ENTITY main.reportabug                "Adrodd nam">
+<!ENTITY main.requestafeature           "Gwneud cais am nodwedd">
+<!ENTITY main.about                     "Amdano &brand.brandShortName;">
+<!ENTITY main.about.accesskey           "A">
+
+<!-- Tool bar -->
+<!ENTITY main.back                      "Yn ôl">
+<!ENTITY main.forward                   "Anfon ymlaen">
+<!ENTITY main.home                      "Hafan">
+<!ENTITY main.searchBar                 "Bar chwilio">
+<!ENTITY main.search                    "Chwilio">
+<!ENTITY main.findInText                "Chwilio'r testun">
+<!ENTITY main.noSearchBar               "Mae angen ffeil ZIM mynegedig ar gyfer chwilio">
+<!ENTITY main.bookmarks                 "Llyfrnodau">
+
+<!-- Results bar -->
+<!ENTITY main.results.title             "Canlyniadau'r chwiliad">
+
+<!-- Bookmarks Bar -->
+<!ENTITY main.bmkLabel                  "Llyfrnodau:">
+<!ENTITY main.notesLabel                "Nodiadau llyfrnodau:">
+<!ENTITY main.loadbmk                   "Mewnforio Set Llyfrnodau">
+<!ENTITY main.newbmk                    "Creu Set Llyfrnodau newydd">
+<!ENTITY main.mark                      "Marcio'r dudalen hon">
+<!ENTITY main.unmark                    "Dewiswyd dad-farcio">
+<!ENTITY main.reload                    "Ail-lwytho'r Set Llyfrnodau">
+<!ENTITY main.defaultset                "Set rhagosodedig">
+
+<!-- Contextual Menu -->
+<!ENTITY main.saveImageAs               "Cadw'r ddelwedd fel...">
+<!ENTITY main.openLinkInNewTab          "Agor y cyswllt mewn tab newydd">
+<!ENTITY main.searchFor                 "Chwilier am">
+<!ENTITY main.copyLinkAdress            "Copy link address">
+
+<!-- About Window -->
+<!ENTITY main.close                     "Cau">
+
+<!-- Preferences Window -->
+<!ENTITY preferences.preferences        "Preferences">
+<!ENTITY preferences.save               "Save">
+<!ENTITY preferences.cancel             "Cancel">
+<!ENTITY preferences.profileDirectory   "Profile directory">
+<!ENTITY preferences.browse             "Browse">
+<!ENTITY preferences.tabs               "Remember tabs">
+
+<!-- Library -->
+<!ENTITY main.library.myLibrary                 "Fy llyfrgell">
+<!ENTITY main.library.getNewFiles               "Hol ffeiliau newydd">
+<!ENTITY main.library.searchZimFiles            "Chwilier ffeiliau ZIM">
+<!ENTITY main.library.sortBy                    "Trefnu yn ôl">
+<!ENTITY main.library.sortBy.title              "Teitl">
+<!ENTITY main.library.sortBy.size               "Maint">
+<!ENTITY main.library.sortBy.date               "Dyddiad">
+<!ENTITY main.library.sortBy.author             "Awdur">
+<!ENTITY main.library.sortBy.publisher          "Cyhoeddwr">
+<!ENTITY main.library.filterBy                  "Hidlo yn ôl">
+<!ENTITY main.library.filterBy.fileSize         "Maint y ffeil">
+<!ENTITY main.library.filterBy.language         "Iaith">
+<!ENTITY main.library.filterBy.language.all     "Oll">
+<!ENTITY main.library.filterBy.author           "Awdur">
+<!ENTITY main.library.filterBy.author.all       "Oll">
+<!ENTITY main.library.filterBy.publisher        "Cyhoeddwr">
+<!ENTITY main.library.filterBy.publisher.all    "Oll">
+
