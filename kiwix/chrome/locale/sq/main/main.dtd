@@ -1,0 +1,137 @@
+<!-- Window -->
+<!ENTITY main.title                     "&brand.brandShortName;">
+<!ENTITY main.cssdirection              "ltr">
+
+<!-- File menu -->
+<!ENTITY main.file                      "Dosja">
+<!ENTITY main.file.accesskey            "F">
+<!ENTITY main.openFile                  "Hap dosjen">
+<!ENTITY main.browseLibrary.accesskey   "B">
+<!ENTITY main.browseLibrary             "Shfleto librarinë">
+<!ENTITY main.openFile.accesskey        "O">
+<!ENTITY main.lastOpen                  "Hapur kohët e fundit...">
+<!ENTITY main.saveFile                  "Ruaj faqen si ...">
+<!ENTITY main.saveFile.accesskey        "S">
+<!ENTITY main.print                     "Shtyp">
+<!ENTITY main.print.accesskey           "P">
+<!ENTITY main.printPdf                  "Shtyp në PDF">
+<!ENTITY main.printPdf.accesskey        "D">
+<!ENTITY main.quit                      "Ndërprej">
+<!ENTITY main.quit.accesskey            "Q">
+
+<!-- Edit menu -->
+<!ENTITY main.edit                      "Redakto">
+<!ENTITY main.edit.accesskey            "E">
+<!ENTITY main.find                      "Kërko në faqe...">
+<!ENTITY main.find.accesskey            "S">
+<!ENTITY main.selectall                 "Selekto të gjitha">
+<!ENTITY main.selectall.accesskey       "a">
+<!ENTITY main.copy                      "Kopjo">
+<!ENTITY main.copy.accesskey            "p">
+<!ENTITY main.transliteration           "Transliterim">
+<!ENTITY main.transliteration.accesskey "T">
+<!ENTITY main.preferences               "Parapëlqimet">
+<!ENTITY main.preferences.accesskey     "n">
+
+<!-- Display menu -->
+<!ENTITY main.display                   "Shfaq">
+<!ENTITY main.display.accesskey         "D">
+<!ENTITY main.zoom                      "Zmadho">
+<!ENTITY main.zoom.accesskey            "Z">
+<!ENTITY main.zoomin                    "Zgjero">
+<!ENTITY main.zoomin.accesskey          "M">
+<!ENTITY main.zoomout                   "Zvogëlo">
+<!ENTITY main.zoomout.accesskey         "R">
+<!ENTITY main.zoomorig                  "Madhësia origjinale">
+<!ENTITY main.zoomorig.accesskey        "O">
+<!ENTITY main.language                  "Gjuha">
+<!ENTITY main.language.accesskey        "L">
+<!ENTITY main.skin                      "Pamja">
+<!ENTITY main.skin.accesskey            "S">
+<!ENTITY main.statusbar                 "Shiriti i gjendjes">
+<!ENTITY main.statusbar.accesskey       "S">
+<!ENTITY main.resultsbar                "Shiriti i rezultatit">
+<!ENTITY main.resultsbar.accesskey      "R">
+<!ENTITY main.tabs                      "Tab">
+<!ENTITY main.tabs.accesskey            "T">
+<!ENTITY main.fullscreen                "Ekran i plotë">
+<!ENTITY main.fullscreen.accesskey      "F">
+
+<!-- Tools menu -->
+<!ENTITY main.tools                     "Vegla">
+<!ENTITY main.tools.accesskey           "T">
+<!ENTITY main.randomArticle             "Artikull i  rastit">
+<!ENTITY main.randomArticle.accesskey   "R">
+<!ENTITY main.checkIntegrity            "Kontrollimi i tërësisë">
+<!ENTITY main.checkIntegrity.accesskey  "k">
+<!ENTITY main.purgeHistory              "Pastro historikun">
+<!ENTITY main.purgeHistory.accesskey    "P">
+
+<!-- Help menu -->
+<!ENTITY main.help                      "Ndihmë">
+<!ENTITY main.help.accesskey            "H">
+<!ENTITY main.feedback                  "Përshtypja">
+<!ENTITY main.reportabug                "Raportoni një gabim">
+<!ENTITY main.requestafeature           "Kërkesë një tipar">
+<!ENTITY main.about                     "Rreth &brand.brandShortName;">
+<!ENTITY main.about.accesskey           "A">
+
+<!-- Tool bar -->
+<!ENTITY main.back                      "Prapa">
+<!ENTITY main.forward                   "Përpara">
+<!ENTITY main.home                      "Faqja Krzesore">
+<!ENTITY main.searchBar                 "Shiriti kërkues">
+<!ENTITY main.search                    "Kërko">
+<!ENTITY main.findInText                "Kërko në tekst">
+<!ENTITY main.noSearchBar               "Kërkimi kërkon ZIM dokumentin e indeksuar">
+<!ENTITY main.bookmarks                 "Faqe-shenjues">
+
+<!-- Results bar -->
+<!ENTITY main.results.title             "Rezultatet e kërkimit">
+
+<!-- Bookmarks Bar -->
+<!ENTITY main.bmkLabel                  "Faqe-shenjuesi">
+<!ENTITY main.notesLabel                "Vërejtjet e Faqe-shenjuesit">
+<!ENTITY main.loadbmk                   "Importo kompletin e Faqe-shenjuesit">
+<!ENTITY main.newbmk                    "Krijo një komplet të ri të Faqe-shenjuesit">
+<!ENTITY main.mark                      "Shenjoje këtë faqe">
+<!ENTITY main.unmark                    "Çshenjoje të zgjedhurën">
+<!ENTITY main.reload                    "Rifresko kompletin e Faqe-shenjuesit">
+<!ENTITY main.defaultset                "Kompleti aktiv">
+
+<!-- Contextual Menu -->
+<!ENTITY main.saveImageAs               "Ruaj foton si...">
+<!ENTITY main.openLinkInNewTab          "Hap lidhjen në një skedë të re">
+<!ENTITY main.searchFor                 "Kërko për">
+<!ENTITY main.copyLinkAdress            "Copy link address">
+
+<!-- About Window -->
+<!ENTITY main.close                     "Mbylle">
+
+<!-- Preferences Window -->
+<!ENTITY preferences.preferences        "Preferences">
+<!ENTITY preferences.save               "Save">
+<!ENTITY preferences.cancel             "Cancel">
+<!ENTITY preferences.profileDirectory   "Profile directory">
+<!ENTITY preferences.browse             "Browse">
+<!ENTITY preferences.tabs               "Remember tabs">
+
+<!-- Library -->
+<!ENTITY main.library.myLibrary                 "Libraria ime">
+<!ENTITY main.library.getNewFiles               "Merr skeda të reja">
+<!ENTITY main.library.searchZimFiles            "Kërko për skeda ZIM">
+<!ENTITY main.library.sortBy                    "Rendit nga">
+<!ENTITY main.library.sortBy.title              "Titulli">
+<!ENTITY main.library.sortBy.size               "Madhësia">
+<!ENTITY main.library.sortBy.date               "Data">
+<!ENTITY main.library.sortBy.author             "Autori">
+<!ENTITY main.library.sortBy.publisher          "Publikuesi">
+<!ENTITY main.library.filterBy                  "Filtro nga">
+<!ENTITY main.library.filterBy.fileSize         "Madhësia e skedës">
+<!ENTITY main.library.filterBy.language         "Gjuha">
+<!ENTITY main.library.filterBy.language.all     "Të gjitha">
+<!ENTITY main.library.filterBy.author           "Autori">
+<!ENTITY main.library.filterBy.author.all       "Të gjitha">
+<!ENTITY main.library.filterBy.publisher        "Publikuesi">
+<!ENTITY main.library.filterBy.publisher.all    "Të gjitha">
+

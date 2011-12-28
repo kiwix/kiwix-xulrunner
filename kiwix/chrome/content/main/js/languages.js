@@ -64,6 +64,7 @@ _languagesHash['ru']        = "Русский";
 _languagesHash['rue']       = "Русиньскый";
 _languagesHash['sk']        = "Slovenčina";
 _languagesHash['sl']        = "Slovenščina";
+_languagesHash['sq']        = "Shqip";
 _languagesHash['sr-ec']     = "Српски (ћирилица)";
 _languagesHash['sr-el']     = "Srpski (latinica)";
 _languagesHash['su']        = "Basa Sunda";
