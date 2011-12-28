@@ -4,7 +4,8 @@ Kiwix 0.9 beta6
 * NEW: New supported user interface languages: Georgian (ka), Estonian (et), 
   Bulgarian (bg), Faroese (fo), Croatian (hr), Iloko (ilo), Limburgish (li), 
   Lithuanian (lt), Basa Banyumasan (map-bms), Oriya (or), Pashto (ps), 
-  Slovak (sk), Bachkir (ba),  Welsh (cy), (yi), Wolof (yo), (zh-hk)
+  Slovak (sk), Bachkir (ba), Welsh (cy), yiddish (yi), Wolof (yo), 
+  Chinese (Hong Kong)(zh-hk)
 
 Kiwix 0.9 beta5
 * FIXED: letton language menu item (ID: 3439113)
