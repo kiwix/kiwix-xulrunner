@@ -152,3 +152,4 @@ skin main sugar skin/sugar/
 
 #resource aliasname uri/to/files/
 resource modules modules/
+resource defaultskin skin/default/
