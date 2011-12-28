@@ -2,8 +2,9 @@ Kiwix 0.9 beta6
 * FIXED: Evolution skin (ID: 3444112)
 * FIXED: Introduce aria2 v1.14 for bette aria2c process mgmt (ID: 3430225)
 * NEW: New supported user interface languages: Georgian (ka), Estonian (et), 
-  Bulgarian (bg), Lithuanian (lt), Oriya (or), Slovak (sk), Bachkir (ba), 
-  Welsh (cy), Wolof (yo)
+  Bulgarian (bg), Faroese (fo), Croatian (hr), Iloko (ilo), Limburgish (li), 
+  Lithuanian (lt), Basa Banyumasan (map-bms), Oriya (or), Pashto (ps), 
+  Slovak (sk), Bachkir (ba),  Welsh (cy), (yi), Wolof (yo), (zh-hk)
 
 Kiwix 0.9 beta5
 * FIXED: letton language menu item (ID: 3439113)

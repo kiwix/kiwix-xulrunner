@@ -30,7 +30,7 @@
 <!ENTITY main.copy.accesskey            "p">
 <!ENTITY main.transliteration           "Traslitterazione">
 <!ENTITY main.transliteration.accesskey "T">
-<!ENTITY main.preferences               "Preferences">
+<!ENTITY main.preferences               "Preferenze">
 <!ENTITY main.preferences.accesskey     "n">
 
 <!-- Display menu -->
@@ -101,8 +101,8 @@
 
 <!-- Contextual Menu -->
 <!ENTITY main.saveImageAs               "Salva immagine con nome...">
-<!ENTITY main.openLinkInNewTab          "Apri il Collegamento in una Nuova Scheda">
-<!ENTITY main.searchFor                 "Ricerca per">
+<!ENTITY main.openLinkInNewTab          "Apri il collegamento in una nuova scheda">
+<!ENTITY main.searchFor                 "Ricerca">
 <!ENTITY main.copyLinkAdress            "Copy link address">
 
 <!-- About Window -->
@@ -117,7 +117,7 @@
 <!ENTITY preferences.tabs               "Remember tabs">
 
 <!-- Library -->
-<!ENTITY main.library.myLibrary                 "Mia libreria">
+<!ENTITY main.library.myLibrary                 "Mia biblioteca">
 <!ENTITY main.library.getNewFiles               "Ottieni nuovi file">
 <!ENTITY main.library.searchZimFiles            "Cerca file ZIM">
 <!ENTITY main.library.sortBy                    "Ordina per">

@@ -27,6 +27,7 @@ locale main es             locale/es/main/
 locale main et             locale/et/main/
 locale main fa	           locale/fa/main/
 locale main fi	           locale/fi/main/
+locale main fo	           locale/fo/main/
 locale main fr             locale/fr/main/
 locale main frp            locale/frp/main/
 locale main gl             locale/gl/main/
@@ -34,15 +35,19 @@ locale main gsw            locale/gsw/main/
 locale main gu             locale/gu/main/
 locale main he             locale/he/main/
 locale main hi             locale/hi/main/
+locale main hr             locale/hr/main/
 locale main hsb            locale/hsb/main/
 locale main hu             locale/hu/main/
 locale main ia             locale/ia/main/
+locale main ilo            locale/ilo/main/
 locale main it             locale/it/main/
 locale main ja             locale/ja/main/
 locale main ka             locale/ka/main/
 locale main ksh            locale/ksh/main/
+locale main li             locale/li/main/
 locale main lt             locale/lt/main/
 locale main lv             locale/lv/main/
+locale main map-bms        locale/map-bms/main/
 locale main mk             locale/mk/main/
 locale main ml             locale/ml/main/
 locale main ms             locale/ms/main/
@@ -52,6 +57,7 @@ locale main nb             locale/nb/main/
 locale main or             locale/or/main/
 locale main pl             locale/pl/main/
 locale main pms            locale/pms/main/
+locale main ps             locale/ps/main/
 locale main pt             locale/pt/main/
 locale main pt-br          locale/pt-br/main/
 locale main ro             locale/ro/main/
@@ -70,10 +76,12 @@ locale main tt-cyrl        locale/tt-cyrl/main/
 locale main ug-arab        locale/ug-arab/main/
 locale main uk             locale/uk/main/
 locale main vi             locale/vi/main/
+locale main yi	           locale/yi/main/
 locale main yo	           locale/yo/main/
 locale main zh	           locale/zh/main/
 locale main zh-hans        locale/zh-hans/main/
 locale main zh-hant        locale/zh-hant/main/
+locale main zh-hk          locale/zh-hk/main/
 
 locale branding af         locale/branding/
 locale branding ar         locale/branding/
@@ -97,6 +105,7 @@ locale branding eo         locale/branding/
 locale branding es         locale/branding/
 locale branding et         locale/branding/
 locale branding fa         locale/branding/
+locale branding fo         locale/branding/
 locale branding fi         locale/branding/
 locale branding fr         locale/branding/
 locale branding frp        locale/branding/
@@ -104,15 +113,19 @@ locale branding gl         locale/branding/
 locale branding gsw        locale/branding/
 locale branding gu         locale/branding/
 locale branding he         locale/branding/
+locale branding hr         locale/branding/
 locale branding hsb        locale/branding/
 locale branding hu         locale/branding/
 locale branding ia         locale/branding/
+locale branding ilo        locale/branding/
 locale branding it         locale/branding/
 locale branding ja         locale/branding/
 locale branding ka         locale/branding/
 locale branding ksh        locale/branding/
+locale branding li         locale/branding/
 locale branding lt         locale/branding/
 locale branding lv         locale/branding/
+locale branding map-bms    locale/branding/
 locale branding mk         locale/branding/
 locale branding ml         locale/branding/
 locale branding ms         locale/branding/
@@ -122,6 +135,7 @@ locale branding nb         locale/branding/
 locale branding or         locale/branding/
 locale branding pl         locale/branding/
 locale branding pms        locale/branding/
+locale branding ps         locale/branding/
 locale branding pt         locale/branding/
 locale branding pt-br      locale/branding/
 locale branding ro         locale/branding/
@@ -140,10 +154,12 @@ locale branding tt-cyrl    locale/branding/
 locale branding ug-arab    locale/branding/
 locale branding uk         locale/branding/
 locale branding vi         locale/branding/
+locale branding yi         locale/branding/
 locale branding yo         locale/branding/
 locale branding zh         locale/branding/
 locale branding zh-hans    locale/branding/
 locale branding zh-hant    locale/branding/
+locale branding zh-hk      locale/branding/
 
 #skin packagename skinname uri/to/files/ [flags]
 skin main default skin/default/

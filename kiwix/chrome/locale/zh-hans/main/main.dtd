@@ -28,7 +28,7 @@
 <!ENTITY main.selectall.accesskey       "a">
 <!ENTITY main.copy                      "复制">
 <!ENTITY main.copy.accesskey            "p">
-<!ENTITY main.transliteration           "翻译工具">
+<!ENTITY main.transliteration           "音译转写">
 <!ENTITY main.transliteration.accesskey "T">
 <!ENTITY main.preferences               "参数设置">
 <!ENTITY main.preferences.accesskey     "n">
@@ -92,11 +92,11 @@
 <!-- Bookmarks Bar -->
 <!ENTITY main.bmkLabel                  "书签：">
 <!ENTITY main.notesLabel                "书签注记：">
-<!ENTITY main.loadbmk                   "导入书签设置">
-<!ENTITY main.newbmk                    "创建新的书签设置">
+<!ENTITY main.loadbmk                   "导入书签集">
+<!ENTITY main.newbmk                    "创建新书签集">
 <!ENTITY main.mark                      "标记此页">
 <!ENTITY main.unmark                    "取消选中">
-<!ENTITY main.reload                    "重新加载书签设置">
+<!ENTITY main.reload                    "重新加载书签集">
 <!ENTITY main.defaultset                "默认设置">
 
 <!-- Contextual Menu -->

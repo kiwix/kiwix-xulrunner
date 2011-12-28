@@ -119,7 +119,7 @@
 <!-- Library -->
 <!ENTITY main.library.myLibrary                 "என் நூலகம்">
 <!ENTITY main.library.getNewFiles               "புதிய கோப்புகளை பெறு">
-<!ENTITY main.library.searchZimFiles            " ZIM கோப்புகளைத் தேடு">
+<!ENTITY main.library.searchZimFiles            "ZIM கோப்புகளைத் தேடு">
 <!ENTITY main.library.sortBy                    "வரிசைப்படுத்து">
 <!ENTITY main.library.sortBy.title              "தலைப்பு">
 <!ENTITY main.library.sortBy.size               "அளவு">

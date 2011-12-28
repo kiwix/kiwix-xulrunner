@@ -7,7 +7,7 @@
 <!ENTITY main.file.accesskey            "F">
 <!ENTITY main.openFile                  "Malfermi dosieron...">
 <!ENTITY main.browseLibrary.accesskey   "B">
-<!ENTITY main.browseLibrary             "Browse library">
+<!ENTITY main.browseLibrary             "Rigardi bibliotekon">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "Freŝe malfermitaj...">
 <!ENTITY main.saveFile                  "Konservi paĝon kiel...">
@@ -70,7 +70,7 @@
 <!-- Help menu -->
 <!ENTITY main.help                      "Helpo">
 <!ENTITY main.help.accesskey            "H">
-<!ENTITY main.feedback                  "Feedback">
+<!ENTITY main.feedback                  "Sugestoj">
 <!ENTITY main.reportabug                "Raporti cimon">
 <!ENTITY main.requestafeature           "Peti pri trajto">
 <!ENTITY main.about                     "Pri &brand.brandShortName;">
@@ -101,8 +101,8 @@
 
 <!-- Contextual Menu -->
 <!ENTITY main.saveImageAs               "Konservi bildon kiel...">
-<!ENTITY main.openLinkInNewTab          "Open link in new tab">
-<!ENTITY main.searchFor                 "Search for">
+<!ENTITY main.openLinkInNewTab          "Malfermi ligilon en nova langeto">
+<!ENTITY main.searchFor                 "Serĉi">
 <!ENTITY main.copyLinkAdress            "Copy link address">
 
 <!-- About Window -->
@@ -117,21 +117,21 @@
 <!ENTITY preferences.tabs               "Remember tabs">
 
 <!-- Library -->
-<!ENTITY main.library.myLibrary                 "My library">
-<!ENTITY main.library.getNewFiles               "Get new files">
-<!ENTITY main.library.searchZimFiles            "Search ZIM files">
-<!ENTITY main.library.sortBy                    "Sort by">
-<!ENTITY main.library.sortBy.title              "Title">
-<!ENTITY main.library.sortBy.size               "Size">
-<!ENTITY main.library.sortBy.date               "Date">
-<!ENTITY main.library.sortBy.author             "Author">
-<!ENTITY main.library.sortBy.publisher          "Publisher">
-<!ENTITY main.library.filterBy                  "Filter by">
-<!ENTITY main.library.filterBy.fileSize         "File size">
-<!ENTITY main.library.filterBy.language         "Language">
-<!ENTITY main.library.filterBy.language.all     "All">
-<!ENTITY main.library.filterBy.author           "Author">
-<!ENTITY main.library.filterBy.author.all       "All">
-<!ENTITY main.library.filterBy.publisher        "Publisher">
-<!ENTITY main.library.filterBy.publisher.all    "All">
+<!ENTITY main.library.myLibrary                 "Mia biblioteko">
+<!ENTITY main.library.getNewFiles               "Akiri novajn dosierojn">
+<!ENTITY main.library.searchZimFiles            "Serĉi ZIM-dosierojn">
+<!ENTITY main.library.sortBy                    "Ordigi laŭ">
+<!ENTITY main.library.sortBy.title              "Titolo">
+<!ENTITY main.library.sortBy.size               "Grandeco">
+<!ENTITY main.library.sortBy.date               "Dato">
+<!ENTITY main.library.sortBy.author             "Aŭtoro">
+<!ENTITY main.library.sortBy.publisher          "Eldonejo">
+<!ENTITY main.library.filterBy                  "Filtri laŭ">
+<!ENTITY main.library.filterBy.fileSize         "Grandeco de dosiero">
+<!ENTITY main.library.filterBy.language         "Lingvo">
+<!ENTITY main.library.filterBy.language.all     "Ĉio">
+<!ENTITY main.library.filterBy.author           "Aŭtoro">
+<!ENTITY main.library.filterBy.author.all       "Ĉio">
+<!ENTITY main.library.filterBy.publisher        "Eldonejo">
+<!ENTITY main.library.filterBy.publisher.all    "Ĉio">
 

@@ -7,7 +7,7 @@
 <!ENTITY main.file.accesskey            "F">
 <!ENTITY main.openFile                  "Ungkap barakas...">
 <!ENTITY main.browseLibrary.accesskey   "B">
-<!ENTITY main.browseLibrary             "Browse library">
+<!ENTITY main.browseLibrary             "Jalajah pustaka">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "Hahanyar diungkap...">
 <!ENTITY main.saveFile                  "Simpan tungkaran sawagai...">
@@ -70,7 +70,7 @@
 <!-- Help menu -->
 <!ENTITY main.help                      "Patulung">
 <!ENTITY main.help.accesskey            "H">
-<!ENTITY main.feedback                  "Feedback">
+<!ENTITY main.feedback                  "Kitihan-balik">
 <!ENTITY main.reportabug                "Lapurakan sabuah bug">
 <!ENTITY main.requestafeature           "Muhun sabuah pitur">
 <!ENTITY main.about                     "Pasal &brand.brandShortName;">
@@ -101,8 +101,8 @@
 
 <!-- Contextual Menu -->
 <!ENTITY main.saveImageAs               "Simpan gambar sawagai...">
-<!ENTITY main.openLinkInNewTab          "Open link in new tab">
-<!ENTITY main.searchFor                 "Search for">
+<!ENTITY main.openLinkInNewTab          "Ungkai tautan dalam tab puga">
+<!ENTITY main.searchFor                 "Manggagai hagan">
 <!ENTITY main.copyLinkAdress            "Copy link address">
 
 <!-- About Window -->
@@ -117,21 +117,21 @@
 <!ENTITY preferences.tabs               "Remember tabs">
 
 <!-- Library -->
-<!ENTITY main.library.myLibrary                 "My library">
-<!ENTITY main.library.getNewFiles               "Get new files">
-<!ENTITY main.library.searchZimFiles            "Search ZIM files">
-<!ENTITY main.library.sortBy                    "Sort by">
-<!ENTITY main.library.sortBy.title              "Title">
-<!ENTITY main.library.sortBy.size               "Size">
-<!ENTITY main.library.sortBy.date               "Date">
-<!ENTITY main.library.sortBy.author             "Author">
-<!ENTITY main.library.sortBy.publisher          "Publisher">
-<!ENTITY main.library.filterBy                  "Filter by">
-<!ENTITY main.library.filterBy.fileSize         "File size">
-<!ENTITY main.library.filterBy.language         "Language">
-<!ENTITY main.library.filterBy.language.all     "All">
-<!ENTITY main.library.filterBy.author           "Author">
-<!ENTITY main.library.filterBy.author.all       "All">
-<!ENTITY main.library.filterBy.publisher        "Publisher">
-<!ENTITY main.library.filterBy.publisher.all    "All">
+<!ENTITY main.library.myLibrary                 "Pustaka ulun">
+<!ENTITY main.library.getNewFiles               "Ambil babarakas puga">
+<!ENTITY main.library.searchZimFiles            "Panggagaian barakas ZIM">
+<!ENTITY main.library.sortBy                    "Surtir awan">
+<!ENTITY main.library.sortBy.title              "Judul">
+<!ENTITY main.library.sortBy.size               "Ukuran">
+<!ENTITY main.library.sortBy.date               "Tanggal">
+<!ENTITY main.library.sortBy.author             "Panulis">
+<!ENTITY main.library.sortBy.publisher          "Panarbit">
+<!ENTITY main.library.filterBy                  "Saring awan">
+<!ENTITY main.library.filterBy.fileSize         "Ukuran barakas">
+<!ENTITY main.library.filterBy.language         "Bahasa">
+<!ENTITY main.library.filterBy.language.all     "Samunyaan">
+<!ENTITY main.library.filterBy.author           "Panulis">
+<!ENTITY main.library.filterBy.author.all       "Samunyaan">
+<!ENTITY main.library.filterBy.publisher        "Panarbit">
+<!ENTITY main.library.filterBy.publisher.all    "Samunyaan">
 

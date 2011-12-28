@@ -117,21 +117,21 @@
 <!ENTITY preferences.tabs               "Remember tabs">
 
 <!-- Library -->
-<!ENTITY main.library.myLibrary                 "My library">
-<!ENTITY main.library.getNewFiles               "Get new files">
-<!ENTITY main.library.searchZimFiles            "Search ZIM files">
-<!ENTITY main.library.sortBy                    "Sort by">
-<!ENTITY main.library.sortBy.title              "Title">
-<!ENTITY main.library.sortBy.size               "Size">
-<!ENTITY main.library.sortBy.date               "Date">
-<!ENTITY main.library.sortBy.author             "Author">
-<!ENTITY main.library.sortBy.publisher          "Publisher">
-<!ENTITY main.library.filterBy                  "Filter by">
-<!ENTITY main.library.filterBy.fileSize         "File size">
-<!ENTITY main.library.filterBy.language         "Language">
-<!ENTITY main.library.filterBy.language.all     "All">
-<!ENTITY main.library.filterBy.author           "Author">
-<!ENTITY main.library.filterBy.author.all       "All">
-<!ENTITY main.library.filterBy.publisher        "Publisher">
-<!ENTITY main.library.filterBy.publisher.all    "All">
+<!ENTITY main.library.myLibrary                 "La mio biblioteca">
+<!ENTITY main.library.getNewFiles               "Descargar ficheros nuevos">
+<!ENTITY main.library.searchZimFiles            "Guetar ficheros ZIM">
+<!ENTITY main.library.sortBy                    "Ordenar por">
+<!ENTITY main.library.sortBy.title              "Títulu">
+<!ENTITY main.library.sortBy.size               "Tamañu">
+<!ENTITY main.library.sortBy.date               "Data">
+<!ENTITY main.library.sortBy.author             "Autor">
+<!ENTITY main.library.sortBy.publisher          "Editor">
+<!ENTITY main.library.filterBy                  "Peñerar por">
+<!ENTITY main.library.filterBy.fileSize         "Tamañu del ficheru">
+<!ENTITY main.library.filterBy.language         "Llingua">
+<!ENTITY main.library.filterBy.language.all     "Toes">
+<!ENTITY main.library.filterBy.author           "Autor">
+<!ENTITY main.library.filterBy.author.all       "Toos">
+<!ENTITY main.library.filterBy.publisher        "Editor">
+<!ENTITY main.library.filterBy.publisher.all    "Toos">
 

@@ -4,28 +4,28 @@
 
 <!-- File menu -->
 <!ENTITY main.file                      "Tiedosto">
-<!ENTITY main.file.accesskey            "F">
+<!ENTITY main.file.accesskey            "T">
 <!ENTITY main.openFile                  "Avaa tiedosto...">
-<!ENTITY main.browseLibrary.accesskey   "B">
+<!ENTITY main.browseLibrary.accesskey   "S">
 <!ENTITY main.browseLibrary             "Selaa kirjastoa">
-<!ENTITY main.openFile.accesskey        "O">
-<!ENTITY main.lastOpen                  "Hiljattain avatut...">
+<!ENTITY main.openFile.accesskey        "A">
+<!ENTITY main.lastOpen                  "Viimeksi avatut...">
 <!ENTITY main.saveFile                  "Tallenna sivu nimellä...">
-<!ENTITY main.saveFile.accesskey        "S">
+<!ENTITY main.saveFile.accesskey        "T">
 <!ENTITY main.print                     "Tulosta">
 <!ENTITY main.print.accesskey           "P">
 <!ENTITY main.printPdf                  "Tulosta PDF-tiedostoksi">
 <!ENTITY main.printPdf.accesskey        "D">
 <!ENTITY main.quit                      "Lopeta">
-<!ENTITY main.quit.accesskey            "Q">
+<!ENTITY main.quit.accesskey            "S">
 
 <!-- Edit menu -->
 <!ENTITY main.edit                      "Muokkaa">
-<!ENTITY main.edit.accesskey            "E">
+<!ENTITY main.edit.accesskey            "M">
 <!ENTITY main.find                      "Etsi sivulta...">
-<!ENTITY main.find.accesskey            "S">
+<!ENTITY main.find.accesskey            "E">
 <!ENTITY main.selectall                 "Valitse kaikki">
-<!ENTITY main.selectall.accesskey       "a">
+<!ENTITY main.selectall.accesskey       "V">
 <!ENTITY main.copy                      "Kopioi">
 <!ENTITY main.copy.accesskey            "p">
 <!ENTITY main.transliteration           "Translitterointi">

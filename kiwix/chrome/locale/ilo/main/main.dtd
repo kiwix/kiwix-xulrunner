@@ -1,0 +1,137 @@
+<!-- Window -->
+<!ENTITY main.title                     "&brand.brandShortName;">
+<!ENTITY main.cssdirection              "ltr">
+
+<!-- File menu -->
+<!ENTITY main.file                      "Papeles">
+<!ENTITY main.file.accesskey            "F">
+<!ENTITY main.openFile                  "Lukatan ti papeles...">
+<!ENTITY main.browseLibrary.accesskey   "B">
+<!ENTITY main.browseLibrary             "Agbasabasa ti biblioteka">
+<!ENTITY main.openFile.accesskey        "O">
+<!ENTITY main.lastOpen                  "Kaluklukat laeng...">
+<!ENTITY main.saveFile                  "Idulin ti panid a kas...">
+<!ENTITY main.saveFile.accesskey        "S">
+<!ENTITY main.print                     "Imaldit">
+<!ENTITY main.print.accesskey           "P">
+<!ENTITY main.printPdf                  "Imaldit a kasla PDF">
+<!ENTITY main.printPdf.accesskey        "D">
+<!ENTITY main.quit                      "Agsardeng">
+<!ENTITY main.quit.accesskey            "Q">
+
+<!-- Edit menu -->
+<!ENTITY main.edit                      "Urnosen">
+<!ENTITY main.edit.accesskey            "E">
+<!ENTITY main.find                      "Agbiruk iti daytoy a panid...">
+<!ENTITY main.find.accesskey            "S">
+<!ENTITY main.selectall                 "Pilien amin">
+<!ENTITY main.selectall.accesskey       "a">
+<!ENTITY main.copy                      "Kopiaen">
+<!ENTITY main.copy.accesskey            "p">
+<!ENTITY main.transliteration           "Panakaipatarus">
+<!ENTITY main.transliteration.accesskey "T">
+<!ENTITY main.preferences               "Kaykayatan">
+<!ENTITY main.preferences.accesskey     "n">
+
+<!-- Display menu -->
+<!ENTITY main.display                   "Iparang">
+<!ENTITY main.display.accesskey         "D">
+<!ENTITY main.zoom                      "Padakkelen">
+<!ENTITY main.zoom.accesskey            "Z">
+<!ENTITY main.zoomin                    "Ipadakkel">
+<!ENTITY main.zoomin.accesskey          "M">
+<!ENTITY main.zoomout                   "Pabassiten">
+<!ENTITY main.zoomout.accesskey         "R">
+<!ENTITY main.zoomorig                  "Kinasigud a kadakkel">
+<!ENTITY main.zoomorig.accesskey        "O">
+<!ENTITY main.language                  "Pagsasao">
+<!ENTITY main.language.accesskey        "L">
+<!ENTITY main.skin                      "Kudil">
+<!ENTITY main.skin.accesskey            "S">
+<!ENTITY main.statusbar                 "Kasasaad ti baras">
+<!ENTITY main.statusbar.accesskey       "S">
+<!ENTITY main.resultsbar                "Dagiti resulta ti baras">
+<!ENTITY main.resultsbar.accesskey      "R">
+<!ENTITY main.tabs                      "Dagiti etiketa">
+<!ENTITY main.tabs.accesskey            "T">
+<!ENTITY main.fullscreen                "Sibubukel a pagkitaan">
+<!ENTITY main.fullscreen.accesskey      "F">
+
+<!-- Tools menu -->
+<!ENTITY main.tools                     "Ramramit">
+<!ENTITY main.tools.accesskey           "T">
+<!ENTITY main.randomArticle             "Pugto nga artikulo">
+<!ENTITY main.randomArticle.accesskey   "R">
+<!ENTITY main.checkIntegrity            "Kitaen ti kapudno">
+<!ENTITY main.checkIntegrity.accesskey  "k">
+<!ENTITY main.purgeHistory              "Purgaen ti pakasaritaan">
+<!ENTITY main.purgeHistory.accesskey    "P">
+
+<!-- Help menu -->
+<!ENTITY main.help                      "Tulong">
+<!ENTITY main.help.accesskey            "H">
+<!ENTITY main.feedback                  "Pagarupan">
+<!ENTITY main.reportabug                "Ireporta ti kiteb">
+<!ENTITY main.requestafeature           "Agkiddaw ti langa">
+<!ENTITY main.about                     "Maipanggep &marka.markaNababaNagan;">
+<!ENTITY main.about.accesskey           "A">
+
+<!-- Tool bar -->
+<!ENTITY main.back                      "Agsubli">
+<!ENTITY main.forward                   "Agpakauna">
+<!ENTITY main.home                      "Balay">
+<!ENTITY main.searchBar                 "Panagbiruk a baras">
+<!ENTITY main.search                    "Biruken">
+<!ENTITY main.findInText                "Sapulen idiay teksto">
+<!ENTITY main.noSearchBar               "Ti pinagbiruk ket masapul ti pagsurotan a ZIM a papeles">
+<!ENTITY main.bookmarks                 "Marmarka ti libro">
+
+<!-- Results bar -->
+<!ENTITY main.results.title             "Dagiti nagbanagan ti panagbiruk">
+
+<!-- Bookmarks Bar -->
+<!ENTITY main.bmkLabel                  "Marmarka ti libro:">
+<!ENTITY main.notesLabel                "Dagiti nota ti marka ti libro:">
+<!ENTITY main.loadbmk                   "Agala ti Agasmang a Marka ti libro">
+<!ENTITY main.newbmk                    "Agaramid ti baro nga Agasmang a Marka ti libro">
+<!ENTITY main.mark                      "Markaan daytoy a panid">
+<!ENTITY main.unmark                    "Ikkaten ti marka  ti napili">
+<!ENTITY main.reload                    "Ikarga manen ti agasmang a Marka ti libro">
+<!ENTITY main.defaultset                "Kinasigud nga Agasmang">
+
+<!-- Contextual Menu -->
+<!ENTITY main.saveImageAs               "Idulin ti panid a kas...">
+<!ENTITY main.openLinkInNewTab          "Lukatan ti panilpo iti baro nga etiketa">
+<!ENTITY main.searchFor                 "Biruken iti">
+<!ENTITY main.copyLinkAdress            "Copy link address">
+
+<!-- About Window -->
+<!ENTITY main.close                     "Irikep">
+
+<!-- Preferences Window -->
+<!ENTITY preferences.preferences        "Preferences">
+<!ENTITY preferences.save               "Save">
+<!ENTITY preferences.cancel             "Cancel">
+<!ENTITY preferences.profileDirectory   "Profile directory">
+<!ENTITY preferences.browse             "Browse">
+<!ENTITY preferences.tabs               "Remember tabs">
+
+<!-- Library -->
+<!ENTITY main.library.myLibrary                 "Ti bibliotekak">
+<!ENTITY main.library.getNewFiles               "Agala kadagiti baro a papeles">
+<!ENTITY main.library.searchZimFiles            "Agbiruk kadagiti ZIM a papeles">
+<!ENTITY main.library.sortBy                    "Ilasin babaen iti">
+<!ENTITY main.library.sortBy.title              "Titulo">
+<!ENTITY main.library.sortBy.size               "Kadakkel">
+<!ENTITY main.library.sortBy.date               "Petsa">
+<!ENTITY main.library.sortBy.author             "Mannurat">
+<!ENTITY main.library.sortBy.publisher          "Nangipablaak">
+<!ENTITY main.library.filterBy                  "Sagaten babaen iti">
+<!ENTITY main.library.filterBy.fileSize         "Kadakkel ti papeles">
+<!ENTITY main.library.filterBy.language         "Pagsasao">
+<!ENTITY main.library.filterBy.language.all     "Amin">
+<!ENTITY main.library.filterBy.author           "Mannurat">
+<!ENTITY main.library.filterBy.author.all       "Amin">
+<!ENTITY main.library.filterBy.publisher        "Nangipablaak">
+<!ENTITY main.library.filterBy.publisher.all    "Amin">
+

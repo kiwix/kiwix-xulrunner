@@ -1,0 +1,137 @@
+<!-- Window -->
+<!ENTITY main.title                     "&brand.brandShortName;">
+<!ENTITY main.cssdirection              "ltr">
+
+<!-- File menu -->
+<!ENTITY main.file                      "Fíla">
+<!ENTITY main.file.accesskey            "F">
+<!ENTITY main.openFile                  "Lat upp fílu...">
+<!ENTITY main.browseLibrary.accesskey   "B">
+<!ENTITY main.browseLibrary             "Leita í bókasavninum">
+<!ENTITY main.openFile.accesskey        "O">
+<!ENTITY main.lastOpen                  "Nýliga latin upp...">
+<!ENTITY main.saveFile                  "Goym síðu sum...">
+<!ENTITY main.saveFile.accesskey        "S">
+<!ENTITY main.print                     "Prenta">
+<!ENTITY main.print.accesskey           "P">
+<!ENTITY main.printPdf                  "Prenta sum PDF">
+<!ENTITY main.printPdf.accesskey        "D">
+<!ENTITY main.quit                      "Enda">
+<!ENTITY main.quit.accesskey            "Q">
+
+<!-- Edit menu -->
+<!ENTITY main.edit                      "Rætta">
+<!ENTITY main.edit.accesskey            "E">
+<!ENTITY main.find                      "Leita á síðu...">
+<!ENTITY main.find.accesskey            "S">
+<!ENTITY main.selectall                 "Vel alt">
+<!ENTITY main.selectall.accesskey       "a">
+<!ENTITY main.copy                      "Fjølrita (kopiera)">
+<!ENTITY main.copy.accesskey            "p">
+<!ENTITY main.transliteration           "Translitteratión">
+<!ENTITY main.transliteration.accesskey "T">
+<!ENTITY main.preferences               "Innstillingar">
+<!ENTITY main.preferences.accesskey     "n">
+
+<!-- Display menu -->
+<!ENTITY main.display                   "Vís">
+<!ENTITY main.display.accesskey         "D">
+<!ENTITY main.zoom                      "Zoom">
+<!ENTITY main.zoom.accesskey            "Z">
+<!ENTITY main.zoomin                    "Ger størri">
+<!ENTITY main.zoomin.accesskey          "M">
+<!ENTITY main.zoomout                   "Ger minni">
+<!ENTITY main.zoomout.accesskey         "R">
+<!ENTITY main.zoomorig                  "Uppruna stødd">
+<!ENTITY main.zoomorig.accesskey        "O">
+<!ENTITY main.language                  "Mál">
+<!ENTITY main.language.accesskey        "L">
+<!ENTITY main.skin                      "Útsjónd">
+<!ENTITY main.skin.accesskey            "S">
+<!ENTITY main.statusbar                 "Status teigur">
+<!ENTITY main.statusbar.accesskey       "S">
+<!ENTITY main.resultsbar                "Úrslit teigur">
+<!ENTITY main.resultsbar.accesskey      "R">
+<!ENTITY main.tabs                      "Tabs">
+<!ENTITY main.tabs.accesskey            "T">
+<!ENTITY main.fullscreen                "Fullan skerm">
+<!ENTITY main.fullscreen.accesskey      "F">
+
+<!-- Tools menu -->
+<!ENTITY main.tools                     "Tól">
+<!ENTITY main.tools.accesskey           "T">
+<!ENTITY main.randomArticle             "Tilvildarlig grein">
+<!ENTITY main.randomArticle.accesskey   "R">
+<!ENTITY main.checkIntegrity            "Integritets eftirlit">
+<!ENTITY main.checkIntegrity.accesskey  "k">
+<!ENTITY main.purgeHistory              "Viska søguna burtur">
+<!ENTITY main.purgeHistory.accesskey    "P">
+
+<!-- Help menu -->
+<!ENTITY main.help                      "Hjálp">
+<!ENTITY main.help.accesskey            "H">
+<!ENTITY main.feedback                  "Afturmeldingar">
+<!ENTITY main.reportabug                "Meldað eina villu">
+<!ENTITY main.requestafeature           "Bið um eina nýggja funku (feature)">
+<!ENTITY main.about                     "Um &brand.brandShortName;">
+<!ENTITY main.about.accesskey           "A">
+
+<!-- Tool bar -->
+<!ENTITY main.back                      "Aftur">
+<!ENTITY main.forward                   "Fram">
+<!ENTITY main.home                      "Heim">
+<!ENTITY main.searchBar                 "Leiti teigur">
+<!ENTITY main.search                    "Leita">
+<!ENTITY main.findInText                "Finn í teksti">
+<!ENTITY main.noSearchBar               "Leiting krevur eina indekseraða ZIM fílu">
+<!ENTITY main.bookmarks                 "Bókamerki">
+
+<!-- Results bar -->
+<!ENTITY main.results.title             "Leitiúrslit">
+
+<!-- Bookmarks Bar -->
+<!ENTITY main.bmkLabel                  "Bókamerki:">
+<!ENTITY main.notesLabel                "Bookmark notes:">
+<!ENTITY main.loadbmk                   "Import Bookmark Set">
+<!ENTITY main.newbmk                    "Create new Bookmark Set">
+<!ENTITY main.mark                      "Markera hesa síðu">
+<!ENTITY main.unmark                    "Tak burtur markeringarnar">
+<!ENTITY main.reload                    "Reload Bookmark Set">
+<!ENTITY main.defaultset                "Default Set">
+
+<!-- Contextual Menu -->
+<!ENTITY main.saveImageAs               "Goym mynd sum...">
+<!ENTITY main.openLinkInNewTab          "Open link in new tab">
+<!ENTITY main.searchFor                 "Search for">
+<!ENTITY main.copyLinkAdress            "Copy link address">
+
+<!-- About Window -->
+<!ENTITY main.close                     "Lat aftur">
+
+<!-- Preferences Window -->
+<!ENTITY preferences.preferences        "Preferences">
+<!ENTITY preferences.save               "Save">
+<!ENTITY preferences.cancel             "Cancel">
+<!ENTITY preferences.profileDirectory   "Profile directory">
+<!ENTITY preferences.browse             "Browse">
+<!ENTITY preferences.tabs               "Remember tabs">
+
+<!-- Library -->
+<!ENTITY main.library.myLibrary                 "Mítt bókasavn">
+<!ENTITY main.library.getNewFiles               "Fá nýggjar fílur">
+<!ENTITY main.library.searchZimFiles            "Leita í ZIM fílum">
+<!ENTITY main.library.sortBy                    "Bólka eftir">
+<!ENTITY main.library.sortBy.title              "Heiti">
+<!ENTITY main.library.sortBy.size               "Stødd">
+<!ENTITY main.library.sortBy.date               "Dagur">
+<!ENTITY main.library.sortBy.author             "Høvundur">
+<!ENTITY main.library.sortBy.publisher          "Ùtgevari">
+<!ENTITY main.library.filterBy                  "Filtur av">
+<!ENTITY main.library.filterBy.fileSize         "Fílu stødd">
+<!ENTITY main.library.filterBy.language         "Mál">
+<!ENTITY main.library.filterBy.language.all     "Alt">
+<!ENTITY main.library.filterBy.author           "Høvundur">
+<!ENTITY main.library.filterBy.author.all       "Alt">
+<!ENTITY main.library.filterBy.publisher        "Útgevari">
+<!ENTITY main.library.filterBy.publisher.all    "Alt">
+

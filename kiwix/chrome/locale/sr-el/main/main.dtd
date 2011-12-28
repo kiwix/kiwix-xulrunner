@@ -30,7 +30,7 @@
 <!ENTITY main.copy.accesskey            "p">
 <!ENTITY main.transliteration           "Preslovljavanje">
 <!ENTITY main.transliteration.accesskey "T">
-<!ENTITY main.preferences               "Postavke">
+<!ENTITY main.preferences               "Podešavanja">
 <!ENTITY main.preferences.accesskey     "n">
 
 <!-- Display menu -->

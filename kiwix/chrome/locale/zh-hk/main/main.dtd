@@ -9,20 +9,20 @@
 <!ENTITY main.browseLibrary.accesskey   "B">
 <!ENTITY main.browseLibrary             "瀏覽檔案庫">
 <!ENTITY main.openFile.accesskey        "O">
-<!ENTITY main.lastOpen                  "最近使用...">
-<!ENTITY main.saveFile                  "另存為...">
+<!ENTITY main.lastOpen                  "最近使用…">
+<!ENTITY main.saveFile                  "另存為…">
 <!ENTITY main.saveFile.accesskey        "S">
-<!ENTITY main.print                     "列印">
+<!ENTITY main.print                     "打印">
 <!ENTITY main.print.accesskey           "P">
-<!ENTITY main.printPdf                  "列印成PDF">
+<!ENTITY main.printPdf                  "打印成PDF">
 <!ENTITY main.printPdf.accesskey        "D">
-<!ENTITY main.quit                      "離開">
+<!ENTITY main.quit                      "退出">
 <!ENTITY main.quit.accesskey            "Q">
 
 <!-- Edit menu -->
 <!ENTITY main.edit                      "編輯">
 <!ENTITY main.edit.accesskey            "E">
-<!ENTITY main.find                      "搜尋網頁 ...">
+<!ENTITY main.find                      "搜尋網頁…">
 <!ENTITY main.find.accesskey            "S">
 <!ENTITY main.selectall                 "全選">
 <!ENTITY main.selectall.accesskey       "a">
@@ -42,7 +42,7 @@
 <!ENTITY main.zoomin.accesskey          "M">
 <!ENTITY main.zoomout                   "縮小">
 <!ENTITY main.zoomout.accesskey         "R">
-<!ENTITY main.zoomorig                  "原本大小">
+<!ENTITY main.zoomorig                  "原始大小">
 <!ENTITY main.zoomorig.accesskey        "O">
 <!ENTITY main.language                  "語言">
 <!ENTITY main.language.accesskey        "L">
@@ -54,7 +54,7 @@
 <!ENTITY main.resultsbar.accesskey      "R">
 <!ENTITY main.tabs                      "頁籤">
 <!ENTITY main.tabs.accesskey            "T">
-<!ENTITY main.fullscreen                "全螢幕">
+<!ENTITY main.fullscreen                "全屏">
 <!ENTITY main.fullscreen.accesskey      "F">
 
 <!-- Tools menu -->
@@ -68,12 +68,12 @@
 <!ENTITY main.purgeHistory.accesskey    "P">
 
 <!-- Help menu -->
-<!ENTITY main.help                      "說明">
+<!ENTITY main.help                      "幫助">
 <!ENTITY main.help.accesskey            "H">
 <!ENTITY main.feedback                  "回饋">
 <!ENTITY main.reportabug                "報告錯誤">
-<!ENTITY main.requestafeature           "建議新功能">
-<!ENTITY main.about                     "關於 &brand.brandShortName;">
+<!ENTITY main.requestafeature           "請求新功能">
+<!ENTITY main.about                     "關於&brand.brandShortName;">
 <!ENTITY main.about.accesskey           "A">
 
 <!-- Tool bar -->
@@ -90,7 +90,7 @@
 <!ENTITY main.results.title             "搜尋結果">
 
 <!-- Bookmarks Bar -->
-<!ENTITY main.bmkLabel                  "書籤">
+<!ENTITY main.bmkLabel                  "書籤：">
 <!ENTITY main.notesLabel                "書籤註記：">
 <!ENTITY main.loadbmk                   "導入書籤集">
 <!ENTITY main.newbmk                    "創建新書籤集">

@@ -1,0 +1,137 @@
+<!-- Window -->
+<!ENTITY main.title                     "&brand.brandShortName;">
+<!ENTITY main.cssdirection              "ltr">
+
+<!-- File menu -->
+<!ENTITY main.file                      "Besjtand">
+<!ENTITY main.file.accesskey            "F">
+<!ENTITY main.openFile                  "Besjtand äöpene...">
+<!ENTITY main.browseLibrary.accesskey   "B">
+<!ENTITY main.browseLibrary             "Bibliotheek doorblajere">
+<!ENTITY main.openFile.accesskey        "O">
+<!ENTITY main.lastOpen                  "Recent geäöpend...">
+<!ENTITY main.saveFile                  "Pagina opsjloon es...">
+<!ENTITY main.saveFile.accesskey        "S">
+<!ENTITY main.print                     "Aafdrökke">
+<!ENTITY main.print.accesskey           "P">
+<!ENTITY main.printPdf                  "Aafdrökke es PDF">
+<!ENTITY main.printPdf.accesskey        "D">
+<!ENTITY main.quit                      "Sjtoppe">
+<!ENTITY main.quit.accesskey            "Q">
+
+<!-- Edit menu -->
+<!ENTITY main.edit                      "Bewirke">
+<!ENTITY main.edit.accesskey            "E">
+<!ENTITY main.find                      "Zeuke in pagina...">
+<!ENTITY main.find.accesskey            "S">
+<!ENTITY main.selectall                 "Alles selektere">
+<!ENTITY main.selectall.accesskey       "a">
+<!ENTITY main.copy                      "Kopiëre">
+<!ENTITY main.copy.accesskey            "p">
+<!ENTITY main.transliteration           "Transliteratie">
+<!ENTITY main.transliteration.accesskey "T">
+<!ENTITY main.preferences               "Veurkäöre">
+<!ENTITY main.preferences.accesskey     "n">
+
+<!-- Display menu -->
+<!ENTITY main.display                   "Bild">
+<!ENTITY main.display.accesskey         "D">
+<!ENTITY main.zoom                      "Zoome">
+<!ENTITY main.zoom.accesskey            "Z">
+<!ENTITY main.zoomin                    "Vergrutere">
+<!ENTITY main.zoomin.accesskey          "M">
+<!ENTITY main.zoomout                   "Verklèndere">
+<!ENTITY main.zoomout.accesskey         "R">
+<!ENTITY main.zoomorig                  "Origineel gruutde">
+<!ENTITY main.zoomorig.accesskey        "O">
+<!ENTITY main.language                  "Sjpraok">
+<!ENTITY main.language.accesskey        "L">
+<!ENTITY main.skin                      "Uterlik">
+<!ENTITY main.skin.accesskey            "S">
+<!ENTITY main.statusbar                 "Statusbalk">
+<!ENTITY main.statusbar.accesskey       "S">
+<!ENTITY main.resultsbar                "Resultatebalk">
+<!ENTITY main.resultsbar.accesskey      "R">
+<!ENTITY main.tabs                      "Tabblajer">
+<!ENTITY main.tabs.accesskey            "T">
+<!ENTITY main.fullscreen                "Volledig sjirm">
+<!ENTITY main.fullscreen.accesskey      "F">
+
+<!-- Tools menu -->
+<!ENTITY main.tools                     "Extra">
+<!ENTITY main.tools.accesskey           "T">
+<!ENTITY main.randomArticle             "Willekäörig artikel">
+<!ENTITY main.randomArticle.accesskey   "R">
+<!ENTITY main.checkIntegrity            "Integriteitskentrol">
+<!ENTITY main.checkIntegrity.accesskey  "k">
+<!ENTITY main.purgeHistory              "Historie ewegsjaffe">
+<!ENTITY main.purgeHistory.accesskey    "P">
+
+<!-- Help menu -->
+<!ENTITY main.help                      "Hölp">
+<!ENTITY main.help.accesskey            "H">
+<!ENTITY main.feedback                  "Trökkoppeling">
+<!ENTITY main.reportabug                "Perbleem melje">
+<!ENTITY main.requestafeature           "Nuuj funktionaliteit aanvraoge">
+<!ENTITY main.about                     "Euver &brand.brandShortName;">
+<!ENTITY main.about.accesskey           "A">
+
+<!-- Tool bar -->
+<!ENTITY main.back                      "Trök">
+<!ENTITY main.forward                   "Veuroet">
+<!ENTITY main.home                      "Huidmenu">
+<!ENTITY main.searchBar                 "Zeukbalk">
+<!ENTITY main.search                    "Zeuk">
+<!ENTITY main.findInText                "Zeuk in teks">
+<!ENTITY main.noSearchBar               "Om te zeuke höbs te 'n geïndexeerd ZIM-besjtand nudig">
+<!ENTITY main.bookmarks                 "Blaadwiezers">
+
+<!-- Results bar -->
+<!ENTITY main.results.title             "Zeukrizzeltate">
+
+<!-- Bookmarks Bar -->
+<!ENTITY main.bmkLabel                  "Blaadwiezers:">
+<!ENTITY main.notesLabel                "Blaadwiezeropmirkinge:">
+<!ENTITY main.loadbmk                   "Blaadwiezers importere">
+<!ENTITY main.newbmk                    "Nuuj blaadwiezergróp aanmake">
+<!ENTITY main.mark                      "Pagina markere">
+<!ENTITY main.unmark                    "Markering veur 't geselekteerde ewegsjaffe">
+<!ENTITY main.reload                    "Blaadwiezergróp obbenuuts laje">
+<!ENTITY main.defaultset                "Sjtandaardgróp">
+
+<!-- Contextual Menu -->
+<!ENTITY main.saveImageAs               "Plaetje opsjloon es...">
+<!ENTITY main.openLinkInNewTab          "Verwiezing äöpene in nuuj tabblaad">
+<!ENTITY main.searchFor                 "Zeuk nao">
+<!ENTITY main.copyLinkAdress            "Copy link address">
+
+<!-- About Window -->
+<!ENTITY main.close                     "Sjleet">
+
+<!-- Preferences Window -->
+<!ENTITY preferences.preferences        "Preferences">
+<!ENTITY preferences.save               "Save">
+<!ENTITY preferences.cancel             "Cancel">
+<!ENTITY preferences.profileDirectory   "Profile directory">
+<!ENTITY preferences.browse             "Browse">
+<!ENTITY preferences.tabs               "Remember tabs">
+
+<!-- Library -->
+<!ENTITY main.library.myLibrary                 "Mien bibliotheek">
+<!ENTITY main.library.getNewFiles               "Nuuj besjten hole">
+<!ENTITY main.library.searchZimFiles            "ZIM-besjten zeuke">
+<!ENTITY main.library.sortBy                    "Sortere op">
+<!ENTITY main.library.sortBy.title              "Titel">
+<!ENTITY main.library.sortBy.size               "Gruutde">
+<!ENTITY main.library.sortBy.date               "Datum">
+<!ENTITY main.library.sortBy.author             "Sjriever">
+<!ENTITY main.library.sortBy.publisher          "Oetgaever">
+<!ENTITY main.library.filterBy                  "Filter op">
+<!ENTITY main.library.filterBy.fileSize         "Besjtandgruutde">
+<!ENTITY main.library.filterBy.language         "Sjpraok">
+<!ENTITY main.library.filterBy.language.all     "Alle">
+<!ENTITY main.library.filterBy.author           "Sjriever">
+<!ENTITY main.library.filterBy.author.all       "Alle">
+<!ENTITY main.library.filterBy.publisher        "Oetgaever">
+<!ENTITY main.library.filterBy.publisher.all    "Alle">
+
