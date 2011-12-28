@@ -563,8 +563,7 @@ NS_IMETHODIMP ContentManager::LaunchAria2c(const nsAString &binaryPath, const ns
 
 #ifdef _WIN32
   commandLine = string(cBinaryPath) + " --enable-rpc --rpc-listen-port=42042 --dir=\"" + string(cDownloadPath) + "\" \
-     --log=\"" + string(cLogPath) + "\" --allow-overwrite=true --disable-ipv6=true --quiet=true --always-resume=true \
-     --max-concurrent-downloads=42 --rpc-max-request-size=6M";
+     --log=\"" + string(cLogPath) + "\" --stop-with-process=\"" + string(PIDStr) + "\" --allow-overwrite=true --disable-ipv6=true --quiet=true --always-resume=true --max-concurrent-downloads=42 --rpc-max-request-size=6M";
   STARTUPINFO startInfo = {0};
   PROCESS_INFORMATION procInfo;
   startInfo.cb = sizeof(startInfo);
@@ -586,7 +585,7 @@ NS_IMETHODIMP ContentManager::LaunchAria2c(const nsAString &binaryPath, const ns
   PID = fork();
   const string downloadPathArgument = "--dir=" + string(cDownloadPath);
   const string logPathArgument = "--log=" + string(cLogPath);
-  
+  const string stopWithProcessArgument = "--stop-with-process=" + string(PIDStr);
   switch (PID) {
   case -1:
     cerr << "Unable to fork before launching aria2c" << endl;
@@ -595,10 +594,10 @@ NS_IMETHODIMP ContentManager::LaunchAria2c(const nsAString &binaryPath, const ns
     break;
   case 0: /* This is the child process */
     commandLine = string(cBinaryPath);
-    if (execl(commandLine.c_str(), commandLine.c_str(), "--enable-xml-rpc", "--xml-rpc-listen-port=42042", 
-	      downloadPathArgument.c_str(), logPathArgument.c_str(), "--allow-overwrite=true", 
+    if (execl(commandLine.c_str(), commandLine.c_str(), "--enable-rpc", "--rpc-listen-port=42042", 
+	      downloadPathArgument.c_str(), logPathArgument.c_str(), stopWithProcessArgument.c_str(), "--allow-overwrite=true", 
 	      "--disable-ipv6=true", "--quiet=true", "--always-resume=true", "--max-concurrent-downloads=42", 
-	      "--xml-rpc-max-request-size=6M", NULL) == -1) {
+	      "--rpc-max-request-size=6M", NULL) == -1) {
       cerr << "Unable to start aria2c from path " << commandLine << endl;
       *retVal = PR_FALSE;
     }
