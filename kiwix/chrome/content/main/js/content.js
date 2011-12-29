@@ -766,6 +766,13 @@ function populateLibraryFilters() {
     var tmpHash = new Array();
 
     for(var index=0; index<languages.length; index++) {
+
+	/* Debug code to help finding lacks in languages.js */
+	/*
+	if (_languagesHash[languages[index]] === undefined)
+	    dump("'" + languages[index] + "' is not available in lanauges.js.\n");
+	*/
+
 	if (languages[index].length > 0 && tmpHash[_languagesHash[languages[index]]] === undefined) {
 	    tmpHash[_languagesHash[languages[index]]] = 42;
 	    var menuItem = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul",
