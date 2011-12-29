@@ -56,6 +56,7 @@ _languagesHash['nb']        = "Norsk (bokmål)";
 _languagesHash['or']        = "ଓଡ଼ିଆ";
 _languagesHash['pl']        = "Język polski";
 _languagesHash['pms']       = "Piemontèis";
+_languagesHash['por']       = "Português";
 _languagesHash['ps']        = "پښتو";
 _languagesHash['pt']        = "Português";
 _languagesHash['pt-br']     = "Português do Brasil";

@@ -770,7 +770,7 @@ function populateLibraryFilters() {
 	/* Debug code to help finding lacks in languages.js */
 	/*
 	if (_languagesHash[languages[index]] === undefined)
-	    dump("'" + languages[index] + "' is not available in lanauges.js.\n");
+	    dump("'" + languages[index] + "' is not available in languages.js.\n");
 	*/
 
 	if (languages[index].length > 0 && tmpHash[_languagesHash[languages[index]]] === undefined) {
