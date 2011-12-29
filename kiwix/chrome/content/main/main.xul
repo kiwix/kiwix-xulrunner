@@ -17,6 +17,7 @@
 	style = "direction: &main.cssdirection;"
 	langdir = "&main.cssdirection;"
 	ondragdrop = "dropOnWindows(event);"
+	windowtype = "singleton"
 	>
 <!-- Menu bar -->
 <menubar id="menu-bar">
