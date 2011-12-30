@@ -681,12 +681,13 @@ function manageOpenFile(path, noSearchIndexCheck) {
 	library.updateBookLastOpenDateById(zimId);
 	library.setCurrentId(zimId);
 
-	/* Populate the lastopen menu */
-	populateLastOpenMenu();
-
 	/* Force to hide the library manager an update it*/
 	toggleLibrary(false);
+	populateLocalBookList();
 	populateLibraryFilters();	
+
+	/* Populate the lastopen menu */
+	populateLastOpenMenu();
 	
 	/* Load the welcome page of the ZIM file */
 	goHome();
