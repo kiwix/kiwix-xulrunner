@@ -942,7 +942,6 @@ function selectLibraryContentItem(box) {
 	_selectedLibraryContentItem = box;
 	var libraryDeck = document.getElementById("library-deck");
 	libraryDeck.selectedPanel.ensureIndexIsVisible(libraryDeck.selectedPanel.selectedIndex); 
-	toggleLibrary(true);
     }
 }
 
