@@ -53,7 +53,7 @@ function openCurrentBook() {
 	    library.setCurrentId("");
 	currentBook = library.getCurrentBook();
 	currentBookId = library.getCurrentId();
-	noSearchIndexCheck = currentBook && currentBook.relativeLibraryPath;
+	noSearchIndexCheck = currentBook;
 	successfullyLoaded = 
 	    currentBook != undefined ? manageOpenFile(currentBook.path, noSearchIndexCheck) : false;
     } while (currentBookId != undefined && currentBookId != "" && !successfullyLoaded);
