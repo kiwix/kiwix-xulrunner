@@ -30,8 +30,8 @@ function getPrintButton() { return document.getElementById("button-print"); }
 function getBookmarksButton() { return document.getElementById("button-bookmarks"); }
 function getSearchInPlaceButton() { return document.getElementById("button-search-article"); }
 function getBackButton() { return document.getElementById("button-back"); }
-function getSizeUpButton() { return document.getElementById("button-sizeup"); }
-function getSizeDownButton() { return document.getElementById("button-sizedown"); }
+function getZoomInButton() { return document.getElementById("button-zoom-in"); }
+function getZoomOutButton() { return document.getElementById("button-zoom-out"); }
 function getLibraryButton() { return document.getElementById("button-library"); }
 function getFindBar() { return document.getElementById("find-bar"); }
 function getNextButton() { return document.getElementById("button-next"); }
@@ -70,13 +70,13 @@ function desactivateNextButton() { desactivateToolbarButton(getNextButton()); }
 
 /* Des/Activate Zoom buttons */
 function activateZoomButtons() {
-    activateToolbarButton(getSizeUpButton());
-    activateToolbarButton(getSizeDownButton());
+    activateToolbarButton(getZoomInButton());
+    activateToolbarButton(getZoomOutButton());
 }
 
 function desactivateZoomButtons() {
-    desactivateToolbarButton(getSizeUpButton());
-    desactivateToolbarButton(getSizeDownButton());
+    desactivateToolbarButton(getZoomInButton());
+    desactivateToolbarButton(getZoomOutButton());
 }
 
 

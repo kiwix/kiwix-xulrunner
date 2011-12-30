@@ -27,15 +27,15 @@
     list-style-image: url("chrome://main/skin/icon/copy16.png");
 }
 
-#display-zoomin {
+#display-zoom-in {
     list-style-image: url("chrome://main/skin/icon/zoom-in16.png");
 }
 
-#display-zoomout {
+#display-zoom-out {
     list-style-image: url("chrome://main/skin/icon/zoom-out16.png");
 }
 
-#display-zoomorig {
+#display-zoom-orig {
     list-style-image: url("chrome://main/skin/icon/zoom-10016.png");
 }
 
@@ -106,17 +106,17 @@ window[langdir="rtl"] #button-next {
     opacity: 0.2;
 }
 
-#button-sizeup {
+#button-zoom-in {
     list-style-image: url("chrome://main/skin/icon/zoom-in24.png");
 }
-#button-sizeup.disabled {
+#button-zoom-in.disabled {
     opacity: 0.2;
 }
 
-#button-sizedown {
+#button-zoom-out {
     list-style-image: url("chrome://main/skin/icon/zoom-out24.png");
 }
-#button-sizedown.disabled {
+#button-zoom-out.disabled {
     opacity: 0.2;
 }
 
