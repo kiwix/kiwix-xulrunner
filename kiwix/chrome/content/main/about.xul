@@ -12,8 +12,7 @@
 <window	xmlns:html="http://www.w3.org/1999/xhtml" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
 	id        = "about"
 	title     = "&main.about;"
-	resizable = "no"
-        style     = "background-color: white"
+	style     = "-moz-appearance: none; background: white; padding: 5px;"
 	>
 
 <!-- Custom Javascript scripts -->
@@ -24,6 +23,6 @@
 </keyset>
 
 <!-- Log -->
-<browser id="credits" type="text/html" src="chrome://branding/locale/credits.html" flex="1" style="margin-top: 10px; margin-bottom: 10px;" />
+<browser type="text/html" src="chrome://branding/locale/credits.html" flex="1" style="background: white; padding-right: 10px;" />
 <button oncommand="window.close();" label="&main.close;" />
 </window>

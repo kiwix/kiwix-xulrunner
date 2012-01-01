@@ -757,7 +757,7 @@ function manageChangeLocale(locale) {
 
 /* Display the about dialog box */
 function showAbout() {
-    var win = window.openDialog('about.xul','','centerscreen,resizable=no,scrollbars=no,modal,dialog,width=350,height=380,chrome');
+    var win = window.openDialog('about.xul','','centerscreen,resizable=no,scrollbars=no,modal,width=350,height=380');
 }
 
 /* Display the help */
