@@ -19,7 +19,6 @@
  */
 
 /* Global variables */
-var _zoomFactor             = 1.2;      /* Factor by which font is magnified or reduced with zoomIn() & zommOut() */
 var _winIsFullScreen        = false;    /* Stores fullscreen state*/
 var _showFullScreenToolBar  = false;
 var _fullScreenStatusBar    = true;
@@ -357,13 +356,13 @@ function zoomOriginal() {
 
 /* Zoom in (bigger font) */
 function zoomIn() {
-    getHtmlRenderer().markupDocumentViewer.textZoom *= _zoomFactor;
+    getHtmlRenderer().markupDocumentViewer.textZoom += 0.1;
     settings.zoomFactor(library.getCurrentId(), getHtmlRenderer().markupDocumentViewer.textZoom);
 }
 
 /* Zoom out (smaller font) */
 function zoomOut() {
-    getHtmlRenderer().markupDocumentViewer.textZoom /= _zoomFactor;
+    getHtmlRenderer().markupDocumentViewer.textZoom -= 0.1;
     settings.zoomFactor(library.getCurrentId(), getHtmlRenderer().markupDocumentViewer.textZoom);
 }
 
