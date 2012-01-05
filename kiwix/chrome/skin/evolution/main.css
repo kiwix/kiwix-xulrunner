@@ -435,3 +435,13 @@ window[langdir="rtl"] #button-next {
     text-align: center;
     font-size: 90%;
 }
+
+/* Find bar */
+.findbar-find-previous {
+    list-style-image: url("chrome://main/skin/icon/find-article-up24.png");
+}
+
+.findbar-find-next {
+    list-style-image: url("chrome://main/skin/icon/find-article-down24.png");
+}
+
