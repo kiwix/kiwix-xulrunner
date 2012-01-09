@@ -26,6 +26,7 @@ _languagesHash['fa']        = "فارسی";
 _languagesHash['fi']        = "Suomi";
 _languagesHash['fo']        = "Føroyskt";
 _languagesHash['fr']        = "Français";
+_languagesHash['fra']       = "Français";
 _languagesHash['frp']       = "Provençau";
 _languagesHash['gl']        = "Galego";
 _languagesHash['gu']        = "ગુજરાતી";
