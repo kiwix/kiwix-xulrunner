@@ -7,6 +7,7 @@ Kiwix 0.9 beta6
   Lithuanian (lt), Basa Banyumasan (map-bms), Oriya (or), Pashto (ps), 
   Slovak (sk), Bachkir (ba), Welsh (cy), yiddish (yi), Wolof (yo), 
   Chinese (Hong Kong)(zh-hk), Albanese (sq)
+* ALT+D shortcut to focus the searchbar (ID: 3475647)
 
 Kiwix 0.9 beta5
 * FIXED: letton language menu item (ID: 3439113)

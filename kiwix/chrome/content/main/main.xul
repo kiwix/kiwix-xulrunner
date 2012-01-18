@@ -185,6 +185,7 @@
   <key id="pagedown-key" keycode="VK_PAGE_DOWN" oncommand="scrollPageDown()"/>
   <key id="tabback-key" keycode="VK_PAGE_UP" modifiers="control" oncommand="tabBack()"/>
   <key id="tabnext-key" keycode="VK_PAGE_DOWN" modifiers="control" oncommand="tabNext()"/>
+  <key id="focusonsearchbox-key" keycode="d" modifiers="alt" oncommand="focusOnSearchBox()"/>
 </keyset>
 
 <!-- Contextual menu (should be implemented after menubar otherwise generate a 1 pixel big space between windows decoration and menubar) -->
