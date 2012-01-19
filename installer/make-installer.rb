@@ -56,7 +56,7 @@ class Nsi_output
                                path_full = escape_backslash(@arg['source_path'])+f[0].gsub("..","")
                                # file to install
                                file_out = f[0].gsub("..","").gsub("\\"+File.basename(path_full),"")
-                               $result += "\tSetOutPath \"#{@arg['copy_dest_path']}#{file_out}\"\n"
+                               $result += "\tSetOutPath \"#{@arg['copy_dest_path']}\\#{file_out}\"\n"
                                $result += "\tFile `#{path_full}`\n"
                        end
                else
