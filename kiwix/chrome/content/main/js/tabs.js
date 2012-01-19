@@ -127,7 +127,12 @@ function openNewTab(focus) {
 }
 
 function closeCurrentTab() {
-    closeThatTab(currentTabId);
+    var tabHeaders = getTabHeaders().getElementsByTagName('tab');
+    var tabHeadersLength = tabHeaders.length
+
+    if (tabHeadersLength > 1) {
+	closeThatTab(currentTabId);
+    }
 }
 
 function closeThatTab(tabId) {
