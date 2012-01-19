@@ -374,7 +374,7 @@ function saveTabs() {
 
 function restoreTabs() {
     var tabPanels = document.getElementById("tab-panels"); 
-    var savedTabsString = settings.savedTabs();
+    var savedTabsString = settings.savedTabs() || "";
     var savedTabs = savedTabsString.split(';');
     for (var i=0; i < savedTabs.length; i++) {
 	var uri = savedTabs[i];
