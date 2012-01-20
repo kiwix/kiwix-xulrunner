@@ -542,6 +542,17 @@ function whereis(binary) {
     }
 }
 
+/* This function allows to execute only one time a callback associated
+ * to an event */
+function addOneShotEventListener(node, eventName, func, captureMode) {
+    listener = function() { oneShotEventhandler() };
+    function oneShotEventhandler() {
+	func();
+	node.removeEventListener(eventName, listener, captureMode);
+    }
+    node.addEventListener(eventName, listener, captureMode);
+}
+
 function delay(f, t) {
     setTimeout(f, t || 0);
 }

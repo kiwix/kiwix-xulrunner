@@ -687,7 +687,10 @@ function manageOpenFile(path, noSearchIndexCheck) {
 
 	/* Populate the lastopen menu */
 	populateLastOpenMenu();
-	
+
+	/* Clear the history just after the homepage loading - only this time */
+	addOneShotEventListener(getHtmlRenderer(), "pageshow", function() { managePurgeHistory() }, true);
+
 	/* Load the welcome page of the ZIM file */
 	goHome();
 
