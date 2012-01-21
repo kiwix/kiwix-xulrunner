@@ -21,35 +21,38 @@
 	>
 <!-- Menu bar -->
 <menubar id="menu-bar">
-  <menu id="menu-file" label="&main.file;" accesskey="&main.file.accesskey;">
+
+  <!-- It seems we have to set type="checkbo" to have visible icons on
+       GNU/Linux in the menuitem. This is a workaround. -->
+  <menu id="menu-file" label="&main.file;" accesskey="&main.file.accesskey;" class="menu-iconic">
     <menupopup id="file-popup">
       <menuitem id="file-browse-library" label="&main.browseLibrary;" class="menuitem-iconic"
 		accesskey="&main.browseLibrary.accesskey;" oncommand="toggleLibrary(true);"/>
       <menuitem id="file-open" label="&main.openFile;" key="open-file-key" class="menuitem-iconic"
-		accesskey="&main.openFile.accesskey;" oncommand="manageOpenFile()"/>
+		accesskey="&main.openFile.accesskey;" oncommand="manageOpenFile()" type="checkbox"/>
       <menu label="&main.lastOpen;" id="menu-lastopen-top">
 	<menupopup id="menu-lastopen">
 	</menupopup>
       </menu>
       <menuitem id="file-save" label="&main.saveFile;" key="save-file-key" class="menuitem-iconic"
-		accesskey="&main.saveFile.accesskey;" oncommand="saveDocument(window.content.document);"/>
+		accesskey="&main.saveFile.accesskey;" oncommand="saveDocument(window.content.document);" type="checkbox"/>
       <menuitem id="file-print" label="&main.print;" key="print-key" class="menuitem-iconic" 
-		accesskey="&main.print.accesskey;" oncommand="print()"/>
+		accesskey="&main.print.accesskey;" oncommand="print()" type="checkbox"/>
       <menuitem id="file-print-pdf" label="&main.printPdf;" key="print-pdf-key" class="menuitem-iconic" 
 		accesskey="&main.printPdf.accesskey;" oncommand="printPdf()"/>
       <menuseparator id="file-sep" />
       <menuitem id="file-quit" label="&main.quit;" key="quit-key" class="menuitem-iconic" 
-		accesskey="&main.quit.accesskey;" oncommand="quit()"/>
+		accesskey="&main.quit.accesskey;" oncommand="quit()" type="checkbox"/>
     </menupopup>
   </menu>
-  <menu id="menu-edit" label="&main.edit;" accesskey="&main.edit.accesskey;">
+  <menu id="menu-edit" label="&main.edit;" accesskey="&main.edit.accesskey;" class="menu-iconic">
     <menupopup id="edit-popup">
       <menuitem id="edit-find" label="&main.find;" key="find-key" class="menuitem-iconic"
-		accesskey="&main.find.accesskey;" oncommand="find()"/>
+		accesskey="&main.find.accesskey;" oncommand="find()" type="checkbox"/>
       <menuitem id="edit-selectall" label="&main.selectall;" key="selectall-key" class="menuitem-iconic"
-		accesskey="&main.selectall.accesskey;" oncommand="selectAll()"/>
+		accesskey="&main.selectall.accesskey;" oncommand="selectAll()" type="checkbox"/>
       <menuitem id="edit-copy" label="&main.copy;" key="copy-key" class="menuitem-iconic"
-		accesskey="&main.copy.accesskey;" oncommand="copySelectedContent()"/>
+		accesskey="&main.copy.accesskey;" oncommand="copySelectedContent()" type="checkbox"/>
       <menu id="edit-transliteration" label="&main.transliteration;" accesskey="&main.transliteration.accesskey;" style="display: none;">
 	<menupopup id="menu-transliterations">
 	</menupopup>
@@ -59,7 +62,7 @@
 		accesskey="&main.preferences.accesskey;" oncommand="showPreferences()"/>
     </menupopup>
   </menu>
-  <menu id="menu-display" label="&main.display;" accesskey="&main.display.accesskey;">
+  <menu id="menu-display" label="&main.display;" accesskey="&main.display.accesskey;" class="menu-iconic">
     <menupopup id="display-popup">
       <menuitem id="display-tabs" label="&main.tabs;" type="checkbox" checked="false"
 		accesskey="&main.tabs.accesskey;" key="change-tabs-visibility-status"
@@ -68,15 +71,15 @@
 		key="fullscreen-key" accesskey="&main.fullscreen.accesskey;" oncommand="UIToggleFullScreen(true)"/>
       <menuitem id="display-statusbar" label="&main.statusbar;" type="checkbox" checked="true"
 		accesskey="&main.statusbar.accesskey;" oncommand="changeStatusBarVisibilityStatus(undefined, true)"/>
-      <menu label="&main.zoom;" accesskey="&main.zoom.accesskey;">
+      <menu label="&main.zoom;" accesskey="&main.zoom.accesskey;" class="menu-iconic">
 	<menupopup id="menu-zoom">
 	  <menuitem id="display-zoom-in" label="&main.zoomin;" key="zoomin" class="menuitem-iconic" 
-		    accesskey="&main.zoomin.accesskey;" oncommand="zoomIn()"/>
+		    accesskey="&main.zoomin.accesskey;" oncommand="zoomIn()" type="checkbox"/>
 	  <menuitem id="display-zoom-out" label="&main.zoomout;" key="zoomout" class="menuitem-iconic" 
-		    accesskey="&main.zoomout.accesskey;" oncommand="zoomOut()"/>
+		    accesskey="&main.zoomout.accesskey;" oncommand="zoomOut()" type="checkbox"/>
 	  <menuseparator/>
 	  <menuitem id="display-zoom-orig" label="&main.zoomorig;" key="zoomorig" class="menuitem-iconic" 
-		    accesskey="&main.zoomorig.accesskey;" oncommand="zoomOriginal()"/>
+		    accesskey="&main.zoomorig.accesskey;" oncommand="zoomOriginal()" type="checkbox"/>
 	</menupopup>
       </menu>
       <menu label="&main.language;" accesskey="&main.language.accesskey;">
@@ -91,7 +94,7 @@
       </menu>
     </menupopup>
   </menu>
-  <menu id="menu-tools" label="&main.tools;" accesskey="&main.tools.accesskey;">
+  <menu id="menu-tools" label="&main.tools;" accesskey="&main.tools.accesskey;" class="menu-iconic">
     <menupopup id="tools-popup">
       <menuitem id="tools-randomArticle" label="&main.randomArticle;" key="random-article-key" 
 		class="menuitem-iconic" disabled="true"
@@ -102,7 +105,7 @@
 		accesskey="&main.purgeHistory.accesskey;" oncommand="managePurgeHistory()"/>
     </menupopup>
   </menu>
-  <menu id="menu-help" label="&main.help;" accesskey="&main.help.accesskey;">
+  <menu id="menu-help" label="&main.help;" accesskey="&main.help.accesskey;" class="menu-iconic">
     <menupopup id="help-popup">
       <menuitem id="help-help" label="&main.help;" class="menuitem-iconic" 
 		key="help-key" accesskey="&main.help.accesskey;" oncommand="showHelp(undefined, true)"/>
@@ -239,15 +242,7 @@
 	    <image id="textbox-search-go-button" onclick="manageSearchInIndex();" tooltiptext="&main.search;"/>
 	  </hbox>
 	</textbox>
-<!-- waiting for implementation
-        <toolbarbutton id="button-search-article" oncommand="" tooltiptext="&main.search;" />
-	<toolbarseparator />
-        <checkbox label="Match case" checked="false"/>
-        <checkbox label="Wrap" checked="true"/>
-        <toolbarbutton id="button-search-article-up" oncommand="" tooltiptext="&main.search;" />
-        <toolbarbutton id="button-search-article-down" class="disabled" oncommand="" tooltiptext="&main.search;" />
--->
-        </hbox>
+      </hbox>
       <label id="search-label" style="margin: 0px;" collapsed="true" onclick="if (!getSearchBox().disabled) { manageIndexZimFile() }" tooltiptext="&main.noSearchBar;"/>
     </stack>
     <toolbarbutton id="sugar-button-back" oncommand="pageBack()" tooltiptext="&main.back;"/>
