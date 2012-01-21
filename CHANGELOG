@@ -2,7 +2,7 @@ Kiwix 0.9 beta6
 * FIXED: Smoothier zooming (ID: 3469927)
 * FIXED: Evolution skin (ID: 3444112)
 * FIXED: Introduce aria2 v1.14 for better aria2c process mgmt. (ID: 3430225)
-* FIXED: Invisible menuitems on GNU/Linux
+* FIXED: Invisible menuitems icons on GNU/Linux
 * NEW: New supported user interface languages: Georgian (ka), Estonian (et), 
   Bulgarian (bg), Faroese (fo), Croatian (hr), Iloko (ilo), Limburgish (li), 
   Lithuanian (lt), Basa Banyumasan (map-bms), Oriya (or), Pashto (ps), 
