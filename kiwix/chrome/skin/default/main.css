@@ -1,4 +1,11 @@
 /* Menuitems */
+
+/* This has to be to make menu(item) icons visible on GNU/Linux */
+.menu-iconic-left {
+    visibility: visible;
+}
+
+/* Menu(items) icons */
 #file-open {
     list-style-image: url("chrome://main/skin/icon/open16.png");
 }
@@ -307,7 +314,7 @@ window[langdir="rtl"] #button-next {
 
 #main * .tabs-close-button {
     list-style-image: none;
-    background-image: url("chrome://main/skin/icon/close12_2.png") !important;
+    background-image: url("chrome://main/skin/icon/close10.png") !important;
     padding: 0px;
     margin: 0px;
     width: 10px;

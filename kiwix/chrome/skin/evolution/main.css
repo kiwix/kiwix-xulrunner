@@ -286,40 +286,6 @@ window[langdir="rtl"] #button-next {
     list-style-image: url("chrome://main/skin/icon/reload24.png");
 }
 
-/* Tabs */
-#tab-box {
-    margin-left: 0px;
-}
-
-#tab-panels {
-    padding: 0px;
-}
-
-#tabs-close-button {
-    list-style-image: url("chrome://main/skin/icon/close12.png");
-    padding: 0px;
-    margin: 0px;
-}
-
-#tabs-add-button {
-    list-style-image: url("chrome://main/skin/icon/add12.png");
-    padding: 0px;
-    margin: 0px;
-}
-
-.tab-header {
-    width: 150px;
-    padding: 2px 0px 3px 0px;
-    margin: 0px;
-}
-
-.tab-header-label {
-    text-align: left;
-    width: 130px;
-    margin: 0px;
-    padding: 0px;
-}
-
 /* mac tabs UI */
 #main.mac * #tab-panels {
     padding: 0;
