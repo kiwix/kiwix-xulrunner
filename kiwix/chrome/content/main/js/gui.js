@@ -1269,10 +1269,6 @@ function initHtmlRendererEventListeners(id) {
 
     /* Intercept standard behaviour of tabheaders keypress */
     getTabHeaders().addEventListener("keypress", handleTabHeadersKeyPress, true);
-
-    /* Intercept global keydown and keyup events */
-    getWindow().addEventListener("keydown", handleWindowKeyDown, true);
-    getWindow().addEventListener("keyup", handleWindowKeyUp, true);
 }
 
 function handleWindowKeyDown(aEvent) {
@@ -1401,6 +1397,10 @@ function initEventListeners() {
 
     /* Deal with key press */
     document.getElementById("main").addEventListener("keypress", handleKeyPress, true);
+
+    /* Intercept global keydown and keyup events */
+    getWindow().addEventListener("keydown", handleWindowKeyDown, true);
+    getWindow().addEventListener("keyup", handleWindowKeyUp, true);
 }
 
 /* Event Listener */
