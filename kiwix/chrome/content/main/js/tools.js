@@ -246,11 +246,11 @@ function displayOnCloseCleanConfirmDialog() {
 function getInstallationPrefix() {
     return getApplicationCharPreference("kiwix.install.prefix");
 }
- 
-/* initialization function */
-function onStart() {
-    
-    /* Include jsm */
+
+/* Include the necessary modules and components */
+function initModulesAndComponents() {
+
+    /* Include jsm modules*/
     Components.utils.import("resource://modules/env.jsm");
     Components.utils.import("resource://modules/settings.jsm");
     Components.utils.import("resource://modules/library.jsm");
@@ -261,8 +261,6 @@ function onStart() {
         Components.utils.import("resource://modules/libzimAccessor.jsm");
     } catch(e) { dump("Unable to import libzimAccessor module: " + e.toString() + "\n"); libzimAccessor = null; }
     */
-
-    preInitUserInterface();
 
     /* Check the XPCOM registration */
     if (Components.classes["@kiwix.org/zimAccessor"] == undefined)
@@ -277,33 +275,10 @@ function onStart() {
 	dump("Unable to register the zimCluceneIndexer XPCOM, Kiwix will be unable to index ZIM files with Clucene.\n");
     if (Components.classes["@kiwix.org/contentManager"] == undefined)
 	dump("Unable to register the contentManager XPCOM, Kiwix will be unable to deal with content.\n");
+}
 
-    /* Remove old profile if necessary */
-    var profileToRemove = settings.profileToRemove();
-    if (profileToRemove != undefined && profileToRemove != "") {
-	try {
-	    var profileService = Components.classes["@mozilla.org/toolkit/profile-service;1"]
-		.createInstance(Components.interfaces.nsIToolkitProfileService);
-	    var oldProfile = profileService.getProfileByName(settings.profileToRemove());
-	    oldProfile.remove(true);
-	    profileService.flush();
-	    settings.profileToRemove("");
-	} catch(error) {
-	}
-    }
-
-    /* Init the event listeners */
-    initEventListeners();
-
-    /* Save the current language (necessary if the profile does not exists) */
-    settings.locale(getCurrentLocale());
-
-    /* Initialize Bookmarks */
-    InitializeBookmarks();
-
-    /* Initialize the user interface */
-    initUserInterface();
-
+/* Load the necessary ZIM file at Kiwix startup */
+function initContent() {
     /* Read the command line arguments */
     var nsCommandLine = window.arguments[0];
     nsCommandLine = nsCommandLine.QueryInterface(Components.interfaces.nsICommandLine);
@@ -317,13 +292,45 @@ function onStart() {
 	}
     }
 
-    /* Finish the user interface initialisation */
-    postInitUserInterface();
+    /* If there is no file open with the commandline try to open last open book */
+    if (currentZimAccessor == undefined) {
+	try {
+            if (openCurrentBook()) {
+	        restoreTabs();
+	    } else {
+	        library.deleteCurrentBook();
+	    }
+        } catch(e) { dump("Unable to check current book: " + e.toString() + "\n"); }
+    }
 
-    /* Start aria downloader */
-    startDownloader();
-    if (!env.isSugar()) { /* Sugar U.I is slightly different than regular one */
-        startDownloadObserver();
+    /* Adapt the UI depending of a book is open or not */
+    if (currentZimAccessor == undefined) {
+	showHelp();
+    }
+}
+
+/* Everything what should be done at the start */
+function onStart() {
+    initModulesAndComponents();
+    initEventListeners();
+    initUserInterface();
+    initBookmarks();
+    initLibrary();
+    initContent();
+    initDownloader();
+
+    /* Remove old profile if necessary - experimental */
+    var profileToRemove = settings.profileToRemove();
+    if (profileToRemove != undefined && profileToRemove != "") {
+	try {
+	    var profileService = Components.classes["@mozilla.org/toolkit/profile-service;1"]
+		.createInstance(Components.interfaces.nsIToolkitProfileService);
+	    var oldProfile = profileService.getProfileByName(settings.profileToRemove());
+	    oldProfile.remove(true);
+	    profileService.flush();
+	    settings.profileToRemove("");
+	} catch(error) {
+	}
     }
 }
 
@@ -547,8 +554,8 @@ function whereis(binary) {
 function addOneShotEventListener(node, eventName, func, captureMode) {
     listener = function() { oneShotEventhandler() };
     function oneShotEventhandler() {
-	func();
 	node.removeEventListener(eventName, listener, captureMode);
+	func();
     }
     node.addEventListener(eventName, listener, captureMode);
 }

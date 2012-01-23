@@ -85,7 +85,8 @@ BookmarkNFO.itemInSet	    = function (element, index, array) {
                                   	return (element['uri'] == this['uri']);
 };
 
-function InitializeBookmarks () {
+/* Load the bookmar files, should be run at the application startup */
+function initBookmarks () {
 	
 	// Default set stores in user's profile
 	BookmarkNFO.defaultSet = new BookmarkSet ();

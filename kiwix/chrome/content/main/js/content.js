@@ -816,7 +816,13 @@ function populateLibraryFilters() {
 	}
     }
 }
-    
+
+function manageDownloadRemoteBookList() {
+    //if (displayConfirmDialog("Do you want to download the remote catalog of available books?")) {
+	downloadRemoteBookList(true, true);
+    //}
+}
+
 function downloadRemoteBookList(populateRemoteBookList, resumeDownloads) {
     populateRemoteBookList = (populateRemoteBookList == undefined ? false : populateRemoteBookList);
     resumeDownloads = (resumeDownloads == undefined ? false : resumeDownloads);
@@ -827,12 +833,6 @@ function downloadRemoteBookList(populateRemoteBookList, resumeDownloads) {
 	var message = new WorkerMessage("downloadBookList", [ libraryUrl ], [ populateRemoteBookList, resumeDownloads ]);
 	downloader.postMessage(message);
     }
-}
-
-function populateContentManager(populateRemoteBookList, resumeDownloads) {
-    populateLocalBookList();
-    selectLibraryMenu("library-menuitem-local");
-    downloadRemoteBookList(populateRemoteBookList, resumeDownloads);
 }
 
 function isLibraryVisible() {
@@ -963,6 +963,24 @@ function showLocalBooks() {
 function showRemoteBooks() {
     selectLibraryMenu("library-menuitem-remote");
     toggleLibrary(true);
+}
+
+/* Populate the library */
+function initLibrary() {
+    if (!env.isSugar()) {
+        try {
+	    populateLocalBookList();
+	    selectLibraryMenu("library-menuitem-local");
+        } catch(e) { dump("Unable to populate Content Manager: " + e.toString() + "\n"); }
+    }
+}
+
+/* No download for Sugar */
+function initDownloader() {
+    if (!env.isSugar()) {
+	startDownloader();
+        startDownloadObserver();
+    }
 }
 
 function getCurrentBookListContainer() {

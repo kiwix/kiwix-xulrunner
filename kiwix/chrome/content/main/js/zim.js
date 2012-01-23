@@ -42,7 +42,6 @@ function openZimFile(path) {
  * separates portables instances of Kiwix, each one with its own
  * content.
  */
-
 function openCurrentBook() {
     var currentBook;
     var currentBookId;

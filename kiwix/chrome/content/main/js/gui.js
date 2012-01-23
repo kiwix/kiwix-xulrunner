@@ -1003,7 +1003,13 @@ function getCurrentLocale() {
     var toolkitChromeRegistery = chromeRegisteryService.QueryInterface(Components.interfaces.nsIToolkitChromeRegistry);
     var settingsLocale = settings.locale();
     var chromeLocale = xulChromeRegistery.getSelectedLocale("main");
-    return (settingsLocale.match(/chrome/) ==  undefined ? settingsLocale : chromeLocale);
+
+    if (settingsLocale.match(/chrome/) == undefined) {
+	return settingsLocale;
+    } else {
+	settings.locale(chromeLocale);
+	return chromeLocale;
+    }
 }
 
 /* Return the available locales */
@@ -1072,46 +1078,27 @@ function populateLastOpenMenu() {
     }
 }
 
-/* basic UI init so error messages are displayed properly */
-function preInitUserInterface() {
-
+/* Basic User Interface initialisation */
+function initUserInterface() {
     /* Set a class on main window based on platform string */
     document.getElementById("main").className = env.platform.type;
-	
+    
     /* Set the size and position of the window */
     configureWindowGeometry(this);
-
+    
     /* Populates localization languages to the menu-languages */
     populateLanguagesMenu();
-
+    
     /* Same for the skins */
     populateSkinsMenu();
-
-    /* Populate the library */
-    if (!env.isSugar()) {
-        try {
-            populateContentManager(true, true);
-        } catch(e) { dump("Unable to populate Content Manager: " + e.toString() + "\n"); }
-    }
-}
-
-/* Initialize the user interface */
-function initUserInterface() {
-    /* Populates the last open menu */
-    populateLastOpenMenu();
-
-    /* Apply GUI settings */
+    
+    /* Apply UI settings */
     if (settings.displayStatusBar() != undefined) { changeStatusBarVisibilityStatus(settings.displayStatusBar()); }
     if (settings.displayFullScreen() != undefined) { if (settings.displayFullScreen()) { UIToggleFullScreen(); } }
     if (settings.displayBookmarksBar() === true) { UIToggleBookmarksBar(); }
-
-    /* Display tabs or not */
     changeTabsVisibilityStatus(settings.displayTabs());
 
-    /* Desactivate back/next buttons */
-    updateGuiHistoryComponents();
-    
-    /* Mac OSX specificities disable Print as PDF menu */
+    /* Mac OSX specific customisations */
     if (env.isMac()) {
         fm = document.getElementById("file-popup");
         fp = document.getElementById("file-print-pdf");
@@ -1124,7 +1111,7 @@ function initUserInterface() {
         et = document.getElementById("edit-transliteration");
         em.removeChild(et);
 	
-        // keyboard shortcut
+        /* OSX keyboard shortcut */
         keys = document.getElementsByTagName("key");
         for (var i=0; i<keys.length; i++) {
             if (keys[i].hasAttribute('modifiers')) {
@@ -1134,42 +1121,19 @@ function initUserInterface() {
                 }
             }
         }
-        // full screen is complete different shortcut
+
+        /* OSX Fullscreen shortcuts */
         fkey = document.getElementById("fullscreen-key");
         fkey.setAttribute('modifiers', 'meta,shift');
         fkey.setAttribute('keycode', 'F');
     }
 
-    /* Sugar U.I is slightly different than regular one */
+    /* Sugar customisations */
     if (env.isSugar()) {
-        // remove menubar (File, Edition, etc)
+        /* Remove the whole menubar (File, Edition, ...) */
         menu = document.getElementById('menu-bar');
         menu.setAttribute("style", "display: none;");
     }
-}
-
-function postInitUserInterface() {
-    /* If there is no file open with the commandline try to open last open book */
-    if (currentZimAccessor == undefined) {
-	try {
-            if (openCurrentBook()) {
-	        restoreTabs();
-	    } else {
-	        library.deleteCurrentBook();
-	    }
-        } catch(e) { dump("Unable to check current book: " + e.toString() + "\n"); }
-    }
-
-    /* Adapt the UI depending of a book is open or not */
-    if (currentZimAccessor == undefined) {
-	showHelp();
-	desactivateHomeButton();
-    } else {
-	activateHomeButton();
-    }
-    
-    /* Update the search bar */
-    updateGuiSearchComponents();
 }
 
 /* Drop file on windows to open it */
@@ -1383,16 +1347,17 @@ function handleEscape() {
 
 /* Create the necessary listeners */
 function initEventListeners() {
+    /* Init all event handlers related to the HTML render Zone */
     initHtmlRendererEventListeners();
    
-    /* register WebProgress listener */
+    /* Register WebProgress listener */
     var dls = Components.classes["@mozilla.org/docloaderservice;1"]
 	.getService(nsIWebProgress);
     dls.addProgressListener(UIBrowserProgressListener,
 			    nsIWebProgress.NOTIFY_LOCATION |
 			    nsIWebProgress.NOTIFY_STATE_DOCUMENT);
 
-    /* finbar event */
+    /* Finbar event */
     getFindBar().addEventListener("DOMAttrModified", toggleFindBarButton, true);
 
     /* Deal with key press */
@@ -1401,6 +1366,9 @@ function initEventListeners() {
     /* Intercept global keydown and keyup events */
     getWindow().addEventListener("keydown", handleWindowKeyDown, true);
     getWindow().addEventListener("keyup", handleWindowKeyUp, true);
+
+    /* Launch the part of the initialisation process which should run after the window is there */
+    addOneShotEventListener(getWindow(), "MozAfterPaint",  function() { manageDownloadRemoteBookList(); }, true);
 }
 
 /* Event Listener */
