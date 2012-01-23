@@ -1368,7 +1368,15 @@ function initEventListeners() {
     getWindow().addEventListener("keyup", handleWindowKeyUp, true);
 
     /* Launch the part of the initialisation process which should run after the window is there */
-    addOneShotEventListener(getWindow(), "MozAfterPaint",  function() { manageDownloadRemoteBookList(); }, true);
+    gOS = Components.classes["@mozilla.org/observer-service;1"].
+	getService(Components.interfaces.nsIObserverService);
+    var observer = {
+	observe: function(subject, topic, data) {
+	    gOS.removeObserver(this, "xul-window-visible");
+	    manageDownloadRemoteBookList();
+	}
+    }
+    gOS.addObserver(observer, "xul-window-visible", false);    
 }
 
 /* Event Listener */

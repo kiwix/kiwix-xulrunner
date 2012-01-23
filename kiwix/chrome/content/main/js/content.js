@@ -818,9 +818,22 @@ function populateLibraryFilters() {
 }
 
 function manageDownloadRemoteBookList() {
-    //if (displayConfirmDialog("Do you want to download the remote catalog of available books?")) {
+    var doNotAskAnymore = new Object();
+    var continueWithDownloading;
+
+    if (settings.downloadRemoteCatalogs() === undefined) {
+	doNotAskAnymore.value = true;
+	continueWithDownloading = displayConfirmDialogEx("Do you want to download the remote catalog of available books?", 
+							 "Download online book catalog", "Do not ask anymore", doNotAskAnymore);
+    }
+
+    if (doNotAskAnymore.value == true) {
+	settings.downloadRemoteCatalogs(continueWithDownloading);
+    }
+
+    if (continueWithDownloading) {
 	downloadRemoteBookList(true, true);
-    //}
+    }
 }
 
 function downloadRemoteBookList(populateRemoteBookList, resumeDownloads) {

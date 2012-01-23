@@ -12,6 +12,7 @@ Kiwix 0.9 beta6
 * NEW: ALT+D shortcut to focus the searchbar (ID: 3475647)
 * NEW: --current argument in kiwix-manage
 * NEW: Windows self-extracting installer
+* NEW: Ask before downloading XML library files (ID: 3442087)
 
 Kiwix 0.9 beta5
 * FIXED: letton language menu item (ID: 3439113)

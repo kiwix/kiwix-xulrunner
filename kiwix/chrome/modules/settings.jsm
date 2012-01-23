@@ -206,6 +206,7 @@ let settings = {
     windowY: function(value) { return this.intSettingParameter("windowY", value); },
     windowMaximized: function(value) { return this.boolSettingParameter("windowMaximized", value); },
     doOnCloseClean: function(value) { return this.boolSettingParameter("doOnCloseClean", value); },
+    downloadRemoteCatalogs: function(value) { return this.boolSettingParameter("kiwix.downloadRemoteCatalogs", value); },
     displayTabs: function(value) { return this.boolSettingParameter("kiwix.displayTabs", value); },
     saveTabs: function(value) { return this.boolSettingParameter("kiwix.saveTabs", value); },
     savedTabs: function(value) { return this.charSettingParameter("kiwix.savedTabs", value); },
