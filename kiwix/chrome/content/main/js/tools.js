@@ -23,7 +23,7 @@ const nsIWebProgressListener = Components.interfaces.nsIWebProgressListener;
 var _alreadyHaveQuitOrRestart = false;
 
 /* Preparation before quit or restart */
-function prepareQuitOrRestart() {
+function onQuit() {
     try {
 	/* Stop downloader */
 	stopDownloaderObserver()
@@ -141,18 +141,12 @@ function askPermissionToRestart() {
 }
 
 function restart(silent) {
-    if (_alreadyHaveQuitOrRestart)
-	return;
-
     if (silent == true || askPermissionToRestart()) {
-	prepareQuitOrRestart();
-
 	/* Restart application */
 	var applicationStartup = Components.classes["@mozilla.org/toolkit/app-startup;1"]
 	    .getService(Components.interfaces.nsIAppStartup);
 	applicationStartup.quit(Components.interfaces.nsIAppStartup.eRestart |
 				Components.interfaces.nsIAppStartup.eAttemptQuit);
-	_alreadyHaveQuitOrRestart = true;
     } else {
 	return false;
     }
@@ -170,12 +164,7 @@ function askPermissionToQuit() {
 }
 
 function quit(silent) {
-    if (_alreadyHaveQuitOrRestart)
-	return;
-
     if (silent == true || askPermissionToQuit()) {
-	prepareQuitOrRestart();
-	
 	/* Quit the application */
 	var applicationStartup = Components.classes['@mozilla.org/toolkit/app-startup;1'].
 	    getService(Components.interfaces.nsIAppStartup);
