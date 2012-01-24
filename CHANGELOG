@@ -14,6 +14,7 @@ Kiwix 0.9 beta6
 * NEW: --noCheck option to "add" command in kiwix-manage to avoid any ZIM quality check
 * NEW: Windows self-extracting installer
 * NEW: Ask before downloading XML library files (ID: 3442087)
+* NEW: kiwix-server able to deal directly with library XML files
 
 Kiwix 0.9 beta5
 * FIXED: letton language menu item (ID: 3439113)
