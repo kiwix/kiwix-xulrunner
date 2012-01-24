@@ -10,7 +10,8 @@ Kiwix 0.9 beta6
   Slovak (sk), Bachkir (ba), Welsh (cy), yiddish (yi), Wolof (yo), 
   Chinese (Hong Kong)(zh-hk), Albanese (sq)
 * NEW: ALT+D shortcut to focus the searchbar (ID: 3475647)
-* NEW: --current argument in kiwix-manage
+* NEW: --current option to "add" command in kiwix-manage to set the ZIM file a current
+* NEW: --noCheck option to "add" command in kiwix-manage to avoid any ZIM quality check
 * NEW: Windows self-extracting installer
 * NEW: Ask before downloading XML library files (ID: 3442087)
 
