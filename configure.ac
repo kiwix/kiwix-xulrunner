@@ -505,6 +505,7 @@ AC_CONFIG_FILES([
   kiwix/components/Makefile
   desktop/Makefile
   static/Makefile
+  etc/Makefile
 ])
 
 AC_PROG_INSTALL

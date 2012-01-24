@@ -1,8 +1,9 @@
-SUBDIRS=src kiwix desktop static
+SUBDIRS=src kiwix desktop static etc
 EXTRA_DIST= \
 	kiwix \
 	desktop \
 	static \
+	etc \
 	CHANGELOG \
 	COMPILE
 
