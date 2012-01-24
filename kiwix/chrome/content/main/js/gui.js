@@ -1365,7 +1365,7 @@ function initEventListeners() {
 
     /* Intercept global keydown and keyup events */
     getWindow().addEventListener("keydown", handleWindowKeyDown, true);
-    getWindow().addEventListener("keyup", handleWindowKeyUp, true);
+
 
     /* Launch the part of the initialisation process which should run after the window is there */
     gOS = Components.classes["@mozilla.org/observer-service;1"].
@@ -1377,6 +1377,9 @@ function initEventListeners() {
 	}
     }
     gOS.addObserver(observer, "xul-window-visible", false);    
+
+    /* Kiwix called with ZIM file path on command line */
+    document.addEventListener("onZimArg", function(e) { manageOpenFile(e.data, true) }, false);
 }
 
 /* Event Listener */
