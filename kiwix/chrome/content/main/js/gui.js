@@ -1368,7 +1368,7 @@ function initEventListeners() {
 
 
     /* Launch the part of the initialisation process which should run after the window is there */
-    gOS = Components.classes["@mozilla.org/observer-service;1"].
+    var gOS = Components.classes["@mozilla.org/observer-service;1"].
 	getService(Components.interfaces.nsIObserverService);
     var observer = {
 	observe: function(subject, topic, data) {
