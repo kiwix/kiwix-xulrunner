@@ -481,6 +481,8 @@ AC_CONFIG_HEADERS([src/zimlib/src/config.h])
 AC_CONFIG_FILES([
   Makefile
   src/Makefile
+  src/ctype/Makefile
+  src/ctype/zimAccessor/Makefile
   src/dependences/Makefile
   src/zimlib/Makefile
   src/zimlib/src/Makefile

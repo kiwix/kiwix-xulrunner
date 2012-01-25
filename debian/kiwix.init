@@ -15,12 +15,10 @@
 
 # PATH should only include /usr/* if it runs after the mountnfs.sh script
 PATH=/sbin:/usr/sbin:/bin:/usr/bin
-DESC="Standalone wiki browser"
+DESC="Standalone Kiwix HTTP server"
 NAME=kiwix-serve
 DAEMON=/usr/bin/$NAME
-WIKIPATH=/opt/wikipedia
-WIKINAME=wikipedia_en_wp1_0.7_30000+_05_2009_beta3
-DAEMON_ARGS="--index=$WIKIPATH/$WIKINAME.idx --port=80 --daemon $WIKIPATH/$WIKINAME.zim"
+DAEMON_ARGS="--library --port=80 --daemon /etc/kiwix/library.xml"
 PIDFILE=/var/run/$NAME.pid
 SCRIPTNAME=/etc/init.d/$NAME
 
