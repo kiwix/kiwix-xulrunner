@@ -378,7 +378,7 @@ fi
 AM_CONDITIONAL([IS_STATIC], [test "$IS_STATIC"])
 
 # default CXXFLAGS
-CXXFLAGS=${CFLAGS}
+CXXFLAGS="${CFLAGS}"
 
 # LIBUCI CFLAGS if not present
 if test [ ! "$LIBICU_CFLAGS" ]
@@ -405,12 +405,13 @@ AC_DEFINE_UNQUOTED(LZMA_MEMORY_SIZE, 128, [set lzma uncompress memory size to nu
 AC_DEFINE(ENABLE_LZMA, [1], [defined if lzma compression is enabled])
 
 # Gecko version
-GECKO_VERSION=`grep MOZILLA_VERSION_U ${GECKO_SDK_PATH}/include/mozilla-config.h | cut --delimiter=" " -f3`
-if [[ "$GECKO_VERSION" \< "2.0" ]]
+GECKO_VERSION=`grep MOZILLA_VERSION_U ${GECKO_SDK_PATH}/include/mozilla-config.h | cut --delimiter=" " -f3 | cut --delimiter="." -f1`
+if [[ "$GECKO_VERSION" -lt "2" ]]
 then
 GECKO_VERSION=1
 else
 GECKO_VERSION=2
+CXXFLAGS="${CXXFLAGS} -std=gnu++0x -fexceptions -DMOZ_CPP_EXCEPTIONS"
 fi
 AC_MSG_RESULT(checking for Gecko version... ${GECKO_VERSION})
 
