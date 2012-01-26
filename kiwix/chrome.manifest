@@ -15,19 +15,19 @@ component {080787ae-ddff-11e0-aa79-000c2983f4e1} components/sugar_bridge.py
 contract kiwix.org/SugarBridge;1 {080787ae-ddff-11e0-aa79-000c2983f4e1}
 
 interfaces components/xapianAccessor.xpt
-binary-component components/xapianAccessor.so ABI=Linux_x86-gcc3
+binary-component components/xapianAccessor.so
 
 interfaces components/zimXapianIndexer.xpt
-binary-component components/zimXapianIndexer.so ABI=Linux_x86-gcc3
+binary-component components/zimXapianIndexer.so
 
 interfaces components/cluceneAccessor.xpt
-binary-component components/cluceneAccessor.so ABI=Linux_x86-gcc3
+binary-component components/cluceneAccessor.so
 
 interfaces components/zimCluceneIndexer.xpt
-binary-component components/zimCluceneIndexer.so ABI=Linux_x86-gcc3
+binary-component components/zimCluceneIndexer.so
 
 interfaces components/zimAccessor.xpt
-binary-component components/zimAccessor.so ABI=Linux_x86-gcc3
+binary-component components/zimAccessor.so 
 
 interfaces components/contentManager.xpt
-binary-component components/contentManager.so ABI=Linux_x86-gcc3
+binary-component components/contentManager.so
