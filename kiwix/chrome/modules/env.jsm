@@ -53,7 +53,7 @@ let env = {
 
     /* Check if this is a live instance */
     isLive: function() {
-      var liveFile = Components.classes["@mozilla.org/file/directory_service;1"].getService(Components.interfaces.nsIProperties).get("resource:app", Components.interfaces.nsIFile);
+      var liveFile = this.getApplicationFolder();
       liveFile.append("live");
       return liveFile.exists();
     },
@@ -81,10 +81,11 @@ let env = {
    },   
 
    getApplicationFolder: function() {
+      /* Since Xulrunner 5.0, "DefRt" replaces "resource:app" */
       try {
-	return Components.classes ["@mozilla.org/file/directory_service;1"]
-		.getService (Components.interfaces.nsIProperties)
-		.get ("resource:app", Components.interfaces.nsIFile);
+	return Components.classes["@mozilla.org/file/directory_service;1"]
+		.getService(Components.interfaces.nsIProperties)
+		.get("DefRt", Components.interfaces.nsIFile);
       } catch (e) {
       }
    },
