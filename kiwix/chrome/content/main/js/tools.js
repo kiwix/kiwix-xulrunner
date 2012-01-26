@@ -244,12 +244,10 @@ function initModulesAndComponents() {
     Components.utils.import("resource://modules/settings.jsm");
     Components.utils.import("resource://modules/library.jsm");
 
-    /* cjstype experimental code */
-    /*
+    /* jsctype jsm moculdes */
     try {
-        Components.utils.import("resource://modules/libzimAccessor.jsm");
+//        Components.utils.import("resource://modules/ctype/zimAccessor.jsm");
     } catch(e) { dump("Unable to import libzimAccessor module: " + e.toString() + "\n"); libzimAccessor = null; }
-    */
 
     /* Check the XPCOM registration */
     if (Components.classes["@kiwix.org/zimAccessor"] == undefined)
@@ -541,7 +539,7 @@ function whereis(binary) {
 /* This function allows to execute only one time a callback associated
  * to an event */
 function addOneShotEventListener(node, eventName, func, captureMode) {
-    listener = function() { oneShotEventhandler() };
+    var listener = function() { oneShotEventhandler() };
     function oneShotEventhandler() {
 	node.removeEventListener(eventName, listener, captureMode);
 	func();
