@@ -2,6 +2,7 @@
 content main content/main/
 content branding content/branding/
 content static static/
+content ctype ctype/
 
 #locale packagename localename uri/to/files/ [flags]
 locale main af             locale/af/main/

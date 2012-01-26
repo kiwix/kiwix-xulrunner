@@ -660,15 +660,14 @@ function manageOpenFile(path, noSearchIndexCheck) {
     path = path.replace(".zimaa", ".zim");
 
     /* Try to open the ZIM file */
-    var zimAccessor = openZimFile(path);
+    openZimFile(path);
 
-    if (zimAccessor) {
+    if (zimAccessor.isZimFileLoaded()) {
 	manageUnload();
 
 	/* Get the MD5 id */
-	var zimId = new Object();
-	zimAccessor.getId(zimId);
-	zimId = zimId.value;
+	var zimId = zimAccessor.getId();
+	dump("zimid=" + zimId + "\n");
 
 	/* Update library */
 	var book = library.getBookById(zimId);
@@ -705,7 +704,7 @@ function manageOpenFile(path, noSearchIndexCheck) {
 	if (!isIndexing() && !noSearchIndexCheck && !checkSearchIndex()) {
 	    manageIndexZimFile();
 	}
-	
+
 	/* Update the search bar */
 	updateGuiSearchComponents();
 
@@ -725,6 +724,7 @@ function manageOpenFile(path, noSearchIndexCheck) {
 /* Got the welcome page of the current zim file */
 function goHome(openInNewTab) {
     var homeUrl = getCurrentZimFileHomePageUrl();
+    dump("homeUrl=" + homeUrl + "\n");
 
     if (homeUrl) {
 	var htmlRenderer = getHtmlRenderer();

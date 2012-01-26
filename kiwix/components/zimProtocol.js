@@ -138,25 +138,36 @@ PipeChannel.prototype = {
 	}
 
 	/* load the zim file if necessary */
-	zimAccessor = Components.classes["@kiwix.org/zimAccessor"].getService();
-	zimAccessor = zimAccessor.QueryInterface(Components.interfaces.IZimAccessor);
+	//zimAccessor = Components.classes["@kiwix.org/zimAccessor"].getService();
+	//zimAccessor = zimAccessor.QueryInterface(Components.interfaces.IZimAccessor);
 
 	/* Remove local anchor */
 	var uri = this.URI.clone();
 	if (uri.spec.indexOf("#") != -1) 
 	    uri.spec = uri.spec.substr(0, uri.spec.indexOf("#"));
 
-	var content = new Object();
-	var contentLength = new Object();
-	var contentType = new Object();
+	//var content = new Object();
+	//var contentLength = new Object();
+	//var contentType = new Object();
 
-	if (zimAccessor.getContent(uri, content, contentLength, contentType)) {
-	    this.pipe.outputStream.write(content.value, contentLength.value);
-	} else {
+	Components.utils.import("resource://modules/ctype/zimAccessor.jsm");
+	
+	dump(uri.path + "\n");
+	var content = zimAccessor.getContent(uri.path);
+	dump(content.length + "\n");
+	dump("\n-----------------------------------------------------\n");
+	dump(content + "\n");
+	dump("\n-----------------------------------------------------\n");
+	if (content.length > 0)
+	    this.pipe.outputStream.write(content, content.length);
+
+	//if (zimAccessor.getContent(uri, content, contentLength, contentType)) {
+	//    this.pipe.outputStream.write(content.value, contentLength.value);
+	//} else {
 	    /* TODO, this seems to generate segfaults */
 	    /* but is necessary to display an error if the client try to load an unexisting url */
 	    //throw("Unable to load article '" + uri.spec + "'.");
-	}
+	//}
 	this.pipe.outputStream.close();
 
     },
