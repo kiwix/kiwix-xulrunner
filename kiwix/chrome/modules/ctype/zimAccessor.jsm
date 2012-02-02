@@ -73,20 +73,52 @@ let zimAccessor = {
     	var cContentLength = new ctypes.uint32_t;
     	var cContentType = new ctypes.char.ptr;
 
+	dump("Loading " + url + "---------------------------------------------------\n");
 	var cResult = this._GetContent(this.zimHandler, url, cContent.address(), cContentLength.address(), cContentType.address());
 
 	contentLength.value = cContentLength.value;
 	contentType.value = cContentType.readString();
-	dump("------------------" + url + "\n");
-	dump("------------------" + contentLength.value + "\n");
-	dump("------------------" + contentType.value + "\n");
+	dump("JS type = " + contentType.value + "\n");
+	dump("JS length = " + contentLength.value + "\n");
 
+	content.value = "";
 	if (contentLength.value > 0) {
   	  var cContentArray = ctypes.cast(cContent, ctypes.char.array(cContentLength.value).ptr);
-	  content.value = String.fromCharCode.apply(String, cContentArray.contents);
-	} else {
-	  content.value = "";
-        }
+
+	  function chr2(codePt) {
+	    if (codePt > 0xFFFF) {
+	      return String.fromCharCode(0xD800 + (codePt >> 10), 0xDC00 + (codePt & 0x3FF));
+	    }
+	    return String.fromCharCode(codePt);
+	  }
+
+	  function verify(str, arr) {
+	    var checksum=0;
+
+	    for (i=0; i<arr.length; i++) {
+	      checksum += arr[i];
+	      checksum %= 1000;
+	      if (str[i].charCodeAt(0) != arr[i]) {
+	      	 dump("error in string at position " + i + " : " + str[i].charCodeAt(0) + " != " + arr[i] + "\n");
+	      }
+            }
+	    dump("JS checksum = " + checksum+ "\n");
+	  }
+
+	  if (cContentArray.contents.length == 204) {
+	     for (i=0; i<cContentArray.contents.length; i++) {
+	     dump(cContentArray.contents[i] + ",");
+	     }
+	     dump("\n");
+	  }
+
+	  //content.value = String.fromCharCode.apply(String, cContentArray.contents);
+	  for (i=0; i<contentLength.value; i++) {
+	      content.value += chr2(cContentArray.contents[i]);
+	  }
+	  verify(content.value, cContentArray.contents);
+
+	}
 
 	return cResult;
     },
