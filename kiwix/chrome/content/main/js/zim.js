@@ -17,11 +17,20 @@
  * MA 02110-1301, USA.
  */
 
+var currentZimAccessor;
+
 /* try a ZIM file */
 function openZimFile(path) {
+    /* Create the ZIM accessor */
+    var zimAccessorService = Components.classes["@kiwix.org/zimAccessor"].getService();
+    var zimAccessor = zimAccessorService.QueryInterface(Components.interfaces.IZimAccessor);
+
     /* Warning: here we should not test if the file exist, because the
      * file could be splitted */
-    return zimAccessor.loadFile(path);
+    if (zimAccessor.loadFile(path)) {
+	currentZimAccessor = zimAccessor;
+	return currentZimAccessor;
+    }
 }
 
 /* 
@@ -54,10 +63,13 @@ function openCurrentBook() {
 function getCurrentZimFileHomePageUrl() {
     var homePageUrl;
 
-    if (zimAccessor.isZimFileLoaded()) {
-	var url = zimAccessor.getMainPageUrl();
-	if (url != undefined && url != '') {
-	    homePageUrl = "zim://" + url;	
+    if (currentZimAccessor) {
+	var url = new Object();
+
+	/* Return the welcome path if exists */
+	currentZimAccessor.getMainPageUrl(url);
+	if (url.value != undefined && url.value != '') {
+	    homePageUrl = "zim://" + url.value;	
 	}
     }
     
@@ -81,7 +93,7 @@ function loadRandomArticle() {
 
 /* Load article from title */
 function loadArticleFromTitle(title) {
-    if (zimAccessor.isZimFileLoaded()) {
+    if (currentZimAccessor != undefined) {
 	var url = new Object();
 	
 	currentZimAccessor.getPageUrlFromTitle(title, url);
@@ -102,9 +114,9 @@ function loadArticleFromTitle(title) {
 
 /* Check the integrity (with a checksum) of the ZIM file */
 function checkIntegrity() {
-    if (zimAccessor.isZimFileLoaded()) {
+    if (currentZimAccessor != undefined) {
 	if (canCheckIntegrity()) {
-	    return !(zimAccessor.isCorrupted());
+	    return !(currentZimAccessor.isCorrupted());
 	} else {
 	    dump("Unable to check the integrity of the current ZIMf file.\n");
 	}
@@ -113,12 +125,12 @@ function checkIntegrity() {
 
 /* Verify if the file has a checksum */
 function canCheckIntegrity() {
-    if (zimAccessor.isZimFileLoaded()) {
-	return zimAccessor.canCheckIntegrity();
+    if (currentZimAccessor != undefined) {
+	return currentZimAccessor.canCheckIntegrity();
     }
 }
 
 /* Check if a zim file is open */
 function isBookOpen() {
-    return zimAccessor.isZimFileLoaded();
+    return (currentZimAccessor != undefined);
 }

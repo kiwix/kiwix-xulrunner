@@ -246,10 +246,12 @@ function initModulesAndComponents() {
 
     /* jsctype jsm moculdes */
     try {
-        Components.utils.import("resource://modules/ctype/zimAccessor.jsm");
+//        Components.utils.import("resource://modules/ctype/zimAccessor.jsm");
     } catch(e) { dump("Unable to import libzimAccessor module: " + e.toString() + "\n"); libzimAccessor = null; }
 
     /* Check the XPCOM registration */
+    if (Components.classes["@kiwix.org/zimAccessor"] == undefined)
+	dump("Unable to register the zimAccessor XPCOM, Kiwix will be unable to read ZIM files.\n");
     if (Components.classes["@kiwix.org/xapianAccessor"] == undefined)
 	dump("Unable to register the xapianAccessor XPCOM, Kiwix will be unable to provide the search engine.\n");
     if (Components.classes["@kiwix.org/zimXapianIndexer"] == undefined)
@@ -278,18 +280,18 @@ function initContent() {
     }
 
     /* If there is no file open with the commandline try to open last open book */
-    if (!zimAccessor.isZimFileLoaded()) {
+    if (currentZimAccessor == undefined) {
 	try {
             if (openCurrentBook()) {
-	        //restoreTabs();
+	        restoreTabs();
 	    } else {
-	        //library.deleteCurrentBook();
+	        library.deleteCurrentBook();
 	    }
         } catch(e) { dump("Unable to check current book: " + e.toString() + "\n"); }
     }
 
     /* Adapt the UI depending of a book is open or not */
-    if (!zimAccessor.isZimFileLoaded()) {
+    if (currentZimAccessor == undefined) {
 	showHelp();
     }
 }
