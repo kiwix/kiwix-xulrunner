@@ -49,7 +49,8 @@ function getSearchIndexDirectory(zimFilePath) {
 /* Return the name of the search index directory */
 function getSearchIndexDirectoryName(zimFilePath) {
     var zimAccessor = openZimFile(zimFilePath);
-    var zimId = zimAccessor.getId();
+    var zimId = new Object();
+    zimAccessor.getId(zimId);
     return zimId.value + ".index";
 }
 
