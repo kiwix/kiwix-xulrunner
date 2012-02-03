@@ -122,6 +122,7 @@ else
 wget http://releases.mozilla.org/pub/mozilla.org/xulrunner/releases/3.6.22/runtimes/xulrunner-3.6.22.en-US.linux-i686.tar.bz2 -O xulrunner-runtime.tar.bz2
 fi
 tar xf xulrunner-runtime.tar.bz2
+chmod +x ./xulrunner/xulrunner ./xulrunner/xulrunner-bin
 mv ./xulrunner/ ./kiwix/
 
 # Additional dynlib symlinks
