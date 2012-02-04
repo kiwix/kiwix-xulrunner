@@ -2,7 +2,6 @@
 
 interface nsIURI;
 interface nsILocalFile;
-
 [scriptable, uuid(0e41f9d0-f08e-11dd-ba2f-0800200c9a66)]
 interface IZimAccessor : nsISupports
 {
