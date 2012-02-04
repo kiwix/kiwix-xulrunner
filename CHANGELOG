@@ -6,10 +6,9 @@ Kiwix 0.9 beta6
 * FIXED: Blanck 404 error page server by kiwix-serve (ID: 3417227)
 * FIXED: Small error during the installation of Ubuntu packages (ID: 3437855)
 * FIXED: Bad singleton Window implementation (ID: 3444121)
-* NEW: New supported user interface languages: Georgian (ka), Estonian (et), 
-  Bulgarian (bg), Faroese (fo), Croatian (hr), Iloko (ilo), Limburgish (li), 
-  Lithuanian (lt), Basa Banyumasan (map-bms), Oriya (or), Pashto (ps), 
-  Slovak (sk), Bachkir (ba), Welsh (cy), yiddish (yi), Wolof (yo), 
+* NEW: New supported user interface languages: Faroese (fo), Croatian (hr),
+  Iloko (ilo), Limburgish (li), Basa Banyumasan (map-bms), Pashto (ps), 
+  Bachkir (ba), Welsh (cy), Yiddish (yi), Wolof (yo), 
   Chinese (Hong Kong)(zh-hk), Albanese (sq), Assamese (as), Kannada (kn),
   Quechua (qu), Tulu (tcy), Belarusian (be), Interlingue (ie), Nepali (ne),
   Norwegian Nynorsk (nn), Occitan (oc), Romansh (rm), Serbo-Croatian (sh),
