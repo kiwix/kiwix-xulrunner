@@ -135,8 +135,10 @@ cd -
 # Create the kiwix binary
 mv ./kiwix/xulrunner/xulrunner-stub ./kiwix/kiwix
 
-# Copy aria2c binary
-cp -v ./moulinkiwix/src/dependences/aria2-1.12.1/src/aria2c ./kiwix/
+# Use last version (at least 1.14.0) version of aria2c (staticaly compiled for x86_32)
+wget http://download.kiwix.org/dev/aria2c -O ./kiwix/aria2c
+#cp -v ./moulinkiwix/src/dependences/aria2-1.12.1/src/aria2c ./kiwix/
+
 
 # Download the firefox en copy the locales JAR
 getFirefoxLocalization de
