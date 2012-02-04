@@ -103,6 +103,12 @@ echo "Files clean up"
 rm -rf ./kiwix
 cp -r -L ./moulinkiwix/kiwix ./kiwix
 
+# Remove symbol table of Binary XPCOM components
+for FILE in ./kiwix/components
+do
+strip $FILE
+done
+
 # Remove svn/repo stuff
 find ./kiwix -name '.svn' -exec rm -rf {} \;
 find ./kiwix -name '*.inised' -exec rm -rf {} \;
