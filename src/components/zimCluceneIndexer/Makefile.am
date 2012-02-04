@@ -26,10 +26,18 @@ libZimCluceneIndexer_la_LIBADD=$(top_builddir)/src/zimlib/src/libzim.la
 endif
 EXTRA_DIST=IZimCluceneIndexer.idl
 BUILT_SOURCES=zimCluceneIndexer.xpt IZimCluceneIndexer.h
-CLEANFILES=zimCluceneIndexer.xpt IZimCluceneIndexer.h *.lib *.obj *.dll
+CLEANFILES=zimCluceneIndexer.xpt IZimCluceneIndexer.h *.lib *.obj *.dll *.in *.h *.xpt
 
 zimCluceneIndexer.xpt:
+if XPIDL
 	$(XPIDL) -m typelib -o zimCluceneIndexer -I $(GECKO_IDL_PATH) $(top_srcdir)/src/components/zimCluceneIndexer/IZimCluceneIndexer.idl
+else
+	$(TYPELIB_PY) --cachedir=/tmp -o zimCluceneIndexer -I $(GECKO_IDL_PATH) $(top_srcdir)/src/components/zimCluceneIndexer/IZimCluceneIndexer.idl
+endif
 
 IZimCluceneIndexer.h:
+if XPIDL
 	$(XPIDL) -m header -I $(GECKO_IDL_PATH) $(top_srcdir)/src/components/zimCluceneIndexer/IZimCluceneIndexer.idl
+else
+	$(HEADER_PY) --cachedir=/tmp -o IZimCluceneIndexer.h -I $(GECKO_IDL_PATH) $(top_srcdir)/src/components/zimCluceneIndexer/IZimCluceneIndexer.idl
+endif

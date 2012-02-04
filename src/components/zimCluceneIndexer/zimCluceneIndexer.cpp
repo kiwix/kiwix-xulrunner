@@ -34,8 +34,10 @@
 
   #include "mozilla/ModuleUtils.h"
   #include "nsIClassInfoImpl.h"
+  #define mozbool bool
 #else
   #include "nsIGenericFactory.h"
+  #define mozbool PRBool
 #endif
 
 #include "IZimCluceneIndexer.h"
@@ -87,7 +89,7 @@ NS_IMETHODIMP ZimCluceneIndexer::StartIndexing(const nsACString &unixZimFilePath
 					      const nsACString &winZimFilePath, 
 					      const nsACString &unixCluceneDirectoryPath, 
 					      const nsACString &winCluceneDirectoryPath, 
-					      PRBool *retVal) {
+					      mozbool *retVal) {
 
   *retVal = PR_FALSE;
 
@@ -115,7 +117,7 @@ NS_IMETHODIMP ZimCluceneIndexer::StartIndexing(const nsACString &unixZimFilePath
 }
 
 /* Index next percent */
-NS_IMETHODIMP ZimCluceneIndexer::IndexNextPercent(PRBool *retVal) {
+NS_IMETHODIMP ZimCluceneIndexer::IndexNextPercent(mozbool *retVal) {
   *retVal = PR_FALSE;
 
   try {
@@ -130,7 +132,7 @@ NS_IMETHODIMP ZimCluceneIndexer::IndexNextPercent(PRBool *retVal) {
 }
 
 /* Stop indexing. TODO: using it crashs the soft under windows. Have to do it in indexNextPercent() */
-NS_IMETHODIMP ZimCluceneIndexer::StopIndexing(PRBool *retVal) {
+NS_IMETHODIMP ZimCluceneIndexer::StopIndexing(mozbool *retVal) {
   *retVal = PR_TRUE;
   return NS_OK;
 }

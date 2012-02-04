@@ -34,8 +34,11 @@
 
   #include "mozilla/ModuleUtils.h"
   #include "nsIClassInfoImpl.h"
+
+  #define mozbool bool
 #else
   #include "nsIGenericFactory.h"
+  #define mozbool PRBool
 #endif
 
 #include "IZimAccessor.h"
@@ -84,7 +87,7 @@ ZimAccessor::ZimAccessor()
 ZimAccessor::~ZimAccessor() {
 }
 
-NS_IMETHODIMP ZimAccessor::LoadFile(const nsAString &path, PRBool *retVal) {
+NS_IMETHODIMP ZimAccessor::LoadFile(const nsAString &path, mozbool *retVal) {
   *retVal = PR_TRUE;
   const char *cPath = strdup(nsStringToCString(path));
 
@@ -101,7 +104,7 @@ NS_IMETHODIMP ZimAccessor::LoadFile(const nsAString &path, PRBool *retVal) {
   return NS_OK;
 }
 
-NS_IMETHODIMP ZimAccessor::Unload(PRBool *retVal) {
+NS_IMETHODIMP ZimAccessor::Unload(mozbool *retVal) {
   *retVal = PR_TRUE;
   if (this->reader != NULL) {
     delete this->reader;
@@ -111,7 +114,7 @@ NS_IMETHODIMP ZimAccessor::Unload(PRBool *retVal) {
 }
 
 /* Reset the cursor for GetNextArticle() */
-NS_IMETHODIMP ZimAccessor::Reset(PRBool *retVal) {
+NS_IMETHODIMP ZimAccessor::Reset(mozbool *retVal) {
   *retVal = PR_TRUE;
   
   try {
@@ -125,7 +128,7 @@ NS_IMETHODIMP ZimAccessor::Reset(PRBool *retVal) {
 }
 
 /* Get the count of articles which can be indexed/displayed */
-NS_IMETHODIMP ZimAccessor::GetArticleCount(PRUint32 *count, PRBool *retVal) {
+NS_IMETHODIMP ZimAccessor::GetArticleCount(PRUint32 *count, mozbool *retVal) {
   *retVal = PR_FALSE;
 
   try {
@@ -141,7 +144,7 @@ NS_IMETHODIMP ZimAccessor::GetArticleCount(PRUint32 *count, PRBool *retVal) {
 }
 
 /* Return the UID of the ZIM file */
-NS_IMETHODIMP ZimAccessor::GetId(nsACString &id, PRBool *retVal) {
+NS_IMETHODIMP ZimAccessor::GetId(nsACString &id, mozbool *retVal) {
   *retVal = PR_FALSE;
 
   try {
@@ -158,7 +161,7 @@ NS_IMETHODIMP ZimAccessor::GetId(nsACString &id, PRBool *retVal) {
 }
 
 /* Return a random article URL */
-NS_IMETHODIMP ZimAccessor::GetRandomPageUrl(nsACString &url, PRBool *retVal) {
+NS_IMETHODIMP ZimAccessor::GetRandomPageUrl(nsACString &url, mozbool *retVal) {
   *retVal = PR_FALSE;
 
   try {
@@ -175,7 +178,7 @@ NS_IMETHODIMP ZimAccessor::GetRandomPageUrl(nsACString &url, PRBool *retVal) {
 }
 
 /* Return a page url fronm title */
-NS_IMETHODIMP ZimAccessor::GetPageUrlFromTitle(const nsACString &title, nsACString &url, PRBool *retVal) {
+NS_IMETHODIMP ZimAccessor::GetPageUrlFromTitle(const nsACString &title, nsACString &url, mozbool *retVal) {
   *retVal = PR_FALSE;
   string urlstr;
   const char *ctitle;
@@ -196,7 +199,7 @@ NS_IMETHODIMP ZimAccessor::GetPageUrlFromTitle(const nsACString &title, nsACStri
 }
 
 /* Return the welcome page URL */
-NS_IMETHODIMP ZimAccessor::GetMainPageUrl(nsACString &url, PRBool *retVal) {
+NS_IMETHODIMP ZimAccessor::GetMainPageUrl(nsACString &url, mozbool *retVal) {
   *retVal = PR_FALSE;
     
   try {
@@ -214,7 +217,7 @@ NS_IMETHODIMP ZimAccessor::GetMainPageUrl(nsACString &url, PRBool *retVal) {
 
 /* Get a metatag value */
 NS_IMETHODIMP ZimAccessor::GetMetatag(const nsACString &name, 
-				      nsACString &value, PRBool *retVal ) {
+				      nsACString &value, mozbool *retVal ) {
   const char *cname;
   NS_CStringGetData(name, &cname);
   string valueStr;
@@ -235,7 +238,7 @@ NS_IMETHODIMP ZimAccessor::GetMetatag(const nsACString &name,
 
 /* Get a content from a zim file */
 NS_IMETHODIMP ZimAccessor::GetContent(nsIURI *urlObject, nsACString &content, PRUint32 *contentLength, 
-				      nsACString &contentType, PRBool *retVal) {
+				      nsACString &contentType, mozbool *retVal) {
 
   *retVal = PR_FALSE;
 
@@ -270,7 +273,7 @@ NS_IMETHODIMP ZimAccessor::GetContent(nsIURI *urlObject, nsACString &content, PR
 }
 
 /* Search titles by prefix*/
-NS_IMETHODIMP ZimAccessor::SearchSuggestions(const nsACString &prefix, PRUint32 suggestionsCount, PRBool *retVal) {
+NS_IMETHODIMP ZimAccessor::SearchSuggestions(const nsACString &prefix, PRUint32 suggestionsCount, mozbool *retVal) {
   *retVal = PR_FALSE;
   const char *titlePrefix;
   NS_CStringGetData(prefix, &titlePrefix);
@@ -289,7 +292,7 @@ NS_IMETHODIMP ZimAccessor::SearchSuggestions(const nsACString &prefix, PRUint32 
 }
 
 /* Get next suggestion */
-NS_IMETHODIMP ZimAccessor::GetNextSuggestion(nsACString &title, PRBool *retVal) {
+NS_IMETHODIMP ZimAccessor::GetNextSuggestion(nsACString &title, mozbool *retVal) {
   *retVal = PR_FALSE;
   string titleStr;
 
@@ -309,7 +312,7 @@ NS_IMETHODIMP ZimAccessor::GetNextSuggestion(nsACString &title, PRBool *retVal) 
 }
 
 /* Can I check the integrity - for old ZIM file without checksum */
-NS_IMETHODIMP ZimAccessor::CanCheckIntegrity(PRBool *retVal) {
+NS_IMETHODIMP ZimAccessor::CanCheckIntegrity(mozbool *retVal) {
   *retVal = PR_FALSE;
 
   try {
@@ -324,7 +327,7 @@ NS_IMETHODIMP ZimAccessor::CanCheckIntegrity(PRBool *retVal) {
 }
 
 /* Return true if corrupted, false otherwise */
-NS_IMETHODIMP ZimAccessor::IsCorrupted(PRBool *retVal) {
+NS_IMETHODIMP ZimAccessor::IsCorrupted(mozbool *retVal) {
   *retVal = PR_FALSE;
 
   try {

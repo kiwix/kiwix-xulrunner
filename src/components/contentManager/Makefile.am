@@ -33,10 +33,18 @@ libContentManager_la_LDFLAGS=$(LIBXUL_LDFLAGS) $(LIBZIM_STATIC_LDFLAGS) $(LIBICU
 endif
 EXTRA_DIST=IContentManager.idl
 BUILT_SOURCES=contentManager.xpt IContentManager.h
-CLEANFILES=contentManager.xpt IContentManager.h *.lib *.obj *.dll
+CLEANFILES=contentManager.xpt IContentManager.h *.lib *.obj *.dll *.in *.h *.xpt
 
 contentManager.xpt:
-	$(XPIDL) -m typelib -o contentManager -I $(GECKO_IDL_PATH) $(top_srcdir)/src/components/contentManager/IContentManager.idl
+if XPIDL
+	$(XPIDL) -m typelib -o contentManager -I $(GECKO_IDL_PATH) $(top_srcdir)/src/components/contentManager/IContentManager_gecko_v1.idl
+else
+	$(TYPELIB_PY) --cachedir=/tmp -o contentManager -I $(GECKO_IDL_PATH) $(top_srcdir)/src/components/contentManager/IContentManager.idl
+endif
 
 IContentManager.h:
-	$(XPIDL) -m header -I $(GECKO_IDL_PATH) $(top_srcdir)/src/components/contentManager/IContentManager.idl
+if XPIDL
+	$(XPIDL) -m header -o IContentManager -I $(GECKO_IDL_PATH) $(top_srcdir)/src/components/contentManager/IContentManager_gecko_v1.idl
+else
+	$(HEADER_PY) --cachedir=/tmp -o IContentManager.h -I $(GECKO_IDL_PATH) $(top_srcdir)/src/components/contentManager/IContentManager.idl
+endif

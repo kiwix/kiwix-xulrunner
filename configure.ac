@@ -187,10 +187,20 @@ then
 
 	AC_CHECK_TOOL(HAVE_XPIDL, "xpidl", [], $XPIDL_PATH)
 	if test [ "$HAVE_XPIDL" ]
-	then 
+	then
 		AC_PATH_PROG([XPIDL], "xpidl", [],  $XPIDL_PATH)
 	else
-		AC_MSG_ERROR([[cannot find the xpidl binary]])
+		# SDK 0.9 and further do not have an xpidl binary anymore
+		# This is replace by the python script typelib.py and header.py
+		AC_PATH_PROG([PYTHON], "python")			 
+  		if test [ ! "$PYTHON" ]
+		then
+    		     AC_MSG_ERROR([[cannot find python]])
+		fi
+
+		AC_CHECK_FILES([$GECKO_SDK_PATH/sdk/bin/header.py $GECKO_SDK_PATH/sdk/bin/typelib.py], [], AC_MSG_ERROR([[unable to find neither the xpidl binary nor the typelib.py and header.py scripts]]))
+		HEADER_PY="$PYTHON $GECKO_SDK_PATH/sdk/bin/header.py"
+		TYPELIB_PY="$PYTHON $GECKO_SDK_PATH/sdk/bin/typelib.py"
 	fi
 
 	# Configuration for alternative zlib location
@@ -415,6 +425,9 @@ CXXFLAGS="${CXXFLAGS} -std=gnu++0x -fexceptions -DMOZ_CPP_EXCEPTIONS"
 fi
 AC_MSG_RESULT(checking for Gecko version... ${GECKO_VERSION})
 
+# Is xpidl available
+AM_CONDITIONAL([XPIDL], [test "$XPIDL"])
+
 # debug
 AC_ARG_WITH(debug, [  --with-debug-symbols    add debug symbols], CFLAGS="${CFLAGS} -g "; CXXFLAGS="${CXXFLAGS} -g ")
 
@@ -433,6 +446,8 @@ AC_SUBST(LIBXUL_LDFLAGS)
 AC_SUBST(XPCOM_CFLAGS)
 AC_SUBST(XPCOM_LDFLAGS)
 AC_SUBST(XPIDL)
+AC_SUBST(HEADER_PY)
+AC_SUBST(TYPELIB_PY)
 AC_SUBST(GECKO_IDL_PATH)
 AC_SUBST(LIBXAPIAN_CFLAGS)
 AC_SUBST(LIBXAPIAN_LDFLAGS)

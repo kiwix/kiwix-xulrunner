@@ -34,8 +34,10 @@
 
   #include "mozilla/ModuleUtils.h"
   #include "nsIClassInfoImpl.h"
+  #define mozbool bool
 #else
   #include "nsIGenericFactory.h"
+  #define mozbool PRBool
 #endif
 
 #include "IContentManager.h"
@@ -108,7 +110,7 @@ ContentManager::ContentManager() {
 ContentManager::~ContentManager() {
 }
 
-NS_IMETHODIMP ContentManager::OpenLibraryFromFile(const nsAString &path, PRBool readOnly, PRBool *retVal) {
+NS_IMETHODIMP ContentManager::OpenLibraryFromFile(const nsAString &path, mozbool readOnly, mozbool *retVal) {
   *retVal = PR_TRUE;
   bool returnValue = true;
   const char *cPath = strdup(nsStringToCString(path));
@@ -126,7 +128,7 @@ NS_IMETHODIMP ContentManager::OpenLibraryFromFile(const nsAString &path, PRBool 
   return NS_OK;
 }
 
-NS_IMETHODIMP ContentManager::OpenLibraryFromText(const nsACString &xml, PRBool readOnly, PRBool *retVal) {
+NS_IMETHODIMP ContentManager::OpenLibraryFromText(const nsACString &xml, mozbool readOnly, mozbool *retVal) {
   *retVal = PR_TRUE;
   bool returnValue = true;
   const char *cXml;
@@ -144,7 +146,7 @@ NS_IMETHODIMP ContentManager::OpenLibraryFromText(const nsACString &xml, PRBool 
   return NS_OK;
 }
 
-NS_IMETHODIMP ContentManager::WriteLibrary(PRBool *retVal) {
+NS_IMETHODIMP ContentManager::WriteLibrary(mozbool *retVal) {
   *retVal = PR_TRUE;
   bool returnValue = true;
 
@@ -160,7 +162,7 @@ NS_IMETHODIMP ContentManager::WriteLibrary(PRBool *retVal) {
   return NS_OK;
 }
 
-NS_IMETHODIMP ContentManager::WriteLibraryToFile(const nsAString &path, PRBool *retVal) {
+NS_IMETHODIMP ContentManager::WriteLibraryToFile(const nsAString &path, mozbool *retVal) {
   *retVal = PR_TRUE;
   bool returnValue = true;
   const char *cPath = strdup(nsStringToCString(path));
@@ -178,7 +180,7 @@ NS_IMETHODIMP ContentManager::WriteLibraryToFile(const nsAString &path, PRBool *
   return NS_OK;
 }
 
-NS_IMETHODIMP ContentManager::AddBookFromPath(const nsAString &path, PRBool *retVal) {
+NS_IMETHODIMP ContentManager::AddBookFromPath(const nsAString &path, mozbool *retVal) {
   *retVal = PR_TRUE;
   bool returnValue = true;
 
@@ -200,7 +202,7 @@ NS_IMETHODIMP ContentManager::AddBookFromPath(const nsAString &path, PRBool *ret
   return NS_OK;
 }
 
-NS_IMETHODIMP ContentManager::RemoveBookById(const nsACString &id, PRBool *retVal) {
+NS_IMETHODIMP ContentManager::RemoveBookById(const nsACString &id, mozbool *retVal) {
   *retVal = PR_FALSE;
   const char *cid;
   NS_CStringGetData(id, &cid);
@@ -216,7 +218,7 @@ NS_IMETHODIMP ContentManager::RemoveBookById(const nsACString &id, PRBool *retVa
   return NS_OK;
 }
 
-NS_IMETHODIMP ContentManager::SetCurrentBookId(const nsACString &id, PRBool *retVal) {
+NS_IMETHODIMP ContentManager::SetCurrentBookId(const nsACString &id, mozbool *retVal) {
   *retVal = PR_FALSE;
   const char *cid;
   NS_CStringGetData(id, &cid);
@@ -232,7 +234,7 @@ NS_IMETHODIMP ContentManager::SetCurrentBookId(const nsACString &id, PRBool *ret
   return NS_OK;
 }
 
-NS_IMETHODIMP ContentManager::GetCurrentBookId(nsACString &id, PRBool *retVal) {
+NS_IMETHODIMP ContentManager::GetCurrentBookId(nsACString &id, mozbool *retVal) {
   *retVal = PR_FALSE;
   
   try {
@@ -248,7 +250,7 @@ NS_IMETHODIMP ContentManager::GetCurrentBookId(nsACString &id, PRBool *retVal) {
 
 NS_IMETHODIMP ContentManager::GetBookById(const nsACString &id, 
 					  nsACString &path, 
-					  PRBool *relativeLibraryPath,
+					  mozbool *relativeLibraryPath,
 					  nsACString &title,
 					  nsACString &indexPath, 
 					  nsACString &indexType, 
@@ -261,7 +263,7 @@ NS_IMETHODIMP ContentManager::GetBookById(const nsACString &id,
 					  nsACString &date,
 					  nsACString &language, 
 					  nsACString &favicon, 
-					  nsACString &url, PRBool *retVal) {
+					  nsACString &url, mozbool *retVal) {
   *retVal = PR_FALSE;
   const char *cid;
   NS_CStringGetData(id, &cid);
@@ -308,7 +310,7 @@ NS_IMETHODIMP ContentManager::GetBookById(const nsACString &id,
   return NS_OK;
 }
 
-NS_IMETHODIMP ContentManager::UpdateBookLastOpenDateById(const nsACString &id, PRBool *retVal) {
+NS_IMETHODIMP ContentManager::UpdateBookLastOpenDateById(const nsACString &id, mozbool *retVal) {
   *retVal = PR_FALSE;
   const char *cid;
   NS_CStringGetData(id, &cid);
@@ -324,7 +326,7 @@ NS_IMETHODIMP ContentManager::UpdateBookLastOpenDateById(const nsACString &id, P
   return NS_OK;
 }
 
-NS_IMETHODIMP ContentManager::GetBookCount(const PRBool localBooks, const PRBool remoteBooks, PRUint32 *count, PRBool *retVal) {
+NS_IMETHODIMP ContentManager::GetBookCount(const mozbool localBooks, const mozbool remoteBooks, PRUint32 *count, mozbool *retVal) {
   *retVal = PR_TRUE;
   *count = 0;
 
@@ -339,7 +341,7 @@ NS_IMETHODIMP ContentManager::GetBookCount(const PRBool localBooks, const PRBool
 
 NS_IMETHODIMP ContentManager::ListBooks(const nsACString &mode, const nsACString &sortBy, PRUint32 maxSize, 
 					const nsACString &language, const nsACString &creator, 
-					const nsACString &publisher, const nsACString &search, PRBool *retVal) {
+					const nsACString &publisher, const nsACString &search, mozbool *retVal) {
   *retVal = PR_FALSE;
   const char *cmode; NS_CStringGetData(mode, &cmode);
   const char *csortBy; NS_CStringGetData(sortBy, &csortBy);
@@ -385,7 +387,7 @@ NS_IMETHODIMP ContentManager::ListBooks(const nsACString &mode, const nsACString
   return NS_OK;
 }
 
-NS_IMETHODIMP ContentManager::GetListNextBookId(nsACString &id, PRBool *retVal) {
+NS_IMETHODIMP ContentManager::GetListNextBookId(nsACString &id, mozbool *retVal) {
   *retVal = PR_FALSE;
   
   try {
@@ -402,7 +404,7 @@ NS_IMETHODIMP ContentManager::GetListNextBookId(nsACString &id, PRBool *retVal) 
   return NS_OK;
 }
 
-NS_IMETHODIMP ContentManager::SetBookIndex(const nsACString &id, const nsAString &path, const nsACString &indexType, PRBool *retVal) {
+NS_IMETHODIMP ContentManager::SetBookIndex(const nsACString &id, const nsAString &path, const nsACString &indexType, mozbool *retVal) {
   *retVal = PR_FALSE;
 
   const char *cid;
@@ -431,7 +433,7 @@ NS_IMETHODIMP ContentManager::SetBookIndex(const nsACString &id, const nsAString
   return NS_OK;
 }
 
-NS_IMETHODIMP ContentManager::SetBookPath(const nsACString &id, const nsAString &path, PRBool *retVal) {
+NS_IMETHODIMP ContentManager::SetBookPath(const nsACString &id, const nsAString &path, mozbool *retVal) {
   *retVal = PR_FALSE;
 
   const char *cid;
@@ -451,7 +453,7 @@ NS_IMETHODIMP ContentManager::SetBookPath(const nsACString &id, const nsAString 
   return NS_OK;
 }
 
-NS_IMETHODIMP ContentManager::GetBooksLanguages(nsACString &languages, PRBool *retVal) {
+NS_IMETHODIMP ContentManager::GetBooksLanguages(nsACString &languages, mozbool *retVal) {
   *retVal = PR_TRUE;
   string languagesStr = "";
   
@@ -465,7 +467,7 @@ NS_IMETHODIMP ContentManager::GetBooksLanguages(nsACString &languages, PRBool *r
   return NS_OK;
 }
 
-NS_IMETHODIMP ContentManager::GetBooksCreators(nsACString &creators, PRBool *retVal) {
+NS_IMETHODIMP ContentManager::GetBooksCreators(nsACString &creators, mozbool *retVal) {
   *retVal = PR_TRUE;
   string creatorsStr = "";
   
@@ -479,7 +481,7 @@ NS_IMETHODIMP ContentManager::GetBooksCreators(nsACString &creators, PRBool *ret
   return NS_OK;
 }
 
-NS_IMETHODIMP ContentManager::GetBooksPublishers(nsACString &publishers, PRBool *retVal) {
+NS_IMETHODIMP ContentManager::GetBooksPublishers(nsACString &publishers, mozbool *retVal) {
   *retVal = PR_TRUE;
   string publishersStr = "";
   
@@ -493,7 +495,7 @@ NS_IMETHODIMP ContentManager::GetBooksPublishers(nsACString &publishers, PRBool 
   return NS_OK;
 }
 
-NS_IMETHODIMP ContentManager::KillAria2c(PRBool *retVal) {
+NS_IMETHODIMP ContentManager::KillAria2c(mozbool *retVal) {
   *retVal = PR_TRUE;
 
 #ifdef _WIN32
@@ -508,7 +510,7 @@ NS_IMETHODIMP ContentManager::KillAria2c(PRBool *retVal) {
   return NS_OK;
 }
 
-NS_IMETHODIMP ContentManager::IsAria2cRunning(PRBool *retVal) {
+NS_IMETHODIMP ContentManager::IsAria2cRunning(mozbool *retVal) {
   *retVal = PR_FALSE;
 
 #ifdef _WIN32
@@ -543,7 +545,7 @@ NS_IMETHODIMP ContentManager::IsAria2cRunning(PRBool *retVal) {
 }
 
 NS_IMETHODIMP ContentManager::LaunchAria2c(const nsAString &binaryPath, const nsAString &downloadPath, 
-					   const nsAString &logPath, PRBool *retVal) {
+					   const nsAString &logPath, mozbool *retVal) {
   *retVal = PR_TRUE;
   const char *cBinaryPath = strdup(nsStringToCString(binaryPath));
   const char *cDownloadPath = strdup(nsStringToCString(downloadPath));

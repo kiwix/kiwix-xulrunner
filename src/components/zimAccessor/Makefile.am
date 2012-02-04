@@ -24,10 +24,18 @@ libZimAccessor_la_LDFLAGS=$(LIBXUL_LDFLAGS) $(LIBZIM_STATIC_LDFLAGS) $(LIBZIMSEL
 endif
 EXTRA_DIST=IZimAccessor.idl
 BUILT_SOURCES=zimAccessor.xpt IZimAccessor.h
-CLEANFILES=zimAccessor.xpt IZimAccessor.h *.lib *.obj *.dll
+CLEANFILES=zimAccessor.xpt IZimAccessor.h *.lib *.obj *.dll *.in *.xpt *.h
 
 zimAccessor.xpt:
+if XPIDL
 	$(XPIDL) -m typelib -o zimAccessor -I $(GECKO_IDL_PATH) $(top_srcdir)/src/components/zimAccessor/IZimAccessor.idl
+else
+	$(TYPELIB_PY) --cachedir=/tmp -o zimAccessor -I $(GECKO_IDL_PATH) $(top_srcdir)/src/components/zimAccessor/IZimAccessor.idl
+endif
 
 IZimAccessor.h:
+if XPIDL
 	$(XPIDL) -m header -I $(GECKO_IDL_PATH) $(top_srcdir)/src/components/zimAccessor/IZimAccessor.idl
+else
+	$(HEADER_PY) --cachedir=/tmp -o IZimAccessor.h -I $(GECKO_IDL_PATH) $(top_srcdir)/src/components/zimAccessor/IZimAccessor.idl
+endif

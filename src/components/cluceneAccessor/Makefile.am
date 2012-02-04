@@ -21,10 +21,18 @@ libCluceneAccessor_la_LIBADD=$(top_builddir)/src/ctpp2/src/libctpp2.la
 endif
 EXTRA_DIST=ICluceneAccessor.idl
 BUILT_SOURCES=cluceneAccessor.xpt ICluceneAccessor.h
-CLEANFILES=cluceneAccessor.xpt ICluceneAccessor.h *.lib *.obj *.dll
+CLEANFILES=cluceneAccessor.xpt ICluceneAccessor.h *.lib *.obj *.dll *.in *.xpt *.h
 
 cluceneAccessor.xpt: 
+if XPIDL
 	$(XPIDL) -m typelib -o cluceneAccessor -I $(GECKO_IDL_PATH) $(top_srcdir)/src/components/cluceneAccessor/ICluceneAccessor.idl
+else
+	$(TYPELIB_PY) --cachedir=/tmp -o cluceneAccessor -I $(GECKO_IDL_PATH) $(top_srcdir)/src/components/cluceneAccessor/ICluceneAccessor.idl
+endif
 
 ICluceneAccessor.h:
+if XPIDL
 	$(XPIDL) -m header -I $(GECKO_IDL_PATH) $(top_srcdir)/src/components/cluceneAccessor/ICluceneAccessor.idl
+else
+	$(HEADER_PY) --cachedir=/tmp -o ICluceneAccessor.h -I $(GECKO_IDL_PATH) $(top_srcdir)/src/components/cluceneAccessor/ICluceneAccessor.idl
+endif

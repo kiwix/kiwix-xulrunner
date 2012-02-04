@@ -34,8 +34,10 @@
 
   #include "mozilla/ModuleUtils.h"
   #include "nsIClassInfoImpl.h"
+  #define mozbool bool
 #else
   #include "nsIGenericFactory.h"
+  #define mozbool PRBool
 #endif
 
 #include "nsXPCOM.h"
@@ -82,7 +84,7 @@ XapianAccessor::~XapianAccessor() {
 
 /* Open Xapian readable database */
 NS_IMETHODIMP XapianAccessor::OpenReadableDatabase(const nsACString &unixDirectory, 
-						   const nsACString &winDirectory, PRBool *retVal) {
+						   const nsACString &winDirectory, mozbool *retVal) {
   *retVal = PR_TRUE;
   
   const char *directoryPath;
@@ -102,7 +104,7 @@ NS_IMETHODIMP XapianAccessor::OpenReadableDatabase(const nsACString &unixDirecto
 }
 
 NS_IMETHODIMP XapianAccessor::SetResultTemplatePath(const nsACString &unixResultTemplate, 
-						    const nsACString &winResultTemplate, PRBool *retVal) {
+						    const nsACString &winResultTemplate, mozbool *retVal) {
   *retVal = PR_TRUE;
   
   const char *resultTemplatePath;
@@ -122,13 +124,13 @@ NS_IMETHODIMP XapianAccessor::SetResultTemplatePath(const nsACString &unixResult
 }
 
 /* Close Xapian writable database */
-NS_IMETHODIMP XapianAccessor::CloseReadableDatabase(PRBool *retVal) {
+NS_IMETHODIMP XapianAccessor::CloseReadableDatabase(mozbool *retVal) {
   *retVal = PR_TRUE;
   return NS_OK;
 }
 
 /* Search strings in the database */
-NS_IMETHODIMP XapianAccessor::Search(const nsACString &search, PRUint32 resultStart, PRUint32 resultEnd, PRBool *retVal) {
+NS_IMETHODIMP XapianAccessor::Search(const nsACString &search, PRUint32 resultStart, PRUint32 resultEnd, mozbool *retVal) {
   *retVal = PR_TRUE;
   const char *csearch;
   NS_CStringGetData(search, &csearch, NULL);
@@ -145,7 +147,7 @@ NS_IMETHODIMP XapianAccessor::Search(const nsACString &search, PRUint32 resultSt
 }
 
 /* Reset the results */
-NS_IMETHODIMP XapianAccessor::Reset(PRBool *retVal) {
+NS_IMETHODIMP XapianAccessor::Reset(mozbool *retVal) {
   *retVal = PR_TRUE;
 
   try {
@@ -159,7 +161,7 @@ NS_IMETHODIMP XapianAccessor::Reset(PRBool *retVal) {
 }
 
 /* Return the result as HTML */
-NS_IMETHODIMP XapianAccessor::GetHtml(nsACString &html, PRBool *retVal) {
+NS_IMETHODIMP XapianAccessor::GetHtml(nsACString &html, mozbool *retVal) {
   *retVal = PR_TRUE;
 
   try {
@@ -176,7 +178,7 @@ NS_IMETHODIMP XapianAccessor::GetHtml(nsACString &html, PRBool *retVal) {
 
 /* Get next result */
 NS_IMETHODIMP XapianAccessor::GetNextResult(nsACString &url, nsACString &title, 
-					    PRUint32 *score, PRBool *retVal) {
+					    PRUint32 *score, mozbool *retVal) {
   *retVal = PR_FALSE;
   std::string urlStr;
   std::string titleStr;

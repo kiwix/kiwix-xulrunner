@@ -34,8 +34,10 @@
 
   #include "mozilla/ModuleUtils.h"
   #include "nsIClassInfoImpl.h"
+  #define moztool bool
 #else
   #include "nsIGenericFactory.h"
+  #define moztool PRBool
 #endif
 
 #include "IZimXapianIndexer.h"
@@ -87,7 +89,7 @@ NS_IMETHODIMP ZimXapianIndexer::StartIndexing(const nsACString &unixZimFilePath,
 					      const nsACString &winZimFilePath, 
 					      const nsACString &unixXapianDirectoryPath, 
 					      const nsACString &winXapianDirectoryPath, 
-					      PRBool *retVal) {
+					      moztool *retVal) {
 
   *retVal = PR_FALSE;
 
@@ -115,7 +117,7 @@ NS_IMETHODIMP ZimXapianIndexer::StartIndexing(const nsACString &unixZimFilePath,
 }
 
 /* Index next percent */
-NS_IMETHODIMP ZimXapianIndexer::IndexNextPercent(PRBool *retVal) {
+NS_IMETHODIMP ZimXapianIndexer::IndexNextPercent(moztool *retVal) {
   *retVal = PR_FALSE;
 
   try {
@@ -130,7 +132,7 @@ NS_IMETHODIMP ZimXapianIndexer::IndexNextPercent(PRBool *retVal) {
 }
 
 /* Stop indexing. TODO: using it crashs the soft under windows. Have to do it in indexNextPercent() */
-NS_IMETHODIMP ZimXapianIndexer::StopIndexing(PRBool *retVal) {
+NS_IMETHODIMP ZimXapianIndexer::StopIndexing(moztool *retVal) {
   *retVal = PR_TRUE;
   return NS_OK;
 }

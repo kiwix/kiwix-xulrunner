@@ -34,8 +34,10 @@
 
   #include "mozilla/ModuleUtils.h"
   #include "nsIClassInfoImpl.h"
+  #define mozbool bool
 #else
   #include "nsIGenericFactory.h"
+  #define mozbool PRBool
 #endif
 
 #include "nsXPCOM.h"
@@ -81,7 +83,7 @@ CluceneAccessor::~CluceneAccessor() {
 }
 
 /* Open Clucene readable database */
-NS_IMETHODIMP CluceneAccessor::OpenReadableDatabase(const nsACString &unixDirectory, const nsACString &winDirectory, PRBool *retVal) {
+NS_IMETHODIMP CluceneAccessor::OpenReadableDatabase(const nsACString &unixDirectory, const nsACString &winDirectory, mozbool *retVal) {
   *retVal = PR_TRUE;
 
   const char *directoryPath;
@@ -101,13 +103,13 @@ NS_IMETHODIMP CluceneAccessor::OpenReadableDatabase(const nsACString &unixDirect
 }
 
 /* Close Clucene writable database */
-NS_IMETHODIMP CluceneAccessor::CloseReadableDatabase(PRBool *retVal) {
+NS_IMETHODIMP CluceneAccessor::CloseReadableDatabase(mozbool *retVal) {
   *retVal = PR_TRUE;
   return NS_OK;
 }
 
 /* Search strings in the database */
-NS_IMETHODIMP CluceneAccessor::Search(const nsACString &search, PRUint32 resultStart, PRUint32 resultEnd, PRBool *retVal) {
+NS_IMETHODIMP CluceneAccessor::Search(const nsACString &search, PRUint32 resultStart, PRUint32 resultEnd, mozbool *retVal) {
   *retVal = PR_TRUE;
   const char *csearch;
   NS_CStringGetData(search, &csearch, NULL);
@@ -124,7 +126,7 @@ NS_IMETHODIMP CluceneAccessor::Search(const nsACString &search, PRUint32 resultS
 }
 
 /* Reset the results */
-NS_IMETHODIMP CluceneAccessor::Reset(PRBool *retVal) {
+NS_IMETHODIMP CluceneAccessor::Reset(mozbool *retVal) {
   *retVal = PR_TRUE;
 
   try {
@@ -139,7 +141,7 @@ NS_IMETHODIMP CluceneAccessor::Reset(PRBool *retVal) {
 
 /* Get next result */
 NS_IMETHODIMP CluceneAccessor::GetNextResult(nsACString &url, nsACString &title, 
-					    PRUint32 *score, PRBool *retVal) {
+					    PRUint32 *score, mozbool *retVal) {
   *retVal = PR_FALSE;
   std::string urlStr;
   std::string titleStr;
