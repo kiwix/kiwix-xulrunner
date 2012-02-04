@@ -315,7 +315,7 @@ function getDownloadStatus() {
 		    /* Show the notifications */
   		    var callback = function(subject, topic, data) {  
 			if (topic == "alertfinished")
-			    sendNotification(getProperty("feedback"), "Help us! Why did you downloaded '" + book.title + "'?", 
+			    sendNotification(getProperty("feedback"), "Help us! Why did you download '" + book.title + "'?", 
 					     "http://input.kiwix.org/whycontent.html?version=" + book.url);
 		    };
 		    sendNotification(getProperty("information"), getProperty("contentDownloadFinished",  book.title), 
