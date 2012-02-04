@@ -10,7 +10,8 @@ Kiwix 0.9 beta6
   Bulgarian (bg), Faroese (fo), Croatian (hr), Iloko (ilo), Limburgish (li), 
   Lithuanian (lt), Basa Banyumasan (map-bms), Oriya (or), Pashto (ps), 
   Slovak (sk), Bachkir (ba), Welsh (cy), yiddish (yi), Wolof (yo), 
-  Chinese (Hong Kong)(zh-hk), Albanese (sq)
+  Chinese (Hong Kong)(zh-hk), Albanese (sq), Assamese (as), Kannada (kn),
+  Quechua (qu), Tulu (tcy)
 * NEW: ALT+D shortcut to focus the searchbar (ID: 3475647)
 * NEW: --current option to "add" command in kiwix-manage to set the ZIM file a current
 * NEW: --noCheck option to "add" command in kiwix-manage to avoid any ZIM quality check

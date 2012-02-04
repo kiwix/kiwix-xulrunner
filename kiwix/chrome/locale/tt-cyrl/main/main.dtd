@@ -7,7 +7,7 @@
 <!ENTITY main.file.accesskey            "F">
 <!ENTITY main.openFile                  "Файлны ачу ...">
 <!ENTITY main.browseLibrary.accesskey   "B">
-<!ENTITY main.browseLibrary             "Browse library">
+<!ENTITY main.browseLibrary             "Китапханәне карау">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "Озак түгел ачылганнар ...">
 <!ENTITY main.saveFile                  "Битне саклау форматы ...">
@@ -70,7 +70,7 @@
 <!-- Help menu -->
 <!ENTITY main.help                      "Ярдәм">
 <!ENTITY main.help.accesskey            "H">
-<!ENTITY main.feedback                  "Feedback">
+<!ENTITY main.feedback                  "Аралашу">
 <!ENTITY main.reportabug                "Хата барлыгын әйтү">
 <!ENTITY main.requestafeature           "Функция сорау">
 <!ENTITY main.about                     "&brand.brandShortName; турында">
@@ -101,8 +101,8 @@
 
 <!-- Contextual Menu -->
 <!ENTITY main.saveImageAs               "Рәсем саклау форматы ...">
-<!ENTITY main.openLinkInNewTab          "Open link in new tab">
-<!ENTITY main.searchFor                 "Search for">
+<!ENTITY main.openLinkInNewTab          "Сылтаманы яңа тәрәзәдә ачу">
+<!ENTITY main.searchFor                 "Эзләү">
 <!ENTITY main.copyLinkAdress            "Copy link address">
 
 <!-- About Window -->
@@ -117,21 +117,21 @@
 <!ENTITY preferences.tabs               "Remember tabs">
 
 <!-- Library -->
-<!ENTITY main.library.myLibrary                 "My library">
-<!ENTITY main.library.getNewFiles               "Get new files">
-<!ENTITY main.library.searchZimFiles            "Search ZIM files">
-<!ENTITY main.library.sortBy                    "Sort by">
-<!ENTITY main.library.sortBy.title              "Title">
-<!ENTITY main.library.sortBy.size               "Size">
-<!ENTITY main.library.sortBy.date               "Date">
-<!ENTITY main.library.sortBy.author             "Author">
-<!ENTITY main.library.sortBy.publisher          "Publisher">
-<!ENTITY main.library.filterBy                  "Filter by">
-<!ENTITY main.library.filterBy.fileSize         "File size">
-<!ENTITY main.library.filterBy.language         "Language">
-<!ENTITY main.library.filterBy.language.all     "All">
-<!ENTITY main.library.filterBy.author           "Author">
-<!ENTITY main.library.filterBy.author.all       "All">
-<!ENTITY main.library.filterBy.publisher        "Publisher">
-<!ENTITY main.library.filterBy.publisher.all    "All">
+<!ENTITY main.library.myLibrary                 "Минем китапханә">
+<!ENTITY main.library.getNewFiles               "Яңа файллар алу">
+<!ENTITY main.library.searchZimFiles            "ZIM-файлларны эзләү">
+<!ENTITY main.library.sortBy                    "Сирәкләү төре:">
+<!ENTITY main.library.sortBy.title              "Башлам">
+<!ENTITY main.library.sortBy.size               "Үлчәм">
+<!ENTITY main.library.sortBy.date               "Дата">
+<!ENTITY main.library.sortBy.author             "Автор">
+<!ENTITY main.library.sortBy.publisher          "Нәшрият">
+<!ENTITY main.library.filterBy                  "Фильтрлау төре:">
+<!ENTITY main.library.filterBy.fileSize         "Файлның зурлыгы">
+<!ENTITY main.library.filterBy.language         "Тел">
+<!ENTITY main.library.filterBy.language.all     "Барысы">
+<!ENTITY main.library.filterBy.author           "Автор">
+<!ENTITY main.library.filterBy.author.all       "Барысы">
+<!ENTITY main.library.filterBy.publisher        "Нәшрият">
+<!ENTITY main.library.filterBy.publisher.all    "Барысы">
 

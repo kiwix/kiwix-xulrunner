@@ -7,10 +7,10 @@
 <!ENTITY main.file.accesskey            "F">
 <!ENTITY main.openFile                  "Отваряне на файл...">
 <!ENTITY main.browseLibrary.accesskey   "B">
-<!ENTITY main.browseLibrary             "Преглед на библиотека">
+<!ENTITY main.browseLibrary             "Разглеждане на библиотеката">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "Последно отваряни...">
-<!ENTITY main.saveFile                  "Записване на страницата като...">
+<!ENTITY main.saveFile                  "Съхраняване на страницата като...">
 <!ENTITY main.saveFile.accesskey        "S">
 <!ENTITY main.print                     "Отпечатване">
 <!ENTITY main.print.accesskey           "P">
@@ -52,7 +52,7 @@
 <!ENTITY main.statusbar.accesskey       "S">
 <!ENTITY main.resultsbar                "Лента с резултатите">
 <!ENTITY main.resultsbar.accesskey      "R">
-<!ENTITY main.tabs                      "Раздели">
+<!ENTITY main.tabs                      "Табове">
 <!ENTITY main.tabs.accesskey            "T">
 <!ENTITY main.fullscreen                "Цял екран">
 <!ENTITY main.fullscreen.accesskey      "F">
@@ -72,8 +72,8 @@
 <!ENTITY main.help.accesskey            "H">
 <!ENTITY main.feedback                  "Обратна връзка">
 <!ENTITY main.reportabug                "Съобщаване за грешка">
-<!ENTITY main.requestafeature           "Заявяване на характеристики">
-<!ENTITY main.about                     "За &brand.brandShortName;">
+<!ENTITY main.requestafeature           "Искане за нова функционалност">
+<!ENTITY main.about                     "Относно &brand.brandShortName;">
 <!ENTITY main.about.accesskey           "A">
 
 <!-- Tool bar -->
@@ -92,17 +92,17 @@
 <!-- Bookmarks Bar -->
 <!ENTITY main.bmkLabel                  "Отметки:">
 <!ENTITY main.notesLabel                "Бележки към отметките:">
-<!ENTITY main.loadbmk                   "Импортиране на група отметки">
+<!ENTITY main.loadbmk                   "Внасяне на група отметки">
 <!ENTITY main.newbmk                    "Създаване на нова група отметки">
-<!ENTITY main.mark                      "Маркиране на тази страница">
+<!ENTITY main.mark                      "Отбелязване на тази страница">
 <!ENTITY main.unmark                    "Отмаркиране на избраното">
 <!ENTITY main.reload                    "Презареждане на група отметки">
 <!ENTITY main.defaultset                "Група по подразбиране">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveImageAs               "Записване на изображението като...">
-<!ENTITY main.openLinkInNewTab          "Отваряне на връзката в нов раздел">
-<!ENTITY main.searchFor                 "Търсене на">
+<!ENTITY main.saveImageAs               "Съхраняване на изображението като...">
+<!ENTITY main.openLinkInNewTab          "Отваряне на препратката в нов раздел">
+<!ENTITY main.searchFor                 "Търсене">
 <!ENTITY main.copyLinkAdress            "Copy link address">
 
 <!-- About Window -->

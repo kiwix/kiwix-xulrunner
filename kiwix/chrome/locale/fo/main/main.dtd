@@ -36,7 +36,7 @@
 <!-- Display menu -->
 <!ENTITY main.display                   "Vís">
 <!ENTITY main.display.accesskey         "D">
-<!ENTITY main.zoom                      "Zoom">
+<!ENTITY main.zoom                      "Mynddráttur (zoom)">
 <!ENTITY main.zoom.accesskey            "Z">
 <!ENTITY main.zoomin                    "Ger størri">
 <!ENTITY main.zoomin.accesskey          "M">
@@ -52,7 +52,7 @@
 <!ENTITY main.statusbar.accesskey       "S">
 <!ENTITY main.resultsbar                "Úrslit teigur">
 <!ENTITY main.resultsbar.accesskey      "R">
-<!ENTITY main.tabs                      "Tabs">
+<!ENTITY main.tabs                      "Flykrur (tabs)">
 <!ENTITY main.tabs.accesskey            "T">
 <!ENTITY main.fullscreen                "Fullan skerm">
 <!ENTITY main.fullscreen.accesskey      "F">
@@ -91,18 +91,18 @@
 
 <!-- Bookmarks Bar -->
 <!ENTITY main.bmkLabel                  "Bókamerki:">
-<!ENTITY main.notesLabel                "Bookmark notes:">
-<!ENTITY main.loadbmk                   "Import Bookmark Set">
-<!ENTITY main.newbmk                    "Create new Bookmark Set">
+<!ENTITY main.notesLabel                "Bókamerki viðmerkingar:">
+<!ENTITY main.loadbmk                   "Flyt inn bókamerkissamling">
+<!ENTITY main.newbmk                    "Upprætta nýggja Bókamerkis Samling">
 <!ENTITY main.mark                      "Markera hesa síðu">
 <!ENTITY main.unmark                    "Tak burtur markeringarnar">
-<!ENTITY main.reload                    "Reload Bookmark Set">
-<!ENTITY main.defaultset                "Default Set">
+<!ENTITY main.reload                    "Endurinnles Bókamerkis Samling">
+<!ENTITY main.defaultset                "Standarsamling">
 
 <!-- Contextual Menu -->
 <!ENTITY main.saveImageAs               "Goym mynd sum...">
-<!ENTITY main.openLinkInNewTab          "Open link in new tab">
-<!ENTITY main.searchFor                 "Search for">
+<!ENTITY main.openLinkInNewTab          "Lat upp leinkju í nýggjari flykru (tab)">
+<!ENTITY main.searchFor                 "Leita eftir">
 <!ENTITY main.copyLinkAdress            "Copy link address">
 
 <!-- About Window -->

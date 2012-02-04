@@ -1,0 +1,137 @@
+<!-- Window -->
+<!ENTITY main.title                     "&brand.brandShortName;">
+<!ENTITY main.cssdirection              "ltr">
+
+<!-- File menu -->
+<!ENTITY main.file                      "ಕಡತ">
+<!ENTITY main.file.accesskey            "F">
+<!ENTITY main.openFile                  "ಕಡತ ಬಿಚ್ಚಾಲೆ">
+<!ENTITY main.browseLibrary.accesskey   "B">
+<!ENTITY main.browseLibrary             "ಗ್ರಂಥಾಲಯಡ್ ನಾಡ್‘ಲೆ">
+<!ENTITY main.openFile.accesskey        "O">
+<!ENTITY main.lastOpen                  "ಇಂಚಿಪ ಬಿಚ್ಚಾಯಿನ">
+<!ENTITY main.saveFile                  "ಇಂಚ ಪುಟನ್ ಒರಿಪಾಲೆ">
+<!ENTITY main.saveFile.accesskey        "S">
+<!ENTITY main.print                     "ಅಚ್ಚ್ ಮಲ್ಪುಲೆ">
+<!ENTITY main.print.accesskey           "P">
+<!ENTITY main.printPdf                  "ಪಿ.ಡಿ.ಎಫ್.ಡ್ ಅಚ್ಚ್ ಮಲ್ಪುಲೆ">
+<!ENTITY main.printPdf.accesskey        "D">
+<!ENTITY main.quit                      "ತ್ಯಜಿಸಾಲೆ">
+<!ENTITY main.quit.accesskey            "Q">
+
+<!-- Edit menu -->
+<!ENTITY main.edit                      "ಸಂಪಾದನೆ ಮಲ್ಪುಲೆ">
+<!ENTITY main.edit.accesskey            "E">
+<!ENTITY main.find                      ".....ಈ ಪುಟೊಟ್ ನಾಡ್‘ಲೆ">
+<!ENTITY main.find.accesskey            "S">
+<!ENTITY main.selectall                 "ಮಾತೈನ್‘ಲಾ ಆಯ್ಕೆ ಮಲ್ಪುಲೆ">
+<!ENTITY main.selectall.accesskey       "a">
+<!ENTITY main.copy                      "ನಕಲ್ ಮಲ್ಪುಲೆ">
+<!ENTITY main.copy.accesskey            "p">
+<!ENTITY main.transliteration           "Transliteration">
+<!ENTITY main.transliteration.accesskey "T">
+<!ENTITY main.preferences               "ಪ್ರಾಶಸ್ತ್ಯೊಲು">
+<!ENTITY main.preferences.accesskey     "n">
+
+<!-- Display menu -->
+<!ENTITY main.display                   "ಪ್ರದರ್ಶಿಸಾಲೆ">
+<!ENTITY main.display.accesskey         "D">
+<!ENTITY main.zoom                      "ಮಲ್ಲ ಮಲ್ಪುಲೆ">
+<!ENTITY main.zoom.accesskey            "Z">
+<!ENTITY main.zoomin                    "ವರ್ಧಿಸಾಲೆ">
+<!ENTITY main.zoomin.accesskey          "M">
+<!ENTITY main.zoomout                   "ಕಡಿಮೆ ಮಲ್ಪುಲೆ">
+<!ENTITY main.zoomout.accesskey         "R">
+<!ENTITY main.zoomorig                  "ನಿಜಾವಾಯಿನ ಗಾತ್ರ">
+<!ENTITY main.zoomorig.accesskey        "O">
+<!ENTITY main.language                  "ಭಾಷೆ">
+<!ENTITY main.language.accesskey        "L">
+<!ENTITY main.skin                      "ಸ್ಕಿನ್">
+<!ENTITY main.skin.accesskey            "S">
+<!ENTITY main.statusbar                 "ಸ್ಥಿತಿ ಪತ್ರಿಕೆ">
+<!ENTITY main.statusbar.accesskey       "S">
+<!ENTITY main.resultsbar                "ಪಲಿತಾಂಶ ಪತ್ರಿಕೆ">
+<!ENTITY main.resultsbar.accesskey      "R">
+<!ENTITY main.tabs                      "ತೂಗು ಪಟ್ಟಿಲು">
+<!ENTITY main.tabs.accesskey            "T">
+<!ENTITY main.fullscreen                "ಪೂರ್ಣ ಪರದೆ">
+<!ENTITY main.fullscreen.accesskey      "F">
+
+<!-- Tools menu -->
+<!ENTITY main.tools                     "ಉಪಕರಣೊಲು">
+<!ENTITY main.tools.accesskey           "T">
+<!ENTITY main.randomArticle             "ಒಟ್ಟಾರೆ ಲೇಖನೊಲು">
+<!ENTITY main.randomArticle.accesskey   "R">
+<!ENTITY main.checkIntegrity            "ಸಮಗ್ರತೆದ ಪರೀಕ್ಶೆ">
+<!ENTITY main.checkIntegrity.accesskey  "k">
+<!ENTITY main.purgeHistory              "ಚರಿತ್ರೆನ್ ಪಿದಾಯಿ ಪಾಡ್">
+<!ENTITY main.purgeHistory.accesskey    "P">
+
+<!-- Help menu -->
+<!ENTITY main.help                      "ಸಹಾಯ">
+<!ENTITY main.help.accesskey            "H">
+<!ENTITY main.feedback                  "ಮರು ಮಾಹಿತಿ">
+<!ENTITY main.reportabug                "ತೊಂದರೆನ್ ತೆರಿಪಾಲೆ">
+<!ENTITY main.requestafeature           "ಒಂಜಿ ವಿಶೇಷ ಬರಹನ್ ಕೇನ್ಲೆ">
+<!ENTITY main.about                     "About &brand.brandShortName;">
+<!ENTITY main.about.accesskey           "A">
+
+<!-- Tool bar -->
+<!ENTITY main.back                      "ಪಿರ">
+<!ENTITY main.forward                   "ದುಂಬು">
+<!ENTITY main.home                      "ನಿಲೆ">
+<!ENTITY main.searchBar                 "ನಾಡ್‘ನ ಪಟ್ಟಿ">
+<!ENTITY main.search                    "ನಾಡ್‘ಲೆ">
+<!ENTITY main.findInText                "ಪಠ್ಯಡ್ ತೂಲೆ">
+<!ENTITY main.noSearchBar               "ನಾಡ್ಯೆರ ಇಂಡೆಕ್ಸ್ ಮಲ್ಪ್ತಿನ ZIM ಕಡತ ಬೋಡು">
+<!ENTITY main.bookmarks                 "ಪುಟತ ಗುರುತು">
+
+<!-- Results bar -->
+<!ENTITY main.results.title             "ನಾಡಾಟದ ಪಲಿತಾಂಶೊಲು">
+
+<!-- Bookmarks Bar -->
+<!ENTITY main.bmkLabel                  "ಪುಟತ ಗುರುತು">
+<!ENTITY main.notesLabel                "ಪುಟೊತ ಗುರುತ್‘ದ ಟಿಪ್ಪಣಿ">
+<!ENTITY main.loadbmk                   "ಪುಟೊತ ಗುರುತ್‘ಲೆನ್ ಆಮದು ಮಲ್ಪುಲೆ">
+<!ENTITY main.newbmk                    "ಪೊಸ ಪುಟೊತ ಗುರುತುಲೆನ್ ಸೃಷ್ಠಿ ಮಲ್ಪುಲೆ">
+<!ENTITY main.mark                      "ಈ ಪುಟೊನ್ ಗುರುತು ಮಲ್ಪುಲೆ">
+<!ENTITY main.unmark                    "ಆಯ್ಕೆ ಮಲ್ಥ್‘ನೈನ ಗುರುತ್ ಅಳಿಸಾಲೆ">
+<!ENTITY main.reload                    "ಪುಟೊತ ಗುರುತುಲೆನ ಗುಂಪುನ್ ಪಿರ ದಿಂಜಾಲೆ">
+<!ENTITY main.defaultset                "ಇತ್ತೆ ಉಪ್ಪುನ ವ್ಯವಸ್ಥೆಲೆನ ಗುಂಪು">
+
+<!-- Contextual Menu -->
+<!ENTITY main.saveImageAs               "ಇಂಚ ಪುಟನ್ ಒರಿಪಾಲೆ">
+<!ENTITY main.openLinkInNewTab          "ಪೊಸ ಪಟ್ಟಿಡ್ ಕೊಂಡಿ ಬಿಚ್ಚಾಲೆ">
+<!ENTITY main.searchFor                 "ನಾಡ್ಲೆ...">
+<!ENTITY main.copyLinkAdress            "Copy link address">
+
+<!-- About Window -->
+<!ENTITY main.close                     "ಮುಚ್ಚಿಲೆ">
+
+<!-- Preferences Window -->
+<!ENTITY preferences.preferences        "Preferences">
+<!ENTITY preferences.save               "Save">
+<!ENTITY preferences.cancel             "Cancel">
+<!ENTITY preferences.profileDirectory   "Profile directory">
+<!ENTITY preferences.browse             "Browse">
+<!ENTITY preferences.tabs               "Remember tabs">
+
+<!-- Library -->
+<!ENTITY main.library.myLibrary                 "ಎನ್ನ ಗ್ರಂಥಾಲಯ">
+<!ENTITY main.library.getNewFiles               "ಪೊಸ ಕಡತನ್ ಪಡೆಲೆ">
+<!ENTITY main.library.searchZimFiles            "ZIM ಕಡತನ್ ನಾಡ್ಲೆ">
+<!ENTITY main.library.sortBy                    "ಪ್ರಕಾರ  ವಿಂಗಡಣೆ ಮಲ್ಪುಲೆ">
+<!ENTITY main.library.sortBy.title              "ಶೀರ್ಷಿಕೆ">
+<!ENTITY main.library.sortBy.size               "ಗಾತ್ರೊ">
+<!ENTITY main.library.sortBy.date               "ದಿನಾಂಕ">
+<!ENTITY main.library.sortBy.author             "ಬರೆನಾರ್">
+<!ENTITY main.library.sortBy.publisher          "ಪ್ರಕಾಶಕೆ">
+<!ENTITY main.library.filterBy                  "ಶೋಧನೆ ಮಲ್ಪುಲೆ">
+<!ENTITY main.library.filterBy.fileSize         "ಕಡತದ ಗಾತ್ರೊ">
+<!ENTITY main.library.filterBy.language         "ಭಾಷೆ">
+<!ENTITY main.library.filterBy.language.all     "ಮಾತಾ">
+<!ENTITY main.library.filterBy.author           "ಬರೆನಾರ್">
+<!ENTITY main.library.filterBy.author.all       "ಮಾತಾ">
+<!ENTITY main.library.filterBy.publisher        "ಪ್ರಕಾಶಕೆ">
+<!ENTITY main.library.filterBy.publisher.all    "ಮಾತಾ">
+

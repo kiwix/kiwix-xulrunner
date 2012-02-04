@@ -73,7 +73,7 @@
 <!ENTITY main.feedback                  "Feedback">
 <!ENTITY main.reportabug                "د تېروتنې راپور ورکول">
 <!ENTITY main.requestafeature           "د يوې ځانګړنې غوښتنه">
-<!ENTITY main.about                     "About &brand.brandShortName;">
+<!ENTITY main.about                     "د سوداګريزې نخښې لنډ سوداګريز نوم په اړه؛">
 <!ENTITY main.about.accesskey           "A">
 
 <!-- Tool bar -->
@@ -101,7 +101,7 @@
 
 <!-- Contextual Menu -->
 <!ENTITY main.saveImageAs               "انځور خوندي کول لکه...">
-<!ENTITY main.openLinkInNewTab          "Open link in new tab">
+<!ENTITY main.openLinkInNewTab          "تړنه په نوې کړکۍ کې پرانيستل">
 <!ENTITY main.searchFor                 "پلټل">
 <!ENTITY main.copyLinkAdress            "Copy link address">
 

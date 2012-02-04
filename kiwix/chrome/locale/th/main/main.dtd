@@ -7,7 +7,7 @@
 <!ENTITY main.file.accesskey            "F">
 <!ENTITY main.openFile                  "เปิดแฟ้ม...">
 <!ENTITY main.browseLibrary.accesskey   "B">
-<!ENTITY main.browseLibrary             "Browse library">
+<!ENTITY main.browseLibrary             "เปิดดูคลังดาวน์โหลด">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "เปิดล่าสุด...">
 <!ENTITY main.saveFile                  "บันทึกหน้าเป็น...">
@@ -70,7 +70,7 @@
 <!-- Help menu -->
 <!ENTITY main.help                      "วิธีใช้">
 <!ENTITY main.help.accesskey            "H">
-<!ENTITY main.feedback                  "Feedback">
+<!ENTITY main.feedback                  "คำติชม">
 <!ENTITY main.reportabug                "รายงานข้อผิดพลาด">
 <!ENTITY main.requestafeature           "แนะนำคุณสมบัติ">
 <!ENTITY main.about                     "เกี่ยวกับ &brand.brandShortName;">
@@ -101,8 +101,8 @@
 
 <!-- Contextual Menu -->
 <!ENTITY main.saveImageAs               "บันทึกภาพเป็น...">
-<!ENTITY main.openLinkInNewTab          "Open link in new tab">
-<!ENTITY main.searchFor                 "Search for">
+<!ENTITY main.openLinkInNewTab          "เปิดลิงค์ในแท็บใหม่">
+<!ENTITY main.searchFor                 "ค้นหาเกี่ยวกับคำนี้">
 <!ENTITY main.copyLinkAdress            "Copy link address">
 
 <!-- About Window -->
@@ -117,21 +117,21 @@
 <!ENTITY preferences.tabs               "Remember tabs">
 
 <!-- Library -->
-<!ENTITY main.library.myLibrary                 "My library">
-<!ENTITY main.library.getNewFiles               "Get new files">
-<!ENTITY main.library.searchZimFiles            "Search ZIM files">
-<!ENTITY main.library.sortBy                    "Sort by">
-<!ENTITY main.library.sortBy.title              "Title">
-<!ENTITY main.library.sortBy.size               "Size">
-<!ENTITY main.library.sortBy.date               "Date">
-<!ENTITY main.library.sortBy.author             "Author">
-<!ENTITY main.library.sortBy.publisher          "Publisher">
-<!ENTITY main.library.filterBy                  "Filter by">
-<!ENTITY main.library.filterBy.fileSize         "File size">
-<!ENTITY main.library.filterBy.language         "Language">
-<!ENTITY main.library.filterBy.language.all     "All">
-<!ENTITY main.library.filterBy.author           "Author">
-<!ENTITY main.library.filterBy.author.all       "All">
-<!ENTITY main.library.filterBy.publisher        "Publisher">
-<!ENTITY main.library.filterBy.publisher.all    "All">
+<!ENTITY main.library.myLibrary                 "คลังดาวน์โหลดของฉัน">
+<!ENTITY main.library.getNewFiles               "ดึงไฟล์ใหม่">
+<!ENTITY main.library.searchZimFiles            "ค้นหาไฟล์ ZIM">
+<!ENTITY main.library.sortBy                    "จัดเรียงโดย">
+<!ENTITY main.library.sortBy.title              "ชื่อเรื่อง">
+<!ENTITY main.library.sortBy.size               "ขนาด">
+<!ENTITY main.library.sortBy.date               "วันที่">
+<!ENTITY main.library.sortBy.author             "ผู้แต่ง">
+<!ENTITY main.library.sortBy.publisher          "ผู้เผยแพร่">
+<!ENTITY main.library.filterBy                  "กรองข้อมูลโดย">
+<!ENTITY main.library.filterBy.fileSize         "ขนาดไฟล์">
+<!ENTITY main.library.filterBy.language         "ภาษา">
+<!ENTITY main.library.filterBy.language.all     "ทั้งหมด">
+<!ENTITY main.library.filterBy.author           "ผู้แต่ง">
+<!ENTITY main.library.filterBy.author.all       "ทั้งหมด">
+<!ENTITY main.library.filterBy.publisher        "ผู้เผยแพร่">
+<!ENTITY main.library.filterBy.publisher.all    "ทั้งหมด">
 

@@ -7,7 +7,7 @@
 <!ENTITY main.file.accesskey            "F">
 <!ENTITY main.openFile                  "گشودن پرونده...">
 <!ENTITY main.browseLibrary.accesskey   "B">
-<!ENTITY main.browseLibrary             "Browse library">
+<!ENTITY main.browseLibrary             "مرور کتابخانه">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "اخیراً گشوده شده...">
 <!ENTITY main.saveFile                  "...ذخیره صفحه به عنوان">
@@ -70,7 +70,7 @@
 <!-- Help menu -->
 <!ENTITY main.help                      "کمک">
 <!ENTITY main.help.accesskey            "H">
-<!ENTITY main.feedback                  "Feedback">
+<!ENTITY main.feedback                  "بازخورد">
 <!ENTITY main.reportabug                "گزارش یک اشکال">
 <!ENTITY main.requestafeature           "درخواست یک ویژگی">
 <!ENTITY main.about                     "درباره علامت تجاری.نام کوتاه تجاری;">
@@ -101,8 +101,8 @@
 
 <!-- Contextual Menu -->
 <!ENTITY main.saveImageAs               "...ذخیره عکس به صورت">
-<!ENTITY main.openLinkInNewTab          "Open link in new tab">
-<!ENTITY main.searchFor                 "Search for">
+<!ENTITY main.openLinkInNewTab          "بازکردن پیوند در زبانهٔ جدید">
+<!ENTITY main.searchFor                 "جستجو برای">
 <!ENTITY main.copyLinkAdress            "Copy link address">
 
 <!-- About Window -->
@@ -117,21 +117,21 @@
 <!ENTITY preferences.tabs               "Remember tabs">
 
 <!-- Library -->
-<!ENTITY main.library.myLibrary                 "My library">
-<!ENTITY main.library.getNewFiles               "Get new files">
-<!ENTITY main.library.searchZimFiles            "Search ZIM files">
-<!ENTITY main.library.sortBy                    "Sort by">
-<!ENTITY main.library.sortBy.title              "Title">
-<!ENTITY main.library.sortBy.size               "Size">
-<!ENTITY main.library.sortBy.date               "Date">
-<!ENTITY main.library.sortBy.author             "Author">
-<!ENTITY main.library.sortBy.publisher          "Publisher">
-<!ENTITY main.library.filterBy                  "Filter by">
-<!ENTITY main.library.filterBy.fileSize         "File size">
-<!ENTITY main.library.filterBy.language         "Language">
-<!ENTITY main.library.filterBy.language.all     "All">
-<!ENTITY main.library.filterBy.author           "Author">
-<!ENTITY main.library.filterBy.author.all       "All">
-<!ENTITY main.library.filterBy.publisher        "Publisher">
-<!ENTITY main.library.filterBy.publisher.all    "All">
+<!ENTITY main.library.myLibrary                 "کتابخانهٔ من">
+<!ENTITY main.library.getNewFiles               "دریافت پرونده‌های جدید">
+<!ENTITY main.library.searchZimFiles            "جستجو برای پرونده‌های ZIM">
+<!ENTITY main.library.sortBy                    "مرتب‌سازی بر اساس">
+<!ENTITY main.library.sortBy.title              "عنوان">
+<!ENTITY main.library.sortBy.size               "اندازه">
+<!ENTITY main.library.sortBy.date               "تاریخ">
+<!ENTITY main.library.sortBy.author             "نویسنده">
+<!ENTITY main.library.sortBy.publisher          "ناشر">
+<!ENTITY main.library.filterBy                  "پالایش با">
+<!ENTITY main.library.filterBy.fileSize         "اندازهٔ پرونده">
+<!ENTITY main.library.filterBy.language         "زبان">
+<!ENTITY main.library.filterBy.language.all     "همه">
+<!ENTITY main.library.filterBy.author           "نویسنده">
+<!ENTITY main.library.filterBy.author.all       "همه">
+<!ENTITY main.library.filterBy.publisher        "ناشر">
+<!ENTITY main.library.filterBy.publisher.all    "همه">
 

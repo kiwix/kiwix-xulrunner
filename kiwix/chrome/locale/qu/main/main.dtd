@@ -1,0 +1,137 @@
+<!-- Window -->
+<!ENTITY main.title                     "&brand.brandShortName;">
+<!ENTITY main.cssdirection              "ltr">
+
+<!-- File menu -->
+<!ENTITY main.file                      "Willañiqi">
+<!ENTITY main.file.accesskey            "F">
+<!ENTITY main.openFile                  "Willañiqita kichariy...">
+<!ENTITY main.browseLibrary.accesskey   "B">
+<!ENTITY main.browseLibrary             "Ñawirina ukhupi wamp'uy">
+<!ENTITY main.openFile.accesskey        "O">
+<!ENTITY main.lastOpen                  "Ñaqha kichasqa...">
+<!ENTITY main.saveFile                  "P'anqata waqaychay kay sutiwan...">
+<!ENTITY main.saveFile.accesskey        "S">
+<!ENTITY main.print                     "Ch'ipachiy">
+<!ENTITY main.print.accesskey           "P">
+<!ENTITY main.printPdf                  "PDF nisqaman ch'ipachiy">
+<!ENTITY main.printPdf.accesskey        "D">
+<!ENTITY main.quit                      "Lluqsiy">
+<!ENTITY main.quit.accesskey            "Q">
+
+<!-- Edit menu -->
+<!ENTITY main.edit                      "Llamk'apuy">
+<!ENTITY main.edit.accesskey            "E">
+<!ENTITY main.find                      "Maskay kay p'anqapi...">
+<!ENTITY main.find.accesskey            "S">
+<!ENTITY main.selectall                 "Tukuyta akllay">
+<!ENTITY main.selectall.accesskey       "a">
+<!ENTITY main.copy                      "Iskaychay">
+<!ENTITY main.copy.accesskey            "p">
+<!ENTITY main.transliteration           "Sanampa wantuy (translitirasyun)">
+<!ENTITY main.transliteration.accesskey "T">
+<!ENTITY main.preferences               "Allinkachinakuna">
+<!ENTITY main.preferences.accesskey     "n">
+
+<!-- Display menu -->
+<!ENTITY main.display                   "Qhawachiy">
+<!ENTITY main.display.accesskey         "D">
+<!ENTITY main.zoom                      "Llamphachiy">
+<!ENTITY main.zoom.accesskey            "Z">
+<!ENTITY main.zoomin                    "Hatunchay">
+<!ENTITY main.zoomin.accesskey          "M">
+<!ENTITY main.zoomout                   "Huch'uychay">
+<!ENTITY main.zoomout.accesskey         "R">
+<!ENTITY main.zoomorig                  "Qallariy chhikan">
+<!ENTITY main.zoomorig.accesskey        "O">
+<!ENTITY main.language                  "Rimay">
+<!ENTITY main.language.accesskey        "L">
+<!ENTITY main.skin                      "Qara">
+<!ENTITY main.skin.accesskey            "S">
+<!ENTITY main.statusbar                 "Kachkay sinru">
+<!ENTITY main.statusbar.accesskey       "S">
+<!ENTITY main.resultsbar                "Taripasqakuna sinru">
+<!ENTITY main.resultsbar.accesskey      "R">
+<!ENTITY main.tabs                      "Tikllakuna">
+<!ENTITY main.tabs.accesskey            "T">
+<!ENTITY main.fullscreen                "Hunt'a qhawana pampa">
+<!ENTITY main.fullscreen.accesskey      "F">
+
+<!-- Tools menu -->
+<!ENTITY main.tools                     "Llamk'anakuna">
+<!ENTITY main.tools.accesskey           "T">
+<!ENTITY main.randomArticle             "Mayninpi p'anqa">
+<!ENTITY main.randomArticle.accesskey   "R">
+<!ENTITY main.checkIntegrity            "Allin kayninta llanchiy">
+<!ENTITY main.checkIntegrity.accesskey  "k">
+<!ENTITY main.purgeHistory              "Wiñay kawsayta ch'usaqchay">
+<!ENTITY main.purgeHistory.accesskey    "P">
+
+<!-- Help menu -->
+<!ENTITY main.help                      "Yanapa">
+<!ENTITY main.help.accesskey            "H">
+<!ENTITY main.feedback                  "Willapuykuna">
+<!ENTITY main.reportabug                "Pantasqamanta willay">
+<!ENTITY main.requestafeature           "Huk kayninta mañakuy">
+<!ENTITY main.about                     "&brand.brandShortName; nisqamanta">
+<!ENTITY main.about.accesskey           "A">
+
+<!-- Tool bar -->
+<!ENTITY main.back                      "Ñawpaqman">
+<!ENTITY main.forward                   "Qatiqman">
+<!ENTITY main.home                      "Qallarina">
+<!ENTITY main.searchBar                 "Maskay sinru">
+<!ENTITY main.search                    "Maskay">
+<!ENTITY main.findInText                "Qillqapi maskay">
+<!ENTITY main.noSearchBar               "Maskanapaqqa yuyarinachasqa ZIM willañiqim kana tiyan">
+<!ENTITY main.bookmarks                 "Yuyana unanchakuna">
+
+<!-- Results bar -->
+<!ENTITY main.results.title             "Maskaymanta tarisqakuna">
+
+<!-- Bookmarks Bar -->
+<!ENTITY main.bmkLabel                  "Yuyana unanchakuna:">
+<!ENTITY main.notesLabel                "Yuyana unanchamanta willay:">
+<!ENTITY main.loadbmk                   "Yuyana unancha huñuta hawamanta chaskiy">
+<!ENTITY main.newbmk                    "Musuq yuyana unancha huñuta kamariy">
+<!ENTITY main.mark                      "Kay p'anqata sananchay">
+<!ENTITY main.unmark                    "Akllasqata amaña sananchaychu">
+<!ENTITY main.reload                    "Yuyana unancha huñuta musuqmanta chaqnamuy">
+<!ENTITY main.defaultset                "Kikinmanta huñu">
+
+<!-- Contextual Menu -->
+<!ENTITY main.saveImageAs               "Rikch'ata waqaychay kay sutiwan...">
+<!ENTITY main.openLinkInNewTab          "T'inkita musuq tikllapi kichariy">
+<!ENTITY main.searchFor                 "Kayta maskay:">
+<!ENTITY main.copyLinkAdress            "Copy link address">
+
+<!-- About Window -->
+<!ENTITY main.close                     "Wichq'ay">
+
+<!-- Preferences Window -->
+<!ENTITY preferences.preferences        "Preferences">
+<!ENTITY preferences.save               "Save">
+<!ENTITY preferences.cancel             "Cancel">
+<!ENTITY preferences.profileDirectory   "Profile directory">
+<!ENTITY preferences.browse             "Browse">
+<!ENTITY preferences.tabs               "Remember tabs">
+
+<!-- Library -->
+<!ENTITY main.library.myLibrary                 "Ñuqap ñawirina ukhuy">
+<!ENTITY main.library.getNewFiles               "Musuq willañiqikunata chaskiy">
+<!ENTITY main.library.searchZimFiles            "ZIM willañiqikunata maskay">
+<!ENTITY main.library.sortBy                    "Kaykama ñiqinchay:">
+<!ENTITY main.library.sortBy.title              "Sutichaynin">
+<!ENTITY main.library.sortBy.size               "Hatun kaynin">
+<!ENTITY main.library.sortBy.date               "P'unchaw">
+<!ENTITY main.library.sortBy.author             "Ruraqnin">
+<!ENTITY main.library.sortBy.publisher          "Uyaychaqnin">
+<!ENTITY main.library.filterBy                  "Kaykama ch'illchiy:">
+<!ENTITY main.library.filterBy.fileSize         "Willañiqip chhikan kaynin">
+<!ENTITY main.library.filterBy.language         "Rimay">
+<!ENTITY main.library.filterBy.language.all     "Tukuy">
+<!ENTITY main.library.filterBy.author           "Ruraqnin">
+<!ENTITY main.library.filterBy.author.all       "Tukuy">
+<!ENTITY main.library.filterBy.publisher        "Uyaychaqnin">
+<!ENTITY main.library.filterBy.publisher.all    "Tukuy">
+

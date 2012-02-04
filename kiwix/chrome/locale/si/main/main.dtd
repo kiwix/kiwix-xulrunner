@@ -1,0 +1,137 @@
+<!-- Window -->
+<!ENTITY main.title                     "&brand.brandShortName;">
+<!ENTITY main.cssdirection              "ltr">
+
+<!-- File menu -->
+<!ENTITY main.file                      "ගොනුව">
+<!ENTITY main.file.accesskey            "F">
+<!ENTITY main.openFile                  "ගොනුව විවෘත කරන්න...">
+<!ENTITY main.browseLibrary.accesskey   "B">
+<!ENTITY main.browseLibrary             "ගබඩාව පිරික්සන්න">
+<!ENTITY main.openFile.accesskey        "O">
+<!ENTITY main.lastOpen                  "මෑතදී විවෘත කෙරුණු...">
+<!ENTITY main.saveFile                  "පිටුව මෙසේ සුරකින්න...">
+<!ENTITY main.saveFile.accesskey        "S">
+<!ENTITY main.print                     "මුද්‍රණය කරන්න">
+<!ENTITY main.print.accesskey           "P">
+<!ENTITY main.printPdf                  "PDF ලෙසින් මුද්‍රණය කරන්න">
+<!ENTITY main.printPdf.accesskey        "D">
+<!ENTITY main.quit                      "ඉවත් වන්න">
+<!ENTITY main.quit.accesskey            "Q">
+
+<!-- Edit menu -->
+<!ENTITY main.edit                      "සංස්කරණය කරන්න">
+<!ENTITY main.edit.accesskey            "E">
+<!ENTITY main.find                      "පිටුවෙහි සොයන්න...">
+<!ENTITY main.find.accesskey            "S">
+<!ENTITY main.selectall                 "සියල්ල සොයන්න">
+<!ENTITY main.selectall.accesskey       "a">
+<!ENTITY main.copy                      "පිටපත් කරන්න">
+<!ENTITY main.copy.accesskey            "p">
+<!ENTITY main.transliteration           "අක්ෂර පරිවර්තනය">
+<!ENTITY main.transliteration.accesskey "T">
+<!ENTITY main.preferences               "අභිරුචි">
+<!ENTITY main.preferences.accesskey     "n">
+
+<!-- Display menu -->
+<!ENTITY main.display                   "පෙන්වීම">
+<!ENTITY main.display.accesskey         "D">
+<!ENTITY main.zoom                      "zසූම් කරන්න">
+<!ENTITY main.zoom.accesskey            "Z">
+<!ENTITY main.zoomin                    "විශාලනය">
+<!ENTITY main.zoomin.accesskey          "M">
+<!ENTITY main.zoomout                   "ඌනනය">
+<!ENTITY main.zoomout.accesskey         "R">
+<!ENTITY main.zoomorig                  "මුල් විශාලත්වය">
+<!ENTITY main.zoomorig.accesskey        "O">
+<!ENTITY main.language                  "භාෂාව">
+<!ENTITY main.language.accesskey        "L">
+<!ENTITY main.skin                      "ඡවිය">
+<!ENTITY main.skin.accesskey            "S">
+<!ENTITY main.statusbar                 "තත්ත්‍ව පටය (Status bar)">
+<!ENTITY main.statusbar.accesskey       "S">
+<!ENTITY main.resultsbar                "ප්‍රතිඵල පටය">
+<!ENTITY main.resultsbar.accesskey      "R">
+<!ENTITY main.tabs                      "ටැබ">
+<!ENTITY main.tabs.accesskey            "T">
+<!ENTITY main.fullscreen                "පූර්ණ තිරය">
+<!ENTITY main.fullscreen.accesskey      "F">
+
+<!-- Tools menu -->
+<!ENTITY main.tools                     "මෙවලම්">
+<!ENTITY main.tools.accesskey           "T">
+<!ENTITY main.randomArticle             "අහඹු ලිපිය">
+<!ENTITY main.randomArticle.accesskey   "R">
+<!ENTITY main.checkIntegrity            "සම්පූර්ණත්ව අවේක්ෂාව">
+<!ENTITY main.checkIntegrity.accesskey  "k">
+<!ENTITY main.purgeHistory              "ශෝධන ඉතිහාසය">
+<!ENTITY main.purgeHistory.accesskey    "P">
+
+<!-- Help menu -->
+<!ENTITY main.help                      "උදවු">
+<!ENTITY main.help.accesskey            "H">
+<!ENTITY main.feedback                  "ප්‍රතිචාරය">
+<!ENTITY main.reportabug                "දෝෂයක් වාර්තා කරන්න">
+<!ENTITY main.requestafeature           "විශේෂාංගයක් ඉල්ලන්න">
+<!ENTITY main.about                     "&වර්ගය.වර්ගකෙටිනම පිළිබඳ;">
+<!ENTITY main.about.accesskey           "A">
+
+<!-- Tool bar -->
+<!ENTITY main.back                      "ආපසු">
+<!ENTITY main.forward                   "ඉදිරියට">
+<!ENTITY main.home                      "මුල් පිටුව">
+<!ENTITY main.searchBar                 "ගවේෂණ තීරුව">
+<!ENTITY main.search                    "ගවේෂණය">
+<!ENTITY main.findInText                "පෙළෙහි සොයන්න">
+<!ENTITY main.noSearchBar               "ගවේෂණය සඳහා සූචිත ZIM ගොනුවක් අවශ්‍ය වෙයි">
+<!ENTITY main.bookmarks                 "පොත්යොමු">
+
+<!-- Results bar -->
+<!ENTITY main.results.title             "සෙවුම් ප්‍රතිඵල">
+
+<!-- Bookmarks Bar -->
+<!ENTITY main.bmkLabel                  "බුක්මාක්:">
+<!ENTITY main.notesLabel                "බුක්මාක් සටහන්:">
+<!ENTITY main.loadbmk                   "පොත්යොමු කට්ටලය ආයාත කරන්න">
+<!ENTITY main.newbmk                    "නව පොත්යොමු කට්ටලයක් තනන්න">
+<!ENTITY main.mark                      "මෙම පිටුව සලකුණු කරන්න">
+<!ENTITY main.unmark                    "තෝරාගත්ත අසලකුණු කරන්න">
+<!ENTITY main.reload                    "පොත්යොමු කට්ටලය යළි-බාගන්න">
+<!ENTITY main.defaultset                "පෙරනිමි කට්ටලය">
+
+<!-- Contextual Menu -->
+<!ENTITY main.saveImageAs               "රූපය මෙසේ සුරකින්න...">
+<!ENTITY main.openLinkInNewTab          "සබැඳිය නව ටැබයක විවෘත කරන්න">
+<!ENTITY main.searchFor                 "සඳහා ගවේෂණය">
+<!ENTITY main.copyLinkAdress            "Copy link address">
+
+<!-- About Window -->
+<!ENTITY main.close                     "වසන්න">
+
+<!-- Preferences Window -->
+<!ENTITY preferences.preferences        "Preferences">
+<!ENTITY preferences.save               "Save">
+<!ENTITY preferences.cancel             "Cancel">
+<!ENTITY preferences.profileDirectory   "Profile directory">
+<!ENTITY preferences.browse             "Browse">
+<!ENTITY preferences.tabs               "Remember tabs">
+
+<!-- Library -->
+<!ENTITY main.library.myLibrary                 "මගේ පුස්තකාලය">
+<!ENTITY main.library.getNewFiles               "නව ගොනු ලබාගන්න">
+<!ENTITY main.library.searchZimFiles            "ZIM ගොනු සොයන්න">
+<!ENTITY main.library.sortBy                    "මෙසේ පෙළගස්වන්න">
+<!ENTITY main.library.sortBy.title              "මාතෘකාව">
+<!ENTITY main.library.sortBy.size               "විශාලත්වය">
+<!ENTITY main.library.sortBy.date               "දිනය">
+<!ENTITY main.library.sortBy.author             "කර්තෘ">
+<!ENTITY main.library.sortBy.publisher          "ප්‍රකාශකයා">
+<!ENTITY main.library.filterBy                  "මෙසේ පෙරන්න">
+<!ENTITY main.library.filterBy.fileSize         "ගොනුවේ විශාලත්වය">
+<!ENTITY main.library.filterBy.language         "භාෂාව">
+<!ENTITY main.library.filterBy.language.all     "සියල්ල">
+<!ENTITY main.library.filterBy.author           "කතෘ">
+<!ENTITY main.library.filterBy.author.all       "සියල්ල">
+<!ENTITY main.library.filterBy.publisher        "ප්‍රකාශක">
+<!ENTITY main.library.filterBy.publisher.all    "සියල්ල">
+

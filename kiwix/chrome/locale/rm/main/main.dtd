@@ -1,0 +1,137 @@
+<!-- Window -->
+<!ENTITY main.title                     "&brand.brandShortName;">
+<!ENTITY main.cssdirection              "ltr">
+
+<!-- File menu -->
+<!ENTITY main.file                      "Datoteca">
+<!ENTITY main.file.accesskey            "F">
+<!ENTITY main.openFile                  "Avrir ina datoteca…">
+<!ENTITY main.browseLibrary.accesskey   "B">
+<!ENTITY main.browseLibrary             "Browse library">
+<!ENTITY main.openFile.accesskey        "O">
+<!ENTITY main.lastOpen                  "Avert dacurt…">
+<!ENTITY main.saveFile                  "Memorisar la pagina sut…">
+<!ENTITY main.saveFile.accesskey        "S">
+<!ENTITY main.print                     "Stampar">
+<!ENTITY main.print.accesskey           "P">
+<!ENTITY main.printPdf                  "Stampar sco PDF">
+<!ENTITY main.printPdf.accesskey        "D">
+<!ENTITY main.quit                      "Terminar">
+<!ENTITY main.quit.accesskey            "Q">
+
+<!-- Edit menu -->
+<!ENTITY main.edit                      "Modifitgar">
+<!ENTITY main.edit.accesskey            "E">
+<!ENTITY main.find                      "Tschertgar en la pagina…">
+<!ENTITY main.find.accesskey            "S">
+<!ENTITY main.selectall                 "Selecziunar tut">
+<!ENTITY main.selectall.accesskey       "a">
+<!ENTITY main.copy                      "Copiar">
+<!ENTITY main.copy.accesskey            "p">
+<!ENTITY main.transliteration           "Transliteraziun">
+<!ENTITY main.transliteration.accesskey "T">
+<!ENTITY main.preferences               "Preferenzas">
+<!ENTITY main.preferences.accesskey     "n">
+
+<!-- Display menu -->
+<!ENTITY main.display                   "Vista">
+<!ENTITY main.display.accesskey         "D">
+<!ENTITY main.zoom                      "Zoom">
+<!ENTITY main.zoom.accesskey            "Z">
+<!ENTITY main.zoomin                    "Engrondir">
+<!ENTITY main.zoomin.accesskey          "M">
+<!ENTITY main.zoomout                   "Empitschnir">
+<!ENTITY main.zoomout.accesskey         "R">
+<!ENTITY main.zoomorig                  "Grondezza originala">
+<!ENTITY main.zoomorig.accesskey        "O">
+<!ENTITY main.language                  "Lingua">
+<!ENTITY main.language.accesskey        "L">
+<!ENTITY main.skin                      "Parita">
+<!ENTITY main.skin.accesskey            "S">
+<!ENTITY main.statusbar                 "Trav da status">
+<!ENTITY main.statusbar.accesskey       "S">
+<!ENTITY main.resultsbar                "Trav dals resultats">
+<!ENTITY main.resultsbar.accesskey      "R">
+<!ENTITY main.tabs                      "Tabs">
+<!ENTITY main.tabs.accesskey            "T">
+<!ENTITY main.fullscreen                "Maletg entir">
+<!ENTITY main.fullscreen.accesskey      "F">
+
+<!-- Tools menu -->
+<!ENTITY main.tools                     "Utensils">
+<!ENTITY main.tools.accesskey           "T">
+<!ENTITY main.randomArticle             "Artitgel casual">
+<!ENTITY main.randomArticle.accesskey   "R">
+<!ENTITY main.checkIntegrity            "Controlla d'integritad">
+<!ENTITY main.checkIntegrity.accesskey  "k">
+<!ENTITY main.purgeHistory              "Stizzar la cronologia">
+<!ENTITY main.purgeHistory.accesskey    "P">
+
+<!-- Help menu -->
+<!ENTITY main.help                      "Agid">
+<!ENTITY main.help.accesskey            "H">
+<!ENTITY main.feedback                  "Feedback">
+<!ENTITY main.reportabug                "Rapportar in «bug»">
+<!ENTITY main.requestafeature           "Proponer ina nova funcziun">
+<!ENTITY main.about                     "Davart &brand.brandShortName;">
+<!ENTITY main.about.accesskey           "A">
+
+<!-- Tool bar -->
+<!ENTITY main.back                      "Enavos">
+<!ENTITY main.forward                   "Enavant">
+<!ENTITY main.home                      "Pagina da partenza">
+<!ENTITY main.searchBar                 "Trav da tschertgar">
+<!ENTITY main.search                    "Tschertgar">
+<!ENTITY main.findInText                "Tschertgar en il text">
+<!ENTITY main.noSearchBar               "Tschertgar basegna ina datoteca da ZIM indexada">
+<!ENTITY main.bookmarks                 "Segnapaginas">
+
+<!-- Results bar -->
+<!ENTITY main.results.title             "Resultats da tschertgar">
+
+<!-- Bookmarks Bar -->
+<!ENTITY main.bmkLabel                  "Segnapaginas:">
+<!ENTITY main.notesLabel                "Remartga davart il segnapagina:">
+<!ENTITY main.loadbmk                   "Importar ina collecziun da segnapaginas">
+<!ENTITY main.newbmk                    "Crear ina nova collecziun da segnapaginas">
+<!ENTITY main.mark                      "Agiuntar questa pagina als segnapaginas">
+<!ENTITY main.unmark                    "Allontanar questa pagina dals segnapaginas">
+<!ENTITY main.reload                    "Rechargiar la collecziun da segnapainas">
+<!ENTITY main.defaultset                "Collecziun da standard">
+
+<!-- Contextual Menu -->
+<!ENTITY main.saveImageAs               "Memorisar il maletg sut…">
+<!ENTITY main.openLinkInNewTab          "Open link in new tab">
+<!ENTITY main.searchFor                 "Search for">
+<!ENTITY main.copyLinkAdress            "Copy link address">
+
+<!-- About Window -->
+<!ENTITY main.close                     "Serrar">
+
+<!-- Preferences Window -->
+<!ENTITY preferences.preferences        "Preferences">
+<!ENTITY preferences.save               "Save">
+<!ENTITY preferences.cancel             "Cancel">
+<!ENTITY preferences.profileDirectory   "Profile directory">
+<!ENTITY preferences.browse             "Browse">
+<!ENTITY preferences.tabs               "Remember tabs">
+
+<!-- Library -->
+<!ENTITY main.library.myLibrary                 "My library">
+<!ENTITY main.library.getNewFiles               "Get new files">
+<!ENTITY main.library.searchZimFiles            "Search ZIM files">
+<!ENTITY main.library.sortBy                    "Sort by">
+<!ENTITY main.library.sortBy.title              "Title">
+<!ENTITY main.library.sortBy.size               "Size">
+<!ENTITY main.library.sortBy.date               "Date">
+<!ENTITY main.library.sortBy.author             "Author">
+<!ENTITY main.library.sortBy.publisher          "Publisher">
+<!ENTITY main.library.filterBy                  "Filter by">
+<!ENTITY main.library.filterBy.fileSize         "File size">
+<!ENTITY main.library.filterBy.language         "Language">
+<!ENTITY main.library.filterBy.language.all     "All">
+<!ENTITY main.library.filterBy.author           "Author">
+<!ENTITY main.library.filterBy.author.all       "All">
+<!ENTITY main.library.filterBy.publisher        "Publisher">
+<!ENTITY main.library.filterBy.publisher.all    "All">
+

@@ -1,0 +1,137 @@
+<!-- Window -->
+<!ENTITY main.title                     "&brand.brandShortName;">
+<!ENTITY main.cssdirection              "ltr">
+
+<!-- File menu -->
+<!ENTITY main.file                      "Fil">
+<!ENTITY main.file.accesskey            "F">
+<!ENTITY main.openFile                  "Åpne fil...">
+<!ENTITY main.browseLibrary.accesskey   "B">
+<!ENTITY main.browseLibrary             "Browse library">
+<!ENTITY main.openFile.accesskey        "O">
+<!ENTITY main.lastOpen                  "Nyleg opna...">
+<!ENTITY main.saveFile                  "Lagre sida som...">
+<!ENTITY main.saveFile.accesskey        "S">
+<!ENTITY main.print                     "Skriv ut">
+<!ENTITY main.print.accesskey           "P">
+<!ENTITY main.printPdf                  "Skriv ut som PDF">
+<!ENTITY main.printPdf.accesskey        "D">
+<!ENTITY main.quit                      "Avslutt">
+<!ENTITY main.quit.accesskey            "Q">
+
+<!-- Edit menu -->
+<!ENTITY main.edit                      "Endre">
+<!ENTITY main.edit.accesskey            "E">
+<!ENTITY main.find                      "Søk i sida...">
+<!ENTITY main.find.accesskey            "S">
+<!ENTITY main.selectall                 "Velg alle">
+<!ENTITY main.selectall.accesskey       "a">
+<!ENTITY main.copy                      "Kopier">
+<!ENTITY main.copy.accesskey            "p">
+<!ENTITY main.transliteration           "Transliterasjon">
+<!ENTITY main.transliteration.accesskey "T">
+<!ENTITY main.preferences               "Innstillingar">
+<!ENTITY main.preferences.accesskey     "n">
+
+<!-- Display menu -->
+<!ENTITY main.display                   "Skjerm">
+<!ENTITY main.display.accesskey         "D">
+<!ENTITY main.zoom                      "Zoom">
+<!ENTITY main.zoom.accesskey            "Z">
+<!ENTITY main.zoomin                    "Forstørr">
+<!ENTITY main.zoomin.accesskey          "M">
+<!ENTITY main.zoomout                   "Forminsk">
+<!ENTITY main.zoomout.accesskey         "R">
+<!ENTITY main.zoomorig                  "Opprinneleg storleik">
+<!ENTITY main.zoomorig.accesskey        "O">
+<!ENTITY main.language                  "Språk">
+<!ENTITY main.language.accesskey        "L">
+<!ENTITY main.skin                      "Drakt">
+<!ENTITY main.skin.accesskey            "S">
+<!ENTITY main.statusbar                 "Statusline">
+<!ENTITY main.statusbar.accesskey       "S">
+<!ENTITY main.resultsbar                "Resultatline">
+<!ENTITY main.resultsbar.accesskey      "R">
+<!ENTITY main.tabs                      "Faner">
+<!ENTITY main.tabs.accesskey            "T">
+<!ENTITY main.fullscreen                "Fullskjerm">
+<!ENTITY main.fullscreen.accesskey      "F">
+
+<!-- Tools menu -->
+<!ENTITY main.tools                     "Verkty">
+<!ENTITY main.tools.accesskey           "T">
+<!ENTITY main.randomArticle             "Tilfeldig artikkel">
+<!ENTITY main.randomArticle.accesskey   "R">
+<!ENTITY main.checkIntegrity            "Integritetssjekk">
+<!ENTITY main.checkIntegrity.accesskey  "k">
+<!ENTITY main.purgeHistory              "Tøm historikk">
+<!ENTITY main.purgeHistory.accesskey    "P">
+
+<!-- Help menu -->
+<!ENTITY main.help                      "Hjelp">
+<!ENTITY main.help.accesskey            "H">
+<!ENTITY main.feedback                  "Feedback">
+<!ENTITY main.reportabug                "Rapporter ein feil">
+<!ENTITY main.requestafeature           "Be om ein funksjon">
+<!ENTITY main.about                     "Om &brand.brandShortName;">
+<!ENTITY main.about.accesskey           "A">
+
+<!-- Tool bar -->
+<!ENTITY main.back                      "Attende">
+<!ENTITY main.forward                   "Framåt">
+<!ENTITY main.home                      "Heim">
+<!ENTITY main.searchBar                 "Søkeline">
+<!ENTITY main.search                    "Søk">
+<!ENTITY main.findInText                "Finn i tekst">
+<!ENTITY main.noSearchBar               "Søk krev ei indeksert ZIM-fil">
+<!ENTITY main.bookmarks                 "Bokmerke">
+
+<!-- Results bar -->
+<!ENTITY main.results.title             "Søkjeresultat">
+
+<!-- Bookmarks Bar -->
+<!ENTITY main.bmkLabel                  "Bokmerke:">
+<!ENTITY main.notesLabel                "Bokmerkenotatar:">
+<!ENTITY main.loadbmk                   "Importer bokmerkesamling">
+<!ENTITY main.newbmk                    "Skap ei ny bokmerkesamling">
+<!ENTITY main.mark                      "Marker denne sida">
+<!ENTITY main.unmark                    "Fjern markering av velde">
+<!ENTITY main.reload                    "Last inn bokmerkesamlinga att">
+<!ENTITY main.defaultset                "Standardsamling">
+
+<!-- Contextual Menu -->
+<!ENTITY main.saveImageAs               "Lagre sida som...">
+<!ENTITY main.openLinkInNewTab          "Open link in new tab">
+<!ENTITY main.searchFor                 "Search for">
+<!ENTITY main.copyLinkAdress            "Copy link address">
+
+<!-- About Window -->
+<!ENTITY main.close                     "Steng">
+
+<!-- Preferences Window -->
+<!ENTITY preferences.preferences        "Preferences">
+<!ENTITY preferences.save               "Save">
+<!ENTITY preferences.cancel             "Cancel">
+<!ENTITY preferences.profileDirectory   "Profile directory">
+<!ENTITY preferences.browse             "Browse">
+<!ENTITY preferences.tabs               "Remember tabs">
+
+<!-- Library -->
+<!ENTITY main.library.myLibrary                 "My library">
+<!ENTITY main.library.getNewFiles               "Get new files">
+<!ENTITY main.library.searchZimFiles            "Search ZIM files">
+<!ENTITY main.library.sortBy                    "Sort by">
+<!ENTITY main.library.sortBy.title              "Title">
+<!ENTITY main.library.sortBy.size               "Size">
+<!ENTITY main.library.sortBy.date               "Date">
+<!ENTITY main.library.sortBy.author             "Author">
+<!ENTITY main.library.sortBy.publisher          "Publisher">
+<!ENTITY main.library.filterBy                  "Filter by">
+<!ENTITY main.library.filterBy.fileSize         "File size">
+<!ENTITY main.library.filterBy.language         "Language">
+<!ENTITY main.library.filterBy.language.all     "All">
+<!ENTITY main.library.filterBy.author           "Author">
+<!ENTITY main.library.filterBy.author.all       "All">
+<!ENTITY main.library.filterBy.publisher        "Publisher">
+<!ENTITY main.library.filterBy.publisher.all    "All">
+

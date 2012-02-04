@@ -11,13 +11,13 @@
 <!ENTITY main.openFile.accesskey        "A">
 <!ENTITY main.lastOpen                  "Viimeksi avatut...">
 <!ENTITY main.saveFile                  "Tallenna sivu nimellä...">
-<!ENTITY main.saveFile.accesskey        "T">
+<!ENTITY main.saveFile.accesskey        "a">
 <!ENTITY main.print                     "Tulosta">
-<!ENTITY main.print.accesskey           "P">
+<!ENTITY main.print.accesskey           "u">
 <!ENTITY main.printPdf                  "Tulosta PDF-tiedostoksi">
 <!ENTITY main.printPdf.accesskey        "D">
 <!ENTITY main.quit                      "Lopeta">
-<!ENTITY main.quit.accesskey            "S">
+<!ENTITY main.quit.accesskey            "L">
 
 <!-- Edit menu -->
 <!ENTITY main.edit                      "Muokkaa">
@@ -29,52 +29,52 @@
 <!ENTITY main.copy                      "Kopioi">
 <!ENTITY main.copy.accesskey            "p">
 <!ENTITY main.transliteration           "Translitterointi">
-<!ENTITY main.transliteration.accesskey "T">
+<!ENTITY main.transliteration.accesskey "o">
 <!ENTITY main.preferences               "Asetukset">
-<!ENTITY main.preferences.accesskey     "n">
+<!ENTITY main.preferences.accesskey     "k">
 
 <!-- Display menu -->
 <!ENTITY main.display                   "Näytä">
-<!ENTITY main.display.accesskey         "D">
+<!ENTITY main.display.accesskey         "ä">
 <!ENTITY main.zoom                      "Zoomaus">
 <!ENTITY main.zoom.accesskey            "Z">
 <!ENTITY main.zoomin                    "Suurenna">
-<!ENTITY main.zoomin.accesskey          "M">
+<!ENTITY main.zoomin.accesskey          "n">
 <!ENTITY main.zoomout                   "Pienennä">
-<!ENTITY main.zoomout.accesskey         "R">
+<!ENTITY main.zoomout.accesskey         "ä">
 <!ENTITY main.zoomorig                  "Alkuperäinen koko">
-<!ENTITY main.zoomorig.accesskey        "O">
+<!ENTITY main.zoomorig.accesskey        "r">
 <!ENTITY main.language                  "Kieli">
-<!ENTITY main.language.accesskey        "L">
+<!ENTITY main.language.accesskey        "i">
 <!ENTITY main.skin                      "Ulkoasu">
-<!ENTITY main.skin.accesskey            "S">
+<!ENTITY main.skin.accesskey            "U">
 <!ENTITY main.statusbar                 "Tilapalkki">
-<!ENTITY main.statusbar.accesskey       "S">
+<!ENTITY main.statusbar.accesskey       "T">
 <!ENTITY main.resultsbar                "Tulospalkki">
-<!ENTITY main.resultsbar.accesskey      "R">
+<!ENTITY main.resultsbar.accesskey      "k">
 <!ENTITY main.tabs                      "Välilehdet">
-<!ENTITY main.tabs.accesskey            "T">
+<!ENTITY main.tabs.accesskey            "t">
 <!ENTITY main.fullscreen                "Koko näyttö">
-<!ENTITY main.fullscreen.accesskey      "F">
+<!ENTITY main.fullscreen.accesskey      "ö">
 
 <!-- Tools menu -->
 <!ENTITY main.tools                     "Työkalut">
 <!ENTITY main.tools.accesskey           "T">
 <!ENTITY main.randomArticle             "Satunnainen artikkeli">
-<!ENTITY main.randomArticle.accesskey   "R">
+<!ENTITY main.randomArticle.accesskey   "S">
 <!ENTITY main.checkIntegrity            "Eheydentarkistus">
-<!ENTITY main.checkIntegrity.accesskey  "k">
+<!ENTITY main.checkIntegrity.accesskey  "y">
 <!ENTITY main.purgeHistory              "Tyhjennä historia">
-<!ENTITY main.purgeHistory.accesskey    "P">
+<!ENTITY main.purgeHistory.accesskey    "j">
 
 <!-- Help menu -->
 <!ENTITY main.help                      "Ohje">
-<!ENTITY main.help.accesskey            "H">
+<!ENTITY main.help.accesskey            "O">
 <!ENTITY main.feedback                  "Palaute">
 <!ENTITY main.reportabug                "Ilmoita virheestä">
 <!ENTITY main.requestafeature           "Ehdota ominaisuutta">
 <!ENTITY main.about                     "Tietoja sovelluksesta &brand.brandShortName;">
-<!ENTITY main.about.accesskey           "A">
+<!ENTITY main.about.accesskey           "o">
 
 <!-- Tool bar -->
 <!ENTITY main.back                      "Edellinen">

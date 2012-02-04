@@ -117,21 +117,21 @@
 <!ENTITY preferences.tabs               "Remember tabs">
 
 <!-- Library -->
-<!ENTITY main.library.myLibrary                 "My library">
-<!ENTITY main.library.getNewFiles               "Get new files">
-<!ENTITY main.library.searchZimFiles            "Search ZIM files">
-<!ENTITY main.library.sortBy                    "Sort by">
-<!ENTITY main.library.sortBy.title              "Title">
-<!ENTITY main.library.sortBy.size               "Size">
-<!ENTITY main.library.sortBy.date               "Date">
-<!ENTITY main.library.sortBy.author             "Author">
-<!ENTITY main.library.sortBy.publisher          "Publisher">
-<!ENTITY main.library.filterBy                  "Filter by">
-<!ENTITY main.library.filterBy.fileSize         "File size">
-<!ENTITY main.library.filterBy.language         "Language">
-<!ENTITY main.library.filterBy.language.all     "All">
-<!ENTITY main.library.filterBy.author           "Author">
-<!ENTITY main.library.filterBy.author.all       "All">
-<!ENTITY main.library.filterBy.publisher        "Publisher">
-<!ENTITY main.library.filterBy.publisher.all    "All">
+<!ENTITY main.library.myLibrary                 "Ma bibliotèca">
+<!ENTITY main.library.getNewFiles               "Avêr de novéls fichiérs">
+<!ENTITY main.library.searchZimFiles            "Rechèrchiér des fichiérs ZIM">
+<!ENTITY main.library.sortBy                    "Triyér per">
+<!ENTITY main.library.sortBy.title              "Titro">
+<!ENTITY main.library.sortBy.size               "Talye">
+<!ENTITY main.library.sortBy.date               "Dâta">
+<!ENTITY main.library.sortBy.author             "Ôtor">
+<!ENTITY main.library.sortBy.publisher          "Èditor">
+<!ENTITY main.library.filterBy                  "Filtrar per">
+<!ENTITY main.library.filterBy.fileSize         "Talye du fichiér">
+<!ENTITY main.library.filterBy.language         "Lengoua">
+<!ENTITY main.library.filterBy.language.all     "Totes">
+<!ENTITY main.library.filterBy.author           "Ôtor">
+<!ENTITY main.library.filterBy.author.all       "Tôs">
+<!ENTITY main.library.filterBy.publisher        "Èditor">
+<!ENTITY main.library.filterBy.publisher.all    "Tôs">
 

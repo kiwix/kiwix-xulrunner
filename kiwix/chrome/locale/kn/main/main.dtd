@@ -1,0 +1,137 @@
+<!-- Window -->
+<!ENTITY main.title                     "&brand.brandShortName;">
+<!ENTITY main.cssdirection              "ltr">
+
+<!-- File menu -->
+<!ENTITY main.file                      "ಕಡತ">
+<!ENTITY main.file.accesskey            "F">
+<!ENTITY main.openFile                  "ಕಡತವನ್ನು ಉದ್ಘಾಟಿಸಿ...">
+<!ENTITY main.browseLibrary.accesskey   "B">
+<!ENTITY main.browseLibrary             "ಗ್ರಂಥಾಲಯವನ್ನು ವಿಹರಿಸಿ">
+<!ENTITY main.openFile.accesskey        "O">
+<!ENTITY main.lastOpen                  "ಇತ್ತೀಚೆಗೆ ಉದ್ಘಾಟಿಸಲ್ಪಟ್ಟಂತಹ...">
+<!ENTITY main.saveFile                  "ಪುಟಸಂರಕ್ಷಣೆಯನ್ನು ಈ ರೀತಿ ಮಾಡಿ...">
+<!ENTITY main.saveFile.accesskey        "S">
+<!ENTITY main.print                     "ಮುದ್ರಿಸು">
+<!ENTITY main.print.accesskey           "P">
+<!ENTITY main.printPdf                  "ಪೀಡೀಫ಼್ ಅಂತೆ ಮುದ್ರಿಸು">
+<!ENTITY main.printPdf.accesskey        "D">
+<!ENTITY main.quit                      "ನಿರ್ಗಮಿಸು">
+<!ENTITY main.quit.accesskey            "Q">
+
+<!-- Edit menu -->
+<!ENTITY main.edit                      "ಸಂಪಾದಿಸಿ">
+<!ENTITY main.edit.accesskey            "E">
+<!ENTITY main.find                      "ಪುಟದಲ್ಲಿ ಹುಡುಕಿ...">
+<!ENTITY main.find.accesskey            "S">
+<!ENTITY main.selectall                 "ಎಲ್ಲವನ್ನೂ ಆಯ್ಕೆ ಮಾಡಿ">
+<!ENTITY main.selectall.accesskey       "a">
+<!ENTITY main.copy                      "ನಕಲು ಮಾಡು">
+<!ENTITY main.copy.accesskey            "p">
+<!ENTITY main.transliteration           "ಲಿಪ್ಯಂತರಣ">
+<!ENTITY main.transliteration.accesskey "T">
+<!ENTITY main.preferences               "ಪ್ರಾಶಸ್ತ್ಯಗಳು">
+<!ENTITY main.preferences.accesskey     "n">
+
+<!-- Display menu -->
+<!ENTITY main.display                   "ಪ್ರದರ್ಶಿಸು">
+<!ENTITY main.display.accesskey         "D">
+<!ENTITY main.zoom                      "ಸಮೀಪೀಕರಣ/ದೂರೀಕರಣ">
+<!ENTITY main.zoom.accesskey            "Z">
+<!ENTITY main.zoomin                    "ವರ್ಧಿಸು">
+<!ENTITY main.zoomin.accesskey          "M">
+<!ENTITY main.zoomout                   "ತಗ್ಗಿಸು">
+<!ENTITY main.zoomout.accesskey         "R">
+<!ENTITY main.zoomorig                  "ಮೂಲ ಗಾತ್ರ">
+<!ENTITY main.zoomorig.accesskey        "O">
+<!ENTITY main.language                  "ಭಾಷೆ">
+<!ENTITY main.language.accesskey        "L">
+<!ENTITY main.skin                      "ಚರ್ಮ">
+<!ENTITY main.skin.accesskey            "S">
+<!ENTITY main.statusbar                 "ಸ್ಥಿತಿಪಟ್ಟಿ">
+<!ENTITY main.statusbar.accesskey       "S">
+<!ENTITY main.resultsbar                "ಉತ್ತರಪಟ್ಟಿ">
+<!ENTITY main.resultsbar.accesskey      "R">
+<!ENTITY main.tabs                      "ಟ್ಯಾಬ್ ಗಳು">
+<!ENTITY main.tabs.accesskey            "T">
+<!ENTITY main.fullscreen                "ಪೂರ್ಣಪರದೆ">
+<!ENTITY main.fullscreen.accesskey      "F">
+
+<!-- Tools menu -->
+<!ENTITY main.tools                     "ಉಪಕರಣಗಳು">
+<!ENTITY main.tools.accesskey           "T">
+<!ENTITY main.randomArticle             "ಯಾವುದಾದರೊಂದು ಲೇಖನ">
+<!ENTITY main.randomArticle.accesskey   "R">
+<!ENTITY main.checkIntegrity            "ಸಮಗ್ರತೆಯನ್ನು ಪರಿಶೀಲಿಸಿ">
+<!ENTITY main.checkIntegrity.accesskey  "k">
+<!ENTITY main.purgeHistory              "ಇತಿಹಾಸವನ್ನು ಶುದ್ಧಿಗೊಳಿಸಿ">
+<!ENTITY main.purgeHistory.accesskey    "P">
+
+<!-- Help menu -->
+<!ENTITY main.help                      "ಸಹಾಯ">
+<!ENTITY main.help.accesskey            "H">
+<!ENTITY main.feedback                  "ಪ್ರತಿಕ್ರಿಯೆ">
+<!ENTITY main.reportabug                "ದೋಷವನ್ನು ವರದಿ ಮಾಡಿ">
+<!ENTITY main.requestafeature           "ಸ್ವರೂಪವನ್ನು ವಿನಂತಿಸಿಕೊಳ್ಳಿ">
+<!ENTITY main.about                     "&brand.brandಎಂಬ ಕಿರುಹೆಸರಿನ ಕುರಿತು;">
+<!ENTITY main.about.accesskey           "A">
+
+<!-- Tool bar -->
+<!ENTITY main.back                      "ಹಿಂದಕ್ಕೆ">
+<!ENTITY main.forward                   "ಮುಂದಿನ">
+<!ENTITY main.home                      "ಮುಖ್ಯಪುಟ">
+<!ENTITY main.searchBar                 "ಅನ್ವೇಷಣಾಪಟ್ಟಿ">
+<!ENTITY main.search                    "ಅನ್ವೇಷಿಸಿ">
+<!ENTITY main.findInText                "ಪಠ್ಯದಲ್ಲಿ ಹುಡುಕಿ">
+<!ENTITY main.noSearchBar               "ಈ ಅನ್ವೇಷಣೆಗೆ ಅನುಕ್ರಮಣಿತವಾದ ಜ಼ಿಮ್(ZIM) ಕಡತದ ಅವಶ್ಯಕತೆ ಇದೆ">
+<!ENTITY main.bookmarks                 "ಓದುಗುರುತುಗಳು">
+
+<!-- Results bar -->
+<!ENTITY main.results.title             "ಅನ್ವೇಷಣಾಫಲಿತಾಂಶಗಳು">
+
+<!-- Bookmarks Bar -->
+<!ENTITY main.bmkLabel                  "ಓದುಗುರುತುಗಳು:">
+<!ENTITY main.notesLabel                "ಓದುಗುರುತಿನ ಟಿಪ್ಪಣಿ:">
+<!ENTITY main.loadbmk                   "ಓದುಗುರುತಿನ ಗುಂಪನ್ನು ಆಮದು ಮಾಡಿ">
+<!ENTITY main.newbmk                    "ಹೊಸ ಓದುಗುರುತಿನ ಗುಂಪನ್ನು ಸೃಷ್ಟಿಸಿ">
+<!ENTITY main.mark                      "ಈ ಪುಟವನ್ನು ಗುರುತು ಮಾಡಿ">
+<!ENTITY main.unmark                    "ಗುರುತಿಲ್ಲದ್ದನ್ನು ಆಯ್ಕೆ ಮಾಡಿ">
+<!ENTITY main.reload                    "ಓದುಗುರುತಿನ ಗುಂಪನ್ನು ಪುನಃ ಉತ್ಪೂರಿಸಿ">
+<!ENTITY main.defaultset                "ಪೂರ್ವನಿಯೋಜಿತ  ಗುಂಪು">
+
+<!-- Contextual Menu -->
+<!ENTITY main.saveImageAs               "ಚಿತ್ರಸಂರಕ್ಷಣೆಯನ್ನು ಈ ರೀತಿ ಮಾಡಿ...">
+<!ENTITY main.openLinkInNewTab          "ಹೊಸ ಟ್ಯಾಬ್ನಲ್ಲಿ ಕೊಂಡಿಯನ್ನು ಉದ್ಘಾಟಿಸಿ">
+<!ENTITY main.searchFor                 "ಇದನ್ನು ಅನ್ವೇಷಿಸಿ">
+<!ENTITY main.copyLinkAdress            "Copy link address">
+
+<!-- About Window -->
+<!ENTITY main.close                     "ಮುಚ್ಚಿ">
+
+<!-- Preferences Window -->
+<!ENTITY preferences.preferences        "Preferences">
+<!ENTITY preferences.save               "Save">
+<!ENTITY preferences.cancel             "Cancel">
+<!ENTITY preferences.profileDirectory   "Profile directory">
+<!ENTITY preferences.browse             "Browse">
+<!ENTITY preferences.tabs               "Remember tabs">
+
+<!-- Library -->
+<!ENTITY main.library.myLibrary                 "ನನ್ನ ಗ್ರಂಥಾಲಯ">
+<!ENTITY main.library.getNewFiles               "ಹೊಸ ಕಡತಗಳನ್ನು ಪಡೆಯಿರಿ">
+<!ENTITY main.library.searchZimFiles            "ಜ಼ಿಮ್(ZIM) ಕಡತಗಳನ್ನು ಅನ್ವೇಷಿಸಿ">
+<!ENTITY main.library.sortBy                    "ಇದರಂತೆ ವಿಂಗಡಿಸು">
+<!ENTITY main.library.sortBy.title              "ಶೀರ್ಷಿಕೆ">
+<!ENTITY main.library.sortBy.size               "ಗಾತ್ರ">
+<!ENTITY main.library.sortBy.date               "ದಿನಾಂಕ">
+<!ENTITY main.library.sortBy.author             "ಕರ್ತೃ">
+<!ENTITY main.library.sortBy.publisher          "ಪ್ರಕಾಶಕ">
+<!ENTITY main.library.filterBy                  "ಈ ರೀತಿ ಸೋಸಿ">
+<!ENTITY main.library.filterBy.fileSize         "ಕಡತದ ಗಾತ್ರ">
+<!ENTITY main.library.filterBy.language         "ಭಾಷೆ">
+<!ENTITY main.library.filterBy.language.all     "ಎಲ್ಲಾ">
+<!ENTITY main.library.filterBy.author           "ಕರ್ತೃ">
+<!ENTITY main.library.filterBy.author.all       "ಎಲ್ಲಾ">
+<!ENTITY main.library.filterBy.publisher        "ಪ್ರಕಾಶಕ">
+<!ENTITY main.library.filterBy.publisher.all    "ಎಲ್ಲಾ">
+
