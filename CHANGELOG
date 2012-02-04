@@ -17,6 +17,7 @@ Kiwix 0.9 beta6
 * NEW: Windows self-extracting installer
 * NEW: Ask before downloading XML library files (ID: 3442087)
 * NEW: kiwix-server able to deal directly with library XML files
+* NEW: Speed-up begin of downloads by removing file pre-allocation
 
 Kiwix 0.9 beta5
 * FIXED: letton language menu item (ID: 3439113)
