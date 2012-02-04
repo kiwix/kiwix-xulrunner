@@ -27,7 +27,7 @@ cluceneAccessor.xpt:
 if XPIDL
 	$(XPIDL) -m typelib -o cluceneAccessor -I $(GECKO_IDL_PATH) $(top_srcdir)/src/components/cluceneAccessor/ICluceneAccessor.idl
 else
-	$(TYPELIB_PY) --cachedir=/tmp -o cluceneAccessor -I $(GECKO_IDL_PATH) $(top_srcdir)/src/components/cluceneAccessor/ICluceneAccessor.idl
+	$(TYPELIB_PY) --cachedir=/tmp -o cluceneAccessor.xpt -I $(GECKO_IDL_PATH) $(top_srcdir)/src/components/cluceneAccessor/ICluceneAccessor.idl
 endif
 
 ICluceneAccessor.h:

@@ -35,7 +35,7 @@ xapianAccessor.xpt:
 if XPIDL
 	$(XPIDL) -m typelib -o xapianAccessor -I $(GECKO_IDL_PATH) $(top_srcdir)/src/components/xapianAccessor/IXapianAccessor.idl
 else
-	$(TYPELIB_PY) --cachedir=/tmp -o xapianAccessor -I $(GECKO_IDL_PATH) $(top_srcdir)/src/components/xapianAccessor/IXapianAccessor.idl
+	$(TYPELIB_PY) --cachedir=/tmp -o xapianAccessor.xpt -I $(GECKO_IDL_PATH) $(top_srcdir)/src/components/xapianAccessor/IXapianAccessor.idl
 endif
 
 IXapianAccessor.h:

@@ -30,7 +30,7 @@ zimAccessor.xpt:
 if XPIDL
 	$(XPIDL) -m typelib -o zimAccessor -I $(GECKO_IDL_PATH) $(top_srcdir)/src/components/zimAccessor/IZimAccessor.idl
 else
-	$(TYPELIB_PY) --cachedir=/tmp -o zimAccessor -I $(GECKO_IDL_PATH) $(top_srcdir)/src/components/zimAccessor/IZimAccessor.idl
+	$(TYPELIB_PY) --cachedir=/tmp -o zimAccessor.xpt -I $(GECKO_IDL_PATH) $(top_srcdir)/src/components/zimAccessor/IZimAccessor.idl
 endif
 
 IZimAccessor.h:

@@ -32,7 +32,7 @@ zimCluceneIndexer.xpt:
 if XPIDL
 	$(XPIDL) -m typelib -o zimCluceneIndexer -I $(GECKO_IDL_PATH) $(top_srcdir)/src/components/zimCluceneIndexer/IZimCluceneIndexer.idl
 else
-	$(TYPELIB_PY) --cachedir=/tmp -o zimCluceneIndexer -I $(GECKO_IDL_PATH) $(top_srcdir)/src/components/zimCluceneIndexer/IZimCluceneIndexer.idl
+	$(TYPELIB_PY) --cachedir=/tmp -o zimCluceneIndexer.xpt -I $(GECKO_IDL_PATH) $(top_srcdir)/src/components/zimCluceneIndexer/IZimCluceneIndexer.idl
 endif
 
 IZimCluceneIndexer.h:

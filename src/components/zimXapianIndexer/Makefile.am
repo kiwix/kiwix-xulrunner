@@ -36,7 +36,7 @@ zimXapianIndexer.xpt:
 if XPIDL
 	$(XPIDL) -m typelib -o zimXapianIndexer -I $(GECKO_IDL_PATH) $(top_srcdir)/src/components/zimXapianIndexer/IZimXapianIndexer.idl
 else
-	$(TYPELIB_PY) --cachedir=/tmp -o zimXapianIndexer -I $(GECKO_IDL_PATH) $(top_srcdir)/src/components/zimXapianIndexer/IZimXapianIndexer.idl
+	$(TYPELIB_PY) --cachedir=/tmp -o zimXapianIndexer.xpt -I $(GECKO_IDL_PATH) $(top_srcdir)/src/components/zimXapianIndexer/IZimXapianIndexer.idl
 endif
 
 IZimXapianIndexer.h:

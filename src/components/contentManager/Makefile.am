@@ -39,7 +39,7 @@ contentManager.xpt:
 if XPIDL
 	$(XPIDL) -m typelib -o contentManager -I $(GECKO_IDL_PATH) $(top_srcdir)/src/components/contentManager/IContentManager_gecko_v1.idl
 else
-	$(TYPELIB_PY) --cachedir=/tmp -o contentManager -I $(GECKO_IDL_PATH) $(top_srcdir)/src/components/contentManager/IContentManager.idl
+	$(TYPELIB_PY) --cachedir=/tmp -o contentManager.xpt -I $(GECKO_IDL_PATH) $(top_srcdir)/src/components/contentManager/IContentManager.idl
 endif
 
 IContentManager.h:
