@@ -104,6 +104,8 @@
 <!ENTITY main.openLinkInNewTab          "עפֿענען לינק אין נײַעם טאב">
 <!ENTITY main.searchFor                 "זוכן פֿאַר">
 <!ENTITY main.copyLinkAdress            "Copy link address">
+<!ENTITY main.mute                      "Mute">
+<!ENTITY main.audible                   "Audible">
 
 <!-- About Window -->
 <!ENTITY main.close                     "שליסן">

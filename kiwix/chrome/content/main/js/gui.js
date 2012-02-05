@@ -854,6 +854,9 @@ function manageImageDownload(url) {
 function toggleBrowserContextualMenu(event) {
     var target = event.target;
 
+    /* Set the trigger Node */
+    document.popupNode = target;
+
     /* Image target */
     var saveImageAsMenuItem = document.getElementById("browser-contextual-menu-saveimageas");
     if (target.localName == "img") {
@@ -870,7 +873,6 @@ function toggleBrowserContextualMenu(event) {
     if (url != undefined) {
 	if (isInternalUrl(url) && !isJavascriptUrl(url)) {
 	    openLinkInNewTabMenuItem.setAttribute("style", "display: visible;");
-	    openLinkInNewTabMenuItem.setAttribute("onclick", "manageOpenUrlInNewTab(\"" + url.replace("\"", "\\\"") + "\")");
 	} else {
 	    openLinkInNewTabMenuItem.setAttribute("style", "display: none;");
 	}
@@ -912,6 +914,20 @@ function toggleBrowserContextualMenu(event) {
 	selectAllMenuItem.setAttribute("style", "display: visible;");
     } else {
 	selectAllMenuItem.setAttribute("style", "display: none;");
+    }
+
+    /* Mute/Audible HTML5 Video */
+    var muteMenuItem = document.getElementById("browser-contextual-menu-mute");
+    var audibleMenuItem = document.getElementById("browser-contextual-menu-audible");
+    if (target.localName == "video") {
+	var isAudible = !target.muted;
+	if (isAudible) {
+	    muteMenuItem.setAttribute("style", "display: visible;");
+	    audibleMenuItem.setAttribute("style", "display: none;");
+	} else {
+	    audibleMenuItem.setAttribute("style", "display: visible;");
+	    muteMenuItem.setAttribute("style", "display: none;");
+	}
     }
 
     /* Show the contextual menu */

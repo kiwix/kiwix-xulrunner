@@ -104,6 +104,8 @@
 <!ENTITY main.openLinkInNewTab          "ಪೊಸ ಪಟ್ಟಿಡ್ ಕೊಂಡಿ ಬಿಚ್ಚಾಲೆ">
 <!ENTITY main.searchFor                 "ನಾಡ್ಲೆ...">
 <!ENTITY main.copyLinkAdress            "Copy link address">
+<!ENTITY main.mute                      "Mute">
+<!ENTITY main.audible                   "Audible">
 
 <!-- About Window -->
 <!ENTITY main.close                     "ಮುಚ್ಚಿಲೆ">

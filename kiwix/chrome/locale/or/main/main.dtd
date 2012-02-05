@@ -104,6 +104,8 @@
 <!ENTITY main.openLinkInNewTab          "ନୂଆ ଟାବ୍ ରେ ଲିଂକ ଖୋଲ">
 <!ENTITY main.searchFor                 "ଖୋଜିବେ">
 <!ENTITY main.copyLinkAdress            "Copy link address">
+<!ENTITY main.mute                      "Mute">
+<!ENTITY main.audible                   "Audible">
 
 <!-- About Window -->
 <!ENTITY main.close                     "ବନ୍ଦ କରିବେ">

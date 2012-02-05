@@ -245,9 +245,11 @@ function initModulesAndComponents() {
     Components.utils.import("resource://modules/library.jsm");
 
     /* jsctype jsm moculdes */
+    /*
     try {
-//        Components.utils.import("resource://modules/ctype/zimAccessor.jsm");
+        Components.utils.import("resource://modules/ctype/zimAccessor.jsm");
     } catch(e) { dump("Unable to import libzimAccessor module: " + e.toString() + "\n"); libzimAccessor = null; }
+    */
 
     /* Check the XPCOM registration */
     if (Components.classes["@kiwix.org/zimAccessor"] == undefined)

@@ -104,6 +104,8 @@
 <!ENTITY main.openLinkInNewTab          "Отвори везу у новом језичку">
 <!ENTITY main.searchFor                 "Тражи">
 <!ENTITY main.copyLinkAdress            "Copy link address">
+<!ENTITY main.mute                      "Mute">
+<!ENTITY main.audible                   "Audible">
 
 <!-- About Window -->
 <!ENTITY main.close                     "Затвори">

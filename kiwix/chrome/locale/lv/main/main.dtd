@@ -104,6 +104,8 @@
 <!ENTITY main.openLinkInNewTab          "Atvērt saiti jaunā lapā">
 <!ENTITY main.searchFor                 "Meklēt">
 <!ENTITY main.copyLinkAdress            "Copy link address">
+<!ENTITY main.mute                      "Mute">
+<!ENTITY main.audible                   "Audible">
 
 <!-- About Window -->
 <!ENTITY main.close                     "Aizvērt">

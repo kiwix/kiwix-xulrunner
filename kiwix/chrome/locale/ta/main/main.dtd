@@ -104,6 +104,8 @@
 <!ENTITY main.openLinkInNewTab          "புதிய தாவலில் இணைப்பை திற">
 <!ENTITY main.searchFor                 "இதை தேடு">
 <!ENTITY main.copyLinkAdress            "Copy link address">
+<!ENTITY main.mute                      "Mute">
+<!ENTITY main.audible                   "Audible">
 
 <!-- About Window -->
 <!ENTITY main.close                     "மூடு">

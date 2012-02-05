@@ -104,6 +104,8 @@
 <!ENTITY main.openLinkInNewTab          "കണ്ണി പുതിയ ടാബിൽ തുറക്കുക">
 <!ENTITY main.searchFor                 "തിരയുക">
 <!ENTITY main.copyLinkAdress            "Copy link address">
+<!ENTITY main.mute                      "Mute">
+<!ENTITY main.audible                   "Audible">
 
 <!-- About Window -->
 <!ENTITY main.close                     "അടയ്ക്കുക">

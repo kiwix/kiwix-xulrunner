@@ -189,6 +189,7 @@
 </keyset>
 
 <!-- Contextual menu (should be implemented after menubar otherwise generate a 1 pixel big space between windows decoration and menubar) -->
+<popupset>
 <menupopup id="browser-contextual-menu">
   <menuitem label="&main.saveImageAs;" id="browser-contextual-menu-saveimageas"/>
   <menuitem label="&main.openLinkInNewTab;" id="browser-contextual-menu-openlinkinnewtab"/>
@@ -196,7 +197,10 @@
   <menuitem label="&main.selectall;" id="browser-contextual-menu-selectall" onclick="selectAll()"/>
   <menuitem label="&main.searchFor;" id="browser-contextual-menu-searchfor"/>
   <menuitem label="&main.copyLinkAdress;" id="browser-contextual-menu-copylinkaddress"/>
+  <menuitem label="&main.mute;" id="browser-contextual-menu-mute" onclick="document.popupNode.muted=true"/>
+  <menuitem label="&main.audible;" id="browser-contextual-menu-audible" oncommand="document.popupNode.muted=false"/>
 </menupopup>
+</popupset>
 
 <menupopup id="sugar-options-menu">
       <menuitem id="tools-randomArticle" label="&main.randomArticle;" key="random-article-key" accesskey="&main.randomArticle.accesskey;" oncommand="loadRandomArticle()"/>

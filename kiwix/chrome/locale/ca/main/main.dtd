@@ -104,6 +104,8 @@
 <!ENTITY main.openLinkInNewTab          "Obre l'enllaç en una pestanya nova">
 <!ENTITY main.searchFor                 "Buscar">
 <!ENTITY main.copyLinkAdress            "Copy link address">
+<!ENTITY main.mute                      "Mute">
+<!ENTITY main.audible                   "Audible">
 
 <!-- About Window -->
 <!ENTITY main.close                     "Close">

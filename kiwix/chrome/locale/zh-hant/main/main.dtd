@@ -104,6 +104,8 @@
 <!ENTITY main.openLinkInNewTab          "在新頁籤打開連結">
 <!ENTITY main.searchFor                 "搜尋">
 <!ENTITY main.copyLinkAdress            "Copy link address">
+<!ENTITY main.mute                      "Mute">
+<!ENTITY main.audible                   "Audible">
 
 <!-- About Window -->
 <!ENTITY main.close                     "關閉">
