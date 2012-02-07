@@ -254,9 +254,13 @@ then
 	# Configuration for alternative libclucene location
 	AC_ARG_WITH(clucene, [  --with-clucene=DIR      alternate location for the clucene library], LIBCLUCENE_PATH=`cd ${withval}; pwd`)
 
-	# Check the libclucene
+	# Check the libclucene (also new 2.3 version)
 	AC_CHECK_HEADER([CLucene.h],, [AC_MSG_ERROR([[cannot find clucene header]])])
-	AC_CHECK_LIB([clucene], [open],, [AC_MSG_ERROR([[cannot find clucene]])])
+	AC_CHECK_LIB([clucene], [open],, [
+		AC_CHECK_LIB([clucene-core], [open],, [AC_MSG_ERROR([[cannot find clucene-core]])])
+		AC_CHECK_LIB([clucene-shared], [open],, [AC_MSG_ERROR([[cannot find clucene-shared]])])
+		])
+
 
 	if test [ "$LIBCLUCENE_PATH" ]
 	then
