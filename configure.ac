@@ -256,18 +256,19 @@ then
 
 	# Check the libclucene (also new 2.3 version)
 	AC_CHECK_HEADER([CLucene.h],, [AC_MSG_ERROR([[cannot find clucene header]])])
-	AC_CHECK_LIB([clucene], [open],, [
-		AC_CHECK_LIB([clucene-core], [open],, [AC_MSG_ERROR([[cannot find clucene-core]])])
-		AC_CHECK_LIB([clucene-shared], [open],, [AC_MSG_ERROR([[cannot find clucene-shared]])])
-		])
-
-
 	if test [ "$LIBCLUCENE_PATH" ]
 	then
 		LIBCLUCENE_CFLAGS="-I${LIBCLUCENE_PATH}"
 		LIBCLUCENE_LDFLAGS="-L${LIBCLUCENE_PATH}"
 	fi
-	LIBCLUCENE_LDFLAGS="${LIBCLUCENE_LDFLAGS} -lclucene"
+	AC_CHECK_LIB([clucene], [open], [
+		LIBCLUCENE_LDFLAGS="${LIBCLUCENE_LDFLAGS} -lclucene"	
+		], [
+		AC_CHECK_LIB([clucene-core], [open],, [AC_MSG_ERROR([[cannot find clucene-core]])])
+		AC_CHECK_LIB([clucene-shared], [open],, [AC_MSG_ERROR([[cannot find clucene-shared]])])
+		LIBCLUCENE_LDFLAGS="${LIBCLUCENE_LDFLAGS} -lclucene-core -lclucene-shared"
+		])
+
 
 	# Configuration for alternative xapianlib location
 	XAPIAN_CONFIG_PATH="$PATH"
