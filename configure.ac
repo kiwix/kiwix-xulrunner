@@ -178,7 +178,10 @@ then
 	# Possible to specify the IDL directory and check
 	AC_ARG_WITH(gecko-idl, [  --with-gecko-idl=DIR]    path to Gecko IDL files,
 			       GECKO_IDL_PATH=`cd ${withval}; pwd`)   
-	AC_CHECK_FILE("$GECKO_IDL_PATH/nsISupports.idl", [], AC_MSG_ERROR([[unable to find nsISupports.idl]]))
+	if test [ ! -f "$GECKO_IDL_PATH/nsISupports.idl" ]
+	then
+		AC_MSG_ERROR([[unable to find nsISupports.idl]])
+	fi
 
 	# Configuration of xpidl
 	XPIDL_PATH=$GECKO_SDK_PATH/bin
@@ -198,7 +201,11 @@ then
     		     AC_MSG_ERROR([[cannot find python]])
 		fi
 
-		AC_CHECK_FILES([$GECKO_SDK_PATH/sdk/bin/header.py $GECKO_SDK_PATH/sdk/bin/typelib.py], [], AC_MSG_ERROR([[unable to find neither the xpidl binary nor the typelib.py and header.py scripts]]))
+		if test [ ! -f "$GECKO_SDK_PATH/sdk/bin/header.py" ] || test [ ! -f "$GECKO_SDK_PATH/sdk/bin/typelib.py" ]
+		then
+			AC_MSG_ERROR([[unable to find neither the xpidl binary nor the typelib.py and header.py scripts]])
+		fi
+
 		HEADER_PY="$PYTHON $GECKO_SDK_PATH/sdk/bin/header.py"
 		TYPELIB_PY="$PYTHON $GECKO_SDK_PATH/sdk/bin/typelib.py"
 	fi
