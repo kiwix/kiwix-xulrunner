@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Original binary
-BINARY_ORG=$0
+BINARY_ORG="$0"
 if [ ! ${BINARY_ORG:0:1} = "/" ]
 then
    BINARY_ORG=`pwd`/$BINARY_ORG
@@ -37,22 +37,20 @@ done
 # Add /usr/local/lib to $LD_LIBRARY_PATH as it seems no always be the case per default
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
 
-# If no xulrunner, get the path of the xulrunner install of the system
+# If no local xulrunner binary try different name on the system
 if [ ! "$XULRUNNER" ]
 then
-    XULRUNNER=`whereis xulrunner-1.9.2 | cut -d" " -f2`
-fi
-
-# If no symlink "xulrunner" try to find the binary itself
-if [ ! "$XULRUNNER" ] || [ ! -f "$XULRUNNER" ] || [ ! -x "$XULRUNNER" ] || [ ! -r "$XULRUNNER" ]
-then
-    XULRUNNER=`whereis xulrunner-1.9.1 | cut -d" " -f2`
-fi
-
-# Last chance, try with xulrunner-1.9.1 binary
-if [ ! "$XULRUNNER" ] || [ ! -f "$XULRUNNER" ] || [ ! -x "$XULRUNNER" ] || [ ! -r "$XULRUNNER" ]
-then
-    XULRUNNER=`whereis xulrunner | cut -d" " -f2`
+  XULRUNNER_NAMES="xulrunner xulrunner-1.9.2 xulrunner-10.0 xulrunner-9.0 \
+                   xulrunner-8.0 xulrunner-7.0 xulrunner-6.0 xulrunner-5.0 xulrunner-4.0 \
+                   xulrunner-3.0 xulrunner-2.0 xulrunner-1.9.1";
+  for NAME in $XULRUNNER_NAMES
+  do
+    XULRUNNER=`whereis $NAME | cut -d":" -f2 | cut -d" " -f2`
+    if [ "$XULRUNNER" ]
+    then
+	break;
+    fi
+  done;
 fi
 
 # If no result print a message
