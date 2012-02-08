@@ -11,6 +11,6 @@ include_HEADERS= \
 	../common/kiwix/searcher.h \
 	../common/kiwix/xapianSearcher.h \
 	../common/kiwix/cluceneSearcher.h 
-kiwix_search_CXXFLAGS=$(LIBXAPIAN_CFLAGS) $(LIBICU_CFLAGS) $(LIBCTPP2_CFLAGS) -I../common/
-kiwix_search_LDFLAGS=$(LIBXAPIAN_LDFLAGS) $(LIBICU_LDFLAGS) $(LIBCTPP2_LDFLAGS)
+kiwix_search_CXXFLAGS=$(LIBXAPIAN_CFLAGS) $(LIBCLUCENE_CFLAGS) $(LIBICU_CFLAGS) $(LIBCTPP2_CFLAGS) -I../common/
+kiwix_search_LDFLAGS=$(LIBXAPIAN_LDFLAGS) $(LIBCLUCENE_LDFLAGS) $(LIBICU_LDFLAGS) $(LIBCTPP2_LDFLAGS)
 kiwix_search_LDADD=../ctpp2/src/.libs/libctpp2.a
