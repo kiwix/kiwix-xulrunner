@@ -19,7 +19,7 @@
 
 #include "xpcom-config.h"
 
-#if GECKO_VERSION == 2
+#if GECKO_VERSION > 1
 #if !defined(NS_ATTR_MALLOC)
   #define NS_ATTR_MALLOC
   #endif
@@ -34,9 +34,13 @@
 
   #include "mozilla/ModuleUtils.h"
   #include "nsIClassInfoImpl.h"
-  #define mozbool bool
 #else
   #include "nsIGenericFactory.h"
+#endif
+
+#if GECKO_VERSION > 9
+  #define mozbool bool
+#else
   #define mozbool PRBool
 #endif
 
@@ -137,7 +141,7 @@ NS_IMETHODIMP ZimCluceneIndexer::StopIndexing(mozbool *retVal) {
   return NS_OK;
 }
 
-#if GECKO_VERSION == 2
+#if GECKO_VERSION > 1
 
 NS_GENERIC_FACTORY_CONSTRUCTOR(ZimCluceneIndexer)
 NS_DEFINE_NAMED_CID(IZIMCLUCENEINDEXER_IID);

@@ -428,14 +428,16 @@ AC_DEFINE(ENABLE_LZMA, [1], [defined if lzma compression is enabled])
 
 # Gecko version
 GECKO_VERSION=`grep MOZILLA_VERSION_U ${GECKO_SDK_PATH}/include/mozilla-config.h | cut --delimiter=" " -f3 | cut --delimiter="." -f1`
-if [[ "$GECKO_VERSION" -lt "2" ]]
+if [[ "$GECKO_VERSION" -gt "1" ]]
 then
-GECKO_VERSION=1
-else
-GECKO_VERSION=2
-CXXFLAGS="${CXXFLAGS} -std=gnu++0x -fexceptions -DMOZ_CPP_EXCEPTIONS"
+  CXXFLAGS="${CXXFLAGS} -std=gnu++0x -fexceptions -DMOZ_CPP_EXCEPTIONS"
+  if [[ "$GECKO_VERSION" -lt "10" ]]
+  then
+    GECKO_OLD_BOOL_TYPE=1
+  fi
 fi
 AC_MSG_RESULT(checking for Gecko version... ${GECKO_VERSION})
+AM_CONDITIONAL([GECKO_OLD_BOOL_TYPE], [test "$GECKO_OLD_BOOL_TYPE"])
 
 # Is xpidl available
 AM_CONDITIONAL([XPIDL], [test "$XPIDL"])
@@ -458,6 +460,7 @@ AC_SUBST(LIBXUL_LDFLAGS)
 AC_SUBST(XPCOM_CFLAGS)
 AC_SUBST(XPCOM_LDFLAGS)
 AC_SUBST(XPIDL)
+AC_SUBST(GECKO_OLD_BOOL_TYPE)
 AC_SUBST(HEADER_PY)
 AC_SUBST(TYPELIB_PY)
 AC_SUBST(GECKO_IDL_PATH)

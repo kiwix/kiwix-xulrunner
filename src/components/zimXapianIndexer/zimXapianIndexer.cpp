@@ -19,7 +19,7 @@
 
 #include "xpcom-config.h"
 
-#if GECKO_VERSION == 2
+#if GECKO_VERSION > 1
 #if !defined(NS_ATTR_MALLOC)
   #define NS_ATTR_MALLOC
   #endif
@@ -34,10 +34,14 @@
 
   #include "mozilla/ModuleUtils.h"
   #include "nsIClassInfoImpl.h"
-  #define moztool bool
 #else
   #include "nsIGenericFactory.h"
-  #define moztool PRBool
+#endif
+
+#if GECKO_VERSION > 9
+  #define mozbool bool
+#else
+  #define mozbool PRBool
 #endif
 
 #include "IZimXapianIndexer.h"
@@ -89,7 +93,7 @@ NS_IMETHODIMP ZimXapianIndexer::StartIndexing(const nsACString &unixZimFilePath,
 					      const nsACString &winZimFilePath, 
 					      const nsACString &unixXapianDirectoryPath, 
 					      const nsACString &winXapianDirectoryPath, 
-					      moztool *retVal) {
+					      mozbool *retVal) {
 
   *retVal = PR_FALSE;
 
@@ -117,7 +121,7 @@ NS_IMETHODIMP ZimXapianIndexer::StartIndexing(const nsACString &unixZimFilePath,
 }
 
 /* Index next percent */
-NS_IMETHODIMP ZimXapianIndexer::IndexNextPercent(moztool *retVal) {
+NS_IMETHODIMP ZimXapianIndexer::IndexNextPercent(mozbool *retVal) {
   *retVal = PR_FALSE;
 
   try {
@@ -132,12 +136,12 @@ NS_IMETHODIMP ZimXapianIndexer::IndexNextPercent(moztool *retVal) {
 }
 
 /* Stop indexing. TODO: using it crashs the soft under windows. Have to do it in indexNextPercent() */
-NS_IMETHODIMP ZimXapianIndexer::StopIndexing(moztool *retVal) {
+NS_IMETHODIMP ZimXapianIndexer::StopIndexing(mozbool *retVal) {
   *retVal = PR_TRUE;
   return NS_OK;
 }
 
-#if GECKO_VERSION == 2
+#if GECKO_VERSION > 1
 
 NS_GENERIC_FACTORY_CONSTRUCTOR(ZimXapianIndexer)
 NS_DEFINE_NAMED_CID(IZIMXAPIANINDEXER_IID);
