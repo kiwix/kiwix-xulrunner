@@ -45,7 +45,7 @@ then
                    xulrunner-3.0 xulrunner-2.0 xulrunner-1.9.1";
   for NAME in $XULRUNNER_NAMES
   do
-    XULRUNNER=`whereis $NAME | cut -d":" -f2 | cut -d" " -f2`
+    XULRUNNER=`which $NAME`
     if [ "$XULRUNNER" ]
     then
 	break;
