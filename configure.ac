@@ -269,7 +269,6 @@ then
 		LIBCLUCENE_LDFLAGS="${LIBCLUCENE_LDFLAGS} -lclucene-core -lclucene-shared"
 		])
 
-
 	# Configuration for alternative xapianlib location
 	XAPIAN_CONFIG_PATH="$PATH"
 	AC_ARG_WITH(xapian, [  --with-xapian=DIR       alternate location for Xapian library],
@@ -512,8 +511,6 @@ AC_CONFIG_HEADERS([src/zimlib/src/config.h])
 AC_CONFIG_FILES([
   Makefile
   src/Makefile
-  src/ctype/Makefile
-  src/ctype/zimAccessor/Makefile
   src/dependences/Makefile
   src/zimlib/Makefile
   src/zimlib/src/Makefile
