@@ -26,7 +26,7 @@ libZimCluceneIndexer_la_LIBADD=$(top_builddir)/src/zimlib/src/libzim.la
 endif
 EXTRA_DIST=IZimCluceneIndexer.idl
 BUILT_SOURCES=zimCluceneIndexer.xpt IZimCluceneIndexer.h
-CLEANFILES=zimCluceneIndexer.xpt IZimCluceneIndexer.h *.lib *.obj *.dll *.in *.h *.xpt
+CLEANFILES=zimCluceneIndexer.xpt IZimCluceneIndexer.h *.lib *.obj *.dll *.h *.xpt
 
 zimCluceneIndexer.xpt:
 if XPIDL

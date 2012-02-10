@@ -33,7 +33,7 @@ libContentManager_la_LDFLAGS=$(LIBXUL_LDFLAGS) $(LIBZIM_STATIC_LDFLAGS) $(LIBICU
 endif
 EXTRA_DIST=IContentManager.idl
 BUILT_SOURCES=contentManager.xpt IContentManager.h
-CLEANFILES=contentManager.xpt IContentManager.h *.lib *.obj *.dll *.in *.h *.xpt
+CLEANFILES=contentManager.xpt IContentManager.h *.lib *.obj *.dll *.h *.xpt
 
 contentManager.xpt:
 if XPIDL

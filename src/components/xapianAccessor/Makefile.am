@@ -29,7 +29,7 @@ libXapianAccessor_la_LDFLAGS=$(LIBXUL_LDFLAGS) $(LIBXAPIAN_STATIC_LDFLAGS) $(LIB
 endif
 EXTRA_DIST=IXapianAccessor.idl
 BUILT_SOURCES=xapianAccessor.xpt IXapianAccessor.h
-CLEANFILES=xapianAccessor.xpt IXapianAccessor.h *.lib *.obj *.dll *.in *.h *.xpt
+CLEANFILES=xapianAccessor.xpt IXapianAccessor.h *.lib *.obj *.dll *.h *.xpt
 
 xapianAccessor.xpt: 
 if XPIDL

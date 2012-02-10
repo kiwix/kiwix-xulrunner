@@ -21,7 +21,7 @@ libCluceneAccessor_la_LIBADD=$(top_builddir)/src/ctpp2/src/libctpp2.la
 endif
 EXTRA_DIST=ICluceneAccessor.idl
 BUILT_SOURCES=cluceneAccessor.xpt ICluceneAccessor.h
-CLEANFILES=cluceneAccessor.xpt ICluceneAccessor.h *.lib *.obj *.dll *.in *.xpt *.h
+CLEANFILES=cluceneAccessor.xpt ICluceneAccessor.h *.lib *.obj *.dll *.xpt *.h
 
 cluceneAccessor.xpt: 
 if XPIDL

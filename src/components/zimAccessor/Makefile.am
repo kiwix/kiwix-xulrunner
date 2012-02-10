@@ -24,7 +24,7 @@ libZimAccessor_la_LDFLAGS=$(LIBXUL_LDFLAGS) $(LIBZIM_STATIC_LDFLAGS) $(LIBZIMSEL
 endif
 EXTRA_DIST=IZimAccessor.idl
 BUILT_SOURCES=zimAccessor.xpt IZimAccessor.h
-CLEANFILES=zimAccessor.xpt IZimAccessor.h *.lib *.obj *.dll *.in *.xpt *.h
+CLEANFILES=zimAccessor.xpt IZimAccessor.h *.lib *.obj *.dll *.xpt *.h
 
 zimAccessor.xpt:
 if XPIDL
