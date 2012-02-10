@@ -331,7 +331,8 @@ then
 	# BINDIST_INTRO_* values
 	BINDIST_INTRO_MESSAGE="echo You have to run configure with the '--without-dependences' argument."
 else
-    IS_STATIC=1
+        IS_STATIC=1
+
 	# Check if the 'wget' binary exists
 	AC_CHECK_TOOL(HAVE_WGET, wget)
 	if test [ ! "$HAVE_WGET" ]
@@ -350,8 +351,17 @@ else
 	LIBXUL_CFLAGS="-I${GECKO_SDK_PATH}/include -fshort-wchar"
 	LIBXUL_LDFLAGS="-L${GECKO_SDK_PATH}/sdk/lib -lxpcomglue_s -lxul -lxpcom -lplds4 -lplc4 -lnspr4 -lpthread -ldl"
 	GECKO_IDL_PATH=${GECKO_SDK_PATH}/idl
-	XPIDL_PATH=$GECKO_SDK_PATH/bin
-	AC_PATH_PROG([XPIDL], "xpidl", [], $XPIDL_PATH)
+	AC_PATH_PROG([PYTHON], "python")			 
+	if test [ ! "$PYTHON" ]
+	then
+    	     AC_MSG_ERROR([[cannot find python]])
+	fi
+	if test [ ! -f "$GECKO_SDK_PATH/sdk/bin/header.py" ] || test [ ! -f "$GECKO_SDK_PATH/sdk/bin/typelib.py" ]
+	then
+	AC_MSG_ERROR([[unable to find neither the xpidl binary nor the typelib.py and header.py scripts]])
+	fi
+	HEADER_PY="$PYTHON $GECKO_SDK_PATH/sdk/bin/header.py"
+	TYPELIB_PY="$PYTHON $GECKO_SDK_PATH/sdk/bin/typelib.py"
 
 	# zlib
 	LIBZ_CFLAGS="-I${CURRENT_PATH}/src/dependences/zlib-1.2.3/"
