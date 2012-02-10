@@ -18,7 +18,7 @@ then
 	AC_MSG_ERROR([[cannot find any C++ compiler]])
 fi
 
-AC_CHECK_TOOL(HAVE_JAR, cl)
+AC_CHECK_TOOL(HAVE_ZIP, zip)
 
 # Check cl.exe
 AC_CHECK_PROG(HAVE_CL, cl.exe, yes, no)
@@ -39,10 +39,10 @@ fi
 if test [ ! "$IS_WIN" ]
 then
 
-  # Chek jar
-  AC_CHECK_TOOL([JAR],[jar],[])
-  if [[ "$JAR" = "" ]]; then
-    AC_MSG_ERROR([jar is required.])
+  # Chek zip
+  AC_CHECK_TOOL([ZIP],[zip],[])
+  if [[ "$ZIP" = "" ]]; then
+    AC_MSG_ERROR([zip is required.])
   fi
 
   # Don't test for aria2 on OSX
@@ -349,7 +349,7 @@ else
 	# Gecko stuff
 	GECKO_SDK_PATH=${CURRENT_PATH}/src/dependences/xulrunner-sdk
 	LIBXUL_CFLAGS="-I${GECKO_SDK_PATH}/include -fshort-wchar"
-	LIBXUL_LDFLAGS="-L${GECKO_SDK_PATH}/sdk/lib -lxpcomglue_s -lxul -lxpcom -lplds4 -lplc4 -lnspr4 -lpthread -ldl"
+	LIBXUL_LDFLAGS="-L${GECKO_SDK_PATH}/sdk/lib -lxpcomglue_s -lxul -lxpcom -lplds4 -lplc4 -lnspr4 -ldl"
 	GECKO_IDL_PATH=${GECKO_SDK_PATH}/idl
 	AC_PATH_PROG([PYTHON], "python")			 
 	if test [ ! "$PYTHON" ]
@@ -504,7 +504,7 @@ AC_SUBST(LIBMICROHTTPD_STATIC_LDFLAGS)
 AC_SUBST(ESCAPED_PREFIX)
 AC_SUBST(BINDIST_INTRO_MESSAGE)
 AC_SUBST(DEPENDENCES)
-AC_SUBST(JAR)
+AC_SUBST(ZIP)
 AC_SUBST(CURRENT_PATH)
 AC_SUBST(GECKO_VERSION)
 AC_SUBST(IS_OSX)
