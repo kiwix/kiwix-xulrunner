@@ -103,12 +103,6 @@ echo "Files clean up"
 rm -rf ./kiwix
 cp -r -L ./moulinkiwix/kiwix ./kiwix
 
-# Remove symbol table of Binary XPCOM components
-for FILE in ./kiwix/components
-do
-strip $FILE
-done
-
 # Remove svn/repo stuff
 find ./kiwix -name '.svn' -exec rm -rf {} \;
 find ./kiwix -name '*.inised' -exec rm -rf {} \;
@@ -145,7 +139,6 @@ mv ./kiwix/xulrunner/xulrunner-stub ./kiwix/kiwix
 wget http://download.kiwix.org/dev/aria2c -O ./kiwix/aria2c
 #cp -v ./moulinkiwix/src/dependences/aria2-1.12.1/src/aria2c ./kiwix/
 
-
 # Download the firefox en copy the locales JAR
 getFirefoxLocalization de
 getFirefoxLocalization it
@@ -159,6 +152,12 @@ getFirefoxLocalization zh-CN
 # xapian-compact
 mkdir ./kiwix/bin
 cp moulinkiwix/src/dependences/xapian*/bin/.libs/xapian-compact ./kiwix/bin
+
+#strip the binaries
+for BINARY in `find src/ -executable -type f | grep -v ".sh" | grep -v ".py" | grep -v sugar`
+do
+    strip $BINARY
+done
 
 # Tar & clean
 echo "Clean Up"
