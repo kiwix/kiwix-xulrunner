@@ -119,21 +119,21 @@
 <!ENTITY preferences.tabs               "Remember tabs">
 
 <!-- Library -->
-<!ENTITY main.library.myLibrary                 "My library">
-<!ENTITY main.library.getNewFiles               "Get new files">
-<!ENTITY main.library.searchZimFiles            "Search ZIM files">
-<!ENTITY main.library.sortBy                    "Sort by">
-<!ENTITY main.library.sortBy.title              "Title">
-<!ENTITY main.library.sortBy.size               "Size">
-<!ENTITY main.library.sortBy.date               "Date">
-<!ENTITY main.library.sortBy.author             "Author">
-<!ENTITY main.library.sortBy.publisher          "Publisher">
-<!ENTITY main.library.filterBy                  "Filter by">
-<!ENTITY main.library.filterBy.fileSize         "File size">
-<!ENTITY main.library.filterBy.language         "Language">
-<!ENTITY main.library.filterBy.language.all     "All">
-<!ENTITY main.library.filterBy.author           "Author">
-<!ENTITY main.library.filterBy.author.all       "All">
-<!ENTITY main.library.filterBy.publisher        "Publisher">
-<!ENTITY main.library.filterBy.publisher.all    "All">
+<!ENTITY main.library.myLibrary                 "મારૂં પુસ્તકાલય">
+<!ENTITY main.library.getNewFiles               "નવી ફાઈલ મેળવો">
+<!ENTITY main.library.searchZimFiles            "ZIM ફાઈલ્સમાં ગોતો">
+<!ENTITY main.library.sortBy                    "દ્વારા ગોઠવો">
+<!ENTITY main.library.sortBy.title              "શીર્ષક">
+<!ENTITY main.library.sortBy.size               "કદ">
+<!ENTITY main.library.sortBy.date               "તારીખ">
+<!ENTITY main.library.sortBy.author             "લેખક">
+<!ENTITY main.library.sortBy.publisher          "પ્રકાશક">
+<!ENTITY main.library.filterBy                  "દ્વારા ફિલ્ટર કરો">
+<!ENTITY main.library.filterBy.fileSize         "ફાઇલનું કદ">
+<!ENTITY main.library.filterBy.language         "ભાષા">
+<!ENTITY main.library.filterBy.language.all     "બધી">
+<!ENTITY main.library.filterBy.author           "લેખક">
+<!ENTITY main.library.filterBy.author.all       "બધા">
+<!ENTITY main.library.filterBy.publisher        "પ્રકાશક">
+<!ENTITY main.library.filterBy.publisher.all    "બધા">
 

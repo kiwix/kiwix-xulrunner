@@ -70,7 +70,7 @@
 <!-- Help menu -->
 <!ENTITY main.help                      "Adjuta">
 <!ENTITY main.help.accesskey            "H">
-<!ENTITY main.feedback                  "Retroaction">
+<!ENTITY main.feedback                  "Commentario">
 <!ENTITY main.reportabug                "Reportar un defecto">
 <!ENTITY main.requestafeature           "Requestar functionalitate">
 <!ENTITY main.about                     "A proposito de &brand.brandShortName;">

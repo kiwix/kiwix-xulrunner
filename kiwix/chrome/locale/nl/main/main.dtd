@@ -104,8 +104,8 @@
 <!ENTITY main.openLinkInNewTab          "Verwijzing openen in nieuw tabblad">
 <!ENTITY main.searchFor                 "Zoeken naar">
 <!ENTITY main.copyLinkAdress            "Copy link address">
-<!ENTITY main.mute                      "Mute">
-<!ENTITY main.audible                   "Audible">
+<!ENTITY main.mute                      "Geluid dempen">
+<!ENTITY main.audible                   "Geluid aanzetten">
 
 <!-- About Window -->
 <!ENTITY main.close                     "Sluiten">
