@@ -1,5 +1,5 @@
 bin_PROGRAMS=kiwix-read
-AM_CPPFLAGS=-I$(top_srcdir)/src/common
+AM_CPPFLAGS=-I$(top_srcdir)/src/common -I$(top_srcdir)/src/zimlib/include
 kiwix_read_SOURCES= \
 	kiwix-read.cpp \
 	../common/kiwix/reader.cpp
