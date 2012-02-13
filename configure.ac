@@ -538,6 +538,7 @@ AC_CONFIG_FILES([
   src/components/contentManager/Makefile
   src/indexer/Makefile
   src/searcher/Makefile
+  src/reader/Makefile
   src/installer/Makefile
   src/server/Makefile
   src/manager/Makefile
