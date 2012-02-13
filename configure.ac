@@ -85,9 +85,11 @@ then
   CPPFLAGS="${CPPFLAGS} -I/usr/lib -I/usr/lib64"
   if test "x${CFLAGS}" = "x"; then
     CFLAGS="-O6"
+  else
+    CFLAGS="${CFLAGS}"
   fi
-  CFLAGS="${CFLAGS}"
-  LDFLAGS="${LDFLAGS}" 
+  LDFLAGS="${LDFLAGS}"
+
   # LIBS=""
   # LD_PATH=""
   # LD_LIBRARY_PATH=""
