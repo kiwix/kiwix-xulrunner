@@ -5,8 +5,7 @@ SUBDIRS = ${DEPENDENCES} \
 	pugixml \
 	components \
 	manager \
-	dependences \
-	ctype
+	dependences
 else
 SUBDIRS = ${DEPENDENCES} \
 	zimlib \
@@ -14,8 +13,7 @@ SUBDIRS = ${DEPENDENCES} \
 	pugixml \
 	components \
 	server \
-	manager \
-	ctype
+	manager 
 if IS_STATIC
 else
 SUBDIRS += indexer \
