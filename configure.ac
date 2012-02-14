@@ -349,7 +349,12 @@ else
 	DEPENDENCES="dependences"
 
 	# Gecko stuff
-	GECKO_SDK_PATH=${CURRENT_PATH}/src/dependences/xulrunner-sdk
+	AC_ARG_WITH(gecko-sdk, [  --with-gecko-sdk=DIR    alternate location for gecko SDK], 
+			       GECKO_SDK_PATH=`cd ${withval}; pwd`)
+	if test [ ! "$GECKO_SDK_PATH" ]
+	then
+		GECKO_SDK_PATH=${CURRENT_PATH}/src/dependences/xulrunner-sdk
+	fi
 	LIBXUL_CFLAGS="-I${GECKO_SDK_PATH}/include -fshort-wchar"
 	LIBXUL_LDFLAGS="-L${GECKO_SDK_PATH}/sdk/lib -lxpcomglue_s -lxul -lxpcom -lplds4 -lplc4 -lnspr4 -ldl"
 	GECKO_IDL_PATH=${GECKO_SDK_PATH}/idl
