@@ -109,14 +109,14 @@ aria2.pkg: aria2-1.10.9.dmg
 aria2/bin/aria2c: aria2.pkg
 	${CURRENT_PATH}/../maintenance_tools/unpkg.py aria2.pkg
 
-aria2-1.12.1: aria2-1.12.1.tar.bz2
-	tar xf aria2-1.12.1.tar.bz2
+aria2-1.14.1: aria2-1.14.1.tar.bz2
+	tar xf aria2-1.14.1.tar.bz2
 
-aria2-1.12.1.tar.bz2:
-	wget -c http://garr.dl.sourceforge.net/project/aria2/stable/aria2-1.12.1/aria2-1.12.1.tar.bz2 -O aria2-1.12.1.tar.bz2
+aria2-1.14.1.tar.bz2:
+	wget -c http://garr.dl.sourceforge.net/project/aria2/stable/aria2-1.14.1/aria2-1.14.1.tar.bz2 -O aria2-1.14.1.tar.bz2
 
-aria2-1.12.1/src/aria2c: aria2-1.12.1
-	cd aria2-1.12.1 ; export ZLIB_LIBS=/usr/lib/i386-linux-gnu/libz.a ; export SQLITE3_LIBS=/usr/lib/i386-linux-gnu/libsqlite3.a ; LIBCARES_LIBS=/usr/lib/libcares.a ; ./configure --with-libcares --with-libz --with-sqlite3 ; make
+aria2-1.14.1/src/aria2c: aria2-1.14.1
+	cd aria2-1.14.1 ; export ZLIB_LIBS=/usr/lib/i386-linux-gnu/libz.a ; export SQLITE3_LIBS=/usr/lib/i386-linux-gnu/libsqlite3.a ; LIBCARES_LIBS=/usr/lib/libcares.a ; ./configure --with-libcares --with-libz --with-sqlite3 ; make
 
 xz/src/liblzma/.libs/liblzma.a: xz
 if IS_OSX
@@ -130,7 +130,7 @@ xz/windows/liblzma.lib: xz
 	cd xz/windows ; make liblzma
 	cd xz/windows ; lib /def:liblzma.def /out:liblzma.lib /machine:ix86	
 
-linux: zlib-1.2.3/libz.a xapian-core-1.2.3/.libs/libxapian.a xz/src/liblzma/.libs/liblzma.a aria2-1.12.1/src/aria2c xulrunner-sdk/bin/xulrunner
+linux: zlib-1.2.3/libz.a xapian-core-1.2.3/.libs/libxapian.a xz/src/liblzma/.libs/liblzma.a aria2-1.14.1/src/aria2c xulrunner-sdk/bin/xulrunner
 
 mac: zlib-1.2.3/libz.a xapian-core-1.2.3/.libs/libxapian.a xz/src/liblzma/.libs/liblzma.a xulrunner-sdk/bin/xulrunner xulrunner.dmg aria2/bin/aria2c
 
@@ -147,7 +147,7 @@ clean:
 	rm -rf xapian-core-1.2.3
 	rm -rf zlib-1.2.3
 	rm -rf xz
-	rm -rf aria2-1.12.1
+	rm -rf aria2-1.14.1
 
 # distclean
 distclean:
