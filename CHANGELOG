@@ -29,6 +29,7 @@ Kiwix 0.9 beta6
 * NEW: Add support of HTML5 video/audio nodes
 * NEW: audible/mute contextual menuitem for HTML5 videos
 * NEW: default content icon in the library (ID: 3488268)
+* NEW: if no title metatag in file, compute title from the filename (ID: 3488268)
 
 Kiwix 0.9 beta5
 * FIXED: letton language menu item (ID: 3439113)
