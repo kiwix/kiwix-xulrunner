@@ -28,6 +28,7 @@ Kiwix 0.9 beta6
 * NEW: Allow compilation against Gecko SDK 9.0 and further (xpidl binary was removed)
 * NEW: Add support of HTML5 video/audio nodes
 * NEW: audible/mute contextual menuitem for HTML5 videos
+* NEW: default content icon in the library (ID: 3488268)
 
 Kiwix 0.9 beta5
 * FIXED: letton language menu item (ID: 3439113)

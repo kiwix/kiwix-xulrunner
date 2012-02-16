@@ -592,6 +592,7 @@ richlistbox {
 }
 
 .library-content-item-favicon {
+    background-image: url("chrome://main/skin/icon/book48.png");
     background-repeat: no-repeat; 
     background-position: right top; 
     width: 55px; 
