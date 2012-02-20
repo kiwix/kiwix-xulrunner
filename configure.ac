@@ -358,17 +358,32 @@ else
 	LIBXUL_CFLAGS="-I${GECKO_SDK_PATH}/include -fshort-wchar"
 	LIBXUL_LDFLAGS="-L${GECKO_SDK_PATH}/sdk/lib -lxpcomglue_s -lxul -lxpcom -lplds4 -lplc4 -lnspr4 -ldl"
 	GECKO_IDL_PATH=${GECKO_SDK_PATH}/idl
-	AC_PATH_PROG([PYTHON], "python")			 
-	if test [ ! "$PYTHON" ]
-	then
-    	     AC_MSG_ERROR([[cannot find python]])
-	fi
-	if test [ ! -f "$GECKO_SDK_PATH/sdk/bin/header.py" ] || test [ ! -f "$GECKO_SDK_PATH/sdk/bin/typelib.py" ]
-	then
-	AC_MSG_ERROR([[unable to find neither the xpidl binary nor the typelib.py and header.py scripts]])
-	fi
-	HEADER_PY="$PYTHON $GECKO_SDK_PATH/sdk/bin/header.py"
-	TYPELIB_PY="$PYTHON $GECKO_SDK_PATH/sdk/bin/typelib.py"
+    
+    XPIDL_PATH=$GECKO_SDK_PATH/bin
+    AC_ARG_WITH(xpidl, [  --with-xpidl=DIR        path to XPIDL binary directory],
+               XPIDL_PATH=`cd ${withval}; pwd`)
+
+    AC_CHECK_TOOL(HAVE_XPIDL, "xpidl", [], $XPIDL_PATH)
+    if test [ "$HAVE_XPIDL" ]
+    then
+        AC_PATH_PROG([XPIDL], "xpidl", [],  $XPIDL_PATH)
+    else
+        # SDK 0.9 and further do not have an xpidl binary anymore
+        # This is replace by the python script typelib.py and header.py
+        AC_PATH_PROG([PYTHON], "python")             
+        if test [ ! "$PYTHON" ]
+        then
+                 AC_MSG_ERROR([[cannot find python]])
+        fi
+
+        if test [ ! -f "$GECKO_SDK_PATH/sdk/bin/header.py" ] || test [ ! -f "$GECKO_SDK_PATH/sdk/bin/typelib.py" ]
+        then
+            AC_MSG_ERROR([[unable to find neither the xpidl binary nor the typelib.py and header.py scripts]])
+        fi
+
+        HEADER_PY="$PYTHON $GECKO_SDK_PATH/sdk/bin/header.py"
+        TYPELIB_PY="$PYTHON $GECKO_SDK_PATH/sdk/bin/typelib.py"
+    fi
 
 	# zlib
 	LIBZ_CFLAGS="-I${CURRENT_PATH}/src/dependences/zlib-1.2.3/"
