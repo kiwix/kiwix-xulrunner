@@ -17,6 +17,7 @@ _languagesHash['cy']        = "Cymraeg";
 _languagesHash['de']        = "Deutsch";
 _languagesHash['deu']       = "Deutsch";
 _languagesHash['da']        = "Dansk";
+_languagesHash['dan']       = "Dansk";
 _languagesHash['dsb']       = "Dolnoserbski";
 _languagesHash['el']        = "Ελληνικά";
 _languagesHash['en']        = "English";
