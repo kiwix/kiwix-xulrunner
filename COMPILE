@@ -14,7 +14,7 @@ Fedora (Sugar build) packages: gcc gcc-c++ automake glibc-devel libtool \
 c-ares autoconf aria2 libicu-devel xapian-core-devel lzma-libs lzma-devel \
 xapian-core-libs xulrunner-devel jpackage-utils expat-devel sqlite-devel \
 zlib-devel zlib-static uuid uuid-devel openssl-devel libxml2-devel \
-libgnutls-devel libgpg-error-devel libgcrypt-devel
+libgnutls-devel libgpg-error-devel libgcrypt-devel c-ares-devel cmake sugar
 
 * ./autogen.sh to generate the ./configure file if not already
 done.
