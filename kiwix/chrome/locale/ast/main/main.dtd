@@ -104,8 +104,8 @@
 <!ENTITY main.openLinkInNewTab          "Abrir enllaz en llingüeta nueva">
 <!ENTITY main.searchFor                 "Buscar">
 <!ENTITY main.copyLinkAdress            "Copy link address">
-<!ENTITY main.mute                      "Mute">
-<!ENTITY main.audible                   "Audible">
+<!ENTITY main.mute                      "Mudu">
+<!ENTITY main.audible                   "Oyible">
 
 <!-- About Window -->
 <!ENTITY main.close                     "Zarrar">

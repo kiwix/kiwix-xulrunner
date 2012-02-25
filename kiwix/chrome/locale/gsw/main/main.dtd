@@ -7,7 +7,7 @@
 <!ENTITY main.file.accesskey            "F">
 <!ENTITY main.openFile                  "Datei uffmache...">
 <!ENTITY main.browseLibrary.accesskey   "B">
-<!ENTITY main.browseLibrary             "Browse library">
+<!ENTITY main.browseLibrary             "Bibliothek duresüeche">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "Zletscht uffgmacht...">
 <!ENTITY main.saveFile                  "Syte spychere als...">
@@ -70,7 +70,7 @@
 <!-- Help menu -->
 <!ENTITY main.help                      "Hilf">
 <!ENTITY main.help.accesskey            "H">
-<!ENTITY main.feedback                  "Feedback">
+<!ENTITY main.feedback                  "Ruckmeldig">
 <!ENTITY main.reportabug                "Fähler mälde">
 <!ENTITY main.requestafeature           "Erwyterig vorschlage">
 <!ENTITY main.about                     "Über &brand.brandShortName;">
@@ -101,11 +101,11 @@
 
 <!-- Contextual Menu -->
 <!ENTITY main.saveImageAs               "Bild spychere als...">
-<!ENTITY main.openLinkInNewTab          "Open link in new tab">
-<!ENTITY main.searchFor                 "Search for">
+<!ENTITY main.openLinkInNewTab          "Gleich im e noie Fenschter uffmache">
+<!ENTITY main.searchFor                 "Suech no">
 <!ENTITY main.copyLinkAdress            "Copy link address">
-<!ENTITY main.mute                      "Mute">
-<!ENTITY main.audible                   "Audible">
+<!ENTITY main.mute                      "Don abschalte">
+<!ENTITY main.audible                   "losbar">
 
 <!-- About Window -->
 <!ENTITY main.close                     "Zuemache">
@@ -119,8 +119,8 @@
 <!ENTITY preferences.tabs               "Remember tabs">
 
 <!-- Library -->
-<!ENTITY main.library.myLibrary                 "My library">
-<!ENTITY main.library.getNewFiles               "Get new files">
+<!ENTITY main.library.myLibrary                 "Mini Bibliothek">
+<!ENTITY main.library.getNewFiles               "Noii Dateie abelade">
 <!ENTITY main.library.searchZimFiles            "Search ZIM files">
 <!ENTITY main.library.sortBy                    "Sort by">
 <!ENTITY main.library.sortBy.title              "Title">

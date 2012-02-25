@@ -104,8 +104,8 @@
 <!ENTITY main.openLinkInNewTab          "Bukak pranala nang tab sing anyar">
 <!ENTITY main.searchFor                 "Sing digoleti">
 <!ENTITY main.copyLinkAdress            "Copy link address">
-<!ENTITY main.mute                      "Mute">
-<!ENTITY main.audible                   "Audible">
+<!ENTITY main.mute                      "Bisu">
+<!ENTITY main.audible                   "Teyeng dirungokna">
 
 <!-- About Window -->
 <!ENTITY main.close                     "Tutup">

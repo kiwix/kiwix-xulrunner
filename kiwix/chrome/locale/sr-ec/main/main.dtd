@@ -36,7 +36,7 @@
 <!-- Display menu -->
 <!ENTITY main.display                   "Приказ">
 <!ENTITY main.display.accesskey         "D">
-<!ENTITY main.zoom                      "Увећај">
+<!ENTITY main.zoom                      "Увећање">
 <!ENTITY main.zoom.accesskey            "Z">
 <!ENTITY main.zoomin                    "Увећај">
 <!ENTITY main.zoomin.accesskey          "M">
@@ -104,8 +104,8 @@
 <!ENTITY main.openLinkInNewTab          "Отвори везу у новом језичку">
 <!ENTITY main.searchFor                 "Тражи">
 <!ENTITY main.copyLinkAdress            "Copy link address">
-<!ENTITY main.mute                      "Mute">
-<!ENTITY main.audible                   "Audible">
+<!ENTITY main.mute                      "Искључи звук">
+<!ENTITY main.audible                   "Звучно">
 
 <!-- About Window -->
 <!ENTITY main.close                     "Затвори">

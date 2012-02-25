@@ -36,7 +36,7 @@
 <!-- Display menu -->
 <!ENTITY main.display                   "Prikaz">
 <!ENTITY main.display.accesskey         "D">
-<!ENTITY main.zoom                      "Uvećaj">
+<!ENTITY main.zoom                      "Uvećanje">
 <!ENTITY main.zoom.accesskey            "Z">
 <!ENTITY main.zoomin                    "Uvećaj">
 <!ENTITY main.zoomin.accesskey          "M">
@@ -104,8 +104,8 @@
 <!ENTITY main.openLinkInNewTab          "Otvori vezu u novom jezičku">
 <!ENTITY main.searchFor                 "Traži">
 <!ENTITY main.copyLinkAdress            "Copy link address">
-<!ENTITY main.mute                      "Mute">
-<!ENTITY main.audible                   "Audible">
+<!ENTITY main.mute                      "Isključi zvuk">
+<!ENTITY main.audible                   "Zvučno">
 
 <!-- About Window -->
 <!ENTITY main.close                     "Zatvori">

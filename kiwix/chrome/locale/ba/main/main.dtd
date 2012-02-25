@@ -104,8 +104,8 @@
 <!ENTITY main.openLinkInNewTab          "Битте яңы һалынмала асырға">
 <!ENTITY main.searchFor                 "Эҙләү">
 <!ENTITY main.copyLinkAdress            "Copy link address">
-<!ENTITY main.mute                      "Mute">
-<!ENTITY main.audible                   "Audible">
+<!ENTITY main.mute                      "Тыуышһыҙ">
+<!ENTITY main.audible                   "Тыушлы">
 
 <!-- About Window -->
 <!ENTITY main.close                     "Ябырға">

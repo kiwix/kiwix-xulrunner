@@ -104,8 +104,8 @@
 <!ENTITY main.openLinkInNewTab          "Odpri povezavo na novem zavihku">
 <!ENTITY main.searchFor                 "Išči">
 <!ENTITY main.copyLinkAdress            "Copy link address">
-<!ENTITY main.mute                      "Mute">
-<!ENTITY main.audible                   "Audible">
+<!ENTITY main.mute                      "Nemo">
+<!ENTITY main.audible                   "Slišno">
 
 <!-- About Window -->
 <!ENTITY main.close                     "Zapri">

@@ -104,8 +104,8 @@
 <!ENTITY main.openLinkInNewTab          "Öppna länk i ny flik">
 <!ENTITY main.searchFor                 "Sök efter">
 <!ENTITY main.copyLinkAdress            "Copy link address">
-<!ENTITY main.mute                      "Mute">
-<!ENTITY main.audible                   "Audible">
+<!ENTITY main.mute                      "Tyst">
+<!ENTITY main.audible                   "Hörbar">
 
 <!-- About Window -->
 <!ENTITY main.close                     "Stäng">

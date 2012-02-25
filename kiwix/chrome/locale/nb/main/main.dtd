@@ -5,12 +5,12 @@
 <!-- File menu -->
 <!ENTITY main.file                      "Fil">
 <!ENTITY main.file.accesskey            "F">
-<!ENTITY main.openFile                  "Åpne fil...">
+<!ENTITY main.openFile                  "Åpne fil …">
 <!ENTITY main.browseLibrary.accesskey   "B">
 <!ENTITY main.browseLibrary             "Bla gjennom biblioteket">
 <!ENTITY main.openFile.accesskey        "O">
-<!ENTITY main.lastOpen                  "Nylig åpnet...">
-<!ENTITY main.saveFile                  "Lagre side som...">
+<!ENTITY main.lastOpen                  "Nylig åpnet …">
+<!ENTITY main.saveFile                  "Lagre siden som …">
 <!ENTITY main.saveFile.accesskey        "S">
 <!ENTITY main.print                     "Skriv ut">
 <!ENTITY main.print.accesskey           "P">
@@ -22,7 +22,7 @@
 <!-- Edit menu -->
 <!ENTITY main.edit                      "Rediger">
 <!ENTITY main.edit.accesskey            "E">
-<!ENTITY main.find                      "Søk i siden...">
+<!ENTITY main.find                      "Søk i siden …">
 <!ENTITY main.find.accesskey            "S">
 <!ENTITY main.selectall                 "Velg alle">
 <!ENTITY main.selectall.accesskey       "a">
@@ -38,11 +38,11 @@
 <!ENTITY main.display.accesskey         "D">
 <!ENTITY main.zoom                      "Zoom">
 <!ENTITY main.zoom.accesskey            "Z">
-<!ENTITY main.zoomin                    "Forstørre">
+<!ENTITY main.zoomin                    "Forstørr">
 <!ENTITY main.zoomin.accesskey          "M">
-<!ENTITY main.zoomout                   "Redusere">
+<!ENTITY main.zoomout                   "Forminsk">
 <!ENTITY main.zoomout.accesskey         "R">
-<!ENTITY main.zoomorig                  "Opprinnelse størrelse">
+<!ENTITY main.zoomorig                  "Opprinnelig størrelse">
 <!ENTITY main.zoomorig.accesskey        "O">
 <!ENTITY main.language                  "Språk">
 <!ENTITY main.language.accesskey        "L">
@@ -100,7 +100,7 @@
 <!ENTITY main.defaultset                "Standardsamling">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveImageAs               "Lagre bilde som...">
+<!ENTITY main.saveImageAs               "Lagre bilde som …">
 <!ENTITY main.openLinkInNewTab          "Åpne lenke i ny fane">
 <!ENTITY main.searchFor                 "Søk etter">
 <!ENTITY main.copyLinkAdress            "Copy link address">

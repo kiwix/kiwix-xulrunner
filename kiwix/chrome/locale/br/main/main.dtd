@@ -104,8 +104,8 @@
 <!ENTITY main.openLinkInNewTab          "Digeriñ al liamm en un ivinell nevez">
 <!ENTITY main.searchFor                 "Klask">
 <!ENTITY main.copyLinkAdress            "Copy link address">
-<!ENTITY main.mute                      "Mute">
-<!ENTITY main.audible                   "Audible">
+<!ENTITY main.mute                      "Hep son">
+<!ENTITY main.audible                   "Gant son">
 
 <!-- About Window -->
 <!ENTITY main.close                     "Serriñ">

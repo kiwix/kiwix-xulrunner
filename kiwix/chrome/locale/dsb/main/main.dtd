@@ -104,8 +104,8 @@
 <!ENTITY main.openLinkInNewTab          "Wótkaz w nowem rejtarku wócyniś">
 <!ENTITY main.searchFor                 "Pytaś za">
 <!ENTITY main.copyLinkAdress            "Copy link address">
-<!ENTITY main.mute                      "Mute">
-<!ENTITY main.audible                   "Audible">
+<!ENTITY main.mute                      "Bźez zuka">
+<!ENTITY main.audible                   "Słyšabny">
 
 <!-- About Window -->
 <!ENTITY main.close                     "Zacyniś">
