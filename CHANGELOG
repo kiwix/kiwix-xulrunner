@@ -8,6 +8,7 @@ Kiwix 0.9 beta6
 * FIXED: Bad singleton Window implementation (ID: 3444121)
 * FIXED: Compiled with CLucene 2.3 (ID: 3405531)
 * FIXED: Replace "fastjar" by "zip" (better dependence)
+* FIXED: Number of articles to high in the library (ID: 3396763)
 * NEW: New supported user interface languages: Faroese (fo), Croatian (hr),
   Iloko (ilo), Limburgish (li), Basa Banyumasan (map-bms), Pashto (ps), 
   Bachkir (ba), Welsh (cy), Yiddish (yi), Wolof (yo), 
