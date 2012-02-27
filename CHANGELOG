@@ -1,13 +1,12 @@
 Kiwix 0.9 beta6
 * FIXED: Smoothier zooming (ID: 3469927)
 * FIXED: Evolution skin (ID: 3444112)
-* FIXED: Introduce aria2 v1.14 for better aria2c process mgmt. (ID: 3430225)
+* FIXED: Bad aria2c process mgmt by introducing aria2 v1.14 (ID: 3430225)
 * FIXED: Invisible menuitems icons on GNU/Linux
-* FIXED: Blanck 404 error page server by kiwix-serve (ID: 3417227)
+* FIXED: Blanck 404 error pages served by kiwix-serve (ID: 3417227)
 * FIXED: Small error during the installation of Ubuntu packages (ID: 3437855)
 * FIXED: Bad singleton Window implementation (ID: 3444121)
-* FIXED: Compiled with CLucene 2.3 (ID: 3405531)
-* FIXED: Replace "fastjar" by "zip" (better dependence)
+* FIXED: Compilation with CLucene 2.3 (ID: 3405531)
 * FIXED: Number of articles to high in the library (ID: 3396763)
 * NEW: New supported user interface languages: Faroese (fo), Croatian (hr),
   Iloko (ilo), Limburgish (li), Basa Banyumasan (map-bms), Pashto (ps), 
@@ -23,7 +22,7 @@ Kiwix 0.9 beta6
 * NEW: --noCheck option to "add" command in kiwix-manage to avoid any ZIM quality check
 * NEW: Windows self-extracting installer
 * NEW: Ask before downloading XML library files (ID: 3442087)
-* NEW: kiwix-server able to deal directly with library XML files
+* NEW: kiwix-serve able to deal directly with library XML files
 * NEW: Speed-up begin of downloads by removing file pre-allocation
 * NEw: Reduce GNU/Linux Package file by 30% (by removing the symbol table of XPCOM components)
 * NEW: Allow compilation against Gecko SDK 9.0 and further (xpidl binary was removed)
@@ -31,6 +30,7 @@ Kiwix 0.9 beta6
 * NEW: audible/mute contextual menuitem for HTML5 videos
 * NEW: default content icon in the library (ID: 3488268)
 * NEW: if no title metatag in file, compute title from the filename (ID: 3488268)
+* NEW: Replacement of "fastjar" by "zip" (better dependence)
 
 Kiwix 0.9 beta5
 * FIXED: letton language menu item (ID: 3439113)
