@@ -33,7 +33,7 @@ window {
     position: relative;
     -moz-appearance: none;
     background-color: #282828;
-    height: 54px;
+    height: 36px;
 }
 
 #tool-box * toolbarbutton {

@@ -41,9 +41,13 @@ function getFirefoxLocalization {
     echo "Downloading Firefox for language code $CODE"
     CODE=$1
     #rm ff_$CODE-3.6.22.tar.bz2
-    wget -c http://releases.mozilla.org/pub/mozilla.org/firefox/releases/3.6.22/linux-i686/$CODE/firefox-3.6.22.tar.bz2 -O ff_$CODE-3.6.22.tar.bz2
+    if [ -f ff_$CODE-3.6.27.tar.bz2 ] ; then
+        echo "ff_$CODE-3.6.27.tar.bz2 exist."
+    else
+        wget -c http://download.kiwix.org/dev/mozilla.org/firefox/releases/3.6.27/linux-i686/$CODE/firefox-3.6.27.tar.bz2 -O ff_$CODE-3.6.27.tar.bz2
+    fi
     rm -rf ./firefox
-    tar xf ff_$CODE-3.6.22.tar.bz2
+    tar xf ff_$CODE-3.6.27.tar.bz2
     cp ./firefox/chrome/$CODE.* ./kiwix/xulrunner/chrome/
 }
 
@@ -119,7 +123,7 @@ if [ -f xulrunner-runtime.tar.bz2 ]
 then
 echo "  already present"
 else
-wget https://ftp.mozilla.org/pub/mozilla.org/xulrunner/releases/1.9.2.19/runtimes/xulrunner-1.9.2.19.en-US.linux-i686.tar.bz2 -O xulrunner-runtime.tar.bz2
+wget -c http://download.kiwix.org/dev/xulrunner-1.9.2.13.en-US.linux-i686.sdk.tar.bz2 -O xulrunner-runtime.tar.bz2
 fi
 tar xf xulrunner-runtime.tar.bz2
 chmod +x ./xulrunner/xulrunner ./xulrunner/xulrunner-bin
@@ -136,7 +140,7 @@ cd -
 mv ./kiwix/xulrunner/xulrunner-stub ./kiwix/kiwix
 
 # Use last version (at least 1.14.0) version of aria2c (staticaly compiled for x86_32)
-wget http://download.kiwix.org/dev/aria2c -O ./kiwix/aria2c
+wget -c http://download.kiwix.org/dev/aria2c -O ./kiwix/aria2c
 #cp -v ./moulinkiwix/src/dependences/aria2-1.12.1/src/aria2c ./kiwix/
 
 # Download the firefox en copy the locales JAR

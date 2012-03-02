@@ -90,6 +90,3 @@ pref("toolkit.singletonWindowType", "singleton");
 
 /* Remove accept-encoding HTTP request header for aria2 xml-rpc for debugging purpose */
 //pref("network.http.accept-encoding", "gzip;q=0,deflate;q=0");
-
-/* switch for OLPC XO-1 with 200dpi screen */
-pref("kiwix.highDensityScreen", false);

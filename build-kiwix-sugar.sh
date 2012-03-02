@@ -40,18 +40,20 @@ cp -rv src/sugar/bin/* /tmp/Kiwix.activity/bin/
 if [ "$VERSION" ]
 then
 sed -i -e "s/^activity_version = 1$/activity_version = $VERSION/" /tmp/Kiwix.activity/activity/activity.info
+else
+VERSION=`cat src/sugar/activity/activity.info |grep activity_version | cut -d " " -f3`
 fi
 
 # change default skin to sugar
 sed -i -e "s/^pref(\"general.skins.selectedSkin\", \"default\");$/pref(\"general.skins.selectedSkin\", \"sugar\");/" /tmp/Kiwix.activity/defaults/preferences/preferences.js
-echo -e "\npref(\"layout.css.dpi\", 96);" >> /tmp/Kiwix.activity/defaults/preferences/preferences.js
 
 # build .xo (write the manifest and zip the package)
 cd /tmp/Kiwix.activity
-./setup.py dist_xo
+find ./ -type f | sed 's,^./,,g' > MANIFEST
+cd ..
+zip -r Kiwix-$VERSION.xo Kiwix.activity
+mv Kiwix-$VERSION.xo ./Kiwix.activity
+cd Kiwix.activity
 cd -
 
-echo "All done. Your archive is ready in `readlink -f /tmp/Kiwix.activity/dist/*.xo`"
-
-
-
+echo "All done. Your archive is ready in `readlink -f /tmp/Kiwix.activity/*.xo`"
