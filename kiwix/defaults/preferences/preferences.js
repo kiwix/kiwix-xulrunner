@@ -83,7 +83,7 @@ pref("kiwix.libraryUrls", "http://www.kiwix.org/library.xml");
 //pref("kiwix.libraryUrls", "http://pediapress.com/files/zim/zim_feed.xml;http://www.kiwix.org/library.xml");
 
 /* Force the remote downloading behaviour (no confirm dialog) */
-//pref("kiwix.downloadRemoteCatalogs", true);
+pref("kiwix.downloadRemoteCatalogs", undefined);
 
 /* Singleton window type */
 pref("toolkit.singletonWindowType", "singleton");

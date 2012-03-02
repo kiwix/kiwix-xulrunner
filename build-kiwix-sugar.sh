@@ -47,12 +47,13 @@ fi
 # change default skin to sugar
 sed -i -e "s/^pref(\"general.skins.selectedSkin\", \"default\");$/pref(\"general.skins.selectedSkin\", \"sugar\");/" /tmp/Kiwix.activity/defaults/preferences/preferences.js
 sed -i -e "s/^resource defaultskin skin\/default\/$/resource defaultskin skin\/sugar\//" /tmp/Kiwix.activity/chrome/chrome.manifest
+sed -i -e "s/^pref(\"kiwix.downloadRemoteCatalogs\", undefined);$/pref(\"kiwix.downloadRemoteCatalogs\", false);/" /tmp/Kiwix.activity/defaults/preferences/preferences.js
 
 # build .xo (write the manifest and zip the package)
 cd /tmp/Kiwix.activity
+rm ./aria2c
 find ./ -name "\.svn" -exec rm -rf {} \;
-find ./ -type f | sed 's,^./,,g' > MANIFEST
-echo "\nMANIFEST" >> MANIFEST
+find ./ -type f | sed 's,^./,,g' | grep -v MANIFEST > MANIFEST
 cd ..
 zip -r Kiwix-$VERSION.xo Kiwix.activity
 mv Kiwix-$VERSION.xo ./Kiwix.activity
