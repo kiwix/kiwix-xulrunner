@@ -3,7 +3,7 @@ window {
 }
 
 #menu-bar, #status-bar, #tab-headers,
-#button-home, #button-back, #button-next, #button-sizeup, #button-sizedown,
+#button-home, #button-back, #button-next, #button-zoom-in, #button-zoom-out,
 #button-print, #button-bookmarks, #button-fullscreen, #button-search-article,
 #button-library,
 #bookmarks-bar-header, #bookmarks-toolbar, #bookmarks-sets-list, #notesLabel, #notesTextBox  { display: none; }
@@ -12,8 +12,8 @@ window {
 #sugar-button-find { list-style-image: url("chrome://main/skin/icon/view-list.png"); }
 #sugar-button-back { list-style-image: url("chrome://main/skin/icon/go-previous-paired.png"); }
 #sugar-button-next { list-style-image: url("chrome://main/skin/icon/go-next-paired.png"); }
-#sugar-button-sizeup { list-style-image: url("chrome://main/skin/icon/gtk-zoom-in.png"); }
-#sugar-button-sizedown { list-style-image: url("chrome://main/skin/icon/gtk-zoom-out.png"); }
+#sugar-button-zoom-in { list-style-image: url("chrome://main/skin/icon/gtk-zoom-in.png"); }
+#sugar-button-zoom-out { list-style-image: url("chrome://main/skin/icon/gtk-zoom-out.png"); }
 #sugar-button-options { list-style-image: url("chrome://main/skin/icon/view-source.png"); }
 #sugar-button-bookmark, #sugar-button-bookmark.unmarked { list-style-image: url("chrome://main/skin/icon/emblem-favorite.png"); }
 #sugar-button-bookmark.marked { list-style-image: url("chrome://main/skin/icon/emblem-favorite_on.png"); }
