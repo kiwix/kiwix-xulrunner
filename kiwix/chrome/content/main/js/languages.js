@@ -20,6 +20,7 @@ _languagesHash['da']        = "Dansk";
 _languagesHash['dan']       = "Dansk";
 _languagesHash['dsb']       = "Dolnoserbski";
 _languagesHash['el']        = "Ελληνικά";
+_languagesHash['ell']        = "Ελληνικά";
 _languagesHash['en']        = "English";
 _languagesHash['eng']       = "English";
 _languagesHash['eo']        = "Esperanto";
