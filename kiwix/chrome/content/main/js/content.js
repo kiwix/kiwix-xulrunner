@@ -52,7 +52,6 @@ downloader.onmessage = function(event) {
 	    var doPopulateRemoteBookList = message.parameters[1];
 	    if (doPopulateRemoteBookList) {
 		populateRemoteBookList();
-		populateLibraryFilters();
 	    }
 	    
 	    /* If no local content but remote, change the default view */
@@ -749,6 +748,8 @@ function populateBookList(container) {
 	backgroundColor = (backgroundColor == "#FFFFFF" ? "#EEEEEE" : "#FFFFFF");
 	book = library.getNextBookInList();
     }
+
+    populateLibraryFilters();
 }
 
 function populateLocalBookList() {
