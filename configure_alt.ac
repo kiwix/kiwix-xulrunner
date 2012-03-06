@@ -1,5 +1,9 @@
 # autotools initializations
 AC_INIT([kiwix], [0.9])
+IS_WIN=0
+IS_OSX=0
+IS_POSIX=0
+IS_LINUX=0
 
 AC_CONFIG_AUX_DIR([.]) # where are autotools scripts located
 
@@ -25,7 +29,9 @@ AM_CONDITIONAL([IS_WIN], [test "$HAVE_CL" = yes])
 AM_CONDITIONAL([IS_POSIX], [test ! "$HAVE_CL" = yes])
 if test [ "$HAVE_CL" = yes ]
 then
-    
+    IS_WIN=1
+else
+	IS_POSIX=1
 fi
 
 # Check if running on OSX
@@ -34,8 +40,14 @@ AM_CONDITIONAL([IS_OSX], [test "$HAVE_XCODE" = yes])
 if test [ "$HAVE_XCODE" = yes ]
 then
     IS_OSX=1
+else
+	if test [ $IS_POSIX -eq 1 ]
+	then
+		IS_LINUX=1
+	else
+		IS_LINUX=3
+	fi
 fi
-
 # check if running on Linux
 AM_CONDITIONAL([IS_LINUX], [test "$IS_POSIX" -a ! "$IS_OSX"])
 
@@ -57,6 +69,26 @@ AC_CONFIG_HEADERS([src/zimlib/src/config.h])
 # compilation tools
 # use HAVE_
 
+# used to display a warning message at end of configure
+# if there are unmet dependencies which will be compiled.
+MISSING_SELF_DEPS=0
+
+function ErrorOrWarning {
+	# parameters:
+	# $1: condition on COMPILE_XX variable (check if it will be compiled)
+	# $2: error message
+
+	# if $1 is 1, we assume it will be compiled and just display warning
+	if [[ $1 -eq 1 ]]
+	then
+		AC_MSG_WARN([[$2]])
+		MISSING_SELF_DEPS=1
+	# if not, it is supposed to be present so we send error
+	else
+		AC_MSG_ERROR([[$2]])
+	fi
+}
+
 
 # Dependencies
 
@@ -67,9 +99,9 @@ STATIC_BUILD=0
 
 GECKO_SDK_PATH=""
 COMPILE_GECKO_SDK=0
-COMPILED_GECKO_SDK_PATH="${DEP_PATH}/xulrunner-sdk/sdk/"
+COMPILED_GECKO_SDK_PATH="${DEP_PATH}/xulrunner-sdk/sdk"
 
-ZLIB_LDFLAGS=""
+ZLIB_LDFLAGS="-Bstatic -lz"
 COMPILE_ZLIB=0
 COMPILED_ZLIB_LDFLAGS="${DEP_PATH}/zlib-1.2.3/libz.a"
 
@@ -125,8 +157,18 @@ COMPILED_CLUCENE_LDFLAGS="${DEP_PATH}/clucene-core-0.9.21b/src/.libs/libclucene.
 
 WITH_CLUCENE=0
 
+WITH_MANAGER=0
+WITH_SERVER=0
+WITH_INDEXER=0
+WITH_INSTALLER=0
+WITH_SEARCHER=0
+WITH_READER=0
+
 # individual dependency check
 
+AC_ARG_WITH(extra-includes,
+            [--with-extra-includes=DIR:DIR    PATH like list of folder to add to include lookup],
+            export CPATH="${withval}")
 
 ####################################################
 ############ GECKO SDK
@@ -153,8 +195,13 @@ then
 fi
 
 # Gecko version
+GECKO_VERSION_FALLBACK=0
 GECKO_VERSION=`grep MOZILLA_VERSION_U ${GECKO_SDK_PATH}/include/mozilla-config.h | cut --delimiter=" " -f3 | cut --delimiter="." -f1`
-if [[ "$GECKO_VERSION" -gt "1" ]]
+if [[ "$GECKO_VERSION" = "" ]]
+then
+	GECKO_VERSION=$GECKO_VERSION_FALLBACK
+fi
+if [[ "$GECKO_VERSION" -gt 1 ]]
 then
   CXXFLAGS="${CXXFLAGS} -std=gnu++0x -fexceptions -DMOZ_CPP_EXCEPTIONS"
   if [[ "$GECKO_VERSION" -lt "10" ]]
@@ -170,7 +217,7 @@ LIBXUL_LDFLAGS="-L${GECKO_SDK_PATH}/sdk/lib -lxpcomglue_s -lxul -lxpcom -lplds4 
 GECKO_IDL_PATH=${GECKO_SDK_PATH}/idl
 if test [ ! -f "$GECKO_IDL_PATH/nsISupports.idl" ]
 then
-    AC_MSG_ERROR([[unable to find nsISupports.idl]])
+    ErrorOrWarning "$COMPILE_GECKO_SDK" "unable to find nsISupports.idl"
 fi
 XPIDL_PATH=$GECKO_SDK_PATH/bin
 AC_CHECK_TOOL(HAVE_XPIDL, "xpidl", [], $XPIDL_PATH)
@@ -188,7 +235,7 @@ else
 
     if test [ ! -f "$GECKO_SDK_PATH/sdk/bin/header.py" -o ! -f "$GECKO_SDK_PATH/sdk/bin/typelib.py" ]
     then
-        AC_MSG_ERROR([[unable to find neither the xpidl binary nor the typelib.py and header.py scripts]])
+        ErrorOrWarning "$COMPILE_GECKO_SDK" "unable to find neither the xpidl binary nor the typelib.py and header.py scripts"
     fi
 
     HEADER_PY="$PYTHON $GECKO_SDK_PATH/sdk/bin/header.py"
@@ -196,61 +243,168 @@ else
 fi
 
 ####################################################
+############ ZLIB
+####################################################
+
+# if --with-x, add path to LIBRARY_PATH
+AC_ARG_WITH(z, [--with-z=DIR 	alternate location for zlib],
+			  	export LIBRARY_PATH="${withval}:${LIBRARY_PATH}")
+
+# if --with-static-x, set path as X_ARCHIVE
+AC_ARG_WITH(static-z,
+            [--with-static-z=DIR/libx.a    Path to static archive],
+            ZLIB_ARCHIVE=${withval})
+
+# if no static argument, check for lib on system (which may contain the --with-x= path)
+if test [ "$ZLIB_ARCHIVE" = "" ]
+then
+	# fail if none found.
+    AC_CHECK_HEADER([zlib.h],, [AC_MSG_ERROR([[cannot find zlib header]])])
+	AC_CHECK_LIB([z], [zlibVersion],, [AC_MSG_ERROR([[cannot find zlib]])])
+# static argument supplied
+else
+	# if argument is SELF, add to compile queue
+	if test [ "$ZLIB_ARCHIVE" = "$SELF" ]
+	then
+	    COMPILE_ZLIB=1
+	    ZLIB_LDFLAGS=$COMPILED_ZLIB_LDFLAGS
+	# if path provided, test file existence (and fail)
+	else
+		ZLIB_LDFLAGS=`readlink -f $ZLIB_ARCHIVE`
+		if [[ ! -f $ZLIB_LDFLAGS ]]
+		then
+			AC_MSG_ERROR([[cannot stat zlib archive at $ZLIB_LDFLAGS]])
+		fi
+	fi
+fi
+
+####################################################
 ############ SRC/DEPENDENCIES Makefile
 ####################################################
 
+DEP_LIST=""
 if test [ "$IS_LINUX" ]
 then
-    DEP_LIST=""
-    if test [ "$COMPILE_ZLIB" ] ; then
-        DEP_LIST += $COMPILED_ZLIB_LDFLAGS
-    fi
-    if test [ "$COMPILE_ZLIB" ] ; then
-        DEP_LIST += $COMPILED_ICU_LDFLAGS
-    fi
-else
-  if test [ "$IS_OSX" ]
+    if test [ $COMPILE_ZLIB -eq 1 ]
     then
-        DEP_LIST=""
-    else
-        DEP_LIST=""
+        DEP_LIST+=" $COMPILED_ZLIB_LDFLAGS"
     fi
 fi
+
+####################################################
+############ NOTICE
+####################################################
+
+AC_MSG_NOTICE([[Kiwix build details:
+  - IS_POSIX: $IS_POSIX
+  - IS_LINUX: $IS_LINUX
+  - IS_OSX: $IS_OSX
+  - IS_WIN: $IS_WIN
+  - STATIC_BUILD: $STATIC_BUILD
+  - DEP_LIST: $DEP_LIST
+]])
+
+if [[ $MISSING_SELF_DEPS -eq 1 ]]
+then
+	AC_MSG_WARN([[
+******************
+
+You have unmet dependencies.
+Those dependencies will be downloaded and compiled during the make process.
+You NEED to make src/dependencies first THEN re-run configure and make the rest.
+
+******************]])
+fi
+
+####################################################
+############ EXPORTS & OUTPUT
+####################################################
 
 # default CXXFLAGS
 CXXFLAGS="${CFLAGS}"
 
+# export variables
+AC_SUBST(STATIC_BUILD)
+AC_SUBST(IS_WIN)
+AC_SUBST(IS_OSX)
+AC_SUBST(IS_LINUX)
+AC_SUBST(IS_POSIX)
+AC_SUBST(DEP_LIST)
+
+WITH_CLUCENE=0
+
+AC_SUBST(WITH_MANAGER)
+AC_SUBST(WITH_SERVER)
+AC_SUBST(WITH_INDEXER)
+AC_SUBST(WITH_INSTALLER)
+AC_SUBST(WITH_SEARCHER)
+AC_SUBST(WITH_READER)
+
+AC_SUBST(GECKO_SDK_PATH)
+AC_SUBST(COMPILE_GECKO_SDK)
+
+AC_SUBST(ZLIB_LDFLAGS)
+AC_SUBST(COMPILE_ZLIB)
+
+AC_SUBST(XAPIAN_LDFLAGS)
+AC_SUBST(COMPILE_XAPIAN)
+
+AC_SUBST(ICU_LDFLAGS)
+AC_SUBST(COMPILE_ICU)
+
+AC_SUBST(SQLITE_LDFLAGS)
+AC_SUBST(COMPILE_SQLITE)
+
+AC_SUBST(UUID_LDFLAGS)
+AC_SUBST(COMPILE_UUID)
+
+AC_SUBST(MICROHTTPD_LDFLAGS)
+AC_SUBST(COMPILE_MICROHTTPD)
+
+AC_SUBST(LZMA_LDFLAGS)
+AC_SUBST(COMPILE_LZMA)
+
+AC_SUBST(CARES_LDFLAGS)
+AC_SUBST(COMPILE_CARES)
+
+AC_SUBST(ARIA2_LDFLAGS)
+AC_SUBST(COMPILE_ARIA2)
+
+AC_SUBST(CLUCENE_LDFLAGS)
+AC_SUBST(COMPILE_CLUCENE)
+
 # Configure the output files
 AC_CONFIG_FILES([
   Makefile
-  src/Makefile
-  src/dependencies/Makefile
-  src/zimlib/Makefile
-  src/zimlib/src/Makefile
-  src/ctpp2/Makefile
-  src/ctpp2/src/Makefile
-  src/pugixml/Makefile
-  src/components/Makefile
-  src/components/xapianAccessor/Makefile
-  src/components/zimAccessor/Makefile
-  src/components/zimXapianIndexer/Makefile
-  src/components/zimCluceneIndexer/Makefile
-  src/components/cluceneAccessor/Makefile
-  src/components/contentManager/Makefile
-  src/indexer/Makefile
-  src/searcher/Makefile
-  src/reader/Makefile
-  src/installer/Makefile
-  src/server/Makefile
-  src/manager/Makefile
-  kiwix/Makefile
-  kiwix/chrome/Makefile
-  kiwix/defaults/Makefile
-  kiwix/components/Makefile
-  desktop/Makefile
-  static/Makefile
-  etc/Makefile
 ])
+#   src/Makefile
+#   src/dependencies/Makefile
+#   src/zimlib/Makefile
+#   src/zimlib/src/Makefile
+#   src/ctpp2/Makefile
+#   src/ctpp2/src/Makefile
+#   src/pugixml/Makefile
+#   src/components/Makefile
+#   src/components/xapianAccessor/Makefile
+#   src/components/zimAccessor/Makefile
+#   src/components/zimXapianIndexer/Makefile
+#   src/components/zimCluceneIndexer/Makefile
+#   src/components/cluceneAccessor/Makefile
+#   src/components/contentManager/Makefile
+#   src/indexer/Makefile
+#   src/searcher/Makefile
+#   src/reader/Makefile
+#   src/installer/Makefile
+#   src/server/Makefile
+#   src/manager/Makefile
+#   kiwix/Makefile
+#   kiwix/chrome/Makefile
+#   kiwix/defaults/Makefile
+#   kiwix/components/Makefile
+#   desktop/Makefile
+#   static/Makefile
+#   etc/Makefile
+# ])
 
 AC_PROG_INSTALL
 AC_OUTPUT

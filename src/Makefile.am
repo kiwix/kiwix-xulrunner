@@ -1,24 +1,29 @@
-if IS_OSX
-SUBDIRS = ${DEPENDENCES} \
-	zimlib \
-	ctpp2 \
-	pugixml \
-	components \
-	manager \
-	dependences
-else
-SUBDIRS = ${DEPENDENCES} \
-	zimlib \
-	ctpp2 \
-	pugixml \
-	components \
-	server \
-	manager 
-if IS_STATIC
-else
-SUBDIRS += indexer \
-	installer \
-	searcher \
-	reader
+SUBDIRS = dependencies \
+zimlib \
+ctpp2 \
+pugixml \
+components
+
+if WITH_MANAGER
+    SUBDIRS += manager 
 endif
+
+if (IS_POSIX && WITH_SERVER)
+    SUBDIRS += server 
+endif
+
+if WITH_INDEXER
+    SUBDIRS += indexer 
+endif
+
+if WITH_INSTALLER
+    SUBDIRS += installer 
+endif
+
+if WITH_SEARCHER
+    SUBDIRS += searcher 
+endif
+
+if WITH_READER
+    SUBDIRS += reader 
 endif
