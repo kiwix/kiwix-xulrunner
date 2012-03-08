@@ -1096,6 +1096,9 @@ function populateLastOpenMenu() {
 
 /* Basic User Interface initialisation */
 function initUserInterface() {
+    /* Init languages regexps */
+    buildLanguagesRegexHash();
+    
     /* Set a class on main window based on platform string */
     document.getElementById("main").className = env.platform.type;
     

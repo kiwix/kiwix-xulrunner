@@ -1,4 +1,9 @@
+/* Global variables */
+var _languagesHashOld       = Array();
 var _languagesHash          = Array();
+var _languagesRegexHash     = Array();
+
+/* Initialize the languages arrays */
 _languagesHash['af']        = "Afrikaans";
 _languagesHash['ar']        = "العربية";
 _languagesHash['ary']       = "الدارجة";
@@ -14,23 +19,18 @@ _languagesHash['br']        = "Brezhoneg";
 _languagesHash['ca']        = "Català";
 _languagesHash['cs']        = "Česky";
 _languagesHash['cy']        = "Cymraeg";
-_languagesHash['de']        = "Deutsch";
-_languagesHash['deu']       = "Deutsch";
-_languagesHash['da']        = "Dansk";
-_languagesHash['dan']       = "Dansk";
+_languagesHash['deu']       = _languagesHashOld['de']       = "Deutsch";
+_languagesHash['dan']       = _languagesHashOld['da']       = "Dansk";
 _languagesHash['dsb']       = "Dolnoserbski";
-_languagesHash['el']        = "Ελληνικά";
-_languagesHash['ell']        = "Ελληνικά";
-_languagesHash['en']        = "English";
-_languagesHash['eng']       = "English";
+_languagesHash['ell']       = _languagesHashOld['el']       = "Ελληνικά";
+_languagesHash['eng']       = _languagesHashOld['en']       = "English";
 _languagesHash['eo']        = "Esperanto";
 _languagesHash['es']        = "Español";
 _languagesHash['et']        = "Eesti";
 _languagesHash['fa']        = "فارسی";
 _languagesHash['fi']        = "Suomi";
 _languagesHash['fo']        = "Føroyskt";
-_languagesHash['fr']        = "Français";
-_languagesHash['fra']       = "Français";
+_languagesHash['fra']       = _languagesHashOld['fr']       = "Français";
 _languagesHash['frp']       = "Provençau";
 _languagesHash['gl']        = "Galego";
 _languagesHash['gu']        = "ગુજરાતી";
@@ -104,7 +104,28 @@ _languagesHash['zh-hans']   = "中文(简体)";
 _languagesHash['zh-hant']   = "中文(繁體)";
 _languagesHash['zh-hk']     = "中文(香港)";
 
-function getLanguageNameFromISO(iso) {
-    return _languagesHash[iso] || "";
+function getLanguageNameFromISO(code) {
+    return _languagesHash[code] || _languagesHashOld[code] || "";
+}
+
+/* Be careful, this function returns false, also if undefined - that
+ * means nothing because the table _languagesHashOld is not complete */
+function isOldLanguageCode(code) {
+    return _languagesHashOld[iso] ? true : false;
+}
+
+function buildLanguagesRegexHash() {
+    for (var code in _languagesHash) {
+	_languagesRegexHash[_languagesHash[code]] = code;
+    }
+
+    for (var code in _languagesHashOld) {
+	var regex = _languagesRegexHash[_languagesHashOld[code]];
+	_languagesRegexHash[_languagesHashOld[code]] = (regex ? regex + "|" : "") + code;
+    }
+}
+
+function getLanguageRegex(language) {
+    return _languagesRegexHash[language];
 }
 

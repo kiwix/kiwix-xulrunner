@@ -761,27 +761,29 @@ function populateRemoteBookList() {
 }
 
 function populateLibraryFilters() {
-    var languages = library.getBooksLanguages();
     var languageMenu = document.getElementById('library-filter-language');
     while (languageMenu.firstChild.childNodes.length>1) { languageMenu.firstChild.removeChild(languageMenu.firstChild.lastChild); }
-    var tmpHash = new Array();
+    var bookLanguageCodes = library.getBooksLanguages();
+    var alreadyListedLanguages = new Array();
 
-    for(var index=0; index<languages.length; index++) {
+    for(var index=0; index<bookLanguageCodes.length; index++) {
+	var currentLanguageCode = bookLanguageCodes[index];
 
-	/* Debug code to help finding lacks in languages.js */
-	/*
-	if (_languagesHash[languages[index]] === undefined)
-	    dump("'" + languages[index] + "' is not available in languages.js.\n");
-	*/
-
-	if (languages[index].length > 0 && tmpHash[_languagesHash[languages[index]]] === undefined) {
-	    tmpHash[_languagesHash[languages[index]]] = 42;
-	    var menuItem = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul",
-						    "menuitem");
-	    menuItem.setAttribute("value", languages[index]);
-	    menuItem.setAttribute("label", _languagesHash[languages[index]] ? 
-				  _languagesHash[languages[index]] : languages[index]);
-	    languageMenu.firstChild.insertBefore(menuItem, languageMenu.firstChild.lastChild.nextSibling);
+	if (currentLanguageCode) {
+	    var currentLanguage = getLanguageNameFromISO(currentLanguageCode);
+	    var currentLanguageRegex = getLanguageRegex(currentLanguage);
+	    
+	    if (!currentLanguage) {
+		dump("'" + currentLanguageCode + "' is not available in languages.js.\n");
+	    } else if (alreadyListedLanguages[currentLanguageRegex] === undefined) {
+		alreadyListedLanguages[currentLanguageRegex] = true;
+		
+		var menuItem = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul",
+							"menuitem");
+		menuItem.setAttribute("value", currentLanguageRegex);
+		menuItem.setAttribute("label", currentLanguage);
+		languageMenu.firstChild.insertBefore(menuItem, languageMenu.firstChild.lastChild.nextSibling);
+	    }
 	}
     }
     

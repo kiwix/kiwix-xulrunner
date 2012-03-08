@@ -11,6 +11,7 @@ Kiwix 0.9 beta6
 * FIXED: Kiwix-serve sporadic invisible search box with non-latin contents
 * FIXED: Toolbar wrong height on Sugar with XOs (ID: 3471281)
 * FIXED: Broken ZIM loading on XO OSes 0.8x (ID: 3471279)
+* FIXED: Library filtering by language with ISO639-1 language ZIM metadata
 * NEW: New supported user interface languages: Faroese (fo), Croatian (hr),
   Iloko (ilo), Limburgish (li), Basa Banyumasan (map-bms), Pashto (ps), 
   Bachkir (ba), Welsh (cy), Yiddish (yi), Wolof (yo), 
