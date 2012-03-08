@@ -1,3 +1,31 @@
+
+##################
+# /!\ ATTENTION
+# Before editting this file, please read the following:
+#
+# The platform is stored in IS_WIN, IS_OSX, IS_LINUX, IS_POSIX variables.
+# Those are detected automatically from the host.
+# Currently you can't cross-compile.
+# IS_LINUX and IS_OSX implies IS_POSIX
+#
+# Each dependency have a set of variables set at the beginning of this file:
+# X_CFLAGS, X_LDFLAGS: expected flags for shared linking.
+# COMPILE_X: whether or not a download+compile will be performed.
+# COMPILED_X_CFLAGS, COMPILED_X_LDFLAGS: expected flags once compiled locally.
+# X_CFLAGS and X_LDFLAGS will be replace with COMPILED ones if appropriate.
+#
+# Each dependency has it own space for dependency resolution (although most
+# look very similar)
+# Process is the same for all:
+# 1. get path from --with-x= and add it to LIBRARY_PATH
+# 2. get path from --with-static-x (usually a .a file) and store it.
+# 3. if no static requested, try to find the library automaticaly
+# using pkg-config, AC_CHECK_LIB, etc. If not found, fail.
+# 4. mark package for compile if static is SELF. If static is a path, try to
+# find the archive and fail if not found.
+##################
+
+
 # autotools initializations
 AC_INIT([kiwix], [0.9])
 IS_WIN=0
@@ -90,7 +118,9 @@ function ErrorOrWarning {
 }
 
 
-# Dependencies
+####################################################
+############ DEPENDENCIES DEFAULT VALUES
+####################################################
 
 SELF="SELF"
 DEP_PATH="${CURRENT_PATH}/src/dependencies"
@@ -101,11 +131,14 @@ GECKO_SDK_PATH=""
 COMPILE_GECKO_SDK=0
 COMPILED_GECKO_SDK_PATH="${DEP_PATH}/xulrunner-sdk/sdk"
 
+ZLIB_CFLAGS=""
 ZLIB_LDFLAGS="-Bstatic -lz"
 COMPILE_ZLIB=0
+COMPILED_ZLIB_CFLAGS="-I${DEP_PATH}/zlib-1.2.3"
 COMPILED_ZLIB_LDFLAGS="${DEP_PATH}/zlib-1.2.3/libz.a"
 
-XAPIAN_LDFLAGS=""
+XAPIAN_CFLAGS=""
+XAPIAN_LDFLAGS="-lxapian"
 COMPILE_XAPIAN=0
 if test [ "$IS_WIN" ] ; then
     COMPILED_XAPIAN_LDFLAGS="${DEP_PATH}/xapian-core-1.2.3/win32/Release/libs/libunicode.lib"
@@ -113,7 +146,8 @@ else
     COMPILED_XAPIAN_LDFLAGS="${DEP_PATH}/xapian-core-1.2.3/.libs/libxapian.a"
 fi
 
-ICU_LDFLAGS=""
+ICU_CFLAGS=""
+ICU_LDFLAGS="-licui18n -licuuc -licudata" # replaced by icu-config"
 COMPILE_ICU=0
 if test [ "$IS_WIN" ] ; then
 COMPILED_ICU_LDFLAGS="${DEP_PATH}/icu/source/lib/libicuio.a"
@@ -122,36 +156,43 @@ COMPILED_ICU_LDFLAGS="${DEP_PATH}/icu/lib/icuio.lib"
 fi
 
 # no win for sqlite as it is just a sub dependency of aria2
-SQLITE_LDFLAGS=""
+SQLITE_CFLAGS=""
+SQLITE_LDFLAGS="-libsqlite3"
 COMPILE_SQLITE=0
 COMPILED_SQLITE_LDFLAGS="${DEP_PATH}/sqlite-autoconf-3071000/.libs/libsqlite3.a"
 
-UUID_LDFLAGS=""
+UUID_CFLAGS=""
+UUID_LDFLAGS="-luuid"
 COMPILE_UUID=0
 COMPILED_UUID_LDFLAGS="${DEP_PATH}/e2fsprogs-1.42/lib/uuid/libuuid.a"
 
 # used only for building kiwix-serve. Not available on windows.
-MICROHTTPD_LDFLAGS=""
+MICROHTTPD_CFLAGS=""
+MICROHTTPD_LDFLAGS="-libmicrohttpd"
 COMPILE_MICROHTTPD=0
 COMPILED_MICROHTTPD_LDFLAGS="${DEP_PATH}/libmicrohttpd-0.9.19/src/daemon/.libs/libmicrohttpd.a"
 
-LZMA_LDFLAGS=""
+LZMA_CFLAGS=""
+LZMA_LDFLAGS="-Bstatic -llzma"
 COMPILE_LZMA=0
 if test [ "$IS_WIN" ] ; then
-    COMPILED_LZMA_LDFLAGS="${DEP_PATH}/xz/windows/liblzma.lib"
-else
     COMPILED_LZMA_LDFLAGS="${DEP_PATH}/xz/src/liblzma/.libs/liblzma.a"
+else
+	COMPILED_LZMA_LDFLAGS="${DEP_PATH}/xz/windows/liblzma.lib"
 fi
 
-CARES_LDFLAGS=""
+CARES_CFLAGS=""
+CARES_LDFLAGS="-lcares"
 COMPILE_CARES=0
 COMPILED_CARES_LDFLAGS="${DEP_PATH}/c-ares-1.7.5/.libs/libcares.a"
 
+ARIA2_CFLAGS=""
 ARIA2_LDFLAGS=""
-COMPILE_ARIA2=1
+COMPILE_ARIA2=0
 COMPILED_ARIA2_LDFLAGS="${DEP_PATH}/aria2-1.14.1/src/aria2c"
 
-CLUCENE_LDFLAGS=""
+CLUCENE_CFLAGS=""
+CLUCENE_LDFLAGS="-lclucene"
 COMPILE_CLUCENE=0
 COMPILED_CLUCENE_LDFLAGS="${DEP_PATH}/clucene-core-0.9.21b/src/.libs/libclucene.a"
 
@@ -164,10 +205,40 @@ WITH_INSTALLER=0
 WITH_SEARCHER=0
 WITH_READER=0
 
-# individual dependency check
+# --enable-static
+AC_ARG_ENABLE(static,
+			  [  --enable-static	mark every package for self compilation and static linking],
+			  STATIC_BUILD=${enableval})
+
+if test [ ! "$STATIC_BUILD" = "no" -a ! "$STATIC_BUILD" = "0" ]
+then
+	STATIC_BUILD=1
+
+	COMPILE_GECKO_SDK=1
+	COMPILE_ZLIB=1
+	COMPILE_XAPIAN=1
+	COMPILE_ICU=1
+	COMPILE_SQLITE=1
+	COMPILE_UUID=1
+	COMPILE_MICROHTTPD=1
+	COMPILE_LZMA=1
+	COMPILE_CARES=1
+	COMPILE_ARIA2=1
+	COMPILE_CLUCENE=0
+
+	WITH_CLUCENE=0
+	WITH_MANAGER=0
+	WITH_SERVER=0
+	WITH_INDEXER=0
+	WITH_INSTALLER=0
+	WITH_SEARCHER=0
+	WITH_READER=0
+else
+	STATIC_BUILD=0
+fi
 
 AC_ARG_WITH(extra-includes,
-            [--with-extra-includes=DIR:DIR    PATH like list of folder to add to include lookup],
+            [  --with-extra-includes=DIR:DIR	PATH like list of folder to add to include lookup],
             export CPATH="${withval}")
 
 ####################################################
@@ -175,7 +246,7 @@ AC_ARG_WITH(extra-includes,
 ####################################################
 
 AC_ARG_WITH(gecko-sdk,
-            [--with-gecko-sdk=DIR    Gecko SDK path],
+            [  --with-gecko-sdk=DIR	Gecko SDK path],
             GECKO_SDK_PATH=`cd ${withval}; pwd`)
 
 # try to find installed gecko-sdk. default to SELF
@@ -247,16 +318,16 @@ fi
 ####################################################
 
 # if --with-x, add path to LIBRARY_PATH
-AC_ARG_WITH(z, [--with-z=DIR 	alternate location for zlib],
-			  	export LIBRARY_PATH="${withval}:${LIBRARY_PATH}")
+AC_ARG_WITH(z, [  --with-z=DIRalternate	location for zlib],
+			  	export LIBRARY_PATH="${withval}:${LIBRARY_PATH}";)
 
 # if --with-static-x, set path as X_ARCHIVE
 AC_ARG_WITH(static-z,
-            [--with-static-z=DIR/libx.a    Path to static archive],
+            [  --with-static-z=DIR/libx.a	Path to static archive],
             ZLIB_ARCHIVE=${withval})
 
 # if no static argument, check for lib on system (which may contain the --with-x= path)
-if test [ "$ZLIB_ARCHIVE" = "" ]
+if test [ "$ZLIB_ARCHIVE" = "" -a $COMPILE_ZLIB -eq 0 ]
 then
 	# fail if none found.
     AC_CHECK_HEADER([zlib.h],, [AC_MSG_ERROR([[cannot find zlib header]])])
@@ -264,17 +335,363 @@ then
 # static argument supplied
 else
 	# if argument is SELF, add to compile queue
-	if test [ "$ZLIB_ARCHIVE" = "$SELF" ]
+	if test [ "$ZLIB_ARCHIVE" = "$SELF" -o $COMPILE_ZLIB -eq 1 ]
 	then
 	    COMPILE_ZLIB=1
 	    ZLIB_LDFLAGS=$COMPILED_ZLIB_LDFLAGS
 	# if path provided, test file existence (and fail)
 	else
 		ZLIB_LDFLAGS=`readlink -f $ZLIB_ARCHIVE`
-		if [[ ! -f $ZLIB_LDFLAGS ]]
-		then
-			AC_MSG_ERROR([[cannot stat zlib archive at $ZLIB_LDFLAGS]])
+		AC_CHECK_FILE($ZLIB_ARCHIVE,,[AC_MSG_ERROR([[cannot stat zlib archive at $ZLIB_LDFLAGS]])])
+	fi
+fi
+
+####################################################
+############ XAPIAN
+####################################################
+
+# if --with-x, add path to LIBRARY_PATH
+AC_ARG_WITH(xapian, [  --with-xapian=DIR	alternate location for xapian],
+			  	export LIBRARY_PATH="${withval}:${LIBRARY_PATH}"; XAPIAN_CONFIG_PATH=$withval)
+
+# if --with-static-x, set path as X_ARCHIVE
+AC_ARG_WITH(static-xapian,
+            [  --with-static-xapian=DIR/libx.a	Path to static archive],
+            XAPIAN_ARCHIVE=${withval})
+
+# if no static argument, check for lib on system (which may contain the --with-x= path)
+if test [ "$XAPIAN_ARCHIVE" = "" -a $COMPILE_XAPIAN -eq 0 ]
+then
+	# fail if none found.
+	AC_CHECK_TOOL(HAVE_XAPIAN_CONFIG, xapian-config,, "${XAPIAN_CONFIG_PATH}:${PATH}")
+	if test [ ! "$HAVE_XAPIAN_CONFIG" ]
+	then 
+	     AC_MSG_ERROR([[cannot find xapian-config]])
+	else
+		OLDPATH=$PATH
+		PATH="${XAPIAN_CONFIG_PATH}:${PATH}"
+	    XAPIAN_CFLAGS=`xapian-config --cxxflags`;
+	    XAPIAN_LDFLAGS=`xapian-config --ltlibs`;
+	    PATH=$OLDPATH
+	fi
+# static argument supplied
+else
+	# if argument is SELF, add to compile queue
+	if test [ "$XAPIAN_ARCHIVE" = "$SELF" -o $COMPILE_XAPIAN -eq 1 ]
+	then
+	    COMPILE_XAPIAN=1
+	    XAPIAN_LDFLAGS=$COMPILED_XAPIAN_LDFLAGS
+	# if path provided, test file existence (and fail)
+	else
+		XAPIAN_LDFLAGS=`readlink -f $XAPIAN_ARCHIVE`
+		AC_CHECK_FILE($XAPIAN_ARCHIVE,,[AC_MSG_ERROR([[cannot stat Xapian archive at $XAPIAN_LDFLAGS]])])
+	fi
+fi
+
+####################################################
+############ ICU
+####################################################
+
+# if --with-x, add path to LIBRARY_PATH
+AC_ARG_WITH(icu, [  --with-icu=DIR	alternate location for ICU],
+			  	export LIBRARY_PATH="${withval}:${LIBRARY_PATH}"; ICU_CONFIG_PATH=$withval)
+
+# if --with-static-x, set path as X_ARCHIVE
+AC_ARG_WITH(static-icu,
+            [  --with-static-icu=DIR	Path to static archive folder],
+            ICU_ARCHIVE_PATH=${withval})
+
+# if no static argument, check for lib on system (which may contain the --with-x= path)
+if test [ "$ICU_ARCHIVE_PATH" = "" -a $COMPILE_ICU -eq 0 ]
+then
+	# fail if none found.
+    AC_CHECK_TOOL(HAVE_ICU_CONFIG, icu-config,, "${ICU_CONFIG_PATH}:${PATH}")
+	if test [ ! "$HAVE_ICU_CONFIG" ]
+	then 
+	     AC_MSG_ERROR([[cannot find icu-config]])
+	else
+		OLDPATH=$PATH
+		PATH="${ICU_CONFIG_PATH}:${PATH}"
+	    ICU_CFLAGS=`icu-config --cxxflags`;
+	    ICU_LDFLAGS=`icu-config --ldflags`;
+	    ICU_VER=`icu-config --version`;
+	    PATH=$OLDPATH
+	    if [[ $ICU_VER \< "4.2" ]]
+		then 
+		     AC_MSG_ERROR([[You need a version of libicu >= 4.2]])
 		fi
+	fi
+# static argument supplied
+else
+	# if argument is SELF, add to compile queue
+	if test [ "$ICU_ARCHIVE_PATH" = "$SELF" -o $COMPILE_ICU -eq 1 ]
+	then
+	    COMPILE_ICU=1
+	    ICU_LDFLAGS=$COMPILED_ICU_LDFLAGS
+	# if path provided, test file existence (and fail)
+	else
+		ICU_LDFLAGS=`cd $ICU_ARCHIVE_PATH ; pwd`
+		AC_CHECK_FILES([$ICU_LDFLAGS/libicudata.a $ICU_LDFLAGS/libicuuc.a $ICU_LDFLAGS/libicui18n.a],,[AC_MSG_ERROR([[cannot stat ICU archive at $ICU_LDFLAGS]])])
+	fi
+fi
+
+####################################################
+############ SQLITE
+####################################################
+
+# if --with-x, add path to LIBRARY_PATH
+AC_ARG_WITH(sqlite, [  --with-sqlite=DIR	alternate location for sqlite],
+			  	export LIBRARY_PATH="${withval}:${LIBRARY_PATH}"; SQLITE_CONFIG_PATH=$withval)
+
+# if --with-static-x, set path as X_ARCHIVE
+AC_ARG_WITH(static-sqlite,
+            [  --with-static-sqlite=DIR/libx.a	Path to static archive],
+            SQLITE_ARCHIVE=${withval})
+
+# if no static argument, check for lib on system (which may contain the --with-x= path)
+if test [ "$SQLITE_ARCHIVE" = "" -a $COMPILE_SQLITE -eq 0 ]
+then
+	# fail if none found.
+	AC_CHECK_HEADER([sqlite3.h],, [AC_MSG_ERROR([[cannot find sqlite3 header]])])
+	AC_CHECK_LIB([sqlite3], [sqlite3_libversion],, [AC_MSG_ERROR([[cannot find sqlite3]])])
+# static argument supplied
+else
+	# if argument is SELF, add to compile queue
+	if test [ "$SQLITE_ARCHIVE" = "$SELF" -o $COMPILE_SQLITE -eq 1 ]
+	then
+	    COMPILE_SQLITE=1
+	    SQLITE_LDFLAGS=$COMPILED_SQLITE_LDFLAGS
+	# if path provided, test file existence (and fail)
+	else
+		SQLITE_LDFLAGS=`readlink -f $SQLITE_ARCHIVE`
+		AC_CHECK_FILE($SQLITE_ARCHIVE,,[AC_MSG_ERROR([[cannot stat Xapian archive at $SQLITE_LDFLAGS]])])
+	fi
+fi
+
+####################################################
+############ UUID
+####################################################
+
+# if --with-x, add path to LIBRARY_PATH
+AC_ARG_WITH(uuid, [  --with-uuid=DIR	alternate location for uuid],
+			  	export LIBRARY_PATH="${withval}:${LIBRARY_PATH}"; UUID_CONFIG_PATH=$withval)
+
+# if --with-static-x, set path as X_ARCHIVE
+AC_ARG_WITH(static-uuid,
+            [  --with-static-uuid=DIR/libx.a	Path to static archive],
+            UUID_ARCHIVE=${withval})
+
+# if no static argument, check for lib on system (which may contain the --with-x= path)
+if test [ "$UUID_ARCHIVE" = "" -a $COMPILE_UUID -eq 0 ]
+then
+	# fail if none found.
+	AC_CHECK_HEADER([uuid/uuid.h],, [AC_MSG_ERROR([[cannot find uuid header]])])
+	AC_CHECK_LIB([uuid], [uuid_generate],, [AC_MSG_ERROR([[cannot find uuid]])])
+# static argument supplied
+else
+	# if argument is SELF, add to compile queue
+	if test [ "$UUID_ARCHIVE" = "$SELF" -o $COMPILE_UUID -eq 1 ]
+	then
+	    COMPILE_UUID=1
+	    UUID_LDFLAGS=$COMPILED_UUID_LDFLAGS
+	# if path provided, test file existence (and fail)
+	else
+		UUID_LDFLAGS=`readlink -f $UUID_ARCHIVE`
+		AC_CHECK_FILE($UUID_ARCHIVE,,[AC_MSG_ERROR([[cannot stat Xapian archive at $UUID_LDFLAGS]])])
+	fi
+fi
+
+####################################################
+############ MICROHTTPD
+####################################################
+
+# if --with-x, add path to LIBRARY_PATH
+AC_ARG_WITH(microhttpd, [  --with-microhttpd=DIR	alternate location for microhttpd],
+			  	export LIBRARY_PATH="${withval}:${LIBRARY_PATH}"; MICROHTTPD_CONFIG_PATH=$withval)
+
+# if --with-static-x, set path as X_ARCHIVE
+AC_ARG_WITH(static-microhttpd,
+            [  --with-static-microhttpd=DIR/libx.a	Path to static archive],
+            MICROHTTPD_ARCHIVE=${withval})
+
+# if no static argument, check for lib on system (which may contain the --with-x= path)
+if test [ "$MICROHTTPD_ARCHIVE" = "" -a $COMPILE_MICROHTTPD -eq 0 ]
+then
+	# fail if none found.
+	AC_CHECK_HEADER([microhttpd.h],, [AC_MSG_ERROR([[cannot find microhttpd header]])])
+	AC_CHECK_LIB([microhttpd], [MHD_start_daemon],, [AC_MSG_ERROR([[cannot find microhttpd]])])
+
+	# Check the libmicrohttpd version
+	`pkg-config --atleast-version="0.4.0" libmicrohttpd`
+	MICROHTTPD_VERSION_OK=$?
+	if test [ ! $MICROHTTPD_VERSION_OK -eq 0 ]
+	then
+		AC_MSG_ERROR([[The libmicrohttpd version must be 0.4.0 or higher.]])
+	fi
+# static argument supplied
+else
+	# if argument is SELF, add to compile queue
+	if test [ "$MICROHTTPD_ARCHIVE" = "$SELF" -o $COMPILE_MICROHTTPD -eq 1 ]
+	then
+	    COMPILE_MICROHTTPD=1
+	    MICROHTTPD_LDFLAGS=$COMPILED_MICROHTTPD_LDFLAGS
+	# if path provided, test file existence (and fail)
+	else
+		MICROHTTPD_LDFLAGS=`readlink -f $MICROHTTPD_ARCHIVE`
+		AC_CHECK_FILE($MICROHTTPD_ARCHIVE,,[AC_MSG_ERROR([[cannot stat Xapian archive at $MICROHTTPD_LDFLAGS]])])
+	fi
+fi
+
+####################################################
+############ LZMA
+####################################################
+
+# if --with-x, add path to LIBRARY_PATH
+AC_ARG_WITH(lzma, [  --with-lzma=DIR	alternate location for lzma],
+			  	export LIBRARY_PATH="${withval}:${LIBRARY_PATH}"; LZMA_CONFIG_PATH=$withval)
+
+# if --with-static-x, set path as X_ARCHIVE
+AC_ARG_WITH(static-lzma,
+            [  --with-static-lzma=DIR/libx.a	Path to static archive],
+            LZMA_ARCHIVE=${withval})
+
+# if no static argument, check for lib on system (which may contain the --with-x= path)
+if test [ "$LZMA_ARCHIVE" = "" -a $COMPILE_LZMA -eq 0 ]
+then
+	# fail if none found.
+	AC_CHECK_HEADER([lzma.h],, [AC_MSG_ERROR([[cannot find lzma header]])])
+	AC_CHECK_LIB([lzma], [lzma_code],, [AC_MSG_ERROR([[cannot find lzma]])])
+# static argument supplied
+else
+	# if argument is SELF, add to compile queue
+	if test [ "$LZMA_ARCHIVE" = "$SELF" -o $COMPILE_LZMA -eq 1 ]
+	then
+	    COMPILE_LZMA=1
+	    LZMA_LDFLAGS=$COMPILED_LZMA_LDFLAGS
+	# if path provided, test file existence (and fail)
+	else
+		LZMA_LDFLAGS=`readlink -f $LZMA_ARCHIVE`
+		AC_CHECK_FILE($LZMA_ARCHIVE,,[AC_MSG_ERROR([[cannot stat Xapian archive at $LZMA_LDFLAGS]])])
+	fi
+fi
+
+####################################################
+############ CARES
+####################################################
+
+# if --with-x, add path to LIBRARY_PATH
+AC_ARG_WITH(cares, [  --with-cares=DIR	alternate location for cares],
+			  	export LIBRARY_PATH="${withval}:${LIBRARY_PATH}"; CARES_CONFIG_PATH=$withval)
+
+# if --with-static-x, set path as X_ARCHIVE
+AC_ARG_WITH(static-cares,
+            [  --with-static-cares=DIR/libx.a	Path to static archive],
+            CARES_ARCHIVE=${withval})
+
+# if no static argument, check for lib on system (which may contain the --with-x= path)
+if test [ "$CARES_ARCHIVE" = "" -a $COMPILE_CARES -eq 0 ]
+then
+	# fail if none found.
+	AC_CHECK_HEADER([ares.h],, [AC_MSG_ERROR([[cannot find c-ares header]])])
+	AC_CHECK_LIB([cares], [ares_version],, [AC_MSG_ERROR([[cannot find c-ares]])])
+# static argument supplied
+else
+	# if argument is SELF, add to compile queue
+	if test [ "$CARES_ARCHIVE" = "$SELF" -o $COMPILE_CARES -eq 1 ]
+	then
+	    COMPILE_CARES=1
+	    CARES_LDFLAGS=$COMPILED_CARES_LDFLAGS
+	# if path provided, test file existence (and fail)
+	else
+		CARES_LDFLAGS=`readlink -f $CARES_ARCHIVE`
+		AC_CHECK_FILE($CARES_ARCHIVE,,[AC_MSG_ERROR([[cannot stat Xapian archive at $CARES_LDFLAGS]])])
+	fi
+fi
+
+####################################################
+############ ARIA2
+####################################################
+
+# if --with-x, add path to LIBRARY_PATH
+AC_ARG_WITH(aria2, [  --with-aria2=DIR	alternate location for aria2],
+			  	export LIBRARY_PATH="${withval}:${LIBRARY_PATH}"; ARIA2_CONFIG_PATH=$withval)
+
+# if --with-static-x, set path as X_ARCHIVE
+AC_ARG_WITH(static-aria2,
+            [  --with-static-aria2=DIR/aria2c	Path to static aria2c binary],
+            ARIA2_ARCHIVE=${withval})
+
+# if no static argument, check for lib on system (which may contain the --with-x= path)
+if test [ "$ARIA2_ARCHIVE" = "" -a $COMPILE_ARIA2 -eq 0 ]
+then
+	# fail if none found.
+	AC_CHECK_TOOL([ARIA2_BIN],[aria2c],[])
+	if [[ "$ARIA2_BIN" = "" ]];
+	then
+		AC_MSG_ERROR([aria2c is required.])
+    fi
+    ARIA2_LDFLAGS=`which aria2c`
+# static argument supplied
+else
+	# if argument is SELF, add to compile queue
+	if test [ "$ARIA2_ARCHIVE" = "$SELF" -o $COMPILE_ARIA2 -eq 1 ]
+	then
+	    COMPILE_ARIA2=1
+	    ARIA2_LDFLAGS=$COMPILED_ARIA2_LDFLAGS
+	# if path provided, test file existence (and fail)
+	else
+		ARIA2_LDFLAGS=`readlink -f $ARIA2_ARCHIVE`
+		AC_CHECK_FILE($ARIA2_ARCHIVE,,[AC_MSG_ERROR([[cannot stat Xapian archive at $ARIA2_LDFLAGS]])])
+		ARIA2_BIN=$ARIA2_ARCHIVE
+	fi
+fi
+if test [ "$ARIA2_BIN" ];
+then
+	ARIA2C_VERSION=`${ARIA2_BIN} -v | grep "aria2 version" | cut -d' ' -f3`
+	ARIA2C_VERSION_CHK=`${ARIA2_BIN} -v | grep "aria2 version" | cut -d' ' -f3 | cut -d. -f-2 | sed "s/\.//"`
+	AC_MSG_RESULT(checking for aria2c version... ${ARIA2C_VERSION})
+	if [[ ${ARIA2C_VERSION_CHK} -lt 114 ]]
+	then
+		AC_MSG_ERROR([aria2c is too old, you need version 1.14 or newer.])
+	fi
+fi
+
+####################################################
+############ CLUCENE
+####################################################
+
+# if --with-x, add path to LIBRARY_PATH
+AC_ARG_WITH(clucene, [  --with-clucene=DIR	alternate location for clucene],
+			  	export LIBRARY_PATH="${withval}:${LIBRARY_PATH}"; CLUCENE_CONFIG_PATH=$withval)
+
+# if --with-static-x, set path as X_ARCHIVE
+AC_ARG_WITH(static-clucene,
+            [  --with-static-clucene=DIR/libx.a	Path to static archive],
+            CLUCENE_ARCHIVE=${withval})
+
+# if no static argument, check for lib on system (which may contain the --with-x= path)
+if test [ "$CLUCENE_ARCHIVE" = "" -a $COMPILE_CLUCENE -eq 0 ]
+then
+	# fail if none found.
+	AC_CHECK_HEADER([CLucene/CLConfig.h],, [AC_MSG_ERROR([[cannot find clucene header]])])
+	AC_CHECK_LIB([clucene], [open], [CLUCENE_LDFLAGS="-lclucene"],
+	[
+		AC_CHECK_LIB([clucene-core], [open],, [AC_MSG_ERROR([[cannot find clucene-core]])])
+		AC_CHECK_LIB([clucene-shared], [open],, [AC_MSG_ERROR([[cannot find clucene-shared]])])
+		CLUCENE_LDFLAGS="-lclucene-core -lclucene-shared"
+	])
+	
+# static argument supplied
+else
+	# if argument is SELF, add to compile queue
+	if test [ "$CLUCENE_ARCHIVE" = "$SELF" -o $COMPILE_CLUCENE -eq 1 ]
+	then
+	    COMPILE_CLUCENE=1
+	    CLUCENE_LDFLAGS=$COMPILED_CLUCENE_LDFLAGS
+	# if path provided, test file existence (and fail)
+	else
+		CLUCENE_LDFLAGS=`readlink -f $CLUCENE_ARCHIVE`
+		AC_CHECK_FILE($CLUCENE_ARCHIVE,,[AC_MSG_ERROR([[cannot stat clucene archive at $CLUCENE_LDFLAGS]])])
 	fi
 fi
 
@@ -288,6 +705,42 @@ then
     if test [ $COMPILE_ZLIB -eq 1 ]
     then
         DEP_LIST+=" $COMPILED_ZLIB_LDFLAGS"
+    fi
+    if test [ $COMPILE_XAPIAN -eq 1 ]
+    then
+        DEP_LIST+=" $COMPILED_XAPIAN_LDFLAGS"
+    fi
+    if test [ $COMPILE_ICU -eq 1 ]
+    then
+        DEP_LIST+=" $COMPILED_ICU_LDFLAGS"
+    fi
+    if test [ $COMPILE_SQLITE -eq 1 ]
+    then
+        DEP_LIST+=" $COMPILED_SQLITE_LDFLAGS"
+    fi
+    if test [ $COMPILE_UUID -eq 1 ]
+    then
+        DEP_LIST+=" $COMPILED_UUID_LDFLAGS"
+    fi
+    if test [ $COMPILE_MICROHTTPD -eq 1 ]
+    then
+        DEP_LIST+=" $COMPILED_MICROHTTPD_LDFLAGS"
+    fi
+    if test [ $COMPILE_LZMA -eq 1 ]
+    then
+        DEP_LIST+=" $COMPILED_LZMA_LDFLAGS"
+    fi
+    if test [ $COMPILE_CARES -eq 1 ]
+    then
+        DEP_LIST+=" $COMPILED_CARES_LDFLAGS"
+    fi
+    if test [ $COMPILE_ARIA2 -eq 1 ]
+    then
+        DEP_LIST+=" $COMPILED_ARIA2_LDFLAGS"
+    fi
+    if test [ $COMPILE_CLUCENE -eq 1 ]
+    then
+        DEP_LIST+=" $COMPILED_CLUCENE_LDFLAGS"
     fi
 fi
 
@@ -324,6 +777,8 @@ fi
 CXXFLAGS="${CFLAGS}"
 
 # export variables
+AC_SUBST(CPATH)
+
 AC_SUBST(STATIC_BUILD)
 AC_SUBST(IS_WIN)
 AC_SUBST(IS_OSX)
@@ -343,33 +798,43 @@ AC_SUBST(WITH_READER)
 AC_SUBST(GECKO_SDK_PATH)
 AC_SUBST(COMPILE_GECKO_SDK)
 
+AC_SUBST(ZLIB_CFLAGS)
 AC_SUBST(ZLIB_LDFLAGS)
 AC_SUBST(COMPILE_ZLIB)
 
+AC_SUBST(XAPIAN_CFLAGS)
 AC_SUBST(XAPIAN_LDFLAGS)
 AC_SUBST(COMPILE_XAPIAN)
 
+AC_SUBST(ICU_CFLAGS)
 AC_SUBST(ICU_LDFLAGS)
 AC_SUBST(COMPILE_ICU)
 
+AC_SUBST(SQLITE_CFLAGS)
 AC_SUBST(SQLITE_LDFLAGS)
 AC_SUBST(COMPILE_SQLITE)
 
+AC_SUBST(UUID_CFLAGS)
 AC_SUBST(UUID_LDFLAGS)
 AC_SUBST(COMPILE_UUID)
 
+AC_SUBST(MICROHTTPD_CFLAGS)
 AC_SUBST(MICROHTTPD_LDFLAGS)
 AC_SUBST(COMPILE_MICROHTTPD)
 
+AC_SUBST(LZMA_CFLAGS)
 AC_SUBST(LZMA_LDFLAGS)
 AC_SUBST(COMPILE_LZMA)
 
+AC_SUBST(CARES_CFLAGS)
 AC_SUBST(CARES_LDFLAGS)
 AC_SUBST(COMPILE_CARES)
 
+AC_SUBST(ARIA2_CFLAGS)
 AC_SUBST(ARIA2_LDFLAGS)
 AC_SUBST(COMPILE_ARIA2)
 
+AC_SUBST(CLUCENE_CFLAGS)
 AC_SUBST(CLUCENE_LDFLAGS)
 AC_SUBST(COMPILE_CLUCENE)
 
