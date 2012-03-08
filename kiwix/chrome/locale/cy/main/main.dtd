@@ -64,7 +64,7 @@
 <!ENTITY main.randomArticle.accesskey   "R">
 <!ENTITY main.checkIntegrity            "Gwiriad dilysrwydd">
 <!ENTITY main.checkIntegrity.accesskey  "k">
-<!ENTITY main.purgeHistory              "Purge history">
+<!ENTITY main.purgeHistory              "Gwaredu'r hanes">
 <!ENTITY main.purgeHistory.accesskey    "P">
 
 <!-- Help menu -->

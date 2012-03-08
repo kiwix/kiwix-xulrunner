@@ -34,7 +34,7 @@ locale main fr             jar:locale.jar!/locale/fr/main/
 locale main frp            jar:locale.jar!/locale/frp/main/
 locale main gl             jar:locale.jar!/locale/gl/main/
 locale main gsw            jar:locale.jar!/locale/gsw/main/
-locale main gu              jar:locale.jar!/locale/gu/main/
+locale main gu             jar:locale.jar!/locale/gu/main/
 locale main he             jar:locale.jar!/locale/he/main/
 locale main hi             jar:locale.jar!/locale/hi/main/
 locale main hr             jar:locale.jar!/locale/hr/main/
@@ -47,6 +47,8 @@ locale main it             jar:locale.jar!/locale/it/main/
 locale main ja             jar:locale.jar!/locale/ja/main/
 locale main ka             jar:locale.jar!/locale/ka/main/
 locale main kn             jar:locale.jar!/locale/kn/main/
+locale main ko             jar:locale.jar!/locale/ko/main/
+locale main ko-kp          jar:locale.jar!/locale/ko-kp/main/
 locale main ksh            jar:locale.jar!/locale/ksh/main/
 locale main lb             jar:locale.jar!/locale/lb/main/
 locale main li             jar:locale.jar!/locale/li/main/
@@ -140,6 +142,8 @@ locale branding it         jar:locale.jar!/locale/branding/
 locale branding ja         jar:locale.jar!/locale/branding/
 locale branding ka         jar:locale.jar!/locale/branding/
 locale branding kn         jar:locale.jar!/locale/branding/
+locale branding ko         jar:locale.jar!/locale/branding/
+locale branding ko-kp      jar:locale.jar!/locale/branding/
 locale branding ksh        jar:locale.jar!/locale/branding/
 locale branding lb         jar:locale.jar!/locale/branding/
 locale branding li         jar:locale.jar!/locale/branding/

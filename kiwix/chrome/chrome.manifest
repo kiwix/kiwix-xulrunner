@@ -48,6 +48,8 @@ locale main it             locale/it/main/
 locale main ja             locale/ja/main/
 locale main ka             locale/ka/main/
 locale main kn             locale/kn/main/
+locale main ko             locale/ko/main/
+locale main ko-kp          locale/ko-kp/main/
 locale main ksh            locale/ksh/main/
 locale main lb             locale/lb/main/
 locale main li             locale/li/main/
@@ -140,6 +142,8 @@ locale branding it         locale/branding/
 locale branding ja         locale/branding/
 locale branding ka         locale/branding/
 locale branding kn         locale/branding/
+locale branding ko         locale/branding/
+locale branding ko-kn      locale/branding/
 locale branding ksh        locale/branding/
 locale branding lb         locale/branding/
 locale branding li         locale/branding/

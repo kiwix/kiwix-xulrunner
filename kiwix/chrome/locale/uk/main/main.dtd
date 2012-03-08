@@ -104,8 +104,8 @@
 <!ENTITY main.openLinkInNewTab          "Відкрити посилання у новій вкладці">
 <!ENTITY main.searchFor                 "Шукати">
 <!ENTITY main.copyLinkAdress            "Copy link address">
-<!ENTITY main.mute                      "Mute">
-<!ENTITY main.audible                   "Audible">
+<!ENTITY main.mute                      "Без звуку">
+<!ENTITY main.audible                   "Зі звуком">
 
 <!-- About Window -->
 <!ENTITY main.close                     "Закрити">

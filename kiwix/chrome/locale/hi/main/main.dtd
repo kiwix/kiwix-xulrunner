@@ -104,8 +104,8 @@
 <!ENTITY main.openLinkInNewTab          "नए टैब में लिंक खोलें">
 <!ENTITY main.searchFor                 "के लिए खोजें">
 <!ENTITY main.copyLinkAdress            "Copy link address">
-<!ENTITY main.mute                      "Mute">
-<!ENTITY main.audible                   "Audible">
+<!ENTITY main.mute                      "आवाज़ बंद करें">
+<!ENTITY main.audible                   "जो सुनाई दे">
 
 <!-- About Window -->
 <!ENTITY main.close                     "बंद करें">

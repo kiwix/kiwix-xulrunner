@@ -104,8 +104,8 @@
 <!ENTITY main.openLinkInNewTab          "T'inkita musuq tikllapi kichariy">
 <!ENTITY main.searchFor                 "Kayta maskay:">
 <!ENTITY main.copyLinkAdress            "Copy link address">
-<!ENTITY main.mute                      "Mute">
-<!ENTITY main.audible                   "Audible">
+<!ENTITY main.mute                      "Amu">
+<!ENTITY main.audible                   "Uyarinalla">
 
 <!-- About Window -->
 <!ENTITY main.close                     "Wichq'ay">

@@ -1,0 +1,139 @@
+<!-- Window -->
+<!ENTITY main.title                     "&brand.brandShortName;">
+<!ENTITY main.cssdirection              "ltr">
+
+<!-- File menu -->
+<!ENTITY main.file                      "자료">
+<!ENTITY main.file.accesskey            "F">
+<!ENTITY main.openFile                  "자료 열람">
+<!ENTITY main.browseLibrary.accesskey   "B">
+<!ENTITY main.browseLibrary             "컴퓨터 자료 장소">
+<!ENTITY main.openFile.accesskey        "O">
+<!ENTITY main.lastOpen                  "최근에 사용한 자료">
+<!ENTITY main.saveFile                  "새 이름으로 자료 만들기">
+<!ENTITY main.saveFile.accesskey        "S">
+<!ENTITY main.print                     "인쇄하기">
+<!ENTITY main.print.accesskey           "P">
+<!ENTITY main.printPdf                  "PDF으로 인쇄하기">
+<!ENTITY main.printPdf.accesskey        "D">
+<!ENTITY main.quit                      "끝내기">
+<!ENTITY main.quit.accesskey            "Q">
+
+<!-- Edit menu -->
+<!ENTITY main.edit                      "편집하기">
+<!ENTITY main.edit.accesskey            "E">
+<!ENTITY main.find                      "이 페지에 찾기">
+<!ENTITY main.find.accesskey            "S">
+<!ENTITY main.selectall                 "모든 자료 단번에 선택하기">
+<!ENTITY main.selectall.accesskey       "a">
+<!ENTITY main.copy                      "베끼기">
+<!ENTITY main.copy.accesskey            "p">
+<!ENTITY main.transliteration           "해당 글자로 내주기">
+<!ENTITY main.transliteration.accesskey "T">
+<!ENTITY main.preferences               "좋아하는 것">
+<!ENTITY main.preferences.accesskey     "n">
+
+<!-- Display menu -->
+<!ENTITY main.display                   "표시">
+<!ENTITY main.display.accesskey         "D">
+<!ENTITY main.zoom                      "크게-작게">
+<!ENTITY main.zoom.accesskey            "Z">
+<!ENTITY main.zoomin                    "크게">
+<!ENTITY main.zoomin.accesskey          "M">
+<!ENTITY main.zoomout                   "작게">
+<!ENTITY main.zoomout.accesskey         "R">
+<!ENTITY main.zoomorig                  "원래 크기">
+<!ENTITY main.zoomorig.accesskey        "O">
+<!ENTITY main.language                  "말">
+<!ENTITY main.language.accesskey        "L">
+<!ENTITY main.skin                      "표면 색갈 바꾸기">
+<!ENTITY main.skin.accesskey            "S">
+<!ENTITY main.statusbar                 "프로그램 상태 표시줄">
+<!ENTITY main.statusbar.accesskey       "S">
+<!ENTITY main.resultsbar                "프로그램 결과 표시줄">
+<!ENTITY main.resultsbar.accesskey      "R">
+<!ENTITY main.tabs                      "컴퓨터 표시줄">
+<!ENTITY main.tabs.accesskey            "T">
+<!ENTITY main.fullscreen                "꽉 찬 화면">
+<!ENTITY main.fullscreen.accesskey      "F">
+
+<!-- Tools menu -->
+<!ENTITY main.tools                     "프로그램 도구">
+<!ENTITY main.tools.accesskey           "T">
+<!ENTITY main.randomArticle             "임의의 문서">
+<!ENTITY main.randomArticle.accesskey   "R">
+<!ENTITY main.checkIntegrity            "유로 검열">
+<!ENTITY main.checkIntegrity.accesskey  "k">
+<!ENTITY main.purgeHistory              "이야기 지우기">
+<!ENTITY main.purgeHistory.accesskey    "P">
+
+<!-- Help menu -->
+<!ENTITY main.help                      "도움말">
+<!ENTITY main.help.accesskey            "H">
+<!ENTITY main.feedback                  "표현 알리기">
+<!ENTITY main.reportabug                "오점 보고하기">
+<!ENTITY main.requestafeature           "특징 신청하기">
+<!ENTITY main.about                     "&brand.brandShortName;에 대하여">
+<!ENTITY main.about.accesskey           "A">
+
+<!-- Tool bar -->
+<!ENTITY main.back                      "전에">
+<!ENTITY main.forward                   "앞으로">
+<!ENTITY main.home                      "처음으로">
+<!ENTITY main.searchBar                 "자료 검색 줄">
+<!ENTITY main.search                    "찾기">
+<!ENTITY main.findInText                "원문에서 찾기">
+<!ENTITY main.noSearchBar               "찾기를 위한 색인된 ZIM파일이 필요합니다.">
+<!ENTITY main.bookmarks                 "자료 표시점">
+
+<!-- Results bar -->
+<!ENTITY main.results.title             "자료 검색결과 결아 찾기">
+
+<!-- Bookmarks Bar -->
+<!ENTITY main.bmkLabel                  "자료 표시점:">
+<!ENTITY main.notesLabel                "표시 쪽지">
+<!ENTITY main.loadbmk                   "여러 표시점 데려오기">
+<!ENTITY main.newbmk                    "여러 표시점 새롭게 만들기">
+<!ENTITY main.mark                      "이 페지의 표시하기">
+<!ENTITY main.unmark                    "이 페지의 표시 취소하기">
+<!ENTITY main.reload                    "여러 표시점 읽기">
+<!ENTITY main.defaultset                "컴퓨터 사용다운 표시줄">
+
+<!-- Contextual Menu -->
+<!ENTITY main.saveImageAs               "그림 자료 새 이름으로 저장하기">
+<!ENTITY main.openLinkInNewTab          "새로운 화면 열기">
+<!ENTITY main.searchFor                 "을(를) 찾기">
+<!ENTITY main.copyLinkAdress            "Copy link address">
+<!ENTITY main.mute                      "소리없음">
+<!ENTITY main.audible                   "소리있음">
+
+<!-- About Window -->
+<!ENTITY main.close                     "닫기">
+
+<!-- Preferences Window -->
+<!ENTITY preferences.preferences        "Preferences">
+<!ENTITY preferences.save               "Save">
+<!ENTITY preferences.cancel             "Cancel">
+<!ENTITY preferences.profileDirectory   "Profile directory">
+<!ENTITY preferences.browse             "Browse">
+<!ENTITY preferences.tabs               "Remember tabs">
+
+<!-- Library -->
+<!ENTITY main.library.myLibrary                 "나의 자료 장서">
+<!ENTITY main.library.getNewFiles               "새로운 자료 전달받기">
+<!ENTITY main.library.searchZimFiles            "ZIM자료 찾기">
+<!ENTITY main.library.sortBy                    "나란히 세우기">
+<!ENTITY main.library.sortBy.title              "제목">
+<!ENTITY main.library.sortBy.size               "면적">
+<!ENTITY main.library.sortBy.date               "날자">
+<!ENTITY main.library.sortBy.author             "저자">
+<!ENTITY main.library.sortBy.publisher          "발표한 사람">
+<!ENTITY main.library.filterBy                  "걸러내기">
+<!ENTITY main.library.filterBy.fileSize         "자료 면적">
+<!ENTITY main.library.filterBy.language         "말">
+<!ENTITY main.library.filterBy.language.all     "모두">
+<!ENTITY main.library.filterBy.author           "저자">
+<!ENTITY main.library.filterBy.author.all       "모두">
+<!ENTITY main.library.filterBy.publisher        "발표한 사람">
+<!ENTITY main.library.filterBy.publisher.all    "모두">
+

@@ -5,9 +5,9 @@
 <!-- File menu -->
 <!ENTITY main.file                      "Fișier">
 <!ENTITY main.file.accesskey            "F">
-<!ENTITY main.openFile                  "Deschide fișierul ...">
+<!ENTITY main.openFile                  "Deschide un fișier...">
 <!ENTITY main.browseLibrary.accesskey   "B">
-<!ENTITY main.browseLibrary             "Răsfoiți biblioteca">
+<!ENTITY main.browseLibrary             "Răsfoire bibliotecă">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "Deschise recent...">
 <!ENTITY main.saveFile                  "Salvează pagina ca...">
@@ -101,11 +101,11 @@
 
 <!-- Contextual Menu -->
 <!ENTITY main.saveImageAs               "Salvează imaginea ca...">
-<!ENTITY main.openLinkInNewTab          "Deschideți legătura într-o filă nouă">
-<!ENTITY main.searchFor                 "Căutați">
+<!ENTITY main.openLinkInNewTab          "Deschide legătura într-o filă nouă">
+<!ENTITY main.searchFor                 "Caută după textul selectat">
 <!ENTITY main.copyLinkAdress            "Copy link address">
-<!ENTITY main.mute                      "Mute">
-<!ENTITY main.audible                   "Audible">
+<!ENTITY main.mute                      "Fără sunet">
+<!ENTITY main.audible                   "Sonor">
 
 <!-- About Window -->
 <!ENTITY main.close                     "Închide">
@@ -120,16 +120,16 @@
 
 <!-- Library -->
 <!ENTITY main.library.myLibrary                 "Biblioteca mea">
-<!ENTITY main.library.getNewFiles               "Obțineți fișiere noi">
-<!ENTITY main.library.searchZimFiles            "Căutați fișiere ZIM">
+<!ENTITY main.library.getNewFiles               "Obținere fișiere noi">
+<!ENTITY main.library.searchZimFiles            "Căutare fișiere ZIM">
 <!ENTITY main.library.sortBy                    "Sortare după">
 <!ENTITY main.library.sortBy.title              "Titlu">
-<!ENTITY main.library.sortBy.size               "Dimensiunea">
-<!ENTITY main.library.sortBy.date               "Data">
+<!ENTITY main.library.sortBy.size               "Dimensiune">
+<!ENTITY main.library.sortBy.date               "Dată">
 <!ENTITY main.library.sortBy.author             "Autor">
 <!ENTITY main.library.sortBy.publisher          "Editură">
 <!ENTITY main.library.filterBy                  "Filtrare după">
-<!ENTITY main.library.filterBy.fileSize         "Mărimea fișierului">
+<!ENTITY main.library.filterBy.fileSize         "Mărime fișier">
 <!ENTITY main.library.filterBy.language         "Limbă">
 <!ENTITY main.library.filterBy.language.all     "Toate">
 <!ENTITY main.library.filterBy.author           "Autor">

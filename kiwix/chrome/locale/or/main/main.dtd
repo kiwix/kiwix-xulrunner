@@ -20,7 +20,7 @@
 <!ENTITY main.quit.accesskey            "Q">
 
 <!-- Edit menu -->
-<!ENTITY main.edit                      "ବଦଳାଇବେ">
+<!ENTITY main.edit                      "ଏହାକୁ ବଦଳାନ୍ତୁ">
 <!ENTITY main.edit.accesskey            "E">
 <!ENTITY main.find                      "ପୃଷ୍ଠା ଅନୁସାରେ ଖୋଜିବେ...">
 <!ENTITY main.find.accesskey            "S">
