@@ -702,6 +702,10 @@ fi
 DEP_LIST=""
 if test [ "$IS_LINUX" ]
 then
+    if test [ $COMPILE_GECKO_SDK -eq 1 ]
+    then
+        DEP_LIST+=" $COMPILED_GECKO_SDK_PATH"
+    fi
     if test [ $COMPILE_ZLIB -eq 1 ]
     then
         DEP_LIST+=" $COMPILED_ZLIB_LDFLAGS"
@@ -743,6 +747,7 @@ then
         DEP_LIST+=" $COMPILED_CLUCENE_LDFLAGS"
     fi
 fi
+DEP_LIST=`echo $DEP_LIST | sed -e "s,$DEP_PATH/,,g"`
 
 ####################################################
 ############ NOTICE
