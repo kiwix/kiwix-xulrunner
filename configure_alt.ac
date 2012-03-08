@@ -576,39 +576,6 @@ else
 fi
 
 ####################################################
-############ CARES
-####################################################
-
-# if --with-x, add path to LIBRARY_PATH
-AC_ARG_WITH(cares, [  --with-cares=DIR	alternate location for cares],
-			  	export LIBRARY_PATH="${withval}:${LIBRARY_PATH}"; CARES_CONFIG_PATH=$withval)
-
-# if --with-static-x, set path as X_ARCHIVE
-AC_ARG_WITH(static-cares,
-            [  --with-static-cares=DIR/libx.a	Path to static archive],
-            CARES_ARCHIVE=${withval})
-
-# if no static argument, check for lib on system (which may contain the --with-x= path)
-if test [ "$CARES_ARCHIVE" = "" -a $COMPILE_CARES -eq 0 ]
-then
-	# fail if none found.
-	AC_CHECK_HEADER([ares.h],, [AC_MSG_ERROR([[cannot find c-ares header]])])
-	AC_CHECK_LIB([cares], [ares_version],, [AC_MSG_ERROR([[cannot find c-ares]])])
-# static argument supplied
-else
-	# if argument is SELF, add to compile queue
-	if test [ "$CARES_ARCHIVE" = "$SELF" -o $COMPILE_CARES -eq 1 ]
-	then
-	    COMPILE_CARES=1
-	    CARES_LDFLAGS=$COMPILED_CARES_LDFLAGS
-	# if path provided, test file existence (and fail)
-	else
-		CARES_LDFLAGS=`readlink -f $CARES_ARCHIVE`
-		AC_CHECK_FILE($CARES_ARCHIVE,,[AC_MSG_ERROR([[cannot stat Xapian archive at $CARES_LDFLAGS]])])
-	fi
-fi
-
-####################################################
 ############ ARIA2
 ####################################################
 
@@ -631,6 +598,7 @@ then
 		AC_MSG_ERROR([aria2c is required.])
     fi
     ARIA2_LDFLAGS=`which aria2c`
+    ARIA2_BIN=$ARIA2_LDFLAGS
 # static argument supplied
 else
 	# if argument is SELF, add to compile queue
@@ -653,6 +621,40 @@ then
 	if [[ ${ARIA2C_VERSION_CHK} -lt 114 ]]
 	then
 		AC_MSG_ERROR([aria2c is too old, you need version 1.14 or newer.])
+	fi
+fi
+
+####################################################
+############ CARES
+####################################################
+
+# if --with-x, add path to LIBRARY_PATH
+AC_ARG_WITH(cares, [  --with-cares=DIR	alternate location for cares],
+			  	export LIBRARY_PATH="${withval}:${LIBRARY_PATH}"; CARES_CONFIG_PATH=$withval)
+
+# if --with-static-x, set path as X_ARCHIVE
+AC_ARG_WITH(static-cares,
+            [  --with-static-cares=DIR/libx.a	Path to static archive],
+            CARES_ARCHIVE=${withval})
+
+# if no static argument, check for lib on system (which may contain the --with-x= path)
+if test [ "$CARES_ARCHIVE" = "" -a $COMPILE_CARES -eq 0 -a $COMPILE_ARIA2 -eq 1 ]
+then
+	# fail if none found.
+	AC_CHECK_HEADER([ares.h],, [AC_MSG_ERROR([[cannot find c-ares header]])])
+	AC_CHECK_LIB([cares], [ares_version],, [AC_MSG_ERROR([[cannot find c-ares]])])
+# static argument supplied
+else
+	# if argument is SELF, add to compile queue
+	if test [ "$CARES_ARCHIVE" = "$SELF" -o $COMPILE_CARES -eq 1  ]
+	then
+	    COMPILE_CARES=1
+	    CARES_LDFLAGS=$COMPILED_CARES_LDFLAGS
+	# if path provided, test file existence (and fail)
+	elif [[ ! "$CARES_ARCHIVE" = "" ]]
+	then
+		CARES_LDFLAGS=`readlink -f $CARES_ARCHIVE`
+		AC_CHECK_FILE($CARES_ARCHIVE,,[AC_MSG_ERROR([[cannot stat Xapian archive at $CARES_LDFLAGS]])])
 	fi
 fi
 
