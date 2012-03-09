@@ -1,4 +1,4 @@
-Kiwix 0.9 beta6
+Kiwix 0.9 rc1
 * FIXED: Smoothier zooming (ID: 3469927)
 * FIXED: Evolution skin (ID: 3444112)
 * FIXED: Bad aria2c process mgmt by introducing aria2 v1.14 (ID: 3430225)
