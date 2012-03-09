@@ -47,8 +47,8 @@ _languagesHash['it']        = "Italiano";
 _languagesHash['ja']        = "日本語";
 _languagesHash['ka']        = "ქართული";
 _languagesHash['kn']        = "ಕನ್ನಡ";
-_languagesHash['ko']        = "한국어";
-_languagesHash['ko-kp']     = "한국어 (조선)";
+_languagesHash['kor']       = _languagesHashOld['ko']       = "한국어";
+_languagesHash['kor-kp']    = _languagesHashOld['ko-kp']    = "한국어 (조선)";
 _languagesHash['ksh']       = "Ripoarisch";
 _languagesHash['lb']        = "Lëtzebuergesch";
 _languagesHash['li']        = "Limburgs";
@@ -99,10 +99,10 @@ _languagesHash['ur']        = "اردو";
 _languagesHash['vi']        = "Tiếng Việt";
 _languagesHash['yi']        = "ייִדיש";
 _languagesHash['yo']        = "Wolof";
-_languagesHash['zh']        = "中文";
-_languagesHash['zh-hans']   = "中文(简体)";
-_languagesHash['zh-hant']   = "中文(繁體)";
-_languagesHash['zh-hk']     = "中文(香港)";
+_languagesHash['zho']       = _languagesHashOld['zh']        = "中文";
+_languagesHash['zho-hans']  = _languagesHashOld['zh-hans']   = "中文(简体)";
+_languagesHash['zho-hant']  = _languagesHashOld['zh-hant']   = "中文(繁體)";
+_languagesHash['zho-hk']    = _languagesHashOld['zh-hk']     = "中文(香港)";
 
 function getLanguageNameFromISO(code) {
     return _languagesHash[code] || _languagesHashOld[code] || "";
