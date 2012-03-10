@@ -35,6 +35,7 @@ Kiwix 0.9 rc1
 * NEW: default content icon in the library (ID: 3488268)
 * NEW: if no title metatag in file, compute title from the filename (ID: 3488268)
 * NEW: Replacement of "fastjar" by "zip" (better dependence)
+* NEW: Use new (20% smaller) IETF normalized Metalink format (meta4) instead of old (v3) Metalink
 
 Kiwix 0.9 beta5
 * FIXED: letton language menu item (ID: 3439113)

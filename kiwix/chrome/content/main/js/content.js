@@ -85,8 +85,8 @@ downloader.onerror = function(message) {
 
 function addMetalink(id, metalinkContent) {
     /* Make a cache if necessary */
-    if (!isFile(appendToPath(settings.getRootPath(), id + ".metalink")))
-    	writeFile(appendToPath(settings.getRootPath(), id + ".metalink"), metalinkContent);
+    if (!isFile(appendToPath(settings.getRootPath(), id + ".meta4")))
+    	writeFile(appendToPath(settings.getRootPath(), id + ".meta4"), metalinkContent);
 
     /* Tell aria2c to start the download */
     var param = new xmlrpcval(metalinkContent, "base64");
@@ -189,8 +189,8 @@ function isMetalinkUrl(url) {
 
 function startDownload(url, id) {
     if (isMetalinkUrl(url)) {
-	if (isFile(appendToPath(settings.getRootPath(), id + ".metalink"))) {
-	    addMetalink(id, readFile(appendToPath(settings.getRootPath(), id + ".metalink")));
+	if (isFile(appendToPath(settings.getRootPath(), id + ".meta4"))) {
+	    addMetalink(id, readFile(appendToPath(settings.getRootPath(), id + ".meta4")));
 	} else {
 	    var message = new WorkerMessage("downloadMetalink", [ url ], [ id ] );
 	downloader.postMessage(message);
@@ -414,15 +414,16 @@ function manageStopDownload(id) {
 	/* Get corresponding gid */
 	var kiwixDownloadGid = settings.getDownloadProperty(id, "gid");
 	
+	/* Remove Kiwix download */
+	settings.setDownloadProperty(id, "id", "");
+	
 	/* Stop the download */
 	stopDownload(kiwixDownloadGid);
 	var path = getAriaDownloadPath(kiwixDownloadGid);
 	deleteFile(path);
 	deleteFile(path + ".aria2");
+	deleteFile(appendToPath(settings.getRootPath(), id + ".meta4"));
 	deleteFile(appendToPath(settings.getRootPath(), id + ".metalink"));
-	
-	/* Remove Kiwix download */
-	settings.setDownloadProperty(id, "id", "");
     }
 }
 
