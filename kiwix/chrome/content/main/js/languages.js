@@ -48,7 +48,7 @@ _languagesHash['ja']        = "日本語";
 _languagesHash['ka']        = "ქართული";
 _languagesHash['kn']        = "ಕನ್ನಡ";
 _languagesHash['kor']       = _languagesHashOld['ko']       = "한국어";
-_languagesHash['kor-kp']    = _languagesHashOld['ko-kp']    = "한국어 (조선)";
+_languagesHash['kor-kp']    = _languagesHashOld['ko-kp']    = "조선어";
 _languagesHash['ksh']       = "Ripoarisch";
 _languagesHash['lb']        = "Lëtzebuergesch";
 _languagesHash['li']        = "Limburgs";
