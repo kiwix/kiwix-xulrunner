@@ -1,4 +1,3 @@
-#SUBDIRS=src kiwix desktop static etc
 SUBDIRS= src kiwix desktop static etc
 EXTRA_DIST= \
 	kiwix \

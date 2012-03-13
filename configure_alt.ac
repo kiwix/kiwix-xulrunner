@@ -200,7 +200,7 @@ COMPILED_UUID_LDFLAGS="${DEP_PATH}/e2fsprogs-1.42/lib/uuid/libuuid.a"
 
 # used only for building kiwix-serve. Not available on windows.
 MICROHTTPD_CFLAGS=""
-MICROHTTPD_LDFLAGS="-libmicrohttpd"
+MICROHTTPD_LDFLAGS="-lmicrohttpd"
 COMPILE_MICROHTTPD=0
 COMPILED_MICROHTTPD_LDFLAGS="${DEP_PATH}/libmicrohttpd-0.9.19/src/daemon/.libs/libmicrohttpd.a"
 
@@ -223,7 +223,7 @@ ARIA2_LDFLAGS=""
 COMPILE_ARIA2=0
 COMPILED_ARIA2_LDFLAGS="${DEP_PATH}/aria2-1.14.1/src/aria2c"
 
-CLUCENE_CFLAGS=""
+CLUCENE_CFLAGS="-I/usr/lib -I/usr/lib64"
 CLUCENE_LDFLAGS="-lclucene"
 COMPILE_CLUCENE=0
 COMPILED_CLUCENE_LDFLAGS="${DEP_PATH}/clucene-core-0.9.21b/src/.libs/libclucene.a"
@@ -239,12 +239,10 @@ WITH_READER=0
 
 # --enable-fullstatic
 AC_ARG_ENABLE(fullstatic,
-			  AS_HELP_STRING([--enable-fullstatic],[mark every package for self compilation and static linking (default is no)]),
+			  AS_HELP_STRING([--enable-fullstatic],
+			  				 [mark every package for self compilation and static linking (default is no)]),
 			  [], [enable_fullstatic=no])
-
-AS_IF([test "x$enable_fullstatic" = "xyes"],
-      [STATIC_BUILD=1],
-      [STATIC_BUILD=0])
+AS_IF([test "x$enable_fullstatic" = "xyes"], [STATIC_BUILD=1], [STATIC_BUILD=0])
 
 if test [ $STATIC_BUILD -eq 1 ]
 then
@@ -271,6 +269,53 @@ else
 	STATIC_BUILD=0
 fi
 
+####################################################
+############ Optional packages
+####################################################
+
+# manager is a command line to to build library
+AC_ARG_ENABLE(manager,
+			  AS_HELP_STRING([--enable-manager],
+			  				 [compile manager (default is no)]),
+			  [], [enable_manager=no])
+AS_IF([test "x$enable_manager" = "xyes"], [WITH_MANAGER=1], [WITH_MANAGER=0])
+
+# HTTP server
+AC_ARG_ENABLE(server,
+			  AS_HELP_STRING([--enable-server],
+			  				 [compile HTTP server (default is no)]),
+			  [], [enable_server=no])
+AS_IF([test "x$enable_server" = "xyes"], [WITH_SERVER=1], [WITH_SERVER=0])
+
+# zim indexer is a command line tool to create xapian/lucene index
+AC_ARG_ENABLE(indexer,
+			  AS_HELP_STRING([--enable-indexer],
+			  				 [compile indexer (default is no)]),
+			  [], [enable_indexer=no])
+AS_IF([test "x$enable_indexer" = "xyes"], [WITH_INDEXER=1], [WITH_INDEXER=0])
+
+# installer is a windows GUI
+AC_ARG_ENABLE(installer,
+			  AS_HELP_STRING([--enable-installer],
+			  				 [compile installer (default is no)]),
+			  [], [enable_installer=no])
+AS_IF([test "x$enable_installer" = "xyes"], [WITH_INSTALLER=1], [WITH_INSTALLER=0])
+
+# searcher is a command line binary to test search engine
+AC_ARG_ENABLE(searcher,
+			  AS_HELP_STRING([--enable-searcher],
+			  				 [compile searcher (default is no)]),
+			  [], [enable_searcher=no])
+AS_IF([test "x$enable_searcher" = "xyes"], [WITH_SEARCHER=1], [WITH_SEARCHER=0])
+
+# reader is a command line tool
+AC_ARG_ENABLE(reader,
+			  AS_HELP_STRING([--enable-reader],
+			  				 [compile reader (default is no)]),
+			  [], [enable_reader=no])
+AS_IF([test "x$enable_reader" = "xyes"], [WITH_READER=1], [WITH_READER=0])
+
+# extra includes allow to specify extra -I paths
 AC_ARG_WITH(extra-includes,
             [  --with-extra-includes=DIR:DIR	PATH like list of folder to add to include lookup],
             export CPATH="${withval}")
@@ -746,6 +791,10 @@ then
 		CLUCENE_LDFLAGS="-lclucene-core -lclucene-shared"
 	])
 	
+
+AC_DEFINE(_SUPPRESS_MAKE_BASED_CONFIG, [TRUE], [CLUCENE VERSION SWITCH])
+
+
 # static argument supplied
 else
 	# if argument is SELF, add to compile queue
@@ -862,6 +911,7 @@ AC_SUBST(IS_LINUX)
 AC_SUBST(IS_POSIX)
 AC_SUBST(DEP_LIST)
 
+echo "SRV: $WITH_SERVER"
 AM_CONDITIONAL([WITH_CLUCENE], [test "$WITH_CLUCENE" -eq 1])
 AM_CONDITIONAL([WITH_MANAGER], [test "$WITH_MANAGER" -eq 1])
 AM_CONDITIONAL([WITH_SERVER], [test "$WITH_SERVER" -eq 1])
@@ -928,14 +978,16 @@ AC_CONFIG_FILES([
   src/dependencies/Makefile
   src/zimlib/Makefile
   src/zimlib/src/Makefile
+  src/ctpp2/Makefile
+  src/ctpp2/src/Makefile
+  src/pugixml/Makefile
+  src/server/Makefile
+  src/manager/Makefile
+  src/indexer/Makefile
+  src/searcher/Makefile
+  src/reader/Makefile
+  src/installer/Makefile
 ])
-#   src/Makefile
-#   src/dependencies/Makefile
-#   src/zimlib/Makefile
-#   src/zimlib/src/Makefile
-#   src/ctpp2/Makefile
-#   src/ctpp2/src/Makefile
-#   src/pugixml/Makefile
 #   src/components/Makefile
 #   src/components/xapianAccessor/Makefile
 #   src/components/zimAccessor/Makefile
@@ -943,12 +995,7 @@ AC_CONFIG_FILES([
 #   src/components/zimCluceneIndexer/Makefile
 #   src/components/cluceneAccessor/Makefile
 #   src/components/contentManager/Makefile
-#   src/indexer/Makefile
-#   src/searcher/Makefile
-#   src/reader/Makefile
-#   src/installer/Makefile
-#   src/server/Makefile
-#   src/manager/Makefile
+
 #   kiwix/Makefile
 #   kiwix/chrome/Makefile
 #   kiwix/defaults/Makefile
