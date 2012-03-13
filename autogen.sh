@@ -36,7 +36,7 @@ if [ "${CONF_ALT}" = "alt" -o "${CONF_ALT}" = "orig" ]; then
     ln -sf "${CUR}/src/components/zimAccessor/Makefile.am.${CONF_ALT}" $CUR/src/components/zimAccessor/Makefile.am
     ln -sf "${CUR}/src/components/xapianAccessor/Makefile.am.${CONF_ALT}" $CUR/src/components/xapianAccessor/Makefile.am
     ln -sf "${CUR}/src/components/Makefile.am.${CONF_ALT}" $CUR/src/components/Makefile.am
-    ln -sf "${CUR}/src/ctype/Makefile.am.${CONF_ALT}" $CUR/src/ctypeŋ/Makefile.am
+    ln -sf "${CUR}/src/ctype/Makefile.am.${CONF_ALT}" $CUR/src/ctype/Makefile.am
     ln -sf "${CUR}/src/ctype/zimAccessor/Makefile.am.${CONF_ALT}" $CUR/src/ctype/zimAccessor/Makefile.am
     ln -sf "${CUR}/src/searcher/Makefile.am.${CONF_ALT}" $CUR/src/searcher/Makefile.am
     ln -sf "${CUR}/src/reader/Makefile.am.${CONF_ALT}" $CUR/src/reader/Makefile.am
