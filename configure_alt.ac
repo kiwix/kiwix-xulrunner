@@ -848,6 +848,7 @@ AC_SUBST(COMPILE_CLUCENE)
 # Configure the output files
 AC_CONFIG_FILES([
   Makefile
+  src/dependencies/Makefile
 ])
 #   src/Makefile
 #   src/dependencies/Makefile
