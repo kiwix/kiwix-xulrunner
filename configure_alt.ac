@@ -149,6 +149,15 @@ function ErrorOrWarning {
 	fi
 }
 
+function yesno {
+	if [[ $1 -eq 1 ]]
+	then
+		echo yes
+	else
+		echo no
+	fi
+}
+
 
 ####################################################
 ############ DEPENDENCIES DEFAULT VALUES
@@ -237,6 +246,14 @@ WITH_INSTALLER=0
 WITH_SEARCHER=0
 WITH_READER=0
 
+# INTERNAL COMPONENTS
+CTPP2_CFLAGS="-I${CURRENT_PATH}/src/ctpp2/include"
+CTPP2_LDFLAGS=""
+PUGIXML_CFLAGS=""
+PUGIXML_LDFLAGS=""
+ZIMLIB_CFLAGS=""
+ZIMLIB_LDFLAGS=""
+
 # --enable-fullstatic
 AC_ARG_ENABLE(fullstatic,
 			  AS_HELP_STRING([--enable-fullstatic],
@@ -294,7 +311,7 @@ AC_ARG_ENABLE(indexer,
 			  [], [enable_indexer=no])
 AS_IF([test "x$enable_indexer" = "xyes"], [WITH_INDEXER=1], [WITH_INDEXER=0])
 
-# installer is a windows GUI
+# installer is GUI on windows or command line on linux
 AC_ARG_ENABLE(installer,
 			  AS_HELP_STRING([--enable-installer],
 			  				 [compile installer (default is no)]),
@@ -790,7 +807,7 @@ then
 		AC_CHECK_LIB([clucene-shared], [open],, [AC_MSG_ERROR([[cannot find clucene-shared]])])
 		CLUCENE_LDFLAGS="-lclucene-core -lclucene-shared"
 	])
-	
+
 
 AC_DEFINE(_SUPPRESS_MAKE_BASED_CONFIG, [TRUE], [CLUCENE VERSION SWITCH])
 
@@ -864,31 +881,6 @@ fi
 DEP_LIST=`echo $DEP_LIST | sed -e "s,$DEP_PATH/,,g"`
 
 ####################################################
-############ NOTICE
-####################################################
-
-AC_MSG_NOTICE([[Kiwix build details:
-  - IS_POSIX: $IS_POSIX
-  - IS_LINUX: $IS_LINUX
-  - IS_OSX: $IS_OSX
-  - IS_WIN: $IS_WIN
-  - STATIC_BUILD: $STATIC_BUILD
-  - DEP_LIST: $DEP_LIST
-]])
-
-if [[ $MISSING_SELF_DEPS -eq 1 ]]
-then
-	AC_MSG_WARN([[
-******************
-
-You have unmet dependencies.
-Those dependencies will be downloaded and compiled during the make process.
-You NEED to make src/dependencies first THEN re-run configure and make the rest.
-
-******************]])
-fi
-
-####################################################
 ############ EXPORTS & OUTPUT
 ####################################################
 
@@ -926,6 +918,13 @@ AC_SUBST(WITH_INDEXER)
 AC_SUBST(WITH_INSTALLER)
 AC_SUBST(WITH_SEARCHER)
 AC_SUBST(WITH_READER)
+
+AC_SUBST(CTPP2_CFLAGS)
+AC_SUBST(CTPP2_LDFLAGS)
+AC_SUBST(PUGIXML_CFLAGS)
+AC_SUBST(PUGIXML_LDFLAGS)
+AC_SUBST(ZIMLIB_CFLAGS)
+AC_SUBST(ZIMLIB_LDFLAGS)
 
 AC_SUBST(GECKO_SDK_PATH)
 AC_SUBST(COMPILE_GECKO_SDK)
@@ -1005,3 +1004,34 @@ AC_CONFIG_FILES([
 
 AC_PROG_INSTALL
 AC_OUTPUT
+
+####################################################
+############ NOTICE
+####################################################
+
+echo ""
+echo "Build details:"
+echo -n "IS_POSIX		" ; yesno $IS_POSIX
+echo -n "IS_LINUX		" ; yesno $IS_LINUX
+echo -n "IS_OSX			" ; yesno $IS_OSX
+echo -n "IS_WIN			" ; yesno $IS_WIN
+echo -n "STATIC_BUILD		" ; yesno $STATIC_BUILD
+echo -n "DEP_LIST		" ; echo $DEP_LIST
+echo -n "WITH_MANAGER		" ; yesno $WITH_MANAGER
+echo -n "WITH_SERVER		" ; yesno $WITH_SERVER
+echo -n "WITH_INDEXER		" ; yesno $WITH_INDEXER
+echo -n "WITH_INSTALLER		" ; yesno $WITH_INSTALLER
+echo -n "WITH_SEARCHER		" ; yesno $WITH_SEARCHER
+echo -n "WITH_READER		" ; yesno $WITH_READER
+
+if [[ $MISSING_SELF_DEPS -eq 1 ]]
+then
+	echo "
+******************
+
+You have unmet dependencies.
+Those dependencies will be downloaded and compiled during the make process.
+You NEED to make src/dependencies first THEN re-run configure and make the rest.
+
+******************"
+fi
