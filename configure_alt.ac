@@ -911,7 +911,6 @@ AC_SUBST(IS_LINUX)
 AC_SUBST(IS_POSIX)
 AC_SUBST(DEP_LIST)
 
-echo "SRV: $WITH_SERVER"
 AM_CONDITIONAL([WITH_CLUCENE], [test "$WITH_CLUCENE" -eq 1])
 AM_CONDITIONAL([WITH_MANAGER], [test "$WITH_MANAGER" -eq 1])
 AM_CONDITIONAL([WITH_SERVER], [test "$WITH_SERVER" -eq 1])
@@ -987,6 +986,13 @@ AC_CONFIG_FILES([
   src/searcher/Makefile
   src/reader/Makefile
   src/installer/Makefile
+  kiwix/Makefile
+  kiwix/chrome/Makefile
+  kiwix/defaults/Makefile
+  kiwix/components/Makefile
+  desktop/Makefile
+  static/Makefile
+  etc/Makefile
 ])
 #   src/components/Makefile
 #   src/components/xapianAccessor/Makefile
@@ -995,14 +1001,6 @@ AC_CONFIG_FILES([
 #   src/components/zimCluceneIndexer/Makefile
 #   src/components/cluceneAccessor/Makefile
 #   src/components/contentManager/Makefile
-
-#   kiwix/Makefile
-#   kiwix/chrome/Makefile
-#   kiwix/defaults/Makefile
-#   kiwix/components/Makefile
-#   desktop/Makefile
-#   static/Makefile
-#   etc/Makefile
 # ])
 
 AC_PROG_INSTALL
