@@ -158,6 +158,14 @@ function yesno {
 	fi
 }
 
+# ARCH flags
+ARCH=`echo $MACHTYPE | cut -d- -f1`
+if test [ "`$SARCH | grep 64 | wc -l`" ];
+then
+	IS_64B=1
+else
+	IS_64B=0
+fi
 
 ####################################################
 ############ DEPENDENCIES DEFAULT VALUES
@@ -170,7 +178,15 @@ STATIC_BUILD=0
 
 GECKO_SDK_PATH=""
 COMPILE_GECKO_SDK=0
-COMPILED_GECKO_SDK_PATH="${DEP_PATH}/xulrunner-sdk/sdk"
+COMPILED_GECKO_SDK_PATH="${DEP_PATH}/xulrunner-sdk"
+# Special Flags for XPCOM components
+XPCOM_CFLAGS="-fno-rtti -fPIC"
+XPCOM_LDFLAGS="-Xcompiler -shared -Wl"
+# osx don't need for rpath-link as we build static
+if test [ ! "$IS_OSX" ]
+then
+XPCOM_LDFLAGS=${XPCOM_LDFLAGS}",-rpath-link,$GECKO_SDK_PATH/bin"
+fi
 
 ZLIB_CFLAGS=""
 ZLIB_LDFLAGS="-Bstatic -lz"
@@ -337,6 +353,11 @@ AC_ARG_WITH(extra-includes,
             [  --with-extra-includes=DIR:DIR	PATH like list of folder to add to include lookup],
             export CPATH="${withval}")
 
+AC_ARG_WITH([debug],
+			AS_HELP_STRING([--with-debug],
+						   [add debug symbols]),
+		    CFLAGS="${CFLAGS} -g "; CXXFLAGS="${CXXFLAGS} -g ")
+
 ####################################################
 ############ GECKO SDK
 ####################################################
@@ -368,19 +389,22 @@ if [[ "$GECKO_VERSION" = "" ]]
 then
 	GECKO_VERSION=$GECKO_VERSION_FALLBACK
 fi
-if [[ "$GECKO_VERSION" -gt 1 ]]
+let GECKO_VERSION=GECKO_VERSION
+if [[ $GECKO_VERSION -gt 1 ]]
 then
-  CXXFLAGS="${CXXFLAGS} -std=gnu++0x -fexceptions -DMOZ_CPP_EXCEPTIONS"
-  if [[ "$GECKO_VERSION" -lt "10" ]]
-  then
-    GECKO_OLD_BOOL_TYPE=1
-  fi
+	CXXFLAGS="${CXXFLAGS} -std=gnu++0x -fexceptions -DMOZ_CPP_EXCEPTIONS -DMOZ_NO_MOZALLOC -DXPCOM_GLUE"
+	if [[ $GECKO_VERSION -lt 10 ]]
+	then
+		GECKO_OLD_BOOL_TYPE=1
+	fi
 fi
 AC_MSG_RESULT(checking for Gecko version... ${GECKO_VERSION})
 AM_CONDITIONAL([GECKO_OLD_BOOL_TYPE], [test "$GECKO_OLD_BOOL_TYPE"])
 
 LIBXUL_CFLAGS="-I${GECKO_SDK_PATH}/sdk/include -I${GECKO_SDK_PATH}/include -fshort-wchar"
-LIBXUL_LDFLAGS="-L${GECKO_SDK_PATH}/sdk/lib -lxpcomglue_s -lxul -lxpcom -lplds4 -lplc4 -lnspr4 -lpthread -ldl"
+# replaced -lxpcomglue_s with libxpcomglue_s_nomozalloc.a to prevent
+# undefined symbols. supposed to be compatible wth 1.9.
+LIBXUL_LDFLAGS="-L${GECKO_SDK_PATH}/sdk/lib -lxul -lxpcom -lplds4 -lplc4 -lnspr4 -lpthread -ldl ${GECKO_SDK_PATH}/sdk/lib/libxpcomglue_s_nomozalloc.a"
 GECKO_IDL_PATH=${GECKO_SDK_PATH}/idl
 if test [ ! -f "$GECKO_IDL_PATH/nsISupports.idl" ]
 then
@@ -890,11 +914,9 @@ AC_DEFINE_UNQUOTED(DIRENT_CACHE_SIZE, 512, [set zim dirent cache size to number 
 AC_DEFINE_UNQUOTED(LZMA_MEMORY_SIZE, 128, [set lzma uncompress memory size to number of MB])
 AC_DEFINE(ENABLE_LZMA, [1], [defined if lzma compression is enabled])
 
-# default CXXFLAGS
-CXXFLAGS="${CFLAGS}"
-
 # export variables
 AC_SUBST(CPATH)
+AC_SUBST(CXXFLAGS)
 
 AC_SUBST(STATIC_BUILD)
 AC_SUBST(IS_WIN)
@@ -902,6 +924,14 @@ AC_SUBST(IS_OSX)
 AC_SUBST(IS_LINUX)
 AC_SUBST(IS_POSIX)
 AC_SUBST(DEP_LIST)
+AC_SUBST(IS_64B)
+AC_SUBST(ARCH)
+
+AM_CONDITIONAL([STATIC_BUILD], [test "$STATIC_BUILD" -eq 1])
+AM_CONDITIONAL([IS_WIN], [test "$IS_WIN" -eq 1])
+AM_CONDITIONAL([IS_OSX], [test "$IS_OSX" -eq 1])
+AM_CONDITIONAL([IS_LINUX], [test "$IS_LINUX" -eq 1])
+AM_CONDITIONAL([IS_POSIX], [test "$IS_POSIX" -eq 1])
 
 AM_CONDITIONAL([WITH_CLUCENE], [test "$WITH_CLUCENE" -eq 1])
 AM_CONDITIONAL([WITH_MANAGER], [test "$WITH_MANAGER" -eq 1])
@@ -928,6 +958,14 @@ AC_SUBST(ZIMLIB_LDFLAGS)
 
 AC_SUBST(GECKO_SDK_PATH)
 AC_SUBST(COMPILE_GECKO_SDK)
+AC_SUBST(GECKO_VERSION)
+AC_SUBST(GECKO_IDL_PATH)
+AC_SUBST(LIBXUL_CFLAGS)
+AC_SUBST(LIBXUL_LDFLAGS)
+AM_CONDITIONAL([HAVE_XPIDL], [test "$HAVE_XPIDL"])
+AC_SUBST(XPIDL)
+AC_SUBST(HEADER_PY)
+AC_SUBST(TYPELIB_PY)
 
 AC_SUBST(ZLIB_CFLAGS)
 AC_SUBST(ZLIB_LDFLAGS)
@@ -979,6 +1017,15 @@ AC_CONFIG_FILES([
   src/ctpp2/Makefile
   src/ctpp2/src/Makefile
   src/pugixml/Makefile
+
+  src/components/Makefile
+  src/components/xapianAccessor/Makefile
+  src/components/zimAccessor/Makefile
+  src/components/zimXapianIndexer/Makefile
+  src/components/zimCluceneIndexer/Makefile
+  src/components/cluceneAccessor/Makefile
+  src/components/contentManager/Makefile
+
   src/server/Makefile
   src/manager/Makefile
   src/indexer/Makefile
@@ -993,14 +1040,6 @@ AC_CONFIG_FILES([
   static/Makefile
   etc/Makefile
 ])
-#   src/components/Makefile
-#   src/components/xapianAccessor/Makefile
-#   src/components/zimAccessor/Makefile
-#   src/components/zimXapianIndexer/Makefile
-#   src/components/zimCluceneIndexer/Makefile
-#   src/components/cluceneAccessor/Makefile
-#   src/components/contentManager/Makefile
-# ])
 
 AC_PROG_INSTALL
 AC_OUTPUT
@@ -1011,6 +1050,8 @@ AC_OUTPUT
 
 echo ""
 echo "Build details:"
+echo -n "ARCH			" ; echo $ARCH
+echo -n "IS_64B			" ; yesno $IS_64B
 echo -n "IS_POSIX		" ; yesno $IS_POSIX
 echo -n "IS_LINUX		" ; yesno $IS_LINUX
 echo -n "IS_OSX			" ; yesno $IS_OSX
@@ -1023,6 +1064,7 @@ echo -n "WITH_INDEXER		" ; yesno $WITH_INDEXER
 echo -n "WITH_INSTALLER		" ; yesno $WITH_INSTALLER
 echo -n "WITH_SEARCHER		" ; yesno $WITH_SEARCHER
 echo -n "WITH_READER		" ; yesno $WITH_READER
+echo -n "CXXFLAGS		" ; echo $CXXFLAGS
 
 if [[ $MISSING_SELF_DEPS -eq 1 ]]
 then

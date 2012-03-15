@@ -1,0 +1,50 @@
+pkglib_LTLIBRARIES=libXapianAccessor.la
+pkglibdir = $(libdir)/kiwix/components
+
+xptdir = ${libdir}/kiwix/components/
+xpt_DATA = xapianAccessor.xpt
+
+AM_CPPFLAGS=-I$(top_srcdir)/src/common -I$(top_srcdir)/src/ctpp2/include
+libXapianAccessor_la_SOURCES= \
+	xapianAccessor.cpp \
+	$(top_srcdir)/src/common/splitString.cpp \
+	$(top_srcdir)/src/common/unaccent.cpp \
+	$(top_srcdir)/src/common/kiwix/searcher.cpp \
+	$(top_srcdir)/src/common/kiwix/xapianSearcher.cpp
+include_HEADERS= \
+	$(top_srcdir)/src/common/splitString.h \
+	$(top_srcdir)/src/common/unaccent.h \
+	$(top_srcdir)/src/common/kiwix/searcher.h \
+	$(top_srcdir)/src/common/kiwix/xapianSearcher.h
+libXapianAccessor_la_CXXFLAGS=$(CTPP2_CFLAGS) $(LIBXUL_CFLAGS) $(XAPIAN_CFLAGS) $(ICU_CFLAGS) $(XPCOM_CFLAGS) -I/$(top_srcdir)/src/common/ -D GECKO_VERSION=$(GECKO_VERSION)
+
+libXapianAccessor_la_LDFLAGS=$(CTPP2_LDFLAGS) $(LIBXUL_LDFLAGS) $(XAPIAN_LDFLAGS) $(ICU_LDFLAGS) $(XPCOM_LDFLAGS) 
+libXapianAccessor_la_LIBADD=$(top_builddir)/src/ctpp2/src/libctpp2.la
+
+EXTRA_DIST=IXapianAccessor.idl
+BUILT_SOURCES=xapianAccessor.xpt IXapianAccessor.h
+CLEANFILES=xapianAccessor.xpt IXapianAccessor.h *.lib *.obj *.dll *.h *.xpt
+
+xapianAccessor.xpt: 
+if HAVE_XPIDL
+	$(XPIDL) -m typelib -o xapianAccessor -I $(GECKO_IDL_PATH) $(top_srcdir)/src/components/xapianAccessor/IXapianAccessor.idl
+else
+	$(TYPELIB_PY) --cachedir=/tmp -o xapianAccessor.xpt -I $(GECKO_IDL_PATH) $(top_srcdir)/src/components/xapianAccessor/IXapianAccessor.idl
+endif
+
+IXapianAccessor.h:
+if HAVE_XPIDL
+	$(XPIDL) -m header -I $(GECKO_IDL_PATH) $(top_srcdir)/src/components/xapianAccessor/IXapianAccessor.idl
+else
+	$(HEADER_PY) --cachedir=/tmp -o IXapianAccessor.h -I $(GECKO_IDL_PATH) $(top_srcdir)/src/components/xapianAccessor/IXapianAccessor.idl
+endif
+
+
+#if IS_STATIC
+#libXapianAccessor_la_LDFLAGS=$(LIBXUL_LDFLAGS) $(LIBXAPIAN_STATIC_LDFLAGS) $(LIBCTPP2_STATIC_LDFLAGS) $(LIBICU_STATIC_LDFLAGS) $(XPCOM_LDFLAGS)
+#else
+
+#if IS_OSX
+#libXapianAccessor_la_CXXFLAGS += -I/opt/local/include 
+#libXapianAccessor_la_LDFLAGS=$(LIBXUL_LDFLAGS) $(LIBXAPIAN_STATIC_LDFLAGS) $(LIBCTPP2_STATIC_LDFLAGS) $(LIBICU_STATIC_LDFLAGS) $(XPCOM_LDFLAGS)
+#endif
