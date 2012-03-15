@@ -181,7 +181,7 @@ COMPILE_GECKO_SDK=0
 COMPILED_GECKO_SDK_PATH="${DEP_PATH}/xulrunner-sdk"
 # Special Flags for XPCOM components
 XPCOM_CFLAGS="-fno-rtti -fPIC"
-XPCOM_LDFLAGS="-Xcompiler -shared -Wl"
+XPCOM_LDFLAGS="-Xcompiler -shared -Wl"wget -c -O clucene-2.3.3.4.tar.gz http://download.kiwix.org/dev/clucene-2.3.3.4.tar.gz
 # osx don't need for rpath-link as we build static
 if test [ ! "$IS_OSX" ]
 then
@@ -197,7 +197,7 @@ COMPILED_ZLIB_LDFLAGS="${DEP_PATH}/zlib-1.2.3/libz.a"
 XAPIAN_CFLAGS=""
 XAPIAN_LDFLAGS="-lxapian"
 COMPILE_XAPIAN=0
-if test [ "$IS_WIN" ] ; then
+if test [ $IS_WIN -eq 1 ] ; then
     COMPILED_XAPIAN_LDFLAGS="${DEP_PATH}/xapian-core-1.2.3/win32/Release/libs/libunicode.lib"
 else
     COMPILED_XAPIAN_LDFLAGS="${DEP_PATH}/xapian-core-1.2.3/.libs/libxapian.a"
@@ -206,10 +206,10 @@ fi
 ICU_CFLAGS=""
 ICU_LDFLAGS="-licui18n -licuuc -licudata" # replaced by icu-config"
 COMPILE_ICU=0
-if test [ "$IS_WIN" ] ; then
-COMPILED_ICU_LDFLAGS="${DEP_PATH}/icu/source/lib/libicuio.a"
+if test [ $IS_WIN -eq 1 ] ; then
+	COMPILED_ICU_LDFLAGS="${DEP_PATH}/icu/lib/icuio.lib ${DEP_PATH}/icu/lib/icudata.lib ${DEP_PATH}/icu/lib/icuuc.lib ${DEP_PATH}/icu/lib/icui18n.lib"
 else
-COMPILED_ICU_LDFLAGS="${DEP_PATH}/icu/lib/icuio.lib"
+	COMPILED_ICU_LDFLAGS="${DEP_PATH}/icu/source/lib/libicuio.a ${DEP_PATH}/icu/source/lib/libicudata.a ${DEP_PATH}/icu/source/lib/libicuuc.a ${DEP_PATH}/icu/source/lib/libicui18n.a"
 fi
 
 # no win for sqlite as it is just a sub dependency of aria2
@@ -232,10 +232,10 @@ COMPILED_MICROHTTPD_LDFLAGS="${DEP_PATH}/libmicrohttpd-0.9.19/src/daemon/.libs/l
 LZMA_CFLAGS=""
 LZMA_LDFLAGS="-Bstatic -llzma"
 COMPILE_LZMA=0
-if test [ "$IS_WIN" ] ; then
-    COMPILED_LZMA_LDFLAGS="${DEP_PATH}/xz/src/liblzma/.libs/liblzma.a"
-else
+if test [ $IS_WIN -eq 1 ] ; then
 	COMPILED_LZMA_LDFLAGS="${DEP_PATH}/xz/windows/liblzma.lib"
+else
+    COMPILED_LZMA_LDFLAGS="${DEP_PATH}/xz/src/liblzma/.libs/liblzma.a"
 fi
 
 CARES_CFLAGS=""
@@ -558,8 +558,9 @@ else
 	    ICU_LDFLAGS=$COMPILED_ICU_LDFLAGS
 	# if path provided, test file existence (and fail)
 	else
-		ICU_LDFLAGS=`cd $ICU_ARCHIVE_PATH ; pwd`
-		AC_CHECK_FILES([$ICU_LDFLAGS/libicudata.a $ICU_LDFLAGS/libicuuc.a $ICU_LDFLAGS/libicui18n.a],,[AC_MSG_ERROR([[cannot stat ICU archive at $ICU_LDFLAGS]])])
+		ICU_ARCHIVE_PATH=`cd $ICU_ARCHIVE_PATH ; pwd`
+		AC_CHECK_FILES([$ICU_ARCHIVE_PATH/libicudata.a $ICU_ARCHIVE_PATH/libicuuc.a $ICU_ARCHIVE_PATH/libicui18n.a],,[AC_MSG_ERROR([[cannot stat ICU archive at $ICU_ARCHIVE_PATH]])])
+		ICU_LDFLAGS="$ICU_ARCHIVE_PATH/libicuuc.a $ICU_ARCHIVE_PATH/libicudata.a $ICU_ARCHIVE_PATH/libicuio.a $ICU_ARCHIVE_PATH/libicui18n.a"
 	fi
 fi
 
@@ -595,7 +596,7 @@ else
 	# if path provided, test file existence (and fail)
 	else
 		SQLITE_LDFLAGS=`readlink -f $SQLITE_ARCHIVE`
-		AC_CHECK_FILE($SQLITE_ARCHIVE,,[AC_MSG_ERROR([[cannot stat Xapian archive at $SQLITE_LDFLAGS]])])
+		AC_CHECK_FILE($SQLITE_ARCHIVE,,[AC_MSG_ERROR([[cannot stat sqlite archive at $SQLITE_LDFLAGS]])])
 	fi
 fi
 
@@ -859,7 +860,7 @@ if test [ "$IS_LINUX" ]
 then
     if test [ $COMPILE_GECKO_SDK -eq 1 ]
     then
-        DEP_LIST+=" $COMPILED_GECKO_SDK_PATH"
+        DEP_LIST+=" $COMPILED_GECKO_SDK_PATH/"
     fi
     if test [ $COMPILE_ZLIB -eq 1 ]
     then
@@ -1065,6 +1066,24 @@ echo -n "WITH_INSTALLER		" ; yesno $WITH_INSTALLER
 echo -n "WITH_SEARCHER		" ; yesno $WITH_SEARCHER
 echo -n "WITH_READER		" ; yesno $WITH_READER
 echo -n "CXXFLAGS		" ; echo $CXXFLAGS
+echo ""
+echo -n "GECKO_SDK_PATH		" ; echo $GECKO_SDK_PATH
+echo -n "ZLIB_LDFLAGS		" ; echo $ZLIB_LDFLAGS
+echo -n "XAPIAN_LDFLAGS		" ; echo $XAPIAN_LDFLAGS
+echo -n "SQLITE_LDFLAGS		" ; echo $SQLITE_LDFLAGS
+echo -n "UUID_LDFLAGS		" ; echo $UUID_LDFLAGS
+echo -n "MICROHTTPD_LDFLAGS	" ; echo $MICROHTTPD_LDFLAGS
+echo -n "LZMA_LDFLAGS		" ; echo $LZMA_LDFLAGS
+echo -n "CARES_LDFLAGS		" ; echo $CARES_LDFLAGS
+echo -n "ARIA2_LDFLAGS		" ; echo $ARIA2_LDFLAGS
+echo -n "CLUCENE_LDFLAGS		" ; echo $CLUCENE_LDFLAGS
+echo -n "ICU_LDFLAGS		" ; echo $ICU_LDFLAGS
+
+if test "$IS_64B"
+then
+	echo ""
+	echo "/!\ When linking static archive (.a file) on 64b system, the archive must have been compiled with -fPIC. If not, compilation will fail with “Bad Value” message."
+fi
 
 if [[ $MISSING_SELF_DEPS -eq 1 ]]
 then
@@ -1077,3 +1096,4 @@ You NEED to make src/dependencies first THEN re-run configure and make the rest.
 
 ******************"
 fi
+echo ""
