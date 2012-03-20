@@ -25,7 +25,7 @@ _languagesHash['dsb']       = "Dolnoserbski";
 _languagesHash['ell']       = _languagesHashOld['el']       = "Ελληνικά";
 _languagesHash['eng']       = _languagesHashOld['en']       = "English";
 _languagesHash['eo']        = "Esperanto";
-_languagesHash['es']        = "Español";
+_languagesHash['spa']       = _languagesHashOld['es']       = "Español";
 _languagesHash['et']        = "Eesti";
 _languagesHash['fa']        = "فارسی";
 _languagesHash['fi']        = "Suomi";
