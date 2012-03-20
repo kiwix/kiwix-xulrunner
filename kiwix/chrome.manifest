@@ -11,9 +11,6 @@ contract @mozilla.org/autocomplete/search;1?name=kiwix-suggest {7f7984b9-acc4-4d
 component {52E289CE-46BC-11E1-AB51-5DED4824019B} components/commandLineHandler.js
 contract @mozilla.org/commandlinehandler/general-startup;1?type=kiwix-command {52E289CE-46BC-11E1-AB51-5DED4824019B}
 
-component {080787ae-ddff-11e0-aa79-000c2983f4e1} components/sugar_bridge.py
-contract kiwix.org/SugarBridge;1 {080787ae-ddff-11e0-aa79-000c2983f4e1}
-
 interfaces components/xapianAccessor.xpt
 binary-component components/xapianAccessor.so
 

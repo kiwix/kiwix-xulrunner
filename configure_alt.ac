@@ -353,10 +353,10 @@ AC_ARG_WITH([debug],
 
 AC_ARG_WITH(gecko-sdk,
             AS_HELP_STRING([--with-gecko-sdk=DIR], [Gecko SDK path]),
-            GECKO_SDK_PATH=`cd ${withval}; pwd`)
+            GECKO_SDK_PATH=`cd ${withval} && pwd || $GECKO_SDK_PATH`)
 
 # try to find installed gecko-sdk. default to SELF
-if test [ ! "$GECKO_SDK_PATH" = "$SELF" ]
+if test [ "$GECKO_SDK_PATH" = "" ]
 then
     GECKO_SDK_PATH=`pkg-config --variable=sdkdir libxul`
     if test [ ! "$GECKO_SDK_PATH" ]
