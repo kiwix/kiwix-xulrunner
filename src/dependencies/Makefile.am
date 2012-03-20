@@ -112,7 +112,7 @@ e2fsprogs-1.42/lib/uuid/libuuid.a: e2fsprogs-1.42/
 ############ MICROHTTPD
 ####################################################
 
-libmicrohttpd.tar.gz: 
+libmicrohttpd-0.9.19.tar.gz: 
 	wget -c -O libmicrohttpd-0.9.19.tar.gz http://download.kiwix.org/dev/libmicrohttpd-0.9.19.tar.gz
 
 libmicrohttpd-0.9.19: libmicrohttpd-0.9.19.tar.gz
