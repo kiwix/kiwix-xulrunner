@@ -181,7 +181,7 @@ COMPILE_GECKO_SDK=0
 COMPILED_GECKO_SDK_PATH="${DEP_PATH}/xulrunner-sdk"
 # Special Flags for XPCOM components
 XPCOM_CFLAGS="-fno-rtti -fPIC"
-XPCOM_LDFLAGS="-Xcompiler -shared -Wl"wget -c -O clucene-2.3.3.4.tar.gz http://download.kiwix.org/dev/clucene-2.3.3.4.tar.gz
+XPCOM_LDFLAGS="-Xcompiler -shared -Wl"
 # osx don't need for rpath-link as we build static
 if test [ ! "$IS_OSX" ]
 then
@@ -209,7 +209,7 @@ COMPILE_ICU=0
 if test [ $IS_WIN -eq 1 ] ; then
 	COMPILED_ICU_LDFLAGS="${DEP_PATH}/icu/lib/icuio.lib ${DEP_PATH}/icu/lib/icudata.lib ${DEP_PATH}/icu/lib/icuuc.lib ${DEP_PATH}/icu/lib/icui18n.lib"
 else
-	COMPILED_ICU_LDFLAGS="${DEP_PATH}/icu/source/lib/libicuio.a ${DEP_PATH}/icu/source/lib/libicudata.a ${DEP_PATH}/icu/source/lib/libicuuc.a ${DEP_PATH}/icu/source/lib/libicui18n.a"
+	COMPILED_ICU_LDFLAGS="${DEP_PATH}/icu/source/lib/libicui18n.a ${DEP_PATH}/icu/source/lib/libicuuc.a ${DEP_PATH}/icu/source/lib/libicudata.a ${DEP_PATH}/icu/source/lib/libicuio.a ${DEP_PATH}/icu/source/lib/libicule.a ${DEP_PATH}/icu/source/lib/libiculx.a ${DEP_PATH}/icu/source/lib/libicutu.a"
 fi
 
 # no win for sqlite as it is just a sub dependency of aria2
@@ -217,11 +217,6 @@ SQLITE_CFLAGS=""
 SQLITE_LDFLAGS="-libsqlite3"
 COMPILE_SQLITE=0
 COMPILED_SQLITE_LDFLAGS="${DEP_PATH}/sqlite-autoconf-3071000/.libs/libsqlite3.a"
-
-UUID_CFLAGS=""
-UUID_LDFLAGS="-luuid"
-COMPILE_UUID=0
-COMPILED_UUID_LDFLAGS="${DEP_PATH}/e2fsprogs-1.42/lib/uuid/libuuid.a"
 
 # used only for building kiwix-serve. Not available on windows.
 MICROHTTPD_CFLAGS=""
@@ -238,15 +233,11 @@ else
     COMPILED_LZMA_LDFLAGS="${DEP_PATH}/xz/src/liblzma/.libs/liblzma.a"
 fi
 
-CARES_CFLAGS=""
-CARES_LDFLAGS="-lcares"
-COMPILE_CARES=0
-COMPILED_CARES_LDFLAGS="${DEP_PATH}/c-ares-1.7.5/.libs/libcares.a"
 
 ARIA2_CFLAGS=""
 ARIA2_LDFLAGS=""
 COMPILE_ARIA2=0
-COMPILED_ARIA2_LDFLAGS="${DEP_PATH}/aria2-1.14.1/src/aria2c"
+COMPILED_ARIA2_LDFLAGS="${DEP_PATH}/aria2c"
 
 CLUCENE_CFLAGS="-I/usr/lib -I/usr/lib64"
 CLUCENE_LDFLAGS="-lclucene"
@@ -284,12 +275,10 @@ then
 	COMPILE_XAPIAN=1
 	COMPILE_ICU=1
 	COMPILE_SQLITE=1
-	COMPILE_UUID=1
 	COMPILE_MICROHTTPD=1
 	COMPILE_LZMA=1
-	COMPILE_CARES=1
 	COMPILE_ARIA2=1
-	COMPILE_CLUCENE=0
+	COMPILE_CLUCENE=1
 
 	WITH_CLUCENE=0
 	WITH_MANAGER=0
@@ -392,7 +381,7 @@ fi
 let GECKO_VERSION=GECKO_VERSION
 if [[ $GECKO_VERSION -gt 1 ]]
 then
-	CXXFLAGS="${CXXFLAGS} -std=gnu++0x -fexceptions -DMOZ_CPP_EXCEPTIONS -DMOZ_NO_MOZALLOC -DXPCOM_GLUE"
+	CXXFLAGS="${CXXFLAGS} -std=gnu++0x -fexceptions -DMOZ_CPP_EXCEPTIONS -DMOZ_NO_MOZALLOC"
 	if [[ $GECKO_VERSION -lt 10 ]]
 	then
 		GECKO_OLD_BOOL_TYPE=1
@@ -601,42 +590,6 @@ else
 fi
 
 ####################################################
-############ UUID
-####################################################
-
-# if --with-x, add path to LIBRARY_PATH
-AC_ARG_WITH(uuid,
-			AS_HELP_STRING([--with-uuid=DIR],
-						   [alternate location for uuid]),
-			  	export LIBRARY_PATH="${withval}:${LIBRARY_PATH}"; UUID_CONFIG_PATH=$withval)
-
-# if --with-static-x, set path as X_ARCHIVE
-AC_ARG_WITH(static-uuid,
-            AS_HELP_STRING([--with-static-uuid=DIR/libx.a],
-            			   [Path to static archive]),
-            UUID_ARCHIVE=${withval})
-
-# if no static argument, check for lib on system (which may contain the --with-x= path)
-if test [ "$UUID_ARCHIVE" = "" -a $COMPILE_UUID -eq 0 ]
-then
-	# fail if none found.
-	AC_CHECK_HEADER([uuid/uuid.h],, [AC_MSG_ERROR([[cannot find uuid header]])])
-	AC_CHECK_LIB([uuid], [uuid_generate],, [AC_MSG_ERROR([[cannot find uuid]])])
-# static argument supplied
-else
-	# if argument is SELF, add to compile queue
-	if test [ "$UUID_ARCHIVE" = "$SELF" -o $COMPILE_UUID -eq 1 ]
-	then
-	    COMPILE_UUID=1
-	    UUID_LDFLAGS=$COMPILED_UUID_LDFLAGS
-	# if path provided, test file existence (and fail)
-	else
-		UUID_LDFLAGS=`readlink -f $UUID_ARCHIVE`
-		AC_CHECK_FILE($UUID_ARCHIVE,,[AC_MSG_ERROR([[cannot stat Xapian archive at $UUID_LDFLAGS]])])
-	fi
-fi
-
-####################################################
 ############ MICROHTTPD
 ####################################################
 
@@ -769,43 +722,6 @@ then
 fi
 
 ####################################################
-############ CARES
-####################################################
-
-# if --with-x, add path to LIBRARY_PATH
-AC_ARG_WITH(cares,
-			AS_HELP_STRING([--with-cares=DIR],
-						   [alternate location for cares]),
-			  	export LIBRARY_PATH="${withval}:${LIBRARY_PATH}"; CARES_CONFIG_PATH=$withval)
-
-# if --with-static-x, set path as X_ARCHIVE
-AC_ARG_WITH(static-cares,
-            AS_HELP_STRING([--with-static-cares=DIR/libx.a],
-            			   [Path to static archive]),
-            CARES_ARCHIVE=${withval})
-
-# if no static argument, check for lib on system (which may contain the --with-x= path)
-if test [ "$CARES_ARCHIVE" = "" -a $COMPILE_CARES -eq 0 -a $COMPILE_ARIA2 -eq 1 ]
-then
-	# fail if none found.
-	AC_CHECK_HEADER([ares.h],, [AC_MSG_ERROR([[cannot find c-ares header]])])
-	AC_CHECK_LIB([cares], [ares_version],, [AC_MSG_ERROR([[cannot find c-ares]])])
-# static argument supplied
-else
-	# if argument is SELF, add to compile queue
-	if test [ "$CARES_ARCHIVE" = "$SELF" -o $COMPILE_CARES -eq 1  ]
-	then
-	    COMPILE_CARES=1
-	    CARES_LDFLAGS=$COMPILED_CARES_LDFLAGS
-	# if path provided, test file existence (and fail)
-	elif [[ ! "$CARES_ARCHIVE" = "" ]]
-	then
-		CARES_LDFLAGS=`readlink -f $CARES_ARCHIVE`
-		AC_CHECK_FILE($CARES_ARCHIVE,,[AC_MSG_ERROR([[cannot stat Xapian archive at $CARES_LDFLAGS]])])
-	fi
-fi
-
-####################################################
 ############ CLUCENE
 ####################################################
 
@@ -878,10 +794,6 @@ then
     then
         DEP_LIST+=" $COMPILED_SQLITE_LDFLAGS"
     fi
-    if test [ $COMPILE_UUID -eq 1 ]
-    then
-        DEP_LIST+=" $COMPILED_UUID_LDFLAGS"
-    fi
     if test [ $COMPILE_MICROHTTPD -eq 1 ]
     then
         DEP_LIST+=" $COMPILED_MICROHTTPD_LDFLAGS"
@@ -889,10 +801,6 @@ then
     if test [ $COMPILE_LZMA -eq 1 ]
     then
         DEP_LIST+=" $COMPILED_LZMA_LDFLAGS"
-    fi
-    if test [ $COMPILE_CARES -eq 1 ]
-    then
-        DEP_LIST+=" $COMPILED_CARES_LDFLAGS"
     fi
     if test [ $COMPILE_ARIA2 -eq 1 ]
     then
@@ -984,10 +892,6 @@ AC_SUBST(SQLITE_CFLAGS)
 AC_SUBST(SQLITE_LDFLAGS)
 AC_SUBST(COMPILE_SQLITE)
 
-AC_SUBST(UUID_CFLAGS)
-AC_SUBST(UUID_LDFLAGS)
-AC_SUBST(COMPILE_UUID)
-
 AC_SUBST(MICROHTTPD_CFLAGS)
 AC_SUBST(MICROHTTPD_LDFLAGS)
 AC_SUBST(COMPILE_MICROHTTPD)
@@ -995,10 +899,6 @@ AC_SUBST(COMPILE_MICROHTTPD)
 AC_SUBST(LZMA_CFLAGS)
 AC_SUBST(LZMA_LDFLAGS)
 AC_SUBST(COMPILE_LZMA)
-
-AC_SUBST(CARES_CFLAGS)
-AC_SUBST(CARES_LDFLAGS)
-AC_SUBST(COMPILE_CARES)
 
 AC_SUBST(ARIA2_CFLAGS)
 AC_SUBST(ARIA2_LDFLAGS)
@@ -1071,10 +971,8 @@ echo -n "GECKO_SDK_PATH		" ; echo $GECKO_SDK_PATH
 echo -n "ZLIB_LDFLAGS		" ; echo $ZLIB_LDFLAGS
 echo -n "XAPIAN_LDFLAGS		" ; echo $XAPIAN_LDFLAGS
 echo -n "SQLITE_LDFLAGS		" ; echo $SQLITE_LDFLAGS
-echo -n "UUID_LDFLAGS		" ; echo $UUID_LDFLAGS
 echo -n "MICROHTTPD_LDFLAGS	" ; echo $MICROHTTPD_LDFLAGS
 echo -n "LZMA_LDFLAGS		" ; echo $LZMA_LDFLAGS
-echo -n "CARES_LDFLAGS		" ; echo $CARES_LDFLAGS
 echo -n "ARIA2_LDFLAGS		" ; echo $ARIA2_LDFLAGS
 echo -n "CLUCENE_LDFLAGS		" ; echo $CLUCENE_LDFLAGS
 echo -n "ICU_LDFLAGS		" ; echo $ICU_LDFLAGS

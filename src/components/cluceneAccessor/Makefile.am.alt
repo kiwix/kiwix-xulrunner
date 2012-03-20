@@ -1,7 +1,9 @@
 pkglib_LTLIBRARIES=libCluceneAccessor.la
-xptdir=$(libdir)/kiwix/components
 pkglibdir=$(libdir)/kiwix/components
+
+xptdir=$(libdir)/kiwix/components
 xpt_DATA=cluceneAccessor.xpt
+
 AM_CPPFLAGS=-I$(top_srcdir)/src/common -I$(top_srcdir)/src/ctpp2/include
 libCluceneAccessor_la_SOURCES= \
 	cluceneAccessor.cpp \

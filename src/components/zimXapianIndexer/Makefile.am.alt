@@ -1,7 +1,9 @@
 pkglib_LTLIBRARIES=libZimXapianIndexer.la
-xptdir=$(libdir)/kiwix/components
 pkglibdir=$(libdir)/kiwix/components
+
+xptdir=$(libdir)/kiwix/components
 xpt_DATA=zimXapianIndexer.xpt
+
 AM_CPPFLAGS=-I$(top_srcdir)/src/common -I$(top_srcdir)/src/zimlib/include
 libZimXapianIndexer_la_SOURCES= \
 	zimXapianIndexer.cpp \
