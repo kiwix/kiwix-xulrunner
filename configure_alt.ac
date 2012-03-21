@@ -373,7 +373,7 @@ fi
 
 # Gecko version
 GECKO_VERSION_FALLBACK=0
-GECKO_VERSION=`grep MOZILLA_VERSION_U ${GECKO_SDK_PATH}/include/mozilla-config.h | cut --delimiter=" " -f3 | cut --delimiter="." -f1`
+GECKO_VERSION=`grep MOZILLA_VERSION_U ${GECKO_SDK_PATH}/include/mozilla-config.h | cut -d " " -f 3 | cut -d "." -f 1`
 if [[ "$GECKO_VERSION" = "" ]]
 then
 	GECKO_VERSION=$GECKO_VERSION_FALLBACK
