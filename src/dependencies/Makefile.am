@@ -200,7 +200,7 @@ if IS_OSX
 	cd clucene-core-0.9.21b && CC="gcc -arch i386 -arch x86_64" CXX="g++ -arch i386 -arch x86_64" CPP="gcc -E" CXXCPP="g++ -E" CXXFLAGS=" -fPIC " ./configure --enable-static --disable-shared && make
 else
 	cd clucene-core-0.9.21b && CXXFLAGS=" -fPIC " ./configure --enable-static --disable-shared && make
-fi
+endif
 
 ####################################################
 ############ CLEANUP (ALL)
