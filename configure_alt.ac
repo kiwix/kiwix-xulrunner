@@ -200,6 +200,8 @@ XAPIAN_LDFLAGS="-lxapian"
 COMPILE_XAPIAN=0
 if test [ $IS_WIN -eq 1 ] ; then
     COMPILED_XAPIAN_LDFLAGS="${DEP_PATH}/xapian-core-1.2.3/win32/Release/libs/libunicode.lib"
+elif test [ $IS_OSX -eq 1 ] ; then
+	COMPILED_XAPIAN_LDFLAGS="${DEP_PATH}/xapian-core-1.2.3/libxapian-fat.a"
 else
     COMPILED_XAPIAN_LDFLAGS="${DEP_PATH}/xapian-core-1.2.3/.libs/libxapian.a"
 fi

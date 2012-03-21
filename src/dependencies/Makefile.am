@@ -1,11 +1,10 @@
-
 # list of targets is built in configure.ac
 deps: ${DEP_LIST}
 
 if IS_LINUX
 GECKOSDKURL=http://download.kiwix.org/dev/xulrunner-11.0.en-US.linux-$(ARCH).sdk.tar.bz2
 else
-GECKOSDKURL=reg
+GECKOSDKURL=http://download.kiwix.org/dev/xulrunner-11.0.en-US.mac-$(ARCH).sdk.tar.bz2
 endif
 
 ####################################################
@@ -31,7 +30,11 @@ zlib-1.2.3: zlib.tar.gz
 
 # Linux, OSX
 zlib-1.2.3/libz.a: zlib-1.2.3/
+if IS_OSX
+	cd zlib-1.2.3 && CC="gcc -arch i386 -arch x86_64" CXX="g++ -arch i386 -arch x86_64" CPP="gcc -E" CXXCPP="g++ -E" CFLAGS=" -fPIC " ./configure --enable-static --disable-shared && make
+else
 	cd zlib-1.2.3 && CFLAGS=" -fPIC " ./configure --enable-static --disable-shared && make
+endif
 
 # Windows
 zlib-1.2.3/zlib.lib: zlib-1.2.3
@@ -47,7 +50,17 @@ xapian-core.tar.gz:
 xapian-core-1.2.3: xapian-core.tar.gz
 	tar -xf xapian-core.tar.gz
 
-# Linux, OSX
+# OSX
+xapian-core-1.2.3/libxapian-i386.a: xapian-core-1.2.3/
+	cd xapian-core-1.2.3 && make clean && EXTERN_PATH=`pwd` CC="gcc -arch i386" CXX="g++ -arch i386" CPP="gcc -E" CXXCPP="g++ -E" CPPFLAGS="-I${CURRENT_PATH}/src/dependences/zlib-1.2.3/" CXXFLAGS=" -fPIC -L${CURRENT_PATH}/src/dependences/zlib-1.2.3" ./configure --enable-static --disable-shared && make && mv .libs/libxapian.a libxapian-i386.a
+
+xapian-core-1.2.3/libxapian-x86_64.a: xapian-core-1.2.3/
+	cd xapian-core-1.2.3 && make clean && EXTERN_PATH=`pwd` CC="gcc -arch x86_64" CXX="g++ -arch x86_64" CPP="gcc -E" CXXCPP="g++ -E" CPPFLAGS="-I${CURRENT_PATH}/src/dependences/zlib-1.2.3/" CXXFLAGS=" -fPIC -L${CURRENT_PATH}/src/dependences/zlib-1.2.3" ./configure --enable-static --disable-shared && make && mv .libs/libxapian.a libxapian-x86_64.a
+
+xapian-core-1.2.3/libxapian-fat.a: xapian-core-1.2.3/libxapian-i386.a xapian-core-1.2.3/libxapian-x86_64.a
+	cd xapian-core-1.2.3 && lipo libxapian-i386.a libxapian-x86_64.a -create -output libxapian-fat.a
+
+# Linux
 xapian-core-1.2.3/.libs/libxapian.a: xapian-core-1.2.3/
 	cd xapian-core-1.2.3 && EXTERN_PATH=`pwd` CPPFLAGS="-I${CURRENT_PATH}/src/dependences/zlib-1.2.3/" CXXFLAGS=" -fPIC -L${CURRENT_PATH}/src/dependences/zlib-1.2.3" ./configure --enable-static --disable-shared && make
 
@@ -182,20 +195,20 @@ clucene-core-0.9.21b/src/.libs/libclucene.a: clucene-core-0.9.21b/
 ####################################################
 ############ CLEANUP (ALL)
 ####################################################
-clean:
-	rm -rf xapian-core-1.2.3
-	rm -rf zlib-1.2.3
-	rm -rf xz
-	rm -rf aria2-1.14.1
+CLEANFILES= \
+	xapian-core-1.2.3 \
+	zlib-1.2.3 \
+	xz \
+	aria2-1.14.1
 
-# distclean
-distclean:
-	rm -rf xapian-core.tar.gz xapian-win32.zip xapian-core-1.2.3 win32
-	rm -rf xz.tar.bz2 xz-4.999.9beta xz-5.0.3
-	rm -rf xulrunner-sdk-linux.tar.bz2
-	rm -rf xulrunner-sdk-win.zip xulrunner-sdk
-	rm -rf xulrunner-win.zip xulrunner
-	rm -rf xulrunner-source.tar.bz2
-	rm -rf icu icu.zip
+DISTCLEANFILES= \
+	xapian-core.tar.gz xapian-win32.zip xapian-core-1.2.3 win32 \
+	xz.tar.bz2 xz-4.999.9beta xz-5.0.3 \
+	xulrunner-sdk-linux.tar.bz2 \
+	xulrunner-sdk-win.zip xulrunner-sdk \
+	xulrunner-win.zip xulrunner \
+	xulrunner-source.tar.bz2 \
+	icu icu.zip
 
-all: deps
+# list of targets is built in configure.ac
+all-local: deps
