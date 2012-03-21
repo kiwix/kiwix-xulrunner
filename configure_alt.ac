@@ -237,6 +237,7 @@ if test [ $IS_WIN -eq 1 ] ; then
 else
     COMPILED_LZMA_LDFLAGS="${DEP_PATH}/xz/src/liblzma/.libs/liblzma.a"
 fi
+COMPILED_LZMA_CFLAGS="-I${DEP_PATH}/xz/src/liblzma/api"
 
 
 ARIA2_CFLAGS=""
@@ -390,7 +391,12 @@ fi
 let GECKO_VERSION=GECKO_VERSION
 if [[ $GECKO_VERSION -gt 1 ]]
 then
+	# TODO
+	if test [ $IS_OSX -eq 1 ] ; then
+	CXXFLAGS="${CXXFLAGS} -fexceptions -DMOZ_CPP_EXCEPTIONS -DMOZ_NO_MOZALLOC"
+	else
 	CXXFLAGS="${CXXFLAGS} -std=gnu++0x -fexceptions -DMOZ_CPP_EXCEPTIONS -DMOZ_NO_MOZALLOC"
+	fi
 	if [[ $GECKO_VERSION -lt 10 ]]
 	then
 		GECKO_OLD_BOOL_TYPE=1
@@ -402,7 +408,12 @@ AM_CONDITIONAL([GECKO_OLD_BOOL_TYPE], [test "$GECKO_OLD_BOOL_TYPE"])
 LIBXUL_CFLAGS="-I${GECKO_SDK_PATH}/sdk/include -I${GECKO_SDK_PATH}/include -fshort-wchar"
 # replaced -lxpcomglue_s with libxpcomglue_s_nomozalloc.a to prevent
 # undefined symbols. supposed to be compatible wth 1.9.
+# TODO
+if test [ $IS_OSX -eq 1 ] ; then
+LIBXUL_LDFLAGS="-L${GECKO_SDK_PATH}/sdk/lib -lxpcom -lplds4 -lplc4 -lnspr4 -lpthread -ldl ${GECKO_SDK_PATH}/sdk/lib/libxpcomglue_s_nomozalloc.a  ${GECKO_SDK_PATH}/sdk/lib/XUL"
+else 
 LIBXUL_LDFLAGS="-L${GECKO_SDK_PATH}/sdk/lib -lxul -lxpcom -lplds4 -lplc4 -lnspr4 -lpthread -ldl ${GECKO_SDK_PATH}/sdk/lib/libxpcomglue_s_nomozalloc.a"
+fi
 GECKO_IDL_PATH=${GECKO_SDK_PATH}/idl
 if test [ ! -f "$GECKO_IDL_PATH/nsISupports.idl" ]
 then
@@ -671,6 +682,7 @@ else
 	then
 	    COMPILE_LZMA=1
 	    LZMA_LDFLAGS=$COMPILED_LZMA_LDFLAGS
+	    LZMA_CFLAGS=$COMPILED_LZMA_CFLAGS
 	# if path provided, test file existence (and fail)
 	else
 		LZMA_LDFLAGS=`readlink -f $LZMA_ARCHIVE`
@@ -833,6 +845,7 @@ AC_DEFINE_UNQUOTED(LZMA_MEMORY_SIZE, 128, [set lzma uncompress memory size to nu
 AC_DEFINE(ENABLE_LZMA, [1], [defined if lzma compression is enabled])
 
 # export variables
+#CXXFLAGS=" -arch x86_64 $CXXFLAGS"
 AC_SUBST(CPATH)
 AC_SUBST(CXXFLAGS)
 AC_SUBST(CURRENT_PATH)
