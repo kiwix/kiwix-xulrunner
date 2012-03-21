@@ -26,6 +26,7 @@
 ##################
 
 
+
 # autotools initializations
 AC_INIT([kiwix], [0.9])
 IS_WIN=0
@@ -948,44 +949,46 @@ AC_OUTPUT
 ####################################################
 ############ NOTICE
 ####################################################
-
-echo ""
-echo "Build details:"
-echo -n "ARCH			" ; echo $ARCH
-echo -n "IS_64B			" ; yesno $IS_64B
-echo -n "IS_POSIX		" ; yesno $IS_POSIX
-echo -n "IS_LINUX		" ; yesno $IS_LINUX
-echo -n "IS_OSX			" ; yesno $IS_OSX
-echo -n "IS_WIN			" ; yesno $IS_WIN
-echo -n "STATIC_BUILD		" ; yesno $STATIC_BUILD
-echo -n "DEP_LIST		" ; echo $DEP_LIST
-echo -n "WITH_MANAGER		" ; yesno $WITH_MANAGER
-echo -n "WITH_SERVER		" ; yesno $WITH_SERVER
-echo -n "WITH_INDEXER		" ; yesno $WITH_INDEXER
-echo -n "WITH_INSTALLER		" ; yesno $WITH_INSTALLER
-echo -n "WITH_SEARCHER		" ; yesno $WITH_SEARCHER
-echo -n "WITH_READER		" ; yesno $WITH_READER
-echo -n "CXXFLAGS		" ; echo $CXXFLAGS
-echo ""
-echo -n "GECKO_SDK_PATH		" ; echo $GECKO_SDK_PATH
-echo -n "ZLIB_LDFLAGS		" ; echo $ZLIB_LDFLAGS
-echo -n "XAPIAN_LDFLAGS		" ; echo $XAPIAN_LDFLAGS
-echo -n "SQLITE_LDFLAGS		" ; echo $SQLITE_LDFLAGS
-echo -n "MICROHTTPD_LDFLAGS	" ; echo $MICROHTTPD_LDFLAGS
-echo -n "LZMA_LDFLAGS		" ; echo $LZMA_LDFLAGS
-echo -n "ARIA2_LDFLAGS		" ; echo $ARIA2_LDFLAGS
-echo -n "CLUCENE_LDFLAGS		" ; echo $CLUCENE_LDFLAGS
-echo -n "ICU_LDFLAGS		" ; echo $ICU_LDFLAGS
+# using the binary echo program instead of shell function
+# since OSX default (SH) does not support -n.
+BINECHO=`which echo`
+$BINECHO ""
+$BINECHO "Build details:"
+$BINECHO -n "ARCH			" ; $BINECHO $ARCH
+$BINECHO -n "IS_64B			" ; yesno $IS_64B
+$BINECHO -n "IS_POSIX		" ; yesno $IS_POSIX
+$BINECHO -n "IS_LINUX		" ; yesno $IS_LINUX
+$BINECHO -n "IS_OSX			" ; yesno $IS_OSX
+$BINECHO -n "IS_WIN			" ; yesno $IS_WIN
+$BINECHO -n "STATIC_BUILD		" ; yesno $STATIC_BUILD
+$BINECHO -n "DEP_LIST		" ; $BINECHO $DEP_LIST
+$BINECHO -n "WITH_MANAGER		" ; yesno $WITH_MANAGER
+$BINECHO -n "WITH_SERVER		" ; yesno $WITH_SERVER
+$BINECHO -n "WITH_INDEXER		" ; yesno $WITH_INDEXER
+$BINECHO -n "WITH_INSTALLER		" ; yesno $WITH_INSTALLER
+$BINECHO -n "WITH_SEARCHER		" ; yesno $WITH_SEARCHER
+$BINECHO -n "WITH_READER		" ; yesno $WITH_READER
+$BINECHO -n "CXXFLAGS		" ; $BINECHO $CXXFLAGS
+$BINECHO ""
+$BINECHO -n "GECKO_SDK_PATH		" ; $BINECHO $GECKO_SDK_PATH
+$BINECHO -n "ZLIB_LDFLAGS		" ; $BINECHO $ZLIB_LDFLAGS
+$BINECHO -n "XAPIAN_LDFLAGS		" ; $BINECHO $BINECHOAPIAN_LDFLAGS
+$BINECHO -n "SQLITE_LDFLAGS		" ; $BINECHO $SQLITE_LDFLAGS
+$BINECHO -n "MICROHTTPD_LDFLAGS	" ; $BINECHO $MICROHTTPD_LDFLAGS
+$BINECHO -n "LZMA_LDFLAGS		" ; $BINECHO $LZMA_LDFLAGS
+$BINECHO -n "ARIA2_LDFLAGS		" ; $BINECHO $ARIA2_LDFLAGS
+$BINECHO -n "CLUCENE_LDFLAGS		" ; $BINECHO $CLUCENE_LDFLAGS
+$BINECHO -n "ICU_LDFLAGS		" ; $BINECHO $ICU_LDFLAGS
 
 if test "$IS_64B"
 then
-	echo ""
-	echo "/!\ When linking static archive (.a file) on 64b system, the archive must have been compiled with -fPIC. If not, compilation will fail with “Bad Value” message."
+	$BINECHO ""
+	$BINECHO "/!\ When linking static archive (.a file) on 64b system, the archive must have been compiled with -fPIC. If not, compilation will fail with “Bad Value” message."
 fi
 
 if [[ $MISSING_SELF_DEPS -eq 1 ]]
 then
-	echo "
+	$BINECHO "
 ******************
 
 You have unmet dependencies.
@@ -994,4 +997,4 @@ You NEED to make src/dependencies first THEN re-run configure and make the rest.
 
 ******************"
 fi
-echo ""
+$BINECHO ""
