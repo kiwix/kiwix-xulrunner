@@ -201,7 +201,7 @@ COMPILE_XAPIAN=0
 if test [ $IS_WIN -eq 1 ] ; then
     COMPILED_XAPIAN_LDFLAGS="${DEP_PATH}/xapian-core-1.2.3/win32/Release/libs/libunicode.lib"
 elif test [ $IS_OSX -eq 1 ] ; then
-	COMPILED_XAPIAN_LDFLAGS="${DEP_PATH}/xapian-core-1.2.3/libxapian-fat.a"
+	COMPILED_XAPIAN_LDFLAGS="${DEP_PATH}/libxapian-fat.a"
 else
     COMPILED_XAPIAN_LDFLAGS="${DEP_PATH}/xapian-core-1.2.3/.libs/libxapian.a"
 fi
@@ -240,7 +240,11 @@ fi
 ARIA2_CFLAGS=""
 ARIA2_LDFLAGS=""
 COMPILE_ARIA2=0
-COMPILED_ARIA2_LDFLAGS="${DEP_PATH}/aria2c"
+if test [ $IS_OSX -eq 1 ] ; then
+	COMPILED_ARIA2_LDFLAGS="${DEP_PATH}/aria2-1.14.2/usr/bin/aria2c"
+else
+	COMPILED_ARIA2_LDFLAGS="${DEP_PATH}/aria2c"
+fi
 
 CLUCENE_CFLAGS="-I/usr/lib -I/usr/lib64"
 CLUCENE_LDFLAGS="-lclucene"
@@ -829,6 +833,7 @@ AC_DEFINE(ENABLE_LZMA, [1], [defined if lzma compression is enabled])
 # export variables
 AC_SUBST(CPATH)
 AC_SUBST(CXXFLAGS)
+AC_SUBST(CURRENT_PATH)
 
 AC_SUBST(STATIC_BUILD)
 AC_SUBST(IS_WIN)

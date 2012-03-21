@@ -51,14 +51,14 @@ xapian-core-1.2.3: xapian-core.tar.gz
 	tar -xf xapian-core.tar.gz
 
 # OSX
-xapian-core-1.2.3/libxapian-i386.a: xapian-core-1.2.3/
-	cd xapian-core-1.2.3 && make clean && EXTERN_PATH=`pwd` CC="gcc -arch i386" CXX="g++ -arch i386" CPP="gcc -E" CXXCPP="g++ -E" CPPFLAGS="-I${CURRENT_PATH}/src/dependences/zlib-1.2.3/" CXXFLAGS=" -fPIC -L${CURRENT_PATH}/src/dependences/zlib-1.2.3" ./configure --enable-static --disable-shared && make && mv .libs/libxapian.a libxapian-i386.a
+libxapian-i386.a: xapian-core-1.2.3/
+	cd xapian-core-1.2.3 && EXTERN_PATH=`pwd` CC="gcc -arch i386" CXX="g++ -arch i386" CPP="gcc -E" CXXCPP="g++ -E" CPPFLAGS="-I${CURRENT_PATH}/src/dependences/zlib-1.2.3/" CXXFLAGS=" -fPIC -L${CURRENT_PATH}/src/dependences/zlib-1.2.3" ./configure --enable-static --disable-shared && make clean && make && mv .libs/libxapian.a ../libxapian-i386.a
 
-xapian-core-1.2.3/libxapian-x86_64.a: xapian-core-1.2.3/
-	cd xapian-core-1.2.3 && make clean && EXTERN_PATH=`pwd` CC="gcc -arch x86_64" CXX="g++ -arch x86_64" CPP="gcc -E" CXXCPP="g++ -E" CPPFLAGS="-I${CURRENT_PATH}/src/dependences/zlib-1.2.3/" CXXFLAGS=" -fPIC -L${CURRENT_PATH}/src/dependences/zlib-1.2.3" ./configure --enable-static --disable-shared && make && mv .libs/libxapian.a libxapian-x86_64.a
+libxapian-x86_64.a: xapian-core-1.2.3/
+	cd xapian-core-1.2.3 && EXTERN_PATH=`pwd` CC="gcc -arch x86_64" CXX="g++ -arch x86_64" CPP="gcc -E" CXXCPP="g++ -E" CPPFLAGS="-I${CURRENT_PATH}/src/dependences/zlib-1.2.3/" CXXFLAGS=" -fPIC -L${CURRENT_PATH}/src/dependences/zlib-1.2.3" ./configure --enable-static --disable-shared && make clean && make && mv .libs/libxapian.a ../libxapian-x86_64.a
 
-xapian-core-1.2.3/libxapian-fat.a: xapian-core-1.2.3/libxapian-i386.a xapian-core-1.2.3/libxapian-x86_64.a
-	cd xapian-core-1.2.3 && lipo libxapian-i386.a libxapian-x86_64.a -create -output libxapian-fat.a
+libxapian-fat.a: libxapian-i386.a libxapian-x86_64.a
+	lipo libxapian-i386.a libxapian-x86_64.a -create -output libxapian-fat.a
 
 # Linux
 xapian-core-1.2.3/.libs/libxapian.a: xapian-core-1.2.3/
@@ -106,20 +106,11 @@ sqlite-autoconf-3071000: sqlite-autoconf-3071000.tar.gz
 	tar xf sqlite-autoconf-3071000.tar.gz
 
 sqlite-autoconf-3071000/.libs/libsqlite3.a: sqlite-autoconf-3071000/
+if IS_OSX
+	cd sqlite-autoconf-3071000 && CC="gcc -arch i386 -arch x86_64" CXX="g++ -arch i386 -arch x86_64" CPP="gcc -E" CXXCPP="g++ -E" CFLAGS=" -fPIC " ./configure --enable-static --disable-shared && make
+else
 	cd sqlite-autoconf-3071000 && CFLAGS=" -fPIC " ./configure --enable-static --disable-shared && make
-
-####################################################
-############ UUID
-####################################################
-
-e2fsprogs-1.42.tar.gz:
-	wget -c -O e2fsprogs-1.42.tar.gz http://download.kiwix.org/dev/e2fsprogs-1.42.tar.gz
-
-e2fsprogs-1.42: e2fsprogs-1.42.tar.gz
-	tar xf e2fsprogs-1.42.tar.gz
-
-e2fsprogs-1.42/lib/uuid/libuuid.a: e2fsprogs-1.42/
-	cd e2fsprogs-1.42 && CFLAGS=" -fPIC " ./configure --enable-static --disable-shared && make
+endif
 
 ####################################################
 ############ MICROHTTPD
@@ -132,7 +123,11 @@ libmicrohttpd-0.9.19: libmicrohttpd-0.9.19.tar.gz
 	tar xf libmicrohttpd-0.9.19.tar.gz
 
 libmicrohttpd-0.9.19/src/daemon/.libs/libmicrohttpd.a: libmicrohttpd-0.9.19/
+if IS_OSX
+	cd libmicrohttpd-0.9.19 && CC="gcc -arch i386 -arch x86_64" CXX="g++ -arch i386 -arch x86_64" CPP="gcc -E" CXXCPP="g++ -E" CFLAGS=" -fPIC " ./configure --enable-static --disable-shared && make
+else
 	cd libmicrohttpd-0.9.19 && CFLAGS=" -fPIC " ./configure --enable-static --disable-shared && make
+endif
 
 ####################################################
 ############ LZMA
@@ -165,8 +160,7 @@ endif
 
 xz/src/liblzma/.libs/liblzma.a: xz/
 if IS_OSX
-	lzma_conf_extra="--with-libiconv-prefix=/opt/local --with-libintl-prefix=/opt/local --disable-assembler"
-	cd xz && CFLAGS=" -fPIC " ./configure $(lzma_conf_extra) && make
+	cd xz && CC="gcc -arch i386 -arch x86_64" CXX="g++ -arch i386 -arch x86_64" CPP="gcc -E" CXXCPP="g++ -E" CFLAGS=" -fPIC " ./configure --with-libiconv-prefix=/opt/local --with-libintl-prefix=/opt/local --disable-assembler --enable-static --disable-shared && make
 else
 	cd xz && CFLAGS=" -fPIC " ./configure --disable-assembler --enable-static --disable-shared && make
 endif
@@ -179,6 +173,18 @@ aria2c:
 	wget -c -O aria2c http://download.kiwix.org/dev/aria2c.$(ARCH)
 	chmod +x aria2c
 
+aria2-1.10.9.dmg:
+	wget -c -O aria2-1.14.2.dmg http://download.kiwix.org/dev/aria2-1.14.2.dmg
+
+aria2-1.14.2.pkg: aria2-1.14.2.dmg
+	mkdir -p ./aria_dmg
+	hdiutil attach aria2-1.14.2.dmg -noautoopen -quiet -mountpoint ./aria_dmg
+	cp -r ./aria_dmg/aria2-1.14.2.pkg aria2-1.14.2.pkg
+	hdiutil detach ./aria_dmg
+
+aria2-1.14.2/usr/bin/aria2c: aria2-1.14.2.pkg
+	${CURRENT_PATH}/../maintenance_tools/unpkg.py aria2-1.14.2.pkg
+
 ####################################################
 ############ CLUCENE
 ####################################################
@@ -190,7 +196,11 @@ clucene-core-0.9.21b: clucene-core-0.9.21b.tar.bz2
 	tar xf clucene-core-0.9.21b.tar.bz2
 
 clucene-core-0.9.21b/src/.libs/libclucene.a: clucene-core-0.9.21b/
+if IS_OSX
+	cd clucene-core-0.9.21b && CC="gcc -arch i386 -arch x86_64" CXX="g++ -arch i386 -arch x86_64" CPP="gcc -E" CXXCPP="g++ -E" CXXFLAGS=" -fPIC " ./configure --enable-static --disable-shared && make
+else
 	cd clucene-core-0.9.21b && CXXFLAGS=" -fPIC " ./configure --enable-static --disable-shared && make
+fi
 
 ####################################################
 ############ CLEANUP (ALL)
