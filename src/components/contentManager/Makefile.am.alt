@@ -1,7 +1,9 @@
 pkglib_LTLIBRARIES=libContentManager.la
-xptdir=$(libdir)/kiwix/components
 pkglibdir=$(libdir)/kiwix/components
+
+xptdir=$(libdir)/kiwix/components
 xpt_DATA=contentManager.xpt
+
 AM_CPPFLAGS=-I$(top_srcdir)/src/common -I$(top_srcdir)/src/zimlib/include -I$(top_srcdir)/src/pugixml
 libContentManager_la_SOURCES= \
 	contentManager.cpp \
@@ -25,6 +27,10 @@ libContentManager_la_CXXFLAGS=$(LIBXUL_CFLAGS) $(ZIMLIB_CFLAGS) $(LZMA_CFLAGS) $
 
 libContentManager_la_LDFLAGS=$(LIBXUL_LDFLAGS) $(ZIMLIB_LDFLAGS) $(LZMA_LDFLAGS) $(ICU_LDFLAGS) $(PUGIXML_LDFLAGS) $(XPCOM_LDFLAGS)
 libContentManager_la_LIBADD=$(top_builddir)/src/zimlib/src/libzim.la $(top_builddir)/src/pugixml/libpugixml.la
+
+if IS_OSX
+libContentManager_la_CXXFLAGS += -I/opt/local/include
+endif
 
 EXTRA_DIST=IContentManager.idl
 BUILT_SOURCES=contentManager.xpt IContentManager.h
@@ -51,13 +57,3 @@ else
 	$(HEADER_PY) --cachedir=/tmp -o IContentManager.h -I $(GECKO_IDL_PATH) $(top_srcdir)/src/components/contentManager/IContentManager.idl
 endif
 endif
-
-
-#if IS_STATIC
-#libContentManager_la_LDFLAGS=$(LIBXUL_LDFLAGS) $(LIBZIM_STATIC_LDFLAGS) $(LIBICU_STATIC_LDFLAGS) $(LIBZIMSELF_STATIC_LDFLAGS) $(LIBPUGIXML_STATIC_LDFLAGS) $(LIBLZMA_STATIC_LDFLAGS) $(XPCOM_LDFLAGS)
-#else
-
-#endif
-#if IS_OSX
-#libContentManager_la_LDFLAGS=$(LIBXUL_LDFLAGS) $(LIBZIM_STATIC_LDFLAGS) $(LIBICU_STATIC_LDFLAGS) $(LIBZIMSELF_STATIC_LDFLAGS) $(LIBPUGIXML_STATIC_LDFLAGS) $(XPCOM_LDFLAGS)
-#endif

@@ -36,9 +36,3 @@ if HAVE_XPIDL
 else
 	$(HEADER_PY) --cachedir=/tmp -o ICluceneAccessor.h -I $(GECKO_IDL_PATH) $(top_srcdir)/src/components/cluceneAccessor/ICluceneAccessor.idl
 endif
-
-
-#if IS_STATIC
-#libCluceneAccessor_la_LDFLAGS=$(LIBCTPP2_STATIC_LDFLAGS) $(LIBXUL_LDFLAGS) $(LIBCLUCENE_STATIC_LDFLAGS) $(LIBICU_STATIC_LDFLAGS) $(XPCOM_LDFLAGS)
-#else
-#endif

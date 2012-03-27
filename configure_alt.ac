@@ -159,8 +159,20 @@ function yesno {
 	fi
 }
 
+####################################################
+############ TARGET_ARCH
+####################################################
 # ARCH flags
 ARCH=`echo $MACHTYPE | cut -d- -f1`
+AC_ARG_WITH(target-arch,
+            AS_HELP_STRING([--with-target-arch=ARCH], [(OSX Only) Define the target architecture of the built (i386 or x86_64)]),
+            XTARGET=${withval})
+# only overwrite arch on OSX
+if test [ $IS_OSX -eq 1 ] ; then
+	AS_IF([test ! "${XTARGET}" = "i386" -a ! "${XTARGET}" = "x86_64"], [], [ARCH=${XTARGET}])
+	CC="$CC -arch $ARCH"
+	CXX="$CXX -arch $ARCH"
+fi
 if test [ "`$SARCH | grep 64 | wc -l`" ];
 then
 	IS_64B=1
@@ -198,10 +210,11 @@ COMPILED_ZLIB_LDFLAGS="${DEP_PATH}/zlib-1.2.3/libz.a"
 XAPIAN_CFLAGS=""
 XAPIAN_LDFLAGS="-lxapian"
 COMPILE_XAPIAN=0
+COMPILED_XAPIAN_CFLAGS="-I${DEP_PATH}/xapian-core-1.2.3/include"
 if test [ $IS_WIN -eq 1 ] ; then
     COMPILED_XAPIAN_LDFLAGS="${DEP_PATH}/xapian-core-1.2.3/win32/Release/libs/libunicode.lib"
 elif test [ $IS_OSX -eq 1 ] ; then
-	COMPILED_XAPIAN_LDFLAGS="${DEP_PATH}/libxapian-fat.a"
+	COMPILED_XAPIAN_LDFLAGS="${DEP_PATH}/libxapian-${ARCH}.a"
 else
     COMPILED_XAPIAN_LDFLAGS="${DEP_PATH}/xapian-core-1.2.3/.libs/libxapian.a"
 fi
@@ -212,7 +225,7 @@ COMPILE_ICU=0
 if test [ $IS_WIN -eq 1 ] ; then
 	COMPILED_ICU_LDFLAGS="${DEP_PATH}/icu/lib/icuio.lib ${DEP_PATH}/icu/lib/icudata.lib ${DEP_PATH}/icu/lib/icuuc.lib ${DEP_PATH}/icu/lib/icui18n.lib"
 elif test [ $IS_OSX -eq 1 ] ; then
-	COMPILED_ICU_LDFLAGS="/opt/local/lib/libicui18n.a /opt/local/lib/libicuuc.a /opt/local/lib/libicudata.a /opt/local/lib/libicuio.a /opt/local/lib/libicule.a /opt/local/lib/libiculx.a /opt/local/lib/libicutu.a"
+	COMPILED_ICU_LDFLAGS="${DEP_PATH}/libicui18n-${ARCH}.a ${DEP_PATH}/libicuuc-${ARCH}.a ${DEP_PATH}/libicudata-${ARCH}.a ${DEP_PATH}/libicuio-${ARCH}.a ${DEP_PATH}/libicule-${ARCH}.a ${DEP_PATH}/libiculx-${ARCH}.a ${DEP_PATH}/libicutu-${ARCH}.a"
 else
 	COMPILED_ICU_LDFLAGS="${DEP_PATH}/icu/source/lib/libicui18n.a ${DEP_PATH}/icu/source/lib/libicuuc.a ${DEP_PATH}/icu/source/lib/libicudata.a ${DEP_PATH}/icu/source/lib/libicuio.a ${DEP_PATH}/icu/source/lib/libicule.a ${DEP_PATH}/icu/source/lib/libiculx.a ${DEP_PATH}/icu/source/lib/libicutu.a"
 fi
@@ -221,19 +234,29 @@ fi
 SQLITE_CFLAGS=""
 SQLITE_LDFLAGS="-libsqlite3"
 COMPILE_SQLITE=0
-COMPILED_SQLITE_LDFLAGS="${DEP_PATH}/sqlite-autoconf-3071000/.libs/libsqlite3.a"
+if test [ $IS_OSX -eq 1 ] ; then
+	COMPILED_SQLITE_LDFLAGS="${DEP_PATH}/libsqlite3-${ARCH}.a"
+else
+	COMPILED_SQLITE_LDFLAGS="${DEP_PATH}/sqlite-autoconf-3071000/.libs/libsqlite3.a"
+fi
 
 # used only for building kiwix-serve. Not available on windows.
 MICROHTTPD_CFLAGS=""
 MICROHTTPD_LDFLAGS="-lmicrohttpd"
 COMPILE_MICROHTTPD=0
-COMPILED_MICROHTTPD_LDFLAGS="${DEP_PATH}/libmicrohttpd-0.9.19/src/daemon/.libs/libmicrohttpd.a"
+if test [ $IS_OSX -eq 1 ] ; then
+	COMPILED_MICROHTTPD_LDFLAGS="${DEP_PATH}/libmicrohttpd-${ARCH}.a"
+else
+	COMPILED_MICROHTTPD_LDFLAGS="${DEP_PATH}/libmicrohttpd-0.9.19/src/daemon/.libs/libmicrohttpd.a"
+fi
 
 LZMA_CFLAGS=""
 LZMA_LDFLAGS="-Bstatic -llzma"
 COMPILE_LZMA=0
 if test [ $IS_WIN -eq 1 ] ; then
 	COMPILED_LZMA_LDFLAGS="${DEP_PATH}/xz/windows/liblzma.lib"
+elif test [ $IS_OSX -eq 1 ] ; then
+	COMPILED_LZMA_LDFLAGS="${DEP_PATH}/liblzma-${ARCH}.a"
 else
     COMPILED_LZMA_LDFLAGS="${DEP_PATH}/xz/src/liblzma/.libs/liblzma.a"
 fi
@@ -252,7 +275,11 @@ fi
 CLUCENE_CFLAGS="-I/usr/lib -I/usr/lib64"
 CLUCENE_LDFLAGS="-lclucene"
 COMPILE_CLUCENE=0
-COMPILED_CLUCENE_LDFLAGS="${DEP_PATH}/clucene-core-0.9.21b/src/.libs/libclucene.a"
+if test [ $IS_OSX -eq 1 ] ; then
+	COMPILED_CLUCENE_LDFLAGS="${DEP_PATH}/libclucene-${ARCH}.a"
+else
+	COMPILED_CLUCENE_LDFLAGS="${DEP_PATH}/clucene-core-0.9.21b/src/.libs/libclucene.a"
+fi
 
 WITH_CLUCENE=0
 
@@ -515,6 +542,7 @@ else
 	then
 	    COMPILE_XAPIAN=1
 	    XAPIAN_LDFLAGS=$COMPILED_XAPIAN_LDFLAGS
+	    XAPIAN_CFLAGS=$COMPILED_XAPIAN_CFLAGS
 	# if path provided, test file existence (and fail)
 	else
 		XAPIAN_LDFLAGS=`readlink -f $XAPIAN_ARCHIVE`
@@ -990,6 +1018,11 @@ $BINECHO -n "WITH_INDEXER		" ; yesno $WITH_INDEXER
 $BINECHO -n "WITH_INSTALLER		" ; yesno $WITH_INSTALLER
 $BINECHO -n "WITH_SEARCHER		" ; yesno $WITH_SEARCHER
 $BINECHO -n "WITH_READER		" ; yesno $WITH_READER
+echo ""
+$BINECHO -n "CC			" ; $BINECHO $CC
+$BINECHO -n "CXX			" ; $BINECHO $CXX
+$BINECHO -n "CPP			" ; $BINECHO $CPP
+$BINECHO -n "CXXCPP			" ; $BINECHO $CXXCPP
 $BINECHO -n "CXXFLAGS		" ; $BINECHO $CXXFLAGS
 $BINECHO ""
 $BINECHO -n "GECKO_SDK_PATH		" ; $BINECHO $GECKO_SDK_PATH

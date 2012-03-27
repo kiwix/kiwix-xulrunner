@@ -24,8 +24,7 @@ CLEANFILES= \
 	kiwix*.deb \
 	kiwix*.tar.gz \
 	kiwix*.changes \
-	kiwix*.dsc \
-	src/dependencies/Makefile
+	kiwix*.dsc
 
 UPDATE_MIME = \
 	if which update-mime-database>/dev/null 2>&1; then \

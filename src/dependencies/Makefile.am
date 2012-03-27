@@ -28,13 +28,19 @@ zlib.tar.gz:
 zlib-1.2.3: zlib.tar.gz
 	tar -xf zlib.tar.gz
 
-# Linux, OSX
+# Linux
 zlib-1.2.3/libz.a: zlib-1.2.3/
-if IS_OSX
-	cd zlib-1.2.3 && CC="gcc -arch i386 -arch x86_64" CXX="g++ -arch i386 -arch x86_64" CPP="gcc -E" CXXCPP="g++ -E" CFLAGS=" -fPIC " ./configure --enable-static --disable-shared && make
-else
 	cd zlib-1.2.3 && CFLAGS=" -fPIC " ./configure --enable-static --disable-shared && make
-endif
+
+# OSX
+libz-fat.a: zlib-1.2.3/
+	cd zlib-1.2.3 && CC="gcc -arch $(ARCH)" CXX="g++ -arch $(ARCH)" CPP="gcc -E" CXXCPP="g++ -E" CFLAGS=" -fPIC " ./configure --enable-static --disable-shared && make && cp libz.a ../libz-fat.a
+
+libz-i386.a: libz-fat.a
+	lipo -thin i386 libz-fat.a -output libz-i386.a
+
+libz-x86_64.a: libz-fat.a
+	lipo -thin x86_64 libz-fat.a -output libz-x86_64.a
 
 # Windows
 zlib-1.2.3/zlib.lib: zlib-1.2.3
@@ -50,19 +56,19 @@ xapian-core.tar.gz:
 xapian-core-1.2.3: xapian-core.tar.gz
 	tar -xf xapian-core.tar.gz
 
+# Linux
+xapian-core-1.2.3/.libs/libxapian.a: xapian-core-1.2.3/
+	cd xapian-core-1.2.3 && EXTERN_PATH=`pwd` CPPFLAGS="-I${CURRENT_PATH}/src/dependences/zlib-1.2.3/" CXXFLAGS=" -fPIC -L${CURRENT_PATH}/src/dependences/zlib-1.2.3" ./configure --enable-static --disable-shared && make
+
 # OSX
+libxapian-fat.a: libxapian-i386.a libxapian-x86_64.a
+	lipo libxapian-i386.a libxapian-x86_64.a -create -output libxapian-fat.a
+
 libxapian-i386.a: xapian-core-1.2.3/
 	cd xapian-core-1.2.3 && EXTERN_PATH=`pwd` CC="gcc -arch i386" CXX="g++ -arch i386" CPP="gcc -E" CXXCPP="g++ -E" CPPFLAGS="-I${CURRENT_PATH}/src/dependences/zlib-1.2.3/" CXXFLAGS=" -fPIC -L${CURRENT_PATH}/src/dependences/zlib-1.2.3" ./configure --enable-static --disable-shared && make clean && make && mv .libs/libxapian.a ../libxapian-i386.a
 
 libxapian-x86_64.a: xapian-core-1.2.3/
 	cd xapian-core-1.2.3 && EXTERN_PATH=`pwd` CC="gcc -arch x86_64" CXX="g++ -arch x86_64" CPP="gcc -E" CXXCPP="g++ -E" CPPFLAGS="-I${CURRENT_PATH}/src/dependences/zlib-1.2.3/" CXXFLAGS=" -fPIC -L${CURRENT_PATH}/src/dependences/zlib-1.2.3" ./configure --enable-static --disable-shared && make clean && make && mv .libs/libxapian.a ../libxapian-x86_64.a
-
-libxapian-fat.a: libxapian-i386.a libxapian-x86_64.a
-	lipo libxapian-i386.a libxapian-x86_64.a -create -output libxapian-fat.a
-
-# Linux
-xapian-core-1.2.3/.libs/libxapian.a: xapian-core-1.2.3/
-	cd xapian-core-1.2.3 && EXTERN_PATH=`pwd` CPPFLAGS="-I${CURRENT_PATH}/src/dependences/zlib-1.2.3/" CXXFLAGS=" -fPIC -L${CURRENT_PATH}/src/dependences/zlib-1.2.3" ./configure --enable-static --disable-shared && make
 
 # Windows
 xapian-core-1.2.3/win32/Release/libs/libunicode.lib: xapian-core-1.2.3 xapian-win32.zip
@@ -86,6 +92,71 @@ icu4c-4_8_1_1-src.tgz:
 icu/: icu4c-4_8_1_1-src.tgz
 	tar xf icu4c-4_8_1_1-src.tgz
 
+# OSX
+libicuio-fat.a: /opt/local/lib/libicuio.a
+	cp /opt/local/lib/libicuio.a libicuio-fat.a
+
+libicuio-i386.a: libicuio-fat.a
+	lipo -thin i386 libicuio-fat.a -output libicuio-i386.a
+
+libicuio-x86_64.a: libicuio-fat.a
+	lipo -thin x86_64 libicuio-fat.a -output libicuio-x86_64.a
+
+libicudata-fat.a: /opt/local/lib/libicudata.a
+	cp /opt/local/lib/libicudata.a libicudata-fat.a
+
+libicudata-i386.a: libicudata-fat.a
+	lipo -thin i386 libicudata-fat.a -output libicudata-i386.a
+
+libicudata-x86_64.a: libicudata-fat.a
+	lipo -thin x86_64 libicudata-fat.a -output libicudata-x86_64.a
+
+libicuuc-fat.a: /opt/local/lib/libicuuc.a
+	cp /opt/local/lib/libicuuc.a libicuuc-fat.a
+
+libicuuc-i386.a: libicuuc-fat.a
+	lipo -thin i386 libicuuc-fat.a -output libicuuc-i386.a
+
+libicuuc-x86_64.a: libicuuc-fat.a
+	lipo -thin x86_64 libicuuc-fat.a -output libicuuc-x86_64.a
+
+libicui18n-fat.a: /opt/local/lib/libicui18n.a
+	cp /opt/local/lib/libicui18n.a libicui18n-fat.a
+
+libicui18n-i386.a: libicui18n-fat.a
+	lipo -thin i386 libicui18n-fat.a -output libicui18n-i386.a
+
+libicui18n-x86_64.a: libicui18n-fat.a
+	lipo -thin x86_64 libicui18n-fat.a -output libicui18n-x86_64.a
+
+libicule-fat.a: /opt/local/lib/libicule.a
+	cp /opt/local/lib/libicule.a libicule-fat.a
+
+libicule-i386.a: libicule-fat.a
+	lipo -thin i386 libicule-fat.a -output libicule-i386.a
+
+libicule-x86_64.a: libicule-fat.a
+	lipo -thin x86_64 libicule-fat.a -output libicule-x86_64.a
+
+libiculx-fat.a: /opt/local/lib/libiculx.a
+	cp /opt/local/lib/libiculx.a libiculx-fat.a
+
+libiculx-i386.a: libiculx-fat.a
+	lipo -thin i386 libiculx-fat.a -output libiculx-i386.a
+
+libiculx-x86_64.a: libiculx-fat.a
+	lipo -thin x86_64 libiculx-fat.a -output libiculx-x86_64.a
+
+libicutu-fat.a: /opt/local/lib/libicutu.a
+	cp /opt/local/lib/libicutu.a libicutu-fat.a
+
+libicutu-i386.a: libicutu-fat.a
+	lipo -thin i386 libicutu-fat.a -output libicutu-i386.a
+
+libicutu-x86_64.a: libicutu-fat.a
+	lipo -thin x86_64 libicutu-fat.a -output libicutu-x86_64.a
+
+# Linux
 icu/source/lib/libicuio.a icu/source/lib/libicudata.a icu/source/lib/libicuuc.a icu/source/lib/libicui18n.a icu/source/lib/libicule.a icu/source/lib/libiculx.a icu/source/lib/libicutu.a: icu/
 	cd icu/source && CFLAGS=" -fPIC " ./configure --enable-static --disable-shared && make
 
@@ -105,12 +176,19 @@ sqlite-autoconf-3071000.tar.gz:
 sqlite-autoconf-3071000: sqlite-autoconf-3071000.tar.gz
 	tar xf sqlite-autoconf-3071000.tar.gz
 
+# Linux
 sqlite-autoconf-3071000/.libs/libsqlite3.a: sqlite-autoconf-3071000/
-if IS_OSX
-	cd sqlite-autoconf-3071000 && CC="gcc -arch i386 -arch x86_64" CXX="g++ -arch i386 -arch x86_64" CPP="gcc -E" CXXCPP="g++ -E" CFLAGS=" -fPIC " ./configure --enable-static --disable-shared && make
-else
 	cd sqlite-autoconf-3071000 && CFLAGS=" -fPIC " ./configure --enable-static --disable-shared && make
-endif
+
+# OSX
+libsqlite3-fat.a: sqlite-autoconf-3071000/
+	cd sqlite-autoconf-3071000 && CC="gcc -arch i386 -arch x86_64" CXX="g++ -arch i386 -arch x86_64" CPP="gcc -E" CXXCPP="g++ -E" CFLAGS=" -fPIC " ./configure --enable-static --disable-shared && make && cp .libs/libsqlite3.a ../libsqlite3-fat.a
+
+libsqlite3-i386.a: libsqlite3-fat.a
+	lipo -thin i386 libsqlite3-fat.a -output libsqlite3-i386.a
+
+libsqlite3-x86_64.a: libsqlite3-fat.a
+	lipo -thin x86_64 libsqlite3-fat.a -output libsqlite3-x86_64.a
 
 ####################################################
 ############ MICROHTTPD
@@ -123,11 +201,17 @@ libmicrohttpd-0.9.19: libmicrohttpd-0.9.19.tar.gz
 	tar xf libmicrohttpd-0.9.19.tar.gz
 
 libmicrohttpd-0.9.19/src/daemon/.libs/libmicrohttpd.a: libmicrohttpd-0.9.19/
-if IS_OSX
-	cd libmicrohttpd-0.9.19 && CC="gcc -arch i386 -arch x86_64" CXX="g++ -arch i386 -arch x86_64" CPP="gcc -E" CXXCPP="g++ -E" CFLAGS=" -fPIC " ./configure --enable-static --disable-shared && make
-else
 	cd libmicrohttpd-0.9.19 && CFLAGS=" -fPIC " ./configure --enable-static --disable-shared && make
-endif
+
+# OSX
+libmicrohttpd-fat.a: libmicrohttpd-0.9.19/
+	cd libmicrohttpd-0.9.19 && CC="gcc -arch i386 -arch x86_64" CXX="g++ -arch i386 -arch x86_64" CPP="gcc -E" CXXCPP="g++ -E" CFLAGS=" -fPIC " ./configure --enable-static --disable-shared && make && cp src/daemon/.libs/libmicrohttpd.a ../libmicrohttpd-fat.a
+
+libmicrohttpd-i386.a: libmicrohttpd-fat.a
+	lipo -thin i386 libmicrohttpd-fat.a -output libmicrohttpd-i386.a
+
+libmicrohttpd-x86_64.a: libmicrohttpd-fat.a
+	lipo -thin x86_64 libmicrohttpd-fat.a -output libmicrohttpd-x86_64.a
 
 ####################################################
 ############ LZMA
@@ -159,11 +243,17 @@ endif
 endif
 
 xz/src/liblzma/.libs/liblzma.a: xz/
-if IS_OSX
-	cd xz && CC="gcc -arch i386 -arch x86_64" CXX="g++ -arch i386 -arch x86_64" CPP="gcc -E" CXXCPP="g++ -E" CFLAGS=" -fPIC " ./configure --with-libiconv-prefix=/opt/local --with-libintl-prefix=/opt/local --disable-assembler --enable-static --disable-shared && make
-else
 	cd xz && CFLAGS=" -fPIC " ./configure --disable-assembler --enable-static --disable-shared && make
-endif
+
+# OSX
+liblzma-fat.a: xz/
+	cd xz && CC="gcc -arch i386 -arch x86_64" CXX="g++ -arch i386 -arch x86_64" CPP="gcc -E" CXXCPP="g++ -E" CFLAGS=" -fPIC " ./configure --with-libiconv-prefix=/opt/local --with-libintl-prefix=/opt/local --disable-assembler --enable-static --disable-shared && make && cp src/liblzma/.libs/liblzma.a ../liblzma-fat.a
+
+liblzma-i386.a: liblzma-fat.a
+	lipo -thin i386 liblzma-fat.a -output liblzma-i386.a
+
+liblzma-x86_64.a: liblzma-fat.a
+	lipo -thin x86_64 liblzma-fat.a -output liblzma-x86_64.a
 
 ####################################################
 ############ ARIA2 (downloaded)
@@ -196,11 +286,17 @@ clucene-core-0.9.21b: clucene-core-0.9.21b.tar.bz2
 	tar xf clucene-core-0.9.21b.tar.bz2
 
 clucene-core-0.9.21b/src/.libs/libclucene.a: clucene-core-0.9.21b/
-if IS_OSX
-	cd clucene-core-0.9.21b && CC="gcc -arch i386 -arch x86_64" CXX="g++ -arch i386 -arch x86_64" CPP="gcc -E" CXXCPP="g++ -E" CXXFLAGS=" -fPIC " ./configure --enable-static --disable-shared && make
-else
 	cd clucene-core-0.9.21b && CXXFLAGS=" -fPIC " ./configure --enable-static --disable-shared && make
-endif
+
+# OSX
+libclucene-fat.a: clucene-core-0.9.21b/
+	cd clucene-core-0.9.21b && CC="gcc -arch i386 -arch x86_64" CXX="g++ -arch i386 -arch x86_64" CPP="gcc -E" CXXCPP="g++ -E" CXXFLAGS=" -fPIC " ./configure --enable-static --disable-shared && make && cp src/.libs/libclucene.a ../libclucene-fat.a
+
+libclucene-i386.a: libclucene-fat.a
+	lipo -thin i386 libclucene-fat.a -output libclucene-i386.a
+
+libclucene-x86_64.a: libclucene-fat.a
+	lipo -thin x86_64 libclucene-fat.a -output libclucene-x86_64.a
 
 ####################################################
 ############ CLEANUP (ALL)
