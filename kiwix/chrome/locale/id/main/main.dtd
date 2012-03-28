@@ -1,0 +1,139 @@
+<!-- Window -->
+<!ENTITY main.title                     "&brand.brandShortName;">
+<!ENTITY main.cssdirection              "ltr">
+
+<!-- File menu -->
+<!ENTITY main.file                      "Berkas">
+<!ENTITY main.file.accesskey            "F">
+<!ENTITY main.openFile                  "Buka berkas...">
+<!ENTITY main.browseLibrary.accesskey   "B">
+<!ENTITY main.browseLibrary             "Jelajah perpustakaan">
+<!ENTITY main.openFile.accesskey        "O">
+<!ENTITY main.lastOpen                  "Barusan dibuka...">
+<!ENTITY main.saveFile                  "Simpan halaman sebagai...">
+<!ENTITY main.saveFile.accesskey        "S">
+<!ENTITY main.print                     "Cetak">
+<!ENTITY main.print.accesskey           "P">
+<!ENTITY main.printPdf                  "Cetak sebagai PDF">
+<!ENTITY main.printPdf.accesskey        "D">
+<!ENTITY main.quit                      "Keluar">
+<!ENTITY main.quit.accesskey            "Q">
+
+<!-- Edit menu -->
+<!ENTITY main.edit                      "Sunting">
+<!ENTITY main.edit.accesskey            "E">
+<!ENTITY main.find                      "Cari di halaman...">
+<!ENTITY main.find.accesskey            "S">
+<!ENTITY main.selectall                 "Pilih semua">
+<!ENTITY main.selectall.accesskey       "a">
+<!ENTITY main.copy                      "Salin">
+<!ENTITY main.copy.accesskey            "p">
+<!ENTITY main.transliteration           "Transliterasi">
+<!ENTITY main.transliteration.accesskey "T">
+<!ENTITY main.preferences               "Preferensi">
+<!ENTITY main.preferences.accesskey     "n">
+
+<!-- Display menu -->
+<!ENTITY main.display                   "Tampilan">
+<!ENTITY main.display.accesskey         "D">
+<!ENTITY main.zoom                      "Perbesaran">
+<!ENTITY main.zoom.accesskey            "Z">
+<!ENTITY main.zoomin                    "Perbesar">
+<!ENTITY main.zoomin.accesskey          "M">
+<!ENTITY main.zoomout                   "Perkecil">
+<!ENTITY main.zoomout.accesskey         "R">
+<!ENTITY main.zoomorig                  "Ukuran asli">
+<!ENTITY main.zoomorig.accesskey        "O">
+<!ENTITY main.language                  "Bahasa">
+<!ENTITY main.language.accesskey        "L">
+<!ENTITY main.skin                      "Kulit">
+<!ENTITY main.skin.accesskey            "S">
+<!ENTITY main.statusbar                 "Bar status">
+<!ENTITY main.statusbar.accesskey       "S">
+<!ENTITY main.resultsbar                "Bar hasil">
+<!ENTITY main.resultsbar.accesskey      "R">
+<!ENTITY main.tabs                      "Tab">
+<!ENTITY main.tabs.accesskey            "T">
+<!ENTITY main.fullscreen                "Layar penuh">
+<!ENTITY main.fullscreen.accesskey      "F">
+
+<!-- Tools menu -->
+<!ENTITY main.tools                     "Peralatan">
+<!ENTITY main.tools.accesskey           "T">
+<!ENTITY main.randomArticle             "Artikel sembarang">
+<!ENTITY main.randomArticle.accesskey   "R">
+<!ENTITY main.checkIntegrity            "Pemeriksaan integritas">
+<!ENTITY main.checkIntegrity.accesskey  "k">
+<!ENTITY main.purgeHistory              "Bersihkan riwayat">
+<!ENTITY main.purgeHistory.accesskey    "P">
+
+<!-- Help menu -->
+<!ENTITY main.help                      "Bantuan">
+<!ENTITY main.help.accesskey            "H">
+<!ENTITY main.feedback                  "Umpan balik">
+<!ENTITY main.reportabug                "Laporkan bug">
+<!ENTITY main.requestafeature           "Minta fitur">
+<!ENTITY main.about                     "Tentang &brand.brandShortName;">
+<!ENTITY main.about.accesskey           "A">
+
+<!-- Tool bar -->
+<!ENTITY main.back                      "Kembali">
+<!ENTITY main.forward                   "Maju">
+<!ENTITY main.home                      "Utama">
+<!ENTITY main.searchBar                 "Bar pencarian">
+<!ENTITY main.search                    "Cari">
+<!ENTITY main.findInText                "Cari di teks">
+<!ENTITY main.noSearchBar               "Pencarian membutuhkan berkas ZIM yang telah diindeks">
+<!ENTITY main.bookmarks                 "Tandai">
+
+<!-- Results bar -->
+<!ENTITY main.results.title             "Hasil pencarian">
+
+<!-- Bookmarks Bar -->
+<!ENTITY main.bmkLabel                  "Markah:">
+<!ENTITY main.notesLabel                "Catatan markah:">
+<!ENTITY main.loadbmk                   "Impor Set Markah">
+<!ENTITY main.newbmk                    "Buat Set Markah baru">
+<!ENTITY main.mark                      "Tandai halaman ini">
+<!ENTITY main.unmark                    "Hapus tanda yang dipilih">
+<!ENTITY main.reload                    "Muat ulang Set Markah">
+<!ENTITY main.defaultset                "Set Baku">
+
+<!-- Contextual Menu -->
+<!ENTITY main.saveImageAs               "Simpan gambar sebagai...">
+<!ENTITY main.openLinkInNewTab          "Buka pranala di tab baru">
+<!ENTITY main.searchFor                 "Pencarian untuk">
+<!ENTITY main.copyLinkAdress            "Copy link address">
+<!ENTITY main.mute                      "Diam">
+<!ENTITY main.audible                   "Dapat didengar">
+
+<!-- About Window -->
+<!ENTITY main.close                     "Tutup">
+
+<!-- Preferences Window -->
+<!ENTITY preferences.preferences        "Preferences">
+<!ENTITY preferences.save               "Save">
+<!ENTITY preferences.cancel             "Cancel">
+<!ENTITY preferences.profileDirectory   "Profile directory">
+<!ENTITY preferences.browse             "Browse">
+<!ENTITY preferences.tabs               "Remember tabs">
+
+<!-- Library -->
+<!ENTITY main.library.myLibrary                 "Perpustakaan saya">
+<!ENTITY main.library.getNewFiles               "Dapatkan berkas baru">
+<!ENTITY main.library.searchZimFiles            "Cari berkas ZIM">
+<!ENTITY main.library.sortBy                    "Urut berdasarkan">
+<!ENTITY main.library.sortBy.title              "Judul">
+<!ENTITY main.library.sortBy.size               "Ukuran">
+<!ENTITY main.library.sortBy.date               "Tanggal">
+<!ENTITY main.library.sortBy.author             "Pembuat">
+<!ENTITY main.library.sortBy.publisher          "Penerbit">
+<!ENTITY main.library.filterBy                  "Saring berdasarkan">
+<!ENTITY main.library.filterBy.fileSize         "Ukuran berkas">
+<!ENTITY main.library.filterBy.language         "Bahasa">
+<!ENTITY main.library.filterBy.language.all     "Semua">
+<!ENTITY main.library.filterBy.author           "Penulis">
+<!ENTITY main.library.filterBy.author.all       "Semua">
+<!ENTITY main.library.filterBy.publisher        "Penerbit">
+<!ENTITY main.library.filterBy.publisher.all    "Semua">
+

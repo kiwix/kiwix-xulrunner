@@ -104,8 +104,8 @@
 <!ENTITY main.openLinkInNewTab          "সংযোগক নতুন টেবত খোলক">
 <!ENTITY main.searchFor                 "এইটো অনুসন্ধান কৰক">
 <!ENTITY main.copyLinkAdress            "Copy link address">
-<!ENTITY main.mute                      "Mute">
-<!ENTITY main.audible                   "Audible">
+<!ENTITY main.mute                      "নিঃশব্দ">
+<!ENTITY main.audible                   "শ্রবনযোগ্য">
 
 <!-- About Window -->
 <!ENTITY main.close                     "বন্ধ কৰক">

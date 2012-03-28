@@ -70,7 +70,7 @@
 <!-- Help menu -->
 <!ENTITY main.help                      "لارښود">
 <!ENTITY main.help.accesskey            "H">
-<!ENTITY main.feedback                  "Feedback">
+<!ENTITY main.feedback                  "غبرګون">
 <!ENTITY main.reportabug                "د تېروتنې راپور ورکول">
 <!ENTITY main.requestafeature           "د يوې ځانګړنې غوښتنه">
 <!ENTITY main.about                     "د سوداګريزې نخښې لنډ سوداګريز نوم په اړه؛">
@@ -104,8 +104,8 @@
 <!ENTITY main.openLinkInNewTab          "تړنه په نوې کړکۍ کې پرانيستل">
 <!ENTITY main.searchFor                 "پلټل">
 <!ENTITY main.copyLinkAdress            "Copy link address">
-<!ENTITY main.mute                      "Mute">
-<!ENTITY main.audible                   "Audible">
+<!ENTITY main.mute                      "ټپول">
+<!ENTITY main.audible                   "اورېدون وړ">
 
 <!-- About Window -->
 <!ENTITY main.close                     "تړل">

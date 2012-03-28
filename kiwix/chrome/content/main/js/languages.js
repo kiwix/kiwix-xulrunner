@@ -4,6 +4,7 @@ var _languagesHash          = Array();
 var _languagesRegexHash     = Array();
 
 /* Initialize the languages arrays */
+_languagesHash['aeb']       = "زَوُن";
 _languagesHash['af']        = "Afrikaans";
 _languagesHash['ar']        = "العربية";
 _languagesHash['ary']       = "الدارجة";
@@ -41,6 +42,7 @@ _languagesHash['hr']        = "Олык Марий";
 _languagesHash['hsb']       = "Hornjoserbsce";
 _languagesHash['hu']        = "Magyar";
 _languagesHash['ia']        = "Interlingua";
+_languagesHash['id']        = "Bahasa Indonesia";
 _languagesHash['ie']        = "Interlingue";
 _languagesHash['ilo']       = "Ilokano";
 _languagesHash['it']        = "Italiano";

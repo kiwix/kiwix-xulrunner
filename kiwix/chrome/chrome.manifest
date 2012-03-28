@@ -5,6 +5,7 @@ content static static/
 content ctype ctype/
 
 #locale packagename localename uri/to/files/ [flags]
+locale main aeb            locale/aeb/main/
 locale main af             locale/af/main/
 locale main ar             locale/ar/main/
 locale main ary            locale/ary/main/
@@ -42,6 +43,7 @@ locale main hr             locale/hr/main/
 locale main hsb            locale/hsb/main/
 locale main hu             locale/hu/main/
 locale main ia             locale/ia/main/
+locale main id             locale/id/main/
 locale main ie             locale/ie/main/
 locale main ilo            locale/ilo/main/
 locale main it             locale/it/main/
@@ -101,6 +103,7 @@ locale main zh-hans        locale/zh-hans/main/
 locale main zh-hant        locale/zh-hant/main/
 locale main zh-hk          locale/zh-hk/main/
 
+locale branding aeb        locale/branding/
 locale branding af         locale/branding/
 locale branding ar         locale/branding/
 locale branding ary        locale/branding/
@@ -137,6 +140,7 @@ locale branding hr         locale/branding/
 locale branding hsb        locale/branding/
 locale branding hu         locale/branding/
 locale branding ia         locale/branding/
+locale branding id         locale/branding/
 locale branding ie         locale/branding/
 locale branding ilo        locale/branding/
 locale branding it         locale/branding/
