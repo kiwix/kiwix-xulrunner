@@ -1,7 +1,8 @@
 /* Load no plugin, this is useless and can bring to segfault (remember libmoon) */
 pref("plugin.disable", true);
 
-/* Start XUL page */
+/* OUTDATED: Start XUL page. Window is now created in the
+ * components/commandLineHandler.js */
 //pref("toolkit.defaultChromeURI", "chrome://main/content/main.xul");
 
 /* Default skin */
