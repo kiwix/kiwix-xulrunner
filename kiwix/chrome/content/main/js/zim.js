@@ -91,24 +91,31 @@ function loadRandomArticle() {
     }
 }
 
+/* Get URL from title */
+function getArticleUrlFromTitle(title) {
+    var url = new Object();
+    if (currentZimAccessor != undefined) {
+	currentZimAccessor.getPageUrlFromTitle(title, url);
+    }
+    return url.value;
+}
+
 /* Load article from title */
 function loadArticleFromTitle(title) {
-    if (currentZimAccessor != undefined) {
-	var url = new Object();
-	
-	currentZimAccessor.getPageUrlFromTitle(title, url);
-	if (url.value != undefined && url.value != '') {
-	    
-	    /* Need to replace the '+' by the escaping value, otherwise will be interpreted as ' ' (see with "C++") */
-	    var urlValue = url.value.replace( /\+/g, "%2B");
+    var url = getArticleUrlFromTitle(title);
 
-	    url.value = "zim://" + urlValue;
-	    loadContent(url.value);
-	    activateBackButton();
-	    return true;
-	}
+    if (url != undefined && url != '') {
+	
+	/* Need to replace the '+' by the escaping value, otherwise
+	 * will be interpreted as ' ' (see with "C++") */
+	var urlValue = url.replace( /\+/g, "%2B");
+	
+	url = "zim://" + urlValue;
+	loadContent(url);
+	activateBackButton();
+	return true;
     }
-    
+
     return false;
 }
 

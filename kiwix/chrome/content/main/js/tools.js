@@ -278,12 +278,41 @@ function loadContentFromCommandLine(commandLine) {
     if (commandLine != undefined) {
 	commandLine = commandLine.QueryInterface(Components.interfaces.nsICommandLine);
 	var argumentCount = commandLine.length;
+	var managedToOpenFile = false;
 	for (var argumentIndex=0; argumentIndex<argumentCount; argumentIndex++) {
 	    var argument = commandLine.getArgument(argumentIndex);
 	    if (argument.match(/^.*\.(zim|zimaa)$/i)) {
 		argument = pathFromURL(argument);
 		argument = argument.replace('%20', ' ');
-		manageOpenFile(argument, true);
+		manageToOpenFile = manageOpenFile(argument, true);
+	    }
+	}
+
+	/* Try to open specific articles */
+	if (manageToOpenFile) {
+	    var argument;
+	    var firstLoad = true;
+	    while ((argument = commandLine.handleFlagWithParam("articleByUrl", false)) != undefined) {
+		if (!argument.match(/^zim:\/\/.*$/)) {
+		    argument = "zim://" + argument;
+		}
+		
+		if (firstLoad) {
+		    manageOpenUrl(argument);
+		    firstLoad = false;
+		} else {
+		    manageOpenUrlInNewTab(argument);
+		}
+	    }
+
+	    while ((argument = commandLine.handleFlagWithParam("articleByTitle", false)) != undefined) {
+		var url = "zim://" + getArticleUrlFromTitle(argument);
+		if (firstLoad) {
+		    manageOpenUrl(url);
+		    firstLoad = false;
+		} else {
+		    manageOpenUrlInNewTab(url);
+		}
 	    }
 	}
     }	

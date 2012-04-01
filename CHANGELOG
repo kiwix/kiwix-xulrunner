@@ -37,6 +37,7 @@ Kiwix 0.9 rc1
 * NEW: if no title metatag in file, compute title from the filename (ID: 3488268)
 * NEW: Replacement of "fastjar" by "zip" (better dependence)
 * NEW: Use new (20% smaller) IETF normalized Metalink format (meta4) instead of old (v3) Metalink
+* NEW: Open specific article via command prompt using "articleByUrl" & "articleByTitle" (ID: 3484628)
 
 Kiwix 0.9 beta5
 * FIXED: letton language menu item (ID: 3439113)
