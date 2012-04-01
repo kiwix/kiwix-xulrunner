@@ -62,7 +62,7 @@ _languagesHash['ml']        = "മലയാളം";
 _languagesHash['mr']        = "मराठी";
 _languagesHash['ms']        = "Bahasa Melayu";
 _languagesHash['mt']        = "Malti";
-_langaugesHash['mya']       = _languagesHashOld['my']        = "မြန်မာဘာသာ";
+_languagesHash['mya']       = _languagesHashOld['my']        = "မြန်မာဘာသာ";
 _languagesHash['nan']       = "Bân-lâm-gú";
 _languagesHash['ne']        = "नेपाली";
 _languagesHash['nl']        = "Nederlands";
@@ -108,7 +108,11 @@ _languagesHash['zho-hant']  = _languagesHashOld['zh-hant']   = "中文(繁體)";
 _languagesHash['zho-hk']    = _languagesHashOld['zh-hk']     = "中文(香港)";
 
 function getLanguageNameFromISO(code) {
-    return _languagesHash[code] || _languagesHashOld[code] || "";
+    var language = _languagesHash[code] || _languagesHashOld[code] || "";
+    if (!language) {
+	dump("'" + code + "' is not available in languages.js.\n");
+    }
+    return language;
 }
 
 /* Be careful, this function returns false, also if undefined - that

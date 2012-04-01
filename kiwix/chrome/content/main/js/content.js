@@ -774,9 +774,7 @@ function populateLibraryFilters() {
 	    var currentLanguage = getLanguageNameFromISO(currentLanguageCode);
 	    var currentLanguageRegex = getLanguageRegex(currentLanguage);
 	    
-	    if (!currentLanguage) {
-		dump("'" + currentLanguageCode + "' is not available in languages.js.\n");
-	    } else if (alreadyListedLanguages[currentLanguageRegex] === undefined) {
+	    if (currentLanguage && alreadyListedLanguages[currentLanguageRegex] === undefined) {
 		alreadyListedLanguages[currentLanguageRegex] = true;
 		
 		var menuItem = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul",
