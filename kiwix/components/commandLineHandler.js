@@ -66,42 +66,34 @@ const myAppHandler = {
     },
 
     /* nsICommandLineHandler */
-    handle : function bch_handle(nsCommandLine) {
-	/* Read the command line arguments */
-	var zimPath = "";
-	var argumentCount = nsCommandLine.length;
-	for (var argumentIndex=0; argumentIndex<argumentCount; argumentIndex++) {
-	    var argument = nsCommandLine.getArgument(argumentIndex);
-	    if (argument.match(/^.*\.(zim|zimaa)$/i)) {
-		argument = pathFromURL(argument);
-		argument = argument.replace('%20', ' ');
-		zimPath = argument;
-	    }
+    handle : function bch_handle(commandLine) {
+	var wm = Components.classes["@mozilla.org/appshell/window-mediator;1"]
+	    .getService(Components.interfaces.nsIWindowMediator);
+	var e = wm.getEnumerator("singleton");
+	var mostRecent = null;
+	if (e && e.hasMoreElements()) {
+	    mostRecent = e.getNext();
 	}
 
-	if (zimPath != "") {
-	    var wm = Components.classes["@mozilla.org/appshell/window-mediator;1"].getService(Components.interfaces.nsIWindowMediator);
-	    var e = wm.getEnumerator("singleton");
-	    var mostRecent = null;
-	    if (e && e.hasMoreElements()) {
-		mostRecent = e.getNext();
-	    }
-	    if (mostRecent) {
-		dump("Window already open...\n");
-
-		/* Get the singleton Window object */
-		var navNav = mostRecent.QueryInterface(Components.interfaces.nsIInterfaceRequestor)
-                    .getInterface(Components.interfaces.nsIWebNavigation);
-		var rootItem = navNav.QueryInterface(Components.interfaces.nsIDocShellTreeItem).rootTreeItem;
-		var rootWin = rootItem.QueryInterface(Components.interfaces.nsIInterfaceRequestor)
-                    .getInterface(Components.interfaces.nsIDOMWindow);
-
-		/* Trigger an event to parse the zim file path */
-		var evt = rootWin.document.createEvent("Events");
-		evt.initEvent("onZimArg", true, false);
-		evt.data = argument
-		rootWin.document.dispatchEvent(evt); 
-	    }
+	/* A window is already open */
+	if (mostRecent) {
+	    /* Get the singleton Window object */
+	    var navNav = mostRecent.QueryInterface(Components.interfaces.nsIInterfaceRequestor)
+                .getInterface(Components.interfaces.nsIWebNavigation);
+	    var rootItem = navNav.QueryInterface(Components.interfaces.nsIDocShellTreeItem).rootTreeItem;
+	    var rootWin = rootItem.QueryInterface(Components.interfaces.nsIInterfaceRequestor)
+                .getInterface(Components.interfaces.nsIDOMWindow);
+	    
+	    /* Trigger an event to parse the zim file path */
+	    var evt = rootWin.document.createEvent("Events");
+	    evt.initEvent("onZimArg", true, false);
+	    evt.data = commandLine;
+	    rootWin.document.dispatchEvent(evt); 
+	} else {
+	    var windowWatcher = Components.classes["@mozilla.org/embedcomp/window-watcher;1"]
+                .getService(nsIWindowWatcher);
+	    return windowWatcher.openWindow(null, "chrome://main/content/main.xul", "_blank", 
+					    "chrome,dialog=no,all", commandLine);
 	}
     },
 

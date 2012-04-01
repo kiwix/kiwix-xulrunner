@@ -267,19 +267,26 @@ function initModulesAndComponents() {
 }
 
 /* Load the necessary ZIM file at Kiwix startup */
-function initContent() {
-    /* Read the command line arguments */
-    var nsCommandLine = window.arguments[0];
-    nsCommandLine = nsCommandLine.QueryInterface(Components.interfaces.nsICommandLine);
-    var argumentCount = nsCommandLine.length;
-    for (var argumentIndex=0; argumentIndex<argumentCount; argumentIndex++) {
-	var argument = nsCommandLine.getArgument(argumentIndex);
-	if (argument.match(/^.*\.(zim|zimaa)$/i)) {
-	    argument = pathFromURL(argument);
-	    argument = argument.replace('%20', ' ');
-	    manageOpenFile(argument, true);
-	}
+function loadContentFromCommandLine(commandLine) {
+
+    /* If no command line specified, catch the one of the window */
+    if (commandLine === undefined && window.arguments != undefined) {
+	commandLine = window.arguments[0];
     }
+
+    /* Read the command line arguments */
+    if (commandLine != undefined) {
+	commandLine = commandLine.QueryInterface(Components.interfaces.nsICommandLine);
+	var argumentCount = commandLine.length;
+	for (var argumentIndex=0; argumentIndex<argumentCount; argumentIndex++) {
+	    var argument = commandLine.getArgument(argumentIndex);
+	    if (argument.match(/^.*\.(zim|zimaa)$/i)) {
+		argument = pathFromURL(argument);
+		argument = argument.replace('%20', ' ');
+		manageOpenFile(argument, true);
+	    }
+	}
+    }	
 
     /* If there is no file open with the commandline try to open last open book */
     if (currentZimAccessor == undefined) {
@@ -305,7 +312,7 @@ function onStart() {
     initUserInterface();
     initBookmarks();
     initLibrary();
-    initContent();
+    loadContentFromCommandLine();
     initDownloader();
 
     /* Remove old profile if necessary - experimental */

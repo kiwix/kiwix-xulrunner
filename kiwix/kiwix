@@ -40,9 +40,9 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
 # If no local xulrunner binary try different name on the system
 if [ ! "$XULRUNNER" ]
 then
-  XULRUNNER_NAMES="xulrunner xulrunner-1.9.2 xulrunner-10.0 xulrunner-9.0 \
+  XULRUNNER_NAMES="xulrunner-1.9.2 xulrunner-10.0 xulrunner-9.0 \
                    xulrunner-8.0 xulrunner-7.0 xulrunner-6.0 xulrunner-5.0 xulrunner-4.0 \
-                   xulrunner-3.0 xulrunner-2.0 xulrunner-1.9.1";
+                   xulrunner-3.0 xulrunner-2.0 xulrunner-1.9.1 xulrunner";
   for NAME in $XULRUNNER_NAMES
   do
     XULRUNNER=`which $NAME`

@@ -1398,7 +1398,7 @@ function initEventListeners() {
     gOS.addObserver(observer, "xul-window-visible", false);    
 
     /* Kiwix called with ZIM file path on command line */
-    document.addEventListener("onZimArg", function(e) { manageOpenFile(e.data, true) }, false);
+    document.addEventListener("onZimArg", function(e) { loadContentFromCommandLine(e.data) }, false);
 }
 
 /* Event Listener */

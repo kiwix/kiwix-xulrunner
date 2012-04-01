@@ -2,7 +2,7 @@
 pref("plugin.disable", true);
 
 /* Start XUL page */
-pref("toolkit.defaultChromeURI", "chrome://main/content/main.xul");
+//pref("toolkit.defaultChromeURI", "chrome://main/content/main.xul");
 
 /* Default skin */
 pref("general.skins.selectedSkin", "default");
