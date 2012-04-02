@@ -109,7 +109,7 @@ _languagesHash['zho-hk']    = _languagesHashOld['zh-hk']     = "中文(香港)";
 
 function getLanguageNameFromISO(code) {
     var language = _languagesHash[code] || _languagesHashOld[code] || "";
-    if (!language) {
+    if (!language && code) {
 	dump("'" + code + "' is not available in languages.js.\n");
     }
     return language;
