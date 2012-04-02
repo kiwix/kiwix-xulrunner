@@ -284,12 +284,12 @@ function loadContentFromCommandLine(commandLine) {
 	    if (argument.match(/^.*\.(zim|zimaa)$/i)) {
 		argument = pathFromURL(argument);
 		argument = argument.replace('%20', ' ');
-		manageToOpenFile = manageOpenFile(argument, true);
+		managedToOpenFile = manageOpenFile(argument, true);
 	    }
 	}
 
 	/* Try to open specific articles */
-	if (manageToOpenFile) {
+	if (managedToOpenFile) {
 	    var argument;
 	    var firstLoad = true;
 	    while ((argument = commandLine.handleFlagWithParam("articleByUrl", false)) != undefined) {
