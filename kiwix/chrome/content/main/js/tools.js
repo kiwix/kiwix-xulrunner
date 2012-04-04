@@ -565,10 +565,13 @@ function randomString() {
 /* Returns the root path of the binary if found, undefined otherwise */
 function whereis(binary) {
     var sep = env.isWindows() ? ";" : ":";
-    var path = "." + sep + env.getPath();
-    var pathArray = path.split(sep);
     var directory = Components.classes["@mozilla.org/file/local;1"].
            createInstance(Components.interfaces.nsILocalFile);
+    var file = Components.classes["@mozilla.org/file/directory_service;1"].  
+                getService(Components.interfaces.nsIProperties).  
+                get("CurProcD", Components.interfaces.nsIFile);  
+    var path = file.path + sep + env.getPath();
+    var pathArray = path.split(sep);
 
     for (var i in pathArray) {
 	try {
