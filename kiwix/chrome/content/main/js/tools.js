@@ -240,9 +240,15 @@ function getInstallationPrefix() {
 function initModulesAndComponents() {
 
     /* Include jsm modules*/
-    Components.utils.import("resource://modules/env.jsm");
-    Components.utils.import("resource://modules/settings.jsm");
-    Components.utils.import("resource://modules/library.jsm");
+    try {
+        Components.utils.import("resource://modules/env.jsm");
+    } catch (e) { dump("Unable to import env.jsm. " + e.toString() + "\n"); }
+    try {
+        Components.utils.import("resource://modules/settings.jsm");
+    } catch (e) { dump("Unable to import settings.jsm. " + e.toString() + "\n"); }
+    try {
+        Components.utils.import("resource://modules/library.jsm");
+    } catch (e) { dump("Unable to import library.jsm. " + e.toString() + "\n"); }
 
     /* jsctype jsm moculdes */
     /*
@@ -558,7 +564,9 @@ function randomString() {
 
 /* Returns the root path of the binary if found, undefined otherwise */
 function whereis(binary) {
-    var pathArray = env.getPath().split(env.isWindows() ? ";" : ":");
+    var sep = env.isWindows() ? ";" : ":";
+    var path = "." + sep + env.getPath();
+    var pathArray = path.split(sep);
     var directory = Components.classes["@mozilla.org/file/local;1"].
            createInstance(Components.interfaces.nsILocalFile);
 
