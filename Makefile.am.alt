@@ -140,6 +140,35 @@ xo:
 
 # alter preferences: default skin is sugar. probably content location too.
 
+static: dist
+	rm -rf $(STATIC_TMP)
+	mkdir -p $(STATIC_TMP)
+
+	cp -Lr ./kiwix $(STATIC_TMP)/
+	rm -rf `find $(STATIC_TMP)/kiwix -type d -name .svn`
+	find $(STATIC_TMP)/kiwix -name '*.inised' -exec rm -rf {} \;
+	find $(STATIC_TMP)/kiwix -name 'Makefile' -delete
+	find $(STATIC_TMP)/kiwix -name 'Makefile.in' -delete
+	find $(STATIC_TMP)/kiwix -name 'Makefile.am*' -delete
+
+	mv $(STATIC_TMP)/kiwix/chrome/content/main/js/logger_rlz.js $(STATIC_TMP)/kiwix/chrome/content/main/js/logger.js
+
+	cp -r $(XULRUNNER_RUNTIME_PATH) $(STATIC_TMP)/kiwix/xulrunner
+	chmod +x $(STATIC_TMP)/kiwix/xulrunner/xulrunner $(STATIC_TMP)/kiwix/xulrunner/xulrunner-bin
+	cp -v $(STATIC_TMP)/kiwix/xulrunner/libplc4.so $(STATIC_TMP)/kiwix/xulrunner/libplc4.so.0d
+	cp -v $(STATIC_TMP)/kiwix/xulrunner/libnspr4.so $(STATIC_TMP)/kiwix/xulrunner/libnspr4.so.0d
+	cp -v $(STATIC_TMP)/kiwix/xulrunner/libplds4.so $(STATIC_TMP)/kiwix/xulrunner/libplds4.so.0d
+	mv $(STATIC_TMP)/kiwix/xulrunner/xulrunner-stub $(STATIC_TMP)/kiwix/kiwix
+
+	cp -Lv $(STATIC_LIBS) $(STATIC_TMP)/kiwix/xulrunner/
+	ln -s $(STATIC_LIBS)/kiwix/xulrunner/liblzma.so $(STATIC_LIBS)/kiwix/xulrunner/liblzma.so.5
+	ln -s $(STATIC_LIBS)/kiwix/xulrunner/libclucene.so $(STATIC_LIBS)/kiwix/xulrunner/libclucene.so.0
+
+	cp -v $(COMPILED_ARIA2_FILES) $(STATIC_TMP)/kiwix/aria2c
+	mkdir -p $(STATIC_TMP)/kiwix/bin
+
+	tar -C $(STATIC_TMP) -cvjf $(PACKAGE)-$(VERSION)-static.tar.bz2 kiwix
+
 # Mac OSX rule
 # requires install of XR
 distmac: dist

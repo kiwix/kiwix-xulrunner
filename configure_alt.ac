@@ -188,6 +188,9 @@ SELF="SELF"
 DEP_PATH="${CURRENT_PATH}/src/dependencies"
 
 STATIC_BUILD=0
+STATIC_TMP="static_tmp"
+# list of .so to copy to xulrunner/ path
+STATIC_LIBS=""
 
 GECKO_SDK_PATH=""
 COMPILE_GECKO_SDK=0
@@ -201,11 +204,15 @@ then
 XPCOM_LDFLAGS=${XPCOM_LDFLAGS}",-rpath-link,$GECKO_SDK_PATH/bin"
 fi
 
+XULRUNNER_RUNTIME_PATH="${DEP_PATH}/xulrunner"
+
 ZLIB_CFLAGS=""
 ZLIB_LDFLAGS="-Bstatic -lz"
 COMPILE_ZLIB=0
 COMPILED_ZLIB_CFLAGS="-I${DEP_PATH}/zlib-1.2.3"
-COMPILED_ZLIB_LDFLAGS="${DEP_PATH}/zlib-1.2.3/libz.a"
+#COMPILED_ZLIB_LDFLAGS="${DEP_PATH}/zlib-1.2.3/libz.a"
+COMPILED_ZLIB_LDFLAGS="-L${DEP_PATH}/zlib-1.2.3 -Bstatic -lz"
+COMPILED_ZLIB_FILES="${DEP_PATH}/zlib-1.2.3/libz.so"
 
 XAPIAN_CFLAGS=""
 XAPIAN_LDFLAGS="-lxapian"
@@ -216,19 +223,23 @@ if test [ $IS_WIN -eq 1 ] ; then
 elif test [ $IS_OSX -eq 1 ] ; then
 	COMPILED_XAPIAN_LDFLAGS="${DEP_PATH}/libxapian-${ARCH}.a"
 else
-    COMPILED_XAPIAN_LDFLAGS="${DEP_PATH}/xapian-core-1.2.3/.libs/libxapian.a"
+    #COMPILED_XAPIAN_LDFLAGS="${DEP_PATH}/xapian-core-1.2.3/.libs/libxapian.a"
+    COMPILED_XAPIAN_LDFLAGS="-L${DEP_PATH}/xapian-core-1.2.3/.libs/ -lxapian"
 fi
+COMPILED_XAPIAN_FILES="${DEP_PATH}/xapian-core-1.2.3/.libs/libxapian.so"
 
 ICU_CFLAGS=""
 ICU_LDFLAGS="-licui18n -licuuc -licudata" # replaced by icu-config"
 COMPILE_ICU=0
+COMPILED_ICU_CFLAGS="-I${DEP_PATH}/icu/source/build/include"
 if test [ $IS_WIN -eq 1 ] ; then
 	COMPILED_ICU_LDFLAGS="${DEP_PATH}/icu/lib/icuio.lib ${DEP_PATH}/icu/lib/icudata.lib ${DEP_PATH}/icu/lib/icuuc.lib ${DEP_PATH}/icu/lib/icui18n.lib"
 elif test [ $IS_OSX -eq 1 ] ; then
 	COMPILED_ICU_LDFLAGS="${DEP_PATH}/libicui18n-${ARCH}.a ${DEP_PATH}/libicuuc-${ARCH}.a ${DEP_PATH}/libicudata-${ARCH}.a ${DEP_PATH}/libicuio-${ARCH}.a ${DEP_PATH}/libicule-${ARCH}.a ${DEP_PATH}/libiculx-${ARCH}.a ${DEP_PATH}/libicutu-${ARCH}.a"
 else
-	COMPILED_ICU_LDFLAGS="${DEP_PATH}/icu/source/lib/libicui18n.a ${DEP_PATH}/icu/source/lib/libicuuc.a ${DEP_PATH}/icu/source/lib/libicudata.a ${DEP_PATH}/icu/source/lib/libicuio.a ${DEP_PATH}/icu/source/lib/libicule.a ${DEP_PATH}/icu/source/lib/libiculx.a ${DEP_PATH}/icu/source/lib/libicutu.a"
+	COMPILED_ICU_LDFLAGS="-L${DEP_PATH}/icu/source/build/lib -licui18n -licuuc -licudata"
 fi
+COMPILED_ICU_FILES="${DEP_PATH}/icu/source/lib/libicui18n.so ${DEP_PATH}/icu/source/lib/libicuuc.so ${DEP_PATH}/icu/source/lib/libicudata.so ${DEP_PATH}/icu/source/lib/libicuio.so ${DEP_PATH}/icu/source/lib/libicule.so ${DEP_PATH}/icu/source/lib/libiculx.so ${DEP_PATH}/icu/source/lib/libicutu.so"
 
 # no win for sqlite as it is just a sub dependency of aria2
 SQLITE_CFLAGS=""
@@ -237,8 +248,9 @@ COMPILE_SQLITE=0
 if test [ $IS_OSX -eq 1 ] ; then
 	COMPILED_SQLITE_LDFLAGS="${DEP_PATH}/libsqlite3-${ARCH}.a"
 else
-	COMPILED_SQLITE_LDFLAGS="${DEP_PATH}/sqlite-autoconf-3071000/.libs/libsqlite3.a"
+	COMPILED_SQLITE_LDFLAGS="-L${DEP_PATH}/sqlite-autoconf-3071000/.libs -libsqlite3"
 fi
+COMPILED_SQLITE_FILES="${DEP_PATH}/sqlite-autoconf-3071000/.libs/libsqlite3.so"
 
 # used only for building kiwix-serve. Not available on windows.
 MICROHTTPD_CFLAGS=""
@@ -247,8 +259,9 @@ COMPILE_MICROHTTPD=0
 if test [ $IS_OSX -eq 1 ] ; then
 	COMPILED_MICROHTTPD_LDFLAGS="${DEP_PATH}/libmicrohttpd-${ARCH}.a"
 else
-	COMPILED_MICROHTTPD_LDFLAGS="${DEP_PATH}/libmicrohttpd-0.9.19/src/daemon/.libs/libmicrohttpd.a"
+	COMPILED_MICROHTTPD_LDFLAGS="-L${DEP_PATH}/libmicrohttpd-0.9.19/src/daemon/.libs -lmicrohttpd"
 fi
+COMPILED_MICROHTTPD_FILES="${DEP_PATH}/libmicrohttpd-0.9.19/src/daemon/.libs/libmicrohttpd.so"
 
 LZMA_CFLAGS=""
 LZMA_LDFLAGS="-Bstatic -llzma"
@@ -258,9 +271,10 @@ if test [ $IS_WIN -eq 1 ] ; then
 elif test [ $IS_OSX -eq 1 ] ; then
 	COMPILED_LZMA_LDFLAGS="${DEP_PATH}/liblzma-${ARCH}.a"
 else
-    COMPILED_LZMA_LDFLAGS="${DEP_PATH}/xz/src/liblzma/.libs/liblzma.a"
+    COMPILED_LZMA_LDFLAGS="-L${DEP_PATH}/xz/src/liblzma/.libs -Bstatic -llzma"
 fi
 COMPILED_LZMA_CFLAGS="-I${DEP_PATH}/xz/src/liblzma/api"
+COMPILED_LZMA_FILES="${DEP_PATH}/xz/src/liblzma/.libs/liblzma.so"
 
 
 ARIA2_CFLAGS=""
@@ -271,6 +285,7 @@ if test [ $IS_OSX -eq 1 ] ; then
 else
 	COMPILED_ARIA2_LDFLAGS="${DEP_PATH}/aria2c"
 fi
+COMPILED_ARIA2_FILES="${DEP_PATH}/aria2c"
 
 CLUCENE_CFLAGS="-I/usr/lib -I/usr/lib64"
 CLUCENE_LDFLAGS="-lclucene"
@@ -278,8 +293,9 @@ COMPILE_CLUCENE=0
 if test [ $IS_OSX -eq 1 ] ; then
 	COMPILED_CLUCENE_LDFLAGS="${DEP_PATH}/libclucene-${ARCH}.a"
 else
-	COMPILED_CLUCENE_LDFLAGS="${DEP_PATH}/clucene-core-0.9.21b/src/.libs/libclucene.a"
+	COMPILED_CLUCENE_LDFLAGS="-L${DEP_PATH}/clucene-core-0.9.21b/src/.libs -lclucene"
 fi
+COMPILED_CLUCENE_FILES="${DEP_PATH}/clucene-core-0.9.21b/src/.libs/libclucene.so"
 
 WITH_CLUCENE=0
 
@@ -593,6 +609,7 @@ else
 	then
 	    COMPILE_ICU=1
 	    ICU_LDFLAGS=$COMPILED_ICU_LDFLAGS
+	    ICU_CFLAGS=$COMPILED_ICU_CFLAGS
 	# if path provided, test file existence (and fail)
 	else
 		ICU_ARCHIVE_PATH=`cd $ICU_ARCHIVE_PATH ; pwd`
@@ -826,38 +843,46 @@ then
     if test [ $COMPILE_GECKO_SDK -eq 1 ]
     then
         DEP_LIST+=" $COMPILED_GECKO_SDK_PATH/"
+        DEP_LIST+=" $XULRUNNER_RUNTIME_PATH/"
     fi
     if test [ $COMPILE_ZLIB -eq 1 ]
     then
-        DEP_LIST+=" $COMPILED_ZLIB_LDFLAGS"
+        DEP_LIST+=" $COMPILED_ZLIB_FILES"
+        STATIC_LIBS+=" $COMPILED_ZLIB_FILES"
     fi
     if test [ $COMPILE_XAPIAN -eq 1 ]
     then
-        DEP_LIST+=" $COMPILED_XAPIAN_LDFLAGS"
+        DEP_LIST+=" $COMPILED_XAPIAN_FILES"
+        STATIC_LIBS+=" $COMPILED_XAPIAN_FILES"
     fi
     if test [ $COMPILE_ICU -eq 1 ]
     then
-        DEP_LIST+=" $COMPILED_ICU_LDFLAGS"
+        DEP_LIST+=" $COMPILED_ICU_FILES"
+        STATIC_LIBS+=" $COMPILED_ICU_FILES"
     fi
     if test [ $COMPILE_SQLITE -eq 1 ]
     then
-        DEP_LIST+=" $COMPILED_SQLITE_LDFLAGS"
+        DEP_LIST+=" $COMPILED_SQLITE_FILES"
+        STATIC_LIBS+=" $COMPILED_SQLITE_FILES"
     fi
     if test [ $COMPILE_MICROHTTPD -eq 1 ]
     then
-        DEP_LIST+=" $COMPILED_MICROHTTPD_LDFLAGS"
+        DEP_LIST+=" $COMPILED_MICROHTTPD_FILES"
+        STATIC_LIBS+=" $COMPILED_MICROHTTPD_FILES"
     fi
     if test [ $COMPILE_LZMA -eq 1 ]
     then
-        DEP_LIST+=" $COMPILED_LZMA_LDFLAGS"
+        DEP_LIST+=" $COMPILED_LZMA_FILES"
+        STATIC_LIBS+=" $COMPILED_LZMA_FILES"
     fi
     if test [ $COMPILE_ARIA2 -eq 1 ]
     then
-        DEP_LIST+=" $COMPILED_ARIA2_LDFLAGS"
+        DEP_LIST+=" $COMPILED_ARIA2_FILES"
     fi
     if test [ $COMPILE_CLUCENE -eq 1 ]
     then
-        DEP_LIST+=" $COMPILED_CLUCENE_LDFLAGS"
+        DEP_LIST+=" $COMPILED_CLUCENE_FILES"
+        STATIC_LIBS+=" $COMPILED_CLUCENE_FILES"
     fi
 fi
 DEP_LIST=`echo $DEP_LIST | sed -e "s,$DEP_PATH/,,g"`
@@ -877,8 +902,9 @@ AC_DEFINE(ENABLE_LZMA, [1], [defined if lzma compression is enabled])
 AC_SUBST(CPATH)
 AC_SUBST(CXXFLAGS)
 AC_SUBST(CURRENT_PATH)
-
 AC_SUBST(STATIC_BUILD)
+AC_SUBST(STATIC_TMP)
+AC_SUBST(STATIC_LIBS)
 AC_SUBST(IS_WIN)
 AC_SUBST(IS_OSX)
 AC_SUBST(IS_LINUX)
@@ -917,6 +943,7 @@ AC_SUBST(ZIMLIB_CFLAGS)
 AC_SUBST(ZIMLIB_LDFLAGS)
 
 AC_SUBST(GECKO_SDK_PATH)
+AC_SUBST(XULRUNNER_RUNTIME_PATH)
 AC_SUBST(COMPILE_GECKO_SDK)
 AC_SUBST(GECKO_VERSION)
 AC_SUBST(GECKO_IDL_PATH)
@@ -930,34 +957,42 @@ AC_SUBST(TYPELIB_PY)
 AC_SUBST(ZLIB_CFLAGS)
 AC_SUBST(ZLIB_LDFLAGS)
 AC_SUBST(COMPILE_ZLIB)
+AC_SUBST(COMPILED_ZLIB_FILES)
 
 AC_SUBST(XAPIAN_CFLAGS)
 AC_SUBST(XAPIAN_LDFLAGS)
 AC_SUBST(COMPILE_XAPIAN)
+AC_SUBST(COMPILED_XAPIAN_FILES)
 
 AC_SUBST(ICU_CFLAGS)
 AC_SUBST(ICU_LDFLAGS)
 AC_SUBST(COMPILE_ICU)
+AC_SUBST(COMPILED_ICU_FILES)
 
 AC_SUBST(SQLITE_CFLAGS)
 AC_SUBST(SQLITE_LDFLAGS)
 AC_SUBST(COMPILE_SQLITE)
+AC_SUBST(COMPILED_SQLITE_FILES)
 
 AC_SUBST(MICROHTTPD_CFLAGS)
 AC_SUBST(MICROHTTPD_LDFLAGS)
 AC_SUBST(COMPILE_MICROHTTPD)
+AC_SUBST(COMPILED_MICROHTTPD_FILES)
 
 AC_SUBST(LZMA_CFLAGS)
 AC_SUBST(LZMA_LDFLAGS)
 AC_SUBST(COMPILE_LZMA)
+AC_SUBST(COMPILED_LZMA_FILES)
 
 AC_SUBST(ARIA2_CFLAGS)
 AC_SUBST(ARIA2_LDFLAGS)
 AC_SUBST(COMPILE_ARIA2)
+AC_SUBST(COMPILED_ARIA2_FILES)
 
 AC_SUBST(CLUCENE_CFLAGS)
 AC_SUBST(CLUCENE_LDFLAGS)
 AC_SUBST(COMPILE_CLUCENE)
+AC_SUBST(COMPILED_CLUCENE_FILES)
 
 # Configure the output files
 AC_CONFIG_FILES([
@@ -1012,6 +1047,7 @@ $BINECHO -n "IS_OSX			" ; yesno $IS_OSX
 $BINECHO -n "IS_WIN			" ; yesno $IS_WIN
 $BINECHO -n "STATIC_BUILD		" ; yesno $STATIC_BUILD
 $BINECHO -n "DEP_LIST		" ; $BINECHO $DEP_LIST
+$BINECHO -n "STATIC_LIBS		" ; $BINECHO $STATIC_LIBS
 $BINECHO -n "WITH_MANAGER		" ; yesno $WITH_MANAGER
 $BINECHO -n "WITH_SERVER		" ; yesno $WITH_SERVER
 $BINECHO -n "WITH_INDEXER		" ; yesno $WITH_INDEXER
