@@ -1013,6 +1013,7 @@ AC_CONFIG_FILES([
   src/components/cluceneAccessor/Makefile
   src/components/contentManager/Makefile
 
+  src/launcher/Makefile
   src/server/Makefile
   src/manager/Makefile
   src/indexer/Makefile
