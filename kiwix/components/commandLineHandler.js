@@ -1,3 +1,5 @@
+Components.utils.import("resource://gre/modules/XPCOMUtils.jsm");
+
 const nsISupports           = Components.interfaces.nsISupports;
 const nsICategoryManager    = Components.interfaces.nsICategoryManager;
 const nsIComponentRegistrar = Components.interfaces.nsIComponentRegistrar;
@@ -53,8 +55,12 @@ function pathFromURL(aURL) {
  * The XPCOM component that implements nsICommandLineHandler.
  * It also implements nsIFactory to serve as its own singleton factory.
  */
-const myAppHandler = {
-  /* nsISupports */
+function myAppHandler(){};
+
+myAppHandler.prototype={
+    classID: Components.ID(clh_CID),
+    QueryInterface: XPCOMUtils.generateQI([Components.interfaces.nsIComponentRegistrar]),
+
     QueryInterface : function clh_QI(iid)
     {
 	if (iid.equals(nsICommandLineHandler) ||
@@ -112,67 +118,72 @@ const myAppHandler = {
     }
 };
 
-/**
+if (XPCOMUtils.generateNSGetFactory) {
+    var NSGetFactory = XPCOMUtils.generateNSGetFactory([myAppHandler]);
+} else {
+    /**
  * The XPCOM glue that implements nsIModule
  */
-const myAppHandlerModule = {
+    const myAppHandlerModule = {
   /* nsISupports */
-    QueryInterface : function mod_QI(iid)
-    {
-	if (iid.equals(nsIModule) ||
-            iid.equals(nsISupports))
-	    return this;
+	QueryInterface : function mod_QI(iid)
+	{
+	    if (iid.equals(nsIModule) ||
+		iid.equals(nsISupports))
+		return this;
 
-	throw Components.results.NS_ERROR_NO_INTERFACE;
-    },
+	    throw Components.results.NS_ERROR_NO_INTERFACE;
+	},
 
   /* nsIModule */
-    getClassObject : function mod_gch(compMgr, cid, iid)
-    {
-	if (cid.equals(clh_CID))
-	    return myAppHandler.QueryInterface(iid);
+	getClassObject : function mod_gch(compMgr, cid, iid)
+	{
+	    if (cid.equals(clh_CID))
+		return new myAppHandler().QueryInterface(iid);
 
-	throw Components.results.NS_ERROR_NOT_REGISTERED;
-    },
+	    throw Components.results.NS_ERROR_NOT_REGISTERED;
+	},
 
-    registerSelf : function mod_regself(compMgr, fileSpec, location, type)
-    {
-	compMgr.QueryInterface(nsIComponentRegistrar);
+	registerSelf : function mod_regself(compMgr, fileSpec, location, type)
+	{
+	    compMgr.QueryInterface(nsIComponentRegistrar);
 
-	compMgr.registerFactoryLocation(clh_CID,
-					"myAppHandler",
-					clh_contractID,
-					fileSpec,
-					location,
-					type);
-
-    var catMan = Components.classes["@mozilla.org/categorymanager;1"].
-	    getService(nsICategoryManager);
-	catMan.addCategoryEntry("command-line-handler",
-				clh_category,
-				clh_contractID, true, true);
-    },
-
-    unregisterSelf : function mod_unreg(compMgr, location, type)
-    {
-	compMgr.QueryInterface(nsIComponentRegistrar);
-	compMgr.unregisterFactoryLocation(clh_CID, location);
+	    compMgr.registerFactoryLocation(clh_CID,
+					    "myAppHandler",
+					    clh_contractID,
+					    fileSpec,
+					    location,
+					    type);
 
     var catMan = Components.classes["@mozilla.org/categorymanager;1"].
-	    getService(nsICategoryManager);
-	catMan.deleteCategoryEntry("command-line-handler", clh_category);
-    },
+		getService(nsICategoryManager);
+	    catMan.addCategoryEntry("command-line-handler",
+				    clh_category,
+				    clh_contractID, true, true);
+	},
 
-    canUnload : function (compMgr)
-    {
-	return true;
-    }
-};
+	unregisterSelf : function mod_unreg(compMgr, location, type)
+	{
+	    compMgr.QueryInterface(nsIComponentRegistrar);
+	    compMgr.unregisterFactoryLocation(clh_CID, location);
+
+    var catMan = Components.classes["@mozilla.org/categorymanager;1"].
+		getService(nsICategoryManager);
+	    catMan.deleteCategoryEntry("command-line-handler", clh_category);
+	},
+
+	canUnload : function (compMgr)
+	{
+	    return true;
+	}
+    };
 
 /* The NSGetModule function is the magic entry point that XPCOM uses to find what XPCOM objects
  * this component provides
  */
-function NSGetModule(comMgr, fileSpec)
-{
-    return myAppHandlerModule;
+    function NSGetModule(comMgr, fileSpec)
+    {
+	return myAppHandlerModule;
+    }
 }
+

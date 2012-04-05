@@ -3,7 +3,7 @@ pref("plugin.disable", true);
 
 /* OUTDATED: Start XUL page. Window is now created in the
  * components/commandLineHandler.js */
-pref("toolkit.defaultChromeURI", "chrome://main/content/main.xul");
+//pref("toolkit.defaultChromeURI", "chrome://main/content/main.xul");
 
 /* Default skin */
 pref("general.skins.selectedSkin", "default");

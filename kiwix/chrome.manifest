@@ -9,7 +9,8 @@ component {7f7984b9-acc4-4da9-a159-c378fdca4f46} components/suggest.js
 contract @mozilla.org/autocomplete/search;1?name=kiwix-suggest {7f7984b9-acc4-4da9-a159-c378fdca4f46}
 
 component {52E289CE-46BC-11E1-AB51-5DED4824019B} components/commandLineHandler.js
-contract @mozilla.org/commandlinehandler/general-startup;1?type=kiwix-command {52E289CE-46BC-11E1-AB51-5DED4824019B}
+contract @kiwix.org/kiwix/clh;1 {52E289CE-46BC-11E1-AB51-5DED4824019B}
+category command-line-handler m-kiwix @kiwix.org/kiwix/clh;1
 
 interfaces components/xapianAccessor.xpt
 binary-component components/xapianAccessor.so
