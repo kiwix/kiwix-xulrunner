@@ -569,8 +569,10 @@ function whereis(binary) {
            createInstance(Components.interfaces.nsILocalFile);
     var file = Components.classes["@mozilla.org/file/directory_service;1"].  
                 getService(Components.interfaces.nsIProperties).  
-                get("CurProcD", Components.interfaces.nsIFile);  
-    var path = file.path + sep + env.getPath();
+                get("CurProcD", Components.interfaces.nsIFile);
+    var binfile = file;
+    binfile.append("bin");
+    var path = file.path + sep + binfile.path  + sep + env.getPath();
     var pathArray = path.split(sep);
 
     for (var i in pathArray) {

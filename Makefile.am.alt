@@ -158,17 +158,24 @@ static: dist
 	cp -v $(STATIC_TMP)/kiwix/xulrunner/libplc4.so $(STATIC_TMP)/kiwix/xulrunner/libplc4.so.0d
 	cp -v $(STATIC_TMP)/kiwix/xulrunner/libnspr4.so $(STATIC_TMP)/kiwix/xulrunner/libnspr4.so.0d
 	cp -v $(STATIC_TMP)/kiwix/xulrunner/libplds4.so $(STATIC_TMP)/kiwix/xulrunner/libplds4.so.0d
-	mv $(STATIC_TMP)/kiwix/xulrunner/xulrunner-stub $(STATIC_TMP)/kiwix/kiwix
 
 	cp -Lv $(STATIC_LIBS) $(STATIC_TMP)/kiwix/xulrunner/
 
-	ln -s $(STATIC_TMP)/kiwix/xulrunner/liblzma.so $(STATIC_TMP)/kiwix/xulrunner/liblzma.so.5
-	ln -s $(STATIC_TMP)/kiwix/xulrunner/libclucene.so $(STATIC_TMP)/kiwix/xulrunner/libclucene.so.0
+	ln -s ./liblzma.so $(STATIC_TMP)/kiwix/xulrunner/liblzma.so.5
+	ln -s ./libclucene.so $(STATIC_TMP)/kiwix/xulrunner/libclucene.so.0
 
-	cp -v $(COMPILED_ARIA2_FILES) $(STATIC_TMP)/kiwix/aria2c
+	strip `find $(STATIC_TMP)/kiwix -executable -type f | grep -v ".sh" | grep -v ".py" | grep -v sugar` || true
+
+	cp -v src/launcher/kiwix-launcher $(STATIC_TMP)/kiwix/kiwix
+
 	mkdir -p $(STATIC_TMP)/kiwix/bin
+	cp -v $(COMPILED_ARIA2_FILES) $(STATIC_TMP)/kiwix/bin/aria2c
+	cp -v $(COMPILED_XAPIAN_COMPACT) $(STATIC_TMP)/kiwix/bin/xapian-compact
 
-	tar -C $(STATIC_TMP) -cvjf $(PACKAGE)-$(VERSION)-static.tar.bz2 kiwix
+	rm $(STATIC_TMP)/kiwix/*.bat
+	rm $(STATIC_TMP)/kiwix/xulrunner/libmicrohttpd.so
+
+	tar -C $(STATIC_TMP) -cvjf $(PACKAGE)-$(VERSION)-static-$(ARCH).tar.bz2 kiwix
 
 # Mac OSX rule
 # requires install of XR

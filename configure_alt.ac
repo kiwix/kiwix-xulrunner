@@ -207,11 +207,11 @@ fi
 XULRUNNER_RUNTIME_PATH="${DEP_PATH}/xulrunner"
 
 ZLIB_CFLAGS=""
-ZLIB_LDFLAGS="-Bstatic -lz"
+ZLIB_LDFLAGS=" -lz"
 COMPILE_ZLIB=0
 COMPILED_ZLIB_CFLAGS="-I${DEP_PATH}/zlib-1.2.3"
 #COMPILED_ZLIB_LDFLAGS="${DEP_PATH}/zlib-1.2.3/libz.a"
-COMPILED_ZLIB_LDFLAGS="-L${DEP_PATH}/zlib-1.2.3 -Bstatic -lz"
+COMPILED_ZLIB_LDFLAGS="-L${DEP_PATH}/zlib-1.2.3  -lz"
 COMPILED_ZLIB_FILES="${DEP_PATH}/zlib-1.2.3/libz.so"
 
 XAPIAN_CFLAGS=""
@@ -227,6 +227,7 @@ else
     COMPILED_XAPIAN_LDFLAGS="-L${DEP_PATH}/xapian-core-1.2.3/.libs/ -lxapian"
 fi
 COMPILED_XAPIAN_FILES="${DEP_PATH}/xapian-core-1.2.3/.libs/libxapian.so"
+COMPILED_XAPIAN_COMPACT="${DEP_PATH}/xapian-core-1.2.3/bin/.libs/xapian-compact"
 
 ICU_CFLAGS=""
 ICU_LDFLAGS="-licui18n -licuuc -licudata" # replaced by icu-config"
@@ -264,14 +265,14 @@ fi
 COMPILED_MICROHTTPD_FILES="${DEP_PATH}/libmicrohttpd-0.9.19/src/daemon/.libs/libmicrohttpd.so"
 
 LZMA_CFLAGS=""
-LZMA_LDFLAGS="-Bstatic -llzma"
+LZMA_LDFLAGS=" -llzma"
 COMPILE_LZMA=0
 if test [ $IS_WIN -eq 1 ] ; then
 	COMPILED_LZMA_LDFLAGS="${DEP_PATH}/xz/windows/liblzma.lib"
 elif test [ $IS_OSX -eq 1 ] ; then
 	COMPILED_LZMA_LDFLAGS="${DEP_PATH}/liblzma-${ARCH}.a"
 else
-    COMPILED_LZMA_LDFLAGS="-L${DEP_PATH}/xz/src/liblzma/.libs -Bstatic -llzma"
+    COMPILED_LZMA_LDFLAGS="-L${DEP_PATH}/xz/src/liblzma/.libs  -llzma"
 fi
 COMPILED_LZMA_CFLAGS="-I${DEP_PATH}/xz/src/liblzma/api"
 COMPILED_LZMA_FILES="${DEP_PATH}/xz/src/liblzma/.libs/liblzma.so"
@@ -455,7 +456,8 @@ LIBXUL_CFLAGS="-I${GECKO_SDK_PATH}/sdk/include -I${GECKO_SDK_PATH}/include -fsho
 if test [ $IS_OSX -eq 1 ] ; then
 LIBXUL_LDFLAGS="-L${GECKO_SDK_PATH}/sdk/lib -lxpcom -lplds4 -lplc4 -lnspr4 -lpthread -ldl ${GECKO_SDK_PATH}/sdk/lib/libxpcomglue_s_nomozalloc.a  ${GECKO_SDK_PATH}/sdk/lib/XUL"
 else 
-LIBXUL_LDFLAGS="-L${GECKO_SDK_PATH}/sdk/lib -lxul -lxpcom -lplds4 -lplc4 -lnspr4 -lpthread -ldl ${GECKO_SDK_PATH}/sdk/lib/libxpcomglue_s_nomozalloc.a"
+#LIBXUL_LDFLAGS="-L${GECKO_SDK_PATH}/sdk/lib -lxul -lxpcom -lplds4 -lplc4 -lnspr4 -lpthread -ldl ${GECKO_SDK_PATH}/sdk/lib/libxpcomglue_s_nomozalloc.a"
+LIBXUL_LDFLAGS="-L${GECKO_SDK_PATH}/sdk/lib -lxul -lxpcom -lplds4 -lplc4 -lnspr4 -lpthread -ldl -lxpcomglue_s"
 fi
 GECKO_IDL_PATH=${GECKO_SDK_PATH}/idl
 if test [ ! -f "$GECKO_IDL_PATH/nsISupports.idl" ]
@@ -694,7 +696,7 @@ else
 	# if path provided, test file existence (and fail)
 	else
 		MICROHTTPD_LDFLAGS=`readlink -f $MICROHTTPD_ARCHIVE`
-		AC_CHECK_FILE($MICROHTTPD_ARCHIVE,,[AC_MSG_ERROR([[cannot stat Xapian archive at $MICROHTTPD_LDFLAGS]])])
+		AC_CHECK_FILE($MICROHTTPD_ARCHIVE,,[AC_MSG_ERROR([[cannot stat microhttpd archive at $MICROHTTPD_LDFLAGS]])])
 	fi
 fi
 
@@ -731,7 +733,7 @@ else
 	# if path provided, test file existence (and fail)
 	else
 		LZMA_LDFLAGS=`readlink -f $LZMA_ARCHIVE`
-		AC_CHECK_FILE($LZMA_ARCHIVE,,[AC_MSG_ERROR([[cannot stat Xapian archive at $LZMA_LDFLAGS]])])
+		AC_CHECK_FILE($LZMA_ARCHIVE,,[AC_MSG_ERROR([[cannot stat lzma archive at $LZMA_LDFLAGS]])])
 	fi
 fi
 
@@ -772,7 +774,7 @@ else
 	# if path provided, test file existence (and fail)
 	else
 		ARIA2_LDFLAGS=`readlink -f $ARIA2_ARCHIVE`
-		AC_CHECK_FILE($ARIA2_ARCHIVE,,[AC_MSG_ERROR([[cannot stat Xapian archive at $ARIA2_LDFLAGS]])])
+		AC_CHECK_FILE($ARIA2_ARCHIVE,,[AC_MSG_ERROR([[cannot stat aria2 archive at $ARIA2_LDFLAGS]])])
 		ARIA2_BIN=$ARIA2_ARCHIVE
 	fi
 fi
@@ -963,6 +965,7 @@ AC_SUBST(XAPIAN_CFLAGS)
 AC_SUBST(XAPIAN_LDFLAGS)
 AC_SUBST(COMPILE_XAPIAN)
 AC_SUBST(COMPILED_XAPIAN_FILES)
+AC_SUBST(COMPILED_XAPIAN_COMPACT)
 
 AC_SUBST(ICU_CFLAGS)
 AC_SUBST(ICU_LDFLAGS)
