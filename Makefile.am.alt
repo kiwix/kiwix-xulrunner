@@ -161,8 +161,9 @@ static: dist
 	mv $(STATIC_TMP)/kiwix/xulrunner/xulrunner-stub $(STATIC_TMP)/kiwix/kiwix
 
 	cp -Lv $(STATIC_LIBS) $(STATIC_TMP)/kiwix/xulrunner/
-	ln -s $(STATIC_LIBS)/kiwix/xulrunner/liblzma.so $(STATIC_LIBS)/kiwix/xulrunner/liblzma.so.5
-	ln -s $(STATIC_LIBS)/kiwix/xulrunner/libclucene.so $(STATIC_LIBS)/kiwix/xulrunner/libclucene.so.0
+
+	ln -s $(STATIC_TMP)/kiwix/xulrunner/liblzma.so $(STATIC_TMP)/kiwix/xulrunner/liblzma.so.5
+	ln -s $(STATIC_TMP)/kiwix/xulrunner/libclucene.so $(STATIC_TMP)/kiwix/xulrunner/libclucene.so.0
 
 	cp -v $(COMPILED_ARIA2_FILES) $(STATIC_TMP)/kiwix/aria2c
 	mkdir -p $(STATIC_TMP)/kiwix/bin
