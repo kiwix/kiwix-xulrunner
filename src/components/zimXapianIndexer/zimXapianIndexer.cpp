@@ -99,8 +99,9 @@ NS_IMETHODIMP ZimXapianIndexer::Start(const nsAString &zimFilePath,
 
   /* Create the indexer */
   try {    
-    this->indexer = new kiwix::XapianIndexer(cZimFilePath, cXapianDirectoryPath);
+    this->indexer = new kiwix::XapianIndexer();
     if (this->indexer != NULL) {
+      this->indexer->start(cZimFilePath, cXapianDirectoryPath);
       *retVal = PR_TRUE;
     }
   } catch (exception &e) {
