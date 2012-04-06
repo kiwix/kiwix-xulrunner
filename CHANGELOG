@@ -1,13 +1,13 @@
 Kiwix 0.9 rc1
 * FIXED: Smoothier zooming (ID: 3469927)
 * FIXED: Evolution skin (ID: 3444112)
-* FIXED: Bad aria2c process mgmt by introducing aria2 v1.14 (ID: 3430225)
+* FIXED: Bad aria2c process mgmt. by introducing aria2 v1.14 (ID: 3430225)
 * FIXED: Invisible menuitems icons on GNU/Linux
 * FIXED: Blanck 404 error pages served by kiwix-serve (ID: 3417227)
-* FIXED: Small error during the installation of Ubuntu packages (ID: 3437855)
-* FIXED: Bad singleton Window implementation (ID: 3444121)
+* FIXED: Rrror during the installation of Ubuntu packages (ID: 3437855)
+* FIXED: Bad singleton-window implementation (ID: 3444121)
 * FIXED: Compilation with CLucene 2.3 (ID: 3405531)
-* FIXED: Number of articles to high in the library (ID: 3396763)
+* FIXED: To high article count in the ZIM library (ID: 3396763)
 * FIXED: Kiwix-serve sporadic invisible search box with non-latin contents
 * FIXED: Toolbar wrong height on Sugar with XOs (ID: 3471281)
 * FIXED: Broken ZIM loading on XO OSes 0.8x (ID: 3471279)
@@ -22,20 +22,19 @@ Kiwix 0.9 rc1
   Min Nan Chinese (nan), Indonesian (id), Tunisian Spoken Arabic (aeb)
   Windows (in Linux since beta5): Estonian (et), Bulgarian (bg), Georgian (ka),
   Lithuanian (lt), Slovak (sk), Oriya (or)
-* NEW: ALT+D shortcut to focus the searchbar (ID: 3475647)
+* NEW: ALT+D shortcut to give focus to the searchbar (ID: 3475647)
 * NEW: --current option to "add" command in kiwix-manage to set the ZIM file a current
-* NEW: --noCheck option to "add" command in kiwix-manage to avoid any ZIM quality check
-* NEW: Windows self-extracting installer
+* NEW: Self-extracting installer for MS/Windows
 * NEW: Ask before downloading XML library files (ID: 3442087)
 * NEW: kiwix-serve able to deal directly with library XML files
 * NEW: Speed-up begin of downloads by removing file pre-allocation
 * NEw: Reduce GNU/Linux Package file by 30% (by removing the symbol table of XPCOM components)
 * NEW: Allow compilation against Gecko SDK 9.0 and further (xpidl binary was removed)
-* NEW: Add support of HTML5 video/audio nodes
-* NEW: audible/mute contextual menuitem for HTML5 videos
-* NEW: default content icon in the library (ID: 3488268)
-* NEW: if no title metatag in file, compute title from the filename (ID: 3488268)
-* NEW: Replacement of "fastjar" by "zip" (better dependence)
+* NEW: Add support for HTML5 video/audio
+* NEW: Audible/Mute contextual menuitem for HTML5 videos
+* NEW: Default content icon in the library (ID: 3488268)
+* NEW: Compute 'fake' title from the filename if no title metatadata in ZIM (ID: 3488268)
+* NEW: Replacement of "fastjar" by "zip" (better/common dependence)
 * NEW: Use new (20% smaller) IETF normalized Metalink format (meta4) instead of old (v3) Metalink
 * NEW: Open specific article via command prompt using "articleByUrl" & "articleByTitle" (ID: 3484628)
 * NEW: Fulltext search engine index ~4x faster (depending of the number of cores)
