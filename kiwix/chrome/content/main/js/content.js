@@ -789,8 +789,8 @@ function populateLibraryFilters() {
     var creators = library.getBooksCreators();
     var creatorMenu = document.getElementById('library-filter-creator');
     while (creatorMenu.firstChild.childNodes.length>1) { creatorMenu.firstChild.removeChild(creatorMenu.firstChild.lastChild); }
-    tmpHash = new Array();
 
+    var tmpHash = new Array();
     for(var index=0; index<creators.length; index++) {
 	if (creators[index].length > 0 && tmpHash[creators[index]] === undefined) {
 	    tmpHash[creators[index]] = 42;
