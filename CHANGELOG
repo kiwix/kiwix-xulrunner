@@ -40,6 +40,7 @@ Kiwix 0.9 rc1
 * NEW: Open specific article via command prompt using "articleByUrl" & "articleByTitle" (ID: 3484628)
 * NEW: Fulltext search engine index ~4x faster (depending of the number of cores)
 * NEW: kiwix-set-fileassoc.bat Windows script to setup zim-kiwix file association for "portable" usage
+* NEW: GNU/Linux static compiled release ~50% small than before
 
 Kiwix 0.9 beta5
 * FIXED: letton language menu item (ID: 3439113)
