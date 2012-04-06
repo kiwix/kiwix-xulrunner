@@ -75,22 +75,6 @@
     list-style-image: url("chrome://main/skin/icon/about16.png");
 }
 
-/* Tool box & bar */
-#tool-box {
-    margin-left: 5px;
-    margin-right: 5px;
-}
-
-#main.mac #tool-box {
-    margin-left: auto;
-    margin-right: auto;
-}
-
-#main.mac * toolbarbutton {
-	padding: 0;
-	margin: 0;
-}
-
 /* Buttons */
 #button-back {
     list-style-image: url("chrome://main/skin/icon/go-back24.png");
