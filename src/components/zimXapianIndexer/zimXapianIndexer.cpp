@@ -57,6 +57,7 @@
 #include "nsDirectoryServiceDefs.h"
 
 #include <kiwix/xapianIndexer.h>
+#include <componentTools.h>
 
 using namespace std;
 
@@ -89,23 +90,12 @@ ZimXapianIndexer::~ZimXapianIndexer() {
 }
 
 /* Start indexing */
-NS_IMETHODIMP ZimXapianIndexer::StartIndexing(const nsACString &unixZimFilePath, 
-					      const nsACString &winZimFilePath, 
-					      const nsACString &unixXapianDirectoryPath, 
-					      const nsACString &winXapianDirectoryPath, 
-					      mozbool *retVal) {
-
+NS_IMETHODIMP ZimXapianIndexer::Start(const nsAString &zimFilePath, 
+				      const nsAString &xapianDirectoryPath, 
+				      mozbool *retVal) {
   *retVal = PR_FALSE;
-
-  const char *cZimFilePath;
-  const char *cXapianDirectoryPath;
-#ifdef _WIN32
-  NS_CStringGetData(winZimFilePath, &cZimFilePath);
-  NS_CStringGetData(winXapianDirectoryPath, &cXapianDirectoryPath);
-#else
-  NS_CStringGetData(unixZimFilePath, &cZimFilePath);
-  NS_CStringGetData(unixXapianDirectoryPath, &cXapianDirectoryPath);
-#endif
+  const char *cZimFilePath = strdup(nsStringToCString(zimFilePath));
+  const char *cXapianDirectoryPath = strdup(nsStringToCString(xapianDirectoryPath));
 
   /* Create the indexer */
   try {    
@@ -117,27 +107,40 @@ NS_IMETHODIMP ZimXapianIndexer::StartIndexing(const nsACString &unixZimFilePath,
     cerr << e.what() << endl;
   }
 
+  free((void*)cZimFilePath);
+  free((void*)cXapianDirectoryPath);
+
   return NS_OK;
 }
 
-/* Index next percent */
-NS_IMETHODIMP ZimXapianIndexer::IndexNextPercent(mozbool *retVal) {
+/* Stop indexing */
+NS_IMETHODIMP ZimXapianIndexer::Stop(mozbool *retVal) {
   *retVal = PR_FALSE;
-
-  try {
-    if (this->indexer->indexNextPercent()) {
-      *retVal = PR_TRUE;
+  
+  try {    
+    if (this->indexer != NULL) {
+      this->indexer->stop();
+      *retVal = PR_FALSE;
     }
   } catch (exception &e) {
     cerr << e.what() << endl;
   }
-  
+
   return NS_OK;
 }
 
-/* Stop indexing. TODO: using it crashs the soft under windows. Have to do it in indexNextPercent() */
-NS_IMETHODIMP ZimXapianIndexer::StopIndexing(mozbool *retVal) {
-  *retVal = PR_TRUE;
+/* Check if indexing is running */
+NS_IMETHODIMP ZimXapianIndexer::IsRunning(mozbool *retVal) {
+  *retVal = PR_FALSE;
+  
+  try {    
+    if (this->indexer != NULL) {
+      *retVal = (this->indexer->isRunning() ? PR_TRUE : PR_FALSE);
+    }
+  } catch (exception &e) {
+    cerr << e.what() << endl;
+  }
+
   return NS_OK;
 }
 
