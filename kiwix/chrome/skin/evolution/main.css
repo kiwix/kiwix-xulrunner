@@ -1,12 +1,4 @@
 /* Menuitems */
-#file-open {
-    list-style-image: url("chrome://main/skin/icon/open16.png");
-}
-
-#file-save {
-    list-style-image: url("chrome://main/skin/icon/saveas16.png");
-}
-
 #file-print {
     list-style-image: url("chrome://main/skin/icon/print16.png");
 }
@@ -15,32 +7,8 @@
     list-style-image: url("chrome://main/skin/icon/printas-pdf16.png");
 }
 
-#file-quit {
-    list-style-image: url("chrome://main/skin/icon/quit16.png");
-}
-
 #edit-find {
     list-style-image: url("chrome://main/skin/icon/find-article16.png");
-}
-
-#edit-selectall {
-    list-style-image: url("chrome://main/skin/icon/select-all16.png");
-}
-
-#edit-copy {
-    list-style-image: url("chrome://main/skin/icon/copy16.png");
-}
-
-#display-zoom-in {
-    list-style-image: url("chrome://main/skin/icon/zoom-in16.png");
-}
-
-#display-zoom-out {
-    list-style-image: url("chrome://main/skin/icon/zoom-out16.png");
-}
-
-#display-zoom-orig {
-    list-style-image: url("chrome://main/skin/icon/zoom-10016.png");
 }
 
 #display-fullscreen, #display-fullscreen.normal {
@@ -82,9 +50,6 @@
 window[langdir="rtl"] #button-back {
     list-style-image: url("chrome://main/skin/icon/go-forward24.png");
 }
-#button-back.disabled {
-    opacity: 0.2;
-}
 
 #button-next {
     list-style-image: url("chrome://main/skin/icon/go-forward24.png");
@@ -92,22 +57,13 @@ window[langdir="rtl"] #button-back {
 window[langdir="rtl"] #button-next {
     list-style-image: url("chrome://main/skin/icon/go-back24.png");
 }
-#button-next.disabled {
-    opacity: 0.2;
-}
 
 #button-home {
     list-style-image: url("chrome://main/skin/icon/home24.png");
 }
-#button-home.disabled {
-    opacity: 0.2;
-}
 
 #button-results {
     list-style-image: url("chrome://main/skin/icon/find-wiki24.png");
-}
-#button-results.disabled {
-    opacity: 0.2;
 }
 
 #button-sizeup {
@@ -145,9 +101,6 @@ window[langdir="rtl"] #button-next {
 #button-search {
     list-style-image: url("chrome://main/skin/icon/find-wiki24.png");
 }
-#button-search.disabled {
-    opacity: 0.2;
-}
 
 #button-search-article {
     list-style-image: url("chrome://main/skin/icon/find-article24.png");
@@ -157,17 +110,11 @@ window[langdir="rtl"] #button-next {
     list-style-image: url("chrome://main/skin/icon/find-article-up24.png");
     display:none; /* to remove after implementation */
 }
-#button-search-article-up.disabled {
-    opacity: 0.2;
-}
+
 #button-search-article-down {
     list-style-image: url("chrome://main/skin/icon/find-article-down24.png");
     display:none; /* to remove after implementation */
 }
-#button-search-article-down.disabled {
-    opacity: 0.2;
-}
-
 
 /* Textbox search */
 #textbox-search {
@@ -176,11 +123,11 @@ window[langdir="rtl"] #button-next {
 }
 
 #main.mac #textbox-search {
-	-moz-appearance: none;
-	background-color: #f1f1f1;
-	border: 1px solid #dedede;
-	padding-left: .5em;
-	padding-right: .5em;
+    -moz-appearance: none;
+    background-color: #f1f1f1;
+    border: 1px solid #dedede;
+    padding-left: .5em;
+    padding-right: .5em;
     -moz-border-radius: 1em;
 }
 
@@ -360,30 +307,8 @@ window[langdir="rtl"] #button-next {
 }
 
 /* Status bar */
-#status-bar {
-    height: auto;
-    margin: 0px;
-    padding-top: 5px;
-    padding-left: 5px;
-}
-
-#earth-icon {
-    list-style-image: url("chrome://main/skin/icon/external16.png");
-}
-
 #book-icon {
     list-style-image: url("chrome://main/skin/icon/zim-file16.png");
-}
-
-#progress-bar {
-    width: 200px;
-    height: 19px;
-}
-
-#progress-bar-label {
-    margin-top: 3px;
-    text-align: center;
-    font-size: 90%;
 }
 
 /* Find bar */
@@ -394,4 +319,3 @@ window[langdir="rtl"] #button-next {
 .findbar-find-next {
     list-style-image: url("chrome://main/skin/icon/find-article-down16.png");
 }
-
