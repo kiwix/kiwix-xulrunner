@@ -13,7 +13,7 @@ _languagesHash['ast']       = "Asturianu";
 _languagesHash['ba']        = "Bašqort";
 _languagesHash['be']        = "Беларуская";
 _languagesHash['be-tarask'] = "тарашкевіца, клясычны правапіс";
-_languagesHash['bg']        = "Български";
+_languagesHash['bul']       = _languagesHashOld['bg']        = "Български";
 _languagesHash['bjn']       = "Bahasa Banjar";
 _languagesHash['bn']        = "বাংলা";
 _languagesHash['bre']       = _languagesHashOld['br']        = "Brezhoneg";
@@ -27,8 +27,8 @@ _languagesHash['ell']       = _languagesHashOld['el']        = "Ελληνικά
 _languagesHash['eng']       = _languagesHashOld['en']        = "English";
 _languagesHash['epo']       = _languagesHashOld['eo']        = "Esperanto";
 _languagesHash['spa']       = _languagesHashOld['es']        = "Español";
-_languagesHash['et']        = "Eesti";
-_languagesHash['fa']        = "فارسی";
+_languagesHash['est']       = _languagesHashOld['et']        = "Eesti";
+_languagesHash['per']       = _languagesHashOld['fa']        = "فارسی";
 _languagesHash['fin']       = _languagesHashOld['fi']        = "Suomi";
 _languagesHash['fo']        = "Føroyskt";
 _languagesHash['fra']       = _languagesHashOld['fr']        = "Français";
@@ -79,7 +79,7 @@ _languagesHash['por-pt']    = _languagesHashOld['pt-br']     = "Português do Br
 _languagesHash['qu']        = "Runa Simi";
 _languagesHash['rm']        = "Rumantsch";
 _languagesHash['ron']       = _languagesHashOld['ro']        = "Română";
-_languagesHash['ru']        = "Русский";
+_languagesHash['rus']       = _languagesHashOld['ru']        = "Русский";
 _languagesHash['rue']       = "Русиньскый";
 _languagesHash['sh']        = "Srpskohrvatski / Српскохрватски";
 _languagesHash['si']        = "සිංහල";
