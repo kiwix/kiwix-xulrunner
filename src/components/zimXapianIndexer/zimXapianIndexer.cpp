@@ -145,6 +145,21 @@ NS_IMETHODIMP ZimXapianIndexer::IsRunning(mozbool *retVal) {
   return NS_OK;
 }
 
+NS_IMETHODIMP ZimXapianIndexer::GetProgression(PRUint32 *progression, mozbool *retVal) {
+  *retVal = PR_TRUE;
+
+  try {    
+    if (this->indexer != NULL) {
+      unsigned int progressionInt = this->indexer->getProgression();
+      *progression = progressionInt;
+    }
+  } catch (exception &e) {
+    cerr << e.what() << endl;
+  }
+
+  return NS_OK;
+}
+
 #if GECKO_VERSION > 1
 
 NS_GENERIC_FACTORY_CONSTRUCTOR(ZimXapianIndexer)
