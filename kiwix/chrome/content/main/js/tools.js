@@ -136,6 +136,9 @@ function askPermissionToRestart() {
     /* Check if an indexing process is currently running */
     if (isIndexing()) {
 	ok = displayConfirmDialog(getProperty("abortIndexingConfirm"));
+	if (ok) {
+	    _zimIndexer.stop();
+	}
     }
     return ok;
 }
@@ -158,8 +161,12 @@ function restart(silent) {
 function askPermissionToQuit() {
     var ok = true;
     /* Check if an indexing process is currently running */
-    if (isIndexing())
+    if (isIndexing()) {
 	ok = displayConfirmDialog(getProperty("abortIndexingConfirm"));
+	if (ok) {
+	    _zimIndexer.stop();
+	}
+    }
     return ok;
 }
 

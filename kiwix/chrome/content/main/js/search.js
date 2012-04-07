@@ -134,6 +134,8 @@ function indexCurrentBook() {
 	
 	/* Load the ZIM file */
 	if (_zimIndexer.start(zimFilePath, indexTmpDirectory)) {
+	    setIndexingProgression(0);
+	    changeProgressBarVisibilityStatus(true);
 	    _currentlyIndexedBook = library.getCurrentBook();
 	    startIndexingObserver();
 	}
@@ -144,27 +146,34 @@ function indexCurrentBook() {
     return;
 }
 
-function checkIndexing() {
-    if (_zimIndexer.isRunning()) {
-	var progression = new Object();
-	_zimIndexer.getProgression(progression);
+function setIndexingProgression(progression) {
+    getProgressBar().value = progression;
+    getProgressBarLabel().value = getProperty("indexing") + " (" + progression + "%)";
+}
 
-	changeProgressBarVisibilityStatus(true);
-	getProgressBar().value = progression.value;
-	getProgressBarLabel().value = getProperty("indexing") + " (" + progression.value + "%)";
+function checkIndexing() {
+    var progression = new Object();
+    _zimIndexer.getProgression(progression);
+
+    if (_zimIndexer.isRunning()) {
+	setIndexingProgression(progression.value)
     } else {
-	/* Move the xapian tmp directory to the well named xapian directory */
-	moveFile(getTmpSearchIndexDirectory(), settings.getRootPath(), getSearchIndexDirectoryName(_currentlyIndexedBook.path)); 
-	
-	/* Save the information in the library */
-	library.setBookIndex(_currentlyIndexedBook.id, getSearchIndexDirectory(_currentlyIndexedBook.path));
-	
-	/* Last actions */
-	sendNotification(getProperty("information"), getProperty("endOfIndexing"));
-	isIndexing(false);
-	changeProgressBarVisibilityStatus(false);
-	_currentlyIndexedBook = undefined;
-	stopIndexingObserver();
+	if (progression.value == 100) {
+	    setIndexingProgression(100);
+	    
+	    /* Move the xapian tmp directory to the well named xapian directory */
+	    moveFile(getTmpSearchIndexDirectory(), settings.getRootPath(), getSearchIndexDirectoryName(_currentlyIndexedBook.path)); 
+	    
+	    /* Save the information in the library */
+	    library.setBookIndex(_currentlyIndexedBook.id, getSearchIndexDirectory(_currentlyIndexedBook.path));
+	    
+	    /* Last actions */
+	    sendNotification(getProperty("information"), getProperty("endOfIndexing"));
+	    isIndexing(false);
+	    changeProgressBarVisibilityStatus(false);
+	    _currentlyIndexedBook = undefined;
+	    stopIndexingObserver();
+	}
     }
 }
 
