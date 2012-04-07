@@ -57,6 +57,7 @@
 #include "nsDirectoryServiceDefs.h"
 
 #include <kiwix/cluceneIndexer.h>
+#include <componentTools.h>
 
 using namespace std;
 
@@ -89,55 +90,73 @@ ZimCluceneIndexer::~ZimCluceneIndexer() {
 }
 
 /* Start indexing */
-NS_IMETHODIMP ZimCluceneIndexer::StartIndexing(const nsACString &unixZimFilePath, 
-					      const nsACString &winZimFilePath, 
-					      const nsACString &unixCluceneDirectoryPath, 
-					      const nsACString &winCluceneDirectoryPath, 
-					      mozbool *retVal) {
-
+NS_IMETHODIMP ZimCluceneIndexer::Start(const nsAString &zimFilePath, 
+				       const nsAString &cluceneDirectoryPath, 
+				       mozbool *retVal) {
   *retVal = PR_FALSE;
-
-  const char *cZimFilePath;
-  const char *cCluceneDirectoryPath;
-#ifdef _WIN32
-  NS_CStringGetData(winZimFilePath, &cZimFilePath);
-  NS_CStringGetData(winCluceneDirectoryPath, &cCluceneDirectoryPath);
-#else
-  NS_CStringGetData(unixZimFilePath, &cZimFilePath);
-  NS_CStringGetData(unixCluceneDirectoryPath, &cCluceneDirectoryPath);
-#endif
+  const char *cZimFilePath = strdup(nsStringToCString(zimFilePath));
+  const char *cCluceneDirectoryPath = strdup(nsStringToCString(cluceneDirectoryPath));
 
   /* Create the indexer */
   try {    
-    this->indexer = new kiwix::CluceneIndexer(cZimFilePath, cCluceneDirectoryPath);
+    this->indexer = new kiwix::CluceneIndexer();
     if (this->indexer != NULL) {
+      this->indexer->start(cZimFilePath, cCluceneDirectoryPath);
       *retVal = PR_TRUE;
     }
   } catch (exception &e) {
     cerr << e.what() << endl;
   }
 
+  free((void*)cZimFilePath);
+  free((void*)cCluceneDirectoryPath);
+
   return NS_OK;
 }
 
-/* Index next percent */
-NS_IMETHODIMP ZimCluceneIndexer::IndexNextPercent(mozbool *retVal) {
+/* Stop indexing */
+NS_IMETHODIMP ZimCluceneIndexer::Stop(mozbool *retVal) {
   *retVal = PR_FALSE;
-
-  try {
-    if (this->indexer->indexNextPercent()) {
-      *retVal = PR_TRUE;
+  
+  try {    
+    if (this->indexer != NULL) {
+      this->indexer->stop();
+      *retVal = PR_FALSE;
     }
   } catch (exception &e) {
     cerr << e.what() << endl;
   }
-  
+
   return NS_OK;
 }
 
-/* Stop indexing. TODO: using it crashs the soft under windows. Have to do it in indexNextPercent() */
-NS_IMETHODIMP ZimCluceneIndexer::StopIndexing(mozbool *retVal) {
+/* Check if indexing is running */
+NS_IMETHODIMP ZimCluceneIndexer::IsRunning(mozbool *retVal) {
+  *retVal = PR_FALSE;
+  
+  try {    
+    if (this->indexer != NULL) {
+      *retVal = (this->indexer->isRunning() ? PR_TRUE : PR_FALSE);
+    }
+  } catch (exception &e) {
+    cerr << e.what() << endl;
+  }
+
+  return NS_OK;
+}
+
+NS_IMETHODIMP ZimCluceneIndexer::GetProgression(PRUint32 *progression, mozbool *retVal) {
   *retVal = PR_TRUE;
+
+  try {    
+    if (this->indexer != NULL) {
+      unsigned int progressionInt = this->indexer->getProgression();
+      *progression = progressionInt;
+    }
+  } catch (exception &e) {
+    cerr << e.what() << endl;
+  }
+
   return NS_OK;
 }
 

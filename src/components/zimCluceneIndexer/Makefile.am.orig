@@ -8,14 +8,18 @@ libZimCluceneIndexer_la_SOURCES= \
 	$(top_srcdir)/src/common/kiwix/xapian/myhtmlparse.cc \
 	$(top_srcdir)/src/common/kiwix/xapian/htmlparse.cc \
 	$(top_srcdir)/src/common/unaccent.cpp \
+	$(top_srcdir)/src/common/componentTools.cpp \
 	$(top_srcdir)/src/common/kiwix/indexer.cpp \
+	$(top_srcdir)/src/common/kiwix/reader.cpp \
 	$(top_srcdir)/src/common/kiwix/cluceneIndexer.cpp \
 	IZimCluceneIndexer.h \
 	$(top_srcdir)/src/common/kiwix/xapian/myhtmlparse.h \
 	$(top_srcdir)/src/common/kiwix/xapian/namedentities.h \
 	$(top_srcdir)/src/common/kiwix/xapian/htmlparse.h \
 	$(top_srcdir)/src/common/unaccent.h \
+	$(top_srcdir)/src/common/componentTools.h \
 	$(top_srcdir)/src/common/kiwix/indexer.h \
+	$(top_srcdir)/src/common/kiwix/reader.h \
 	$(top_srcdir)/src/common/kiwix/cluceneIndexer.h
 libZimCluceneIndexer_la_CXXFLAGS=$(LIBXUL_CFLAGS) $(LIBXAPIAN_CFLAGS) $(LIBCLUCENE_CFLAGS) $(LIBICU_CFLAGS) $(LIBZIM_CFLAGS) $(XPCOM_CFLAGS) -D GECKO_VERSION=$(GECKO_VERSION) -I$(top_srcdir)/src/common/
 if IS_STATIC
