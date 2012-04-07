@@ -171,8 +171,10 @@ function checkIndexing() {
 	    sendNotification(getProperty("information"), getProperty("endOfIndexing"));
 	    isIndexing(false);
 	    changeProgressBarVisibilityStatus(false);
-	    _currentlyIndexedBook = undefined;
 	    stopIndexingObserver();
+	    _currentlyIndexedBook = undefined;
+	    _indexerObserverId = undefined;
+	    _zimIndexer = undefined;
 	}
     }
 }
