@@ -246,7 +246,7 @@
 	  </hbox>
 	</textbox>
       </hbox>
-      <label id="search-label" style="margin: 0px;" collapsed="true" onclick="if (!getSearchBox().disabled) { manageIndexZimFile() }" tooltiptext="&main.noSearchBar;"/>
+      <label id="search-label" style="margin: 0px;" collapsed="true" tooltiptext="&main.noSearchBar;"/>
     </stack>
     <toolbarbutton id="sugar-button-back" oncommand="pageBack()" tooltiptext="&main.back;"/>
     <toolbarbutton id="sugar-button-next" oncommand="pageNext()" tooltiptext="&main.forward;"/>

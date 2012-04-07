@@ -18,7 +18,7 @@
  */
 
 /* Global variables */
-var _zimFilePathcurrentlyIndexed = undefined;
+var _currentlyIndexedBook = undefined;
 var _indexerObserverId = undefined;
 var _zimIndexer = undefined;
 
@@ -36,7 +36,7 @@ function find() {
 
 /* Return true if an indexing process runs currently */
 function isIndexing() {
-    return _zimFilePathcurrentlyIndexed != undefined;
+    return _currentlyIndexedBook != undefined;
 }
 
 /* Return the directory path where the search index is stored */
@@ -64,7 +64,7 @@ function existsSearchIndex(zimFilePath) {
 }
 
 /* Show a dialog box to ask if the user want to index the ZIM file now */
-function manageIndexZimFile() {
+function manageIndexCurrentBook() {
     var currentBook = library.getCurrentBook();
 
     if (isIndexing()) {
@@ -72,7 +72,7 @@ function manageIndexZimFile() {
     } else if (!currentBook) {
 	displayErrorDialog(getProperty("noActiveZimFile"));
     } else if (displayConfirmDialog(getProperty("indexZimFileConfirm"))) {
-	indexZimFile(currentBook.path, getSearchIndexDirectory(currentBook.path));
+	indexCurrentBook();
     }
 
     /* Necessary to avoid a flickering in the HTML renderer */
@@ -100,26 +100,23 @@ function proxyfyObject(obj, iid, sync) {
 }
 
 /* Launch the indexation of a ZIM file */
-function indexZimFile(zimFilePath, xapianDirectory) {
+function indexCurrentBook() {
     var currentBook = library.getCurrentBook();
     var zimFilePath = currentBook.path;
     var zimFileId = currentBook.id;
+    var settingsRootPath = settings.getRootPath();
+    var backend = settings.defaultSearchBackend();
     var indexTmpDirectory = getTmpSearchIndexDirectory();
     var indexDirectoryName = getSearchIndexDirectoryName(zimFilePath);
     var indexDirectory = getSearchIndexDirectory(zimFilePath);
-    var settingsRootPath = settings.getRootPath();
-    var backend = settings.defaultSearchBackend();
-
+    
     /* Remove the xapian tmp directory */
     if (isDirectory(indexTmpDirectory)) {
 	deleteFile(indexTmpDirectory);
     } 
-
-    /* Show the indexing progress bar */
-    changeProgressBarVisibilityStatus(true);
     
     /* Check if the index directory exists and is valid (more robust, in case of the library file is wrong) */
-    if (!isDirectory(indexDirectory) && !openSearchIndex(indexDirectory)) {
+    if (!isDirectory(indexDirectory) && !openSearchIndex(indexDirectory, true)) {
 	
 	/* Delete indexDirectory if necessary - can happens in case of corrupted index */
 	if (isDirectory(indexDirectory)) {
@@ -129,46 +126,53 @@ function indexZimFile(zimFilePath, xapianDirectory) {
 	/* Create the ZIM Xapian Indexer */
 	if (backend == "clucene") {
 	    _zimIndexer = Components.classes["@kiwix.org/zimCluceneIndexer"].getService();
-	    _zimIndexer = zimIndexer.QueryInterface(Components.interfaces.IZimCluceneIndexer);
+	    _zimIndexer = _zimIndexer.QueryInterface(Components.interfaces.IZimCluceneIndexer);
 	} else {
 	    _zimIndexer = Components.classes["@kiwix.org/zimXapianIndexer"].getService();
-	    _zimIndexer = zimIndexer.QueryInterface(Components.interfaces.IZimXapianIndexer);
+	    _zimIndexer = _zimIndexer.QueryInterface(Components.interfaces.IZimXapianIndexer);
 	}
 	
 	/* Load the ZIM file */
-	_zimIndexer.startIndexing(zimFilePath, zimFilePath, indexTmpDirectory, indexTmpDirectory);
-	
+	if (_zimIndexer.start(zimFilePath, indexTmpDirectory)) {
+	    _currentlyIndexedBook = library.getCurrentBook();
+	    startIndexingObserver();
+	}
+    } else {
+	library.setBookIndex(zimFileId, indexDirectory);
     }
     
     return;
 }
 
 function checkIndexing() {
-    var progressBarLabel = getProgressBarLabel();
     if (_zimIndexer.isRunning()) {
 	var progression = new Object();
 	_zimIndexer.getProgression(progression);
-	progressBarLabel.value = getProperty("indexing") + " (" + progression.value + "%)";
+
+	changeProgressBarVisibilityStatus(true);
+	getProgressBar().value = progression.value;
+	getProgressBarLabel().value = getProperty("indexing") + " (" + progression.value + "%)";
     } else {
 	/* Move the xapian tmp directory to the well named xapian directory */
-	moveFile(getTmpSearchIndexDirectory(), settings.getRootPath(), indexDirectoryName); 
+	moveFile(getTmpSearchIndexDirectory(), settings.getRootPath(), getSearchIndexDirectoryName(_currentlyIndexedBook.path)); 
 	
 	/* Save the information in the library */
-	library.setBookIndex(zimFileId, appendToPath(settingsRootPath, indexDirectoryName));
+	library.setBookIndex(_currentlyIndexedBook.id, getSearchIndexDirectory(_currentlyIndexedBook.path));
 	
 	/* Last actions */
-	stopIndexerObserver();
 	sendNotification(getProperty("information"), getProperty("endOfIndexing"));
-	changeProgressBarVisibilityStatus(false);
 	isIndexing(false);
+	changeProgressBarVisibilityStatus(false);
+	_currentlyIndexedBook = undefined;
+	stopIndexingObserver();
     }
 }
 
-function startIndexerObserver() {
+function startIndexingObserver() {
     _indexerObserverId = window.setInterval("checkIndexing()", 1000);
 }
 
-function stopIndexerObserver() {
+function stopIndexingObserver() {
     clearInterval(_indexerObserverId);
 }
 
@@ -186,8 +190,10 @@ function openSearchIndex(path, quiet) {
     }
 
     /* Open the search engine index */
-    if (!indexAccessor.openReadableDatabase(path, path) && !quiet) {
-	L.error("Not able to open xapian database " + path);
+    if (!indexAccessor.openReadableDatabase(path, path)) {
+	if (!quiet) {
+	    L.error("Not able to open xapian database " + path);
+	}
 	return false;    
     }
 
@@ -228,7 +234,7 @@ function manageSearchInIndex(stringToSearch, start, end) {
 
 	/* Check if a search index exists */
 	if (!checkSearchIndex()) {
-	    manageIndexZimFile();
+	    manageIndexCurrentBook();
 	    return;
 	}
 	

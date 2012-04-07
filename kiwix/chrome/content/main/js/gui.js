@@ -159,7 +159,7 @@ function focusOnSearchBox() {
     if (searchBox.disabled == false) {
 	searchBox.focus();
     } else {
-	manageIndexZimFile();
+	manageIndexCurrentBook();
     }
 }
 
@@ -703,7 +703,7 @@ function manageOpenFile(path, noSearchIndexCheck) {
 
 	/* Ask to index if this files has not already an index */
 	if (!isIndexing() && !noSearchIndexCheck && !checkSearchIndex()) {
-	    manageIndexZimFile();
+	    manageIndexCurrentBook();
 	}
 	
 	/* Update the search bar */
