@@ -104,8 +104,8 @@
 <!ENTITY main.openLinkInNewTab          "Malfermi ligilon en nova langeto">
 <!ENTITY main.searchFor                 "Serĉi">
 <!ENTITY main.copyLinkAdress            "Copy link address">
-<!ENTITY main.mute                      "Mute">
-<!ENTITY main.audible                   "Audible">
+<!ENTITY main.mute                      "Mutigi">
+<!ENTITY main.audible                   "Aŭdebligi">
 
 <!-- About Window -->
 <!ENTITY main.close                     "Fermi">

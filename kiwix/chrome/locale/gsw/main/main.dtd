@@ -101,7 +101,7 @@
 
 <!-- Contextual Menu -->
 <!ENTITY main.saveImageAs               "Bild spychere als...">
-<!ENTITY main.openLinkInNewTab          "Gleich im e noie Fenschter uffmache">
+<!ENTITY main.openLinkInNewTab          "Link im e noie Fenschter uffmache">
 <!ENTITY main.searchFor                 "Suech no">
 <!ENTITY main.copyLinkAdress            "Copy link address">
 <!ENTITY main.mute                      "Don abschalte">
