@@ -52,12 +52,16 @@ const nsIIOService = Components.interfaces.nsIIOService;
 const nsIProtocolHandler = Components.interfaces.nsIProtocolHandler;
 const nsIURI = Components.interfaces.nsIURI;
 
+Components.utils.import("resource://gre/modules/XPCOMUtils.jsm");
+
 function Protocol()
 {
 }
 
 Protocol.prototype =
 {
+    classID: Components.ID(kPROTOCOL_CID),
+
   QueryInterface: function(iid)
   {
     if (!iid.equals(nsIProtocolHandler) &&
@@ -261,44 +265,41 @@ ProtocolFactory.createInstance = function (outer, iid)
 }
 
 
-/**
- * JS XPCOM component registration goop:
- *
- * We set ourselves up to observe the xpcom-startup category.  This provides
- * us with a starting point.
- */
-
-var TestModule = new Object();
-
-TestModule.registerSelf = function (compMgr, fileSpec, location, type)
-{
-  compMgr = compMgr.QueryInterface(Components.interfaces.nsIComponentRegistrar);
-  compMgr.registerFactoryLocation(kPROTOCOL_CID,
-                                  kPROTOCOL_NAME,
-                                  kPROTOCOL_CONTRACTID,
-                                  fileSpec, 
-                                  location, 
-                                  type);
-}
-
-TestModule.getClassObject = function (compMgr, cid, iid)
-{
-  if (!cid.equals(kPROTOCOL_CID))
-    throw Components.results.NS_ERROR_NO_INTERFACE;
-
-  if (!iid.equals(Components.interfaces.nsIFactory))
-    throw Components.results.NS_ERROR_NOT_IMPLEMENTED;
+if (XPCOMUtils.generateNSGetFactory) {
+    var NSGetFactory = XPCOMUtils.generateNSGetFactory([Protocol]);
+} else {
+    var TestModule = new Object();
     
-  return ProtocolFactory;
-}
-
-TestModule.canUnload = function (compMgr)
-{
-  return true;
-}
-
-function NSGetModule(compMgr, fileSpec)
-{
-  return TestModule;
+    TestModule.registerSelf = function (compMgr, fileSpec, location, type)
+    {
+	compMgr = compMgr.QueryInterface(Components.interfaces.nsIComponentRegistrar);
+	compMgr.registerFactoryLocation(kPROTOCOL_CID,
+					kPROTOCOL_NAME,
+					kPROTOCOL_CONTRACTID,
+					fileSpec, 
+					location, 
+					type);
+    }
+    
+    TestModule.getClassObject = function (compMgr, cid, iid)
+    {
+	if (!cid.equals(kPROTOCOL_CID))
+	    throw Components.results.NS_ERROR_NO_INTERFACE;
+	
+	if (!iid.equals(Components.interfaces.nsIFactory))
+	    throw Components.results.NS_ERROR_NOT_IMPLEMENTED;
+	
+	return ProtocolFactory;
+    }
+    
+    TestModule.canUnload = function (compMgr)
+    {
+	return true;
+    }
+    
+    function NSGetModule(compMgr, fileSpec)
+    {
+	return TestModule;
+    }
 }
 
