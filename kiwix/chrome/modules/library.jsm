@@ -285,7 +285,8 @@ let library = {
     /* Delete the current book */
     deleteCurrentBook: function() {
 	this.setCurrentId("");
-        return(this.deleteBookById(this.current));
+	if (this.current)
+	  return(this.deleteBookById(this.current));
     },
 
     /* Prepare a list of books */
