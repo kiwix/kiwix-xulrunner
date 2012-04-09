@@ -7,17 +7,13 @@ else
 GECKOSDKURL=http://download.kiwix.org/dev/xulrunner-11.0.en-US.mac-$(ARCH).sdk.tar.bz2
 endif
 
-if IS_LINUX
 XULRUNNERRUNTIMEURL=http://download.kiwix.org/dev/xulrunner-11.0.en-US.linux-$(ARCH).tar.bz2
-else
-XULRUNNERRUNTIMEURL=http://download.kiwix.org/dev/xulrunner-11.0.en-US.mac-pkg.dmg
-endif
 
 ####################################################
 ############ GECKO-SDK
 ####################################################
 xulrunner-sdk.tar.bz2:
-	wget -c $(XULRUNNERRUNTIMEURL) -O xulrunner-sdk.tar.bz2
+	wget -c $(GECKOSDKURL) -O xulrunner-sdk.tar.bz2
 	
 
 xulrunner-sdk: xulrunner-sdk.tar.bz2
@@ -27,11 +23,17 @@ xulrunner-sdk: xulrunner-sdk.tar.bz2
 ############ XULRUNNER-RUNTIME
 ####################################################
 xulrunner-runtime.tar.bz2:
-	wget -c $(GECKOSDKURL) -O xulrunner-runtime.tar.bz2
+	wget -c $(XULRUNNERRUNTIMEURL) -O xulrunner-runtime.tar.bz2
 	
 
 xulrunner: xulrunner-runtime.tar.bz2
 	if test ! -d xulrunner; then tar -xf xulrunner-runtime.tar.bz2 ; fi;
+
+xulrunner-11.0.en-US.mac-pkg.dmg:
+	wget -O xulrunner-11.0.en-US.mac-pkg.dmg -c http://download.kiwix.org/dev/xulrunner-11.0.en-US.mac-pkg.dmg
+	hdiutil attach xulrunner-11.0.en-US.mac-pkg.dmg -noautoopen -quiet  -mountpoint /Volumes/xulrunner
+	sudo installer -pkg /Volumes/xulrunner/xulrunner-11.0.en-US.mac.pkg -target /
+	hdiutil detach /Volumes/xulrunner -quiet -force
 
 ####################################################
 ############ ZLIB

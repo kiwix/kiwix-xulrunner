@@ -199,12 +199,17 @@ COMPILED_GECKO_SDK_PATH="${DEP_PATH}/xulrunner-sdk"
 XPCOM_CFLAGS="-fno-rtti -fPIC"
 XPCOM_LDFLAGS="-Xcompiler -shared -Wl"
 # osx don't need for rpath-link as we build static
-if test [ ! "$IS_OSX" ]
+if test [ $IS_OSX -eq 0 ]
 then
 XPCOM_LDFLAGS=${XPCOM_LDFLAGS}",-rpath-link,$GECKO_SDK_PATH/bin"
 fi
 
+if test [ $IS_OSX -eq 1 ]
+then
+XULRUNNER_RUNTIME_PATH="${DEP_PATH}/xulrunner-11.0.en-US.mac-pkg.dmg"
+else
 XULRUNNER_RUNTIME_PATH="${DEP_PATH}/xulrunner"
+fi
 
 ZLIB_CFLAGS=""
 ZLIB_LDFLAGS=" -lz"
@@ -840,8 +845,6 @@ fi
 ####################################################
 
 DEP_LIST=""
-if test [ "$IS_LINUX" ]
-then
     if test [ $COMPILE_GECKO_SDK -eq 1 ]
     then
         DEP_LIST+=" $COMPILED_GECKO_SDK_PATH/"
@@ -886,7 +889,6 @@ then
         DEP_LIST+=" $COMPILED_CLUCENE_FILES"
         STATIC_LIBS+=" $COMPILED_CLUCENE_FILES"
     fi
-fi
 DEP_LIST=`echo $DEP_LIST | sed -e "s,$DEP_PATH/,,g"`
 
 ####################################################
@@ -1066,6 +1068,7 @@ $BINECHO -n "CXXCPP			" ; $BINECHO $CXXCPP
 $BINECHO -n "CXXFLAGS		" ; $BINECHO $CXXFLAGS
 $BINECHO ""
 $BINECHO -n "GECKO_SDK_PATH		" ; $BINECHO $GECKO_SDK_PATH
+$BINECHO -n "XULRUNNER_RUNTIME_PATH	" ; $BINECHO $XULRUNNER_RUNTIME_PATH
 $BINECHO -n "ZLIB_LDFLAGS		" ; $BINECHO $ZLIB_LDFLAGS
 $BINECHO -n "XAPIAN_LDFLAGS		" ; $BINECHO $XAPIAN_LDFLAGS
 $BINECHO -n "SQLITE_LDFLAGS		" ; $BINECHO $SQLITE_LDFLAGS
