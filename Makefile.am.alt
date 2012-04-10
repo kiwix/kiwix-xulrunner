@@ -180,41 +180,93 @@ static: dist
 # Mac OSX rule
 # requires install of XR
 distmac: dist
-	tar xf $(PACKAGE)-$(VERSION).tar.gz
+
 	rm -rf kiwix_dmg
+	rm -rf Kiwix.app
 	$(MKDIR_P) Kiwix.app
 	$(MKDIR_P) Kiwix.app/Contents
 	$(MKDIR_P) Kiwix.app/Contents/Frameworks
 	$(MKDIR_P) Kiwix.app/Contents/MacOS
 	$(MKDIR_P) Kiwix.app/Contents/Resources
-	rsync -ar $(PACKAGE)-$(VERSION)/kiwix/* Kiwix.app/Contents/Resources/
+	
+	cp -LR ./kiwix/ Kiwix.app/Contents/Resources/
+	rm -rf `find Kiwix.app/Contents/Resources -type d -name .svn`
+	find Kiwix.app/Contents/Resources -name '*.inised' -exec rm -rf {} \;
+	find Kiwix.app/Contents/Resources -name 'Makefile' -delete
+	find Kiwix.app/Contents/Resources -name 'Makefile.in' -delete
+	find Kiwix.app/Contents/Resources -name 'Makefile.am*' -delete
+
 	find Kiwix.app/Contents/Resources/components/ -type l -delete
-	cp ./kiwix/components/zimAccessor.xpt Kiwix.app/Contents/Resources/components/zimAccessor.xpt
-	cp ./kiwix/components/zimAccessor.dylib Kiwix.app/Contents/Resources/components/zimAccessor.dylib
-	cp ./kiwix/components/xapianAccessor.xpt Kiwix.app/Contents/Resources/components/xapianAccessor.xpt
-	cp ./kiwix/components/xapianAccessor.dylib Kiwix.app/Contents/Resources/components/xapianAccessor.dylib
-	cp ./kiwix/components/zimXapianIndexer.xpt Kiwix.app/Contents/Resources/components/zimXapianIndexer.xpt
-	cp ./kiwix/components/zimXapianIndexer.dylib Kiwix.app/Contents/Resources/components/zimXapianIndexer.dylib
-	cp ./kiwix/components/contentManager.xpt Kiwix.app/Contents/Resources/components/contentManager.xpt
-	cp ./kiwix/components/contentManager.dylib Kiwix.app/Contents/Resources/components/contentManager.dylib
-	cp src/components/components.list Kiwix.app/Contents/Resources/components/components.list
+	cp -v ./kiwix/components/zimAccessor.xpt Kiwix.app/Contents/Resources/components/zimAccessor.xpt
+	cp -v ./kiwix/components/zimAccessor.dylib Kiwix.app/Contents/Resources/components/zimAccessor.dylib
+	cp -v ./kiwix/components/xapianAccessor.xpt Kiwix.app/Contents/Resources/components/xapianAccessor.xpt
+	cp -v ./kiwix/components/xapianAccessor.dylib Kiwix.app/Contents/Resources/components/xapianAccessor.dylib
+	cp -v ./kiwix/components/zimXapianIndexer.xpt Kiwix.app/Contents/Resources/components/zimXapianIndexer.xpt
+	cp -v ./kiwix/components/zimXapianIndexer.dylib Kiwix.app/Contents/Resources/components/zimXapianIndexer.dylib
+	cp -v ./kiwix/components/contentManager.xpt Kiwix.app/Contents/Resources/components/contentManager.xpt
+	cp -v ./kiwix/components/contentManager.dylib Kiwix.app/Contents/Resources/components/contentManager.dylib
+	cp -v src/components/components.list Kiwix.app/Contents/Resources/components/components.list
 	rsync -rl /Library/Frameworks/XUL.framework/ Kiwix.app/Contents/Frameworks/XUL.framework/
-	cp /Library/Frameworks/XUL.framework/Versions/Current/xulrunner Kiwix.app/Contents/MacOS/xulrunner
-	cp $(ARIA2_LDFLAGS) Kiwix.app/Contents/Resources/aria2c
-	cp $(PACKAGE)-$(VERSION)/kiwix/chrome/icons/default/main.icns Kiwix.app/Contents/Resources/kiwix.icns
-	cp $(PACKAGE)-$(VERSION)/kiwix/chrome/icons/default/zim.icns Kiwix.app/Contents/Resources/kiwix-ZIM.icns
-	cp src/macosx/Info.plist Kiwix.app/Contents/Info.plist
+	cp -v /Library/Frameworks/XUL.framework/Versions/Current/xulrunner Kiwix.app/Contents/MacOS/xulrunner
+
+	mv Kiwix.app/Contents/Resources/chrome/content/main/js/logger_rlz.js Kiwix.app/Contents/Resources/chrome/content/main/js/logger.js
+
+	cp -Lv $(STATIC_LIBS) Kiwix.app/Contents/Frameworks/
+
+	install_name_tool -change libicuuc.44.dylib @executable_path/../Frameworks/libicuuc.dylib Kiwix.app/Contents/Frameworks/libicui18n.dylib
+	install_name_tool -change ../lib/libicudata.44.2.dylib @executable_path/../Frameworks/libicudata.dylib Kiwix.app/Contents/Frameworks/libicui18n.dylib
+
+	install_name_tool -change ../lib/libicudata.44.2.dylib @executable_path/../Frameworks/libicudata.dylib Kiwix.app/Contents/Frameworks/libicuuc.dylib
+
+	install_name_tool -change /usr/local/lib/libz.1.dylib @executable_path/../Frameworks/libz.dylib Kiwix.app/Contents/Frameworks/libxapian.dylib
+
+	install_name_tool -change /usr/local/lib/liblzma.1.dylib @executable_path/../Frameworks/liblzma.dylib Kiwix.app/Contents/Resources/components/zimAccessor.dylib
+
+	install_name_tool -change /usr/local/lib/liblzma.1.dylib @executable_path/../Frameworks/liblzma.dylib Kiwix.app/Contents/Resources/components/contentManager.dylib
+	install_name_tool -change ../lib/libicudata.44.2.dylib @executable_path/../Frameworks/libicudata.dylib Kiwix.app/Contents/Resources/components/contentManager.dylib
+	install_name_tool -change libicuuc.44.dylib @executable_path/../Frameworks/libicuuc.dylib Kiwix.app/Contents/Resources/components/contentManager.dylib
+	install_name_tool -change libicui18n.44.dylib @executable_path/../Frameworks/libicui18n.dylib Kiwix.app/Contents/Resources/components/contentManager.dylib
+
+	install_name_tool -change /usr/local/lib/libxapian.22.dylib @executable_path/../Frameworks/libxapian.dylib Kiwix.app/Contents/Resources/components/xapianAccessor.dylib
+	install_name_tool -change /usr/local/lib/libz.1.dylib @executable_path/../Frameworks/libz.dylib Kiwix.app/Contents/Resources/components/xapianAccessor.dylib
+	install_name_tool -change ../lib/libicudata.44.2.dylib @executable_path/../Frameworks/libicudata.dylib Kiwix.app/Contents/Resources/components/xapianAccessor.dylib
+	install_name_tool -change libicuuc.44.dylib @executable_path/../Frameworks/libicuuc.dylib Kiwix.app/Contents/Resources/components/xapianAccessor.dylib
+	install_name_tool -change libicui18n.44.dylib @executable_path/../Frameworks/libicui18n.dylib Kiwix.app/Contents/Resources/components/xapianAccessor.dylib
+
+	install_name_tool -change /usr/local/lib/libxapian.22.dylib @executable_path/../Frameworks/libxapian.dylib Kiwix.app/Contents/Resources/components/zimXapianIndexer.dylib
+	install_name_tool -change /usr/local/lib/libz.1.dylib @executable_path/../Frameworks/libz.dylib Kiwix.app/Contents/Resources/components/zimXapianIndexer.dylib
+	install_name_tool -change ../lib/libicudata.44.2.dylib @executable_path/../Frameworks/libicudata.dylib Kiwix.app/Contents/Resources/components/zimXapianIndexer.dylib
+	install_name_tool -change libicuuc.44.dylib @executable_path/../Frameworks/libicuuc.dylib Kiwix.app/Contents/Resources/components/zimXapianIndexer.dylib
+	install_name_tool -change libicui18n.44.dylib @executable_path/../Frameworks/libicui18n.dylib Kiwix.app/Contents/Resources/components/zimXapianIndexer.dylib
+	install_name_tool -change /usr/local/lib/liblzma.1.dylib @executable_path/../Frameworks/liblzma.dylib Kiwix.app/Contents/Resources/components/zimXapianIndexer.dylib
+
+
+	strip `find Kiwix.app/Contents/Resources -executable -type f | grep -v ".sh" | grep -v ".py" | grep -v sugar` || true
+
+	mkdir -p Kiwix.app/Contents/Resources/bin
+	cp -v $(COMPILED_ARIA2_FILES) Kiwix.app/Contents/Resources/bin/
+	cp -v $(COMPILED_XAPIAN_COMPACT) Kiwix.app/Contents/Resources/bin/xapian-compact
+	chmod +x Kiwix.app/Contents/Resources/bin/*
+
+	rm Kiwix.app/Contents/Resources/*.bat
+
+	cp -v kiwix/chrome/icons/default/main.icns Kiwix.app/Contents/Resources/kiwix.icns
+	cp -v kiwix/chrome/icons/default/zim.icns Kiwix.app/Contents/Resources/kiwix-ZIM.icns
+	cp -v src/macosx/Info.plist Kiwix.app/Contents/Info.plist
+
 	sed -i -e 's,\.so,\.dylib,g' Kiwix.app/Contents/Resources/chrome.manifest
-	cp Kiwix.app/Contents/Frameworks/XUL.framework/Versions/Current/libmozglue.dylib Kiwix.app/Contents/MacOS/libmozglue.dylib
+
+	cp -v Kiwix.app/Contents/Frameworks/XUL.framework/Versions/Current/libmozglue.dylib Kiwix.app/Contents/MacOS/libmozglue.dylib
+	
 	chmod -R 755 Kiwix.app
 
-	rm -f $(PACKAGE)-$(VERSION).dmg
 	bunzip2 -kf src/macosx/kiwix_template.dmg.bz2
 	$(MKDIR_P) kiwix_dmg
 	hdiutil attach src/macosx/kiwix_template.dmg -noautoopen -quiet -mountpoint ./kiwix_dmg
 	rm -rf ./kiwix_dmg/Kiwix.app
 	mv Kiwix.app kiwix_dmg/
 	hdiutil detach ./kiwix_dmg -quiet -force
+	rm -f $(PACKAGE)-$(VERSION).dmg
 	hdiutil convert src/macosx/kiwix_template.dmg -quiet -format UDZO -imagekey zlib-level=9 -o $(PACKAGE)-$(VERSION).dmg
 	rm -f src/macosx/kiwix_template.dmg
 

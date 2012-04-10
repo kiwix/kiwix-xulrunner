@@ -192,6 +192,13 @@ STATIC_TMP="static_tmp"
 # list of .so to copy to xulrunner/ path
 STATIC_LIBS=""
 
+SHARED_EXT="so"
+if test [ $IS_OSX -eq 1 ] ; then
+SHARED_EXT="dylib"
+elif test [ $IS_WIN -eq 1 ] ; then
+SHARED_EXT="dll"
+fi
+
 GECKO_SDK_PATH=""
 COMPILE_GECKO_SDK=0
 COMPILED_GECKO_SDK_PATH="${DEP_PATH}/xulrunner-sdk"
@@ -206,18 +213,17 @@ fi
 
 if test [ $IS_OSX -eq 1 ]
 then
-XULRUNNER_RUNTIME_PATH="${DEP_PATH}/xulrunner-11.0.en-US.mac-pkg.dmg"
+	XULRUNNER_RUNTIME_PATH="${DEP_PATH}/xulrunner-11.0.en-US.mac-pkg.dmg"
 else
-XULRUNNER_RUNTIME_PATH="${DEP_PATH}/xulrunner"
+	XULRUNNER_RUNTIME_PATH="${DEP_PATH}/xulrunner"
 fi
 
 ZLIB_CFLAGS=""
 ZLIB_LDFLAGS=" -lz"
 COMPILE_ZLIB=0
 COMPILED_ZLIB_CFLAGS="-I${DEP_PATH}/zlib-1.2.3"
-#COMPILED_ZLIB_LDFLAGS="${DEP_PATH}/zlib-1.2.3/libz.a"
 COMPILED_ZLIB_LDFLAGS="-L${DEP_PATH}/zlib-1.2.3  -lz"
-COMPILED_ZLIB_FILES="${DEP_PATH}/zlib-1.2.3/libz.so"
+COMPILED_ZLIB_FILES="${DEP_PATH}/zlib-1.2.3/libz.${SHARED_EXT}"
 
 XAPIAN_CFLAGS=""
 XAPIAN_LDFLAGS="-lxapian"
@@ -225,13 +231,10 @@ COMPILE_XAPIAN=0
 COMPILED_XAPIAN_CFLAGS="-I${DEP_PATH}/xapian-core-1.2.3/include"
 if test [ $IS_WIN -eq 1 ] ; then
     COMPILED_XAPIAN_LDFLAGS="${DEP_PATH}/xapian-core-1.2.3/win32/Release/libs/libunicode.lib"
-elif test [ $IS_OSX -eq 1 ] ; then
-	COMPILED_XAPIAN_LDFLAGS="${DEP_PATH}/libxapian-${ARCH}.a"
 else
-    #COMPILED_XAPIAN_LDFLAGS="${DEP_PATH}/xapian-core-1.2.3/.libs/libxapian.a"
-    COMPILED_XAPIAN_LDFLAGS="-L${DEP_PATH}/xapian-core-1.2.3/.libs/ -lxapian"
+	COMPILED_XAPIAN_LDFLAGS="-L${DEP_PATH}/xapian-core-1.2.3/.libs/ -lxapian"
+    COMPILED_XAPIAN_FILES="${DEP_PATH}/xapian-core-1.2.3/.libs/libxapian.${SHARED_EXT}"
 fi
-COMPILED_XAPIAN_FILES="${DEP_PATH}/xapian-core-1.2.3/.libs/libxapian.so"
 COMPILED_XAPIAN_COMPACT="${DEP_PATH}/xapian-core-1.2.3/bin/.libs/xapian-compact"
 
 ICU_CFLAGS=""
@@ -240,47 +243,35 @@ COMPILE_ICU=0
 COMPILED_ICU_CFLAGS="-I${DEP_PATH}/icu/source/build/include"
 if test [ $IS_WIN -eq 1 ] ; then
 	COMPILED_ICU_LDFLAGS="${DEP_PATH}/icu/lib/icuio.lib ${DEP_PATH}/icu/lib/icudata.lib ${DEP_PATH}/icu/lib/icuuc.lib ${DEP_PATH}/icu/lib/icui18n.lib"
-elif test [ $IS_OSX -eq 1 ] ; then
-	COMPILED_ICU_LDFLAGS="${DEP_PATH}/libicui18n-${ARCH}.a ${DEP_PATH}/libicuuc-${ARCH}.a ${DEP_PATH}/libicudata-${ARCH}.a ${DEP_PATH}/libicuio-${ARCH}.a ${DEP_PATH}/libicule-${ARCH}.a ${DEP_PATH}/libiculx-${ARCH}.a ${DEP_PATH}/libicutu-${ARCH}.a"
 else
 	COMPILED_ICU_LDFLAGS="-L${DEP_PATH}/icu/source/build/lib -licui18n -licuuc -licudata"
+	COMPILED_ICU_FILES="${DEP_PATH}/icu/source/lib/libicui18n.${SHARED_EXT} ${DEP_PATH}/icu/source/lib/libicuuc.${SHARED_EXT} ${DEP_PATH}/icu/source/lib/libicudata.${SHARED_EXT}"
 fi
-COMPILED_ICU_FILES="${DEP_PATH}/icu/source/lib/libicui18n.so ${DEP_PATH}/icu/source/lib/libicuuc.so ${DEP_PATH}/icu/source/lib/libicudata.so ${DEP_PATH}/icu/source/lib/libicuio.so ${DEP_PATH}/icu/source/lib/libicule.so ${DEP_PATH}/icu/source/lib/libiculx.so ${DEP_PATH}/icu/source/lib/libicutu.so"
 
 # no win for sqlite as it is just a sub dependency of aria2
 SQLITE_CFLAGS=""
 SQLITE_LDFLAGS="-libsqlite3"
 COMPILE_SQLITE=0
-if test [ $IS_OSX -eq 1 ] ; then
-	COMPILED_SQLITE_LDFLAGS="${DEP_PATH}/libsqlite3-${ARCH}.a"
-else
-	COMPILED_SQLITE_LDFLAGS="-L${DEP_PATH}/sqlite-autoconf-3071000/.libs -libsqlite3"
-fi
-COMPILED_SQLITE_FILES="${DEP_PATH}/sqlite-autoconf-3071000/.libs/libsqlite3.so"
+COMPILED_SQLITE_LDFLAGS="-L${DEP_PATH}/sqlite-autoconf-3071000/.libs -libsqlite3"
+COMPILED_SQLITE_FILES="${DEP_PATH}/sqlite-autoconf-3071000/.libs/libsqlite3.${SHARED_EXT}"
 
 # used only for building kiwix-serve. Not available on windows.
 MICROHTTPD_CFLAGS=""
 MICROHTTPD_LDFLAGS="-lmicrohttpd"
 COMPILE_MICROHTTPD=0
-if test [ $IS_OSX -eq 1 ] ; then
-	COMPILED_MICROHTTPD_LDFLAGS="${DEP_PATH}/libmicrohttpd-${ARCH}.a"
-else
-	COMPILED_MICROHTTPD_LDFLAGS="-L${DEP_PATH}/libmicrohttpd-0.9.19/src/daemon/.libs -lmicrohttpd"
-fi
-COMPILED_MICROHTTPD_FILES="${DEP_PATH}/libmicrohttpd-0.9.19/src/daemon/.libs/libmicrohttpd.so"
+COMPILED_MICROHTTPD_LDFLAGS="-L${DEP_PATH}/libmicrohttpd-0.9.19/src/daemon/.libs -lmicrohttpd"
+COMPILED_MICROHTTPD_FILES="${DEP_PATH}/libmicrohttpd-0.9.19/src/daemon/.libs/libmicrohttpd.${SHARED_EXT}"
 
 LZMA_CFLAGS=""
 LZMA_LDFLAGS=" -llzma"
 COMPILE_LZMA=0
 if test [ $IS_WIN -eq 1 ] ; then
 	COMPILED_LZMA_LDFLAGS="${DEP_PATH}/xz/windows/liblzma.lib"
-elif test [ $IS_OSX -eq 1 ] ; then
-	COMPILED_LZMA_LDFLAGS="${DEP_PATH}/liblzma-${ARCH}.a"
 else
     COMPILED_LZMA_LDFLAGS="-L${DEP_PATH}/xz/src/liblzma/.libs  -llzma"
 fi
 COMPILED_LZMA_CFLAGS="-I${DEP_PATH}/xz/src/liblzma/api"
-COMPILED_LZMA_FILES="${DEP_PATH}/xz/src/liblzma/.libs/liblzma.so"
+COMPILED_LZMA_FILES="${DEP_PATH}/xz/src/liblzma/.libs/liblzma.${SHARED_EXT}"
 
 
 ARIA2_CFLAGS=""
@@ -288,20 +279,17 @@ ARIA2_LDFLAGS=""
 COMPILE_ARIA2=0
 if test [ $IS_OSX -eq 1 ] ; then
 	COMPILED_ARIA2_LDFLAGS="${DEP_PATH}/aria2-1.14.2/usr/bin/aria2c"
+	COMPILED_ARIA2_FILES="${DEP_PATH}/aria2-1.14.2/usr/bin/aria2c"
 else
 	COMPILED_ARIA2_LDFLAGS="${DEP_PATH}/aria2c"
+	COMPILED_ARIA2_FILES="${DEP_PATH}/aria2c"
 fi
-COMPILED_ARIA2_FILES="${DEP_PATH}/aria2c"
 
 CLUCENE_CFLAGS="-I/usr/lib -I/usr/lib64"
 CLUCENE_LDFLAGS="-lclucene"
 COMPILE_CLUCENE=0
-if test [ $IS_OSX -eq 1 ] ; then
-	COMPILED_CLUCENE_LDFLAGS="${DEP_PATH}/libclucene-${ARCH}.a"
-else
-	COMPILED_CLUCENE_LDFLAGS="-L${DEP_PATH}/clucene-core-0.9.21b/src/.libs -lclucene"
-fi
-COMPILED_CLUCENE_FILES="${DEP_PATH}/clucene-core-0.9.21b/src/.libs/libclucene.so"
+COMPILED_CLUCENE_LDFLAGS="-L${DEP_PATH}/clucene-core-0.9.21b/src/.libs -lclucene"
+COMPILED_CLUCENE_FILES="${DEP_PATH}/clucene-core-0.9.21b/src/.libs/libclucene.${SHARED_EXT}"
 
 WITH_CLUCENE=0
 

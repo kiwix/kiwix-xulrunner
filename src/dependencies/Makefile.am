@@ -49,7 +49,7 @@ zlib-1.2.3: zlib.tar.gz
 zlib-1.2.3/libz.a: zlib-1.2.3/
 	cd zlib-1.2.3 && CFLAGS=" -fPIC " ./configure && make
 
-zlib-1.2.3/libz.so: zlib-1.2.3/
+zlib-1.2.3/libz.so zlib-1.2.3/libz.dylib: zlib-1.2.3/
 	cd zlib-1.2.3 && CFLAGS=" -fPIC " ./configure --shared && make
 
 # OSX
@@ -78,10 +78,10 @@ xapian-core-1.2.3: xapian-core.tar.gz
 
 # Linux
 xapian-core-1.2.3/.libs/libxapian.a: xapian-core-1.2.3/
-	cd xapian-core-1.2.3 && EXTERN_PATH=`pwd` CPPFLAGS="-I${CURRENT_PATH}/src/dependences/zlib-1.2.3/" CXXFLAGS=" -fPIC -L${CURRENT_PATH}/src/dependences/zlib-1.2.3" ./configure --enable-static --enable-shared && make
+	cd xapian-core-1.2.3 && EXTERN_PATH=`pwd` CPPFLAGS="-I${CURRENT_PATH}/src/dependencies/zlib-1.2.3/" CXXFLAGS=" -fPIC -L${CURRENT_PATH}/src/dependencies/zlib-1.2.3" ./configure --enable-static --enable-shared && make
 
-xapian-core-1.2.3/.libs/libxapian.so: xapian-core-1.2.3/
-	cd xapian-core-1.2.3 && EXTERN_PATH=`pwd` CPPFLAGS="-I${CURRENT_PATH}/src/dependences/zlib-1.2.3/" CXXFLAGS=" -fPIC -L${CURRENT_PATH}/src/dependences/zlib-1.2.3" ./configure --enable-static --enable-shared && make
+xapian-core-1.2.3/.libs/libxapian.so xapian-core-1.2.3/.libs/libxapian.dylib: xapian-core-1.2.3/
+	cd xapian-core-1.2.3 && EXTERN_PATH=`pwd` CPPFLAGS="-I${CURRENT_PATH}/src/dependencies/zlib-1.2.3/" CXXFLAGS=" -fPIC -L${CURRENT_PATH}/src/dependencies/zlib-1.2.3" ./configure --enable-static --enable-shared && make
 
 # OSX
 libxapian-fat.a: libxapian-i386.a libxapian-x86_64.a
@@ -183,8 +183,11 @@ libicutu-x86_64.a: libicutu-fat.a
 icu/source/lib/libicuio.a icu/source/lib/libicudata.a icu/source/lib/libicuuc.a icu/source/lib/libicui18n.a icu/source/lib/libicule.a icu/source/lib/libiculx.a icu/source/lib/libicutu.a: icu/
 	cd icu/source && mkdir -p build && CFLAGS=" -fPIC " ./runConfigureICU Linux --prefix=$(DEP_PATH)/icu/source/build --enable-static && make && make install
 
-icu/source/lib/libicuio.so icu/source/lib/libicudata.so icu/source/lib/libicuuc.so icu/source/lib/libicui18n.so icu/source/lib/libicule.so icu/source/lib/libiculx.so icu/source/lib/libicutu.so: icu/
+icu/source/lib/libicudata.so icu/source/lib/libicuuc.so icu/source/lib/libicui18n.so: icu/
 	cd icu/source && mkdir -p build && CFLAGS=" -fPIC " ./runConfigureICU Linux --prefix=$(DEP_PATH)/icu/source/build && make && make install
+
+icu/source/lib/libicudata.dylib icu/source/lib/libicuuc.dylib icu/source/lib/libicui18n.dylib: icu/
+	cd icu/source && mkdir -p build && CFLAGS=" -fPIC " ./runConfigureICU MacOSX --prefix=$(DEP_PATH)/icu/source/build && make && make install
 
 icu.zip:
 	wget -c http://download.kiwix.org/dev/icu4c-4_4-Win32-msvc9.zip -O icu.zip
@@ -206,7 +209,7 @@ sqlite-autoconf-3071000: sqlite-autoconf-3071000.tar.gz
 sqlite-autoconf-3071000/.libs/libsqlite3.a: sqlite-autoconf-3071000/
 	cd sqlite-autoconf-3071000 && CFLAGS=" -fPIC " ./configure --enable-static --enable-shared && make
 
-sqlite-autoconf-3071000/.libs/libsqlite3.so: sqlite-autoconf-3071000/
+sqlite-autoconf-3071000/.libs/libsqlite3.so sqlite-autoconf-3071000/.libs/libsqlite3.dylib: sqlite-autoconf-3071000/
 	cd sqlite-autoconf-3071000 && CFLAGS=" -fPIC " ./configure --enable-static --enable-shared && make
 
 # OSX
@@ -232,7 +235,7 @@ libmicrohttpd-0.9.19: libmicrohttpd-0.9.19.tar.gz
 libmicrohttpd-0.9.19/src/daemon/.libs/libmicrohttpd.a: libmicrohttpd-0.9.19/
 	cd libmicrohttpd-0.9.19 && CFLAGS=" -fPIC " ./configure --enable-static --enable-shared && make
 
-libmicrohttpd-0.9.19/src/daemon/.libs/libmicrohttpd.so: libmicrohttpd-0.9.19/
+libmicrohttpd-0.9.19/src/daemon/.libs/libmicrohttpd.so libmicrohttpd-0.9.19/src/daemon/.libs/libmicrohttpd.dylib: libmicrohttpd-0.9.19/
 	cd libmicrohttpd-0.9.19 && CFLAGS=" -fPIC " ./configure --enable-static --enable-shared && make
 
 # OSX
@@ -277,7 +280,7 @@ endif
 xz/src/liblzma/.libs/liblzma.a: xz/
 	cd xz && CFLAGS=" -fPIC " ./configure --disable-assembler --enable-static --disable-shared && make
 
-xz/src/liblzma/.libs/liblzma.so: xz/
+xz/src/liblzma/.libs/liblzma.so xz/src/liblzma/.libs/liblzma.dylib: xz/
 	cd xz && CFLAGS=" -fPIC " ./configure --disable-assembler --enable-static --enable-shared && make
 
 # OSX
@@ -323,7 +326,7 @@ clucene-core-0.9.21b: clucene-core-0.9.21b.tar.bz2
 clucene-core-0.9.21b/src/.libs/libclucene.a: clucene-core-0.9.21b/
 	cd clucene-core-0.9.21b && CXXFLAGS=" -fPIC " ./configure --enable-static --disable-shared && make
 
-clucene-core-0.9.21b/src/.libs/libclucene.so: clucene-core-0.9.21b/
+clucene-core-0.9.21b/src/.libs/libclucene.so clucene-core-0.9.21b/src/.libs/libclucene.dylib: clucene-core-0.9.21b/
 	cd clucene-core-0.9.21b && CXXFLAGS=" -fPIC " ./configure --enable-static --enable-shared && make
 
 # OSX
