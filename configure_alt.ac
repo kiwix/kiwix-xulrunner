@@ -233,9 +233,17 @@ if test [ $IS_WIN -eq 1 ] ; then
     COMPILED_XAPIAN_LDFLAGS="${DEP_PATH}/xapian-core-1.2.3/win32/Release/libs/libunicode.lib"
 else
 	COMPILED_XAPIAN_LDFLAGS="-L${DEP_PATH}/xapian-core-1.2.3/.libs/ -lxapian"
+	if test [ $IS_OSX -eq 1 ] ; then
+	COMPILED_XAPIAN_FILES="${DEP_PATH}/xapian-core-1.2.3/build/libxapian.dylib"
+	else
     COMPILED_XAPIAN_FILES="${DEP_PATH}/xapian-core-1.2.3/.libs/libxapian.${SHARED_EXT}"
+    fi
 fi
+if test [ $IS_OSX -eq 1 ] ; then
+COMPILED_XAPIAN_COMPACT="${DEP_PATH}/xapian-core-1.2.3/build/xapian-compact"
+else
 COMPILED_XAPIAN_COMPACT="${DEP_PATH}/xapian-core-1.2.3/bin/.libs/xapian-compact"
+fi
 
 ICU_CFLAGS=""
 ICU_LDFLAGS="-licui18n -licuuc -licudata" # replaced by icu-config"
@@ -245,7 +253,11 @@ if test [ $IS_WIN -eq 1 ] ; then
 	COMPILED_ICU_LDFLAGS="${DEP_PATH}/icu/lib/icuio.lib ${DEP_PATH}/icu/lib/icudata.lib ${DEP_PATH}/icu/lib/icuuc.lib ${DEP_PATH}/icu/lib/icui18n.lib"
 else
 	COMPILED_ICU_LDFLAGS="-L${DEP_PATH}/icu/source/build/lib -licui18n -licuuc -licudata"
+	if test [ $IS_OSX -eq 1 ] ; then
+	COMPILED_ICU_FILES="${DEP_PATH}/icu/source/build/libicudata.dylib ${DEP_PATH}/icu/source/build/libicuuc.dylib ${DEP_PATH}/icu/source/build/libicui18n.dylib"
+	else
 	COMPILED_ICU_FILES="${DEP_PATH}/icu/source/lib/libicui18n.${SHARED_EXT} ${DEP_PATH}/icu/source/lib/libicuuc.${SHARED_EXT} ${DEP_PATH}/icu/source/lib/libicudata.${SHARED_EXT}"
+	fi
 fi
 
 # no win for sqlite as it is just a sub dependency of aria2
@@ -904,6 +916,7 @@ AC_SUBST(IS_POSIX)
 AC_SUBST(DEP_LIST)
 AC_SUBST(IS_64B)
 AC_SUBST(ARCH)
+AC_SUBST(DEP_PATH)
 
 AM_CONDITIONAL([STATIC_BUILD], [test "$STATIC_BUILD" -eq 1])
 AM_CONDITIONAL([IS_WIN], [test "$IS_WIN" -eq 1])
