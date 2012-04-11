@@ -117,6 +117,7 @@
 <!ENTITY preferences.profileDirectory   "Profile directory">
 <!ENTITY preferences.browse             "Browse">
 <!ENTITY preferences.tabs               "Remember tabs">
+<!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">
 
 <!-- Library -->
 <!ENTITY main.library.myLibrary                 "My biblioteek">

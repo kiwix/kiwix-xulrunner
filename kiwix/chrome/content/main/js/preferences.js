@@ -32,11 +32,16 @@ function onPreferencesDialogStart() {
 
     var saveTabsCheckbox = document.getElementById("saveTabs-checkbox");
     saveTabsCheckbox.checked = settings.saveTabs();
+
+    var downloadRemoteCatalogsCheckbox = document.getElementById("downloadCatalogs-checkbox");
+    downloadRemoteCatalogsCheckbox.checked = settings.downloadRemoteCatalogs();
 }
 
 function savePreferences() {
     var saveTabsCheckbox = document.getElementById("saveTabs-checkbox");
     settings.saveTabs(saveTabsCheckbox.checked);
+    var downloadRemoteCatalogsCheckbox = document.getElementById("downloadCatalogs-checkbox");
+    settings.downloadRemoteCatalogs(downloadRemoteCatalogsCheckbox.checked);
 }
 
 /* Choose new profile directory */
