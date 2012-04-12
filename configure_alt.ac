@@ -310,6 +310,7 @@ WITH_CLUCENE=0
 
 WITH_MANAGER=0
 WITH_SERVER=0
+WITH_LAUNCHER=1
 WITH_INDEXER=0
 WITH_INSTALLER=0
 WITH_SEARCHER=0
@@ -345,6 +346,7 @@ then
 	WITH_CLUCENE=0
 	WITH_MANAGER=0
 	WITH_SERVER=0
+	WITH_LAUNCHER=1
 	WITH_INDEXER=0
 	WITH_INSTALLER=0
 	WITH_SEARCHER=0
@@ -370,6 +372,13 @@ AC_ARG_ENABLE(server,
 			  				 [compile HTTP server (default is no)]),
 			  [], [enable_server=no])
 AS_IF([test "x$enable_server" = "xyes"], [WITH_SERVER=1], [WITH_SERVER=0])
+
+# static launcher
+AC_ARG_ENABLE(launcher,
+			  AS_HELP_STRING([--enable-launcher],
+			  				 [compile launcher for static (default is yes)]),
+			  [], [enable_launcher=no])
+AS_IF([test "x$enable_server" = "xyes"], [WITH_LAUNCHER=1], [WITH_LAUNCHER=0])
 
 # zim indexer is a command line tool to create xapian/lucene index
 AC_ARG_ENABLE(indexer,
@@ -484,7 +493,7 @@ LIBXUL_CFLAGS="-I${GECKO_SDK_INCLUDE} -I${GECKO_INCLUDE_PATH} -fshort-wchar"
 if test [ $IS_OSX -eq 1 ] ; then
 LIBXUL_LDFLAGS="-L${GECKO_SDK_LIB} -lxpcom -lplds4 -lplc4 -lnspr4 -lpthread -ldl ${GECKO_SDK_LIB}/libxpcomglue_s_nomozalloc.a  ${GECKO_SDK_LIB}/XUL"
 else 
-LIBXUL_LDFLAGS="-L${GECKO_SDK_lib} -lxul -lxpcom -lplds4 -lplc4 -lnspr4 -lpthread -ldl -lxpcomglue_s"
+LIBXUL_LDFLAGS="-L${GECKO_SDK_LIB} -lxul -lxpcom -lplds4 -lplc4 -lnspr4 -lpthread -ldl -lxpcomglue_s"
 fi
 
 if test [ ! -f "$GECKO_IDL_PATH/nsISupports.idl" ]
@@ -951,6 +960,7 @@ AM_CONDITIONAL([IS_POSIX], [test "$IS_POSIX" -eq 1])
 AM_CONDITIONAL([WITH_CLUCENE], [test "$WITH_CLUCENE" -eq 1])
 AM_CONDITIONAL([WITH_MANAGER], [test "$WITH_MANAGER" -eq 1])
 AM_CONDITIONAL([WITH_SERVER], [test "$WITH_SERVER" -eq 1])
+AM_CONDITIONAL([WITH_LAUNCHER], [test "$WITH_LAUNCHER" -eq 1])
 AM_CONDITIONAL([WITH_INDEXER], [test "$WITH_INDEXER" -eq 1])
 AM_CONDITIONAL([WITH_INSTALLER], [test "$WITH_INSTALLER" -eq 1])
 AM_CONDITIONAL([WITH_SEARCHER], [test "$WITH_SEARCHER" -eq 1])
@@ -960,6 +970,7 @@ AM_CONDITIONAL([IS_OLD_GECKO], [test "$IS_OLD_GECKO" -eq 1])
 AC_SUBST(WITH_CLUCENE)
 AC_SUBST(WITH_MANAGER)
 AC_SUBST(WITH_SERVER)
+AC_SUBST(WITH_LAUNCHER)
 AC_SUBST(WITH_INDEXER)
 AC_SUBST(WITH_INSTALLER)
 AC_SUBST(WITH_SEARCHER)
@@ -1083,6 +1094,7 @@ $BINECHO -n "DEP_LIST		" ; $BINECHO $DEP_LIST
 $BINECHO -n "STATIC_LIBS		" ; $BINECHO $STATIC_LIBS
 $BINECHO -n "WITH_MANAGER		" ; yesno $WITH_MANAGER
 $BINECHO -n "WITH_SERVER		" ; yesno $WITH_SERVER
+$BINECHO -n "WITH_LAUNCHER		" ; yesno $WITH_LAUNCHER
 $BINECHO -n "WITH_INDEXER		" ; yesno $WITH_INDEXER
 $BINECHO -n "WITH_INSTALLER		" ; yesno $WITH_INSTALLER
 $BINECHO -n "WITH_SEARCHER		" ; yesno $WITH_SEARCHER
