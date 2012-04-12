@@ -342,11 +342,11 @@ then
 	COMPILE_LZMA=1
 	COMPILE_ARIA2=1
 	COMPILE_CLUCENE=1
+	WITH_LAUNCHER=1
 
 	WITH_CLUCENE=0
 	WITH_MANAGER=0
 	WITH_SERVER=0
-	WITH_LAUNCHER=1
 	WITH_INDEXER=0
 	WITH_INSTALLER=0
 	WITH_SEARCHER=0
@@ -377,8 +377,8 @@ AS_IF([test "x$enable_server" = "xyes"], [WITH_SERVER=1], [WITH_SERVER=0])
 AC_ARG_ENABLE(launcher,
 			  AS_HELP_STRING([--enable-launcher],
 			  				 [compile launcher for static (default is yes)]),
-			  [], [enable_launcher=no])
-AS_IF([test "x$enable_server" = "xyes"], [WITH_LAUNCHER=1], [WITH_LAUNCHER=0])
+			  [], [enable_launcher=yes])
+AS_IF([test "x$enable_launcher" = "xyes"], [WITH_LAUNCHER=1], [WITH_LAUNCHER=0])
 
 # zim indexer is a command line tool to create xapian/lucene index
 AC_ARG_ENABLE(indexer,
