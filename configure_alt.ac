@@ -413,6 +413,14 @@ AC_ARG_WITH([debug],
 ############ GECKO SDK
 ####################################################
 
+# --enable-old-gecko
+AC_ARG_ENABLE(oldgecko,
+			  AS_HELP_STRING([--enable-oldgecko],
+			  				 [download and use Gecko SDK 1.9.2 instead of latest (default is no)]),
+			  [], [enable_oldgecko=no])
+AS_IF([test "x$enable_oldgecko" = "xyes"], [IS_OLD_GECKO=1], [IS_OLD_GECKO=0])
+
+
 AC_ARG_WITH(gecko-sdk,
             AS_HELP_STRING([--with-gecko-sdk=DIR], [Gecko SDK path]),
             GECKO_SDK_PATH=`cd ${withval} && pwd || $GECKO_SDK_PATH`)
@@ -932,6 +940,7 @@ AC_SUBST(DEP_LIST)
 AC_SUBST(IS_64B)
 AC_SUBST(ARCH)
 AC_SUBST(DEP_PATH)
+AC_SUBST(IS_OLD_GECKO)
 
 AM_CONDITIONAL([STATIC_BUILD], [test "$STATIC_BUILD" -eq 1])
 AM_CONDITIONAL([IS_WIN], [test "$IS_WIN" -eq 1])
@@ -946,6 +955,7 @@ AM_CONDITIONAL([WITH_INDEXER], [test "$WITH_INDEXER" -eq 1])
 AM_CONDITIONAL([WITH_INSTALLER], [test "$WITH_INSTALLER" -eq 1])
 AM_CONDITIONAL([WITH_SEARCHER], [test "$WITH_SEARCHER" -eq 1])
 AM_CONDITIONAL([WITH_READER], [test "$WITH_READER" -eq 1])
+AM_CONDITIONAL([IS_OLD_GECKO], [test "$IS_OLD_GECKO" -eq 1])
 
 AC_SUBST(WITH_CLUCENE)
 AC_SUBST(WITH_MANAGER)
@@ -1068,6 +1078,7 @@ $BINECHO -n "IS_LINUX		" ; yesno $IS_LINUX
 $BINECHO -n "IS_OSX			" ; yesno $IS_OSX
 $BINECHO -n "IS_WIN			" ; yesno $IS_WIN
 $BINECHO -n "STATIC_BUILD		" ; yesno $STATIC_BUILD
+$BINECHO -n "IS_OLD_GECKO		" ; yesno $IS_OLD_GECKO
 $BINECHO -n "DEP_LIST		" ; $BINECHO $DEP_LIST
 $BINECHO -n "STATIC_LIBS		" ; $BINECHO $STATIC_LIBS
 $BINECHO -n "WITH_MANAGER		" ; yesno $WITH_MANAGER
