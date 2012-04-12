@@ -303,8 +303,8 @@ universal: $(PACKAGE)-$(VERSION)-i386.dmg $(PACKAGE)-$(VERSION)-x86_64.dmg
 	hdiutil detach universal_tmp/x86_64 -quiet -force	
 
 	hdiutil detach universal_tmp/ub -quiet -force
-	rm -f $(PACKAGE)-$(VERSION)-universal.dmg
-	hdiutil convert src/macosx/kiwix_template.dmg -quiet -format UDZO -imagekey zlib-level=9 -o $(PACKAGE)-$(VERSION)-universal.dmg
+	rm -f $(PACKAGE)-$(VERSION).dmg
+	hdiutil convert src/macosx/kiwix_template.dmg -quiet -format UDZO -imagekey zlib-level=9 -o $(PACKAGE)-$(VERSION).dmg
 	rm -f src/macosx/kiwix_template.dmg
 
 # Windows rule
