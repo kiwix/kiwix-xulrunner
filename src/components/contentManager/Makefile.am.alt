@@ -28,10 +28,6 @@ libContentManager_la_CXXFLAGS=$(LIBXUL_CFLAGS) $(ZIMLIB_CFLAGS) $(LZMA_CFLAGS) $
 libContentManager_la_LDFLAGS=$(LIBXUL_LDFLAGS) $(ZIMLIB_LDFLAGS) $(LZMA_LDFLAGS) $(ICU_LDFLAGS) $(PUGIXML_LDFLAGS) $(XPCOM_LDFLAGS)
 libContentManager_la_LIBADD=$(top_builddir)/src/zimlib/src/libzim.la $(top_builddir)/src/pugixml/libpugixml.la
 
-if IS_OSX
-libContentManager_la_CXXFLAGS += -I/opt/local/include
-endif
-
 EXTRA_DIST=IContentManager.idl
 BUILT_SOURCES=contentManager.xpt IContentManager.h
 CLEANFILES=contentManager.xpt IContentManager.h *.lib *.obj *.dll *.h *.xpt

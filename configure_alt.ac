@@ -170,8 +170,8 @@ AC_ARG_WITH(target-arch,
 # only overwrite arch on OSX
 if test [ $IS_OSX -eq 1 ] ; then
 	AS_IF([test ! "${XTARGET}" = "i386" -a ! "${XTARGET}" = "x86_64"], [], [ARCH=${XTARGET}])
-	CC="$CC -arch $ARCH"
-	CXX="$CXX -arch $ARCH"
+	CC="$CC -arch ${ARCH}"
+	CXX="$CXX -arch ${ARCH}"
 fi
 if test [ "`$SARCH | grep 64 | wc -l`" ];
 then
@@ -201,15 +201,14 @@ fi
 
 GECKO_SDK_PATH=""
 COMPILE_GECKO_SDK=0
+if test [ $IS_OSX -eq 1 ] ; then
+COMPILED_GECKO_SDK_PATH="${DEP_PATH}/universal-sdk"
+else
 COMPILED_GECKO_SDK_PATH="${DEP_PATH}/xulrunner-sdk"
+fi
 # Special Flags for XPCOM components
 XPCOM_CFLAGS="-fno-rtti -fPIC"
 XPCOM_LDFLAGS="-Xcompiler -shared -Wl"
-# osx don't need for rpath-link as we build static
-if test [ $IS_OSX -eq 0 ]
-then
-XPCOM_LDFLAGS=${XPCOM_LDFLAGS}",-rpath-link,$GECKO_SDK_PATH/bin"
-fi
 
 if test [ $IS_OSX -eq 1 ]
 then
@@ -234,6 +233,7 @@ if test [ $IS_WIN -eq 1 ] ; then
 else
 	COMPILED_XAPIAN_LDFLAGS="-L${DEP_PATH}/xapian-core-1.2.3/.libs/ -lxapian"
 	if test [ $IS_OSX -eq 1 ] ; then
+	COMPILED_XAPIAN_LDFLAGS="-L${DEP_PATH}/xapian-core-1.2.3/build/ -lxapian"
 	COMPILED_XAPIAN_FILES="${DEP_PATH}/xapian-core-1.2.3/build/libxapian.dylib"
 	else
     COMPILED_XAPIAN_FILES="${DEP_PATH}/xapian-core-1.2.3/.libs/libxapian.${SHARED_EXT}"
@@ -254,6 +254,8 @@ if test [ $IS_WIN -eq 1 ] ; then
 else
 	COMPILED_ICU_LDFLAGS="-L${DEP_PATH}/icu/source/build/lib -licui18n -licuuc -licudata"
 	if test [ $IS_OSX -eq 1 ] ; then
+	COMPILED_ICU_CFLAGS="-I${DEP_PATH}/icu/source/build-x86_64/include"
+	COMPILED_ICU_LDFLAGS="-L${DEP_PATH}/icu/source/build -licui18n -licuuc -licudata"
 	COMPILED_ICU_FILES="${DEP_PATH}/icu/source/build/libicudata.dylib ${DEP_PATH}/icu/source/build/libicuuc.dylib ${DEP_PATH}/icu/source/build/libicui18n.dylib"
 	else
 	COMPILED_ICU_FILES="${DEP_PATH}/icu/source/lib/libicui18n.${SHARED_EXT} ${DEP_PATH}/icu/source/lib/libicuuc.${SHARED_EXT} ${DEP_PATH}/icu/source/lib/libicudata.${SHARED_EXT}"
@@ -300,6 +302,7 @@ fi
 CLUCENE_CFLAGS="-I/usr/lib -I/usr/lib64"
 CLUCENE_LDFLAGS="-lclucene"
 COMPILE_CLUCENE=0
+COMPILED_CLUCENE_CFLAGS="-I${DEP_PATH}/clucene-core-0.9.21b/src"
 COMPILED_CLUCENE_LDFLAGS="-L${DEP_PATH}/clucene-core-0.9.21b/src/.libs -lclucene"
 COMPILED_CLUCENE_FILES="${DEP_PATH}/clucene-core-0.9.21b/src/.libs/libclucene.${SHARED_EXT}"
 
@@ -430,9 +433,23 @@ then
     GECKO_SDK_PATH=$COMPILED_GECKO_SDK_PATH
 fi
 
+if test [ $IS_OSX -eq 1 ] ; then
+	GECKO_INCLUDE_PATH="${GECKO_SDK_PATH}/x86_64/include"
+	GECKO_SDK_INCLUDE="${GECKO_SDK_PATH}/x86_64/sdk/include"
+	GECKO_SDK_LIB="${GECKO_SDK_PATH}/${ARCH}/lib"
+	GECKO_IDL_PATH=${GECKO_SDK_PATH}/x86_64/idl
+	XPIDL_PATH=$GECKO_SDK_PATH/x86_64/sdk/bin
+else
+	GECKO_INCLUDE_PATH="${GECKO_SDK_PATH}/include"
+	GECKO_SDK_INCLUDE="${GECKO_SDK_PATH}/sdk/include"
+	GECKO_SDK_LIB="${GECKO_SDK_PATH}/sdk/lib"
+	GECKO_IDL_PATH=${GECKO_SDK_PATH}/idl
+	XPIDL_PATH=$GECKO_SDK_PATH/sdk/bin
+fi
+
 # Gecko version
 GECKO_VERSION_FALLBACK=0
-GECKO_VERSION=`grep MOZILLA_VERSION_U ${GECKO_SDK_PATH}/include/mozilla-config.h | cut -d " " -f 3 | cut -d "." -f 1`
+GECKO_VERSION=`grep MOZILLA_VERSION_U ${GECKO_INCLUDE_PATH}/mozilla-config.h | cut -d " " -f 3 | cut -d "." -f 1`
 if [[ "$GECKO_VERSION" = "" ]]
 then
 	GECKO_VERSION=$GECKO_VERSION_FALLBACK
@@ -440,7 +457,6 @@ fi
 let GECKO_VERSION=GECKO_VERSION
 if [[ $GECKO_VERSION -gt 1 ]]
 then
-	# TODO
 	if test [ $IS_OSX -eq 1 ] ; then
 	CXXFLAGS="${CXXFLAGS} -fexceptions -DMOZ_CPP_EXCEPTIONS -DMOZ_NO_MOZALLOC"
 	else
@@ -454,22 +470,20 @@ fi
 AC_MSG_RESULT(checking for Gecko version... ${GECKO_VERSION})
 AM_CONDITIONAL([GECKO_OLD_BOOL_TYPE], [test "$GECKO_OLD_BOOL_TYPE"])
 
-LIBXUL_CFLAGS="-I${GECKO_SDK_PATH}/sdk/include -I${GECKO_SDK_PATH}/include -fshort-wchar"
+LIBXUL_CFLAGS="-I${GECKO_SDK_INCLUDE} -I${GECKO_INCLUDE_PATH} -fshort-wchar"
 # replaced -lxpcomglue_s with libxpcomglue_s_nomozalloc.a to prevent
 # undefined symbols. supposed to be compatible wth 1.9.
-# TODO
 if test [ $IS_OSX -eq 1 ] ; then
-LIBXUL_LDFLAGS="-L${GECKO_SDK_PATH}/sdk/lib -lxpcom -lplds4 -lplc4 -lnspr4 -lpthread -ldl ${GECKO_SDK_PATH}/sdk/lib/libxpcomglue_s_nomozalloc.a  ${GECKO_SDK_PATH}/sdk/lib/XUL"
+LIBXUL_LDFLAGS="-L${GECKO_SDK_LIB} -lxpcom -lplds4 -lplc4 -lnspr4 -lpthread -ldl ${GECKO_SDK_LIB}/libxpcomglue_s_nomozalloc.a  ${GECKO_SDK_LIB}/XUL"
 else 
-#LIBXUL_LDFLAGS="-L${GECKO_SDK_PATH}/sdk/lib -lxul -lxpcom -lplds4 -lplc4 -lnspr4 -lpthread -ldl ${GECKO_SDK_PATH}/sdk/lib/libxpcomglue_s_nomozalloc.a"
-LIBXUL_LDFLAGS="-L${GECKO_SDK_PATH}/sdk/lib -lxul -lxpcom -lplds4 -lplc4 -lnspr4 -lpthread -ldl -lxpcomglue_s"
+LIBXUL_LDFLAGS="-L${GECKO_SDK_lib} -lxul -lxpcom -lplds4 -lplc4 -lnspr4 -lpthread -ldl -lxpcomglue_s"
 fi
-GECKO_IDL_PATH=${GECKO_SDK_PATH}/idl
+
 if test [ ! -f "$GECKO_IDL_PATH/nsISupports.idl" ]
 then
     ErrorOrWarning "$COMPILE_GECKO_SDK" "unable to find nsISupports.idl"
 fi
-XPIDL_PATH=$GECKO_SDK_PATH/bin
+
 AC_CHECK_TOOL(HAVE_XPIDL, "xpidl", [], $XPIDL_PATH)
 if test [ "$HAVE_XPIDL" ]
 then
@@ -483,13 +497,13 @@ else
              AC_MSG_ERROR([[cannot find python]])
     fi
 
-    if test [ ! -f "$GECKO_SDK_PATH/sdk/bin/header.py" -o ! -f "$GECKO_SDK_PATH/sdk/bin/typelib.py" ]
+    if test [ ! -f "$XPIDL_PATH/header.py" -o ! -f "$XPIDL_PATH/typelib.py" ]
     then
         ErrorOrWarning "$COMPILE_GECKO_SDK" "unable to find neither the xpidl binary nor the typelib.py and header.py scripts"
     fi
 
-    HEADER_PY="$PYTHON $GECKO_SDK_PATH/sdk/bin/header.py"
-    TYPELIB_PY="$PYTHON $GECKO_SDK_PATH/sdk/bin/typelib.py"
+    HEADER_PY="$PYTHON $XPIDL_PATH/header.py"
+    TYPELIB_PY="$PYTHON $XPIDL_PATH/typelib.py"
 fi
 
 ####################################################
@@ -832,6 +846,7 @@ else
 	if test [ "$CLUCENE_ARCHIVE" = "$SELF" -o $COMPILE_CLUCENE -eq 1 ]
 	then
 	    COMPILE_CLUCENE=1
+	    CLUCENE_CFLAGS=$COMPILED_CLUCENE_CFLAGS
 	    CLUCENE_LDFLAGS=$COMPILED_CLUCENE_LDFLAGS
 	# if path provided, test file existence (and fail)
 	else
@@ -1066,6 +1081,7 @@ $BINECHO -n "CC			" ; $BINECHO $CC
 $BINECHO -n "CXX			" ; $BINECHO $CXX
 $BINECHO -n "CPP			" ; $BINECHO $CPP
 $BINECHO -n "CXXCPP			" ; $BINECHO $CXXCPP
+$BINECHO -n "CFLAGS			" ; $BINECHO $CFLAGS
 $BINECHO -n "CXXFLAGS		" ; $BINECHO $CXXFLAGS
 $BINECHO ""
 $BINECHO -n "GECKO_SDK_PATH		" ; $BINECHO $GECKO_SDK_PATH

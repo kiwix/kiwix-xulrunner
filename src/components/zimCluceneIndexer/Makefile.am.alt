@@ -23,7 +23,7 @@ libZimCluceneIndexer_la_SOURCES= \
 	$(top_srcdir)/src/common/kiwix/cluceneIndexer.h
 libZimCluceneIndexer_la_CXXFLAGS=$(LIBXUL_CFLAGS) $(XAPIAN_CFLAGS) $(CLUCENE_CFLAGS) $(ICU_CFLAGS) $(ZIMLIB_CFLAGS) $(LZMA_CFLAGS) $(XPCOM_CFLAGS) -D GECKO_VERSION=$(GECKO_VERSION) -I$(top_srcdir)/src/common/
 
-libZimCluceneIndexer_la_LDFLAGS=$(LIBXUL_LDFLAGS) $(XAPIAN_LDFLAGS) $(CLUCENE_LDFLAGS) $(ICU_LDFLAGS) $(ZIMLIB_LDFLAGS) $(LZMA_LDFLAGS) $(XPCOM_LDFLAGS)
+libZimCluceneIndexer_la_LDFLAGS=$(LIBXUL_LDFLAGS) $(CLUCENE_LDFLAGS) $(ICU_LDFLAGS) $(ZIMLIB_LDFLAGS) $(LZMA_LDFLAGS) $(XPCOM_LDFLAGS)
 libZimCluceneIndexer_la_LIBADD=$(top_builddir)/src/zimlib/src/libzim.la
 
 EXTRA_DIST=IZimCluceneIndexer.idl

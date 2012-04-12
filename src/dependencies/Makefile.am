@@ -23,7 +23,21 @@ XULRUNNERRUNTIMEURL=http://download.kiwix.org/dev/xulrunner-11.0.en-US.linux-$(A
 ####################################################
 xulrunner-sdk.tar.bz2:
 	wget -c $(GECKOSDKURL) -O xulrunner-sdk.tar.bz2
-	
+
+xulrunner-11.0.en-US.mac-i386.sdk.tar.bz2:
+	wget -c -O xulrunner-11.0.en-US.mac-i386.sdk.tar.bz2 http://download.kiwix.org/dev/xulrunner-11.0.en-US.mac-i386.sdk.tar.bz2
+
+xulrunner-11.0.en-US.mac-x86_64.sdk.tar.bz2:
+	wget -c -O xulrunner-11.0.en-US.mac-x86_64.sdk.tar.bz2 http://download.kiwix.org/dev/xulrunner-11.0.en-US.mac-x86_64.sdk.tar.bz2
+
+xulrunner-sdk-i386: xulrunner-11.0.en-US.mac-i386.sdk.tar.bz2
+	if test ! -d xulrunner-sdk-i386; then tar -xf xulrunner-11.0.en-US.mac-i386.sdk.tar.bz2 && mv xulrunner-sdk xulrunner-sdk-i386 ; fi;
+
+xulrunner-sdk-x86_64: xulrunner-11.0.en-US.mac-x86_64.sdk.tar.bz2
+	if test ! -d xulrunner-sdk-x86_64; then tar -xf xulrunner-11.0.en-US.mac-x86_64.sdk.tar.bz2 && mv xulrunner-sdk xulrunner-sdk-x86_64 ; fi;
+
+universal-sdk: xulrunner-sdk-i386 xulrunner-sdk-x86_64
+	mkdir -p universal-sdk && cd universal-sdk && ln -sf ../xulrunner-sdk-i386 i386 && 	ln -sf ../xulrunner-sdk-x86_64 x86_64
 
 xulrunner-sdk: xulrunner-sdk.tar.bz2
 	if test ! -d xulrunner-sdk; then tar -xf xulrunner-sdk.tar.bz2 ; fi;

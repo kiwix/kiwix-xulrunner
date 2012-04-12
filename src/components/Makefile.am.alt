@@ -1,5 +1,2 @@
-SUBDIRS = zimAccessor xapianAccessor zimXapianIndexer contentManager
+SUBDIRS = zimAccessor xapianAccessor zimXapianIndexer contentManager cluceneAccessor zimCluceneIndexer
 
-if ! IS_OSX
-SUBDIRS += cluceneAccessor zimCluceneIndexer
-endif
