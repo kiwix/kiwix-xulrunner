@@ -1384,7 +1384,7 @@ function initEventListeners() {
 
     /* Intercept global keydown and keyup events */
     getWindow().addEventListener("keydown", handleWindowKeyDown, true);
-
+    getWindow().addEventListener("keydown", handleWindowKeyUp, true);
 
     /* Launch the part of the initialisation process which should run after the window is there */
     var gOS = Components.classes["@mozilla.org/observer-service;1"].
