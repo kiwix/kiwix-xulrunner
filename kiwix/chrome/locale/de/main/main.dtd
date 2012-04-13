@@ -32,6 +32,8 @@
 <!ENTITY main.transliteration.accesskey "T">
 <!ENTITY main.preferences               "Einstellungen">
 <!ENTITY main.preferences.accesskey     "E">
+<!ENTITY main.server                    "Server">
+<!ENTITY main.server.accesskey          "s">
 
 <!-- Display menu -->
 <!ENTITY main.display                   "Bildschirm">

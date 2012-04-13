@@ -32,6 +32,8 @@
 <!ENTITY main.transliteration.accesskey "ല">
 <!ENTITY main.preferences               "ഐച്ഛികങ്ങള്‍">
 <!ENTITY main.preferences.accesskey     "ഐ">
+<!ENTITY main.server                    "Server">
+<!ENTITY main.server.accesskey          "s">
 
 <!-- Display menu -->
 <!ENTITY main.display                   "കാഴ്ച">

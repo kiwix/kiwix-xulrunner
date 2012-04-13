@@ -32,6 +32,8 @@
 <!ENTITY main.transliteration.accesskey "o">
 <!ENTITY main.preferences               "Asetukset">
 <!ENTITY main.preferences.accesskey     "k">
+<!ENTITY main.server                    "Server">
+<!ENTITY main.server.accesskey          "s">
 
 <!-- Display menu -->
 <!ENTITY main.display                   "Näytä">

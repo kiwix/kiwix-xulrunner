@@ -96,6 +96,8 @@
       <menuitem id="tools-randomArticle" label="&main.randomArticle;" key="random-article-key" 
 		class="menuitem-iconic" disabled="true"
 		accesskey="&main.randomArticle.accesskey;" oncommand="loadRandomArticle()"/>
+      <menuitem id="tools-server" label="&main.server;" key="server-key" class="menuitem-iconic" 
+		accesskey="&main.server.accesskey;" oncommand="showServerDialog()"/>
       <menuitem id="tools-checkIntegrity" label="&main.checkIntegrity;" class="menuitem-iconic" 
 		accesskey="&main.checkIntegrity.accesskey;" oncommand="manageCheckIntegrity()" disabled="true"/>
       <menuitem id="tools-purgeHistory" label="&main.purgeHistory;" key="purge-history-key" class="menuitem-iconic" 
@@ -144,6 +146,7 @@
 <script language="javaScript" type="text/javascript" src="js/content.js"/>
 <script language="javaScript" type="text/javascript" src="js/workerMessage.js"/>
 <script language="javaScript" type="text/javascript" src="js/preferences.js"/>
+<script language="javaScript" type="text/javascript" src="js/server.js"/>
 
 <!-- Global Javascript scripts (should be implemented after menubar otherwise generate a 1 pixel big space between windows decoration and menubar) -->
 <script language="javaScript" type="application/x-javascript" src="chrome://global/content/printUtils.js"/>

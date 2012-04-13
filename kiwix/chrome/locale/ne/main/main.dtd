@@ -32,6 +32,8 @@
 <!ENTITY main.transliteration.accesskey "अ">
 <!ENTITY main.preferences               "प्राथमिकता">
 <!ENTITY main.preferences.accesskey     "त">
+<!ENTITY main.server                    "Server">
+<!ENTITY main.server.accesskey          "s">
 
 <!-- Display menu -->
 <!ENTITY main.display                   "दृश्य">
