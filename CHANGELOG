@@ -42,6 +42,7 @@ Kiwix 0.9 rc1
 * NEW: kiwix-set-fileassoc.bat Windows script to setup zim-kiwix file association for "portable" usage
 * NEW: GNU/Linux static compiled release ~50% smaller than before
 * NEW: OSX universal binary package (x86_32 & x86_64)
+* NEW: kiwix-serve command line option --attachToProcess
 
 Kiwix 0.9 beta5
 * FIXED: letton language menu item (ID: 3439113)
