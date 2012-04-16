@@ -158,7 +158,11 @@ let library = {
 
     /* Delete a book */
     deleteBookById: function(id) {
-        return this.contentManager.removeBookById(id);
+        if (this.contentManager.removeBookById(id)) {
+	  this.writeToFile();
+	  return true;
+	}
+	return false;
     },
 
     /* Get book count */
