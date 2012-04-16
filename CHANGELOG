@@ -28,6 +28,7 @@ Kiwix 0.9 rc1
 * NEW: Self-extracting installer for MS/Windows
 * NEW: Ask before downloading XML library files (ID: 3442087)
 * NEW: kiwix-serve able to deal directly with library XML files
+* NEW: kiwix-serve able to deal with many content in one instance
 * NEW: Speed-up begin of downloads by removing file pre-allocation
 * NEw: Reduce GNU/Linux Package file by 30% (by removing the symbol table of XPCOM components)
 * NEW: Allow compilation against Gecko SDK 9.0 and further (xpidl binary was removed)
