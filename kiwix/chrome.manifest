@@ -33,3 +33,6 @@ binary-component components/zimAccessor.so
 
 interfaces components/contentManager.xpt
 binary-component components/contentManager.so
+
+interfaces components/serverManager.xpt
+binary-component components/serverManager.so
