@@ -27,7 +27,7 @@ Kiwix 0.9 rc1
 * NEW: --current option to "add" command in kiwix-manage to set the ZIM file a current
 * NEW: Self-extracting installer for MS/Windows
 * NEW: Ask before downloading XML library files (ID: 3442087)
-* NEW: kiwix-serve able to deal directly with library XML files
+* NEW: kiwix-serve able to deal directly with a library XML file
 * NEW: kiwix-serve able to deal with many content in one instance
 * NEW: Speed-up begin of downloads by removing file pre-allocation
 * NEw: Reduce GNU/Linux Package file by 30% (by removing the symbol table of XPCOM components)
@@ -44,6 +44,7 @@ Kiwix 0.9 rc1
 * NEW: GNU/Linux static compiled release ~50% smaller than before
 * NEW: OSX universal binary package (x86_32 & x86_64)
 * NEW: kiwix-serve command line option --attachToProcess
+* NEW: Windows BASCKSPACE handle to make page back (ID: 3518780)
 
 Kiwix 0.9 beta5
 * FIXED: letton language menu item (ID: 3439113)

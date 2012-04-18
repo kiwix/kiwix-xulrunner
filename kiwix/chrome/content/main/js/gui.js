@@ -1283,8 +1283,9 @@ function applyInitScroll(browser) {
 }
 
 function handleKeyPress(aEvent) {
+    var keyCode = aEvent.keyCode;
+    
     if (isLibraryVisible()) {
-	var keyCode = aEvent.keyCode;
 	var container = getCurrentBookListContainer();
 	var box = _selectedLibraryContentItem;
 
@@ -1328,6 +1329,11 @@ function handleKeyPress(aEvent) {
 		selectLibraryMenu("library-menuitem-remote");
 		_libraryKeyCursorOnMenu = false;
 	    }
+	}
+    } else {
+	/* BACKSPACE goBack() on Windows only */
+	if (keyCode == 8 && env.isWindows()) {
+	    pageBack();
 	}
     }
 }
