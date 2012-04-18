@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
-<?xml-stylesheet href="resource://defaultskin/preferences.css" type="text/css"?>
-<?xml-stylesheet href="chrome://main/skin/preferences.css" type="text/css"?>
+<?xml-stylesheet href="resource://defaultskin/server.css" type="text/css"?>
+<?xml-stylesheet href="chrome://main/skin/server.css" type="text/css"?>
 <!DOCTYPE window [
 <!ENTITY % mainDTD SYSTEM "chrome://main/locale/main.dtd">
 <!ENTITY % brandDTD SYSTEM "chrome://branding/locale/brand.dtd">
@@ -42,8 +42,20 @@
   <key id="escape" keycode="VK_ESCAPE" oncommand="window.close()"/>
 </keyset>
 
-<hbox>
-  <spacer flex="1"/>
-  <button oncommand="window.close();" label="OK" />
-</hbox>
+<vbox flex="1">
+  <hbox flex="1" align="center">
+    <description>IP port to listen:</description>
+    <textbox style="text-align: left;" id="port-textbox" size="5" value="8000" min="1" max="65536" maxlength="5" type="number"/>
+  </hbox>
+  <hbox flex="1" align="center">
+    <description>Server is running and is available at:</description>
+  </hbox>
+  <hbox flex="1" align="center">
+    <label class="text-link" onclick="openUrlWithExternalBrowser(this.value)" value="http://www.google.fr"/>
+  </hbox>
+  <hbox flex="1">
+    <button oncommand="" label="Start"  flex="1" />
+    <button oncommand="window.close();" label="OK" flex="1" />
+  </hbox>
+</vbox>
 </window>
