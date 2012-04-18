@@ -35,7 +35,7 @@
 <script language="javaScript" type="text/javascript" src="js/tabs.js"/>
 <script language="javaScript" type="text/javascript" src="js/xmlrpc.js"/>
 <script language="javaScript" type="text/javascript" src="js/content.js"/>
-<script language="javaScript" type="text/javascript" src="js/preferences.js"/>
+<script language="javaScript" type="text/javascript" src="js/server.js"/>
 <script language="javaScript" type="text/javascript" src="resource://modules/settings.jsm"/>
 
 <keyset>
@@ -48,14 +48,15 @@
     <textbox style="text-align: left;" id="port-textbox" size="5" value="8000" min="1" max="65536" maxlength="5" type="number"/>
   </hbox>
   <hbox flex="1" align="center">
-    <description>Server is running and is available at:</description>
+    <description id="status-description-label" value="Server is running and is available at:" />
   </hbox>
-  <hbox flex="1" align="center">
-    <label class="text-link" onclick="openUrlWithExternalBrowser(this.value)" value="http://www.google.fr"/>
+  <hbox flex="1" align="center" id="url-label-box">
+    <label class="text-link" id="url-label" onclick="openUrlWithExternalBrowser(this.value)" value="http://www.google.fr"/>
   </hbox>
   <hbox flex="1">
-    <button oncommand="" label="Start"  flex="1" />
-    <button oncommand="window.close();" label="OK" flex="1" />
+    <button oncommand="startServer()" label="Start" id="start-button" flex="1" />
+    <button oncommand="stopServer()" label="Stop" id="stop-button" flex="1" />
+    <button oncommand="window.close();" label="Close" flex="1" />
   </hbox>
 </vbox>
 </window>

@@ -99,7 +99,36 @@ NS_IMETHODIMP ServerManager::Start(const nsAString &libraryPath, const nsAString
 }
 
 NS_IMETHODIMP ServerManager::IsRunning(mozbool *retVal) {
-  *retVal = PR_TRUE;
+  *retVal = PR_FALSE;
+
+#ifdef _WIN32
+  HANDLE process = OpenProcess(SYNCHRONIZE, FALSE, this->serverPid);
+  DWORD ret = WaitForSingleObject(process, 0);
+  CloseHandle(process);
+  if (ret == WAIT_TIMEOUT)
+    *retVal = PR_TRUE;
+#elif __APPLE__
+  int mib[MIBSIZE];
+  struct kinfo_proc kp;
+  size_t len = sizeof(kp);
+  
+  mib[0]=CTL_KERN;
+  mib[1]=KERN_PROC;
+  mib[2]=KERN_PROC_PID;
+  mib[3]=this->aria2cPid;
+  
+  int ret = sysctl(mib, MIBSIZE, &kp, &len, NULL, 0);
+  if (ret != -1 && len > 0) {
+    *retVal = PR_TRUE;
+  }
+#else
+    char PIDStr[10];
+    sprintf(PIDStr, "%d", this->serverPid);
+    string procPath = "/proc/" + string(PIDStr);
+    if (access(procPath.c_str(), F_OK) != -1)
+      *retVal = PR_TRUE;
+#endif
+
   return NS_OK;
 }
 
