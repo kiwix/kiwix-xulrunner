@@ -30,6 +30,7 @@ if [ "${CONF_ALT}" = "alt" -o "${CONF_ALT}" = "orig" ]; then
     ln -sf "${CUR}/src/server/Makefile.am.${CONF_ALT}" $CUR/src/server/Makefile.am
     ln -sf "${CUR}/src/indexer/Makefile.am.${CONF_ALT}" $CUR/src/indexer/Makefile.am
     ln -sf "${CUR}/src/components/contentManager/Makefile.am.${CONF_ALT}" $CUR/src/components/contentManager/Makefile.am
+    ln -sf "${CUR}/src/components/serverManager/Makefile.am.${CONF_ALT}" $CUR/src/components/serverManager/Makefile.am
     ln -sf "${CUR}/src/components/zimXapianIndexer/Makefile.am.${CONF_ALT}" $CUR/src/components/zimXapianIndexer/Makefile.am
     ln -sf "${CUR}/src/components/zimCluceneIndexer/Makefile.am.${CONF_ALT}" $CUR/src/components/zimCluceneIndexer/Makefile.am
     ln -sf "${CUR}/src/components/cluceneAccessor/Makefile.am.${CONF_ALT}" $CUR/src/components/cluceneAccessor/Makefile.am

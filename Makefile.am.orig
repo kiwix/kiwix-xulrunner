@@ -52,7 +52,9 @@ all-local: kiwix/components/xapianAccessor.dylib \
 	kiwix/components/zimXapianIndexer.xpt \
 	kiwix/components/zimXapianIndexer.dylib \
 	kiwix/components/contentManager.xpt \
-	kiwix/components/contentManager.dylib
+	kiwix/components/contentManager.dylib \
+	kiwix/components/serverManager.xpt \
+	kiwix/components/serverManager.dylib
 else
 all-local: kiwix/components/xapianAccessor.so \
 	kiwix/components/xapianAccessor.xpt \
@@ -65,7 +67,9 @@ all-local: kiwix/components/xapianAccessor.so \
 	kiwix/components/zimCluceneIndexer.so \
 	kiwix/components/zimCluceneIndexer.xpt \
 	kiwix/components/contentManager.so \
-	kiwix/components/contentManager.xpt
+	kiwix/components/contentManager.xpt \
+	kiwix/components/serverManager.so \
+	kiwix/components/serverManager.xpt 
 endif
 
 dist-hook:
@@ -107,6 +111,12 @@ kiwix/components/contentManager.so:
 kiwix/components/contentManager.xpt:
 	ln -f -s ../../src/components/contentManager/contentManager.xpt ./kiwix/components/contentManager.xpt
 
+kiwix/components/serverManager.so: 
+	ln -f -s ../../src/components/serverManager/.libs/libServerManager.so ./kiwix/components/serverManager.so
+
+kiwix/components/serverManager.xpt:
+	ln -f -s ../../src/components/serverManager/serverManager.xpt ./kiwix/components/serverManager.xpt
+
 kiwix/components/zimAccessor.dylib: 
 	ln -f -s ../../src/components/zimAccessor/.libs/libZimAccessor.dylib ./kiwix/components/zimAccessor.dylib
 
@@ -118,6 +128,9 @@ kiwix/components/zimXapianIndexer.dylib:
 
 kiwix/components/contentManager.dylib: 
 	ln -f -s ../../src/components/contentManager/.libs/libContentManager.dylib ./kiwix/components/contentManager.dylib
+
+kiwix/components/serverManager.dylib: 
+	ln -f -s ../../src/components/serverManager/.libs/libServerManager.dylib ./kiwix/components/serverManager.dylib
 
 bindist: 
 	cd /tmp && ${bscript} --static $(VERSION)
@@ -161,6 +174,8 @@ distmac: dist
 	cp ./kiwix/components/zimXapianIndexer.dylib Kiwix.app/Contents/Resources/components/zimXapianIndexer.dylib
 	cp ./kiwix/components/contentManager.xpt Kiwix.app/Contents/Resources/components/contentManager.xpt
 	cp ./kiwix/components/contentManager.dylib Kiwix.app/Contents/Resources/components/contentManager.dylib
+	cp ./kiwix/components/serverManager.xpt Kiwix.app/Servers/Resources/components/serverManager.xpt
+	cp ./kiwix/components/serverManager.dylib Kiwix.app/Servers/Resources/components/serverManager.dylib
 	cp src/components/components.list Kiwix.app/Contents/Resources/components/components.list
 	rsync -rl /Library/Frameworks/XUL.framework/ Kiwix.app/Contents/Frameworks/XUL.framework/
 	cp /Library/Frameworks/XUL.framework/Versions/Current/xulrunner Kiwix.app/Contents/MacOS/xulrunner
@@ -191,6 +206,7 @@ win:
 	cd src/components/zimAccessor ; if [ ! -f zimAccessor.dll ] ; then make -f Makefile.mvsc ; fi
 	cd src/components/zimXapianIndexer ; if [ ! -f zimXapianIndexer.dll ] ; then make -f Makefile.mvsc ; fi
 	cd src/components/contentManager ; if [ ! -f contentManager.dll ] ; then make -f Makefile.mvsc ; fi
+	cd src/components/serverManager ; if [ ! -f serverManager.dll ] ; then make -f Makefile.mvsc ; fi
 	cp src/components/xapianAccessor/xapianAccessor.dll kiwix/components/
 	cp src/components/xapianAccessor/IXapianAccessor.xpt kiwix/components/xapianAccessor.xpt
 	cp src/components/zimAccessor/zimAccessor.dll kiwix/components/
@@ -199,6 +215,8 @@ win:
 	cp src/components/zimXapianIndexer/IZimXapianIndexer.xpt kiwix/components/zimXapianIndexer.xpt
 	cp src/components/contentManager/contentManager.dll kiwix/components/
 	cp src/components/contentManager/IContentManager.xpt kiwix/components/contentManager.xpt
+	cp src/components/serverManager/serverManager.dll kiwix/components/
+	cp src/components/serverManager/IServerManager.xpt kiwix/components/serverManager.xpt
 	cp -r src/dependences/xulrunner ./kiwix
 	cp /c/Program\ Files/Microsoft\ Visual\ Studio\ 9.0/VC/redist/x86/Microsoft.VC90.CRT/* kiwix/xulrunner/
 	cp -r src/dependences/xz/windows/liblzma.dll ./kiwix/xulrunner

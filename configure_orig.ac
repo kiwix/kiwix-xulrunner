@@ -556,6 +556,7 @@ AC_CONFIG_FILES([
   src/components/zimCluceneIndexer/Makefile
   src/components/cluceneAccessor/Makefile
   src/components/contentManager/Makefile
+  src/components/serverManager/Makefile
   src/indexer/Makefile
   src/searcher/Makefile
   src/reader/Makefile

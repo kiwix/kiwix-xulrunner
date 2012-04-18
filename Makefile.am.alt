@@ -21,6 +21,10 @@ CLEANFILES= \
 	kiwix/components/cluceneAccessor.xpt \
 	kiwix/components/zimCluceneIndexer.so \
 	kiwix/components/zimCluceneIndexer.xpt \
+	kiwix/components/contentManager.so \
+	kiwix/components/contentManager.xpt \
+	kiwix/components/serverManager.so \
+	kiwix/components/serverManager.xpt \
 	kiwix*.deb \
 	kiwix*.tar.gz \
 	kiwix*.changes \
@@ -55,7 +59,9 @@ all-local: kiwix/components/xapianAccessor.dylib \
 	kiwix/components/zimCluceneIndexer.dylib \
 	kiwix/components/zimCluceneIndexer.xpt \
 	kiwix/components/contentManager.xpt \
-	kiwix/components/contentManager.dylib
+	kiwix/components/contentManager.dylib \
+	kiwix/components/serverManager.xpt \
+	kiwix/components/serverManager.dylib 
 else
 all-local: kiwix/components/xapianAccessor.so \
 	kiwix/components/xapianAccessor.xpt \
@@ -68,7 +74,9 @@ all-local: kiwix/components/xapianAccessor.so \
 	kiwix/components/zimCluceneIndexer.so \
 	kiwix/components/zimCluceneIndexer.xpt \
 	kiwix/components/contentManager.so \
-	kiwix/components/contentManager.xpt
+	kiwix/components/contentManager.xpt \
+	kiwix/components/serverManager.so \
+	kiwix/components/serverManager.xpt 
 endif
 
 dist-hook:
@@ -110,6 +118,12 @@ kiwix/components/contentManager.so:
 kiwix/components/contentManager.xpt:
 	ln -f -s ../../src/components/contentManager/contentManager.xpt ./kiwix/components/contentManager.xpt
 
+kiwix/components/serverManager.so: 
+	ln -f -s ../../src/components/serverManager/.libs/libServerManager.so ./kiwix/components/serverManager.so
+
+kiwix/components/serverManager.xpt:
+	ln -f -s ../../src/components/serverManager/serverManager.xpt ./kiwix/components/serverManager.xpt
+
 kiwix/components/zimAccessor.dylib: 
 	ln -f -s ../../src/components/zimAccessor/.libs/libZimAccessor.dylib ./kiwix/components/zimAccessor.dylib
 
@@ -121,6 +135,9 @@ kiwix/components/zimXapianIndexer.dylib:
 
 kiwix/components/contentManager.dylib: 
 	ln -f -s ../../src/components/contentManager/.libs/libContentManager.dylib ./kiwix/components/contentManager.dylib
+
+kiwix/components/serverManager.dylib: 
+	ln -f -s ../../src/components/serverManager/.libs/libServerManager.dylib ./kiwix/components/serverManager.dylib
 
 kiwix/components/cluceneAccessor.dylib: 
 	ln -f -s ../../src/components/cluceneAccessor/.libs/libCluceneAccessor.dylib ./kiwix/components/cluceneAccessor.dylib
@@ -215,6 +232,8 @@ distmac: dist
 	cp -v ./kiwix/components/zimXapianIndexer.dylib Kiwix.app/Contents/Resources/components/zimXapianIndexer.dylib
 	cp -v ./kiwix/components/contentManager.xpt Kiwix.app/Contents/Resources/components/contentManager.xpt
 	cp -v ./kiwix/components/contentManager.dylib Kiwix.app/Contents/Resources/components/contentManager.dylib
+	cp -v ./kiwix/components/serverManager.xpt Kiwix.app/Servers/Resources/components/serverManager.xpt
+	cp -v ./kiwix/components/serverManager.dylib Kiwix.app/Servers/Resources/components/serverManager.dylib
 	cp -v ./kiwix/components/cluceneAccessor.xpt Kiwix.app/Contents/Resources/components/cluceneAccessor.xpt
 	cp -v ./kiwix/components/cluceneAccessor.dylib Kiwix.app/Contents/Resources/components/cluceneAccessor.dylib
 	cp -v ./kiwix/components/zimCluceneIndexer.xpt Kiwix.app/Contents/Resources/components/zimCluceneIndexer.xpt
@@ -317,6 +336,7 @@ win:
 	cd src/components/zimAccessor ; if [ ! -f zimAccessor.dll ] ; then make -f Makefile.mvsc ; fi
 	cd src/components/zimXapianIndexer ; if [ ! -f zimXapianIndexer.dll ] ; then make -f Makefile.mvsc ; fi
 	cd src/components/contentManager ; if [ ! -f contentManager.dll ] ; then make -f Makefile.mvsc ; fi
+	cd src/components/serverManager ; if [ ! -f serverManager.dll ] ; then make -f Makefile.mvsc ; fi
 	cp src/components/xapianAccessor/xapianAccessor.dll kiwix/components/
 	cp src/components/xapianAccessor/IXapianAccessor.xpt kiwix/components/xapianAccessor.xpt
 	cp src/components/zimAccessor/zimAccessor.dll kiwix/components/
@@ -325,6 +345,8 @@ win:
 	cp src/components/zimXapianIndexer/IZimXapianIndexer.xpt kiwix/components/zimXapianIndexer.xpt
 	cp src/components/contentManager/contentManager.dll kiwix/components/
 	cp src/components/contentManager/IContentManager.xpt kiwix/components/contentManager.xpt
+	cp src/components/serverManager/serverManager.dll kiwix/components/
+	cp src/components/serverManager/IServerManager.xpt kiwix/components/serverManager.xpt
 	cp -r src/dependencies/xulrunner ./kiwix
 	cp /c/Program\ Files/Microsoft\ Visual\ Studio\ 9.0/VC/redist/x86/Microsoft.VC90.CRT/* kiwix/xulrunner/
 	cp -r src/dependencies/xz/windows/liblzma.dll ./kiwix/xulrunner

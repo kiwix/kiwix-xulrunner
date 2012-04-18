@@ -11,5 +11,6 @@ SUBDIRS = \
 	zimXapianIndexer \
 	zimCluceneIndexer \
 	cluceneAccessor \
-	contentManager
+	contentManager \
+	serverManager
 endif
