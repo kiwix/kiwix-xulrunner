@@ -30,7 +30,6 @@ Kiwix 0.9 rc1
 * NEW: kiwix-serve able to deal directly with a library XML file
 * NEW: kiwix-serve able to deal with many content in one instance
 * NEW: Speed-up begin of downloads by removing file pre-allocation
-* NEw: Reduce GNU/Linux Package file by 30% (by removing the symbol table of XPCOM components)
 * NEW: Allow compilation against Gecko SDK 9.0 and further (xpidl binary was removed)
 * NEW: Add support for HTML5 video/audio
 * NEW: Audible/Mute contextual menuitem for HTML5 videos
