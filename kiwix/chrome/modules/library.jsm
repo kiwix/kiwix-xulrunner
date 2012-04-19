@@ -26,9 +26,9 @@ function Book(id, path, relativeLibraryPath, indexPath, indexType, readOnly, las
 
 /* Define the Library class */
 let library = {
-
     /* Constructor */
     register: function() {
+        this.paths = "";
 
        	/* Initiate the content manager */
 	this.contentManager = Components.classes["@kiwix.org/contentManager"].getService();
@@ -52,6 +52,7 @@ let library = {
 	     var file = entries.getNext();  
 	     file.QueryInterface(Components.interfaces.nsIFile);  
              this.readFromFile(file.path, true);
+	     this.paths += file.path + ":";
 	   }
 	}
 
@@ -72,6 +73,7 @@ let library = {
 	      var file = entries.getNext();  
 	      file.QueryInterface(Components.interfaces.nsIFile);  
               this.readFromFile(file.path, true);
+  	      this.paths += file.path + ":";
 	     }
 	  }
         }
@@ -85,6 +87,7 @@ let library = {
 
 	  /* Load library file */
 	  this.readFromFile(settingsDirectory.path, false);
+          this.paths += settingsDirectory.path + ":";
 	}
     },
 

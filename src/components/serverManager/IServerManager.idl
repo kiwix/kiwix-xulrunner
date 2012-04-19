@@ -3,8 +3,8 @@
 [scriptable, uuid(1687c030-89a5-11e1-b0c4-0800200c9a66)]
 interface IServerManager : nsISupports
 {
-  boolean start(in AString libraryPath, in AString port);
+  boolean start(in AString binaryPath, in AString libraryPaths, in AString port);
   boolean isRunning();
   boolean stop();
-  boolean getLocalIp(out AUTF8String ip);
+  boolean getServerUrl(out AUTF8String url);
 };

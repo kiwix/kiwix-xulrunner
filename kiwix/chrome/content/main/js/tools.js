@@ -580,8 +580,15 @@ function whereis(binary) {
                 getService(Components.interfaces.nsIProperties).  
                 get("CurProcD", Components.interfaces.nsIFile);
     var binfile = file;
+
+    /* Append ./bin */
     binfile.append("bin");
     var path = file.path + sep + binfile.path  + sep + env.getPath();
+
+    /* Append ./xulrunner */
+    binfile.append("xulrunner");
+    var path = file.path + sep + binfile.path  + sep + env.getPath();
+
     var pathArray = path.split(sep);
 
     for (var i in pathArray) {

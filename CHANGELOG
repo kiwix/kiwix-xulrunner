@@ -45,6 +45,7 @@ Kiwix 0.9 rc1
 * NEW: OSX universal binary package (x86_32 & x86_64)
 * NEW: kiwix-serve command line option --attachToProcess
 * NEW: Windows BASCKSPACE handle to make page back (ID: 3518780)
+* NEW: kiwix-serve integration in Kiwix UI
 
 Kiwix 0.9 beta5
 * FIXED: letton language menu item (ID: 3439113)

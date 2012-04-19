@@ -44,6 +44,19 @@
   #define mozbool PRBool
 #endif
 
+#ifdef _WIN32
+#include <Windows.h>
+#else
+#include <unistd.h>
+#include <signal.h>
+#endif
+
+#ifdef __APPLE__
+#import <sys/types.h>
+#import <sys/sysctl.h>
+#define MIBSIZE 4
+#endif
+
 #include "IServerManager.h"
 #include <string>
 #include <iostream>
@@ -80,6 +93,7 @@ protected:
   pid_t serverPid;
 #endif
 
+  string url;
 };
 
 /* Implementation file */
@@ -93,8 +107,79 @@ ServerManager::ServerManager() {
 ServerManager::~ServerManager() {
 }
 
-NS_IMETHODIMP ServerManager::Start(const nsAString &libraryPath, const nsAString &port, mozbool *retVal) {
+NS_IMETHODIMP ServerManager::Start(const nsAString &binaryPath, const nsAString &libraryPaths, const nsAString &port, mozbool *retVal) {
   *retVal = PR_TRUE;
+  const char *cBinaryPath = strdup(nsStringToCString(binaryPath));
+  const char *cLibraryPaths = strdup(nsStringToCString(libraryPaths));
+  const char *cPort = strdup(nsStringToCString(port));
+  string commandLine;
+
+  /* Get PPID */
+#ifdef _WIN32
+  int PID = GetCurrentProcessId();
+#else
+  pid_t PID = getpid(); 
+#endif
+
+  /* Launch child-process */
+  char PIDStr[10];
+  sprintf(PIDStr, "%d", PID);
+
+#ifdef _WIN32
+  commandLine = string(cBinaryPath) + " --library --port=\"" + string(cPort) + "\" --attachToProcess=\"" + string(PIDStr) + "\" \"" + string(cLibraryPaths) + "\"";
+  STARTUPINFO startInfo = {0};
+  PROCESS_INFORMATION procInfo;
+  startInfo.cb = sizeof(startInfo);
+
+  if(CreateProcess(NULL, _strdup(commandLine.c_str()),  NULL, NULL, FALSE, 
+		   CREATE_NO_WINDOW, NULL, NULL, &startInfo, &procInfo)) {
+    this->serverPid = procInfo.dwProcessId;
+    CloseHandle(procInfo.hProcess);
+    CloseHandle(procInfo.hThread);
+  } else {
+    cerr << "Unable to start kiwix-serve.exe from path " << commandLine << endl;
+    *retVal = PR_FALSE;
+    return NS_OK;
+  }
+#else
+  /* Essential to avoid zombie kiwix-server process */
+  signal(SIGCHLD, SIG_IGN);
+
+  PID = fork();
+  const string portArgument = "--port=" + string(cPort);
+  const string libraryPathsArgument = string(cLibraryPaths);
+  const string attachToProcessArgument = "--attachToProcess=" + string(PIDStr);
+  switch (PID) {
+  case -1:
+    cerr << "Unable to fork before launching kiwix-serve" << endl;
+    *retVal = PR_FALSE;
+    return NS_OK;
+    break;
+  case 0: /* This is the child process */
+    commandLine = string(cBinaryPath);
+    if (execl(commandLine.c_str(), commandLine.c_str(), "--library", portArgument.c_str(), attachToProcessArgument.c_str(), libraryPathsArgument.c_str(), NULL) == -1) {
+      cerr << "Unable to start kiwix-serve from path " << commandLine << endl;
+      *retVal = PR_FALSE;
+    }
+    return NS_OK;
+    break;
+  default:
+    this->serverPid = PID;
+    break;
+  }
+#endif
+
+  /* Compute server url */
+  char hostName[255];
+  gethostname(hostName, 255);
+  struct hostent *hostEntry=gethostbyname(hostName);
+  struct in_addr **addrList = (struct in_addr **)hostEntry->h_addr_list;
+  string ipString;
+  for(int i = 0; addrList[i] != NULL; i++) {
+    ipString = string(inet_ntoa(*addrList[i]));
+  }
+  this->url = "http://" + ipString + ":" + string(cPort) + "/";
+
   return NS_OK;
 }
 
@@ -115,7 +200,7 @@ NS_IMETHODIMP ServerManager::IsRunning(mozbool *retVal) {
   mib[0]=CTL_KERN;
   mib[1]=KERN_PROC;
   mib[2]=KERN_PROC_PID;
-  mib[3]=this->aria2cPid;
+  mib[3]=this->serverPid;
   
   int ret = sysctl(mib, MIBSIZE, &kp, &len, NULL, 0);
   if (ret != -1 && len > 0) {
@@ -134,11 +219,23 @@ NS_IMETHODIMP ServerManager::IsRunning(mozbool *retVal) {
 
 NS_IMETHODIMP ServerManager::Stop(mozbool *retVal) {
   *retVal = PR_TRUE;
+
+#ifdef _WIN32
+  HANDLE ps = OpenProcess( SYNCHRONIZE|PROCESS_TERMINATE, 
+			   FALSE, this->serverPid);
+  TerminateProcess(ps, 0);
+#else
+  kill(this->serverPid, SIGTERM);
+  this->serverPid = NULL;
+  this->url = "";
+#endif
+  
   return NS_OK;
 }
 
-NS_IMETHODIMP ServerManager::GetLocalIp(nsACString &ip, mozbool *retVal) {
+NS_IMETHODIMP ServerManager::GetServerUrl(nsACString &url, mozbool *retVal) {
   *retVal = PR_TRUE;
+  url = nsDependentCString(this->url.data(), this->url.size());
   return NS_OK;
 }
 
