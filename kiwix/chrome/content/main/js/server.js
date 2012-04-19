@@ -35,7 +35,7 @@ function updateServerDialog() {
 	var url = new Object() ; serverManager.getServerUrl(url);
 	document.getElementById("start-button").setAttribute("style", "display: none;");
 	document.getElementById("stop-button").setAttribute("style", "display: visible;");
-	document.getElementById("status-description-label").value = "Server is running and is available at:";
+	document.getElementById("status-description-label").value = "Server is running and available at:";
 	document.getElementById("url-label-box").setAttribute("style", "visibility: display;");
 	document.getElementById("url-label").value = url.value;
     } else {
