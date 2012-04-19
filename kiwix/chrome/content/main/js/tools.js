@@ -574,23 +574,28 @@ function randomString() {
 /* Returns the root path of the binary if found, undefined otherwise */
 function whereis(binary) {
     var sep = env.isWindows() ? ";" : ":";
+    var path = env.getPath();
+
+    /* Add the kiwix binary directory */
     var directory = Components.classes["@mozilla.org/file/local;1"].
            createInstance(Components.interfaces.nsILocalFile);
     var file = Components.classes["@mozilla.org/file/directory_service;1"].  
                 getService(Components.interfaces.nsIProperties).  
                 get("CurProcD", Components.interfaces.nsIFile);
-    var binfile = file;
+    var path = file.path + sep + path;
 
     /* Append ./bin */
-    binfile.append("bin");
-    var path = file.path + sep + binfile.path  + sep + env.getPath();
+    var binFile = file;
+    binFile.append("bin");
+    var path = binFile.path + sep + path;
 
     /* Append ./xulrunner */
-    binfile.append("xulrunner");
-    var path = file.path + sep + binfile.path  + sep + env.getPath();
+    var xrFile = file;
+    xrFile.append("xulrunner");
+    var path = xrFile.path + sep + path;
 
+    /* Go trough each path of the $PATH */
     var pathArray = path.split(sep);
-
     for (var i in pathArray) {
 	try {
 	    directory.initWithPath(pathArray[i]);
