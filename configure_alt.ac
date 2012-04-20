@@ -187,7 +187,7 @@ fi
 SELF="SELF"
 DEP_PATH="${CURRENT_PATH}/src/dependencies"
 
-STATIC_BUILD=0
+COMPIL_DEPS=0
 STATIC_TMP="static_tmp"
 # list of .so to copy to xulrunner/ path
 STATIC_LIBS=""
@@ -219,73 +219,72 @@ fi
 
 ZLIB_CFLAGS=""
 ZLIB_LDFLAGS=" -lz"
+ZLIB_STATIC_LDFLAGS=""
 COMPILE_ZLIB=0
 COMPILED_ZLIB_CFLAGS="-I${DEP_PATH}/zlib-1.2.3"
-COMPILED_ZLIB_LDFLAGS="-L${DEP_PATH}/zlib-1.2.3  -lz"
-COMPILED_ZLIB_FILES="${DEP_PATH}/zlib-1.2.3/libz.${SHARED_EXT}"
+COMPILED_ZLIB_LDFLAGS="-L${DEP_PATH}/zlib-1.2.3/shared/lib  -lz"
+COMPILED_ZLIB_FILES="${DEP_PATH}/zlib-1.2.3/shared/lib/libz.${SHARED_EXT}"
+COMPILED_ZLIB_STATIC_LDFLAGS="${DEP_PATH}/zlib-1.2.3/shared/lib/libz.a"
 
 XAPIAN_CFLAGS=""
 XAPIAN_LDFLAGS="-lxapian"
+XAPIAN_STATIC_LDFLAGS=""
 COMPILE_XAPIAN=0
-COMPILED_XAPIAN_CFLAGS="-I${DEP_PATH}/xapian-core-1.2.3/include"
+COMPILED_XAPIAN_CFLAGS="-I${DEP_PATH}/xapian-core-1.2.3/build/include"
 if test [ $IS_WIN -eq 1 ] ; then
     COMPILED_XAPIAN_LDFLAGS="${DEP_PATH}/xapian-core-1.2.3/win32/Release/libs/libunicode.lib"
 else
-	COMPILED_XAPIAN_LDFLAGS="-L${DEP_PATH}/xapian-core-1.2.3/.libs/ -lxapian"
-	if test [ $IS_OSX -eq 1 ] ; then
-	COMPILED_XAPIAN_LDFLAGS="-L${DEP_PATH}/xapian-core-1.2.3/build/ -lxapian"
-	COMPILED_XAPIAN_FILES="${DEP_PATH}/xapian-core-1.2.3/build/libxapian.dylib"
-	else
-    COMPILED_XAPIAN_FILES="${DEP_PATH}/xapian-core-1.2.3/.libs/libxapian.${SHARED_EXT}"
-    fi
+	COMPILED_XAPIAN_LDFLAGS="-L${DEP_PATH}/xapian-core-1.2.3/build/lib -lxapian"
+    COMPILED_XAPIAN_FILES="${DEP_PATH}/xapian-core-1.2.3/build/lib/libxapian.${SHARED_EXT}"
+    COMPILED_XAPIAN_STATIC_LDFLAGS="${DEP_PATH}/xapian-core-1.2.3/build/lib/libxapian.a"
 fi
-if test [ $IS_OSX -eq 1 ] ; then
-COMPILED_XAPIAN_COMPACT="${DEP_PATH}/xapian-core-1.2.3/build/xapian-compact"
-else
-COMPILED_XAPIAN_COMPACT="${DEP_PATH}/xapian-core-1.2.3/bin/.libs/xapian-compact"
-fi
+COMPILED_XAPIAN_COMPACT="${DEP_PATH}/xapian-core-1.2.3/build/bin/xapian-compact"
 
 ICU_CFLAGS=""
 ICU_LDFLAGS="-licui18n -licuuc -licudata" # replaced by icu-config"
+ICU_STATIC_LDFLAGS=""
 COMPILE_ICU=0
 COMPILED_ICU_CFLAGS="-I${DEP_PATH}/icu/source/build/include"
 if test [ $IS_WIN -eq 1 ] ; then
 	COMPILED_ICU_LDFLAGS="${DEP_PATH}/icu/lib/icuio.lib ${DEP_PATH}/icu/lib/icudata.lib ${DEP_PATH}/icu/lib/icuuc.lib ${DEP_PATH}/icu/lib/icui18n.lib"
 else
 	COMPILED_ICU_LDFLAGS="-L${DEP_PATH}/icu/source/build/lib -licui18n -licuuc -licudata"
-	if test [ $IS_OSX -eq 1 ] ; then
-	COMPILED_ICU_CFLAGS="-I${DEP_PATH}/icu/source/build-x86_64/include"
-	COMPILED_ICU_LDFLAGS="-L${DEP_PATH}/icu/source/build -licui18n -licuuc -licudata"
-	COMPILED_ICU_FILES="${DEP_PATH}/icu/source/build/libicudata.dylib ${DEP_PATH}/icu/source/build/libicuuc.dylib ${DEP_PATH}/icu/source/build/libicui18n.dylib"
-	else
-	COMPILED_ICU_FILES="${DEP_PATH}/icu/source/lib/libicui18n.${SHARED_EXT} ${DEP_PATH}/icu/source/lib/libicuuc.${SHARED_EXT} ${DEP_PATH}/icu/source/lib/libicudata.${SHARED_EXT}"
-	fi
+	COMPILED_ICU_STATIC_LDFLAGS="${DEP_PATH}/icu/source/build/lib/libicui18n.a ${DEP_PATH}/icu/source/build/lib/libicuuc.a ${DEP_PATH}/icu/source/build/lib/libicudata.a"
+	COMPILED_ICU_CFLAGS="-I${DEP_PATH}/icu/source/build/include"
+	COMPILED_ICU_FILES="${DEP_PATH}/icu/source/build/lib/libicui18n.${SHARED_EXT} ${DEP_PATH}/icu/source/build/lib/libicuuc.${SHARED_EXT} ${DEP_PATH}/icu/source/build/lib/libicudata.${SHARED_EXT}"
 fi
 
 # no win for sqlite as it is just a sub dependency of aria2
 SQLITE_CFLAGS=""
 SQLITE_LDFLAGS="-libsqlite3"
+SQLITE_STATIC_LDFLAGS=""
 COMPILE_SQLITE=0
-COMPILED_SQLITE_LDFLAGS="-L${DEP_PATH}/sqlite-autoconf-3071000/.libs -libsqlite3"
-COMPILED_SQLITE_FILES="${DEP_PATH}/sqlite-autoconf-3071000/.libs/libsqlite3.${SHARED_EXT}"
+COMPILED_SQLITE_LDFLAGS="-L${DEP_PATH}/sqlite-autoconf-3071000/build/lib -lsqlite3"
+COMPILED_SQLITE_STATIC_LDFLAGS="${DEP_PATH}/sqlite-autoconf-3071000/build/lib/libsqlite3.a"
+COMPILED_SQLITE_FILES="${DEP_PATH}/sqlite-autoconf-3071000/build/lib/libsqlite3.${SHARED_EXT}"
 
 # used only for building kiwix-serve. Not available on windows.
 MICROHTTPD_CFLAGS=""
 MICROHTTPD_LDFLAGS="-lmicrohttpd"
+MICROHTTPD_STATIC_LDFLAGS=""
 COMPILE_MICROHTTPD=0
-COMPILED_MICROHTTPD_LDFLAGS="-L${DEP_PATH}/libmicrohttpd-0.9.19/src/daemon/.libs -lmicrohttpd"
-COMPILED_MICROHTTPD_FILES="${DEP_PATH}/libmicrohttpd-0.9.19/src/daemon/.libs/libmicrohttpd.${SHARED_EXT}"
+COMPILED_MICROHTTPD_CFLAGS="-I${DEP_PATH}/libmicrohttpd-0.9.19/build/include"
+COMPILED_MICROHTTPD_LDFLAGS="-L${DEP_PATH}/libmicrohttpd-0.9.19/build/lib -lmicrohttpd"
+COMPILED_MICROHTTPD_STATIC_LDFLAGS="${DEP_PATH}/libmicrohttpd-0.9.19/build/lib/libmicrohttpd.a"
+COMPILED_MICROHTTPD_FILES="${DEP_PATH}/libmicrohttpd-0.9.19/build/lib/libmicrohttpd.${SHARED_EXT}"
 
 LZMA_CFLAGS=""
 LZMA_LDFLAGS=" -llzma"
+LZMA_STATIC_LDFLAGS=""
 COMPILE_LZMA=0
 if test [ $IS_WIN -eq 1 ] ; then
 	COMPILED_LZMA_LDFLAGS="${DEP_PATH}/xz/windows/liblzma.lib"
 else
-    COMPILED_LZMA_LDFLAGS="-L${DEP_PATH}/xz/src/liblzma/.libs  -llzma"
+	COMPILED_LZMA_LDFLAGS="-L${DEP_PATH}/xz/build/lib  -llzma"
+	COMPILED_LZMA_STATIC_LDFLAGS="${DEP_PATH}/xz/build/lib/liblzma.a"
+    COMPILED_LZMA_FILES="${DEP_PATH}/xz/build/lib/liblzma.${SHARED_EXT}"
 fi
 COMPILED_LZMA_CFLAGS="-I${DEP_PATH}/xz/src/liblzma/api"
-COMPILED_LZMA_FILES="${DEP_PATH}/xz/src/liblzma/.libs/liblzma.${SHARED_EXT}"
 
 
 ARIA2_CFLAGS=""
@@ -301,15 +300,25 @@ fi
 
 CLUCENE_CFLAGS="-I/usr/lib -I/usr/lib64"
 CLUCENE_LDFLAGS="-lclucene"
+CLUCENE_STATIC_LDFLAGS=""
 COMPILE_CLUCENE=0
 COMPILED_CLUCENE_CFLAGS="-I${DEP_PATH}/clucene-core-0.9.21b/src"
-COMPILED_CLUCENE_LDFLAGS="-L${DEP_PATH}/clucene-core-0.9.21b/src/.libs -lclucene"
-COMPILED_CLUCENE_FILES="${DEP_PATH}/clucene-core-0.9.21b/src/.libs/libclucene.${SHARED_EXT}"
+COMPILED_CLUCENE_LDFLAGS="-L${DEP_PATH}/clucene-core-0.9.21b/build/lib -lclucene"
+COMPILED_CLUCENE_STATIC_LDFLAGS="${DEP_PATH}/clucene-core-0.9.21b/build/lib/libclucene.a"
+COMPILED_CLUCENE_FILES="${DEP_PATH}/clucene-core-0.9.21b/build/lib/libclucene.${SHARED_EXT}"
+
+if test [ $IS_OSX -eq 1 ] ; then
+	STATIC_GETTEXT_LDFLAGS="/opt/local/lib/libintl.a"
+	STATIC_ICONV_LDFLAGS="/opt/local/lib/libiconv.a"
+else
+	STATIC_GETTEXT_LDFLAGS=""
+	STATIC_ICONV_LDFLAGS=""
+fi
 
 WITH_CLUCENE=0
 
 WITH_MANAGER=0
-WITH_SERVER=0
+WITH_SERVER=1
 WITH_LAUNCHER=1
 WITH_INDEXER=0
 WITH_INSTALLER=0
@@ -324,14 +333,14 @@ PUGIXML_LDFLAGS=""
 ZIMLIB_CFLAGS=""
 ZIMLIB_LDFLAGS=""
 
-# --enable-fullstatic
-AC_ARG_ENABLE(fullstatic,
-			  AS_HELP_STRING([--enable-fullstatic],
-			  				 [mark every package for self compilation and static linking (default is no)]),
-			  [], [enable_fullstatic=no])
-AS_IF([test "x$enable_fullstatic" = "xyes"], [STATIC_BUILD=1], [STATIC_BUILD=0])
+# --enable-compileall
+AC_ARG_ENABLE(compileall,
+			  AS_HELP_STRING([--enable-compileall],
+			  				 [mark every package for self compilation (default is no)]),
+			  [], [enable_compileall=no])
+AS_IF([test "x$enable_compileall" = "xyes"], [COMPIL_DEPS=1], [COMPIL_DEPS=0])
 
-if test [ $STATIC_BUILD -eq 1 ]
+if test [ $COMPIL_DEPS -eq 1 ]
 then
 	COMPILE_GECKO_SDK=1
 	COMPILE_ZLIB=1
@@ -343,16 +352,8 @@ then
 	COMPILE_ARIA2=1
 	COMPILE_CLUCENE=1
 	WITH_LAUNCHER=1
-
-	WITH_CLUCENE=0
-	WITH_MANAGER=0
-	WITH_SERVER=0
-	WITH_INDEXER=0
-	WITH_INSTALLER=0
-	WITH_SEARCHER=0
-	WITH_READER=0
 else
-	STATIC_BUILD=0
+	COMPIL_DEPS=0
 fi
 
 ####################################################
@@ -408,6 +409,13 @@ AC_ARG_ENABLE(reader,
 			  [], [enable_reader=no])
 AS_IF([test "x$enable_reader" = "xyes"], [WITH_READER=1], [WITH_READER=0])
 
+# all enables all optional tools
+AC_ARG_ENABLE(all,
+			  AS_HELP_STRING([--enable-all],
+			  				 [compile all optionnal tools (default is no)]),
+			  [], [enable_all=no])
+AS_IF([test "x$enable_all" = "xyes"], [WITH_LAUNCHER=1;WITH_INDEXER=1;WITH_INSTALLER=1;WITH_SEARCHER=1;WITH_READER=1;WITH_MANAGER=1;WITH_SERVER=1], [])
+
 # extra includes allow to specify extra -I paths
 AC_ARG_WITH(extra-includes,
             [  --with-extra-includes=DIR:DIR	PATH like list of folder to add to include lookup],
@@ -417,6 +425,12 @@ AC_ARG_WITH([debug],
 			AS_HELP_STRING([--with-debug],
 						   [add debug symbols]),
 		    CFLAGS="${CFLAGS} -g "; CXXFLAGS="${CXXFLAGS} -g ")
+
+if test [ $WITH_MANAGER -eq 1 -o $WITH_SERVER -eq 1 -o $WITH_LAUNCHER -eq 1 -o $WITH_INDEXER -eq 1 -o $WITH_INSTALLER -eq 1 -o $WITH_SEARCHER -eq 1 -o $WITH_READER -eq 1 ] ; then
+	REQUIRE_STATIC=1
+else
+	REQUIRE_STATIC=0
+fi
 
 ####################################################
 ############ GECKO SDK
@@ -530,7 +544,7 @@ fi
 # if --with-x, add path to LIBRARY_PATH
 AC_ARG_WITH(z,
 			AS_HELP_STRING([--with-z=DIR], [alternate location for zlib]),
-			  	export LIBRARY_PATH="${withval}:${LIBRARY_PATH}";)
+			  	export LIBRARY_PATH="${withval}:${LIBRARY_PATH}";ZLIB_PATH=${withval})
 
 # if --with-static-x, set path as X_ARCHIVE
 AC_ARG_WITH(static-z,
@@ -538,25 +552,52 @@ AC_ARG_WITH(static-z,
             			   [Path to static archive]),
             ZLIB_ARCHIVE=${withval})
 
-# if no static argument, check for lib on system (which may contain the --with-x= path)
-if test [ "$ZLIB_ARCHIVE" = "" -a $COMPILE_ZLIB -eq 0 ]
-then
-	# fail if none found.
-    AC_CHECK_HEADER([zlib.h],, [AC_MSG_ERROR([[cannot find zlib header]])])
-	AC_CHECK_LIB([z], [zlibVersion],, [AC_MSG_ERROR([[cannot find zlib]])])
-# static argument supplied
+# shared library not found, mark for compilation.
+if test [ $COMPILE_ZLIB -eq 1 -o $ZLIB_PATH=$SELF ] ; then
+	COMPILE_ZLIB=1
+	ZLIB_CFLAGS=$COMPILED_ZLIB_CFLAGS
+    ZLIB_LDFLAGS=$COMPILED_ZLIB_LDFLAGS
+	ZLIB_FILES=$COMPILED_ZLIB_FILES
+	ZLIB_STATIC_LDFLAGS=$COMPILED_ZLIB_STATIC_LDFLAGS
 else
-	# if argument is SELF, add to compile queue
-	if test [ "$ZLIB_ARCHIVE" = "$SELF" -o $COMPILE_ZLIB -eq 1 ]
-	then
-	    COMPILE_ZLIB=1
-	    ZLIB_LDFLAGS=$COMPILED_ZLIB_LDFLAGS
-	# if path provided, test file existence (and fail)
-	else
-		ZLIB_LDFLAGS=`readlink -f $ZLIB_ARCHIVE`
-		AC_CHECK_FILE($ZLIB_ARCHIVE,,[AC_MSG_ERROR([[cannot stat zlib archive at $ZLIB_LDFLAGS]])])
-	fi
+	# look for shared library.
+	AC_CHECK_HEADER([zlib.h],, [AC_MSG_ERROR([[cannot find zlib header]])])
+	AC_CHECK_LIB([z], [zlibVersion],, [AC_MSG_ERROR([[cannot find zlib]]);COMPILE_ZLIB=1])
+	ZLIB_FILES="${ZLIB_PATH}/libz.${SHARED_EXT}"
+
+	# if static is required
+	if test [ $REQUIRE_STATIC -eq 1 ] ; then
+		if [ ! -f "$ZLIB_ARCHIVE" ] ; then
+  			COMPILE_ZLIB=1
+  			ZLIB_FILES=$COMPILED_ZLIB_FILES
+			ZLIB_STATIC_LDFLAGS=$COMPILED_ZLIB_STATIC_LDFLAGS
+  		else
+  			ZLIB_STATIC_LDFLAGS="${ZLIB_ARCHIVE}"
+  		fi
+  	fi
+
 fi
+
+
+# # if no static argument, check for lib on system (which may contain the --with-x= path)
+# if test [ "$ZLIB_ARCHIVE" = "" -a $COMPILE_ZLIB -eq 0 ]
+# then
+# 	# fail if none found.
+#     AC_CHECK_HEADER([zlib.h],, [AC_MSG_ERROR([[cannot find zlib header]])])
+# 	AC_CHECK_LIB([z], [zlibVersion],, [AC_MSG_ERROR([[cannot find zlib]])])
+# # static argument supplied
+# else
+# 	# if argument is SELF, add to compile queue
+# 	if test [ "$ZLIB_ARCHIVE" = "$SELF" -o $COMPILE_ZLIB -eq 1 ]
+# 	then
+# 	    COMPILE_ZLIB=1
+# 	    ZLIB_LDFLAGS=$COMPILED_ZLIB_LDFLAGS
+# 	# if path provided, test file existence (and fail)
+# 	else
+# 		ZLIB_LDFLAGS=`readlink -f $ZLIB_ARCHIVE`
+# 		AC_CHECK_FILE($ZLIB_ARCHIVE,,[AC_MSG_ERROR([[cannot stat zlib archive at $ZLIB_LDFLAGS]])])
+# 	fi
+# fi
 
 ####################################################
 ############ XAPIAN
@@ -728,6 +769,7 @@ else
 	if test [ "$MICROHTTPD_ARCHIVE" = "$SELF" -o $COMPILE_MICROHTTPD -eq 1 ]
 	then
 	    COMPILE_MICROHTTPD=1
+	    MICROHTTPD_CFLAGS=$COMPILED_MICROHTTPD_CFLAGS
 	    MICROHTTPD_LDFLAGS=$COMPILED_MICROHTTPD_LDFLAGS
 	# if path provided, test file existence (and fail)
 	else
@@ -938,7 +980,7 @@ AC_DEFINE(ENABLE_LZMA, [1], [defined if lzma compression is enabled])
 AC_SUBST(CPATH)
 AC_SUBST(CXXFLAGS)
 AC_SUBST(CURRENT_PATH)
-AC_SUBST(STATIC_BUILD)
+AC_SUBST(COMPIL_DEPS)
 AC_SUBST(STATIC_TMP)
 AC_SUBST(STATIC_LIBS)
 AC_SUBST(IS_WIN)
@@ -951,7 +993,7 @@ AC_SUBST(ARCH)
 AC_SUBST(DEP_PATH)
 AC_SUBST(IS_OLD_GECKO)
 
-AM_CONDITIONAL([STATIC_BUILD], [test "$STATIC_BUILD" -eq 1])
+AM_CONDITIONAL([COMPIL_DEPS], [test "$COMPIL_DEPS" -eq 1])
 AM_CONDITIONAL([IS_WIN], [test "$IS_WIN" -eq 1])
 AM_CONDITIONAL([IS_OSX], [test "$IS_OSX" -eq 1])
 AM_CONDITIONAL([IS_LINUX], [test "$IS_LINUX" -eq 1])
@@ -997,32 +1039,38 @@ AC_SUBST(TYPELIB_PY)
 
 AC_SUBST(ZLIB_CFLAGS)
 AC_SUBST(ZLIB_LDFLAGS)
+AC_SUBST(ZLIB_STATIC_LDFLAGS)
 AC_SUBST(COMPILE_ZLIB)
 AC_SUBST(COMPILED_ZLIB_FILES)
 
 AC_SUBST(XAPIAN_CFLAGS)
 AC_SUBST(XAPIAN_LDFLAGS)
+AC_SUBST(XAPIAN_STATIC_LDFLAGS)
 AC_SUBST(COMPILE_XAPIAN)
 AC_SUBST(COMPILED_XAPIAN_FILES)
 AC_SUBST(COMPILED_XAPIAN_COMPACT)
 
 AC_SUBST(ICU_CFLAGS)
 AC_SUBST(ICU_LDFLAGS)
+AC_SUBST(ICU_STATIC_LDFLAGS)
 AC_SUBST(COMPILE_ICU)
 AC_SUBST(COMPILED_ICU_FILES)
 
 AC_SUBST(SQLITE_CFLAGS)
 AC_SUBST(SQLITE_LDFLAGS)
+AC_SUBST(SQLITE_STATIC_LDFLAGS)
 AC_SUBST(COMPILE_SQLITE)
 AC_SUBST(COMPILED_SQLITE_FILES)
 
 AC_SUBST(MICROHTTPD_CFLAGS)
 AC_SUBST(MICROHTTPD_LDFLAGS)
+AC_SUBST(MICROHTTPD_STATIC_LDFLAGS)
 AC_SUBST(COMPILE_MICROHTTPD)
 AC_SUBST(COMPILED_MICROHTTPD_FILES)
 
 AC_SUBST(LZMA_CFLAGS)
 AC_SUBST(LZMA_LDFLAGS)
+AC_SUBST(LZMA_STATIC_LDFLAGS)
 AC_SUBST(COMPILE_LZMA)
 AC_SUBST(COMPILED_LZMA_FILES)
 
@@ -1033,6 +1081,7 @@ AC_SUBST(COMPILED_ARIA2_FILES)
 
 AC_SUBST(CLUCENE_CFLAGS)
 AC_SUBST(CLUCENE_LDFLAGS)
+AC_SUBST(CLUCENE_STATIC_LDFLAGS)
 AC_SUBST(COMPILE_CLUCENE)
 AC_SUBST(COMPILED_CLUCENE_FILES)
 
@@ -1089,7 +1138,7 @@ $BINECHO -n "IS_POSIX		" ; yesno $IS_POSIX
 $BINECHO -n "IS_LINUX		" ; yesno $IS_LINUX
 $BINECHO -n "IS_OSX			" ; yesno $IS_OSX
 $BINECHO -n "IS_WIN			" ; yesno $IS_WIN
-$BINECHO -n "STATIC_BUILD		" ; yesno $STATIC_BUILD
+$BINECHO -n "COMPIL_DEPS		" ; yesno $COMPIL_DEPS
 $BINECHO -n "IS_OLD_GECKO		" ; yesno $IS_OLD_GECKO
 $BINECHO -n "DEP_LIST		" ; $BINECHO $DEP_LIST
 $BINECHO -n "STATIC_LIBS		" ; $BINECHO $STATIC_LIBS

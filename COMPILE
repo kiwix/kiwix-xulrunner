@@ -51,12 +51,12 @@ sudo port install autogen +universal pkgconfig +universal wget +universal gmake 
 sudo ln -s /opt/local/bin/glibtoolize /opt/local/bin/libtoolize
 
 ./autogen.sh alt
-./configure --enable-fullstatic
+./configure --enable-compileall
 make src/dependencies
-./configure --enable-fullstatic --disable-dependency-tracking --with-target-arch=i386
+./configure --enable-compileall --disable-dependency-tracking --with-target-arch=i386
 make
 make distmac
-./configure --enable-fullstatic --disable-dependency-tracking --with-target-arch=x86_64
+./configure --enable-compileall --disable-dependency-tracking --with-target-arch=x86_64
 make clean
 make
 make distmac
