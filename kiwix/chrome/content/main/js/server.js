@@ -52,7 +52,13 @@ function startServer() {
     var binaryPath = whereis(env.isWindows() ? "kiwix-serve.exe" : "kiwix-serve");
     var libraryPaths = library.paths;
     var port = document.getElementById("port-textbox").value;
-    serverManager.start(binaryPath, libraryPaths, port);
+
+    if (binaryPath === undefined) {
+	displayErrorDialog("Unable to find the kiwix-server binary.");
+    } else {
+	serverManager.start(binaryPath, libraryPaths, port);
+    }
+
     updateServerDialog();
 }
 
