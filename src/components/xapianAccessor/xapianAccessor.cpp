@@ -107,26 +107,6 @@ NS_IMETHODIMP XapianAccessor::OpenReadableDatabase(const nsACString &unixDirecto
   return NS_OK;
 }
 
-NS_IMETHODIMP XapianAccessor::SetResultTemplatePath(const nsACString &unixResultTemplate, 
-						    const nsACString &winResultTemplate, mozbool *retVal) {
-  *retVal = PR_TRUE;
-  
-  const char *resultTemplatePath;
-#ifdef _WIN32
-  NS_CStringGetData(winResultTemplate, &resultTemplatePath);
-#else
-  NS_CStringGetData(unixResultTemplate, &resultTemplatePath);
-#endif
-  
-  try {
-    this->searcher->setResultTemplatePath(resultTemplatePath);
-  } catch (...) {
-    *retVal = PR_FALSE;
-  }
-
-  return NS_OK;
-}
-
 /* Close Xapian writable database */
 NS_IMETHODIMP XapianAccessor::CloseReadableDatabase(mozbool *retVal) {
   *retVal = PR_TRUE;
