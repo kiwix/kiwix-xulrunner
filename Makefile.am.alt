@@ -186,18 +186,28 @@ static: dist
 	cp -v $(STATIC_TMP)/kiwix/xulrunner/libnspr4.so $(STATIC_TMP)/kiwix/xulrunner/libnspr4.so.0d
 	cp -v $(STATIC_TMP)/kiwix/xulrunner/libplds4.so $(STATIC_TMP)/kiwix/xulrunner/libplds4.so.0d
 
-	cp -Lv $(STATIC_LIBS) $(STATIC_TMP)/kiwix/xulrunner/
+	cp -Lv $(EMBED_LIBS) $(STATIC_TMP)/kiwix/xulrunner/
 
 	ln -s ./liblzma.so $(STATIC_TMP)/kiwix/xulrunner/liblzma.so.5
 	ln -s ./libclucene.so $(STATIC_TMP)/kiwix/xulrunner/libclucene.so.0
+
+	ln -s ./libz.so $(STATIC_TMP)/kiwix/xulrunner/libz.so.1
+	ln -s ./libxapian.so $(STATIC_TMP)/kiwix/xulrunner/libxapian.so.22
+	ln -s ./libicuuc.so $(STATIC_TMP)/kiwix/xulrunner/libicuuc.so.44
+	ln -s ./libicudata.so $(STATIC_TMP)/kiwix/xulrunner/libicudata.so.44
+	ln -s ./libicui18n.so $(STATIC_TMP)/kiwix/xulrunner/libicui18n.so.44
+	ln -s ./libsqlite3.so $(STATIC_TMP)/kiwix/xulrunner/libsqlite3.so.0
+	ln -s ./liblzma.so $(STATIC_TMP)/kiwix/xulrunner/liblzma.so.2
+
 
 	strip `find $(STATIC_TMP)/kiwix -executable -type f | grep -v ".sh" | grep -v ".py" | grep -v sugar` || true
 
 	cp -v src/launcher/kiwix-launcher $(STATIC_TMP)/kiwix/kiwix
 
 	mkdir -p $(STATIC_TMP)/kiwix/bin
-	cp -v $(COMPILED_ARIA2_FILES) $(STATIC_TMP)/kiwix/bin/aria2c
-	cp -v $(COMPILED_XAPIAN_COMPACT) $(STATIC_TMP)/kiwix/bin/xapian-compact
+	cp -v $(ARIA2_FILES) $(STATIC_TMP)/kiwix/bin/aria2c
+	cp -v $(XAPIAN_COMPACT) $(STATIC_TMP)/kiwix/bin/xapian-compact
+	cp -v $(SERVER_BIN) $(STATIC_TMP)/kiwix/bin/kiwix-serve
 
 	rm $(STATIC_TMP)/kiwix/*.bat
 	rm $(STATIC_TMP)/kiwix/xulrunner/libmicrohttpd.so
@@ -244,7 +254,7 @@ distmac: dist
 
 	mv Kiwix.app/Contents/Resources/chrome/content/main/js/logger_rlz.js Kiwix.app/Contents/Resources/chrome/content/main/js/logger.js
 
-	cp -Lv $(STATIC_LIBS) Kiwix.app/Contents/Frameworks/
+	cp -Lv $(EMBED_LIBS) Kiwix.app/Contents/Frameworks/
 
 	find Kiwix.app/Contents/Frameworks/ -name '*.dylib' -exec install_name_tool -change /usr/local/lib/libz.1.dylib @executable_path/../Frameworks/libz.dylib {} \;
 

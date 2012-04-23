@@ -1,2 +1,2 @@
-SUBDIRS = zimAccessor xapianAccessor zimXapianIndexer contentManager cluceneAccessor zimCluceneIndexer
+SUBDIRS = zimAccessor xapianAccessor zimXapianIndexer contentManager cluceneAccessor zimCluceneIndexer serverManager
 
