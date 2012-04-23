@@ -29,6 +29,31 @@ done.
 
 * make install to install it on the system
 
+== GNU/Linux (alternative) ==
+
+The new build system (not default) now builds kiwix with shared libraries only.
+A static build of Kiwix is a build which packages the dependencies.
+Command line tools (indexer, server, etc) are compiled statically.
+
+* ./autogen.sh alt
+
+* ./configure # check --help for options
+Most dependencies accept --with-dep=XX and with-static-dep=XX.a
+Static version of libraries are used for building static binaries (server, indexer, etc)
+Use --with-dep=SELF or --with-static-dep=SELF to trigger fetch and build for the dependency.
+
+* ./configure --enable-compileall
+to fetch and build all dependencies.
+
+* make src/dependencies
+
+* ./configure
+To reconfigure with dependencies (Gecko version)
+
+* make
+
+* make static
+creates tarbal suitable for distribution (no deps)
 
 == Mac OSX Universal ==
 
