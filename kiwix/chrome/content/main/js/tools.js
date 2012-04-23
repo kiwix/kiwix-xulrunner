@@ -589,11 +589,21 @@ function whereis(binary) {
     binFile.append("bin");
     var path = binFile.path + sep + path;
 
-    /* Append ./xulrunner */
-    var xrFile = file;
-    xrFile.append("xulrunner");
-    var path = xrFile.path + sep + path;
+    /* Append ./xulrunner for Windows only */
+    if (env.isWindows()) {
+	var xrFile = file;
+	xrFile.append("xulrunner");
+	var path = xrFile.path + sep + path;
+    }
 
+    /* Append ../src/server for Linux only */
+    if (env.isLinux()) {
+	var serverCodeDirectory = file.parent.parent;
+        serverCodeDirectory.append("src");
+        serverCodeDirectory.append("server");
+        var path = serverCodeDirectory.path + sep + path;
+    }
+    
     /* Go trough each path of the $PATH */
     var pathArray = path.split(sep);
     for (var i in pathArray) {
