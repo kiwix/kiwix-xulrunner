@@ -197,10 +197,6 @@ SearchPipeChannel.prototype = {
 	/* Make a search */
 	if (indexAccessor.search(query, start, end)) {
 	    
-	    /* Set the template */
-	    indexAccessor.setResultTemplatePath(env.chromeToPath("chrome://static/content/results.tmpl"), 
-						env.chromeToPath("chrome://static/content/results.tmpl"));
-	    
 	    /* Display the HTML */
 	    var html = new Object();
 	    indexAccessor.getHtml(html);
