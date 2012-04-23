@@ -1,7 +1,6 @@
 #content packagename uri/to/files/ [flags]
 content main jar:content.jar!/content/main/
 content branding jar:content.jar!/content/branding/
-content static static/
 
 #locale packagename localename uri/to/files/ [flags]
 locale main aeb            jar:locale.jar!/locale/aeb/main/

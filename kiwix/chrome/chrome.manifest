@@ -1,7 +1,6 @@
 #content packagename uri/to/files/ [flags]
 content main content/main/
 content branding content/branding/
-content static static/
 content ctype ctype/
 
 #locale packagename localename uri/to/files/ [flags]
