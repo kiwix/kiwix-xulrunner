@@ -7,10 +7,12 @@ libCluceneAccessor_la_SOURCES= \
 	cluceneAccessor.cpp \
 	$(top_srcdir)/src/common/splitString.cpp \
 	$(top_srcdir)/src/common/unaccent.cpp \
+	$(top_srcdir)/src/common/resourceTools.cpp \
 	$(top_srcdir)/src/common/kiwix/searcher.cpp \
 	$(top_srcdir)/src/common/kiwix/cluceneSearcher.cpp \
 	$(top_srcdir)/src/common/splitString.h \
 	$(top_srcdir)/src/common/unaccent.h \
+	$(top_srcdir)/src/common/resourceTools.h \
 	$(top_srcdir)/src/common/kiwix/searcher.h 
 libCluceneAccessor_la_CXXFLAGS=$(LIBCTPP2_CFLAGS) $(LIBXUL_CFLAGS) $(LIBCLUCENE_CFLAGS) $(LIBICU_CFLAGS) $(XPCOM_CFLAGS) -D GECKO_VERSION=$(GECKO_VERSION) -I$(top_srcdir)/src/common/
 if IS_STATIC
