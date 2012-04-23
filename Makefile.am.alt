@@ -208,6 +208,7 @@ static: dist
 	cp -v $(ARIA2_FILES) $(STATIC_TMP)/kiwix/bin/aria2c
 	cp -v $(XAPIAN_COMPACT) $(STATIC_TMP)/kiwix/bin/xapian-compact
 	cp -v $(SERVER_BIN) $(STATIC_TMP)/kiwix/bin/kiwix-serve
+	cp -v static/results.tmpl $(STATIC_TMP)/kiwix/bin/results.tmpl
 
 	rm $(STATIC_TMP)/kiwix/*.bat
 	rm $(STATIC_TMP)/kiwix/xulrunner/libmicrohttpd.so
