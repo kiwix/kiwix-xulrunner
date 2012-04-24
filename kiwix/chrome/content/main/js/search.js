@@ -72,7 +72,8 @@ function manageIndexCurrentBook() {
     } else if (!currentBook) {
 	displayErrorDialog(getProperty("noActiveZimFile"));
     } else if (displayConfirmDialog(getProperty("indexZimFileConfirm"))) {
-	indexCurrentBook();
+    	// if launched too early, index crash on OSX.
+        setTimeout(indexCurrentBook, 2000);
     }
 
     /* Necessary to avoid a flickering in the HTML renderer */
@@ -217,8 +218,9 @@ function manageSearchInIndex(stringToSearch, start, end) {
 	stringToSearch = getSearchBox().value;
 	
 	/* Tip to allow full text search from suggestions also if the stringToSearch matchs a title */
-	if (stringToSearch[stringToSearch.length-1] == ' ')
-	    getSearchBox().value = stringToSearch.substring(0, stringToSearch.length-1);
+	var l = stringToSearch.length - 1;
+    if (stringToSearch[l] == ' ')
+        getSearchBox().value = stringToSearch.substring(0, l);
     }
 
     if (stringToSearch != "") {

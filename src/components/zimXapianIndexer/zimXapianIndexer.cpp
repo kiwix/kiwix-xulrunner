@@ -140,6 +140,7 @@ NS_IMETHODIMP ZimXapianIndexer::IsRunning(mozbool *retVal) {
     }
   } catch (exception &e) {
     cerr << e.what() << endl;
+    *retVal = PR_FALSE;
   }
 
   return NS_OK;
