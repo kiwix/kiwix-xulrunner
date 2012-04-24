@@ -59,16 +59,29 @@ function startServer() {
 	serverManager.start(binaryPath, libraryPaths, port);
     }
 
-    setTimeout(updateServerDialog, 2000);
+    if (env.isMac()) {
+	setTimeout(updateServerDialog, 2000);
+    } else {
+	updateServerDialog();
+    }
 }
 
 function stopServer() {
     var serverManager = Components.classes["@kiwix.org/serverManager"].getService().
 	QueryInterface(Components.interfaces.IServerManager);
     serverManager.stop();
-    setTimeout(updateServerDialog, 2000);
+
+    if (env.isMac()) {
+	setTimeout(updateServerDialog, 2000);
+    } else {
+	updateServerDialog();
+    }
 }
 
 function onServerDialogStart() {
-    setTimeout(updateServerDialog, 1000);
+    if (env.isMac()) {
+	setTimeout(updateServerDialog, 2000);
+    } else {
+	updateServerDialog();
+    }
 }

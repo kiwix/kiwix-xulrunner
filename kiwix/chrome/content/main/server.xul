@@ -48,10 +48,10 @@
     <textbox style="text-align: left;" id="port-textbox" size="5" value="8000" min="1" max="65536" maxlength="5" type="number"/>
   </hbox>
   <hbox flex="1" align="center">
-    <description id="status-description-label" value="Server is running and is available at:" />
+    <description id="status-description-label" value="" />
   </hbox>
   <hbox flex="1" align="center" id="url-label-box">
-    <label class="text-link" id="url-label" onclick="openUrlWithExternalBrowser(this.value)" value="http://www.google.fr"/>
+    <label class="text-link" id="url-label" onclick="openUrlWithExternalBrowser(this.value)" value=""/>
   </hbox>
   <hbox flex="1">
     <button oncommand="startServer()" label="Start" id="start-button" flex="1" />
