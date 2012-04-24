@@ -46,6 +46,7 @@ Kiwix 0.9 rc1
 * NEW: Windows BASCKSPACE handle to make page back (ID: 3518780)
 * NEW: kiwix-serve integration in Kiwix UI
 * NEW: Remove kiwix-serve external results.tmpl template file dependency
+* NEW: Rewrite of kiwix-serve UI using JQueryUI
 
 Kiwix 0.9 beta5
 * FIXED: letton language menu item (ID: 3439113)
