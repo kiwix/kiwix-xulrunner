@@ -201,10 +201,15 @@ NS_IMETHODIMP ServerManager::IsRunning(mozbool *retVal) {
   mib[1]=KERN_PROC;
   mib[2]=KERN_PROC_PID;
   mib[3]=this->serverPid;
-  
-  int ret = sysctl(mib, MIBSIZE, &kp, &len, NULL, 0);
-  if (ret != -1 && len > 0) {
-    *retVal = PR_TRUE;
+
+  if (this->serverPid < 100) {
+    // we know this can't be the server
+    *retVal = PR_FALSE;
+  } else {   
+    int ret = sysctl(mib, MIBSIZE, &kp, &len, NULL, 0);
+    if (ret != -1 && len > 0) {
+      *retVal = PR_TRUE;
+    }
   }
 #else
     char PIDStr[10];

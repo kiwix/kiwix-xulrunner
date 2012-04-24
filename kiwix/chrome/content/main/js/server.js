@@ -59,16 +59,16 @@ function startServer() {
 	serverManager.start(binaryPath, libraryPaths, port);
     }
 
-    updateServerDialog();
+    setTimeout(updateServerDialog, 2000);
 }
 
 function stopServer() {
     var serverManager = Components.classes["@kiwix.org/serverManager"].getService().
 	QueryInterface(Components.interfaces.IServerManager);
     serverManager.stop();
-    updateServerDialog();
+    setTimeout(updateServerDialog, 2000);
 }
 
 function onServerDialogStart() {
-    updateServerDialog();
+    setTimeout(updateServerDialog, 1000);
 }
