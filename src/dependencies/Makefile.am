@@ -103,7 +103,7 @@ xapian-core-1.2.3/build/lib/libxapian.so: xapian-core-1.2.3/
 
 # OSX Join
 xapian-core-1.2.3/build/lib/libxapian.dylib xapian-core-1.2.3/build/bin/xapian-compact: xapian-core-1.2.3/build-i386/lib/libxapian.dylib xapian-core-1.2.3/build-x86_64/lib/libxapian.dylib xapian-core-1.2.3/build-i386/bin/xapian-compact xapian-core-1.2.3/build-x86_64/bin/xapian-compact
-	mkdir -p xapian-core-1.2.3/build/{lib,bin} && cd xapian-core-1.2.3/build/lib && cp -r ../../build-i386/include ../ && lipo ../../build-x86_64/lib/libxapian.dylib ../../build-i386/lib/libxapian.dylib -create -output libxapian.dylib && lipo ../../build-x86_64/lib/libxapian.a ../../build-i386/lib/libxapian.a -create -output libxapian.a && cd ../bin lipo ../../build-x86_64/bin/xapian-compact ../../build-i386/bin/xapian-compact -create -output xapian-compact
+	mkdir -p xapian-core-1.2.3/build/{lib,bin} && cd xapian-core-1.2.3/build/lib && cp -r ../../build-i386/include ../ && lipo ../../build-x86_64/lib/libxapian.dylib ../../build-i386/lib/libxapian.dylib -create -output libxapian.dylib && lipo ../../build-x86_64/lib/libxapian.a ../../build-i386/lib/libxapian.a -create -output libxapian.a && cd ../bin && lipo ../../build-x86_64/bin/xapian-compact ../../build-i386/bin/xapian-compact -create -output xapian-compact
 
 # OSX i386
 xapian-core-1.2.3/build-i386/lib/libxapian.dylib xapian-core-1.2.3/build-i386/bin/xapian-compact: xapian-core-1.2.3

@@ -243,8 +243,8 @@ distmac: dist
 	cp -v ./kiwix/components/zimXapianIndexer.dylib Kiwix.app/Contents/Resources/components/zimXapianIndexer.dylib
 	cp -v ./kiwix/components/contentManager.xpt Kiwix.app/Contents/Resources/components/contentManager.xpt
 	cp -v ./kiwix/components/contentManager.dylib Kiwix.app/Contents/Resources/components/contentManager.dylib
-	cp -v ./kiwix/components/serverManager.xpt Kiwix.app/Servers/Resources/components/serverManager.xpt
-	cp -v ./kiwix/components/serverManager.dylib Kiwix.app/Servers/Resources/components/serverManager.dylib
+	cp -v ./kiwix/components/serverManager.xpt Kiwix.app/Contents/Resources/components/serverManager.xpt
+	cp -v ./kiwix/components/serverManager.dylib Kiwix.app/Contents/Resources/components/serverManager.dylib
 	cp -v ./kiwix/components/cluceneAccessor.xpt Kiwix.app/Contents/Resources/components/cluceneAccessor.xpt
 	cp -v ./kiwix/components/cluceneAccessor.dylib Kiwix.app/Contents/Resources/components/cluceneAccessor.dylib
 	cp -v ./kiwix/components/zimCluceneIndexer.xpt Kiwix.app/Contents/Resources/components/zimCluceneIndexer.xpt
@@ -278,8 +278,9 @@ distmac: dist
 	strip `find Kiwix.app/Contents/Resources -executable -type f | grep -v ".sh" | grep -v ".py" | grep -v sugar` || true
 
 	mkdir -p Kiwix.app/Contents/Resources/bin
-	cp -v $(COMPILED_ARIA2_FILES) Kiwix.app/Contents/Resources/bin/
-	cp -v $(COMPILED_XAPIAN_COMPACT) Kiwix.app/Contents/Resources/bin/xapian-compact
+	cp -v $(ARIA2_FILES) Kiwix.app/Contents/Resources/bin/
+	cp -v $(XAPIAN_COMPACT) Kiwix.app/Contents/Resources/bin/xapian-compact
+	cp -v src/server/kiwix-serve Kiwix.app/Contents/Resources/bin/
 	chmod +x Kiwix.app/Contents/Resources/bin/*
 
 	rm Kiwix.app/Contents/Resources/*.bat
@@ -328,6 +329,7 @@ universal: $(PACKAGE)-$(VERSION)-i386.dmg $(PACKAGE)-$(VERSION)-x86_64.dmg
 
 	lipo -create -output universal_tmp/ub/Kiwix.app/Contents/Resources/components/zimCluceneIndexer.dylib -arch i386 universal_tmp/i386/Kiwix.app/Contents/Resources/components/zimCluceneIndexer.dylib -arch x86_64 universal_tmp/x86_64/Kiwix.app/Contents/Resources/components/zimCluceneIndexer.dylib
 
+	lipo -create -output universal_tmp/ub/Kiwix.app/Contents/Resources/bin/kiwix-serve -arch i386 universal_tmp/i386/Kiwix.app/Contents/Resources/bin/kiwix-serve -arch x86_64 universal_tmp/x86_64/Kiwix.app/Contents/Resources/bin/kiwix-serve
 
 	hdiutil detach universal_tmp/i386 -quiet -force
 	hdiutil detach universal_tmp/x86_64 -quiet -force	
