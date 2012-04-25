@@ -414,6 +414,17 @@ tab[selected="true"] label {
     background-color: #f2f1f0 !important;
 }
 
+/******** LINUX */
+
+#main.linux * #tab-panels {
+    margin-right: -2px;
+    margin-left: -2px
+}
+
+#main.linux * browser {
+    margin-top: -1px;
+}
+
 /******** WINDOWS */
 
 #main.win #tool-box {
