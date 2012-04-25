@@ -100,7 +100,8 @@ protected:
 NS_IMPL_ISUPPORTS1(ServerManager, IServerManager)
 
 /* Constructor */
-ServerManager::ServerManager() {
+ServerManager::ServerManager() :
+serverPid(0) {
 }
 
 /* Destructor */
@@ -138,6 +139,7 @@ NS_IMETHODIMP ServerManager::Start(const nsAString &binaryPath, const nsAString 
     CloseHandle(procInfo.hThread);
   } else {
     cerr << "Unable to start kiwix-serve.exe from path " << commandLine << endl;
+    this->serverPid = 0;
     *retVal = PR_FALSE;
     return NS_OK;
   }
@@ -152,6 +154,7 @@ NS_IMETHODIMP ServerManager::Start(const nsAString &binaryPath, const nsAString 
   switch (PID) {
   case -1:
     cerr << "Unable to fork before launching kiwix-serve" << endl;
+    this->serverPid = 0;
     *retVal = PR_FALSE;
     return NS_OK;
     break;
@@ -159,6 +162,7 @@ NS_IMETHODIMP ServerManager::Start(const nsAString &binaryPath, const nsAString 
     commandLine = string(cBinaryPath);
     if (execl(commandLine.c_str(), commandLine.c_str(), "--library", portArgument.c_str(), attachToProcessArgument.c_str(), libraryPathsArgument.c_str(), NULL) == -1) {
       cerr << "Unable to start kiwix-serve from path " << commandLine << endl;
+      this->serverPid = 0;
       *retVal = PR_FALSE;
     }
     return NS_OK;
@@ -231,9 +235,9 @@ NS_IMETHODIMP ServerManager::Stop(mozbool *retVal) {
   TerminateProcess(ps, 0);
 #else
   kill(this->serverPid, SIGTERM);
-  this->serverPid = NULL;
   this->url = "";
 #endif
+  this->serverPid = 0;
   
   return NS_OK;
 }

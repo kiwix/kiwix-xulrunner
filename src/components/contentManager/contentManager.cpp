@@ -107,7 +107,8 @@ protected:
 NS_IMPL_ISUPPORTS1(ContentManager, IContentManager)
 
 /* Constructor */
-ContentManager::ContentManager() {
+ContentManager::ContentManager() :
+aria2cPid(0) {
 }
 
 /* Destructor */
@@ -508,7 +509,7 @@ NS_IMETHODIMP ContentManager::KillAria2c(mozbool *retVal) {
   TerminateProcess(ps, 0);
 #else
   kill(this->aria2cPid, SIGTERM);
-  this->aria2cPid = NULL;
+  this->aria2cPid = 0;
 #endif
   
   return NS_OK;
@@ -581,6 +582,7 @@ NS_IMETHODIMP ContentManager::LaunchAria2c(const nsAString &binaryPath, const ns
     CloseHandle(procInfo.hThread);
   } else {
     cerr << "Unable to start aria2c.exe from path " << commandLine << endl;
+    this->aria2cPid = 0;
     *retVal = PR_FALSE;
     return NS_OK;
   }
@@ -595,6 +597,7 @@ NS_IMETHODIMP ContentManager::LaunchAria2c(const nsAString &binaryPath, const ns
   switch (PID) {
   case -1:
     cerr << "Unable to fork before launching aria2c" << endl;
+    this->aria2cPid = 0;
     *retVal = PR_FALSE;
     return NS_OK;
     break;
@@ -606,6 +609,7 @@ NS_IMETHODIMP ContentManager::LaunchAria2c(const nsAString &binaryPath, const ns
 	      "--rpc-max-request-size=6M", "--file-allocation=none", NULL) == -1) {
       cerr << "Unable to start aria2c from path " << commandLine << endl;
       *retVal = PR_FALSE;
+      this->aria2cPid = 0;
     }
     return NS_OK;
     break;
