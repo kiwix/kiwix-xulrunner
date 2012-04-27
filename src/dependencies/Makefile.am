@@ -168,7 +168,7 @@ sqlite-autoconf-3071000: sqlite-autoconf-3071000.tar.gz
 	tar xf sqlite-autoconf-3071000.tar.gz
 
 sqlite-autoconf-3071000/build/lib/libsqlite3.so: sqlite-autoconf-3071000/
-	cd sqlite-autoconf-3071000 mkdir -p build && && ./configure --enable-shared --enable-static --prefix=$(DEP_PATH)/sqlite-autoconf-3071000/build && make clean && make && make install
+	cd sqlite-autoconf-3071000 && mkdir -p build && && ./configure --enable-shared --enable-static --prefix=$(DEP_PATH)/sqlite-autoconf-3071000/build && make clean && make && make install
 
 # OSX Join
 sqlite-autoconf-3071000/build/lib/libsqlite3.dylib: sqlite-autoconf-3071000/build-i386/lib/libsqlite3.dylib sqlite-autoconf-3071000/build-x86_64/lib/libsqlite3.dylib
