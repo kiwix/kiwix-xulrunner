@@ -80,7 +80,7 @@ zlib-1.2.3: zlib.tar.gz
 zlib-1.2.3/static/lib/libz.a: zlib-1.2.3/
 	cd zlib-1.2.3 && mkdir -p static && CC=$(COMPC) CXX=$(COMPCXX) CFLAGS=" -fPIC " ./configure --prefix=$(DEP_PATH)/zlib-1.2.3/static && make clean && make && make install
 
-zlib-1.2.3/shared/lib/libz.so zlib-1.2.3/shared/lib/libz.dylib: zlib-1.2.3/
+zlib-1.2.3/shared/lib/libz.so zlib-1.2.3/shared/lib/libz.dylib: zlib-1.2.3/ zlib-1.2.3/static/lib/libz.a
 	cd zlib-1.2.3 && mkdir -p shared && CC=$(COMPC) CXX=$(COMPCXX) CFLAGS=" -fPIC " ./configure --shared --prefix=$(DEP_PATH)/zlib-1.2.3/shared && make clean && make && make install
 
 # Windows
@@ -103,7 +103,7 @@ xapian-core-1.2.3/build/lib/libxapian.so: xapian-core-1.2.3/
 
 # OSX Join
 xapian-core-1.2.3/build/lib/libxapian.dylib xapian-core-1.2.3/build/bin/xapian-compact: xapian-core-1.2.3/build-i386/lib/libxapian.dylib xapian-core-1.2.3/build-x86_64/lib/libxapian.dylib xapian-core-1.2.3/build-i386/bin/xapian-compact xapian-core-1.2.3/build-x86_64/bin/xapian-compact
-	mkdir -p xapian-core-1.2.3/build/{lib,bin} && cd xapian-core-1.2.3/build/lib && cp -r ../../build-i386/include ../ && lipo ../../build-x86_64/lib/libxapian.dylib ../../build-i386/lib/libxapian.dylib -create -output libxapian.dylib && lipo ../../build-x86_64/lib/libxapian.a ../../build-i386/lib/libxapian.a -create -output libxapian.a && cd ../bin && lipo ../../build-x86_64/bin/xapian-compact ../../build-i386/bin/xapian-compact -create -output xapian-compact
+	mkdir -p xapian-core-1.2.3/build/{lsrc/dependencies/zlib-1.2.3/static/lib/libz.aib,bin} && cd xapian-core-1.2.3/build/lib && cp -r ../../build-i386/include ../ && lipo ../../build-x86_64/lib/libxapian.dylib ../../build-i386/lib/libxapian.dylib -create -output libxapian.dylib && lipo ../../build-x86_64/lib/libxapian.a ../../build-i386/lib/libxapian.a -create -output libxapian.a && cd ../bin && lipo ../../build-x86_64/bin/xapian-compact ../../build-i386/bin/xapian-compact -create -output xapian-compact
 
 # OSX i386
 xapian-core-1.2.3/build-i386/lib/libxapian.dylib xapian-core-1.2.3/build-i386/bin/xapian-compact: xapian-core-1.2.3
@@ -137,7 +137,7 @@ icu/: icu4c-4_4_2-src.tgz
 
 # Linux
 icu/source/build/lib/libicudata.so icu/source/lib/libicuuc.so icu/source/build/lib/libicui18n.so: icu/
-	cd icu/source && mkdir -p build && CFLAGS=" -fPIC " ./runConfigureICU Linux --prefix=$(DEP_PATH)/icu/source/build && make clean && make && make install
+	cd icu/source && mkdir -p build && CFLAGS=" -fPIC " ./runConfigureICU Linux --prefix=$(DEP_PATH)/icu/source/build --disable-samples --disable-tests --disable-extras --enable-static && make clean && make && make install
 
 # OSX FAT join
 icu/source/build/lib/libicudata.dylib icu/source/build/lib/libicuuc.dylib icu/source/build/lib/libicui18n.dylib: icu/source/build-x86_64/lib/libicudata.dylib icu/source/build-x86_64/lib/libicuuc.dylib icu/source/build-x86_64/lib/libicui18n.dylib icu/source/build-i386/lib/libicudata.dylib icu/source/build-i386/lib/libicuuc.dylib icu/source/build-i386/lib/libicui18n.dylib
