@@ -307,7 +307,7 @@ e2fsprogs-1.42: e2fsprogs-1.42.tar.gz
 	tar xf e2fsprogs-1.42.tar.gz
 
 e2fsprogs-1.42/lib/libuuid.a: e2fsprogs-1.42/
-	mkdir -p e2fsprogs-1.42/build && CC=$(COMPC) CXX=$(COMPCXX) CXXFLAGS=" -fPIC " ./configure --enable-libuuid --prefix=$(DEP_PATH)/e2fsprogs-1.42/build && make clean && make && make install
+	mkdir -p e2fsprogs-1.42/build && cd e2fsprogs-1.42/ && CC=$(COMPC) CXX=$(COMPCXX) CXXFLAGS=" -fPIC " ./configure --enable-libuuid --prefix=$(DEP_PATH)/e2fsprogs-1.42/build && make clean && make && make install
 
 ####################################################
 ############ CLEANUP (ALL)
