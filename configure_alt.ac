@@ -202,7 +202,7 @@ fi
 
 SELF="SELF"
 DEP_PATH="${CURRENT_PATH}/src/dependencies"
-LIBS_ROOT="${LD_LIBRARY_PATH}:${LIBRARY_PATH}:/usr/lib"
+LIBS_ROOT="${LD_LIBRARY_PATH}:${LIBRARY_PATH}:/usr/lib:/lib"
 SERVER_BIN="${CURRENT_PATH}/src/server/kiwix-serve"
 
 COMPIL_DEPS=0
@@ -326,6 +326,16 @@ COMPILED_CLUCENE_LDFLAGS="-L${DEP_PATH}/clucene-core-0.9.21b/build/lib -lclucene
 COMPILED_CLUCENE_STATIC_LDFLAGS="${DEP_PATH}/clucene-core-0.9.21b/build/lib/libclucene.a"
 COMPILED_CLUCENE_FILES="${DEP_PATH}/clucene-core-0.9.21b/build/lib/libclucene.${SHARED_EXT}"
 
+# uuid is used for binaries. only static.
+UUID_CFLAGS=""
+UUID_LDFLAGS=""
+UUID_STATIC_LDFLAGS=""
+COMPILE_UUID=0
+COMPILED_UUID_CFLAGS="-I${DEP_PATH}/e2fsprogs-1.42/lib"
+COMPILED_UUID_LDFLAGS=""
+COMPILED_UUID_STATIC_LDFLAGS="${DEP_PATH}/e2fsprogs-1.42/lib/libuuid.a"
+COMPILED_UUID_FILES="${DEP_PATH}/e2fsprogs-1.42/lib/libuuid.a"
+
 if test [ $IS_OSX -eq 1 ] ; then
 	STATIC_GETTEXT_LDFLAGS="/opt/local/lib/libintl.a"
 	STATIC_ICONV_LDFLAGS="/opt/local/lib/libiconv.a"
@@ -370,6 +380,7 @@ then
 	COMPILE_LZMA=1
 	COMPILE_ARIA2=1
 	COMPILE_CLUCENE=1
+	COMPILE_UUID=1
 	WITH_LAUNCHER=1
 	WITH_SERVER=1
 else
@@ -988,12 +999,12 @@ if test [ $COMPILE_CLUCENE -eq 1 -o "$CLUCENE_PATH" == "$SELF" -o "$CLUCENE_ARCH
 else
 	# look for shared library.
 	AC_CHECK_HEADER([CLucene/CLConfig.h],, [AC_MSG_ERROR([[cannot find clucene header]])])
-		AC_CHECK_LIB([clucene], [open], [CLUCENE_LDFLAGS="-lclucene"],
-		[
-			AC_CHECK_LIB([clucene-core], [open],, [AC_MSG_ERROR([[cannot find clucene-core]])])
-			AC_CHECK_LIB([clucene-shared], [open],, [AC_MSG_ERROR([[cannot find clucene-shared]])])
-			CLUCENE_LDFLAGS="-lclucene-core -lclucene-shared"
-		])
+	AC_CHECK_LIB([clucene], [open], [CLUCENE_LDFLAGS="-lclucene"],
+	[
+		AC_CHECK_LIB([clucene-core], [open],, [AC_MSG_ERROR([[cannot find clucene-core]])])
+		AC_CHECK_LIB([clucene-shared], [open],, [AC_MSG_ERROR([[cannot find clucene-shared]])])
+		CLUCENE_LDFLAGS="-lclucene-core -lclucene-shared"
+	])
 
 
 	AC_DEFINE(_SUPPRESS_MAKE_BASED_CONFIG, [TRUE], [CLUCENE VERSION SWITCH])
@@ -1017,6 +1028,47 @@ else
   		else
   			# can stat auto file
   			CLUCENE_STATIC_LDFLAGS="${AUTO_CLUCENE_ARCHIVE}"
+  		fi
+  	fi
+fi
+
+####################################################
+############ UUID
+####################################################
+
+# if --with-static-x, set path as X_ARCHIVE
+AC_ARG_WITH(static-uuid,
+            AS_HELP_STRING([--with-static-uuid=DIR/libx.a],
+            			   [Path to static archive]),
+            UUID_ARCHIVE=${withval})
+
+# compilation required
+if test [ $COMPILE_UUID -eq 1 -o "$UUID_PATH" == "$SELF" -o "$UUID_ARCHIVE" == "$SELF"] ; then
+	COMPILE_UUID=1
+	UUID_CFLAGS=$COMPILED_UUID_CFLAGS
+    UUID_LDFLAGS=$COMPILED_UUID_LDFLAGS
+	UUID_FILES=$COMPILED_UUID_FILES
+	UUID_STATIC_LDFLAGS=$COMPILED_UUID_STATIC_LDFLAGS
+else
+
+	# if static is required
+	if test [ $REQUIRE_STATIC -eq 1 ] ; then
+		AC_CHECK_FILE($UUID_ARCHIVE, [UUID_ARCHIVE_FOUND=1], [UUID_ARCHIVE_FOUND=0])
+		AUTO_UUID_ARCHIVE=`findstatic "libuuid.a"`
+
+		if test [ $UUID_ARCHIVE_FOUND -eq 0 -a "$AUTO_UUID_ARCHIVE" == "no" ] ; then
+			# can't stat files. force compile
+  			COMPILE_UUID=1
+			UUID_CFLAGS=$COMPILED_UUID_CFLAGS
+		    UUID_LDFLAGS=$COMPILED_UUID_LDFLAGS
+			UUID_FILES=$COMPILED_UUID_FILES
+			UUID_STATIC_LDFLAGS=$COMPILED_UUID_STATIC_LDFLAGS
+  		elif test [ $UUID_ARCHIVE_FOUND -eq 1 ] ; then
+			# can stat suplied file.
+  			UUID_STATIC_LDFLAGS="${UUID_ARCHIVE}"
+  		else
+  			# can stat auto file
+  			UUID_STATIC_LDFLAGS="${AUTO_UUID_ARCHIVE}"
   		fi
   	fi
 fi
@@ -1076,6 +1128,10 @@ then
     DEP_LIST+=" $COMPILED_CLUCENE_FILES"
 fi
 EMBED_LIBS+=" $CLUCENE_FILES"
+if test [ $COMPILE_UUID -eq 1 ]
+then
+    DEP_LIST+=" $COMPILED_UUID_FILES"
+fi
 
 DEP_LIST=`echo $DEP_LIST | sed -e "s,$DEP_PATH/,,g"`
 
@@ -1200,6 +1256,12 @@ AC_SUBST(CLUCENE_STATIC_LDFLAGS)
 AC_SUBST(COMPILE_CLUCENE)
 AC_SUBST(CLUCENE_FILES)
 
+AC_SUBST(UUID_CFLAGS)
+AC_SUBST(UUID_LDFLAGS)
+AC_SUBST(UUID_STATIC_LDFLAGS)
+AC_SUBST(COMPILE_UUID)
+AC_SUBST(UUID_FILES)
+
 # Configure the output files
 AC_CONFIG_FILES([
   Makefile
@@ -1285,6 +1347,7 @@ $BINECHO -n "ARIA2_FILES		" ; $BINECHO $ARIA2_FILES
 $BINECHO -n "CLUCENE_LDFLAGS		" ; $BINECHO $CLUCENE_LDFLAGS
 $BINECHO -n "ICU_LDFLAGS		" ; $BINECHO $ICU_LDFLAGS
 $BINECHO -n "XAPIAN_COMPACT		" ; $BINECHO $XAPIAN_COMPACT
+$BINECHO -n "UUID_LDFLAGS		" ; $BINECHO $UUID_LDFLAGS
 echo ""
 $BINECHO -n "ZLIB_STATIC_LDFLAGS		" ; $BINECHO $ZLIB_STATIC_LDFLAGS
 $BINECHO -n "XAPIAN_STATIC_LDFLAGS		" ; $BINECHO $XAPIAN_STATIC_LDFLAGS
@@ -1292,6 +1355,7 @@ $BINECHO -n "SQLITE_STATIC_LDFLAGS		" ; $BINECHO $SQLITE_STATIC_LDFLAGS
 $BINECHO -n "MICROHTTPD_STATIC_LDFLAGS	" ; $BINECHO $MICROHTTPD_STATIC_LDFLAGS
 $BINECHO -n "LZMA_STATIC_LDFLAGS		" ; $BINECHO $LZMA_STATIC_LDFLAGS
 $BINECHO -n "CLUCENE_STATIC_LDFLAGS		" ; $BINECHO $CLUCENE_STATIC_LDFLAGS
+$BINECHO -n "UUID_STATIC_LDFLAGS		" ; $BINECHO $UUID_STATIC_LDFLAGS
 $BINECHO -n "ICU_STATIC_LDFLAGS		" ; $BINECHO $ICU_STATIC_LDFLAGS
 
 if test "$IS_64B"

@@ -193,7 +193,7 @@ libmicrohttpd-0.9.19: libmicrohttpd-0.9.19.tar.gz
 	tar xf libmicrohttpd-0.9.19.tar.gz
 
 libmicrohttpd-0.9.19/build/lib/libmicrohttpd.so: libmicrohttpd-0.9.19/
-	cd libmicrohttpd-0.9.19 && mkdir -p build && CC=$(COMPC) CXX=$(COMPCXX) CFLAGS=" -fPIC " ./configure --enable-shared --enable-static --prefix=$(DEP_PATH)/libmicrohttpd-0.9.19/build && make clean && make && make install
+	cd libmicrohttpd-0.9.19 && mkdir -p build && CC=$(COMPC) CXX=$(COMPCXX) CFLAGS=" -fPIC " ./configure --enable-shared --enable-static --disable-https --without-libgcrypt --without-libcurl --prefix=$(DEP_PATH)/libmicrohttpd-0.9.19/build  && make clean && make && make install
 
 # OSX Join
 libmicrohttpd-0.9.19/build/lib/libmicrohttpd.dylib: libmicrohttpd-0.9.19/build-i386/lib/libmicrohttpd.dylib libmicrohttpd-0.9.19/build-x86_64/lib/libmicrohttpd.dylib
@@ -295,6 +295,19 @@ clucene-core-0.9.21b/build-i386/lib/libclucene.dylib: clucene-core-0.9.21b/
 # OSX x86_64
 clucene-core-0.9.21b/build-x86_64/lib/libclucene.dylib: clucene-core-0.9.21b/
 	cd clucene-core-0.9.21b && mkdir -p build-x86_64 && CC="gcc -arch x86_64" CXX="g++ -arch x86_64" CFLAGS=" -fPIC " ./configure --enable-shared --enable-static --prefix=$(DEP_PATH)/clucene-core-0.9.21b/build-x86_64 && make clean && make && make install
+
+####################################################
+############ UUID
+####################################################
+
+e2fsprogs-1.42.tar.gz:
+	wget -c -O e2fsprogs-1.42.tar.gz http://download.kiwix.org/dev/e2fsprogs-1.42.tar.gz
+
+e2fsprogs-1.42: e2fsprogs-1.42.tar.gz
+	tar xf e2fsprogs-1.42.tar.gz
+
+e2fsprogs-1.42/lib/libuuid.a: e2fsprogs-1.42/
+mkdir -p e2fsprogs-1.42/build && CC=$(COMPC) CXX=$(COMPCXX) CXXFLAGS=" -fPIC " ./configure --enable-libuuid --prefix=$(DEP_PATH)/e2fsprogs-1.42/build && make clean && make && make install
 
 ####################################################
 ############ CLEANUP (ALL)
