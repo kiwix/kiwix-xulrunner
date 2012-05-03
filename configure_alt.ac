@@ -179,7 +179,8 @@ function findstatic {
 ############ TARGET_ARCH
 ####################################################
 # ARCH flags
-ARCH=`echo $MACHTYPE | cut -d- -f1`
+#ARCH=`echo $MACHTYPE | cut -d- -f1`
+ARCH=`uname -m`
 AC_ARG_WITH(target-arch,
             AS_HELP_STRING([--with-target-arch=ARCH], [(OSX Only) Define the target architecture of the built (i386 or x86_64)]),
             XTARGET=${withval})
