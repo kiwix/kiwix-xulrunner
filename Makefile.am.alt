@@ -158,7 +158,7 @@ xo:
 
 # alter preferences: default skin is sugar. probably content location too.
 
-static:
+diststatic:
 	rm -rf $(STATIC_TMP)
 	mkdir -p $(STATIC_TMP)
 

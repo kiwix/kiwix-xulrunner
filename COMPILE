@@ -52,7 +52,7 @@ To reconfigure with dependencies (Gecko version)
 
 * make
 
-* make static
+* make diststatic
 creates tarbal suitable for distribution (no deps)
 
 == Mac OSX Universal ==
