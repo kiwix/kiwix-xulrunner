@@ -41,12 +41,6 @@ UPDATE_DESKTOP = \
 	fi
 
 if IS_OSX
-bscript := ""
-else
-bscript := $(shell readlink -f ./build-kiwix-release.sh)
-endif
-
-if IS_OSX
 all-local: kiwix/components/xapianAccessor.dylib \
 	kiwix/components/xapianAccessor.xpt \
 	kiwix/components/zimAccessor.dylib \
@@ -145,9 +139,6 @@ kiwix/components/cluceneAccessor.dylib:
 kiwix/components/zimCluceneIndexer.dylib:
 	ln -f -s ../../src/components/zimCluceneIndexer/.libs/libZimCluceneIndexer.dylib  ./kiwix/components/zimCluceneIndexer.dylib
 
-bindist: 
-	cd /tmp && ${bscript} --static $(VERSION)
-
 deb: dist
 	if [ `whereis dpkg-buildpackage | cut -f2 -d" "` == "dpkg-buildpackage:" ] ; then echo "You have to install dpkg-buildpackage" ; exit 1 ; fi
 	tar -xvzf $(PACKAGE)-$(VERSION).tar.gz
@@ -167,7 +158,7 @@ xo:
 
 # alter preferences: default skin is sugar. probably content location too.
 
-static: dist
+static:
 	rm -rf $(STATIC_TMP)
 	mkdir -p $(STATIC_TMP)
 
