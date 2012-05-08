@@ -229,7 +229,7 @@ distsugar: diststatic
 
 	cd $(SUGAR_TMP) && zip -r Kiwix-$(SUGAR_VERSION).xo Kiwix.activity && mv Kiwix-$(SUGAR_VERSION).xo ./Kiwix.activity
 
-	ln -sf $(SUGAR_TMP)/Kiwix.activity/Kiwix-$(SUGAR_VERSION).xo Kiwix-$(SUGAR_VERSION).xo
+	mv $(SUGAR_TMP)/Kiwix.activity/Kiwix-$(SUGAR_VERSION).xo Kiwix-$(SUGAR_VERSION).xo
 
 # Mac OSX rule
 # requires install of XR
