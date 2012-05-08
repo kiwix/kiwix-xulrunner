@@ -206,9 +206,34 @@ diststatic:
 
 	tar -C $(STATIC_TMP) -cvjf $(PACKAGE)-$(VERSION)-static-$(ARCH).tar.bz2 kiwix
 
+# Sugar for Fedora9
+distsugar: diststatic
+	
+	rm -rf $(SUGAR_TMP)/Kiwix.activity
+	mkdir -p $(SUGAR_TMP)/Kiwix.activity
+
+	tar -xf $(PACKAGE)-$(VERSION)-static-$(ARCH).tar.bz2 -C $(SUGAR_TMP)/Kiwix.activity --strip-components=1
+
+	cp -rv src/sugar/lib src/sugar/activity src/sugar/setup.py $(SUGAR_TMP)/Kiwix.activity/
+	cp -rv src/sugar/bin/* $(SUGAR_TMP)/Kiwix.activity/bin/
+
+	sed -i -e "s/^pref(\"general.skins.selectedSkin\", \"default\");/pref(\"general.skins.selectedSkin\", \"sugar\");/" $(SUGAR_TMP)/Kiwix.activity/defaults/preferences/preferences.js
+	sed -i -e "s/^resource defaultskin skin\/default\//resource defaultskin skin\/sugar\//" $(SUGAR_TMP)/Kiwix.activity/chrome/chrome.manifest
+	sed -i -e "s/^pref(\"kiwix.downloadRemoteCatalogs\", undefined);/pref(\"kiwix.downloadRemoteCatalogs\", false);/" $(SUGAR_TMP)/Kiwix.activity/defaults/preferences/preferences.js
+
+	rm -f $(SUGAR_TMP)/Kiwix.activity/bin/aria2c
+
+	find $(SUGAR_TMP) -name "\.svn" -exec rm -rf {} \; || /bin/true
+
+	cd $(SUGAR_TMP)/Kiwix.activity && find ./ -type f | sed 's,^./,,g' | grep -v MANIFEST > MANIFEST || /bin/true && cd -
+
+	cd $(SUGAR_TMP) && zip -r Kiwix-$(SUGAR_VERSION).xo Kiwix.activity && mv Kiwix-$(SUGAR_VERSION).xo ./Kiwix.activity
+
+	ln -sf $(SUGAR_TMP)/Kiwix.activity/Kiwix-$(SUGAR_VERSION).xo Kiwix-$(SUGAR_VERSION).xo
+
 # Mac OSX rule
 # requires install of XR
-distmac: dist
+distmac:
 
 	rm -rf kiwix_dmg
 	rm -rf Kiwix.app

@@ -208,8 +208,12 @@ SERVER_BIN="${CURRENT_PATH}/src/server/kiwix-serve"
 
 COMPIL_DEPS=0
 STATIC_TMP="static_tmp"
+SUGAR_TMP="sugar_tmp"
 # list of .so to copy to xulrunner/ path
 EMBED_LIBS=""
+
+# sugar version
+SUGAR_VERSION=`grep activity_version src/sugar/activity/activity.info | cut -d " " -f3`
 
 SHARED_EXT="so"
 if test [ $IS_OSX -eq 1 ] ; then
@@ -1153,6 +1157,8 @@ AC_SUBST(CXXFLAGS)
 AC_SUBST(CURRENT_PATH)
 AC_SUBST(COMPIL_DEPS)
 AC_SUBST(STATIC_TMP)
+AC_SUBST(SUGAR_TMP)
+AC_SUBST(SUGAR_VERSION)
 AC_SUBST(EMBED_LIBS)
 AC_SUBST(IS_WIN)
 AC_SUBST(IS_OSX)
