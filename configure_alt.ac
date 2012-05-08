@@ -490,7 +490,7 @@ then
     fi
 fi
 
-if test [ "$GECKO_SDK_PATH" = "$SELF" ]
+if test [ "$GECKO_SDK_PATH" = "$SELF" -o $COMPILE_GECKO_SDK -eq 1 ]
 then
     COMPILE_GECKO_SDK=1
     GECKO_SDK_PATH=$COMPILED_GECKO_SDK_PATH
