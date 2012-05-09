@@ -259,7 +259,7 @@ aria2c:
 	wget -c -O aria2c http://download.kiwix.org/dev/aria2c.$(ARCH)
 	chmod +x aria2c
 
-aria2-1.10.9.dmg:
+aria2-1.14.2.dmg:
 	wget -c -O aria2-1.14.2.dmg http://download.kiwix.org/dev/aria2-1.14.2.dmg
 
 aria2-1.14.2.pkg: aria2-1.14.2.dmg
