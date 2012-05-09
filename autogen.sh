@@ -1,5 +1,12 @@
 #! /bin/sh
 
+if [ "`(uname -s) 2>/dev/null`" = "Darwin" ]
+then
+    LIBTOOLIZE=glibtoolize
+else
+    LIBTOOLIZE=libtoolize
+fi
+
 # create symlink to configure.ac
 CONF_ALT=""
 if [ "$1" != "" ] ; then
@@ -53,7 +60,7 @@ ls -lh configure.ac
 aclocal
 
 # Regenerate the files autoconf / automake
-libtoolize --force --automake
+$LIBTOOLIZE --force --automake
 
 # Remove old cache files
 rm -f config.cache
