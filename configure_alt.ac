@@ -315,10 +315,8 @@ ARIA2_CFLAGS=""
 ARIA2_LDFLAGS=""
 COMPILE_ARIA2=0
 if test [ $IS_OSX -eq 1 ] ; then
-	# COMPILED_ARIA2_LDFLAGS="${DEP_PATH}/aria2-1.14.2/usr/bin/aria2c"
 	COMPILED_ARIA2_FILES="${DEP_PATH}/aria2-1.14.2/usr/bin/aria2c"
 else
-	# COMPILED_ARIA2_LDFLAGS="${DEP_PATH}/aria2c"
 	COMPILED_ARIA2_FILES="${DEP_PATH}/aria2c"
 fi
 
@@ -338,8 +336,13 @@ UUID_STATIC_LDFLAGS=""
 COMPILE_UUID=0
 COMPILED_UUID_CFLAGS="-I${DEP_PATH}/e2fsprogs-1.42/lib"
 COMPILED_UUID_LDFLAGS=""
-COMPILED_UUID_STATIC_LDFLAGS="${DEP_PATH}/e2fsprogs-1.42/lib/libuuid.a"
-COMPILED_UUID_FILES="${DEP_PATH}/e2fsprogs-1.42/lib/libuuid.a"
+if test [ $IS_OSX -eq 1 ] ; then
+	COMPILED_UUID_STATIC_LDFLAGS=""
+	COMPILED_UUID_FILES=""
+else
+	COMPILED_UUID_STATIC_LDFLAGS="${DEP_PATH}/e2fsprogs-1.42/lib/libuuid.a"
+	COMPILED_UUID_FILES="${DEP_PATH}/e2fsprogs-1.42/lib/libuuid.a"
+fi
 
 if test [ $IS_OSX -eq 1 ] ; then
 	STATIC_GETTEXT_LDFLAGS="/opt/local/lib/libintl.a"
