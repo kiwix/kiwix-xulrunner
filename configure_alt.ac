@@ -235,7 +235,7 @@ XPCOM_LDFLAGS="-Xcompiler -shared -Wl"
 
 if test [ $IS_OSX -eq 1 ]
 then
-	XULRUNNER_RUNTIME_PATH="${DEP_PATH}/xulrunner-11.0.en-US.mac-pkg.dmg"
+	XULRUNNER_RUNTIME_PATH="${DEP_PATH}/xr_target/xulrunner-11.0.en-US.mac/XUL.framework"
 else
 	XULRUNNER_RUNTIME_PATH="${DEP_PATH}/xulrunner"
 fi

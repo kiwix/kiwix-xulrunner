@@ -266,8 +266,8 @@ distmac:
 	cp -v ./kiwix/components/zimCluceneIndexer.xpt Kiwix.app/Contents/Resources/components/zimCluceneIndexer.xpt
 	cp -v ./kiwix/components/zimCluceneIndexer.dylib Kiwix.app/Contents/Resources/components/zimCluceneIndexer.dylib
 	cp -v src/components/components.list Kiwix.app/Contents/Resources/components/components.list
-	rsync -rl /Library/Frameworks/XUL.framework/ Kiwix.app/Contents/Frameworks/XUL.framework/
-	cp -v /Library/Frameworks/XUL.framework/Versions/Current/xulrunner Kiwix.app/Contents/MacOS/xulrunner
+	rsync -rl $(DEP_PATH)/xr_target/xulrunner-11.0.en-US.mac/XUL.framework/ Kiwix.app/Contents/Frameworks/XUL.framework/
+	cp -v $(DEP_PATH)/xr_target/xulrunner-11.0.en-US.mac/XUL.framework/Versions/Current/xulrunner Kiwix.app/Contents/MacOS/xulrunner
 
 	mv Kiwix.app/Contents/Resources/chrome/content/main/js/logger_rlz.js Kiwix.app/Contents/Resources/chrome/content/main/js/logger.js
 

@@ -62,9 +62,16 @@ xulrunner: xulrunner-runtime.tar.bz2
 
 xulrunner-11.0.en-US.mac-pkg.dmg:
 	wget -O xulrunner-11.0.en-US.mac-pkg.dmg -c http://download.kiwix.org/dev/xulrunner-11.0.en-US.mac-pkg.dmg
-	hdiutil attach xulrunner-11.0.en-US.mac-pkg.dmg -noautoopen -quiet  -mountpoint /Volumes/xulrunner
-	sudo installer -pkg /Volumes/xulrunner/xulrunner-11.0.en-US.mac.pkg -target /
-	hdiutil detach /Volumes/xulrunner -quiet -force
+
+xr_target/xulrunner-11.0.en-US.mac.pkg: xulrunner-11.0.en-US.mac-pkg.dmg
+	mkdir -p xr_{mount,target}
+	hdiutil detach ./xr_mount
+	hdiutil attach xulrunner-11.0.en-US.mac-pkg.dmg -noautoopen -quiet  -mountpoint ./xr_mount
+	cp -r ./xr_mount/xulrunner-11.0.en-US.mac.pkg ./xr_target/
+	hdiutil detach ./xr_mount -quiet -force
+
+xr_target/xulrunner-11.0.en-US.mac/XUL.framework: xr_target/xulrunner-11.0.en-US.mac.pkg
+	./tools/unpkg.py ./xr_target/xulrunner-11.0.en-US.mac.pkg
 
 ####################################################
 ############ ZLIB

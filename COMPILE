@@ -77,7 +77,8 @@ sudo ln -s /opt/local/bin/glibtoolize /opt/local/bin/libtoolize
 
 ./autogen.sh alt
 ./configure --enable-compileall
-make src/dependencies
+cd src/dependencies && make
+make xulrunner-11.0.en-US.mac-pkg.dmg # (first time only) will require your sudo password
 ./configure --enable-compileall --disable-dependency-tracking --with-target-arch=i386
 make
 make distmac
