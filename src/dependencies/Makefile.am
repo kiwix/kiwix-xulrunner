@@ -65,10 +65,10 @@ xulrunner-11.0.en-US.mac-pkg.dmg:
 
 xr_target/xulrunner-11.0.en-US.mac.pkg: xulrunner-11.0.en-US.mac-pkg.dmg
 	mkdir -p xr_{mount,target}
-	hdiutil detach ./xr_mount -quiet -force
+	hdiutil detach ./xr_mount -quiet -force || /usr/bin/true
 	hdiutil attach xulrunner-11.0.en-US.mac-pkg.dmg -noautoopen -quiet  -mountpoint ./xr_mount
 	cp -r ./xr_mount/xulrunner-11.0.en-US.mac.pkg ./xr_target/
-	hdiutil detach ./xr_mount -quiet -force
+	hdiutil detach ./xr_mount -quiet -force || /usr/bin/true
 
 xr_target/xulrunner-11.0.en-US.mac/XUL.framework: xr_target/xulrunner-11.0.en-US.mac.pkg
 	./tools/unpkg.py ./xr_target/xulrunner-11.0.en-US.mac.pkg
