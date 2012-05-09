@@ -269,7 +269,7 @@ aria2-1.14.2.pkg: aria2-1.14.2.dmg
 	hdiutil detach ./aria_dmg
 
 aria2-1.14.2/usr/bin/aria2c: aria2-1.14.2.pkg
-	${CURRENT_PATH}/../maintenance_tools/unpkg.py aria2-1.14.2.pkg
+	./tools/unpkg.py aria2-1.14.2.pkg
 
 ####################################################
 ############ CLUCENE
