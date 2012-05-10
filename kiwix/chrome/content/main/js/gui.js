@@ -350,19 +350,22 @@ function clearStatusBar() {
 
 /* Zoom normal */
 function zoomOriginal() {
-    getHtmlRenderer().markupDocumentViewer.textZoom = 1;
+    // getHtmlRenderer().markupDocumentViewer.textZoom = 1;
+    getHtmlRenderer().markupDocumentViewer.fullZoom = 1;
     settings.zoomFactor(library.getCurrentId(), getHtmlRenderer().markupDocumentViewer.textZoom);
 }
 
 /* Zoom in (bigger font) */
 function zoomIn() {
-    getHtmlRenderer().markupDocumentViewer.textZoom += 0.1;
+    // getHtmlRenderer().markupDocumentViewer.textZoom += 0.1;
+    getHtmlRenderer().markupDocumentViewer.fullZoom += 0.1;
     settings.zoomFactor(library.getCurrentId(), getHtmlRenderer().markupDocumentViewer.textZoom);
 }
 
 /* Zoom out (smaller font) */
 function zoomOut() {
-    getHtmlRenderer().markupDocumentViewer.textZoom -= 0.1;
+    // getHtmlRenderer().markupDocumentViewer.textZoom -= 0.1;
+    getHtmlRenderer().markupDocumentViewer.fullZoom -= 0.1;
     settings.zoomFactor(library.getCurrentId(), getHtmlRenderer().markupDocumentViewer.textZoom);
 }
 

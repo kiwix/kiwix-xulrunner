@@ -13,6 +13,7 @@ Kiwix 0.9 rc1
 * FIXED: Broken ZIM loading on XO OSes 0.8x (ID: 3471279)
 * FIXED: Library filtering by language with ISO639-1 language ZIM metadata
 * FIXED: Continuing indexing process if quitting app. during indexing
+* FIXED: Text-only zoom. Pictures are now zoomed with Text (ID: 3525284)
 * NEW: New supported user interface languages: Faroese (fo), Croatian (hr),
   Iloko (ilo), Limburgish (li), Basa Banyumasan (map-bms), Pashto (ps), 
   Bachkir (ba), Welsh (cy), Yiddish (yi), Wolof (yo), 
