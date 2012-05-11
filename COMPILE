@@ -72,13 +72,9 @@ You will also need to build on an Apple Mac computer.
 * Install the following tools and libraries
 sudo port install autogen +universal pkgconfig +universal wget +universal gmake +universal coreutils +universal libidl +universal autoconf213 +universal icu +universal
 
-* short-circuit libtoolize which is a different tool on OSX.
-sudo ln -s /opt/local/bin/glibtoolize /opt/local/bin/libtoolize
-
 ./autogen.sh alt
 ./configure --enable-compileall
 cd src/dependencies && make
-make xulrunner-11.0.en-US.mac-pkg.dmg # (first time only) will require your sudo password
 ./configure --enable-compileall --disable-dependency-tracking --with-target-arch=i386
 make
 make distmac
