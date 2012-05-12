@@ -182,7 +182,7 @@ function findstatic {
 #ARCH=`echo $MACHTYPE | cut -d- -f1`
 ARCH=`uname -m`
 AC_ARG_WITH(target-arch,
-            AS_HELP_STRING([--with-target-arch=ARCH], [(OSX Only) Define the target architecture of the built (i386 or x86_64)]),
+            AC_HELP_STRING([--with-target-arch=ARCH], [(OSX Only) Define the target architecture of the built (i386 or x86_64)]),
             XTARGET=${withval})
 # only overwrite arch on OSX
 if test [ $IS_OSX -eq 1 ] ; then
@@ -372,7 +372,7 @@ ZIMLIB_LDFLAGS=""
 
 # --enable-compileall
 AC_ARG_ENABLE(compileall,
-			  AS_HELP_STRING([--enable-compileall],
+			  AC_HELP_STRING([--enable-compileall],
 			  				 [mark every package for self compilation (default is no)]),
 			  [], [enable_compileall=no])
 AS_IF([test "x$enable_compileall" = "xyes"], [COMPIL_DEPS=1], [COMPIL_DEPS=0])
@@ -401,56 +401,56 @@ fi
 
 # manager is a command line to to build library
 AC_ARG_ENABLE(manager,
-			  AS_HELP_STRING([--enable-manager],
+			  AC_HELP_STRING([--enable-manager],
 			  				 [compile manager (default is no)]),
 			  [], [enable_manager=no])
 AS_IF([test "x$enable_manager" = "xyes"], [WITH_MANAGER=1], [WITH_MANAGER=0])
 
 # HTTP server
 AC_ARG_ENABLE(server,
-			  AS_HELP_STRING([--enable-server],
+			  AC_HELP_STRING([--enable-server],
 			  				 [compile HTTP server (default is yes)]),
 			  [], [enable_server=yes])
 AS_IF([test "x$enable_server" = "xyes"], [WITH_SERVER=1], [WITH_SERVER=0])
 
 # static launcher
 AC_ARG_ENABLE(launcher,
-			  AS_HELP_STRING([--enable-launcher],
+			  AC_HELP_STRING([--enable-launcher],
 			  				 [compile launcher for static (default is yes)]),
 			  [], [enable_launcher=yes])
 AS_IF([test "x$enable_launcher" = "xyes"], [WITH_LAUNCHER=1], [WITH_LAUNCHER=0])
 
 # zim indexer is a command line tool to create xapian/lucene index
 AC_ARG_ENABLE(indexer,
-			  AS_HELP_STRING([--enable-indexer],
+			  AC_HELP_STRING([--enable-indexer],
 			  				 [compile indexer (default is no)]),
 			  [], [enable_indexer=no])
 AS_IF([test "x$enable_indexer" = "xyes"], [WITH_INDEXER=1], [WITH_INDEXER=0])
 
 # installer is GUI on windows or command line on linux
 AC_ARG_ENABLE(installer,
-			  AS_HELP_STRING([--enable-installer],
+			  AC_HELP_STRING([--enable-installer],
 			  				 [compile installer (default is no)]),
 			  [], [enable_installer=no])
 AS_IF([test "x$enable_installer" = "xyes"], [WITH_INSTALLER=1], [WITH_INSTALLER=0])
 
 # searcher is a command line binary to test search engine
 AC_ARG_ENABLE(searcher,
-			  AS_HELP_STRING([--enable-searcher],
+			  AC_HELP_STRING([--enable-searcher],
 			  				 [compile searcher (default is no)]),
 			  [], [enable_searcher=no])
 AS_IF([test "x$enable_searcher" = "xyes"], [WITH_SEARCHER=1], [WITH_SEARCHER=0])
 
 # reader is a command line tool
 AC_ARG_ENABLE(reader,
-			  AS_HELP_STRING([--enable-reader],
+			  AC_HELP_STRING([--enable-reader],
 			  				 [compile reader (default is no)]),
 			  [], [enable_reader=no])
 AS_IF([test "x$enable_reader" = "xyes"], [WITH_READER=1], [WITH_READER=0])
 
 # all enables all optional tools
 AC_ARG_ENABLE(all,
-			  AS_HELP_STRING([--enable-all],
+			  AC_HELP_STRING([--enable-all],
 			  				 [compile all optionnal tools (default is no)]),
 			  [], [enable_all=no])
 AS_IF([test "x$enable_all" = "xyes"], [WITH_LAUNCHER=1;WITH_INDEXER=1;WITH_INSTALLER=1;WITH_SEARCHER=1;WITH_READER=1;WITH_MANAGER=1;WITH_SERVER=1], [])
@@ -461,7 +461,7 @@ AC_ARG_WITH(extra-includes,
             export CPATH="${withval}")
 
 AC_ARG_WITH([debug],
-			AS_HELP_STRING([--with-debug],
+			AC_HELP_STRING([--with-debug],
 						   [add debug symbols]),
 		    CFLAGS="${CFLAGS} -g "; CXXFLAGS="${CXXFLAGS} -g ")
 
@@ -477,14 +477,14 @@ fi
 
 # --enable-old-gecko
 AC_ARG_ENABLE(oldgecko,
-			  AS_HELP_STRING([--enable-oldgecko],
+			  AC_HELP_STRING([--enable-oldgecko],
 			  				 [download and use Gecko SDK 1.9.2 instead of latest (default is no)]),
 			  [], [enable_oldgecko=no])
 AS_IF([test "x$enable_oldgecko" = "xyes"], [IS_OLD_GECKO=1], [IS_OLD_GECKO=0])
 
 
 AC_ARG_WITH(gecko-sdk,
-            AS_HELP_STRING([--with-gecko-sdk=DIR], [Gecko SDK path]),
+            AC_HELP_STRING([--with-gecko-sdk=DIR], [Gecko SDK path]),
             GECKO_SDK_PATH=`cd ${withval} && pwd || $GECKO_SDK_PATH`)
 
 # try to find installed gecko-sdk. default to SELF
@@ -582,12 +582,12 @@ fi
 
 # if --with-x, add path to LIBRARY_PATH
 AC_ARG_WITH(z,
-			AS_HELP_STRING([--with-z=DIR], [alternate location for zlib]),
+			AC_HELP_STRING([--with-z=DIR], [alternate location for zlib]),
 			  	export LIBRARY_PATH="${withval}:${LIBRARY_PATH}";ZLIB_PATH=${withval})
 
 # if --with-static-x, set path as X_ARCHIVE
 AC_ARG_WITH(static-z,
-            AS_HELP_STRING([--with-static-z=DIR/libx.a],
+            AC_HELP_STRING([--with-static-z=DIR/libx.a],
             			   [Path to static archive]),
             ZLIB_ARCHIVE=${withval})
 
@@ -632,12 +632,12 @@ fi
 
 # if --with-x, add path to LIBRARY_PATH
 AC_ARG_WITH(xapian,
-			AS_HELP_STRING([--with-xapian=DIR], [alternate location for xapian-config]),
+			AC_HELP_STRING([--with-xapian=DIR], [alternate location for xapian-config]),
 			  	export LIBRARY_PATH="${withval}:${LIBRARY_PATH}";XAPIAN_PATH=${withval})
 
 # if --with-static-x, set path as X_ARCHIVE
 AC_ARG_WITH(static-xapian,
-            AS_HELP_STRING([--with-static-xapian=DIR/libx.a],
+            AC_HELP_STRING([--with-static-xapian=DIR/libx.a],
             			   [Path to static archive]),
             XAPIAN_ARCHIVE=${withval})
 
@@ -700,12 +700,12 @@ fi
 
 # if --with-x, add path to LIBRARY_PATH
 AC_ARG_WITH(icu,
-			AS_HELP_STRING([--with-icu=DIR], [alternate location for icu-config]),
+			AC_HELP_STRING([--with-icu=DIR], [alternate location for icu-config]),
 			  	export LIBRARY_PATH="${withval}:${LIBRARY_PATH}";ICU_PATH=${withval})
 
 # if --with-static-x, set path as X_ARCHIVE
 AC_ARG_WITH(static-z,
-            AS_HELP_STRING([--with-static-icu=DIR],
+            AC_HELP_STRING([--with-static-icu=DIR],
             			   [Path to static archives folder]),
             ICU_ARCHIVE=${withval})
 
@@ -768,12 +768,12 @@ fi
 
 # if --with-x, add path to LIBRARY_PATH
 AC_ARG_WITH(sqlite,
-			AS_HELP_STRING([--with-sqlite=DIR], [alternate location for sqlite]),
+			AC_HELP_STRING([--with-sqlite=DIR], [alternate location for sqlite]),
 			  	export LIBRARY_PATH="${withval}:${LIBRARY_PATH}";SQLITE_PATH=${withval})
 
 # if --with-static-x, set path as X_ARCHIVE
 AC_ARG_WITH(static-sqlite,
-            AS_HELP_STRING([--with-static-sqlite=DIR/libx.a],
+            AC_HELP_STRING([--with-static-sqlite=DIR/libx.a],
             			   [Path to static archive]),
             SQLITE_ARCHIVE=${withval})
 
@@ -818,12 +818,12 @@ fi
 
 # if --with-x, add path to LIBRARY_PATH
 AC_ARG_WITH(microhttpd,
-			AS_HELP_STRING([--with-microhttpd=DIR], [alternate location for microhttpd]),
+			AC_HELP_STRING([--with-microhttpd=DIR], [alternate location for microhttpd]),
 			  	export LIBRARY_PATH="${withval}:${LIBRARY_PATH}";MICROHTTPD_PATH=${withval})
 
 # if --with-static-x, set path as X_ARCHIVE
 AC_ARG_WITH(static-microhttpd,
-            AS_HELP_STRING([--with-static-microhttpd=DIR/libx.a],
+            AC_HELP_STRING([--with-static-microhttpd=DIR/libx.a],
             			   [Path to static archive]),
             MICROHTTPD_ARCHIVE=${withval})
 
@@ -876,12 +876,12 @@ fi
 
 # if --with-x, add path to LIBRARY_PATH
 AC_ARG_WITH(lzma,
-			AS_HELP_STRING([--with-lzma=DIR], [alternate location for lzma]),
+			AC_HELP_STRING([--with-lzma=DIR], [alternate location for lzma]),
 			  	export LIBRARY_PATH="${withval}:${LIBRARY_PATH}";LZMA_PATH=${withval})
 
 # if --with-static-x, set path as X_ARCHIVE
 AC_ARG_WITH(static-lzma,
-            AS_HELP_STRING([--with-static-lzma=DIR/libx.a],
+            AC_HELP_STRING([--with-static-lzma=DIR/libx.a],
             			   [Path to static archive]),
             LZMA_ARCHIVE=${withval})
 
@@ -934,13 +934,13 @@ fi
 
 # if --with-x, add path to LIBRARY_PATH
 # AC_ARG_WITH(aria2,
-# 			AS_HELP_STRING([--with-aria2=DIR],
+# 			AC_HELP_STRING([--with-aria2=DIR],
 # 						   [alternate location for aria2]),
 # 			  	export LIBRARY_PATH="${withval}:${LIBRARY_PATH}"; ARIA2_CONFIG_PATH=$withval)
 
 # if --with-static-x, set path as X_ARCHIVE
 AC_ARG_WITH(aria2,
-            AS_HELP_STRING([--with-aria2=DIR/aria2c],
+            AC_HELP_STRING([--with-aria2=DIR/aria2c],
             			   [Path to aria2c binary]),
             ARIA2_ARCHIVE=${withval})
 
@@ -988,12 +988,12 @@ fi
 
 # if --with-x, add path to LIBRARY_PATH
 AC_ARG_WITH(clucene,
-			AS_HELP_STRING([--with-clucene=DIR], [alternate location for clucene]),
+			AC_HELP_STRING([--with-clucene=DIR], [alternate location for clucene]),
 			  	export LIBRARY_PATH="${withval}:${LIBRARY_PATH}";CLUCENE_PATH=${withval})
 
 # if --with-static-x, set path as X_ARCHIVE
 AC_ARG_WITH(static-clucene,
-            AS_HELP_STRING([--with-static-clucene=DIR/libx.a],
+            AC_HELP_STRING([--with-static-clucene=DIR/libx.a],
             			   [Path to static archive]),
             CLUCENE_ARCHIVE=${withval})
 
@@ -1046,7 +1046,7 @@ fi
 
 # if --with-static-x, set path as X_ARCHIVE
 AC_ARG_WITH(static-uuid,
-            AS_HELP_STRING([--with-static-uuid=DIR/libx.a],
+            AC_HELP_STRING([--with-static-uuid=DIR/libx.a],
             			   [Path to static archive]),
             UUID_ARCHIVE=${withval})
 
