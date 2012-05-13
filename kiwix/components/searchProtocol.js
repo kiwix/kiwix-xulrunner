@@ -62,7 +62,15 @@ Protocol.prototype =
 {
     observe: function(){},
     classID: Components.ID(kPROTOCOL_CID),
-    QueryInterface: XPCOMUtils.generateQI([Ci.nsIObserver]),
+
+  QueryInterface: function(iid)
+  {
+    if (!iid.equals(nsIProtocolHandler) &&
+        !iid.equals(nsISupports))
+      throw Components.results.NS_ERROR_NO_INTERFACE;
+    return this;
+  },
+
   scheme: kSCHEME,
   defaultPort: -1,
   protocolFlags: nsIProtocolHandler.URI_NORELATIVE |
