@@ -223,7 +223,6 @@ win:
 	cp src/dependences/icu/bin/icudt*.dll ./kiwix/xulrunner
 	cp src/dependences/icu/bin/icuin*.dll ./kiwix/xulrunner
 	cp src/dependences/icu/bin/icuuc*.dll ./kiwix/xulrunner
-	cp static/results.tmpl kiwix/chrome/static/results.tmpl
 	rm -rf kiwix/xulrunner/dictionaries
 	rm -rf kiwix/xulrunner/xulrunner-stub.exe
 	rm -rf kiwix/xulrunner/README
