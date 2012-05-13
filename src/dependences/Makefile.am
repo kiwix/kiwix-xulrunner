@@ -33,11 +33,11 @@ if IS_OSX
 endif
 
 xulrunner-sdk-win.zip:
-	wget -c http://download.kiwix.org/dev/xulrunner-1.9.2.en-US.win32.sdk.zip -O xulrunner-sdk-win.zip
+	wget -c http://download.kiwix.org/dev/xulrunner-11.0.en-US.win32.sdk.zip -O xulrunner-sdk-win.zip
 	unzip xulrunner-sdk-win.zip
 
 xulrunner-win.zip:
-	wget -c http://download.kiwix.org/dev/xulrunner-1.9.2.en-US.win32.zip -O xulrunner-win.zip
+	wget -c http://download.kiwix.org/dev/xulrunner-11.0.en-US.win32.zip -O xulrunner-win.zip
 	unzip xulrunner-win.zip
 
 xulrunner.dmg:
