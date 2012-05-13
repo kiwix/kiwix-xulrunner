@@ -392,6 +392,7 @@ win:
 	cp src/indexer/kiwix-index.exe ./kiwix/xulrunner
 	cp src/manager/kiwix-manage.exe ./kiwix/xulrunner
 	cp src/installer/kiwix-install.exe ./kiwix/xulrunner
+	sed -i -e 's,\.so,\.dll,g' kiwix/chrome.manifest
 
 windist: 
 	rm -rf dvd/install dvd/kiwix
