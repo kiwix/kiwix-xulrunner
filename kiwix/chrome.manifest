@@ -17,22 +17,36 @@ contract @kiwix.org/kiwix/clh;1 {52E289CE-46BC-11E1-AB51-5DED4824019B}
 category command-line-handler m-kiwix @kiwix.org/kiwix/clh;1
 
 interfaces components/xapianAccessor.xpt
-binary-component components/xapianAccessor.so
+binary-component components/xapianAccessor.so ABI=Linux_x86-gcc3
+binary-component components/xapianAccessor.dylib ABI=Darwin_x86-gcc
+binary-component components/xapianAccessor.dll ABI==INNT_x86-msvc
 
 interfaces components/zimXapianIndexer.xpt
-binary-component components/zimXapianIndexer.so
+binary-component components/zimXapianIndexer.so ABI=Linux_x86-gcc3
+binary-component components/zimXapianIndexer.dylib ABI=Darwin_x86-gcc
+binary-component components/zimXapianIndexer.dll ABI==INNT_x86-msvc
 
 interfaces components/cluceneAccessor.xpt
-binary-component components/cluceneAccessor.so
+binary-component components/cluceneAccessor.so ABI=Linux_x86-gcc3
+binary-component components/cluceneAccessor.dylib ABI=Darwin_x86-gcc
+binary-component components/cluceneAccessor.dll ABI==INNT_x86-msvc
 
 interfaces components/zimCluceneIndexer.xpt
-binary-component components/zimCluceneIndexer.so
+binary-component components/zimCluceneIndexer.so ABI=Linux_x86-gcc3
+binary-component components/zimCluceneIndexer.dylib ABI=Darwin_x86-gcc
+binary-component components/zimCluceneIndexer.dll ABI==INNT_x86-msvc
 
 interfaces components/zimAccessor.xpt
-binary-component components/zimAccessor.so 
+binary-component components/zimAccessor.so ABI=Linux_x86-gcc3
+binary-component components/zimAccessor.dylib ABI=Darwin_x86-gcc
+binary-component components/zimAccessor.dll ABI==INNT_x86-msvc
 
 interfaces components/contentManager.xpt
-binary-component components/contentManager.so
+binary-component components/contentManager.so ABI=Linux_x86-gcc3
+binary-component components/contentManager.dylib ABI=Darwin_x86-gcc
+binary-component components/contentManager.dll ABI==INNT_x86-msvc
 
 interfaces components/serverManager.xpt
-binary-component components/serverManager.so
+binary-component components/serverManager.so ABI=Linux_x86-gcc3
+binary-component components/serverManager.dylib ABI=Darwin_x86-gcc
+binary-component components/serverManager.dll ABI==INNT_x86-msvc
