@@ -30,7 +30,7 @@ Z_LIB=${Z}
 XULRUNNER_IDL=$(XULRUNNER_SDK)/idl
 
 # Compiler and linker flags
-CFLAGS=-D"XP_WIN" -D"WIN32" -D"GECKO_VERSION=11" -D"XP_WIN32" -O2 -Oi -I"$(XULRUNNER_INCLUDE)" -I../../common/ -I"$(XAPIAN_INCLUDE)"  -I"$(CTPP2_INCLUDE)" -I"$(ICU_INCLUDE)" -D"_WINDLL" -D"_MBCS" -FD -EHsc -MT -Gy -nologo -c -Zi -TP		    
+CFLAGS=-D"XP_WIN" -D"WIN32" -D"GECKO_VERSION=11" -D"XP_WIN32" -O2 -Oi -I"$(XULRUNNER_INCLUDE)" -I../../common/ -I"$(XAPIAN_INCLUDE)"  -I"$(CTPP2_INCLUDE)" -I"$(ICU_INCLUDE)" -D"_WINDLL" -FD -EHsc -MT -Gy -nologo -c -Zi -TP		    
 LDFLAGS=-nologo -LIBPATH:"$(XAPIAN_LIB)" -LIBPATH:"$(Z_LIB)" -LIBPATH:"$(XULRUNNER_LIB)" -LIBPATH:"$(ICU_LIB)" -LIBPATH:"$(CTPP2_LIB)"
 
 all: xapianAccessor.dll

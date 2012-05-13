@@ -10,7 +10,8 @@ ZIM=../../zimlib
 PTHREAD=../../dependences/pthread-win32
 
 # Binary paths
-XPIDL=$(XULRUNNER_SDK)/bin/xpidl.exe
+TYPELIB_PY=python $(XULRUNNER_SDK)/sdk/bin/typelib.py
+HEADER_PY=python $(XULRUNNER_SDK)/sdk/bin/header.py
 
 # Include paths
 XAPIAN_INCLUDE=${XAPIAN}/include
@@ -31,23 +32,23 @@ PTHREAD_LIB=${PTHREAD}/lib
 XULRUNNER_IDL=$(XULRUNNER_SDK)/idl
 
 # Compiler and linker flags
-CFLAGS=-D"XP_WIN" -D"XP_WIN32" -O2 -Oi  -I"${PTHREAD_INCLUDE}" -I"$(XULRUNNER_INCLUDE)" -I../../common/ -I../../zimlib/include/win -I../../zimlib/include -I"$(XAPIAN_INCLUDE)" -I$(ICU_INCLUDE) -D"_WINDLL" -D"_MBCS" -FD -EHsc -MT -Gy -W3 -nologo -c -Zi -TP		    
+CFLAGS=-D"XP_WIN" -D"XP_WIN32" -D"GECKO_VERSION=11" -O2 -Oi  -I"${PTHREAD_INCLUDE}" -I"$(XULRUNNER_INCLUDE)" -I../../common/ -I../../zimlib/include/win -I../../zimlib/include -I"$(XAPIAN_INCLUDE)" -I$(ICU_INCLUDE) -D"_WINDLL" -FD -EHsc -MT -Gy -W3 -nologo -c -Zi -TP		    
 LDFLAGS=-nologo -LIBPATH:"$(XAPIAN_LIB)"  -LIBPATH:"$(PTHREAD_LIB)" -LIBPATH:"$(Z_LIB)" -LIBPATH:"$(XULRUNNER_LIB)" -LIBPATH:"$(ICU_LIB)" -LIBPATH:"${ZIM_LIB}"
 
 all: zimXapianIndexer.dll
      
 IZimXapianIndexer.xpt:
-	$(XPIDL) -m typelib -I "$(XULRUNNER_IDL)" IZimXapianIndexer.idl
+	$(TYPELIB_PY) -o zimXapianIndexer.xpt -I "$(XULRUNNER_IDL)" IZimXapianIndexer.idl
 
 IZimXapianIndexer.h:
-	$(XPIDL) -m header -I "$(XULRUNNER_IDL)" IZimXapianIndexer.idl
+	$(HEADER_PY) -o IZimXapianIndexer.h -I "$(XULRUNNER_IDL)" IZimXapianIndexer.idl
 
 objs: IZimXapianIndexer.xpt IZimXapianIndexer.h
-	$(CC) $(CFLAGS) zimXapianIndexer.cpp ../../common/splitString.cpp ../../common/unaccent.cpp ../../common/kiwix/indexer.cpp ../../common/kiwix/reader.cpp ../../common/kiwix/xapian/myhtmlparse.cc ../../common/kiwix/xapian/htmlparse.cc ../../common/kiwix/xapianIndexer.cpp ../../common/componentTools.cpp
+	$(CC) $(CFLAGS) zimXapianIndexer.cpp ../../common/stringTools.cpp ../../common/unaccent.cpp ../../common/kiwix/indexer.cpp ../../common/kiwix/reader.cpp ../../common/kiwix/xapian/myhtmlparse.cc ../../common/kiwix/xapian/htmlparse.cc ../../common/kiwix/xapianIndexer.cpp ../../common/componentTools.cpp
 
 zimXapianIndexer.lib: objs
-		       $(LD) -lib -OUT:libZimXapianIndexer.lib $(LDFLAGS) indexer.obj unaccent.obj splitString.obj reader.obj myhtmlparse.obj htmlparse.obj xapianIndexer.obj componentTools.obj
+		       $(LD) -lib -OUT:libZimXapianIndexer.lib $(LDFLAGS) indexer.obj unaccent.obj stringTools.obj reader.obj myhtmlparse.obj htmlparse.obj xapianIndexer.obj componentTools.obj
 
 zimXapianIndexer.dll: zimXapianIndexer.lib
-		    $(LD) -OUT:"zimXapianIndexer.dll" -NOLOGO $(LDFLAGS) -DLL -NODEFAULTLIB:"MSVCRT" -OPT:REF -OPT:ICF -DYNAMICBASE -NXCOMPAT -MACHINE:X86 zlib.lib libcommon.lib libbackend.lib libbrass.lib Rpcrt4.lib libbrassbtreecheck.lib libbrassbtreecheck.lib libexpand.lib libflint.lib libflintbtreecheck.lib libchert.lib libweight.lib libinmemory.lib libmulti.lib libmatcher.lib libnet.lib liblanguages.lib libapi.lib libremote.lib libunicode.lib libqueryparser.lib icuin.lib icuio.lib icule.lib iculx.lib icutu.lib icuuc.lib winmm.lib zim.lib libcmt.lib ws2_32.lib nspr4.lib xpcom.lib xpcomglue_s.lib DelayImp.lib libZimXapianIndexer.lib pthreadVC2.lib zimXapianIndexer.obj
+		    $(LD) -OUT:"zimXapianIndexer.dll" -NOLOGO $(LDFLAGS) -DLL -NODEFAULTLIB:"MSVCRT" -OPT:REF -OPT:ICF -DYNAMICBASE -NXCOMPAT -MACHINE:X86 zlib.lib libcommon.lib libbackend.lib libbrass.lib Rpcrt4.lib libbrassbtreecheck.lib libbrassbtreecheck.lib libexpand.lib libflint.lib libflintbtreecheck.lib libchert.lib libweight.lib libinmemory.lib libmulti.lib libmatcher.lib libnet.lib liblanguages.lib libapi.lib libremote.lib libunicode.lib libqueryparser.lib icuin.lib icuio.lib icule.lib iculx.lib icutu.lib icuuc.lib winmm.lib zim.lib libcmt.lib ws2_32.lib nspr4.lib xpcom.lib xpcomglue_s.lib DelayImp.lib mozalloc.lib libZimXapianIndexer.lib pthreadVC2.lib zimXapianIndexer.obj
 

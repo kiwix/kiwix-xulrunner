@@ -6,7 +6,8 @@ XULRUNNER_SDK=../../dependences/xulrunner-sdk
 ZIM=../../zimlib
 
 # Binary paths
-XPIDL=$(XULRUNNER_SDK)/bin/xpidl.exe
+TYPELIB_PY=python $(XULRUNNER_SDK)/sdk/bin/typelib.py
+HEADER_PY=python $(XULRUNNER_SDK)/sdk/bin/header.py
 
 # Include paths
 XULRUNNER_INCLUDE=$(XULRUNNER_SDK)/include
@@ -20,16 +21,16 @@ ZIM_LIB=${ZIM}/src
 XULRUNNER_IDL=$(XULRUNNER_SDK)/idl
 
 # Compiler and linker flags
-CFLAGS=-D"XP_WIN" -D"XP_WIN32" -O2 -Oi -I"${ZIM_INCLUDE}" -I"$(XULRUNNER_INCLUDE)" -I../../common/ -I../../zimlib/include/win -D"_WINDLL" -D"_MBCS" -FD -EHsc -MT -Gy -nologo -c -Zi -TP		    
+CFLAGS=-D"XP_WIN" -D"XP_WIN32" -D"GECKO_VERSION=11" -O2 -Oi -I"${ZIM_INCLUDE}" -I"$(XULRUNNER_INCLUDE)" -I../../common/ -I../../zimlib/include/win -D"_WINDLL" -FD -EHsc -MT -Gy -nologo -c -Zi -TP		    
 LDFLAGS=-nologo -LIBPATH:"$(XULRUNNER_LIB)" -LIBPATH:"${ZIM_LIB}"
 
 all: zimAccessor.dll
      
 IZimAccessor.xpt:
-	$(XPIDL) -m typelib -I "$(XULRUNNER_IDL)" IZimAccessor.idl
+	$(TYPELIB_PY) -o zimAccessor.xpt -I "$(XULRUNNER_IDL)" IZimAccessor.idl
 
 IZimAccessor.h:
-	$(XPIDL) -m header -I "$(XULRUNNER_IDL)" IZimAccessor.idl
+	$(HEADER_PY) -o IZimAccessor.h -I "$(XULRUNNER_IDL)" IZimAccessor.idl
 
 objs: IZimAccessor.xpt IZimAccessor.h
 	$(CC) $(CFLAGS) zimAccessor.cpp ../../common/kiwix/reader.cpp ../../common/pathTools.cpp ../../common/componentTools.cpp
@@ -38,4 +39,4 @@ zimAccessor.lib: objs
 		       $(LD) -lib -OUT:libZimAccessor.lib $(LDFLAGS) reader.obj pathTools.obj componentTools.obj
 
 zimAccessor.dll: zimAccessor.lib
-		    $(LD) -OUT:"zimAccessor.dll" -NOLOGO $(LDFLAGS) -DLL -NODEFAULTLIB:"MSVCRT" -OPT:REF -OPT:ICF -DYNAMICBASE -NXCOMPAT -MACHINE:X86 zim.lib libcmt.lib ws2_32.lib nspr4.lib xpcom.lib xpcomglue_s.lib DelayImp.lib winmm.lib libZimAccessor.lib zimAccessor.obj
+		    $(LD) -OUT:"zimAccessor.dll" -NOLOGO $(LDFLAGS) -DLL -NODEFAULTLIB:"MSVCRT" -OPT:REF -OPT:ICF -DYNAMICBASE -NXCOMPAT -MACHINE:X86 zim.lib libcmt.lib ws2_32.lib nspr4.lib xpcom.lib xpcomglue_s.lib mozalloc.lib DelayImp.lib winmm.lib libZimAccessor.lib zimAccessor.obj
