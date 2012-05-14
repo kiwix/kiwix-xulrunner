@@ -1101,7 +1101,7 @@ fi
 ####################################################
 
 DEP_LIST=""
-if test [ $COMPILE_GECKO_SDK -eq 1 ]
+if test [ $COMPILE_GECKO_SDK -eq 1 -a $IS_ARM -eq 0 ]
 then
     DEP_LIST+=" $COMPILED_GECKO_SDK_PATH/"
     DEP_LIST+=" $XULRUNNER_RUNTIME_PATH/"
@@ -1142,7 +1142,7 @@ then
 fi
 EMBED_LIBS+=" $LZMA_FILES"
 
-if test [ $COMPILE_ARIA2 -eq 1 ]
+if test [ $COMPILE_ARIA2 -eq 1 -a $IS_ARM -eq 0 ]
 then
     DEP_LIST+=" $COMPILED_ARIA2_FILES"
 fi
