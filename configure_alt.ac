@@ -190,11 +190,19 @@ if test [ $IS_OSX -eq 1 ] ; then
 	CC="$CC -arch ${ARCH}"
 	CXX="$CXX -arch ${ARCH}"
 fi
+
 if test [ "`$SARCH | grep 64 | wc -l`" ];
 then
 	IS_64B=1
 else
 	IS_64B=0
+fi
+
+if test [ "`$SARCH | grep arm | wc -l`" ];
+then
+	IS_ARM=1
+else
+	IS_ARM=0
 fi
 
 ####################################################
@@ -352,8 +360,8 @@ else
 	STATIC_ICONV_LDFLAGS=""
 fi
 
+WITH_COMPONENTS=1
 WITH_CLUCENE=0
-
 WITH_MANAGER=0
 WITH_SERVER=1
 WITH_LAUNCHER=1
@@ -448,12 +456,19 @@ AC_ARG_ENABLE(reader,
 			  [], [enable_reader=no])
 AS_IF([test "x$enable_reader" = "xyes"], [WITH_READER=1], [WITH_READER=0])
 
+# HTTP server
+AC_ARG_ENABLE(components,
+			  AC_HELP_STRING([--enable-components],
+			  				 [compile gecko components (default is yes)]),
+			  [], [enable_components=yes])
+AS_IF([test "x$enable_components" = "xyes"], [WITH_COMPONENTS=1], [WITH_COMPONENTS=0])
+
 # all enables all optional tools
 AC_ARG_ENABLE(all,
 			  AC_HELP_STRING([--enable-all],
 			  				 [compile all optionnal tools (default is no)]),
 			  [], [enable_all=no])
-AS_IF([test "x$enable_all" = "xyes"], [WITH_LAUNCHER=1;WITH_INDEXER=1;WITH_INSTALLER=1;WITH_SEARCHER=1;WITH_READER=1;WITH_MANAGER=1;WITH_SERVER=1], [])
+AS_IF([test "x$enable_all" = "xyes"], [WITH_LAUNCHER=1;WITH_INDEXER=1;WITH_INSTALLER=1;WITH_SEARCHER=1;WITH_READER=1;WITH_MANAGER=1;WITH_SERVER=1;WITH_COMPONENTS=1], [])
 
 # extra includes allow to specify extra -I paths
 AC_ARG_WITH(extra-includes,
@@ -1169,6 +1184,7 @@ AC_SUBST(IS_LINUX)
 AC_SUBST(IS_POSIX)
 AC_SUBST(DEP_LIST)
 AC_SUBST(IS_64B)
+AC_SUBST(IS_ARM)
 AC_SUBST(ARCH)
 AC_SUBST(DEP_PATH)
 AC_SUBST(IS_OLD_GECKO)
@@ -1180,6 +1196,7 @@ AM_CONDITIONAL([IS_OSX], [test "$IS_OSX" -eq 1])
 AM_CONDITIONAL([IS_LINUX], [test "$IS_LINUX" -eq 1])
 AM_CONDITIONAL([IS_POSIX], [test "$IS_POSIX" -eq 1])
 
+AM_CONDITIONAL([WITH_COMPONENTS], [test "$WITH_COMPONENTS" -eq 1])
 AM_CONDITIONAL([WITH_CLUCENE], [test "$WITH_CLUCENE" -eq 1])
 AM_CONDITIONAL([WITH_MANAGER], [test "$WITH_MANAGER" -eq 1])
 AM_CONDITIONAL([WITH_SERVER], [test "$WITH_SERVER" -eq 1])
@@ -1190,6 +1207,7 @@ AM_CONDITIONAL([WITH_SEARCHER], [test "$WITH_SEARCHER" -eq 1])
 AM_CONDITIONAL([WITH_READER], [test "$WITH_READER" -eq 1])
 AM_CONDITIONAL([IS_OLD_GECKO], [test "$IS_OLD_GECKO" -eq 1])
 
+AC_SUBST(WITH_COMPONENTS)
 AC_SUBST(WITH_CLUCENE)
 AC_SUBST(WITH_MANAGER)
 AC_SUBST(WITH_SERVER)
@@ -1321,12 +1339,14 @@ $BINECHO ""
 $BINECHO "Build details:"
 $BINECHO -n "ARCH			" ; $BINECHO $ARCH
 $BINECHO -n "IS_64B			" ; yesno $IS_64B
+$BINECHO -n "IS_ARM			" ; yesno $IS_ARM
 $BINECHO -n "IS_POSIX		" ; yesno $IS_POSIX
 $BINECHO -n "IS_LINUX		" ; yesno $IS_LINUX
 $BINECHO -n "IS_OSX			" ; yesno $IS_OSX
 $BINECHO -n "IS_WIN			" ; yesno $IS_WIN
 $BINECHO -n "IS_OLD_GECKO		" ; yesno $IS_OLD_GECKO
 $BINECHO -n "COMPIL_DEPS		" ; yesno $COMPIL_DEPS
+$BINECHO -n "WITH_COMPONENTS	" ; yesno $WITH_COMPONENTS
 $BINECHO -n "WITH_MANAGER		" ; yesno $WITH_MANAGER
 $BINECHO -n "WITH_SERVER		" ; yesno $WITH_SERVER
 $BINECHO -n "WITH_LAUNCHER		" ; yesno $WITH_LAUNCHER
