@@ -1,5 +1,5 @@
 # Dependencies mirror
-DEPMIRROR=mirror.kiwix.org
+DEPMIRROR=download.kiwix.org
 
 # OSX uses fat binaries
 if IS_OSX
@@ -58,7 +58,6 @@ xulrunner-sdk: xulrunner-sdk.tar.bz2
 ####################################################
 xulrunner-runtime.tar.bz2:
 	wget -c $(XULRUNNERRUNTIMEURL) -O xulrunner-runtime.tar.bz2
-	
 
 xulrunner: xulrunner-runtime.tar.bz2
 	if test ! -d xulrunner; then tar -xf xulrunner-runtime.tar.bz2 ; fi;
