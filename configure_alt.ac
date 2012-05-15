@@ -191,14 +191,14 @@ if test [ $IS_OSX -eq 1 ] ; then
 	CXX="$CXX -arch ${ARCH}"
 fi
 
-if test [ "`uname -m | grep 64 | wc -l`" = "0" ];
+if test [ "`uname -m | grep 64 | wc -l | awk '{ print $1}'`" = "0" ];
 then
 	IS_64B=0
 else
 	IS_64B=1
 fi
 
-if test [ "`uname -m | grep arm | wc -l`" = "0" ];
+if test [ "`uname -m | grep arm | wc -l | awk '{ print $1}'`" = "0" ];
 then
 	IS_ARM=0
 else
