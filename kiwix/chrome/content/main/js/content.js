@@ -590,7 +590,7 @@ function createLibraryItem(book) {
     var creatorLabel = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
 						"label");
     creatorLabel.setAttribute("class", "library-content-item-detail");
-    creatorLabel.setAttribute("value", "Author(s): " + book.creator);
+    creatorLabel.setAttribute("value", "Author: " + book.creator);
     leftColumn.appendChild(creatorLabel);
 
     var publisherLabel = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
