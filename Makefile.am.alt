@@ -356,7 +356,7 @@ universal: $(PACKAGE)-$(VERSION)-i386.dmg $(PACKAGE)-$(VERSION)-x86_64.dmg
 	rm -f src/macosx/kiwix_template.dmg
 
 distserver:
-	tar cf $(PACKAGE)-$(VERSION)-server_$(ARCH).tar src/server/kiwix-serve
+	tar -C src/server/ -cf $(PACKAGE)-$(VERSION)-server_$(ARCH).tar kiwix-serve
 
 # Windows rule
 win:
