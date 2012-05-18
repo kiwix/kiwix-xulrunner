@@ -215,6 +215,7 @@ LIBS_ROOT="${LD_LIBRARY_PATH}:${LIBRARY_PATH}:/usr/lib:/lib"
 SERVER_BIN="${CURRENT_PATH}/src/server/kiwix-serve"
 
 COMPIL_DEPS=0
+STATIC_BINS=0
 STATIC_TMP="static_tmp"
 SUGAR_TMP="sugar_tmp"
 # list of .so to copy to xulrunner/ path
@@ -288,7 +289,7 @@ fi
 
 # no win for sqlite as it is just a sub dependency of aria2
 SQLITE_CFLAGS=""
-SQLITE_LDFLAGS="-libsqlite3"
+SQLITE_LDFLAGS="-lsqlite3"
 SQLITE_STATIC_LDFLAGS=""
 COMPILE_SQLITE=0
 COMPILED_SQLITE_LDFLAGS="-L${DEP_PATH}/sqlite-autoconf-3071000/build/lib -lsqlite3"
@@ -406,6 +407,13 @@ fi
 ####################################################
 ############ Optional packages
 ####################################################
+
+# enable this to compile binaries (CLI) staticaly
+AC_ARG_ENABLE(staticbins,
+			  AC_HELP_STRING([--enable-staticbins],
+			  				 [compile CLI binaries staticaly (default is no)]),
+			  [], [enable_staticbins=no])
+AS_IF([test "x$enable_staticbins" = "xyes"], [STATIC_BINS=1], [STATIC_BINS=0])
 
 # manager is a command line to to build library
 AC_ARG_ENABLE(manager,
@@ -1189,6 +1197,7 @@ AC_SUBST(ARCH)
 AC_SUBST(DEP_PATH)
 AC_SUBST(IS_OLD_GECKO)
 AC_SUBST(SERVER_BIN)
+AC_SUBST(STATIC_BINS)
 
 AM_CONDITIONAL([COMPIL_DEPS], [test "$COMPIL_DEPS" -eq 1])
 AM_CONDITIONAL([IS_WIN], [test "$IS_WIN" -eq 1])
@@ -1206,6 +1215,7 @@ AM_CONDITIONAL([WITH_INSTALLER], [test "$WITH_INSTALLER" -eq 1])
 AM_CONDITIONAL([WITH_SEARCHER], [test "$WITH_SEARCHER" -eq 1])
 AM_CONDITIONAL([WITH_READER], [test "$WITH_READER" -eq 1])
 AM_CONDITIONAL([IS_OLD_GECKO], [test "$IS_OLD_GECKO" -eq 1])
+AM_CONDITIONAL([STATIC_BINS], [test "$STATIC_BINS" -eq 1])
 
 AC_SUBST(WITH_COMPONENTS)
 AC_SUBST(WITH_CLUCENE)
@@ -1346,7 +1356,8 @@ $BINECHO -n "IS_OSX			" ; yesno $IS_OSX
 $BINECHO -n "IS_WIN			" ; yesno $IS_WIN
 $BINECHO -n "IS_OLD_GECKO		" ; yesno $IS_OLD_GECKO
 $BINECHO -n "COMPIL_DEPS		" ; yesno $COMPIL_DEPS
-$BINECHO -n "WITH_COMPONENTS	" ; yesno $WITH_COMPONENTS
+$BINECHO -n "WITH_COMPONENTS		" ; yesno $WITH_COMPONENTS
+$BINECHO -n "STATIC_BINS		" ; yesno $STATIC_BINS
 $BINECHO -n "WITH_MANAGER		" ; yesno $WITH_MANAGER
 $BINECHO -n "WITH_SERVER		" ; yesno $WITH_SERVER
 $BINECHO -n "WITH_LAUNCHER		" ; yesno $WITH_LAUNCHER

@@ -8,7 +8,8 @@ Debian/Ubuntu packages: build-essential autoconf automake libtool pkg-config \
 libicu-dev libclucene-dev libxapian-dev libmicrohttpd-dev liblzma-dev fastjar \
 xulrunner-1.9.2-dev aria2 libc-ares-dev libssl-dev libexpat1-dev \
 libsqlite3-dev zlib1g-dev libxml2-dev libgnutls-dev \
-libgpg-error-dev libgcrypt-dev uuid-dev libuuid1
+libgpg-error-dev libgcrypt-dev uuid-dev libuuid1 zip subversion
+# xapian-tools (debian wheezy)
 
 Fedora (Sugar build) packages: gcc gcc-c++ automake glibc-devel libtool \
 c-ares autoconf aria2 libicu-devel xapian-core-devel lzma-libs lzma-devel \
@@ -42,7 +43,7 @@ Most dependencies accept --with-dep=XX and with-static-dep=XX.a
 Static version of libraries are used for building static binaries (server, indexer, etc)
 Use --with-dep=SELF or --with-static-dep=SELF to trigger fetch and build for the dependency.
 
-* ./configure --enable-compileall
+* ./configure --enable-compileall --enable-compileall
 to fetch and build all dependencies.
 
 * make src/dependencies
@@ -75,10 +76,10 @@ sudo port install autogen +universal pkgconfig +universal wget +universal gmake 
 ./autogen.sh alt
 ./configure --enable-compileall
 cd src/dependencies && make
-./configure --enable-compileall --disable-dependency-tracking --with-target-arch=i386
+./configure --enable-compileall --enable-compileall --disable-dependency-tracking --with-target-arch=i386
 make
 make distmac
-./configure --enable-compileall --disable-dependency-tracking --with-target-arch=x86_64
+./configure --enable-compileall --enable-compileall --disable-dependency-tracking --with-target-arch=x86_64
 make clean
 make
 make distmac

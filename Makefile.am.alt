@@ -356,7 +356,7 @@ universal: $(PACKAGE)-$(VERSION)-i386.dmg $(PACKAGE)-$(VERSION)-x86_64.dmg
 	rm -f src/macosx/kiwix_template.dmg
 
 distserver:
-	strip src/server/kiwix-serve src/indexer/kiwix-index src/reader/kiwix-read src/searcher/kiwix-search src/manager/kiwix-manage
+	strip src/server/kiwix-serve src/indexer/kiwix-index src/reader/kiwix-read src/searcher/kiwix-search src/manager/kiwix-manage || true
 	tar -C src/server/ -cf $(PACKAGE)-$(VERSION)-server_$(ARCH).tar kiwix-serve
 	tar -C src/indexer/ -rf $(PACKAGE)-$(VERSION)-server_$(ARCH).tar kiwix-index
 	tar -C src/manager/ -rf $(PACKAGE)-$(VERSION)-server_$(ARCH).tar kiwix-manage
