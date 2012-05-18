@@ -24,8 +24,7 @@ CLEANFILES= \
 	kiwix*.deb \
 	kiwix*.tar.gz \
 	kiwix*.changes \
-	kiwix*.dsc \
-	src/dependences/Makefile
+	kiwix*.dsc
 
 UPDATE_MIME = \
 	if which update-mime-database>/dev/null 2>&1; then \
@@ -229,9 +228,11 @@ win:
 	cd src/indexer ; if [ ! -f kiwix-index.exe ] ; then make -f Makefile.mvsc ; fi	
 	cd src/manager ; if [ ! -f kiwix-manage.exe ] ; then make -f Makefile.mvsc ; fi	
 	cd src/installer ; if [ ! -f kiwix-install.exe ] ; then make -f Makefile.mvsc ; fi	
+	cd src/server ; if [ ! -f kiwix-server.exe ] ; then make -f Makefile.mvsc ; fi	
 	cp src/indexer/kiwix-index.exe ./kiwix/xulrunner
 	cp src/manager/kiwix-manage.exe ./kiwix/xulrunner
 	cp src/installer/kiwix-install.exe ./kiwix/xulrunner
+	cp src/server/kiwix-server.exe ./kiwix/xulrunner
 	sed -i -e 's,\.so,\.dll,g' kiwix/chrome.manifest
 
 windist: 
