@@ -138,11 +138,11 @@ xapian-core-1.2.3/win32/Release/libs/libunicode.lib: xapian-core-1.2.3 xapian-wi
 ############ ICU
 ####################################################
 
-icu4c-4_4_2-src.tgz:
-	wget -c -O icu4c-4_4_2-src.tgz http://$(DEPMIRROR)/dev/icu4c-4_4_2-src.tgz
+icu4c-49_1_1-src.tgz:
+	wget -c -O icu4c-49_1_1-src.tgz http://$(DEPMIRROR)/dev/icu4c-49_1_1-src.tgz
 
-icu/: icu4c-4_4_2-src.tgz
-	tar xf icu4c-4_4_2-src.tgz
+icu/: icu4c-49_1_1-src.tgz
+	tar xf icu4c-49_1_1-src.tgz
 
 # Linux
 icu/source/build/lib/libicudata.so icu/source/lib/libicuuc.so icu/source/build/lib/libicui18n.so: icu/
