@@ -1,5 +1,3 @@
-#DOWNLOADER="curl -C - --retry 10 --retry-delay 1 -o"
-#DOWNLOADER="wget -c -O"
 
 # OSX uses fat binaries
 if IS_OSX
@@ -139,14 +137,14 @@ xapian-core-1.2.3/win32/Release/libs/libunicode.lib: xapian-core-1.2.3 xapian-wi
 ####################################################
 
 icu4c-4_4_2-src.tgz:
- 	$(DOWNLOADER) icu4c-4_4_2-src.tgz $(DEP_MIRROR)/icu4c-4_4_2-src.tgz
+	$(DOWNLOADER) icu4c-4_4_2-src.tgz $(DEP_MIRROR)/icu4c-4_4_2-src.tgz
 
 icu4c-49_1_1-src.tgz:
 	$(DOWNLOADER) icu4c-49_1_1-src.tgz $(DEP_MIRROR)/icu4c-49_1_1-src.tgz
 
 if IS_OLD_ICU
 icu/: icu4c-4_4_2-src.tgz
- 	tar xf icu4c-4_4_2-src.tgz
+	tar xf icu4c-4_4_2-src.tgz
 else
 icu/: icu4c-49_1_1-src.tgz
 	tar xf icu4c-49_1_1-src.tgz
