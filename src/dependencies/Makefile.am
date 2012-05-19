@@ -1,5 +1,5 @@
-# Dependencies mirror
-DEPMIRROR=download.kiwix.org
+#DOWNLOADER="curl -C - --retry 10 --retry-delay 1 -o"
+#DOWNLOADER="wget -c -O"
 
 # OSX uses fat binaries
 if IS_OSX
@@ -15,31 +15,31 @@ deps: ${DEP_LIST}
 
 if IS_LINUX
 if IS_OLD_GECKO
-GECKOSDKURL=http://$(DEPMIRROR)/dev/xulrunner-1.9.2.13.en-US.linux-i686.sdk.tar.bz2
+GECKOSDKURL=$(DEP_MIRROR)/xulrunner-1.9.2.13.en-US.linux-i686.sdk.tar.bz2
 else
-GECKOSDKURL=http://$(DEPMIRROR)/dev/xulrunner-11.0.en-US.linux-$(ARCH).sdk.tar.bz2
+GECKOSDKURL=$(DEP_MIRROR)/xulrunner-11.0.en-US.linux-$(ARCH).sdk.tar.bz2
 endif
 else
-GECKOSDKURL=http://$(DEPMIRROR)/dev/xulrunner-11.0.en-US.mac-$(ARCH).sdk.tar.bz2
+GECKOSDKURL=$(DEP_MIRROR)/xulrunner-11.0.en-US.mac-$(ARCH).sdk.tar.bz2
 endif
 
 if IS_OLD_GECKO
-XULRUNNERRUNTIMEURL=http://$(DEPMIRROR)/dev/xulrunner-3.6.26.en-US.linux-i686.tar.bz2
+XULRUNNERRUNTIMEURL=$(DEP_MIRROR)/xulrunner-3.6.26.en-US.linux-i686.tar.bz2
 else
-XULRUNNERRUNTIMEURL=http://$(DEPMIRROR)/dev/xulrunner-11.0.en-US.linux-$(ARCH).tar.bz2
+XULRUNNERRUNTIMEURL=$(DEP_MIRROR)/xulrunner-11.0.en-US.linux-$(ARCH).tar.bz2
 endif
 
 ####################################################
 ############ GECKO-SDK
 ####################################################
 xulrunner-sdk.tar.bz2:
-	wget -c $(GECKOSDKURL) -O xulrunner-sdk.tar.bz2
+	$(DOWNLOADER) xulrunner-sdk.tar.bz2 $(GECKOSDKURL)
 
 xulrunner-11.0.en-US.mac-i386.sdk.tar.bz2:
-	wget -c -O xulrunner-11.0.en-US.mac-i386.sdk.tar.bz2 http://$(DEPMIRROR)/dev/xulrunner-11.0.en-US.mac-i386.sdk.tar.bz2
+	$(DOWNLOADER) xulrunner-11.0.en-US.mac-i386.sdk.tar.bz2 $(DEP_MIRROR)/xulrunner-11.0.en-US.mac-i386.sdk.tar.bz2
 
 xulrunner-11.0.en-US.mac-x86_64.sdk.tar.bz2:
-	wget -c -O xulrunner-11.0.en-US.mac-x86_64.sdk.tar.bz2 http://$(DEPMIRROR)/dev/xulrunner-11.0.en-US.mac-x86_64.sdk.tar.bz2
+	$(DOWNLOADER) xulrunner-11.0.en-US.mac-x86_64.sdk.tar.bz2 $(DEP_MIRROR)/xulrunner-11.0.en-US.mac-x86_64.sdk.tar.bz2
 
 xulrunner-sdk-i386: xulrunner-11.0.en-US.mac-i386.sdk.tar.bz2
 	if test ! -d xulrunner-sdk-i386; then tar -xf xulrunner-11.0.en-US.mac-i386.sdk.tar.bz2 && mv xulrunner-sdk xulrunner-sdk-i386 ; fi;
@@ -57,13 +57,13 @@ xulrunner-sdk: xulrunner-sdk.tar.bz2
 ############ XULRUNNER-RUNTIME
 ####################################################
 xulrunner-runtime.tar.bz2:
-	wget -c $(XULRUNNERRUNTIMEURL) -O xulrunner-runtime.tar.bz2
+	$(DOWNLOADER) xulrunner-runtime.tar.bz2 $(XULRUNNERRUNTIMEURL)
 
 xulrunner: xulrunner-runtime.tar.bz2
 	if test ! -d xulrunner; then tar -xf xulrunner-runtime.tar.bz2 ; fi;
 
 xulrunner-11.0.en-US.mac-pkg.dmg:
-	wget -O xulrunner-11.0.en-US.mac-pkg.dmg -c http://$(DEPMIRROR)/dev/xulrunner-11.0.en-US.mac-pkg.dmg
+	$(DOWNLOADER) xulrunner-11.0.en-US.mac-pkg.dmg $(DEP_MIRROR)/xulrunner-11.0.en-US.mac-pkg.dmg
 
 xr_target/xulrunner-11.0.en-US.mac.pkg: xulrunner-11.0.en-US.mac-pkg.dmg
 	mkdir -p xr_{mount,target}
@@ -80,7 +80,7 @@ xr_target/xulrunner-11.0.en-US.mac/XUL.framework: xr_target/xulrunner-11.0.en-US
 ####################################################
 
 zlib.tar.gz:
-	wget -c -O zlib.tar.gz http://$(DEPMIRROR)/dev/zlib-1.2.3.tar.gz 
+	$(DOWNLOADER) zlib.tar.gz $(DEP_MIRROR)/zlib-1.2.3.tar.gz 
 
 zlib-1.2.3: zlib.tar.gz
 	tar -xf zlib.tar.gz
@@ -101,7 +101,7 @@ zlib-1.2.3/zlib.lib: zlib-1.2.3
 ####################################################
 
 xapian-core.tar.gz:
-	wget -c -O xapian-core.tar.gz http://$(DEPMIRROR)/dev/xapian-core-1.2.3.tar.gz
+	$(DOWNLOADER) xapian-core.tar.gz $(DEP_MIRROR)/xapian-core-1.2.3.tar.gz
 
 xapian-core-1.2.3: xapian-core.tar.gz
 	tar -xf xapian-core.tar.gz
@@ -139,10 +139,10 @@ xapian-core-1.2.3/win32/Release/libs/libunicode.lib: xapian-core-1.2.3 xapian-wi
 ####################################################
 
 icu4c-4_4_2-src.tgz:
- 	wget -c -O icu4c-4_4_2-src.tgz http://$(DEPMIRROR)/dev/icu4c-4_4_2-src.tgz
+ 	$(DOWNLOADER) icu4c-4_4_2-src.tgz $(DEP_MIRROR)/icu4c-4_4_2-src.tgz
 
 icu4c-49_1_1-src.tgz:
-	wget -c -O icu4c-49_1_1-src.tgz http://$(DEPMIRROR)/dev/icu4c-49_1_1-src.tgz
+	$(DOWNLOADER) icu4c-49_1_1-src.tgz $(DEP_MIRROR)/icu4c-49_1_1-src.tgz
 
 if IS_OLD_ICU
 icu/: icu4c-4_4_2-src.tgz
@@ -169,7 +169,7 @@ icu/source/build-x86_64/lib/libicudata.dylib icu/source/build-x86_64/lib/libicuu
 	cd icu/source && mkdir -p build-x86_64 && CFLAGS=" -fPIC " ./runConfigureICU MacOSX --prefix=${DEP_PATH}/icu/source/build-x86_64 --with-library-bits=64 --disable-samples --disable-tests --disable-extras --enable-static && make clean && make && make install
 
 icu.zip:
-	wget -c http://$(DEPMIRROR)/dev/icu4c-4_4-Win32-msvc9.zip -O icu.zip
+	$(DOWNLOADER) icu.zip $(DEP_MIRROR)/icu4c-4_4-Win32-msvc9.zip
 
 icu-win: icu.zip
 	unzip -d icu-win/ icu.zip
@@ -179,7 +179,7 @@ icu-win: icu.zip
 ####################################################
 
 sqlite-autoconf-3071000.tar.gz:
-	wget -c -O sqlite-autoconf-3071000.tar.gz http://$(DEPMIRROR)/dev/sqlite-autoconf-3071000.tar.gz
+	$(DOWNLOADER) sqlite-autoconf-3071000.tar.gz $(DEP_MIRROR)/sqlite-autoconf-3071000.tar.gz
 
 sqlite-autoconf-3071000: sqlite-autoconf-3071000.tar.gz
 	tar xf sqlite-autoconf-3071000.tar.gz
@@ -204,7 +204,7 @@ sqlite-autoconf-3071000/build-x86_64/lib/libsqlite3.dylib: sqlite-autoconf-30710
 ####################################################
 
 libmicrohttpd-0.9.19.tar.gz: 
-	wget -c -O libmicrohttpd-0.9.19.tar.gz http://$(DEPMIRROR)/dev/libmicrohttpd-0.9.19.tar.gz
+	$(DOWNLOADER) libmicrohttpd-0.9.19.tar.gz $(DEP_MIRROR)/libmicrohttpd-0.9.19.tar.gz
 
 libmicrohttpd-0.9.19: libmicrohttpd-0.9.19.tar.gz	
 	tar xf libmicrohttpd-0.9.19.tar.gz
@@ -230,12 +230,12 @@ libmicrohttpd-0.9.19/build-x86_64/lib/libmicrohttpd.dylib: libmicrohttpd-0.9.19/
 
 xz.tar.bz2:
 if IS_WIN
-	wget -c http://$(DEPMIRROR)/dev/xz-4.999.9beta.tar.bz2 -O xz.tar.bz2
+	$(DOWNLOADER) xz.tar.bz2 $(DEP_MIRROR)/xz-4.999.9beta.tar.bz2
 else 
 if IS_OSX
-	wget -c http://$(DEPMIRROR)/dev/xz-4.999.9beta.tar.bz2 -O xz.tar.bz2
+	$(DOWNLOADER) xz.tar.bz2 $(DEP_MIRROR)/xz-4.999.9beta.tar.bz2
 else
-	wget -c http://$(DEPMIRROR)/dev/xz-5.0.3.tar.bz2 -O xz.tar.bz2
+	$(DOWNLOADER) xz.tar.bz2 $(DEP_MIRROR)/xz-5.0.3.tar.bz2
 endif
 endif
 
@@ -273,11 +273,11 @@ xz/build-x86_64/lib/liblzma.dylib: xz/
 ####################################################
 
 aria2c: 
-	wget -c -O aria2c http://$(DEPMIRROR)/dev/aria2c.$(ARCH)
+	$(DOWNLOADER) aria2c $(DEP_MIRROR)/aria2c.$(ARCH)
 	chmod +x aria2c
 
 aria2-1.14.2.dmg:
-	wget -c -O aria2-1.14.2.dmg http://$(DEPMIRROR)/dev/aria2-1.14.2.dmg
+	$(DOWNLOADER) aria2-1.14.2.dmg $(DEP_MIRROR)/aria2-1.14.2.dmg
 
 aria2-1.14.2.pkg: aria2-1.14.2.dmg
 	mkdir -p ./aria_dmg
@@ -293,7 +293,7 @@ aria2-1.14.2/usr/bin/aria2c: aria2-1.14.2.pkg
 ####################################################
 
 clucene-core-0.9.21b.tar.bz2:
-	wget -c -O clucene-core-0.9.21b.tar.bz2 http://$(DEPMIRROR)/dev/clucene-core-0.9.21b.tar.bz2
+	$(DOWNLOADER) clucene-core-0.9.21b.tar.bz2 $(DEP_MIRROR)/clucene-core-0.9.21b.tar.bz2
 
 clucene-core-0.9.21b: clucene-core-0.9.21b.tar.bz2
 	tar xf clucene-core-0.9.21b.tar.bz2
@@ -318,7 +318,7 @@ clucene-core-0.9.21b/build-x86_64/lib/libclucene.dylib: clucene-core-0.9.21b/
 ####################################################
 
 e2fsprogs-1.42.tar.gz:
-	wget -c -O e2fsprogs-1.42.tar.gz http://$(DEPMIRROR)/dev/e2fsprogs-1.42.tar.gz
+	$(DOWNLOADER) e2fsprogs-1.42.tar.gz $(DEP_MIRROR)/e2fsprogs-1.42.tar.gz
 
 e2fsprogs-1.42: e2fsprogs-1.42.tar.gz
 	tar xf e2fsprogs-1.42.tar.gz

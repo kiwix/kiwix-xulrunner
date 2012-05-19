@@ -213,6 +213,7 @@ SELF="SELF"
 DEP_PATH="${CURRENT_PATH}/src/dependencies"
 LIBS_ROOT="${LD_LIBRARY_PATH}:${LIBRARY_PATH}:/usr/lib:/lib"
 SERVER_BIN="${CURRENT_PATH}/src/server/kiwix-serve"
+DEP_MIRROR="http://download.kiwix.org/dev"
 
 COMPIL_DEPS=0
 STATIC_BINS=0
@@ -1174,6 +1175,31 @@ fi
 DEP_LIST=`echo $DEP_LIST | sed -e "s,$DEP_PATH/,,g"`
 
 ####################################################
+############ DEPENDENCIES MIRROR
+####################################################
+
+# sets URI to dependencies mirror
+AC_ARG_WITH(mirror,
+			AC_HELP_STRING([--with-mirror=URI], [alternate location for dependencies download]),
+			  			   DEP_MIRROR=${withval})
+
+# sets URI to dependencies mirror
+AC_ARG_WITH(downloader,
+			AC_HELP_STRING([--with-downloader=(wget|curl|command)], [alternate download tool (default is wget)]),
+			  			   DOWNLOADERREQ=${withval})
+
+# wget is default
+if test [ "$DOWNLOADERREQ" = "" -o "$DOWNLOADERREQ" = "wget" ]
+then
+	DOWNLOADER="wget -c -O"
+elif test [ "$DOWNLOADERREQ" = "curl" ]
+then
+	DOWNLOADER="curl -C - --retry 10 --retry-delay 1 -o"
+else
+	DOWNLOADER=$DOWNLOADERREQ
+fi
+
+####################################################
 ############ EXPORTS & OUTPUT
 ####################################################
 
@@ -1206,6 +1232,8 @@ AC_SUBST(IS_OLD_GECKO)
 AC_SUBST(IS_OLD_ICU)
 AC_SUBST(SERVER_BIN)
 AC_SUBST(STATIC_BINS)
+AC_SUBST(DEP_MIRROR)
+AC_SUBST(DOWNLOADER)
 
 AM_CONDITIONAL([COMPIL_DEPS], [test "$COMPIL_DEPS" -eq 1])
 AM_CONDITIONAL([IS_WIN], [test "$IS_WIN" -eq 1])
@@ -1376,6 +1404,8 @@ $BINECHO -n "WITH_INSTALLER		" ; yesno $WITH_INSTALLER
 $BINECHO -n "WITH_SEARCHER		" ; yesno $WITH_SEARCHER
 $BINECHO -n "WITH_READER		" ; yesno $WITH_READER
 echo ""
+$BINECHO -n "DEP_MIRROR		" ; $BINECHO $DEP_MIRROR
+$BINECHO -n "DOWNLOADER		" ; $BINECHO $DOWNLOADER
 $BINECHO -n "DEP_LIST		" ; $BINECHO $DEP_LIST
 echo ""
 $BINECHO -n "EMBED_LIBS		" ; $BINECHO $EMBED_LIBS
