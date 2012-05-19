@@ -4,7 +4,7 @@ Kiwix 0.9 rc1
 * FIXED: Bad aria2c process mgmt. by introducing aria2 v1.14 (ID: 3430225)
 * FIXED: Invisible menuitems icons on GNU/Linux
 * FIXED: Blanck 404 error pages served by kiwix-serve (ID: 3417227)
-* FIXED: Rrror during the installation of Ubuntu packages (ID: 3437855)
+* FIXED: Error during the installation of Ubuntu packages (ID: 3437855)
 * FIXED: Bad singleton-window implementation (ID: 3444121)
 * FIXED: Compilation with CLucene 2.3 (ID: 3405531)
 * FIXED: To high article count in the ZIM library (ID: 3396763)
