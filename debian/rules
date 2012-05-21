@@ -3,7 +3,7 @@
 config.status: configure
 	dh_testdir
 	if [ -e ./autogen.sh ] ; then ./autogen.sh ; fi
-	./configure --prefix=/usr --mandir=\$${prefix}/share/man --infodir=\$${prefix}/share/info CFLAGS="$(CFLAGS)" LDFLAGS="-Wl,-z,defs"
+	./configure --prefix=/usr --mandir=\$${prefix}/share/man --infodir=\$${prefix}/share/info
 
 build: config.status 
 	dh_testdir
