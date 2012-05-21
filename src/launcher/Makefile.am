@@ -6,4 +6,4 @@ kiwix_launcher_SOURCES= kiwix-launcher.cpp ../common/pathTools.cpp
 include_HEADERS= ../common/pathTools.h 
 
 kiwix_launcher_CXXFLAGS= -I../common/
-kiwix_launcher_LDFLAGS=
+kiwix_launcher_LDFLAGS=$(CHECK_LDFLAGS)

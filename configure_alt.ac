@@ -214,6 +214,7 @@ DEP_PATH="${CURRENT_PATH}/src/dependencies"
 LIBS_ROOT="${LD_LIBRARY_PATH}:${LIBRARY_PATH}:/usr/lib:/lib"
 SERVER_BIN="${CURRENT_PATH}/src/server/kiwix-serve"
 DEP_MIRROR="http://download.kiwix.org/dev"
+CHECK_LDFLAGS="-Wl,-z,defs"
 
 COMPIL_DEPS=0
 STATIC_BINS=0
@@ -491,10 +492,18 @@ AC_ARG_WITH(extra-includes,
             [  --with-extra-includes=DIR:DIR	PATH like list of folder to add to include lookup],
             export CPATH="${withval}")
 
+# add debug symbols
 AC_ARG_WITH([debug],
 			AC_HELP_STRING([--with-debug],
 						   [add debug symbols]),
 		    CFLAGS="${CFLAGS} -g "; CXXFLAGS="${CXXFLAGS} -g ")
+
+# manager is a command line to to build library
+AC_ARG_ENABLE(ldcheck,
+			  AC_HELP_STRING([--enable-ldcheck],
+			  				 [enable ld check for unresolved dependencies (default is yes)]),
+							 [], [enable_ldchecks=yes])
+ 							 AS_IF([test "x$enable_ldchecks" = "xyes"], [], [CHECK_LDFLAGS=""]) 
 
 if test [ $WITH_MANAGER -eq 1 -o $WITH_SERVER -eq 1 -o $WITH_LAUNCHER -eq 1 -o $WITH_INDEXER -eq 1 -o $WITH_INSTALLER -eq 1 -o $WITH_SEARCHER -eq 1 -o $WITH_READER -eq 1 ] ; then
 	REQUIRE_STATIC=1
@@ -1234,6 +1243,7 @@ AC_SUBST(SERVER_BIN)
 AC_SUBST(STATIC_BINS)
 AC_SUBST(DEP_MIRROR)
 AC_SUBST(DOWNLOADER)
+AC_SUBST(CHECK_LDFLAGS)
 
 AM_CONDITIONAL([COMPIL_DEPS], [test "$COMPIL_DEPS" -eq 1])
 AM_CONDITIONAL([IS_WIN], [test "$IS_WIN" -eq 1])
@@ -1416,6 +1426,7 @@ $BINECHO -n "CPP			" ; $BINECHO $CPP
 $BINECHO -n "CXXCPP			" ; $BINECHO $CXXCPP
 $BINECHO -n "CFLAGS			" ; $BINECHO $CFLAGS
 $BINECHO -n "CXXFLAGS		" ; $BINECHO $CXXFLAGS
+$BINECHO -n "CHECK_LDFLAGS		" ; $BINECHO $CHECK_LDFLAGS
 $BINECHO ""
 $BINECHO -n "GECKO_SDK_PATH		" ; $BINECHO $GECKO_SDK_PATH
 $BINECHO -n "XULRUNNER_RUNTIME_PATH	" ; $BINECHO $XULRUNNER_RUNTIME_PATH
