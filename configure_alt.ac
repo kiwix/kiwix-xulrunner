@@ -1352,6 +1352,7 @@ AC_SUBST(UUID_FILES)
 AC_CONFIG_FILES([
   Makefile
   src/Makefile
+  src/man/Makefile
   src/dependencies/Makefile
   src/zimlib/Makefile
   src/zimlib/src/Makefile

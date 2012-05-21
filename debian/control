@@ -22,7 +22,8 @@ Homepage: http://www.kiwix.org/
 
 Package: kiwix
 Architecture: any
-Depends: debianutils, 
+Depends: debianutils (>= 1.6), 
+	 ${shlibs:Depends}, 
 	 ${misc:Depends},
 	 libicu44,
 	 libxapian22,

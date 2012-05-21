@@ -1,27 +1,20 @@
-Upstream Author(s):
+Upstream Authors:
 
-    Emmanuel Engelhart <kelson@kiwix.org>
-    Guillaume Duhamel <gduhamel@linterweb.com>
-    Fabien Coullon <fcoulon@linterweb.com>
-    Renaud Gaudin <rgaudin@gmail.com>
-    Wilfredo Rodriguez <wilfredor@kiwix.org>
+    © 2006,2012 Emmanuel Engelhart <kelson@kiwix.org>
+    © 2006 Guillaume Duhamel <gduhamel@linterweb.com>
+    © 2006 Fabien Coullon <fcoulon@linterweb.com>
+    © 2006,2012 Renaud Gaudin <rgaudin@gmail.com>
+    © 2008 Wilfredo Rodriguez <wilfredor@kiwix.org>
 
-Package Authors(s):
+Package Authors:
 
+	Renaud Gaudin <rgaudin@gmail.com>
     Emmanuel Engelhart <kelson@kiwix.org>
     Jorge Gonzalez <jag2kn@gmail.com>
 
 License:
 
-    This program is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
+	This program is released under the terms of the GPLv3 licence.
 
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License
-    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+	On Debian systems, the complete text of the GNU General Public
+	License can be found in /usr/share/common-licenses/GPL-3.
