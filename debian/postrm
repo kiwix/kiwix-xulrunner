@@ -1,4 +1,4 @@
 #!/bin/bash
 set -e
 
-update-rc.d kiwix-serve remove
+update-rc.d kiwix remove

@@ -4,7 +4,7 @@ add_SCRIPTS=kiwix-compact
 adddir=$(bindir)/
 
 inidir=$(pkglibdir)
-ini_DATA=application.ini
+ini_DATA=application.ini chrome.manifest
 
 launcherdir=$(pkglibdir)
 launcher_SCRIPTS=kiwix

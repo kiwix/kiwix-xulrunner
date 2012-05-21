@@ -79,13 +79,13 @@ dist-hook:
 
 install-exec-hook:
 	rm -rf `find $(DESTDIR)$(libdir) -name "*.la" -o -name "*.a"`
-	cd $(DESTDIR)$(libdir)/kiwix/components && ln -s libZimXapianIndexer.$(SHARED_EXT) zimXapianIndexer.$(SHARED_EXT)
-	cd $(DESTDIR)$(libdir)/kiwix/components && ln -s libCluceneAccessor.$(SHARED_EXT) cluceneAccessor.$(SHARED_EXT)
-	cd $(DESTDIR)$(libdir)/kiwix/components && ln -s libContentManager.$(SHARED_EXT) contentManager.$(SHARED_EXT)
-	cd $(DESTDIR)$(libdir)/kiwix/components && ln -s libServerManager.$(SHARED_EXT) serverManager.$(SHARED_EXT)
-	cd $(DESTDIR)$(libdir)/kiwix/components && ln -s libXapianAccessor.$(SHARED_EXT) xapianAccessor.$(SHARED_EXT)
-	cd $(DESTDIR)$(libdir)/kiwix/components && ln -s libZimAccessor.$(SHARED_EXT) zimAccessor.$(SHARED_EXT)
-	cd $(DESTDIR)$(libdir)/kiwix/components && ln -s libZimCluceneIndexer.$(SHARED_EXT) zimCluceneIndexer.$(SHARED_EXT)
+	cd $(DESTDIR)$(libdir)/kiwix/components && ln -sf libZimXapianIndexer.$(SHARED_EXT) zimXapianIndexer.$(SHARED_EXT)
+	cd $(DESTDIR)$(libdir)/kiwix/components && ln -sf libCluceneAccessor.$(SHARED_EXT) cluceneAccessor.$(SHARED_EXT)
+	cd $(DESTDIR)$(libdir)/kiwix/components && ln -sf libContentManager.$(SHARED_EXT) contentManager.$(SHARED_EXT)
+	cd $(DESTDIR)$(libdir)/kiwix/components && ln -sf libServerManager.$(SHARED_EXT) serverManager.$(SHARED_EXT)
+	cd $(DESTDIR)$(libdir)/kiwix/components && ln -sf libXapianAccessor.$(SHARED_EXT) xapianAccessor.$(SHARED_EXT)
+	cd $(DESTDIR)$(libdir)/kiwix/components && ln -sf libZimAccessor.$(SHARED_EXT) zimAccessor.$(SHARED_EXT)
+	cd $(DESTDIR)$(libdir)/kiwix/components && ln -sf libZimCluceneIndexer.$(SHARED_EXT) zimCluceneIndexer.$(SHARED_EXT)
 
 kiwix/components/zimAccessor.so: 
 	ln -f -s ../../src/components/zimAccessor/.libs/libZimAccessor.so ./kiwix/components/zimAccessor.so
