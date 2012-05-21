@@ -1,4 +1,4 @@
-bin_PROGRAMS=kiwix-launcher
+noinst_PROGRAMS=kiwix-launcher
 
 AM_CPPFLAGS=-I$(top_srcdir)/src/common 
 

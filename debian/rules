@@ -23,7 +23,7 @@ install: build
 	dh_installdirs
 
 	# Add here commands to install the package into debian/kiwix.
-	$(MAKE) DESTDIR=$(CURDIR)/debian/kiwix install
+	$(MAKE) DESTDIR=$(CURDIR)/debian/kiwix install-strip
 
 # Build architecture-independent files here.
 binary-indep: build install
