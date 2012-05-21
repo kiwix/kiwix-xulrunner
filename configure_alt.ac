@@ -1351,7 +1351,6 @@ AC_SUBST(UUID_FILES)
 # Configure the output files
 AC_CONFIG_FILES([
   Makefile
-  etc/Makefile
   src/Makefile
   src/man/Makefile
   src/dependencies/Makefile
