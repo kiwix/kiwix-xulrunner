@@ -1,6 +1,8 @@
-kiwix (0.9-beta6-0~wheeze) wheeze; urgency=low
+kiwix (0.9-beta6-0~wheezy) wheezy; urgency=low
 
   * New version
+
+ -- Renaud Gaudin <reg@kiwix.org>  Mon, 21 May 2011 17:00:00 +0000
 
 kiwix (0.9-beta5-0~oneiric) oneiric; urgency=low
 
