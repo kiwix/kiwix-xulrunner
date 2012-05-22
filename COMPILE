@@ -6,9 +6,7 @@ GNU/Linux build uses shared libraries by default.
 You will need the following dependencies to compile Kiwix for Linux
 Debian/Ubuntu packages: build-essential autoconf automake libtool pkg-config \
 libicu-dev libclucene-dev libxapian-dev libmicrohttpd-dev liblzma-dev fastjar \
-xulrunner-1.9.2-dev aria2 libc-ares-dev libssl-dev libexpat1-dev \
-libsqlite3-dev zlib1g-dev libxml2-dev libgnutls-dev \
-libgpg-error-dev libgcrypt-dev uuid-dev libuuid1 zip subversion
+xulrunner-1.9.2-dev aria2 libsqlite3-dev zlib1g-dev uuid-dev libuuid1 zip subversion
 # xapian-tools (debian wheezy)
 
 Fedora (Sugar build) packages: gcc gcc-c++ automake glibc-devel libtool \

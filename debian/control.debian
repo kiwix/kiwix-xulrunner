@@ -4,19 +4,25 @@ Priority: optional
 Maintainer: Emmanuel Engelhart <kelson@kiwix.org>
 Build-Depends: binutils,
 	debhelper,
-	g++,
+	autoconf,
+	automake,
+	libtool,
+	pkg-config,
+	m4,
+	zip,
+	python-support,
+	fastjar,
+	build-essential,
 	libxapian-dev,
 	libclucene-dev,
 	libicu-dev,
 	liblzma-dev,
 	xulrunner-dev,
 	aria2,
-	zip,
-	m4,
 	zlib1g-dev,
 	libmicrohttpd-dev,
-	libtool,
-	python-support
+	libsqlite3-dev,
+	uuid-dev
 Standards-Version: 0.9
 Homepage: http://www.kiwix.org/
 
@@ -25,15 +31,17 @@ Architecture: any
 Depends: debianutils (>= 1.6), 
 	 ${shlibs:Depends}, 
 	 ${misc:Depends},
-	 libicu48,
 	 libxapian22,
+ 	 xapian-tools,
 	 libclucene0ldbl,
-	 xapian-tools,
+ 	 libicu48,
+ 	 liblzma5,
 	 xulrunner-10.0,
 	 aria2,
  	 zlib1g,
-	 liblzma5,
-	 libmicrohttpd5
+	 libmicrohttpd5,
+	 libsqlite3-0,
+	 libuuid1
 Recommends: 
 Suggests: 
 Conflicts: 
