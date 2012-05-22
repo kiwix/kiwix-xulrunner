@@ -1,3 +1,2 @@
-#! /bin/sh
 
 DAEMON_ARGS="--library --port=80 --daemon /etc/kiwix/library.xml"
