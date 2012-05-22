@@ -71,3 +71,21 @@ autoconf
 
 # Generate the Makefile.in
 automake -a --foreign
+
+CONF_DEB=""
+if [ "$2" != "" ] ; then
+    CONF_DEB=$2
+fi
+
+if [ "$CONF_DEB" = "" ]
+then
+    exit
+fi
+
+# preparing deb recipe
+cd debian
+for f in `find . -name "*.${CONF_DEB}"`
+do
+    bname=`echo "$f" |awk '{split($0,a,"."); print a[2]}' | awk '{split($0,a,"/"); print a[2]}'`
+    ln -sf ${bname}.${CONF_DEB} ${bname}
+done
