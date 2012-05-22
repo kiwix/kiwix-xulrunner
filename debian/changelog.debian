@@ -1,5 +1,5 @@
-kiwix (0.9-beta6-0~wheezy) wheezy; urgency=low
+kiwix (0.9-0~wheezy) wheezy; urgency=low
 
   * Initial Debian version.
 
- -- Renaud Gaudin <reg@kiwix.org>  Mon, 21 May 2011 17:00:00 +0000
+ -- Renaud Gaudin <reg@kiwix.org>  Mon, 22 May 2011 17:00:00 +0000
