@@ -2,7 +2,7 @@
 
 config.status: configure
 	dh_testdir
-	if [ -e ./autogen.sh ] ; then ./autogen.sh ; fi
+	if [ -e ./autogen.sh ] ; then ./autogen.sh alt ; fi
 	./configure --prefix=/usr --mandir=\$${prefix}/share/man --infodir=\$${prefix}/share/info
 
 build: config.status 
