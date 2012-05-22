@@ -376,15 +376,15 @@ distserver:
 
 # Windows rule
 win:
-	cd src/dependencies ; make win
-	cd src/zimlib/src ; if [ ! -f zim.lib ] ; then make -f Makefile.mvsc ; fi
-	cd src/ctpp2/src ; if [ ! -f ctpp2.lib ] ; then make -f Makefile.mvsc ; fi
-	cd src/pugixml ; if [ ! -f pugixml.lib ] ; then make -f Makefile.mvsc ; fi
-	cd src/components/xapianAccessor ; if [ ! -f xapianAccessor.dll ] ; then make -f Makefile.mvsc ; fi
-	cd src/components/zimAccessor ; if [ ! -f zimAccessor.dll ] ; then make -f Makefile.mvsc ; fi
-	cd src/components/zimXapianIndexer ; if [ ! -f zimXapianIndexer.dll ] ; then make -f Makefile.mvsc ; fi
-	cd src/components/contentManager ; if [ ! -f contentManager.dll ] ; then make -f Makefile.mvsc ; fi
-	cd src/components/serverManager ; if [ ! -f serverManager.dll ] ; then make -f Makefile.mvsc ; fi
+	cd $(DEP_PATH) ; make win
+	cd src/zimlib/src ; if [ ! -f zim.lib ] ; then make -f Makefile.msvc ; fi
+	cd src/ctpp2/src ; if [ ! -f ctpp2.lib ] ; then make -f Makefile.msvc ; fi
+	cd src/pugixml ; if [ ! -f pugixml.lib ] ; then make -f Makefile.msvc ; fi
+	cd src/components/xapianAccessor ; if [ ! -f xapianAccessor.dll ] ; then make -f Makefile.msvc ; fi
+	cd src/components/zimAccessor ; if [ ! -f zimAccessor.dll ] ; then make -f Makefile.msvc ; fi
+	cd src/components/zimXapianIndexer ; if [ ! -f zimXapianIndexer.dll ] ; then make -f Makefile.msvc ; fi
+	cd src/components/contentManager ; if [ ! -f contentManager.dll ] ; then make -f Makefile.msvc ; fi
+	cd src/components/serverManager ; if [ ! -f serverManager.dll ] ; then make -f Makefile.msvc ; fi
 	cp src/components/xapianAccessor/xapianAccessor.dll kiwix/components/
 	cp src/components/xapianAccessor/IXapianAccessor.xpt kiwix/components/xapianAccessor.xpt
 	cp src/components/zimAccessor/zimAccessor.dll kiwix/components/
@@ -395,22 +395,35 @@ win:
 	cp src/components/contentManager/IContentManager.xpt kiwix/components/contentManager.xpt
 	cp src/components/serverManager/serverManager.dll kiwix/components/
 	cp src/components/serverManager/IServerManager.xpt kiwix/components/serverManager.xpt
-	cp -r src/dependencies/xulrunner ./kiwix
+	cp -r $(XULRUNNER_RUNTIME_PATH) ./kiwix
 	cp /c/Program\ Files/Microsoft\ Visual\ Studio\ 9.0/VC/redist/x86/Microsoft.VC90.CRT/* kiwix/xulrunner/
-	cp -r src/dependencies/xz/windows/liblzma.dll ./kiwix/xulrunner
-	cp src/dependencies/icu/bin/icudt*.dll ./kiwix/xulrunner
-	cp src/dependencies/icu/bin/icuin*.dll ./kiwix/xulrunner
-	cp src/dependencies/icu/bin/icuuc*.dll ./kiwix/xulrunner
-	cp static/results.tmpl kiwix/chrome/static/results.tmpl
+	cp -r $(DEP_PATH)/xz/windows/liblzma.dll ./kiwix/xulrunner
+	cp $(DEP_PATH)/icu/bin/icudt*.dll ./kiwix/xulrunner
+	cp $(DEP_PATH)/icu/bin/icuin*.dll ./kiwix/xulrunner
+	cp $(DEP_PATH)/icu/bin/icuuc*.dll ./kiwix/xulrunner
 	rm -rf kiwix/xulrunner/dictionaries
 	rm -rf kiwix/xulrunner/xulrunner-stub.exe
 	rm -rf kiwix/xulrunner/README
-	cd src/indexer ; if [ ! -f kiwix-index.exe ] ; then make -f Makefile.mvsc ; fi	
-	cd src/manager ; if [ ! -f kiwix-manage.exe ] ; then make -f Makefile.mvsc ; fi	
-	cd src/installer ; if [ ! -f kiwix-install.exe ] ; then make -f Makefile.mvsc ; fi	
+if WITH_INDEXER
+	cd src/indexer ; if [ ! -f kiwix-index.exe ] ; then make -f Makefile.msvc ; fi
 	cp src/indexer/kiwix-index.exe ./kiwix/xulrunner
+endif
+
+if WITH_MANAGER
+	cd src/manager ; if [ ! -f kiwix-manage.exe ] ; then make -f Makefile.msvc ; fi
 	cp src/manager/kiwix-manage.exe ./kiwix/xulrunner
+endif
+
+if WITH_INSTALLER
+	cd src/installer ; if [ ! -f kiwix-install.exe ] ; then make -f Makefile.msvc ; fi
 	cp src/installer/kiwix-install.exe ./kiwix/xulrunner
+endif
+
+if WITH_SERVER
+	cd src/server ; if [ ! -f kiwix-serve.exe ] ; then make -f Makefile.msvc ; fi
+	cp src/server/kiwix-serve.exe ./kiwix/xulrunner
+endif
+	
 	sed -i -e 's,\.so,\.dll,g' kiwix/chrome.manifest
 
 windist: 

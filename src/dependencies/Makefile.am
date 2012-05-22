@@ -48,8 +48,17 @@ xulrunner-sdk-x86_64: xulrunner-11.0.en-US.mac-x86_64.sdk.tar.bz2
 universal-sdk: xulrunner-sdk-i386 xulrunner-sdk-x86_64
 	mkdir -p universal-sdk && cd universal-sdk && ln -sf ../xulrunner-sdk-i386 i386 && 	ln -sf ../xulrunner-sdk-x86_64 x86_64
 
+if IS_WIN
+xulrunner-sdk: xulrunner-sdk-win.zip
+	if test ! -d xulrunner-sdk; then unzip xulrunner-sdk-win.zip ; fi;
+else
 xulrunner-sdk: xulrunner-sdk.tar.bz2
 	if test ! -d xulrunner-sdk; then tar -xf xulrunner-sdk.tar.bz2 ; fi;
+endif
+
+# Windows
+xulrunner-sdk-win.zip:
+	$(DOWNLOADER) xulrunner-sdk-win.zip $(DEP_MIRROR)/xulrunner-11.0.en-US.win32.sdk.zip
 
 ####################################################
 ############ XULRUNNER-RUNTIME
@@ -57,8 +66,13 @@ xulrunner-sdk: xulrunner-sdk.tar.bz2
 xulrunner-runtime.tar.bz2:
 	$(DOWNLOADER) xulrunner-runtime.tar.bz2 $(XULRUNNERRUNTIMEURL)
 
+if IS_WIN
+xulrunner: xulrunner-win.zip
+	if test ! -d xulrunner; then unzip xulrunner-win.zip ; fi;
+else
 xulrunner: xulrunner-runtime.tar.bz2
 	if test ! -d xulrunner; then tar -xf xulrunner-runtime.tar.bz2 ; fi;
+endif
 
 xulrunner-11.0.en-US.mac-pkg.dmg:
 	$(DOWNLOADER) xulrunner-11.0.en-US.mac-pkg.dmg $(DEP_MIRROR)/xulrunner-11.0.en-US.mac-pkg.dmg
@@ -72,6 +86,10 @@ xr_target/xulrunner-11.0.en-US.mac.pkg: xulrunner-11.0.en-US.mac-pkg.dmg
 
 xr_target/xulrunner-11.0.en-US.mac/XUL.framework: xr_target/xulrunner-11.0.en-US.mac.pkg
 	./tools/unpkg.py ./xr_target/xulrunner-11.0.en-US.mac.pkg
+
+# Windows
+xulrunner-win.zip:
+	$(DOWNLOADER) xulrunner-win.zip $(DEP_MIRROR)/xulrunner-11.0.en-US.win32.zip
 
 ####################################################
 ############ ZLIB
@@ -121,9 +139,16 @@ xapian-core-1.2.3/build-x86_64/lib/libxapian.dylib xapian-core-1.2.3/build-x86_6
 	cd xapian-core-1.2.3 && mkdir -p build-x86_64 && EXTERN_PATH=`pwd` CC="gcc -arch x86_64" CXX="g++ -arch x86_64" CPPFLAGS="-I${CURRENT_PATH}/src/dependencies/zlib-1.2.3/" CXXFLAGS=" -fPIC -L${CURRENT_PATH}/src/dependencies/zlib-1.2.3" ./configure --enable-shared --enable-static --prefix=$(DEP_PATH)/xapian-core-1.2.3/build-x86_64 && make clean && make && make install
 
 # Windows
-xapian-core-1.2.3/win32/Release/libs/libunicode.lib: xapian-core-1.2.3 xapian-win32.zip
+xapian-win32.zip:
+	$(DOWNLOADER) xapian-win32.zip $(DEP_MIRROR)/xapian-1.2.3-win32.zip
+
+xapian-core-1.2.3/win32: xapian-win32.zip
+	unzip xapian-win32.zip
+	mv win32 ./xapian-core-1.2.3/
+
+xapian-core-1.2.3/win32/Release/libs/libunicode.lib: xapian-core-1.2.3 xapian-core-1.2.3/win32
 	cd xapian-core-1.2.3/win32; sed -e "s/\\-MD/\\-MT/" config.mak > config.mak.bis
-	cd xapian-core-1.2.3/win32; sed -e "s/C\\:\\\gnu\\\zlib123-dll/C\\:\\\mozilla\\-build\\\moulinkiwix\\\src\\\dependences\\\zlib\\-1\\.2\\.3/" config.mak.bis > config.mak
+	cd xapian-core-1.2.3/win32; sed -e "s/C\\:\\\gnu\\\zlib123-dll/C\\:\\\mozilla\\-build\\\moulinkiwix\\\src\\\dependencies\\\zlib\\-1\\.2\\.3/" config.mak.bis > config.mak
 	cd xapian-core-1.2.3/win32; sed -e "s/zdll\\.lib/zlib\\.lib/" config.mak > config.mak.bis
 	cd xapian-core-1.2.3/win32; sed -e "s/.ZLIB_DIR.\\\include/(ZLIB_DIR)/" config.mak.bis > config.mak
 	cd xapian-core-1.2.3/win32; sed -e "s/.ZLIB_DIR.\\\lib/(ZLIB_DIR)/" config.mak > config.mak.bis
@@ -169,8 +194,8 @@ icu/source/build-x86_64/lib/libicudata.dylib icu/source/build-x86_64/lib/libicuu
 icu.zip:
 	$(DOWNLOADER) icu.zip $(DEP_MIRROR)/icu4c-4_4-Win32-msvc9.zip
 
-icu-win: icu.zip
-	unzip -d icu-win/ icu.zip
+icu/lib/icuio.lib icu/lib/icudata.lib icu/lib/icuuc.lib icu/lib/icui18n.lib: icu.zip
+	unzip icu.zip
 
 ####################################################
 ############ SQLITE
@@ -266,6 +291,11 @@ xz/build-i386/lib/liblzma.dylib: xz/
 xz/build-x86_64/lib/liblzma.dylib: xz/
 	cd xz && mkdir -p build-x86_64 && CC="gcc -arch x86_64" CXX="g++ -arch x86_64" CFLAGS=" -fPIC " ./configure --disable-assembler --enable-shared --enable-static --prefix=$(DEP_PATH)/xz/build-x86_64 && make clean && make && make install
 
+# Windows
+xz/windows/liblzma.lib: xz
+	cd xz/windows ; make liblzma
+	cd xz/windows ; lib /def:liblzma.def /out:liblzma.lib /machine:ix86	
+
 ####################################################
 ############ ARIA2 (downloaded)
 ####################################################
@@ -274,6 +304,7 @@ aria2c:
 	$(DOWNLOADER) aria2c $(DEP_MIRROR)/aria2c.$(ARCH)
 	chmod +x aria2c
 
+# OSX
 aria2-1.14.2.dmg:
 	$(DOWNLOADER) aria2-1.14.2.dmg $(DEP_MIRROR)/aria2-1.14.2.dmg
 
@@ -285,6 +316,10 @@ aria2-1.14.2.pkg: aria2-1.14.2.dmg
 
 aria2-1.14.2/usr/bin/aria2c: aria2-1.14.2.pkg
 	./tools/unpkg.py aria2-1.14.2.pkg
+
+# Windows
+aria2c.exe: 
+	$(DOWNLOADER) aria2c.exe $(DEP_MIRROR)/aria2c.exe
 
 ####################################################
 ############ CLUCENE
@@ -325,6 +360,29 @@ e2fsprogs-1.42/lib/libuuid.a: e2fsprogs-1.42/
 	mkdir -p e2fsprogs-1.42/build && cd e2fsprogs-1.42/ && CC=$(COMPC) CXX=$(COMPCXX) CXXFLAGS=" -fPIC " ./configure --enable-libuuid --prefix=$(DEP_PATH)/e2fsprogs-1.42/build && make clean && make && make install
 
 ####################################################
+############ ARGTABLE
+####################################################
+
+argtable2-13.tar.gz:
+	$(DOWNLOADER) argtable2-13.tar.gz $(DEP_MIRROR)/argtable2-13.tar.gz
+
+argtable2-13: argtable2-13.tar.gz
+	tar xf argtable2-13.tar.gz
+
+argtable2-13/lib/argtable2.lib: argtable2-13
+	cd argtable2-13/src ; nmake.exe -f Makefile.nmake
+
+####################################################
+############ PTHREAD
+####################################################
+
+pthread-win32.zip:
+	$(DOWNLOADER) pthread-win32.zip $(DEP_MIRROR)/pthread-win32.zip
+
+pthread-win32/lib/pthreadVC2.lib: pthread-win32.zip
+	unzip -d pthread-win32 pthread-win32.zip
+
+####################################################
 ############ CLEANUP (ALL)
 ####################################################
 CLEANFILES=
@@ -336,12 +394,13 @@ DISTCLEANFILES= \
 	xulrunner-sdk-win.zip  \
 	xulrunner-win.zip \
 	xulrunner-source.tar.bz2 \
-	icu.zip aria2c aria2c.i686 aria2c.x86_64
+	icu.zip aria2c aria2c.i686 aria2c.x86_64 aria2c.exe
 
 clean-local:
 	-rm -rf xapian-core-1.2.3
 	-rm -rf zlib-1.2.3
 	-rm -rf icu
+	-rm -rf win32
 	-rm -rf xz
 	-rm -rf xz-4.999.9beta
 	-rm -rf aria2-1.14.1
@@ -350,7 +409,6 @@ clean-local:
 	-rm -rf sqlite-autoconf-3071000
 
 distclean-local:
-	-rm -rf win32
 	-rm -rf xulrunner-sdk
 	-rm -rf xulrunner
 

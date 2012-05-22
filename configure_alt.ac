@@ -257,7 +257,12 @@ ZLIB_STATIC_LDFLAGS=""
 COMPILE_ZLIB=0
 COMPILED_ZLIB_CFLAGS="-I${DEP_PATH}/zlib-1.2.3"
 COMPILED_ZLIB_LDFLAGS="-L${DEP_PATH}/zlib-1.2.3/shared/lib  -lz"
+if test [ $IS_WIN -eq 1 ]
+then
+COMPILED_ZLIB_FILES="${DEP_PATH}/zlib-1.2.3/zlib.lib"
+else
 COMPILED_ZLIB_FILES="${DEP_PATH}/zlib-1.2.3/shared/lib/libz.${SHARED_EXT}"
+fi
 COMPILED_ZLIB_STATIC_LDFLAGS="${DEP_PATH}/zlib-1.2.3/static/lib/libz.a"
 
 XAPIAN_CFLAGS=""
@@ -266,7 +271,7 @@ XAPIAN_STATIC_LDFLAGS=""
 COMPILE_XAPIAN=0
 COMPILED_XAPIAN_CFLAGS="-I${DEP_PATH}/xapian-core-1.2.3/build/include"
 if test [ $IS_WIN -eq 1 ] ; then
-    COMPILED_XAPIAN_LDFLAGS="${DEP_PATH}/xapian-core-1.2.3/win32/Release/libs/libunicode.lib"
+    COMPILED_XAPIAN_FILES="${DEP_PATH}/xapian-core-1.2.3/win32/Release/libs/libunicode.lib"
 else
 	COMPILED_XAPIAN_LDFLAGS="-L${DEP_PATH}/xapian-core-1.2.3/build/lib -lxapian"
     COMPILED_XAPIAN_FILES="${DEP_PATH}/xapian-core-1.2.3/build/lib/libxapian.${SHARED_EXT}"
@@ -281,7 +286,7 @@ ICU_STATIC_LDFLAGS=""
 COMPILE_ICU=0
 COMPILED_ICU_CFLAGS="-I${DEP_PATH}/icu/source/build/include"
 if test [ $IS_WIN -eq 1 ] ; then
-	COMPILED_ICU_LDFLAGS="${DEP_PATH}/icu/lib/icuio.lib ${DEP_PATH}/icu/lib/icudata.lib ${DEP_PATH}/icu/lib/icuuc.lib ${DEP_PATH}/icu/lib/icui18n.lib"
+	COMPILED_ICU_FILES="${DEP_PATH}/icu/lib/icuio.lib ${DEP_PATH}/icu/lib/icudata.lib ${DEP_PATH}/icu/lib/icuuc.lib ${DEP_PATH}/icu/lib/icui18n.lib"
 else
 	COMPILED_ICU_LDFLAGS="-L${DEP_PATH}/icu/source/build/lib -licui18n -licuuc -licudata"
 	COMPILED_ICU_STATIC_LDFLAGS="${DEP_PATH}/icu/source/build/lib/libicui18n.a ${DEP_PATH}/icu/source/build/lib/libicuuc.a ${DEP_PATH}/icu/source/build/lib/libicudata.a"
@@ -313,7 +318,7 @@ LZMA_LDFLAGS=" -llzma"
 LZMA_STATIC_LDFLAGS=""
 COMPILE_LZMA=0
 if test [ $IS_WIN -eq 1 ] ; then
-	COMPILED_LZMA_LDFLAGS="${DEP_PATH}/xz/windows/liblzma.lib"
+	COMPILED_LZMA_FILES="${DEP_PATH}/xz/windows/liblzma.lib"
 else
 	COMPILED_LZMA_LDFLAGS="-L${DEP_PATH}/xz/build/lib  -llzma"
 	COMPILED_LZMA_STATIC_LDFLAGS="${DEP_PATH}/xz/build/lib/liblzma.a"
@@ -327,6 +332,8 @@ ARIA2_LDFLAGS=""
 COMPILE_ARIA2=0
 if test [ $IS_OSX -eq 1 ] ; then
 	COMPILED_ARIA2_FILES="${DEP_PATH}/aria2-1.14.2/usr/bin/aria2c"
+elif test [ $IS_WIN -eq 1 ] ; then
+	COMPILED_ARIA2_FILES="${DEP_PATH}/aria2c.exe"
 else
 	COMPILED_ARIA2_FILES="${DEP_PATH}/aria2c"
 fi
@@ -362,6 +369,10 @@ else
 	STATIC_GETTEXT_LDFLAGS=""
 	STATIC_ICONV_LDFLAGS=""
 fi
+
+# argtable & pthread is required only on Windows
+COMPILED_ARGTABLE_FILES="${DEP_PATH}/argtable2-13/src/argtable2.lib"
+COMPILED_PTHREAD_FILES="${DEP_PATH}/pthread-win32/lib/pthreadVC2.lib"
 
 WITH_COMPONENTS=1
 WITH_CLUCENE=0
@@ -402,6 +413,22 @@ then
 	COMPILE_UUID=1
 	WITH_LAUNCHER=1
 	WITH_SERVER=1
+elif test [ $IS_WIN -eq 1 ]
+then
+	COMPILE_GECKO_SDK=1
+	COMPILE_ZLIB=1
+	COMPILE_XAPIAN=1
+	COMPILE_ICU=1
+	COMPILE_SQLITE=0
+	COMPILE_MICROHTTPD=0
+	COMPILE_LZMA=1
+	COMPILE_ARIA2=1
+	COMPILE_CLUCENE=0
+	COMPILE_UUID=0
+	COMPILE_ARGTABLE=1
+	COMPILE_PTHREAD=1
+	WITH_LAUNCHER=0
+	WITH_SERVER=0
 else
 	COMPIL_DEPS=0
 fi
@@ -1176,9 +1203,20 @@ then
     DEP_LIST+=" $COMPILED_CLUCENE_FILES"
 fi
 EMBED_LIBS+=" $CLUCENE_FILES"
+
 if test [ $COMPILE_UUID -eq 1 ]
 then
     DEP_LIST+=" $COMPILED_UUID_FILES"
+fi
+
+if test [ $COMPILE_ARGTABLE -eq 1 ]
+then
+    DEP_LIST+=" $COMPILED_ARGTABLE_FILES"
+fi
+
+if test [ $COMPILE_PTHREAD -eq 1 ]
+then
+    DEP_LIST+=" $COMPILED_PTHREAD_FILES"
 fi
 
 DEP_LIST=`echo $DEP_LIST | sed -e "s,$DEP_PATH/,,g"`
@@ -1347,6 +1385,9 @@ AC_SUBST(UUID_LDFLAGS)
 AC_SUBST(UUID_STATIC_LDFLAGS)
 AC_SUBST(COMPILE_UUID)
 AC_SUBST(UUID_FILES)
+
+AC_SUBST(COMPILED_ARGTABLE_FILES)
+AC_SUBST(COMPILED_PTHREAD_FILES)
 
 # Configure the output files
 AC_CONFIG_FILES([

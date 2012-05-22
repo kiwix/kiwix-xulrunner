@@ -1,0 +1,48 @@
+CC=cl.exe
+LD=link.exe
+
+# Global paths
+XULRUNNER_SDK=../../dependencies/xulrunner-sdk
+ZIM=../../zimlib
+PUGIXML=../../pugixml
+ICU=../../dependencies/icu/
+
+# Binary paths
+TYPELIB_PY=python $(XULRUNNER_SDK)/sdk/bin/typelib.py
+HEADER_PY=python $(XULRUNNER_SDK)/sdk/bin/header.py
+
+# Include paths
+XULRUNNER_INCLUDE=$(XULRUNNER_SDK)/include
+ZIM_INCLUDE=${ZIM}/include
+PUGIXML_INCLUDE=${PUGIXML}
+ICU_INCLUDE=${ICU}/include
+
+# Lib paths
+XULRUNNER_LIB=$(XULRUNNER_SDK)/lib
+ZIM_LIB=${ZIM}/src
+PUGIXML_LIB=${PUGIXML}
+ICU_LIB=${ICU}/lib
+
+# idl path
+XULRUNNER_IDL=$(XULRUNNER_SDK)/idl
+
+# Compiler and linker flags
+CFLAGS=-D"XP_WIN"  -D"GECKO_VERSION=11" -D"XP_WIN32" -O2 -Oi -I"${ZIM_INCLUDE}" -I"${PUGIXML_INCLUDE}" -I"$(XULRUNNER_INCLUDE)" -I$(ICU_INCLUDE) -I../../common/ -I../../zimlib/include/win -D"_WINDLL" -FD -EHsc -MT -Gy -nologo -c -Zi -TP
+LDFLAGS=-nologo -LIBPATH:"$(XULRUNNER_LIB)" -LIBPATH:"${ZIM_LIB}" -LIBPATH:"${PUGIXML_LIB}" -LIBPATH:"$(ICU_LIB)"
+
+all: contentManager.dll
+     
+IContentManager.xpt:
+	$(TYPELIB_PY) -o IContentManager.xpt -I "$(XULRUNNER_IDL)" IContentManager.idl
+
+IContentManager.h:
+	$(HEADER_PY) -o IcontentManager.h -I "$(XULRUNNER_IDL)" IContentManager.idl
+
+objs: IContentManager.xpt IContentManager.h
+	$(CC) $(CFLAGS) contentManager.cpp  ../../common/base64.cpp ../../common/kiwix/reader.cpp ../../common/kiwix/manager.cpp ../../common/pathTools.cpp  ../../common/regexTools.cpp ../../common/componentTools.cpp ../../common/kiwix/library.cpp ../../common/unaccent.cpp
+
+contentManager.lib: objs
+		       $(LD) -lib -OUT:libContentManager.lib $(LDFLAGS) reader.obj manager.obj library.obj base64.obj unaccent.obj pathTools.obj regexTools.obj componentTools.obj
+
+contentManager.dll: contentManager.lib
+		    $(LD) -OUT:"contentManager.dll" -NOLOGO $(LDFLAGS) -DLL -NODEFAULTLIB:"MSVCRT" -OPT:REF -OPT:ICF -DYNAMICBASE -NXCOMPAT -MACHINE:X86 zim.lib pugixml.lib icuin.lib icuio.lib icule.lib iculx.lib icutu.lib icuuc.lib libcmt.lib ws2_32.lib nspr4.lib xpcom.lib xpcomglue_s.lib mozalloc.lib DelayImp.lib winmm.lib libContentManager.lib contentManager.obj
