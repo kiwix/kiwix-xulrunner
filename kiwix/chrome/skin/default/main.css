@@ -62,8 +62,9 @@
 
 /* Tool box & bar */
 #tool-box {
-    margin-left: 5px;
-    margin-right: 5px;
+    margin-left: -1px;
+    margin-right: -1px;
+    padding: 2px 5px 2px 5px;
 }
 
 #main.mac #tool-box {
@@ -456,6 +457,15 @@ tab[selected="true"] label {
 
 #main.win.notabs * #tab-box {
     padding-top: 0 !important;
+}
+
+#main.win * #tab-panels {
+    margin-right: -5px;
+}
+
+#main.win * browser {
+    maring-top: -3px;
+    margin-bottom: -2px;
 }
 
 /******** MAC */
