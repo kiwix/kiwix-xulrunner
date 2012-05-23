@@ -148,7 +148,7 @@ xapian-core-1.2.3/win32: xapian-win32.zip
 
 xapian-core-1.2.3/win32/Release/libs/libunicode.lib: xapian-core-1.2.3 xapian-core-1.2.3/win32
 	cd xapian-core-1.2.3/win32; sed -e "s/\\-MD/\\-MT/" config.mak > config.mak.bis
-	cd xapian-core-1.2.3/win32; sed -e "s/C\\:\\\gnu\\\zlib123-dll/C\\:\\\mozilla\\-build\\\moulinkiwix\\\src\\\dependencies\\\zlib\\-1\\.2\\.3/" config.mak.bis > config.mak
+	cd xapian-core-1.2.3/win32; sed -e "s/C\\:\\\gnu\\\zlib123-dll/C\\:\\\moulinkiwix\\\src\\\dependencies\\\zlib\\-1\\.2\\.3/" config.mak.bis > config.mak
 	cd xapian-core-1.2.3/win32; sed -e "s/zdll\\.lib/zlib\\.lib/" config.mak > config.mak.bis
 	cd xapian-core-1.2.3/win32; sed -e "s/.ZLIB_DIR.\\\include/(ZLIB_DIR)/" config.mak.bis > config.mak
 	cd xapian-core-1.2.3/win32; sed -e "s/.ZLIB_DIR.\\\lib/(ZLIB_DIR)/" config.mak > config.mak.bis
@@ -198,31 +198,6 @@ icu/lib/icuio.lib icu/lib/icudata.lib icu/lib/icuuc.lib icu/lib/icui18n.lib: icu
 	unzip icu.zip
 
 ####################################################
-############ SQLITE
-####################################################
-
-sqlite-autoconf-3071000.tar.gz:
-	$(DOWNLOADER) sqlite-autoconf-3071000.tar.gz $(DEP_MIRROR)/sqlite-autoconf-3071000.tar.gz
-
-sqlite-autoconf-3071000: sqlite-autoconf-3071000.tar.gz
-	tar xf sqlite-autoconf-3071000.tar.gz
-
-sqlite-autoconf-3071000/build/lib/libsqlite3.so: sqlite-autoconf-3071000/
-	cd sqlite-autoconf-3071000 && mkdir -p build && ./configure --enable-shared --enable-static --prefix=$(DEP_PATH)/sqlite-autoconf-3071000/build && make clean && make && make install
-
-# OSX Join
-sqlite-autoconf-3071000/build/lib/libsqlite3.dylib: sqlite-autoconf-3071000/build-i386/lib/libsqlite3.dylib sqlite-autoconf-3071000/build-x86_64/lib/libsqlite3.dylib
-	mkdir -p sqlite-autoconf-3071000/build/lib && cd sqlite-autoconf-3071000/build/lib && lipo ../../build-x86_64/lib/libsqlite3.dylib ../../build-i386/lib/libsqlite3.dylib -create -output libsqlite3.dylib && lipo ../../build-x86_64/lib/libsqlite3.a ../../build-i386/lib/libsqlite3.a -create -output libsqlite3.a
-
-# OSX i386
-sqlite-autoconf-3071000/build-i386/lib/libsqlite3.dylib: sqlite-autoconf-3071000/
-	cd sqlite-autoconf-3071000 && mkdir -p build-i386 && CC="gcc -arch i386" CXX="g++ -arch i386" CFLAGS=" -fPIC " ./configure --enable-shared --enable-static --prefix=$(DEP_PATH)/sqlite-autoconf-3071000/build-i386 && make clean && make && make install
-
-# OSX x86_64
-sqlite-autoconf-3071000/build-x86_64/lib/libsqlite3.dylib: sqlite-autoconf-3071000/
-	cd sqlite-autoconf-3071000 && mkdir -p build-x86_64 && CC="gcc -arch x86_64" CXX="g++ -arch x86_64" CFLAGS=" -fPIC " ./configure --enable-shared --enable-static --prefix=$(DEP_PATH)/sqlite-autoconf-3071000/build-x86_64 && make clean && make && make install
-
-####################################################
 ############ MICROHTTPD
 ####################################################
 
@@ -252,28 +227,20 @@ libmicrohttpd-0.9.19/build-x86_64/lib/libmicrohttpd.dylib: libmicrohttpd-0.9.19/
 ####################################################
 
 xz.tar.bz2:
-if IS_WIN
-	$(DOWNLOADER) xz.tar.bz2 $(DEP_MIRROR)/xz-4.999.9beta.tar.bz2
-else 
 if IS_OSX
 	$(DOWNLOADER) xz.tar.bz2 $(DEP_MIRROR)/xz-4.999.9beta.tar.bz2
 else
 	$(DOWNLOADER) xz.tar.bz2 $(DEP_MIRROR)/xz-5.0.3.tar.bz2
 endif
-endif
 
 xz: xz.tar.bz2
 	tar -xf xz.tar.bz2
-if IS_WIN
-	mv xz-4.999.9beta xz
-else
 if IS_OSX
 	mv xz-4.999.9beta xz
 	echo "patching liblzma for OSX"
 	cd xz && patch -p0 < ../patches/xz-4.999.9beta-sysctl-darwin.patch && patch -p0 < ../patches/xz-4.999.9beta-lzma-versioninfo.patch
 else
 	mv xz-5.0.3 xz
-endif
 endif
 
 xz/build/lib/liblzma.so: xz/
@@ -292,9 +259,11 @@ xz/build-x86_64/lib/liblzma.dylib: xz/
 	cd xz && mkdir -p build-x86_64 && CC="gcc -arch x86_64" CXX="g++ -arch x86_64" CFLAGS=" -fPIC " ./configure --disable-assembler --enable-shared --enable-static --prefix=$(DEP_PATH)/xz/build-x86_64 && make clean && make && make install
 
 # Windows
-xz/windows/liblzma.lib: xz
-	cd xz/windows ; make liblzma
-	cd xz/windows ; lib /def:liblzma.def /out:liblzma.lib /machine:ix86	
+xz-5.0.3-windows.zip:
+	$(DOWNLOADER) xz-5.0.3-windows.zip $(DEP_MIRROR)/xz-5.0.3-windows.zip
+
+xz-win/bin_i486/liblzma.lib: xz-5.0.3-windows.zip
+	mkdir -p xz-win ; unzip -d xz-win xz-5.0.3-windows.zip ; cd xz-win/bin_i486 ; cp -v ../doc/liblzma.def . ; lib /def:liblzma.def /out:liblzma.lib /machine:ix86
 
 ####################################################
 ############ ARIA2 (downloaded)
@@ -394,7 +363,7 @@ DISTCLEANFILES= \
 	xulrunner-sdk-win.zip  \
 	xulrunner-win.zip \
 	xulrunner-source.tar.bz2 \
-	icu.zip aria2c aria2c.i686 aria2c.x86_64 aria2c.exe
+	icu.zip aria2c aria2c.i686 aria2c.x86_64 aria2c.exe xz-5.0.3-windows.zip
 
 clean-local:
 	-rm -rf xapian-core-1.2.3
@@ -406,7 +375,7 @@ clean-local:
 	-rm -rf aria2-1.14.1
 	-rm -rf clucene-core-0.9.21b
 	-rm -rf libmicrohttpd-0.9.19
-	-rm -rf sqlite-autoconf-3071000
+	-rm -rf xz-win
 
 distclean-local:
 	-rm -rf xulrunner-sdk

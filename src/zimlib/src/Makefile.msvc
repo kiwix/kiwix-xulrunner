@@ -3,7 +3,7 @@ LD=link.exe
 
 # Global paths
 Z=../../dependencies/zlib-1.2.3
-LZMA=../../dependencies/xz/
+LZMA=../../dependencies/xz-win/
 
 # Include paths
 Z_INCLUDE=${Z}
@@ -11,7 +11,7 @@ LZMA_INCLUDE=${LZMA}/src/liblzma/api
 
 # Lib paths
 Z_LIB=${Z}
-LZMA_LIB=${LZMA}/windows
+LZMA_LIB=${LZMA}/bin_i486
 
 # Compiler and linker flags
 CFLAGS=-O2 -Oi -I"../include/win" -I"../include" -I"${LZMA_INCLUDE}" -I"${Z_INCLUDE}" -D"WIN32" -FD -EHsc -MT -Gy  -nologo -c -Zi -TP		    

@@ -50,7 +50,7 @@ then
     AC_MSG_ERROR([[cannot find any C++ compiler]])
 fi
 
-AC_CHECK_TOOL(HAVE_ZIP, zip)
+# AC_CHECK_TOOL(HAVE_ZIP, zip)
 
 # Check if running on Windows
 AC_CHECK_PROG(HAVE_CL, cl.exe, yes, no)
@@ -78,11 +78,11 @@ else
 	fi
 fi
 # check if running on Linux
-AM_CONDITIONAL([IS_LINUX], [test "$IS_POSIX" -a ! "$IS_OSX"])
+AM_CONDITIONAL([IS_LINUX], [test $IS_POSIX -eq 1 -a $IS_OSX -eq 0 ])
 
 # POSIX only checks
 # Only for POSIX systems
-if test [ "$IS_POSIX" ]
+if test [ $IS_POSIX -eq 1 ]
 then
 
   # Chek zip
@@ -294,15 +294,6 @@ else
 	COMPILED_ICU_FILES="${DEP_PATH}/icu/source/build/lib/libicui18n.${SHARED_EXT} ${DEP_PATH}/icu/source/build/lib/libicuuc.${SHARED_EXT} ${DEP_PATH}/icu/source/build/lib/libicudata.${SHARED_EXT}"
 fi
 
-# no win for sqlite as it is just a sub dependency of aria2
-SQLITE_CFLAGS=""
-SQLITE_LDFLAGS="-lsqlite3"
-SQLITE_STATIC_LDFLAGS=""
-COMPILE_SQLITE=0
-COMPILED_SQLITE_LDFLAGS="-L${DEP_PATH}/sqlite-autoconf-3071000/build/lib -lsqlite3"
-COMPILED_SQLITE_STATIC_LDFLAGS="${DEP_PATH}/sqlite-autoconf-3071000/build/lib/libsqlite3.a"
-COMPILED_SQLITE_FILES="${DEP_PATH}/sqlite-autoconf-3071000/build/lib/libsqlite3.${SHARED_EXT}"
-
 # used only for building kiwix-serve. Not available on windows.
 MICROHTTPD_CFLAGS=""
 MICROHTTPD_LDFLAGS="-lmicrohttpd"
@@ -318,7 +309,7 @@ LZMA_LDFLAGS=" -llzma"
 LZMA_STATIC_LDFLAGS=""
 COMPILE_LZMA=0
 if test [ $IS_WIN -eq 1 ] ; then
-	COMPILED_LZMA_FILES="${DEP_PATH}/xz/windows/liblzma.lib"
+	COMPILED_LZMA_FILES="${DEP_PATH}/xz-win/bin_i486/liblzma.lib"
 else
 	COMPILED_LZMA_LDFLAGS="-L${DEP_PATH}/xz/build/lib  -llzma"
 	COMPILED_LZMA_STATIC_LDFLAGS="${DEP_PATH}/xz/build/lib/liblzma.a"
@@ -383,6 +374,8 @@ WITH_INDEXER=0
 WITH_INSTALLER=0
 WITH_SEARCHER=0
 WITH_READER=0
+COMPILE_ARGTABLE=0
+COMPILE_PTHREAD=0
 
 # INTERNAL COMPONENTS
 CTPP2_CFLAGS="-I${CURRENT_PATH}/src/ctpp2/include"
@@ -405,7 +398,6 @@ then
 	COMPILE_ZLIB=1
 	COMPILE_XAPIAN=1
 	COMPILE_ICU=1
-	COMPILE_SQLITE=1
 	COMPILE_MICROHTTPD=1
 	COMPILE_LZMA=1
 	COMPILE_ARIA2=1
@@ -419,7 +411,6 @@ then
 	COMPILE_ZLIB=1
 	COMPILE_XAPIAN=1
 	COMPILE_ICU=1
-	COMPILE_SQLITE=0
 	COMPILE_MICROHTTPD=0
 	COMPILE_LZMA=1
 	COMPILE_ARIA2=1
@@ -830,57 +821,7 @@ else
 fi
 
 ####################################################
-############ SQLITE
-####################################################
-
-# if --with-x, add path to LIBRARY_PATH
-AC_ARG_WITH(sqlite,
-			AC_HELP_STRING([--with-sqlite=DIR], [alternate location for sqlite]),
-			  	export LIBRARY_PATH="${withval}:${LIBRARY_PATH}";SQLITE_PATH=${withval})
-
-# if --with-static-x, set path as X_ARCHIVE
-AC_ARG_WITH(static-sqlite,
-            AC_HELP_STRING([--with-static-sqlite=DIR/libx.a],
-            			   [Path to static archive]),
-            SQLITE_ARCHIVE=${withval})
-
-# compilation required
-if test [ $COMPILE_SQLITE -eq 1 -o "$SQLITE_PATH" == "$SELF" -o "$SQLITE_ARCHIVE" == "$SELF"] ; then
-	COMPILE_SQLITE=1
-	SQLITE_CFLAGS=$COMPILED_SQLITE_CFLAGS
-    SQLITE_LDFLAGS=$COMPILED_SQLITE_LDFLAGS
-	SQLITE_FILES=$COMPILED_SQLITE_FILES
-	SQLITE_STATIC_LDFLAGS=$COMPILED_SQLITE_STATIC_LDFLAGS
-else
-	# look for shared library.
-	AC_CHECK_HEADER([sqlite3.h],, [AC_MSG_ERROR([[cannot find sqlite3 header]])])
- 	AC_CHECK_LIB([sqlite3], [sqlite3_libversion],, [AC_MSG_ERROR([[cannot find sqlite3]])])
-	SQLITE_FILES=`findstatic "libsqlite3.${SHARED_EXT}"`
-
-	# if static is required
-	if test [ $REQUIRE_STATIC -eq 1 ] ; then
-		AC_CHECK_FILE($SQLITE_ARCHIVE, [SQLITE_ARCHIVE_FOUND=1], [SQLITE_ARCHIVE_FOUND=0])
-		AUTO_SQLITE_ARCHIVE=`findstatic "libsqlite3.a"`
-
-		if test [ $SQLITE_ARCHIVE_FOUND -eq 0 -a "$AUTO_SQLITE_ARCHIVE" == "no" ] ; then
-			# can't stat files. force compile
-  			COMPILE_SQLITE=1
-			SQLITE_CFLAGS=$COMPILED_SQLITE_CFLAGS
-		    SQLITE_LDFLAGS=$COMPILED_SQLITE_LDFLAGS
-			SQLITE_FILES=$COMPILED_SQLITE_FILES
-			SQLITE_STATIC_LDFLAGS=$COMPILED_SQLITE_STATIC_LDFLAGS
-  		elif test [ $SQLITE_ARCHIVE_FOUND -eq 1 ] ; then
-			# can stat suplied file.
-  			SQLITE_STATIC_LDFLAGS="${SQLITE_ARCHIVE}"
-  		else
-  			# can stat auto file
-  			SQLITE_STATIC_LDFLAGS="${AUTO_SQLITE_ARCHIVE}"
-  		fi
-  	fi
-fi
-
-####################################################
-############ MICROHTTPD
+############ MICROHTTPD (SERVER only)
 ####################################################
 
 # if --with-x, add path to LIBRARY_PATH
@@ -901,7 +842,8 @@ if test [ $COMPILE_MICROHTTPD -eq 1 -o "$MICROHTTPD_PATH" == "$SELF" -o "$MICROH
     MICROHTTPD_LDFLAGS=$COMPILED_MICROHTTPD_LDFLAGS
 	MICROHTTPD_FILES=$COMPILED_MICROHTTPD_FILES
 	MICROHTTPD_STATIC_LDFLAGS=$COMPILED_MICROHTTPD_STATIC_LDFLAGS
-else
+elif test [ $WITH_SERVER -eq 1 ]
+then
 	# look for shared library.
 	AC_CHECK_HEADER([microhttpd.h],, [AC_MSG_ERROR([[cannot find microhttpd header]])])
 	AC_CHECK_LIB([microhttpd], [MHD_start_daemon],, [AC_MSG_ERROR([[cannot find microhttpd]])])
@@ -962,7 +904,7 @@ if test [ $COMPILE_LZMA -eq 1 -o "$LZMA_PATH" == "$SELF" -o "$LZMA_ARCHIVE" == "
 else
 	# look for shared library.
 	AC_CHECK_HEADER([lzma.h],, [AC_MSG_ERROR([[cannot find lzma header]])])
-	AC_CHECK_LIB([lzma], [MHD_start_daemon],, [AC_MSG_ERROR([[cannot find lzma]])])
+	AC_CHECK_LIB([lzma], [lzma_version_string],, [AC_MSG_ERROR([[cannot find lzma]])])
 
 	# Check the liblzma version
 	`pkg-config --atleast-version="0.4.0" liblzma`
@@ -998,12 +940,6 @@ fi
 ####################################################
 ############ ARIA2
 ####################################################
-
-# if --with-x, add path to LIBRARY_PATH
-# AC_ARG_WITH(aria2,
-# 			AC_HELP_STRING([--with-aria2=DIR],
-# 						   [alternate location for aria2]),
-# 			  	export LIBRARY_PATH="${withval}:${LIBRARY_PATH}"; ARIA2_CONFIG_PATH=$withval)
 
 # if --with-static-x, set path as X_ARCHIVE
 AC_ARG_WITH(aria2,
@@ -1071,7 +1007,7 @@ if test [ $COMPILE_CLUCENE -eq 1 -o "$CLUCENE_PATH" == "$SELF" -o "$CLUCENE_ARCH
     CLUCENE_LDFLAGS=$COMPILED_CLUCENE_LDFLAGS
 	CLUCENE_FILES=$COMPILED_CLUCENE_FILES
 	CLUCENE_STATIC_LDFLAGS=$COMPILED_CLUCENE_STATIC_LDFLAGS
-else
+elif test [ $IS_WIN -eq 0 ] ; then
 	# look for shared library.
 	AC_CHECK_HEADER([CLucene/CLConfig.h],, [AC_MSG_ERROR([[cannot find clucene header]])])
 	AC_CHECK_LIB([clucene], [open], [CLUCENE_LDFLAGS="-lclucene"],
@@ -1175,12 +1111,6 @@ then
     DEP_LIST+=" $COMPILED_ICU_FILES"
 fi
 EMBED_LIBS+=" $ICU_FILES"
-
-if test [ $COMPILE_SQLITE -eq 1 ]
-then
-    DEP_LIST+=" $COMPILED_SQLITE_FILES"
-fi
-EMBED_LIBS+=" $SQLITE_FILES"
 
 if test [ $COMPILE_MICROHTTPD -eq 1 ]
 then
@@ -1287,24 +1217,24 @@ AC_SUBST(SHARED_EXT)
 AC_SUBST(XPCOM_CFLAGS)
 AC_SUBST(XPCOM_LDFLAGS)
 
-AM_CONDITIONAL([COMPIL_DEPS], [test "$COMPIL_DEPS" -eq 1])
-AM_CONDITIONAL([IS_WIN], [test "$IS_WIN" -eq 1])
-AM_CONDITIONAL([IS_OSX], [test "$IS_OSX" -eq 1])
-AM_CONDITIONAL([IS_LINUX], [test "$IS_LINUX" -eq 1])
-AM_CONDITIONAL([IS_POSIX], [test "$IS_POSIX" -eq 1])
+AM_CONDITIONAL([COMPIL_DEPS], [test $COMPIL_DEPS -eq 1])
+AM_CONDITIONAL([IS_WIN], [test $IS_WIN -eq 1])
+AM_CONDITIONAL([IS_OSX], [test $IS_OSX -eq 1])
+AM_CONDITIONAL([IS_LINUX], [test $IS_LINUX -eq 1])
+AM_CONDITIONAL([IS_POSIX], [test $IS_POSIX -eq 1])
 
-AM_CONDITIONAL([WITH_COMPONENTS], [test "$WITH_COMPONENTS" -eq 1])
-AM_CONDITIONAL([WITH_CLUCENE], [test "$WITH_CLUCENE" -eq 1])
-AM_CONDITIONAL([WITH_MANAGER], [test "$WITH_MANAGER" -eq 1])
-AM_CONDITIONAL([WITH_SERVER], [test "$WITH_SERVER" -eq 1])
-AM_CONDITIONAL([WITH_LAUNCHER], [test "$WITH_LAUNCHER" -eq 1])
-AM_CONDITIONAL([WITH_INDEXER], [test "$WITH_INDEXER" -eq 1])
-AM_CONDITIONAL([WITH_INSTALLER], [test "$WITH_INSTALLER" -eq 1])
-AM_CONDITIONAL([WITH_SEARCHER], [test "$WITH_SEARCHER" -eq 1])
-AM_CONDITIONAL([WITH_READER], [test "$WITH_READER" -eq 1])
-AM_CONDITIONAL([IS_OLD_GECKO], [test "$IS_OLD_GECKO" -eq 1])
-AM_CONDITIONAL([IS_OLD_ICU], [test "$IS_OLD_ICU" -eq 1])
-AM_CONDITIONAL([STATIC_BINS], [test "$STATIC_BINS" -eq 1])
+AM_CONDITIONAL([WITH_COMPONENTS], [test $WITH_COMPONENTS -eq 1])
+AM_CONDITIONAL([WITH_CLUCENE], [test $WITH_CLUCENE -eq 1])
+AM_CONDITIONAL([WITH_MANAGER], [test $WITH_MANAGER -eq 1])
+AM_CONDITIONAL([WITH_SERVER], [test $WITH_SERVER -eq 1])
+AM_CONDITIONAL([WITH_LAUNCHER], [test $WITH_LAUNCHER -eq 1])
+AM_CONDITIONAL([WITH_INDEXER], [test $WITH_INDEXER -eq 1])
+AM_CONDITIONAL([WITH_INSTALLER], [test $WITH_INSTALLER -eq 1])
+AM_CONDITIONAL([WITH_SEARCHER], [test $WITH_SEARCHER -eq 1])
+AM_CONDITIONAL([WITH_READER], [test $WITH_READER -eq 1])
+AM_CONDITIONAL([IS_OLD_GECKO], [test $IS_OLD_GECKO -eq 1])
+AM_CONDITIONAL([IS_OLD_ICU], [test $IS_OLD_ICU -eq 1])
+AM_CONDITIONAL([STATIC_BINS], [test $STATIC_BINS -eq 1])
 
 AC_SUBST(WITH_COMPONENTS)
 AC_SUBST(WITH_CLUCENE)
@@ -1353,12 +1283,6 @@ AC_SUBST(ICU_LDFLAGS)
 AC_SUBST(ICU_STATIC_LDFLAGS)
 AC_SUBST(COMPILE_ICU)
 AC_SUBST(ICU_FILES)
-
-AC_SUBST(SQLITE_CFLAGS)
-AC_SUBST(SQLITE_LDFLAGS)
-AC_SUBST(SQLITE_STATIC_LDFLAGS)
-AC_SUBST(COMPILE_SQLITE)
-AC_SUBST(SQLITE_FILES)
 
 AC_SUBST(MICROHTTPD_CFLAGS)
 AC_SUBST(MICROHTTPD_LDFLAGS)
@@ -1478,7 +1402,6 @@ $BINECHO -n "GECKO_SDK_PATH		" ; $BINECHO $GECKO_SDK_PATH
 $BINECHO -n "XULRUNNER_RUNTIME_PATH	" ; $BINECHO $XULRUNNER_RUNTIME_PATH
 $BINECHO -n "ZLIB_LDFLAGS		" ; $BINECHO $ZLIB_LDFLAGS
 $BINECHO -n "XAPIAN_LDFLAGS		" ; $BINECHO $XAPIAN_LDFLAGS
-$BINECHO -n "SQLITE_LDFLAGS		" ; $BINECHO $SQLITE_LDFLAGS
 $BINECHO -n "MICROHTTPD_LDFLAGS	" ; $BINECHO $MICROHTTPD_LDFLAGS
 $BINECHO -n "LZMA_LDFLAGS		" ; $BINECHO $LZMA_LDFLAGS
 $BINECHO -n "ARIA2_FILES		" ; $BINECHO $ARIA2_FILES
@@ -1489,14 +1412,13 @@ $BINECHO -n "UUID_LDFLAGS		" ; $BINECHO $UUID_LDFLAGS
 echo ""
 $BINECHO -n "ZLIB_STATIC_LDFLAGS		" ; $BINECHO $ZLIB_STATIC_LDFLAGS
 $BINECHO -n "XAPIAN_STATIC_LDFLAGS		" ; $BINECHO $XAPIAN_STATIC_LDFLAGS
-$BINECHO -n "SQLITE_STATIC_LDFLAGS		" ; $BINECHO $SQLITE_STATIC_LDFLAGS
 $BINECHO -n "MICROHTTPD_STATIC_LDFLAGS	" ; $BINECHO $MICROHTTPD_STATIC_LDFLAGS
 $BINECHO -n "LZMA_STATIC_LDFLAGS		" ; $BINECHO $LZMA_STATIC_LDFLAGS
 $BINECHO -n "CLUCENE_STATIC_LDFLAGS		" ; $BINECHO $CLUCENE_STATIC_LDFLAGS
 $BINECHO -n "UUID_STATIC_LDFLAGS		" ; $BINECHO $UUID_STATIC_LDFLAGS
 $BINECHO -n "ICU_STATIC_LDFLAGS		" ; $BINECHO $ICU_STATIC_LDFLAGS
 
-if test "$IS_64B"
+if test $IS_64B -eq 1
 then
 	$BINECHO ""
 	$BINECHO "/!\ When linking static archive (.a file) on 64b system, the archive must have been compiled with -fPIC. If not, compilation will fail with “Bad Value” message."
