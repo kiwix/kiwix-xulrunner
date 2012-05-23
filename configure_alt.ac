@@ -404,7 +404,7 @@ then
 	COMPILE_CLUCENE=1
 	COMPILE_UUID=1
 	WITH_LAUNCHER=1
-	WITH_SERVER=1
+	WITH_SERVER=0
 elif test [ $IS_WIN -eq 1 ]
 then
 	COMPILE_GECKO_SDK=1
@@ -420,6 +420,7 @@ then
 	COMPILE_PTHREAD=1
 	WITH_LAUNCHER=0
 	WITH_SERVER=0
+	WITH_INDEXER=1
 else
 	COMPIL_DEPS=0
 fi
@@ -432,64 +433,64 @@ fi
 AC_ARG_ENABLE(staticbins,
 			  AC_HELP_STRING([--enable-staticbins],
 			  				 [compile CLI binaries staticaly (default is no)]),
-			  [], [enable_staticbins=no])
-AS_IF([test "x$enable_staticbins" = "xyes"], [STATIC_BINS=1], [STATIC_BINS=0])
+			  [], [enable_staticbins=$STATIC_BINS])
+AS_IF([test "x$enable_staticbins" = "xyes" -o "x$enable_staticbins" = "x1" ], [STATIC_BINS=1], [STATIC_BINS=0])
 
 # manager is a command line to to build library
 AC_ARG_ENABLE(manager,
 			  AC_HELP_STRING([--enable-manager],
 			  				 [compile manager (default is no)]),
-			  [], [enable_manager=no])
-AS_IF([test "x$enable_manager" = "xyes"], [WITH_MANAGER=1], [WITH_MANAGER=0])
+			  [], [enable_manager=$WITH_MANAGER])
+AS_IF([test "x$enable_manager" = "xyes" -o "x$enable_manager" = "x1" ], [WITH_MANAGER=1], [WITH_MANAGER=0])
 
 # HTTP server
 AC_ARG_ENABLE(server,
 			  AC_HELP_STRING([--enable-server],
 			  				 [compile HTTP server (default is yes)]),
-			  [], [enable_server=yes])
-AS_IF([test "x$enable_server" = "xyes"], [WITH_SERVER=1], [WITH_SERVER=0])
+			  [], [enable_server=$WITH_SERVER])
+AS_IF([test "x$enable_server" = "xyes" -o "x$enable_server" = "x1" ], [WITH_SERVER=1], [WITH_SERVER=0])
 
 # static launcher
 AC_ARG_ENABLE(launcher,
 			  AC_HELP_STRING([--enable-launcher],
 			  				 [compile launcher for static (default is yes)]),
-			  [], [enable_launcher=yes])
-AS_IF([test "x$enable_launcher" = "xyes"], [WITH_LAUNCHER=1], [WITH_LAUNCHER=0])
+			  [], [enable_launcher=$WITH_LAUNCHER])
+AS_IF([test "x$enable_launcher" = "xyes" -o "x$enable_launcher" = "x1" ], [WITH_LAUNCHER=1], [WITH_LAUNCHER=0])
 
 # zim indexer is a command line tool to create xapian/lucene index
 AC_ARG_ENABLE(indexer,
 			  AC_HELP_STRING([--enable-indexer],
 			  				 [compile indexer (default is no)]),
-			  [], [enable_indexer=no])
-AS_IF([test "x$enable_indexer" = "xyes"], [WITH_INDEXER=1], [WITH_INDEXER=0])
+			  [], [enable_indexer=$WITH_INDEXER])
+AS_IF([test "x$enable_indexer" = "xyes" -o "x$enable_indexer" = "x1" ], [WITH_INDEXER=1], [WITH_INDEXER=0])
 
 # installer is GUI on windows or command line on linux
 AC_ARG_ENABLE(installer,
 			  AC_HELP_STRING([--enable-installer],
 			  				 [compile installer (default is no)]),
-			  [], [enable_installer=no])
-AS_IF([test "x$enable_installer" = "xyes"], [WITH_INSTALLER=1], [WITH_INSTALLER=0])
+			  [], [enable_installer=$WITH_INSTALLER])
+AS_IF([test "x$enable_installer" = "xyes" -o "x$enable_installer" = "x1" ], [WITH_INSTALLER=1], [WITH_INSTALLER=0])
 
 # searcher is a command line binary to test search engine
 AC_ARG_ENABLE(searcher,
 			  AC_HELP_STRING([--enable-searcher],
 			  				 [compile searcher (default is no)]),
-			  [], [enable_searcher=no])
-AS_IF([test "x$enable_searcher" = "xyes"], [WITH_SEARCHER=1], [WITH_SEARCHER=0])
+			  [], [enable_searcher=$WITH_SEARCHER])
+AS_IF([test "x$enable_searcher" = "xyes" -o "x$enable_searcher" = "x1" ], [WITH_SEARCHER=1], [WITH_SEARCHER=0])
 
 # reader is a command line tool
 AC_ARG_ENABLE(reader,
 			  AC_HELP_STRING([--enable-reader],
 			  				 [compile reader (default is no)]),
-			  [], [enable_reader=no])
-AS_IF([test "x$enable_reader" = "xyes"], [WITH_READER=1], [WITH_READER=0])
+			  [], [enable_reader=$WITH_READER])
+AS_IF([test "x$enable_reader" = "xyes" -o "x$enable_reader" = "x1" ], [WITH_READER=1], [WITH_READER=0])
 
 # HTTP server
 AC_ARG_ENABLE(components,
 			  AC_HELP_STRING([--enable-components],
 			  				 [compile gecko components (default is yes)]),
-			  [], [enable_components=yes])
-AS_IF([test "x$enable_components" = "xyes"], [WITH_COMPONENTS=1], [WITH_COMPONENTS=0])
+			  [], [enable_components=$WITH_COMPONENTS])
+AS_IF([test "x$enable_components" = "xyes" -o "x$enable_components" = "x1" ], [WITH_COMPONENTS=1], [WITH_COMPONENTS=0])
 
 # all enables all optional tools
 AC_ARG_ENABLE(all,
@@ -502,8 +503,8 @@ AS_IF([test "x$enable_all" = "xyes"], [WITH_LAUNCHER=1;WITH_INDEXER=1;WITH_INSTA
 AC_ARG_ENABLE(oldicu,
 			  AC_HELP_STRING([--enable-oldicu],
 			  				 [download and use ICU 4.4 of latest (default is no)]),
-			  [], [enable_oldicu=no])
-AS_IF([test "x$enable_oldicu" = "xyes"], [IS_OLD_ICU=1], [IS_OLD_ICU=0])
+			  [], [enable_oldicu=$IS_OLD_ICU])
+AS_IF([test "x$enable_oldicu" = "xyes" -o "x$enable_oldicu" = "x1" ], [IS_OLD_ICU=1], [IS_OLD_ICU=0])
 
 # extra includes allow to specify extra -I paths
 AC_ARG_WITH(extra-includes,
@@ -1060,8 +1061,7 @@ if test [ $COMPILE_UUID -eq 1 -o "$UUID_PATH" == "$SELF" -o "$UUID_ARCHIVE" == "
     UUID_LDFLAGS=$COMPILED_UUID_LDFLAGS
 	UUID_FILES=$COMPILED_UUID_FILES
 	UUID_STATIC_LDFLAGS=$COMPILED_UUID_STATIC_LDFLAGS
-else
-
+elif test [ $WITH_SERVER -eq 1 ] ; then
 	# if static is required
 	if test [ $REQUIRE_STATIC -eq 1 ] ; then
 		AC_CHECK_FILE($UUID_ARCHIVE, [UUID_ARCHIVE_FOUND=1], [UUID_ARCHIVE_FOUND=0])

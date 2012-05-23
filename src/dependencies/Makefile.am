@@ -338,7 +338,7 @@ argtable2-13.tar.gz:
 argtable2-13: argtable2-13.tar.gz
 	tar xf argtable2-13.tar.gz
 
-argtable2-13/lib/argtable2.lib: argtable2-13
+argtable2-13/src/argtable2.lib: argtable2-13
 	cd argtable2-13/src ; nmake.exe -f Makefile.nmake
 
 ####################################################
