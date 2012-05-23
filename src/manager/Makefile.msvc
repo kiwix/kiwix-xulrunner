@@ -5,7 +5,7 @@ LD=link.exe
 ZIM=../zimlib
 ICU=../dependencies/icu
 PUGIXML=../pugixml
-ARGTABLE=../dependencies/argtable
+ARGTABLE=../dependencies/argtable2-13
 
 # Include paths
 ZIM_INCLUDE=${ZIM}/include
