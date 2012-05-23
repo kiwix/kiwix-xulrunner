@@ -214,7 +214,11 @@ DEP_PATH="${CURRENT_PATH}/src/dependencies"
 LIBS_ROOT="${LD_LIBRARY_PATH}:${LIBRARY_PATH}:/usr/lib:/lib"
 SERVER_BIN="${CURRENT_PATH}/src/server/kiwix-serve"
 DEP_MIRROR="http://download.kiwix.org/dev"
+if test [ $IS_OSX -eq 1 ] ; then
+CHECK_LDFLAGS=""
+else
 CHECK_LDFLAGS="-Wl,-z,defs"
+fi
 
 COMPIL_DEPS=0
 STATIC_BINS=0
