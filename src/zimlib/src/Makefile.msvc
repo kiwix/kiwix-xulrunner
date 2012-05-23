@@ -7,7 +7,7 @@ LZMA=../../dependencies/xz-win/
 
 # Include paths
 Z_INCLUDE=${Z}
-LZMA_INCLUDE=${LZMA}/src/liblzma/api
+LZMA_INCLUDE=${LZMA}/include
 
 # Lib paths
 Z_LIB=${Z}

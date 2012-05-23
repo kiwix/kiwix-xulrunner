@@ -397,7 +397,7 @@ win:
 	cp src/components/serverManager/IServerManager.xpt kiwix/components/serverManager.xpt
 	cp -r $(XULRUNNER_RUNTIME_PATH) ./kiwix
 	cp /c/Program\ Files/Microsoft\ Visual\ Studio\ 9.0/VC/redist/x86/Microsoft.VC90.CRT/* kiwix/xulrunner/
-	cp -r $(DEP_PATH)/xz/windows/liblzma.dll ./kiwix/xulrunner
+	cp -r $(DEP_PATH)/xz-win/bin_i486/liblzma.dll ./kiwix/xulrunner
 	cp $(DEP_PATH)/icu/bin/icudt*.dll ./kiwix/xulrunner
 	cp $(DEP_PATH)/icu/bin/icuin*.dll ./kiwix/xulrunner
 	cp $(DEP_PATH)/icu/bin/icuuc*.dll ./kiwix/xulrunner
@@ -424,7 +424,7 @@ if WITH_SERVER
 	cp src/server/kiwix-serve.exe ./kiwix/xulrunner
 endif
 	
-	sed -i -e 's,\.so,\.dll,g' kiwix/chrome.manifest
+	bash -c "sed -e 's,\.so,\.dll,g' kiwix/chrome.manifest > kiwix/chrome.manifest"
 
 windist: 
 	rm -rf dvd/install dvd/kiwix
