@@ -50,7 +50,7 @@ universal-sdk: xulrunner-sdk-i386 xulrunner-sdk-x86_64
 
 if IS_WIN
 xulrunner-sdk: xulrunner-sdk-win.zip
-	if test ! -d xulrunner-sdk; then unzip xulrunner-sdk-win.zip ; fi;
+	if test ! -d xulrunner-sdk; then unzip -o xulrunner-sdk-win.zip ; fi;
 else
 xulrunner-sdk: xulrunner-sdk.tar.bz2
 	if test ! -d xulrunner-sdk; then tar -xf xulrunner-sdk.tar.bz2 ; fi;
@@ -68,7 +68,7 @@ xulrunner-runtime.tar.bz2:
 
 if IS_WIN
 xulrunner: xulrunner-win.zip
-	if test ! -d xulrunner; then unzip xulrunner-win.zip ; fi;
+	if test ! -d xulrunner; then unzip -o xulrunner-win.zip ; fi;
 else
 xulrunner: xulrunner-runtime.tar.bz2
 	if test ! -d xulrunner; then tar -xf xulrunner-runtime.tar.bz2 ; fi;
@@ -143,7 +143,7 @@ xapian-win32.zip:
 	$(DOWNLOADER) xapian-win32.zip $(DEP_MIRROR)/xapian-1.2.3-win32.zip
 
 xapian-core-1.2.3/win32: xapian-win32.zip
-	unzip xapian-win32.zip
+	unzip -o xapian-win32.zip
 	mv win32 ./xapian-core-1.2.3/
 
 xapian-core-1.2.3/win32/Release/libs/libunicode.lib: xapian-core-1.2.3 xapian-core-1.2.3/win32
@@ -195,7 +195,7 @@ icu.zip:
 	$(DOWNLOADER) icu.zip $(DEP_MIRROR)/icu4c-4_4-Win32-msvc9.zip
 
 icu/lib/icuio.lib icu/lib/icudata.lib icu/lib/icuuc.lib icu/lib/icui18n.lib: icu.zip
-	unzip icu.zip
+	unzip -o icu.zip
 
 ####################################################
 ############ MICROHTTPD
@@ -263,7 +263,7 @@ xz-5.0.3-windows.zip:
 	$(DOWNLOADER) xz-5.0.3-windows.zip $(DEP_MIRROR)/xz-5.0.3-windows.zip
 
 xz-win/bin_i486/liblzma.lib: xz-5.0.3-windows.zip
-	mkdir -p xz-win ; unzip -d xz-win xz-5.0.3-windows.zip ; cd xz-win/bin_i486 ; cp -v ../doc/liblzma.def . ; lib /def:liblzma.def /out:liblzma.lib /machine:ix86
+	mkdir -p xz-win ; unzip -o -d xz-win xz-5.0.3-windows.zip ; cd xz-win/bin_i486 ; cp -v ../doc/liblzma.def . ; lib /def:liblzma.def /out:liblzma.lib /machine:ix86
 
 ####################################################
 ############ ARIA2 (downloaded)
@@ -349,7 +349,7 @@ pthread-win32.zip:
 	$(DOWNLOADER) pthread-win32.zip $(DEP_MIRROR)/pthread-win32.zip
 
 pthread-win32/lib/pthreadVC2.lib: pthread-win32.zip
-	unzip -d pthread-win32 pthread-win32.zip
+	unzip -o -d pthread-win32 pthread-win32.zip
 
 ####################################################
 ############ CLEANUP (ALL)
