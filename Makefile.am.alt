@@ -424,10 +424,18 @@ if WITH_SERVER
 	cp src/server/kiwix-serve.exe ./kiwix/xulrunner
 endif
 	
-	bash -c "sed -e 's,\.so,\.dll,g' kiwix/chrome.manifest > kiwix/chrome.manifest"
+	bash -c "sed -e 's,\.so,\.dll,g' kiwix/chrome.manifest > kiwix/chrome.manifest.sed"
+	mv kiwix/chrome.manifest.sed kiwix/chrome.manifest
+	mkdir -p kiwix/bin
+	cp -v $(ARIA2_FILES) kiwix/bin/
 
 windist: 
 	rm -rf dvd/install dvd/kiwix
 	svn update dvd/install
 	svn update dvd/kiwix
 	cp -rf kiwix dvd/
+	rm -rf `find dvd/kiwix -type d -name .svn`
+	find dvd/kiwix -name '*.inised' -exec rm -rf {} \;
+	find dvd/kiwix -name 'Makefile' -delete
+	find dvd/kiwix -name 'Makefile.in' -delete
+	find dvd/kiwix -name 'Makefile.am*' -delete
