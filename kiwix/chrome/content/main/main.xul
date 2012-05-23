@@ -207,7 +207,6 @@
 
 <menupopup id="sugar-options-menu">
       <menuitem id="tools-randomArticle" label="&main.randomArticle;" key="random-article-key" accesskey="&main.randomArticle.accesskey;" oncommand="loadRandomArticle()"/>
-      <!--<menuitem id="file-browse-library" label="Toggle library" oncommand="toggleLibrary();"/>-->
       <menuitem id="file-open" label="&main.openFile;" key="open-file-key" accesskey="&main.openFile.accesskey;" oncommand="manageOpenFile()"/>
       <menu label="&main.lastOpen;" id="sugar-menu-lastopen-top"><menupopup id="sugar-menu-lastopen"></menupopup></menu>
       <menuseparator />
@@ -234,7 +233,7 @@
     <toolbarbutton id="button-print" oncommand="print()" tooltiptext="&main.print;"/>
     <toolbarbutton id="button-bookmarks" oncommand="UIToggleBookmarksBar()" tooltiptext="&main.bookmarks;"/>
     <toolbarbutton id="button-search-article" oncommand="find()" tooltiptext="&main.findInText;" />
-    <toolbarbutton id="button-library" oncommand="toggleLibrary()" tooltiptext="Library" checked="false" />
+    <toolbarbutton id="button-library" oncommand="toggleLibrary()" tooltiptext="&main.browseLibrary;" checked="false" />
 
     <stack flex="1">
       <hbox>
