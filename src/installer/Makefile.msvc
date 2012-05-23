@@ -6,7 +6,7 @@ ZIM=../zimlib
 ICU=../dependencies/icu
 PUGIXML=../pugixml
 XAPIAN=../dependencies/xapian-core-1.2.3
-ARGTABLE=../dependencies/argtable
+ARGTABLE=../dependencies/argtable2-13
 PTHREAD=../dependencies/pthread-win32
 
 # Include paths
