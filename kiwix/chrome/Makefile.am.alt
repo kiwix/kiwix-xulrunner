@@ -19,5 +19,12 @@ install-data-hook: locale.jar content.jar skin.jar
 	-cp -rf modules ${DESTDIR}/$(chromedir)
 	-ln -s -f $(chromedir) ${DESTDIR}/$(pkglibdir)/chrome
 
+jar: locale.jar content.jar skin.jar
+	-cp chrome.manifest.prod chrome.manifest
+
 uninstall-hook:
 	-rm ${DESTDIR}/${pkglibdir}/chrome
+
+if JAR_CONTENT
+all: jar
+endif

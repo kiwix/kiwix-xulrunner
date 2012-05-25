@@ -181,6 +181,11 @@ diststatic:
 
 	mv $(STATIC_TMP)/kiwix/chrome/content/main/js/logger_rlz.js $(STATIC_TMP)/kiwix/chrome/content/main/js/logger.js
 
+	if [ -f $(STATIC_TMP)/kiwix/chrome/content.jar ] ; then rm -rf $(STATIC_TMP)/kiwix/chrome/content ; fi
+	if [ -f $(STATIC_TMP)/kiwix/chrome/content.jar ] ; then rm -f $(STATIC_TMP)/kiwix/chrome/chrome.manifest.prod ; fi
+	if [ -f $(STATIC_TMP)/kiwix/chrome/locale.jar ] ; then rm -rf $(STATIC_TMP)/kiwix/chrome/locale ; fi
+	if [ -f $(STATIC_TMP)/kiwix/chrome/skin.jar ] ; then rm -rf $(STATIC_TMP)/kiwix/chrome/skin ; fi
+
 	cp -r $(XULRUNNER_RUNTIME_PATH) $(STATIC_TMP)/kiwix/xulrunner
 	chmod +x $(STATIC_TMP)/kiwix/xulrunner/xulrunner $(STATIC_TMP)/kiwix/xulrunner/xulrunner-bin
 	cp -v $(STATIC_TMP)/kiwix/xulrunner/libplc4.so $(STATIC_TMP)/kiwix/xulrunner/libplc4.so.0d
@@ -280,6 +285,11 @@ distmac:
 	cp -v $(DEP_PATH)/xr_target/xulrunner-11.0.en-US.mac/XUL.framework/Versions/Current/xulrunner Kiwix.app/Contents/MacOS/xulrunner
 
 	mv Kiwix.app/Contents/Resources/chrome/content/main/js/logger_rlz.js Kiwix.app/Contents/Resources/chrome/content/main/js/logger.js
+
+	if [ -f Kiwix.app/Contents/Resources/chrome/content.jar ] ; then rm -rf Kiwix.app/Contents/Resources/chrome/content ; fi
+	if [ -f Kiwix.app/Contents/Resources/chrome/content.jar ] ; then rm -f Kiwix.app/Contents/Resources/chrome/chrome.manifest.prod ; fi
+	if [ -f Kiwix.app/Contents/Resources/chrome/locale.jar ] ; then rm -rf Kiwix.app/Contents/Resources/chrome/locale ; fi
+	if [ -f Kiwix.app/Contents/Resources/chrome/skin.jar ] ; then rm -rf Kiwix.app/Contents/Resources/chrome/skin ; fi
 
 	cp -Lv $(EMBED_LIBS) Kiwix.app/Contents/Frameworks/
 
@@ -396,6 +406,14 @@ win:
 	cp src/components/serverManager/serverManager.dll kiwix/components/
 	cp src/components/serverManager/IServerManager.xpt kiwix/components/serverManager.xpt
 	cp -r $(XULRUNNER_RUNTIME_PATH) ./kiwix
+
+	mv ./kiwix/chrome/content/main/js/logger_rlz.js ./kiwix/chrome/content/main/js/logger.js
+
+	if [ -f ./kiwix/chrome/content.jar ] ; then rm -rf ./kiwix/chrome/content ; fi
+	if [ -f ./kiwix/chrome/content.jar ] ; then rm -f ./kiwix/chrome/chrome.manifest.prod ; fi
+	if [ -f ./kiwix/chrome/locale.jar ] ; then rm -rf ./kiwix/chrome/locale ; fi
+	if [ -f ./kiwix/chrome/skin.jar ] ; then rm -rf ./kiwix/chrome/skin ; fi
+
 	cp /c/Program\ Files/Microsoft\ Visual\ Studio\ 9.0/VC/redist/x86/Microsoft.VC90.CRT/* kiwix/xulrunner/
 	cp -r $(DEP_PATH)/xz-win/bin_i486/liblzma.dll ./kiwix/xulrunner
 	cp $(DEP_PATH)/icu/bin/icudt*.dll ./kiwix/xulrunner
