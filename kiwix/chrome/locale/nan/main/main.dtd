@@ -30,7 +30,7 @@
 <!ENTITY main.copy.accesskey            "p">
 <!ENTITY main.transliteration           "音譯">
 <!ENTITY main.transliteration.accesskey "T">
-<!ENTITY main.preferences               "設定">
+<!ENTITY main.preferences               "主機">
 <!ENTITY main.preferences.accesskey     "n">
 <!ENTITY main.server                    "Server">
 <!ENTITY main.server.accesskey          "s">

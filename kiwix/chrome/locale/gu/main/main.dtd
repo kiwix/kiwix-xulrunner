@@ -10,7 +10,7 @@
 <!ENTITY main.browseLibrary             "પુસ્તકાલય માંથી શોધો">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "અત્યારે ખોલેલો . . .">
-<!ENTITY main.saveFile                  "પાનું સચ્ચવું આ નામથી">
+<!ENTITY main.saveFile                  "પાનું આ નામથી સાચવો...">
 <!ENTITY main.saveFile.accesskey        "S">
 <!ENTITY main.print                     "છાપો">
 <!ENTITY main.print.accesskey           "P">
@@ -62,7 +62,7 @@
 <!-- Tools menu -->
 <!ENTITY main.tools                     "ઉપકરણ">
 <!ENTITY main.tools.accesskey           "T">
-<!ENTITY main.randomArticle             "કોઈબી પાનું">
+<!ENTITY main.randomArticle             "કોઈપણ એક લેખ">
 <!ENTITY main.randomArticle.accesskey   "R">
 <!ENTITY main.checkIntegrity            "અખંડતાની જાંચ">
 <!ENTITY main.checkIntegrity.accesskey  "k">

@@ -32,7 +32,7 @@
 <!ENTITY main.transliteration.accesskey "T">
 <!ENTITY main.preferences               "Options">
 <!ENTITY main.preferences.accesskey     "n">
-<!ENTITY main.server                    "Server">
+<!ENTITY main.server                    "Serveur">
 <!ENTITY main.server.accesskey          "s">
 
 <!-- Display menu -->

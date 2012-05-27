@@ -10,7 +10,7 @@
 <!ENTITY main.browseLibrary             "Navegar na biblioteca">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "Aberto recentemente...">
-<!ENTITY main.saveFile                  "Salvar  página como...">
+<!ENTITY main.saveFile                  "Salvar página como...">
 <!ENTITY main.saveFile.accesskey        "S">
 <!ENTITY main.print                     "Imprimir">
 <!ENTITY main.print.accesskey           "P">
@@ -32,7 +32,7 @@
 <!ENTITY main.transliteration.accesskey "T">
 <!ENTITY main.preferences               "Preferências">
 <!ENTITY main.preferences.accesskey     "n">
-<!ENTITY main.server                    "Server">
+<!ENTITY main.server                    "Servidor">
 <!ENTITY main.server.accesskey          "s">
 
 <!-- Display menu -->

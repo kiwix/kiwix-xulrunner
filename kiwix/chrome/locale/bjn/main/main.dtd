@@ -30,7 +30,7 @@
 <!ENTITY main.copy.accesskey            "p">
 <!ENTITY main.transliteration           "Translitarasi">
 <!ENTITY main.transliteration.accesskey "T">
-<!ENTITY main.preferences               "Kakatujuan">
+<!ENTITY main.preferences               "Rujukan">
 <!ENTITY main.preferences.accesskey     "n">
 <!ENTITY main.server                    "Server">
 <!ENTITY main.server.accesskey          "s">
@@ -106,8 +106,8 @@
 <!ENTITY main.openLinkInNewTab          "Ungkai tautan dalam tab puga">
 <!ENTITY main.searchFor                 "Manggagai hagan">
 <!ENTITY main.copyLinkAdress            "Copy link address">
-<!ENTITY main.mute                      "Mute">
-<!ENTITY main.audible                   "Audible">
+<!ENTITY main.mute                      "Kada basuara">
+<!ENTITY main.audible                   "Kawa didangar">
 
 <!-- About Window -->
 <!ENTITY main.close                     "Tukup">

@@ -30,7 +30,7 @@
 <!ENTITY main.copy.accesskey            "p">
 <!ENTITY main.transliteration           "Transliteratioun">
 <!ENTITY main.transliteration.accesskey "T">
-<!ENTITY main.preferences               "Astellungen">
+<!ENTITY main.preferences               "Server">
 <!ENTITY main.preferences.accesskey     "n">
 <!ENTITY main.server                    "Server">
 <!ENTITY main.server.accesskey          "s">
@@ -106,7 +106,7 @@
 <!ENTITY main.openLinkInNewTab          "Link an engem neien Tab opmaachen">
 <!ENTITY main.searchFor                 "Sichen no:">
 <!ENTITY main.copyLinkAdress            "Copy link address">
-<!ENTITY main.mute                      "Mute">
+<!ENTITY main.mute                      "Toun aus">
 <!ENTITY main.audible                   "Audible">
 
 <!-- About Window -->

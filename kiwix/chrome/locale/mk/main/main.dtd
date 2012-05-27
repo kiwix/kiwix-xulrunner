@@ -30,9 +30,9 @@
 <!ENTITY main.copy.accesskey            "p">
 <!ENTITY main.transliteration           "Транслитерација">
 <!ENTITY main.transliteration.accesskey "T">
-<!ENTITY main.preferences               "Нагодувања">
+<!ENTITY main.preferences               "Опслужувач">
 <!ENTITY main.preferences.accesskey     "n">
-<!ENTITY main.server                    "Server">
+<!ENTITY main.server                    "Опслужувач">
 <!ENTITY main.server.accesskey          "s">
 
 <!-- Display menu -->

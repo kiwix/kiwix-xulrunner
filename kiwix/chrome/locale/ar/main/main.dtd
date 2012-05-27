@@ -5,7 +5,7 @@
 <!-- File menu -->
 <!ENTITY main.file                      "ملف">
 <!ENTITY main.file.accesskey            "م">
-<!ENTITY main.openFile                  "افتح ملفا...">
+<!ENTITY main.openFile                  "افتح ملفًا...">
 <!ENTITY main.browseLibrary.accesskey   "B">
 <!ENTITY main.browseLibrary             "تصفح المكتبة">
 <!ENTITY main.openFile.accesskey        "ف">
@@ -31,8 +31,8 @@
 <!ENTITY main.transliteration           "تحويل لغة الكتابة">
 <!ENTITY main.transliteration.accesskey "T">
 <!ENTITY main.preferences               "تفضيلات">
-<!ENTITY main.preferences.accesskey     "n">
-<!ENTITY main.server                    "Server">
+<!ENTITY main.preferences.accesskey     "s">
+<!ENTITY main.server                    "الخادوم">
 <!ENTITY main.server.accesskey          "s">
 
 <!-- Display menu -->
@@ -94,7 +94,7 @@
 <!-- Bookmarks Bar -->
 <!ENTITY main.bmkLabel                  "المفضلة:">
 <!ENTITY main.notesLabel                "ملاحظات المفضلة:">
-<!ENTITY main.loadbmk                   "إستيراد مجموعة مفضلة">
+<!ENTITY main.loadbmk                   "استيراد مجموعة مفضلة">
 <!ENTITY main.newbmk                    "إنشاء مجموعة مفضلة جديدة">
 <!ENTITY main.mark                      "علم هذه الصفحة">
 <!ENTITY main.unmark                    "أزل تعليم المحدد">
@@ -106,8 +106,8 @@
 <!ENTITY main.openLinkInNewTab          "افتح الوصلة في لسان جديد">
 <!ENTITY main.searchFor                 "ابحث عنه">
 <!ENTITY main.copyLinkAdress            "Copy link address">
-<!ENTITY main.mute                      "Mute">
-<!ENTITY main.audible                   "Audible">
+<!ENTITY main.mute                      "كتم الصوت">
+<!ENTITY main.audible                   "مسموعة">
 
 <!-- About Window -->
 <!ENTITY main.close                     "أغلق">

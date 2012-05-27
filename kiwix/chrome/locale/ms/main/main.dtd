@@ -32,7 +32,7 @@
 <!ENTITY main.transliteration.accesskey "T">
 <!ENTITY main.preferences               "Keutamaan">
 <!ENTITY main.preferences.accesskey     "n">
-<!ENTITY main.server                    "Server">
+<!ENTITY main.server                    "Pelayan">
 <!ENTITY main.server.accesskey          "s">
 
 <!-- Display menu -->

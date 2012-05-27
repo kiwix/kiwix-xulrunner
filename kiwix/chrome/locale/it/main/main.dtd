@@ -64,7 +64,7 @@
 <!ENTITY main.tools.accesskey           "S">
 <!ENTITY main.randomArticle             "Voce a caso">
 <!ENTITY main.randomArticle.accesskey   "V">
-<!ENTITY main.checkIntegrity            "Integrity check">
+<!ENTITY main.checkIntegrity            "Controllo di integrità">
 <!ENTITY main.checkIntegrity.accesskey  "k">
 <!ENTITY main.purgeHistory              "Cancella cronologia">
 <!ENTITY main.purgeHistory.accesskey    "P">
@@ -75,7 +75,7 @@
 <!ENTITY main.feedback                  "Feedback">
 <!ENTITY main.reportabug                "Segnala un malfunzionamento">
 <!ENTITY main.requestafeature           "Richiedi una funzionalità">
-<!ENTITY main.about                     "Chi &brand.brandShortName;">
+<!ENTITY main.about                     "Informazioni su &brand.brandShortName;">
 <!ENTITY main.about.accesskey           "n">
 
 <!-- Tool bar -->

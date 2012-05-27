@@ -30,8 +30,8 @@
 <!ENTITY main.copy.accesskey            "C">
 <!ENTITY main.transliteration           "Translineação">
 <!ENTITY main.transliteration.accesskey "T">
-<!ENTITY main.preferences               "Preferências">
-<!ENTITY main.preferences.accesskey     "n">
+<!ENTITY main.preferences               "Servidor">
+<!ENTITY main.preferences.accesskey     "s">
 <!ENTITY main.server                    "Server">
 <!ENTITY main.server.accesskey          "s">
 

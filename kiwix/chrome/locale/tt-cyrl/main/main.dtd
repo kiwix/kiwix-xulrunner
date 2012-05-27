@@ -9,7 +9,7 @@
 <!ENTITY main.browseLibrary.accesskey   "B">
 <!ENTITY main.browseLibrary             "Китапханәне карау">
 <!ENTITY main.openFile.accesskey        "O">
-<!ENTITY main.lastOpen                  "Озак түгел ачылганнар ...">
+<!ENTITY main.lastOpen                  "Күптән түгел ачылганнар ...">
 <!ENTITY main.saveFile                  "Битне саклау форматы ...">
 <!ENTITY main.saveFile.accesskey        "S">
 <!ENTITY main.print                     "Бастыру">
@@ -32,7 +32,7 @@
 <!ENTITY main.transliteration.accesskey "T">
 <!ENTITY main.preferences               "Көйләнмәләр">
 <!ENTITY main.preferences.accesskey     "n">
-<!ENTITY main.server                    "Server">
+<!ENTITY main.server                    "Сервер">
 <!ENTITY main.server.accesskey          "s">
 
 <!-- Display menu -->

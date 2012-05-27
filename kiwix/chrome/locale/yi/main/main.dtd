@@ -32,7 +32,7 @@
 <!ENTITY main.transliteration.accesskey "T">
 <!ENTITY main.preferences               "פרעפֿערענצן">
 <!ENTITY main.preferences.accesskey     "n">
-<!ENTITY main.server                    "Server">
+<!ENTITY main.server                    "סארווער">
 <!ENTITY main.server.accesskey          "s">
 
 <!-- Display menu -->
@@ -107,7 +107,7 @@
 <!ENTITY main.searchFor                 "זוכן פֿאַר">
 <!ENTITY main.copyLinkAdress            "Copy link address">
 <!ENTITY main.mute                      "איינשטילן">
-<!ENTITY main.audible                   "Audible">
+<!ENTITY main.audible                   "הערבאר">
 
 <!-- About Window -->
 <!ENTITY main.close                     "שליסן">

@@ -81,7 +81,7 @@
 <!-- Tool bar -->
 <!ENTITY main.back                      "Terug">
 <!ENTITY main.forward                   "Verder">
-<!ENTITY main.home                      "Hoofdmenu">
+<!ENTITY main.home                      "Startpagina">
 <!ENTITY main.searchBar                 "Zoekbalk">
 <!ENTITY main.search                    "Zoeken">
 <!ENTITY main.findInText                "Zoeken in tekst">

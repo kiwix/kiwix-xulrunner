@@ -32,7 +32,7 @@
 <!ENTITY main.transliteration.accesskey "T">
 <!ENTITY main.preferences               "Προτιμήσεις">
 <!ENTITY main.preferences.accesskey     "n">
-<!ENTITY main.server                    "Server">
+<!ENTITY main.server                    "Διακομιστής">
 <!ENTITY main.server.accesskey          "s">
 
 <!-- Display menu -->
@@ -106,8 +106,8 @@
 <!ENTITY main.openLinkInNewTab          "Άνοιγμα συνδέσμου σε νέα καρτέλα">
 <!ENTITY main.searchFor                 "Αναζήτηση για">
 <!ENTITY main.copyLinkAdress            "Copy link address">
-<!ENTITY main.mute                      "Mute">
-<!ENTITY main.audible                   "Audible">
+<!ENTITY main.mute                      "Σίγαση">
+<!ENTITY main.audible                   "Ηχητικό">
 
 <!-- About Window -->
 <!ENTITY main.close                     "Κλείσιμο">

@@ -32,13 +32,13 @@
 <!ENTITY main.transliteration.accesskey "T">
 <!ENTITY main.preferences               "পছন্দ">
 <!ENTITY main.preferences.accesskey     "n">
-<!ENTITY main.server                    "Server">
+<!ENTITY main.server                    "সার্ভার">
 <!ENTITY main.server.accesskey          "s">
 
 <!-- Display menu -->
 <!ENTITY main.display                   "প্রদর্শন">
 <!ENTITY main.display.accesskey         "D">
-<!ENTITY main.zoom                      "বড় করুন">
+<!ENTITY main.zoom                      "বড় করো">
 <!ENTITY main.zoom.accesskey            "Z">
 <!ENTITY main.zoomin                    "বিবর্ধিত করুন">
 <!ENTITY main.zoomin.accesskey          "M">

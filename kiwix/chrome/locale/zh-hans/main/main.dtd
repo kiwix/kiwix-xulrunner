@@ -32,7 +32,7 @@
 <!ENTITY main.transliteration.accesskey "T">
 <!ENTITY main.preferences               "参数设置">
 <!ENTITY main.preferences.accesskey     "n">
-<!ENTITY main.server                    "Server">
+<!ENTITY main.server                    "服务器">
 <!ENTITY main.server.accesskey          "s">
 
 <!-- Display menu -->
@@ -106,8 +106,8 @@
 <!ENTITY main.openLinkInNewTab          "在新标签页打开链接">
 <!ENTITY main.searchFor                 "搜索">
 <!ENTITY main.copyLinkAdress            "Copy link address">
-<!ENTITY main.mute                      "Mute">
-<!ENTITY main.audible                   "Audible">
+<!ENTITY main.mute                      "静音">
+<!ENTITY main.audible                   "有声">
 
 <!-- About Window -->
 <!ENTITY main.close                     "关闭">
