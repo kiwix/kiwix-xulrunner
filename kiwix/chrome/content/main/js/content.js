@@ -861,10 +861,9 @@ function isLibraryVisible() {
 /* Show/hide library manager */
 function toggleLibrary(visible) {
     var libraryButton = getLibraryButton();
-    var libraryDeck = document.getElementById("libarary-deck");
     var renderingDeck = document.getElementById("rendering-deck");
     var newWindowTitle = "Content manager - Kiwix";
-    
+
     if (visible == undefined) {
 	visible = isLibraryVisible() ? false : true;
     } else if (visible == isLibraryVisible()) {
