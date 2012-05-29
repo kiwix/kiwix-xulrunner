@@ -138,6 +138,39 @@ CXX="g++ -arch i386 -m32" to the configure command.
 - Shared Object (.so files on Linux) have .dylib extension on OSX.
 - use dtruss to inspect program execution like strace.
 
+== Windows (Experimental) ==
+
+* Install Windows XP SP2+
+* Install Visual Studio Express 2008
+* Install 7-zip
+* Install MozillaBuild 1.6
+* Install ActivePerl
+* Install Ruby
+* Install NSIS 2.46
+* Install nsis_locate
+* Install nsis_uac
+* Replace installed UAC.dll by new one.
+
+* Install all software in default locations.
+
+* Change your Windows PATH environment variable:
+  - 7zip
+  - NSIS
+  - ruby
+  - Perl
+  - mozilla-build\msys\bin\
+
+* Get shell from c:\mozilla-build\start-msvc9.bat
+
+* mkdir -p /c/slave/windows-32b
+  svn co https://kiwix.svn.sourceforge.net/svnroot/kiwix/moulinkiwix build
+  cd build
+  ./autogen.sh alt
+  ./configure --disable-indexer --enable-jar
+  make win
+  make windist
+  make wininstaller
+
 == Windows ==
 
 * You need now to install the free (as free beer) Microsoft Visual
