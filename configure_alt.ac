@@ -33,7 +33,7 @@ IS_WIN=0
 IS_OSX=0
 IS_POSIX=0
 IS_LINUX=0
-IS_SUGAR=1
+IS_SUGAR=0
 
 AC_CONFIG_AUX_DIR([.]) # where are autotools scripts located
 
