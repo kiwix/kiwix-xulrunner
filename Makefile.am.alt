@@ -302,7 +302,6 @@ distmac:
 
 	find Kiwix.app/Contents/Frameworks/ -name '*.dylib' -exec install_name_tool -change libicuuc.44.dylib @executable_path/../Frameworks/libicuuc.dylib {} \;
 	find Kiwix.app/Contents/Resources/components -name '*.dylib' -exec install_name_tool -change libicuuc.44.dylib @executable_path/../Frameworks/libicuuc.dylib  {} \;
-	# ICU 4.9
 	find Kiwix.app/Contents/Frameworks/ -name '*.dylib' -exec install_name_tool -change libicuuc.49.dylib @executable_path/../Frameworks/libicuuc.dylib {} \;
 	find Kiwix.app/Contents/Resources/components -name '*.dylib' -exec install_name_tool -change libicuuc.49.dylib @executable_path/../Frameworks/libicuuc.dylib  {} \;
 	
@@ -310,14 +309,12 @@ distmac:
 	find Kiwix.app/Contents/Frameworks/ -name '*.dylib' -exec install_name_tool -change ../lib/libicudata.44.2.dylib @executable_path/../Frameworks/libicudata.dylib {} \;
 	find Kiwix.app/Contents/Frameworks/ -name '*.dylib' -exec install_name_tool -change ../lib/libicudata.44.dylib @executable_path/../Frameworks/libicudata.dylib {} \;
 	find Kiwix.app/Contents/Resources/components -name '*.dylib' -exec install_name_tool -change ../lib/libicudata.44.2.dylib @executable_path/../Frameworks/libicudata.dylib  {} \;
-	# ICU 4.9
 	find Kiwix.app/Contents/Frameworks/ -name '*.dylib' -exec install_name_tool -change libicudata.49.dylib @executable_path/../Frameworks/libicudata.dylib {} \;
 	find Kiwix.app/Contents/Frameworks/ -name '*.dylib' -exec install_name_tool -change ../lib/libicudata.49.2.dylib @executable_path/../Frameworks/libicudata.dylib {} \;
 	find Kiwix.app/Contents/Frameworks/ -name '*.dylib' -exec install_name_tool -change ../lib/libicudata.49.dylib @executable_path/../Frameworks/libicudata.dylib {} \;
 	find Kiwix.app/Contents/Resources/components -name '*.dylib' -exec install_name_tool -change ../lib/libicudata.49.2.dylib @executable_path/../Frameworks/libicudata.dylib  {} \;
 	
 	find Kiwix.app/Contents/Resources/components -name '*.dylib' -exec install_name_tool -change libicui18n.44.dylib @executable_path/../Frameworks/libicui18n.dylib {} \;
-	# ICU 4.2
 	find Kiwix.app/Contents/Resources/components -name '*.dylib' -exec install_name_tool -change libicui18n.49.dylib @executable_path/../Frameworks/libicui18n.dylib {} \;
 
 	find Kiwix.app/Contents/Resources/components -name '*.dylib' -exec install_name_tool -change /usr/local/lib/libxapian.22.dylib @executable_path/../Frameworks/libxapian.dylib {} \;
