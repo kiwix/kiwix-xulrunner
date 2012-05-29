@@ -54,6 +54,9 @@ xulrunner-sdk: xulrunner-sdk-win.zip
 else
 xulrunner-sdk: xulrunner-sdk.tar.bz2
 	if test ! -d xulrunner-sdk; then tar -xf xulrunner-sdk.tar.bz2 ; fi;
+if IS_OLD_GCC
+	sed -e -i 's,#define HAVE_CPP_CHAR16_T 1,#undef HAVE_CPP_CHAR16_T,g' xulrunner-sdk/include/xpcom-config.h
+endif
 endif
 
 # Windows
