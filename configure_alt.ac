@@ -246,14 +246,6 @@ else
 COMPILED_GECKO_SDK_PATH="${DEP_PATH}/xulrunner-sdk"
 fi
 
-# Special Flags for XPCOM components
-if test [ $IS_OLD_GCC -eq 1 ] ; then
-XPCOM_CFLAGS="-fPIC"
-else
-XPCOM_CFLAGS="-fno-rtti -fPIC"
-fi
-XPCOM_LDFLAGS="-Xcompiler -shared -Wl"
-
 if test [ $IS_OSX -eq 1 ]
 then
 	XULRUNNER_RUNTIME_PATH="${DEP_PATH}/xr_target/xulrunner-11.0.en-US.mac/XUL.framework"
@@ -658,6 +650,15 @@ else
 
     HEADER_PY="$PYTHON $XPIDL_PATH/header.py"
     TYPELIB_PY="$PYTHON $XPIDL_PATH/typelib.py"
+fi
+
+# special flags for XPCOM components
+XPCOM_LDFLAGS="-Xcompiler -shared -Wl"
+
+if test [ $IS_OLD_GCC -eq 1 ] ; then
+XPCOM_CFLAGS="-fPIC"
+else
+XPCOM_CFLAGS="-fno-rtti -fPIC"
 fi
 
 ####################################################
@@ -1427,6 +1428,7 @@ $BINECHO -n "CPP			" ; $BINECHO $CPP
 $BINECHO -n "CXXCPP			" ; $BINECHO $CXXCPP
 $BINECHO -n "CFLAGS			" ; $BINECHO $CFLAGS
 $BINECHO -n "CXXFLAGS		" ; $BINECHO $CXXFLAGS
+$BINECHO -n "XPCOM_CFLAGS		" ; $BINECHO $XPCOM_CFLAGS
 $BINECHO -n "CHECK_LDFLAGS		" ; $BINECHO $CHECK_LDFLAGS
 $BINECHO ""
 $BINECHO -n "GECKO_SDK_PATH		" ; $BINECHO $GECKO_SDK_PATH
