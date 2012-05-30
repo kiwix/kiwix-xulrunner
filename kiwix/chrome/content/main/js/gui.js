@@ -922,14 +922,14 @@ function toggleBrowserContextualMenu(event) {
     /* Mute/Audible HTML5 Video */
     var muteMenuItem = document.getElementById("browser-contextual-menu-mute");
     var audibleMenuItem = document.getElementById("browser-contextual-menu-audible");
+    audibleMenuItem.setAttribute("style", "display: none;");
+    muteMenuItem.setAttribute("style", "display: none;");
     if (target.localName == "video") {
 	var isAudible = !target.muted;
 	if (isAudible) {
 	    muteMenuItem.setAttribute("style", "display: visible;");
-	    audibleMenuItem.setAttribute("style", "display: none;");
 	} else {
 	    audibleMenuItem.setAttribute("style", "display: visible;");
-	    muteMenuItem.setAttribute("style", "display: none;");
 	}
     }
 
