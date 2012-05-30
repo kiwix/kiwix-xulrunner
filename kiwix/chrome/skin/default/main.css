@@ -428,6 +428,10 @@ tab[selected="true"] label {
 
 /******** WINDOWS */
 
+#main.win * #tools-server {
+    display: none;
+}
+
 #main.win #tool-box {
 	margin-left: 0 !important;
 }
