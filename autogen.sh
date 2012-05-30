@@ -15,7 +15,7 @@ fi
 
 if [ "$CONF_ALT" = "" ]
 then
-    CONF_ALT="orig"
+    CONF_ALT="alt"
 fi
 
 # overwrite existing configuration
