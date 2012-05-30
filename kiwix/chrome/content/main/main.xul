@@ -25,6 +25,9 @@
     <menupopup id="file-popup">
       <menuitem id="file-browse-library" label="&main.browseLibrary;" class="menuitem-iconic"
 		accesskey="&main.browseLibrary.accesskey;" oncommand="toggleLibrary(true);"/>
+      <menuitem id="file-hide-library" label="&main.hideLibrary;" class="menuitem-iconic"
+		accesskey="&main.browseLibrary.accesskey;" oncommand="toggleLibrary(false);" 
+		style="display: none;"/>
       <menuitem id="file-open" label="&main.openFile;" key="open-file-key" class="menuitem-iconic"
 		accesskey="&main.openFile.accesskey;" oncommand="manageOpenFile()"/>
       <menu label="&main.lastOpen;" id="menu-lastopen-top">

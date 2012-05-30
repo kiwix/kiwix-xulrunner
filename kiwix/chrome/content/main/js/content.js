@@ -863,6 +863,8 @@ function toggleLibrary(visible) {
     var libraryButton = getLibraryButton();
     var renderingDeck = document.getElementById("rendering-deck");
     var newWindowTitle = "Content manager - Kiwix";
+    var browseLibraryMenuItem = document.getElementById("file-browse-library");
+    var hideLibraryMenuItem = document.getElementById("file-hide-library");
 
     if (visible == undefined) {
 	visible = isLibraryVisible() ? false : true;
@@ -871,6 +873,9 @@ function toggleLibrary(visible) {
     }
 
     if (!visible) {
+	browseLibraryMenuItem.setAttribute("style", "display: visible;");
+	hideLibraryMenuItem.setAttribute("style", "display: none;");
+	libraryButton.setAttribute("tooltiptext", getProperty("browseLibrary"));
 	activateHomeButton();
 	activateZoomButtons();
 	activateFullscreenButton();
@@ -884,6 +889,9 @@ function toggleLibrary(visible) {
 	if (getWindow().getAttribute("title") == newWindowTitle)
 	    getWindow().setAttribute("title", _oldWindowTitle);
     } else {
+	browseLibraryMenuItem.setAttribute("style", "display: none;");
+	hideLibraryMenuItem.setAttribute("style", "display: visible;");
+	libraryButton.setAttribute("tooltiptext", getProperty("hideLibrary"));
 	desactivateHomeButton();
 	desactivateZoomButtons();
 	desactivateFullscreenButton();
