@@ -409,29 +409,29 @@ function UIToggleFullScreen (save) {
 
     /* Configuration changes */
     if (_winIsFullScreen) {
-    _restore_tab = null;
+	_restore_tab = null;
 	toolBox.addEventListener("mouseover", showFullScreenToolBox, false);
 
-    addFSEventToTab(currentTabId);
+	addFSEventToTab(currentTabId);
 	//getHtmlRenderer().addEventListener("mouseover", hideFullScreenToolBox, false);
 	
-    toolBox.setAttribute("style", "height: 4px;");
+	toolBox.setAttribute("style", "height: 4px;");
 	changeStatusBarVisibilityStatus(false);
 	document.getElementById('menu-bar').collapsed = true;
 	hideFullScreenToolBox();
-	getFullscreenButton().setAttribute("tooltiptext", "Windowed");
+	getFullscreenButton().setAttribute("tooltiptext", getProperty("quitFullscreen"));
     } else {
 	toolBox.removeEventListener("mouseover", showFullScreenToolBox, false);
 	//getHtmlRenderer().removeEventListener("mouseover", hideFullScreenToolBox, false);
 
-    removeFSEventFromTabs();
+	removeFSEventFromTabs();
 
 	toolBox.setAttribute("style", "height: auto;");
 	showFullScreenToolBox(_fullScreenStatusBar);
 	changeStatusBarVisibilityStatus(_fullScreenStatusBar);
 	document.getElementById('menu-bar').collapsed = false;
 	showFullScreenToolBox();
-	getFullscreenButton().setAttribute("tooltiptext", "Fullscreen");
+	getFullscreenButton().setAttribute("tooltiptext", getProperty("fullscreen"));
     }
 
     // Update window state (1s delay for startup)
