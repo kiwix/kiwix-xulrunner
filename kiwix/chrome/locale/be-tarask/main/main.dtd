@@ -85,6 +85,7 @@
 <!ENTITY main.home                      "Пачатак">
 <!ENTITY main.searchBar                 "Панэль пошуку">
 <!ENTITY main.search                    "Пошук">
+<!ENTITY main.searchPlaceholder         "Type the text to search here...">
 <!ENTITY main.findInText                "Знайсьці ў тэксьце">
 <!ENTITY main.noSearchBar               "Пошук патрабуе індэксаванага ZIM-файлу">
 <!ENTITY main.bookmarks                 "Закладкі">

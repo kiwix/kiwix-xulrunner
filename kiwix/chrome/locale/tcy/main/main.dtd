@@ -85,6 +85,7 @@
 <!ENTITY main.home                      "ನಿಲೆ">
 <!ENTITY main.searchBar                 "ನಾಡ್‘ನ ಪಟ್ಟಿ">
 <!ENTITY main.search                    "ನಾಡ್‘ಲೆ">
+<!ENTITY main.searchPlaceholder         "Type the text to search here...">
 <!ENTITY main.findInText                "ಪಠ್ಯಡ್ ತೂಲೆ">
 <!ENTITY main.noSearchBar               "ನಾಡ್ಯೆರ ಇಂಡೆಕ್ಸ್ ಮಲ್ಪ್ತಿನ ZIM ಕಡತ ಬೋಡು">
 <!ENTITY main.bookmarks                 "ಪುಟತ ಗುರುತು">

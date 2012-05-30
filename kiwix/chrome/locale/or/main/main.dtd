@@ -85,6 +85,7 @@
 <!ENTITY main.home                      "ମୂଳ ଜାଗା">
 <!ENTITY main.searchBar                 "ଖୋଜା ପଟିକା">
 <!ENTITY main.search                    "ଖୋଜିବେ">
+<!ENTITY main.searchPlaceholder         "Type the text to search here...">
 <!ENTITY main.findInText                "ଲେଖାରେ ଖୋଜିବେ">
 <!ENTITY main.noSearchBar               "ଖୋଜିବା ନିମନ୍ତେ ଏକ ସୂଚି କରାହୋଇଥିବା ZIM ଫାଇଲ ଲୋଡ଼ା">
 <!ENTITY main.bookmarks                 "ବହିଚିହ୍ନକ">

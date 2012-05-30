@@ -85,6 +85,7 @@
 <!ENTITY main.home                      "Heim">
 <!ENTITY main.searchBar                 "Søkeline">
 <!ENTITY main.search                    "Søk">
+<!ENTITY main.searchPlaceholder         "Type the text to search here...">
 <!ENTITY main.findInText                "Finn i tekst">
 <!ENTITY main.noSearchBar               "Søk krev ei indeksert ZIM-fil">
 <!ENTITY main.bookmarks                 "Bokmerke">

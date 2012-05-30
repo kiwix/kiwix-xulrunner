@@ -240,7 +240,7 @@
 
     <stack flex="1">
       <hbox>
-	<textbox id="textbox-search" flex="1" tooltiptext="&main.searchBar;" placeholder="Type the text to search here..."
+	<textbox id="textbox-search" flex="1" tooltiptext="&main.searchBar;" placeholder="&main.searchPlaceholder;"
 		 oncompositionstart="this.keyPressed = true;" oncompositionend="this.keyPressed = false;"
 		 onkeydown="if (event.keyCode == 13) { if (this.keyPressed == false) { blur(); manageSearchInIndex() } else { this.keyPressed = false; } } else { this.keyPressed = true }"
 		 onkeypress="if (event.keyCode == 27) { this.value = '' }; this.keyPressed = true;"

@@ -85,6 +85,7 @@
 <!ENTITY main.home                      "Balay">
 <!ENTITY main.searchBar                 "Panagbiruk a baras">
 <!ENTITY main.search                    "Biruken">
+<!ENTITY main.searchPlaceholder         "Type the text to search here...">
 <!ENTITY main.findInText                "Sapulen idiay teksto">
 <!ENTITY main.noSearchBar               "Ti pinagbiruk ket masapul ti pagsurotan a ZIM a papeles">
 <!ENTITY main.bookmarks                 "Marmarka ti libro">

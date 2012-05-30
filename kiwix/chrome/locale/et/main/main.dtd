@@ -85,6 +85,7 @@
 <!ENTITY main.home                      "Koduleht">
 <!ENTITY main.searchBar                 "Otsiriba">
 <!ENTITY main.search                    "Otsi">
+<!ENTITY main.searchPlaceholder         "Type the text to search here...">
 <!ENTITY main.findInText                "Otsi tekstist">
 <!ENTITY main.noSearchBar               "Otsimiseks on vaja indekseeritud ZIM-faili">
 <!ENTITY main.bookmarks                 "Järjehoidjad">

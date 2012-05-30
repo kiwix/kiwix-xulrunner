@@ -85,6 +85,7 @@
 <!ENTITY main.home                      "Entamu">
 <!ENTITY main.searchBar                 "Barra de gueta">
 <!ENTITY main.search                    "Guetar">
+<!ENTITY main.searchPlaceholder         "Type the text to search here...">
 <!ENTITY main.findInText                "Alcontrar nel testu">
 <!ENTITY main.noSearchBar               "La gueta necesita un ficheru ZIM indexáu">
 <!ENTITY main.bookmarks                 "Marcadores">

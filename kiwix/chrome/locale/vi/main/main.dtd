@@ -85,6 +85,7 @@
 <!ENTITY main.home                      "Trang nhà">
 <!ENTITY main.searchBar                 "Thanh Tìm kiếm">
 <!ENTITY main.search                    "Tìm kiếm">
+<!ENTITY main.searchPlaceholder         "Type the text to search here...">
 <!ENTITY main.findInText                "Tìm trong Văn bản">
 <!ENTITY main.noSearchBar               "Cần tập tin ZIM có chỉ mục để tìm kiếm">
 <!ENTITY main.bookmarks                 "Dấu trang">

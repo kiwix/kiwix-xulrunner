@@ -85,6 +85,7 @@
 <!ENTITY main.home                      "ముంగిలి">
 <!ENTITY main.searchBar                 "అన్వేషణ పట్టీ">
 <!ENTITY main.search                    "వెతుకు">
+<!ENTITY main.searchPlaceholder         "Type the text to search here...">
 <!ENTITY main.findInText                "Find in text">
 <!ENTITY main.noSearchBar               "Search requires an indexed ZIM file">
 <!ENTITY main.bookmarks                 "Bookmarks">

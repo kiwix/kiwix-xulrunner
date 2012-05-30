@@ -85,6 +85,7 @@
 <!ENTITY main.home                      "गृह">
 <!ENTITY main.searchBar                 "खोज बार">
 <!ENTITY main.search                    "खोज">
+<!ENTITY main.searchPlaceholder         "Type the text to search here...">
 <!ENTITY main.findInText                "अर्को भेट्टउने">
 <!ENTITY main.noSearchBar               "खोजको लागि सुचीकृत ZIM फाइलको आवश्यकता पर्छ">
 <!ENTITY main.bookmarks                 "पुस्तक चिनोहरु">

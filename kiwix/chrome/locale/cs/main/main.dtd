@@ -85,6 +85,7 @@
 <!ENTITY main.home                      "Domů">
 <!ENTITY main.searchBar                 "Řádek vyhledávání">
 <!ENTITY main.search                    "Vyhledávání">
+<!ENTITY main.searchPlaceholder         "Type the text to search here...">
 <!ENTITY main.findInText                "Najít v textu">
 <!ENTITY main.noSearchBar               "Hledání vyžaduje indexovaný soubor ZIM">
 <!ENTITY main.bookmarks                 "Záložky">

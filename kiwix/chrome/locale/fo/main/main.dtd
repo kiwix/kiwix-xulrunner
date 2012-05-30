@@ -85,6 +85,7 @@
 <!ENTITY main.home                      "Heim">
 <!ENTITY main.searchBar                 "Leiti teigur">
 <!ENTITY main.search                    "Leita">
+<!ENTITY main.searchPlaceholder         "Type the text to search here...">
 <!ENTITY main.findInText                "Finn í teksti">
 <!ENTITY main.noSearchBar               "Leiting krevur eina indekseraða ZIM fílu">
 <!ENTITY main.bookmarks                 "Bókamerki">

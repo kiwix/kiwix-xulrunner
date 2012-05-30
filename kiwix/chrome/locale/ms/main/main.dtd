@@ -85,6 +85,7 @@
 <!ENTITY main.home                      "Laman utama">
 <!ENTITY main.searchBar                 "Bar carian">
 <!ENTITY main.search                    "Cari">
+<!ENTITY main.searchPlaceholder         "Type the text to search here...">
 <!ENTITY main.findInText                "Cari dalam teks">
 <!ENTITY main.noSearchBar               "Pencarian memerlukan fail ZIM berindeks">
 <!ENTITY main.bookmarks                 "Kegemaran">

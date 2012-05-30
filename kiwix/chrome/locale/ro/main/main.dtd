@@ -85,6 +85,7 @@
 <!ENTITY main.home                      "Acasă">
 <!ENTITY main.searchBar                 "Bara de căutare">
 <!ENTITY main.search                    "Căutare">
+<!ENTITY main.searchPlaceholder         "Type the text to search here...">
 <!ENTITY main.findInText                "Căutare în text">
 <!ENTITY main.noSearchBar               "Căutarea necesită un fișier Zim indexat">
 <!ENTITY main.bookmarks                 "Semne de carte">

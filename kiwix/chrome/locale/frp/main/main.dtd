@@ -85,6 +85,7 @@
 <!ENTITY main.home                      "Reçua">
 <!ENTITY main.searchBar                 "Bârra de rechèrche">
 <!ENTITY main.search                    "Rechèrche">
+<!ENTITY main.searchPlaceholder         "Type the text to search here...">
 <!ENTITY main.findInText                "Rechèrchiér dens lo tèxto">
 <!ENTITY main.noSearchBar               "La rechèrche at fôta d’un fichiér ZIM endèxâ">
 <!ENTITY main.bookmarks                 "Mârca-pâges">

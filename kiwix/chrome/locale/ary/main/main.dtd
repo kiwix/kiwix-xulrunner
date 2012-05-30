@@ -85,6 +85,7 @@
 <!ENTITY main.home                      "ra'isiyya">
 <!ENTITY main.searchBar                 "ċarit l-behṫ">
 <!ENTITY main.search                    "bheṫ">
+<!ENTITY main.searchPlaceholder         "Type the text to search here...">
 <!ENTITY main.findInText                "lqa f-naṣṣ">
 <!ENTITY main.noSearchBar               "l-behṫ ĥaṣṣo ċi milef ZIM indexé">
 <!ENTITY main.bookmarks                 "mofaḍḍalat">

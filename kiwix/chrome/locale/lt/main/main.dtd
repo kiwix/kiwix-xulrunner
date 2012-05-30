@@ -85,6 +85,7 @@
 <!ENTITY main.home                      "Pradžia">
 <!ENTITY main.searchBar                 "Paieškos juostą">
 <!ENTITY main.search                    "Paieška">
+<!ENTITY main.searchPlaceholder         "Type the text to search here...">
 <!ENTITY main.findInText                "Rasti tekste">
 <!ENTITY main.noSearchBar               "Paieškos reikalauja indeksuojami ZIM failo">
 <!ENTITY main.bookmarks                 "Žymės">

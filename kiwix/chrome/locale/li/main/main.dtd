@@ -85,6 +85,7 @@
 <!ENTITY main.home                      "Huidmenu">
 <!ENTITY main.searchBar                 "Zeukbalk">
 <!ENTITY main.search                    "Zeuk">
+<!ENTITY main.searchPlaceholder         "Type the text to search here...">
 <!ENTITY main.findInText                "Zeuk in teks">
 <!ENTITY main.noSearchBar               "Om te zeuke höbs te 'n geïndexeerd ZIM-besjtand nudig">
 <!ENTITY main.bookmarks                 "Blaadwiezers">

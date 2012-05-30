@@ -85,6 +85,7 @@
 <!ENTITY main.home                      "Domov">
 <!ENTITY main.searchBar                 "Iskalna vrstica">
 <!ENTITY main.search                    "Iskanje">
+<!ENTITY main.searchPlaceholder         "Type the text to search here...">
 <!ENTITY main.findInText                "Najdi v besedilu">
 <!ENTITY main.noSearchBar               "Iskanje zahteva indeksirano datoteko Zim">
 <!ENTITY main.bookmarks                 "Zaznamki">

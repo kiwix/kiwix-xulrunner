@@ -85,6 +85,7 @@
 <!ENTITY main.home                      "Faqja Krzesore">
 <!ENTITY main.searchBar                 "Shiriti kërkues">
 <!ENTITY main.search                    "Kërko">
+<!ENTITY main.searchPlaceholder         "Type the text to search here...">
 <!ENTITY main.findInText                "Kërko në tekst">
 <!ENTITY main.noSearchBar               "Kërkimi kërkon ZIM dokumentin e indeksuar">
 <!ENTITY main.bookmarks                 "Faqe-shenjues">

@@ -85,6 +85,7 @@
 <!ENTITY main.home                      "Etusivu">
 <!ENTITY main.searchBar                 "Hakupalkki">
 <!ENTITY main.search                    "Haku">
+<!ENTITY main.searchPlaceholder         "Type the text to search here...">
 <!ENTITY main.findInText                "Etsi tekstissä">
 <!ENTITY main.noSearchBar               "Haku vaatii indeksoidun ZIM-tiedoston">
 <!ENTITY main.bookmarks                 "Kirjanmerkit">

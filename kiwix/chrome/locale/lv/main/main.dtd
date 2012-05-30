@@ -85,6 +85,7 @@
 <!ENTITY main.home                      "Sākums">
 <!ENTITY main.searchBar                 "Meklēšanas josla">
 <!ENTITY main.search                    "Meklēt">
+<!ENTITY main.searchPlaceholder         "Type the text to search here...">
 <!ENTITY main.findInText                "Atrast tekstā">
 <!ENTITY main.noSearchBar               "Meklēšanai ir nepieciešams indeksēts ZIM fails">
 <!ENTITY main.bookmarks                 "Grāmatzīmes">

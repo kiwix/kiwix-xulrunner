@@ -85,6 +85,7 @@
 <!ENTITY main.home                      "Daħla">
 <!ENTITY main.searchBar                 "Kaxxa tat-tfittxija">
 <!ENTITY main.search                    "Fittex">
+<!ENTITY main.searchPlaceholder         "Type the text to search here...">
 <!ENTITY main.findInText                "Sib fit-test">
 <!ENTITY main.noSearchBar               "It-tfittxija għandha bżonn ta' ZIM indiċizzat">
 <!ENTITY main.bookmarks                 "Werrejja">

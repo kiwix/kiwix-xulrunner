@@ -85,6 +85,7 @@
 <!ENTITY main.home                      "შინ">
 <!ENTITY main.searchBar                 "საძიებო ველი">
 <!ENTITY main.search                    "ძიება">
+<!ENTITY main.searchPlaceholder         "Type the text to search here...">
 <!ENTITY main.findInText                "ძიება ტექსტში">
 <!ENTITY main.noSearchBar               "ძიება მოითხოვს ინდექსირებულ ZIM ფაილს">
 <!ENTITY main.bookmarks                 "სანიშნები">

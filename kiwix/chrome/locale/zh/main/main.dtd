@@ -85,6 +85,7 @@
 <!ENTITY main.home                      "主页">
 <!ENTITY main.searchBar                 "搜索栏">
 <!ENTITY main.search                    "搜索">
+<!ENTITY main.searchPlaceholder         "Type the text to search here...">
 <!ENTITY main.findInText                "在文本中查找">
 <!ENTITY main.noSearchBar               "搜索需要已建立索引的Zim文件">
 <!ENTITY main.bookmarks                 "书签">

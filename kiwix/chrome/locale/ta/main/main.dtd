@@ -85,6 +85,7 @@
 <!ENTITY main.home                      "முகப்பு">
 <!ENTITY main.searchBar                 "தேடல் பட்டி">
 <!ENTITY main.search                    "தேடு">
+<!ENTITY main.searchPlaceholder         "Type the text to search here...">
 <!ENTITY main.findInText                "உரையில் கண்டுபிடி">
 <!ENTITY main.noSearchBar               "தேடலுக்கு அடைவாக்கப்பட்ட ZIM கோப்பு தேவைப்படுகிறது">
 <!ENTITY main.bookmarks                 "புத்தகக்குறிகள்">

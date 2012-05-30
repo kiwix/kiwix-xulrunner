@@ -85,6 +85,7 @@
 <!ENTITY main.home                      "Αρχή">
 <!ENTITY main.searchBar                 "Γραμμή αναζήτησης">
 <!ENTITY main.search                    "Αναζήτηση">
+<!ENTITY main.searchPlaceholder         "Type the text to search here...">
 <!ENTITY main.findInText                "Εύρεση στο κείμενο">
 <!ENTITY main.noSearchBar               "Η αναζήτηση απαιτεί ένα καταχωρημένο αρχείο ZIM">
 <!ENTITY main.bookmarks                 "Σελιδοδείκτες">

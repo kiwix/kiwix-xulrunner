@@ -85,6 +85,7 @@
 <!ENTITY main.home                      "היימבלאַט">
 <!ENTITY main.searchBar                 "זוכ־לײַסט">
 <!ENTITY main.search                    "זוכן">
+<!ENTITY main.searchPlaceholder         "Type the text to search here...">
 <!ENTITY main.findInText                "זוכן אין טעקסט">
 <!ENTITY main.noSearchBar               "זוך פֿאדערט אן אינדעקסירטע ZIM-טעקע">
 <!ENTITY main.bookmarks                 "ליין־צייכנס">

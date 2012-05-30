@@ -85,6 +85,7 @@
 <!ENTITY main.home                      "Hafan">
 <!ENTITY main.searchBar                 "Bar chwilio">
 <!ENTITY main.search                    "Chwilio">
+<!ENTITY main.searchPlaceholder         "Type the text to search here...">
 <!ENTITY main.findInText                "Chwilio'r testun">
 <!ENTITY main.noSearchBar               "Mae angen ffeil ZIM mynegedig ar gyfer chwilio">
 <!ENTITY main.bookmarks                 "Llyfrnodau">

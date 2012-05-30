@@ -85,6 +85,7 @@
 <!ENTITY main.home                      "처음으로">
 <!ENTITY main.searchBar                 "자료 검색 줄">
 <!ENTITY main.search                    "찾기">
+<!ENTITY main.searchPlaceholder         "Type the text to search here...">
 <!ENTITY main.findInText                "원문에서 찾기">
 <!ENTITY main.noSearchBar               "찾기를 위한 색인된 ZIM파일이 필요합니다.">
 <!ENTITY main.bookmarks                 "자료 표시점">

@@ -85,6 +85,7 @@
 <!ENTITY main.home                      "প্রধান পাতা">
 <!ENTITY main.searchBar                 "অনুসন্ধান বার">
 <!ENTITY main.search                    "অনুসন্ধান">
+<!ENTITY main.searchPlaceholder         "Type the text to search here...">
 <!ENTITY main.findInText                "লেখায় খুঁজুন">
 <!ENTITY main.noSearchBar               "অনুসন্ধানের জন্য একটি সূচিকৃত জেডআইএম ফাইল প্রয়োজন">
 <!ENTITY main.bookmarks                 "বুকমার্ক">

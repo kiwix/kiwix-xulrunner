@@ -85,6 +85,7 @@
 <!ENTITY main.home                      "Haaptsäit">
 <!ENTITY main.searchBar                 "Sich-Läischt">
 <!ENTITY main.search                    "Sichen">
+<!ENTITY main.searchPlaceholder         "Type the text to search here...">
 <!ENTITY main.findInText                "Am Text sichen">
 <!ENTITY main.noSearchBar               "Search requires an indexed ZIM file">
 <!ENTITY main.bookmarks                 "Favoriten">

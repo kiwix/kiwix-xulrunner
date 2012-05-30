@@ -85,6 +85,7 @@
 <!ENTITY main.home                      "বেটুপাত">
 <!ENTITY main.searchBar                 "অনুসন্ধান বাৰ">
 <!ENTITY main.search                    "অনুসন্ধান">
+<!ENTITY main.searchPlaceholder         "Type the text to search here...">
 <!ENTITY main.findInText                "লিখনীত বিচাৰক">
 <!ENTITY main.noSearchBar               "সন্ধান কৰিবলে সূচীত ZIM নথিপত্ৰৰ প্ৰয়োজন">
 <!ENTITY main.bookmarks                 "পত্ৰচিহ্নসমূহ">

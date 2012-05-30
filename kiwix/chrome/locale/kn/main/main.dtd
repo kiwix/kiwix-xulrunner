@@ -85,6 +85,7 @@
 <!ENTITY main.home                      "ಮುಖ್ಯಪುಟ">
 <!ENTITY main.searchBar                 "ಅನ್ವೇಷಣಾಪಟ್ಟಿ">
 <!ENTITY main.search                    "ಅನ್ವೇಷಿಸಿ">
+<!ENTITY main.searchPlaceholder         "Type the text to search here...">
 <!ENTITY main.findInText                "ಪಠ್ಯದಲ್ಲಿ ಹುಡುಕಿ">
 <!ENTITY main.noSearchBar               "ಈ ಅನ್ವೇಷಣೆಗೆ ಅನುಕ್ರಮಣಿತವಾದ ಜ಼ಿಮ್(ZIM) ಕಡತದ ಅವಶ್ಯಕತೆ ಇದೆ">
 <!ENTITY main.bookmarks                 "ಓದುಗುರುತುಗಳು">

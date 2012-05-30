@@ -85,6 +85,7 @@
 <!ENTITY main.home                      "Kaca Utama">
 <!ENTITY main.searchBar                 "Lempengan nggo nggoleti">
 <!ENTITY main.search                    "Goleti">
+<!ENTITY main.searchPlaceholder         "Type the text to search here...">
 <!ENTITY main.findInText                "Goleti nang teks">
 <!ENTITY main.noSearchBar               "Penggoletan merlokna berkas ZIM sing uwis diindeks">
 <!ENTITY main.bookmarks                 "Ditandani">

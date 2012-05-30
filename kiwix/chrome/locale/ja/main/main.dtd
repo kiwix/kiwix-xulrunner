@@ -85,6 +85,7 @@
 <!ENTITY main.home                      "ホーム">
 <!ENTITY main.searchBar                 "検索バー">
 <!ENTITY main.search                    "検索">
+<!ENTITY main.searchPlaceholder         "Type the text to search here...">
 <!ENTITY main.findInText                "テキストで検索">
 <!ENTITY main.noSearchBar               "検索にはインデックス付きZIMファイルが必要です">
 <!ENTITY main.bookmarks                 "ブックマーク">

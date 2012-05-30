@@ -85,6 +85,7 @@
 <!ENTITY main.home                      "Өйгә">
 <!ENTITY main.searchBar                 "Эзләү тасмасы">
 <!ENTITY main.search                    "Эзләү">
+<!ENTITY main.searchPlaceholder         "Type the text to search here...">
 <!ENTITY main.findInText                "Текстта эзләү">
 <!ENTITY main.noSearchBar               "Эзләү ZIM файлын индекслауны сорый">
 <!ENTITY main.bookmarks                 "Кыстыргычлар">

@@ -85,6 +85,7 @@
 <!ENTITY main.home                      "Houpsigg">
 <!ENTITY main.searchBar                 "Söhk noh">
 <!ENTITY main.search                    "Söhke">
+<!ENTITY main.searchPlaceholder         "Type the text to search here...">
 <!ENTITY main.findInText                "En Täx fenge">
 <!ENTITY main.noSearchBar               "Öm söhke ze künne, bruch mer en ZIM-Dattei met enem Index.">
 <!ENTITY main.bookmarks                 "Lesezeiche">

@@ -85,6 +85,7 @@
 <!ENTITY main.home                      "Төп Бит">
 <!ENTITY main.searchBar                 "Эҙләү панеле">
 <!ENTITY main.search                    "Эҙләү">
+<!ENTITY main.searchPlaceholder         "Type the text to search here...">
 <!ENTITY main.findInText                "Текста табырға">
 <!ENTITY main.noSearchBar               "Эҙләү индексланған ZIM файлын һорай">
 <!ENTITY main.bookmarks                 "Һалынмалар">

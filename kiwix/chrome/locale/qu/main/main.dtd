@@ -85,6 +85,7 @@
 <!ENTITY main.home                      "Qallarina">
 <!ENTITY main.searchBar                 "Maskay sinru">
 <!ENTITY main.search                    "Maskay">
+<!ENTITY main.searchPlaceholder         "Type the text to search here...">
 <!ENTITY main.findInText                "Qillqapi maskay">
 <!ENTITY main.noSearchBar               "Maskanapaqqa yuyarinachasqa ZIM willañiqim kana tiyan">
 <!ENTITY main.bookmarks                 "Yuyana unanchakuna">

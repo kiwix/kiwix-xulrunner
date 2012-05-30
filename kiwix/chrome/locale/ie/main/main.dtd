@@ -85,6 +85,7 @@
 <!ENTITY main.home                      "Principal">
 <!ENTITY main.searchBar                 "Barre de sercha">
 <!ENTITY main.search                    "Sercha">
+<!ENTITY main.searchPlaceholder         "Type the text to search here...">
 <!ENTITY main.findInText                "Constatar in textu">
 <!ENTITY main.noSearchBar               "Sercha exige un file ZIM índexat">
 <!ENTITY main.bookmarks                 "Marcatores">

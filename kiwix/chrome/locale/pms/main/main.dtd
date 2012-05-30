@@ -85,6 +85,7 @@
 <!ENTITY main.home                      "Pàgina d'intrada">
 <!ENTITY main.searchBar                 "Bara d'arserca">
 <!ENTITY main.search                    "Sërca">
+<!ENTITY main.searchPlaceholder         "Type the text to search here...">
 <!ENTITY main.findInText                "Trové ant ël test">
 <!ENTITY main.noSearchBar               "L'arserca a l'ha da manca ëd n'archivi con ìndes ZIM">
 <!ENTITY main.bookmarks                 "Marca">

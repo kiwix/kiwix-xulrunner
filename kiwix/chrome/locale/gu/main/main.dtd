@@ -85,6 +85,7 @@
 <!ENTITY main.home                      "ઘર">
 <!ENTITY main.searchBar                 "શોધવા માટે ની જગ્યા">
 <!ENTITY main.search                    "શોધો">
+<!ENTITY main.searchPlaceholder         "Type the text to search here...">
 <!ENTITY main.findInText                "ભાષા ના સંદર્ભ  માં શોધો">
 <!ENTITY main.noSearchBar               "આ શોધ ને ઝીમ ઇન્દેક્ષ ની જરૂર છે">
 <!ENTITY main.bookmarks                 "બુકમાર્ક">

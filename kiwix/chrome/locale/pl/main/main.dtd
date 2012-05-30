@@ -85,6 +85,7 @@
 <!ENTITY main.home                      "Strona główna">
 <!ENTITY main.searchBar                 "Pole wyszukiwania">
 <!ENTITY main.search                    "Szukaj">
+<!ENTITY main.searchPlaceholder         "Type the text to search here...">
 <!ENTITY main.findInText                "Znajdź w tekście">
 <!ENTITY main.noSearchBar               "Wyszukiwanie wymaga zindeksowanego pliku ZIM">
 <!ENTITY main.bookmarks                 "Zakładki">

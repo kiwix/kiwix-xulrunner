@@ -85,6 +85,7 @@
 <!ENTITY main.home                      "باش بەت">
 <!ENTITY main.searchBar                 "ئىزدەش بالداق">
 <!ENTITY main.search                    "ئىزدە">
+<!ENTITY main.searchPlaceholder         "Type the text to search here...">
 <!ENTITY main.findInText                "تېكىستتىن ئىزدە">
 <!ENTITY main.noSearchBar               "ئىزدەشكە ئىندېكىسلانغان ZIM ھۆججىتى زۆرۈر">
 <!ENTITY main.bookmarks                 "خەتكۈچلەر">

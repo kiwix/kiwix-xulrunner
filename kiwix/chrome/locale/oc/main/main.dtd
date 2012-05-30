@@ -85,6 +85,7 @@
 <!ENTITY main.home                      "Acuèlh">
 <!ENTITY main.searchBar                 "Barra de cèrca">
 <!ENTITY main.search                    "Cèrca">
+<!ENTITY main.searchPlaceholder         "Type the text to search here...">
 <!ENTITY main.findInText                "Trobar dins lo tèxte">
 <!ENTITY main.noSearchBar               "Per cercar cal un fichièr ZIM indexat">
 <!ENTITY main.bookmarks                 "Onglets">

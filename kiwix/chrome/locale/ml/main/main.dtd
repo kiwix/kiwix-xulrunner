@@ -85,6 +85,7 @@
 <!ENTITY main.home                      "ആസ്ഥാനം">
 <!ENTITY main.searchBar                 "തിരച്ചില്‍ പട്ട">
 <!ENTITY main.search                    "തിരയുക">
+<!ENTITY main.searchPlaceholder         "Type the text to search here...">
 <!ENTITY main.findInText                "Find in text">
 <!ENTITY main.noSearchBar               "തിരയുന്നതിനു് ഇന്‍ഡെക്സ് ചെയ്ത Zim ഫയല്‍ ആവശ്യമാണു്">
 <!ENTITY main.bookmarks                 "അടയാളക്കുറിപ്പുകള്‍">

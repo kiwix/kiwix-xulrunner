@@ -85,6 +85,7 @@
 <!ENTITY main.home                      "کور">
 <!ENTITY main.searchBar                 "د پلټلو پټه">
 <!ENTITY main.search                    "پلټل">
+<!ENTITY main.searchPlaceholder         "Type the text to search here...">
 <!ENTITY main.findInText                "په متن کې موندل">
 <!ENTITY main.noSearchBar               "پلټنه د يوې ZIM دوتنې ليکلړ شوې بڼې ته اړتيا لري">
 <!ENTITY main.bookmarks                 "کتاب نخښې">

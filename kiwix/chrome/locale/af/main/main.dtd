@@ -85,6 +85,7 @@
 <!ENTITY main.home                      "Tuisblad">
 <!ENTITY main.searchBar                 "Soekbalk">
 <!ENTITY main.search                    "Soek">
+<!ENTITY main.searchPlaceholder         "Type the text to search here...">
 <!ENTITY main.findInText                "Soek in teks">
 <!ENTITY main.noSearchBar               "Soek vereis 'n geïndekseerde Zim-lêer">
 <!ENTITY main.bookmarks                 "Boekmerke">
