@@ -862,7 +862,7 @@ function isLibraryVisible() {
 function toggleLibrary(visible) {
     var libraryButton = getLibraryButton();
     var renderingDeck = document.getElementById("rendering-deck");
-    var newWindowTitle = "Content manager - Kiwix";
+    var newWindowTitle = getProperty("library") + " - Kiwix";
     var browseLibraryMenuItem = document.getElementById("file-browse-library");
     var hideLibraryMenuItem = document.getElementById("file-hide-library");
 
