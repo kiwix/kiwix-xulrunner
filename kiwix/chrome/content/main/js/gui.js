@@ -900,7 +900,9 @@ function toggleBrowserContextualMenu(event) {
     /* Selected text */
     var copySelectedTextMenuItem = document.getElementById("browser-contextual-menu-copyselectedtext");
     var searchForMenuItem = document.getElementById("browser-contextual-menu-searchfor");
-    var selectedText = document.commandDispatcher.focusedWindow.getSelection().toString();
+    var selectedText = document.commandDispatcher.focusedWindow.
+	getSelection().toString().replace(/(\r\n|\n|\r)/gm, " ");
+
     if (selectedText.length > 0) {
 	copySelectedTextMenuItem.setAttribute("style", "display: visible;");
 	copySelectedTextMenuItem.setAttribute("onclick", "copySelectedContent()");
