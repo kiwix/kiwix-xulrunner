@@ -180,7 +180,7 @@ endif
 
 # Linux
 icu/source/build/lib/libicudata.so icu/source/lib/libicuuc.so icu/source/build/lib/libicui18n.so: icu/
-	cd icu/source && mkdir -p build && CFLAGS=" -fPIC " ./runConfigureICU Linux --prefix=$(DEP_PATH)/icu/source/build --disable-samples --disable-tests --disable-extras --enable-static && make clean && make && make install
+	cd icu/source && mkdir -p build && CFLAGS=" -fPIC " ./runConfigureICU Linux --prefix=$(DEP_PATH)/icu/source/build --disable-samples --disable-tests --disable-extras --enable-static --disable-dyload && make clean && make && make install
 
 # OSX FAT join
 icu/source/build/lib/libicudata.dylib icu/source/build/lib/libicuuc.dylib icu/source/build/lib/libicui18n.dylib: icu/source/build-x86_64/lib/libicudata.dylib icu/source/build-x86_64/lib/libicuuc.dylib icu/source/build-x86_64/lib/libicui18n.dylib icu/source/build-i386/lib/libicudata.dylib icu/source/build-i386/lib/libicuuc.dylib icu/source/build-i386/lib/libicui18n.dylib
@@ -188,11 +188,11 @@ icu/source/build/lib/libicudata.dylib icu/source/build/lib/libicuuc.dylib icu/so
 
 # OSX i386
 icu/source/build-i386/lib/libicudata.dylib icu/source/build-i386/lib/libicuuc.dylib icu/source/build-i386/lib/libicui18n.dylib: icu/
-	cd icu/source && mkdir -p build-i386 && CFLAGS=" -fPIC " ./runConfigureICU MacOSX --prefix=${DEP_PATH}/icu/source/build-i386 --with-library-bits=32 --disable-samples --disable-tests --disable-extras --enable-static && make clean && make && make install
+	cd icu/source && mkdir -p build-i386 && CFLAGS=" -fPIC " ./runConfigureICU MacOSX --prefix=${DEP_PATH}/icu/source/build-i386 --with-library-bits=32 --disable-samples --disable-tests --disable-extras --enable-static --disable-dyload && make clean && make && make install
 
 # OSX x86_64
 icu/source/build-x86_64/lib/libicudata.dylib icu/source/build-x86_64/lib/libicuuc.dylib icu/source/build-x86_64/lib/libicui18n.dylib: icu/
-	cd icu/source && mkdir -p build-x86_64 && CFLAGS=" -fPIC " ./runConfigureICU MacOSX --prefix=${DEP_PATH}/icu/source/build-x86_64 --with-library-bits=64 --disable-samples --disable-tests --disable-extras --enable-static && make clean && make && make install
+	cd icu/source && mkdir -p build-x86_64 && CFLAGS=" -fPIC " ./runConfigureICU MacOSX --prefix=${DEP_PATH}/icu/source/build-x86_64 --with-library-bits=64 --disable-samples --disable-tests --disable-extras --enable-static --disable-dyload && make clean && make && make install
 
 icu.zip:
 	$(DOWNLOADER) icu.zip $(DEP_MIRROR)/icu4c-4_4-Win32-msvc9.zip

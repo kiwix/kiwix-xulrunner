@@ -7,3 +7,7 @@ include_HEADERS= ../common/pathTools.h
 
 kiwix_launcher_CXXFLAGS= -I../common/
 kiwix_launcher_LDFLAGS=$(CHECK_LDFLAGS)
+
+if STATIC_BINS
+kiwix_launcher_LDFLAGS+= $(STATIC_LIBM_ARCHIVE) $(STATIC_LIBSTDCPP_ARCHIVE) $(STATIC_LIBDL_ARCHIVE) $(STATIC_LIBGCC_ARCHIVE) $(STATIC_LIBPTHREAD_ARCHIVE) --static
+endif
