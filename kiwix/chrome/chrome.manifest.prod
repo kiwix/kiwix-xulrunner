@@ -206,4 +206,4 @@ skin main sugar jar:skin.jar!/skin/sugar/
 
 #resource aliasname uri/to/files/
 resource modules modules/
-resource defaultskin jar:skin.jar!/default/
+resource defaultskin jar:skin.jar!/skin/default/
