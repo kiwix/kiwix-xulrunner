@@ -1,20 +1,20 @@
 Kiwix 0.9 rc1
 * FIXED: Smoothier zooming (ID: 3469927)
-* FIXED: Evolution skin (ID: 3444112)
+* FIXED: "Evolution" skin (ID: 3444112)
 * FIXED: Bad aria2c process mgmt. by introducing aria2 v1.14 (ID: 3430225)
 * FIXED: Invisible menuitems icons on GNU/Linux
-* FIXED: Blanck 404 error pages served by kiwix-serve (ID: 3417227)
+* FIXED: Blanck kiwix-serve 404 error pages (ID: 3417227)
 * FIXED: Error during the installation of Ubuntu packages (ID: 3437855)
 * FIXED: Bad singleton-window implementation (ID: 3444121)
 * FIXED: Compilation with CLucene 2.3 (ID: 3405531)
-* FIXED: To high article count in the ZIM library (ID: 3396763)
+* FIXED: Too high article/media count in the ZIM library (ID: 3396763)
 * FIXED: Kiwix-serve sporadic invisible search box with non-latin contents
 * FIXED: Toolbar wrong height on Sugar with XOs (ID: 3471281)
 * FIXED: Broken ZIM loading on XO OSes 0.8x (ID: 3471279)
-* FIXED: Library filtering by language with ISO639-1 language ZIM metadata
-* FIXED: Continuing indexing process if quitting app. during indexing
+* FIXED: Library filtering by language with ISO639-1 language code ZIM metadata
+* FIXED: Continuing indexing process if quitting app.
 * FIXED: Text-only zoom. Pictures are now zoomed with Text (ID: 3525284)
-* FIXED: Multiple Windows UI small CSS issues (ID: 3514842)
+* FIXED: Multiple small UI issues (ID: 3514842)
 * NEW: New supported user interface languages: Faroese (fo), Croatian (hr),
   Iloko (ilo), Limburgish (li), Basa Banyumasan (map-bms), Pashto (ps), 
   Bachkir (ba), Welsh (cy), Yiddish (yi), Wolof (yo), 
@@ -31,8 +31,9 @@ Kiwix 0.9 rc1
 * NEW: Ask before downloading XML library files (ID: 3442087)
 * NEW: kiwix-serve able to deal directly with a library XML file
 * NEW: kiwix-serve able to deal with many content in one instance
-* NEW: Speed-up begin of downloads by removing file pre-allocation
+* NEW: Speed-up start of downloads by removing file pre-allocation
 * NEW: Allow compilation against Gecko SDK 9.0 and further (xpidl binary was removed)
+* NEW: Static compiled releases run against XR11
 * NEW: Add support for HTML5 video/audio
 * NEW: Audible/Mute contextual menuitem for HTML5 videos
 * NEW: Default content icon in the library (ID: 3488268)
@@ -46,7 +47,7 @@ Kiwix 0.9 rc1
 * NEW: OSX universal binary package (x86_32 & x86_64)
 * NEW: kiwix-serve command line option --attachToProcess
 * NEW: Windows BASCKSPACE handle to make page back (ID: 3518780)
-* NEW: kiwix-serve integration in Kiwix UI
+* NEW: kiwix-serve integration in Kiwix UI (OSX&Linux only)
 * NEW: Remove kiwix-serve external results.tmpl template file dependency
 * NEW: Rewrite of kiwix-serve UI using JQueryUI
 
