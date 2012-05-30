@@ -8,6 +8,7 @@
 <!ENTITY main.openFile                  "Файлды асырға...">
 <!ENTITY main.browseLibrary.accesskey   "B">
 <!ENTITY main.browseLibrary             "Китапхананы байҡарға">
+<!ENTITY main.hideLibrary               "Hide library">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "Яңыраҡ асылғандар...">
 <!ENTITY main.saveFile                  "Битте яңыса һаҡларға...">

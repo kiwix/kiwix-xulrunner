@@ -8,6 +8,7 @@
 <!ENTITY main.openFile                  "Otvoriť súbor...">
 <!ENTITY main.browseLibrary.accesskey   "B">
 <!ENTITY main.browseLibrary             "Prehľadávať knižnicu">
+<!ENTITY main.hideLibrary               "Hide library">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "Nedávno otvorené...">
 <!ENTITY main.saveFile                  "Uložiť stránku ako...">

@@ -8,6 +8,7 @@
 <!ENTITY main.openFile                  "ფაილის გახსნა...">
 <!ENTITY main.browseLibrary.accesskey   "B">
 <!ENTITY main.browseLibrary             "ბიბლიოთეკის დათვალიერება">
+<!ENTITY main.hideLibrary               "Hide library">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "ბოლოს გახსნილი...">
 <!ENTITY main.saveFile                  "გვერდის შენახვა როგორც...">

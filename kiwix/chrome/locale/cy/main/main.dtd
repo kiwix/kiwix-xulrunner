@@ -8,6 +8,7 @@
 <!ENTITY main.openFile                  "Agor ffeil...">
 <!ENTITY main.browseLibrary.accesskey   "B">
 <!ENTITY main.browseLibrary             "Pori'r llyfrgell">
+<!ENTITY main.hideLibrary               "Hide library">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "Agorwyd yn ddiweddar...">
 <!ENTITY main.saveFile                  "Cadw'r dudalen fel...">

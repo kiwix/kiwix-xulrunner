@@ -8,6 +8,7 @@
 <!ENTITY main.openFile                  "افتح ملفًا...">
 <!ENTITY main.browseLibrary.accesskey   "B">
 <!ENTITY main.browseLibrary             "تصفح المكتبة">
+<!ENTITY main.hideLibrary               "إخفاء المكتبة">
 <!ENTITY main.openFile.accesskey        "ف">
 <!ENTITY main.lastOpen                  "المفتوح مؤخراً...">
 <!ENTITY main.saveFile                  "حفظ الصفحة ك...">

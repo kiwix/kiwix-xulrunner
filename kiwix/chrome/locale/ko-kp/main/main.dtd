@@ -8,6 +8,7 @@
 <!ENTITY main.openFile                  "자료 열람">
 <!ENTITY main.browseLibrary.accesskey   "B">
 <!ENTITY main.browseLibrary             "컴퓨터 자료 장소">
+<!ENTITY main.hideLibrary               "Hide library">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "최근에 사용한 자료">
 <!ENTITY main.saveFile                  "새 이름으로 자료 만들기">

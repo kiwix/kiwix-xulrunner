@@ -8,6 +8,7 @@
 <!ENTITY main.openFile                  "Fichier opmaachen...">
 <!ENTITY main.browseLibrary.accesskey   "B">
 <!ENTITY main.browseLibrary             "Browse library">
+<!ENTITY main.hideLibrary               "Hide library">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "Rezent opgemaach...">
 <!ENTITY main.saveFile                  "Säit späicheren als ...">

@@ -8,6 +8,7 @@
 <!ENTITY main.openFile                  "Buka berkas...">
 <!ENTITY main.browseLibrary.accesskey   "B">
 <!ENTITY main.browseLibrary             "Kotéktak pabukon">
+<!ENTITY main.hideLibrary               "Hide library">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "Anyar dimuka...">
 <!ENTITY main.saveFile                  "Simpen kaca salaku...">

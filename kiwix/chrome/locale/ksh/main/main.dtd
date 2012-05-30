@@ -8,6 +8,7 @@
 <!ENTITY main.openFile                  "Dattei opmaache...">
 <!ENTITY main.browseLibrary.accesskey   "B">
 <!ENTITY main.browseLibrary             "En de Bilijotheek bläddere">
+<!ENTITY main.hideLibrary               "Hide library">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "Köözlesch opjehatt...">
 <!ENTITY main.saveFile                  "Di Sigg faßhallde onger...">

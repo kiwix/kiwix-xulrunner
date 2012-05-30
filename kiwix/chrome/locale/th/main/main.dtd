@@ -8,6 +8,7 @@
 <!ENTITY main.openFile                  "เปิดแฟ้ม...">
 <!ENTITY main.browseLibrary.accesskey   "B">
 <!ENTITY main.browseLibrary             "เปิดดูคลังดาวน์โหลด">
+<!ENTITY main.hideLibrary               "Hide library">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "เปิดล่าสุด...">
 <!ENTITY main.saveFile                  "บันทึกหน้าเป็น...">

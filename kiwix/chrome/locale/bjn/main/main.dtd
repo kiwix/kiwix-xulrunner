@@ -8,6 +8,7 @@
 <!ENTITY main.openFile                  "Ungkap barakas...">
 <!ENTITY main.browseLibrary.accesskey   "B">
 <!ENTITY main.browseLibrary             "Jalajah pustaka">
+<!ENTITY main.hideLibrary               "Hide library">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "Hahanyar diungkap...">
 <!ENTITY main.saveFile                  "Simpan tungkaran sawagai...">

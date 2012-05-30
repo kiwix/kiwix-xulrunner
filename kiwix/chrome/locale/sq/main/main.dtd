@@ -8,6 +8,7 @@
 <!ENTITY main.openFile                  "Hap dosjen">
 <!ENTITY main.browseLibrary.accesskey   "B">
 <!ENTITY main.browseLibrary             "Shfleto librarinë">
+<!ENTITY main.hideLibrary               "Hide library">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "Hapur kohët e fundit...">
 <!ENTITY main.saveFile                  "Ruaj faqen si ...">

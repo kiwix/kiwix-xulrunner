@@ -8,6 +8,7 @@
 <!ENTITY main.openFile                  "ifta7 el fichier">
 <!ENTITY main.browseLibrary.accesskey   "B">
 <!ENTITY main.browseLibrary             "ara el maktba mte3 el wiki">
+<!ENTITY main.hideLibrary               "Hide library">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "elli 7allaytou ss'arlek chouiya">
 <!ENTITY main.saveFile                  "enregistri el page ki...">

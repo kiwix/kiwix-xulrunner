@@ -8,6 +8,7 @@
 <!ENTITY main.openFile                  "Mở Tập tin…">
 <!ENTITY main.browseLibrary.accesskey   "B">
 <!ENTITY main.browseLibrary             "Duyệt thư viện">
+<!ENTITY main.hideLibrary               "Hide library">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "Mở Gần đây…">
 <!ENTITY main.saveFile                  "Lưu Trang Như…">

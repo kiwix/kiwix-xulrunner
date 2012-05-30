@@ -8,6 +8,7 @@
 <!ENTITY main.openFile                  "Avaa tiedosto...">
 <!ENTITY main.browseLibrary.accesskey   "S">
 <!ENTITY main.browseLibrary             "Selaa kirjastoa">
+<!ENTITY main.hideLibrary               "Hide library">
 <!ENTITY main.openFile.accesskey        "A">
 <!ENTITY main.lastOpen                  "Viimeksi avatut...">
 <!ENTITY main.saveFile                  "Tallenna sivu nimellä...">

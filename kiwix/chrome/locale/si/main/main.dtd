@@ -8,6 +8,7 @@
 <!ENTITY main.openFile                  "ගොනුව විවෘත කරන්න...">
 <!ENTITY main.browseLibrary.accesskey   "B">
 <!ENTITY main.browseLibrary             "ගබඩාව පිරික්සන්න">
+<!ENTITY main.hideLibrary               "Hide library">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "මෑතදී විවෘත කෙරුණු...">
 <!ENTITY main.saveFile                  "පිටුව මෙසේ සුරකින්න...">

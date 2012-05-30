@@ -8,6 +8,7 @@
 <!ENTITY main.openFile                  "Dataju wócyniś...">
 <!ENTITY main.browseLibrary.accesskey   "B">
 <!ENTITY main.browseLibrary             "Biblioteku pśepytaś">
+<!ENTITY main.hideLibrary               "Biblioteku schowaś">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "Njedawno wócynjony...">
 <!ENTITY main.saveFile                  "Bok składowaś ako...">

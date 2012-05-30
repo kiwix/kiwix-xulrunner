@@ -8,6 +8,7 @@
 <!ENTITY main.openFile                  "દસ્તાવેજ ખોલો">
 <!ENTITY main.browseLibrary.accesskey   "B">
 <!ENTITY main.browseLibrary             "પુસ્તકાલય માંથી શોધો">
+<!ENTITY main.hideLibrary               "Hide library">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "અત્યારે ખોલેલો . . .">
 <!ENTITY main.saveFile                  "પાનું આ નામથી સાચવો...">

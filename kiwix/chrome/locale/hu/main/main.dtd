@@ -8,6 +8,7 @@
 <!ENTITY main.openFile                  "Fájl megnyitása...">
 <!ENTITY main.browseLibrary.accesskey   "B">
 <!ENTITY main.browseLibrary             "Könyvtár böngészése">
+<!ENTITY main.hideLibrary               "Könyvtár elrejtése">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "Legutóbb megnyitott...">
 <!ENTITY main.saveFile                  "Oldal mentése másként...">

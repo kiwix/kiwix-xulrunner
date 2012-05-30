@@ -8,6 +8,7 @@
 <!ENTITY main.openFile                  "Maak lêer oop...">
 <!ENTITY main.browseLibrary.accesskey   "B">
 <!ENTITY main.browseLibrary             "Blaai deur biblioteek">
+<!ENTITY main.hideLibrary               "Hide library">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "Onlangs geopen...">
 <!ENTITY main.saveFile                  "Stoor bladsy as...">

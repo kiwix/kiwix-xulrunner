@@ -8,6 +8,7 @@
 <!ENTITY main.openFile                  "Ava fail...">
 <!ENTITY main.browseLibrary.accesskey   "B">
 <!ENTITY main.browseLibrary             "Sirvi raamatukogu">
+<!ENTITY main.hideLibrary               "Hide library">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "Viimati avatud...">
 <!ENTITY main.saveFile                  "Salvesta lehekülg nimega...">

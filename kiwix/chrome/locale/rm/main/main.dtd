@@ -8,6 +8,7 @@
 <!ENTITY main.openFile                  "Avrir ina datoteca…">
 <!ENTITY main.browseLibrary.accesskey   "B">
 <!ENTITY main.browseLibrary             "Browse library">
+<!ENTITY main.hideLibrary               "Hide library">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "Avert dacurt…">
 <!ENTITY main.saveFile                  "Memorisar la pagina sut…">

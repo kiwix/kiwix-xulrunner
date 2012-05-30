@@ -8,6 +8,7 @@
 <!ENTITY main.openFile                  "Atidaryti failą...">
 <!ENTITY main.browseLibrary.accesskey   "B">
 <!ENTITY main.browseLibrary             "Naršyti biblioteką">
+<!ENTITY main.hideLibrary               "Hide library">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "Neseniai atidaryti...">
 <!ENTITY main.saveFile                  "Įrašyti puslapį kaip...">

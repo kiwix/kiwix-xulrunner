@@ -8,6 +8,7 @@
 <!ENTITY main.openFile                  "파일 열기">
 <!ENTITY main.browseLibrary.accesskey   "B">
 <!ENTITY main.browseLibrary             "장서 보기">
+<!ENTITY main.hideLibrary               "Hide library">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "최근에 사용한 항목">
 <!ENTITY main.saveFile                  "다른 이름으로 저장하기">

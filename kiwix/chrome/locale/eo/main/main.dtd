@@ -8,6 +8,7 @@
 <!ENTITY main.openFile                  "Malfermi dosieron...">
 <!ENTITY main.browseLibrary.accesskey   "B">
 <!ENTITY main.browseLibrary             "Rigardi bibliotekon">
+<!ENTITY main.hideLibrary               "Hide library">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "Freŝe malfermitaj...">
 <!ENTITY main.saveFile                  "Konservi paĝon kiel...">

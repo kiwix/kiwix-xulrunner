@@ -8,6 +8,7 @@
 <!ENTITY main.openFile                  "Отворити файл ...">
 <!ENTITY main.browseLibrary.accesskey   "B">
 <!ENTITY main.browseLibrary             "Огляд книжніцї">
+<!ENTITY main.hideLibrary               "Hide library">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "Недавно отворены ...">
 <!ENTITY main.saveFile                  "Уложыти сторінку як...">

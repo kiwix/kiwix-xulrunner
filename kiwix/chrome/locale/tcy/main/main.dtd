@@ -8,6 +8,7 @@
 <!ENTITY main.openFile                  "ಕಡತ ಬಿಚ್ಚಾಲೆ">
 <!ENTITY main.browseLibrary.accesskey   "B">
 <!ENTITY main.browseLibrary             "ಗ್ರಂಥಾಲಯಡ್ ನಾಡ್‘ಲೆ">
+<!ENTITY main.hideLibrary               "Hide library">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "ಇಂಚಿಪ ಬಿಚ್ಚಾಯಿನ">
 <!ENTITY main.saveFile                  "ಇಂಚ ಪುಟನ್ ಒರಿಪಾಲೆ">

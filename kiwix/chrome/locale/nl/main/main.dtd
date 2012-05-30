@@ -8,6 +8,7 @@
 <!ENTITY main.openFile                  "Bestand openen...">
 <!ENTITY main.browseLibrary.accesskey   "B">
 <!ENTITY main.browseLibrary             "Bibliotheek doorbladeren">
+<!ENTITY main.hideLibrary               "Bibliotheek verbergen">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "Recent geopend...">
 <!ENTITY main.saveFile                  "Pagina opslaan als...">

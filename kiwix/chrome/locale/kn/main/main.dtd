@@ -8,6 +8,7 @@
 <!ENTITY main.openFile                  "ಕಡತವನ್ನು ಉದ್ಘಾಟಿಸಿ...">
 <!ENTITY main.browseLibrary.accesskey   "B">
 <!ENTITY main.browseLibrary             "ಗ್ರಂಥಾಲಯವನ್ನು ವಿಹರಿಸಿ">
+<!ENTITY main.hideLibrary               "Hide library">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "ಇತ್ತೀಚೆಗೆ ಉದ್ಘಾಟಿಸಲ್ಪಟ್ಟಂತಹ...">
 <!ENTITY main.saveFile                  "ಪುಟಸಂರಕ್ಷಣೆಯನ್ನು ಈ ರೀತಿ ಮಾಡಿ...">

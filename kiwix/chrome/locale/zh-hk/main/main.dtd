@@ -8,6 +8,7 @@
 <!ENTITY main.openFile                  "開啟檔案…">
 <!ENTITY main.browseLibrary.accesskey   "B">
 <!ENTITY main.browseLibrary             "瀏覽檔案庫">
+<!ENTITY main.hideLibrary               "Hide library">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "最近使用…">
 <!ENTITY main.saveFile                  "另存為…">

@@ -8,6 +8,7 @@
 <!ENTITY main.openFile                  "Atvērt failu...">
 <!ENTITY main.browseLibrary.accesskey   "B">
 <!ENTITY main.browseLibrary             "Pārlūkot bibliotēku">
+<!ENTITY main.hideLibrary               "Hide library">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "Nesen atvērtie...">
 <!ENTITY main.saveFile                  "Saglabāt lapu kā...">

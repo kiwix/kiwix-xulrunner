@@ -8,6 +8,7 @@
 <!ENTITY main.openFile                  "ഫയല്‍ തുറക്കുക...">
 <!ENTITY main.browseLibrary.accesskey   "B">
 <!ENTITY main.browseLibrary             "പ്രമാണശേഖരത്തിൽ തിരയുക">
+<!ENTITY main.hideLibrary               "Hide library">
 <!ENTITY main.openFile.accesskey        "ത">
 <!ENTITY main.lastOpen                  "ഈയിടെ തുറന്നതു്...">
 <!ENTITY main.saveFile                  "താള്‍ സൂക്ഷിക്കുക...">

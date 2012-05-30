@@ -8,6 +8,7 @@
 <!ENTITY main.openFile                  "Duverté n'archivi...">
 <!ENTITY main.browseLibrary.accesskey   "B">
 <!ENTITY main.browseLibrary             "Dësfujé la biblioteca">
+<!ENTITY main.hideLibrary               "Hide library">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "Duvertà ëd recent...">
 <!ENTITY main.saveFile                  "Salvé la pàgina com...">

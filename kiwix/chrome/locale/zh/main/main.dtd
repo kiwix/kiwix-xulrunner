@@ -8,6 +8,7 @@
 <!ENTITY main.openFile                  "打开文件...">
 <!ENTITY main.browseLibrary.accesskey   "B">
 <!ENTITY main.browseLibrary             "Browse library">
+<!ENTITY main.hideLibrary               "Hide library">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "最近打开文件...">
 <!ENTITY main.saveFile                  "页面保存为...">

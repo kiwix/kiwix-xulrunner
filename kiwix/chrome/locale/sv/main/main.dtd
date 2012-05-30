@@ -8,6 +8,7 @@
 <!ENTITY main.openFile                  "Öppna fil...">
 <!ENTITY main.browseLibrary.accesskey   "B">
 <!ENTITY main.browseLibrary             "Bläddra i biblioteket">
+<!ENTITY main.hideLibrary               "Hide library">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "Nyligen öppna...">
 <!ENTITY main.saveFile                  "Spara sida som...">

@@ -8,6 +8,7 @@
 <!ENTITY main.openFile                  "ফাইল খুলক...">
 <!ENTITY main.browseLibrary.accesskey   "B">
 <!ENTITY main.browseLibrary             "লাইব্রেৰি ব্রাউজ কৰক">
+<!ENTITY main.hideLibrary               "Hide library">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "বর্তমানে খোলা পৃষ্ঠা...">
 <!ENTITY main.saveFile                  "অন্ন্য বাবে পৃষ্ঠা সংৰক্ষণ কৰক ...">

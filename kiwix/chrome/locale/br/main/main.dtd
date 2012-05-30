@@ -8,6 +8,7 @@
 <!ENTITY main.openFile                  "Digeriñ ur restr...">
 <!ENTITY main.browseLibrary.accesskey   "B">
 <!ENTITY main.browseLibrary             "Furchal el levraoueg">
+<!ENTITY main.hideLibrary               "Hide library">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "Digoret n'eus ket pell...">
 <!ENTITY main.saveFile                  "Enrollañ ar bajenn evel...">

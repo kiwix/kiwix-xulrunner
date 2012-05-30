@@ -8,6 +8,7 @@
 <!ENTITY main.openFile                  "Lukatan ti papeles...">
 <!ENTITY main.browseLibrary.accesskey   "B">
 <!ENTITY main.browseLibrary             "Agbasabasa ti biblioteka">
+<!ENTITY main.hideLibrary               "Hide library">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "Kaluklukat laeng...">
 <!ENTITY main.saveFile                  "Idulin ti panid a kas...">

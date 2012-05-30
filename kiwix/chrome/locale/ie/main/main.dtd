@@ -8,6 +8,7 @@
 <!ENTITY main.openFile                  "Aperter figura...">
 <!ENTITY main.browseLibrary.accesskey   "B">
 <!ENTITY main.browseLibrary             "Browse library">
+<!ENTITY main.hideLibrary               "Hide library">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "Currentmen apertet...">
 <!ENTITY main.saveFile                  "Conservar págine quam...">

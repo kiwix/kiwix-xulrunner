@@ -8,6 +8,7 @@
 <!ENTITY main.openFile                  "Datei uffmache...">
 <!ENTITY main.browseLibrary.accesskey   "B">
 <!ENTITY main.browseLibrary             "Bibliothek duresüeche">
+<!ENTITY main.hideLibrary               "Hide library">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "Zletscht uffgmacht...">
 <!ENTITY main.saveFile                  "Syte spychere als...">

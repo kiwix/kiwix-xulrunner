@@ -8,6 +8,7 @@
 <!ENTITY main.openFile                  "Άνοιγμα αρχείου...">
 <!ENTITY main.browseLibrary.accesskey   "B">
 <!ENTITY main.browseLibrary             "Περιήγηση βιβλιοθήκης">
+<!ENTITY main.hideLibrary               "Hide library">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "Ανοίχτηκε πρόσφατα...">
 <!ENTITY main.saveFile                  "Αποθήκευση σελίδας ως...">

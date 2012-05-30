@@ -8,6 +8,7 @@
 <!ENTITY main.openFile                  "Lat upp fílu...">
 <!ENTITY main.browseLibrary.accesskey   "B">
 <!ENTITY main.browseLibrary             "Leita í bókasavninum">
+<!ENTITY main.hideLibrary               "Hide library">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "Nýliga latin upp...">
 <!ENTITY main.saveFile                  "Goym síðu sum...">

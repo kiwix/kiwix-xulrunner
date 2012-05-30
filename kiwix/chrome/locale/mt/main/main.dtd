@@ -8,6 +8,7 @@
 <!ENTITY main.openFile                  "Iftaħ il-fajl...">
 <!ENTITY main.browseLibrary.accesskey   "B">
 <!ENTITY main.browseLibrary             "Qalleb fil-librerija">
+<!ENTITY main.hideLibrary               "Hide library">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "Miftuħin riċentament...">
 <!ENTITY main.saveFile                  "Salva l-paġna bħala...">

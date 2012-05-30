@@ -8,6 +8,7 @@
 <!ENTITY main.openFile                  "گشودن پرونده...">
 <!ENTITY main.browseLibrary.accesskey   "B">
 <!ENTITY main.browseLibrary             "مرور کتابخانه">
+<!ENTITY main.hideLibrary               "Hide library">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "اخیراً گشوده شده...">
 <!ENTITY main.saveFile                  "...ذخیره صفحه به عنوان">

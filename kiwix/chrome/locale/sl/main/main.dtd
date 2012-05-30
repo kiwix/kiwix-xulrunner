@@ -8,6 +8,7 @@
 <!ENTITY main.openFile                  "Odpri datoteko ...">
 <!ENTITY main.browseLibrary.accesskey   "B">
 <!ENTITY main.browseLibrary             "Prebrskaj knjižnico">
+<!ENTITY main.hideLibrary               "Skrij knjižnico">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "Nedavno odprto ...">
 <!ENTITY main.saveFile                  "Shrani stran kot ...">

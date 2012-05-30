@@ -8,6 +8,7 @@
 <!ENTITY main.openFile                  "Deschide un fișier...">
 <!ENTITY main.browseLibrary.accesskey   "B">
 <!ENTITY main.browseLibrary             "Răsfoire bibliotecă">
+<!ENTITY main.hideLibrary               "Hide library">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "Deschise recent...">
 <!ENTITY main.saveFile                  "Salvează pagina ca...">

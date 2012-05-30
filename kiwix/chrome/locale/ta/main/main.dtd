@@ -8,6 +8,7 @@
 <!ENTITY main.openFile                  "கோப்பை திறக்கவும்...">
 <!ENTITY main.browseLibrary.accesskey   "B">
 <!ENTITY main.browseLibrary             "நூலகத்தில் தேடவும்">
+<!ENTITY main.hideLibrary               "Hide library">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "சமீபத்தில் திற...">
 <!ENTITY main.saveFile                  "பக்கத்தை இவ்வாறாக சேமி...">

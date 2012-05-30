@@ -8,6 +8,7 @@
 <!ENTITY main.openFile                  "फ़ाइल खोलें...">
 <!ENTITY main.browseLibrary.accesskey   "B">
 <!ENTITY main.browseLibrary             "लायब्रेरी ब्राउज़ करें">
+<!ENTITY main.hideLibrary               "Hide library">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "हाल ही में खोला हुआ...">
 <!ENTITY main.saveFile                  "पृष्ठ के रूप में सहेजें...">

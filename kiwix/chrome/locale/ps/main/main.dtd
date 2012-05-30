@@ -8,6 +8,7 @@
 <!ENTITY main.openFile                  "دوتنه پرانيستل...">
 <!ENTITY main.browseLibrary.accesskey   "B">
 <!ENTITY main.browseLibrary             "کتابتون سپړل">
+<!ENTITY main.hideLibrary               "Hide library">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "وروستی پرانيستی...">
 <!ENTITY main.saveFile                  "مخ خوندي کول لکه...">

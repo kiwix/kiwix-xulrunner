@@ -8,6 +8,7 @@
 <!ENTITY main.openFile                  "פתיחת קובץ...">
 <!ENTITY main.browseLibrary.accesskey   "B">
 <!ENTITY main.browseLibrary             "עיון בספרייה">
+<!ENTITY main.hideLibrary               "הסתרת ספרייה">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "פתיחת קובץ מבין האחרונים...">
 <!ENTITY main.saveFile                  "שמירת דף בשם...">

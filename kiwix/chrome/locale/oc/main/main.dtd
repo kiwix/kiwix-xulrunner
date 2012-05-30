@@ -8,6 +8,7 @@
 <!ENTITY main.openFile                  "Dobrir un fichièr...">
 <!ENTITY main.browseLibrary.accesskey   "B">
 <!ENTITY main.browseLibrary             "Browse library">
+<!ENTITY main.hideLibrary               "Hide library">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "Fichièrs recents...">
 <!ENTITY main.saveFile                  "Enregistrar coma...">
