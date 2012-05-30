@@ -1501,9 +1501,9 @@ function selectSkin(name) {
 
 function manageCheckIntegrity() {
     if (checkIntegrity()) {
-	displayInfoDialog("The file integrity was succesfuly checked.");
+	displayInfoDialog(getProperty("integrityCheckSuccessful"));
     } else {
-	displayErrorDialog("Your file is corrupted.");
+	displayErrorDialog(getProperty("integrityCheckFailed"));
     }
 }
 
