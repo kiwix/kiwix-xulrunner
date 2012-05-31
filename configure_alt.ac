@@ -1121,7 +1121,7 @@ fi
 ############ STATIC BINARIES COMMON
 ####################################################
 
-if test [ $STATIC_BINS -eq 1 ]
+if test [ $STATIC_BINS -eq 1 -a $IS_OSX -eq 0 ]
 then
 	# libm
 	STATIC_LIBM_ARCHIVE=`findstatic "libm.a"`
