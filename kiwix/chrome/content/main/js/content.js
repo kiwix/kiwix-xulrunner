@@ -568,7 +568,6 @@ function createLibraryItem(book) {
 					       "textbox");
     description.setAttribute("class", "library-content-item-description");
     description.setAttribute("readonly", true);
-    description.setAttribute("size", 100);
     description.setAttribute("value", book.description);
     detailsBox.appendChild(description);
     
