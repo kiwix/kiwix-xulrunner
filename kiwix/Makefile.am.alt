@@ -1,16 +1,16 @@
 SUBDIRS=chrome defaults components
 
 add_SCRIPTS=kiwix-compact
-adddir=$(bindir)/
+adddir=${DESTDIR}$(bindir)
 
-inidir=$(pkglibdir)
+inidir=${DESTDIR}$(pkglibdir)
 ini_DATA=application.ini chrome.manifest
 
-launcherdir=$(pkglibdir)
+launcherdir=${DESTDIR}$(pkglibdir)
 launcher_SCRIPTS=kiwix
 
 install-exec-hook:
-	-ln -s -f $(launcherdir)/kiwix ${DESTDIR}/$(bindir)/kiwix
+	-ln -s -f $(launcherdir)/kiwix ${DESTDIR}$(bindir)/kiwix
 
 uninstall-hook:
-	-rm $(bindir)/kiwix
+	-rm ${DESTDIR}$(bindir)/kiwix

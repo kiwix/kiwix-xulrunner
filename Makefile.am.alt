@@ -75,7 +75,7 @@ all-local: kiwix/components/xapianAccessor.so \
 endif
 
 dist-hook:
-	rm -rf `find $(distdir) -name "*.svn" -o -name "*.dat" -o -name "*~" -o -name "*#"`
+	rm -rf `find ${DESTDIR}$(distdir) -name "*.svn" -o -name "*.dat" -o -name "*~" -o -name "*#"`
 
 install-exec-hook:
 	rm -rf `find $(DESTDIR)$(libdir) -name "*.la" -o -name "*.a"`

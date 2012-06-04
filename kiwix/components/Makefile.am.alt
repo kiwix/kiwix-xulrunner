@@ -1,2 +1,2 @@
-jsdir = $(libdir)/kiwix/components
+jsdir = ${DESTDIR}$(libdir)/kiwix/components
 js_DATA = suggest.js searchProtocol.js zimProtocol.js commandLineHandler.js
