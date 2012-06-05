@@ -85,7 +85,7 @@
 <!ENTITY main.home                      "Startowy bok">
 <!ENTITY main.searchBar                 "Pytańska kšoma">
 <!ENTITY main.search                    "Pytaś">
-<!ENTITY main.searchPlaceholder         "Type the text to search here...">
+<!ENTITY main.searchPlaceholder         "Zapiš how tekst, kótaryž ma se pytaś...">
 <!ENTITY main.findInText                "W teksće pytaś">
 <!ENTITY main.noSearchBar               "Pytanje pomina se indicěrowanu ZIM-dataju">
 <!ENTITY main.bookmarks                 "Załožki">

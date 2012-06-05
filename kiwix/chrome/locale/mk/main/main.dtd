@@ -85,7 +85,7 @@
 <!ENTITY main.home                      "Почеток">
 <!ENTITY main.searchBar                 "Пребарување">
 <!ENTITY main.search                    "Пребарување">
-<!ENTITY main.searchPlaceholder         "Type the text to search here...">
+<!ENTITY main.searchPlaceholder         "Тука внесете го текстот за пребарување...">
 <!ENTITY main.findInText                "Пронајди во текстот">
 <!ENTITY main.noSearchBar               "Пребарувањето бара индексирана ZIM-податотека">
 <!ENTITY main.bookmarks                 "Обележани">

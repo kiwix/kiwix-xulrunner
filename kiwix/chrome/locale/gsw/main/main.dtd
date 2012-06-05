@@ -8,7 +8,7 @@
 <!ENTITY main.openFile                  "Datei uffmache...">
 <!ENTITY main.browseLibrary.accesskey   "B">
 <!ENTITY main.browseLibrary             "Bibliothek duresüeche">
-<!ENTITY main.hideLibrary               "Hide library">
+<!ENTITY main.hideLibrary               "Bibliothek ussblände">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "Zletscht uffgmacht...">
 <!ENTITY main.saveFile                  "Syte spychere als...">
@@ -85,7 +85,7 @@
 <!ENTITY main.home                      "Hauptsyte">
 <!ENTITY main.searchBar                 "Suechliischte">
 <!ENTITY main.search                    "Sueche">
-<!ENTITY main.searchPlaceholder         "Type the text to search here...">
+<!ENTITY main.searchPlaceholder         "Gib doo de Teggst yy, wo nooch gsuecht werde söll...">
 <!ENTITY main.findInText                "Ir Syte sueche">
 <!ENTITY main.noSearchBar               "D Suechi bruucht e indizierti ZIM-Datei">
 <!ENTITY main.bookmarks                 "Läsezeiche">
@@ -126,19 +126,19 @@
 <!-- Library -->
 <!ENTITY main.library.myLibrary                 "Mini Bibliothek">
 <!ENTITY main.library.getNewFiles               "Noii Dateie abelade">
-<!ENTITY main.library.searchZimFiles            "Search ZIM files">
-<!ENTITY main.library.sortBy                    "Sort by">
-<!ENTITY main.library.sortBy.title              "Title">
-<!ENTITY main.library.sortBy.size               "Size">
-<!ENTITY main.library.sortBy.date               "Date">
-<!ENTITY main.library.sortBy.author             "Author">
-<!ENTITY main.library.sortBy.publisher          "Publisher">
-<!ENTITY main.library.filterBy                  "Filter by">
-<!ENTITY main.library.filterBy.fileSize         "File size">
-<!ENTITY main.library.filterBy.language         "Language">
-<!ENTITY main.library.filterBy.language.all     "All">
-<!ENTITY main.library.filterBy.author           "Author">
-<!ENTITY main.library.filterBy.author.all       "All">
-<!ENTITY main.library.filterBy.publisher        "Publisher">
-<!ENTITY main.library.filterBy.publisher.all    "All">
+<!ENTITY main.library.searchZimFiles            "ZIM-Dateie dursueche">
+<!ENTITY main.library.sortBy                    "Sortiere no">
+<!ENTITY main.library.sortBy.title              "Titel">
+<!ENTITY main.library.sortBy.size               "Greßi">
+<!ENTITY main.library.sortBy.date               "Datum">
+<!ENTITY main.library.sortBy.author             "Urheber">
+<!ENTITY main.library.sortBy.publisher          "Verleger">
+<!ENTITY main.library.filterBy                  "Filtre no">
+<!ENTITY main.library.filterBy.fileSize         "Dateigrößi">
+<!ENTITY main.library.filterBy.language         "Sprooch">
+<!ENTITY main.library.filterBy.language.all     "Alli">
+<!ENTITY main.library.filterBy.author           "Autor">
+<!ENTITY main.library.filterBy.author.all       "Alli">
+<!ENTITY main.library.filterBy.publisher        "Verleger">
+<!ENTITY main.library.filterBy.publisher.all    "Alli">
 

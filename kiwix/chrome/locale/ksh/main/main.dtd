@@ -8,7 +8,7 @@
 <!ENTITY main.openFile                  "Dattei opmaache...">
 <!ENTITY main.browseLibrary.accesskey   "B">
 <!ENTITY main.browseLibrary             "En de Bilijotheek bläddere">
-<!ENTITY main.hideLibrary               "Hide library">
+<!ENTITY main.hideLibrary               "Bibliotheek verschteische">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "Köözlesch opjehatt...">
 <!ENTITY main.saveFile                  "Di Sigg faßhallde onger...">
@@ -33,7 +33,7 @@
 <!ENTITY main.transliteration.accesskey "T">
 <!ENTITY main.preferences               "Enschtellunge">
 <!ENTITY main.preferences.accesskey     "n">
-<!ENTITY main.server                    "Server">
+<!ENTITY main.server                    "ẞööver">
 <!ENTITY main.server.accesskey          "s">
 
 <!-- Display menu -->
@@ -85,7 +85,7 @@
 <!ENTITY main.home                      "Houpsigg">
 <!ENTITY main.searchBar                 "Söhk noh">
 <!ENTITY main.search                    "Söhke">
-<!ENTITY main.searchPlaceholder         "Type the text to search here...">
+<!ENTITY main.searchPlaceholder         "Jev heh ene Täx en, woh mer noh söke sulle&nbsp;&hellip;">
 <!ENTITY main.findInText                "En Täx fenge">
 <!ENTITY main.noSearchBar               "Öm söhke ze künne, bruch mer en ZIM-Dattei met enem Index.">
 <!ENTITY main.bookmarks                 "Lesezeiche">
@@ -108,8 +108,8 @@
 <!ENTITY main.openLinkInNewTab          "Donn dä Lengk en enem neue Ongerfinster op maache">
 <!ENTITY main.searchFor                 "Söhk noh">
 <!ENTITY main.copyLinkAdress            "Copy link address">
-<!ENTITY main.mute                      "Mute">
-<!ENTITY main.audible                   "Audible">
+<!ENTITY main.mute                      "Ton uß">
+<!ENTITY main.audible                   "Hüerbaa">
 
 <!-- About Window -->
 <!ENTITY main.close                     "Zohmaache">

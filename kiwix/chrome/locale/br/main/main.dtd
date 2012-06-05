@@ -8,7 +8,7 @@
 <!ENTITY main.openFile                  "Digeriñ ur restr...">
 <!ENTITY main.browseLibrary.accesskey   "B">
 <!ENTITY main.browseLibrary             "Furchal el levraoueg">
-<!ENTITY main.hideLibrary               "Hide library">
+<!ENTITY main.hideLibrary               "Kuzhat al levraoueg">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "Digoret n'eus ket pell...">
 <!ENTITY main.saveFile                  "Enrollañ ar bajenn evel...">
@@ -85,7 +85,7 @@
 <!ENTITY main.home                      "Degemer">
 <!ENTITY main.searchBar                 "Barrenn klask">
 <!ENTITY main.search                    "Klask">
-<!ENTITY main.searchPlaceholder         "Type the text to search here...">
+<!ENTITY main.searchPlaceholder         "Merkañ amañ an destenn a glaskit...">
 <!ENTITY main.findInText                "Kavout en destenn">
 <!ENTITY main.noSearchBar               "Ezhomm en deus ar c'hlask eus ur restr ZIM menegeret">
 <!ENTITY main.bookmarks                 "Sinedoù">

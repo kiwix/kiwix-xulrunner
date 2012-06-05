@@ -85,7 +85,7 @@
 <!ENTITY main.home                      "Startpagina">
 <!ENTITY main.searchBar                 "Zoekbalk">
 <!ENTITY main.search                    "Zoeken">
-<!ENTITY main.searchPlaceholder         "Type the text to search here...">
+<!ENTITY main.searchPlaceholder         "Zoeken...">
 <!ENTITY main.findInText                "Zoeken in tekst">
 <!ENTITY main.noSearchBar               "Om te zoeken hebt u een geïndexeerd ZIM-bestand nodig">
 <!ENTITY main.bookmarks                 "Bladwijzers">

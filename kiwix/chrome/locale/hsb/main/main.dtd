@@ -85,7 +85,7 @@
 <!ENTITY main.home                      "Startowa strona">
 <!ENTITY main.searchBar                 "Pytanska lajsta">
 <!ENTITY main.search                    "Pytać">
-<!ENTITY main.searchPlaceholder         "Type the text to search here...">
+<!ENTITY main.searchPlaceholder         "Zapisaj tu tekst, kotryž ma so pytać...">
 <!ENTITY main.findInText                "W teksće pytać">
 <!ENTITY main.noSearchBar               "Pytanje sej indeksowanu ZIM-dataju wužaduje">
 <!ENTITY main.bookmarks                 "Zapołožki">

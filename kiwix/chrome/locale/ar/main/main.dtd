@@ -85,7 +85,7 @@
 <!ENTITY main.home                      "صفحة البداية">
 <!ENTITY main.searchBar                 "شريط البحث">
 <!ENTITY main.search                    "ابحث">
-<!ENTITY main.searchPlaceholder         "Type the text to search here...">
+<!ENTITY main.searchPlaceholder         "أدخل النص للبحث هنا...">
 <!ENTITY main.findInText                "جِد في النص">
 <!ENTITY main.noSearchBar               "يتطلب البحث عن الملفات وفهرستها Zim">
 <!ENTITY main.bookmarks                 "المفضلة">

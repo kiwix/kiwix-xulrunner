@@ -8,7 +8,7 @@
 <!ENTITY main.openFile                  "Buka berkas...">
 <!ENTITY main.browseLibrary.accesskey   "B">
 <!ENTITY main.browseLibrary             "Jelajah perpustakaan">
-<!ENTITY main.hideLibrary               "Hide library">
+<!ENTITY main.hideLibrary               "Sembunyikan perpustakaan">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "Barusan dibuka...">
 <!ENTITY main.saveFile                  "Simpan halaman sebagai...">

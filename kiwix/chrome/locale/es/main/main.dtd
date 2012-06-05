@@ -85,7 +85,7 @@
 <!ENTITY main.home                      "Inicio">
 <!ENTITY main.searchBar                 "Barra de búsqueda">
 <!ENTITY main.search                    "Buscar">
-<!ENTITY main.searchPlaceholder         "Type the text to search here...">
+<!ENTITY main.searchPlaceholder         "Escribe el texto a buscar aquí...">
 <!ENTITY main.findInText                "Buscar en el texto">
 <!ENTITY main.noSearchBar               "La búsqueda requiere un archivo ZIM indizado">
 <!ENTITY main.bookmarks                 "Marcadores">

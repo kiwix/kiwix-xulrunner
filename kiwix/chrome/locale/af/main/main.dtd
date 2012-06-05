@@ -8,7 +8,7 @@
 <!ENTITY main.openFile                  "Maak lêer oop...">
 <!ENTITY main.browseLibrary.accesskey   "B">
 <!ENTITY main.browseLibrary             "Blaai deur biblioteek">
-<!ENTITY main.hideLibrary               "Hide library">
+<!ENTITY main.hideLibrary               "Verstek biblioteek">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "Onlangs geopen...">
 <!ENTITY main.saveFile                  "Stoor bladsy as...">
@@ -33,7 +33,7 @@
 <!ENTITY main.transliteration.accesskey "T">
 <!ENTITY main.preferences               "Voorkeure">
 <!ENTITY main.preferences.accesskey     "n">
-<!ENTITY main.server                    "Server">
+<!ENTITY main.server                    "Bediener">
 <!ENTITY main.server.accesskey          "s">
 
 <!-- Display menu -->
@@ -108,8 +108,8 @@
 <!ENTITY main.openLinkInNewTab          "Open skakel in nuwe oortjie">
 <!ENTITY main.searchFor                 "Soek na">
 <!ENTITY main.copyLinkAdress            "Copy link address">
-<!ENTITY main.mute                      "Mute">
-<!ENTITY main.audible                   "Audible">
+<!ENTITY main.mute                      "Demp klank">
+<!ENTITY main.audible                   "Skakel klank aan">
 
 <!-- About Window -->
 <!ENTITY main.close                     "Sluit">

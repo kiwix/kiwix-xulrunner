@@ -1,0 +1,144 @@
+<!-- Window -->
+<!ENTITY main.title                     "&brand.brandShortName;">
+<!ENTITY main.cssdirection              "ltr">
+
+<!-- File menu -->
+<!ENTITY main.file                      "File">
+<!ENTITY main.file.accesskey            "F">
+<!ENTITY main.openFile                  "Verxi file...">
+<!ENTITY main.browseLibrary.accesskey   "B">
+<!ENTITY main.browseLibrary             "Sfoja ła łibreria">
+<!ENTITY main.hideLibrary               "Scondi ła łibreria">
+<!ENTITY main.openFile.accesskey        "O">
+<!ENTITY main.lastOpen                  "Verti da poco...">
+<!ENTITY main.saveFile                  "Salva pajina co nome...">
+<!ENTITY main.saveFile.accesskey        "S">
+<!ENTITY main.print                     "Stanpa">
+<!ENTITY main.print.accesskey           "P">
+<!ENTITY main.printPdf                  "Stanpa come PDF">
+<!ENTITY main.printPdf.accesskey        "D">
+<!ENTITY main.quit                      "Va fora">
+<!ENTITY main.quit.accesskey            "Q">
+
+<!-- Edit menu -->
+<!ENTITY main.edit                      "Modifega">
+<!ENTITY main.edit.accesskey            "E">
+<!ENTITY main.find                      "Serca inte ła pajina...">
+<!ENTITY main.find.accesskey            "S">
+<!ENTITY main.selectall                 "Sełesiona tuto">
+<!ENTITY main.selectall.accesskey       "a">
+<!ENTITY main.copy                      "Copia">
+<!ENTITY main.copy.accesskey            "p">
+<!ENTITY main.transliteration           "Traxliterasion">
+<!ENTITY main.transliteration.accesskey "T">
+<!ENTITY main.preferences               "Preferense">
+<!ENTITY main.preferences.accesskey     "n">
+<!ENTITY main.server                    "Server">
+<!ENTITY main.server.accesskey          "s">
+
+<!-- Display menu -->
+<!ENTITY main.display                   "Vixuałixa">
+<!ENTITY main.display.accesskey         "D">
+<!ENTITY main.zoom                      "Dimension testo">
+<!ENTITY main.zoom.accesskey            "Z">
+<!ENTITY main.zoomin                    "Ingrandisi">
+<!ENTITY main.zoomin.accesskey          "M">
+<!ENTITY main.zoomout                   "Riduxi">
+<!ENTITY main.zoomout.accesskey         "R">
+<!ENTITY main.zoomorig                  "Orijinałe">
+<!ENTITY main.zoomorig.accesskey        "O">
+<!ENTITY main.language                  "Lengua">
+<!ENTITY main.language.accesskey        "L">
+<!ENTITY main.skin                      "Aspeto">
+<!ENTITY main.skin.accesskey            "S">
+<!ENTITY main.statusbar                 "Bara de stato">
+<!ENTITY main.statusbar.accesskey       "S">
+<!ENTITY main.resultsbar                "Bara dei rixultadi">
+<!ENTITY main.resultsbar.accesskey      "R">
+<!ENTITY main.tabs                      "Schede">
+<!ENTITY main.tabs.accesskey            "T">
+<!ENTITY main.fullscreen                "Schermo intiero">
+<!ENTITY main.fullscreen.accesskey      "F">
+
+<!-- Tools menu -->
+<!ENTITY main.tools                     "Strumenti">
+<!ENTITY main.tools.accesskey           "T">
+<!ENTITY main.randomArticle             "Voxe a caxo">
+<!ENTITY main.randomArticle.accesskey   "R">
+<!ENTITY main.checkIntegrity            "Controło de integrità">
+<!ENTITY main.checkIntegrity.accesskey  "k">
+<!ENTITY main.purgeHistory              "Canceła cronołojia">
+<!ENTITY main.purgeHistory.accesskey    "P">
+
+<!-- Help menu -->
+<!ENTITY main.help                      "Ajuto">
+<!ENTITY main.help.accesskey            "H">
+<!ENTITY main.feedback                  "Feedback">
+<!ENTITY main.reportabug                "Segnała un malfunsionamento">
+<!ENTITY main.requestafeature           "Richiedi na funsionałità">
+<!ENTITY main.about                     "Informasion so &brand.brandShortName;">
+<!ENTITY main.about.accesskey           "A">
+
+<!-- Tool bar -->
+<!ENTITY main.back                      "Indrio">
+<!ENTITY main.forward                   "Vanti">
+<!ENTITY main.home                      "Inisio">
+<!ENTITY main.searchBar                 "Bara de riçerca">
+<!ENTITY main.search                    "Riçerca">
+<!ENTITY main.searchPlaceholder         "Type the text to search here...">
+<!ENTITY main.findInText                "Cata inte'l testo">
+<!ENTITY main.noSearchBar               "Ła riçerca richiede un ZIM indicixà">
+<!ENTITY main.bookmarks                 "Segnałibri">
+
+<!-- Results bar -->
+<!ENTITY main.results.title             "Rixultadi de ła riçerca">
+
+<!-- Bookmarks Bar -->
+<!ENTITY main.bmkLabel                  "Segnałibri:">
+<!ENTITY main.notesLabel                "Note dei segnałibri:">
+<!ENTITY main.loadbmk                   "Inporta na cołesion de segnałibri">
+<!ENTITY main.newbmk                    "Crea na nova cołesion de segnałibri">
+<!ENTITY main.mark                      "Xonta sta pajina ai segnałibri">
+<!ENTITY main.unmark                    "Cava sta pajina dai segnałibri">
+<!ENTITY main.reload                    "Ricarga cołesion de segnałibri">
+<!ENTITY main.defaultset                "Cołesion predefinida">
+
+<!-- Contextual Menu -->
+<!ENTITY main.saveImageAs               "Salva imajine come...">
+<!ENTITY main.openLinkInNewTab          "Verxi el cołegamento in nova scheda">
+<!ENTITY main.searchFor                 "Serca">
+<!ENTITY main.copyLinkAdress            "Copy link address">
+<!ENTITY main.mute                      "Muto">
+<!ENTITY main.audible                   "Scolta">
+
+<!-- About Window -->
+<!ENTITY main.close                     "Sara">
+
+<!-- Preferences Window -->
+<!ENTITY preferences.preferences        "Preferences">
+<!ENTITY preferences.save               "Save">
+<!ENTITY preferences.cancel             "Cancel">
+<!ENTITY preferences.profileDirectory   "Profile directory">
+<!ENTITY preferences.browse             "Browse">
+<!ENTITY preferences.tabs               "Remember tabs">
+<!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">
+
+<!-- Library -->
+<!ENTITY main.library.myLibrary                 "Ła me biblioteca">
+<!ENTITY main.library.getNewFiles               "Descarga novi file">
+<!ENTITY main.library.searchZimFiles            "Serca file ZIM">
+<!ENTITY main.library.sortBy                    "Ordena par">
+<!ENTITY main.library.sortBy.title              "Titoło">
+<!ENTITY main.library.sortBy.size               "Dimension">
+<!ENTITY main.library.sortBy.date               "Data">
+<!ENTITY main.library.sortBy.author             "Autor">
+<!ENTITY main.library.sortBy.publisher          "Editor">
+<!ENTITY main.library.filterBy                  "Filtra par">
+<!ENTITY main.library.filterBy.fileSize         "Dimension del file">
+<!ENTITY main.library.filterBy.language         "Lengua">
+<!ENTITY main.library.filterBy.language.all     "Tute">
+<!ENTITY main.library.filterBy.author           "Autor">
+<!ENTITY main.library.filterBy.author.all       "Tuti">
+<!ENTITY main.library.filterBy.publisher        "Editor">
+<!ENTITY main.library.filterBy.publisher.all    "Tuti">
+

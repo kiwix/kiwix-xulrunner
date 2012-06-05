@@ -1,0 +1,144 @@
+<!-- Window -->
+<!ENTITY main.title                     "&brand.brandShortName;">
+<!ENTITY main.cssdirection              "ltr">
+
+<!-- File menu -->
+<!ENTITY main.file                      "Faili">
+<!ENTITY main.file.accesskey            "F">
+<!ENTITY main.openFile                  "Fungua faili ...">
+<!ENTITY main.browseLibrary.accesskey   "B">
+<!ENTITY main.browseLibrary             "Vinjari maktabani">
+<!ENTITY main.hideLibrary               "Ficha maktaba">
+<!ENTITY main.openFile.accesskey        "O">
+<!ENTITY main.lastOpen                  "Zilizofunguliwa karibuni ...">
+<!ENTITY main.saveFile                  "Hifadhi ukurasa kama ...">
+<!ENTITY main.saveFile.accesskey        "S">
+<!ENTITY main.print                     "Chapisha">
+<!ENTITY main.print.accesskey           "P">
+<!ENTITY main.printPdf                  "Chapisha kama PDF">
+<!ENTITY main.printPdf.accesskey        "D">
+<!ENTITY main.quit                      "Ondoka">
+<!ENTITY main.quit.accesskey            "Q">
+
+<!-- Edit menu -->
+<!ENTITY main.edit                      "Hariri">
+<!ENTITY main.edit.accesskey            "E">
+<!ENTITY main.find                      "Tafuta katika ukurasa ...">
+<!ENTITY main.find.accesskey            "S">
+<!ENTITY main.selectall                 "Chagua yote">
+<!ENTITY main.selectall.accesskey       "a">
+<!ENTITY main.copy                      "Nakilisha">
+<!ENTITY main.copy.accesskey            "p">
+<!ENTITY main.transliteration           "Unukuzi">
+<!ENTITY main.transliteration.accesskey "T">
+<!ENTITY main.preferences               "Mapendekezo">
+<!ENTITY main.preferences.accesskey     "n">
+<!ENTITY main.server                    "Seva">
+<!ENTITY main.server.accesskey          "s">
+
+<!-- Display menu -->
+<!ENTITY main.display                   "Onesha">
+<!ENTITY main.display.accesskey         "D">
+<!ENTITY main.zoom                      "Vuta karibu/mbali">
+<!ENTITY main.zoom.accesskey            "Z">
+<!ENTITY main.zoomin                    "Vuta karibu">
+<!ENTITY main.zoomin.accesskey          "M">
+<!ENTITY main.zoomout                   "Vuta mbali">
+<!ENTITY main.zoomout.accesskey         "R">
+<!ENTITY main.zoomorig                  "Ukubwa wa awali">
+<!ENTITY main.zoomorig.accesskey        "O">
+<!ENTITY main.language                  "Lugha">
+<!ENTITY main.language.accesskey        "L">
+<!ENTITY main.skin                      "Ngozi">
+<!ENTITY main.skin.accesskey            "S">
+<!ENTITY main.statusbar                 "Mwambaa wa hali">
+<!ENTITY main.statusbar.accesskey       "S">
+<!ENTITY main.resultsbar                "Mwambaa wa matokeo">
+<!ENTITY main.resultsbar.accesskey      "R">
+<!ENTITY main.tabs                      "Tagi">
+<!ENTITY main.tabs.accesskey            "T">
+<!ENTITY main.fullscreen                "Skrini nzima">
+<!ENTITY main.fullscreen.accesskey      "F">
+
+<!-- Tools menu -->
+<!ENTITY main.tools                     "Zana">
+<!ENTITY main.tools.accesskey           "T">
+<!ENTITY main.randomArticle             "Ukurasa wa bahati">
+<!ENTITY main.randomArticle.accesskey   "R">
+<!ENTITY main.checkIntegrity            "Kuangalia uadilifu">
+<!ENTITY main.checkIntegrity.accesskey  "k">
+<!ENTITY main.purgeHistory              "Futa historia">
+<!ENTITY main.purgeHistory.accesskey    "P">
+
+<!-- Help menu -->
+<!ENTITY main.help                      "Msaada">
+<!ENTITY main.help.accesskey            "H">
+<!ENTITY main.feedback                  "Maoni">
+<!ENTITY main.reportabug                "Ripoti hitilafu">
+<!ENTITY main.requestafeature           "kuomba umbile">
+<!ENTITY main.about                     "Kususu &brand.brandShortName;">
+<!ENTITY main.about.accesskey           "A">
+
+<!-- Tool bar -->
+<!ENTITY main.back                      "Rudia ukurasa uliopita">
+<!ENTITY main.forward                   "Pelekea">
+<!ENTITY main.home                      "Kaya">
+<!ENTITY main.searchBar                 "Mstari wa kutafuta">
+<!ENTITY main.search                    "Tafuta">
+<!ENTITY main.searchPlaceholder         "Type the text to search here...">
+<!ENTITY main.findInText                "Tafuta katika makala">
+<!ENTITY main.noSearchBar               "Kutafuta kunahitaji faili ya ZIM yenye faharasa">
+<!ENTITY main.bookmarks                 "Maalamisho">
+
+<!-- Results bar -->
+<!ENTITY main.results.title             "Matokeo ya utafutaji">
+
+<!-- Bookmarks Bar -->
+<!ENTITY main.bmkLabel                  "Maalamisho:">
+<!ENTITY main.notesLabel                "Vidokezo vya kariri hifadhi:">
+<!ENTITY main.loadbmk                   "Agiza seti ya kariri hifadhi.">
+<!ENTITY main.newbmk                    "Tengeneza seti mpya ya kariri hifadhi">
+<!ENTITY main.mark                      "Alamisha ukurasa huu">
+<!ENTITY main.unmark                    "Unmark selected">
+<!ENTITY main.reload                    "Pakia tena seti ya kariri hifadhi">
+<!ENTITY main.defaultset                "Msingi uliowekwa">
+
+<!-- Contextual Menu -->
+<!ENTITY main.saveImageAs               "Hifadhi picha kama ...">
+<!ENTITY main.openLinkInNewTab          "Fungua kiungo katika tabo mpya">
+<!ENTITY main.searchFor                 "Tafuta kwa">
+<!ENTITY main.copyLinkAdress            "Copy link address">
+<!ENTITY main.mute                      "Kimya">
+<!ENTITY main.audible                   "Ya kusikika">
+
+<!-- About Window -->
+<!ENTITY main.close                     "Funga">
+
+<!-- Preferences Window -->
+<!ENTITY preferences.preferences        "Preferences">
+<!ENTITY preferences.save               "Save">
+<!ENTITY preferences.cancel             "Cancel">
+<!ENTITY preferences.profileDirectory   "Profile directory">
+<!ENTITY preferences.browse             "Browse">
+<!ENTITY preferences.tabs               "Remember tabs">
+<!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">
+
+<!-- Library -->
+<!ENTITY main.library.myLibrary                 "Maktaba yangu">
+<!ENTITY main.library.getNewFiles               "Pata mafaili mapya">
+<!ENTITY main.library.searchZimFiles            "Tafuta mafaili ya ZIM">
+<!ENTITY main.library.sortBy                    "Panga kwa">
+<!ENTITY main.library.sortBy.title              "Kichwa">
+<!ENTITY main.library.sortBy.size               "Ukubwa">
+<!ENTITY main.library.sortBy.date               "Tarehe">
+<!ENTITY main.library.sortBy.author             "Mwandishi">
+<!ENTITY main.library.sortBy.publisher          "Mchapishaji">
+<!ENTITY main.library.filterBy                  "Chuja kwa ...">
+<!ENTITY main.library.filterBy.fileSize         "Ukubwa wa faili">
+<!ENTITY main.library.filterBy.language         "Lugha">
+<!ENTITY main.library.filterBy.language.all     "Zote">
+<!ENTITY main.library.filterBy.author           "Mwandishi">
+<!ENTITY main.library.filterBy.author.all       "Wote">
+<!ENTITY main.library.filterBy.publisher        "Mchapishaji">
+<!ENTITY main.library.filterBy.publisher.all    "Wote">
+
