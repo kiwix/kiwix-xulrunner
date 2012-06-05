@@ -24,7 +24,7 @@ Kiwix 0.9 rc1
   Sinhalese (si), Luxembourgish (lb), Korean (ko), Korean of North Korea (ko-kp),
   Min Nan Chinese (nan), Indonesian (id), Tunisian Spoken Arabic (aeb)
   Windows (in Linux since beta5): Estonian (et), Bulgarian (bg), Georgian (ka),
-  Lithuanian (lt), Slovak (sk), Oriya (or)
+  Lithuanian (lt), Slovak (sk), Oriya (or), Kiswahili (sw), Venetian (vec)
 * NEW: ALT+D shortcut to give focus to the searchbar (ID: 3475647)
 * NEW: --current option to "add" command in kiwix-manage to set the ZIM file a current
 * NEW: Self-extracting installer for MS/Windows
