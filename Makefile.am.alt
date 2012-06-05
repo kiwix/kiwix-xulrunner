@@ -5,8 +5,7 @@ EXTRA_DIST= \
 	static \
 	etc \
 	CHANGELOG \
-	COMPILE \
-	debian
+	COMPILE
 
 CLEANFILES= \
 	kiwix/components/zimAccessor.so \
