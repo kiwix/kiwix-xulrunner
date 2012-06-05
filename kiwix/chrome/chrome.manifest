@@ -61,7 +61,6 @@ locale main mk             locale/mk/main/
 locale main ml             locale/ml/main/
 locale main ms             locale/ms/main/
 locale main mt             locale/mt/main/
-locale main nan            locale/nan/main/
 locale main nb             locale/nb/main/
 locale main ne             locale/ne/main/
 locale main nl             locale/nl/main/
@@ -158,7 +157,6 @@ locale branding mk         locale/branding/
 locale branding ml         locale/branding/
 locale branding ms         locale/branding/
 locale branding mt         locale/branding/
-locale branding nan        locale/branding/
 locale branding nb         locale/branding/
 locale branding ne         locale/branding/
 locale branding nl         locale/branding/

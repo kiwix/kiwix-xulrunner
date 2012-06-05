@@ -63,7 +63,6 @@ _languagesHash['mr']           = "मराठी";
 _languagesHash['ms']           = "Bahasa Melayu";
 _languagesHash['mt']           = "Malti";
 _languagesHash['mya']          = _languagesHashOld['my']          = "မြန်မာဘာသာ";
-_languagesHash['nan']          = "Bân-lâm-gú";
 _languagesHash['ne']           = "नेपाली";
 _languagesHash['nld']          = _languagesHashOld['nl']          = "Nederlands";
 _languagesHash['nb']           = "Norsk (bokmål)";
