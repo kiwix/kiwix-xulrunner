@@ -163,8 +163,8 @@ rpm: dist
 	rpmbuild -ba fedora/kiwix.spec
 	cp ~/rpmbuild/RPMS/*/*.rpm .
 
-distdebian: dist
-	tar -cjf $(PACKAGE)-$(VERSION)-debian.tar.bz2 debian
+distdebian:
+	tar -czf $(PACKAGE)-$(VERSION)-debian.tar.gz debian
 
 diststatic:
 	rm -rf $(STATIC_TMP)
