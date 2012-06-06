@@ -360,29 +360,52 @@ pthread-win32/lib/pthreadVC2.lib: pthread-win32.zip
 CLEANFILES=
 
 DISTCLEANFILES= \
-	xapian-core.tar.gz xapian-win32.zip \
-	xz.tar.bz2 \
-	xulrunner-sdk-linux.tar.bz2 \
-	xulrunner-sdk-win.zip  \
+	xulrunner-sdk.tar.bz2
+	xulrunner-11.0.en-US.mac-i386.sdk.tar.bz2 \
+	xulrunner-11.0.en-US.mac-x86_64.sdk.tar.bz2 \
+	xulrunner-runtime.tar.bz2 \
+	xulrunner-11.0.en-US.mac-pkg.dmg \
 	xulrunner-win.zip \
-	xulrunner-source.tar.bz2 \
-	icu.zip aria2c aria2c.i686 aria2c.x86_64 aria2c.exe xz-5.0.3-windows.zip
+	zlib.tar.gz \
+	xapian-core.tar.gz \
+	xapian-win32.zip \
+	icu4c-4_4_2-src.tgz \
+	icu4c-49_1_1-src.tgz \
+	icu.zip \
+	libmicrohttpd-0.9.19.tar.gz \
+	xz.tar.bz2 \
+	xz-5.0.3-windows.zip \
+	aria2c \
+	aria2-1.14.2.dmg \
+	aria2-1.14.2.pkg \
+	aria2c.exe \
+	clucene-core-0.9.21b.tar.bz2 \
+	e2fsprogs-1.42.tar.gz \
+	argtable2-13.tar.gz \
+	pthread-win32.zip 
 
 clean-local:
-	-rm -rf xapian-core-1.2.3
 	-rm -rf zlib-1.2.3
+	-rm -rf xapian-core-1.2.3
 	-rm -rf icu
-	-rm -rf win32
-	-rm -rf xz
-	-rm -rf xz-4.999.9beta
-	-rm -rf aria2-1.14.1
-	-rm -rf clucene-core-0.9.21b
 	-rm -rf libmicrohttpd-0.9.19
+	-rm -rf xz-4.999.9beta
+	-rm -rf xz
+	-rm -rf xz-5.0.3
 	-rm -rf xz-win
+	-rm -rf aria2-1.14.2
+	-rm -rf clucene-core-0.9.21b
+	-rm -rf e2fsprogs-1.42
+	-rm -rf argtable2-13
+	-rm -rf pthread-win32
 
 distclean-local:
+	-rm -rf xulrunner-sdk-i386
+	-rm -rf xulrunner-sdk-x86_64
+	-rm -rf universal-sdk
 	-rm -rf xulrunner-sdk
 	-rm -rf xulrunner
+	-rm -rf xr_target
 
 # list of targets is built in configure.ac
 all-local: deps
