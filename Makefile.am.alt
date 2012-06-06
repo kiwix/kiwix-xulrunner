@@ -164,7 +164,11 @@ rpm: dist
 	cp ~/rpmbuild/RPMS/*/*.rpm .
 
 distdebian:
-	tar -czf $(PACKAGE)-$(VERSION)-debian.tar.gz debian
+	rm -rf $(DISTDEBIAN_TMP)
+	mkdir -p $(DISTDEBIAN_TMP)
+	cp -Lr ./debian $(DISTDEBIAN_TMP)/
+	rm -rf `find $(DISTDEBIAN_TMP)/debian -type d -name .svn`
+	tar -C $(DISTDEBIAN_TMP) -czf $(PACKAGE)-$(VERSION)-debian.tar.gz debian
 
 diststatic:
 	rm -rf $(STATIC_TMP)

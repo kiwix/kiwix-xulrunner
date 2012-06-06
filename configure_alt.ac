@@ -226,6 +226,7 @@ JAR_CONTENT=0
 COMPIL_DEPS=0
 STATIC_BINS=0
 STATIC_TMP="static_tmp"
+DISTDEBIAN_TMP="debian_tmp"
 SUGAR_TMP="sugar_tmp"
 SUGAR_VERSION=`grep activity_version src/sugar/activity/activity.info | cut -d " " -f3`
 # list of .so to copy to xulrunner/ path
@@ -1269,6 +1270,7 @@ AC_SUBST(CXXFLAGS)
 AC_SUBST(CURRENT_PATH)
 AC_SUBST(COMPIL_DEPS)
 AC_SUBST(STATIC_TMP)
+AC_SUBST(DISTDEBIAN_TMP)
 AC_SUBST(SUGAR_TMP)
 AC_SUBST(SUGAR_VERSION)
 AC_SUBST(EMBED_LIBS)
