@@ -75,6 +75,7 @@ endif
 
 dist-hook:
 	rm -rf `find ${DESTDIR}$(distdir) -name "*.svn" -o -name "*.dat" -o -name "*~" -o -name "*#"`
+	rm -rf `find ${DESTDIR}$(distdir) -name "*.orig" -o -name "*.alt"`
 
 install-exec-hook:
 	rm -rf `find $(DESTDIR)$(libdir) -name "*.la" -o -name "*.a"`
@@ -162,10 +163,8 @@ rpm: dist
 	rpmbuild -ba fedora/kiwix.spec
 	cp ~/rpmbuild/RPMS/*/*.rpm .
 
-xo: 
-	echo Not ready yet
-
-# alter preferences: default skin is sugar. probably content location too.
+distdebian: dist
+	tar -cjf $(PACKAGE)-$(VERSION)-debian.tar.bz2 debian
 
 diststatic:
 	rm -rf $(STATIC_TMP)
@@ -221,7 +220,7 @@ diststatic:
 	rm $(STATIC_TMP)/kiwix/*.bat
 	rm $(STATIC_TMP)/kiwix/xulrunner/libmicrohttpd.so
 
-	tar -C $(STATIC_TMP) -cvjf $(PACKAGE)-$(VERSION)-static-$(ARCH).tar.bz2 kiwix
+	tar -C $(STATIC_TMP) -cjf $(PACKAGE)-$(VERSION)-static-$(ARCH).tar.bz2 kiwix
 
 # Sugar for Fedora9
 distsugar: diststatic
