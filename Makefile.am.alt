@@ -76,6 +76,7 @@ endif
 dist-hook:
 	rm -rf `find ${DESTDIR}$(distdir) -name "*.svn" -o -name "*.dat" -o -name "*~" -o -name "*#"`
 	rm -rf `find ${DESTDIR}$(distdir) -name "*.orig" -o -name "*.alt"`
+	rm -rf `find ${DESTDIR}$(distdir) -name "config.guess" -o -name "config.sub" -o -name "Makefile"`
 
 install-exec-hook:
 	rm -rf `find $(DESTDIR)$(libdir) -name "*.la" -o -name "*.a"`
