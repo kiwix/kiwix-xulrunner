@@ -1,6 +1,12 @@
 EXTRA_DIST = kiwix.png kiwix.desktop kiwix_16x16.png kiwix_22x22.png kiwix_24x24.png kiwix_256x256.png kiwix_32x32.png kiwix_48x48.png kiwix_8x8.png kiwix.xpm kiwix.xml kiwix.applications
-pixmapdir = $(datadir)/icons
-pixmap_DATA = kiwix.png kiwix_16x16.png kiwix_22x22.png kiwix_24x24.png kiwix_256x256.png kiwix_32x32.png kiwix_48x48.png kiwix_8x8.png kiwix.xpm
+
+
+pixmapdir = $(datadir)/pixmaps
+pixmap_DATA = kiwix.png kiwix.xpm
+
+iconsdir = $(datadir)/icons/kiwix
+icons_DATA = 16x16/kiwix.png 22x22/kiwix.png 24x24/kiwix.png 256x256/kiwix.png 32x32/kiwix.png 48x48/kiwix.png 8x8/kiwix.png
+
 Applicationsdir = $(datadir)/applications
 Applications_DATA = kiwix.desktop
 Mimesdir = $(datadir)/mime/packages
