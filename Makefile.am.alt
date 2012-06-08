@@ -30,6 +30,9 @@ CLEANFILES= \
 	kiwix*.changes \
 	kiwix*.dsc
 
+clean-local:
+	-rm -rf src/dependencies/Makefile
+
 UPDATE_MIME = \
 	if which update-mime-database>/dev/null 2>&1; then \
 		update-mime-database $(DESTDIR)$(prefix)/share/mime; \
@@ -77,6 +80,7 @@ dist-hook:
 	rm -rf `find ${DESTDIR}$(distdir) -name "*.svn" -o -name "*.dat" -o -name "*~" -o -name "*#"`
 	rm -rf `find ${DESTDIR}$(distdir) -name "*.orig" -o -name "*.alt"`
 	rm -rf `find ${DESTDIR}$(distdir) -name "config.guess" -o -name "config.sub" -o -name "Makefile"`
+	rm -rf ${DESTDIR}$(distdir)src/components/contentManager/IContentManager.h ${DESTDIR}$(distdir)src/components/serverManager/IServerManager.h ${DESTDIR}$(distdir)src/components/zimAccessor/IZimAccessor.h ${DESTDIR}$(distdir)src/components/zimCluceneIndexer/IZimCluceneIndexer.h ${DESTDIR}$(distdir)src/components/zimXapianIndexer/IZimXapianIndexer.h
 
 install-exec-hook:
 	rm -rf `find $(DESTDIR)$(libdir) -name "*.la" -o -name "*.a"`
