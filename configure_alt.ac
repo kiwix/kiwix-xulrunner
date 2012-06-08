@@ -527,6 +527,12 @@ AC_ARG_WITH([debug],
 						   [add debug symbols]),
 		    CFLAGS="${CFLAGS} -g "; CXXFLAGS="${CXXFLAGS} -g ")
 
+# test hardening
+AC_ARG_WITH([hardening],
+			AC_HELP_STRING([--with-hardening],
+						   [add hardening flags]),
+		    CXXFLAGS="${CXXFLAGS} -D_FORTIFY_SOURCE=2 ")
+
 # manager is a command line to to build library
 AC_ARG_ENABLE(ldcheck,
 			  AC_HELP_STRING([--enable-ldcheck],
