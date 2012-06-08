@@ -2,13 +2,13 @@ chromedir=${DESTDIR}$(pkgdatadir)/chrome
 chrome_DATA=
 
 locale.jar:
-	${ZIP} -9 -r locale.jar locale/
+	${ZIP} --exclude=*.svn*  -9 -r locale.jar locale/
 
 content.jar:
-	${ZIP} -9 -r content.jar content/
+	${ZIP} --exclude=*.svn*  -9 -r content.jar content/
 
 skin.jar:
-	${ZIP} -9 -r skin.jar skin/
+	${ZIP} --exclude=*.svn*  -9 -r skin.jar skin/
 
 install-data-hook: locale.jar content.jar skin.jar
 	-cp chrome.manifest.prod $(chromedir)/chrome.manifest
@@ -28,3 +28,5 @@ uninstall-hook:
 if JAR_CONTENT
 all: jar
 endif
+
+CLEANFILES=locale.jar content.jar skin.jar
