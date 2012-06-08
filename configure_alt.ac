@@ -1444,6 +1444,12 @@ AC_CONFIG_FILES([
   kiwix/defaults/Makefile
   kiwix/components/Makefile
   desktop/Makefile
+  desktop/8x8/Makefile
+  desktop/22x22/Makefile
+  desktop/24x24/Makefile
+  desktop/32x32/Makefile
+  desktop/48x48/Makefile
+  desktop/256x256/Makefile
   static/Makefile
   etc/Makefile
 ])
