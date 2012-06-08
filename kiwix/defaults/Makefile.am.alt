@@ -1,9 +1,9 @@
-defaultsdir=${DESTDIR}$(pkgdatadir)/defaults
+defaultsdir=$(pkgdatadir)/defaults
 defaults_DATA=
 
 install-data-hook:
 	-cp -rf preferences $(defaultsdir)
-	-ln -s -f $(defaultsdir) ${DESTDIR}${pkglibdir}/defaults
+	-ln -s -f $(defaultsdir) ${pkglibdir}/defaults
 
 uninstall-hook:
-	-rm -rf $(defaultsdir) ${DESTDIR}${pkglibdir}/defaults
+	-rm -rf $(defaultsdir) ${pkglibdir}/defaults
