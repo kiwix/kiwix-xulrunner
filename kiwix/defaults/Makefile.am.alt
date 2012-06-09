@@ -1,7 +1,8 @@
 defaultsdir=$(pkgdatadir)/defaults
 defaults_DATA=
 
-install-exec-hook:
+install-data-hook:
+	-mkdir -p $(defaultsdir)
 	-cp -rf preferences $(defaultsdir)
 	-ln -s -f $(defaultsdir) ${pkglibdir}/defaults
 
