@@ -10,7 +10,7 @@ content.jar:
 skin.jar:
 	${ZIP} --exclude=*.svn*  -9 -r skin.jar skin/
 
-install-data-hook: locale.jar content.jar skin.jar
+install-exec-hook: locale.jar content.jar skin.jar
 	-cp chrome.manifest.prod $(chromedir)/chrome.manifest
 	-mv locale.jar $(chromedir)
 	-mv content.jar $(chromedir)
