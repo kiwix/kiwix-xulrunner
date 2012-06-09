@@ -1,6 +1,6 @@
 pkglib_LTLIBRARIES=libZimAccessor.la
-xptdir=$(DESTDIR)$(libdir)/kiwix/components
-pkglibdir=$(DESTDIR)$(libdir)/kiwix/components
+xptdir=$(libdir)/kiwix/components
+pkglibdir=$(libdir)/kiwix/components
 xpt_DATA=zimAccessor.xpt
 AM_CPPFLAGS=-I$(top_srcdir)/src/common -I$(top_srcdir)/src/zimlib/include
 libZimAccessor_la_SOURCES= \

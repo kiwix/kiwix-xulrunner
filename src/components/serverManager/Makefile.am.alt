@@ -1,7 +1,7 @@
 pkglib_LTLIBRARIES=libServerManager.la
-pkglibdir=$(DESTDIR)$(libdir)/kiwix/components
+pkglibdir=$(libdir)/kiwix/components
 
-xptdir=$(DESTDIR)$(libdir)/kiwix/components
+xptdir=$(libdir)/kiwix/components
 xpt_DATA=serverManager.xpt
 
 AM_CPPFLAGS=-I$(top_srcdir)/src/common -I$(top_srcdir)/src/zimlib/include -I$(top_srcdir)/src/pugixml
