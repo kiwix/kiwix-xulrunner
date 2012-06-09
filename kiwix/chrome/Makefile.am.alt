@@ -18,7 +18,7 @@ install-exec-hook: locale.jar content.jar skin.jar
 	-mv skin.jar $(chromedir)
 	-cp -rf icons $(chromedir)
 	-cp -rf modules $(chromedir)
-	-ln -s -f $(chromedir) $(DESTDIR)$(pkglibdir)/chrome
+	-ln -s -f ../../share/kiwix/chrome $(DESTDIR)$(pkglibdir)/chrome
 
 jar: locale.jar content.jar skin.jar
 	-cp chrome.manifest.prod chrome.manifest
