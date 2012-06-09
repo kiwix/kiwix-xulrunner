@@ -1,10 +1,11 @@
-defaultsdir=$(pkgdatadir)/defaults
+defaultsdir=$(DESTDIR)$(pkgdatadir)/defaults
 defaults_DATA=
 
 install-data-hook:
 	-mkdir -p $(defaultsdir)
 	-cp -rf preferences $(defaultsdir)
-	-ln -s -f $(defaultsdir) ${pkglibdir}/defaults
+	-rm -rf `find $(defaultsdir)/preferences -type d -name .svn`
+	-ln -s -f $(defaultsdir) $(DESTDIR)$(pkglibdir)/defaults
 
 uninstall-hook:
-	-rm -rf $(defaultsdir) ${pkglibdir}/defaults
+	-rm -rf $(defaultsdir) $(DESTDIR)$(pkglibdir)/defaults

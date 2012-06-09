@@ -1,2 +1,2 @@
-etcdir=$(sysconfdir)/kiwix
+etcdir=$(DESTDIR)$(sysconfdir)/kiwix
 etc_DATA=library.xml

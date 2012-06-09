@@ -1,4 +1,4 @@
-chromedir=$(pkgdatadir)/chrome
+chromedir=$(DESTDIR)$(pkgdatadir)/chrome
 chrome_DATA=
 
 locale.jar:
@@ -18,13 +18,13 @@ install-exec-hook: locale.jar content.jar skin.jar
 	-mv skin.jar $(chromedir)
 	-cp -rf icons $(chromedir)
 	-cp -rf modules $(chromedir)
-	-ln -s -f $(chromedir) $(pkglibdir)/chrome
+	-ln -s -f $(chromedir) $(DESTDIR)$(pkglibdir)/chrome
 
 jar: locale.jar content.jar skin.jar
 	-cp chrome.manifest.prod chrome.manifest
 
 uninstall-hook:
-	-rm $(pkglibdir)/chrome
+	-rm $(DESTDIR)$(pkglibdir)/chrome
 
 if JAR_CONTENT
 all: jar

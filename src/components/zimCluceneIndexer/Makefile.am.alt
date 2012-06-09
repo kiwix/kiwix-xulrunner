@@ -1,6 +1,6 @@
 pkglib_LTLIBRARIES=libZimCluceneIndexer.la
-xptdir=$(libdir)/kiwix/components
-pkglibdir=$(libdir)/kiwix/components
+xptdir=$(DESTDIR)$(libdir)/kiwix/components
+pkglibdir=$(DESTDIR)$(libdir)/kiwix/components
 xpt_DATA=zimCluceneIndexer.xpt
 AM_CPPFLAGS=-I$(top_srcdir)/src/common -I$(top_srcdir)/src/zimlib/include
 libZimCluceneIndexer_la_SOURCES= \
