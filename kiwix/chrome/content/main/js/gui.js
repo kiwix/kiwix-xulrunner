@@ -1124,22 +1124,22 @@ function initUserInterface() {
 
     /* Mac OSX specific customisations */
     if (env.isMac()) {
-        fm = document.getElementById("file-popup");
-        fp = document.getElementById("file-print-pdf");
+        var fm = document.getElementById("file-popup");
+        var fp = document.getElementById("file-print-pdf");
         fm.removeChild(fp);
-        fq = document.getElementById("file-quit");
+        var fq = document.getElementById("file-quit");
         fm.removeChild(fq);
-        fs = document.getElementById("file-sep");
+        var fs = document.getElementById("file-sep");
         fm.removeChild(fs);
-        em = document.getElementById("edit-popup");
-        et = document.getElementById("edit-transliteration");
+        var em = document.getElementById("edit-popup");
+        var et = document.getElementById("edit-transliteration");
         em.removeChild(et);
 	
         /* OSX keyboard shortcut */
-        keys = document.getElementsByTagName("key");
+        var keys = document.getElementsByTagName("key");
         for (var i=0; i<keys.length; i++) {
             if (keys[i].hasAttribute('modifiers')) {
-                mod = keys[i].getAttribute('modifiers');
+                var mod = keys[i].getAttribute('modifiers');
                 if (mod.match(/control/i)) {
                     keys[i].setAttribute('modifiers', mod.replace('control', 'meta'));	
                 }
@@ -1147,7 +1147,7 @@ function initUserInterface() {
         }
 
         /* OSX Fullscreen shortcuts */
-        fkey = document.getElementById("fullscreen-key");
+        var fkey = document.getElementById("fullscreen-key");
         fkey.setAttribute('modifiers', 'meta,shift');
         fkey.setAttribute('keycode', 'F');
     }
