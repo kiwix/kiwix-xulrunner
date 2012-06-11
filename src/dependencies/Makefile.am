@@ -354,9 +354,11 @@ pthread-win32.zip:
 pthread-win32/lib/pthreadVC2.lib: pthread-win32.zip
 	unzip -o -d pthread-win32 pthread-win32.zip
 
+
 ####################################################
 ############ CLEANUP (ALL)
 ####################################################
+
 CLEANFILES=
 
 DISTCLEANFILES= \
