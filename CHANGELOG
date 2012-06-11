@@ -50,8 +50,8 @@ Kiwix 0.9 rc1
 * NEW: kiwix-serve integration in Kiwix UI (OSX&Linux only)
 * NEW: Remove kiwix-serve external results.tmpl template file dependency
 * NEW: Rewrite of kiwix-serve UI using JQueryUI
-* NEW: man pages for all tools on GNU/Linux
-* NEW: Debian Wheezy package
+* NEW: Unix man pages for all tools on GNU/Linux (English & French)
+* NEW: Introduction in Debian official repository (Wheezy)
 
 Kiwix 0.9 beta5
 * FIXED: letton language menu item (ID: 3439113)
