@@ -359,10 +359,10 @@ pthread-win32/lib/pthreadVC2.lib: pthread-win32.zip
 ############ CLEANUP (ALL)
 ####################################################
 
+
 CLEANFILES=
 
-DISTCLEANFILES= \
-	xulrunner-sdk.tar.bz2
+DISTCLEANFILES= xulrunner-sdk.tar.bz2 \
 	xulrunner-11.0.en-US.mac-i386.sdk.tar.bz2 \
 	xulrunner-11.0.en-US.mac-x86_64.sdk.tar.bz2 \
 	xulrunner-runtime.tar.bz2 \
