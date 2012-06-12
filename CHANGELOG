@@ -37,7 +37,7 @@ Kiwix 0.9 rc1
 * NEW: Add support for HTML5 video/audio
 * NEW: Audible/Mute contextual menuitem for HTML5 videos
 * NEW: Default content icon in the library (ID: 3488268)
-* NEW: Compute 'fake' title from the filename if no title metatadata in ZIM (ID: 3488268)
+* NEW: Compute "fake" title from the filename if no title metatadata in ZIM (ID: 3488268)
 * NEW: Replacement of "fastjar" by "zip" (better/common dependence)
 * NEW: Use new (20% smaller) IETF normalized Metalink format (meta4) instead of old (v3) Metalink
 * NEW: Open specific article via command prompt using "articleByUrl" & "articleByTitle" (ID: 3484628)
