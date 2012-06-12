@@ -136,31 +136,24 @@ kiwix/components/serverManager.xpt:
 
 kiwix/components/zimAccessor.dylib: 
 	ln -f -s ../../src/components/zimAccessor/.libs/libZimAccessor.dylib ./kiwix/components/zimAccessor.dylib
-	python ./src/macosx/cleanup_rpath.py ./kiwix/components/zimAccessor.dylib
 
 kiwix/components/xapianAccessor.dylib: 
 	ln -f -s ../../src/components/xapianAccessor/.libs/libXapianAccessor.dylib ./kiwix/components/xapianAccessor.dylib
-	python ./src/macosx/cleanup_rpath.py ./kiwix/components/xapianAccessor.dylib
 
 kiwix/components/zimXapianIndexer.dylib:
 	ln -f -s ../../src/components/zimXapianIndexer/.libs/libZimXapianIndexer.dylib  ./kiwix/components/zimXapianIndexer.dylib
-	python ./src/macosx/cleanup_rpath.py ./kiwix/components/zimXapianIndexer.dylib
 
 kiwix/components/contentManager.dylib: 
 	ln -f -s ../../src/components/contentManager/.libs/libContentManager.dylib ./kiwix/components/contentManager.dylib
-	python ./src/macosx/cleanup_rpath.py ./kiwix/components/contentManager.dylib
 
 kiwix/components/serverManager.dylib: 
 	ln -f -s ../../src/components/serverManager/.libs/libServerManager.dylib ./kiwix/components/serverManager.dylib
-	python ./src/macosx/cleanup_rpath.py ./kiwix/components/serverManager.dylib
 
 kiwix/components/cluceneAccessor.dylib: 
 	ln -f -s ../../src/components/cluceneAccessor/.libs/libCluceneAccessor.dylib ./kiwix/components/cluceneAccessor.dylib
-	python ./src/macosx/cleanup_rpath.py ./kiwix/components/cluceneAccessor.dylib
 
 kiwix/components/zimCluceneIndexer.dylib:
 	ln -f -s ../../src/components/zimCluceneIndexer/.libs/libZimCluceneIndexer.dylib  ./kiwix/components/zimCluceneIndexer.dylib
-	python ./src/macosx/cleanup_rpath.py ./kiwix/components/zimCluceneIndexer.dylib
 
 deb: dist
 	if [ `whereis dpkg-buildpackage | cut -f2 -d" "` == "dpkg-buildpackage:" ] ; then echo "You have to install dpkg-buildpackage" ; exit 1 ; fi
@@ -301,6 +294,10 @@ distmac:
 	rsync -rl $(DEP_PATH)/xr_target/xulrunner-11.0.en-US.mac/XUL.framework/ Kiwix.app/Contents/Frameworks/XUL.framework/
 	cp -v $(DEP_PATH)/xr_target/xulrunner-11.0.en-US.mac/XUL.framework/Versions/Current/xulrunner Kiwix.app/Contents/MacOS/xulrunner
 
+	find Kiwix.app/Contents/Resources/components -type f -name '*.dylib' -exec python ./src/macosx/cleanup_rpath.py {} \;
+
+	find Kiwix.app/Contents/Frameworks -type f -name '*.dylib' -exec python ./src/macosx/cleanup_rpath.py {} \;
+
 	mv Kiwix.app/Contents/Resources/chrome/content/main/js/logger_rlz.js Kiwix.app/Contents/Resources/chrome/content/main/js/logger.js
 
 	if [ -f Kiwix.app/Contents/Resources/chrome/content.jar ] ; then rm -rf Kiwix.app/Contents/Resources/chrome/content ; fi
@@ -365,6 +362,10 @@ universal: $(PACKAGE)-$(VERSION)-i386.dmg $(PACKAGE)-$(VERSION)-x86_64.dmg
 	lipo -create -output universal_tmp/ub/Kiwix.app/Contents/Resources/components/zimCluceneIndexer.dylib -arch i386 universal_tmp/i386/Kiwix.app/Contents/Resources/components/zimCluceneIndexer.dylib -arch x86_64 universal_tmp/x86_64/Kiwix.app/Contents/Resources/components/zimCluceneIndexer.dylib
 
 	lipo -create -output universal_tmp/ub/Kiwix.app/Contents/Resources/bin/kiwix-serve -arch i386 universal_tmp/i386/Kiwix.app/Contents/Resources/bin/kiwix-serve -arch x86_64 universal_tmp/x86_64/Kiwix.app/Contents/Resources/bin/kiwix-serve
+
+	find Kiwix.app/Contents/Resources/components -type f -name '*.dylib' -exec python ./src/macosx/cleanup_rpath.py {} \;
+
+	find Kiwix.app/Contents/Frameworks -type f -name '*.dylib' -exec python ./src/macosx/cleanup_rpath.py {} \;
 
 	hdiutil detach universal_tmp/i386 -quiet -force
 	hdiutil detach universal_tmp/x86_64 -quiet -force	
