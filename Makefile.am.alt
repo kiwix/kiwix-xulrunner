@@ -363,9 +363,9 @@ universal: $(PACKAGE)-$(VERSION)-i386.dmg $(PACKAGE)-$(VERSION)-x86_64.dmg
 
 	lipo -create -output universal_tmp/ub/Kiwix.app/Contents/Resources/bin/kiwix-serve -arch i386 universal_tmp/i386/Kiwix.app/Contents/Resources/bin/kiwix-serve -arch x86_64 universal_tmp/x86_64/Kiwix.app/Contents/Resources/bin/kiwix-serve
 
-	find Kiwix.app/Contents/Resources/components -type f -name '*.dylib' -exec python ./src/macosx/cleanup_rpath.py {} \;
+	find universal_tmp/ub/Kiwix.app/Contents/Resources/components -type f -name '*.dylib' -exec python ./src/macosx/cleanup_rpath.py {} \;
 
-	find Kiwix.app/Contents/Frameworks -type f -name '*.dylib' -exec python ./src/macosx/cleanup_rpath.py {} \;
+	find universal_tmp/ub/Kiwix.app/Contents/Frameworks -type f -name '*.dylib' -exec python ./src/macosx/cleanup_rpath.py {} \;
 
 	hdiutil detach universal_tmp/i386 -quiet -force
 	hdiutil detach universal_tmp/x86_64 -quiet -force	
