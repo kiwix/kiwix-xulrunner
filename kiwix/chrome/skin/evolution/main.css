@@ -226,7 +226,6 @@ window[langdir="rtl"] #button-next {
     -moz-appearance: none;
     margin-left: -4px;
     margin-right: -4px;
-    border-top: 1px dotted #999999;
     padding-right: 4px;
 }
 

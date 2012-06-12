@@ -68,8 +68,8 @@
 }
 
 #main.mac #tool-box {
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0;
+    padding: 0;
 }
 
 #main.mac * toolbarbutton {
