@@ -30,7 +30,7 @@ LDFLAGS=-nologo -LIBPATH:"$(PTHREAD_LIB)" -LIBPATH:"${ZIM_LIB}" -LIBPATH:"$(ICU_
 all: kiwix-index.exe
 
 objs:
-	$(CC) $(CFLAGS) kiwix-index.cpp zimXapianIndexer.cpp ../common/stringTools.cpp ../common/unaccent.cpp ../common/kiwix/indexer.cpp ../common/kiwix/reader.cpp ../common/kiwix/xapian/myhtmlparse.cc ../common/kiwix/xapian/htmlparse.cc ../common/kiwix/xapianIndexer.cpp ../common/componentTools.cpp
+	$(CC) $(CFLAGS) kiwix-index.cpp zimXapianIndexer.cpp ../common/stringTools.cpp ../common/unaccent.cpp ../common/kiwix/indexer.cpp ../common/kiwix/reader.cpp ../common/kiwix/xapian/myhtmlparse.cc ../common/kiwix/xapian/htmlparse.cc ../common/kiwix/xapianIndexer.cpp
 
 kiwix-index.exe: objs
 	$(LD) -OUT:"kiwix-index.exe" -NOLOGO $(LDFLAGS) -NODEFAULTLIB:"MSVCRT" -OPT:REF -OPT:ICF -DYNAMICBASE -NXCOMPAT -MACHINE:X86 zim.lib argtable2.lib libcommon.lib libbackend.lib libbrass.lib Rpcrt4.lib libbrassbtreecheck.lib libbrassbtreecheck.lib libexpand.lib libflint.lib libflintbtreecheck.lib libchert.lib libweight.lib libinmemory.lib libmulti.lib libmatcher.lib libnet.lib liblanguages.lib libapi.lib libremote.lib libunicode.lib libqueryparser.lib icuin.lib icuio.lib icule.lib iculx.lib icutu.lib icuuc.lib pthreadVC2.lib libcmt.lib ws2_32.lib DelayImp.lib winmm.lib *.obj
