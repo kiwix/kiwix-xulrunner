@@ -61,6 +61,12 @@ let env = {
         return environment.exists("SUGAR_BUNDLE_PATH");
     },
 
+    isHighDPI: function() {
+        var prefs = Components.classes["@mozilla.org/preferences-service;1"]
+                    .getService(Components.interfaces.nsIPrefService).getBranch("kiwix.");
+        return prefs.getBoolPref("isHighDPI");
+    },
+
     /* Check if this is a live instance */
     isLive: function() {
       var liveFile = this.getApplicationFolder();

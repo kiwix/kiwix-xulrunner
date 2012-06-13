@@ -350,8 +350,9 @@ function clearStatusBar() {
 
 /* Zoom normal */
 function zoomOriginal() {
+    var orig = env.isHighDPI() ? 1.3 : 1;
     // getHtmlRenderer().markupDocumentViewer.textZoom = 1;
-    getHtmlRenderer().markupDocumentViewer.fullZoom = 1;
+    getHtmlRenderer().markupDocumentViewer.fullZoom = orig;
     settings.zoomFactor(library.getCurrentId(), getHtmlRenderer().markupDocumentViewer.textZoom);
 }
 
@@ -1154,6 +1155,11 @@ function initUserInterface() {
 
     /* Sugar customisations */
     if (env.isSugar()) {
+        if (env.isHighDPI()) {
+            document.getElementById("main").className = document.getElementById("main").className + " highdpi";
+            zoomOriginal();
+        }
+        
         /* Remove the whole menubar (File, Edition, ...) */
         menu = document.getElementById('menu-bar');
         menu.setAttribute("style", "display: none;");

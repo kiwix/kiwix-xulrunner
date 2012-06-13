@@ -23,6 +23,19 @@ window {
 #sugar-button-copy { list-style-image: url("chrome://main/skin/icon/gtk-copy.png"); }
 
 
+#main.highdpi #sugar-button-quit { list-style-image: url("chrome://main/skin/icon/activity-stop_hd.png"); }
+#main.highdpi #sugar-button-find { list-style-image: url("chrome://main/skin/icon/view-list_hd.png"); }
+#main.highdpi #sugar-button-back { list-style-image: url("chrome://main/skin/icon/go-previous-paired_hd.png"); }
+#main.highdpi #sugar-button-next { list-style-image: url("chrome://main/skin/icon/go-next-paired_hd.png"); }
+#main.highdpi #sugar-button-zoom-in { list-style-image: url("chrome://main/skin/icon/gtk-zoom-in_hd.png"); }
+#main.highdpi #sugar-button-zoom-out { list-style-image: url("chrome://main/skin/icon/gtk-zoom-out_hd.png"); }
+#main.highdpi #sugar-button-options { list-style-image: url("chrome://main/skin/icon/view-source_hd.png"); }
+#main.highdpi #sugar-button-bookmark, #sugar-button-bookmark.unmarked { list-style-image: url("chrome://main/skin/icon/emblem-favorite_hd.png"); }
+#main.highdpi #sugar-button-bookmark.marked { list-style-image: url("chrome://main/skin/icon/emblem-favorite_on_hd.png"); }
+#main.highdpi #sugar-button-display { list-style-image: url("chrome://main/skin/icon/toolbar-view_hd.png"); }
+#main.highdpi #sugar-button-bookmarks, #sugar-button-bookmarks.hidden { list-style-image: url("chrome://main/skin/icon/tray-show_hd.png"); }
+#main.highdpi #sugar-button-copy { list-style-image: url("chrome://main/skin/icon/gtk-copy_hd.png"); }
+
 #tool-box {
     -moz-appearance: none;
     padding-bottom: 0;
@@ -34,6 +47,10 @@ window {
     -moz-appearance: none;
     background-color: #282828;
     height: 36px;
+}
+
+#main.highdpi #tool-box toolbar#tool-bar {
+    height: 70px;
 }
 
 #tool-box * toolbarbutton {
@@ -100,3 +117,5 @@ toolbarbutton[id^='tab-close-button'] { display: none; }
 treechildren::-moz-tree-cell-text(italic) {
     font-style: italic;
 }
+
+#main.highdpi #textbox-search-go-button { list-style-image: url("chrome://main/skin/icon/magnify16_hd.png"); }
