@@ -409,6 +409,8 @@ win:
 
 	mv ./kiwix/chrome/content/main/js/logger_rlz.js ./kiwix/chrome/content/main/js/logger.js
 
+	cd ./kiwix/chrome ; make jar
+
 	if [ -f ./kiwix/chrome/content.jar ] ; then rm -rf ./kiwix/chrome/content ; fi
 	if [ -f ./kiwix/chrome/content.jar ] ; then rm -f ./kiwix/chrome/chrome.manifest.prod ; fi
 	if [ -f ./kiwix/chrome/locale.jar ] ; then rm -rf ./kiwix/chrome/locale ; fi
