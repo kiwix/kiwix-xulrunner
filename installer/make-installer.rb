@@ -185,8 +185,9 @@ begin
        # list files for build the installer
        # /**/** is a recursive search in the folder
        files_list = [
-                  "kiwix/{kiwix.exe,application.ini,kiwix-debug.bat,aria2c.exe,chp.exe}",
+                  "kiwix/{kiwix.exe,application.ini,kiwix-debug.bat,aria2c.exe,chp.exe,chrome.manifest,kiwix-set-fileassoc.bat}",
                   "data/**/**",
+                  "kiwix/bin/**/**",
                   "kiwix/xulrunner/**/**",
                   "kiwix/chrome/**/**",
                   "kiwix/defaults/**/**",
