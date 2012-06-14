@@ -31,6 +31,7 @@ CLEANFILES= \
 
 clean-local:
 	-rm -rf src/dependencies/Makefile
+	find . -name 'Makefile.in' -delete
 
 UPDATE_MIME = \
 	if which update-mime-database>/dev/null 2>&1; then \
@@ -77,9 +78,11 @@ endif
 
 dist-hook:
 	rm -rf `find $(DESTDIR)$(distdir) -name "*.svn" -o -name "*.dat" -o -name "*~" -o -name "*#"`
-	rm -rf `find $(DESTDIR)$(distdir) -name "*.orig" -o -name "*.alt"`
-	rm -rf `find $(DESTDIR)$(distdir) -name "config.guess" -o -name "config.sub" -o -name "Makefile" -o -name "Makefile.in"`
-	rm -rf $(DESTDIR)$(distdir)src/components/contentManager/IContentManager.h $(DESTDIR)$(distdir)src/components/serverManager/IServerManager.h $(DESTDIR)$(distdir)src/components/zimAccessor/IZimAccessor.h $(DESTDIR)$(distdir)src/components/zimCluceneIndexer/IZimCluceneIndexer.h $(DESTDIR)$(distdir)src/components/zimXapianIndexer/IZimXapianIndexer.h
+	find $(DESTDIR)$(distdir) -name "*.orig" -o -name "*.alt" -delete
+	find $(DESTDIR)$(distdir) -name "config.guess" -o -name "config.sub" -o -name "Makefile" -o -name "Makefile.in" -delete
+	find $(DESTDIR)$(distdir)/src/components/ -name 'I*.h' -delete
+	find $(DESTDIR)$(distdir) -name 'aclocal.m4' -delete
+	find $(DESTDIR)$(distdir)/kiwix/chrome -name 'chrome.manifest' -delete
 
 install-exec-hook:
 	rm -rf `find $(DESTDIR)$(libdir) -name "*.la" -o -name "*.a"`
@@ -188,7 +191,7 @@ diststatic:
 	mv $(STATIC_TMP)/kiwix/chrome/content/main/js/logger_rlz.js $(STATIC_TMP)/kiwix/chrome/content/main/js/logger.js
 
 	if [ -f $(STATIC_TMP)/kiwix/chrome/content.jar ] ; then rm -rf $(STATIC_TMP)/kiwix/chrome/content ; fi
-	if [ -f $(STATIC_TMP)/kiwix/chrome/content.jar ] ; then rm -f $(STATIC_TMP)/kiwix/chrome/chrome.manifest.prod ; fi
+	-rm -f $(STATIC_TMP)/kiwix/chrome/chrome.manifest.{prod,dev}
 	if [ -f $(STATIC_TMP)/kiwix/chrome/locale.jar ] ; then rm -rf $(STATIC_TMP)/kiwix/chrome/locale ; fi
 	if [ -f $(STATIC_TMP)/kiwix/chrome/skin.jar ] ; then rm -rf $(STATIC_TMP)/kiwix/chrome/skin ; fi
 
@@ -301,7 +304,7 @@ distmac:
 	mv Kiwix.app/Contents/Resources/chrome/content/main/js/logger_rlz.js Kiwix.app/Contents/Resources/chrome/content/main/js/logger.js
 
 	if [ -f Kiwix.app/Contents/Resources/chrome/content.jar ] ; then rm -rf Kiwix.app/Contents/Resources/chrome/content ; fi
-	if [ -f Kiwix.app/Contents/Resources/chrome/content.jar ] ; then rm -f Kiwix.app/Contents/Resources/chrome/chrome.manifest.prod ; fi
+	-rm -f Kiwix.app/Contents/Resources/chrome/chrome.manifest.{prod,dev}
 	if [ -f Kiwix.app/Contents/Resources/chrome/locale.jar ] ; then rm -rf Kiwix.app/Contents/Resources/chrome/locale ; fi
 	if [ -f Kiwix.app/Contents/Resources/chrome/skin.jar ] ; then rm -rf Kiwix.app/Contents/Resources/chrome/skin ; fi
 
@@ -412,7 +415,7 @@ win:
 	cd ./kiwix/chrome ; make jar
 
 	if [ -f ./kiwix/chrome/content.jar ] ; then rm -rf ./kiwix/chrome/content ; fi
-	if [ -f ./kiwix/chrome/content.jar ] ; then rm -f ./kiwix/chrome/chrome.manifest.prod ; fi
+	-rm -f ./kiwix/chrome/chrome.manifest.{prod,dev}
 	if [ -f ./kiwix/chrome/locale.jar ] ; then rm -rf ./kiwix/chrome/locale ; fi
 	if [ -f ./kiwix/chrome/skin.jar ] ; then rm -rf ./kiwix/chrome/skin ; fi
 
@@ -463,7 +466,7 @@ windist:
 	find dvd/kiwix -name 'Makefile.am*' -delete
 	rm -f dvd/kiwix/kiwix
 	rm -f dvd/kiwix/kiwix-compact
-	rm -f dvd/kiwix/kiwix/chrome/chrome.manifest.prod
+	-rm -f dvd/kiwix/kiwix/chrome/chrome.manifest.{prod,dev}
 
 wininstaller:
 	cd installer ; ruby make-installer.rb --path=../dvd/ --allinone

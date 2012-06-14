@@ -21,13 +21,21 @@ install-exec-hook: locale.jar content.jar skin.jar
 	-ln -s -f ../../share/kiwix/chrome $(DESTDIR)$(pkglibdir)/chrome
 
 jar: locale.jar content.jar skin.jar
-	-cp chrome.manifest.prod chrome.manifest
 
 uninstall-hook:
 	-rm $(DESTDIR)$(pkglibdir)/chrome
 
+chrome.manifest:
 if JAR_CONTENT
-all: jar
+	-cp chrome.manifest.prod chrome.manifest
+else
+	-cp chrome.manifest.dev chrome.manifest
 endif
 
-CLEANFILES=locale.jar content.jar skin.jar
+if JAR_CONTENT
+all: jar chrome.manifest
+else
+all: chrome.manifest
+endif
+
+CLEANFILES=locale.jar content.jar skin.jar chrome.manifest
