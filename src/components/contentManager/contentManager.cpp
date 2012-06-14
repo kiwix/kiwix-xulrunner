@@ -118,16 +118,18 @@ ContentManager::~ContentManager() {
 NS_IMETHODIMP ContentManager::OpenLibraryFromFile(const nsAString &path, mozbool readOnly, mozbool *retVal) {
   *retVal = PR_TRUE;
   bool returnValue = true;
-  const char *cPath = strdup(nsStringToCString(path));
+  const char *cNativePath = strdup(nsStringToCString(path));
+  const char *cUTF8Path = strdup(nsStringToUTF8(path));
 
   try {
-    returnValue = this->manager.readFile(cPath, readOnly == PR_TRUE ? true : false);
+    returnValue = this->manager.readFile(cNativePath, readOnly == PR_TRUE ? true : false);
   } catch (exception &e) {
     cerr << e.what() << endl;
     *retVal = PR_FALSE;
   }
 
-  free((void*)cPath);
+  free((void*)cNativePath);
+  free((void*)cUTF8Path);
   *retVal = (returnValue ? PR_TRUE : PR_FALSE);
 
   return NS_OK;
