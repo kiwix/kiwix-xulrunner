@@ -115,13 +115,13 @@
 <!ENTITY main.close                     "Padé">
 
 <!-- Preferences Window -->
-<!ENTITY preferences.preferences        "Preferences">
-<!ENTITY preferences.save               "Save">
-<!ENTITY preferences.cancel             "Cancel">
-<!ENTITY preferences.profileDirectory   "Profile directory">
-<!ENTITY preferences.browse             "Browse">
-<!ENTITY preferences.tabs               "Remember tabs">
-<!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">
+<!ENTITY preferences.preferences        "Àwọn ìfẹ́ràn">
+<!ENTITY preferences.save               "Ìmúpamọ́">
+<!ENTITY preferences.cancel             "Fagilé">
+<!ENTITY preferences.profileDirectory   "Àpò orukọ">
+<!ENTITY preferences.browse             "Ìṣíwò">
+<!ENTITY preferences.tabs               "Rántí àwọn ìpele">
+<!ENTITY preferences.downloadCatalogs   "Ìrùjádé (àwọn) àpò fáìlì ọ̀ọ́kán">
 
 <!-- Library -->
 <!ENTITY main.library.myLibrary                 "Ilé-ìwé mi">

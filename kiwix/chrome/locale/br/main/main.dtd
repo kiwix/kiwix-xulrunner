@@ -115,13 +115,13 @@
 <!ENTITY main.close                     "Serriñ">
 
 <!-- Preferences Window -->
-<!ENTITY preferences.preferences        "Preferences">
-<!ENTITY preferences.save               "Save">
-<!ENTITY preferences.cancel             "Cancel">
-<!ENTITY preferences.profileDirectory   "Profile directory">
-<!ENTITY preferences.browse             "Browse">
-<!ENTITY preferences.tabs               "Remember tabs">
-<!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">
+<!ENTITY preferences.preferences        "Penndibaboù">
+<!ENTITY preferences.save               "Enrollañ">
+<!ENTITY preferences.cancel             "Nullañ">
+<!ENTITY preferences.profileDirectory   "Kavlec'h ar profil">
+<!ENTITY preferences.browse             "Furchal">
+<!ENTITY preferences.tabs               "Kaout soñj eus an ivinelloù digor">
+<!ENTITY preferences.downloadCatalogs   "Pellgargañ ar c'hatalog(où) a-bell">
 
 <!-- Library -->
 <!ENTITY main.library.myLibrary                 "Ma levraoueg">

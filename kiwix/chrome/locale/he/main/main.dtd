@@ -115,13 +115,13 @@
 <!ENTITY main.close                     "סגור">
 
 <!-- Preferences Window -->
-<!ENTITY preferences.preferences        "Preferences">
-<!ENTITY preferences.save               "Save">
-<!ENTITY preferences.cancel             "Cancel">
-<!ENTITY preferences.profileDirectory   "Profile directory">
-<!ENTITY preferences.browse             "Browse">
-<!ENTITY preferences.tabs               "Remember tabs">
-<!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">
+<!ENTITY preferences.preferences        "העדפות">
+<!ENTITY preferences.save               "שמירה">
+<!ENTITY preferences.cancel             "ביטול">
+<!ENTITY preferences.profileDirectory   "תיקיית פרופיל">
+<!ENTITY preferences.browse             "עיון">
+<!ENTITY preferences.tabs               "לזכור לשוניות">
+<!ENTITY preferences.downloadCatalogs   "הורדת קטלוגים מרוחקים">
 
 <!-- Library -->
 <!ENTITY main.library.myLibrary                 "הספרייה שלי">

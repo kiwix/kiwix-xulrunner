@@ -115,13 +115,13 @@
 <!ENTITY main.close                     "Κλείσιμο">
 
 <!-- Preferences Window -->
-<!ENTITY preferences.preferences        "Preferences">
-<!ENTITY preferences.save               "Save">
-<!ENTITY preferences.cancel             "Cancel">
-<!ENTITY preferences.profileDirectory   "Profile directory">
-<!ENTITY preferences.browse             "Browse">
-<!ENTITY preferences.tabs               "Remember tabs">
-<!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">
+<!ENTITY preferences.preferences        "Προτιμήσεις">
+<!ENTITY preferences.save               "Αποθήκευση">
+<!ENTITY preferences.cancel             "Ακύρωση">
+<!ENTITY preferences.profileDirectory   "Κατάλογος Προφίλ">
+<!ENTITY preferences.browse             "Πλοήγηση">
+<!ENTITY preferences.tabs               "Απομνημόνευση καρτελών">
+<!ENTITY preferences.downloadCatalogs   "Κατεβάστε απομακρυσμένους καταλόγους">
 
 <!-- Library -->
 <!ENTITY main.library.myLibrary                 "Η βιβλιοθήκη μου">

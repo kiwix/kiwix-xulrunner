@@ -115,12 +115,12 @@
 <!ENTITY main.close                     "Fermi">
 
 <!-- Preferences Window -->
-<!ENTITY preferences.preferences        "Preferences">
-<!ENTITY preferences.save               "Save">
-<!ENTITY preferences.cancel             "Cancel">
-<!ENTITY preferences.profileDirectory   "Profile directory">
-<!ENTITY preferences.browse             "Browse">
-<!ENTITY preferences.tabs               "Remember tabs">
+<!ENTITY preferences.preferences        "Agordoj">
+<!ENTITY preferences.save               "Konservi">
+<!ENTITY preferences.cancel             "Nuligi">
+<!ENTITY preferences.profileDirectory   "Profila dosierujo">
+<!ENTITY preferences.browse             "Foliumi">
+<!ENTITY preferences.tabs               "Memori langetojn">
 <!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">
 
 <!-- Library -->

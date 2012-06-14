@@ -115,13 +115,13 @@
 <!ENTITY main.close                     "关闭">
 
 <!-- Preferences Window -->
-<!ENTITY preferences.preferences        "Preferences">
-<!ENTITY preferences.save               "Save">
-<!ENTITY preferences.cancel             "Cancel">
-<!ENTITY preferences.profileDirectory   "Profile directory">
-<!ENTITY preferences.browse             "Browse">
-<!ENTITY preferences.tabs               "Remember tabs">
-<!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">
+<!ENTITY preferences.preferences        "参数设置">
+<!ENTITY preferences.save               "保存">
+<!ENTITY preferences.cancel             "取消">
+<!ENTITY preferences.profileDirectory   "配置文件目录">
+<!ENTITY preferences.browse             "浏览">
+<!ENTITY preferences.tabs               "记住标签页">
+<!ENTITY preferences.downloadCatalogs   "下载远程目录">
 
 <!-- Library -->
 <!ENTITY main.library.myLibrary                 "我的库">

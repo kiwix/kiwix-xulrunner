@@ -115,13 +115,13 @@
 <!ENTITY main.close                     "Ябырға">
 
 <!-- Preferences Window -->
-<!ENTITY preferences.preferences        "Preferences">
-<!ENTITY preferences.save               "Save">
-<!ENTITY preferences.cancel             "Cancel">
-<!ENTITY preferences.profileDirectory   "Profile directory">
-<!ENTITY preferences.browse             "Browse">
-<!ENTITY preferences.tabs               "Remember tabs">
-<!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">
+<!ENTITY preferences.preferences        "Көйләүҙәр">
+<!ENTITY preferences.save               "Һаҡларға">
+<!ENTITY preferences.cancel             "Кире алырға">
+<!ENTITY preferences.profileDirectory   "Профиль каталогы">
+<!ENTITY preferences.browse             "Байҡарға">
+<!ENTITY preferences.tabs               "Һалынмаларҙы хәтерҙә тоторға">
+<!ENTITY preferences.downloadCatalogs   "Юйылған каталогты (-тарҙы) күсереп алың">
 
 <!-- Library -->
 <!ENTITY main.library.myLibrary                 "Китапханам">

@@ -115,12 +115,12 @@
 <!ENTITY main.close                     "બંધ કરો">
 
 <!-- Preferences Window -->
-<!ENTITY preferences.preferences        "Preferences">
-<!ENTITY preferences.save               "Save">
-<!ENTITY preferences.cancel             "Cancel">
-<!ENTITY preferences.profileDirectory   "Profile directory">
-<!ENTITY preferences.browse             "Browse">
-<!ENTITY preferences.tabs               "Remember tabs">
+<!ENTITY preferences.preferences        "પસંદ">
+<!ENTITY preferences.save               "સાચવો">
+<!ENTITY preferences.cancel             "રદ કરો">
+<!ENTITY preferences.profileDirectory   "પ્રોફીલે નો જથ્થો">
+<!ENTITY preferences.browse             "ચરવું">
+<!ENTITY preferences.tabs               "ફાટા ને યાદ રાખો">
 <!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">
 
 <!-- Library -->

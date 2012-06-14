@@ -115,12 +115,12 @@
 <!ENTITY main.close                     "மூடு">
 
 <!-- Preferences Window -->
-<!ENTITY preferences.preferences        "Preferences">
-<!ENTITY preferences.save               "Save">
-<!ENTITY preferences.cancel             "Cancel">
-<!ENTITY preferences.profileDirectory   "Profile directory">
-<!ENTITY preferences.browse             "Browse">
-<!ENTITY preferences.tabs               "Remember tabs">
+<!ENTITY preferences.preferences        "விருப்பங்கள்">
+<!ENTITY preferences.save               "சேமி">
+<!ENTITY preferences.cancel             "ரத்து செய்">
+<!ENTITY preferences.profileDirectory   "சுயகுறிப்பு அடைவு">
+<!ENTITY preferences.browse             "உலவு">
+<!ENTITY preferences.tabs               "தாவல்களை நினைவில் கொள்">
 <!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">
 
 <!-- Library -->

@@ -115,13 +115,13 @@
 <!ENTITY main.close                     "Zavřít">
 
 <!-- Preferences Window -->
-<!ENTITY preferences.preferences        "Preferences">
-<!ENTITY preferences.save               "Save">
-<!ENTITY preferences.cancel             "Cancel">
-<!ENTITY preferences.profileDirectory   "Profile directory">
-<!ENTITY preferences.browse             "Browse">
-<!ENTITY preferences.tabs               "Remember tabs">
-<!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">
+<!ENTITY preferences.preferences        "Možnosti">
+<!ENTITY preferences.save               "Uložit">
+<!ENTITY preferences.cancel             "Storno">
+<!ENTITY preferences.profileDirectory   "Profilový adresář">
+<!ENTITY preferences.browse             "Procházet">
+<!ENTITY preferences.tabs               "Uložit záložky">
+<!ENTITY preferences.downloadCatalogs   "Stažení vzdáleného katalogu(ů)">
 
 <!-- Library -->
 <!ENTITY main.library.myLibrary                 "Moje knihovna">

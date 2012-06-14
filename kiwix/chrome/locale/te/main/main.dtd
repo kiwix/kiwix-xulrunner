@@ -115,9 +115,9 @@
 <!ENTITY main.close                     "మూసివేయి">
 
 <!-- Preferences Window -->
-<!ENTITY preferences.preferences        "Preferences">
-<!ENTITY preferences.save               "Save">
-<!ENTITY preferences.cancel             "Cancel">
+<!ENTITY preferences.preferences        "అభిరుచులు">
+<!ENTITY preferences.save               "భద్రపరచు">
+<!ENTITY preferences.cancel             "రద్దుచేయి">
 <!ENTITY preferences.profileDirectory   "Profile directory">
 <!ENTITY preferences.browse             "Browse">
 <!ENTITY preferences.tabs               "Remember tabs">

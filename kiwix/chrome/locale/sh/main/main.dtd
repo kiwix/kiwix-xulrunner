@@ -115,11 +115,11 @@
 <!ENTITY main.close                     "Zatvori">
 
 <!-- Preferences Window -->
-<!ENTITY preferences.preferences        "Preferences">
-<!ENTITY preferences.save               "Save">
-<!ENTITY preferences.cancel             "Cancel">
-<!ENTITY preferences.profileDirectory   "Profile directory">
-<!ENTITY preferences.browse             "Browse">
+<!ENTITY preferences.preferences        "Postavke">
+<!ENTITY preferences.save               "Snimi">
+<!ENTITY preferences.cancel             "Odustani">
+<!ENTITY preferences.profileDirectory   "Profiliraj direktorij">
+<!ENTITY preferences.browse             "Pregledaj">
 <!ENTITY preferences.tabs               "Remember tabs">
 <!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">
 

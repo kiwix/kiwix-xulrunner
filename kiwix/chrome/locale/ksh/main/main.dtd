@@ -115,13 +115,13 @@
 <!ENTITY main.close                     "Zohmaache">
 
 <!-- Preferences Window -->
-<!ENTITY preferences.preferences        "Preferences">
-<!ENTITY preferences.save               "Save">
-<!ENTITY preferences.cancel             "Cancel">
-<!ENTITY preferences.profileDirectory   "Profile directory">
-<!ENTITY preferences.browse             "Browse">
-<!ENTITY preferences.tabs               "Remember tabs">
-<!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">
+<!ENTITY preferences.preferences        "Enschtellunge">
+<!ENTITY preferences.save               "Faßhalde">
+<!ENTITY preferences.cancel             "Ophüre">
+<!ENTITY preferences.profileDirectory   "Verzeischneß mem Profil">
+<!ENTITY preferences.browse             "Aanluure">
+<!ENTITY preferences.tabs               "Tabbulatoore behallde">
+<!ENTITY preferences.downloadCatalogs   "Donn dä Kattalooch udder de Kattaloore vun ußerhallfe eronger laade">
 
 <!-- Library -->
 <!ENTITY main.library.myLibrary                 "Ming eije Sammlong">

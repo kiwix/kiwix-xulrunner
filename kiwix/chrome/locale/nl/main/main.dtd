@@ -85,7 +85,7 @@
 <!ENTITY main.home                      "Startpagina">
 <!ENTITY main.searchBar                 "Zoekbalk">
 <!ENTITY main.search                    "Zoeken">
-<!ENTITY main.searchPlaceholder         "Zoeken...">
+<!ENTITY main.searchPlaceholder         "Typ hier de tekst om te zoeken...">
 <!ENTITY main.findInText                "Zoeken in tekst">
 <!ENTITY main.noSearchBar               "Om te zoeken hebt u een geïndexeerd ZIM-bestand nodig">
 <!ENTITY main.bookmarks                 "Bladwijzers">
@@ -115,13 +115,13 @@
 <!ENTITY main.close                     "Sluiten">
 
 <!-- Preferences Window -->
-<!ENTITY preferences.preferences        "Preferences">
-<!ENTITY preferences.save               "Save">
-<!ENTITY preferences.cancel             "Cancel">
-<!ENTITY preferences.profileDirectory   "Profile directory">
-<!ENTITY preferences.browse             "Browse">
-<!ENTITY preferences.tabs               "Remember tabs">
-<!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">
+<!ENTITY preferences.preferences        "Voorkeuren">
+<!ENTITY preferences.save               "Opslaan">
+<!ENTITY preferences.cancel             "Annuleren">
+<!ENTITY preferences.profileDirectory   "Profielmap">
+<!ENTITY preferences.browse             "Bladeren">
+<!ENTITY preferences.tabs               "Tabbladen onthouden">
+<!ENTITY preferences.downloadCatalogs   "Catalogi downloaden">
 
 <!-- Library -->
 <!ENTITY main.library.myLibrary                 "Mijn bibliotheek">

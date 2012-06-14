@@ -115,13 +115,13 @@
 <!ENTITY main.close                     "Cau">
 
 <!-- Preferences Window -->
-<!ENTITY preferences.preferences        "Preferences">
-<!ENTITY preferences.save               "Save">
-<!ENTITY preferences.cancel             "Cancel">
-<!ENTITY preferences.profileDirectory   "Profile directory">
-<!ENTITY preferences.browse             "Browse">
-<!ENTITY preferences.tabs               "Remember tabs">
-<!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">
+<!ENTITY preferences.preferences        "Dewisiadau">
+<!ENTITY preferences.save               "Cadw">
+<!ENTITY preferences.cancel             "Canslo">
+<!ENTITY preferences.profileDirectory   "Cyfeiriadur proffil">
+<!ENTITY preferences.browse             "Pori">
+<!ENTITY preferences.tabs               "Cofier tabiau">
+<!ENTITY preferences.downloadCatalogs   "Islwytho catalog(au) allanol">
 
 <!-- Library -->
 <!ENTITY main.library.myLibrary                 "Fy llyfrgell">

@@ -115,13 +115,13 @@
 <!ENTITY main.close                     "Wichq'ay">
 
 <!-- Preferences Window -->
-<!ENTITY preferences.preferences        "Preferences">
-<!ENTITY preferences.save               "Save">
-<!ENTITY preferences.cancel             "Cancel">
-<!ENTITY preferences.profileDirectory   "Profile directory">
-<!ENTITY preferences.browse             "Browse">
-<!ENTITY preferences.tabs               "Remember tabs">
-<!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">
+<!ENTITY preferences.preferences        "Allinkachinakuna">
+<!ENTITY preferences.save               "Waqaychay">
+<!ENTITY preferences.cancel             "Ama niy">
+<!ENTITY preferences.profileDirectory   "K'utupa churana">
+<!ENTITY preferences.browse             "Maskapuy">
+<!ENTITY preferences.tabs               "Tikllakunata yuyay">
+<!ENTITY preferences.downloadCatalogs   "Karu kataluta chaqnamuy">
 
 <!-- Library -->
 <!ENTITY main.library.myLibrary                 "Ñuqap ñawirina ukhuy">

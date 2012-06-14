@@ -115,12 +115,12 @@
 <!ENTITY main.close                     "დახურვა">
 
 <!-- Preferences Window -->
-<!ENTITY preferences.preferences        "Preferences">
-<!ENTITY preferences.save               "Save">
-<!ENTITY preferences.cancel             "Cancel">
-<!ENTITY preferences.profileDirectory   "Profile directory">
-<!ENTITY preferences.browse             "Browse">
-<!ENTITY preferences.tabs               "Remember tabs">
+<!ENTITY preferences.preferences        "კონფიგურაცია">
+<!ENTITY preferences.save               "შენახვა">
+<!ENTITY preferences.cancel             "გაუქმება">
+<!ENTITY preferences.profileDirectory   "პროფილის დირექტორია">
+<!ENTITY preferences.browse             "დათვალიერება">
+<!ENTITY preferences.tabs               "ჩანართების დამახსოვრება">
 <!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">
 
 <!-- Library -->

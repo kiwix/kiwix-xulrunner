@@ -115,13 +115,13 @@
 <!ENTITY main.close                     "Tukup">
 
 <!-- Preferences Window -->
-<!ENTITY preferences.preferences        "Preferences">
-<!ENTITY preferences.save               "Save">
-<!ENTITY preferences.cancel             "Cancel">
-<!ENTITY preferences.profileDirectory   "Profile directory">
-<!ENTITY preferences.browse             "Browse">
-<!ENTITY preferences.tabs               "Remember tabs">
-<!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">
+<!ENTITY preferences.preferences        "Kakatujuan">
+<!ENTITY preferences.save               "Simpan">
+<!ENTITY preferences.cancel             "Walangi">
+<!ENTITY preferences.profileDirectory   "Propil dirakturi">
+<!ENTITY preferences.browse             "Tangadahi">
+<!ENTITY preferences.tabs               "Ingati tab">
+<!ENTITY preferences.downloadCatalogs   "Unggah katalug rimut">
 
 <!-- Library -->
 <!ENTITY main.library.myLibrary                 "Pustaka ulun">

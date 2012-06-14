@@ -115,12 +115,12 @@
 <!ENTITY main.close                     "Sjleet">
 
 <!-- Preferences Window -->
-<!ENTITY preferences.preferences        "Preferences">
-<!ENTITY preferences.save               "Save">
-<!ENTITY preferences.cancel             "Cancel">
-<!ENTITY preferences.profileDirectory   "Profile directory">
-<!ENTITY preferences.browse             "Browse">
-<!ENTITY preferences.tabs               "Remember tabs">
+<!ENTITY preferences.preferences        "Veurkäöre">
+<!ENTITY preferences.save               "Opsjlaon">
+<!ENTITY preferences.cancel             "Aafbraeke">
+<!ENTITY preferences.profileDirectory   "Profielmap">
+<!ENTITY preferences.browse             "Blajere">
+<!ENTITY preferences.tabs               "Tabblajer ónthauwe">
 <!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">
 
 <!-- Library -->

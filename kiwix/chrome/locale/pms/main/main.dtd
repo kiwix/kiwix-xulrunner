@@ -115,12 +115,12 @@
 <!ENTITY main.close                     "Sara">
 
 <!-- Preferences Window -->
-<!ENTITY preferences.preferences        "Preferences">
-<!ENTITY preferences.save               "Save">
-<!ENTITY preferences.cancel             "Cancel">
-<!ENTITY preferences.profileDirectory   "Profile directory">
-<!ENTITY preferences.browse             "Browse">
-<!ENTITY preferences.tabs               "Remember tabs">
+<!ENTITY preferences.preferences        "Mè gust">
+<!ENTITY preferences.save               "Salvé">
+<!ENTITY preferences.cancel             "Scancela">
+<!ENTITY preferences.profileDirectory   "Dossié dël profil">
+<!ENTITY preferences.browse             "Sfeuja">
+<!ENTITY preferences.tabs               "Arcordé je schede">
 <!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">
 
 <!-- Library -->

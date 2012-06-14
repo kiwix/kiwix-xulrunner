@@ -115,12 +115,12 @@
 <!ENTITY main.close                     "Sulje">
 
 <!-- Preferences Window -->
-<!ENTITY preferences.preferences        "Preferences">
-<!ENTITY preferences.save               "Save">
-<!ENTITY preferences.cancel             "Cancel">
-<!ENTITY preferences.profileDirectory   "Profile directory">
-<!ENTITY preferences.browse             "Browse">
-<!ENTITY preferences.tabs               "Remember tabs">
+<!ENTITY preferences.preferences        "Asetukset">
+<!ENTITY preferences.save               "Tallenna">
+<!ENTITY preferences.cancel             "Peruuta">
+<!ENTITY preferences.profileDirectory   "Profiilihakemisto">
+<!ENTITY preferences.browse             "Selaa">
+<!ENTITY preferences.tabs               "Muista välilehdet">
 <!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">
 
 <!-- Library -->

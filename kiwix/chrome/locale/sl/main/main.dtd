@@ -115,13 +115,13 @@
 <!ENTITY main.close                     "Zapri">
 
 <!-- Preferences Window -->
-<!ENTITY preferences.preferences        "Preferences">
-<!ENTITY preferences.save               "Save">
-<!ENTITY preferences.cancel             "Cancel">
-<!ENTITY preferences.profileDirectory   "Profile directory">
-<!ENTITY preferences.browse             "Browse">
-<!ENTITY preferences.tabs               "Remember tabs">
-<!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">
+<!ENTITY preferences.preferences        "Nastavitve">
+<!ENTITY preferences.save               "Shrani">
+<!ENTITY preferences.cancel             "Prekliči">
+<!ENTITY preferences.profileDirectory   "Mapa profila">
+<!ENTITY preferences.browse             "Prebrskaj">
+<!ENTITY preferences.tabs               "Zapomni si zavihke">
+<!ENTITY preferences.downloadCatalogs   "prenesite oddaljen(e) katalog(e)">
 
 <!-- Library -->
 <!ENTITY main.library.myLibrary                 "Moja knjižnica">

@@ -115,11 +115,11 @@
 <!ENTITY main.close                     "ياپ">
 
 <!-- Preferences Window -->
-<!ENTITY preferences.preferences        "Preferences">
-<!ENTITY preferences.save               "Save">
-<!ENTITY preferences.cancel             "Cancel">
-<!ENTITY preferences.profileDirectory   "Profile directory">
-<!ENTITY preferences.browse             "Browse">
+<!ENTITY preferences.preferences        "مايىللىق">
+<!ENTITY preferences.save               "ساقلا">
+<!ENTITY preferences.cancel             "ۋاز كەچ">
+<!ENTITY preferences.profileDirectory   "سەپلىمە ھۆججەت مۇندەرىجىسى">
+<!ENTITY preferences.browse             "كۆز يۈگۈرت">
 <!ENTITY preferences.tabs               "Remember tabs">
 <!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">
 

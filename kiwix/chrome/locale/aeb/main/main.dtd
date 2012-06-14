@@ -115,12 +115,12 @@
 <!ENTITY main.close                     "sakkar">
 
 <!-- Preferences Window -->
-<!ENTITY preferences.preferences        "Preferences">
-<!ENTITY preferences.save               "Save">
-<!ENTITY preferences.cancel             "Cancel">
-<!ENTITY preferences.profileDirectory   "Profile directory">
-<!ENTITY preferences.browse             "Browse">
-<!ENTITY preferences.tabs               "Remember tabs">
+<!ENTITY preferences.preferences        "tafdhilat">
+<!ENTITY preferences.save               "sajjel">
+<!ENTITY preferences.cancel             "ifsa5">
+<!ENTITY preferences.profileDirectory   "dalil el milaf echa5ss'i">
+<!ENTITY preferences.browse             "ara">
+<!ENTITY preferences.tabs               "تذكّر الألسنة">
 <!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">
 
 <!-- Library -->

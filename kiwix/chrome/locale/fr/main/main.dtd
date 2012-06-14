@@ -115,13 +115,13 @@
 <!ENTITY main.close                     "Fermer">
 
 <!-- Preferences Window -->
-<!ENTITY preferences.preferences        "Preferences">
-<!ENTITY preferences.save               "Save">
-<!ENTITY preferences.cancel             "Cancel">
-<!ENTITY preferences.profileDirectory   "Profile directory">
-<!ENTITY preferences.browse             "Browse">
-<!ENTITY preferences.tabs               "Remember tabs">
-<!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">
+<!ENTITY preferences.preferences        "Options">
+<!ENTITY preferences.save               "Enregistrer">
+<!ENTITY preferences.cancel             "Annuler">
+<!ENTITY preferences.profileDirectory   "Répertoire du profil">
+<!ENTITY preferences.browse             "Parcourir">
+<!ENTITY preferences.tabs               "Se souvenir des onglets ouverts en quittant Kiwix">
+<!ENTITY preferences.downloadCatalogs   "Télécharger le(s) catalogue(s) distant">
 
 <!-- Library -->
 <!ENTITY main.library.myLibrary                 "Ma bibliothèque">

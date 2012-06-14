@@ -115,12 +115,12 @@
 <!ENTITY main.close                     "Aizvērt">
 
 <!-- Preferences Window -->
-<!ENTITY preferences.preferences        "Preferences">
-<!ENTITY preferences.save               "Save">
-<!ENTITY preferences.cancel             "Cancel">
-<!ENTITY preferences.profileDirectory   "Profile directory">
-<!ENTITY preferences.browse             "Browse">
-<!ENTITY preferences.tabs               "Remember tabs">
+<!ENTITY preferences.preferences        "Izvēles">
+<!ENTITY preferences.save               "Saglabāt">
+<!ENTITY preferences.cancel             "Atcelt">
+<!ENTITY preferences.profileDirectory   "Profila direktorija">
+<!ENTITY preferences.browse             "Pārlūkot">
+<!ENTITY preferences.tabs               "Atcerēties cilnes">
 <!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">
 
 <!-- Library -->

@@ -115,12 +115,12 @@
 <!ENTITY main.close                     "Đóng">
 
 <!-- Preferences Window -->
-<!ENTITY preferences.preferences        "Preferences">
-<!ENTITY preferences.save               "Save">
-<!ENTITY preferences.cancel             "Cancel">
-<!ENTITY preferences.profileDirectory   "Profile directory">
-<!ENTITY preferences.browse             "Browse">
-<!ENTITY preferences.tabs               "Remember tabs">
+<!ENTITY preferences.preferences        "Tùy chỉnh">
+<!ENTITY preferences.save               "Lưu">
+<!ENTITY preferences.cancel             "Hủy bỏ">
+<!ENTITY preferences.profileDirectory   "Thư mục Hồ sơ">
+<!ENTITY preferences.browse             "Duyệt">
+<!ENTITY preferences.tabs               "Nhớ các thẻ">
 <!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">
 
 <!-- Library -->

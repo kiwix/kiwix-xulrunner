@@ -8,7 +8,7 @@
 <!ENTITY main.openFile                  "Lukatan ti papeles...">
 <!ENTITY main.browseLibrary.accesskey   "B">
 <!ENTITY main.browseLibrary             "Agbasabasa ti biblioteka">
-<!ENTITY main.hideLibrary               "Hide library">
+<!ENTITY main.hideLibrary               "Ilemmeng ti biblioteka">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "Kaluklukat laeng...">
 <!ENTITY main.saveFile                  "Idulin ti panid a kas...">
@@ -31,7 +31,7 @@
 <!ENTITY main.copy.accesskey            "p">
 <!ENTITY main.transliteration           "Panakaipatarus">
 <!ENTITY main.transliteration.accesskey "T">
-<!ENTITY main.preferences               "Kaykayatan">
+<!ENTITY main.preferences               "Dagiti kakaykayatan">
 <!ENTITY main.preferences.accesskey     "n">
 <!ENTITY main.server                    "Server">
 <!ENTITY main.server.accesskey          "s">
@@ -85,7 +85,7 @@
 <!ENTITY main.home                      "Balay">
 <!ENTITY main.searchBar                 "Panagbiruk a baras">
 <!ENTITY main.search                    "Biruken">
-<!ENTITY main.searchPlaceholder         "Type the text to search here...">
+<!ENTITY main.searchPlaceholder         "Imakinilya ti testo ti agbiruk ditoy...">
 <!ENTITY main.findInText                "Sapulen idiay teksto">
 <!ENTITY main.noSearchBar               "Ti pinagbiruk ket masapul ti pagsurotan a ZIM a papeles">
 <!ENTITY main.bookmarks                 "Marmarka ti libro">
@@ -108,20 +108,20 @@
 <!ENTITY main.openLinkInNewTab          "Lukatan ti panilpo iti baro nga etiketa">
 <!ENTITY main.searchFor                 "Biruken iti">
 <!ENTITY main.copyLinkAdress            "Copy link address">
-<!ENTITY main.mute                      "Mute">
-<!ENTITY main.audible                   "Audible">
+<!ENTITY main.mute                      "Ipaumel">
+<!ENTITY main.audible                   "Mangeg">
 
 <!-- About Window -->
 <!ENTITY main.close                     "Irikep">
 
 <!-- Preferences Window -->
-<!ENTITY preferences.preferences        "Preferences">
-<!ENTITY preferences.save               "Save">
-<!ENTITY preferences.cancel             "Cancel">
-<!ENTITY preferences.profileDirectory   "Profile directory">
-<!ENTITY preferences.browse             "Browse">
-<!ENTITY preferences.tabs               "Remember tabs">
-<!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">
+<!ENTITY preferences.preferences        "Kaykayatan">
+<!ENTITY preferences.save               "Idulin">
+<!ENTITY preferences.cancel             "Ukasen">
+<!ENTITY preferences.profileDirectory   "Bariweswes ti direktorio">
+<!ENTITY preferences.browse             "Agbasabasa">
+<!ENTITY preferences.tabs               "Laglagipen dagiti etiketa">
+<!ENTITY preferences.downloadCatalogs   "Alaen ti (dagiti) adayo a katologo">
 
 <!-- Library -->
 <!ENTITY main.library.myLibrary                 "Ti bibliotekak">

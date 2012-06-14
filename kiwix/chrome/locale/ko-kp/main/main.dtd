@@ -115,12 +115,12 @@
 <!ENTITY main.close                     "닫기">
 
 <!-- Preferences Window -->
-<!ENTITY preferences.preferences        "Preferences">
-<!ENTITY preferences.save               "Save">
-<!ENTITY preferences.cancel             "Cancel">
-<!ENTITY preferences.profileDirectory   "Profile directory">
-<!ENTITY preferences.browse             "Browse">
-<!ENTITY preferences.tabs               "Remember tabs">
+<!ENTITY preferences.preferences        "좋아하는 것">
+<!ENTITY preferences.save               "저장">
+<!ENTITY preferences.cancel             "취소">
+<!ENTITY preferences.profileDirectory   "개인략력 보판장소">
+<!ENTITY preferences.browse             "열람하기">
+<!ENTITY preferences.tabs               "컴퓨터 표시를 저장하기">
 <!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">
 
 <!-- Library -->

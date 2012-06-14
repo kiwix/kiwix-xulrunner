@@ -115,13 +115,13 @@
 <!ENTITY main.close                     "Mbylle">
 
 <!-- Preferences Window -->
-<!ENTITY preferences.preferences        "Preferences">
-<!ENTITY preferences.save               "Save">
-<!ENTITY preferences.cancel             "Cancel">
-<!ENTITY preferences.profileDirectory   "Profile directory">
-<!ENTITY preferences.browse             "Browse">
-<!ENTITY preferences.tabs               "Remember tabs">
-<!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">
+<!ENTITY preferences.preferences        "Parapëlqimet">
+<!ENTITY preferences.save               "Ruaj">
+<!ENTITY preferences.cancel             "Anulo">
+<!ENTITY preferences.profileDirectory   "Regjistri i profilit">
+<!ENTITY preferences.browse             "Shfleto">
+<!ENTITY preferences.tabs               "Mba mend skedat">
+<!ENTITY preferences.downloadCatalogs   "Shkarko katalogun (-gjet) ne distancë">
 
 <!-- Library -->
 <!ENTITY main.library.myLibrary                 "Libraria ime">

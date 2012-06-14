@@ -115,12 +115,12 @@
 <!ENTITY main.close                     "Agħlaq">
 
 <!-- Preferences Window -->
-<!ENTITY preferences.preferences        "Preferences">
-<!ENTITY preferences.save               "Save">
-<!ENTITY preferences.cancel             "Cancel">
-<!ENTITY preferences.profileDirectory   "Profile directory">
-<!ENTITY preferences.browse             "Browse">
-<!ENTITY preferences.tabs               "Remember tabs">
+<!ENTITY preferences.preferences        "Preferenzi">
+<!ENTITY preferences.save               "Salva">
+<!ENTITY preferences.cancel             "Annulla">
+<!ENTITY preferences.profileDirectory   "Direttorju tal-profili">
+<!ENTITY preferences.browse             "Esplora">
+<!ENTITY preferences.tabs               "Ftakar it-twieqi">
 <!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">
 
 <!-- Library -->

@@ -115,13 +115,13 @@
 <!ENTITY main.close                     "Затвори">
 
 <!-- Preferences Window -->
-<!ENTITY preferences.preferences        "Preferences">
-<!ENTITY preferences.save               "Save">
-<!ENTITY preferences.cancel             "Cancel">
-<!ENTITY preferences.profileDirectory   "Profile directory">
-<!ENTITY preferences.browse             "Browse">
-<!ENTITY preferences.tabs               "Remember tabs">
-<!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">
+<!ENTITY preferences.preferences        "Нагодувања">
+<!ENTITY preferences.save               "Зачувај">
+<!ENTITY preferences.cancel             "Откажи">
+<!ENTITY preferences.profileDirectory   "Директориум на профилот">
+<!ENTITY preferences.browse             "Прелистај">
+<!ENTITY preferences.tabs               "Запомни ги јазичињата">
+<!ENTITY preferences.downloadCatalogs   "Преземи далечински каталог/зи">
 
 <!-- Library -->
 <!ENTITY main.library.myLibrary                 "Моја библиотека">

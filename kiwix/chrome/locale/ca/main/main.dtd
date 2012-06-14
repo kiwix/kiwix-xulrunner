@@ -120,7 +120,7 @@
 <!ENTITY preferences.cancel             "Cancel">
 <!ENTITY preferences.profileDirectory   "Profile directory">
 <!ENTITY preferences.browse             "Browse">
-<!ENTITY preferences.tabs               "Remember tabs">
+<!ENTITY preferences.tabs               "Recordeu tabs">
 <!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">
 
 <!-- Library -->

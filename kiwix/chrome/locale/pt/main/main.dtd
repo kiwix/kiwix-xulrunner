@@ -115,13 +115,13 @@
 <!ENTITY main.close                     "Fechar">
 
 <!-- Preferences Window -->
-<!ENTITY preferences.preferences        "Preferences">
-<!ENTITY preferences.save               "Save">
-<!ENTITY preferences.cancel             "Cancel">
-<!ENTITY preferences.profileDirectory   "Profile directory">
-<!ENTITY preferences.browse             "Browse">
-<!ENTITY preferences.tabs               "Remember tabs">
-<!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">
+<!ENTITY preferences.preferences        "Preferências">
+<!ENTITY preferences.save               "Gravar">
+<!ENTITY preferences.cancel             "Cancelar">
+<!ENTITY preferences.profileDirectory   "Diretório de perfil">
+<!ENTITY preferences.browse             "Navegar">
+<!ENTITY preferences.tabs               "Memorizar os separadores">
+<!ENTITY preferences.downloadCatalogs   "Descarregar catálogo(s) remoto(s)">
 
 <!-- Library -->
 <!ENTITY main.library.myLibrary                 "A minha biblioteca">

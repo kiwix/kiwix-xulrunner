@@ -115,12 +115,12 @@
 <!ENTITY main.close                     "بستن">
 
 <!-- Preferences Window -->
-<!ENTITY preferences.preferences        "Preferences">
-<!ENTITY preferences.save               "Save">
-<!ENTITY preferences.cancel             "Cancel">
-<!ENTITY preferences.profileDirectory   "Profile directory">
-<!ENTITY preferences.browse             "Browse">
-<!ENTITY preferences.tabs               "Remember tabs">
+<!ENTITY preferences.preferences        "ترجیحات">
+<!ENTITY preferences.save               "ذخیره">
+<!ENTITY preferences.cancel             "لغو">
+<!ENTITY preferences.profileDirectory   "شاخهٔ نمایه">
+<!ENTITY preferences.browse             "مرور">
+<!ENTITY preferences.tabs               "به‌خاطرسپردن زبانه‌ها">
 <!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">
 
 <!-- Library -->

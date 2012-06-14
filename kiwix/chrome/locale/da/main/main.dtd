@@ -8,7 +8,7 @@
 <!ENTITY main.openFile                  "Åbn fil...">
 <!ENTITY main.browseLibrary.accesskey   "B">
 <!ENTITY main.browseLibrary             "Gennemse bibliotek">
-<!ENTITY main.hideLibrary               "Hide library">
+<!ENTITY main.hideLibrary               "Skjul bibliotek">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "Nyligt åbnede...">
 <!ENTITY main.saveFile                  "Gem side som...">
@@ -85,7 +85,7 @@
 <!ENTITY main.home                      "Hjem">
 <!ENTITY main.searchBar                 "Søgelinje">
 <!ENTITY main.search                    "Søg">
-<!ENTITY main.searchPlaceholder         "Type the text to search here...">
+<!ENTITY main.searchPlaceholder         "Indtast din søgetekst her...">
 <!ENTITY main.findInText                "Find i teksten">
 <!ENTITY main.noSearchBar               "Søgning kræver en indekseret ZIM-fil">
 <!ENTITY main.bookmarks                 "Bogmærker">
@@ -115,13 +115,13 @@
 <!ENTITY main.close                     "Luk">
 
 <!-- Preferences Window -->
-<!ENTITY preferences.preferences        "Preferences">
-<!ENTITY preferences.save               "Save">
-<!ENTITY preferences.cancel             "Cancel">
-<!ENTITY preferences.profileDirectory   "Profile directory">
-<!ENTITY preferences.browse             "Browse">
-<!ENTITY preferences.tabs               "Remember tabs">
-<!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">
+<!ENTITY preferences.preferences        "Indstillinger">
+<!ENTITY preferences.save               "Gem">
+<!ENTITY preferences.cancel             "Afbryd">
+<!ENTITY preferences.profileDirectory   "Profilmappe">
+<!ENTITY preferences.browse             "Gennemse">
+<!ENTITY preferences.tabs               "Husk faneblade">
+<!ENTITY preferences.downloadCatalogs   "Hent eksterne kataloger ned">
 
 <!-- Library -->
 <!ENTITY main.library.myLibrary                 "Mit bibliotek">

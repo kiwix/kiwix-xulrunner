@@ -115,12 +115,12 @@
 <!ENTITY main.close                     "Funga">
 
 <!-- Preferences Window -->
-<!ENTITY preferences.preferences        "Preferences">
-<!ENTITY preferences.save               "Save">
-<!ENTITY preferences.cancel             "Cancel">
-<!ENTITY preferences.profileDirectory   "Profile directory">
-<!ENTITY preferences.browse             "Browse">
-<!ENTITY preferences.tabs               "Remember tabs">
+<!ENTITY preferences.preferences        "Mapendekezo">
+<!ENTITY preferences.save               "Hifadhi">
+<!ENTITY preferences.cancel             "Batilisha">
+<!ENTITY preferences.profileDirectory   "Saraka ya profaili">
+<!ENTITY preferences.browse             "Vinjari">
+<!ENTITY preferences.tabs               "Kumbuka tabo">
 <!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">
 
 <!-- Library -->

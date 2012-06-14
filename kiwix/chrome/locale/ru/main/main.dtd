@@ -115,13 +115,13 @@
 <!ENTITY main.close                     "Закрыть">
 
 <!-- Preferences Window -->
-<!ENTITY preferences.preferences        "Preferences">
-<!ENTITY preferences.save               "Save">
-<!ENTITY preferences.cancel             "Cancel">
-<!ENTITY preferences.profileDirectory   "Profile directory">
-<!ENTITY preferences.browse             "Browse">
-<!ENTITY preferences.tabs               "Remember tabs">
-<!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">
+<!ENTITY preferences.preferences        "Параметры">
+<!ENTITY preferences.save               "Сохранить">
+<!ENTITY preferences.cancel             "Отмена">
+<!ENTITY preferences.profileDirectory   "Каталог профиля">
+<!ENTITY preferences.browse             "Обзор">
+<!ENTITY preferences.tabs               "Запомнить закладки">
+<!ENTITY preferences.downloadCatalogs   "Скачать удалённый(-ые) каталог(и)">
 
 <!-- Library -->
 <!ENTITY main.library.myLibrary                 "Моя библиотека">

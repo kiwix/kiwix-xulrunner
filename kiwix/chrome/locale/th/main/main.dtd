@@ -115,12 +115,12 @@
 <!ENTITY main.close                     "ปิด">
 
 <!-- Preferences Window -->
-<!ENTITY preferences.preferences        "Preferences">
-<!ENTITY preferences.save               "Save">
-<!ENTITY preferences.cancel             "Cancel">
-<!ENTITY preferences.profileDirectory   "Profile directory">
-<!ENTITY preferences.browse             "Browse">
-<!ENTITY preferences.tabs               "Remember tabs">
+<!ENTITY preferences.preferences        "การตั้งค่า">
+<!ENTITY preferences.save               "บันทึก">
+<!ENTITY preferences.cancel             "ยกเลิก">
+<!ENTITY preferences.profileDirectory   "ไดเรกทอรีโปรไฟล์">
+<!ENTITY preferences.browse             "เรียกดู">
+<!ENTITY preferences.tabs               "จำแท็บนี้ไว้">
 <!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">
 
 <!-- Library -->

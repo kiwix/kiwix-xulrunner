@@ -3,7 +3,7 @@
 <!ENTITY main.cssdirection              "ltr">
 
 <!-- File menu -->
-<!ENTITY main.file                      "Arquivo">
+<!ENTITY main.file                      "File">
 <!ENTITY main.file.accesskey            "F">
 <!ENTITY main.openFile                  "Abrir arquivo...">
 <!ENTITY main.browseLibrary.accesskey   "B">
@@ -115,13 +115,13 @@
 <!ENTITY main.close                     "Fechar">
 
 <!-- Preferences Window -->
-<!ENTITY preferences.preferences        "Preferences">
-<!ENTITY preferences.save               "Save">
-<!ENTITY preferences.cancel             "Cancel">
-<!ENTITY preferences.profileDirectory   "Profile directory">
-<!ENTITY preferences.browse             "Browse">
-<!ENTITY preferences.tabs               "Remember tabs">
-<!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">
+<!ENTITY preferences.preferences        "Preferências">
+<!ENTITY preferences.save               "Salvar">
+<!ENTITY preferences.cancel             "Cancelar">
+<!ENTITY preferences.profileDirectory   "Diretório do perfil">
+<!ENTITY preferences.browse             "Navegar">
+<!ENTITY preferences.tabs               "Lembrar abas">
+<!ENTITY preferences.downloadCatalogs   "Baixar catálogo(s) remoto(s)">
 
 <!-- Library -->
 <!ENTITY main.library.myLibrary                 "Minha biblioteca">

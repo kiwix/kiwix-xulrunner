@@ -115,13 +115,13 @@
 <!ENTITY main.close                     "Tutup">
 
 <!-- Preferences Window -->
-<!ENTITY preferences.preferences        "Preferences">
-<!ENTITY preferences.save               "Save">
-<!ENTITY preferences.cancel             "Cancel">
-<!ENTITY preferences.profileDirectory   "Profile directory">
-<!ENTITY preferences.browse             "Browse">
-<!ENTITY preferences.tabs               "Remember tabs">
-<!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">
+<!ENTITY preferences.preferences        "Keutamaan">
+<!ENTITY preferences.save               "Simpan">
+<!ENTITY preferences.cancel             "Batalkan">
+<!ENTITY preferences.profileDirectory   "Direktori profil">
+<!ENTITY preferences.browse             "Semak imbas">
+<!ENTITY preferences.tabs               "Ingati tab">
+<!ENTITY preferences.downloadCatalogs   "Muat turun katalog jauh">
 
 <!-- Library -->
 <!ENTITY main.library.myLibrary                 "Perpustakaan saya">

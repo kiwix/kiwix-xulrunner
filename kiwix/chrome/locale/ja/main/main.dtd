@@ -115,13 +115,13 @@
 <!ENTITY main.close                     "閉じる">
 
 <!-- Preferences Window -->
-<!ENTITY preferences.preferences        "Preferences">
-<!ENTITY preferences.save               "Save">
-<!ENTITY preferences.cancel             "Cancel">
-<!ENTITY preferences.profileDirectory   "Profile directory">
-<!ENTITY preferences.browse             "Browse">
-<!ENTITY preferences.tabs               "Remember tabs">
-<!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">
+<!ENTITY preferences.preferences        "設定">
+<!ENTITY preferences.save               "保存">
+<!ENTITY preferences.cancel             "キャンセル">
+<!ENTITY preferences.profileDirectory   "プロファイル ディレクトリ">
+<!ENTITY preferences.browse             "閲覧">
+<!ENTITY preferences.tabs               "タブを記憶">
+<!ENTITY preferences.downloadCatalogs   "リモート カタログをダウンロード">
 
 <!-- Library -->
 <!ENTITY main.library.myLibrary                 "マイ ライブラリー">

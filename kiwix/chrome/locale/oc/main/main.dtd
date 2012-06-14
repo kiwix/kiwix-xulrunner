@@ -115,11 +115,11 @@
 <!ENTITY main.close                     "Barrar">
 
 <!-- Preferences Window -->
-<!ENTITY preferences.preferences        "Preferences">
-<!ENTITY preferences.save               "Save">
-<!ENTITY preferences.cancel             "Cancel">
-<!ENTITY preferences.profileDirectory   "Profile directory">
-<!ENTITY preferences.browse             "Browse">
+<!ENTITY preferences.preferences        "Opcions">
+<!ENTITY preferences.save               "Enregistrar">
+<!ENTITY preferences.cancel             "Anullar">
+<!ENTITY preferences.profileDirectory   "Repertòri del profil">
+<!ENTITY preferences.browse             "Legir">
 <!ENTITY preferences.tabs               "Remember tabs">
 <!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">
 

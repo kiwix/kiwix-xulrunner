@@ -115,12 +115,12 @@
 <!ENTITY main.close                     "Затваряне">
 
 <!-- Preferences Window -->
-<!ENTITY preferences.preferences        "Preferences">
-<!ENTITY preferences.save               "Save">
-<!ENTITY preferences.cancel             "Cancel">
-<!ENTITY preferences.profileDirectory   "Profile directory">
-<!ENTITY preferences.browse             "Browse">
-<!ENTITY preferences.tabs               "Remember tabs">
+<!ENTITY preferences.preferences        "Предпочитания">
+<!ENTITY preferences.save               "Съхраняване">
+<!ENTITY preferences.cancel             "Отказване">
+<!ENTITY preferences.profileDirectory   "Директория на профил">
+<!ENTITY preferences.browse             "Преглеждане">
+<!ENTITY preferences.tabs               "Запомняне на табовете">
 <!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">
 
 <!-- Library -->

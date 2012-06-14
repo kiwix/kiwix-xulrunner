@@ -115,12 +115,12 @@
 <!ENTITY main.close                     "關閉">
 
 <!-- Preferences Window -->
-<!ENTITY preferences.preferences        "Preferences">
-<!ENTITY preferences.save               "Save">
-<!ENTITY preferences.cancel             "Cancel">
-<!ENTITY preferences.profileDirectory   "Profile directory">
-<!ENTITY preferences.browse             "Browse">
-<!ENTITY preferences.tabs               "Remember tabs">
+<!ENTITY preferences.preferences        "偏好設定">
+<!ENTITY preferences.save               "儲存">
+<!ENTITY preferences.cancel             "取消">
+<!ENTITY preferences.profileDirectory   "資料目錄">
+<!ENTITY preferences.browse             "瀏覽">
+<!ENTITY preferences.tabs               "記住簽頁">
 <!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">
 
 <!-- Library -->

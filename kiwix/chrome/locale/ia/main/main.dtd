@@ -85,7 +85,7 @@
 <!ENTITY main.home                      "Initio">
 <!ENTITY main.searchBar                 "Barra de recerca">
 <!ENTITY main.search                    "Cercar">
-<!ENTITY main.searchPlaceholder         "Type the text to search here...">
+<!ENTITY main.searchPlaceholder         "Scribe le texto a cercar hic...">
 <!ENTITY main.findInText                "Cercar in texto">
 <!ENTITY main.noSearchBar               "Le recerca necessita un file ZIM con indice">
 <!ENTITY main.bookmarks                 "Marcapaginas">
@@ -115,13 +115,13 @@
 <!ENTITY main.close                     "Clauder">
 
 <!-- Preferences Window -->
-<!ENTITY preferences.preferences        "Preferences">
-<!ENTITY preferences.save               "Save">
-<!ENTITY preferences.cancel             "Cancel">
-<!ENTITY preferences.profileDirectory   "Profile directory">
-<!ENTITY preferences.browse             "Browse">
-<!ENTITY preferences.tabs               "Remember tabs">
-<!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">
+<!ENTITY preferences.preferences        "Preferentias">
+<!ENTITY preferences.save               "Salveguardar">
+<!ENTITY preferences.cancel             "Cancellar">
+<!ENTITY preferences.profileDirectory   "Directorio de profilo">
+<!ENTITY preferences.browse             "Foliar">
+<!ENTITY preferences.tabs               "Memorar schedas">
+<!ENTITY preferences.downloadCatalogs   "Discargar catalogo(s) remote">
 
 <!-- Library -->
 <!ENTITY main.library.myLibrary                 "Mi bibliotheca">

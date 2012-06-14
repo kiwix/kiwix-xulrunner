@@ -115,12 +115,12 @@
 <!ENTITY main.close                     "Lat aftur">
 
 <!-- Preferences Window -->
-<!ENTITY preferences.preferences        "Preferences">
-<!ENTITY preferences.save               "Save">
-<!ENTITY preferences.cancel             "Cancel">
-<!ENTITY preferences.profileDirectory   "Profile directory">
-<!ENTITY preferences.browse             "Browse">
-<!ENTITY preferences.tabs               "Remember tabs">
+<!ENTITY preferences.preferences        "Innstillingar">
+<!ENTITY preferences.save               "Goym">
+<!ENTITY preferences.cancel             "Ógildað">
+<!ENTITY preferences.profileDirectory   "Profil katalog">
+<!ENTITY preferences.browse             "Leita (brovsa)">
+<!ENTITY preferences.tabs               "Minst til flikrur (tabs, faneblade)">
 <!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">
 
 <!-- Library -->

@@ -115,13 +115,13 @@
 <!ENTITY main.close                     "أغلق">
 
 <!-- Preferences Window -->
-<!ENTITY preferences.preferences        "Preferences">
-<!ENTITY preferences.save               "Save">
-<!ENTITY preferences.cancel             "Cancel">
-<!ENTITY preferences.profileDirectory   "Profile directory">
-<!ENTITY preferences.browse             "Browse">
-<!ENTITY preferences.tabs               "Remember tabs">
-<!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">
+<!ENTITY preferences.preferences        "تفضيلات">
+<!ENTITY preferences.save               "احفظ">
+<!ENTITY preferences.cancel             "ألغي">
+<!ENTITY preferences.profileDirectory   "دليل الملف الشخصي">
+<!ENTITY preferences.browse             "تصفّح">
+<!ENTITY preferences.tabs               "تذكّر الألسنة">
+<!ENTITY preferences.downloadCatalogs   "قم بتحميل فهرس (اث) عن بعد">
 
 <!-- Library -->
 <!ENTITY main.library.myLibrary                 "مكتبتي">

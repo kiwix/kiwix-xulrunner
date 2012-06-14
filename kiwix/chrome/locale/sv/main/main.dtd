@@ -115,13 +115,13 @@
 <!ENTITY main.close                     "Stäng">
 
 <!-- Preferences Window -->
-<!ENTITY preferences.preferences        "Preferences">
-<!ENTITY preferences.save               "Save">
-<!ENTITY preferences.cancel             "Cancel">
-<!ENTITY preferences.profileDirectory   "Profile directory">
-<!ENTITY preferences.browse             "Browse">
-<!ENTITY preferences.tabs               "Remember tabs">
-<!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">
+<!ENTITY preferences.preferences        "Inställningar">
+<!ENTITY preferences.save               "Spara">
+<!ENTITY preferences.cancel             "Avbryt">
+<!ENTITY preferences.profileDirectory   "Profilkatalog">
+<!ENTITY preferences.browse             "Bläddra">
+<!ENTITY preferences.tabs               "Kom ihåg flikar">
+<!ENTITY preferences.downloadCatalogs   "Ladda ned avlägsna katalog(er)">
 
 <!-- Library -->
 <!ENTITY main.library.myLibrary                 "Mitt bibliotek">

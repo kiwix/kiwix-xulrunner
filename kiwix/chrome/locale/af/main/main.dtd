@@ -115,13 +115,13 @@
 <!ENTITY main.close                     "Sluit">
 
 <!-- Preferences Window -->
-<!ENTITY preferences.preferences        "Preferences">
-<!ENTITY preferences.save               "Save">
-<!ENTITY preferences.cancel             "Cancel">
-<!ENTITY preferences.profileDirectory   "Profile directory">
-<!ENTITY preferences.browse             "Browse">
-<!ENTITY preferences.tabs               "Remember tabs">
-<!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">
+<!ENTITY preferences.preferences        "Voorkeure">
+<!ENTITY preferences.save               "Stoor">
+<!ENTITY preferences.cancel             "Kanselleer">
+<!ENTITY preferences.profileDirectory   "Profielgids">
+<!ENTITY preferences.browse             "Blaai">
+<!ENTITY preferences.tabs               "Onthou oortjies">
+<!ENTITY preferences.downloadCatalogs   "Laai katalogus(se) af">
 
 <!-- Library -->
 <!ENTITY main.library.myLibrary                 "My biblioteek">

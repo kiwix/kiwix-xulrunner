@@ -115,11 +115,11 @@
 <!ENTITY main.close                     "Steng">
 
 <!-- Preferences Window -->
-<!ENTITY preferences.preferences        "Preferences">
-<!ENTITY preferences.save               "Save">
-<!ENTITY preferences.cancel             "Cancel">
-<!ENTITY preferences.profileDirectory   "Profile directory">
-<!ENTITY preferences.browse             "Browse">
+<!ENTITY preferences.preferences        "Innstillingar">
+<!ENTITY preferences.save               "Lagre">
+<!ENTITY preferences.cancel             "Avbryt">
+<!ENTITY preferences.profileDirectory   "Profilmappe">
+<!ENTITY preferences.browse             "Sjå gjennom">
 <!ENTITY preferences.tabs               "Remember tabs">
 <!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">
 

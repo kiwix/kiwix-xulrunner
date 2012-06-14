@@ -115,12 +115,12 @@
 <!ENTITY main.close                     "Tutup">
 
 <!-- Preferences Window -->
-<!ENTITY preferences.preferences        "Preferences">
-<!ENTITY preferences.save               "Save">
-<!ENTITY preferences.cancel             "Cancel">
-<!ENTITY preferences.profileDirectory   "Profile directory">
-<!ENTITY preferences.browse             "Browse">
-<!ENTITY preferences.tabs               "Remember tabs">
+<!ENTITY preferences.preferences        "Preferensi">
+<!ENTITY preferences.save               "Simpen">
+<!ENTITY preferences.cancel             "Ora sida">
+<!ENTITY preferences.profileDirectory   "Direktori profil">
+<!ENTITY preferences.browse             "Jelajahi">
+<!ENTITY preferences.tabs               "Emutna lempengan kiye">
 <!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">
 
 <!-- Library -->

@@ -115,13 +115,13 @@
 <!ENTITY main.close                     "Închide">
 
 <!-- Preferences Window -->
-<!ENTITY preferences.preferences        "Preferences">
-<!ENTITY preferences.save               "Save">
-<!ENTITY preferences.cancel             "Cancel">
-<!ENTITY preferences.profileDirectory   "Profile directory">
-<!ENTITY preferences.browse             "Browse">
-<!ENTITY preferences.tabs               "Remember tabs">
-<!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">
+<!ENTITY preferences.preferences        "Preferințe">
+<!ENTITY preferences.save               "Salvează">
+<!ENTITY preferences.cancel             "Revocare">
+<!ENTITY preferences.profileDirectory   "Dosar de profil">
+<!ENTITY preferences.browse             "Răsfoiește">
+<!ENTITY preferences.tabs               "Memorează filele">
+<!ENTITY preferences.downloadCatalogs   "Descarcă catalogul(oagele) la distanță">
 
 <!-- Library -->
 <!ENTITY main.library.myLibrary                 "Biblioteca mea">

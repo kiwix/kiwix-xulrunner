@@ -8,7 +8,7 @@
 <!ENTITY main.openFile                  "עפֿענען טעקע…">
 <!ENTITY main.browseLibrary.accesskey   "B">
 <!ENTITY main.browseLibrary             "דורכזוכן ביבליאטעק">
-<!ENTITY main.hideLibrary               "Hide library">
+<!ENTITY main.hideLibrary               "פארבארגן ביבליאטעק">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "לעצטנס געעפֿנט…">
 <!ENTITY main.saveFile                  "אויפֿהיטן בלאט אלס…">
@@ -85,7 +85,7 @@
 <!ENTITY main.home                      "היימבלאַט">
 <!ENTITY main.searchBar                 "זוכ־לײַסט">
 <!ENTITY main.search                    "זוכן">
-<!ENTITY main.searchPlaceholder         "Type the text to search here...">
+<!ENTITY main.searchPlaceholder         "אריינקלאפן דעם טעקסט צו זוכן דא …">
 <!ENTITY main.findInText                "זוכן אין טעקסט">
 <!ENTITY main.noSearchBar               "זוך פֿאדערט אן אינדעקסירטע ZIM-טעקע">
 <!ENTITY main.bookmarks                 "ליין־צייכנס">
@@ -115,12 +115,12 @@
 <!ENTITY main.close                     "שליסן">
 
 <!-- Preferences Window -->
-<!ENTITY preferences.preferences        "Preferences">
-<!ENTITY preferences.save               "Save">
-<!ENTITY preferences.cancel             "Cancel">
-<!ENTITY preferences.profileDirectory   "Profile directory">
-<!ENTITY preferences.browse             "Browse">
-<!ENTITY preferences.tabs               "Remember tabs">
+<!ENTITY preferences.preferences        "פרעפֿערענצן">
+<!ENTITY preferences.save               "אויפֿהיטן">
+<!ENTITY preferences.cancel             "אַנולירן">
+<!ENTITY preferences.profileDirectory   "פראפֿיל ארכיוו">
+<!ENTITY preferences.browse             "דורכזוכן">
+<!ENTITY preferences.tabs               "געדענקען טאבן">
 <!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">
 
 <!-- Library -->

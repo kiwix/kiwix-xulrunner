@@ -115,13 +115,13 @@
 <!ENTITY main.close                     "Zuemache">
 
 <!-- Preferences Window -->
-<!ENTITY preferences.preferences        "Preferences">
-<!ENTITY preferences.save               "Save">
-<!ENTITY preferences.cancel             "Cancel">
-<!ENTITY preferences.profileDirectory   "Profile directory">
-<!ENTITY preferences.browse             "Browse">
-<!ENTITY preferences.tabs               "Remember tabs">
-<!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">
+<!ENTITY preferences.preferences        "Yystellige">
+<!ENTITY preferences.save               "Spychere">
+<!ENTITY preferences.cancel             "Abbräche">
+<!ENTITY preferences.profileDirectory   "Profilverzeichnis">
+<!ENTITY preferences.browse             "Blättre">
+<!ENTITY preferences.tabs               "Reiter merke">
+<!ENTITY preferences.downloadCatalogs   "Externi Katalog abelade">
 
 <!-- Library -->
 <!ENTITY main.library.myLibrary                 "Mini Bibliothek">

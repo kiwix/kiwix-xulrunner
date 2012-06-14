@@ -115,13 +115,13 @@
 <!ENTITY main.close                     "Bezárás">
 
 <!-- Preferences Window -->
-<!ENTITY preferences.preferences        "Preferences">
-<!ENTITY preferences.save               "Save">
-<!ENTITY preferences.cancel             "Cancel">
-<!ENTITY preferences.profileDirectory   "Profile directory">
-<!ENTITY preferences.browse             "Browse">
-<!ENTITY preferences.tabs               "Remember tabs">
-<!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">
+<!ENTITY preferences.preferences        "Beállítások">
+<!ENTITY preferences.save               "Mentés">
+<!ENTITY preferences.cancel             "Mégse">
+<!ENTITY preferences.profileDirectory   "Profilkönyvtár">
+<!ENTITY preferences.browse             "Tallózás">
+<!ENTITY preferences.tabs               "Emlékezzen a fülekre">
+<!ENTITY preferences.downloadCatalogs   "Távoli katalógus(ok) letöltése">
 
 <!-- Library -->
 <!ENTITY main.library.myLibrary                 "Könyvtáram">

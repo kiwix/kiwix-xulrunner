@@ -115,12 +115,12 @@
 <!ENTITY main.close                     "ಮುಚ್ಚಿ">
 
 <!-- Preferences Window -->
-<!ENTITY preferences.preferences        "Preferences">
-<!ENTITY preferences.save               "Save">
-<!ENTITY preferences.cancel             "Cancel">
-<!ENTITY preferences.profileDirectory   "Profile directory">
-<!ENTITY preferences.browse             "Browse">
-<!ENTITY preferences.tabs               "Remember tabs">
+<!ENTITY preferences.preferences        "ಪ್ರಾಶಸ್ತ್ಯಗಳು">
+<!ENTITY preferences.save               "ಸಂರಕ್ಷಿಸಿ">
+<!ENTITY preferences.cancel             "ರದ್ದುಗೊಳಿಸಿ">
+<!ENTITY preferences.profileDirectory   "ಸಂಕ್ಷಿಪ್ತ ವ್ಯಕ್ತಿಚಿತ್ರದ ಕೋಶ">
+<!ENTITY preferences.browse             "ವಿಹರಿಸಿ">
+<!ENTITY preferences.tabs               "ಟ್ಯಾಬ್ಗಳನ್ನು ನೆನಪಿನಲ್ಲಿಡಿ">
 <!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">
 
 <!-- Library -->
