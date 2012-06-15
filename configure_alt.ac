@@ -1416,6 +1416,7 @@ AC_CONFIG_FILES([
   Makefile
   src/Makefile
   src/man/Makefile
+  src/man/fr/Makefile
   src/dependencies/Makefile
   src/zimlib/Makefile
   src/zimlib/src/Makefile
