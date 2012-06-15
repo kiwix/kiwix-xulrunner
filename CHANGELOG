@@ -15,6 +15,7 @@ Kiwix 0.9 rc1
 * FIXED: Continuing indexing process if quitting app.
 * FIXED: Text-only zoom. Pictures are now zoomed with Text (ID: 3525284)
 * FIXED: Multiple small UI issues (ID: 3514842)
+* FIXED: Windows specific ZIM loading problem with accented&relative paths
 * NEW: New supported user interface languages: Faroese (fo), Croatian (hr),
   Iloko (ilo), Limburgish (li), Basa Banyumasan (map-bms), Pashto (ps), 
   Bachkir (ba), Welsh (cy), Yiddish (yi), Wolof (yo), 
