@@ -1344,7 +1344,9 @@ function handleKeyPress(aEvent) {
     } else {
 	/* BACKSPACE goBack() on Windows only */
 	if (keyCode == 8 && env.isWindows() && 
-	    document.activeElement.tagName != "html:input") {
+	    document.activeElement.tagName != "html:input" &&
+	    document.activeElement.tagName != "html:textarea"
+	   ) {
 	    pageBack();
 	}
     }
