@@ -125,7 +125,7 @@ function configureWindowGeometry(window) {
     if (settings.windowMaximized()) {
         setTimeout('window.maximize();', 1);
     } else {
-	var margin = 100;
+	var margin = 50;
 	var minSize = 200;
 
 	var width = (settings.windowWidth() != undefined && 
