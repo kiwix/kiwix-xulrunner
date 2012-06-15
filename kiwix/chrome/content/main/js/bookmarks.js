@@ -87,7 +87,6 @@ BookmarkNFO.itemInSet	    = function (element, index, array) {
 
 /* Load the bookmar files, should be run at the application startup */
 function initBookmarks () {
-	
 	// Default set stores in user's profile
 	BookmarkNFO.defaultSet = new BookmarkSet ();
 	
@@ -251,13 +250,12 @@ function RemoveBookmarkFromDatasource (uri) {
  * removes items from list box and add new ones. called on set change.
  */
 function DisplayBookmarkSet (set) {
-	UIEmptyBookmarkListBox ();
-	L.info ("DisplayBookmarkSet");
-	//var dbss = set.items.length;
-	for (var i in set.items) {
-		var bk = set.itemAt(i);
-	    AddBookmarkLine (set.itemAt(i)['title'], set.itemAt(i)['uri'], set.itemAt(i)['book']);
-	}
+    UIEmptyBookmarkListBox ();
+    L.info ("DisplayBookmarkSet");
+    for (var i in set.items) {
+	var bk = set.itemAt(i);
+	AddBookmarkLine (set.itemAt(i)['title'], set.itemAt(i)['uri'], set.itemAt(i)['book']);
+    }
 }
 
 function UILoadExternalBookmarkFile () {
@@ -286,7 +284,6 @@ function UIAddBookmarkSetLine(file) {
     elem.setAttribute('value', file.path);
     elem.setAttribute('oncommand', "UIBookmarkSetSwitch(this.value);");
     slist.appendChild(elem);
-    GetBookmarksSetsList().selectedItem = elem;
 }
 
 /* Create bookmark set and select */
@@ -324,14 +321,14 @@ function LoadExternalBookmarkSet (file) {
         return false;
     
     BookmarkNFO.externalSet = null;
-	BookmarkNFO.externalSet = new BookmarkSet ();
-	BookmarkNFO.externalSet.LoadFromFile (file);
-	BookmarkNFO.currentSet  = BookmarkNFO.externalSet;
-	try {
-		DisplayBookmarkSet (BookmarkNFO.externalSet);
-	} catch (e) {
-		L.error( "can't display"+e.toString ());
-	}
+    BookmarkNFO.externalSet = new BookmarkSet ();
+    BookmarkNFO.externalSet.LoadFromFile (file);
+    BookmarkNFO.currentSet  = BookmarkNFO.externalSet;
+    try {
+	DisplayBookmarkSet (BookmarkNFO.externalSet);
+    } catch (e) {
+	L.error( "can't display"+e.toString ());
+    }
 }
 
 /*******************************************
@@ -428,7 +425,7 @@ function bookmarkCurrentPage () {
 	return false;
     
     if (AddBookmarkToDatasource (title, uri.spec)) {
-	AddBookmarkLine (title, uri.spec, currentBookId);
+	AddBookmarkLine(title, uri.spec, currentBookId);
 	UIBookmarkFocus(uri.spec);
     }
     
@@ -468,14 +465,14 @@ function removeCurrentBookmark () {
  * UI function to create bookmark in list
  */
 function CreateBookmarkItem (aLabel, aURI, aTooltip) {
-	const XUL_NS = "http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul";
-	const HTML_NS= "http://www.w3.org/1999/xhtml";
-	var listItem = document.createElementNS (XUL_NS, "listitem");
-	listItem.setAttribute ("tooltiptext", aTooltip.toString ());
-	listItem.setAttribute ("onclick", "onBookmarkItemClicked (this);");
-	listItem.setAttribute ("label", aLabel.toString ());
-	listItem.setAttribute ("value", aURI);
-	return listItem;
+    const XUL_NS = "http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul";
+    const HTML_NS= "http://www.w3.org/1999/xhtml";
+    var listItem = document.createElementNS(XUL_NS, "listitem");
+    listItem.setAttribute ("tooltiptext", aTooltip.toString ());
+    listItem.setAttribute ("onclick", "onBookmarkItemClicked (this);");
+    listItem.setAttribute ("label", aLabel.toString ());
+    listItem.setAttribute ("value", aURI);
+    return listItem;
 }
 
 /*
@@ -484,10 +481,8 @@ function CreateBookmarkItem (aLabel, aURI, aTooltip) {
 function AddBookmarkLine (aLabel, aURI, bookId) {
     var listItem = CreateBookmarkItem (aLabel, aURI, aLabel);
     listItem.setAttribute("book", bookId);
-    var list    = getBookmarksList();
-    var index   = list.childNodes.length;
-    list.appendChild (listItem);
-    list.selectedIndex  = index;
+    var list = getBookmarksList();
+    list.appendChild(listItem);
 }
 
 /*
@@ -523,7 +518,7 @@ function UIToggleBookmarksBar(visible) {
     bar.hidden  = !visible;
     settings.displayBookmarksBar(!bar.hidden);
     getBookmarksButton().setAttribute('checked', !bar.hidden);
-    sugar_butt = document.getElementById('sugar-button-bookmarks');
+    var sugar_butt = document.getElementById('sugar-button-bookmarks');
     sugar_butt.className = (!bar.hidden) ? 'visible' : 'hidden';
 }
 
