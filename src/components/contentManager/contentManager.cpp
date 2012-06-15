@@ -122,7 +122,7 @@ NS_IMETHODIMP ContentManager::OpenLibraryFromFile(const nsAString &path, mozbool
   const char *cUTF8Path = strdup(nsStringToUTF8(path));
 
   try {
-    returnValue = this->manager.readFile(cNativePath, readOnly == PR_TRUE ? true : false);
+    returnValue = this->manager.readFile(cNativePath, cUTF8Path, readOnly == PR_TRUE ? true : false);
   } catch (exception &e) {
     cerr << e.what() << endl;
     *retVal = PR_FALSE;
