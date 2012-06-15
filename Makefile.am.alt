@@ -412,7 +412,7 @@ win:
 
 	mv ./kiwix/chrome/content/main/js/logger_rlz.js ./kiwix/chrome/content/main/js/logger.js
 
-	cd ./kiwix/chrome ; make jar
+	cd ./kiwix/chrome ; make
 
 	if [ -f ./kiwix/chrome/content.jar ] ; then rm -rf ./kiwix/chrome/content ; fi
 	-rm -f ./kiwix/chrome/chrome.manifest.{prod,dev}
