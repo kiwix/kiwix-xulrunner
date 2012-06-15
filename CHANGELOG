@@ -53,6 +53,7 @@ Kiwix 0.9 rc1
 * NEW: Rewrite of kiwix-serve UI using JQueryUI
 * NEW: Unix man pages for all tools on GNU/Linux (English & French)
 * NEW: Introduction in Debian Wheezy official repository (ID: 3525204)
+* NEW: Speed up of startup/installation on OSX&Windows by using jar files
 
 Kiwix 0.9 beta5
 * FIXED: letton language menu item (ID: 3439113)
