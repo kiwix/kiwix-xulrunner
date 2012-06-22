@@ -55,6 +55,7 @@ Kiwix 0.9 rc1
 * NEW: Unix man pages for all tools on GNU/Linux (English & French)
 * NEW: Introduction in Debian Wheezy official repository (ID: 3525204)
 * NEW: Speed up of startup/installation on OSX&Windows by using jar files
+* NEW: Close tab by mouse middle click (ID: 3536553)
 
 Kiwix 0.9 beta5
 * FIXED: letton language menu item (ID: 3439113)
