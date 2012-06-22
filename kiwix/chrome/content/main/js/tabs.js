@@ -99,6 +99,7 @@ function openNewTab(focus) {
     newTabHeader.id = "tab-header-" + id; 
     newTabHeader.setAttribute("onclick", "switchTab(null, this)");
     newTabHeader.setAttribute("class", "tab-header");
+    newTabHeader.addEventListener("mouseup",  function(event){ if (event.button == 1) { closeThatTab(this.id); } }, true);
 
     var closeButton = document.createElement("toolbarbutton");
     closeButton.id = 'tab-close-button-' + id;
@@ -136,57 +137,62 @@ function closeCurrentTab() {
 }
 
 function closeThatTab(tabId) {
-    var tabs = document.getElementById("tabs");
-    var tabHeaders = document.getElementById("tab-headers");
-    var tabPanels = document.getElementById("tab-panels");
-    var tabPanel = document.getElementById("tab-panel-" + tabId);
-    var tabHeader = document.getElementById("tab-header-" + tabId);
-    var closeButton = document.getElementById('tab-close-button-' + tabId);
+    if (getTabCount() > 1) {
+	/* Remove the tab-header prefix in case of... */
+	tabId = tabId.replace(RegExp("tab-header-"), "");
+	
+	var tabs = document.getElementById("tabs");
+	var tabHeaders = document.getElementById("tab-headers");
+	var tabPanels = document.getElementById("tab-panels");
+	var tabPanel = document.getElementById("tab-panel-" + tabId);
+	var tabHeader = document.getElementById("tab-header-" + tabId);
+	var closeButton = document.getElementById('tab-close-button-' + tabId);
+	
+	// default fall back destination
+	var newCurrentTab = '000000';
+	
+	// we try to get next tab on right as destination
+	// if there's none, we get the one on left.
+	// *anyway* if current page is not the one removed, we stay there.
+	try { var rightTab = closeButton.nextSibling; } catch (e) { var rightTab = null; }
+	if (rightTab.id == 'tabs-add-button') {
+            // no tab on the right, let's retrieve the one on the left.
+            try {
+		leftTab = closeButton.previousSibling.previousSibling.previousSibling;
+		newCurrentTab = tabIDfromID(leftTab.id);
+            } catch (e) { var leftTab = null; }
+	} else {
+            newCurrentTab = tabIDfromID(rightTab.id);
+	}
+	
+	// remove tab elements including close button.
+	tabHeaders.removeChild(tabHeader);
+	tabPanels.removeChild(tabPanel);
+	tabHeaders.removeChild(closeButton);
+	
+	// if current page is not the one being deleted
+	// we stay where we are.
+	if (currentTabId != tabId)
+            newCurrentTab = currentTabId;
+	
+	/* If only one tab is displayed, then mask the tab close button So
+           we should never trigger the else condition, but this is still
+           in experimentation stage */
+	if (document.getElementsByTagName('tab').length == 1) {
+	    document.getElementsByClassName('tabs-close-button')[0].setAttribute("style", "visibility: hidden;");
+	}
+	
+	/* If we removed all tabs, disable tab mode and display help page. */
+	else if (document.getElementsByTagName('tab').length == 0) {
+	    manageUnload(true);
+            showHelp(true);
+            changeTabsVisibilityStatus(false, true);
+            _restore_tab = null;
+            return;
+	}
 
-    // default fall back destination
-    var newCurrentTab = '000000';
-
-    // we try to get next tab on right as destination
-    // if there's none, we get the one on left.
-    // *anyway* if current page is not the one removed, we stay there.
-    try { var rightTab = closeButton.nextSibling; } catch (e) { var rightTab = null; }
-    if (rightTab.id == 'tabs-add-button') {
-        // no tab on the right, let's retrieve the one on the left.
-        try {
-            leftTab = closeButton.previousSibling.previousSibling.previousSibling;
-            newCurrentTab = tabIDfromID(leftTab.id);
-        } catch (e) { var leftTab = null; }
-    } else {
-        newCurrentTab = tabIDfromID(rightTab.id);
+	switchTab(newCurrentTab, null);
     }
-
-    // remove tab elements including close button.
-    tabHeaders.removeChild(tabHeader);
-    tabPanels.removeChild(tabPanel);
-    tabHeaders.removeChild(closeButton);
-
-    // if current page is not the one being deleted
-    // we stay where we are.
-    if (currentTabId != tabId)
-        newCurrentTab = currentTabId;
-
-    /* If only one tab is displayed, then mask the tab close button So
-        we should never trigger the else condition, but this is still
-        in experimentation stage */
-    if (document.getElementsByTagName('tab').length == 1) {
-	document.getElementsByClassName('tabs-close-button')[0].setAttribute("style", "visibility: hidden;");
-    }
-    
-    /* If we removed all tabs, disable tab mode and display help page. */
-    else if (document.getElementsByTagName('tab').length == 0) {
-	manageUnload(true);
-        showHelp(true);
-        changeTabsVisibilityStatus(false, true);
-        _restore_tab = null;
-        return;
-    }
-
-    switchTab(newCurrentTab, null);
 }
 
 function tabIDfromID(id) {
@@ -324,6 +330,11 @@ function tabBack() {
     }
 
     return false;
+}
+
+function getTabCount() {
+    var tabHeaders = getTabHeaders().getElementsByTagName('tab');
+    return tabHeaders.length;
 }
 
 /* Switch to next tab */

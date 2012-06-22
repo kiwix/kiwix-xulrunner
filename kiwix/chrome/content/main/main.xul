@@ -307,7 +307,7 @@
       <vbox flex="1">
 	<tabbox flex="1" id="tab-box" handleCtrlTab="false" handleCtrlPageUpDown="false">
 	  <tabs id="tab-headers">
-            <tab id="tab-header-00000000" onclick="switchTab(null, this)" class="tab-header" selected="true">
+            <tab id="tab-header-00000000" onclick="if (event.button == 1) { closeThatTab(this.id); } else { switchTab(null, this); }" class="tab-header" selected="true">
 	      <label value="No Name" crop="right" class="tab-header-label"/>
 	    </tab>
             <toolbarbutton id="tab-close-button-00000000" class="tabs-close-button" oncommand="closeThatTab('00000000')" style="visibility: hidden;"/>
