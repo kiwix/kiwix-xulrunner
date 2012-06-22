@@ -348,12 +348,15 @@ function clearStatusBar() {
     document.getElementById('book-icon').collapsed = true;
 }
 
+function getDefaultZoomFactor() {
+    return settings.isHighDPI() ? 1.3 : 1;
+}
+
 /* Zoom normal */
 function zoomOriginal() {
     // getHtmlRenderer().markupDocumentViewer.textZoom = 1;
     // settings.zoomFactor(library.getCurrentId(), getHtmlRenderer().markupDocumentViewer.textZoom);
-    var orig = settings.isHighDPI() ? 1.3 : 1;
-    getHtmlRenderer().markupDocumentViewer.fullZoom = orig;
+    getHtmlRenderer().markupDocumentViewer.fullZoom = getDefaultZoomFactor();
     settings.zoomFactor(library.getCurrentId(), getHtmlRenderer().markupDocumentViewer.fullZoom);
 }
 
@@ -705,8 +708,8 @@ function manageOpenFile(path, noSearchIndexCheck) {
 	activateHomeButton();
 
 	/* Set the zoom */
-	getHtmlRenderer().markupDocumentViewer.textZoom = 
-	    settings.zoomFactor(library.getCurrentId()) != undefined ? settings.zoomFactor(library.getCurrentId()) : 1;
+	getHtmlRenderer().markupDocumentViewer.fullZoom = 
+	    settings.zoomFactor(library.getCurrentId()) != undefined ? settings.zoomFactor(library.getCurrentId()) : getDefaultZoomFactor();
 
 	/* Ask to index if this files has not already an index */
 	if (!isIndexing() && !noSearchIndexCheck && !checkSearchIndex()) {
@@ -1160,7 +1163,6 @@ function initUserInterface() {
     if (env.isSugar()) {
         if (settings.isHighDPI()) {
             document.getElementById("main").className = document.getElementById("main").className + " highdpi";
-            zoomOriginal();
         }
         
         /* Remove the whole menubar (File, Edition, ...) */
