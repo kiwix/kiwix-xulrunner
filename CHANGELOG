@@ -16,6 +16,7 @@ Kiwix 0.9 rc1
 * FIXED: Text-only zoom. Pictures are now zoomed with Text (ID: 3525284)
 * FIXED: Multiple small UI issues (ID: 3514842)
 * FIXED: Windows specific ZIM loading problem with accented&relative paths
+* FIXED: Zoom factore is not anymore registered over sessions (ID: 3536559)
 * NEW: New supported user interface languages: Faroese (fo), Croatian (hr),
   Iloko (ilo), Limburgish (li), Basa Banyumasan (map-bms), Pashto (ps), 
   Bachkir (ba), Welsh (cy), Yiddish (yi), Wolof (yo), 
