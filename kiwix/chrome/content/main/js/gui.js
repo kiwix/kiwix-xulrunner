@@ -350,24 +350,27 @@ function clearStatusBar() {
 
 /* Zoom normal */
 function zoomOriginal() {
-    var orig = env.isHighDPI() ? 1.3 : 1;
     // getHtmlRenderer().markupDocumentViewer.textZoom = 1;
+    // settings.zoomFactor(library.getCurrentId(), getHtmlRenderer().markupDocumentViewer.textZoom);
+    var orig = settings.isHighDPI() ? 1.3 : 1;
     getHtmlRenderer().markupDocumentViewer.fullZoom = orig;
-    settings.zoomFactor(library.getCurrentId(), getHtmlRenderer().markupDocumentViewer.textZoom);
+    settings.zoomFactor(library.getCurrentId(), getHtmlRenderer().markupDocumentViewer.fullZoom);
 }
 
 /* Zoom in (bigger font) */
 function zoomIn() {
     // getHtmlRenderer().markupDocumentViewer.textZoom += 0.1;
+    // settings.zoomFactor(library.getCurrentId(), getHtmlRenderer().markupDocumentViewer.textZoom);
     getHtmlRenderer().markupDocumentViewer.fullZoom += 0.1;
-    settings.zoomFactor(library.getCurrentId(), getHtmlRenderer().markupDocumentViewer.textZoom);
+    settings.zoomFactor(library.getCurrentId(), getHtmlRenderer().markupDocumentViewer.fullZoom);
 }
 
 /* Zoom out (smaller font) */
 function zoomOut() {
     // getHtmlRenderer().markupDocumentViewer.textZoom -= 0.1;
+    // settings.zoomFactor(library.getCurrentId(), getHtmlRenderer().markupDocumentViewer.textZoom);
     getHtmlRenderer().markupDocumentViewer.fullZoom -= 0.1;
-    settings.zoomFactor(library.getCurrentId(), getHtmlRenderer().markupDocumentViewer.textZoom);
+    settings.zoomFactor(library.getCurrentId(), getHtmlRenderer().markupDocumentViewer.fullZoom);
 }
 
 /* Fullscreen mode functions */
@@ -1155,7 +1158,7 @@ function initUserInterface() {
 
     /* Sugar customisations */
     if (env.isSugar()) {
-        if (env.isHighDPI()) {
+        if (settings.isHighDPI()) {
             document.getElementById("main").className = document.getElementById("main").className + " highdpi";
             zoomOriginal();
         }
