@@ -141,4 +141,6 @@
 <!ENTITY main.library.filterBy.author.all       "Semua">
 <!ENTITY main.library.filterBy.publisher        "Pengarang">
 <!ENTITY main.library.filterBy.publisher.all    "Semua">
+<!ENTITY main.library.filterBy.lessThan         "Less than">
+
 

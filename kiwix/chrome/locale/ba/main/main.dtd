@@ -141,4 +141,6 @@
 <!ENTITY main.library.filterBy.author.all       "Барыһы">
 <!ENTITY main.library.filterBy.publisher        "Нәшриәт">
 <!ENTITY main.library.filterBy.publisher.all    "Барыһы">
+<!ENTITY main.library.filterBy.lessThan         "Less than">
+
 

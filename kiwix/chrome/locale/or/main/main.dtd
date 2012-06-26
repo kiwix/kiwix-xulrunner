@@ -141,4 +141,6 @@
 <!ENTITY main.library.filterBy.author.all       "ସବୁ">
 <!ENTITY main.library.filterBy.publisher        "ପ୍ରକାଶକ">
 <!ENTITY main.library.filterBy.publisher.all    "ସବୁ">
+<!ENTITY main.library.filterBy.lessThan         "Less than">
+
 

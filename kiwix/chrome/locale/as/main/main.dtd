@@ -141,4 +141,6 @@
 <!ENTITY main.library.filterBy.author.all       "সকলো">
 <!ENTITY main.library.filterBy.publisher        "প্ৰকাশক">
 <!ENTITY main.library.filterBy.publisher.all    "সকলো">
+<!ENTITY main.library.filterBy.lessThan         "Less than">
+
 

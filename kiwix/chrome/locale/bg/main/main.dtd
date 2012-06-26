@@ -141,4 +141,6 @@
 <!ENTITY main.library.filterBy.author.all       "Всички">
 <!ENTITY main.library.filterBy.publisher        "Издател">
 <!ENTITY main.library.filterBy.publisher.all    "Всички">
+<!ENTITY main.library.filterBy.lessThan         "Less than">
+
 

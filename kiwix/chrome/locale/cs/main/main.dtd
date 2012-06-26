@@ -141,4 +141,6 @@
 <!ENTITY main.library.filterBy.author.all       "Všichni">
 <!ENTITY main.library.filterBy.publisher        "Vydavatele">
 <!ENTITY main.library.filterBy.publisher.all    "Všechny">
+<!ENTITY main.library.filterBy.lessThan         "Less than">
+
 

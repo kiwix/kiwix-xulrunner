@@ -141,4 +141,6 @@
 <!ENTITY main.library.filterBy.author.all       "Tous">
 <!ENTITY main.library.filterBy.publisher        "Éditeur">
 <!ENTITY main.library.filterBy.publisher.all    "Tous">
+<!ENTITY main.library.filterBy.lessThan         "Less than">
+
 

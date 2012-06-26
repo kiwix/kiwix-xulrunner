@@ -141,4 +141,6 @@
 <!ENTITY main.library.filterBy.author.all       "ყველა">
 <!ENTITY main.library.filterBy.publisher        "გამომქვეყნებელი">
 <!ENTITY main.library.filterBy.publisher.all    "ყველა">
+<!ENTITY main.library.filterBy.lessThan         "Less than">
+
 

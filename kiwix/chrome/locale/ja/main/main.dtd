@@ -131,14 +131,16 @@
 <!ENTITY main.library.sortBy.title              "タイトル">
 <!ENTITY main.library.sortBy.size               "サイズ">
 <!ENTITY main.library.sortBy.date               "日付">
-<!ENTITY main.library.sortBy.author             "Author">
-<!ENTITY main.library.sortBy.publisher          "Publisher">
+<!ENTITY main.library.sortBy.author             "著者">
+<!ENTITY main.library.sortBy.publisher          "発行者">
 <!ENTITY main.library.filterBy                  "Filter by">
 <!ENTITY main.library.filterBy.fileSize         "ファイル サイズ">
 <!ENTITY main.library.filterBy.language         "言語">
 <!ENTITY main.library.filterBy.language.all     "すべて">
-<!ENTITY main.library.filterBy.author           "Author">
+<!ENTITY main.library.filterBy.author           "著者">
 <!ENTITY main.library.filterBy.author.all       "すべて">
-<!ENTITY main.library.filterBy.publisher        "Publisher">
+<!ENTITY main.library.filterBy.publisher        "発行者">
 <!ENTITY main.library.filterBy.publisher.all    "すべて">
+<!ENTITY main.library.filterBy.lessThan         "Less than">
+
 

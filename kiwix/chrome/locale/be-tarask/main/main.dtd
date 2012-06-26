@@ -8,7 +8,7 @@
 <!ENTITY main.openFile                  "Адкрыць файл…">
 <!ENTITY main.browseLibrary.accesskey   "B">
 <!ENTITY main.browseLibrary             "Праглядзець бібліятэку">
-<!ENTITY main.hideLibrary               "Hide library">
+<!ENTITY main.hideLibrary               "Схаваць бібліятэку">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "Апошнія адкрытыя…">
 <!ENTITY main.saveFile                  "Захаваць старонку як…">
@@ -33,7 +33,7 @@
 <!ENTITY main.transliteration.accesskey "T">
 <!ENTITY main.preferences               "Налады">
 <!ENTITY main.preferences.accesskey     "n">
-<!ENTITY main.server                    "Server">
+<!ENTITY main.server                    "Сэрвэр">
 <!ENTITY main.server.accesskey          "s">
 
 <!-- Display menu -->
@@ -85,7 +85,7 @@
 <!ENTITY main.home                      "Пачатак">
 <!ENTITY main.searchBar                 "Панэль пошуку">
 <!ENTITY main.search                    "Пошук">
-<!ENTITY main.searchPlaceholder         "Type the text to search here...">
+<!ENTITY main.searchPlaceholder         "Тут увядзіце тэкст для пошуку…">
 <!ENTITY main.findInText                "Знайсьці ў тэксьце">
 <!ENTITY main.noSearchBar               "Пошук патрабуе індэксаванага ZIM-файлу">
 <!ENTITY main.bookmarks                 "Закладкі">
@@ -121,7 +121,7 @@
 <!ENTITY preferences.profileDirectory   "Дырэкторыя профілю">
 <!ENTITY preferences.browse             "Прагляд">
 <!ENTITY preferences.tabs               "Памятаць закладкі">
-<!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">
+<!ENTITY preferences.downloadCatalogs   "Загрузіць аддалены(я) каталёг(і)">
 
 <!-- Library -->
 <!ENTITY main.library.myLibrary                 "Мая бібліятэка">
@@ -141,4 +141,6 @@
 <!ENTITY main.library.filterBy.author.all       "Усе">
 <!ENTITY main.library.filterBy.publisher        "Выдавецтву">
 <!ENTITY main.library.filterBy.publisher.all    "Усе">
+<!ENTITY main.library.filterBy.lessThan         "Less than">
+
 

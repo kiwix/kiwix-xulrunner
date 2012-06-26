@@ -141,4 +141,6 @@
 <!ENTITY main.library.filterBy.author.all       "ಎಲ್ಲಾ">
 <!ENTITY main.library.filterBy.publisher        "ಪ್ರಕಾಶಕ">
 <!ENTITY main.library.filterBy.publisher.all    "ಎಲ್ಲಾ">
+<!ENTITY main.library.filterBy.lessThan         "Less than">
+
 

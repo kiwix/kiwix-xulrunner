@@ -141,4 +141,6 @@
 <!ENTITY main.library.filterBy.author.all       "Kõik">
 <!ENTITY main.library.filterBy.publisher        "Avaldaja">
 <!ENTITY main.library.filterBy.publisher.all    "Kõik">
+<!ENTITY main.library.filterBy.lessThan         "Less than">
+
 

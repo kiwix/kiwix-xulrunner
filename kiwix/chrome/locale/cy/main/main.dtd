@@ -141,4 +141,6 @@
 <!ENTITY main.library.filterBy.author.all       "Oll">
 <!ENTITY main.library.filterBy.publisher        "Cyhoeddwr">
 <!ENTITY main.library.filterBy.publisher.all    "Oll">
+<!ENTITY main.library.filterBy.lessThan         "Less than">
+
 

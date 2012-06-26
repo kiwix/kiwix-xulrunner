@@ -141,4 +141,6 @@
 <!ENTITY main.library.filterBy.author.all       "ทั้งหมด">
 <!ENTITY main.library.filterBy.publisher        "ผู้เผยแพร่">
 <!ENTITY main.library.filterBy.publisher.all    "ทั้งหมด">
+<!ENTITY main.library.filterBy.lessThan         "Less than">
+
 

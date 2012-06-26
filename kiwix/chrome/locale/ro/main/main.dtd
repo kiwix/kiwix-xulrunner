@@ -141,4 +141,6 @@
 <!ENTITY main.library.filterBy.author.all       "Toate">
 <!ENTITY main.library.filterBy.publisher        "Editură">
 <!ENTITY main.library.filterBy.publisher.all    "Toate">
+<!ENTITY main.library.filterBy.lessThan         "Less than">
+
 

@@ -141,4 +141,6 @@
 <!ENTITY main.library.filterBy.author.all       "Alli">
 <!ENTITY main.library.filterBy.publisher        "Verleger">
 <!ENTITY main.library.filterBy.publisher.all    "Alli">
+<!ENTITY main.library.filterBy.lessThan         "Less than">
+
 

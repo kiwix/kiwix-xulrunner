@@ -141,4 +141,6 @@
 <!ENTITY main.library.filterBy.author.all       "Wšykne">
 <!ENTITY main.library.filterBy.publisher        "Wudawaŕ">
 <!ENTITY main.library.filterBy.publisher.all    "Wšykne">
+<!ENTITY main.library.filterBy.lessThan         "Less than">
+
 

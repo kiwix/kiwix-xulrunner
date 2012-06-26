@@ -141,4 +141,6 @@
 <!ENTITY main.library.filterBy.author.all       "Amin">
 <!ENTITY main.library.filterBy.publisher        "Nangipablaak">
 <!ENTITY main.library.filterBy.publisher.all    "Amin">
+<!ENTITY main.library.filterBy.lessThan         "Less than">
+
 

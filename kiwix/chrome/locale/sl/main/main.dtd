@@ -141,4 +141,6 @@
 <!ENTITY main.library.filterBy.author.all       "vseh">
 <!ENTITY main.library.filterBy.publisher        "založniku">
 <!ENTITY main.library.filterBy.publisher.all    "vseh">
+<!ENTITY main.library.filterBy.lessThan         "Less than">
+
 

@@ -141,4 +141,6 @@
 <!ENTITY main.library.filterBy.author.all       "બધા">
 <!ENTITY main.library.filterBy.publisher        "પ્રકાશક">
 <!ENTITY main.library.filterBy.publisher.all    "બધા">
+<!ENTITY main.library.filterBy.lessThan         "Less than">
+
 

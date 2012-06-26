@@ -141,4 +141,6 @@
 <!ENTITY main.library.filterBy.author.all       "Gbogbo wọn">
 <!ENTITY main.library.filterBy.publisher        "Olùtẹ̀jáde">
 <!ENTITY main.library.filterBy.publisher.all    "Gbogbo wọn">
+<!ENTITY main.library.filterBy.lessThan         "Less than">
+
 

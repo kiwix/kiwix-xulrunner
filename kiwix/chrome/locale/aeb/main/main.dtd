@@ -141,4 +141,6 @@
 <!ENTITY main.library.filterBy.author.all       "el koll">
 <!ENTITY main.library.filterBy.publisher        "annecher">
 <!ENTITY main.library.filterBy.publisher.all    "el koll">
+<!ENTITY main.library.filterBy.lessThan         "Less than">
+
 

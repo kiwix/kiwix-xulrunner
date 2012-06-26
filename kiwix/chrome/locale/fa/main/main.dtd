@@ -141,4 +141,6 @@
 <!ENTITY main.library.filterBy.author.all       "همه">
 <!ENTITY main.library.filterBy.publisher        "ناشر">
 <!ENTITY main.library.filterBy.publisher.all    "همه">
+<!ENTITY main.library.filterBy.lessThan         "Less than">
+
 

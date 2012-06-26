@@ -141,4 +141,6 @@
 <!ENTITY main.library.filterBy.author.all       "සියල්ල">
 <!ENTITY main.library.filterBy.publisher        "ප්‍රකාශක">
 <!ENTITY main.library.filterBy.publisher.all    "සියල්ල">
+<!ENTITY main.library.filterBy.lessThan         "Less than">
+
 

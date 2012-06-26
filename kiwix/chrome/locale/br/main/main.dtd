@@ -141,4 +141,6 @@
 <!ENTITY main.library.filterBy.author.all       "An holl">
 <!ENTITY main.library.filterBy.publisher        "Embanner">
 <!ENTITY main.library.filterBy.publisher.all    "An holl">
+<!ENTITY main.library.filterBy.lessThan         "Less than">
+
 

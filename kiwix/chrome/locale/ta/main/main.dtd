@@ -141,4 +141,6 @@
 <!ENTITY main.library.filterBy.author.all       "அனைத்தும்">
 <!ENTITY main.library.filterBy.publisher        "வெளியீட்டாளர்">
 <!ENTITY main.library.filterBy.publisher.all    "அனைத்தும்">
+<!ENTITY main.library.filterBy.lessThan         "Less than">
+
 

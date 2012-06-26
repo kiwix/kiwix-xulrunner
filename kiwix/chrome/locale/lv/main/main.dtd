@@ -141,4 +141,6 @@
 <!ENTITY main.library.filterBy.author.all       "Visi">
 <!ENTITY main.library.filterBy.publisher        "Izdevējs">
 <!ENTITY main.library.filterBy.publisher.all    "Visi">
+<!ENTITY main.library.filterBy.lessThan         "Less than">
+
 

@@ -8,7 +8,7 @@
 <!ENTITY main.openFile                  "Öppna fil...">
 <!ENTITY main.browseLibrary.accesskey   "B">
 <!ENTITY main.browseLibrary             "Bläddra i biblioteket">
-<!ENTITY main.hideLibrary               "Hide library">
+<!ENTITY main.hideLibrary               "Dölj bibliotek">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "Nyligen öppna...">
 <!ENTITY main.saveFile                  "Spara sida som...">
@@ -85,9 +85,9 @@
 <!ENTITY main.home                      "Hem">
 <!ENTITY main.searchBar                 "Sökfält">
 <!ENTITY main.search                    "Sök">
-<!ENTITY main.searchPlaceholder         "Type the text to search here...">
+<!ENTITY main.searchPlaceholder         "Skriv texten du vill söka efter här...">
 <!ENTITY main.findInText                "Hitta i text">
-<!ENTITY main.noSearchBar               "Sök kräver en indexerad Zim-fil">
+<!ENTITY main.noSearchBar               "Sök kräver en indexerad ZIM-fil">
 <!ENTITY main.bookmarks                 "Bokmärken">
 
 <!-- Results bar -->
@@ -141,4 +141,6 @@
 <!ENTITY main.library.filterBy.author.all       "Alla">
 <!ENTITY main.library.filterBy.publisher        "Utgivare">
 <!ENTITY main.library.filterBy.publisher.all    "Alla">
+<!ENTITY main.library.filterBy.lessThan         "Less than">
+
 

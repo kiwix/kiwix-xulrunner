@@ -141,4 +141,6 @@
 <!ENTITY main.library.filterBy.author.all       "Kabeh">
 <!ENTITY main.library.filterBy.publisher        "Penerbite">
 <!ENTITY main.library.filterBy.publisher.all    "Kabeh">
+<!ENTITY main.library.filterBy.lessThan         "Less than">
+
 

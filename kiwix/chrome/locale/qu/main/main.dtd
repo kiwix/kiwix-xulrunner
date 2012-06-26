@@ -141,4 +141,6 @@
 <!ENTITY main.library.filterBy.author.all       "Tukuy">
 <!ENTITY main.library.filterBy.publisher        "Uyaychaqnin">
 <!ENTITY main.library.filterBy.publisher.all    "Tukuy">
+<!ENTITY main.library.filterBy.lessThan         "Less than">
+
 

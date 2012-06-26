@@ -141,4 +141,6 @@
 <!ENTITY main.library.filterBy.author.all       "Mind">
 <!ENTITY main.library.filterBy.publisher        "Kiadó">
 <!ENTITY main.library.filterBy.publisher.all    "Mind">
+<!ENTITY main.library.filterBy.lessThan         "Less than">
+
 

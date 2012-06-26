@@ -141,4 +141,6 @@
 <!ENTITY main.library.filterBy.author.all       "Tất cả">
 <!ENTITY main.library.filterBy.publisher        "Nhà xuất bản">
 <!ENTITY main.library.filterBy.publisher.all    "Tất cả">
+<!ENTITY main.library.filterBy.lessThan         "Less than">
+
 

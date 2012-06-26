@@ -141,4 +141,6 @@
 <!ENTITY main.library.filterBy.author.all       "Wšě">
 <!ENTITY main.library.filterBy.publisher        "Wudawaćel">
 <!ENTITY main.library.filterBy.publisher.all    "Wšě">
+<!ENTITY main.library.filterBy.lessThan         "Less than">
+
 

@@ -141,4 +141,6 @@
 <!ENTITY main.library.filterBy.author.all       "Jeeder Ein">
 <!ENTITY main.library.filterBy.publisher        "Verläjer udder Veröffentlescher">
 <!ENTITY main.library.filterBy.publisher.all    "Jeeder Ein">
+<!ENTITY main.library.filterBy.lessThan         "Less than">
+
 

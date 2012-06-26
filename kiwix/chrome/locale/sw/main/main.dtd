@@ -141,4 +141,6 @@
 <!ENTITY main.library.filterBy.author.all       "Wote">
 <!ENTITY main.library.filterBy.publisher        "Mchapishaji">
 <!ENTITY main.library.filterBy.publisher.all    "Wote">
+<!ENTITY main.library.filterBy.lessThan         "Less than">
+
 

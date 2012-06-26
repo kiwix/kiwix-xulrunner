@@ -141,4 +141,6 @@
 <!ENTITY main.library.filterBy.author.all       "എല്ലാം">
 <!ENTITY main.library.filterBy.publisher        "പ്രസാധകർ">
 <!ENTITY main.library.filterBy.publisher.all    "എല്ലാം">
+<!ENTITY main.library.filterBy.lessThan         "Less than">
+
 

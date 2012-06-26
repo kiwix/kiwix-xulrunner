@@ -141,4 +141,6 @@
 <!ENTITY main.library.filterBy.author.all       "सभी">
 <!ENTITY main.library.filterBy.publisher        "प्रकाशक">
 <!ENTITY main.library.filterBy.publisher.all    "सभी">
+<!ENTITY main.library.filterBy.lessThan         "Less than">
+
 

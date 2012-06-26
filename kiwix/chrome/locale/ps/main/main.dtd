@@ -141,4 +141,6 @@
 <!ENTITY main.library.filterBy.author.all       "ټول">
 <!ENTITY main.library.filterBy.publisher        "خپرونکی">
 <!ENTITY main.library.filterBy.publisher.all    "ټول">
+<!ENTITY main.library.filterBy.lessThan         "Less than">
+
 

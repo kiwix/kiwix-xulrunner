@@ -375,7 +375,7 @@
 	      
 	      <label value="▾ &main.library.filterBy.fileSize;"/>
 	      <box style="margin-left: 10px; font-size: smaller;" align="center">
-		<label value="Less than"/>
+		<label value="&main.library.filterBy.lessThan;"/>
 		<textbox id="library-content-maxsize" size="2" type="number" min="0" max="99" onchange="populateBookList()"/>
 		<label value="GB"/>
 	      </box>

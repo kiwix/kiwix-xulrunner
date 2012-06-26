@@ -8,7 +8,7 @@
 <!ENTITY main.openFile                  "打开文件">
 <!ENTITY main.browseLibrary.accesskey   "B">
 <!ENTITY main.browseLibrary             "浏览库">
-<!ENTITY main.hideLibrary               "Hide library">
+<!ENTITY main.hideLibrary               "隐藏库">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "最近打开...">
 <!ENTITY main.saveFile                  "页面另存为...">
@@ -85,7 +85,7 @@
 <!ENTITY main.home                      "首页">
 <!ENTITY main.searchBar                 "搜索栏">
 <!ENTITY main.search                    "搜索">
-<!ENTITY main.searchPlaceholder         "Type the text to search here...">
+<!ENTITY main.searchPlaceholder         "在这里键入要搜索的文本...">
 <!ENTITY main.findInText                " 文内查找">
 <!ENTITY main.noSearchBar               "需要已索引的ZIM文件进行搜索">
 <!ENTITY main.bookmarks                 "书签">
@@ -141,4 +141,6 @@
 <!ENTITY main.library.filterBy.author.all       "全选">
 <!ENTITY main.library.filterBy.publisher        "出版人">
 <!ENTITY main.library.filterBy.publisher.all    "全选">
+<!ENTITY main.library.filterBy.lessThan         "Less than">
+
 

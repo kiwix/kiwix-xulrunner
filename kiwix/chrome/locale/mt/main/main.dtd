@@ -141,4 +141,6 @@
 <!ENTITY main.library.filterBy.author.all       "Kollha">
 <!ENTITY main.library.filterBy.publisher        "Editur">
 <!ENTITY main.library.filterBy.publisher.all    "Kollha">
+<!ENTITY main.library.filterBy.lessThan         "Less than">
+
 

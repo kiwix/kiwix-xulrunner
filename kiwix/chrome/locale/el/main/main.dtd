@@ -141,4 +141,6 @@
 <!ENTITY main.library.filterBy.author.all       "Όλοι">
 <!ENTITY main.library.filterBy.publisher        "Εκδότη">
 <!ENTITY main.library.filterBy.publisher.all    "Όλοι">
+<!ENTITY main.library.filterBy.lessThan         "Less than">
+
 

@@ -141,4 +141,6 @@
 <!ENTITY main.library.filterBy.author.all       "הכול">
 <!ENTITY main.library.filterBy.publisher        "מוציא לאור">
 <!ENTITY main.library.filterBy.publisher.all    "הכול">
+<!ENTITY main.library.filterBy.lessThan         "Less than">
+
 

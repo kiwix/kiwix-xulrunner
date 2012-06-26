@@ -141,4 +141,6 @@
 <!ENTITY main.library.filterBy.author.all       "אַלע">
 <!ENTITY main.library.filterBy.publisher        "פֿאַרלעגער">
 <!ENTITY main.library.filterBy.publisher.all    "אַלע">
+<!ENTITY main.library.filterBy.lessThan         "Less than">
+
 

@@ -141,4 +141,6 @@
 <!ENTITY main.library.filterBy.author.all       "সমস্ত">
 <!ENTITY main.library.filterBy.publisher        "প্রকাশক">
 <!ENTITY main.library.filterBy.publisher.all    "সমস্ত">
+<!ENTITY main.library.filterBy.lessThan         "Less than">
+
 

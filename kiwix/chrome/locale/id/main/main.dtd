@@ -85,7 +85,7 @@
 <!ENTITY main.home                      "Utama">
 <!ENTITY main.searchBar                 "Bar pencarian">
 <!ENTITY main.search                    "Cari">
-<!ENTITY main.searchPlaceholder         "Type the text to search here...">
+<!ENTITY main.searchPlaceholder         "Ketik teks untuk mencari di sini...">
 <!ENTITY main.findInText                "Cari di teks">
 <!ENTITY main.noSearchBar               "Pencarian membutuhkan berkas ZIM yang telah diindeks">
 <!ENTITY main.bookmarks                 "Tandai">
@@ -141,4 +141,6 @@
 <!ENTITY main.library.filterBy.author.all       "Semua">
 <!ENTITY main.library.filterBy.publisher        "Penerbit">
 <!ENTITY main.library.filterBy.publisher.all    "Semua">
+<!ENTITY main.library.filterBy.lessThan         "Less than">
+
 

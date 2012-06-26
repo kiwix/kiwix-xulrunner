@@ -141,4 +141,6 @@
 <!ENTITY main.library.filterBy.author.all       "الكل">
 <!ENTITY main.library.filterBy.publisher        "الناشر">
 <!ENTITY main.library.filterBy.publisher.all    "الكل">
+<!ENTITY main.library.filterBy.lessThan         "Less than">
+
 

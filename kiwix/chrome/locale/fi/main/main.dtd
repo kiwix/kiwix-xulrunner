@@ -141,4 +141,6 @@
 <!ENTITY main.library.filterBy.author.all       "Kaikki">
 <!ENTITY main.library.filterBy.publisher        "Julkaisija">
 <!ENTITY main.library.filterBy.publisher.all    "Kaikki">
+<!ENTITY main.library.filterBy.lessThan         "Less than">
+
 
