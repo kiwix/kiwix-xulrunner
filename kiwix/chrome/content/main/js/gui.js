@@ -1140,7 +1140,16 @@ function initUserInterface() {
         fm.removeChild(fs);
         var em = document.getElementById("edit-popup");
         var et = document.getElementById("edit-transliteration");
+        var ep = document.getElementById("file-preferences");
+        var ps = document.getElementById("pref-sep");
         em.removeChild(et);
+        em.removeChild(ps);
+        em.removeChild(ep);
+        var hm = document.getElementById("help-popup");
+        var ha = document.getElementById("help-about");
+        var as = document.getElementById("about-sep");
+        hm.removeChild(as);
+        hm.removeChild(ha);
 	
         /* OSX keyboard shortcut */
         var keys = document.getElementsByTagName("key");
