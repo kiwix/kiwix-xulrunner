@@ -17,6 +17,8 @@
  * MA 02110-1301, USA.
  */
 
+var checkServerStatusId = undefined;
+
 /* Display the preferences dialog box */
 function showServerDialog() {
     var win = window.openDialog('server.xul','','centerscreen,resizable=no,scrollbars=no,modal,dialog,chrome');
@@ -30,8 +32,6 @@ function updateServerDialog() {
     var serverManager = Components.classes["@kiwix.org/serverManager"].getService().
 	QueryInterface(Components.interfaces.IServerManager);
     var isRunning = serverManager.isRunning();
-    
-    dump(isRunning + "\n");
 
     if (isRunning) {
 	var url = new Object() ; serverManager.getServerUrl(url);
@@ -86,4 +86,10 @@ function onServerDialogStart() {
     } else {
 	updateServerDialog();
     }
+
+    checkServerStatusId = window.setInterval("updateServerDialog()", 1000);
+}
+
+function onServerDialogQuit() {
+    clearInterval(checkServerStatusId);
 }

@@ -14,6 +14,7 @@
 	resizable = "no"
         style     = ""
 	onload    = "onServerDialogStart()"
+	onunload  = "onServerDialogQuit()"
 	>
 
 <!-- Properties -->
