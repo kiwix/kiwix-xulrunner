@@ -2,6 +2,12 @@
 <!ENTITY main.title                     "&brand.brandShortName;">
 <!ENTITY main.cssdirection              "ltr">
 
+<!-- Mac menu -->
+<!ENTITY main.osxservices               "Services">
+<!ENTITY main.osxhideapp                "Hide &brand.brandShortName;">
+<!ENTITY main.osxhideothers             "Hide Others">
+<!ENTITY main.osxshowall                "Show All">
+
 <!-- File menu -->
 <!ENTITY main.file                      "Failas">
 <!ENTITY main.file.accesskey            "F">

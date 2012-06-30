@@ -2,38 +2,44 @@
 <!ENTITY main.title                     "&brand.brandShortName;">
 <!ENTITY main.cssdirection              "ltr">
 
+<!-- Mac menu -->
+<!ENTITY main.osxservices               "Services">
+<!ENTITY main.osxhideapp                "Hide &brand.brandShortName;">
+<!ENTITY main.osxhideothers             "Hide Others">
+<!ENTITY main.osxshowall                "Show All">
+
 <!-- File menu -->
 <!ENTITY main.file                      "파일">
 <!ENTITY main.file.accesskey            "F">
-<!ENTITY main.openFile                  "파일 열기">
+<!ENTITY main.openFile                  "파일 열기...">
 <!ENTITY main.browseLibrary.accesskey   "B">
-<!ENTITY main.browseLibrary             "장서 보기">
-<!ENTITY main.hideLibrary               "Hide library">
+<!ENTITY main.browseLibrary             "라이브러리 보기">
+<!ENTITY main.hideLibrary               "라이브러리 숨기기">
 <!ENTITY main.openFile.accesskey        "O">
-<!ENTITY main.lastOpen                  "최근에 사용한 항목">
-<!ENTITY main.saveFile                  "다른 이름으로 저장하기">
+<!ENTITY main.lastOpen                  "최근에 사용한 항목...">
+<!ENTITY main.saveFile                  "다른 이름으로 저장...">
 <!ENTITY main.saveFile.accesskey        "S">
-<!ENTITY main.print                     "인쇄하기">
+<!ENTITY main.print                     "인쇄">
 <!ENTITY main.print.accesskey           "P">
-<!ENTITY main.printPdf                  "PDF으로 인쇄하기">
+<!ENTITY main.printPdf                  "PDF로 인쇄">
 <!ENTITY main.printPdf.accesskey        "D">
 <!ENTITY main.quit                      "끝내기">
 <!ENTITY main.quit.accesskey            "Q">
 
 <!-- Edit menu -->
-<!ENTITY main.edit                      "편집하기">
+<!ENTITY main.edit                      "편집">
 <!ENTITY main.edit.accesskey            "E">
-<!ENTITY main.find                      "이 페이지에 찾기">
+<!ENTITY main.find                      "이 페이지에서 찾기...">
 <!ENTITY main.find.accesskey            "S">
-<!ENTITY main.selectall                 "모든 선택하기">
+<!ENTITY main.selectall                 "모두 선택">
 <!ENTITY main.selectall.accesskey       "a">
-<!ENTITY main.copy                      "복사하기">
+<!ENTITY main.copy                      "복사">
 <!ENTITY main.copy.accesskey            "p">
 <!ENTITY main.transliteration           "표기법">
 <!ENTITY main.transliteration.accesskey "T">
-<!ENTITY main.preferences               "선호">
+<!ENTITY main.preferences               "환경 설정">
 <!ENTITY main.preferences.accesskey     "n">
-<!ENTITY main.server                    "Server">
+<!ENTITY main.server                    "서버">
 <!ENTITY main.server.accesskey          "s">
 
 <!-- Display menu -->
@@ -57,7 +63,7 @@
 <!ENTITY main.resultsbar.accesskey      "R">
 <!ENTITY main.tabs                      "탭">
 <!ENTITY main.tabs.accesskey            "T">
-<!ENTITY main.fullscreen                "꽉 찬 화면">
+<!ENTITY main.fullscreen                "전체 화면">
 <!ENTITY main.fullscreen.accesskey      "F">
 
 <!-- Tools menu -->
@@ -67,7 +73,7 @@
 <!ENTITY main.randomArticle.accesskey   "R">
 <!ENTITY main.checkIntegrity            "유효성 검사">
 <!ENTITY main.checkIntegrity.accesskey  "k">
-<!ENTITY main.purgeHistory              "히스토리 지우기">
+<!ENTITY main.purgeHistory              "최근에 사용한 항목 지우기">
 <!ENTITY main.purgeHistory.accesskey    "P">
 
 <!-- Help menu -->
@@ -85,7 +91,7 @@
 <!ENTITY main.home                      "처음으로">
 <!ENTITY main.searchBar                 "검색 줄">
 <!ENTITY main.search                    "찾기">
-<!ENTITY main.searchPlaceholder         "Type the text to search here...">
+<!ENTITY main.searchPlaceholder         "검색할 텍스트를 여기에 입력하세요...">
 <!ENTITY main.findInText                "본문에서 찾기">
 <!ENTITY main.noSearchBar               "찾기를 위한 색인된 ZIM파일이 필요합니다.">
 <!ENTITY main.bookmarks                 "서표">
@@ -115,19 +121,19 @@
 <!ENTITY main.close                     "닫기">
 
 <!-- Preferences Window -->
-<!ENTITY preferences.preferences        "선호">
+<!ENTITY preferences.preferences        "환경 설정">
 <!ENTITY preferences.save               "저장">
 <!ENTITY preferences.cancel             "취소">
 <!ENTITY preferences.profileDirectory   "프로필 디렉토리">
 <!ENTITY preferences.browse             "열람하기">
 <!ENTITY preferences.tabs               "탭 저장하기">
-<!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">
+<!ENTITY preferences.downloadCatalogs   "원격 카탈로그 다운로드">
 
 <!-- Library -->
-<!ENTITY main.library.myLibrary                 "나의 장서">
-<!ENTITY main.library.getNewFiles               "새로운 파일 다운 받기">
+<!ENTITY main.library.myLibrary                 "내 라이브러리">
+<!ENTITY main.library.getNewFiles               "새로운 파일 얻기">
 <!ENTITY main.library.searchZimFiles            "ZIM파일 찾기">
-<!ENTITY main.library.sortBy                    "정렬하기">
+<!ENTITY main.library.sortBy                    "정렬">
 <!ENTITY main.library.sortBy.title              "제목">
 <!ENTITY main.library.sortBy.size               "크기">
 <!ENTITY main.library.sortBy.date               "날짜">
