@@ -31,16 +31,18 @@ function updateServerDialog() {
 	QueryInterface(Components.interfaces.IServerManager);
     var isRunning = serverManager.isRunning();
     
+    dump(isRunning + "\n");
+
     if (isRunning) {
 	var url = new Object() ; serverManager.getServerUrl(url);
 	document.getElementById("start-button").setAttribute("style", "display: none;");
-	document.getElementById("stop-button").setAttribute("style", "display: visible;");
+	document.getElementById("stop-button").setAttribute("style", "display: block;");
 	document.getElementById("status-description-label").value = "Server is running and available at:";
 	document.getElementById("url-label-box").setAttribute("style", "visibility: display;");
 	document.getElementById("url-label").value = url.value;
     } else {
 	document.getElementById("stop-button").setAttribute("style", "display: none;");
-	document.getElementById("start-button").setAttribute("style", "display: visible;");
+	document.getElementById("start-button").setAttribute("style", "display: block;");
 	document.getElementById("status-description-label").value = "Server is not running.";
 	document.getElementById("url-label-box").setAttribute("style", "visibility: hidden;");
     }
