@@ -115,6 +115,22 @@ NS_IMETHODIMP ServerManager::Start(const nsAString &binaryPath, const nsAString 
   const char *cPort = strdup(nsStringToCString(port));
   string commandLine;
 
+
+  /* Compute server url */
+  string ipString;
+  char hostName[255];
+  gethostname(hostName, 255);
+  struct hostent *hostEntry=gethostbyname(hostName);
+  if (hostEntry != NULL) {
+    struct in_addr **addrList = (struct in_addr **)hostEntry->h_addr_list;
+    for(int i = 0; addrList[i] != NULL; i++) {
+      ipString = string(inet_ntoa(*addrList[i]));
+    }
+  } else {
+    ipString = "127.0.0.1";
+  }
+  this->url = "http://" + ipString + ":" + string(cPort) + "/";
+
   /* Get PPID */
 #ifdef _WIN32
   int PID = GetCurrentProcessId();
@@ -172,17 +188,6 @@ NS_IMETHODIMP ServerManager::Start(const nsAString &binaryPath, const nsAString 
     break;
   }
 #endif
-
-  /* Compute server url */
-  char hostName[255];
-  gethostname(hostName, 255);
-  struct hostent *hostEntry=gethostbyname(hostName);
-  struct in_addr **addrList = (struct in_addr **)hostEntry->h_addr_list;
-  string ipString;
-  for(int i = 0; addrList[i] != NULL; i++) {
-    ipString = string(inet_ntoa(*addrList[i]));
-  }
-  this->url = "http://" + ipString + ":" + string(cPort) + "/";
 
   return NS_OK;
 }
