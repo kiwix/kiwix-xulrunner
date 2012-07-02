@@ -37,7 +37,7 @@
 <!ENTITY main.copy.accesskey            "p">
 <!ENTITY main.transliteration           "Транслитерација">
 <!ENTITY main.transliteration.accesskey "T">
-<!ENTITY main.preferences               "Опслужувач">
+<!ENTITY main.preferences               "Нагодувања">
 <!ENTITY main.preferences.accesskey     "n">
 <!ENTITY main.server                    "Опслужувач">
 <!ENTITY main.server.accesskey          "s">
@@ -147,6 +147,6 @@
 <!ENTITY main.library.filterBy.author.all       "Сите">
 <!ENTITY main.library.filterBy.publisher        "Издавач">
 <!ENTITY main.library.filterBy.publisher.all    "Сите">
-<!ENTITY main.library.filterBy.lessThan         "Less than">
+<!ENTITY main.library.filterBy.lessThan         "Помалку од">
 
 

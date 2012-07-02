@@ -147,6 +147,6 @@
 <!ENTITY main.library.filterBy.author.all       "Tutti">
 <!ENTITY main.library.filterBy.publisher        "Editore">
 <!ENTITY main.library.filterBy.publisher.all    "Tutti">
-<!ENTITY main.library.filterBy.lessThan         "Less than">
+<!ENTITY main.library.filterBy.lessThan         "Meno di">
 
 

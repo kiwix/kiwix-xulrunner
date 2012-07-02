@@ -37,7 +37,7 @@
 <!ENTITY main.copy.accesskey            "p">
 <!ENTITY main.transliteration           "Translitteration">
 <!ENTITY main.transliteration.accesskey "T">
-<!ENTITY main.preferences               "Servitor">
+<!ENTITY main.preferences               "Preferentias">
 <!ENTITY main.preferences.accesskey     "n">
 <!ENTITY main.server                    "Servitor">
 <!ENTITY main.server.accesskey          "s">
@@ -147,6 +147,6 @@
 <!ENTITY main.library.filterBy.author.all       "Totes">
 <!ENTITY main.library.filterBy.publisher        "Editor">
 <!ENTITY main.library.filterBy.publisher.all    "Totes">
-<!ENTITY main.library.filterBy.lessThan         "Less than">
+<!ENTITY main.library.filterBy.lessThan         "Minus de">
 
 

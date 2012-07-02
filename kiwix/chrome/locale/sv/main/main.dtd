@@ -147,6 +147,6 @@
 <!ENTITY main.library.filterBy.author.all       "Alla">
 <!ENTITY main.library.filterBy.publisher        "Utgivare">
 <!ENTITY main.library.filterBy.publisher.all    "Alla">
-<!ENTITY main.library.filterBy.lessThan         "Less than">
+<!ENTITY main.library.filterBy.lessThan         "Mindre än">
 
 

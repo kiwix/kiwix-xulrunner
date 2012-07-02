@@ -147,6 +147,6 @@
 <!ENTITY main.library.filterBy.author.all       "Toos">
 <!ENTITY main.library.filterBy.publisher        "Editor">
 <!ENTITY main.library.filterBy.publisher.all    "Toos">
-<!ENTITY main.library.filterBy.lessThan         "Less than">
+<!ENTITY main.library.filterBy.lessThan         "Menos de">
 
 

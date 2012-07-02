@@ -37,7 +37,7 @@
 <!ENTITY main.copy.accesskey            "p">
 <!ENTITY main.transliteration           "Transliteracija">
 <!ENTITY main.transliteration.accesskey "T">
-<!ENTITY main.preferences               "Serwer">
+<!ENTITY main.preferences               "Nastajenja">
 <!ENTITY main.preferences.accesskey     "n">
 <!ENTITY main.server                    "Serwer">
 <!ENTITY main.server.accesskey          "s">
@@ -147,6 +147,6 @@
 <!ENTITY main.library.filterBy.author.all       "Wšě">
 <!ENTITY main.library.filterBy.publisher        "Wudawaćel">
 <!ENTITY main.library.filterBy.publisher.all    "Wšě">
-<!ENTITY main.library.filterBy.lessThan         "Less than">
+<!ENTITY main.library.filterBy.lessThan         "Mjenje hač">
 
 

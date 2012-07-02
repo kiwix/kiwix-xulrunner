@@ -147,6 +147,6 @@
 <!ENTITY main.library.filterBy.author.all       "Alle">
 <!ENTITY main.library.filterBy.publisher        "Udgiver">
 <!ENTITY main.library.filterBy.publisher.all    "Alle">
-<!ENTITY main.library.filterBy.lessThan         "Less than">
+<!ENTITY main.library.filterBy.lessThan         "Mindre end">
 
 
