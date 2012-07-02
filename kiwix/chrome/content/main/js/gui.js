@@ -349,7 +349,7 @@ function clearStatusBar() {
 }
 
 function getDefaultZoomFactor() {
-    return settings.isHighDPI() ? 1.3 : 1;
+    return settings.isHighDPI() ? 2 : 1;
 }
 
 /* Zoom normal */
@@ -1172,6 +1172,7 @@ function initUserInterface() {
     if (env.isSugar()) {
         if (settings.isHighDPI()) {
             document.getElementById("main").className = document.getElementById("main").className + " highdpi";
+            zoomOriginal();
         }
         
         /* Remove the whole menubar (File, Edition, ...) */
