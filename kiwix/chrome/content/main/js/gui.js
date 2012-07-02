@@ -1425,12 +1425,14 @@ function initEventListeners() {
 	getService(Components.interfaces.nsIObserverService);
     var observer = {
 	observe: function(subject, topic, data) {
-	    gOS.removeObserver(this, "xul-window-visible");
-	    manageDownloadRemoteBookList();
+		gOS.removeObserver(this, "xul-window-visible");
+		if (!env.isSugar()) {
+		    manageDownloadRemoteBookList();
+		}
 	}
+	gOS.addObserver(observer, "xul-window-visible", false);    
     }
-    gOS.addObserver(observer, "xul-window-visible", false);    
-
+    
     /* Kiwix called with ZIM file path on command line */
     document.addEventListener("onZimArg", function(e) { loadContentFromCommandLine(e.data) }, false);
 }
