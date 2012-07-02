@@ -17,7 +17,7 @@ Kiwix 0.9 rc1
 * FIXED: Multiple small UI issues (ID: 3514842)
 * FIXED: Windows specific ZIM loading problem with accented&relative paths
 * FIXED: Zoom factore is not anymore registered over sessions (ID: 3536559)
-* FIXED: OSX menu, it feels like a native app. (ID: 3444682)
+* FIXED: OSX menu, it feels like a native app. (ID: 3444682, ID: 3444101)
 * NEW: New supported user interface languages: Faroese (fo), Croatian (hr),
   Iloko (ilo), Limburgish (li), Basa Banyumasan (map-bms), Pashto (ps), 
   Bachkir (ba), Welsh (cy), Yiddish (yi), Wolof (yo), 
