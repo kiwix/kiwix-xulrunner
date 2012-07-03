@@ -505,7 +505,7 @@ NS_IMETHODIMP ContentManager::GetBooksPublishers(nsACString &publishers, mozbool
 NS_IMETHODIMP ContentManager::KillAria2c(mozbool *retVal) {
   *retVal = PR_TRUE;
 
-  if (this->aria2cPid != 0) {
+  if (this->aria2cPid > 0) {
     #ifdef _WIN32
       HANDLE ps = OpenProcess( SYNCHRONIZE|PROCESS_TERMINATE, 
     			   FALSE, this->aria2cPid);

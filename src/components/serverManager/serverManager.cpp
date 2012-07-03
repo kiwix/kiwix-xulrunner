@@ -234,7 +234,7 @@ NS_IMETHODIMP ServerManager::IsRunning(mozbool *retVal) {
 NS_IMETHODIMP ServerManager::Stop(mozbool *retVal) {
   *retVal = PR_TRUE;
 
-if (this->serverPid != 0) {
+if (this->serverPid > 0) {
     #ifdef _WIN32
       HANDLE ps = OpenProcess( SYNCHRONIZE|PROCESS_TERMINATE, 
     			   FALSE, this->serverPid);
