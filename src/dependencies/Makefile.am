@@ -195,7 +195,7 @@ icu/source/build-x86_64/lib/libicudata.dylib icu/source/build-x86_64/lib/libicuu
 	cd icu/source && mkdir -p build-x86_64 && CFLAGS=" -fPIC " ./runConfigureICU MacOSX --prefix=${DEP_PATH}/icu/source/build-x86_64 --with-library-bits=64 --disable-samples --disable-tests --disable-extras --enable-static --disable-dyload && make clean && make && make install
 
 icu.zip:
-	$(DOWNLOADER) icu.zip $(DEP_MIRROR)/icu4c-4_8_1_1-Win32-msvc10.zip
+	$(DOWNLOADER) icu.zip $(DEP_MIRROR)/icu4c-49_1_1-Win32-msvc10.zip
 
 icu/lib/icuio.lib icu/lib/icudata.lib icu/lib/icuuc.lib icu/lib/icui18n.lib: icu.zip
 	unzip -o icu.zip
@@ -372,7 +372,7 @@ DISTCLEANFILES= xulrunner-sdk.tar.bz2 \
 	xapian-core.tar.gz \
 	xapian-win32.zip \
 	icu4c-4_4_2-src.tgz \
-	icu4c-4_8_1_1-Win32-msvc10.zip \
+	icu4c-49_1_1-Win32-msvc10.zip \
 	icu4c-49_1_1-src.tgz \
 	icu.zip \
 	libmicrohttpd-0.9.19.tar.gz \
