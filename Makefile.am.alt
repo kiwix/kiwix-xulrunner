@@ -226,8 +226,22 @@ diststatic:
 	mkdir -p $(STATIC_TMP)/kiwix/bin
 	cp -v $(ARIA2_FILES) $(STATIC_TMP)/kiwix/bin/aria2c
 	cp -v $(XAPIAN_COMPACT) $(STATIC_TMP)/kiwix/bin/xapian-compact
-	cp -v $(SERVER_BIN) $(STATIC_TMP)/kiwix/bin/kiwix-serve
-	cp -v static/results.tmpl $(STATIC_TMP)/kiwix/bin/results.tmpl
+
+if WITH_INDEXER
+	cp src/indexer/kiwix-index $(STATIC_TMP)/kiwix/bin/
+endif
+
+if WITH_MANAGER
+	cp src/manager/kiwix-manage $(STATIC_TMP)/kiwix/bin/
+endif
+
+if WITH_INSTALLER
+	cp src/installer/kiwix-install $(STATIC_TMP)/kiwix/bin/
+endif
+
+if WITH_SERVER
+	cp src/server/kiwix-serve $(STATIC_TMP)/kiwix/bin/
+endif
 
 	rm $(STATIC_TMP)/kiwix/*.bat
 	rm $(STATIC_TMP)/kiwix/xulrunner/libmicrohttpd.so
