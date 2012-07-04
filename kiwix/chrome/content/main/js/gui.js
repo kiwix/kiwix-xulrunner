@@ -1129,27 +1129,35 @@ function initUserInterface() {
     if (settings.displayBookmarksBar() === true) { UIToggleBookmarksBar(); }
     changeTabsVisibilityStatus(settings.displayTabs());
 
-    /* Mac OSX specific customisations */
-    if (env.isMac()) {
-        var fm = document.getElementById("file-popup");
-        var fp = document.getElementById("file-print-pdf");
-        fm.removeChild(fp);
-        var fq = document.getElementById("file-quit");
-        fm.removeChild(fq);
-        var fs = document.getElementById("file-sep");
-        fm.removeChild(fs);
-        var em = document.getElementById("edit-popup");
-        var et = document.getElementById("edit-transliteration");
-        var ep = document.getElementById("file-preferences");
-        var ps = document.getElementById("pref-sep");
-        em.removeChild(et);
-        em.removeChild(ps);
-        em.removeChild(ep);
-        var hm = document.getElementById("help-popup");
-        var ha = document.getElementById("help-about");
-        var as = document.getElementById("about-sep");
-        hm.removeChild(as);
-        hm.removeChild(ha);
+	function removeElement(elem_id) {
+		var elem = null;
+		try {
+			elem = document.getElementById(elem_id);
+		} catch(e) {
+			return false;
+		}
+		var parent = null;
+		try {
+			parent = elem.parentNode;
+		} catch(e) { return false; }
+		try {
+			parent.removeChild(elem);
+		} catch(e) {
+			dump(e);
+			return false;
+		}
+		return true;
+	}
+
+	/* Mac OSX specific customisations */
+	if (env.isMac()) {
+		removeElement("file-quit");
+		removeElement("file-sep");
+		removeElement("edit-transliteration");
+		removeElement("file-preferences");
+		removeElement("pref-sep");
+		removeElement("help-about");
+		removeElement("about-sep");
 	
         /* OSX keyboard shortcut */
         var keys = document.getElementsByTagName("key");
