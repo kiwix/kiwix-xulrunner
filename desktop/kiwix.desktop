@@ -2,7 +2,7 @@
 Name=Kiwix
 GenericName=Kiwix
 Comment=Wikipedia offline reader
-Exec=kiwix
+Exec=kiwix %f
 Terminal=false
 Type=Application
 Icon=kiwix
