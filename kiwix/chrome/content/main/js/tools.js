@@ -29,6 +29,11 @@ function onQuit() {
 	stopDownloaderObserver()
 	stopDownloader();
 
+	/* If necessary stop indexing */
+	if (isIndexing()) {
+	    _zimIndexer.stop();
+	}
+
 	var doClean = doOnCloseClean();
 	if (env.isLive()) {
 	    
@@ -131,15 +136,20 @@ function onQuit() {
 }
 
 /* Restart Kiwix */
-function askPermissionToRestart() {
-    var ok = displayConfirmDialog(getProperty("restartConfirm", getProperty("brand.brandShortName")));
+function askPermissionToRestart(message) {
+    if (message === undefined) {
+	message = getProperty("restartConfirm", getProperty("brand.brandShortName"))
+    }
+    var ok = displayConfirmDialog(message);
+
     /* Check if an indexing process is currently running */
-    if (isIndexing()) {
+    if (ok && isIndexing()) {
 	ok = displayConfirmDialog(getProperty("abortIndexingConfirm"));
 	if (ok) {
 	    _zimIndexer.stop();
 	}
     }
+
     return ok;
 }
 
@@ -160,6 +170,7 @@ function restart(silent) {
 /* Quit Kiwix */
 function askPermissionToQuit() {
     var ok = true;
+
     /* Check if an indexing process is currently running */
     if (isIndexing()) {
 	ok = displayConfirmDialog(getProperty("abortIndexingConfirm"));
@@ -167,6 +178,7 @@ function askPermissionToQuit() {
 	    _zimIndexer.stop();
 	}
     }
+
     return ok;
 }
 

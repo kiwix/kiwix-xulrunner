@@ -1524,7 +1524,7 @@ function printPdf() {
 function selectSkin(name) {
     var skinBackup = settings.skin();
 
-    if (displayConfirmDialog(getProperty("changeSkinNeedRestart"))) {
+    if (askPermissionToRestart(getProperty("changeSkinNeedRestart"))) {
 	settings.skin(name);
 	restart(true);
     } else {
