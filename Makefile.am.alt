@@ -244,6 +244,7 @@ if WITH_SERVER
 endif
 
 	rm $(STATIC_TMP)/kiwix/*.bat
+	rm $(STATIC_TMP)/kiwix/kiwix-wine
 	rm $(STATIC_TMP)/kiwix/xulrunner/libmicrohttpd.so
 
 	tar -C $(STATIC_TMP) -cjf $(PACKAGE)-$(VERSION)-static-$(ARCH).tar.bz2 kiwix
@@ -335,6 +336,7 @@ distmac:
 	chmod +x Kiwix.app/Contents/Resources/bin/*
 
 	rm Kiwix.app/Contents/Resources/*.bat
+	rm Kiwix.app/Contents/Resources/kiwix-wine
 
 	cp -v kiwix/chrome/icons/default/main.icns Kiwix.app/Contents/Resources/kiwix.icns
 	cp -v kiwix/chrome/icons/default/zim.icns Kiwix.app/Contents/Resources/kiwix-ZIM.icns
