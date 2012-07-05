@@ -94,6 +94,15 @@ NS_IMETHODIMP ZimAccessor::LoadFile(const nsAString &path, mozbool *retVal) {
   *retVal = PR_TRUE;
   const char *cPath = strdup(nsStringToCString(path));
 
+#ifdef __APPLE__
+  string zimaa = string(cPath) + "aa";
+
+  if ( !fileExists(string(cPath)) && !fileExists(zimaa) ) {
+    *retVal = PR_FALSE;
+    return NS_OK;
+  }
+#endif
+
   /* Instanciate the ZIM file handler */
   try {
     this->reader = new kiwix::Reader(cPath);
