@@ -4,6 +4,7 @@
 		<comment>ZIM file</comment>
 		<comment xml:lang="fr">Fichier ZIM</comment>
 		<glob pattern="*.zim"/>
+		<glob pattern="*.zimaa"/>
 		<generic-icon name="kiwix"/>
 	</mime-type>
 </mime-info>
