@@ -389,6 +389,7 @@ ${EndIf}
 
 ; Create the file association
   ${registerExtension} "$INSTDIR\kiwix\kiwix.exe" ".zim" "ZIM File"
+  ${registerExtension} "$INSTDIR\kiwix\kiwix.exe" ".zimaa" "ZIM File"
   Call RefreshShellIcons
 
 SectionEnd
@@ -455,6 +456,7 @@ FunctionEnd
 Section Uninstall
 
 	${unregisterExtension} ".zim" "ZIM File"
+	${unregisterExtension} ".zimaa" "ZIM File"
 	Call un.RefreshShellIcons
 
         Delete "$INSTDIR\${PRODUCT_NAME}.url"
