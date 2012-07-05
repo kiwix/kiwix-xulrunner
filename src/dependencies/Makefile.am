@@ -372,7 +372,7 @@ msvc90:
 	mkdir -p msvc90
 
 msvc100/msvcr100.dll msvcp100.dll: msvc100 msvc100.zip
-	unzip -o -d msvc10 msvc10.zip
+	unzip -o -d msvc100 msvc100.zip
 
 msvc90/msvcr90.dll msvcp90.dll msvcm90.dll Microsoft.VC90.CRT.manifest: msvc90 msvc90.zip
 	unzip -o -d msvc90 msvc90.zip
