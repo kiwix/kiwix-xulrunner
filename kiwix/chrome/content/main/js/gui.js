@@ -667,7 +667,7 @@ function manageOpenFile(path, noSearchIndexCheck) {
     path = path.replace('file://localhost', '');
 
     /* Replace .zimaa by .zim */
-    path = path.replace(".zimaa", ".zim");
+    path = path.replace(".zimaa$", ".zim");
 
     /* Try to open the ZIM file */
     var zimAccessor = openZimFile(path);
