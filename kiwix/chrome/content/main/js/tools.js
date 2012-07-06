@@ -269,13 +269,6 @@ function initModulesAndComponents() {
         Components.utils.import("resource://modules/library.jsm");
     } catch (e) { dump("Unable to import library.jsm. " + e.toString() + "\n"); }
 
-    /* jsctype jsm moculdes */
-    /*
-    try {
-        Components.utils.import("resource://modules/ctype/zimAccessor.jsm");
-    } catch(e) { dump("Unable to import libzimAccessor module: " + e.toString() + "\n"); libzimAccessor = null; }
-    */
-
     /* Check the XPCOM registration */
     if (Components.classes["@kiwix.org/zimAccessor"] == undefined)
 	dump("Unable to register the zimAccessor XPCOM, Kiwix will be unable to read ZIM files.\n");
