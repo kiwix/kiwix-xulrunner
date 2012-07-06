@@ -222,6 +222,7 @@ else
 CHECK_LDFLAGS="-Wl,-z,defs"
 fi
 JAR_CONTENT=0
+DEBIAN_RULES=0
 
 COMPIL_DEPS=0
 STATIC_BINS=0
@@ -547,6 +548,13 @@ AC_ARG_ENABLE(jar,
 			  				 [pack chrome contents to jar files (default is no)]),
 			  [], [enable_jar=$JAR_CONTENT])
 AS_IF([test "x$enable_jar" = "xyes" -o "x$enable_jar" = "x1" ], [JAR_CONTENT=1], [JAR_CONTENT=0])
+
+# apply debian cleaning rules
+AC_ARG_ENABLE(debian,
+			  AC_HELP_STRING([--enable-debian],
+			  				 [apply Debian packaging cleaning rules (default is no)]),
+			  [], [enable_debian=$DEBIAN_RULES])
+AS_IF([test "x$enable_debian" = "xyes" -o "x$enable_debian" = "x1" ], [DEBIAN_RULES=1], [DEBIAN_RULES=0])
 
 # TODO
 if test [ $WITH_MANAGER -eq 1 -o $WITH_SERVER -eq 1 -o $WITH_LAUNCHER -eq 1 -o $WITH_INDEXER -eq 1 -o $WITH_INSTALLER -eq 1 -o $WITH_SEARCHER -eq 1 -o $WITH_READER -eq 1 ] ; then
@@ -1304,6 +1312,7 @@ AC_SUBST(DOWNLOADER)
 AC_SUBST(CHECK_LDFLAGS)
 AC_SUBST(SHARED_EXT)
 AC_SUBST(JAR_CONTENT)
+AC_SUBST(DEBIAN_RULES)
 AC_SUBST(IS_OLD_GCC)
 
 AC_SUBST(XPCOM_CFLAGS)
@@ -1328,6 +1337,7 @@ AM_CONDITIONAL([IS_OLD_GECKO], [test $IS_OLD_GECKO -eq 1])
 AM_CONDITIONAL([IS_OLD_ICU], [test $IS_OLD_ICU -eq 1])
 AM_CONDITIONAL([STATIC_BINS], [test $STATIC_BINS -eq 1])
 AM_CONDITIONAL([JAR_CONTENT], [test $JAR_CONTENT -eq 1])
+AM_CONDITIONAL([DEBIAN_RULES], [test $DEBIAN_RULES -eq 1])
 AM_CONDITIONAL([IS_OLD_GCC], [test $IS_OLD_GCC -eq 1])
 
 AC_SUBST(WITH_COMPONENTS)
@@ -1494,6 +1504,7 @@ $BINECHO -n "WITH_INSTALLER			" ; yesno $WITH_INSTALLER
 $BINECHO -n "WITH_SEARCHER			" ; yesno $WITH_SEARCHER
 $BINECHO -n "WITH_READER			" ; yesno $WITH_READER
 $BINECHO -n "JAR_CONTENT			" ; yesno $JAR_CONTENT
+$BINECHO -n "DEBIAN_RULES			" ; yesno $DEBIAN_RULES
 echo ""
 $BINECHO -n "DEP_MIRROR			" ; $BINECHO $DEP_MIRROR
 $BINECHO -n "DOWNLOADER			" ; $BINECHO $DOWNLOADER
