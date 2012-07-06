@@ -60,6 +60,7 @@ Kiwix 0.9 rc1
 * NEW: Close tab by mouse middle click (ID: 3536553)
 * NEW: First version of kiwix-plug (scripts to autoconfigure dreamplug with Kiwix)
 * NEW: Associate *.zimaa files (splitted ZIM files) to Kiwix
+* NEW: Port of console tools kiwix-index, kiwix-manage and kiwix-install for portable Linux & OSX
 
 Kiwix 0.9 beta5
 * FIXED: letton language menu item (ID: 3439113)
