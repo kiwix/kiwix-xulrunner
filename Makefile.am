@@ -334,7 +334,23 @@ distmac:
 	mkdir -p Kiwix.app/Contents/Resources/bin
 	cp -v $(ARIA2_FILES) Kiwix.app/Contents/Resources/bin/
 	cp -v $(XAPIAN_COMPACT) Kiwix.app/Contents/Resources/bin/xapian-compact
+
+if WITH_INDEXER
+	cp -v src/indexer/kiwix-index Kiwix.app/Contents/Resources/bin/
+endif
+
+if WITH_MANAGER
+	cp -v src/manager/kiwix-manage Kiwix.app/Contents/Resources/bin/
+endif
+
+if WITH_INSTALLER
+	cp -v src/installer/kiwix-install Kiwix.app/Contents/Resources/bin/
+endif
+
+if WITH_SERVER
 	cp -v src/server/kiwix-serve Kiwix.app/Contents/Resources/bin/
+endif
+
 	chmod +x Kiwix.app/Contents/Resources/bin/*
 
 	rm Kiwix.app/Contents/Resources/*.bat
@@ -384,7 +400,21 @@ universal: $(PACKAGE)-$(VERSION)-i386.dmg $(PACKAGE)-$(VERSION)-x86_64.dmg
 
 	lipo -create -output universal_tmp/ub/Kiwix.app/Contents/Resources/components/zimCluceneIndexer.dylib -arch i386 universal_tmp/i386/Kiwix.app/Contents/Resources/components/zimCluceneIndexer.dylib -arch x86_64 universal_tmp/x86_64/Kiwix.app/Contents/Resources/components/zimCluceneIndexer.dylib
 
+if WITH_INDEXER
+	lipo -create -output universal_tmp/ub/Kiwix.app/Contents/Resources/bin/kiwix-index -arch i386 universal_tmp/i386/Kiwix.app/Contents/Resources/bin/kiwix-index -arch x86_64 universal_tmp/x86_64/Kiwix.app/Contents/Resources/bin/kiwix-index
+endif
+
+if WITH_MANAGER
+	lipo -create -output universal_tmp/ub/Kiwix.app/Contents/Resources/bin/kiwix-manage -arch i386 universal_tmp/i386/Kiwix.app/Contents/Resources/bin/kiwix-manage -arch x86_64 universal_tmp/x86_64/Kiwix.app/Contents/Resources/bin/kiwix-manage
+endif
+
+if WITH_INSTALLER
+	lipo -create -output universal_tmp/ub/Kiwix.app/Contents/Resources/bin/kiwix-install -arch i386 universal_tmp/i386/Kiwix.app/Contents/Resources/bin/kiwix-install -arch x86_64 universal_tmp/x86_64/Kiwix.app/Contents/Resources/bin/kiwix-install
+endif
+
+if WITH_SERVER
 	lipo -create -output universal_tmp/ub/Kiwix.app/Contents/Resources/bin/kiwix-serve -arch i386 universal_tmp/i386/Kiwix.app/Contents/Resources/bin/kiwix-serve -arch x86_64 universal_tmp/x86_64/Kiwix.app/Contents/Resources/bin/kiwix-serve
+endif
 
 	find universal_tmp/ub/Kiwix.app/Contents/Resources/components -type f -name '*.dylib' -exec python ./src/macosx/cleanup_rpath.py {} \;
 
