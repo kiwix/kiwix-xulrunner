@@ -229,7 +229,8 @@ STATIC_BINS=0
 STATIC_TMP="static_tmp"
 DISTDEBIAN_TMP="debian_tmp"
 SUGAR_TMP="sugar_tmp"
-SUGAR_VERSION=`grep activity_version src/sugar/activity/activity.info | cut -d " " -f3`
+SUGAR_VERSION=`if test [ -f src/sugar/activity/activity.info ]; then grep activity_version src/sugar/activity/activity.info | cut -d " " -f3; fi`
+
 # list of .so to copy to xulrunner/ path
 EMBED_LIBS=""
 
