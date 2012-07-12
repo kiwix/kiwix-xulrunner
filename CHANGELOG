@@ -57,7 +57,7 @@ Kiwix 0.9 rc1
 * NEW: Rewrite of kiwix-serve UI using JQueryUI
 * NEW: Unix man pages for all tools on GNU/Linux (English & French)
 * NEW: Introduction in Debian Wheezy official repository (ID: 3525204)
-* NEW: Speed up of startup/installation on OSX&Windows by using jar files
+* NEW: Speed up startup/install on OSX&Windows by using jar files
 * NEW: Close tab by mouse middle click (ID: 3536553)
 * NEW: First version of kiwix-plug (scripts to autoconfigure dreamplug with Kiwix)
 * NEW: Associate *.zimaa files (splitted ZIM files) to Kiwix
