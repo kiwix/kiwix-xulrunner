@@ -73,7 +73,11 @@ function manageIndexCurrentBook() {
 	displayErrorDialog(getProperty("noActiveZimFile"));
     } else if (displayConfirmDialog(getProperty("indexZimFileConfirm"))) {
     	// if launched too early, index crash on OSX.
-        setTimeout(indexCurrentBook, 3000);
+	if (env.isMac()) {
+            setTimeout(indexCurrentBook, 3000);
+	} else {
+            setTimeout(indexCurrentBook, 0);
+	}
     }
 
     /* Necessary to avoid a flickering in the HTML renderer */
