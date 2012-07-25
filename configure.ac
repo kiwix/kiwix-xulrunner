@@ -528,7 +528,7 @@ AC_ARG_WITH(extra-includes,
 AC_ARG_WITH([debug],
 			AC_HELP_STRING([--with-debug],
 						   [add debug symbols]),
-		    CFLAGS="${CFLAGS} -g "; CXXFLAGS="${CXXFLAGS} -g ")
+		    CFLAGS="${CFLAGS} -g3 -O0 -Wall -W -ansi"; CXXFLAGS="${CXXFLAGS} -g3 -O0 -Wall -W -ansi")
 
 # test hardening
 AC_ARG_WITH([hardening],
