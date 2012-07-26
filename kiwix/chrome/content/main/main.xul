@@ -190,6 +190,7 @@
   <key id="close-alltab-key" key="W" modifiers="control,shift" oncommand="closeAllTabs();"/>
   <key id="help-key" keycode="VK_F1" oncommand="showHelp(undefined, true)"/>
   <key id="home-key" keycode="VK_HOME" modifiers="alt" oncommand="goHome()"/>
+  <key id="random-article-key" key="R" modifiers="control" oncommand="loadRandomArticle()"/>
   <key id="fullscreen-key" keycode="VK_F11" oncommand="UIToggleFullScreen(true)"/>
   <key id="escape" keycode="VK_ESCAPE" oncommand="handleEscape()"/>
   <key id="pageback-key" keycode="VK_LEFT" modifiers="control" oncommand="pageBack()"/>
