@@ -26,7 +26,7 @@ kiwix_serve_SOURCES= \
 	../common/regexTools.h \
 	../common/resourceTools.h \
 	../common/stringTools.h 
-kiwix_serve_CXXFLAGS=${MICROHTTPD_CFLAGS} -I${CURRENT_PATH}/src/ctpp2/include $(CLUCENE_CFLAGS) $(XAPIAN_CFLAGS) $(ICU_CFLAGS) $(LZMA_CFLAGS) -I../common/
+kiwix_serve_CXXFLAGS=${MICROHTTPD_CFLAGS} -I${CURRENT_PATH}/src/ctpp2/include $(CLUCENE_CFLAGS) $(XAPIAN_CFLAGS) $(ICU_CFLAGS) $(LZMA_CFLAGS) $(ZLIB_CFLAGS) -I../common/
 
 kiwix_serve_LDFLAGS=$(CHECK_LDFLAGS)
 
