@@ -264,9 +264,9 @@ COMPILED_ZLIB_CFLAGS="-I${DEP_PATH}/zlib-1.2.3"
 COMPILED_ZLIB_LDFLAGS="-L${DEP_PATH}/zlib-1.2.3/shared/lib  -lz"
 if test [ $IS_WIN -eq 1 ]
 then
-COMPILED_ZLIB_FILES="${DEP_PATH}/zlib-1.2.3/zlib.lib"
+    COMPILED_ZLIB_FILES="${DEP_PATH}/zlib-1.2.3/zlib.lib"
 else
-COMPILED_ZLIB_FILES="${DEP_PATH}/zlib-1.2.3/shared/lib/libz.${SHARED_EXT}"
+    COMPILED_ZLIB_FILES="${DEP_PATH}/zlib-1.2.3/shared/lib/libz.${SHARED_EXT}"
 fi
 COMPILED_ZLIB_STATIC_LDFLAGS="${DEP_PATH}/zlib-1.2.3/static/lib/libz.a"
 
@@ -278,7 +278,7 @@ COMPILED_XAPIAN_CFLAGS="-I${DEP_PATH}/xapian-core-1.2.3/build/include"
 if test [ $IS_WIN -eq 1 ] ; then
     COMPILED_XAPIAN_FILES="${DEP_PATH}/xapian-core-1.2.3/win32/Release/libs/libunicode.lib"
 else
-	COMPILED_XAPIAN_LDFLAGS="-L${DEP_PATH}/xapian-core-1.2.3/build/lib -lxapian"
+    COMPILED_XAPIAN_LDFLAGS="-L${DEP_PATH}/xapian-core-1.2.3/build/lib -lxapian"
     COMPILED_XAPIAN_FILES="${DEP_PATH}/xapian-core-1.2.3/build/lib/libxapian.${SHARED_EXT}"
     COMPILED_XAPIAN_STATIC_LDFLAGS="${DEP_PATH}/xapian-core-1.2.3/build/lib/libxapian.a"
 fi
@@ -702,11 +702,11 @@ AC_ARG_WITH(static-z,
 
 # compilation required
 if test [ $COMPILE_ZLIB -eq 1 -o "$ZLIB_PATH" == "$SELF" -o "$ZLIB_ARCHIVE" == "$SELF"] ; then
-	COMPILE_ZLIB=1
-	ZLIB_CFLAGS=$COMPILED_ZLIB_CFLAGS
+    COMPILE_ZLIB=1
+    ZLIB_CFLAGS=$COMPILED_ZLIB_CFLAGS
     ZLIB_LDFLAGS=$COMPILED_ZLIB_LDFLAGS
-	ZLIB_FILES=$COMPILED_ZLIB_FILES
-	ZLIB_STATIC_LDFLAGS=$COMPILED_ZLIB_STATIC_LDFLAGS
+    ZLIB_FILES=$COMPILED_ZLIB_FILES
+    ZLIB_STATIC_LDFLAGS=$COMPILED_ZLIB_STATIC_LDFLAGS
 else
 	# look for shared library.
 	AC_CHECK_HEADER([zlib.h],, [AC_MSG_ERROR([[cannot find zlib header]])])
