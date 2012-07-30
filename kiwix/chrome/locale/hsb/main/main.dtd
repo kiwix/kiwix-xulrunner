@@ -129,6 +129,12 @@
 <!ENTITY preferences.tabs               "Rajtarki sej spomjatkować">
 <!ENTITY preferences.downloadCatalogs   "Zdalene katalogi sćahnyć">
 
+<!-- Server -->
+<!ENTITY server.load                    "Load">
+<!ENTITY server.start                   "Start">
+<!ENTITY server.stop                    "Stop">
+<!ENTITY server.close                   "Close">
+
 <!-- Library -->
 <!ENTITY main.library.myLibrary                 "Moja biblioteka">
 <!ENTITY main.library.getNewFiles               "Nowe dataje wotwołać">
@@ -148,5 +154,4 @@
 <!ENTITY main.library.filterBy.publisher        "Wudawaćel">
 <!ENTITY main.library.filterBy.publisher.all    "Wšě">
 <!ENTITY main.library.filterBy.lessThan         "Mjenje hač">
-
 

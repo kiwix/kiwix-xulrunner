@@ -129,6 +129,12 @@
 <!ENTITY preferences.tabs               "Remember tabs">
 <!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">
 
+<!-- Server -->
+<!ENTITY server.load                    "Load">
+<!ENTITY server.start                   "Start">
+<!ENTITY server.stop                    "Stop">
+<!ENTITY server.close                   "Close">
+
 <!-- Library -->
 <!ENTITY main.library.myLibrary                 "زما کتابتون">
 <!ENTITY main.library.getNewFiles               "نوې دوتنې ترلاسه کول">
@@ -148,5 +154,4 @@
 <!ENTITY main.library.filterBy.publisher        "خپرونکی">
 <!ENTITY main.library.filterBy.publisher.all    "ټول">
 <!ENTITY main.library.filterBy.lessThan         "Less than">
-
 

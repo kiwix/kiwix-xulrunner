@@ -129,6 +129,12 @@
 <!ENTITY preferences.tabs               "Απομνημόνευση καρτελών">
 <!ENTITY preferences.downloadCatalogs   "Κατεβάστε απομακρυσμένους καταλόγους">
 
+<!-- Server -->
+<!ENTITY server.load                    "Load">
+<!ENTITY server.start                   "Start">
+<!ENTITY server.stop                    "Stop">
+<!ENTITY server.close                   "Close">
+
 <!-- Library -->
 <!ENTITY main.library.myLibrary                 "Η βιβλιοθήκη μου">
 <!ENTITY main.library.getNewFiles               "Λήψη νέων αρχείων">
@@ -148,5 +154,4 @@
 <!ENTITY main.library.filterBy.publisher        "Εκδότη">
 <!ENTITY main.library.filterBy.publisher.all    "Όλοι">
 <!ENTITY main.library.filterBy.lessThan         "Μικρότερο από">
-
 

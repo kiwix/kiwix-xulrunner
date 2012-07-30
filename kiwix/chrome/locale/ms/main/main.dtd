@@ -129,6 +129,12 @@
 <!ENTITY preferences.tabs               "Ingati tab">
 <!ENTITY preferences.downloadCatalogs   "Muat turun katalog jauh">
 
+<!-- Server -->
+<!ENTITY server.load                    "Load">
+<!ENTITY server.start                   "Start">
+<!ENTITY server.stop                    "Stop">
+<!ENTITY server.close                   "Close">
+
 <!-- Library -->
 <!ENTITY main.library.myLibrary                 "Perpustakaan saya">
 <!ENTITY main.library.getNewFiles               "Dapatkan fail baru">
@@ -148,5 +154,4 @@
 <!ENTITY main.library.filterBy.publisher        "Pengarang">
 <!ENTITY main.library.filterBy.publisher.all    "Semua">
 <!ENTITY main.library.filterBy.lessThan         "Kurang daripada">
-
 

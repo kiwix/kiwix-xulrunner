@@ -129,6 +129,12 @@
 <!ENTITY preferences.tabs               "Tabblajer ónthauwe">
 <!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">
 
+<!-- Server -->
+<!ENTITY server.load                    "Load">
+<!ENTITY server.start                   "Start">
+<!ENTITY server.stop                    "Stop">
+<!ENTITY server.close                   "Close">
+
 <!-- Library -->
 <!ENTITY main.library.myLibrary                 "Mien bibliotheek">
 <!ENTITY main.library.getNewFiles               "Nuuj besjten hole">
@@ -148,5 +154,4 @@
 <!ENTITY main.library.filterBy.publisher        "Oetgaever">
 <!ENTITY main.library.filterBy.publisher.all    "Alle">
 <!ENTITY main.library.filterBy.lessThan         "Less than">
-
 

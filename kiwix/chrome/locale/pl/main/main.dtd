@@ -129,6 +129,12 @@
 <!ENTITY preferences.tabs               "Zapamiętaj zakładki">
 <!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">
 
+<!-- Server -->
+<!ENTITY server.load                    "Load">
+<!ENTITY server.start                   "Start">
+<!ENTITY server.stop                    "Stop">
+<!ENTITY server.close                   "Close">
+
 <!-- Library -->
 <!ENTITY main.library.myLibrary                 "Moja biblioteka">
 <!ENTITY main.library.getNewFiles               "Pobierz nowe pliki">
@@ -148,5 +154,4 @@
 <!ENTITY main.library.filterBy.publisher        "Wydawca">
 <!ENTITY main.library.filterBy.publisher.all    "Wszystko">
 <!ENTITY main.library.filterBy.lessThan         "Mniej niż">
-
 

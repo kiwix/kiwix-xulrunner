@@ -129,6 +129,12 @@
 <!ENTITY preferences.tabs               "Запомняне на табовете">
 <!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">
 
+<!-- Server -->
+<!ENTITY server.load                    "Load">
+<!ENTITY server.start                   "Start">
+<!ENTITY server.stop                    "Stop">
+<!ENTITY server.close                   "Close">
+
 <!-- Library -->
 <!ENTITY main.library.myLibrary                 "Моята библиотека">
 <!ENTITY main.library.getNewFiles               "Получаване на нови файлове">
@@ -148,5 +154,4 @@
 <!ENTITY main.library.filterBy.publisher        "Издател">
 <!ENTITY main.library.filterBy.publisher.all    "Всички">
 <!ENTITY main.library.filterBy.lessThan         "Less than">
-
 

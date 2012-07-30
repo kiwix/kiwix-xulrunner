@@ -129,6 +129,12 @@
 <!ENTITY preferences.tabs               "මතක්කිරීම් ටැබයන්">
 <!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">
 
+<!-- Server -->
+<!ENTITY server.load                    "Load">
+<!ENTITY server.start                   "Start">
+<!ENTITY server.stop                    "Stop">
+<!ENTITY server.close                   "Close">
+
 <!-- Library -->
 <!ENTITY main.library.myLibrary                 "මගේ පුස්තකාලය">
 <!ENTITY main.library.getNewFiles               "නව ගොනු ලබාගන්න">
@@ -148,5 +154,4 @@
 <!ENTITY main.library.filterBy.publisher        "ප්‍රකාශක">
 <!ENTITY main.library.filterBy.publisher.all    "සියල්ල">
 <!ENTITY main.library.filterBy.lessThan         "Less than">
-
 

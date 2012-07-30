@@ -129,6 +129,12 @@
 <!ENTITY preferences.tabs               "ჩანართების დამახსოვრება">
 <!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">
 
+<!-- Server -->
+<!ENTITY server.load                    "Load">
+<!ENTITY server.start                   "Start">
+<!ENTITY server.stop                    "Stop">
+<!ENTITY server.close                   "Close">
+
 <!-- Library -->
 <!ENTITY main.library.myLibrary                 "ჩემი ბიბლიოთეკა">
 <!ENTITY main.library.getNewFiles               "ახალი ფაილების მიღება">
@@ -148,5 +154,4 @@
 <!ENTITY main.library.filterBy.publisher        "გამომქვეყნებელი">
 <!ENTITY main.library.filterBy.publisher.all    "ყველა">
 <!ENTITY main.library.filterBy.lessThan         "Less than">
-
 

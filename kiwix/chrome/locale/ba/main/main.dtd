@@ -129,6 +129,12 @@
 <!ENTITY preferences.tabs               "Һалынмаларҙы хәтерҙә тоторға">
 <!ENTITY preferences.downloadCatalogs   "Юйылған каталогты (-тарҙы) күсереп алың">
 
+<!-- Server -->
+<!ENTITY server.load                    "Load">
+<!ENTITY server.start                   "Start">
+<!ENTITY server.stop                    "Stop">
+<!ENTITY server.close                   "Close">
+
 <!-- Library -->
 <!ENTITY main.library.myLibrary                 "Китапханам">
 <!ENTITY main.library.getNewFiles               "Яңы файлдар алырға">
@@ -148,5 +154,4 @@
 <!ENTITY main.library.filterBy.publisher        "Нәшриәт">
 <!ENTITY main.library.filterBy.publisher.all    "Барыһы">
 <!ENTITY main.library.filterBy.lessThan         "Less than">
-
 

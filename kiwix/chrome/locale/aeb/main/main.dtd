@@ -129,6 +129,12 @@
 <!ENTITY preferences.tabs               "تذكّر الألسنة">
 <!ENTITY preferences.downloadCatalogs   "قم بتحميل فهرس (اث) عن بعد">
 
+<!-- Server -->
+<!ENTITY server.load                    "Load">
+<!ENTITY server.start                   "Start">
+<!ENTITY server.stop                    "Stop">
+<!ENTITY server.close                   "Close">
+
 <!-- Library -->
 <!ENTITY main.library.myLibrary                 "مكتبتي">
 <!ENTITY main.library.getNewFiles               "احصل على ملفات جديدة">
@@ -148,5 +154,4 @@
 <!ENTITY main.library.filterBy.publisher        "annecher">
 <!ENTITY main.library.filterBy.publisher.all    "el koll">
 <!ENTITY main.library.filterBy.lessThan         "a9al min">
-
 

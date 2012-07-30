@@ -2,6 +2,7 @@ Kiwix 0.9 rc2
 * FIXED: kiwix-install crashes 
 * FIXED: kiwix-serve memory leak on ARM (ID: 3538663)
 * NEW: CTRL+R to load random article (ID: 3549370)
+* NEW: Improved server dialog window
 
 Kiwix 0.9 rc1
 * FIXED: Smoothier zooming (ID: 3469927)

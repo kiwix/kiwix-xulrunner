@@ -129,6 +129,12 @@
 <!ENTITY preferences.tabs               "पट्टीयाँ याद रखें">
 <!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">
 
+<!-- Server -->
+<!ENTITY server.load                    "Load">
+<!ENTITY server.start                   "Start">
+<!ENTITY server.stop                    "Stop">
+<!ENTITY server.close                   "Close">
+
 <!-- Library -->
 <!ENTITY main.library.myLibrary                 "मेरे पुस्तकालय">
 <!ENTITY main.library.getNewFiles               "नई फाइलें लिजिए">
@@ -148,5 +154,4 @@
 <!ENTITY main.library.filterBy.publisher        "प्रकाशक">
 <!ENTITY main.library.filterBy.publisher.all    "सभी">
 <!ENTITY main.library.filterBy.lessThan         "Less than">
-
 

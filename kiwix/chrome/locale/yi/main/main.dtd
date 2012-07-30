@@ -129,6 +129,12 @@
 <!ENTITY preferences.tabs               "געדענקען טאבן">
 <!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">
 
+<!-- Server -->
+<!ENTITY server.load                    "Load">
+<!ENTITY server.start                   "Start">
+<!ENTITY server.stop                    "Stop">
+<!ENTITY server.close                   "Close">
+
 <!-- Library -->
 <!ENTITY main.library.myLibrary                 "מײַן ביבליאטעק">
 <!ENTITY main.library.getNewFiles               "נעמען נײַע טעקעס">
@@ -148,5 +154,4 @@
 <!ENTITY main.library.filterBy.publisher        "פֿאַרלעגער">
 <!ENTITY main.library.filterBy.publisher.all    "אַלע">
 <!ENTITY main.library.filterBy.lessThan         "Less than">
-
 

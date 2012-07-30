@@ -129,6 +129,12 @@
 <!ENTITY preferences.tabs               "Kumbuka tabo">
 <!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">
 
+<!-- Server -->
+<!ENTITY server.load                    "Load">
+<!ENTITY server.start                   "Start">
+<!ENTITY server.stop                    "Stop">
+<!ENTITY server.close                   "Close">
+
 <!-- Library -->
 <!ENTITY main.library.myLibrary                 "Maktaba yangu">
 <!ENTITY main.library.getNewFiles               "Pata mafaili mapya">
@@ -148,5 +154,4 @@
 <!ENTITY main.library.filterBy.publisher        "Mchapishaji">
 <!ENTITY main.library.filterBy.publisher.all    "Wote">
 <!ENTITY main.library.filterBy.lessThan         "Less than">
-
 

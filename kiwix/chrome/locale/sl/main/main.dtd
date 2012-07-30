@@ -129,6 +129,12 @@
 <!ENTITY preferences.tabs               "Zapomni si zavihke">
 <!ENTITY preferences.downloadCatalogs   "prenesite oddaljen(e) katalog(e)">
 
+<!-- Server -->
+<!ENTITY server.load                    "Load">
+<!ENTITY server.start                   "Start">
+<!ENTITY server.stop                    "Stop">
+<!ENTITY server.close                   "Close">
+
 <!-- Library -->
 <!ENTITY main.library.myLibrary                 "Moja knjižnica">
 <!ENTITY main.library.getNewFiles               "Pridobi nove datoteke">
@@ -148,5 +154,4 @@
 <!ENTITY main.library.filterBy.publisher        "založniku">
 <!ENTITY main.library.filterBy.publisher.all    "vseh">
 <!ENTITY main.library.filterBy.lessThan         "Less than">
-
 

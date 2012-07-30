@@ -129,6 +129,12 @@
 <!ENTITY preferences.tabs               "Se souvenir des onglets ouverts en quittant Kiwix">
 <!ENTITY preferences.downloadCatalogs   "Télécharger le(s) catalogue(s) distant">
 
+<!-- Server -->
+<!ENTITY server.load                    "Load">
+<!ENTITY server.start                   "Start">
+<!ENTITY server.stop                    "Stop">
+<!ENTITY server.close                   "Close">
+
 <!-- Library -->
 <!ENTITY main.library.myLibrary                 "Ma bibliothèque">
 <!ENTITY main.library.getNewFiles               "Obtenir de nouveaux fichiers">
@@ -148,5 +154,4 @@
 <!ENTITY main.library.filterBy.publisher        "Éditeur">
 <!ENTITY main.library.filterBy.publisher.all    "Tous">
 <!ENTITY main.library.filterBy.lessThan         "Moins que">
-
 

@@ -129,6 +129,12 @@
 <!ENTITY preferences.tabs               "Tikllakunata yuyay">
 <!ENTITY preferences.downloadCatalogs   "Karu kataluta chaqnamuy">
 
+<!-- Server -->
+<!ENTITY server.load                    "Load">
+<!ENTITY server.start                   "Start">
+<!ENTITY server.stop                    "Stop">
+<!ENTITY server.close                   "Close">
+
 <!-- Library -->
 <!ENTITY main.library.myLibrary                 "Ñuqap ñawirina ukhuy">
 <!ENTITY main.library.getNewFiles               "Musuq willañiqikunata chaskiy">
@@ -148,5 +154,4 @@
 <!ENTITY main.library.filterBy.publisher        "Uyaychaqnin">
 <!ENTITY main.library.filterBy.publisher.all    "Tukuy">
 <!ENTITY main.library.filterBy.lessThan         "Less than">
-
 

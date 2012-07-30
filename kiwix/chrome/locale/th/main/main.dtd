@@ -129,6 +129,12 @@
 <!ENTITY preferences.tabs               "จำแท็บนี้ไว้">
 <!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">
 
+<!-- Server -->
+<!ENTITY server.load                    "Load">
+<!ENTITY server.start                   "Start">
+<!ENTITY server.stop                    "Stop">
+<!ENTITY server.close                   "Close">
+
 <!-- Library -->
 <!ENTITY main.library.myLibrary                 "คลังดาวน์โหลดของฉัน">
 <!ENTITY main.library.getNewFiles               "ดึงไฟล์ใหม่">
@@ -148,5 +154,4 @@
 <!ENTITY main.library.filterBy.publisher        "ผู้เผยแพร่">
 <!ENTITY main.library.filterBy.publisher.all    "ทั้งหมด">
 <!ENTITY main.library.filterBy.lessThan         "Less than">
-
 

@@ -129,6 +129,12 @@
 <!ENTITY preferences.tabs               "টাঁব মনে রাখুন">
 <!ENTITY preferences.downloadCatalogs   "ক্যাটালগ ডাউনলোড করুন">
 
+<!-- Server -->
+<!ENTITY server.load                    "Load">
+<!ENTITY server.start                   "Start">
+<!ENTITY server.stop                    "Stop">
+<!ENTITY server.close                   "Close">
+
 <!-- Library -->
 <!ENTITY main.library.myLibrary                 "আমার লাইব্রেরী">
 <!ENTITY main.library.getNewFiles               "নতুন ফাইল নিন">
@@ -148,5 +154,4 @@
 <!ENTITY main.library.filterBy.publisher        "প্রকাশক">
 <!ENTITY main.library.filterBy.publisher.all    "সমস্ত">
 <!ENTITY main.library.filterBy.lessThan         "Less than">
-
 

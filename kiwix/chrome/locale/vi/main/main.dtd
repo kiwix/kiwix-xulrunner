@@ -129,6 +129,12 @@
 <!ENTITY preferences.tabs               "Nhớ các thẻ">
 <!ENTITY preferences.downloadCatalogs   "Tải về mục lục từ xa">
 
+<!-- Server -->
+<!ENTITY server.load                    "Load">
+<!ENTITY server.start                   "Start">
+<!ENTITY server.stop                    "Stop">
+<!ENTITY server.close                   "Close">
+
 <!-- Library -->
 <!ENTITY main.library.myLibrary                 "Thư viện của tôi">
 <!ENTITY main.library.getNewFiles               "Lấy tập tin mới">
@@ -148,5 +154,4 @@
 <!ENTITY main.library.filterBy.publisher        "Nhà xuất bản">
 <!ENTITY main.library.filterBy.publisher.all    "Tất cả">
 <!ENTITY main.library.filterBy.lessThan         "Không tới">
-
 
