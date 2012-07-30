@@ -52,8 +52,9 @@
     <description id="status-description-label" value="" />
   </hbox>
   <hbox flex="1" align="center" id="url-label-box">
-    <label class="text-link" id="url-label" onclick="openUrlWithExternalBrowser(this.value)" value=""/>
-  </hbox>
+    <textbox class="plain, text-link" id="url-label" style="background-color: transparent ! important; border: none; padding: none;
+-moz-appearance: none;" readonly="true" value="" /><button onclick="openUrlWithExternalBrowser(this.previousSibling.value)" label="Load" />
+ </hbox>
   <hbox flex="1">
     <button oncommand="startServer()" label="Start" id="start-button" flex="1" />
     <button oncommand="stopServer()" label="Stop" id="stop-button" flex="1" />
