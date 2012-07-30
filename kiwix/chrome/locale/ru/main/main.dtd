@@ -3,10 +3,10 @@
 <!ENTITY main.cssdirection              "ltr">
 
 <!-- Mac menu -->
-<!ENTITY main.osxservices               "Services">
-<!ENTITY main.osxhideapp                "Hide &brand.brandShortName;">
-<!ENTITY main.osxhideothers             "Hide Others">
-<!ENTITY main.osxshowall                "Show All">
+<!ENTITY main.osxservices               "Сервисы">
+<!ENTITY main.osxhideapp                "Скрыть &brand.brandShortName;">
+<!ENTITY main.osxhideothers             "Скрыть другие">
+<!ENTITY main.osxshowall                "Показать все">
 
 <!-- File menu -->
 <!ENTITY main.file                      "Файл">
@@ -14,7 +14,7 @@
 <!ENTITY main.openFile                  "Открыть файл ...">
 <!ENTITY main.browseLibrary.accesskey   "B">
 <!ENTITY main.browseLibrary             "Просмотр библиотеки">
-<!ENTITY main.hideLibrary               "Hide library">
+<!ENTITY main.hideLibrary               "Скрыть библиотеку">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "Недавно открытые ...">
 <!ENTITY main.saveFile                  "Сохранить страницу как...">
@@ -91,7 +91,7 @@
 <!ENTITY main.home                      "В начало">
 <!ENTITY main.searchBar                 "Панель поиска">
 <!ENTITY main.search                    "Поиск">
-<!ENTITY main.searchPlaceholder         "Type the text to search here...">
+<!ENTITY main.searchPlaceholder         "Введите текст для поиска...">
 <!ENTITY main.findInText                "Найти в тексте">
 <!ENTITY main.noSearchBar               "Поиск требует индексированного файла ZIM">
 <!ENTITY main.bookmarks                 "Закладки">
@@ -147,6 +147,6 @@
 <!ENTITY main.library.filterBy.author.all       "Все">
 <!ENTITY main.library.filterBy.publisher        "Издатель">
 <!ENTITY main.library.filterBy.publisher.all    "Все">
-<!ENTITY main.library.filterBy.lessThan         "Less than">
+<!ENTITY main.library.filterBy.lessThan         "Меньше чем">
 
 

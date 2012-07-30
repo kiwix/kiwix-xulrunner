@@ -3,10 +3,10 @@
 <!ENTITY main.cssdirection              "ltr">
 
 <!-- Mac menu -->
-<!ENTITY main.osxservices               "Services">
-<!ENTITY main.osxhideapp                "Hide &brand.brandShortName;">
-<!ENTITY main.osxhideothers             "Hide Others">
-<!ENTITY main.osxshowall                "Show All">
+<!ENTITY main.osxservices               "Perkhidmatan">
+<!ENTITY main.osxhideapp                "Sorokkan &brand.brandShortName;">
+<!ENTITY main.osxhideothers             "Sorokkan yang Lain">
+<!ENTITY main.osxshowall                "Paparkan Semua">
 
 <!-- File menu -->
 <!ENTITY main.file                      "Fail">

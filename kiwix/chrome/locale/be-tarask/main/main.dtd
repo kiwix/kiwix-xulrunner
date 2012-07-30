@@ -3,10 +3,10 @@
 <!ENTITY main.cssdirection              "ltr">
 
 <!-- Mac menu -->
-<!ENTITY main.osxservices               "Services">
-<!ENTITY main.osxhideapp                "Hide &brand.brandShortName;">
-<!ENTITY main.osxhideothers             "Hide Others">
-<!ENTITY main.osxshowall                "Show All">
+<!ENTITY main.osxservices               "Сэрвісы">
+<!ENTITY main.osxhideapp                "Схаваць &brand.brandShortName;">
+<!ENTITY main.osxhideothers             "Схаваць іншыя">
+<!ENTITY main.osxshowall                "Паказаць усе">
 
 <!-- File menu -->
 <!ENTITY main.file                      "Файл">
@@ -147,6 +147,6 @@
 <!ENTITY main.library.filterBy.author.all       "Усе">
 <!ENTITY main.library.filterBy.publisher        "Выдавецтву">
 <!ENTITY main.library.filterBy.publisher.all    "Усе">
-<!ENTITY main.library.filterBy.lessThan         "Less than">
+<!ENTITY main.library.filterBy.lessThan         "Меней чым">
 
 

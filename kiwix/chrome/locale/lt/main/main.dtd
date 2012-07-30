@@ -5,8 +5,8 @@
 <!-- Mac menu -->
 <!ENTITY main.osxservices               "Services">
 <!ENTITY main.osxhideapp                "Hide &brand.brandShortName;">
-<!ENTITY main.osxhideothers             "Hide Others">
-<!ENTITY main.osxshowall                "Show All">
+<!ENTITY main.osxhideothers             "Slėpti Kitus">
+<!ENTITY main.osxshowall                "Rodyti Viską">
 
 <!-- File menu -->
 <!ENTITY main.file                      "Failas">
@@ -39,7 +39,7 @@
 <!ENTITY main.transliteration.accesskey "T">
 <!ENTITY main.preferences               "Nustatymai">
 <!ENTITY main.preferences.accesskey     "n">
-<!ENTITY main.server                    "Server">
+<!ENTITY main.server                    "Serveris">
 <!ENTITY main.server.accesskey          "s">
 
 <!-- Display menu -->
@@ -147,6 +147,6 @@
 <!ENTITY main.library.filterBy.author.all       "Visi">
 <!ENTITY main.library.filterBy.publisher        "Leidėjas">
 <!ENTITY main.library.filterBy.publisher.all    "Visi">
-<!ENTITY main.library.filterBy.lessThan         "Less than">
+<!ENTITY main.library.filterBy.lessThan         "Mažiau nei">
 
 

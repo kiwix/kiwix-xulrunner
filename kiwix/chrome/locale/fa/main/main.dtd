@@ -3,10 +3,10 @@
 <!ENTITY main.cssdirection              "rtl">
 
 <!-- Mac menu -->
-<!ENTITY main.osxservices               "Services">
+<!ENTITY main.osxservices               "خدمات">
 <!ENTITY main.osxhideapp                "Hide &brand.brandShortName;">
 <!ENTITY main.osxhideothers             "Hide Others">
-<!ENTITY main.osxshowall                "Show All">
+<!ENTITY main.osxshowall                "نمایش همه">
 
 <!-- File menu -->
 <!ENTITY main.file                      "پرونده">
@@ -39,7 +39,7 @@
 <!ENTITY main.transliteration.accesskey "T">
 <!ENTITY main.preferences               "ترجیحات">
 <!ENTITY main.preferences.accesskey     "n">
-<!ENTITY main.server                    "Server">
+<!ENTITY main.server                    "کارگزار">
 <!ENTITY main.server.accesskey          "s">
 
 <!-- Display menu -->
@@ -91,7 +91,7 @@
 <!ENTITY main.home                      "خانه">
 <!ENTITY main.searchBar                 "نوار جستجو">
 <!ENTITY main.search                    "جستجو">
-<!ENTITY main.searchPlaceholder         "Type the text to search here...">
+<!ENTITY main.searchPlaceholder         "برای جستجو متنی در اینجا بنویسید ...">
 <!ENTITY main.findInText                "جستجو در متن">
 <!ENTITY main.noSearchBar               "جستجو نیاز به یک فایل ZIM فهرست بندی شده دارد">
 <!ENTITY main.bookmarks                 "نشانکها">
@@ -147,6 +147,6 @@
 <!ENTITY main.library.filterBy.author.all       "همه">
 <!ENTITY main.library.filterBy.publisher        "ناشر">
 <!ENTITY main.library.filterBy.publisher.all    "همه">
-<!ENTITY main.library.filterBy.lessThan         "Less than">
+<!ENTITY main.library.filterBy.lessThan         "کمتر از">
 
 

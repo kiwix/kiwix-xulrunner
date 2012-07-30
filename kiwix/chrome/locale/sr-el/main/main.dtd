@@ -3,10 +3,10 @@
 <!ENTITY main.cssdirection              "ltr">
 
 <!-- Mac menu -->
-<!ENTITY main.osxservices               "Services">
-<!ENTITY main.osxhideapp                "Hide &brand.brandShortName;">
-<!ENTITY main.osxhideothers             "Hide Others">
-<!ENTITY main.osxshowall                "Show All">
+<!ENTITY main.osxservices               "Usluge">
+<!ENTITY main.osxhideapp                "Sakrij &brand.brandShortName;">
+<!ENTITY main.osxhideothers             "Sakrij druge">
+<!ENTITY main.osxshowall                "Prikaži sve">
 
 <!-- File menu -->
 <!ENTITY main.file                      "Datoteka">
@@ -14,7 +14,7 @@
 <!ENTITY main.openFile                  "Otvori datoteku…">
 <!ENTITY main.browseLibrary.accesskey   "B">
 <!ENTITY main.browseLibrary             "Pregledaj biblioteku">
-<!ENTITY main.hideLibrary               "Hide library">
+<!ENTITY main.hideLibrary               "Sakrij biblioteku">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "Nedavno otvoreno…">
 <!ENTITY main.saveFile                  "Sačuvaj stranicu kao…">
@@ -91,7 +91,7 @@
 <!ENTITY main.home                      "Početna">
 <!ENTITY main.searchBar                 "Traka za pretragu">
 <!ENTITY main.search                    "Pretraži">
-<!ENTITY main.searchPlaceholder         "Type the text to search here...">
+<!ENTITY main.searchPlaceholder         "Ovde unesite tekst za pretraživanje…">
 <!ENTITY main.findInText                "Pronađi u tekstu">
 <!ENTITY main.noSearchBar               "Pretraga zahteva popisanu ZIP datoteku">
 <!ENTITY main.bookmarks                 "Zabeleške">
@@ -147,6 +147,6 @@
 <!ENTITY main.library.filterBy.author.all       "svim autorima">
 <!ENTITY main.library.filterBy.publisher        "izdavaču">
 <!ENTITY main.library.filterBy.publisher.all    "svim izdavačima">
-<!ENTITY main.library.filterBy.lessThan         "Less than">
+<!ENTITY main.library.filterBy.lessThan         "Manje od">
 
 

@@ -3,10 +3,10 @@
 <!ENTITY main.cssdirection              "ltr">
 
 <!-- Mac menu -->
-<!ENTITY main.osxservices               "Services">
-<!ENTITY main.osxhideapp                "Hide &brand.brandShortName;">
-<!ENTITY main.osxhideothers             "Hide Others">
-<!ENTITY main.osxshowall                "Show All">
+<!ENTITY main.osxservices               "Услуге">
+<!ENTITY main.osxhideapp                "Сакриј &brand.brandShortName;">
+<!ENTITY main.osxhideothers             "Сакриј друге">
+<!ENTITY main.osxshowall                "Прикажи све">
 
 <!-- File menu -->
 <!ENTITY main.file                      "Датотека">
@@ -14,7 +14,7 @@
 <!ENTITY main.openFile                  "Отвори датотеку…">
 <!ENTITY main.browseLibrary.accesskey   "B">
 <!ENTITY main.browseLibrary             "Прегледај библиотеку">
-<!ENTITY main.hideLibrary               "Hide library">
+<!ENTITY main.hideLibrary               "Сакриј библиотеку">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "Недавно отворено…">
 <!ENTITY main.saveFile                  "Сачувај страницу као…">
@@ -91,7 +91,7 @@
 <!ENTITY main.home                      "Почетна">
 <!ENTITY main.searchBar                 "Трака за претрагу">
 <!ENTITY main.search                    "Претражи">
-<!ENTITY main.searchPlaceholder         "Type the text to search here...">
+<!ENTITY main.searchPlaceholder         "Овде унесите текст за претраживање…">
 <!ENTITY main.findInText                "Пронађи у тексту">
 <!ENTITY main.noSearchBar               "Претрага захтева пописану ZIP датотеку">
 <!ENTITY main.bookmarks                 "Забелешке">
@@ -147,6 +147,6 @@
 <!ENTITY main.library.filterBy.author.all       "свим ауторима">
 <!ENTITY main.library.filterBy.publisher        "издавачу">
 <!ENTITY main.library.filterBy.publisher.all    "свим издавачима">
-<!ENTITY main.library.filterBy.lessThan         "Less than">
+<!ENTITY main.library.filterBy.lessThan         "Мање од">
 
 

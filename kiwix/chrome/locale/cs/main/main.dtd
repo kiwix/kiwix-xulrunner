@@ -3,10 +3,10 @@
 <!ENTITY main.cssdirection              "ltr">
 
 <!-- Mac menu -->
-<!ENTITY main.osxservices               "Services">
-<!ENTITY main.osxhideapp                "Hide &brand.brandShortName;">
-<!ENTITY main.osxhideothers             "Hide Others">
-<!ENTITY main.osxshowall                "Show All">
+<!ENTITY main.osxservices               "Služby">
+<!ENTITY main.osxhideapp                "Skrýt &brand.brandShortName;">
+<!ENTITY main.osxhideothers             "Skrýt ostatní">
+<!ENTITY main.osxshowall                "Zobrazit vše">
 
 <!-- File menu -->
 <!ENTITY main.file                      "Soubor">
@@ -14,7 +14,7 @@
 <!ENTITY main.openFile                  "Otevřít soubor...">
 <!ENTITY main.browseLibrary.accesskey   "B">
 <!ENTITY main.browseLibrary             "Prohlížet knihovnu">
-<!ENTITY main.hideLibrary               "Hide library">
+<!ENTITY main.hideLibrary               "Skrýt knihovnu">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "Nedávno otevřené...">
 <!ENTITY main.saveFile                  "Uložit stránku jako....">
@@ -91,7 +91,7 @@
 <!ENTITY main.home                      "Domů">
 <!ENTITY main.searchBar                 "Řádek vyhledávání">
 <!ENTITY main.search                    "Vyhledávání">
-<!ENTITY main.searchPlaceholder         "Type the text to search here...">
+<!ENTITY main.searchPlaceholder         "Zde zadejte text, který chcete hledat…">
 <!ENTITY main.findInText                "Najít v textu">
 <!ENTITY main.noSearchBar               "Hledání vyžaduje indexovaný soubor ZIM">
 <!ENTITY main.bookmarks                 "Záložky">
@@ -147,6 +147,6 @@
 <!ENTITY main.library.filterBy.author.all       "Všichni">
 <!ENTITY main.library.filterBy.publisher        "Vydavatele">
 <!ENTITY main.library.filterBy.publisher.all    "Všechny">
-<!ENTITY main.library.filterBy.lessThan         "Less than">
+<!ENTITY main.library.filterBy.lessThan         "Méně než">
 
 

@@ -3,7 +3,7 @@
 <!ENTITY main.cssdirection              "rtl">
 
 <!-- Mac menu -->
-<!ENTITY main.osxservices               "Services">
+<!ENTITY main.osxservices               "שירותים">
 <!ENTITY main.osxhideapp                "Hide &brand.brandShortName;">
 <!ENTITY main.osxhideothers             "Hide Others">
 <!ENTITY main.osxshowall                "Show All">

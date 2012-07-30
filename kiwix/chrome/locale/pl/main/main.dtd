@@ -39,7 +39,7 @@
 <!ENTITY main.transliteration.accesskey "T">
 <!ENTITY main.preferences               "Preferencje">
 <!ENTITY main.preferences.accesskey     "s">
-<!ENTITY main.server                    "Server">
+<!ENTITY main.server                    "Serwer">
 <!ENTITY main.server.accesskey          "s">
 
 <!-- Display menu -->
@@ -147,6 +147,6 @@
 <!ENTITY main.library.filterBy.author.all       "Wszystko">
 <!ENTITY main.library.filterBy.publisher        "Wydawca">
 <!ENTITY main.library.filterBy.publisher.all    "Wszystko">
-<!ENTITY main.library.filterBy.lessThan         "Less than">
+<!ENTITY main.library.filterBy.lessThan         "Mniej niż">
 
 

@@ -3,10 +3,10 @@
 <!ENTITY main.cssdirection              "ltr">
 
 <!-- Mac menu -->
-<!ENTITY main.osxservices               "Services">
+<!ENTITY main.osxservices               "Servicer">
 <!ENTITY main.osxhideapp                "Hide &brand.brandShortName;">
-<!ENTITY main.osxhideothers             "Hide Others">
-<!ENTITY main.osxshowall                "Show All">
+<!ENTITY main.osxhideothers             "Anerer verstoppen">
+<!ENTITY main.osxshowall                "All weisen">
 
 <!-- File menu -->
 <!ENTITY main.file                      "Fichier">
@@ -37,7 +37,7 @@
 <!ENTITY main.copy.accesskey            "p">
 <!ENTITY main.transliteration           "Transliteratioun">
 <!ENTITY main.transliteration.accesskey "T">
-<!ENTITY main.preferences               "Server">
+<!ENTITY main.preferences               "Astellungen">
 <!ENTITY main.preferences.accesskey     "n">
 <!ENTITY main.server                    "Server">
 <!ENTITY main.server.accesskey          "s">
@@ -91,7 +91,7 @@
 <!ENTITY main.home                      "Haaptsäit">
 <!ENTITY main.searchBar                 "Sich-Läischt">
 <!ENTITY main.search                    "Sichen">
-<!ENTITY main.searchPlaceholder         "Type the text to search here...">
+<!ENTITY main.searchPlaceholder         "Gitt den Text fir ze sichen hei an ...">
 <!ENTITY main.findInText                "Am Text sichen">
 <!ENTITY main.noSearchBar               "Search requires an indexed ZIM file">
 <!ENTITY main.bookmarks                 "Favoriten">
@@ -127,7 +127,7 @@
 <!ENTITY preferences.profileDirectory   "Profile directory">
 <!ENTITY preferences.browse             "Duerchsichen">
 <!ENTITY preferences.tabs               "Sech un d'Tabben erënneren">
-<!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">
+<!ENTITY preferences.downloadCatalogs   "Extern(e) Katalog(en) eroflueden">
 
 <!-- Library -->
 <!ENTITY main.library.myLibrary                 "Meng Bibliothéik">
@@ -147,6 +147,6 @@
 <!ENTITY main.library.filterBy.author.all       "All">
 <!ENTITY main.library.filterBy.publisher        "Editeur">
 <!ENTITY main.library.filterBy.publisher.all    "All">
-<!ENTITY main.library.filterBy.lessThan         "Less than">
+<!ENTITY main.library.filterBy.lessThan         "Manner wéi">
 
 

@@ -3,10 +3,10 @@
 <!ENTITY main.cssdirection              "ltr">
 
 <!-- Mac menu -->
-<!ENTITY main.osxservices               "Services">
-<!ENTITY main.osxhideapp                "Hide &brand.brandShortName;">
-<!ENTITY main.osxhideothers             "Hide Others">
-<!ENTITY main.osxshowall                "Show All">
+<!ENTITY main.osxservices               "Dagiti serbisio">
+<!ENTITY main.osxhideapp                "Ilemmeng &marka.markaNababaNagan;">
+<!ENTITY main.osxhideothers             "Ilemmeng dagiti dadduma">
+<!ENTITY main.osxshowall                "Ipakita Amin">
 
 <!-- File menu -->
 <!ENTITY main.file                      "Papeles">
@@ -51,7 +51,7 @@
 <!ENTITY main.zoomin.accesskey          "M">
 <!ENTITY main.zoomout                   "Pabassiten">
 <!ENTITY main.zoomout.accesskey         "R">
-<!ENTITY main.zoomorig                  "Kinasigud a kadakkel">
+<!ENTITY main.zoomorig                  "Kasisigud a kadakkel">
 <!ENTITY main.zoomorig.accesskey        "O">
 <!ENTITY main.language                  "Pagsasao">
 <!ENTITY main.language.accesskey        "L">
@@ -147,6 +147,6 @@
 <!ENTITY main.library.filterBy.author.all       "Amin">
 <!ENTITY main.library.filterBy.publisher        "Nangipablaak">
 <!ENTITY main.library.filterBy.publisher.all    "Amin">
-<!ENTITY main.library.filterBy.lessThan         "Less than">
+<!ENTITY main.library.filterBy.lessThan         "Basbassit ngem">
 
 

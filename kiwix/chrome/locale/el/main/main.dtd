@@ -3,10 +3,10 @@
 <!ENTITY main.cssdirection              "ltr">
 
 <!-- Mac menu -->
-<!ENTITY main.osxservices               "Services">
-<!ENTITY main.osxhideapp                "Hide &brand.brandShortName;">
-<!ENTITY main.osxhideothers             "Hide Others">
-<!ENTITY main.osxshowall                "Show All">
+<!ENTITY main.osxservices               "Υπηρεσίες">
+<!ENTITY main.osxhideapp                "Απόκρυψη &brand.brandShortName;">
+<!ENTITY main.osxhideothers             "Απόκρυψη Άλλων">
+<!ENTITY main.osxshowall                "Εμφάνιση Όλων">
 
 <!-- File menu -->
 <!ENTITY main.file                      "Αρχείο">
@@ -14,7 +14,7 @@
 <!ENTITY main.openFile                  "Άνοιγμα αρχείου...">
 <!ENTITY main.browseLibrary.accesskey   "B">
 <!ENTITY main.browseLibrary             "Περιήγηση βιβλιοθήκης">
-<!ENTITY main.hideLibrary               "Hide library">
+<!ENTITY main.hideLibrary               "Απόκρυψη Βιβλιοθήκης">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "Ανοίχτηκε πρόσφατα...">
 <!ENTITY main.saveFile                  "Αποθήκευση σελίδας ως...">
@@ -91,7 +91,7 @@
 <!ENTITY main.home                      "Αρχή">
 <!ENTITY main.searchBar                 "Γραμμή αναζήτησης">
 <!ENTITY main.search                    "Αναζήτηση">
-<!ENTITY main.searchPlaceholder         "Type the text to search here...">
+<!ENTITY main.searchPlaceholder         "Πληκτρολογήστε το κείμενο αναζήτησης εδώ...">
 <!ENTITY main.findInText                "Εύρεση στο κείμενο">
 <!ENTITY main.noSearchBar               "Η αναζήτηση απαιτεί ένα καταχωρημένο αρχείο ZIM">
 <!ENTITY main.bookmarks                 "Σελιδοδείκτες">
@@ -147,6 +147,6 @@
 <!ENTITY main.library.filterBy.author.all       "Όλοι">
 <!ENTITY main.library.filterBy.publisher        "Εκδότη">
 <!ENTITY main.library.filterBy.publisher.all    "Όλοι">
-<!ENTITY main.library.filterBy.lessThan         "Less than">
+<!ENTITY main.library.filterBy.lessThan         "Μικρότερο από">
 
 

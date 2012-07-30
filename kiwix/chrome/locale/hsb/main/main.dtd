@@ -3,10 +3,10 @@
 <!ENTITY main.cssdirection              "ltr">
 
 <!-- Mac menu -->
-<!ENTITY main.osxservices               "Services">
-<!ENTITY main.osxhideapp                "Hide &brand.brandShortName;">
-<!ENTITY main.osxhideothers             "Hide Others">
-<!ENTITY main.osxshowall                "Show All">
+<!ENTITY main.osxservices               "Słužby">
+<!ENTITY main.osxhideapp                "&brand.brandShortName; schować">
+<!ENTITY main.osxhideothers             "Druhe schować">
+<!ENTITY main.osxshowall                "Wšě pokazać">
 
 <!-- File menu -->
 <!ENTITY main.file                      "Dataja">
@@ -126,7 +126,7 @@
 <!ENTITY preferences.cancel             "Přetorhnyć">
 <!ENTITY preferences.profileDirectory   "Profilowy rjadowak">
 <!ENTITY preferences.browse             "Přepytać">
-<!ENTITY preferences.tabs               "Rajtarki sej spomjatkkować">
+<!ENTITY preferences.tabs               "Rajtarki sej spomjatkować">
 <!ENTITY preferences.downloadCatalogs   "Zdalene katalogi sćahnyć">
 
 <!-- Library -->

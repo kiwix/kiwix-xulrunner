@@ -3,87 +3,87 @@
 <!ENTITY main.cssdirection              "ltr">
 
 <!-- Mac menu -->
-<!ENTITY main.osxservices               "Services">
-<!ENTITY main.osxhideapp                "Hide &brand.brandShortName;">
-<!ENTITY main.osxhideothers             "Hide Others">
-<!ENTITY main.osxshowall                "Show All">
+<!ENTITY main.osxservices               "Dịch vụ">
+<!ENTITY main.osxhideapp                "Ẩn &brand.brandShortName;">
+<!ENTITY main.osxhideothers             "Ẩn các Chương trình khác">
+<!ENTITY main.osxshowall                "Hiện Tất cả">
 
 <!-- File menu -->
 <!ENTITY main.file                      "Tập tin">
-<!ENTITY main.file.accesskey            "F">
+<!ENTITY main.file.accesskey            "T">
 <!ENTITY main.openFile                  "Mở Tập tin…">
-<!ENTITY main.browseLibrary.accesskey   "B">
+<!ENTITY main.browseLibrary.accesskey   "D">
 <!ENTITY main.browseLibrary             "Duyệt thư viện">
-<!ENTITY main.hideLibrary               "Hide library">
-<!ENTITY main.openFile.accesskey        "O">
+<!ENTITY main.hideLibrary               "Ẩn thư viện">
+<!ENTITY main.openFile.accesskey        "M">
 <!ENTITY main.lastOpen                  "Mở Gần đây…">
 <!ENTITY main.saveFile                  "Lưu Trang Như…">
-<!ENTITY main.saveFile.accesskey        "S">
+<!ENTITY main.saveFile.accesskey        "L">
 <!ENTITY main.print                     "In">
-<!ENTITY main.print.accesskey           "P">
+<!ENTITY main.print.accesskey           "I">
 <!ENTITY main.printPdf                  "In như PDF">
-<!ENTITY main.printPdf.accesskey        "D">
+<!ENTITY main.printPdf.accesskey        "P">
 <!ENTITY main.quit                      "Thoát">
-<!ENTITY main.quit.accesskey            "Q">
+<!ENTITY main.quit.accesskey            "T">
 
 <!-- Edit menu -->
 <!ENTITY main.edit                      "Chỉnh sửa">
-<!ENTITY main.edit.accesskey            "E">
+<!ENTITY main.edit.accesskey            "C">
 <!ENTITY main.find                      "Tìm kiếm trong Trang…">
-<!ENTITY main.find.accesskey            "S">
+<!ENTITY main.find.accesskey            "m">
 <!ENTITY main.selectall                 "Chọn Toàn bộ">
-<!ENTITY main.selectall.accesskey       "a">
+<!ENTITY main.selectall.accesskey       "b">
 <!ENTITY main.copy                      "Chép">
-<!ENTITY main.copy.accesskey            "p">
+<!ENTITY main.copy.accesskey            "C">
 <!ENTITY main.transliteration           "Chuyển tự">
-<!ENTITY main.transliteration.accesskey "T">
+<!ENTITY main.transliteration.accesskey "C">
 <!ENTITY main.preferences               "Tùy chỉnh">
-<!ENTITY main.preferences.accesskey     "n">
-<!ENTITY main.server                    "Server">
-<!ENTITY main.server.accesskey          "s">
+<!ENTITY main.preferences.accesskey     "T">
+<!ENTITY main.server                    "Máy chủ">
+<!ENTITY main.server.accesskey          "M">
 
 <!-- Display menu -->
 <!ENTITY main.display                   "Hiển thị">
-<!ENTITY main.display.accesskey         "D">
+<!ENTITY main.display.accesskey         "H">
 <!ENTITY main.zoom                      "Thu phóng">
-<!ENTITY main.zoom.accesskey            "Z">
+<!ENTITY main.zoom.accesskey            "T">
 <!ENTITY main.zoomin                    "Phóng to">
-<!ENTITY main.zoomin.accesskey          "M">
+<!ENTITY main.zoomin.accesskey          "p">
 <!ENTITY main.zoomout                   "Thu nhỏ">
-<!ENTITY main.zoomout.accesskey         "R">
+<!ENTITY main.zoomout.accesskey         "n">
 <!ENTITY main.zoomorig                  "Kích thước Mặc định">
-<!ENTITY main.zoomorig.accesskey        "O">
+<!ENTITY main.zoomorig.accesskey        "M">
 <!ENTITY main.language                  "Ngôn ngữ">
-<!ENTITY main.language.accesskey        "L">
+<!ENTITY main.language.accesskey        "N">
 <!ENTITY main.skin                      "Hình dạng">
-<!ENTITY main.skin.accesskey            "S">
+<!ENTITY main.skin.accesskey            "d">
 <!ENTITY main.statusbar                 "Thanh Trạng thái">
-<!ENTITY main.statusbar.accesskey       "S">
+<!ENTITY main.statusbar.accesskey       "r">
 <!ENTITY main.resultsbar                "Thanh Kết quả">
-<!ENTITY main.resultsbar.accesskey      "R">
+<!ENTITY main.resultsbar.accesskey      "q">
 <!ENTITY main.tabs                      "Thẻ">
 <!ENTITY main.tabs.accesskey            "T">
 <!ENTITY main.fullscreen                "Toàn màn hình">
-<!ENTITY main.fullscreen.accesskey      "F">
+<!ENTITY main.fullscreen.accesskey      "m">
 
 <!-- Tools menu -->
 <!ENTITY main.tools                     "Công cụ">
-<!ENTITY main.tools.accesskey           "T">
+<!ENTITY main.tools.accesskey           "g">
 <!ENTITY main.randomArticle             "Bài viết Ngẫu nhiên">
-<!ENTITY main.randomArticle.accesskey   "R">
+<!ENTITY main.randomArticle.accesskey   "u">
 <!ENTITY main.checkIntegrity            "Kiểm tra Tính toàn vẹn">
-<!ENTITY main.checkIntegrity.accesskey  "k">
+<!ENTITY main.checkIntegrity.accesskey  "v">
 <!ENTITY main.purgeHistory              "Dọn sạch Lịch sử">
-<!ENTITY main.purgeHistory.accesskey    "P">
+<!ENTITY main.purgeHistory.accesskey    "D">
 
 <!-- Help menu -->
 <!ENTITY main.help                      "Trợ giúp">
-<!ENTITY main.help.accesskey            "H">
+<!ENTITY main.help.accesskey            "p">
 <!ENTITY main.feedback                  "Phản hồi">
 <!ENTITY main.reportabug                "Báo cáo Lỗi">
 <!ENTITY main.requestafeature           "Yêu cầu Tính năng">
 <!ENTITY main.about                     "Giới thiệu &brand.brandShortName;">
-<!ENTITY main.about.accesskey           "A">
+<!ENTITY main.about.accesskey           "G">
 
 <!-- Tool bar -->
 <!ENTITY main.back                      "Lùi">
@@ -91,7 +91,7 @@
 <!ENTITY main.home                      "Trang nhà">
 <!ENTITY main.searchBar                 "Thanh Tìm kiếm">
 <!ENTITY main.search                    "Tìm kiếm">
-<!ENTITY main.searchPlaceholder         "Type the text to search here...">
+<!ENTITY main.searchPlaceholder         "Nhập văn bản tìm kiếm vào đây…">
 <!ENTITY main.findInText                "Tìm trong Văn bản">
 <!ENTITY main.noSearchBar               "Cần tập tin ZIM có chỉ mục để tìm kiếm">
 <!ENTITY main.bookmarks                 "Dấu trang">
@@ -114,8 +114,8 @@
 <!ENTITY main.openLinkInNewTab          "Mở liên kết trong thẻ mới">
 <!ENTITY main.searchFor                 "Tìm kiếm">
 <!ENTITY main.copyLinkAdress            "Copy link address">
-<!ENTITY main.mute                      "Mute">
-<!ENTITY main.audible                   "Audible">
+<!ENTITY main.mute                      "Tắt tiếng">
+<!ENTITY main.audible                   "Bật tiếng">
 
 <!-- About Window -->
 <!ENTITY main.close                     "Đóng">
@@ -127,7 +127,7 @@
 <!ENTITY preferences.profileDirectory   "Thư mục Hồ sơ">
 <!ENTITY preferences.browse             "Duyệt">
 <!ENTITY preferences.tabs               "Nhớ các thẻ">
-<!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">
+<!ENTITY preferences.downloadCatalogs   "Tải về mục lục từ xa">
 
 <!-- Library -->
 <!ENTITY main.library.myLibrary                 "Thư viện của tôi">
@@ -147,6 +147,6 @@
 <!ENTITY main.library.filterBy.author.all       "Tất cả">
 <!ENTITY main.library.filterBy.publisher        "Nhà xuất bản">
 <!ENTITY main.library.filterBy.publisher.all    "Tất cả">
-<!ENTITY main.library.filterBy.lessThan         "Less than">
+<!ENTITY main.library.filterBy.lessThan         "Không tới">
 
 

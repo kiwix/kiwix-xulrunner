@@ -3,10 +3,10 @@
 <!ENTITY main.cssdirection              "rtl">
 
 <!-- Mac menu -->
-<!ENTITY main.osxservices               "Services">
-<!ENTITY main.osxhideapp                "Hide &brand.brandShortName;">
-<!ENTITY main.osxhideothers             "Hide Others">
-<!ENTITY main.osxshowall                "Show All">
+<!ENTITY main.osxservices               "خدمات">
+<!ENTITY main.osxhideapp                "إخفاء &brand.brandShortName;">
+<!ENTITY main.osxhideothers             "إخفاء الأخرى">
+<!ENTITY main.osxshowall                "أظهر الكل">
 
 <!-- File menu -->
 <!ENTITY main.file                      "ملف">
@@ -123,7 +123,7 @@
 <!-- Preferences Window -->
 <!ENTITY preferences.preferences        "تفضيلات">
 <!ENTITY preferences.save               "احفظ">
-<!ENTITY preferences.cancel             "ألغي">
+<!ENTITY preferences.cancel             "ألغِ">
 <!ENTITY preferences.profileDirectory   "دليل الملف الشخصي">
 <!ENTITY preferences.browse             "تصفّح">
 <!ENTITY preferences.tabs               "تذكّر الألسنة">
@@ -147,6 +147,6 @@
 <!ENTITY main.library.filterBy.author.all       "الكل">
 <!ENTITY main.library.filterBy.publisher        "الناشر">
 <!ENTITY main.library.filterBy.publisher.all    "الكل">
-<!ENTITY main.library.filterBy.lessThan         "Less than">
+<!ENTITY main.library.filterBy.lessThan         "أقل من">
 
 

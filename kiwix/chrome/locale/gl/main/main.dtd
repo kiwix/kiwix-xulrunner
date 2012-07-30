@@ -3,10 +3,10 @@
 <!ENTITY main.cssdirection              "ltr">
 
 <!-- Mac menu -->
-<!ENTITY main.osxservices               "Services">
-<!ENTITY main.osxhideapp                "Hide &brand.brandShortName;">
-<!ENTITY main.osxhideothers             "Hide Others">
-<!ENTITY main.osxshowall                "Show All">
+<!ENTITY main.osxservices               "Servizos">
+<!ENTITY main.osxhideapp                "Agochar &brand.brandShortName;">
+<!ENTITY main.osxhideothers             "Agochar os outros">
+<!ENTITY main.osxshowall                "Mostrar todos">
 
 <!-- File menu -->
 <!ENTITY main.file                      "Ficheiro">

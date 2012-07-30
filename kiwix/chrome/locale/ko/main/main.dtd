@@ -3,10 +3,10 @@
 <!ENTITY main.cssdirection              "ltr">
 
 <!-- Mac menu -->
-<!ENTITY main.osxservices               "Services">
-<!ENTITY main.osxhideapp                "Hide &brand.brandShortName;">
-<!ENTITY main.osxhideothers             "Hide Others">
-<!ENTITY main.osxshowall                "Show All">
+<!ENTITY main.osxservices               "서비스">
+<!ENTITY main.osxhideapp                "&brand.brandShortName; 숨기기">
+<!ENTITY main.osxhideothers             "기타 숨기기">
+<!ENTITY main.osxshowall                "모두 보기">
 
 <!-- File menu -->
 <!ENTITY main.file                      "파일">
