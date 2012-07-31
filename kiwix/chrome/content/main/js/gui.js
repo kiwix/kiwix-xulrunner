@@ -81,8 +81,8 @@ function reloadContent() {
     loadContent(getCurrentUrl());
 }
 
-function getCurrentUrl() {
-    var currentUrl = getHtmlRenderer().currentURI.spec;
+function getCurrentUrl(id) {
+    var currentUrl = getHtmlRenderer(id).currentURI.spec;
     return areColorsInverted ? currentUrl.replace(new RegExp("^(.*invertColors.html#)(.*)$", "g"), '$2') : currentUrl;
 }
 
@@ -1141,6 +1141,7 @@ function initUserInterface() {
     if (settings.displayStatusBar() != undefined) { changeStatusBarVisibilityStatus(settings.displayStatusBar()); }
     if (settings.displayFullScreen() != undefined) { if (settings.displayFullScreen()) { UIToggleFullScreen(); } }
     if (settings.displayBookmarksBar() === true) { UIToggleBookmarksBar(); }
+    if (settings.invertedColors() === true) { setInvertedColors(true); }
     changeTabsVisibilityStatus(settings.displayTabs());
 
 	function removeElement(elem_id) {
@@ -1678,6 +1679,6 @@ function areColorsInverted() {
     return getInvertedColorsMenuItem().getAttribute('checked') == 'true';
 }
 
-function invertColors() {
-    loadContent("chrome://main/content/other/invertColors.html#" + getHtmlRenderer().currentURI.spec);
+function setInvertedColors(value) {
+    return getInvertedColorsMenuItem().setAttribute('checked', value);
 }

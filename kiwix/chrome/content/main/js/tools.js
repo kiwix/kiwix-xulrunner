@@ -127,6 +127,9 @@ function onQuit() {
 	/* Save Windows Geometry */
 	saveWindowGeometry(this.outerWidth, this.outerHeight, this.screenX, this.screenY, this.windowState);
 	
+	/* Save inverted colors */
+	settings.invertedColors(areColorsInverted());
+
 	/* Save tabs */
 	manageSaveTabs();
 	

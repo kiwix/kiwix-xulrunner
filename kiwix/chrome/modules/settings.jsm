@@ -195,6 +195,7 @@ let settings = {
 	return downloadsArray;
     },
 
+    invertedColors: function(value) { return this.boolSettingParameter("kiwix.invertedColors", value); },   
     defaultSearchBackend: function(value) { return this.charSettingParameter("kiwix.defaultsearchbackend", value); },
     skin: function(value) { return this.charSettingParameter("general.skins.selectedSkin", value); },
     displayStatusBar: function(value) { return this.boolSettingParameter("displayStatusBar", value); },

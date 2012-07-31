@@ -212,7 +212,7 @@ function switchTab(tabId, tab) {
     currentTabId = tabId;
     updateHistoryNavigationButtons();
     getFindBar().browser = getHtmlRenderer();
-    var title = getHtmlRenderer(tabId).contentTitle;
+    var title = getTitle();
     setWindowsTitle(title);
 
     // SUGAR: change status of Mark button
@@ -220,6 +220,13 @@ function switchTab(tabId, tab) {
 
     if (_winIsFullScreen)
         addFSEventToTab(tabId);
+}
+
+function getTitle(tabId) {
+    var title = getHtmlRenderer(tabId).contentTitle;
+    if (title == '') {
+    }
+    return title;
 }
 
 /* Update the tab header */
@@ -241,11 +248,16 @@ function setWindowsTitle(title) {
 }
 
 /* Return the HTML rendering object */
-function getHtmlRenderer(tabId) {
-    if (tabId == undefined) {
-	tabId = currentTabId;
+function getHtmlRenderer(id) {
+    if (id == undefined) {
+	id = "html-renderer-" + currentTabId;
+    } else {
+	if (id.substring(0, 14) != "html-renderer-") {
+	    id = "html-renderer-" + id;
+	}
     }
-    return document.getElementById("html-renderer-" + tabId);  
+
+    return document.getElementById(id);  
 }
 
 /* Create new tab. open it and adjust UI */
@@ -377,8 +389,8 @@ function saveTabs() {
     for (var i=0; i < browsers.length ; i++) {
 	var browser = browsers[i];
 	var scrollY = browser.contentWindow.scrollY;
-	var uri = browser.currentURI;
-	savedTabs += (browser == getHtmlRenderer() ? "F" : "") + scrollY + "|" + uri.spec + ";";
+	var uri = getCurrentUrl(browser.id);
+	savedTabs += (browser == getHtmlRenderer() ? "F" : "") + scrollY + "|" + uri + ";";
     }
     settings.savedTabs(savedTabs);
 }
