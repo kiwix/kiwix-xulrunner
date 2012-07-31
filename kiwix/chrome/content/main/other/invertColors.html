@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>Inverse colors</title>
+  <style type="text/css">
+  body { overflow: hidden } /* work around extra scrollbars when zoomed ( https://bugzilla.mozilla.org/show_bug.cgi?id=541270 ) */
+  html, body, iframe { display: block; width: 100%; height: 100%; border: none; margin: 0; padding: 0; }
+  /* ick, filters can't be display: none or inside of something display:none! */
+  svg { display: block; height: 0; }
+  </style>
+</head>
+  <script type="application/ecmascript">
+      function load_url() {
+        var url = "http://www.google.com/";
+        if (location.hash) {
+          url = location.hash.substring(1);
+        }
+        var iframe = document.getElementById("iframe");
+        iframe.src = url;
+
+        window.addEventListener("hashchange", load_url, false);
+      }
+  </script>
+<body onload="load_url()">
+  <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+    <defs>
+      <filter id="invertColors" x="0%" y="0%" width="100%" height="100%"
+              style="color-interpolation-filters: sRGB">
+
+        <!--
+        My original idea was to convert to HSL (Hue - Saturation -
+        Lightness), invert the lightness, and then convert back to RGB.
+
+        To invert the lightness of an input where each color component is
+        a, the max of all components is max, and the min of all components
+        is min, we want to make the result (r) for each color component:
+          r = 1 + a - min - max
+        Since each filter step must produce results in the range [0,1],
+        compute this as:
+          r = (1 - max) + (a - min)
+
+
+        Really, though, since R, G, and B have substantially different
+        contributions to perceived lightness (see
+        http://en.wikipedia.org/wiki/HSL_and_HSV#Comparison_with_color_science ),
+        we'd want to flip lightness differently depending on the hue
+        (and would perhaps want to think about that in linearRGB rather
+        than sRGB).  This would fix the fact that this filter takes
+        legible blue-on-white and makes it illegible blue-on-black, and
+        likewise legible lime-on-black to illegible lime-on-white.
+        (Inverting followed by a 180 degree hueRotate, all in sRGB, does
+        a better job with lightness, but gets hues significantly wrong.)
+        -->
+
+        <!-- Separate out the red, green, and blue components into three
+             separate buffers that have the value in all three color
+             components, and with a uniform alpha of 1. -->
+        <feColorMatrix result="red" in="SourceGraphic" type="matrix"
+                       values=" 1  0  0  0  0
+                                1  0  0  0  0
+                                1  0  0  0  0
+                                0  0  0  0  1" />
+
+        <feColorMatrix result="green" in="SourceGraphic" type="matrix"
+                       values=" 0  1  0  0  0
+                                0  1  0  0  0
+                                0  1  0  0  0
+                                0  0  0  0  1" />
+
+        <feColorMatrix result="blue" in="SourceGraphic" type="matrix"
+                       values=" 0  0  1  0  0
+                                0  0  1  0  0
+                                0  0  1  0  0
+                                0  0  0  0  1" />
+
+        <!-- Use the darken and lighten blending operations to compute
+             the largest and smallest color components, again putting
+             the values in all three color components. -->
+        <feBlend result="minredgreen" in="red" in2="green" mode="darken" />
+        <feBlend result="min" in="minredgreen" in2="blue" mode="darken" />
+
+        <feBlend result="maxredgreen" in="red" in2="green" mode="lighten" />
+        <feBlend result="max" in="maxredgreen" in2="blue" mode="lighten" />
+
+        <!-- See long explanation above. -->
+        <!-- remember that feComposite's arithmetic operator applies to
+             the alpha as well, so we have to be careful not to do a
+             subtraction that would leave us with nothing -->
+        <feComponentTransfer result="oneminusmin" in="min">
+          <feFuncR type="linear" intercept="1" slope="-1" />
+          <feFuncG type="linear" intercept="1" slope="-1" />
+          <feFuncB type="linear" intercept="1" slope="-1" />
+        </feComponentTransfer>
+        <feComposite result="aminusmin" operator="arithmetic"
+                     in="SourceGraphic" in2="oneminusmin"
+                     k1="0" k2="1" k3="1" k4="-1" />
+        <feComposite result="colorresult" operator="arithmetic"
+                     in="aminusmin" in2="max"
+                     k1="0" k2="1" k3="-1" k4="1" />
+
+        <!-- And put the alpha back in for the final result. -->
+        <feComposite operator="in" in="colorresult" in2="SourceAlpha" />
+      </filter>
+    </defs>
+  </svg>
+  <iframe id="iframe" height="100%" width="100%" style="filter:url(#invertColors); background: white;" />
+</body>
+</html>
