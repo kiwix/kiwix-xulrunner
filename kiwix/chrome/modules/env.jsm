@@ -84,6 +84,15 @@ let env = {
       return ph.getFileFromURLSpec(aPath).path;
    },
 
+   pathToUrl: function(path) {
+      var file = Components.classes["@mozilla.org/file/local;1"].createInstance(Components.interfaces.nsILocalFile);  
+      file.initWithPath(path);  
+      var rv;
+      var ph = Components.classes["@mozilla.org/network/protocol;1?name=file"].createInstance(Components.interfaces.nsIFileProtocolHandler);
+      rv = ph.getURLSpecFromFile(file);
+      return rv;
+   },
+
    getPath: function() {
       var environment = Components.classes["@mozilla.org/process/environment;1"].
           getService(Components.interfaces.nsIEnvironment);
@@ -103,7 +112,7 @@ let env = {
    chromeToPath: function(aPath) {
      if (!aPath || !(/^chrome:/.test(aPath)))
        return; //not a chrome url
-    
+
      var rv;
      var ios = Components.classes['@mozilla.org/network/io-service;1'].getService(Components.interfaces["nsIIOService"]);
      var uri = ios.newURI(aPath, "UTF-8", null);
