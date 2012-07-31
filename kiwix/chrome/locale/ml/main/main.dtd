@@ -65,6 +65,8 @@
 <!ENTITY main.tabs.accesskey            "ള">
 <!ENTITY main.fullscreen                "മുഴുവന്‍ സ്ക്രീനില്‍">
 <!ENTITY main.fullscreen.accesskey      "സ">
+<!ENTITY main.invertedColors            "Inverted colors">
+<!ENTITY main.invertedColors.accesskey  "I">
 
 <!-- Tools menu -->
 <!ENTITY main.tools                     "ഉപകരണങ്ങള്‍">

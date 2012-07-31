@@ -65,6 +65,8 @@
 <!ENTITY main.tabs.accesskey            "T">
 <!ENTITY main.fullscreen                "전체 화면">
 <!ENTITY main.fullscreen.accesskey      "F">
+<!ENTITY main.invertedColors            "Inverted colors">
+<!ENTITY main.invertedColors.accesskey  "I">
 
 <!-- Tools menu -->
 <!ENTITY main.tools                     "도구">

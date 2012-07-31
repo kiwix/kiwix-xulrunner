@@ -65,6 +65,8 @@
 <!ENTITY main.tabs.accesskey            "ट">
 <!ENTITY main.fullscreen                "पूरा पर्दा">
 <!ENTITY main.fullscreen.accesskey      "प">
+<!ENTITY main.invertedColors            "Inverted colors">
+<!ENTITY main.invertedColors.accesskey  "I">
 
 <!-- Tools menu -->
 <!ENTITY main.tools                     "औजारहरु">

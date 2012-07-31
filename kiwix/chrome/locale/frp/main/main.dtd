@@ -65,6 +65,8 @@
 <!ENTITY main.tabs.accesskey            "O">
 <!ENTITY main.fullscreen                "Plen ècran">
 <!ENTITY main.fullscreen.accesskey      "P">
+<!ENTITY main.invertedColors            "Inverted colors">
+<!ENTITY main.invertedColors.accesskey  "I">
 
 <!-- Tools menu -->
 <!ENTITY main.tools                     "Outils">

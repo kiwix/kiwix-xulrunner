@@ -101,6 +101,8 @@
           <menuitem type="checkbox" label="Evolution" id="skin-evolution" oncommand="selectSkin('evolution');"/>
 	</menupopup>
       </menu>
+      <menuitem id="display-inverted-colors" label="&main.invertedColors;" type="checkbox" checked="false"
+		accesskey="&main.invertedColors.accesskey;" oncommand="reloadContent()"/>
     </menupopup>
   </menu>
   <menu id="menu-tools" label="&main.tools;" accesskey="&main.tools.accesskey;">

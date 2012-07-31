@@ -65,6 +65,8 @@
 <!ENTITY main.tabs.accesskey            "R">
 <!ENTITY main.fullscreen                "Vollbildmodus">
 <!ENTITY main.fullscreen.accesskey      "V">
+<!ENTITY main.invertedColors            "Inverted colors">
+<!ENTITY main.invertedColors.accesskey  "I">
 
 <!-- Tools menu -->
 <!ENTITY main.tools                     "Werkzeuge">

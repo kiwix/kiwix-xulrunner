@@ -65,6 +65,8 @@
 <!ENTITY main.tabs.accesskey            "t">
 <!ENTITY main.fullscreen                "Koko näyttö">
 <!ENTITY main.fullscreen.accesskey      "ö">
+<!ENTITY main.invertedColors            "Inverted colors">
+<!ENTITY main.invertedColors.accesskey  "I">
 
 <!-- Tools menu -->
 <!ENTITY main.tools                     "Työkalut">
