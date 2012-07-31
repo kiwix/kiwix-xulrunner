@@ -224,19 +224,19 @@ function switchTab(tabId, tab) {
 
 function getTitle(tabId) {
     var title = getHtmlRenderer(tabId).contentTitle;
-    if (title == '') {
+    if (title == '' && getHtmlRenderer(tabId).contentDocument.getElementsByTagName("iframe").length > 0) {
+	title = getHtmlRenderer(tabId).contentDocument.getElementsByTagName("iframe")[0].contentDocument.title;
     }
     return title;
 }
 
 /* Update the tab header */
 function updateTabHeader(tabId) {
-    var tabHeaderId = "tab-header-" + tabId;
-    var tabHeader = document.getElementById(tabHeaderId);
-    var title = getHtmlRenderer(tabId).contentTitle;
+    var title = getTitle(tabId);
+    var tabHeader = document.getElementById("tab-header-" + tabId);
+    tabHeader.setAttribute("tooltiptext", title);
     var titleNode = tabHeader.childNodes[0];
     titleNode.setAttribute("value", title);
-    tabHeader.setAttribute("tooltiptext", title);
     setWindowsTitle(title);
 }
 
