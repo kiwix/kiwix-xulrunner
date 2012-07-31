@@ -46,6 +46,7 @@ function getBookmarksList() { return document.getElementById("bookmarks-list"); 
 function getNotesBox() { return document.getElementById("notesTextBox"); }
 function GetBookmarksSetsList() { return document.getElementById('bookmarks-sets-list'); }
 function getBookmarksSetsPopup() { return document.getElementById('bookmarks-sets'); }
+function getInvertedColorsMenuItem() { return document.getElementById("display-inverted-colors"); }
 
 /* Des/Activate a button */
 function activateToolbarButton(button) {

@@ -59,7 +59,12 @@ var articleLoadingListener = {
 /* Load an url in the HTML render element */
 function loadContent(url, id, scrollY) {
     try {
-	getHtmlRenderer(id).loadURI(url, null, null);
+	if (areColorsInverted()) {
+	    getHtmlRenderer(id).loadURI("chrome://main/content/other/invertColors.html#" + url, null, null);
+	} else {
+	    getHtmlRenderer(id).loadURI(url, null, null);
+	}
+
 	if (scrollY)
 	    getHtmlRenderer(id).setAttribute("initScrollY", scrollY);
     } catch(e) {
@@ -70,6 +75,15 @@ function loadContent(url, id, scrollY) {
     // SUGAR: change status of Mark button
     checkIfDocumentIsMarked(url);
     return true;
+}
+
+function reloadContent() {
+    loadContent(getCurrentUrl());
+}
+
+function getCurrentUrl() {
+    var currentUrl = getHtmlRenderer().currentURI.spec;
+    return areColorsInverted ? currentUrl.replace(new RegExp("^(.*invertColors.html#)(.*)$", "g"), '$2') : currentUrl;
 }
 
 /* Activate Search GUI elements */
@@ -332,7 +346,7 @@ function manageOpenUrl(url, id, scrollY) {
     /* Open with extern browser if not an internal link */
     if (!isInternalUrl(url)) {
 	openUrlWithExternalBrowser(url);
-    } else { /* If the a ZIM or chrome url */ 	 
+    } else { /* If the a ZIM or chrome url */
 	if (loadContent(url, id, scrollY)) { 	 
 	    updateGuiHistoryComponents();
 	}
@@ -1658,4 +1672,12 @@ function LostFocusOnSearch() {
     // SUGAR: Update search box label with page name
     if (env.isSugar())
         getSearchBox().value = getHtmlRenderer().contentTitle;
+}
+
+function areColorsInverted() {
+    return getInvertedColorsMenuItem().getAttribute('checked') == 'true';
+}
+
+function invertColors() {
+    loadContent("chrome://main/content/other/invertColors.html#" + getHtmlRenderer().currentURI.spec);
 }
