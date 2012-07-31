@@ -230,6 +230,14 @@ function getTitle(tabId) {
     return title;
 }
 
+function getScrollY(tabId) {
+    var pos = getHtmlRenderer(tabId).contentWindow.scrollY;
+    if (pos == '0' && getHtmlRenderer(tabId).contentDocument.getElementsByTagName("iframe").length > 0) {
+	pos = getHtmlRenderer(tabId).contentDocument.getElementsByTagName("iframe")[0].contentWindow.scrollY;
+    }
+    return pos;
+}
+
 /* Update the tab header */
 function updateTabHeader(tabId) {
     var title = getTitle(tabId);
@@ -388,7 +396,7 @@ function saveTabs() {
     var savedTabs = ""
     for (var i=0; i < browsers.length ; i++) {
 	var browser = browsers[i];
-	var scrollY = browser.contentWindow.scrollY;
+	var scrollY = getScrollY(browser.id);
 	var uri = getCurrentUrl(browser.id);
 	savedTabs += (browser == getHtmlRenderer() ? "F" : "") + scrollY + "|" + uri + ";";
     }
@@ -409,7 +417,7 @@ function restoreTabs() {
 	    }
 
 	    var tmp = uri.split('|');
-	    var scrollY = tmp[0];
+	    var scrollY = tmp[0] > 0 ? tmp[0] : undefined;
 	    uri = tmp[1];
 
 	    var id;

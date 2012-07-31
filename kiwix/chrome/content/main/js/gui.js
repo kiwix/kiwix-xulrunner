@@ -65,8 +65,10 @@ function loadContent(url, id, scrollY) {
 	    getHtmlRenderer(id).loadURI(url, null, null);
 	}
 
-	if (scrollY)
+	if (scrollY) {
 	    getHtmlRenderer(id).setAttribute("initScrollY", scrollY);
+	}
+
     } catch(e) {
 	displayErrorDialog(getProperty("loadArticleError"));
 	return false;
@@ -1325,8 +1327,14 @@ function isCtrlDown() {
 
 function applyInitScroll(browser) {
     var initScrollY = browser.getAttribute("initScrollY");
-    if (initScrollY) {
-	browser.contentWindow.scroll(0, initScrollY); 
+    if (initScrollY > 0) {
+	if (areColorsInverted() && browser.contentDocument.getElementsByTagName("iframe").length > 0) {
+	    var iframe = browser.contentDocument.getElementsByTagName("iframe")[0];
+	    iframe.onload = function() { iframe.contentWindow.scrollTo(0, 420); };
+	} else {
+	    browser.contentWindow.scroll(0, initScrollY); 
+	}
+
 	browser.setAttribute("initScrollY", undefined);
     }
 }
