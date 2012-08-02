@@ -899,6 +899,7 @@ function toggleBrowserContextualMenu(event) {
     if (url != undefined) {
 	if (isInternalUrl(url) && !isJavascriptUrl(url)) {
 	    openLinkInNewTabMenuItem.setAttribute("style", "display: visible;");
+	    openLinkInNewTabMenuItem.setAttribute("onclick", "manageOpenUrlInNewTab(\"" + url.replace("\"", "\\\"") + "\")");
 	} else {
 	    openLinkInNewTabMenuItem.setAttribute("style", "display: none;");
 	}
