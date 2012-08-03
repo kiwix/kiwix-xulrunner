@@ -4,9 +4,9 @@
 
 <!-- Mac menu -->
 <!ENTITY main.osxservices               "שירותים">
-<!ENTITY main.osxhideapp                "Hide &brand.brandShortName;">
-<!ENTITY main.osxhideothers             "Hide Others">
-<!ENTITY main.osxshowall                "Show All">
+<!ENTITY main.osxhideapp                "להציג &brand.brandShortName;">
+<!ENTITY main.osxhideothers             "להציג אחרים">
+<!ENTITY main.osxshowall                "להציג הכול">
 
 <!-- File menu -->
 <!ENTITY main.file                      "קובץ">

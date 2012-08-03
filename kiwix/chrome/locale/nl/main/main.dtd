@@ -65,7 +65,7 @@
 <!ENTITY main.tabs.accesskey            "T">
 <!ENTITY main.fullscreen                "Volledig scherm">
 <!ENTITY main.fullscreen.accesskey      "F">
-<!ENTITY main.invertedColors            "Inverted colors">
+<!ENTITY main.invertedColors            "Omgekeerde kleuren">
 <!ENTITY main.invertedColors.accesskey  "I">
 
 <!-- Tools menu -->
@@ -132,10 +132,10 @@
 <!ENTITY preferences.downloadCatalogs   "Catalogi downloaden">
 
 <!-- Server -->
-<!ENTITY server.load                    "Load">
-<!ENTITY server.start                   "Start">
-<!ENTITY server.stop                    "Stop">
-<!ENTITY server.close                   "Close">
+<!ENTITY server.load                    "Laden">
+<!ENTITY server.start                   "Beginnen">
+<!ENTITY server.stop                    "Stoppen">
+<!ENTITY server.close                   "Sluiten">
 
 <!-- Library -->
 <!ENTITY main.library.myLibrary                 "Mijn bibliotheek">
