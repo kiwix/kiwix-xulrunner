@@ -416,17 +416,17 @@ function onBookmarkItemClicked (aListItem) {
  * Called by the "mark" button ; adds to set if not-exist then to the box
  */
 function bookmarkCurrentPage () {
-    var title = getHtmlRenderer().contentTitle;
-    var uri = getHtmlRenderer().currentURI;
+    var title = getTitle();
+    var url = getCurrentUrl();
     var currentBook = library.getCurrentBook();
     var currentBookId = currentBook != undefined ? currentBook.id : undefined;
     
-    if ( !uri.scheme.match (/^zim/))
+    if ( url.substr(0, 3) != 'zim')
 	return false;
     
-    if (AddBookmarkToDatasource (title, uri.spec)) {
-	AddBookmarkLine(title, uri.spec, currentBookId);
-	UIBookmarkFocus(uri.spec);
+    if (AddBookmarkToDatasource (title, url)) {
+	AddBookmarkLine(title, url, currentBookId);
+	UIBookmarkFocus(url);
     }
     
     // Enable Notes
