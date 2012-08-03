@@ -6,6 +6,7 @@ Kiwix 0.9 rc2
 * NEW: Improved server dialog window
 * NEW: "Inverted colors" feature (ID: 3551975)
 * NEW: Start internationalisation of kiwix-plug welcome page (en, fr, de)
+* NEW: Autoredirect to the kiwix-plug localised welcome page
 
 Kiwix 0.9 rc1
 * FIXED: Smoothier zooming (ID: 3469927)
