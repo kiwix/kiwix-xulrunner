@@ -1144,7 +1144,7 @@ function initUserInterface() {
     if (settings.displayStatusBar() != undefined) { changeStatusBarVisibilityStatus(settings.displayStatusBar()); }
     if (settings.displayFullScreen() != undefined) { if (settings.displayFullScreen()) { UIToggleFullScreen(); } }
     if (settings.displayBookmarksBar() === true) { UIToggleBookmarksBar(); }
-    if (settings.invertedColors() === true) { setInvertedColors(true); }
+    if (settings.invertedColors() === true) { toggleInvertedColors(true); }
     changeTabsVisibilityStatus(settings.displayTabs());
 
 	function removeElement(elem_id) {
@@ -1688,6 +1688,10 @@ function areColorsInverted() {
     return getInvertedColorsMenuItem().getAttribute('checked') == 'true';
 }
 
-function setInvertedColors(value) {
+function toggleInvertedColors(value) {
+    if (value == undefined) {
+	value = !areColorsInverted();
+    }
+
     return getInvertedColorsMenuItem().setAttribute('checked', value);
 }
