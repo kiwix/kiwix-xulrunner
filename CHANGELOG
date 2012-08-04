@@ -7,6 +7,7 @@ Kiwix 0.9 rc2
 * NEW: "Inverted colors" feature (ID: 3551975)
 * NEW: Start internationalisation of kiwix-plug welcome page (en, fr, de)
 * NEW: Autoredirect to the kiwix-plug localised welcome page
+* NEW: Way to start search from the console with -search cmd line argument (ID: 3538176)
 
 Kiwix 0.9 rc1
 * FIXED: Smoothier zooming (ID: 3469927)

@@ -315,6 +315,7 @@ function loadContentFromCommandLine(commandLine) {
 	if (managedToOpenFile) {
 	    var argument;
 	    var firstLoad = true;
+
 	    while ((argument = commandLine.handleFlagWithParam("articleByUrl", false)) != undefined) {
 		if (!argument.match(/^zim:\/\/.*$/)) {
 		    argument = "zim://" + argument;
@@ -337,6 +338,11 @@ function loadContentFromCommandLine(commandLine) {
 		    manageOpenUrlInNewTab(url);
 		}
 	    }
+
+	    while ((argument = commandLine.handleFlagWithParam("search", false)) != undefined) {
+		searchFor(argument + " ");
+	    }
+
 	}
     }	
 
