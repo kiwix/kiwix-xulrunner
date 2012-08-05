@@ -1,4 +1,5 @@
 Kiwix 0.9 rc2
+$ FIXED: kiwix-manage generate wrong size for splitted ZIM files (ID: 3547892)
 * FIXED: kiwix-install crashes 
 * FIXED: kiwix-serve memory leak on ARM (ID: 3538663)
 * FIXED: open link in new tab from the right-click contextual menu (ID: 3553735)
