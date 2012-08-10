@@ -888,6 +888,9 @@ function toggleLibrary(visible) {
 	updateGuiHistoryComponents();
 	if (getWindow().getAttribute("title") == newWindowTitle)
 	    getWindow().setAttribute("title", _oldWindowTitle);
+	if (settings.displayBookmarksBar()) {
+	    UIToggleBookmarksBar(true);
+	}
     } else {
 	browseLibraryMenuItem.setAttribute("style", "display: none;");
 	hideLibraryMenuItem.setAttribute("style", "display: visible;");
@@ -908,6 +911,8 @@ function toggleLibrary(visible) {
 	/* Reinitialize the scrollbar - seems to be necessary */
 	var libraryDeck = document.getElementById("library-deck");
 	libraryDeck.selectedPanel.ensureIndexIsVisible(libraryDeck.selectedPanel.selectedIndex);
+
+	UIToggleBookmarksBar(false, false);
 
 	_libraryKeyCursorOnMenu = false;
     }

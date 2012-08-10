@@ -504,7 +504,7 @@ function RemoveBookmarkLine (aURI) {
 /*
  * Display/Hide the Bookmarks&Notes sidebar.
  */
-function UIToggleBookmarksBar(visible) {
+function UIToggleBookmarksBar(visible, save) {
     var bar = getBookmarksBar();
 
     if (bar.hidden) {
@@ -515,8 +515,16 @@ function UIToggleBookmarksBar(visible) {
 	visible = bar.hidden;
     }
 
+    if (save == undefined) {
+	save = true;
+    }
+
     bar.hidden  = !visible;
-    settings.displayBookmarksBar(!bar.hidden);
+    
+    if (save) {
+	settings.displayBookmarksBar(!bar.hidden);
+    }
+
     getBookmarksButton().setAttribute('checked', !bar.hidden);
     var sugar_butt = document.getElementById('sugar-button-bookmarks');
     sugar_butt.className = (!bar.hidden) ? 'visible' : 'hidden';
