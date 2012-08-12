@@ -21,7 +21,7 @@
 	>
 <!-- Menu bar -->
 <menubar id="menu-bar">
-  <menupopup id="mac-menu" display="none;">
+  <menupopup id="mac-menu" display="none">
       <menuitem id="aboutName" label="&main.about;" command="cmd:about" />
       <menuitem id="menu_preferences" label="&main.preferences;" key="key:showPrefs" command="cmd:prefs"/>
       <menuitem id="menu_mac_services" label="&main.osxservices;"/>
