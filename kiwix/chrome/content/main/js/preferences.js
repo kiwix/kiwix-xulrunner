@@ -40,8 +40,19 @@ function onPreferencesDialogStart() {
 function savePreferences() {
     var saveTabsCheckbox = document.getElementById("saveTabs-checkbox");
     settings.saveTabs(saveTabsCheckbox.checked);
+
     var downloadRemoteCatalogsCheckbox = document.getElementById("downloadCatalogs-checkbox");
+    var downloadRemoteCatalogs = downloadRemoteCatalogsCheckbox.checked;
+    var oldDownloadRemoteCatalogs = settings.downloadRemoteCatalogs();
     settings.downloadRemoteCatalogs(downloadRemoteCatalogsCheckbox.checked);
+
+    /* Download catalogs now, do not wait next restart */
+    /* still do not, not so easy, content.js should be as module */
+    /*
+    if (!oldDownloadRemoteCatalogs && downloadRemoteCatalogs) {
+	downloadRemoteBookList(true, true);
+    }
+    */
 }
 
 /* Choose new profile directory */
