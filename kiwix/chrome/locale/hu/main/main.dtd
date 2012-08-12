@@ -3,10 +3,10 @@
 <!ENTITY main.cssdirection              "ltr">
 
 <!-- Mac menu -->
-<!ENTITY main.osxservices               "Services">
+<!ENTITY main.osxservices               "Szolgáltatások">
 <!ENTITY main.osxhideapp                "Hide &brand.brandShortName;">
-<!ENTITY main.osxhideothers             "Hide Others">
-<!ENTITY main.osxshowall                "Show All">
+<!ENTITY main.osxhideothers             "Egyebek elrejtése">
+<!ENTITY main.osxshowall                "Összes megjelenítése">
 
 <!-- File menu -->
 <!ENTITY main.file                      "Fájl">
@@ -65,7 +65,7 @@
 <!ENTITY main.tabs.accesskey            "T">
 <!ENTITY main.fullscreen                "Teljes képernyő">
 <!ENTITY main.fullscreen.accesskey      "F">
-<!ENTITY main.invertedColors            "Inverted colors">
+<!ENTITY main.invertedColors            "Fordított színek">
 <!ENTITY main.invertedColors.accesskey  "I">
 
 <!-- Tools menu -->
@@ -93,7 +93,7 @@
 <!ENTITY main.home                      "Kezdőlap">
 <!ENTITY main.searchBar                 "Keresősáv">
 <!ENTITY main.search                    "Keresés">
-<!ENTITY main.searchPlaceholder         "Type the text to search here...">
+<!ENTITY main.searchPlaceholder         "írd be ide a keresendő szöveget...">
 <!ENTITY main.findInText                "Keresés a szövegben">
 <!ENTITY main.noSearchBar               "A kereséshez indexelt Zim fájl szükséges">
 <!ENTITY main.bookmarks                 "Könyvjelzők">
@@ -132,10 +132,10 @@
 <!ENTITY preferences.downloadCatalogs   "Távoli katalógus(ok) letöltése">
 
 <!-- Server -->
-<!ENTITY server.load                    "Load">
-<!ENTITY server.start                   "Start">
-<!ENTITY server.stop                    "Stop">
-<!ENTITY server.close                   "Close">
+<!ENTITY server.load                    "Betöltés">
+<!ENTITY server.start                   "Indítás">
+<!ENTITY server.stop                    "Leállítás">
+<!ENTITY server.close                   "Bezárás">
 
 <!-- Library -->
 <!ENTITY main.library.myLibrary                 "Könyvtáram">
@@ -155,5 +155,5 @@
 <!ENTITY main.library.filterBy.author.all       "Mind">
 <!ENTITY main.library.filterBy.publisher        "Kiadó">
 <!ENTITY main.library.filterBy.publisher.all    "Mind">
-<!ENTITY main.library.filterBy.lessThan         "Less than">
+<!ENTITY main.library.filterBy.lessThan         "Kevesebb mint">
 

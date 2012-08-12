@@ -3,10 +3,10 @@
 <!ENTITY main.cssdirection              "ltr">
 
 <!-- Mac menu -->
-<!ENTITY main.osxservices               "Services">
-<!ENTITY main.osxhideapp                "Hide &brand.brandShortName;">
-<!ENTITY main.osxhideothers             "Hide Others">
-<!ENTITY main.osxshowall                "Show All">
+<!ENTITY main.osxservices               "服務">
+<!ENTITY main.osxhideapp                "隱藏 &brand.brandShortName;">
+<!ENTITY main.osxhideothers             "隱藏其他">
+<!ENTITY main.osxshowall                "顯示全部">
 
 <!-- File menu -->
 <!ENTITY main.file                      "檔案">
@@ -14,7 +14,7 @@
 <!ENTITY main.openFile                  "開啟檔案…">
 <!ENTITY main.browseLibrary.accesskey   "B">
 <!ENTITY main.browseLibrary             "瀏覽檔案庫">
-<!ENTITY main.hideLibrary               "Hide library">
+<!ENTITY main.hideLibrary               "隱藏圖書館">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "最近使用...">
 <!ENTITY main.saveFile                  "另存為...">
@@ -93,7 +93,7 @@
 <!ENTITY main.home                      "首頁">
 <!ENTITY main.searchBar                 "搜索欄">
 <!ENTITY main.search                    "搜尋">
-<!ENTITY main.searchPlaceholder         "Type the text to search here...">
+<!ENTITY main.searchPlaceholder         "在這裡輸入要搜索的文字...">
 <!ENTITY main.findInText                "在文本中搜尋">
 <!ENTITY main.noSearchBar               "搜索需要索引的ZIM文件">
 <!ENTITY main.bookmarks                 "書籤">
@@ -129,13 +129,13 @@
 <!ENTITY preferences.profileDirectory   "資料目錄">
 <!ENTITY preferences.browse             "瀏覽">
 <!ENTITY preferences.tabs               "記住簽頁">
-<!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">
+<!ENTITY preferences.downloadCatalogs   "下載遠端目錄">
 
 <!-- Server -->
-<!ENTITY server.load                    "Load">
-<!ENTITY server.start                   "Start">
-<!ENTITY server.stop                    "Stop">
-<!ENTITY server.close                   "Close">
+<!ENTITY server.load                    "載入">
+<!ENTITY server.start                   "開始">
+<!ENTITY server.stop                    "停止">
+<!ENTITY server.close                   "關閉">
 
 <!-- Library -->
 <!ENTITY main.library.myLibrary                 "我的檔案庫">
@@ -155,5 +155,5 @@
 <!ENTITY main.library.filterBy.author.all       "全部">
 <!ENTITY main.library.filterBy.publisher        "出版商">
 <!ENTITY main.library.filterBy.publisher.all    "全部">
-<!ENTITY main.library.filterBy.lessThan         "Less than">
+<!ENTITY main.library.filterBy.lessThan         "小於">
 

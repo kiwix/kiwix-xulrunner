@@ -3,10 +3,10 @@
 <!ENTITY main.cssdirection              "ltr">
 
 <!-- Mac menu -->
-<!ENTITY main.osxservices               "Services">
-<!ENTITY main.osxhideapp                "Hide &brand.brandShortName;">
-<!ENTITY main.osxhideothers             "Hide Others">
-<!ENTITY main.osxshowall                "Show All">
+<!ENTITY main.osxservices               "સેવાઓ">
+<!ENTITY main.osxhideapp                "&brand.brandShortName; છુપાવો">
+<!ENTITY main.osxhideothers             "અન્યોને છુપાવો">
+<!ENTITY main.osxshowall                "બધું બતાવો">
 
 <!-- File menu -->
 <!ENTITY main.file                      "દસ્તાવેજ">
@@ -14,7 +14,7 @@
 <!ENTITY main.openFile                  "દસ્તાવેજ ખોલો">
 <!ENTITY main.browseLibrary.accesskey   "B">
 <!ENTITY main.browseLibrary             "પુસ્તકાલય માંથી શોધો">
-<!ENTITY main.hideLibrary               "Hide library">
+<!ENTITY main.hideLibrary               "લાઇબ્રેરી છુપાવો">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "અત્યારે ખોલેલો . . .">
 <!ENTITY main.saveFile                  "પાનું આ નામથી સાચવો...">
@@ -37,9 +37,9 @@
 <!ENTITY main.copy.accesskey            "p">
 <!ENTITY main.transliteration           "લીપી બદલાવ">
 <!ENTITY main.transliteration.accesskey "T">
-<!ENTITY main.preferences               "પસંદ">
+<!ENTITY main.preferences               "પસંદગીઓ">
 <!ENTITY main.preferences.accesskey     "n">
-<!ENTITY main.server                    "Server">
+<!ENTITY main.server                    "સર્વર">
 <!ENTITY main.server.accesskey          "s">
 
 <!-- Display menu -->
@@ -65,7 +65,7 @@
 <!ENTITY main.tabs.accesskey            "T">
 <!ENTITY main.fullscreen                "આખી સ્ક્રીન">
 <!ENTITY main.fullscreen.accesskey      "F">
-<!ENTITY main.invertedColors            "Inverted colors">
+<!ENTITY main.invertedColors            "ઉંધા રંગો">
 <!ENTITY main.invertedColors.accesskey  "I">
 
 <!-- Tools menu -->
@@ -93,7 +93,7 @@
 <!ENTITY main.home                      "ઘર">
 <!ENTITY main.searchBar                 "શોધવા માટે ની જગ્યા">
 <!ENTITY main.search                    "શોધો">
-<!ENTITY main.searchPlaceholder         "Type the text to search here...">
+<!ENTITY main.searchPlaceholder         "શોધ કરવા માટે અહીં લખો...">
 <!ENTITY main.findInText                "ભાષા ના સંદર્ભ  માં શોધો">
 <!ENTITY main.noSearchBar               "આ શોધ ને ઝીમ ઇન્દેક્ષ ની જરૂર છે">
 <!ENTITY main.bookmarks                 "બુકમાર્ક">
@@ -129,13 +129,13 @@
 <!ENTITY preferences.profileDirectory   "પ્રોફીલે નો જથ્થો">
 <!ENTITY preferences.browse             "ચરવું">
 <!ENTITY preferences.tabs               "ફાટા ને યાદ રાખો">
-<!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">
+<!ENTITY preferences.downloadCatalogs   "રીમોટ કેટેલોગ(ગ્સ) ડાઉનલોડ કરો">
 
 <!-- Server -->
-<!ENTITY server.load                    "Load">
-<!ENTITY server.start                   "Start">
-<!ENTITY server.stop                    "Stop">
-<!ENTITY server.close                   "Close">
+<!ENTITY server.load                    "લાવો">
+<!ENTITY server.start                   "શરુ કરો">
+<!ENTITY server.stop                    "અટકાવો">
+<!ENTITY server.close                   "બંધ કરો">
 
 <!-- Library -->
 <!ENTITY main.library.myLibrary                 "મારૂં પુસ્તકાલય">
@@ -155,5 +155,5 @@
 <!ENTITY main.library.filterBy.author.all       "બધા">
 <!ENTITY main.library.filterBy.publisher        "પ્રકાશક">
 <!ENTITY main.library.filterBy.publisher.all    "બધા">
-<!ENTITY main.library.filterBy.lessThan         "Less than">
+<!ENTITY main.library.filterBy.lessThan         "આના કરતાં નાનું">
 

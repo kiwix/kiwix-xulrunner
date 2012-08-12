@@ -45,7 +45,7 @@
 <!-- Display menu -->
 <!ENTITY main.display                   "ښکارېدنه">
 <!ENTITY main.display.accesskey         "D">
-<!ENTITY main.zoom                      "Zoom">
+<!ENTITY main.zoom                      "لوډېرول">
 <!ENTITY main.zoom.accesskey            "Z">
 <!ENTITY main.zoomin                    "لويول">
 <!ENTITY main.zoomin.accesskey          "M">
@@ -61,11 +61,11 @@
 <!ENTITY main.statusbar.accesskey       "S">
 <!ENTITY main.resultsbar                "د پايلو پټه">
 <!ENTITY main.resultsbar.accesskey      "R">
-<!ENTITY main.tabs                      "Tabs">
+<!ENTITY main.tabs                      "پاڼې">
 <!ENTITY main.tabs.accesskey            "T">
 <!ENTITY main.fullscreen                "ډکه پرده">
 <!ENTITY main.fullscreen.accesskey      "F">
-<!ENTITY main.invertedColors            "Inverted colors">
+<!ENTITY main.invertedColors            "نسکور شوي رنګونه">
 <!ENTITY main.invertedColors.accesskey  "I">
 
 <!-- Tools menu -->
@@ -73,7 +73,7 @@
 <!ENTITY main.tools.accesskey           "T">
 <!ENTITY main.randomArticle             "ناټاکلې ليکنه">
 <!ENTITY main.randomArticle.accesskey   "R">
-<!ENTITY main.checkIntegrity            "Integrity check">
+<!ENTITY main.checkIntegrity            "د ټينګښت بياکتنه">
 <!ENTITY main.checkIntegrity.accesskey  "k">
 <!ENTITY main.purgeHistory              "پېښليک سپينول">
 <!ENTITY main.purgeHistory.accesskey    "P">
@@ -93,7 +93,7 @@
 <!ENTITY main.home                      "کور">
 <!ENTITY main.searchBar                 "د پلټلو پټه">
 <!ENTITY main.search                    "پلټل">
-<!ENTITY main.searchPlaceholder         "Type the text to search here...">
+<!ENTITY main.searchPlaceholder         "د پلټلو لپاره مو متن دلته وټاپۍ...">
 <!ENTITY main.findInText                "په متن کې موندل">
 <!ENTITY main.noSearchBar               "پلټنه د يوې ZIM دوتنې ليکلړ شوې بڼې ته اړتيا لري">
 <!ENTITY main.bookmarks                 "کتاب نخښې">
@@ -104,11 +104,11 @@
 <!-- Bookmarks Bar -->
 <!ENTITY main.bmkLabel                  "کتاب نخښې:">
 <!ENTITY main.notesLabel                "د کتابنښې يادښتونه:">
-<!ENTITY main.loadbmk                   "Import Bookmark Set">
+<!ENTITY main.loadbmk                   "د کتابنښو ټولګه واردول">
 <!ENTITY main.newbmk                    "د کتابنښو نوی جونګ جوړول">
 <!ENTITY main.mark                      "دا مخ په نخښه کول">
 <!ENTITY main.unmark                    "ټاکلي بې نخښې کول">
-<!ENTITY main.reload                    "Reload Bookmark Set">
+<!ENTITY main.reload                    "د کتابنښو ټولګه بيابرسېرول">
 <!ENTITY main.defaultset                "تلواليزې امستنې">
 
 <!-- Contextual Menu -->
@@ -126,16 +126,16 @@
 <!ENTITY preferences.preferences        "غوره توبونه">
 <!ENTITY preferences.save               "خوندي کول">
 <!ENTITY preferences.cancel             "ناګارل">
-<!ENTITY preferences.profileDirectory   "Profile directory">
+<!ENTITY preferences.profileDirectory   "پېژنيال لارښودټولګه">
 <!ENTITY preferences.browse             "سپړل">
-<!ENTITY preferences.tabs               "Remember tabs">
-<!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">
+<!ENTITY preferences.tabs               "پاڼې په ياد ساتل">
+<!ENTITY preferences.downloadCatalogs   "ليري کتلاک (کتلاکونه) ښکته کول">
 
 <!-- Server -->
-<!ENTITY server.load                    "Load">
-<!ENTITY server.start                   "Start">
-<!ENTITY server.stop                    "Stop">
-<!ENTITY server.close                   "Close">
+<!ENTITY server.load                    "برسېرول">
+<!ENTITY server.start                   "پيلول">
+<!ENTITY server.stop                    "درول">
+<!ENTITY server.close                   "تړل">
 
 <!-- Library -->
 <!ENTITY main.library.myLibrary                 "زما کتابتون">
@@ -155,5 +155,5 @@
 <!ENTITY main.library.filterBy.author.all       "ټول">
 <!ENTITY main.library.filterBy.publisher        "خپرونکی">
 <!ENTITY main.library.filterBy.publisher.all    "ټول">
-<!ENTITY main.library.filterBy.lessThan         "Less than">
+<!ENTITY main.library.filterBy.lessThan         "لږ له">
 

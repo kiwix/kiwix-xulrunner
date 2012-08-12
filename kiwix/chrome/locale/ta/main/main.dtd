@@ -3,10 +3,10 @@
 <!ENTITY main.cssdirection              "ltr">
 
 <!-- Mac menu -->
-<!ENTITY main.osxservices               "Services">
-<!ENTITY main.osxhideapp                "Hide &brand.brandShortName;">
-<!ENTITY main.osxhideothers             "Hide Others">
-<!ENTITY main.osxshowall                "Show All">
+<!ENTITY main.osxservices               "சேவைகள்">
+<!ENTITY main.osxhideapp                "மறை &brand.brandShortName;">
+<!ENTITY main.osxhideothers             "மற்றவைகளை மறை">
+<!ENTITY main.osxshowall                "அனைத்தையும் காண்பி">
 
 <!-- File menu -->
 <!ENTITY main.file                      "கோப்பு">
@@ -14,7 +14,7 @@
 <!ENTITY main.openFile                  "கோப்பை திறக்கவும்...">
 <!ENTITY main.browseLibrary.accesskey   "B">
 <!ENTITY main.browseLibrary             "நூலகத்தில் தேடவும்">
-<!ENTITY main.hideLibrary               "Hide library">
+<!ENTITY main.hideLibrary               "நூலகத்தை மறை">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "சமீபத்தில் திற...">
 <!ENTITY main.saveFile                  "பக்கத்தை இவ்வாறாக சேமி...">
@@ -37,9 +37,9 @@
 <!ENTITY main.copy.accesskey            "p">
 <!ENTITY main.transliteration           "ஒலிப்பெயர்ப்பு">
 <!ENTITY main.transliteration.accesskey "T">
-<!ENTITY main.preferences               "விருப்பங்கள்">
+<!ENTITY main.preferences               "விருப்பத்தேர்வுகள்">
 <!ENTITY main.preferences.accesskey     "n">
-<!ENTITY main.server                    "Server">
+<!ENTITY main.server                    "வழங்கி">
 <!ENTITY main.server.accesskey          "s">
 
 <!-- Display menu -->
@@ -65,7 +65,7 @@
 <!ENTITY main.tabs.accesskey            "T">
 <!ENTITY main.fullscreen                "முழு திரை">
 <!ENTITY main.fullscreen.accesskey      "F">
-<!ENTITY main.invertedColors            "Inverted colors">
+<!ENTITY main.invertedColors            "தலைகீழ் வண்ணங்கள்">
 <!ENTITY main.invertedColors.accesskey  "I">
 
 <!-- Tools menu -->
@@ -93,7 +93,7 @@
 <!ENTITY main.home                      "முகப்பு">
 <!ENTITY main.searchBar                 "தேடல் பட்டி">
 <!ENTITY main.search                    "தேடு">
-<!ENTITY main.searchPlaceholder         "Type the text to search here...">
+<!ENTITY main.searchPlaceholder         "தேடலுக்கான உரையை இங்கு உள்ளிடவும்...">
 <!ENTITY main.findInText                "உரையில் கண்டுபிடி">
 <!ENTITY main.noSearchBar               "தேடலுக்கு அடைவாக்கப்பட்ட ZIM கோப்பு தேவைப்படுகிறது">
 <!ENTITY main.bookmarks                 "புத்தகக்குறிகள்">
@@ -129,13 +129,13 @@
 <!ENTITY preferences.profileDirectory   "சுயகுறிப்பு அடைவு">
 <!ENTITY preferences.browse             "உலவு">
 <!ENTITY preferences.tabs               "தாவல்களை நினைவில் கொள்">
-<!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">
+<!ENTITY preferences.downloadCatalogs   "தொலைதூர வரிசைப் பட்டியலை(பட்டியல்களை) தகவலிறக்கு">
 
 <!-- Server -->
-<!ENTITY server.load                    "Load">
-<!ENTITY server.start                   "Start">
-<!ENTITY server.stop                    "Stop">
-<!ENTITY server.close                   "Close">
+<!ENTITY server.load                    "ஏற்று">
+<!ENTITY server.start                   "தொடங்கு">
+<!ENTITY server.stop                    "நிறுத்து">
+<!ENTITY server.close                   "மூடு">
 
 <!-- Library -->
 <!ENTITY main.library.myLibrary                 "என் நூலகம்">
@@ -155,5 +155,5 @@
 <!ENTITY main.library.filterBy.author.all       "அனைத்தும்">
 <!ENTITY main.library.filterBy.publisher        "வெளியீட்டாளர்">
 <!ENTITY main.library.filterBy.publisher.all    "அனைத்தும்">
-<!ENTITY main.library.filterBy.lessThan         "Less than">
+<!ENTITY main.library.filterBy.lessThan         "குறைவான">
 

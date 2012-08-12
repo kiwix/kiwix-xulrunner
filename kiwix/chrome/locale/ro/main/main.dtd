@@ -3,10 +3,10 @@
 <!ENTITY main.cssdirection              "ltr">
 
 <!-- Mac menu -->
-<!ENTITY main.osxservices               "Services">
-<!ENTITY main.osxhideapp                "Hide &brand.brandShortName;">
-<!ENTITY main.osxhideothers             "Hide Others">
-<!ENTITY main.osxshowall                "Show All">
+<!ENTITY main.osxservices               "Servicii">
+<!ENTITY main.osxhideapp                "Ascunde &brand.brandShortName;">
+<!ENTITY main.osxhideothers             "Ascunde celelalte">
+<!ENTITY main.osxshowall                "Arată toate">
 
 <!-- File menu -->
 <!ENTITY main.file                      "Fișier">
@@ -65,7 +65,7 @@
 <!ENTITY main.tabs.accesskey            "T">
 <!ENTITY main.fullscreen                "Ecran complet">
 <!ENTITY main.fullscreen.accesskey      "F">
-<!ENTITY main.invertedColors            "Inverted colors">
+<!ENTITY main.invertedColors            "Culori inversate">
 <!ENTITY main.invertedColors.accesskey  "I">
 
 <!-- Tools menu -->
@@ -132,10 +132,10 @@
 <!ENTITY preferences.downloadCatalogs   "Descarcă catalogul(oagele) la distanță">
 
 <!-- Server -->
-<!ENTITY server.load                    "Load">
-<!ENTITY server.start                   "Start">
-<!ENTITY server.stop                    "Stop">
-<!ENTITY server.close                   "Close">
+<!ENTITY server.load                    "Încarcă">
+<!ENTITY server.start                   "Începe">
+<!ENTITY server.stop                    "Opreşte">
+<!ENTITY server.close                   "Închide">
 
 <!-- Library -->
 <!ENTITY main.library.myLibrary                 "Biblioteca mea">
@@ -155,5 +155,5 @@
 <!ENTITY main.library.filterBy.author.all       "Toate">
 <!ENTITY main.library.filterBy.publisher        "Editură">
 <!ENTITY main.library.filterBy.publisher.all    "Toate">
-<!ENTITY main.library.filterBy.lessThan         "Less than">
+<!ENTITY main.library.filterBy.lessThan         "Mai puţin de">
 

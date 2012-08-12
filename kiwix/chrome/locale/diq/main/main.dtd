@@ -1,0 +1,159 @@
+<!-- Window -->
+<!ENTITY main.title                     "&brand.brandShortName;">
+<!ENTITY main.cssdirection              "ltr">
+
+<!-- Mac menu -->
+<!ENTITY main.osxservices               "Serwisi">
+<!ENTITY main.osxhideapp                "&brand.brandShortName; bınımne">
+<!ENTITY main.osxhideothers             "Êbina Bınımnê">
+<!ENTITY main.osxshowall                "Pêron Bımocne">
+
+<!-- File menu -->
+<!ENTITY main.file                      "Dosya">
+<!ENTITY main.file.accesskey            "F">
+<!ENTITY main.openFile                  "Dosyay aqeri">
+<!ENTITY main.browseLibrary.accesskey   "B">
+<!ENTITY main.browseLibrary             "Bewni kıtıbxani">
+<!ENTITY main.hideLibrary               "Kıtıbxani bınımnê">
+<!ENTITY main.openFile.accesskey        "O">
+<!ENTITY main.lastOpen                  "Peyênan ra ake...">
+<!ENTITY main.saveFile                  "Peler zewmi qeyd ke...">
+<!ENTITY main.saveFile.accesskey        "S">
+<!ENTITY main.print                     "Nusne ke">
+<!ENTITY main.print.accesskey           "P">
+<!ENTITY main.printPdf                  "Çapi PDFi bıke">
+<!ENTITY main.printPdf.accesskey        "D">
+<!ENTITY main.quit                      "bıvci">
+<!ENTITY main.quit.accesskey            "Q">
+
+<!-- Edit menu -->
+<!ENTITY main.edit                      "Timar ke">
+<!ENTITY main.edit.accesskey            "E">
+<!ENTITY main.find                      "Pela tede cı geyrê...">
+<!ENTITY main.find.accesskey            "S">
+<!ENTITY main.selectall                 "Pêron weçin">
+<!ENTITY main.selectall.accesskey       "a">
+<!ENTITY main.copy                      "Kopya ke">
+<!ENTITY main.copy.accesskey            "p">
+<!ENTITY main.transliteration           "peleçarnış">
+<!ENTITY main.transliteration.accesskey "T">
+<!ENTITY main.preferences               "Tercihi">
+<!ENTITY main.preferences.accesskey     "n">
+<!ENTITY main.server                    "Waster">
+<!ENTITY main.server.accesskey          "s">
+
+<!-- Display menu -->
+<!ENTITY main.display                   "Asen">
+<!ENTITY main.display.accesskey         "D">
+<!ENTITY main.zoom                      "Nezdıfi">
+<!ENTITY main.zoom.accesskey            "Z">
+<!ENTITY main.zoomin                    "Gırd kerdış">
+<!ENTITY main.zoomin.accesskey          "M">
+<!ENTITY main.zoomout                   "Tayn kerdış">
+<!ENTITY main.zoomout.accesskey         "R">
+<!ENTITY main.zoomorig                  "Oricinal ebat">
+<!ENTITY main.zoomorig.accesskey        "O">
+<!ENTITY main.language                  "Zıwan">
+<!ENTITY main.language.accesskey        "L">
+<!ENTITY main.skin                      "Çerme">
+<!ENTITY main.skin.accesskey            "S">
+<!ENTITY main.statusbar                 "Sıvura weziyeti">
+<!ENTITY main.statusbar.accesskey       "S">
+<!ENTITY main.resultsbar                "Sıvura neticeyan">
+<!ENTITY main.resultsbar.accesskey      "R">
+<!ENTITY main.tabs                      "Tabi">
+<!ENTITY main.tabs.accesskey            "T">
+<!ENTITY main.fullscreen                "Tam asenge">
+<!ENTITY main.fullscreen.accesskey      "F">
+<!ENTITY main.invertedColors            "Ters rengi">
+<!ENTITY main.invertedColors.accesskey  "I">
+
+<!-- Tools menu -->
+<!ENTITY main.tools                     "Xecetî">
+<!ENTITY main.tools.accesskey           "T">
+<!ENTITY main.randomArticle             "Wesiqaya ke raşt amê">
+<!ENTITY main.randomArticle.accesskey   "R">
+<!ENTITY main.checkIntegrity            "Cerbiya pêroneyin">
+<!ENTITY main.checkIntegrity.accesskey  "k">
+<!ENTITY main.purgeHistory              "Verenayışe newekerdışi">
+<!ENTITY main.purgeHistory.accesskey    "P">
+
+<!-- Help menu -->
+<!ENTITY main.help                      "Peşti">
+<!ENTITY main.help.accesskey            "H">
+<!ENTITY main.feedback                  "Peydrıstış">
+<!ENTITY main.reportabug                "Xırabin bırışê">
+<!ENTITY main.requestafeature           "Xaseya waşten de">
+<!ENTITY main.about                     "Heq dê &brand.brandShortName;">
+<!ENTITY main.about.accesskey           "A">
+
+<!-- Tool bar -->
+<!ENTITY main.back                      "peyd şo">
+<!ENTITY main.forward                   "Aser ke">
+<!ENTITY main.home                      "Keye">
+<!ENTITY main.searchBar                 "Sıvura cı geyrayışi">
+<!ENTITY main.search                    "Cı geyre">
+<!ENTITY main.searchPlaceholder         "Babeta cı geyrayış dê nuşti...">
+<!ENTITY main.findInText                "nusn bıgeyre">
+<!ENTITY main.noSearchBar               "Ratnayış dı ZIM dosya cı geyrayış icab keno">
+<!ENTITY main.bookmarks                 "Nışan">
+
+<!-- Results bar -->
+<!ENTITY main.results.title             "Neticeyê geyrayışi">
+
+<!-- Bookmarks Bar -->
+<!ENTITY main.bmkLabel                  "Nışani:">
+<!ENTITY main.notesLabel                "Notê nışanan:">
+<!ENTITY main.loadbmk                   "Sazanê nışani azere de">
+<!ENTITY main.newbmk                    "Sazê nışan dê newi vırazê">
+<!ENTITY main.mark                      "Na pela nışan ke">
+<!ENTITY main.unmark                    "Weçineya wedarne">
+<!ENTITY main.reload                    "Sazanê nışani anewe ke">
+<!ENTITY main.defaultset                "Hesıbyayê saz">
+
+<!-- Contextual Menu -->
+<!ENTITY main.saveImageAs               "Peler zewmi qeyd ke...">
+<!ENTITY main.openLinkInNewTab          "Gri tab da newide ake">
+<!ENTITY main.searchFor                 "Cı geyre">
+<!ENTITY main.copyLinkAdress            "Copy link address">
+<!ENTITY main.mute                      "Bêveng">
+<!ENTITY main.audible                   "Aşnawêneyêno">
+
+<!-- About Window -->
+<!ENTITY main.close                     "Racnê">
+
+<!-- Preferences Window -->
+<!ENTITY preferences.preferences        "Tercihi">
+<!ENTITY preferences.save               "Star ke">
+<!ENTITY preferences.cancel             "Bıterkne">
+<!ENTITY preferences.profileDirectory   "Peşiya Profili">
+<!ENTITY preferences.browse             "Çımpawe">
+<!ENTITY preferences.tabs               "na tab xo vira mekeri">
+<!ENTITY preferences.downloadCatalogs   "Duri ra katalog(an) ronê">
+
+<!-- Server -->
+<!ENTITY server.load                    "Buwan">
+<!ENTITY server.start                   "Dest pêke">
+<!ENTITY server.stop                    "Vınd">
+<!ENTITY server.close                   "Racnê">
+
+<!-- Library -->
+<!ENTITY main.library.myLibrary                 "Kıtıbxaneyê mı">
+<!ENTITY main.library.getNewFiles               "Şo dosyayan de newan">
+<!ENTITY main.library.searchZimFiles            "ZIM dosyaya cı geyrê">
+<!ENTITY main.library.sortBy                    "Raten">
+<!ENTITY main.library.sortBy.title              "Sername">
+<!ENTITY main.library.sortBy.size               "Gırdiye">
+<!ENTITY main.library.sortBy.date               "Deme">
+<!ENTITY main.library.sortBy.author             "Nuskar">
+<!ENTITY main.library.sortBy.publisher          "Hesrekar">
+<!ENTITY main.library.filterBy                  "Filtrey cı">
+<!ENTITY main.library.filterBy.fileSize         "Ebatê dosyayî">
+<!ENTITY main.library.filterBy.language         "Zıwan">
+<!ENTITY main.library.filterBy.language.all     "Pêro">
+<!ENTITY main.library.filterBy.author           "Nuskar">
+<!ENTITY main.library.filterBy.author.all       "Pêro">
+<!ENTITY main.library.filterBy.publisher        "Hesrekar">
+<!ENTITY main.library.filterBy.publisher.all    "Pêro">
+<!ENTITY main.library.filterBy.lessThan         "Qıckeko">
+

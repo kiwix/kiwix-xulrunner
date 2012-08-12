@@ -3,18 +3,18 @@
 <!ENTITY main.cssdirection              "ltr">
 
 <!-- Mac menu -->
-<!ENTITY main.osxservices               "Services">
-<!ENTITY main.osxhideapp                "Hide &brand.brandShortName;">
-<!ENTITY main.osxhideothers             "Hide Others">
-<!ENTITY main.osxshowall                "Show All">
+<!ENTITY main.osxservices               "مۇلازىمەتلەر">
+<!ENTITY main.osxhideapp                "&brand.brandShortName نى يوشۇر:">
+<!ENTITY main.osxhideothers             "باشقىلارنى يوشۇر">
+<!ENTITY main.osxshowall                "ھەممىنى كۆرسەت">
 
 <!-- File menu -->
 <!ENTITY main.file                      "ھۆججەت">
 <!ENTITY main.file.accesskey            "F">
 <!ENTITY main.openFile                  "ھۆججەت ئاچ…">
 <!ENTITY main.browseLibrary.accesskey   "B">
-<!ENTITY main.browseLibrary             "Browse library">
-<!ENTITY main.hideLibrary               "Hide library">
+<!ENTITY main.browseLibrary             "ئامبارغا كۆز يۈگۈرت">
+<!ENTITY main.hideLibrary               "ئامبارنى يوشۇر">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "يېقىندا ئاچقان…">
 <!ENTITY main.saveFile                  "بەتنى باشقا ئاتتا ساقلا">
@@ -39,7 +39,7 @@
 <!ENTITY main.transliteration.accesskey "T">
 <!ENTITY main.preferences               "مايىللىق">
 <!ENTITY main.preferences.accesskey     "n">
-<!ENTITY main.server                    "Server">
+<!ENTITY main.server                    "مۇلازىمېتىر">
 <!ENTITY main.server.accesskey          "s">
 
 <!-- Display menu -->
@@ -65,7 +65,7 @@
 <!ENTITY main.tabs.accesskey            "T">
 <!ENTITY main.fullscreen                "پۈتۈن ئېكران">
 <!ENTITY main.fullscreen.accesskey      "F">
-<!ENTITY main.invertedColors            "Inverted colors">
+<!ENTITY main.invertedColors            "ئەسكىچە رەڭ">
 <!ENTITY main.invertedColors.accesskey  "I">
 
 <!-- Tools menu -->
@@ -81,7 +81,7 @@
 <!-- Help menu -->
 <!ENTITY main.help                      "ياردەم">
 <!ENTITY main.help.accesskey            "H">
-<!ENTITY main.feedback                  "Feedback">
+<!ENTITY main.feedback                  "قايتۇرما ئىنكاس">
 <!ENTITY main.reportabug                "خاتالىق دوكلاتى">
 <!ENTITY main.requestafeature           "ئىقتىدار ئىلتىماسى">
 <!ENTITY main.about                     "&brand.brandShortName ھەققىدە:">
@@ -93,7 +93,7 @@
 <!ENTITY main.home                      "باش بەت">
 <!ENTITY main.searchBar                 "ئىزدەش بالداق">
 <!ENTITY main.search                    "ئىزدە">
-<!ENTITY main.searchPlaceholder         "Type the text to search here...">
+<!ENTITY main.searchPlaceholder         "ئىزدەيدىغان تېكىستنى بۇ جايغا كىرگۈزۈڭ…">
 <!ENTITY main.findInText                "تېكىستتىن ئىزدە">
 <!ENTITY main.noSearchBar               "ئىزدەشكە ئىندېكىسلانغان ZIM ھۆججىتى زۆرۈر">
 <!ENTITY main.bookmarks                 "خەتكۈچلەر">
@@ -113,11 +113,11 @@
 
 <!-- Contextual Menu -->
 <!ENTITY main.saveImageAs               "سۈرەتنى باشقا ئاتتا ساقلا">
-<!ENTITY main.openLinkInNewTab          "Open link in new tab">
-<!ENTITY main.searchFor                 "Search for">
+<!ENTITY main.openLinkInNewTab          "ئۇلانمىنى يېڭى بەتكۈچتە ئاچ">
+<!ENTITY main.searchFor                 "ئىزدە">
 <!ENTITY main.copyLinkAdress            "Copy link address">
-<!ENTITY main.mute                      "Mute">
-<!ENTITY main.audible                   "Audible">
+<!ENTITY main.mute                      "ئۈنسىز">
+<!ENTITY main.audible                   "ئۈنلۈك">
 
 <!-- About Window -->
 <!ENTITY main.close                     "ياپ">
@@ -128,32 +128,32 @@
 <!ENTITY preferences.cancel             "ۋاز كەچ">
 <!ENTITY preferences.profileDirectory   "سەپلىمە ھۆججەت مۇندەرىجىسى">
 <!ENTITY preferences.browse             "كۆز يۈگۈرت">
-<!ENTITY preferences.tabs               "Remember tabs">
-<!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">
+<!ENTITY preferences.tabs               "بەتكۈچلەرنى ئەستە تۇت">
+<!ENTITY preferences.downloadCatalogs   "يىراقتىكى مۇندەرىجىنى چۈشۈر">
 
 <!-- Server -->
-<!ENTITY server.load                    "Load">
-<!ENTITY server.start                   "Start">
-<!ENTITY server.stop                    "Stop">
-<!ENTITY server.close                   "Close">
+<!ENTITY server.load                    "يۈكلە">
+<!ENTITY server.start                   "باشلا">
+<!ENTITY server.stop                    "توختا">
+<!ENTITY server.close                   "ياپ">
 
 <!-- Library -->
-<!ENTITY main.library.myLibrary                 "My library">
-<!ENTITY main.library.getNewFiles               "Get new files">
-<!ENTITY main.library.searchZimFiles            "Search ZIM files">
-<!ENTITY main.library.sortBy                    "Sort by">
-<!ENTITY main.library.sortBy.title              "Title">
-<!ENTITY main.library.sortBy.size               "Size">
-<!ENTITY main.library.sortBy.date               "Date">
-<!ENTITY main.library.sortBy.author             "Author">
-<!ENTITY main.library.sortBy.publisher          "Publisher">
-<!ENTITY main.library.filterBy                  "Filter by">
-<!ENTITY main.library.filterBy.fileSize         "File size">
-<!ENTITY main.library.filterBy.language         "Language">
-<!ENTITY main.library.filterBy.language.all     "All">
-<!ENTITY main.library.filterBy.author           "Author">
-<!ENTITY main.library.filterBy.author.all       "All">
-<!ENTITY main.library.filterBy.publisher        "Publisher">
-<!ENTITY main.library.filterBy.publisher.all    "All">
-<!ENTITY main.library.filterBy.lessThan         "Less than">
+<!ENTITY main.library.myLibrary                 "ئامبارلىرىم">
+<!ENTITY main.library.getNewFiles               "يېڭى ھۆججەتكە ئېرىشىش">
+<!ENTITY main.library.searchZimFiles            "ZIM ھۆججەت ئىزدە">
+<!ENTITY main.library.sortBy                    "تەرتىپى">
+<!ENTITY main.library.sortBy.title              "ماۋزۇ">
+<!ENTITY main.library.sortBy.size               "چوڭلۇقى">
+<!ENTITY main.library.sortBy.date               "چېسلا">
+<!ENTITY main.library.sortBy.author             "يازغۇچى">
+<!ENTITY main.library.sortBy.publisher          "تارقاتقۇچى">
+<!ENTITY main.library.filterBy                  "سۈزگۈچى">
+<!ENTITY main.library.filterBy.fileSize         "ھۆججەت چوڭلۇقى">
+<!ENTITY main.library.filterBy.language         "تىل">
+<!ENTITY main.library.filterBy.language.all     "ھەممىسى">
+<!ENTITY main.library.filterBy.author           "يازغۇچى">
+<!ENTITY main.library.filterBy.author.all       "ھەممىسى">
+<!ENTITY main.library.filterBy.publisher        "تارقاتقۇچى">
+<!ENTITY main.library.filterBy.publisher.all    "ھەممىسى">
+<!ENTITY main.library.filterBy.lessThan         "ئاز بولسا">
 

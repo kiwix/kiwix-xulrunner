@@ -65,7 +65,7 @@
 <!ENTITY main.tabs.accesskey            "T">
 <!ENTITY main.fullscreen                "מסך מלא">
 <!ENTITY main.fullscreen.accesskey      "F">
-<!ENTITY main.invertedColors            "Inverted colors">
+<!ENTITY main.invertedColors            "צבעים שלולים">
 <!ENTITY main.invertedColors.accesskey  "I">
 
 <!-- Tools menu -->
@@ -132,10 +132,10 @@
 <!ENTITY preferences.downloadCatalogs   "הורדת קטלוגים מרוחקים">
 
 <!-- Server -->
-<!ENTITY server.load                    "Load">
-<!ENTITY server.start                   "Start">
-<!ENTITY server.stop                    "Stop">
-<!ENTITY server.close                   "Close">
+<!ENTITY server.load                    "לטעון">
+<!ENTITY server.start                   "להתחיל">
+<!ENTITY server.stop                    "לעצור">
+<!ENTITY server.close                   "לסגור">
 
 <!-- Library -->
 <!ENTITY main.library.myLibrary                 "הספרייה שלי">

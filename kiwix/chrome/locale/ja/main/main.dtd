@@ -3,10 +3,10 @@
 <!ENTITY main.cssdirection              "ltr">
 
 <!-- Mac menu -->
-<!ENTITY main.osxservices               "Services">
-<!ENTITY main.osxhideapp                "Hide &brand.brandShortName;">
-<!ENTITY main.osxhideothers             "Hide Others">
-<!ENTITY main.osxshowall                "Show All">
+<!ENTITY main.osxservices               "サービス">
+<!ENTITY main.osxhideapp                "&brand.brandShortName;を隠す">
+<!ENTITY main.osxhideothers             "その他を隠す">
+<!ENTITY main.osxshowall                "すべて表示">
 
 <!-- File menu -->
 <!ENTITY main.file                      "ファイル">
@@ -65,7 +65,7 @@
 <!ENTITY main.tabs.accesskey            "T">
 <!ENTITY main.fullscreen                "全画面表示">
 <!ENTITY main.fullscreen.accesskey      "F">
-<!ENTITY main.invertedColors            "Inverted colors">
+<!ENTITY main.invertedColors            "反転色">
 <!ENTITY main.invertedColors.accesskey  "I">
 
 <!-- Tools menu -->
@@ -132,10 +132,10 @@
 <!ENTITY preferences.downloadCatalogs   "リモート カタログをダウンロード">
 
 <!-- Server -->
-<!ENTITY server.load                    "Load">
-<!ENTITY server.start                   "Start">
-<!ENTITY server.stop                    "Stop">
-<!ENTITY server.close                   "Close">
+<!ENTITY server.load                    "読み込み">
+<!ENTITY server.start                   "開始">
+<!ENTITY server.stop                    "停止">
+<!ENTITY server.close                   "閉じる">
 
 <!-- Library -->
 <!ENTITY main.library.myLibrary                 "マイ ライブラリー">
@@ -147,7 +147,7 @@
 <!ENTITY main.library.sortBy.date               "日付">
 <!ENTITY main.library.sortBy.author             "著者">
 <!ENTITY main.library.sortBy.publisher          "発行者">
-<!ENTITY main.library.filterBy                  "Filter by">
+<!ENTITY main.library.filterBy                  "絞り込み条件">
 <!ENTITY main.library.filterBy.fileSize         "ファイル サイズ">
 <!ENTITY main.library.filterBy.language         "言語">
 <!ENTITY main.library.filterBy.language.all     "すべて">
@@ -155,5 +155,5 @@
 <!ENTITY main.library.filterBy.author.all       "すべて">
 <!ENTITY main.library.filterBy.publisher        "発行者">
 <!ENTITY main.library.filterBy.publisher.all    "すべて">
-<!ENTITY main.library.filterBy.lessThan         "Less than">
+<!ENTITY main.library.filterBy.lessThan         "未満">
 

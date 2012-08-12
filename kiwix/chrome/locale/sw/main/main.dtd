@@ -3,10 +3,10 @@
 <!ENTITY main.cssdirection              "ltr">
 
 <!-- Mac menu -->
-<!ENTITY main.osxservices               "Services">
+<!ENTITY main.osxservices               "Huduma">
 <!ENTITY main.osxhideapp                "Hide &brand.brandShortName;">
-<!ENTITY main.osxhideothers             "Hide Others">
-<!ENTITY main.osxshowall                "Show All">
+<!ENTITY main.osxhideothers             "Ficha zingine">
+<!ENTITY main.osxshowall                "Onyesha yote">
 
 <!-- File menu -->
 <!ENTITY main.file                      "Faili">
@@ -65,7 +65,7 @@
 <!ENTITY main.tabs.accesskey            "T">
 <!ENTITY main.fullscreen                "Skrini nzima">
 <!ENTITY main.fullscreen.accesskey      "F">
-<!ENTITY main.invertedColors            "Inverted colors">
+<!ENTITY main.invertedColors            "Rangi zilizopinduliwa">
 <!ENTITY main.invertedColors.accesskey  "I">
 
 <!-- Tools menu -->
@@ -93,7 +93,7 @@
 <!ENTITY main.home                      "Kaya">
 <!ENTITY main.searchBar                 "Mstari wa kutafuta">
 <!ENTITY main.search                    "Tafuta">
-<!ENTITY main.searchPlaceholder         "Type the text to search here...">
+<!ENTITY main.searchPlaceholder         "Ingiza maandishi ya kutafutwa hapa...">
 <!ENTITY main.findInText                "Tafuta katika makala">
 <!ENTITY main.noSearchBar               "Kutafuta kunahitaji faili ya ZIM yenye faharasa">
 <!ENTITY main.bookmarks                 "Maalamisho">
@@ -107,7 +107,7 @@
 <!ENTITY main.loadbmk                   "Agiza seti ya kariri hifadhi.">
 <!ENTITY main.newbmk                    "Tengeneza seti mpya ya kariri hifadhi">
 <!ENTITY main.mark                      "Alamisha ukurasa huu">
-<!ENTITY main.unmark                    "Unmark selected">
+<!ENTITY main.unmark                    "Toa alama kwa zilizo chaguliwa">
 <!ENTITY main.reload                    "Pakia tena seti ya kariri hifadhi">
 <!ENTITY main.defaultset                "Msingi uliowekwa">
 
@@ -132,10 +132,10 @@
 <!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">
 
 <!-- Server -->
-<!ENTITY server.load                    "Load">
-<!ENTITY server.start                   "Start">
-<!ENTITY server.stop                    "Stop">
-<!ENTITY server.close                   "Close">
+<!ENTITY server.load                    "Pakia">
+<!ENTITY server.start                   "Anza">
+<!ENTITY server.stop                    "Wacha">
+<!ENTITY server.close                   "Funga">
 
 <!-- Library -->
 <!ENTITY main.library.myLibrary                 "Maktaba yangu">
@@ -155,5 +155,5 @@
 <!ENTITY main.library.filterBy.author.all       "Wote">
 <!ENTITY main.library.filterBy.publisher        "Mchapishaji">
 <!ENTITY main.library.filterBy.publisher.all    "Wote">
-<!ENTITY main.library.filterBy.lessThan         "Less than">
+<!ENTITY main.library.filterBy.lessThan         "Chini ya">
 

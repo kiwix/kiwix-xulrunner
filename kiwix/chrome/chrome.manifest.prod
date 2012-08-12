@@ -21,6 +21,7 @@ locale main cs             jar:locale.jar!/locale/cs/main/
 locale main cy             jar:locale.jar!/locale/cy/main/
 locale main da             jar:locale.jar!/locale/da/main/
 locale main de             jar:locale.jar!/locale/de/main/
+locale main diq            jar:locale.jar!/locale/diq/main/
 locale main dsb            jar:locale.jar!/locale/dsb/main/
 locale main el             jar:locale.jar!/locale/el/main/
 locale main en             jar:locale.jar!/locale/en/main/
@@ -46,6 +47,7 @@ locale main ie             jar:locale.jar!/locale/ie/main/
 locale main ilo            jar:locale.jar!/locale/ilo/main/
 locale main it             jar:locale.jar!/locale/it/main/
 locale main ja             jar:locale.jar!/locale/ja/main/
+locale main jv             jar:locale.jar!/locale/jv/main/
 locale main ka             jar:locale.jar!/locale/ka/main/
 locale main kn             jar:locale.jar!/locale/kn/main/
 locale main ko             jar:locale.jar!/locale/ko/main/
@@ -119,6 +121,7 @@ locale branding cs         jar:locale.jar!/locale/branding/
 locale branding cy         jar:locale.jar!/locale/branding/
 locale branding da         jar:locale.jar!/locale/branding/
 locale branding de         jar:locale.jar!/locale/branding/
+locale branding diq        jar:locale.jar!/locale/branding/
 locale branding dsb        jar:locale.jar!/locale/branding/
 locale branding el         jar:locale.jar!/locale/branding/
 locale branding en         jar:locale.jar!/locale/branding/
@@ -144,6 +147,7 @@ locale branding ie         jar:locale.jar!/locale/branding/
 locale branding ilo        jar:locale.jar!/locale/branding/
 locale branding it         jar:locale.jar!/locale/branding/
 locale branding ja         jar:locale.jar!/locale/branding/
+locale branding jv         jar:locale.jar!/locale/branding/
 locale branding ka         jar:locale.jar!/locale/branding/
 locale branding kn         jar:locale.jar!/locale/branding/
 locale branding ko         jar:locale.jar!/locale/branding/

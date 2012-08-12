@@ -3,10 +3,10 @@
 <!ENTITY main.cssdirection              "ltr">
 
 <!-- Mac menu -->
-<!ENTITY main.osxservices               "Services">
-<!ENTITY main.osxhideapp                "Hide &brand.brandShortName;">
-<!ENTITY main.osxhideothers             "Hide Others">
-<!ENTITY main.osxshowall                "Show All">
+<!ENTITY main.osxservices               "Dienste">
+<!ENTITY main.osxhideapp                "Versteek &brand.brandShortName;">
+<!ENTITY main.osxhideothers             "Versteek andere">
+<!ENTITY main.osxshowall                "Wys alles">
 
 <!-- File menu -->
 <!ENTITY main.file                      "Lêer">
@@ -65,7 +65,7 @@
 <!ENTITY main.tabs.accesskey            "T">
 <!ENTITY main.fullscreen                "Volle skerm">
 <!ENTITY main.fullscreen.accesskey      "F">
-<!ENTITY main.invertedColors            "Inverted colors">
+<!ENTITY main.invertedColors            "Omgekeerde kleure">
 <!ENTITY main.invertedColors.accesskey  "I">
 
 <!-- Tools menu -->
@@ -93,7 +93,7 @@
 <!ENTITY main.home                      "Tuisblad">
 <!ENTITY main.searchBar                 "Soekbalk">
 <!ENTITY main.search                    "Soek">
-<!ENTITY main.searchPlaceholder         "Type the text to search here...">
+<!ENTITY main.searchPlaceholder         "Tik waarna u soek hier in...">
 <!ENTITY main.findInText                "Soek in teks">
 <!ENTITY main.noSearchBar               "Soek vereis 'n geïndekseerde Zim-lêer">
 <!ENTITY main.bookmarks                 "Boekmerke">
@@ -132,10 +132,10 @@
 <!ENTITY preferences.downloadCatalogs   "Laai katalogus(se) af">
 
 <!-- Server -->
-<!ENTITY server.load                    "Load">
-<!ENTITY server.start                   "Start">
+<!ENTITY server.load                    "Laai">
+<!ENTITY server.start                   "Begin">
 <!ENTITY server.stop                    "Stop">
-<!ENTITY server.close                   "Close">
+<!ENTITY server.close                   "Sluit">
 
 <!-- Library -->
 <!ENTITY main.library.myLibrary                 "My biblioteek">
@@ -155,5 +155,5 @@
 <!ENTITY main.library.filterBy.author.all       "Alle">
 <!ENTITY main.library.filterBy.publisher        "Uitgewer">
 <!ENTITY main.library.filterBy.publisher.all    "Alle">
-<!ENTITY main.library.filterBy.lessThan         "Less than">
+<!ENTITY main.library.filterBy.lessThan         "Minder as">
 

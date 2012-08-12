@@ -4,8 +4,8 @@
 
 <!-- Mac menu -->
 <!ENTITY main.osxservices               "خدمات">
-<!ENTITY main.osxhideapp                "Hide &brand.brandShortName;">
-<!ENTITY main.osxhideothers             "Hide Others">
+<!ENTITY main.osxhideapp                "پنهان کردن &brand.brandShortName;">
+<!ENTITY main.osxhideothers             "پنهان کردن دیگران">
 <!ENTITY main.osxshowall                "نمایش همه">
 
 <!-- File menu -->
@@ -14,7 +14,7 @@
 <!ENTITY main.openFile                  "گشودن پرونده...">
 <!ENTITY main.browseLibrary.accesskey   "B">
 <!ENTITY main.browseLibrary             "مرور کتابخانه">
-<!ENTITY main.hideLibrary               "Hide library">
+<!ENTITY main.hideLibrary               "پنهان کردن کتابخانه">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "اخیراً گشوده شده...">
 <!ENTITY main.saveFile                  "...ذخیره صفحه به عنوان">
@@ -65,7 +65,7 @@
 <!ENTITY main.tabs.accesskey            "T">
 <!ENTITY main.fullscreen                "تمام صفحه">
 <!ENTITY main.fullscreen.accesskey      "F">
-<!ENTITY main.invertedColors            "Inverted colors">
+<!ENTITY main.invertedColors            "رنگ‌ها وارونه شده‌اند">
 <!ENTITY main.invertedColors.accesskey  "I">
 
 <!-- Tools menu -->
@@ -132,10 +132,10 @@
 <!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">
 
 <!-- Server -->
-<!ENTITY server.load                    "Load">
-<!ENTITY server.start                   "Start">
-<!ENTITY server.stop                    "Stop">
-<!ENTITY server.close                   "Close">
+<!ENTITY server.load                    "بارگیری">
+<!ENTITY server.start                   "آغاز">
+<!ENTITY server.stop                    "توقف">
+<!ENTITY server.close                   "بستن">
 
 <!-- Library -->
 <!ENTITY main.library.myLibrary                 "کتابخانهٔ من">

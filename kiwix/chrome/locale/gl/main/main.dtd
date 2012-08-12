@@ -65,7 +65,7 @@
 <!ENTITY main.tabs.accesskey            "T">
 <!ENTITY main.fullscreen                "Pantalla completa">
 <!ENTITY main.fullscreen.accesskey      "F">
-<!ENTITY main.invertedColors            "Inverted colors">
+<!ENTITY main.invertedColors            "Cores invertidas">
 <!ENTITY main.invertedColors.accesskey  "I">
 
 <!-- Tools menu -->
@@ -132,10 +132,10 @@
 <!ENTITY preferences.downloadCatalogs   "Descargar o(s) catálogo(s) remoto(s)">
 
 <!-- Server -->
-<!ENTITY server.load                    "Load">
-<!ENTITY server.start                   "Start">
-<!ENTITY server.stop                    "Stop">
-<!ENTITY server.close                   "Close">
+<!ENTITY server.load                    "Cargar">
+<!ENTITY server.start                   "Iniciar">
+<!ENTITY server.stop                    "Deter">
+<!ENTITY server.close                   "Pechar">
 
 <!-- Library -->
 <!ENTITY main.library.myLibrary                 "A miña biblioteca">

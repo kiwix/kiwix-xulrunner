@@ -3,10 +3,10 @@
 <!ENTITY main.cssdirection              "ltr">
 
 <!-- Mac menu -->
-<!ENTITY main.osxservices               "Services">
-<!ENTITY main.osxhideapp                "Hide &brand.brandShortName;">
-<!ENTITY main.osxhideothers             "Hide Others">
-<!ENTITY main.osxshowall                "Show All">
+<!ENTITY main.osxservices               "Služby">
+<!ENTITY main.osxhideapp                "Skryť &brand.brandShortName;">
+<!ENTITY main.osxhideothers             "Skryť ostatné">
+<!ENTITY main.osxshowall                "Zobraziť všetko">
 
 <!-- File menu -->
 <!ENTITY main.file                      "Súbor">
@@ -14,7 +14,7 @@
 <!ENTITY main.openFile                  "Otvoriť súbor...">
 <!ENTITY main.browseLibrary.accesskey   "B">
 <!ENTITY main.browseLibrary             "Prehľadávať knižnicu">
-<!ENTITY main.hideLibrary               "Hide library">
+<!ENTITY main.hideLibrary               "Skryť knižnicu">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "Nedávno otvorené...">
 <!ENTITY main.saveFile                  "Uložiť stránku ako...">
@@ -65,7 +65,7 @@
 <!ENTITY main.tabs.accesskey            "T">
 <!ENTITY main.fullscreen                "Celá obrazovka">
 <!ENTITY main.fullscreen.accesskey      "F">
-<!ENTITY main.invertedColors            "Inverted colors">
+<!ENTITY main.invertedColors            "Obrátiť farby">
 <!ENTITY main.invertedColors.accesskey  "I">
 
 <!-- Tools menu -->
@@ -93,7 +93,7 @@
 <!ENTITY main.home                      "Domov">
 <!ENTITY main.searchBar                 "Vyhľadávací panel">
 <!ENTITY main.search                    "Hľadať">
-<!ENTITY main.searchPlaceholder         "Type the text to search here...">
+<!ENTITY main.searchPlaceholder         "Zadajte text, ktorý chcete hladať...">
 <!ENTITY main.findInText                "Nájsť v texte">
 <!ENTITY main.noSearchBar               "Hľadanie vyžaduje indexovaný súbor ZIM">
 <!ENTITY main.bookmarks                 "Záložky">
@@ -116,8 +116,8 @@
 <!ENTITY main.openLinkInNewTab          "Otvoriť odkaz v novej záložke">
 <!ENTITY main.searchFor                 "Hľadať">
 <!ENTITY main.copyLinkAdress            "Copy link address">
-<!ENTITY main.mute                      "Mute">
-<!ENTITY main.audible                   "Audible">
+<!ENTITY main.mute                      "Stlmiť">
+<!ENTITY main.audible                   "Zosilniť">
 
 <!-- About Window -->
 <!ENTITY main.close                     "Zatvoriť">
@@ -129,31 +129,31 @@
 <!ENTITY preferences.profileDirectory   "Adresár profilu">
 <!ENTITY preferences.browse             "Prehliadať">
 <!ENTITY preferences.tabs               "Uložiť záložky">
-<!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">
+<!ENTITY preferences.downloadCatalogs   "Stiahnuť vzdialený katalóg">
 
 <!-- Server -->
-<!ENTITY server.load                    "Load">
-<!ENTITY server.start                   "Start">
+<!ENTITY server.load                    "Načítať">
+<!ENTITY server.start                   "Štart">
 <!ENTITY server.stop                    "Stop">
-<!ENTITY server.close                   "Close">
+<!ENTITY server.close                   "Zavrieť">
 
 <!-- Library -->
-<!ENTITY main.library.myLibrary                 "My library">
-<!ENTITY main.library.getNewFiles               "Get new files">
-<!ENTITY main.library.searchZimFiles            "Search ZIM files">
-<!ENTITY main.library.sortBy                    "Sort by">
-<!ENTITY main.library.sortBy.title              "Title">
-<!ENTITY main.library.sortBy.size               "Size">
-<!ENTITY main.library.sortBy.date               "Date">
-<!ENTITY main.library.sortBy.author             "Author">
-<!ENTITY main.library.sortBy.publisher          "Publisher">
-<!ENTITY main.library.filterBy                  "Filter by">
-<!ENTITY main.library.filterBy.fileSize         "File size">
-<!ENTITY main.library.filterBy.language         "Language">
+<!ENTITY main.library.myLibrary                 "Moja knižnica">
+<!ENTITY main.library.getNewFiles               "Získať nové súbory">
+<!ENTITY main.library.searchZimFiles            "Hľadať súbory ZIM">
+<!ENTITY main.library.sortBy                    "Zoradiť podľa">
+<!ENTITY main.library.sortBy.title              "Názvu">
+<!ENTITY main.library.sortBy.size               "Veľkosti">
+<!ENTITY main.library.sortBy.date               "Dátumu">
+<!ENTITY main.library.sortBy.author             "Autora">
+<!ENTITY main.library.sortBy.publisher          "Vydavateľa">
+<!ENTITY main.library.filterBy                  "Filtrovať podľa">
+<!ENTITY main.library.filterBy.fileSize         "Veľkosti súboru">
+<!ENTITY main.library.filterBy.language         "Jazyka">
 <!ENTITY main.library.filterBy.language.all     "Všetky">
-<!ENTITY main.library.filterBy.author           "Author">
+<!ENTITY main.library.filterBy.author           "Autor">
 <!ENTITY main.library.filterBy.author.all       "Všetky">
-<!ENTITY main.library.filterBy.publisher        "Publisher">
+<!ENTITY main.library.filterBy.publisher        "Vydavateľ">
 <!ENTITY main.library.filterBy.publisher.all    "Všetky">
-<!ENTITY main.library.filterBy.lessThan         "Less than">
+<!ENTITY main.library.filterBy.lessThan         "Menej ako">
 

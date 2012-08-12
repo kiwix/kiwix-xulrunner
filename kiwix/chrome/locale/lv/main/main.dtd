@@ -133,9 +133,9 @@
 
 <!-- Server -->
 <!ENTITY server.load                    "Load">
-<!ENTITY server.start                   "Start">
-<!ENTITY server.stop                    "Stop">
-<!ENTITY server.close                   "Close">
+<!ENTITY server.start                   "Sākt">
+<!ENTITY server.stop                    "Apturēt">
+<!ENTITY server.close                   "Aizvērt">
 
 <!-- Library -->
 <!ENTITY main.library.myLibrary                 "Mana bibliotēka">

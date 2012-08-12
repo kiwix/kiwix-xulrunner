@@ -3,10 +3,10 @@
 <!ENTITY main.cssdirection              "ltr">
 
 <!-- Mac menu -->
-<!ENTITY main.osxservices               "Services">
-<!ENTITY main.osxhideapp                "Hide &brand.brandShortName;">
-<!ENTITY main.osxhideothers             "Hide Others">
-<!ENTITY main.osxshowall                "Show All">
+<!ENTITY main.osxservices               "Shërbimet">
+<!ENTITY main.osxhideapp                "Fshih &brand.brandShorName;">
+<!ENTITY main.osxhideothers             "Fshih të tjerat">
+<!ENTITY main.osxshowall                "Paraqiti të gjitha">
 
 <!-- File menu -->
 <!ENTITY main.file                      "Dosja">
@@ -14,7 +14,7 @@
 <!ENTITY main.openFile                  "Hap dosjen">
 <!ENTITY main.browseLibrary.accesskey   "B">
 <!ENTITY main.browseLibrary             "Shfleto librarinë">
-<!ENTITY main.hideLibrary               "Hide library">
+<!ENTITY main.hideLibrary               "Fshih biblotekën">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "Hapur kohët e fundit...">
 <!ENTITY main.saveFile                  "Ruaj faqen si ...">
@@ -39,7 +39,7 @@
 <!ENTITY main.transliteration.accesskey "T">
 <!ENTITY main.preferences               "Parapëlqimet">
 <!ENTITY main.preferences.accesskey     "n">
-<!ENTITY main.server                    "Server">
+<!ENTITY main.server                    "Serveri">
 <!ENTITY main.server.accesskey          "s">
 
 <!-- Display menu -->
@@ -65,7 +65,7 @@
 <!ENTITY main.tabs.accesskey            "T">
 <!ENTITY main.fullscreen                "Ekran i plotë">
 <!ENTITY main.fullscreen.accesskey      "F">
-<!ENTITY main.invertedColors            "Inverted colors">
+<!ENTITY main.invertedColors            "Ngjyrat e ndërruara">
 <!ENTITY main.invertedColors.accesskey  "I">
 
 <!-- Tools menu -->
@@ -93,7 +93,7 @@
 <!ENTITY main.home                      "Faqja Krzesore">
 <!ENTITY main.searchBar                 "Shiriti kërkues">
 <!ENTITY main.search                    "Kërko">
-<!ENTITY main.searchPlaceholder         "Type the text to search here...">
+<!ENTITY main.searchPlaceholder         "Shkruani tekstin për të kërkuar këtu...">
 <!ENTITY main.findInText                "Kërko në tekst">
 <!ENTITY main.noSearchBar               "Kërkimi kërkon ZIM dokumentin e indeksuar">
 <!ENTITY main.bookmarks                 "Faqe-shenjues">
@@ -132,10 +132,10 @@
 <!ENTITY preferences.downloadCatalogs   "Shkarko katalogun (-gjet) ne distancë">
 
 <!-- Server -->
-<!ENTITY server.load                    "Load">
-<!ENTITY server.start                   "Start">
-<!ENTITY server.stop                    "Stop">
-<!ENTITY server.close                   "Close">
+<!ENTITY server.load                    "Ngarko">
+<!ENTITY server.start                   "Fillo">
+<!ENTITY server.stop                    "Ndalo">
+<!ENTITY server.close                   "Mbylle">
 
 <!-- Library -->
 <!ENTITY main.library.myLibrary                 "Libraria ime">
@@ -155,5 +155,5 @@
 <!ENTITY main.library.filterBy.author.all       "Të gjitha">
 <!ENTITY main.library.filterBy.publisher        "Publikuesi">
 <!ENTITY main.library.filterBy.publisher.all    "Të gjitha">
-<!ENTITY main.library.filterBy.lessThan         "Less than">
+<!ENTITY main.library.filterBy.lessThan         "Më pak se">
 

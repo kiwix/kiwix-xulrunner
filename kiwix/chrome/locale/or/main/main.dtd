@@ -3,10 +3,10 @@
 <!ENTITY main.cssdirection              "ltr">
 
 <!-- Mac menu -->
-<!ENTITY main.osxservices               "Services">
-<!ENTITY main.osxhideapp                "Hide &brand.brandShortName;">
-<!ENTITY main.osxhideothers             "Hide Others">
-<!ENTITY main.osxshowall                "Show All">
+<!ENTITY main.osxservices               "ସେବାଗୁଡିକ">
+<!ENTITY main.osxhideapp                "&brand.brandShortName ଲୁଚାଇବେ;">
+<!ENTITY main.osxhideothers             "ଅନ୍ୟ ସବୁକୁ ଲୁଚାଇବେ">
+<!ENTITY main.osxshowall                "ସବୁ ଦେଖିବେ">
 
 <!-- File menu -->
 <!ENTITY main.file                      "ଫାଇଲ">
@@ -14,7 +14,7 @@
 <!ENTITY main.openFile                  "ଫାଇଲଟି ଖୋଲିବେ...">
 <!ENTITY main.browseLibrary.accesskey   "B">
 <!ENTITY main.browseLibrary             "ଲାଇବ୍ରେରୀ ଦେଖ">
-<!ENTITY main.hideLibrary               "Hide library">
+<!ENTITY main.hideLibrary               "ପାଠାଗାର ଲୁଚାଇବେ">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "ନଗଦ ଖୋଲାଯାଇଥିବା...">
 <!ENTITY main.saveFile                  "ପୃଷ୍ଠାଟି ଏହି ନାମରେ ସାଇତିବେ...">
@@ -37,9 +37,9 @@
 <!ENTITY main.copy.accesskey            "p">
 <!ENTITY main.transliteration           "ଲିପି ଅନ୍ତରଣ">
 <!ENTITY main.transliteration.accesskey "T">
-<!ENTITY main.preferences               "ପସନ୍ଦସବୁ">
+<!ENTITY main.preferences               "ପସନ୍ଦଗୁଡିକ">
 <!ENTITY main.preferences.accesskey     "n">
-<!ENTITY main.server                    "Server">
+<!ENTITY main.server                    "ସର୍ଭର">
 <!ENTITY main.server.accesskey          "s">
 
 <!-- Display menu -->
@@ -65,7 +65,7 @@
 <!ENTITY main.tabs.accesskey            "T">
 <!ENTITY main.fullscreen                "ପୁରା ସ୍କ୍ରିନ">
 <!ENTITY main.fullscreen.accesskey      "F">
-<!ENTITY main.invertedColors            "Inverted colors">
+<!ENTITY main.invertedColors            "ବଦଳାଯାଇଥିବା ରଙ୍ଗଗୁଡିକ">
 <!ENTITY main.invertedColors.accesskey  "I">
 
 <!-- Tools menu -->
@@ -93,7 +93,7 @@
 <!ENTITY main.home                      "ମୂଳ ଜାଗା">
 <!ENTITY main.searchBar                 "ଖୋଜା ପଟିକା">
 <!ENTITY main.search                    "ଖୋଜିବେ">
-<!ENTITY main.searchPlaceholder         "Type the text to search here...">
+<!ENTITY main.searchPlaceholder         "ଖୋଜିବା ପାଇଁ ଚାହୁଁଥିବା ଶବ୍ଦଟିକୁ ଏଠାରେ ଲେଖନ୍ତୁ">
 <!ENTITY main.findInText                "ଲେଖାରେ ଖୋଜିବେ">
 <!ENTITY main.noSearchBar               "ଖୋଜିବା ନିମନ୍ତେ ଏକ ସୂଚି କରାହୋଇଥିବା ZIM ଫାଇଲ ଲୋଡ଼ା">
 <!ENTITY main.bookmarks                 "ବହିଚିହ୍ନକ">
@@ -116,8 +116,8 @@
 <!ENTITY main.openLinkInNewTab          "ନୂଆ ଟାବ୍ ରେ ଲିଂକ ଖୋଲ">
 <!ENTITY main.searchFor                 "ଖୋଜିବେ">
 <!ENTITY main.copyLinkAdress            "Copy link address">
-<!ENTITY main.mute                      "Mute">
-<!ENTITY main.audible                   "Audible">
+<!ENTITY main.mute                      "ବନ୍ଦ">
+<!ENTITY main.audible                   "ଶୁଣିବାଯୋଗ୍ୟ">
 
 <!-- About Window -->
 <!ENTITY main.close                     "ବନ୍ଦ କରିବେ">
@@ -129,13 +129,13 @@
 <!ENTITY preferences.profileDirectory   "ପ୍ରଫାଇଲ ତାଲିକା">
 <!ENTITY preferences.browse             "ଖୋଜିବା">
 <!ENTITY preferences.tabs               "ଟାବ୍ ଗୁଡ଼ିକୁ ମନେ ରଖନ୍ତୁ.">
-<!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">
+<!ENTITY preferences.downloadCatalogs   "ଅନ୍ୟ ଜାଗାରେ ଥିବା ଦେଖଣାଟିକୁ ଡାଉନଲୋଡ କରନ୍ତୁ">
 
 <!-- Server -->
-<!ENTITY server.load                    "Load">
-<!ENTITY server.start                   "Start">
-<!ENTITY server.stop                    "Stop">
-<!ENTITY server.close                   "Close">
+<!ENTITY server.load                    "ଲୋଡ କରନ୍ତୁ">
+<!ENTITY server.start                   "ଆରମ୍ଭ">
+<!ENTITY server.stop                    "ବନ୍ଦ">
+<!ENTITY server.close                   "ବନ୍ଦ କରିବେ">
 
 <!-- Library -->
 <!ENTITY main.library.myLibrary                 "ମୋ ପାଠାଗାର">
@@ -155,5 +155,5 @@
 <!ENTITY main.library.filterBy.author.all       "ସବୁ">
 <!ENTITY main.library.filterBy.publisher        "ପ୍ରକାଶକ">
 <!ENTITY main.library.filterBy.publisher.all    "ସବୁ">
-<!ENTITY main.library.filterBy.lessThan         "Less than">
+<!ENTITY main.library.filterBy.lessThan         "ତାଠୁ କମ">
 

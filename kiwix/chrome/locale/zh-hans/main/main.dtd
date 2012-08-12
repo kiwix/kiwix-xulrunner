@@ -6,7 +6,7 @@
 <!ENTITY main.osxservices               "Services">
 <!ENTITY main.osxhideapp                "Hide &brand.brandShortName;">
 <!ENTITY main.osxhideothers             "Hide Others">
-<!ENTITY main.osxshowall                "Show All">
+<!ENTITY main.osxshowall                "全部显示">
 
 <!-- File menu -->
 <!ENTITY main.file                      "文件">
@@ -133,9 +133,9 @@
 
 <!-- Server -->
 <!ENTITY server.load                    "Load">
-<!ENTITY server.start                   "Start">
-<!ENTITY server.stop                    "Stop">
-<!ENTITY server.close                   "Close">
+<!ENTITY server.start                   "开始">
+<!ENTITY server.stop                    "停止">
+<!ENTITY server.close                   "关闭">
 
 <!-- Library -->
 <!ENTITY main.library.myLibrary                 "我的库">

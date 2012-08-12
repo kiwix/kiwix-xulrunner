@@ -3,10 +3,10 @@
 <!ENTITY main.cssdirection              "ltr">
 
 <!-- Mac menu -->
-<!ENTITY main.osxservices               "Services">
-<!ENTITY main.osxhideapp                "Hide &brand.brandShortName;">
-<!ENTITY main.osxhideothers             "Hide Others">
-<!ENTITY main.osxshowall                "Show All">
+<!ENTITY main.osxservices               "সার্ভিস">
+<!ENTITY main.osxhideapp                "&brand.brandShortName; লুকান">
+<!ENTITY main.osxhideothers             "অন্যান্যগুলো লুকান">
+<!ENTITY main.osxshowall                "সবগুলো দেখাও">
 
 <!-- File menu -->
 <!ENTITY main.file                      "ফাইল">
@@ -14,7 +14,7 @@
 <!ENTITY main.openFile                  "ফাইল খোলো...">
 <!ENTITY main.browseLibrary.accesskey   "B">
 <!ENTITY main.browseLibrary             "লাইব্রেরি ব্রাউজ করুন">
-<!ENTITY main.hideLibrary               "Hide library">
+<!ENTITY main.hideLibrary               "লাইব্রেরী লুকাও">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "বর্তমানে খোলা রয়েছে...">
 <!ENTITY main.saveFile                  "যেভাবে পাতটি সংরক্ষণ করবেন...">
@@ -65,7 +65,7 @@
 <!ENTITY main.tabs.accesskey            "T">
 <!ENTITY main.fullscreen                "পূর্ণাঙ্গ স্ক্রিন">
 <!ENTITY main.fullscreen.accesskey      "F">
-<!ENTITY main.invertedColors            "Inverted colors">
+<!ENTITY main.invertedColors            "বিপরীত রং">
 <!ENTITY main.invertedColors.accesskey  "I">
 
 <!-- Tools menu -->
@@ -93,7 +93,7 @@
 <!ENTITY main.home                      "প্রধান পাতা">
 <!ENTITY main.searchBar                 "অনুসন্ধান বার">
 <!ENTITY main.search                    "অনুসন্ধান">
-<!ENTITY main.searchPlaceholder         "Type the text to search here...">
+<!ENTITY main.searchPlaceholder         "অনুসন্ধানের জন্য এখানে লিখুন...">
 <!ENTITY main.findInText                "লেখায় খুঁজুন">
 <!ENTITY main.noSearchBar               "অনুসন্ধানের জন্য একটি সূচিকৃত জেডআইএম ফাইল প্রয়োজন">
 <!ENTITY main.bookmarks                 "বুকমার্ক">
@@ -132,10 +132,10 @@
 <!ENTITY preferences.downloadCatalogs   "ক্যাটালগ ডাউনলোড করুন">
 
 <!-- Server -->
-<!ENTITY server.load                    "Load">
-<!ENTITY server.start                   "Start">
-<!ENTITY server.stop                    "Stop">
-<!ENTITY server.close                   "Close">
+<!ENTITY server.load                    "লোড">
+<!ENTITY server.start                   "শুরু">
+<!ENTITY server.stop                    "বন্ধ">
+<!ENTITY server.close                   "বন্ধ">
 
 <!-- Library -->
 <!ENTITY main.library.myLibrary                 "আমার লাইব্রেরী">
@@ -155,5 +155,5 @@
 <!ENTITY main.library.filterBy.author.all       "সমস্ত">
 <!ENTITY main.library.filterBy.publisher        "প্রকাশক">
 <!ENTITY main.library.filterBy.publisher.all    "সমস্ত">
-<!ENTITY main.library.filterBy.lessThan         "Less than">
+<!ENTITY main.library.filterBy.lessThan         "কম">
 

@@ -3,10 +3,10 @@
 <!ENTITY main.cssdirection              "ltr">
 
 <!-- Mac menu -->
-<!ENTITY main.osxservices               "Services">
-<!ENTITY main.osxhideapp                "Hide &brand.brandShortName;">
-<!ENTITY main.osxhideothers             "Hide Others">
-<!ENTITY main.osxshowall                "Show All">
+<!ENTITY main.osxservices               "Palvelut">
+<!ENTITY main.osxhideapp                "Piilota &brand.brandShortName;">
+<!ENTITY main.osxhideothers             "Piilota muut">
+<!ENTITY main.osxshowall                "Näytä kaikki">
 
 <!-- File menu -->
 <!ENTITY main.file                      "Tiedosto">
@@ -14,7 +14,7 @@
 <!ENTITY main.openFile                  "Avaa tiedosto...">
 <!ENTITY main.browseLibrary.accesskey   "S">
 <!ENTITY main.browseLibrary             "Selaa kirjastoa">
-<!ENTITY main.hideLibrary               "Hide library">
+<!ENTITY main.hideLibrary               "Piilota kirjasto">
 <!ENTITY main.openFile.accesskey        "A">
 <!ENTITY main.lastOpen                  "Viimeksi avatut...">
 <!ENTITY main.saveFile                  "Tallenna sivu nimellä...">
@@ -65,7 +65,7 @@
 <!ENTITY main.tabs.accesskey            "t">
 <!ENTITY main.fullscreen                "Koko näyttö">
 <!ENTITY main.fullscreen.accesskey      "ö">
-<!ENTITY main.invertedColors            "Inverted colors">
+<!ENTITY main.invertedColors            "Käänteiset värit">
 <!ENTITY main.invertedColors.accesskey  "I">
 
 <!-- Tools menu -->
@@ -93,7 +93,7 @@
 <!ENTITY main.home                      "Etusivu">
 <!ENTITY main.searchBar                 "Hakupalkki">
 <!ENTITY main.search                    "Haku">
-<!ENTITY main.searchPlaceholder         "Type the text to search here...">
+<!ENTITY main.searchPlaceholder         "Kirjoita haettava teksti tähän...">
 <!ENTITY main.findInText                "Etsi tekstissä">
 <!ENTITY main.noSearchBar               "Haku vaatii indeksoidun ZIM-tiedoston">
 <!ENTITY main.bookmarks                 "Kirjanmerkit">
@@ -116,8 +116,8 @@
 <!ENTITY main.openLinkInNewTab          "Avaa linkki uudessa välilehdessä">
 <!ENTITY main.searchFor                 "Etsi">
 <!ENTITY main.copyLinkAdress            "Copy link address">
-<!ENTITY main.mute                      "Mute">
-<!ENTITY main.audible                   "Audible">
+<!ENTITY main.mute                      "Vaimenna">
+<!ENTITY main.audible                   "Poista vaimennus">
 
 <!-- About Window -->
 <!ENTITY main.close                     "Sulje">
@@ -129,13 +129,13 @@
 <!ENTITY preferences.profileDirectory   "Profiilihakemisto">
 <!ENTITY preferences.browse             "Selaa">
 <!ENTITY preferences.tabs               "Muista välilehdet">
-<!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">
+<!ENTITY preferences.downloadCatalogs   "Lataa etäkatalogi(t)">
 
 <!-- Server -->
-<!ENTITY server.load                    "Load">
-<!ENTITY server.start                   "Start">
-<!ENTITY server.stop                    "Stop">
-<!ENTITY server.close                   "Close">
+<!ENTITY server.load                    "Lataa">
+<!ENTITY server.start                   "Aloita">
+<!ENTITY server.stop                    "Pysäytä">
+<!ENTITY server.close                   "Sulje">
 
 <!-- Library -->
 <!ENTITY main.library.myLibrary                 "Oma kirjasto">
@@ -155,5 +155,5 @@
 <!ENTITY main.library.filterBy.author.all       "Kaikki">
 <!ENTITY main.library.filterBy.publisher        "Julkaisija">
 <!ENTITY main.library.filterBy.publisher.all    "Kaikki">
-<!ENTITY main.library.filterBy.lessThan         "Less than">
+<!ENTITY main.library.filterBy.lessThan         "Vähemmän kuin">
 

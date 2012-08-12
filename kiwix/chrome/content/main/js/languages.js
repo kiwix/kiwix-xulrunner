@@ -46,7 +46,8 @@ _languagesHash['ind']          =_languagesHashOld['id']           = 'Bahasa Indo
 _languagesHash['ie']           = 'Interlingue';
 _languagesHash['ilo']          = 'Ilokano';
 _languagesHash['ita']          = _languagesHashOld['it']          = 'Italiano';
-_languagesHash['ja']           = '日本語';
+_languagesHash['jav']          = _languagesHashOld['jv']          = 'Basa Jawa';
+_languagesHash['jpn']          = _languagesHashOld['ja']          = '日本語';
 _languagesHash['ka']           = 'ქართული';
 _languagesHash['kn']           = 'ಕನ್ನಡ';
 _languagesHash['kor']          = _languagesHashOld['ko']          = '한국어';
@@ -105,6 +106,7 @@ _languagesHash['zho']          = _languagesHashOld['zh']          = '中文';
 _languagesHash['zho-hans']     = _languagesHashOld['zh-hans']     = '中文(简体)';
 _languagesHash['zho-hant']     = _languagesHashOld['zh-hant']     = '中文(繁體)';
 _languagesHash['zho-hk']       = _languagesHashOld['zh-hk']       = '中文(香港)';
+_languagesHash['zza']          = _languagesHashOld['diq']         = 'Zāzākī';
 
 function getLanguageNameFromISO(code) {
     var language = _languagesHash[code] || _languagesHashOld[code] || '';

@@ -3,10 +3,10 @@
 <!ENTITY main.cssdirection              "ltr">
 
 <!-- Mac menu -->
-<!ENTITY main.osxservices               "Services">
+<!ENTITY main.osxservices               "სერვისები">
 <!ENTITY main.osxhideapp                "Hide &brand.brandShortName;">
-<!ENTITY main.osxhideothers             "Hide Others">
-<!ENTITY main.osxshowall                "Show All">
+<!ENTITY main.osxhideothers             "სხვების დამალვა">
+<!ENTITY main.osxshowall                "ყველას ჩვენება">
 
 <!-- File menu -->
 <!ENTITY main.file                      "ფაილი">
@@ -14,7 +14,7 @@
 <!ENTITY main.openFile                  "ფაილის გახსნა...">
 <!ENTITY main.browseLibrary.accesskey   "B">
 <!ENTITY main.browseLibrary             "ბიბლიოთეკის დათვალიერება">
-<!ENTITY main.hideLibrary               "Hide library">
+<!ENTITY main.hideLibrary               "ბიბლიოთეკის დამალვა">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "ბოლოს გახსნილი...">
 <!ENTITY main.saveFile                  "გვერდის შენახვა როგორც...">
@@ -39,7 +39,7 @@
 <!ENTITY main.transliteration.accesskey "T">
 <!ENTITY main.preferences               "კონფიგურაცია">
 <!ENTITY main.preferences.accesskey     "n">
-<!ENTITY main.server                    "Server">
+<!ENTITY main.server                    "სერვერი">
 <!ENTITY main.server.accesskey          "s">
 
 <!-- Display menu -->
@@ -132,10 +132,10 @@
 <!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">
 
 <!-- Server -->
-<!ENTITY server.load                    "Load">
-<!ENTITY server.start                   "Start">
-<!ENTITY server.stop                    "Stop">
-<!ENTITY server.close                   "Close">
+<!ENTITY server.load                    "ჩატვირთვა">
+<!ENTITY server.start                   "დაწყება">
+<!ENTITY server.stop                    "შეჩერება">
+<!ENTITY server.close                   "დახურვა">
 
 <!-- Library -->
 <!ENTITY main.library.myLibrary                 "ჩემი ბიბლიოთეკა">

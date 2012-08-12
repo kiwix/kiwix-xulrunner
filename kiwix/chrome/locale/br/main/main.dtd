@@ -65,7 +65,7 @@
 <!ENTITY main.tabs.accesskey            "T">
 <!ENTITY main.fullscreen                "Skramm leun">
 <!ENTITY main.fullscreen.accesskey      "F">
-<!ENTITY main.invertedColors            "Inverted colors">
+<!ENTITY main.invertedColors            "Livioù eilpennet">
 <!ENTITY main.invertedColors.accesskey  "I">
 
 <!-- Tools menu -->
@@ -132,10 +132,10 @@
 <!ENTITY preferences.downloadCatalogs   "Pellgargañ ar c'hatalog(où) a-bell">
 
 <!-- Server -->
-<!ENTITY server.load                    "Load">
-<!ENTITY server.start                   "Start">
-<!ENTITY server.stop                    "Stop">
-<!ENTITY server.close                   "Close">
+<!ENTITY server.load                    "Kargañ">
+<!ENTITY server.start                   "Kregiñ">
+<!ENTITY server.stop                    "Paouez">
+<!ENTITY server.close                   "Serriñ">
 
 <!-- Library -->
 <!ENTITY main.library.myLibrary                 "Ma levraoueg">

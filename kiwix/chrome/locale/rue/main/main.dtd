@@ -3,10 +3,10 @@
 <!ENTITY main.cssdirection              "ltr">
 
 <!-- Mac menu -->
-<!ENTITY main.osxservices               "Services">
-<!ENTITY main.osxhideapp                "Hide &brand.brandShortName;">
-<!ENTITY main.osxhideothers             "Hide Others">
-<!ENTITY main.osxshowall                "Show All">
+<!ENTITY main.osxservices               "Службы">
+<!ENTITY main.osxhideapp                "Скрыти &brand.brandShortName;">
+<!ENTITY main.osxhideothers             "Скрыти остатнї">
+<!ENTITY main.osxshowall                "Вказати вшытко">
 
 <!-- File menu -->
 <!ENTITY main.file                      "Файл">
@@ -14,7 +14,7 @@
 <!ENTITY main.openFile                  "Отворити файл ...">
 <!ENTITY main.browseLibrary.accesskey   "B">
 <!ENTITY main.browseLibrary             "Огляд книжніцї">
-<!ENTITY main.hideLibrary               "Hide library">
+<!ENTITY main.hideLibrary               "Скрыти книжніцю">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "Недавно отворены ...">
 <!ENTITY main.saveFile                  "Уложыти сторінку як...">
@@ -37,9 +37,9 @@
 <!ENTITY main.copy.accesskey            "p">
 <!ENTITY main.transliteration           "Транслітерація">
 <!ENTITY main.transliteration.accesskey "T">
-<!ENTITY main.preferences               "Параметры">
+<!ENTITY main.preferences               "Наставлїня">
 <!ENTITY main.preferences.accesskey     "n">
-<!ENTITY main.server                    "Server">
+<!ENTITY main.server                    "Сервер">
 <!ENTITY main.server.accesskey          "s">
 
 <!-- Display menu -->
@@ -65,7 +65,7 @@
 <!ENTITY main.tabs.accesskey            "T">
 <!ENTITY main.fullscreen                "Цала образовка">
 <!ENTITY main.fullscreen.accesskey      "F">
-<!ENTITY main.invertedColors            "Inverted colors">
+<!ENTITY main.invertedColors            "Інвертованы фарбы">
 <!ENTITY main.invertedColors.accesskey  "I">
 
 <!-- Tools menu -->
@@ -93,7 +93,7 @@
 <!ENTITY main.home                      "Домів">
 <!ENTITY main.searchBar                 "Панел гляданя">
 <!ENTITY main.search                    "Найти">
-<!ENTITY main.searchPlaceholder         "Type the text to search here...">
+<!ENTITY main.searchPlaceholder         "Гев напиште текст, котрый хочете глядати ...">
 <!ENTITY main.findInText                "Найти в текстї">
 <!ENTITY main.noSearchBar               "Гляданя потребує індексованый файл ZIM">
 <!ENTITY main.bookmarks                 "Заложкы">
@@ -116,8 +116,8 @@
 <!ENTITY main.openLinkInNewTab          "Одкрыти одказ в новім табі">
 <!ENTITY main.searchFor                 "Глядати">
 <!ENTITY main.copyLinkAdress            "Copy link address">
-<!ENTITY main.mute                      "Mute">
-<!ENTITY main.audible                   "Audible">
+<!ENTITY main.mute                      "Без звуку">
+<!ENTITY main.audible                   "Із звуком">
 
 <!-- About Window -->
 <!ENTITY main.close                     "Заперти">
@@ -129,13 +129,13 @@
 <!ENTITY preferences.profileDirectory   "Адресарь профілу хоснователя">
 <!ENTITY preferences.browse             "Переглядати">
 <!ENTITY preferences.tabs               "Уложыти табы">
-<!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">
+<!ENTITY preferences.downloadCatalogs   "Скачаня одлеглого каталоґу(ів)">
 
 <!-- Server -->
-<!ENTITY server.load                    "Load">
-<!ENTITY server.start                   "Start">
-<!ENTITY server.stop                    "Stop">
-<!ENTITY server.close                   "Close">
+<!ENTITY server.load                    "Начітати">
+<!ENTITY server.start                   "Спустити">
+<!ENTITY server.stop                    "Заставити">
+<!ENTITY server.close                   "Заперти">
 
 <!-- Library -->
 <!ENTITY main.library.myLibrary                 "Моя книжніця">
@@ -155,5 +155,5 @@
 <!ENTITY main.library.filterBy.author.all       "Вшыткы">
 <!ENTITY main.library.filterBy.publisher        "Выдаватель">
 <!ENTITY main.library.filterBy.publisher.all    "Вшыткы">
-<!ENTITY main.library.filterBy.lessThan         "Less than">
+<!ENTITY main.library.filterBy.lessThan         "Менше як">
 

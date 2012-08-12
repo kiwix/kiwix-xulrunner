@@ -65,7 +65,7 @@
 <!ENTITY main.tabs.accesskey            "T">
 <!ENTITY main.fullscreen                "На ўвесь экран">
 <!ENTITY main.fullscreen.accesskey      "F">
-<!ENTITY main.invertedColors            "Inverted colors">
+<!ENTITY main.invertedColors            "Інвэртаваць колеры">
 <!ENTITY main.invertedColors.accesskey  "I">
 
 <!-- Tools menu -->
@@ -132,10 +132,10 @@
 <!ENTITY preferences.downloadCatalogs   "Загрузіць аддалены(я) каталёг(і)">
 
 <!-- Server -->
-<!ENTITY server.load                    "Load">
-<!ENTITY server.start                   "Start">
-<!ENTITY server.stop                    "Stop">
-<!ENTITY server.close                   "Close">
+<!ENTITY server.load                    "Загрузіць">
+<!ENTITY server.start                   "Старт">
+<!ENTITY server.stop                    "Спыніць">
+<!ENTITY server.close                   "Закрыць">
 
 <!-- Library -->
 <!ENTITY main.library.myLibrary                 "Мая бібліятэка">

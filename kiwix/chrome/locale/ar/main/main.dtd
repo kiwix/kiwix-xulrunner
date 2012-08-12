@@ -10,69 +10,69 @@
 
 <!-- File menu -->
 <!ENTITY main.file                      "ملف">
-<!ENTITY main.file.accesskey            "م">
+<!ENTITY main.file.accesskey            "F">
 <!ENTITY main.openFile                  "افتح ملفًا...">
 <!ENTITY main.browseLibrary.accesskey   "B">
 <!ENTITY main.browseLibrary             "تصفح المكتبة">
 <!ENTITY main.hideLibrary               "إخفاء المكتبة">
-<!ENTITY main.openFile.accesskey        "ف">
+<!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "المفتوح مؤخراً...">
 <!ENTITY main.saveFile                  "حفظ الصفحة ك...">
 <!ENTITY main.saveFile.accesskey        "S">
 <!ENTITY main.print                     "طباعة">
-<!ENTITY main.print.accesskey           "ط">
+<!ENTITY main.print.accesskey           "P">
 <!ENTITY main.printPdf                  "طباعة كملف PDF">
 <!ENTITY main.printPdf.accesskey        "D">
 <!ENTITY main.quit                      "خروج">
-<!ENTITY main.quit.accesskey            "خ">
+<!ENTITY main.quit.accesskey            "Q">
 
 <!-- Edit menu -->
-<!ENTITY main.edit                      "تحرير">
-<!ENTITY main.edit.accesskey            "ت">
+<!ENTITY main.edit                      "تعديل">
+<!ENTITY main.edit.accesskey            "E">
 <!ENTITY main.find                      "بحث في الصفحة...">
-<!ENTITY main.find.accesskey            "ب">
+<!ENTITY main.find.accesskey            "S">
 <!ENTITY main.selectall                 "اختر الكل">
-<!ENTITY main.selectall.accesskey       "ح">
+<!ENTITY main.selectall.accesskey       "a">
 <!ENTITY main.copy                      "انسخ">
-<!ENTITY main.copy.accesskey            "ن">
+<!ENTITY main.copy.accesskey            "p">
 <!ENTITY main.transliteration           "تحويل لغة الكتابة">
 <!ENTITY main.transliteration.accesskey "T">
 <!ENTITY main.preferences               "تفضيلات">
-<!ENTITY main.preferences.accesskey     "s">
+<!ENTITY main.preferences.accesskey     "n">
 <!ENTITY main.server                    "الخادوم">
 <!ENTITY main.server.accesskey          "s">
 
 <!-- Display menu -->
 <!ENTITY main.display                   "عرض">
-<!ENTITY main.display.accesskey         "ع">
+<!ENTITY main.display.accesskey         "D">
 <!ENTITY main.zoom                      "تكبير/تصغير">
-<!ENTITY main.zoom.accesskey            "ت">
+<!ENTITY main.zoom.accesskey            "Z">
 <!ENTITY main.zoomin                    "كبّر">
-<!ENTITY main.zoomin.accesskey          "ك">
+<!ENTITY main.zoomin.accesskey          "M">
 <!ENTITY main.zoomout                   "صغّر">
-<!ENTITY main.zoomout.accesskey         "ص">
+<!ENTITY main.zoomout.accesskey         "R">
 <!ENTITY main.zoomorig                  "الحجم الأصلي">
-<!ENTITY main.zoomorig.accesskey        "ح">
+<!ENTITY main.zoomorig.accesskey        "O">
 <!ENTITY main.language                  "اللغة">
-<!ENTITY main.language.accesskey        "ل">
+<!ENTITY main.language.accesskey        "L">
 <!ENTITY main.skin                      "الواجهة">
 <!ENTITY main.skin.accesskey            "S">
 <!ENTITY main.statusbar                 "شريط الحالة">
-<!ENTITY main.statusbar.accesskey       "ح">
+<!ENTITY main.statusbar.accesskey       "S">
 <!ENTITY main.resultsbar                "شريط النتائج">
-<!ENTITY main.resultsbar.accesskey      "ن">
+<!ENTITY main.resultsbar.accesskey      "R">
 <!ENTITY main.tabs                      "ألسنة">
 <!ENTITY main.tabs.accesskey            "T">
 <!ENTITY main.fullscreen                "ملئ الشاشة">
-<!ENTITY main.fullscreen.accesskey      "م">
-<!ENTITY main.invertedColors            "Inverted colors">
+<!ENTITY main.fullscreen.accesskey      "F">
+<!ENTITY main.invertedColors            "ألوان معكوسة">
 <!ENTITY main.invertedColors.accesskey  "I">
 
 <!-- Tools menu -->
 <!ENTITY main.tools                     "أدوات">
-<!ENTITY main.tools.accesskey           "ا">
+<!ENTITY main.tools.accesskey           "T">
 <!ENTITY main.randomArticle             "مقالة عشوائية">
-<!ENTITY main.randomArticle.accesskey   "ع">
+<!ENTITY main.randomArticle.accesskey   "R">
 <!ENTITY main.checkIntegrity            "تحقّق من السلامة">
 <!ENTITY main.checkIntegrity.accesskey  "k">
 <!ENTITY main.purgeHistory              "إلغاء التاريخ">
@@ -80,19 +80,19 @@
 
 <!-- Help menu -->
 <!ENTITY main.help                      "مساعدة">
-<!ENTITY main.help.accesskey            "س">
+<!ENTITY main.help.accesskey            "H">
 <!ENTITY main.feedback                  "ملاحظات">
 <!ENTITY main.reportabug                "بلغ عن علة">
 <!ENTITY main.requestafeature           "اطلب ميزة">
 <!ENTITY main.about                     "حول &#38;#38;شعار.اسم الشعار;">
-<!ENTITY main.about.accesskey           "ح">
+<!ENTITY main.about.accesskey           "A">
 
 <!-- Tool bar -->
-<!ENTITY main.back                      "السابق">
+<!ENTITY main.back                      "رجوع">
 <!ENTITY main.forward                   "التالي">
 <!ENTITY main.home                      "صفحة البداية">
 <!ENTITY main.searchBar                 "شريط البحث">
-<!ENTITY main.search                    "ابحث">
+<!ENTITY main.search                    "بحث">
 <!ENTITY main.searchPlaceholder         "أدخل النص للبحث هنا...">
 <!ENTITY main.findInText                "جِد في النص">
 <!ENTITY main.noSearchBar               "يتطلب البحث عن الملفات وفهرستها Zim">
@@ -132,10 +132,10 @@
 <!ENTITY preferences.downloadCatalogs   "قم بتحميل فهرس (اث) عن بعد">
 
 <!-- Server -->
-<!ENTITY server.load                    "Load">
-<!ENTITY server.start                   "Start">
-<!ENTITY server.stop                    "Stop">
-<!ENTITY server.close                   "Close">
+<!ENTITY server.load                    "تحميل">
+<!ENTITY server.start                   "البداية">
+<!ENTITY server.stop                    "إيقاف">
+<!ENTITY server.close                   "غلق">
 
 <!-- Library -->
 <!ENTITY main.library.myLibrary                 "مكتبتي">

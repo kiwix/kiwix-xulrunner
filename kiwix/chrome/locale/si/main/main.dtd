@@ -3,10 +3,10 @@
 <!ENTITY main.cssdirection              "ltr">
 
 <!-- Mac menu -->
-<!ENTITY main.osxservices               "Services">
-<!ENTITY main.osxhideapp                "Hide &brand.brandShortName;">
-<!ENTITY main.osxhideothers             "Hide Others">
-<!ENTITY main.osxshowall                "Show All">
+<!ENTITY main.osxservices               "සේවාවන්">
+<!ENTITY main.osxhideapp                "සඟවන්න &වර්ගය.වර්ගකෙටිනම;">
+<!ENTITY main.osxhideothers             "වෙනත් ඒවා සඟවන්න">
+<!ENTITY main.osxshowall                "සියල්ලම පෙන්වන්න">
 
 <!-- File menu -->
 <!ENTITY main.file                      "ගොනුව">
@@ -14,7 +14,7 @@
 <!ENTITY main.openFile                  "ගොනුව විවෘත කරන්න...">
 <!ENTITY main.browseLibrary.accesskey   "B">
 <!ENTITY main.browseLibrary             "ගබඩාව පිරික්සන්න">
-<!ENTITY main.hideLibrary               "Hide library">
+<!ENTITY main.hideLibrary               "පුස්තකාලය සඟවන්න">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "මෑතදී විවෘත කෙරුණු...">
 <!ENTITY main.saveFile                  "පිටුව මෙසේ සුරකින්න...">
@@ -39,7 +39,7 @@
 <!ENTITY main.transliteration.accesskey "T">
 <!ENTITY main.preferences               "අභිරුචි">
 <!ENTITY main.preferences.accesskey     "n">
-<!ENTITY main.server                    "Server">
+<!ENTITY main.server                    "සර්වරය">
 <!ENTITY main.server.accesskey          "s">
 
 <!-- Display menu -->
@@ -65,7 +65,7 @@
 <!ENTITY main.tabs.accesskey            "T">
 <!ENTITY main.fullscreen                "පූර්ණ තිරය">
 <!ENTITY main.fullscreen.accesskey      "F">
-<!ENTITY main.invertedColors            "Inverted colors">
+<!ENTITY main.invertedColors            "අපවර්තිත වර්ණ">
 <!ENTITY main.invertedColors.accesskey  "I">
 
 <!-- Tools menu -->
@@ -93,7 +93,7 @@
 <!ENTITY main.home                      "මුල් පිටුව">
 <!ENTITY main.searchBar                 "ගවේෂණ තීරුව">
 <!ENTITY main.search                    "ගවේෂණය">
-<!ENTITY main.searchPlaceholder         "Type the text to search here...">
+<!ENTITY main.searchPlaceholder         "මෙතන සෙවීමට පාඨය යතුරු ලියනය කරන්න...">
 <!ENTITY main.findInText                "පෙළෙහි සොයන්න">
 <!ENTITY main.noSearchBar               "ගවේෂණය සඳහා සූචිත ZIM ගොනුවක් අවශ්‍ය වෙයි">
 <!ENTITY main.bookmarks                 "පොත්යොමු">
@@ -116,8 +116,8 @@
 <!ENTITY main.openLinkInNewTab          "සබැඳිය නව ටැබයක විවෘත කරන්න">
 <!ENTITY main.searchFor                 "සඳහා ගවේෂණය">
 <!ENTITY main.copyLinkAdress            "Copy link address">
-<!ENTITY main.mute                      "Mute">
-<!ENTITY main.audible                   "Audible">
+<!ENTITY main.mute                      "නිශ්ශබ්ද කරන්න">
+<!ENTITY main.audible                   "කනට ඇසෙන">
 
 <!-- About Window -->
 <!ENTITY main.close                     "වසන්න">
@@ -129,13 +129,13 @@
 <!ENTITY preferences.profileDirectory   "පැතිකඩ නාමාවලිය">
 <!ENTITY preferences.browse             "පිරික්සන්න">
 <!ENTITY preferences.tabs               "මතක්කිරීම් ටැබයන්">
-<!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">
+<!ENTITY preferences.downloadCatalogs   "දුරස්ථ නාමාවලි(ය) බාගන්න">
 
 <!-- Server -->
-<!ENTITY server.load                    "Load">
-<!ENTITY server.start                   "Start">
-<!ENTITY server.stop                    "Stop">
-<!ENTITY server.close                   "Close">
+<!ENTITY server.load                    "පූරණය">
+<!ENTITY server.start                   "අරඹන්න">
+<!ENTITY server.stop                    "නවතන්න">
+<!ENTITY server.close                   "වසන්න">
 
 <!-- Library -->
 <!ENTITY main.library.myLibrary                 "මගේ පුස්තකාලය">
@@ -155,5 +155,5 @@
 <!ENTITY main.library.filterBy.author.all       "සියල්ල">
 <!ENTITY main.library.filterBy.publisher        "ප්‍රකාශක">
 <!ENTITY main.library.filterBy.publisher.all    "සියල්ල">
-<!ENTITY main.library.filterBy.lessThan         "Less than">
+<!ENTITY main.library.filterBy.lessThan         "වඩා අඩු">
 

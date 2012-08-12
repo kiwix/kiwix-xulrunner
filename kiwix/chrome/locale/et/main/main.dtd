@@ -5,8 +5,8 @@
 <!-- Mac menu -->
 <!ENTITY main.osxservices               "Services">
 <!ENTITY main.osxhideapp                "Hide &brand.brandShortName;">
-<!ENTITY main.osxhideothers             "Hide Others">
-<!ENTITY main.osxshowall                "Show All">
+<!ENTITY main.osxhideothers             "Peida ülejäänud">
+<!ENTITY main.osxshowall                "Näita kõiki">
 
 <!-- File menu -->
 <!ENTITY main.file                      "Fail">
@@ -14,7 +14,7 @@
 <!ENTITY main.openFile                  "Ava fail...">
 <!ENTITY main.browseLibrary.accesskey   "B">
 <!ENTITY main.browseLibrary             "Sirvi raamatukogu">
-<!ENTITY main.hideLibrary               "Hide library">
+<!ENTITY main.hideLibrary               "Peida raamatukogu">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "Viimati avatud...">
 <!ENTITY main.saveFile                  "Salvesta lehekülg nimega...">
@@ -93,7 +93,7 @@
 <!ENTITY main.home                      "Koduleht">
 <!ENTITY main.searchBar                 "Otsiriba">
 <!ENTITY main.search                    "Otsi">
-<!ENTITY main.searchPlaceholder         "Type the text to search here...">
+<!ENTITY main.searchPlaceholder         "Kirjuta otsitav tekst siia...">
 <!ENTITY main.findInText                "Otsi tekstist">
 <!ENTITY main.noSearchBar               "Otsimiseks on vaja indekseeritud ZIM-faili">
 <!ENTITY main.bookmarks                 "Järjehoidjad">
@@ -132,10 +132,10 @@
 <!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">
 
 <!-- Server -->
-<!ENTITY server.load                    "Load">
-<!ENTITY server.start                   "Start">
-<!ENTITY server.stop                    "Stop">
-<!ENTITY server.close                   "Close">
+<!ENTITY server.load                    "Laadi">
+<!ENTITY server.start                   "Alusta">
+<!ENTITY server.stop                    "Peata">
+<!ENTITY server.close                   "Sulge">
 
 <!-- Library -->
 <!ENTITY main.library.myLibrary                 "Minu raamatukogu">
@@ -155,5 +155,5 @@
 <!ENTITY main.library.filterBy.author.all       "Kõik">
 <!ENTITY main.library.filterBy.publisher        "Avaldaja">
 <!ENTITY main.library.filterBy.publisher.all    "Kõik">
-<!ENTITY main.library.filterBy.lessThan         "Less than">
+<!ENTITY main.library.filterBy.lessThan         "Vähem kui">
 

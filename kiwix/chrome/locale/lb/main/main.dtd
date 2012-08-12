@@ -132,10 +132,10 @@
 <!ENTITY preferences.downloadCatalogs   "Extern(e) Katalog(en) eroflueden">
 
 <!-- Server -->
-<!ENTITY server.load                    "Load">
-<!ENTITY server.start                   "Start">
-<!ENTITY server.stop                    "Stop">
-<!ENTITY server.close                   "Close">
+<!ENTITY server.load                    "Lueden">
+<!ENTITY server.start                   "Ufank">
+<!ENTITY server.stop                    "Ophalen">
+<!ENTITY server.close                   "Zoumaachen">
 
 <!-- Library -->
 <!ENTITY main.library.myLibrary                 "Meng Bibliothéik">

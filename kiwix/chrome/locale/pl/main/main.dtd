@@ -3,10 +3,10 @@
 <!ENTITY main.cssdirection              "ltr">
 
 <!-- Mac menu -->
-<!ENTITY main.osxservices               "Services">
-<!ENTITY main.osxhideapp                "Hide &brand.brandShortName;">
-<!ENTITY main.osxhideothers             "Hide Others">
-<!ENTITY main.osxshowall                "Show All">
+<!ENTITY main.osxservices               "Usługi">
+<!ENTITY main.osxhideapp                "Ukryj &brand.brandShortName;">
+<!ENTITY main.osxhideothers             "Ukryj inne">
+<!ENTITY main.osxshowall                "Pokaż wszystko">
 
 <!-- File menu -->
 <!ENTITY main.file                      "Plik">
@@ -14,7 +14,7 @@
 <!ENTITY main.openFile                  "Otwórz plik...">
 <!ENTITY main.browseLibrary.accesskey   "B">
 <!ENTITY main.browseLibrary             "Przeglądaj biblioteki">
-<!ENTITY main.hideLibrary               "Hide library">
+<!ENTITY main.hideLibrary               "Ukryj biblioteki">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "Ostatnio otwierane...">
 <!ENTITY main.saveFile                  "Zapisz stronę jako...">
@@ -65,7 +65,7 @@
 <!ENTITY main.tabs.accesskey            "Z">
 <!ENTITY main.fullscreen                "Pełny ekran">
 <!ENTITY main.fullscreen.accesskey      "F">
-<!ENTITY main.invertedColors            "Inverted colors">
+<!ENTITY main.invertedColors            "Odwrócone kolory">
 <!ENTITY main.invertedColors.accesskey  "I">
 
 <!-- Tools menu -->
@@ -93,7 +93,7 @@
 <!ENTITY main.home                      "Strona główna">
 <!ENTITY main.searchBar                 "Pole wyszukiwania">
 <!ENTITY main.search                    "Szukaj">
-<!ENTITY main.searchPlaceholder         "Type the text to search here...">
+<!ENTITY main.searchPlaceholder         "Wpisz tekst, aby wyszukać...">
 <!ENTITY main.findInText                "Znajdź w tekście">
 <!ENTITY main.noSearchBar               "Wyszukiwanie wymaga zindeksowanego pliku ZIM">
 <!ENTITY main.bookmarks                 "Zakładki">
@@ -129,13 +129,13 @@
 <!ENTITY preferences.profileDirectory   "Katalogu profilu">
 <!ENTITY preferences.browse             "Przeglądaj">
 <!ENTITY preferences.tabs               "Zapamiętaj zakładki">
-<!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">
+<!ENTITY preferences.downloadCatalogs   "Pobierz katalog(i) zdalny(e)">
 
 <!-- Server -->
-<!ENTITY server.load                    "Load">
+<!ENTITY server.load                    "Wczytaj">
 <!ENTITY server.start                   "Start">
 <!ENTITY server.stop                    "Stop">
-<!ENTITY server.close                   "Close">
+<!ENTITY server.close                   "Zamknij">
 
 <!-- Library -->
 <!ENTITY main.library.myLibrary                 "Moja biblioteka">
