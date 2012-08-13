@@ -4,6 +4,7 @@ Kiwix 0.9 rc2
 * FIXED: kiwix-serve memory leak on ARM (ID: 3538663)
 * FIXED: open link in new tab from the right-click contextual menu (ID: 3553735)
 * FIXED: Hide bookmarks sidebar in the "library view" (ID: 3555848)
+* FIXED: Better landing page loading in kiwix-plug (by introducing ip forwarding)
 * NEW: New supported user interface languages: Zazaki (diq), Javanese (jv)
 * NEW: improvement of the "verbose" mode in kiwix-install and kiwix-index
 * NEW: CTRL+R to load random article (ID: 3549370)
