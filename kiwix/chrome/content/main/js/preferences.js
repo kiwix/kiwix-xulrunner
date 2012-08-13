@@ -46,13 +46,10 @@ function savePreferences() {
     var oldDownloadRemoteCatalogs = settings.downloadRemoteCatalogs();
     settings.downloadRemoteCatalogs(downloadRemoteCatalogsCheckbox.checked);
 
-    /* Download catalogs now, do not wait next restart */
-    /* still do not, not so easy, content.js should be as module */
-    /*
+    /* Mandatory restart, do download the catalogs */
     if (!oldDownloadRemoteCatalogs && downloadRemoteCatalogs) {
-	downloadRemoteBookList(true, true);
+	restart();
     }
-    */
 }
 
 /* Choose new profile directory */
