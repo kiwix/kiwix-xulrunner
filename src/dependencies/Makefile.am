@@ -61,7 +61,7 @@ endif
 
 # Windows
 xulrunner-sdk-win.zip:
-	$(DOWNLOADER) xulrunner-sdk-win.zip $(DEP_MIRROR)/xulrunner-11.0.en-US.win32.sdk.zip
+	$(DOWNLOADER) xulrunner-sdk-win.zip $(DEP_MIRROR)/xulrunner-14.0.1.en-US.win32.sdk.zip
 
 ####################################################
 ############ XULRUNNER-RUNTIME
@@ -92,7 +92,7 @@ xr_target/xulrunner-11.0.en-US.mac/XUL.framework: xr_target/xulrunner-11.0.en-US
 
 # Windows
 xulrunner-win.zip:
-	$(DOWNLOADER) xulrunner-win.zip $(DEP_MIRROR)/xulrunner-11.0.en-US.win32.zip
+	$(DOWNLOADER) xulrunner-win.zip $(DEP_MIRROR)/xulrunner-14.0.1.en-US.win32.zip
 
 ####################################################
 ############ ZLIB
