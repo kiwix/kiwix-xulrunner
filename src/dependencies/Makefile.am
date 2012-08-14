@@ -18,7 +18,7 @@ else
 GECKOSDKURL=$(DEP_MIRROR)/xulrunner-14.0.1.en-US.linux-$(ARCH).sdk.tar.bz2
 endif
 else
-GECKOSDKURL=$(DEP_MIRROR)/xulrunner-11.0.en-US.mac-$(ARCH).sdk.tar.bz2
+GECKOSDKURL=$(DEP_MIRROR)/xulrunner-14.0.1.en-US.mac-$(ARCH).sdk.tar.bz2
 endif
 
 if IS_OLD_GECKO
@@ -33,17 +33,17 @@ endif
 xulrunner-sdk.tar.bz2:
 	$(DOWNLOADER) xulrunner-sdk.tar.bz2 $(GECKOSDKURL)
 
-xulrunner-11.0.en-US.mac-i386.sdk.tar.bz2:
-	$(DOWNLOADER) xulrunner-11.0.en-US.mac-i386.sdk.tar.bz2 $(DEP_MIRROR)/xulrunner-11.0.en-US.mac-i386.sdk.tar.bz2
+xulrunner-14.0.1.en-US.mac-i386.sdk.tar.bz2:
+	$(DOWNLOADER) xulrunner-14.0.1.en-US.mac-i386.sdk.tar.bz2 $(DEP_MIRROR)/xulrunner-14.0.1.en-US.mac-i386.sdk.tar.bz2
 
-xulrunner-11.0.en-US.mac-x86_64.sdk.tar.bz2:
-	$(DOWNLOADER) xulrunner-11.0.en-US.mac-x86_64.sdk.tar.bz2 $(DEP_MIRROR)/xulrunner-11.0.en-US.mac-x86_64.sdk.tar.bz2
+xulrunner-14.0.1.en-US.mac-x86_64.sdk.tar.bz2:
+	$(DOWNLOADER) xulrunner-14.0.1.en-US.mac-x86_64.sdk.tar.bz2 $(DEP_MIRROR)/xulrunner-14.0.1.en-US.mac-x86_64.sdk.tar.bz2
 
-xulrunner-sdk-i386: xulrunner-11.0.en-US.mac-i386.sdk.tar.bz2
-	if test ! -d xulrunner-sdk-i386; then tar -xf xulrunner-11.0.en-US.mac-i386.sdk.tar.bz2 && mv xulrunner-sdk xulrunner-sdk-i386 ; fi;
+xulrunner-sdk-i386: xulrunner-14.0.1.en-US.mac-i386.sdk.tar.bz2
+	if test ! -d xulrunner-sdk-i386; then tar -xf xulrunner-14.0.1.en-US.mac-i386.sdk.tar.bz2 && mv xulrunner-sdk xulrunner-sdk-i386 ; fi;
 
-xulrunner-sdk-x86_64: xulrunner-11.0.en-US.mac-x86_64.sdk.tar.bz2
-	if test ! -d xulrunner-sdk-x86_64; then tar -xf xulrunner-11.0.en-US.mac-x86_64.sdk.tar.bz2 && mv xulrunner-sdk xulrunner-sdk-x86_64 ; fi;
+xulrunner-sdk-x86_64: xulrunner-14.0.1.en-US.mac-x86_64.sdk.tar.bz2
+	if test ! -d xulrunner-sdk-x86_64; then tar -xf xulrunner-14.0.1.en-US.mac-x86_64.sdk.tar.bz2 && mv xulrunner-sdk xulrunner-sdk-x86_64 ; fi;
 
 universal-sdk: xulrunner-sdk-i386 xulrunner-sdk-x86_64
 	mkdir -p universal-sdk && cd universal-sdk && ln -sf ../xulrunner-sdk-i386 i386 && 	ln -sf ../xulrunner-sdk-x86_64 x86_64
@@ -77,18 +77,18 @@ xulrunner: xulrunner-runtime.tar.bz2
 	if test ! -d xulrunner; then tar -xf xulrunner-runtime.tar.bz2 ; fi;
 endif
 
-xulrunner-11.0.en-US.mac-pkg.dmg:
-	$(DOWNLOADER) xulrunner-11.0.en-US.mac-pkg.dmg $(DEP_MIRROR)/xulrunner-11.0.en-US.mac-pkg.dmg
+xulrunner-14.0.1.en-US.mac-pkg.dmg:
+	$(DOWNLOADER) xulrunner-14.0.1.en-US.mac-pkg.dmg $(DEP_MIRROR)/xulrunner-14.0.1.en-US.mac-pkg.dmg
 
-xr_target/xulrunner-11.0.en-US.mac.pkg: xulrunner-11.0.en-US.mac-pkg.dmg
+xr_target/xulrunner-14.0.1.en-US.mac.pkg: xulrunner-14.0.1.en-US.mac-pkg.dmg
 	mkdir -p xr_{mount,target}
 	hdiutil detach ./xr_mount -quiet -force || /usr/bin/true
-	hdiutil attach xulrunner-11.0.en-US.mac-pkg.dmg -noautoopen -quiet  -mountpoint ./xr_mount
-	cp -r ./xr_mount/xulrunner-11.0.en-US.mac.pkg ./xr_target/
+	hdiutil attach xulrunner-14.0.1.en-US.mac-pkg.dmg -noautoopen -quiet  -mountpoint ./xr_mount
+	cp -r ./xr_mount/xulrunner-14.0.1.en-US.mac.pkg ./xr_target/
 	hdiutil detach ./xr_mount -quiet -force || /usr/bin/true
 
-xr_target/xulrunner-11.0.en-US.mac/XUL.framework: xr_target/xulrunner-11.0.en-US.mac.pkg
-	./tools/unpkg.py ./xr_target/xulrunner-11.0.en-US.mac.pkg
+xr_target/xulrunner-14.0.1.en-US.mac/XUL.framework: xr_target/xulrunner-14.0.1.en-US.mac.pkg
+	./tools/unpkg.py ./xr_target/xulrunner-14.0.1.en-US.mac.pkg
 
 # Windows
 xulrunner-win.zip:
@@ -385,10 +385,10 @@ msvc90/msvcr90.dll msvcp90.dll msvcm90.dll Microsoft.VC90.CRT.manifest: msvc90 m
 CLEANFILES=
 
 DISTCLEANFILES= xulrunner-sdk.tar.bz2 \
-	xulrunner-11.0.en-US.mac-i386.sdk.tar.bz2 \
-	xulrunner-11.0.en-US.mac-x86_64.sdk.tar.bz2 \
+	xulrunner-14.0.1.en-US.mac-i386.sdk.tar.bz2 \
+	xulrunner-14.0.1.en-US.mac-x86_64.sdk.tar.bz2 \
 	xulrunner-runtime.tar.bz2 \
-	xulrunner-11.0.en-US.mac-pkg.dmg \
+	xulrunner-14.0.1.en-US.mac-pkg.dmg \
 	xulrunner-win.zip \
 	zlib.tar.gz \
 	xapian-core.tar.gz \
