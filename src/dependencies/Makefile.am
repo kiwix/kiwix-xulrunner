@@ -77,18 +77,26 @@ xulrunner: xulrunner-runtime.tar.bz2
 	if test ! -d xulrunner; then tar -xf xulrunner-runtime.tar.bz2 ; fi;
 endif
 
-xulrunner-14.0.1.en-US.mac-pkg.dmg:
-	$(DOWNLOADER) xulrunner-14.0.1.en-US.mac-pkg.dmg $(DEP_MIRROR)/xulrunner-14.0.1.en-US.mac-pkg.dmg
+#### Deprecated, before XR14, Mozilla was providing a .dmg instead of a tar.bz2
+#xulrunner-14.0.1.en-US.mac-pkg.dmg:
+#	$(DOWNLOADER) xulrunner-14.0.1.en-US.mac-pkg.dmg $(DEP_MIRROR)/xulrunner-14.0.1.en-US.mac-pkg.dmg
+#
+#xr_target/xulrunner-14.0.1.en-US.mac.pkg: xulrunner-14.0.1.en-US.mac-pkg.dmg
+#	mkdir -p xr_{mount,target}
+#	hdiutil detach ./xr_mount -quiet -force || /usr/bin/true
+#	hdiutil attach xulrunner-14.0.1.en-US.mac-pkg.dmg -noautoopen -quiet  -mountpoint ./xr_mount
+#	cp -r ./xr_mount/xulrunner-14.0.1.en-US.mac.pkg ./xr_target/
+#	hdiutil detach ./xr_mount -quiet -force || /usr/bin/true
+#
+#xr_target/xulrunner-14.0.1.en-US.mac/XUL.framework: xr_target/xulrunner-14.0.1.en-US.mac.pkg
+#	./tools/unpkg.py ./xr_target/xulrunner-14.0.1.en-US.mac.pkg
 
-xr_target/xulrunner-14.0.1.en-US.mac.pkg: xulrunner-14.0.1.en-US.mac-pkg.dmg
-	mkdir -p xr_{mount,target}
-	hdiutil detach ./xr_mount -quiet -force || /usr/bin/true
-	hdiutil attach xulrunner-14.0.1.en-US.mac-pkg.dmg -noautoopen -quiet  -mountpoint ./xr_mount
-	cp -r ./xr_mount/xulrunner-14.0.1.en-US.mac.pkg ./xr_target/
-	hdiutil detach ./xr_mount -quiet -force || /usr/bin/true
+xulrunner-14.0.1.en-US.mac.tar.bz2:
+	$(DOWNLOADER) xulrunner-14.0.1.en-US.mac.tar.bz2 $(DEP_MIRROR)/xulrunner-14.0.1.en-US.mac.tar.bz2
 
-xr_target/xulrunner-14.0.1.en-US.mac/XUL.framework: xr_target/xulrunner-14.0.1.en-US.mac.pkg
-	./tools/unpkg.py ./xr_target/xulrunner-14.0.1.en-US.mac.pkg
+xr_target/xulrunner-14.0.1.en-US.mac/XUL.framework: xulrunner-14.0.1.en-US.mac.tar.bz2
+	mkdir -p xr_target/xulrunner-14.0.1.en-US.mac/
+	tar -xvjf xulrunner-14.0.1.en-US.mac.tar.bz2 -C xr_target/xulrunner-14.0.1.en-US.mac/
 
 # Windows
 xulrunner-win.zip:
@@ -389,6 +397,7 @@ DISTCLEANFILES= xulrunner-sdk.tar.bz2 \
 	xulrunner-14.0.1.en-US.mac-x86_64.sdk.tar.bz2 \
 	xulrunner-runtime.tar.bz2 \
 	xulrunner-14.0.1.en-US.mac-pkg.dmg \
+	xulrunner-14.0.1.en-US.mac.tar.bz2 \
 	xulrunner-win.zip \
 	zlib.tar.gz \
 	xapian-core.tar.gz \
