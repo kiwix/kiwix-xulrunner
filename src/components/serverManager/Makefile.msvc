@@ -38,10 +38,10 @@ IServerManager.xpt:
 IServerManager.h:
 	$(HEADER_PY) -o IServerManager.h -I "$(XULRUNNER_IDL)" IServerManager.idl
 objs: IServerManager.xpt IServerManager.h
-	$(CC) $(CFLAGS) serverManager.cpp  ../../common/base64.cpp ../../common/kiwix/reader.cpp ../../common/kiwix/manager.cpp ../../common/pathTools.cpp  ../../common/regexTools.cpp ../../common/componentTools.cpp ../../common/kiwix/library.cpp ../../common/unaccent.cpp
+	$(CC) $(CFLAGS) serverManager.cpp  ../../common/base64.cpp ../../common/kiwix/reader.cpp ../../common/kiwix/manager.cpp ../../common/pathTools.cpp  ../../common/regexTools.cpp ../../common/componentTools.cpp ../../common/kiwix/library.cpp ../../common/stringTools.cpp
 
 serverManager.lib: objs
-		       $(LD) -lib -OUT:libServerManager.lib $(LDFLAGS) reader.obj manager.obj library.obj base64.obj unaccent.obj pathTools.obj regexTools.obj componentTools.obj
+		       $(LD) -lib -OUT:libServerManager.lib $(LDFLAGS) reader.obj manager.obj library.obj base64.obj stringTools.obj pathTools.obj regexTools.obj componentTools.obj
 
 serverManager.dll: serverManager.lib
 		    $(LD) -OUT:"serverManager.dll" -NOLOGO $(LDFLAGS) -DLL -NODEFAULTLIB:"MSVCRT" -OPT:REF -OPT:ICF -DYNAMICBASE -NXCOMPAT -MACHINE:X86 zim.lib pugixml.lib icuin.lib icuio.lib icule.lib iculx.lib icutu.lib icuuc.lib libcmt.lib ws2_32.lib nspr4.lib xpcom.lib xpcomglue_s.lib DelayImp.lib winmm.lib libServerManager.lib mozalloc.lib serverManager.obj

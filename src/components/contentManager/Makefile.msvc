@@ -39,10 +39,10 @@ IContentManager.h:
 	$(HEADER_PY) -o IcontentManager.h -I "$(XULRUNNER_IDL)" IContentManager.idl
 
 objs: IContentManager.xpt IContentManager.h
-	$(CC) $(CFLAGS) contentManager.cpp  ../../common/base64.cpp ../../common/kiwix/reader.cpp ../../common/kiwix/manager.cpp ../../common/pathTools.cpp  ../../common/regexTools.cpp ../../common/componentTools.cpp ../../common/kiwix/library.cpp ../../common/unaccent.cpp
+	$(CC) $(CFLAGS) contentManager.cpp  ../../common/base64.cpp ../../common/kiwix/reader.cpp ../../common/kiwix/manager.cpp ../../common/pathTools.cpp  ../../common/regexTools.cpp ../../common/componentTools.cpp ../../common/kiwix/library.cpp ../../common/stringTools.cpp
 
 contentManager.lib: objs
-		       $(LD) -lib -OUT:libContentManager.lib $(LDFLAGS) reader.obj manager.obj library.obj base64.obj unaccent.obj pathTools.obj regexTools.obj componentTools.obj
+		       $(LD) -lib -OUT:libContentManager.lib $(LDFLAGS) reader.obj manager.obj library.obj base64.obj stringTools.obj pathTools.obj regexTools.obj componentTools.obj
 
 contentManager.dll: contentManager.lib
 		    $(LD) -OUT:"contentManager.dll" -NOLOGO $(LDFLAGS) -DLL -NODEFAULTLIB:"MSVCRT" -OPT:REF -OPT:ICF -DYNAMICBASE -NXCOMPAT -MACHINE:X86 zim.lib pugixml.lib icuin.lib icuio.lib icule.lib iculx.lib icutu.lib icuuc.lib libcmt.lib ws2_32.lib nspr4.lib xpcom.lib xpcomglue_s.lib mozalloc.lib DelayImp.lib winmm.lib libContentManager.lib contentManager.obj
