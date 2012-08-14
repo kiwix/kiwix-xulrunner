@@ -6,7 +6,7 @@ kiwix_install_SOURCES= \
 	../common/kiwix/xapian/htmlparse.cc \
 	../common/kiwix/xapianIndexer.cpp \
 	../common/kiwix/cluceneIndexer.cpp \
-	../common/unaccent.cpp \
+	../common/stringTools.cpp \
 	../common/base64.cpp \
 	../common/kiwix/indexer.cpp \
 	../common/kiwix/reader.cpp \
@@ -19,7 +19,7 @@ kiwix_install_SOURCES= \
 	../common/kiwix/xapian/htmlparse.h \
 	../common/kiwix/xapianIndexer.h \
 	../common/kiwix/cluceneIndexer.h \
-	../common/unaccent.h \
+	../common/stringTools.h \
 	../common/base64.h \
 	../common/kiwix/indexer.h \
 	../common/kiwix/reader.h \

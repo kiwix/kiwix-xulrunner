@@ -7,14 +7,14 @@ kiwix_manage_SOURCES= \
 	../common/kiwix/reader.cpp \
 	../common/base64.cpp \
 	../common/regexTools.cpp \
-	../common/unaccent.cpp \
+	../common/stringTools.cpp \
 	../common/pathTools.cpp \
 	../common/kiwix/manager.h \
 	../common/kiwix/library.h \
 	../common/kiwix/reader.h \
 	../common/base64.h \
 	../common/regexTools.h \
-	../common/unaccent.h \
+	../common/stringTools.h \
 	../common/pathTools.h
 kiwix_manage_CXXFLAGS=$(ZIMLIB_CFLAGS) $(ICU_CFLAGS) $(LZMA_CFLAGS) -I../common/
 

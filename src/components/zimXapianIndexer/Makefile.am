@@ -9,7 +9,7 @@ libZimXapianIndexer_la_SOURCES= \
 	zimXapianIndexer.cpp \
 	$(top_srcdir)/src/common/kiwix/xapian/myhtmlparse.cc \
 	$(top_srcdir)/src/common/kiwix/xapian/htmlparse.cc \
-	$(top_srcdir)/src/common/unaccent.cpp \
+	$(top_srcdir)/src/common/stringTools.cpp \
 	$(top_srcdir)/src/common/componentTools.cpp \
 	$(top_srcdir)/src/common/kiwix/indexer.cpp \
 	$(top_srcdir)/src/common/kiwix/reader.cpp \
@@ -18,7 +18,7 @@ libZimXapianIndexer_la_SOURCES= \
 	$(top_srcdir)/src/common/kiwix/xapian/myhtmlparse.h \
 	$(top_srcdir)/src/common/kiwix/xapian/namedentities.h \
 	$(top_srcdir)/src/common/kiwix/xapian/htmlparse.h \
-	$(top_srcdir)/src/common/unaccent.h \
+	$(top_srcdir)/src/common/stringTools.h \
 	$(top_srcdir)/src/common/componentTools.h \
 	$(top_srcdir)/src/common/kiwix/indexer.h \
 	$(top_srcdir)/src/common/kiwix/reader.h \

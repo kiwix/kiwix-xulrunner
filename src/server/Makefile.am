@@ -8,7 +8,6 @@ kiwix_serve_SOURCES= \
 	../common/kiwix/library.cpp \
 	../common/kiwix/xapianSearcher.cpp \
 	../common/kiwix/cluceneSearcher.cpp \
-	../common/unaccent.cpp \
 	../common/base64.cpp \
 	../common/pathTools.cpp \
 	../common/regexTools.cpp \
@@ -20,7 +19,6 @@ kiwix_serve_SOURCES= \
 	../common/kiwix/library.h \
 	../common/kiwix/xapianSearcher.h \
 	../common/kiwix/cluceneSearcher.h \
-	../common/unaccent.h \
 	../common/base64.h \
 	../common/pathTools.h \
 	../common/regexTools.h \

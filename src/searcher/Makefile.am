@@ -2,13 +2,11 @@ bin_PROGRAMS=kiwix-search
 AM_CPPFLAGS=-I$(top_srcdir)/src/common
 kiwix_search_SOURCES= \
 	kiwix-search.cpp \
-	../common/unaccent.cpp \
 	../common/resourceTools.cpp \
 	../common/stringTools.cpp \
 	../common/kiwix/searcher.cpp \
 	../common/kiwix/xapianSearcher.cpp \
 	../common/kiwix/cluceneSearcher.cpp \
-	../common/unaccent.h \
 	../common/kiwix/searcher.h \
 	../common/resourceTools.h \
 	../common/stringTools.h \

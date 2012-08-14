@@ -4,7 +4,7 @@ kiwix_index_SOURCES= \
 	kiwix-index.cpp \
 	../common/kiwix/xapian/myhtmlparse.cc \
 	../common/kiwix/xapian/htmlparse.cc \
-	../common/unaccent.cpp \
+	../common/stringTools.cpp \
 	../common/kiwix/indexer.cpp \
 	../common/kiwix/reader.cpp \
 	../common/kiwix/xapianIndexer.cpp \
@@ -12,7 +12,7 @@ kiwix_index_SOURCES= \
 	../common/kiwix/xapian/myhtmlparse.h \
 	../common/kiwix/xapian/namedentities.h \
 	../common/kiwix/xapian/htmlparse.h \
-	../common/unaccent.h \
+	../common/stringTools.h \
 	../common/kiwix/indexer.h \
 	../common/kiwix/reader.h \
 	../common/kiwix/xapianIndexer.h \
