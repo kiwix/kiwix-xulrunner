@@ -11,6 +11,15 @@ then
     exit
 fi
 
-# Check if dependences are missing
+
+# Try to find run-mozilla.sh localy
+if [ -e ../../kiwix/xulrunner/run-mozilla.sh ]
+then
+RUN_MOZILLA=../../kiwix/xulrunner/run-mozilla.sh;
+else
 RUN_MOZILLA=`find /usr/lib/xulrunner* -name run-mozilla.sh`;
+fi
+
+# Check if dependences are missing
+
 $RUN_MOZILLA $LDD -r $LIBRARY | grep unresolved;
