@@ -26,7 +26,13 @@ fi
 # Take a look to the current directory
 if [ -d "$BINARY_DIR/xulrunner" ]
 then
-    XULRUNNER=`find $BINARY_DIR/xulrunner -type f -name xulrunner`
+    if [ -e "$BINARY_DIR/xulrunner/xulrunner-bin" ]
+    then
+	XULRUNNER="$BINARY_DIR/xulrunner/xulrunner-bin"
+    elif [ -e "$BINARY_DIR/xulrunner/xulrunner" ]
+    then
+	XULRUNNER="$BINARY_DIR/xulrunner/xulrunner"
+    fi
 fi
 
 # Try to update $LD_LIBRARY_PATH
