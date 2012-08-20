@@ -125,7 +125,7 @@
 <!-- Preferences Window -->
 <!ENTITY preferences.preferences        "تفضيلات">
 <!ENTITY preferences.save               "احفظ">
-<!ENTITY preferences.cancel             "ألغِ">
+<!ENTITY preferences.cancel             "إلغاء">
 <!ENTITY preferences.profileDirectory   "دليل الملف الشخصي">
 <!ENTITY preferences.browse             "تصفّح">
 <!ENTITY preferences.tabs               "تذكّر الألسنة">
@@ -141,7 +141,7 @@
 <!ENTITY main.library.myLibrary                 "مكتبتي">
 <!ENTITY main.library.getNewFiles               "احصل على ملفات جديدة">
 <!ENTITY main.library.searchZimFiles            "ابحث عن ملفات ZIM">
-<!ENTITY main.library.sortBy                    "رتب حسب">
+<!ENTITY main.library.sortBy                    "الترتيب حسب">
 <!ENTITY main.library.sortBy.title              "العنوان">
 <!ENTITY main.library.sortBy.size               "الحجم">
 <!ENTITY main.library.sortBy.date               "التاريخ">

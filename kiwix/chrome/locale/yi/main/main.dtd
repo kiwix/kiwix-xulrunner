@@ -135,7 +135,7 @@
 <!ENTITY server.load                    "Load">
 <!ENTITY server.start                   "Start">
 <!ENTITY server.stop                    "Stop">
-<!ENTITY server.close                   "Close">
+<!ENTITY server.close                   "שליסן">
 
 <!-- Library -->
 <!ENTITY main.library.myLibrary                 "מײַן ביבליאטעק">

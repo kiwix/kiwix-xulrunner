@@ -3,10 +3,10 @@
 <!ENTITY main.cssdirection              "ltr">
 
 <!-- Mac menu -->
-<!ENTITY main.osxservices               "Services">
-<!ENTITY main.osxhideapp                "Hide &brand.brandShortName;">
-<!ENTITY main.osxhideothers             "Hide Others">
-<!ENTITY main.osxshowall                "Show All">
+<!ENTITY main.osxservices               "Sèrviços">
+<!ENTITY main.osxhideapp                "Cachiér &brand.brandShortName;">
+<!ENTITY main.osxhideothers             "Cachiér los ôtros">
+<!ENTITY main.osxshowall                "Fâre vêre tot">
 
 <!-- File menu -->
 <!ENTITY main.file                      "Fichiér">
@@ -14,7 +14,7 @@
 <!ENTITY main.openFile                  "Uvrir un fichiér...">
 <!ENTITY main.browseLibrary.accesskey   "B">
 <!ENTITY main.browseLibrary             "Parcorir la bibliotèca">
-<!ENTITY main.hideLibrary               "Hide library">
+<!ENTITY main.hideLibrary               "Cachiér la bibliotèca">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "Uvèrt dês pou...">
 <!ENTITY main.saveFile                  "Encartar la pâge coment...">
@@ -39,7 +39,7 @@
 <!ENTITY main.transliteration.accesskey "T">
 <!ENTITY main.preferences               "Prèferences">
 <!ENTITY main.preferences.accesskey     "n">
-<!ENTITY main.server                    "Server">
+<!ENTITY main.server                    "Sèrvior">
 <!ENTITY main.server.accesskey          "s">
 
 <!-- Display menu -->
@@ -65,7 +65,7 @@
 <!ENTITY main.tabs.accesskey            "O">
 <!ENTITY main.fullscreen                "Plen ècran">
 <!ENTITY main.fullscreen.accesskey      "P">
-<!ENTITY main.invertedColors            "Inverted colors">
+<!ENTITY main.invertedColors            "Colors envèrsâyes">
 <!ENTITY main.invertedColors.accesskey  "I">
 
 <!-- Tools menu -->
@@ -93,7 +93,7 @@
 <!ENTITY main.home                      "Reçua">
 <!ENTITY main.searchBar                 "Bârra de rechèrche">
 <!ENTITY main.search                    "Rechèrche">
-<!ENTITY main.searchPlaceholder         "Type the text to search here...">
+<!ENTITY main.searchPlaceholder         "Buchiéd lo tèxto a rechèrchiér ique...">
 <!ENTITY main.findInText                "Rechèrchiér dens lo tèxto">
 <!ENTITY main.noSearchBar               "La rechèrche at fôta d’un fichiér ZIM endèxâ">
 <!ENTITY main.bookmarks                 "Mârca-pâges">
@@ -116,8 +116,8 @@
 <!ENTITY main.openLinkInNewTab          "Uvrir lo lim dens una ongllèta novèla">
 <!ENTITY main.searchFor                 "Rechèrchiér">
 <!ENTITY main.copyLinkAdress            "Copy link address">
-<!ENTITY main.mute                      "Mute">
-<!ENTITY main.audible                   "Audible">
+<!ENTITY main.mute                      "Muet">
+<!ENTITY main.audible                   "Ôdiblo">
 
 <!-- About Window -->
 <!ENTITY main.close                     "Cllôre">
@@ -129,13 +129,13 @@
 <!ENTITY preferences.profileDirectory   "Rèpèrtouèro du profil">
 <!ENTITY preferences.browse             "Dèfelar">
 <!ENTITY preferences.tabs               "Sè rapelar des ongllètes">
-<!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">
+<!ENTITY preferences.downloadCatalogs   "Tèlèchargiér lo(s) catalogo(s) distant(s)">
 
 <!-- Server -->
-<!ENTITY server.load                    "Load">
-<!ENTITY server.start                   "Start">
-<!ENTITY server.stop                    "Stop">
-<!ENTITY server.close                   "Close">
+<!ENTITY server.load                    "Chargiér">
+<!ENTITY server.start                   "Emmodar">
+<!ENTITY server.stop                    "Arrètar">
+<!ENTITY server.close                   "Cllôre">
 
 <!-- Library -->
 <!ENTITY main.library.myLibrary                 "Ma bibliotèca">
@@ -155,5 +155,5 @@
 <!ENTITY main.library.filterBy.author.all       "Tôs">
 <!ENTITY main.library.filterBy.publisher        "Èditor">
 <!ENTITY main.library.filterBy.publisher.all    "Tôs">
-<!ENTITY main.library.filterBy.lessThan         "Less than">
+<!ENTITY main.library.filterBy.lessThan         "Muens que">
 

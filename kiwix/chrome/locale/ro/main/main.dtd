@@ -127,15 +127,15 @@
 <!ENTITY preferences.save               "Salvează">
 <!ENTITY preferences.cancel             "Revocare">
 <!ENTITY preferences.profileDirectory   "Dosar de profil">
-<!ENTITY preferences.browse             "Răsfoiește">
+<!ENTITY preferences.browse             "Răsfoire">
 <!ENTITY preferences.tabs               "Memorează filele">
 <!ENTITY preferences.downloadCatalogs   "Descarcă catalogul(oagele) la distanță">
 
 <!-- Server -->
 <!ENTITY server.load                    "Încarcă">
-<!ENTITY server.start                   "Începe">
-<!ENTITY server.stop                    "Opreşte">
-<!ENTITY server.close                   "Închide">
+<!ENTITY server.start                   "Pornește">
+<!ENTITY server.stop                    "Oprește">
+<!ENTITY server.close                   "Închidere">
 
 <!-- Library -->
 <!ENTITY main.library.myLibrary                 "Biblioteca mea">
@@ -155,5 +155,5 @@
 <!ENTITY main.library.filterBy.author.all       "Toate">
 <!ENTITY main.library.filterBy.publisher        "Editură">
 <!ENTITY main.library.filterBy.publisher.all    "Toate">
-<!ENTITY main.library.filterBy.lessThan         "Mai puţin de">
+<!ENTITY main.library.filterBy.lessThan         "Mai puțin de">
 

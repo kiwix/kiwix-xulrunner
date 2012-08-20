@@ -65,7 +65,7 @@
 <!ENTITY main.tabs.accesskey            "T">
 <!ENTITY main.fullscreen                "Toàn màn hình">
 <!ENTITY main.fullscreen.accesskey      "m">
-<!ENTITY main.invertedColors            "Inverted colors">
+<!ENTITY main.invertedColors            "Đảo màu">
 <!ENTITY main.invertedColors.accesskey  "I">
 
 <!-- Tools menu -->
@@ -132,10 +132,10 @@
 <!ENTITY preferences.downloadCatalogs   "Tải về mục lục từ xa">
 
 <!-- Server -->
-<!ENTITY server.load                    "Load">
-<!ENTITY server.start                   "Start">
-<!ENTITY server.stop                    "Stop">
-<!ENTITY server.close                   "Close">
+<!ENTITY server.load                    "Tải">
+<!ENTITY server.start                   "Bắt đầu">
+<!ENTITY server.stop                    "Ngừng">
+<!ENTITY server.close                   "Đóng">
 
 <!-- Library -->
 <!ENTITY main.library.myLibrary                 "Thư viện của tôi">

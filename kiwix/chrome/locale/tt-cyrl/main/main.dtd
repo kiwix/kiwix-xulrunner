@@ -3,10 +3,10 @@
 <!ENTITY main.cssdirection              "ltr">
 
 <!-- Mac menu -->
-<!ENTITY main.osxservices               "Services">
-<!ENTITY main.osxhideapp                "Hide &brand.brandShortName;">
-<!ENTITY main.osxhideothers             "Hide Others">
-<!ENTITY main.osxshowall                "Show All">
+<!ENTITY main.osxservices               "Хезмәтләр">
+<!ENTITY main.osxhideapp                "Ябу &brand.brandShortName;">
+<!ENTITY main.osxhideothers             "Башкаларны ябу">
+<!ENTITY main.osxshowall                "Барысын да күрсәтергә">
 
 <!-- File menu -->
 <!ENTITY main.file                      "Файл">
@@ -14,7 +14,7 @@
 <!ENTITY main.openFile                  "Файлны ачу ...">
 <!ENTITY main.browseLibrary.accesskey   "B">
 <!ENTITY main.browseLibrary             "Китапханәне карау">
-<!ENTITY main.hideLibrary               "Hide library">
+<!ENTITY main.hideLibrary               "Барсында ябу">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "Күптән түгел ачылганнар ...">
 <!ENTITY main.saveFile                  "Битне саклау форматы ...">
@@ -65,7 +65,7 @@
 <!ENTITY main.tabs.accesskey            "T">
 <!ENTITY main.fullscreen                "Тулы экранга">
 <!ENTITY main.fullscreen.accesskey      "F">
-<!ENTITY main.invertedColors            "Inverted colors">
+<!ENTITY main.invertedColors            "Төсләрне инвертлау">
 <!ENTITY main.invertedColors.accesskey  "I">
 
 <!-- Tools menu -->
@@ -93,7 +93,7 @@
 <!ENTITY main.home                      "Өйгә">
 <!ENTITY main.searchBar                 "Эзләү тасмасы">
 <!ENTITY main.search                    "Эзләү">
-<!ENTITY main.searchPlaceholder         "Type the text to search here...">
+<!ENTITY main.searchPlaceholder         "Эзләү өчен текст кертегез...">
 <!ENTITY main.findInText                "Текстта эзләү">
 <!ENTITY main.noSearchBar               "Эзләү ZIM файлын индекслауны сорый">
 <!ENTITY main.bookmarks                 "Кыстыргычлар">
@@ -132,10 +132,10 @@
 <!ENTITY preferences.downloadCatalogs   "Бетерелгән каталог(лар)ны йөкләргә">
 
 <!-- Server -->
-<!ENTITY server.load                    "Load">
-<!ENTITY server.start                   "Start">
-<!ENTITY server.stop                    "Stop">
-<!ENTITY server.close                   "Close">
+<!ENTITY server.load                    "Йөкләү">
+<!ENTITY server.start                   "Башлау">
+<!ENTITY server.stop                    "Туктату">
+<!ENTITY server.close                   "Ябу">
 
 <!-- Library -->
 <!ENTITY main.library.myLibrary                 "Минем китапханә">
@@ -155,5 +155,5 @@
 <!ENTITY main.library.filterBy.author.all       "Барысы">
 <!ENTITY main.library.filterBy.publisher        "Нәшрият">
 <!ENTITY main.library.filterBy.publisher.all    "Барысы">
-<!ENTITY main.library.filterBy.lessThan         "Less than">
+<!ENTITY main.library.filterBy.lessThan         "Азрак">
 

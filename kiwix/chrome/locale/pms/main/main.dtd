@@ -5,8 +5,8 @@
 <!-- Mac menu -->
 <!ENTITY main.osxservices               "Servissi">
 <!ENTITY main.osxhideapp                "Stërma &brand.brandShortName;">
-<!ENTITY main.osxhideothers             "Stërma j'autr">
-<!ENTITY main.osxshowall                "Mosta tut">
+<!ENTITY main.osxhideothers             "Stërmé j'àutri">
+<!ENTITY main.osxshowall                "Mostré tut">
 
 <!-- File menu -->
 <!ENTITY main.file                      "Archivi">
@@ -14,7 +14,7 @@
 <!ENTITY main.openFile                  "Duverté n'archivi...">
 <!ENTITY main.browseLibrary.accesskey   "B">
 <!ENTITY main.browseLibrary             "Dësfujé la biblioteca">
-<!ENTITY main.hideLibrary               "Stërma la librerìa">
+<!ENTITY main.hideLibrary               "Stërmé la biblioteca">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "Duvertà ëd recent...">
 <!ENTITY main.saveFile                  "Salvé la pàgina com...">
@@ -129,10 +129,10 @@
 <!ENTITY preferences.profileDirectory   "Dossié dël profil">
 <!ENTITY preferences.browse             "Sfeuja">
 <!ENTITY preferences.tabs               "Arcordé je schede">
-<!ENTITY preferences.downloadCatalogs   "Dëscaria catàlogh remòt">
+<!ENTITY preferences.downloadCatalogs   "Dëscarié ij catàlogh da leugn">
 
 <!-- Server -->
-<!ENTITY server.load                    "Carìa">
+<!ENTITY server.load                    "Carié">
 <!ENTITY server.start                   "Inissi">
 <!ENTITY server.stop                    "Fërma">
 <!ENTITY server.close                   "Sara">
