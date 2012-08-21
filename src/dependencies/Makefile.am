@@ -113,10 +113,10 @@ zlib-1.2.3: zlib.tar.gz
 	tar -xf zlib.tar.gz
 
 # Linux
-zlib-1.2.3/static/lib/libz.a: zlib-1.2.3/
+zlib-1.2.3/static/lib/libz.a: zlib-1.2.3
 	cd zlib-1.2.3 && mkdir -p static && CC=$(COMPC) CXX=$(COMPCXX) CFLAGS=" -fPIC " ./configure --prefix=$(DEP_PATH)/zlib-1.2.3/static && make clean && make && make install
 
-zlib-1.2.3/shared/lib/libz.so zlib-1.2.3/shared/lib/libz.dylib: zlib-1.2.3/ zlib-1.2.3/static/lib/libz.a
+zlib-1.2.3/shared/lib/libz.so zlib-1.2.3/shared/lib/libz.dylib: zlib-1.2.3 zlib-1.2.3/static/lib/libz.a
 	cd zlib-1.2.3 && mkdir -p shared && CC=$(COMPC) CXX=$(COMPCXX) CFLAGS=" -fPIC " ./configure --shared --prefix=$(DEP_PATH)/zlib-1.2.3/shared && make clean && make && make install
 
 # Windows
@@ -134,7 +134,7 @@ xapian-core-1.2.3: xapian-core.tar.gz
 	tar -xf xapian-core.tar.gz
 
 # Linux
-xapian-core-1.2.3/build/lib/libxapian.so: xapian-core-1.2.3/
+xapian-core-1.2.3/build/lib/libxapian.so: xapian-core-1.2.3
 	cd xapian-core-1.2.3 mkdir -p build && EXTERN_PATH=`pwd` CPPFLAGS="-I${CURRENT_PATH}/src/dependencies/zlib-1.2.3/" CXXFLAGS=" -fPIC -L${CURRENT_PATH}/src/dependencies/zlib-1.2.3" ./configure --enable-shared --enable-static --prefix=$(DEP_PATH)/xapian-core-1.2.3/build && make clean && make clean && make && make install
 
 # OSX Join
@@ -179,15 +179,15 @@ icu4c-49_1_1-src.tgz:
 	$(DOWNLOADER) icu4c-49_1_1-src.tgz $(DEP_MIRROR)/icu4c-49_1_1-src.tgz
 
 if IS_OLD_ICU
-icu/: icu4c-4_4_2-src.tgz
+icu: icu4c-4_4_2-src.tgz
 	tar xf icu4c-4_4_2-src.tgz
 else
-icu/: icu4c-49_1_1-src.tgz
+icu: icu4c-49_1_1-src.tgz
 	tar xf icu4c-49_1_1-src.tgz
 endif
 
 # Linux
-icu/source/build/lib/libicudata.so icu/source/lib/libicuuc.so icu/source/build/lib/libicui18n.so: icu/
+icu/source/build/lib/libicudata.so icu/source/lib/libicuuc.so icu/source/build/lib/libicui18n.so: icu
 	cd icu/source && mkdir -p build && CFLAGS=" -fPIC " ./runConfigureICU Linux --prefix=$(DEP_PATH)/icu/source/build --disable-samples --disable-tests --disable-extras --enable-static --disable-dyload && make clean && make && make install
 
 # OSX FAT join
@@ -195,11 +195,11 @@ icu/source/build/lib/libicudata.dylib icu/source/build/lib/libicuuc.dylib icu/so
 	mkdir -p icu/source/build/{bin,lib} && cd icu/source/build/lib && lipo ../../build-x86_64/lib/libicudata.dylib ../../build-i386/lib/libicudata.dylib -create -output libicudata.dylib && lipo ../../build-x86_64/lib/libicuuc.dylib ../../build-i386/lib/libicuuc.dylib -create -output libicuuc.dylib && lipo ../../build-x86_64/lib/libicui18n.dylib ../../build-i386/lib/libicui18n.dylib -create -output libicui18n.dylib && lipo ../../build-x86_64/lib/libicudata.a ../../build-i386/lib/libicudata.a -create -output libicudata.a && lipo ../../build-x86_64/lib/libicuuc.a ../../build-i386/lib/libicuuc.a -create -output libicuuc.a && lipo ../../build-x86_64/lib/libicui18n.a ../../build-i386/lib/libicui18n.a -create -output libicui18n.a && cp -r ../../build-i386/include ../
 
 # OSX i386
-icu/source/build-i386/lib/libicudata.dylib icu/source/build-i386/lib/libicuuc.dylib icu/source/build-i386/lib/libicui18n.dylib: icu/
+icu/source/build-i386/lib/libicudata.dylib icu/source/build-i386/lib/libicuuc.dylib icu/source/build-i386/lib/libicui18n.dylib: icu
 	cd icu/source && mkdir -p build-i386 && CFLAGS=" -fPIC " ./runConfigureICU MacOSX --prefix=${DEP_PATH}/icu/source/build-i386 --with-library-bits=32 --disable-samples --disable-tests --disable-extras --enable-static --disable-dyload && make clean && make && make install
 
 # OSX x86_64
-icu/source/build-x86_64/lib/libicudata.dylib icu/source/build-x86_64/lib/libicuuc.dylib icu/source/build-x86_64/lib/libicui18n.dylib: icu/
+icu/source/build-x86_64/lib/libicudata.dylib icu/source/build-x86_64/lib/libicuuc.dylib icu/source/build-x86_64/lib/libicui18n.dylib: icu
 	cd icu/source && mkdir -p build-x86_64 && CFLAGS=" -fPIC " ./runConfigureICU MacOSX --prefix=${DEP_PATH}/icu/source/build-x86_64 --with-library-bits=64 --disable-samples --disable-tests --disable-extras --enable-static --disable-dyload && make clean && make && make install
 
 icu.zip:
@@ -218,7 +218,7 @@ libmicrohttpd-0.9.19.tar.gz:
 libmicrohttpd-0.9.19: libmicrohttpd-0.9.19.tar.gz	
 	tar xf libmicrohttpd-0.9.19.tar.gz
 
-libmicrohttpd-0.9.19/build/lib/libmicrohttpd.so: libmicrohttpd-0.9.19/
+libmicrohttpd-0.9.19/build/lib/libmicrohttpd.so: libmicrohttpd-0.9.19
 	cd libmicrohttpd-0.9.19 && mkdir -p build && CC=$(COMPC) CXX=$(COMPCXX) CFLAGS=" -fPIC " ./configure --enable-shared --enable-static --disable-https --without-libgcrypt --without-libcurl --prefix=$(DEP_PATH)/libmicrohttpd-0.9.19/build  && make clean && make && make install
 
 # OSX Join
@@ -226,11 +226,11 @@ libmicrohttpd-0.9.19/build/lib/libmicrohttpd.dylib: libmicrohttpd-0.9.19/build-i
 	mkdir -p libmicrohttpd-0.9.19/build/lib && cd libmicrohttpd-0.9.19/build/lib && lipo ../../build-x86_64/lib/libmicrohttpd.dylib ../../build-i386/lib/libmicrohttpd.dylib -create -output libmicrohttpd.dylib && lipo ../../build-x86_64/lib/libmicrohttpd.a ../../build-i386/lib/libmicrohttpd.a -create -output libmicrohttpd.a && cp -r ../../src/include ../
 
 # OSX i386
-libmicrohttpd-0.9.19/build-i386/lib/libmicrohttpd.dylib: libmicrohttpd-0.9.19/
+libmicrohttpd-0.9.19/build-i386/lib/libmicrohttpd.dylib: libmicrohttpd-0.9.19
 	cd libmicrohttpd-0.9.19 && mkdir -p build-i386 && CC="gcc -arch i386" CXX="g++ -arch i386" CFLAGS=" -fPIC " ./configure --enable-shared --enable-static --prefix=$(DEP_PATH)/libmicrohttpd-0.9.19/build-i386 && make clean && make && make install
 
 # OSX x86_64
-libmicrohttpd-0.9.19/build-x86_64/lib/libmicrohttpd.dylib: libmicrohttpd-0.9.19/
+libmicrohttpd-0.9.19/build-x86_64/lib/libmicrohttpd.dylib: libmicrohttpd-0.9.19
 	cd libmicrohttpd-0.9.19 && mkdir -p build-x86_64 && CC="gcc -arch x86_64" CXX="g++ -arch x86_64" CFLAGS=" -fPIC " ./configure --enable-shared --enable-static --prefix=$(DEP_PATH)/libmicrohttpd-0.9.19/build-x86_64 && make clean && make && make install
 
 ####################################################
@@ -254,7 +254,7 @@ else
 	mv xz-5.0.3 xz
 endif
 
-xz/build/lib/liblzma.so: xz/
+xz/build/lib/liblzma.so: xz
 	cd xz && mkdir -p build && CC=$(COMPC) CXX=$(COMPCXX) CFLAGS=" -fPIC " ./configure --disable-assembler --enable-shared --enable-static --prefix=$(DEP_PATH)/xz/build && make clean && make && make install
 
 # OSX Join
@@ -262,11 +262,11 @@ xz/build/lib/liblzma.dylib: xz/build-i386/lib/liblzma.dylib xz/build-x86_64/lib/
 	mkdir -p xz/build/lib && cd xz/build/lib && lipo ../../build-x86_64/lib/liblzma.dylib ../../build-i386/lib/liblzma.dylib -create -output liblzma.dylib && lipo ../../build-x86_64/lib/liblzma.a ../../build-i386/lib/liblzma.a -create -output liblzma.a
 
 # OSX i386
-xz/build-i386/lib/liblzma.dylib: xz/
+xz/build-i386/lib/liblzma.dylib: xz
 	cd xz && mkdir -p build-i386 && CC="gcc -arch i386" CXX="g++ -arch i386" CFLAGS=" -fPIC " ./configure --disable-assembler --enable-shared --enable-static --prefix=$(DEP_PATH)/xz/build-i386 && make clean && make && make install
 
 # OSX x86_64
-xz/build-x86_64/lib/liblzma.dylib: xz/
+xz/build-x86_64/lib/liblzma.dylib: xz
 	cd xz && mkdir -p build-x86_64 && CC="gcc -arch x86_64" CXX="g++ -arch x86_64" CFLAGS=" -fPIC " ./configure --disable-assembler --enable-shared --enable-static --prefix=$(DEP_PATH)/xz/build-x86_64 && make clean && make && make install
 
 # Windows
@@ -311,7 +311,7 @@ clucene-core-0.9.21b.tar.bz2:
 clucene-core-0.9.21b: clucene-core-0.9.21b.tar.bz2
 	tar xf clucene-core-0.9.21b.tar.bz2
 
-clucene-core-0.9.21b/build/lib/libclucene.so: clucene-core-0.9.21b/
+clucene-core-0.9.21b/build/lib/libclucene.so: clucene-core-0.9.21b
 	cd clucene-core-0.9.21b && mkdir -p build && CC=$(COMPC) CXX=$(COMPCXX) CXXFLAGS=" -fPIC " ./configure --enable-shared --enable-static --prefix=$(DEP_PATH)/clucene-core-0.9.21b/build && make clean && make && make install
 
 # OSX Join
@@ -319,11 +319,11 @@ clucene-core-0.9.21b/build/lib/libclucene.dylib: clucene-core-0.9.21b/build-i386
 	mkdir -p clucene-core-0.9.21b/build/lib && cd clucene-core-0.9.21b/build/lib && lipo ../../build-x86_64/lib/libclucene.dylib ../../build-i386/lib/libclucene.dylib -create -output libclucene.dylib && lipo ../../build-x86_64/lib/libclucene.a ../../build-i386/lib/libclucene.a -create -output libclucene.a
 
 # OSX i386
-clucene-core-0.9.21b/build-i386/lib/libclucene.dylib: clucene-core-0.9.21b/
+clucene-core-0.9.21b/build-i386/lib/libclucene.dylib: clucene-core-0.9.21b
 	cd clucene-core-0.9.21b && mkdir -p build-i386 && CC="gcc -arch i386" CXX="g++ -arch i386" CFLAGS=" -fPIC " ./configure --enable-shared --enable-static --prefix=$(DEP_PATH)/clucene-core-0.9.21b/build-i386 && make clean && make && make install
 
 # OSX x86_64
-clucene-core-0.9.21b/build-x86_64/lib/libclucene.dylib: clucene-core-0.9.21b/
+clucene-core-0.9.21b/build-x86_64/lib/libclucene.dylib: clucene-core-0.9.21b
 	cd clucene-core-0.9.21b && mkdir -p build-x86_64 && CC="gcc -arch x86_64" CXX="g++ -arch x86_64" CFLAGS=" -fPIC " ./configure --enable-shared --enable-static --prefix=$(DEP_PATH)/clucene-core-0.9.21b/build-x86_64 && make clean && make && make install
 
 ####################################################
@@ -336,7 +336,7 @@ e2fsprogs-1.42.tar.gz:
 e2fsprogs-1.42: e2fsprogs-1.42.tar.gz
 	tar xf e2fsprogs-1.42.tar.gz
 
-e2fsprogs-1.42/lib/libuuid.a: e2fsprogs-1.42/
+e2fsprogs-1.42/lib/libuuid.a: e2fsprogs-1.42
 	mkdir -p e2fsprogs-1.42/build && cd e2fsprogs-1.42/ && CC=$(COMPC) CXX=$(COMPCXX) CXXFLAGS=" -fPIC " ./configure --enable-libuuid --prefix=$(DEP_PATH)/e2fsprogs-1.42/build && make clean && make && make install
 
 ####################################################
