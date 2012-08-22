@@ -27,7 +27,6 @@ function getBookmarksButton() { return document.getElementById("button-bookmarks
 function getFindButton() { return document.getElementById("button-search-article"); }
 function getFullscreenButton() { return document.getElementById("button-fullscreen"); }
 function getPrintButton() { return document.getElementById("button-print"); }
-function getBookmarksButton() { return document.getElementById("button-bookmarks"); }
 function getSearchInPlaceButton() { return document.getElementById("button-search-article"); }
 function getBackButton() { return document.getElementById("button-back"); }
 function getZoomInButton() { return document.getElementById("button-zoom-in"); }
