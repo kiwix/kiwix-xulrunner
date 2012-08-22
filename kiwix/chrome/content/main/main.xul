@@ -377,7 +377,7 @@
 	  </vbox>
 
 	  <vbox class="library-left-stuffer" flex="1">
-	    <vbox class="library-filter" style="-moz-border-radius: 5px 5px 0px 0px; margin: 10px 10px 2px 10px;">
+	    <vbox class="library-filter" style="border-radius: 5px 5px 0px 0px; margin: 10px 10px 2px 10px;">
 	      <label value="&main.library.searchZimFiles;"/>
 	      <textbox id="library-filter-search" oninput="populateBookList()"/>
 	    </vbox>
@@ -393,7 +393,7 @@
 		</menupopup>
 	      </menulist>
 	    </vbox>
-	    <vbox class="library-filter" style="-moz-border-radius: 0px 0px 5px 5px; margin: 0px 10px 10px 10px;">
+	    <vbox class="library-filter" style="border-radius: 0px 0px 5px 5px; margin: 0px 10px 10px 10px;">
 	      <label value="&main.library.filterBy;"/>
 	      
 	      <label value="▾ &main.library.filterBy.fileSize;"/>

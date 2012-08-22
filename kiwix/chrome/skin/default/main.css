@@ -194,7 +194,7 @@ window[langdir="rtl"] #button-next {
     padding-right: .5em;
     margin-top: .3em;
     margin-bottom: .3em;
-    -moz-border-radius: 0.8em;
+    border-radius: 0.8em;
 }
 
 #main.mac #textbox-search {
@@ -203,7 +203,7 @@ window[langdir="rtl"] #button-next {
     border: 1px solid #dedede;
     padding-left: .5em;
     padding-right: .5em;
-    -moz-border-radius: 1em;
+    border-radius: 1em;
 }
 
 #textbox-search-go-button {
@@ -367,7 +367,7 @@ window[langdir="rtl"] #button-next {
 }
 
 #tab-headers tab {
-    -moz-border-radius: 5px 5px 0 0;
+    border-radius: 5px 5px 0 0;
     border: 1px solid #cdcdcd !important;
     border-bottom: 0 !important;
     background-color: #dfdbd2 !important;
@@ -399,7 +399,7 @@ tab[selected="true"] label {
     list-style-image: url("chrome://main/skin/icon/add12.png");
     padding: 0px;
     margin: 0px;
-    -moz-border-radius: 5px 5px 0 0;
+    border-radius: 5px 5px 0 0;
     border: 1px solid #cdcdcd !important;
     border-bottom: none !important;
     background-color: #f2f1f0;
@@ -497,13 +497,13 @@ tab[selected="true"] label {
     padding-top: 3px;
     padding-left: 0px;
     margin-left: -11px;
-    -moz-border-radius: 4px 4px 0 0;
+    border-radius: 4px 4px 0 0;
 }
 
 #main.mac * tab[selected="true"] {
     height: 27px;
     padding-top: 7px;
-    -moz-border-radius: 6px 6px 0 0;
+    border-radius: 6px 6px 0 0;
 }
 
 #main.mac * .tab-header-label {
@@ -579,7 +579,7 @@ tab[selected="true"] label {
     font-size: 110%;
     color: black;
     cursor: pointer;
-    -moz-border-radius: 5px 0px 0px 5px;
+    border-radius: 5px 0px 0px 5px;
 }
 
 .library-menuitem-unselected {
