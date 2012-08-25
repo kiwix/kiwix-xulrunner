@@ -48,29 +48,6 @@ gS.prototype={
 	while (zimAccessor.getNextSuggestion(title)) {
 	    r.push(new Result(title.value, title.value, null)); 
 	}
-
-	/* Check with lowercase or uppercase if we have space left in the result array */
-	if (r.length < 10) {
-	    if (ucFirst(searchString) == searchString)
-		zimAccessor.searchSuggestions(ulFirst(searchString), 10 - r.length);
-	    else 
-		zimAccessor.searchSuggestions(ucFirst(searchString), 10 - r.length);	    
-
-	    var title = new Object();
-	    while (zimAccessor.getNextSuggestion(title)) {
-		var present = false;
-		for (i=0; i<r.length; i++) {
-			if (r[0] == new Result(title.value, title.value, null)) {
-               			i = r.length +1;
-				present = true;
-			}
-		}
-		if (!present) {
-        		r.push(new Result(title.value, title.value, null)); 
-			i = r.length;
-		}
-	    }
-	}
 	
 	/* Adding the 'containing...' */
 	r.push(new Result(searchString + " ", "containing '" + searchString + "'...", "italic"));

@@ -10,6 +10,8 @@ libZimAccessor_la_SOURCES= \
 	$(top_srcdir)/src/common/kiwix/reader.h \
 	$(top_srcdir)/src/common/pathTools.h \
 	$(top_srcdir)/src/common/pathTools.cpp \
+	$(top_srcdir)/src/common/stringTools.h \
+	$(top_srcdir)/src/common/stringTools.cpp \
 	$(top_srcdir)/src/common/componentTools.h \
 	$(top_srcdir)/src/common/componentTools.cpp
 libZimAccessor_la_CXXFLAGS=$(LIBXUL_CFLAGS) $(LZMA_CFLAGS) $(XPCOM_CFLAGS) -D GECKO_VERSION=$(GECKO_VERSION) -I../../common/

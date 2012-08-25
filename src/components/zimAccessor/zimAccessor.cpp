@@ -292,7 +292,7 @@ NS_IMETHODIMP ZimAccessor::SearchSuggestions(const nsACString &prefix, PRUint32 
 
   try {
     if (this->reader != NULL) {
-      if (this->reader->searchSuggestions(titlePrefix, suggestionsCount)) {
+      if (this->reader->searchSuggestionsSmart(titlePrefix, suggestionsCount)) {
 	*retVal = PR_TRUE;
       }
     }
