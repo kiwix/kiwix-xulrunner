@@ -3,7 +3,9 @@ AM_CPPFLAGS=-I$(top_srcdir)/src/common -I$(top_srcdir)/src/zimlib/include
 kiwix_read_SOURCES= \
 	kiwix-read.cpp \
 	../common/kiwix/reader.cpp \
-	../common/kiwix/reader.h
+	../common/kiwix/reader.h\
+	../common/stringTools.cpp \
+	../common/stringTools.h
 kiwix_read_CXXFLAGS=$(ZIMLIB_CFLAGS) $(LZMA_CFLAGS) -I../common/
 
 kiwix_read_LDFLAGS=$(CHECK_LDFLAGS)
