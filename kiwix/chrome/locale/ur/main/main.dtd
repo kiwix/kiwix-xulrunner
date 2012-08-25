@@ -1,0 +1,159 @@
+<!-- Window -->
+<!ENTITY main.title                     "&brand.brandShortName;">
+<!ENTITY main.cssdirection              "rtl">
+
+<!-- Mac menu -->
+<!ENTITY main.osxservices               "خدمات">
+<!ENTITY main.osxhideapp                "چھپائیں &brand.brandShortName;">
+<!ENTITY main.osxhideothers             "دوسروں کو چھپائیں">
+<!ENTITY main.osxshowall                "سب دکھائیں">
+
+<!-- File menu -->
+<!ENTITY main.file                      "ملف">
+<!ENTITY main.file.accesskey            "F">
+<!ENTITY main.openFile                  "ملف کھولیں">
+<!ENTITY main.browseLibrary.accesskey   "B">
+<!ENTITY main.browseLibrary             "مکتبہ کا معائنہ">
+<!ENTITY main.hideLibrary               "مکتبہ کو چھپائیں">
+<!ENTITY main.openFile.accesskey        "O">
+<!ENTITY main.lastOpen                  "حال میں کھولے گئے۔۔۔">
+<!ENTITY main.saveFile                  "صفحہ کو محفوظ کریں بطور۔۔۔">
+<!ENTITY main.saveFile.accesskey        "S">
+<!ENTITY main.print                     "طباعت">
+<!ENTITY main.print.accesskey           "P">
+<!ENTITY main.printPdf                  "طباعت بطور PDF">
+<!ENTITY main.printPdf.accesskey        "D">
+<!ENTITY main.quit                      "خارج ہوجائیں">
+<!ENTITY main.quit.accesskey            "Q">
+
+<!-- Edit menu -->
+<!ENTITY main.edit                      "ترمیم">
+<!ENTITY main.edit.accesskey            "E">
+<!ENTITY main.find                      "تلاش در صفحہ۔۔۔">
+<!ENTITY main.find.accesskey            "S">
+<!ENTITY main.selectall                 "مکمل متن منتخب کریں">
+<!ENTITY main.selectall.accesskey       "a">
+<!ENTITY main.copy                      "نقل">
+<!ENTITY main.copy.accesskey            "p">
+<!ENTITY main.transliteration           "کلمہ نویسی">
+<!ENTITY main.transliteration.accesskey "T">
+<!ENTITY main.preferences               "ترجیحات">
+<!ENTITY main.preferences.accesskey     "n">
+<!ENTITY main.server                    "معیل">
+<!ENTITY main.server.accesskey          "s">
+
+<!-- Display menu -->
+<!ENTITY main.display                   "تظاہرہ">
+<!ENTITY main.display.accesskey         "D">
+<!ENTITY main.zoom                      "تکبیر/تصغیر">
+<!ENTITY main.zoom.accesskey            "Z">
+<!ENTITY main.zoomin                    "بڑا کریں">
+<!ENTITY main.zoomin.accesskey          "M">
+<!ENTITY main.zoomout                   "چھوٹا کریں">
+<!ENTITY main.zoomout.accesskey         "R">
+<!ENTITY main.zoomorig                  "اصل حجم">
+<!ENTITY main.zoomorig.accesskey        "O">
+<!ENTITY main.language                  "زبان">
+<!ENTITY main.language.accesskey        "L">
+<!ENTITY main.skin                      "پوشاک">
+<!ENTITY main.skin.accesskey            "S">
+<!ENTITY main.statusbar                 "حیثیتی پٹی">
+<!ENTITY main.statusbar.accesskey       "S">
+<!ENTITY main.resultsbar                "خانۂ نتائج">
+<!ENTITY main.resultsbar.accesskey      "R">
+<!ENTITY main.tabs                      "لوحات">
+<!ENTITY main.tabs.accesskey            "T">
+<!ENTITY main.fullscreen                "مکمل تظاہرہ">
+<!ENTITY main.fullscreen.accesskey      "F">
+<!ENTITY main.invertedColors            "معکوس رنگ">
+<!ENTITY main.invertedColors.accesskey  "I">
+
+<!-- Tools menu -->
+<!ENTITY main.tools                     "آلات">
+<!ENTITY main.tools.accesskey           "T">
+<!ENTITY main.randomArticle             "تصادفی مقالہ">
+<!ENTITY main.randomArticle.accesskey   "R">
+<!ENTITY main.checkIntegrity            "سالمیت کی پڑتال">
+<!ENTITY main.checkIntegrity.accesskey  "k">
+<!ENTITY main.purgeHistory              "تطہیر تاریخچہ">
+<!ENTITY main.purgeHistory.accesskey    "P">
+
+<!-- Help menu -->
+<!ENTITY main.help                      "معاونت">
+<!ENTITY main.help.accesskey            "H">
+<!ENTITY main.feedback                  "آپ کی رائے">
+<!ENTITY main.reportabug                "خامی کی اطلاع">
+<!ENTITY main.requestafeature           "خصوصیت کی درخواست">
+<!ENTITY main.about                     "متعلق">
+<!ENTITY main.about.accesskey           "A">
+
+<!-- Tool bar -->
+<!ENTITY main.back                      "پیچھے">
+<!ENTITY main.forward                   "آگے">
+<!ENTITY main.home                      "صفحہ اول">
+<!ENTITY main.searchBar                 "خانۂ تلاش">
+<!ENTITY main.search                    "تلاش">
+<!ENTITY main.searchPlaceholder         "تلاش کرنے کے لیے متن تحریر کریں یہاں۔۔۔">
+<!ENTITY main.findInText                "متن میں تلاش کریں">
+<!ENTITY main.noSearchBar               "تلاش میں فہرست شدہ ZIM ملف درکار کار ہے">
+<!ENTITY main.bookmarks                 "نشانزدہ">
+
+<!-- Results bar -->
+<!ENTITY main.results.title             "تلاش کے نتائج">
+
+<!-- Bookmarks Bar -->
+<!ENTITY main.bmkLabel                  "نشانزدہ:">
+<!ENTITY main.notesLabel                "تحریر در نشانزدہ:">
+<!ENTITY main.loadbmk                   "مکمل نشانزدہ مواد کی درآمدگی">
+<!ENTITY main.newbmk                    "نشان زدہ مواد کا نیا مجموعہ تخلیق کریں">
+<!ENTITY main.mark                      "اس صفحہ کو نشانزد کریں">
+<!ENTITY main.unmark                    "غیرنشانزد منتخب">
+<!ENTITY main.reload                    "باز اثقال نشانزدہ مواد">
+<!ENTITY main.defaultset                "ابتدائی ترتیبات">
+
+<!-- Contextual Menu -->
+<!ENTITY main.saveImageAs               "تصویر محفوظ کریں بطور۔۔۔">
+<!ENTITY main.openLinkInNewTab          "ربط نئے خانہ میں کھولیں">
+<!ENTITY main.searchFor                 "تلاش برائے">
+<!ENTITY main.copyLinkAdress            "Copy link address">
+<!ENTITY main.mute                      "آواز چھپائیں">
+<!ENTITY main.audible                   "قابل سماعت">
+
+<!-- About Window -->
+<!ENTITY main.close                     "بند کریں">
+
+<!-- Preferences Window -->
+<!ENTITY preferences.preferences        "ترجیحات">
+<!ENTITY preferences.save               "محفوظ کریں">
+<!ENTITY preferences.cancel             "منسوخ">
+<!ENTITY preferences.profileDirectory   "رہنامچۂ نمایہ صارف">
+<!ENTITY preferences.browse             "ورق گردانی کریں">
+<!ENTITY preferences.tabs               "لوحات یاد رکھیں">
+<!ENTITY preferences.downloadCatalogs   "بعید فہرس (ات) زبراثقال کریں">
+
+<!-- Server -->
+<!ENTITY server.load                    "اثقال">
+<!ENTITY server.start                   "ابتدا">
+<!ENTITY server.stop                    "اختتام">
+<!ENTITY server.close                   "بند کریں">
+
+<!-- Library -->
+<!ENTITY main.library.myLibrary                 "ذاتی مکتبہ">
+<!ENTITY main.library.getNewFiles               "نئے ملفات حاصل کریں">
+<!ENTITY main.library.searchZimFiles            "ZIM ملفات کی تلاش">
+<!ENTITY main.library.sortBy                    "ترتیب بمطابق">
+<!ENTITY main.library.sortBy.title              "عنوان">
+<!ENTITY main.library.sortBy.size               "حجم">
+<!ENTITY main.library.sortBy.date               "تاریخ">
+<!ENTITY main.library.sortBy.author             "مصنف">
+<!ENTITY main.library.sortBy.publisher          "ناشر">
+<!ENTITY main.library.filterBy                  "کھوج بمطابق">
+<!ENTITY main.library.filterBy.fileSize         "حجم ملف">
+<!ENTITY main.library.filterBy.language         "زبان">
+<!ENTITY main.library.filterBy.language.all     "کل">
+<!ENTITY main.library.filterBy.author           "مصنف">
+<!ENTITY main.library.filterBy.author.all       "کل">
+<!ENTITY main.library.filterBy.publisher        "ناشر">
+<!ENTITY main.library.filterBy.publisher.all    "کل">
+<!ENTITY main.library.filterBy.lessThan         "کم از">
+

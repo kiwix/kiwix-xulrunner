@@ -1,0 +1,159 @@
+<!-- Window -->
+<!ENTITY main.title                     "&brand.brandShortName;">
+<!ENTITY main.cssdirection              "ltr">
+
+<!-- Mac menu -->
+<!ENTITY main.osxservices               "សេវាកម្ម">
+<!ENTITY main.osxhideapp                "លាក់ &brand.brandShortName;">
+<!ENTITY main.osxhideothers             "លាក់ផ្សេងទៀត">
+<!ENTITY main.osxshowall                "បង្ហាញទាំងអស់">
+
+<!-- File menu -->
+<!ENTITY main.file                      "ឯកសារ">
+<!ENTITY main.file.accesskey            "F">
+<!ENTITY main.openFile                  "បើកឯកសារ...">
+<!ENTITY main.browseLibrary.accesskey   "B">
+<!ENTITY main.browseLibrary             "រាយរកក្នុងបណ្ណាល័យ">
+<!ENTITY main.hideLibrary               "លាក់បណ្ណាល័យ">
+<!ENTITY main.openFile.accesskey        "O">
+<!ENTITY main.lastOpen                  "បើកមើលនាពេលថ្មីៗ...">
+<!ENTITY main.saveFile                  "រក្សាទុកទំព័រជា...">
+<!ENTITY main.saveFile.accesskey        "S">
+<!ENTITY main.print                     "បោះពុម្ព">
+<!ENTITY main.print.accesskey           "P">
+<!ENTITY main.printPdf                  "បោះពុម្ភជា PDF">
+<!ENTITY main.printPdf.accesskey        "D">
+<!ENTITY main.quit                      "ចាកចេញ">
+<!ENTITY main.quit.accesskey            "Q">
+
+<!-- Edit menu -->
+<!ENTITY main.edit                      "កែប្រែ">
+<!ENTITY main.edit.accesskey            "E">
+<!ENTITY main.find                      "ស្វែករកក្នុងទំព័រ...">
+<!ENTITY main.find.accesskey            "S">
+<!ENTITY main.selectall                 "ជ្រើសយកទាំងអស់">
+<!ENTITY main.selectall.accesskey       "a">
+<!ENTITY main.copy                      "ចំលង">
+<!ENTITY main.copy.accesskey            "p">
+<!ENTITY main.transliteration           "ការសរសេរជាអក្សរខ្មែរ">
+<!ENTITY main.transliteration.accesskey "T">
+<!ENTITY main.preferences               "ចំណង់ចំណូលចិត្ត">
+<!ENTITY main.preferences.accesskey     "n">
+<!ENTITY main.server                    "ម៉ាស៊ីនបំរើការ">
+<!ENTITY main.server.accesskey          "s">
+
+<!-- Display menu -->
+<!ENTITY main.display                   "បង្ហាញ">
+<!ENTITY main.display.accesskey         "D">
+<!ENTITY main.zoom                      "ពង្រីកឬបង្រួម">
+<!ENTITY main.zoom.accesskey            "Z">
+<!ENTITY main.zoomin                    "ពង្រីក">
+<!ENTITY main.zoomin.accesskey          "M">
+<!ENTITY main.zoomout                   "បង្រួម">
+<!ENTITY main.zoomout.accesskey         "R">
+<!ENTITY main.zoomorig                  "ទំហំដើម">
+<!ENTITY main.zoomorig.accesskey        "O">
+<!ENTITY main.language                  "ភាសា​">
+<!ENTITY main.language.accesskey        "L">
+<!ENTITY main.skin                      "សំបក">
+<!ENTITY main.skin.accesskey            "S">
+<!ENTITY main.statusbar                 "របារស្ថានភាព">
+<!ENTITY main.statusbar.accesskey       "S">
+<!ENTITY main.resultsbar                "របារលទ្ធផល">
+<!ENTITY main.resultsbar.accesskey      "R">
+<!ENTITY main.tabs                      "ផ្ទាំងរង">
+<!ENTITY main.tabs.accesskey            "T">
+<!ENTITY main.fullscreen                "ទំហំពេញអេក្រង់">
+<!ENTITY main.fullscreen.accesskey      "F">
+<!ENTITY main.invertedColors            "ត្រលប់ពណ៌">
+<!ENTITY main.invertedColors.accesskey  "I">
+
+<!-- Tools menu -->
+<!ENTITY main.tools                     "ឧបករណ៍">
+<!ENTITY main.tools.accesskey           "T">
+<!ENTITY main.randomArticle             "អត្ថបទចៃដន្យ">
+<!ENTITY main.randomArticle.accesskey   "R">
+<!ENTITY main.checkIntegrity            "ពិនិត្យភាពពេញលេញ">
+<!ENTITY main.checkIntegrity.accesskey  "k">
+<!ENTITY main.purgeHistory              "ជំរះប្រវត្តិ">
+<!ENTITY main.purgeHistory.accesskey    "P">
+
+<!-- Help menu -->
+<!ENTITY main.help                      "ជំនួយ">
+<!ENTITY main.help.accesskey            "H">
+<!ENTITY main.feedback                  "មតិយោបល់">
+<!ENTITY main.reportabug                "រាយការណ៍ពី Bug">
+<!ENTITY main.requestafeature           "សំនើសុំមុខងារពិសេស">
+<!ENTITY main.about                     "អំពី &brand.brandShortName;">
+<!ENTITY main.about.accesskey           "A">
+
+<!-- Tool bar -->
+<!ENTITY main.back                      "ត្រលប់ក្រោយ">
+<!ENTITY main.forward                   "ទៅមុខ">
+<!ENTITY main.home                      "ទំព័រដើម">
+<!ENTITY main.searchBar                 "របារស្វែងរក">
+<!ENTITY main.search                    "ស្វែងរក">
+<!ENTITY main.searchPlaceholder         "វាយបញ្ចូលឃ្លាដែលចង់ស្វែងរកនៅទីនេះ...">
+<!ENTITY main.findInText                "ស្វែងរកក្នុងអត្ថបទ">
+<!ENTITY main.noSearchBar               "ការស្វែងរកត្រូវការឯកសារ ZIM ដែលមានរៀបតាមអក្ខរក្រមជាចាំបាច់">
+<!ENTITY main.bookmarks                 "ការកត់ចំណាំ">
+
+<!-- Results bar -->
+<!ENTITY main.results.title             "លទ្ធផលស្វែងរក">
+
+<!-- Bookmarks Bar -->
+<!ENTITY main.bmkLabel                  "ការកត់ចំណាំ៖">
+<!ENTITY main.notesLabel                "ចំណារការកត់ចំណាំ៖">
+<!ENTITY main.loadbmk                   "នាំចូលកញ្ចប់ការកត់ចំណាំ">
+<!ENTITY main.newbmk                    "បង្កើតកញ្ចប់ការកត់ចំណាំថ្មី">
+<!ENTITY main.mark                      "កត់ចំណាំទំព័រនេះ">
+<!ENTITY main.unmark                    "ឈប់កត់ចំណាំទំព័រដែលបានជ្រើសយក">
+<!ENTITY main.reload                    "ផ្ទុកកញ្ចប់ការកត់ចំណាំឡើងវិញ">
+<!ENTITY main.defaultset                "កញ្ចប់តាមលំនាំដើម">
+
+<!-- Contextual Menu -->
+<!ENTITY main.saveImageAs               "រក្សាទុករូបភាពជា...">
+<!ENTITY main.openLinkInNewTab          "បើ់កតំណភ្ជាប់ក្នុងផ្ទាំងរងថ្មី">
+<!ENTITY main.searchFor                 "ស្វែងរក">
+<!ENTITY main.copyLinkAdress            "Copy link address">
+<!ENTITY main.mute                      "បិទសំលេង">
+<!ENTITY main.audible                   "បើកសំលេង">
+
+<!-- About Window -->
+<!ENTITY main.close                     "បិទ">
+
+<!-- Preferences Window -->
+<!ENTITY preferences.preferences        "ចំណង់ចំណូលចិត្ត">
+<!ENTITY preferences.save               "រក្សាទុក">
+<!ENTITY preferences.cancel             "បោះបង់​">
+<!ENTITY preferences.profileDirectory   "ថតព័ត៌មានផ្ទាល់ខ្លួន">
+<!ENTITY preferences.browse             "រាវរក">
+<!ENTITY preferences.tabs               "ចងចាំផ្ទាំងរង">
+<!ENTITY preferences.downloadCatalogs   "ទាញយកកាតាឡុកពីចំងាយ">
+
+<!-- Server -->
+<!ENTITY server.load                    "ផ្ទុក">
+<!ENTITY server.start                   "ចាប់ផ្ដើម">
+<!ENTITY server.stop                    "ឈប់">
+<!ENTITY server.close                   "បិទ">
+
+<!-- Library -->
+<!ENTITY main.library.myLibrary                 "បណ្ណាល័យរបស់ខ្ញុំ">
+<!ENTITY main.library.getNewFiles               "យកឯកសារថ្មីៗ">
+<!ENTITY main.library.searchZimFiles            "ស្វែងរកឯកសារ ZIM">
+<!ENTITY main.library.sortBy                    "តំរៀបតាម">
+<!ENTITY main.library.sortBy.title              "ចំណងជើង">
+<!ENTITY main.library.sortBy.size               "ទំហំ">
+<!ENTITY main.library.sortBy.date               "កាលបរិច្ឆេទ">
+<!ENTITY main.library.sortBy.author             "អ្នកនិពន្ធ">
+<!ENTITY main.library.sortBy.publisher          "ក្រុមហ៊ុនបោះពុម្ភផ្សាយ">
+<!ENTITY main.library.filterBy                  "ច្រោះរែងតាម">
+<!ENTITY main.library.filterBy.fileSize         "ទំហំឯកសារ">
+<!ENTITY main.library.filterBy.language         "ភាសា​">
+<!ENTITY main.library.filterBy.language.all     "ទាំងអស់">
+<!ENTITY main.library.filterBy.author           "អ្នក​និពន្ធ​">
+<!ENTITY main.library.filterBy.author.all       "ទាំងអស់">
+<!ENTITY main.library.filterBy.publisher        "ក្រុមហ៊ុនបោះពុម្ភផ្សាយ">
+<!ENTITY main.library.filterBy.publisher.all    "ទាំងអស់">
+<!ENTITY main.library.filterBy.lessThan         "តិចជាង">
+

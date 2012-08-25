@@ -6,7 +6,7 @@
 <!ENTITY main.osxservices               "Servicii">
 <!ENTITY main.osxhideapp                "Ascunde &brand.brandShortName;">
 <!ENTITY main.osxhideothers             "Ascunde celelalte">
-<!ENTITY main.osxshowall                "Arată toate">
+<!ENTITY main.osxshowall                "Arată tot">
 
 <!-- File menu -->
 <!ENTITY main.file                      "Fișier">

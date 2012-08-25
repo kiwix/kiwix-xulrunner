@@ -49,6 +49,7 @@ _languagesHash['ita']          = _languagesHashOld['it']          = 'Italiano';
 _languagesHash['jav']          = _languagesHashOld['jv']          = 'Basa Jawa';
 _languagesHash['jpn']          = _languagesHashOld['ja']          = '日本語';
 _languagesHash['ka']           = 'ქართული';
+_languagesHash['khm']          = _languagesHashOld['km']          = 'ភាសាខ្មែរ';
 _languagesHash['kn']           = 'ಕನ್ನಡ';
 _languagesHash['kor']          = _languagesHashOld['ko']          = '한국어';
 _languagesHash['kor-kp']       = _languagesHashOld['ko-kp']       = '조선어';
@@ -97,7 +98,7 @@ _languagesHash['th']           = 'ไทย';
 _languagesHash['tt-cyrl']      = 'Татарча';
 _languagesHash['ug-arab']      = 'ئۇيغۇرچە';
 _languagesHash['ukr']          = _languagesHashOld['uk']          = 'Українська';
-_languagesHash['ur']           = 'اردو';
+_languagesHash['urd']          = _languagesHashOld['ur']          = 'اردو';
 _languagesHash['vi']           = 'Tiếng Việt';
 _languagesHash['yi']           = 'ייִדיש';
 _languagesHash['vec']          = 'Vèneto'
