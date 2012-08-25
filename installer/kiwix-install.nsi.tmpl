@@ -36,7 +36,6 @@
 !define PRODUCT_UNINST_KEY "Software\Microsoft\Windows\CurrentVersion\Uninstall\${PRODUCT_NAME}"
 !define PRODUCT_UNINST_ROOT_KEY "HKLM"
 
-
 ; Mandatory plugins
 !include "MUI2.nsh"
 !include "InstallOptions.nsh"
@@ -457,6 +456,7 @@ Section Uninstall
 
 	${unregisterExtension} ".zim" "ZIM File"
 	${unregisterExtension} ".zimaa" "ZIM File"
+	DeleteRegKey HKCR "ZIM File"
 	Call un.RefreshShellIcons
 
         Delete "$INSTDIR\${PRODUCT_NAME}.url"
