@@ -205,6 +205,9 @@ diststatic:
 	cp -v $(STATIC_TMP)/kiwix/xulrunner/libplc4.so $(STATIC_TMP)/kiwix/xulrunner/libplc4.so.0d
 	cp -v $(STATIC_TMP)/kiwix/xulrunner/libnspr4.so $(STATIC_TMP)/kiwix/xulrunner/libnspr4.so.0d
 	cp -v $(STATIC_TMP)/kiwix/xulrunner/libplds4.so $(STATIC_TMP)/kiwix/xulrunner/libplds4.so.0d
+	rm -rf $(STATIC_TMP)/kiwix/xulrunner/dictionaries
+	rm -rf $(STATIC_TMP)/kiwix/xulrunner/xulrunner-stub
+	rm -rf $(STATIC_TMP)/kiwix/xulrunner/README
 
 	cp -Lv $(EMBED_LIBS) $(STATIC_TMP)/kiwix/xulrunner/
 
