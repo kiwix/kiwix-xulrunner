@@ -489,9 +489,9 @@ win:
 	rm -f kiwix/xulrunner/xulrunner-stub.exe
 	rm -f kiwix/xulrunner/README
 	rm -f kiwix/xulrunner/updater.exe
-        rm -f kiwix/xulrunner/plugin-container.exe
-        rm -f kiwix/xulrunner/mozilla-xremote-client.exe
-        rm -f kiwix/xulrunner/crashreporter.exe
+	rm -f kiwix/xulrunner/plugin-container.exe
+	rm -f kiwix/xulrunner/mozilla-xremote-client.exe
+	rm -f kiwix/xulrunner/crashreporter.exe
 
 if WITH_INDEXER
 	cd src/indexer ; if [ ! -f kiwix-index.exe ] ; then make -f Makefile.msvc ; fi
