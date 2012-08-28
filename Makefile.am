@@ -206,8 +206,12 @@ diststatic:
 	cp -v $(STATIC_TMP)/kiwix/xulrunner/libnspr4.so $(STATIC_TMP)/kiwix/xulrunner/libnspr4.so.0d
 	cp -v $(STATIC_TMP)/kiwix/xulrunner/libplds4.so $(STATIC_TMP)/kiwix/xulrunner/libplds4.so.0d
 	rm -rf $(STATIC_TMP)/kiwix/xulrunner/dictionaries
-	rm -rf $(STATIC_TMP)/kiwix/xulrunner/xulrunner-stub
-	rm -rf $(STATIC_TMP)/kiwix/xulrunner/README
+	rm -f $(STATIC_TMP)/kiwix/xulrunner/xulrunner-stub
+	rm -f $(STATIC_TMP)/kiwix/xulrunner/README
+	rm -f $(STATIC_TMP)/kiwix/xulrunner/updater
+	rm -f $(STATIC_TMP)/kiwix/xulrunner/plugin-container
+	rm -f $(STATIC_TMP)/kiwix/xulrunner/mozilla-xremote-client
+	rm -f $(STATIC_TMP)/kiwix/xulrunner/crashreporter
 
 	cp -Lv $(EMBED_LIBS) $(STATIC_TMP)/kiwix/xulrunner/
 
@@ -482,8 +486,12 @@ win:
 	cp $(DEP_PATH)/icu/bin/icuin*.dll ./kiwix/xulrunner
 	cp $(DEP_PATH)/icu/bin/icuuc*.dll ./kiwix/xulrunner
 	rm -rf kiwix/xulrunner/dictionaries
-	rm -rf kiwix/xulrunner/xulrunner-stub.exe
-	rm -rf kiwix/xulrunner/README
+	rm -f kiwix/xulrunner/xulrunner-stub.exe
+	rm -f kiwix/xulrunner/README
+	rm -f kiwix/xulrunner/updater.exe
+        rm -f kiwix/xulrunner/plugin-container.exe
+        rm -f kiwix/xulrunner/mozilla-xremote-client.exe
+        rm -f kiwix/xulrunner/crashreporter.exe
 
 if WITH_INDEXER
 	cd src/indexer ; if [ ! -f kiwix-index.exe ] ; then make -f Makefile.msvc ; fi
