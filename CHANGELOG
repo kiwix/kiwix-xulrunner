@@ -17,6 +17,7 @@ Kiwix 0.9 rc2
 * NEW: Way to start search from the console with -search cmd line argument (ID: 3538176)
 * NEW: Search Suggestion in kiwix-serve (ID: 2945983)
 * NEW: based on recent Mozilla Gecko 14.0.1
+* NEW: Desktop shortcut creation in Windows installer
 
 Kiwix 0.9 rc1
 * FIXED: Smoothier zooming (ID: 3469927)
