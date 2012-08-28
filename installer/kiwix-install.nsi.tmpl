@@ -19,6 +19,16 @@
 ; Define User Interface additional stuff
 !define MUI_FINISHPAGE_RUN "kiwix\kiwix.exe"
 
+; Define the things related to the installation of desktop launch icon
+Function createDesktopShortcut
+CreateShortcut "$desktop\Kiwix.lnk" "$instdir\kiwix\kiwix.exe"
+FunctionEnd
+
+!define MUI_FINISHPAGE_SHOWREADME ""
+!define MUI_FINISHPAGE_SHOWREADME_NOTCHECKED
+!define MUI_FINISHPAGE_SHOWREADME_TEXT "Create Desktop Shortcut"
+!define MUI_FINISHPAGE_SHOWREADME_FUNCTION createDesktopShortcut
+
 ; Show a warning if the user want to close the install
 !define MUI_ABORTWARNING
 
@@ -445,8 +455,9 @@ FunctionEnd
 Function un.RemoveShortcuts
   SetShellVarContext all
   Delete "$SMPROGRAMS\Kiwix\Uninstall.lnk"
-  Delete "$SMPROGRAMS\Kiwix\kiwix.lnk"
-  Delete "$SMPROGRAMS\Kiwix\kiwix Website.lnk"
+  Delete "$SMPROGRAMS\Kiwix\Kiwix.lnk"
+  Delete "$SMPROGRAMS\Kiwix\Kiwix Website.lnk"
+  Delete "$desktop\Kiwix.lnk"
   RMDir /R "$SMPROGRAMS\Kiwix"
 FunctionEnd
 
