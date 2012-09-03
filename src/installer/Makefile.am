@@ -14,6 +14,7 @@ kiwix_install_SOURCES= \
 	../common/kiwix/manager.cpp \
 	../common/regexTools.cpp \
 	../common/pathTools.cpp \
+	../common/resourceTools.cpp \
 	../common/kiwix/xapian/myhtmlparse.h \
 	../common/kiwix/xapian/namedentities.h \
 	../common/kiwix/xapian/htmlparse.h \
@@ -26,7 +27,8 @@ kiwix_install_SOURCES= \
 	../common/kiwix/library.h \
 	../common/kiwix/manager.h \
 	../common/regexTools.h \
-	../common/pathTools.h 
+	../common/pathTools.h \
+	../common/resourceTools.h
 kiwix_install_CXXFLAGS=$(XAPIAN_CFLAGS) $(CLUCENE_CFLAGS) $(ICU_CFLAGS) $(LZMA_CFLAGS) $(ZLIB_CLAGS) $(UUID_CFLAGS) -I../common/
 
 kiwix_install_LDFLAGS=$(CHECK_LDFLAGS)
