@@ -321,7 +321,7 @@ function getDownloadStatus() {
 				     undefined, callback);
 		    
 		    /* Try to open the new file */
-		    if (displayConfirmDialog("Do you want to open '" + book.title + "' now?")) {
+		    if (displayConfirmDialog(getProperty("openContentConfirm",  book.title))) {
 			library.setCurrentId(book.id);
 			openCurrentBook();
 		    }
@@ -833,7 +833,7 @@ function manageDownloadRemoteBookList() {
 	var doNotAskAnymore = new Object();
 	doNotAskAnymore.value = true;
 
-	continueWithDownloading = displayConfirmDialogEx("Do you want to download the remote catalog of available books?", "Download online book catalog", getProperty("doNotAskAnymore"), doNotAskAnymore);
+	continueWithDownloading = displayConfirmDialogEx(getProperty("downloadRemoteCatalogsConfirm"), getProperty("downloadRemoteCatalogs"), getProperty("doNotAskAnymore"), doNotAskAnymore);
 
 	/* Save the autorisation to not ask each time */
 	if (doNotAskAnymore.value == true) {
