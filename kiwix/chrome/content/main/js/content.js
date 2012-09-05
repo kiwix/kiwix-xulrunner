@@ -319,6 +319,12 @@ function getDownloadStatus() {
 		    };
 		    sendNotification(getProperty("information"), getProperty("contentDownloadFinished",  book.title), 
 				     undefined, callback);
+		    
+		    /* Try to open the new file */
+		    if (displayConfirmDialog("Do you want to open '" + book.title + "' now?")) {
+			library.setCurrentId(book.id);
+			openCurrentBook();
+		    }
 		} else if (ariaDownloadStatus == "waiting") {
 		}
 	    }
