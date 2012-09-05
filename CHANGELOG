@@ -18,6 +18,7 @@ Kiwix 0.9 rc2
 * NEW: Search Suggestion in kiwix-serve (ID: 2945983)
 * NEW: based on recent Mozilla Gecko 14.0.1
 * NEW: Desktop shortcut creation in Windows installer
+* NEW: Ask to load content at the end of a download (ID: 3563964)
 
 Kiwix 0.9 rc1
 * FIXED: Smoothier zooming (ID: 3469927)
