@@ -96,13 +96,13 @@
 <!ENTITY main.searchPlaceholder         "찾을 텍스트를 여기에 입력하세요...">
 <!ENTITY main.findInText                "본문에서 찾기">
 <!ENTITY main.noSearchBar               "찾기를 위한 색인된 ZIM파일이 필요합니다.">
-<!ENTITY main.bookmarks                 "서표">
+<!ENTITY main.bookmarks                 "책갈피">
 
 <!-- Results bar -->
 <!ENTITY main.results.title             "검색결과 찾기">
 
 <!-- Bookmarks Bar -->
-<!ENTITY main.bmkLabel                  "서표:">
+<!ENTITY main.bmkLabel                  "책갈피:">
 <!ENTITY main.notesLabel                "서표 노트">
 <!ENTITY main.loadbmk                   "서표 세트 불러오기">
 <!ENTITY main.newbmk                    "새로운 서표 세트 만들기">

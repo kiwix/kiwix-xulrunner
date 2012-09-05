@@ -833,7 +833,7 @@ function manageDownloadRemoteBookList() {
 	var doNotAskAnymore = new Object();
 	doNotAskAnymore.value = true;
 
-	continueWithDownloading = displayConfirmDialogEx("Do you want to download the remote catalog of available books?", "Download online book catalog", "Do not ask anymore", doNotAskAnymore);
+	continueWithDownloading = displayConfirmDialogEx("Do you want to download the remote catalog of available books?", "Download online book catalog", getProperty("doNotAskAnymore"), doNotAskAnymore);
 
 	/* Save the autorisation to not ask each time */
 	if (doNotAskAnymore.value == true) {

@@ -39,13 +39,13 @@
 <!ENTITY main.transliteration.accesskey "T">
 <!ENTITY main.preferences               "Tercihi">
 <!ENTITY main.preferences.accesskey     "n">
-<!ENTITY main.server                    "Waster">
+<!ENTITY main.server                    "Arden">
 <!ENTITY main.server.accesskey          "s">
 
 <!-- Display menu -->
 <!ENTITY main.display                   "Asen">
 <!ENTITY main.display.accesskey         "D">
-<!ENTITY main.zoom                      "Nezdıfi">
+<!ENTITY main.zoom                      "Nezdı fi">
 <!ENTITY main.zoom.accesskey            "Z">
 <!ENTITY main.zoomin                    "Gırd kerdış">
 <!ENTITY main.zoomin.accesskey          "M">

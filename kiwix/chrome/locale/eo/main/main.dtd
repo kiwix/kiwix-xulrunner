@@ -3,10 +3,10 @@
 <!ENTITY main.cssdirection              "ltr">
 
 <!-- Mac menu -->
-<!ENTITY main.osxservices               "Services">
-<!ENTITY main.osxhideapp                "Hide &brand.brandShortName;">
-<!ENTITY main.osxhideothers             "Hide Others">
-<!ENTITY main.osxshowall                "Show All">
+<!ENTITY main.osxservices               "Servaĵoj">
+<!ENTITY main.osxhideapp                "Kaŝi &brand.brandShortName;">
+<!ENTITY main.osxhideothers             "Kaŝi aliajn">
+<!ENTITY main.osxshowall                "Montri ĉiun">
 
 <!-- File menu -->
 <!ENTITY main.file                      "Dosiero">
@@ -14,7 +14,7 @@
 <!ENTITY main.openFile                  "Malfermi dosieron...">
 <!ENTITY main.browseLibrary.accesskey   "B">
 <!ENTITY main.browseLibrary             "Rigardi bibliotekon">
-<!ENTITY main.hideLibrary               "Hide library">
+<!ENTITY main.hideLibrary               "Kaŝi libraron">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "Freŝe malfermitaj...">
 <!ENTITY main.saveFile                  "Konservi paĝon kiel...">
@@ -37,9 +37,9 @@
 <!ENTITY main.copy.accesskey            "p">
 <!ENTITY main.transliteration           "Transliterumado">
 <!ENTITY main.transliteration.accesskey "T">
-<!ENTITY main.preferences               "Agordoj">
+<!ENTITY main.preferences               "Preferoj">
 <!ENTITY main.preferences.accesskey     "n">
-<!ENTITY main.server                    "Server">
+<!ENTITY main.server                    "Servilo">
 <!ENTITY main.server.accesskey          "s">
 
 <!-- Display menu -->
@@ -65,7 +65,7 @@
 <!ENTITY main.tabs.accesskey            "T">
 <!ENTITY main.fullscreen                "Plenekrane">
 <!ENTITY main.fullscreen.accesskey      "F">
-<!ENTITY main.invertedColors            "Inverted colors">
+<!ENTITY main.invertedColors            "Invertiĝaj koloroj">
 <!ENTITY main.invertedColors.accesskey  "I">
 
 <!-- Tools menu -->
@@ -93,7 +93,7 @@
 <!ENTITY main.home                      "Hejmo">
 <!ENTITY main.searchBar                 "Serĉbreto">
 <!ENTITY main.search                    "Serĉi">
-<!ENTITY main.searchPlaceholder         "Type the text to search here...">
+<!ENTITY main.searchPlaceholder         "Jen tajpi la tekston serĉi...">
 <!ENTITY main.findInText                "Trovi en teksto">
 <!ENTITY main.noSearchBar               "Serĉo petas indeksitan ZIM-dosieron">
 <!ENTITY main.bookmarks                 "Legosignoj">
@@ -129,13 +129,13 @@
 <!ENTITY preferences.profileDirectory   "Profila dosierujo">
 <!ENTITY preferences.browse             "Foliumi">
 <!ENTITY preferences.tabs               "Memori langetojn">
-<!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">
+<!ENTITY preferences.downloadCatalogs   "Elŝuti forkatalogo(j)n">
 
 <!-- Server -->
-<!ENTITY server.load                    "Load">
-<!ENTITY server.start                   "Start">
-<!ENTITY server.stop                    "Stop">
-<!ENTITY server.close                   "Close">
+<!ENTITY server.load                    "Alŝuti">
+<!ENTITY server.start                   "Komenci">
+<!ENTITY server.stop                    "Halti">
+<!ENTITY server.close                   "Fermi">
 
 <!-- Library -->
 <!ENTITY main.library.myLibrary                 "Mia biblioteko">
@@ -155,5 +155,5 @@
 <!ENTITY main.library.filterBy.author.all       "Ĉio">
 <!ENTITY main.library.filterBy.publisher        "Eldonejo">
 <!ENTITY main.library.filterBy.publisher.all    "Ĉio">
-<!ENTITY main.library.filterBy.lessThan         "Less than">
+<!ENTITY main.library.filterBy.lessThan         "Malpli ol">
 
