@@ -360,6 +360,9 @@ function loadContentFromCommandLine(commandLine) {
     /* Adapt the UI depending of a book is open or not */
     if (currentZimAccessor == undefined) {
 	showHelp();
+	
+	/* Re-arrange the last open files - no file was open - was not done in the manageOpenFile() */
+	populateLastOpenMenu();
     }
 }
 
