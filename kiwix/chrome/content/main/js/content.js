@@ -43,38 +43,38 @@ downloader.onmessage = function(event) {
 
 	    /* Load the remote library xml in content manager */
 	    library.readFromText(xml, false);
+	}
+	
+	/* Get count of local&remote books */
+	var localBookCount = library.getLocalBookCount();
+	var remoteBookCount = library.getRemoteBookCount();
 
-	    /* Get count of local&remote books */
-	    var localBookCount = library.getLocalBookCount();
-	    var remoteBookCount = library.getRemoteBookCount();
+	/* Populate the book list ? */
+	var doPopulateRemoteBookList = message.parameters[1];
+	if (doPopulateRemoteBookList) {
+	    populateRemoteBookList();
+	}
+	    
+	/* If no local content but remote, change the default view */
+	if (localBookCount == 0 && remoteBookCount > 0)
+	    selectLibraryMenu("library-menuitem-remote")
+	    
+	/* New content are available online */
+	if (oldRemoteBookCount < remoteBookCount) {
+		
+	    /* Save library (library.xml in the user profile) */
+	    library.writeToFile();
 
-	    /* Populate the book list ? */
-	    var doPopulateRemoteBookList = message.parameters[1];
-	    if (doPopulateRemoteBookList) {
-		populateRemoteBookList();
+	    /* First start - online */
+	    if (oldRemoteBookCount == 0) {
+		if (displayConfirmDialog(getProperty("newContentAvailableInvitation"))) {
+		    showRemoteBooks();
+		}
 	    }
-	    
-	    /* If no local content but remote, change the default view */
-	    if (localBookCount == 0 && remoteBookCount > 0)
-		selectLibraryMenu("library-menuitem-remote")
-	    
-	    /* New content are available online */
-	    if (oldRemoteBookCount < remoteBookCount) {
 		
-		/* Save library (library.xml in the user profile) */
-		library.writeToFile();
-
-		/* First start - online */
-		if (oldRemoteBookCount == 0) {
-		    if (displayConfirmDialog(getProperty("newContentAvailableInvitation"))) {
-			showRemoteBooks();
-		    }
-		}
-		
-		/* New content released online */
-		else {
-		    sendNotification(getProperty("information"), getProperty("newContentAvailable"));
-		}
+	    /* New content released online */
+	    else {
+		sendNotification(getProperty("information"), getProperty("newContentAvailable"));
 	    }
 	}
     }
