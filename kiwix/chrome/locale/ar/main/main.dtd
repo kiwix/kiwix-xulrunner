@@ -45,7 +45,7 @@
 <!-- Display menu -->
 <!ENTITY main.display                   "عرض">
 <!ENTITY main.display.accesskey         "D">
-<!ENTITY main.zoom                      "تكبير/تصغير">
+<!ENTITY main.zoom                      "المقربة">
 <!ENTITY main.zoom.accesskey            "Z">
 <!ENTITY main.zoomin                    "كبّر">
 <!ENTITY main.zoomin.accesskey          "M">
@@ -73,48 +73,48 @@
 <!ENTITY main.tools.accesskey           "T">
 <!ENTITY main.randomArticle             "مقالة عشوائية">
 <!ENTITY main.randomArticle.accesskey   "R">
-<!ENTITY main.checkIntegrity            "تحقّق من السلامة">
+<!ENTITY main.checkIntegrity            "إفحص الإستقامة">
 <!ENTITY main.checkIntegrity.accesskey  "k">
-<!ENTITY main.purgeHistory              "إلغاء التاريخ">
+<!ENTITY main.purgeHistory              "إستنزاف التاريخ">
 <!ENTITY main.purgeHistory.accesskey    "P">
 
 <!-- Help menu -->
-<!ENTITY main.help                      "مساعدة">
+<!ENTITY main.help                      "المساعدة">
 <!ENTITY main.help.accesskey            "H">
-<!ENTITY main.feedback                  "ملاحظات">
+<!ENTITY main.feedback                  "Feedback">
 <!ENTITY main.reportabug                "بلغ عن علة">
 <!ENTITY main.requestafeature           "اطلب ميزة">
-<!ENTITY main.about                     "حول &#38;#38;شعار.اسم الشعار;">
+<!ENTITY main.about                     "حول &brand.brandShortName;">
 <!ENTITY main.about.accesskey           "A">
 
 <!-- Tool bar -->
 <!ENTITY main.back                      "رجوع">
 <!ENTITY main.forward                   "التالي">
-<!ENTITY main.home                      "صفحة البداية">
+<!ENTITY main.home                      "الصفحة الرئيسية">
 <!ENTITY main.searchBar                 "شريط البحث">
-<!ENTITY main.search                    "بحث">
+<!ENTITY main.search                    "إبحث">
 <!ENTITY main.searchPlaceholder         "أدخل النص للبحث هنا...">
-<!ENTITY main.findInText                "جِد في النص">
-<!ENTITY main.noSearchBar               "يتطلب البحث عن الملفات وفهرستها Zim">
-<!ENTITY main.bookmarks                 "المفضلة">
+<!ENTITY main.findInText                "إبحث في النص">
+<!ENTITY main.noSearchBar               "Search requires an indexed ZIM file">
+<!ENTITY main.bookmarks                 "علامات القراءة">
 
 <!-- Results bar -->
-<!ENTITY main.results.title             "النتائج">
+<!ENTITY main.results.title             "نتائج البحث">
 
 <!-- Bookmarks Bar -->
-<!ENTITY main.bmkLabel                  "المفضلة:">
-<!ENTITY main.notesLabel                "ملاحظات المفضلة:">
-<!ENTITY main.loadbmk                   "استيراد مجموعة مفضلة">
-<!ENTITY main.newbmk                    "إنشاء مجموعة مفضلة جديدة">
+<!ENTITY main.bmkLabel                  "علامات القراءة:">
+<!ENTITY main.notesLabel                "ملاحظات علامات القراءة:">
+<!ENTITY main.loadbmk                   "اسورد مجموعة علامات قراءة">
+<!ENTITY main.newbmk                    "أنشئ مجموعة علامات قراءة جديدة">
 <!ENTITY main.mark                      "علم هذه الصفحة">
 <!ENTITY main.unmark                    "أزل تعليم المحدد">
 <!ENTITY main.reload                    "أعد تحميل مجموعة المفضلة">
-<!ENTITY main.defaultset                "الخيارات المبدئية">
+<!ENTITY main.defaultset                "Default Set">
 
 <!-- Contextual Menu -->
 <!ENTITY main.saveImageAs               "احفظ الصورة ك...">
 <!ENTITY main.openLinkInNewTab          "افتح الوصلة في لسان جديد">
-<!ENTITY main.searchFor                 "ابحث عنه">
+<!ENTITY main.searchFor                 "إبحث عن">
 <!ENTITY main.copyLinkAdress            "Copy link address">
 <!ENTITY main.mute                      "كتم الصوت">
 <!ENTITY main.audible                   "مسموعة">
@@ -123,25 +123,25 @@
 <!ENTITY main.close                     "أغلق">
 
 <!-- Preferences Window -->
-<!ENTITY preferences.preferences        "تفضيلات">
-<!ENTITY preferences.save               "احفظ">
-<!ENTITY preferences.cancel             "إلغاء">
-<!ENTITY preferences.profileDirectory   "دليل الملف الشخصي">
+<!ENTITY preferences.preferences        "التفضيلات">
+<!ENTITY preferences.save               "إحفظ">
+<!ENTITY preferences.cancel             "ألغِ">
+<!ENTITY preferences.profileDirectory   "Profile directory">
 <!ENTITY preferences.browse             "تصفّح">
 <!ENTITY preferences.tabs               "تذكّر الألسنة">
-<!ENTITY preferences.downloadCatalogs   "قم بتحميل فهرس (اث) عن بعد">
+<!ENTITY preferences.downloadCatalogs   "نزّل دفتر/دفاتر مصور/ة بعيد/ة">
 
 <!-- Server -->
-<!ENTITY server.load                    "تحميل">
-<!ENTITY server.start                   "البداية">
-<!ENTITY server.stop                    "إيقاف">
-<!ENTITY server.close                   "غلق">
+<!ENTITY server.load                    "حمّل">
+<!ENTITY server.start                   "إبدأ">
+<!ENTITY server.stop                    "قفّ">
+<!ENTITY server.close                   "أغلق">
 
 <!-- Library -->
 <!ENTITY main.library.myLibrary                 "مكتبتي">
 <!ENTITY main.library.getNewFiles               "احصل على ملفات جديدة">
 <!ENTITY main.library.searchZimFiles            "ابحث عن ملفات ZIM">
-<!ENTITY main.library.sortBy                    "الترتيب حسب">
+<!ENTITY main.library.sortBy                    "رتب حسب">
 <!ENTITY main.library.sortBy.title              "العنوان">
 <!ENTITY main.library.sortBy.size               "الحجم">
 <!ENTITY main.library.sortBy.date               "التاريخ">

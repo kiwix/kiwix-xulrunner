@@ -81,14 +81,14 @@
 <!-- Help menu -->
 <!ENTITY main.help                      "Peşti">
 <!ENTITY main.help.accesskey            "H">
-<!ENTITY main.feedback                  "Peydrıstış">
+<!ENTITY main.feedback                  "Peydrışten">
 <!ENTITY main.reportabug                "Xırabin bırışê">
-<!ENTITY main.requestafeature           "Xaseya waşten de">
+<!ENTITY main.requestafeature           "Yew xısusiyet bıweşene">
 <!ENTITY main.about                     "Heq dê &brand.brandShortName;">
 <!ENTITY main.about.accesskey           "A">
 
 <!-- Tool bar -->
-<!ENTITY main.back                      "peyd şo">
+<!ENTITY main.back                      "Peyser">
 <!ENTITY main.forward                   "Aser ke">
 <!ENTITY main.home                      "Keye">
 <!ENTITY main.searchBar                 "Sıvura cı geyrayışi">
@@ -133,7 +133,7 @@
 
 <!-- Server -->
 <!ENTITY server.load                    "Buwan">
-<!ENTITY server.start                   "Dest pêke">
+<!ENTITY server.start                   "Serokne">
 <!ENTITY server.stop                    "Vınd">
 <!ENTITY server.close                   "Racnê">
 

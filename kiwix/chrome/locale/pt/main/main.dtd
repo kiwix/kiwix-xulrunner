@@ -3,10 +3,10 @@
 <!ENTITY main.cssdirection              "ltr">
 
 <!-- Mac menu -->
-<!ENTITY main.osxservices               "Services">
-<!ENTITY main.osxhideapp                "Hide &brand.brandShortName;">
-<!ENTITY main.osxhideothers             "Hide Others">
-<!ENTITY main.osxshowall                "Show All">
+<!ENTITY main.osxservices               "Serviços">
+<!ENTITY main.osxhideapp                "Ocultar &brand.brandShortName;">
+<!ENTITY main.osxhideothers             "Ocultar outros">
+<!ENTITY main.osxshowall                "Mostrar todos">
 
 <!-- File menu -->
 <!ENTITY main.file                      "Ficheiro">
@@ -14,7 +14,7 @@
 <!ENTITY main.openFile                  "Abrir ficheiro...">
 <!ENTITY main.browseLibrary.accesskey   "B">
 <!ENTITY main.browseLibrary             "Explorar a biblioteca">
-<!ENTITY main.hideLibrary               "Hide library">
+<!ENTITY main.hideLibrary               "Ocultar a biblioteca">
 <!ENTITY main.openFile.accesskey        "A">
 <!ENTITY main.lastOpen                  "Aberto recentemente...">
 <!ENTITY main.saveFile                  "Gravar página como...">
@@ -39,7 +39,7 @@
 <!ENTITY main.transliteration.accesskey "T">
 <!ENTITY main.preferences               "Preferências">
 <!ENTITY main.preferences.accesskey     "s">
-<!ENTITY main.server                    "Server">
+<!ENTITY main.server                    "Servidor">
 <!ENTITY main.server.accesskey          "s">
 
 <!-- Display menu -->
@@ -65,7 +65,7 @@
 <!ENTITY main.tabs.accesskey            "T">
 <!ENTITY main.fullscreen                "Ecrã completo">
 <!ENTITY main.fullscreen.accesskey      "E">
-<!ENTITY main.invertedColors            "Inverted colors">
+<!ENTITY main.invertedColors            "Cores invertidas">
 <!ENTITY main.invertedColors.accesskey  "I">
 
 <!-- Tools menu -->
@@ -93,7 +93,7 @@
 <!ENTITY main.home                      "Início">
 <!ENTITY main.searchBar                 "Barra de pesquisa">
 <!ENTITY main.search                    "Pesquisar">
-<!ENTITY main.searchPlaceholder         "Type the text to search here...">
+<!ENTITY main.searchPlaceholder         "Digite o texto a pesquisar aqui...">
 <!ENTITY main.findInText                "Procurar no texto">
 <!ENTITY main.noSearchBar               "A pesquisa requere um ficheiro Zim indexado">
 <!ENTITY main.bookmarks                 "Favoritos">
@@ -132,10 +132,10 @@
 <!ENTITY preferences.downloadCatalogs   "Descarregar catálogo(s) remoto(s)">
 
 <!-- Server -->
-<!ENTITY server.load                    "Load">
-<!ENTITY server.start                   "Start">
-<!ENTITY server.stop                    "Stop">
-<!ENTITY server.close                   "Close">
+<!ENTITY server.load                    "Carregar">
+<!ENTITY server.start                   "Iniciar">
+<!ENTITY server.stop                    "Parar">
+<!ENTITY server.close                   "Fechar">
 
 <!-- Library -->
 <!ENTITY main.library.myLibrary                 "A minha biblioteca">
@@ -155,5 +155,5 @@
 <!ENTITY main.library.filterBy.author.all       "Todos">
 <!ENTITY main.library.filterBy.publisher        "Editora">
 <!ENTITY main.library.filterBy.publisher.all    "Todas">
-<!ENTITY main.library.filterBy.lessThan         "Less than">
+<!ENTITY main.library.filterBy.lessThan         "Menos de">
 
