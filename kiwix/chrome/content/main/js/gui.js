@@ -1,6 +1,7 @@
 /*
- * Copyright 2011 Emmanuel Engelhart <kelson@kiwix.org>, Renaud Gaudin
- * <reg@kiwix.org>
+ * Copyright 2011-2012
+ * Emmanuel Engelhart <kelson@kiwix.org>
+ * Renaud Gaudin <reg@kiwix.org>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU  General Public License as published by
@@ -633,9 +634,6 @@ function manageUnload(clearCurrentAccessor, help) {
     if (help) {
 	showHelp(false, false);
     }
-
-    /* Re-arrange the last open files */
-    populateLastOpenMenu();
 }
 
 /* Try to open a ZIM file */
@@ -1205,6 +1203,9 @@ function initUserInterface() {
         menu = document.getElementById('menu-bar');
         menu.setAttribute("style", "display: none;");
     }
+
+    /* Populate last open files */
+    populateLastOpenMenu();
 }
 
 /* Drop file on windows to open it */
@@ -1515,7 +1516,7 @@ function printPdf() {
     filePicker.defaultExtension = "pdf";
 
     /* Compute and set up the default filename */
-    var defaultFilename = content.document.title.replace(RegExp("( )", "g"), "_") + ".pdf";
+    var defaultFilename = getTitle().replace(RegExp("( )", "g"), "_") + ".pdf";
     defaultFilename = defaultFilename.replace(RegExp("\/", "i"), "_");
     filePicker.defaultString = defaultFilename;
     
@@ -1530,7 +1531,8 @@ function printPdf() {
     }
 
     /* Prepare the PDF printer */
-    var webBrowserPrint = window.content.QueryInterface(Components.interfaces.nsIInterfaceRequestor)
+    var webBrowserPrint = getHtmlRenderer().contentWindow
+	.QueryInterface(Components.interfaces.nsIInterfaceRequestor)
 	.getInterface(Components.interfaces.nsIWebBrowserPrint);
     var printer = Components.classes["@mozilla.org/gfx/printsettings-service;1"]
 	.getService(Components.interfaces.nsIPrintSettingsService);
@@ -1681,7 +1683,7 @@ function focusOnSearch() {
 function LostFocusOnSearch() {
     // SUGAR: Update search box label with page name
     if (env.isSugar())
-        getSearchBox().value = getHtmlRenderer().contentTitle;
+        getSearchBox().value = getTitle();
 }
 
 function areColorsInverted() {
