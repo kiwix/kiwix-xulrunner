@@ -6,6 +6,7 @@ Kiwix 0.9 rc2
 * FIXED: Hide bookmarks sidebar in the "library view" (ID: 3555848)
 * FIXED: Better landing page loading in kiwix-plug (by introducing ip forwarding)
 * FIXED: Unclean Windows Registery after uninstalling (ID: 3467455)
+* FIXED: Problems in creating PDF/HTML from tabs (#362)
 * NEW: New supported user interface languages: Zazaki (diq), Javanese (jv),
   Khmer (km), Urdu (ur)
 * NEW: improvement of the "verbose" mode in kiwix-install and kiwix-index
