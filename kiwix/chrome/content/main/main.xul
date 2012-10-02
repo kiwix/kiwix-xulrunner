@@ -44,7 +44,7 @@
 	</menupopup>
       </menu>
       <menuitem id="file-save" label="&main.saveFile;" key="save-file-key" class="menuitem-iconic"
-		accesskey="&main.saveFile.accesskey;" oncommand="saveDocument(window.content.document);"/>
+		accesskey="&main.saveFile.accesskey;" oncommand="saveDocument(getHtmlRenderer().contentDocument);"/>
       <menuitem id="file-print" label="&main.print;" key="print-key" class="menuitem-iconic" 
 		accesskey="&main.print.accesskey;" oncommand="print()"/>
       <menuitem id="file-print-pdf" label="&main.printPdf;" key="print-pdf-key" class="menuitem-iconic" 
