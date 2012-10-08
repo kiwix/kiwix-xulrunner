@@ -141,7 +141,7 @@
 <!ENTITY main.library.myLibrary                 "マイ ライブラリー">
 <!ENTITY main.library.getNewFiles               "新規ファイルを取得">
 <!ENTITY main.library.searchZimFiles            "ZIM ファイルを検索">
-<!ENTITY main.library.sortBy                    "並び順：">
+<!ENTITY main.library.sortBy                    "並び順:">
 <!ENTITY main.library.sortBy.title              "タイトル">
 <!ENTITY main.library.sortBy.size               "サイズ">
 <!ENTITY main.library.sortBy.date               "日付">
