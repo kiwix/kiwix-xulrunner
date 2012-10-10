@@ -22,6 +22,7 @@ Kiwix 0.9 rc2
 * NEW: Desktop shortcut creation in Windows installer
 * NEW: Ask to load content at the end of a download (ID: 3563964)
 * NEW: if "/M/Description" empty, check "/M/Subtitle" (used by Mediawiki Collection ext.)
+* NEW: Windows compilation using Visual Studio 2010
 
 Kiwix 0.9 rc1
 * FIXED: Smoothier zooming (ID: 3469927)
