@@ -298,7 +298,7 @@ XAPIAN_COMPACT=""
 COMPILED_XAPIAN_COMPACT="${DEP_PATH}/xapian-core-1.2.3/build/bin/xapian-compact"
 
 ICU_CFLAGS=""
-ICU_LDFLAGS="-licui18n -licuuc -licudata" # replaced by icu-config"
+ICU_LDFLAGS="-licui18n -licuuc -licudata" # replaced by icu-config
 ICU_STATIC_LDFLAGS=""
 COMPILE_ICU=0
 COMPILED_ICU_CFLAGS="-I${DEP_PATH}/icu/source/build/include"
@@ -319,9 +319,9 @@ COMPILE_MICROHTTPD=0
 if test [ $IS_WIN -eq 1 ]
 then
    COMPILED_MICROHTTPD_FILES="${DEP_PATH}/libmicrohttpd/lib/libmicrohttpd.dll.a"
-   COMPILED_MICROHTTPD_CFLAGS=""
-   COMPILED_MICROHTTPD_LDFLAGS=""
-   COMPILED_MICROHTTPD_STATIC_LDFLAGS=""
+   COMPILED_MICROHTTPD_CFLAGS="-I${DEP_PATH}/libmicrohttpd/inlcude"
+   COMPILED_MICROHTTPD_LDFLAGS="-L${DEP_PATH}/libmicrohttpd/lib"
+   COMPILED_MICROHTTPD_STATIC_LDFLAGS="${DEP_PATH}/libmicrohttpd/lib/libmicrohttpd.dll.a"
 else
    COMPILED_MICROHTTPD_FILES="${DEP_PATH}/libmicrohttpd-0.9.19/build/lib/libmicrohttpd.${SHARED_EXT}"
    COMPILED_MICROHTTPD_CFLAGS="-I${DEP_PATH}/libmicrohttpd-0.9.19/build/include"
@@ -370,7 +370,7 @@ UUID_STATIC_LDFLAGS=""
 COMPILE_UUID=0
 COMPILED_UUID_CFLAGS="-I${DEP_PATH}/e2fsprogs-1.42/lib"
 COMPILED_UUID_LDFLAGS=""
-if test [ $IS_OSX -eq 1 ] ; then
+if test [ $IS_OSX -eq 1 -o $IS_WIN -eq 1 ] ; then
 	COMPILED_UUID_STATIC_LDFLAGS=""
 	COMPILED_UUID_FILES=""
 else
@@ -437,7 +437,7 @@ then
 	COMPILE_ZLIB=1
 	COMPILE_XAPIAN=1
 	COMPILE_ICU=1
-	COMPILE_MICROHTTPD=0
+	COMPILE_MICROHTTPD=1
 	COMPILE_LZMA=1
 	COMPILE_ARIA2=1
 	COMPILE_CLUCENE=0
