@@ -311,15 +311,23 @@ else
 	COMPILED_ICU_FILES="${DEP_PATH}/icu/source/build/lib/libicui18n.${SHARED_EXT} ${DEP_PATH}/icu/source/build/lib/libicuuc.${SHARED_EXT} ${DEP_PATH}/icu/source/build/lib/libicudata.${SHARED_EXT}"
 fi
 
-# used only for building kiwix-serve. Not available on windows.
+# used only for building kiwix-serve.
 MICROHTTPD_CFLAGS=""
 MICROHTTPD_LDFLAGS="-lmicrohttpd"
 MICROHTTPD_STATIC_LDFLAGS=""
 COMPILE_MICROHTTPD=0
-COMPILED_MICROHTTPD_CFLAGS="-I${DEP_PATH}/libmicrohttpd-0.9.19/build/include"
-COMPILED_MICROHTTPD_LDFLAGS="-L${DEP_PATH}/libmicrohttpd-0.9.19/build/lib -lmicrohttpd"
-COMPILED_MICROHTTPD_STATIC_LDFLAGS="${DEP_PATH}/libmicrohttpd-0.9.19/build/lib/libmicrohttpd.a"
-COMPILED_MICROHTTPD_FILES="${DEP_PATH}/libmicrohttpd-0.9.19/build/lib/libmicrohttpd.${SHARED_EXT}"
+if test [ $IS_WIN -eq 1 ]
+then
+   COMPILED_MICROHTTPD_FILES="${DEP_PATH}/libmicrohttpd/lib/libmicrohttpd.dll.a"
+   COMPILED_MICROHTTPD_CFLAGS=""
+   COMPILED_MICROHTTPD_LDFLAGS=""
+   COMPILED_MICROHTTPD_STATIC_LDFLAGS=""
+else
+   COMPILED_MICROHTTPD_FILES="${DEP_PATH}/libmicrohttpd-0.9.19/build/lib/libmicrohttpd.${SHARED_EXT}"
+   COMPILED_MICROHTTPD_CFLAGS="-I${DEP_PATH}/libmicrohttpd-0.9.19/build/include"
+   COMPILED_MICROHTTPD_LDFLAGS="-L${DEP_PATH}/libmicrohttpd-0.9.19/build/lib -lmicrohttpd"
+   COMPILED_MICROHTTPD_STATIC_LDFLAGS="${DEP_PATH}/libmicrohttpd-0.9.19/build/lib/libmicrohttpd.a"
+fi
 
 LZMA_CFLAGS=""
 LZMA_LDFLAGS=" -llzma"
@@ -902,7 +910,7 @@ AC_ARG_WITH(static-microhttpd,
 if test [ $COMPILE_MICROHTTPD -eq 1 -o "$MICROHTTPD_PATH" == "$SELF" -o "$MICROHTTPD_ARCHIVE" == "$SELF"] ; then
 	COMPILE_MICROHTTPD=1
 	MICROHTTPD_CFLAGS=$COMPILED_MICROHTTPD_CFLAGS
-    MICROHTTPD_LDFLAGS=$COMPILED_MICROHTTPD_LDFLAGS
+	MICROHTTPD_LDFLAGS=$COMPILED_MICROHTTPD_LDFLAGS
 	MICROHTTPD_FILES=$COMPILED_MICROHTTPD_FILES
 	MICROHTTPD_STATIC_LDFLAGS=$COMPILED_MICROHTTPD_STATIC_LDFLAGS
 elif test [ $WITH_SERVER -eq 1 ]

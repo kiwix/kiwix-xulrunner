@@ -233,6 +233,13 @@ libmicrohttpd-0.9.19/build-i386/lib/libmicrohttpd.dylib: libmicrohttpd-0.9.19
 libmicrohttpd-0.9.19/build-x86_64/lib/libmicrohttpd.dylib: libmicrohttpd-0.9.19
 	cd libmicrohttpd-0.9.19 && mkdir -p build-x86_64 && CC="gcc -arch x86_64" CXX="g++ -arch x86_64" CFLAGS=" -fPIC " ./configure --enable-shared --enable-static --prefix=$(DEP_PATH)/libmicrohttpd-0.9.19/build-x86_64 && make clean && make && make install
 
+# Windows
+libmicrohttpd-0.9.17-w32.zip:
+	$(DOWNLOADER) libmicrohttpd-w32.zip $(DEP_MIRROR)/libmicrohttpd-0.9.17-w32.zip
+
+libmicrohttpd/lib/libmicrohttpd.dll.a: libmicrohttpd-0.9.17-w32.zip
+	mkdir libmicrohttpd; unzip -o -d libmicrohttpd libmicrohttpd-w32.zip
+
 ####################################################
 ############ LZMA
 ####################################################
