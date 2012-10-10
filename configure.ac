@@ -122,6 +122,11 @@ fi
 if test [ $IS_WIN -eq 1 ] ; then
    CL_VERSION=`cl.exe 2>&1 | grep Version | sed 's/.*Version //' | sed 's/\..*//'`
    AC_MSG_RESULT(checking for cl version... ${CL_VERSION})
+
+   if test [ $CL_VERSION -lt 16]
+   then
+     IS_OLD_CL=1;
+   fi
 fi
 
 # Set current language to C++
@@ -1348,7 +1353,7 @@ AM_CONDITIONAL([STATIC_BINS], [test $STATIC_BINS -eq 1])
 AM_CONDITIONAL([JAR_CONTENT], [test $JAR_CONTENT -eq 1])
 AM_CONDITIONAL([DEBIAN_RULES], [test $DEBIAN_RULES -eq 1])
 AM_CONDITIONAL([IS_OLD_GCC], [test $IS_OLD_GCC -eq 1])
-AM_CONDITIONAL([IS_OLD_CL], [test $CL_VERSION -lt 16])
+AM_CONDITIONAL([IS_OLD_CL], [test $IS_OLD_CL -eq 1])
 
 AC_SUBST(WITH_COMPONENTS)
 AC_SUBST(WITH_CLUCENE)
