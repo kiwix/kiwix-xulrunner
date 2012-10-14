@@ -8,6 +8,7 @@ Kiwix 0.9 rc2
 * FIXED: Unclean Windows Registery after uninstalling (ID: 3467455)
 * FIXED: Problems in creating PDF/HTML from tabs (#362)
 * FIXED: Kiwix crashes on MS/Windows (with "special" files)
+* FIXED: Better deal with *.zimaa files
 * NEW: New supported user interface languages: Zazaki (diq), Javanese (jv),
   Khmer (km), Urdu (ur)
 * NEW: improvement of the "verbose" mode in kiwix-install and kiwix-index
