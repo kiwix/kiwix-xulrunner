@@ -602,23 +602,23 @@ function whereis(binary) {
     var path = file.path + sep + path;
 
     /* Append ./bin */
-    var binFile = file;
+    var binFile = file.clone();
     binFile.append("bin");
-    path += sep + binFile.path;
+    path = binFile.path + sep + path;
 
     /* Append ./xulrunner for Windows only */
     if (env.isWindows()) {
-	var xrFile = file;
+	var xrFile = file.clone();
 	xrFile.append("xulrunner");
-	path += sep + xrFile.path + sep;
+	path = xrFile.path + sep + path;
     }
 
     /* Append ../src/server for Linux only */
     if (env.isLinux()) {
-	var serverCodeDirectory = file.parent.parent;
+	var serverCodeDirectory = file.clone().parent.parent;
         serverCodeDirectory.append("src");
         serverCodeDirectory.append("server");
-        path += sep + serverCodeDirectory.path;
+        path = serverCodeDirectory.path + sep + path;
     }
 
     /* Go trough each path of the $PATH */
