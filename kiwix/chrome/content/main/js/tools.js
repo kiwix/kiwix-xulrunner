@@ -604,13 +604,13 @@ function whereis(binary) {
     /* Append ./bin */
     var binFile = file;
     binFile.append("bin");
-    var path = binFile.path + sep + path;
+    path += sep + binFile.path;
 
     /* Append ./xulrunner for Windows only */
     if (env.isWindows()) {
 	var xrFile = file;
 	xrFile.append("xulrunner");
-	var path = xrFile.path + sep + path;
+	path += sep + xrFile.path + sep;
     }
 
     /* Append ../src/server for Linux only */
@@ -618,9 +618,9 @@ function whereis(binary) {
 	var serverCodeDirectory = file.parent.parent;
         serverCodeDirectory.append("src");
         serverCodeDirectory.append("server");
-        var path = serverCodeDirectory.path + sep + path;
+        path += sep + serverCodeDirectory.path;
     }
-    
+
     /* Go trough each path of the $PATH */
     var pathArray = path.split(sep);
     for (var i in pathArray) {
