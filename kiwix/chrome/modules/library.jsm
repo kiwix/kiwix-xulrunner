@@ -52,7 +52,7 @@ let library = {
 	     var file = entries.getNext();  
 	     file.QueryInterface(Components.interfaces.nsIFile);  
              this.readFromFile(file.path, true);
-	     this.paths += file.path + ":";
+	     this.paths += file.path + ";";
 	   }
 	}
 
@@ -73,7 +73,7 @@ let library = {
 	      var file = entries.getNext();  
 	      file.QueryInterface(Components.interfaces.nsIFile);  
               this.readFromFile(file.path, true);
-  	      this.paths += file.path + ":";
+  	      this.paths += file.path + ";";
 	     }
 	  }
         }
@@ -87,7 +87,7 @@ let library = {
 
 	  /* Load library file */
 	  this.readFromFile(settingsDirectory.path, false);
-          this.paths += settingsDirectory.path + ":";
+          this.paths += settingsDirectory.path + ";";
 	}
     },
 
