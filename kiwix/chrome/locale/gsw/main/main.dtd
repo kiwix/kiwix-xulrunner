@@ -3,10 +3,10 @@
 <!ENTITY main.cssdirection              "ltr">
 
 <!-- Mac menu -->
-<!ENTITY main.osxservices               "Services">
-<!ENTITY main.osxhideapp                "Hide &brand.brandShortName;">
-<!ENTITY main.osxhideothers             "Hide Others">
-<!ENTITY main.osxshowall                "Show All">
+<!ENTITY main.osxservices               "Dienscht">
+<!ENTITY main.osxhideapp                "&brand.brandShortName; uusblände">
+<!ENTITY main.osxhideothers             "Anderi uusblände">
+<!ENTITY main.osxshowall                "Alli aazeige">
 
 <!-- File menu -->
 <!ENTITY main.file                      "Datei">
@@ -65,7 +65,7 @@
 <!ENTITY main.tabs.accesskey            "T">
 <!ENTITY main.fullscreen                "Vollbildschirm">
 <!ENTITY main.fullscreen.accesskey      "F">
-<!ENTITY main.invertedColors            "Inverted colors">
+<!ENTITY main.invertedColors            "Invertierti Farbgebig">
 <!ENTITY main.invertedColors.accesskey  "I">
 
 <!-- Tools menu -->
@@ -128,14 +128,14 @@
 <!ENTITY preferences.cancel             "Abbräche">
 <!ENTITY preferences.profileDirectory   "Profilverzeichnis">
 <!ENTITY preferences.browse             "Blättre">
-<!ENTITY preferences.tabs               "Reiter merke">
+<!ENTITY preferences.tabs               "Ryter merke">
 <!ENTITY preferences.downloadCatalogs   "Externi Katalog abelade">
 
 <!-- Server -->
-<!ENTITY server.load                    "Load">
-<!ENTITY server.start                   "Start">
-<!ENTITY server.stop                    "Stop">
-<!ENTITY server.close                   "Close">
+<!ENTITY server.load                    "Lade">
+<!ENTITY server.start                   "Aafange">
+<!ENTITY server.stop                    "Aahebe">
+<!ENTITY server.close                   "Zuemache">
 
 <!-- Library -->
 <!ENTITY main.library.myLibrary                 "Mini Bibliothek">
@@ -155,5 +155,5 @@
 <!ENTITY main.library.filterBy.author.all       "Alli">
 <!ENTITY main.library.filterBy.publisher        "Verleger">
 <!ENTITY main.library.filterBy.publisher.all    "Alli">
-<!ENTITY main.library.filterBy.lessThan         "Less than">
+<!ENTITY main.library.filterBy.lessThan         "Weniger wie">
 
