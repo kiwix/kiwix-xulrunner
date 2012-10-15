@@ -56,7 +56,7 @@ function startServer() {
     var binaryPath = whereis(env.isWindows() ? "kiwix-serve.exe" : "kiwix-serve");
 
     if (binaryPath === undefined) {
-	displayErrorDialog("Unable to find the '" + whereis(env.isWindows() ? "kiwix-serve.exe" : "kiwix-serve") + "' binary.");
+	displayErrorDialog("Unable to find the '" + (env.isWindows() ? "kiwix-serve.exe" : "kiwix-serve") + "' binary.");
     } else {
 	serverManager.start(binaryPath, libraryPaths, port);
     }
