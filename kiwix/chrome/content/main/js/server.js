@@ -51,12 +51,12 @@ function updateServerDialog() {
 function startServer() {
     var serverManager = Components.classes["@kiwix.org/serverManager"].getService().
 	QueryInterface(Components.interfaces.IServerManager);
-    var binaryPath = whereis(env.isWindows() ? "kiwix-serve.exe" : "kiwix-serve");
     var libraryPaths = library.paths;
     var port = document.getElementById("port-textbox").value;
+    var binaryPath = whereis(env.isWindows() ? "kiwix-serve.exe" : "kiwix-serve");
 
     if (binaryPath === undefined) {
-	displayErrorDialog("Unable to find the kiwix-server binary.");
+	displayErrorDialog("Unable to find the '" + whereis(env.isWindows() ? "kiwix-serve.exe" : "kiwix-serve") + "' binary.");
     } else {
 	serverManager.start(binaryPath, libraryPaths, port);
     }
