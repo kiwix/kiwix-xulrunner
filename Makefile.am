@@ -522,11 +522,10 @@ endif
 	cp -v $(ARIA2_FILES) kiwix/bin/
 
 windist: 
-	rm -rf dvd/install dvd/kiwix
-	svn update dvd/install
-	svn update dvd/kiwix
+	rm -rf dvd
+	svn update dvd
 	cp -rf kiwix dvd/
-	rm -rf `find dvd/kiwix -type d -name .svn`
+	rm -rf `find dvd -type d -name .svn`
 	find dvd/kiwix -name '*.inised' -exec rm -rf {} \;
 	find dvd/kiwix -name 'Makefile' -delete
 	find dvd/kiwix -name 'Makefile.in' -delete
