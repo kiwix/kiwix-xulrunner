@@ -16,7 +16,6 @@
 	titlemodifier = "&main.title;"
 	style = "direction: &main.cssdirection;"
 	langdir = "&main.cssdirection;"
-	ondragdrop = "dropOnWindows(event);"
 	windowtype = "singleton"
 	>
 <!-- Menu bar -->
@@ -139,10 +138,6 @@
 <!-- Properties (should be implemented after menubar otherwise generate a 1 pixel big space between windows decoration and menubar) -->
 <stringbundle id="properties" src="chrome://main/locale/main.properties"/>
 <stringbundle id="brandproperties" src="chrome://branding/locale/brand.properties"/>
-
-<!-- Standard Javascript scripts (should be implemented after menubar otherwise generate a 1 pixel big space between windows decoration and menubar) -->
-<script language="javaScript" type="text/javascript" src="chrome://global/content/nsDragAndDrop.js"/> 
-<script language="javaScript" type="text/javascript" src="chrome://global/content/nsTransferable.js"/>
 
 <!-- Custom Javascript scripts (should be implemented after menubar otherwise generate a 1 pixel big space between windows decoration and menubar) -->
 <script language="javaScript" type="text/javascript" src="js/languages.js"/>

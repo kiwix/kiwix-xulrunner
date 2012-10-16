@@ -1209,7 +1209,7 @@ function initUserInterface() {
 }
 
 /* Drop file on windows to open it */
-function dropOnWindows (aEvent) {
+function dropOnWindows(aEvent) {
     var dragService = Components.classes["@mozilla.org/widget/dragservice;1"].getService(Components.interfaces.nsIDragService);
     var dragSession = dragService.getCurrentSession();
     
@@ -1453,6 +1453,7 @@ function initEventListeners() {
     /* Intercept global keydown and keyup events */
     getWindow().addEventListener("keydown", handleWindowKeyDown, true);
     getWindow().addEventListener("keydown", handleWindowKeyUp, true);
+    getWindow().addEventListener("dragexit", dropOnWindows, true);
 
     /* Launch the part of the initialisation process which should run after the window is there */
     var gOS = Components.classes["@mozilla.org/observer-service;1"].
