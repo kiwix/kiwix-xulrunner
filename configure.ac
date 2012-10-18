@@ -354,6 +354,7 @@ else
 	COMPILED_ARIA2_FILES="${DEP_PATH}/aria2c"
 fi
 
+# CLucene has headers in /usr/lib (or /usr/lib64 with x86_64)
 CLUCENE_CFLAGS="-I/usr/lib -I/usr/lib64"
 CLUCENE_LDFLAGS="-lclucene"
 CLUCENE_STATIC_LDFLAGS=""
