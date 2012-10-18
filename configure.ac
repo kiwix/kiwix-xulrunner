@@ -640,7 +640,7 @@ fi
 
 # Gecko version
 GECKO_VERSION_FALLBACK=0
-GECKO_VERSION=`grep MOZILLA_VERSION_U ${GECKO_INCLUDE_PATH}/mozilla-config.h | cut -d " " -f 3 | cut -d "." -f 1`
+GECKO_VERSION=`if [[ -f "${GECKO_INCLUDE_PATH}/mozilla-config.h" ]]; then grep MOZILLA_VERSION_U "${GECKO_INCLUDE_PATH}/mozilla-config.h" | cut -d " " -f 3 | cut -d "." -f 1 ; fi`
 if [[ "$GECKO_VERSION" = "" ]]
 then
 	GECKO_VERSION=$GECKO_VERSION_FALLBACK
@@ -1076,7 +1076,7 @@ AC_ARG_WITH(static-clucene,
 if test [ $COMPILE_CLUCENE -eq 1 -o "$CLUCENE_PATH" == "$SELF" -o "$CLUCENE_ARCHIVE" == "$SELF"] ; then
 	COMPILE_CLUCENE=1
 	CLUCENE_CFLAGS=$COMPILED_CLUCENE_CFLAGS
-    CLUCENE_LDFLAGS=$COMPILED_CLUCENE_LDFLAGS
+	CLUCENE_LDFLAGS=$COMPILED_CLUCENE_LDFLAGS
 	CLUCENE_FILES=$COMPILED_CLUCENE_FILES
 	CLUCENE_STATIC_LDFLAGS=$COMPILED_CLUCENE_STATIC_LDFLAGS
 elif test [ $IS_WIN -eq 0 ] ; then
@@ -1088,7 +1088,6 @@ elif test [ $IS_WIN -eq 0 ] ; then
 		AC_CHECK_LIB([clucene-shared], [open],, [AC_MSG_ERROR([[cannot find clucene-shared]])])
 		CLUCENE_LDFLAGS="-lclucene-core -lclucene-shared"
 	])
-
 
 	AC_DEFINE(_SUPPRESS_MAKE_BASED_CONFIG, [TRUE], [CLUCENE VERSION SWITCH])
 	CLUCENE_FILES=`findstatic "libclucene.${SHARED_EXT}"`
