@@ -2,13 +2,12 @@ Kiwix 0.9 rc2
 * FIXED: kiwix-manage generate wrong size for splitted ZIM files (ID: 3547892)
 * FIXED: kiwix-install crashes 
 * FIXED: kiwix-serve memory leak on ARM (ID: 3538663)
-* FIXED: open link in new tab from the right-click contextual menu (ID: 3553735)
+* FIXED: Open link in new tab from the right-click contextual menu (ID: 3553735)
 * FIXED: Hide bookmarks sidebar in the "library view" (ID: 3555848)
 * FIXED: Better landing page loading in kiwix-plug (by introducing ip forwarding)
 * FIXED: Unclean Windows Registery after uninstalling (ID: 3467455)
 * FIXED: Problems in creating PDF/HTML from tabs (#362)
 * FIXED: Kiwix crashes on MS/Windows with "special" files (#317)
-* FIXED: Better deal with *.zimaa files
 * FIXED: 0.9rc1 broken Drag&Drop of files
 * NEW: New supported user interface languages: Zazaki (diq), Javanese (jv),
   Khmer (km), Urdu (ur)
@@ -26,6 +25,8 @@ Kiwix 0.9 rc2
 * NEW: if "/M/Description" empty, check "/M/Subtitle" (used by Mediawiki Collection ext.)
 * NEW: Windows compilation using Visual Studio 2010
 * NEW: kiwix-serve (HTTP server) for MS/Windows (#140)
+* NEW: Better deal with *.zimaa files
+* NEW: Indexing progression more accurate
 
 Kiwix 0.9 rc1
 * FIXED: Smoothier zooming (ID: 3469927)
