@@ -9,6 +9,7 @@ Kiwix 0.9 rc2
 * FIXED: Problems in creating PDF/HTML from tabs (#362)
 * FIXED: Kiwix crashes on MS/Windows with "special" files (#317)
 * FIXED: 0.9rc1 broken Drag&Drop of files
+* FIXED: Multiple bugs impacting kiwix-plug scripts
 * NEW: New supported user interface languages: Zazaki (diq), Javanese (jv),
   Khmer (km), Urdu (ur)
 * NEW: improvement of the "verbose" mode in kiwix-install and kiwix-index
