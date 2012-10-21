@@ -132,10 +132,10 @@
 <!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">
 
 <!-- Server -->
-<!ENTITY server.load                    "Load">
-<!ENTITY server.start                   "Start">
-<!ENTITY server.stop                    "Stop">
-<!ENTITY server.close                   "Close">
+<!ENTITY server.load                    "ল'ড কৰক">
+<!ENTITY server.start                   "আৰম্ভ">
+<!ENTITY server.stop                    "বন্ধ">
+<!ENTITY server.close                   "বন্ধ কৰক">
 
 <!-- Library -->
 <!ENTITY main.library.myLibrary                 "মোৰ লাইব্ৰেৰী">

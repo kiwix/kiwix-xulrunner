@@ -65,7 +65,7 @@
 <!ENTITY main.tabs.accesskey            "T">
 <!ENTITY main.fullscreen                "Op  der kumplääte Beldscherm">
 <!ENTITY main.fullscreen.accesskey      "F">
-<!ENTITY main.invertedColors            "Inverted colors">
+<!ENTITY main.invertedColors            "Ömjedriehte Klöre">
 <!ENTITY main.invertedColors.accesskey  "I">
 
 <!-- Tools menu -->
@@ -132,10 +132,10 @@
 <!ENTITY preferences.downloadCatalogs   "Donn dä Kattalooch udder de Kattaloore vun ußerhallfe eronger laade">
 
 <!-- Server -->
-<!ENTITY server.load                    "Load">
-<!ENTITY server.start                   "Start">
-<!ENTITY server.stop                    "Stop">
-<!ENTITY server.close                   "Close">
+<!ENTITY server.load                    "Laade">
+<!ENTITY server.start                   "Aanfange">
+<!ENTITY server.stop                    "Aanhallde">
+<!ENTITY server.close                   "Zohmaache">
 
 <!-- Library -->
 <!ENTITY main.library.myLibrary                 "Ming eije Sammlong">
