@@ -15,6 +15,7 @@ libServerManager_la_SOURCES= \
 	$(top_srcdir)/src/common/componentTools.cpp \
 	$(top_srcdir)/src/common/regexTools.cpp \
 	$(top_srcdir)/src/common/stringTools.cpp \
+	$(top_srcdir)/src/common/networkTools.cpp \
 	IServerManager.h \
 	$(top_srcdir)/src/common/kiwix/library.h \
 	$(top_srcdir)/src/common/kiwix/manager.h \
@@ -24,7 +25,8 @@ libServerManager_la_SOURCES= \
 	$(top_srcdir)/src/common/pathTools.h \
 	$(top_srcdir)/src/common/componentTools.h \
 	$(top_srcdir)/src/common/stringTools.h \
-	$(top_srcdir)/src/common/regexTools.h
+	$(top_srcdir)/src/common/regexTools.h \
+	$(top_srcdir)/src/common/networkTools.h
 libServerManager_la_CXXFLAGS=$(LIBXUL_CFLAGS) $(ZIMLIB_CFLAGS) $(LZMA_CFLAGS) $(ICU_CFLAGS) $(PUGIXML_CFLAGS) $(XPCOM_CFLAGS) -D GECKO_VERSION=$(GECKO_VERSION) -I$(top_srcdir)/src/common/
 
 libServerManager_la_LDFLAGS=$(LIBXUL_LDFLAGS) $(ZIMLIB_LDFLAGS) $(LZMA_LDFLAGS) $(ICU_LDFLAGS) $(PUGIXML_LDFLAGS) $(XPCOM_LDFLAGS)
