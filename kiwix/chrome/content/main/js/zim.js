@@ -31,6 +31,8 @@ function openZimFile(path) {
 	currentZimAccessor = zimAccessor;
 	return currentZimAccessor;
     }
+
+    return undefined;
 }
 
 /* 
@@ -128,6 +130,8 @@ function checkIntegrity() {
 	    dump("Unable to check the integrity of the current ZIMf file.\n");
 	}
     }
+
+    return undefined;
 }
 
 /* Verify if the file has a checksum */
@@ -135,6 +139,8 @@ function canCheckIntegrity() {
     if (currentZimAccessor != undefined) {
 	return currentZimAccessor.canCheckIntegrity();
     }
+
+    return undefined;
 }
 
 /* Check if a zim file is open */
