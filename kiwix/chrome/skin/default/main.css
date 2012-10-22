@@ -330,7 +330,7 @@ window[langdir="rtl"] #button-next {
 }
 
 #main * .tabs-close-button:hover {
-    -moz-box-shadow: 2px 2px 5px #888;
+    box-shadow: 2px 2px 5px #888;
 }
 
 /* Under Linux, never set margin or paddin, this generate displaying issues */
