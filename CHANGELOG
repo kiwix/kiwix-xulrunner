@@ -11,24 +11,24 @@ Kiwix 0.9 rc2
 * FIXED: 0.9rc1 broken Drag&Drop of files
 * FIXED: Multiple bugs impacting kiwix-plug scripts
 * FIXED: Server URL computation (was buggy in a few special cases)
+* FIXED: *.zimaa files management (improved)
+* FIXED: Indexing progression computation (more accurate)
+* FIXED: "verbose" mode in kiwix-install, kiwix-index and kiwix-serve
 * NEW: New supported user interface languages: Zazaki (diq), Javanese (jv),
   Khmer (km), Urdu (ur)
-* NEW: improvement of the "verbose" mode in kiwix-install and kiwix-index
 * NEW: CTRL+R to load random article (ID: 3549370)
 * NEW: Improved server dialog window
 * NEW: "Inverted colors" feature (ID: 3551975)
-* NEW: Start internationalisation of kiwix-plug welcome page (en, fr, de)
+* NEW: Internationalisation of kiwix-plug welcome page (en, fr, de)
 * NEW: Autoredirect to the kiwix-plug localised welcome page
 * NEW: Way to start search from the console with -search cmd line argument (ID: 3538176)
-* NEW: Search Suggestion in kiwix-serve (ID: 2945983)
-* NEW: based on recent Mozilla Gecko 14.0.1
+* NEW: Search suggestions in kiwix-serve (ID: 2945983)
+* NEW: Xulrunner 14.0.1 (instead of 12)
 * NEW: Desktop shortcut creation in Windows installer
 * NEW: Ask to load content at the end of a download (ID: 3563964)
 * NEW: if "/M/Description" empty, check "/M/Subtitle" (used by Mediawiki Collection ext.)
 * NEW: Windows compilation using Visual Studio 2010
 * NEW: kiwix-serve (HTTP server) for MS/Windows (#140)
-* NEW: Better deal with *.zimaa files
-* NEW: Indexing progression more accurate
 
 Kiwix 0.9 rc1
 * FIXED: Smoothier zooming (ID: 3469927)
