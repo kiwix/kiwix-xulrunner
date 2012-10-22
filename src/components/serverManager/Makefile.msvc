@@ -38,7 +38,7 @@ IServerManager.xpt:
 IServerManager.h:
 	$(HEADER_PY) -o IServerManager.h -I "$(XULRUNNER_IDL)" IServerManager.idl
 objs: IServerManager.xpt IServerManager.h
-	$(CC) $(CFLAGS) serverManager.cpp  ../../common/base64.cpp ../../common/kiwix/reader.cpp ../../common/kiwix/manager.cpp ../../common/pathTools.cpp  ../../common/regexTools.cpp ../../common/componentTools.cpp ../../common/kiwix/library.cpp ../../common/stringTools.cpp ../../common/networkTools.cpp
+	$(CC) $(CFLAGS) ../../common/networkTools.cpp serverManager.cpp  ../../common/base64.cpp ../../common/kiwix/reader.cpp ../../common/kiwix/manager.cpp ../../common/pathTools.cpp  ../../common/regexTools.cpp ../../common/componentTools.cpp ../../common/kiwix/library.cpp ../../common/stringTools.cpp
 
 serverManager.lib: objs
 		       $(LD) -lib -OUT:libServerManager.lib $(LDFLAGS) reader.obj manager.obj library.obj base64.obj stringTools.obj pathTools.obj regexTools.obj componentTools.obj networkTools.obj

@@ -45,7 +45,7 @@
 #endif
 
 #ifdef _WIN32
-#include <Windows.h>
+//#include <Windows.h>
 #else
 #include <unistd.h>
 #include <signal.h>
@@ -132,6 +132,7 @@ NS_IMETHODIMP ServerManager::Start(const nsAString &binaryPath, const nsAString 
 
 #ifdef _WIN32
   commandLine = string(cBinaryPath) + " --library --port=\"" + string(cPort) + "\" --attachToProcess=\"" + string(PIDStr) + "\" \"" + string(cLibraryPaths) + "\"";
+
   STARTUPINFO startInfo = {0};
   PROCESS_INFORMATION procInfo;
   startInfo.cb = sizeof(startInfo);
