@@ -3,10 +3,10 @@
 <!ENTITY main.cssdirection              "ltr">
 
 <!-- Mac menu -->
-<!ENTITY main.osxservices               "Services">
-<!ENTITY main.osxhideapp                "Hide &brand.brandShortName;">
-<!ENTITY main.osxhideothers             "Hide Others">
-<!ENTITY main.osxshowall                "Show All">
+<!ENTITY main.osxservices               "דינסטן">
+<!ENTITY main.osxhideapp                "פארבארגן &brand.brandShortName;">
+<!ENTITY main.osxhideothers             "פארבארגן אנדערע">
+<!ENTITY main.osxshowall                "ווייזן אלץ">
 
 <!-- File menu -->
 <!ENTITY main.file                      "טעקע">
@@ -65,7 +65,7 @@
 <!ENTITY main.tabs.accesskey            "T">
 <!ENTITY main.fullscreen                "פֿולער עקראן">
 <!ENTITY main.fullscreen.accesskey      "F">
-<!ENTITY main.invertedColors            "Inverted colors">
+<!ENTITY main.invertedColors            "אינווערטירטע קאלירן">
 <!ENTITY main.invertedColors.accesskey  "I">
 
 <!-- Tools menu -->
@@ -109,7 +109,7 @@
 <!ENTITY main.mark                      "מארקירן דעם בלאט">
 <!ENTITY main.unmark                    "אוממארקירן אויסגעוויילטע">
 <!ENTITY main.reload                    "ווידערלאָדן ליין־צייכן זאמלונג">
-<!ENTITY main.defaultset                "Default Set">
+<!ENTITY main.defaultset                "סטאנדארט">
 
 <!-- Contextual Menu -->
 <!ENTITY main.saveImageAs               "אויפֿהיטן בילד אלס…">
@@ -129,12 +129,12 @@
 <!ENTITY preferences.profileDirectory   "פראפֿיל ארכיוו">
 <!ENTITY preferences.browse             "דורכזוכן">
 <!ENTITY preferences.tabs               "געדענקען טאבן">
-<!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">
+<!ENTITY preferences.downloadCatalogs   "אראפלאדן ווייטער(ע) קאטאלאג(ן)">
 
 <!-- Server -->
-<!ENTITY server.load                    "Load">
-<!ENTITY server.start                   "Start">
-<!ENTITY server.stop                    "Stop">
+<!ENTITY server.load                    "אָנלאָדן">
+<!ENTITY server.start                   "אנפאנגען">
+<!ENTITY server.stop                    "אויפהערן">
 <!ENTITY server.close                   "שליסן">
 
 <!-- Library -->
@@ -155,5 +155,5 @@
 <!ENTITY main.library.filterBy.author.all       "אַלע">
 <!ENTITY main.library.filterBy.publisher        "פֿאַרלעגער">
 <!ENTITY main.library.filterBy.publisher.all    "אַלע">
-<!ENTITY main.library.filterBy.lessThan         "Less than">
+<!ENTITY main.library.filterBy.lessThan         "ווינציקער ווי">
 
