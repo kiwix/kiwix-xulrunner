@@ -14,6 +14,7 @@ Kiwix 0.9 rc2
 * FIXED: *.zimaa files management (improved)
 * FIXED: Indexing progression computation (more accurate)
 * FIXED: "verbose" mode in kiwix-install, kiwix-index and kiwix-serve
+* FIXED: bad small kiwix icon on MS/Windows
 * NEW: New supported user interface languages: Zazaki (diq), Javanese (jv),
   Khmer (km), Urdu (ur)
 * NEW: CTRL+R to load random article (ID: 3549370)
