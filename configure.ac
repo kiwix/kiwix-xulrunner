@@ -432,6 +432,7 @@ then
 	COMPILE_UUID=1
 	WITH_LAUNCHER=1
 	WITH_SERVER=1
+	REQUIRE_STATIC=1
 elif test [ $IS_WIN -eq 1 ]
 then
 	COMPILE_GECKO_SDK=1
@@ -448,8 +449,10 @@ then
 	WITH_LAUNCHER=0
 	WITH_SERVER=0
 	WITH_INDEXER=1
+	REQUIRE_STATIC=1
 else
 	COMPIL_DEPS=0
+	REQUIRE_STATIC=0
 fi
 
 ####################################################
@@ -579,11 +582,11 @@ AC_ARG_ENABLE(debian,
 AS_IF([test "x$enable_debian" = "xyes" -o "x$enable_debian" = "x1" ], [DEBIAN_RULES=1], [DEBIAN_RULES=0])
 
 # TODO
-if test [ $WITH_MANAGER -eq 1 -o $WITH_SERVER -eq 1 -o $WITH_LAUNCHER -eq 1 -o $WITH_INDEXER -eq 1 -o $WITH_INSTALLER -eq 1 -o $WITH_SEARCHER -eq 1 -o $WITH_READER -eq 1 ] ; then
-	REQUIRE_STATIC=1
-else
-	REQUIRE_STATIC=0
-fi
+#if test [ $WITH_MANAGER -eq 1 -o $WITH_SERVER -eq 1 -o $WITH_LAUNCHER -eq 1 -o $WITH_INDEXER -eq 1 -o $WITH_INSTALLER -eq 1 -o $WITH_SEARCHER -eq 1 -o $WITH_READER -eq 1 ] ; then
+#	REQUIRE_STATIC=1
+#else
+#	REQUIRE_STATIC=0
+#fi
 
 ####################################################
 ############ GECKO SDK
@@ -834,7 +837,7 @@ AC_ARG_WITH(icu,
 			  	export LIBRARY_PATH="${withval}:${LIBRARY_PATH}";ICU_PATH=${withval})
 
 # if --with-static-x, set path as X_ARCHIVE
-AC_ARG_WITH(static-z,
+AC_ARG_WITH(static-icu,
             AC_HELP_STRING([--with-static-icu=DIR],
             			   [Path to static archives folder]),
             ICU_ARCHIVE=${withval})
@@ -843,7 +846,7 @@ AC_ARG_WITH(static-z,
 if test [ $COMPILE_ICU -eq 1 -o "$ICU_PATH" == "$SELF" -o "$ICU_ARCHIVE" == "$SELF"] ; then
 	COMPILE_ICU=1
 	ICU_CFLAGS=$COMPILED_ICU_CFLAGS
-    ICU_LDFLAGS=$COMPILED_ICU_LDFLAGS
+	ICU_LDFLAGS=$COMPILED_ICU_LDFLAGS
 	ICU_FILES=$COMPILED_ICU_FILES
 	ICU_STATIC_LDFLAGS=$COMPILED_ICU_STATIC_LDFLAGS
 else
@@ -857,8 +860,8 @@ else
 	then 
 	     AC_MSG_ERROR([[cannot find icu-config]])
 	else
-		OLDPATH=$PATH
-		PATH="${ICU_PATH}:${PATH}"
+	    OLDPATH=$PATH
+	    PATH="${ICU_PATH}:${PATH}"
 	    ICU_CFLAGS=`icu-config --cxxflags`;
 	    ICU_LDFLAGS=`icu-config --ldflags`;
 	    ICU_VER=`icu-config --version`;
