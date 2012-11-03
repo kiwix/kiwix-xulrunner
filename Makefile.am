@@ -17,28 +17,26 @@ EXTRA_DIST = \
 
 # Additional files to remove by remove by running "make clean"
 CLEANFILES = \
-	kiwix/components/zimAccessor.so \
-	kiwix/components/zimAccessor.dylib \
+	kiwix/components/zimAccessor.$(SHARED_EXT) \
 	kiwix/components/zimAccessor.xpt \
-	kiwix/components/xapianAccessor.so \
-	kiwix/components/xapianAccessor.dylib \
+	kiwix/components/xapianAccessor.$(SHARED_EXT) \
 	kiwix/components/xapianAccessor.xpt \
-	kiwix/components/zimXapianIndexer.so \
-	kiwix/components/zimXapianIndexer.dylib \
+	kiwix/components/zimXapianIndexer.$(SHARED_EXT) \
 	kiwix/components/zimXapianIndexer.xpt \
-	kiwix/components/cluceneAccessor.so \
+	kiwix/components/cluceneAccessor.$(SHARED_EXT) \
 	kiwix/components/cluceneAccessor.xpt \
-	kiwix/components/zimCluceneIndexer.so \
+	kiwix/components/zimCluceneIndexer.$(SHARED_EXT) \
 	kiwix/components/zimCluceneIndexer.xpt \
-	kiwix/components/contentManager.so \
+	kiwix/components/contentManager$(SHARED_EXT). \
 	kiwix/components/contentManager.xpt \
-	kiwix/components/serverManager.so \
+	kiwix/components/serverManager.$(SHARED_EXT) \
 	kiwix/components/serverManager.xpt \
 	kiwix*.deb \
 	kiwix*.tar.gz \
 	kiwix*.changes \
 	kiwix*.dsc
 
+# Additional things to remove by running "make clean"
 clean-local:
 	-rm -rf src/dependencies/Makefile
 if DEBIAN_RULES
@@ -58,39 +56,21 @@ UPDATE_DESKTOP = \
 
 # Executed after the "all" rule, responsible to link/copy components
 # files to the kiwix/components directory
-if IS_OSX
-all-local: all-local-base all-local-osx
-else
-all-local: all-local-base all-local-default
-endif
-
-all-local-base: \
-	kiwix/components/xapianAccessor.xpt \
-	kiwix/components/zimAccessor.xpt \
-	kiwix/components/zimXapianIndexer.xpt \
-	kiwix/components/cluceneAccessor.xpt \
-	kiwix/components/zimCluceneIndexer.xpt \
-	kiwix/components/contentManager.xpt \
-	kiwix/components/serverManager.xpt 
-
-all-local-osx: \
-	kiwix/components/xapianAccessor.dylib \
-	kiwix/components/zimAccessor.dylib \
-	kiwix/components/zimXapianIndexer.dylib \
-	kiwix/components/zimXapianIndexer.dylib \
-	kiwix/components/cluceneAccessor.dylib \
-	kiwix/components/zimCluceneIndexer.dylib \
-	kiwix/components/contentManager.dylib \
-	kiwix/components/serverManager.dylib 
-
-all-local-default: \
-	kiwix/components/xapianAccessor.so \
-	kiwix/components/zimAccessor.so \
-	kiwix/components/zimXapianIndexer.so \
-	kiwix/components/cluceneAccessor.so \
-	kiwix/components/zimCluceneIndexer.so \
-	kiwix/components/contentManager.so \
-	kiwix/components/serverManager.so
+all-local:
+	$(LN_S) -f ../../src/components/zimAccessor/.libs/libZimAccessor.$(SHARED_EXT) ./kiwix/components/zimAccessor.$(SHARED_EXT)
+	$(LN_S) -f ../../src/components/zimAccessor/zimAccessor.xpt ./kiwix/components/zimAccessor.xpt
+	$(LN_S) -f ../../src/components/xapianAccessor/.libs/libXapianAccessor.$(SHARED_EXT) ./kiwix/components/xapianAccessor.$(SHARED_EXT)
+	$(LN_S) -f ../../src/components/xapianAccessor/xapianAccessor.xpt ./kiwix/components/xapianAccessor.xpt
+	$(LN_S) -f ../../src/components/zimXapianIndexer/.libs/libZimXapianIndexer.$(SHARED_EXT) ./kiwix/components/zimXapianIndexer.$(SHARED_EXT)
+	$(LN_S) -f ../../src/components/zimXapianIndexer/zimXapianIndexer.xpt ./kiwix/components/zimXapianIndexer.xpt
+	$(LN_S) -f ../../src/components/cluceneAccessor/.libs/libCluceneAccessor.$(SHARED_EXT) ./kiwix/components/cluceneAccessor.$(SHARED_EXT)
+	$(LN_S) -f ../../src/components/cluceneAccessor/cluceneAccessor.xpt ./kiwix/components/cluceneAccessor.xpt
+	$(LN_S) -f ../../src/components/zimCluceneIndexer/.libs/libZimCluceneIndexer.$(SHARED_EXT) ./kiwix/components/zimCluceneIndexer.$(SHARED_EXT)
+	$(LN_S) -f ../../src/components/zimCluceneIndexer/zimCluceneIndexer.xpt ./kiwix/components/zimCluceneIndexer.xpt
+	$(LN_S) -f ../../src/components/contentManager/.libs/libContentManager.$(SHARED_EXT) ./kiwix/components/contentManager.$(SHARED_EXT)
+	$(LN_S) -f ../../src/components/contentManager/contentManager.xpt ./kiwix/components/contentManager.xpt
+	$(LN_S) -f ../../src/components/serverManager/.libs/libServerManager.$(SHARED_EXT) ./kiwix/components/serverManager.$(SHARED_EXT)
+	$(LN_S) -f ../../src/components/serverManager/serverManager.xpt ./kiwix/components/serverManager.xpt
 
 dist-hook:
 	rm -rf `find $(DESTDIR)$(distdir) -name "*.svn" -o -name "*.dat" -o -name "*~" -o -name "*#"`
@@ -110,68 +90,6 @@ install-exec-hook:
 	cd $(DESTDIR)$(libdir)/kiwix/components && ln -sf libZimAccessor.$(SHARED_EXT) zimAccessor.$(SHARED_EXT)
 	cd $(DESTDIR)$(libdir)/kiwix/components && ln -sf libZimCluceneIndexer.$(SHARED_EXT) zimCluceneIndexer.$(SHARED_EXT)
 
-kiwix/components/zimAccessor.so: 
-	ln -f -s ../../src/components/zimAccessor/.libs/libZimAccessor.so ./kiwix/components/zimAccessor.so
-
-kiwix/components/zimAccessor.xpt: 
-	ln -f -s ../../src/components/zimAccessor/zimAccessor.xpt ./kiwix/components/zimAccessor.xpt
-
-kiwix/components/xapianAccessor.so: 
-	ln -f -s ../../src/components/xapianAccessor/.libs/libXapianAccessor.so ./kiwix/components/xapianAccessor.so
-
-kiwix/components/xapianAccessor.xpt:
-	ln -f -s ../../src/components/xapianAccessor/xapianAccessor.xpt ./kiwix/components/xapianAccessor.xpt
-
-kiwix/components/zimXapianIndexer.so:
-	ln -f -s ../../src/components/zimXapianIndexer/.libs/libZimXapianIndexer.so  ./kiwix/components/zimXapianIndexer.so
-
-kiwix/components/zimXapianIndexer.xpt: 
-	ln -f -s ../../src/components/zimXapianIndexer/zimXapianIndexer.xpt ./kiwix/components/zimXapianIndexer.xpt
-
-kiwix/components/cluceneAccessor.so: 
-	ln -f -s ../../src/components/cluceneAccessor/.libs/libCluceneAccessor.so ./kiwix/components/cluceneAccessor.so
-
-kiwix/components/cluceneAccessor.xpt:
-	ln -f -s ../../src/components/cluceneAccessor/cluceneAccessor.xpt ./kiwix/components/cluceneAccessor.xpt
-
-kiwix/components/zimCluceneIndexer.so:
-	ln -f -s ../../src/components/zimCluceneIndexer/.libs/libZimCluceneIndexer.so  ./kiwix/components/zimCluceneIndexer.so
-
-kiwix/components/zimCluceneIndexer.xpt: 
-	ln -f -s ../../src/components/zimCluceneIndexer/zimCluceneIndexer.xpt ./kiwix/components/zimCluceneIndexer.xpt
-
-kiwix/components/contentManager.so: 
-	ln -f -s ../../src/components/contentManager/.libs/libContentManager.so ./kiwix/components/contentManager.so
-
-kiwix/components/contentManager.xpt:
-	ln -f -s ../../src/components/contentManager/contentManager.xpt ./kiwix/components/contentManager.xpt
-
-kiwix/components/serverManager.so: 
-	ln -f -s ../../src/components/serverManager/.libs/libServerManager.so ./kiwix/components/serverManager.so
-
-kiwix/components/serverManager.xpt:
-	ln -f -s ../../src/components/serverManager/serverManager.xpt ./kiwix/components/serverManager.xpt
-
-kiwix/components/zimAccessor.dylib: 
-	ln -f -s ../../src/components/zimAccessor/.libs/libZimAccessor.dylib ./kiwix/components/zimAccessor.dylib
-
-kiwix/components/xapianAccessor.dylib: 
-	ln -f -s ../../src/components/xapianAccessor/.libs/libXapianAccessor.dylib ./kiwix/components/xapianAccessor.dylib
-
-kiwix/components/zimXapianIndexer.dylib:
-	ln -f -s ../../src/components/zimXapianIndexer/.libs/libZimXapianIndexer.dylib  ./kiwix/components/zimXapianIndexer.dylib
-
-kiwix/components/contentManager.dylib: 
-	ln -f -s ../../src/components/contentManager/.libs/libContentManager.dylib ./kiwix/components/contentManager.dylib
-
-kiwix/components/serverManager.dylib: 
-	ln -f -s ../../src/components/serverManager/.libs/libServerManager.dylib ./kiwix/components/serverManager.dylib
-
-kiwix/components/cluceneAccessor.dylib: 
-	ln -f -s ../../src/components/cluceneAccessor/.libs/libCluceneAccessor.dylib ./kiwix/components/cluceneAccessor.dylib
-
-kiwix/components/zimCluceneIndexer.dylib:
-	ln -f -s ../../src/components/zimCluceneIndexer/.libs/libZimCluceneIndexer.dylib  ./kiwix/components/zimCluceneIndexer.dylib
 
 deb: dist
 	if [ `whereis dpkg-buildpackage | cut -f2 -d" "` == "dpkg-buildpackage:" ] ; then echo "You have to install dpkg-buildpackage" ; exit 1 ; fi
