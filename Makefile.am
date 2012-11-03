@@ -1,12 +1,22 @@
-SUBDIRS= src kiwix desktop static etc
-EXTRA_DIST= \
+# Subdirectories where to exectue Makefile recursively
+SUBDIRS = \
+	src \
+	kiwix \
+	desktop \
+	static \
+	etc
+
+# Files and directories which should be include in the source
+# distribution tgz
+EXTRA_DIST = \
 	kiwix \
 	desktop \
 	etc \
 	CHANGELOG \
 	COMPILE
 
-CLEANFILES= \
+# Additional files to remove by remove by running "make clean"
+CLEANFILES = \
 	kiwix/components/zimAccessor.so \
 	kiwix/components/zimAccessor.dylib \
 	kiwix/components/zimAccessor.xpt \
@@ -46,38 +56,41 @@ UPDATE_DESKTOP = \
 		update-desktop-database; \
 	fi
 
+# Executed after the "all" rule, responsible to link/copy components
+# files to the kiwix/components directory
 if IS_OSX
-all-local: kiwix/components/xapianAccessor.dylib \
+all-local: all-local-base all-local-osx
+else
+all-local: all-local-base all-local-default
+endif
+
+all-local-base: \
 	kiwix/components/xapianAccessor.xpt \
-	kiwix/components/zimAccessor.dylib \
 	kiwix/components/zimAccessor.xpt \
-	kiwix/components/zimXapianIndexer.dylib \
 	kiwix/components/zimXapianIndexer.xpt \
+	kiwix/components/cluceneAccessor.xpt \
+	kiwix/components/zimCluceneIndexer.xpt \
+	kiwix/components/contentManager.xpt \
+	kiwix/components/serverManager.xpt 
+
+all-local-osx: \
+	kiwix/components/xapianAccessor.dylib \
+	kiwix/components/zimAccessor.dylib \
+	kiwix/components/zimXapianIndexer.dylib \
 	kiwix/components/zimXapianIndexer.dylib \
 	kiwix/components/cluceneAccessor.dylib \
-	kiwix/components/cluceneAccessor.xpt \
 	kiwix/components/zimCluceneIndexer.dylib \
-	kiwix/components/zimCluceneIndexer.xpt \
-	kiwix/components/contentManager.xpt \
 	kiwix/components/contentManager.dylib \
-	kiwix/components/serverManager.xpt \
 	kiwix/components/serverManager.dylib 
-else
-all-local: kiwix/components/xapianAccessor.so \
-	kiwix/components/xapianAccessor.xpt \
+
+all-local-default: \
+	kiwix/components/xapianAccessor.so \
 	kiwix/components/zimAccessor.so \
-	kiwix/components/zimAccessor.xpt \
 	kiwix/components/zimXapianIndexer.so \
-	kiwix/components/zimXapianIndexer.xpt \
 	kiwix/components/cluceneAccessor.so \
-	kiwix/components/cluceneAccessor.xpt \
 	kiwix/components/zimCluceneIndexer.so \
-	kiwix/components/zimCluceneIndexer.xpt \
 	kiwix/components/contentManager.so \
-	kiwix/components/contentManager.xpt \
-	kiwix/components/serverManager.so \
-	kiwix/components/serverManager.xpt 
-endif
+	kiwix/components/serverManager.so
 
 dist-hook:
 	rm -rf `find $(DESTDIR)$(distdir) -name "*.svn" -o -name "*.dat" -o -name "*~" -o -name "*#"`
