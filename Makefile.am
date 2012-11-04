@@ -74,7 +74,6 @@ all-local:
 
 dist-hook:
 	rm -rf `find $(DESTDIR)$(distdir) -name "*.svn" -o -name "*.dat" -o -name "*~" -o -name "*#"`
-	rm -rf `find $(DESTDIR)$(distdir) -name "*.orig" -o -name "*.alt"`
 	rm -rf `find $(DESTDIR)$(distdir) -name "Makefile"`
 	find $(DESTDIR)$(distdir)/src/components/ -name 'I*.h' -delete
 	find $(DESTDIR)$(distdir) -name 'aclocal.m4' -delete
