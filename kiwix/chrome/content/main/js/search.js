@@ -25,6 +25,7 @@ var _zimIndexer = undefined;
 /* Open the "find in page" dialog window */
 function find() {
     var findBar = getFindBar();
+
     if (findBar.hidden) {
 	findBar.open(findBar.FIND_NORMAL);
 	findBar.startFind();
@@ -32,6 +33,8 @@ function find() {
 	findBar.close();
 	getSearchBox().focus();
     }
+
+    return undefined;
 }
 
 /* Return true if an indexing process runs currently */
@@ -82,6 +85,8 @@ function manageIndexCurrentBook() {
 
     /* Necessary to avoid a flickering in the HTML renderer */
     getHtmlRenderer().reload();
+
+    return undefined;
 }
 
 /* Proxyfy an object */
@@ -148,12 +153,13 @@ function indexCurrentBook() {
 	library.setBookIndex(zimFileId, indexDirectory);
     }
     
-    return;
+    return undefined;
 }
 
 function setIndexingProgression(progression) {
     getProgressBar().value = progression;
     getProgressBarLabel().value = getProperty("indexing") + " (" + progression + "%)";
+    return undefined;
 }
 
 function checkIndexing() {
@@ -182,14 +188,18 @@ function checkIndexing() {
 	    _zimIndexer = undefined;
 	}
     }
+
+    return undefined;
 }
 
 function startIndexingObserver() {
     _indexerObserverId = window.setInterval("checkIndexing()", 1000);
+    return undefined;
 }
 
 function stopIndexingObserver() {
     clearInterval(_indexerObserverId);
+    return undefined;
 }
 
 function openSearchIndex(path, quiet) {
@@ -223,8 +233,8 @@ function manageSearchInIndex(stringToSearch, start, end) {
 	
 	/* Tip to allow full text search from suggestions also if the stringToSearch matchs a title */
 	var l = stringToSearch.length - 1;
-    if (stringToSearch[l] == ' ')
-        getSearchBox().value = stringToSearch.substring(0, l);
+	if (stringToSearch[l] == ' ')
+            getSearchBox().value = stringToSearch.substring(0, l);
     }
 
     if (stringToSearch != "") {
@@ -252,7 +262,7 @@ function manageSearchInIndex(stringToSearch, start, end) {
 	/* Check if a search index exists */
 	if (!checkSearchIndex()) {
 	    manageIndexCurrentBook();
-	    return;
+	    return undefined;
 	}
 	
 	if (start == undefined)
@@ -265,6 +275,8 @@ function manageSearchInIndex(stringToSearch, start, end) {
 	var currentBook = library.getCurrentBook();
 	loadContent("search://?pattern=" + stringToSearch + "&start=" + start + "&end=" + end);
     }
+
+    return undefined;
 }
 
 /* Calculate Levenshtein distance between two strings */
