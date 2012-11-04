@@ -13,6 +13,7 @@ EXTRA_DIST = \
 	desktop \
 	etc \
 	CHANGELOG \
+	autogen.sh \
 	COMPILE
 
 # Additional files to remove by remove by running "make clean"
