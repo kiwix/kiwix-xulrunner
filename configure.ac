@@ -44,6 +44,9 @@ AM_MAINTAINER_MODE
 # find C compiler
 AC_PROG_CC
 
+# Macro for "ln -s" and "cp" in fallback
+AC_PROG_LN_S
+
 # find C++ compiler
 AC_PROG_CXX
 AC_CHECK_TOOL(HAVE_CXX, "$CXX")

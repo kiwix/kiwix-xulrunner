@@ -39,10 +39,8 @@ CLEANFILES = \
 # Additional things to remove by running "make clean"
 clean-local:
 	-rm -rf src/dependencies/Makefile
-if DEBIAN_RULES
 	find . -name 'Makefile.in' -delete
 	find . -name 'aclocal.m4' -delete
-endif
 
 UPDATE_MIME = \
 	if which update-mime-database>/dev/null 2>&1; then \
@@ -74,7 +72,8 @@ all-local:
 
 dist-hook:
 	rm -rf `find $(DESTDIR)$(distdir) -name "*.svn" -o -name "*.dat" -o -name "*~" -o -name "*#"`
-	rm -rf `find $(DESTDIR)$(distdir) -name "Makefile"`
+	rm -rf `find $(DESTDIR)$(distdir) -name "Makefile" -o -name "Makefile.in"`
+	rm -rf `find $(DESTDIR)$(distdir) -name "config.guess" -o -name "config.sub"`
 	find $(DESTDIR)$(distdir)/src/components/ -name 'I*.h' -delete
 	find $(DESTDIR)$(distdir) -name 'aclocal.m4' -delete
 	find $(DESTDIR)$(distdir)/kiwix/chrome -name 'chrome.manifest' -delete
@@ -107,9 +106,6 @@ distdebian: dist
 	rm -rf $(DISTDEBIAN_TMP)
 	mkdir -p $(DISTDEBIAN_TMP)
 	tar -C $(DISTDEBIAN_TMP) -xf $(PACKAGE)-$(VERSION).tar.gz
-	rm -rf `find $(DISTDEBIAN_TMP) -type d -name .svn`
-	rm -rf `find $(DISTDEBIAN_TMP) -name "Makefile.in"`
-	rm -rf `find $(DISTDEBIAN_TMP) -name "config.guess" -o -name "config.sub"`
 	tar -C $(DISTDEBIAN_TMP) -czf $(PACKAGE)-$(VERSION)-debian.tar.gz $(PACKAGE)-$(VERSION)
 
 diststatic:
