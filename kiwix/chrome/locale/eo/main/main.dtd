@@ -3,7 +3,7 @@
 <!ENTITY main.cssdirection              "ltr">
 
 <!-- Mac menu -->
-<!ENTITY main.osxservices               "Servaĵoj">
+<!ENTITY main.osxservices               "Servoj">
 <!ENTITY main.osxhideapp                "Kaŝi &brand.brandShortName;">
 <!ENTITY main.osxhideothers             "Kaŝi aliajn">
 <!ENTITY main.osxshowall                "Montri ĉiun">
@@ -14,7 +14,7 @@
 <!ENTITY main.openFile                  "Malfermi dosieron...">
 <!ENTITY main.browseLibrary.accesskey   "B">
 <!ENTITY main.browseLibrary             "Rigardi bibliotekon">
-<!ENTITY main.hideLibrary               "Kaŝi libraron">
+<!ENTITY main.hideLibrary               "Kaŝi bibliotekon">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "Freŝe malfermitaj...">
 <!ENTITY main.saveFile                  "Konservi paĝon kiel...">
@@ -65,7 +65,7 @@
 <!ENTITY main.tabs.accesskey            "T">
 <!ENTITY main.fullscreen                "Plenekrane">
 <!ENTITY main.fullscreen.accesskey      "F">
-<!ENTITY main.invertedColors            "Invertiĝaj koloroj">
+<!ENTITY main.invertedColors            "Inversigitaj koloroj">
 <!ENTITY main.invertedColors.accesskey  "I">
 
 <!-- Tools menu -->
@@ -83,7 +83,7 @@
 <!ENTITY main.help.accesskey            "H">
 <!ENTITY main.feedback                  "Sugestoj">
 <!ENTITY main.reportabug                "Raporti cimon">
-<!ENTITY main.requestafeature           "Peti pri trajto">
+<!ENTITY main.requestafeature           "Peti funkcion">
 <!ENTITY main.about                     "Pri &brand.brandShortName;">
 <!ENTITY main.about.accesskey           "A">
 
@@ -93,9 +93,9 @@
 <!ENTITY main.home                      "Hejmo">
 <!ENTITY main.searchBar                 "Serĉbreto">
 <!ENTITY main.search                    "Serĉi">
-<!ENTITY main.searchPlaceholder         "Jen tajpi la tekston serĉi...">
+<!ENTITY main.searchPlaceholder         "Entajpu la serĉotan tekston...">
 <!ENTITY main.findInText                "Trovi en teksto">
-<!ENTITY main.noSearchBar               "Serĉo petas indeksitan ZIM-dosieron">
+<!ENTITY main.noSearchBar               "Serĉo postulas indeksitan ZIM-dosieron">
 <!ENTITY main.bookmarks                 "Legosignoj">
 
 <!-- Results bar -->
@@ -109,7 +109,7 @@
 <!ENTITY main.mark                      "Marki ĉi tiun paĝon">
 <!ENTITY main.unmark                    "Malmarki elektitajn">
 <!ENTITY main.reload                    "Reŝarĝi legosignaron">
-<!ENTITY main.defaultset                "Apriora aro">
+<!ENTITY main.defaultset                "Defaŭlta aro">
 
 <!-- Contextual Menu -->
 <!ENTITY main.saveImageAs               "Konservi bildon kiel...">
@@ -148,7 +148,7 @@
 <!ENTITY main.library.sortBy.author             "Aŭtoro">
 <!ENTITY main.library.sortBy.publisher          "Eldonejo">
 <!ENTITY main.library.filterBy                  "Filtri laŭ">
-<!ENTITY main.library.filterBy.fileSize         "Grandeco de dosiero">
+<!ENTITY main.library.filterBy.fileSize         "Dosiergrandeco">
 <!ENTITY main.library.filterBy.language         "Lingvo">
 <!ENTITY main.library.filterBy.language.all     "Ĉio">
 <!ENTITY main.library.filterBy.author           "Aŭtoro">

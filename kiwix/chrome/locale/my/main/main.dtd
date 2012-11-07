@@ -1,0 +1,159 @@
+<!-- Window -->
+<!ENTITY main.title                     "&brand.brandShortName;">
+<!ENTITY main.cssdirection              "ltr">
+
+<!-- Mac menu -->
+<!ENTITY main.osxservices               "ဝန်ဆောင်မှုများ">
+<!ENTITY main.osxhideapp                "&brand.brandShortName ဖယ်ပေးရန်">
+<!ENTITY main.osxhideothers             "အခြားအရာများ ဖယ်ပေးရန်။">
+<!ENTITY main.osxshowall                "အားလုံးပြရန်">
+
+<!-- File menu -->
+<!ENTITY main.file                      "ဖိုင်">
+<!ENTITY main.file.accesskey            "F">
+<!ENTITY main.openFile                  "ဖိုင်ဖွင့်">
+<!ENTITY main.browseLibrary.accesskey   "B">
+<!ENTITY main.browseLibrary             "စာရင်းထဲတွင် ရှာရန်">
+<!ENTITY main.hideLibrary               "စာရင်းကို ဖယ်ပေးရန်">
+<!ENTITY main.openFile.accesskey        "O">
+<!ENTITY main.lastOpen                  "လတ်တစ်လောဖွင့်ထား...">
+<!ENTITY main.saveFile                  "စာမျက်နှာအသစ်အဖြစ်သိမ်း...">
+<!ENTITY main.saveFile.accesskey        "S">
+<!ENTITY main.print                     "စာထုတ်">
+<!ENTITY main.print.accesskey           "P">
+<!ENTITY main.printPdf                  "PDF အဖြစ်စာထုတ်">
+<!ENTITY main.printPdf.accesskey        "D">
+<!ENTITY main.quit                      "ထွက်">
+<!ENTITY main.quit.accesskey            "Q">
+
+<!-- Edit menu -->
+<!ENTITY main.edit                      "ပြင်ဆင်">
+<!ENTITY main.edit.accesskey            "E">
+<!ENTITY main.find                      "စာမျက်နှာထဲတွင် ရှာဖွေ">
+<!ENTITY main.find.accesskey            "S">
+<!ENTITY main.selectall                 "အားလုံးကိုရွေးချယ်">
+<!ENTITY main.selectall.accesskey       "a">
+<!ENTITY main.copy                      "ကူးပွားရန်">
+<!ENTITY main.copy.accesskey            "p">
+<!ENTITY main.transliteration           "အမည်ပြောင်းခေါ်ခြင်း">
+<!ENTITY main.transliteration.accesskey "T">
+<!ENTITY main.preferences               "ကြိုတင်စီစဉ်မှုများ">
+<!ENTITY main.preferences.accesskey     "n">
+<!ENTITY main.server                    "ဆာဗာ">
+<!ENTITY main.server.accesskey          "s">
+
+<!-- Display menu -->
+<!ENTITY main.display                   "မြင်ကွင်း">
+<!ENTITY main.display.accesskey         "D">
+<!ENTITY main.zoom                      "ချုံ/ချဲ့ကြည့်ရန်">
+<!ENTITY main.zoom.accesskey            "Z">
+<!ENTITY main.zoomin                    "ချဲ့ကြည့်ရန်">
+<!ENTITY main.zoomin.accesskey          "M">
+<!ENTITY main.zoomout                   "ချုံကြည့်ရန်">
+<!ENTITY main.zoomout.accesskey         "R">
+<!ENTITY main.zoomorig                  "မူလအရွယ်">
+<!ENTITY main.zoomorig.accesskey        "O">
+<!ENTITY main.language                  "ဘာသာစကား">
+<!ENTITY main.language.accesskey        "L">
+<!ENTITY main.skin                      "အသွင်အပြင်">
+<!ENTITY main.skin.accesskey            "S">
+<!ENTITY main.statusbar                 "အခြေပြနေရာ">
+<!ENTITY main.statusbar.accesskey       "S">
+<!ENTITY main.resultsbar                "အခြေအနေပြနေရာ">
+<!ENTITY main.resultsbar.accesskey      "R">
+<!ENTITY main.tabs                      "ဖွင့်ပြနေရာ">
+<!ENTITY main.tabs.accesskey            "T">
+<!ENTITY main.fullscreen                "မျက်နှာဖွင့်အပြည့်">
+<!ENTITY main.fullscreen.accesskey      "F">
+<!ENTITY main.invertedColors            "ပြောင်းပြန်အရောင်များ">
+<!ENTITY main.invertedColors.accesskey  "I">
+
+<!-- Tools menu -->
+<!ENTITY main.tools                     "ကိရိယာများ">
+<!ENTITY main.tools.accesskey           "T">
+<!ENTITY main.randomArticle             "ကျပန်း စာတွဲ">
+<!ENTITY main.randomArticle.accesskey   "R">
+<!ENTITY main.checkIntegrity            "စာစုံမှု စိစစ်ခြင်း">
+<!ENTITY main.checkIntegrity.accesskey  "k">
+<!ENTITY main.purgeHistory              "မှတ်တမ်းများ ဖယ်ရှားခြင်း">
+<!ENTITY main.purgeHistory.accesskey    "P">
+
+<!-- Help menu -->
+<!ENTITY main.help                      "အ​ကူ​အ​ညီ​">
+<!ENTITY main.help.accesskey            "H">
+<!ENTITY main.feedback                  "အကြံပေးရန်">
+<!ENTITY main.reportabug                "အခက်အခဲများ သတင်းပို့ရန်">
+<!ENTITY main.requestafeature           "လိုအပ်ချက်ကို တောင်းဆိုရန်">
+<!ENTITY main.about                     "&brand.brandShortName; အကြောင်း">
+<!ENTITY main.about.accesskey           "A">
+
+<!-- Tool bar -->
+<!ENTITY main.back                      "နောက်ပြန်">
+<!ENTITY main.forward                   "ရှေ့ပြန်သွားရန်">
+<!ENTITY main.home                      "ပင်မ">
+<!ENTITY main.searchBar                 "ရှာဖွေရန် နေရာ">
+<!ENTITY main.search                    "ရှာ​ဖွေ​ရန်​">
+<!ENTITY main.searchPlaceholder         "ရှာဖွေလို့သော စာသားကို ဒီမှာ ရိုက်ပါ...">
+<!ENTITY main.findInText                "စာပိုဒ်ထဲတွင် ရှာရန်">
+<!ENTITY main.noSearchBar               "ရှာဖွေမှုပြုလုပ်ရန်အတွက် ကြိုတင်ပြင်ဆင်ထားသော ZIM ဖိုင်တစ်ခု လိုအပ်ပါသည်။">
+<!ENTITY main.bookmarks                 "ဖတ်ရန်မှတ်ထားမှု">
+
+<!-- Results bar -->
+<!ENTITY main.results.title             "ရှာဖွေမှု ရလာဒ်များ">
+
+<!-- Bookmarks Bar -->
+<!ENTITY main.bmkLabel                  "ဖတ်ရန်မှတ်ထားမှုများ">
+<!ENTITY main.notesLabel                "ဖတ်ရန်မှတ်ထားမှုဆိုင်ရာ စာတိုများ">
+<!ENTITY main.loadbmk                   "ဖတ်ရန်မှတ်ထားမှုများကို ထည့်သွင်းရန်">
+<!ENTITY main.newbmk                    "ဖတ်ရန်မှတ်ထားမှုများ ဖန်တီးရန်">
+<!ENTITY main.mark                      "ဤစာမျက်နှာကို မှတ်ထားရန်">
+<!ENTITY main.unmark                    "မှတ်သားထားသည်ကို ပယ်ဖျက်ရန်">
+<!ENTITY main.reload                    "ဖတ်ရန်မှတ်ထားမှုများကို ပြန်ယူရန်">
+<!ENTITY main.defaultset                "ပုံမှန် အနေအထား">
+
+<!-- Contextual Menu -->
+<!ENTITY main.saveImageAs               "ပုံများ သိမ်းဆည်းရန်">
+<!ENTITY main.openLinkInNewTab          "ဖွင့်ပြနေရာ အသစ်တွင်ဖွင့်ပါ">
+<!ENTITY main.searchFor                 "ရှာဖွေရန်">
+<!ENTITY main.copyLinkAdress            "Copy link address">
+<!ENTITY main.mute                      "အသံပိတ်ရန်">
+<!ENTITY main.audible                   "အသံပိုင်းဆိုင်ရာ">
+
+<!-- About Window -->
+<!ENTITY main.close                     "ပိတ်ရန်">
+
+<!-- Preferences Window -->
+<!ENTITY preferences.preferences        "ကြိုတင်စီစဉ်မှုများ">
+<!ENTITY preferences.save               "သိမ်းရန်">
+<!ENTITY preferences.cancel             "မလုပ်တော့">
+<!ENTITY preferences.profileDirectory   "မှတ်တမ်းများ မှတ်သားရာနေရာ">
+<!ENTITY preferences.browse             "ရှာဖွေလှန်လှောရန်">
+<!ENTITY preferences.tabs               "ဖွင့်ပြနေရာကို မှတ်ထားပေးရန်">
+<!ENTITY preferences.downloadCatalogs   "အခြားနေရာမှ စာမျက်နှာများကို ရယူရန်">
+
+<!-- Server -->
+<!ENTITY server.load                    "ကူးယူ">
+<!ENTITY server.start                   "စတင်">
+<!ENTITY server.stop                    "ရပ်">
+<!ENTITY server.close                   "ပိတ်ရန်">
+
+<!-- Library -->
+<!ENTITY main.library.myLibrary                 "ဖတ်ရန်မှတ်ထားမှုများ">
+<!ENTITY main.library.getNewFiles               "ဖိုင်အသစ်များ ယူရန်">
+<!ENTITY main.library.searchZimFiles            "ZIM ဖိုင်များ ရှာရန်">
+<!ENTITY main.library.sortBy                    "အစဉ်ပြောင်းရန်">
+<!ENTITY main.library.sortBy.title              "ခေါင်းစဉ်">
+<!ENTITY main.library.sortBy.size               "အရွယ်အစား">
+<!ENTITY main.library.sortBy.date               "နေ့စွဲ">
+<!ENTITY main.library.sortBy.author             "စာရေးသူ">
+<!ENTITY main.library.sortBy.publisher          "ထုတ်ဝေသူ">
+<!ENTITY main.library.filterBy                  "ရွေးချယ်မှု">
+<!ENTITY main.library.filterBy.fileSize         "ဖိုင် အရွယ်အစား">
+<!ENTITY main.library.filterBy.language         "ဘာသာစကား">
+<!ENTITY main.library.filterBy.language.all     "အားလုံး">
+<!ENTITY main.library.filterBy.author           "စာရေးသူ">
+<!ENTITY main.library.filterBy.author.all       "အားလုံး">
+<!ENTITY main.library.filterBy.publisher        "ထုတ်ဝေသူ">
+<!ENTITY main.library.filterBy.publisher.all    "အားလုံး">
+<!ENTITY main.library.filterBy.lessThan         "ပိုငယ်သော">
+
