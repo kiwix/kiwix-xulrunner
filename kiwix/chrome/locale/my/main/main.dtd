@@ -4,7 +4,7 @@
 
 <!-- Mac menu -->
 <!ENTITY main.osxservices               "ဝန်ဆောင်မှုများ">
-<!ENTITY main.osxhideapp                "&brand.brandShortName ဖယ်ပေးရန်">
+<!ENTITY main.osxhideapp                "&brand.brandShortName; ဖယ်ပေးရန်">
 <!ENTITY main.osxhideothers             "အခြားအရာများ ဖယ်ပေးရန်။">
 <!ENTITY main.osxshowall                "အားလုံးပြရန်">
 
