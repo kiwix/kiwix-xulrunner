@@ -259,7 +259,7 @@
     <stack flex="1">
       <hbox>
 	<textbox id="textbox-search" flex="1" tooltiptext="&main.searchBar;" placeholder="&main.searchPlaceholder;"
-		 onkeypress="if (event.keyCode == 27) { this.value = '' } else if (event.keyCode == 13) { blur(); manageSearchInIndex() }"
+		 onkeypress="if (event.keyCode == 27) { this.value = '' }"
 		 ontextentered="blur(); manageSearchInIndex();" type="autocomplete" 
 		 autocompletesearch="kiwix-suggest" maxrows="11" onfocus="focusOnSearch()">
 	  <hbox class="textbox-search-go-container">
