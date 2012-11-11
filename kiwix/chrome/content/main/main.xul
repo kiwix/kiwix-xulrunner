@@ -259,11 +259,9 @@
     <stack flex="1">
       <hbox>
 	<textbox id="textbox-search" flex="1" tooltiptext="&main.searchBar;" placeholder="&main.searchPlaceholder;"
-		 oncompositionstart="this.keyPressed = true;" oncompositionend="this.keyPressed = false;"
-		 onkeydown="if (event.keyCode == 13) { if (this.keyPressed == false) { blur(); manageSearchInIndex() } else { this.keyPressed = false; } } else { this.keyPressed = true }"
-		 onkeypress="if (event.keyCode == 27) { this.value = '' }; this.keyPressed = true;"
-		 oninput="if (this.keyPressed == false) { blur(); manageSearchInIndex() }; this.keyPressed = false;"
-		 type="autocomplete" autocompletesearch="kiwix-suggest" maxrows="11" onfocus="focusOnSearch()">
+		 onkeypress="if (event.keyCode == 27) { this.value = '' } else if (event.keyCode == 13) { blur(); manageSearchInIndex() }"
+		 ontextentered="blur(); manageSearchInIndex();" type="autocomplete" 
+		 autocompletesearch="kiwix-suggest" maxrows="11" onfocus="focusOnSearch()">
 	  <hbox class="textbox-search-go-container">
 	    <image id="textbox-search-go-button" onclick="manageSearchInIndex();" tooltiptext="&main.search;"/>
 	  </hbox>
