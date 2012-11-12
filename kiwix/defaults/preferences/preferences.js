@@ -1,10 +1,6 @@
 /* Load no plugin, this is useless and can bring to segfault (remember libmoon) */
 pref("plugin.disable", true);
 
-/* OUTDATED: Start XUL page. Window is now created in the
- * components/commandLineHandler.js */
-//pref("toolkit.defaultChromeURI", "chrome://main/content/main.xul");
-
 /* Default skin */
 pref("general.skins.selectedSkin", "default");
 
@@ -15,6 +11,9 @@ pref("intl.charset.default", "UTF-8");
 pref("intl.locale.matchOS", true);
 
 /* Choose own fallback locale; later it can be overridden by the user */
+/* To force a default language, set: */
+/* - "intl.locale.matchOS" to false */
+/* - "general.useragent.locale" to your language code "de", fr", ... */
 pref("general.useragent.locale", "chrome://global/locale/intl.properties");
 
 /* Warn for http */
