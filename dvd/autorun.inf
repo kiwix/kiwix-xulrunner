@@ -5,4 +5,4 @@ shell\kiwix\command=autorun\autorun.exe
 shell=kiwix
 icon=autorun\autorun.ico
 label=Kiwix
-
+action=Launch Kiwix
