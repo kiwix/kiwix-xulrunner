@@ -16,6 +16,7 @@ Kiwix 0.9 rc2
 * FIXED: "verbose" mode in kiwix-install, kiwix-index and kiwix-serve
 * FIXED: bad small kiwix icon on MS/Windows
 * FIXED: broken suggestion/search textbox with “syllable input mode”
+* FIXED: buggy kiwix-manager remove feature
 * NEW: New supported user interface languages: Zazaki (diq), Javanese (jv),
   Khmer (km), Urdu (ur), Burmese (my)
 * NEW: CTRL+R to load random article (ID: 3549370)
