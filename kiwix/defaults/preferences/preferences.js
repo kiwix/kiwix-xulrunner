@@ -88,5 +88,8 @@ pref("kiwix.isHighDPI", false);
 /* Singleton window type */
 pref("toolkit.singletonWindowType", "singleton");
 
+/* Download remote catalog. To force behaviour, set to true or false */
+pref("kiwix.downloadRemoteCatalogs", undefined);
+
 /* Remove accept-encoding HTTP request header for aria2 xml-rpc for debugging purpose */
 //pref("network.http.accept-encoding", "gzip;q=0,deflate;q=0");
