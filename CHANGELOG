@@ -1,6 +1,6 @@
 Kiwix 0.9 rc2
 * FIXED: kiwix-manage generate wrong size for splitted ZIM files (ID: 3547892)
-* FIXED: kiwix-install crashes 
+* FIXED: kiwix-install crashes
 * FIXED: kiwix-serve memory leak on ARM (ID: 3538663)
 * FIXED: Open link in new tab from the right-click contextual menu (ID: 3553735)
 * FIXED: Hide bookmarks sidebar in the "library view" (ID: 3555848)
@@ -17,6 +17,7 @@ Kiwix 0.9 rc2
 * FIXED: Ugly 16x16 kiwix icon
 * FIXED: Broken suggestion/search textbox with “syllable input mode”
 * FIXED: Buggy kiwix-manage remove feature
+* FIXED: Internet Explorer compatibility with kiwix-serve.
 * NEW: New supported user interface languages: Zazaki (diq), Javanese (jv),
   Khmer (km), Urdu (ur), Burmese (my)
 * NEW: CTRL+R to load random article (ID: 3549370)
@@ -56,8 +57,8 @@ Kiwix 0.9 rc1
 * FIXED: Avoid killing the GNU/Linux session by quitting if aria2 is not launched
 * FIXED: Sporadic "segmentation fault" errors in the GNU/Linux file picker (ID: 3512771)
 * NEW: New supported user interface languages: Faroese (fo), Croatian (hr),
-  Iloko (ilo), Limburgish (li), Basa Banyumasan (map-bms), Pashto (ps), 
-  Bachkir (ba), Welsh (cy), Yiddish (yi), Wolof (yo), 
+  Iloko (ilo), Limburgish (li), Basa Banyumasan (map-bms), Pashto (ps),
+  Bachkir (ba), Welsh (cy), Yiddish (yi), Wolof (yo),
   Chinese (Hong Kong)(zh-hk), Albanese (sq), Assamese (as), Kannada (kn),
   Quechua (qu), Tulu (tcy), Belarusian (be), Interlingue (ie), Nepali (ne),
   Norwegian Nynorsk (nn), Occitan (oc), Romansh (rm), Serbo-Croatian (sh),
@@ -100,7 +101,7 @@ Kiwix 0.9 rc1
 
 Kiwix 0.9 beta5
 * FIXED: letton language menu item (ID: 3439113)
-* FIXED: Duplicates in publisher & language filters in the content manager (ID: 3439108)	
+* FIXED: Duplicates in publisher & language filters in the content manager (ID: 3439108)
 * FIXED: Many localisation files which were broken due to a buggy script (ID: 3440627)
 * FIXED: Wrong behaviour in case of two different portable kiwix consecutive runs (ID: 3442083)
 * FIXED: Different issues relative to ISO language codes (ID: 3439293)
@@ -324,7 +325,7 @@ Kiwix 0.8 rc2
 * Fixed window size/position restore
 * Fixed address-bar not displaying TOC URLs (ID: 2806208)
 * Fixed anchored link not working (ID: 2806207)
- 
+
 Kiwix 0.8 rc1
 * High reducing of the xapian index disk usage
 * Improvement of the history management
