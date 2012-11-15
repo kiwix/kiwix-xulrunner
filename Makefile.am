@@ -74,7 +74,7 @@ all-local:
 dist-hook:
 	rm -rf `find $(DESTDIR)$(distdir) -name "*.svn" -o -name "*.dat" -o -name "*~" -o -name "*#"`
 	rm -rf `find $(DESTDIR)$(distdir) -name "Makefile" -o -name "Makefile.in"`
-	rm -rf `find $(DESTDIR)$(distdir) -name "config.guess" -o -name "config.sub"`
+	rm -rf `find $(DESTDIR)$(distdir) -name "config.guess" -o -name "config.sub" -o -name "configure"` 
 	find $(DESTDIR)$(distdir)/src/components/ -name 'I*.h' -delete
 	find $(DESTDIR)$(distdir) -name 'aclocal.m4' -delete
 	find $(DESTDIR)$(distdir)/kiwix/chrome -name 'chrome.manifest' -delete
