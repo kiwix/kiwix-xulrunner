@@ -18,6 +18,7 @@ Kiwix 0.9 rc2
 * FIXED: Broken suggestion/search textbox with “syllable input mode”
 * FIXED: Buggy kiwix-manage remove feature
 * FIXED: Internet Explorer compatibility with kiwix-serve.
+* FIXED: Sporadicaly dying (serving big contents) kiwix-serve (#371)
 * NEW: New supported user interface languages: Zazaki (diq), Javanese (jv),
   Khmer (km), Urdu (ur), Burmese (my)
 * NEW: CTRL+R to load random article (ID: 3549370)
