@@ -1028,8 +1028,7 @@ function getBookListSortBy() {
 }
 
 function getBookListContentMaxSize() {
-    return document.getElementById("library-content-maxsize").value > 0 ? 
-	document.getElementById("library-content-maxsize").value : 99;
+    return document.getElementById("library-content-maxsize").value;
 }
 
 function getBookListCreatorFilter() {
