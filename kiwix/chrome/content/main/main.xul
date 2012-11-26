@@ -239,6 +239,8 @@
       <menuitem id="file-print" label="&main.print;" key="print-key" accesskey="&main.print.accesskey;" oncommand="print()"/>
       <menuitem id="file-print-pdf" label="&main.printPdf;" key="print-pdf-key" accesskey="&main.printPdf.accesskey;" oncommand="printPdf()"/>
       <menuseparator />
+      <menuitem id="tools-server" label="&main.server;" key="server-key" class="menuitem-iconic" 
+		accesskey="&main.server.accesskey;" oncommand="showServerDialog()"/>
       <menuitem id="tools-purgeHistory" label="&main.purgeHistory;" key="purge-history-key" accesskey="&main.purgeHistory.accesskey;" oncommand="managePurgeHistory()"/>
       <menuitem id="help-help" label="&main.help;" oncommand="showHelp()"/>
 </menupopup>
