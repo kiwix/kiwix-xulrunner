@@ -19,7 +19,7 @@
 <!ENTITY main.lastOpen                  "Peyênan ra ake...">
 <!ENTITY main.saveFile                  "Peler zewmi qeyd ke...">
 <!ENTITY main.saveFile.accesskey        "S">
-<!ENTITY main.print                     "Nusne ke">
+<!ENTITY main.print                     "Nusten ke">
 <!ENTITY main.print.accesskey           "P">
 <!ENTITY main.printPdf                  "Çapi PDFi bıke">
 <!ENTITY main.printPdf.accesskey        "D">
@@ -125,7 +125,7 @@
 <!-- Preferences Window -->
 <!ENTITY preferences.preferences        "Tercihi">
 <!ENTITY preferences.save               "Star ke">
-<!ENTITY preferences.cancel             "Bıterkne">
+<!ENTITY preferences.cancel             "Bıtexelne">
 <!ENTITY preferences.profileDirectory   "Peşiya Profili">
 <!ENTITY preferences.browse             "Çımpawe">
 <!ENTITY preferences.tabs               "na tab xo vira mekeri">

@@ -3,10 +3,10 @@
 <!ENTITY main.cssdirection              "ltr">
 
 <!-- Mac menu -->
-<!ENTITY main.osxservices               "Services">
-<!ENTITY main.osxhideapp                "Hide &brand.brandShortName;">
-<!ENTITY main.osxhideothers             "Hide Others">
-<!ENTITY main.osxshowall                "Show All">
+<!ENTITY main.osxservices               "Сервіси">
+<!ENTITY main.osxhideapp                "Приховати &brand.brandShortName;">
+<!ENTITY main.osxhideothers             "Приховати інші">
+<!ENTITY main.osxshowall                "Показати усі">
 
 <!-- File menu -->
 <!ENTITY main.file                      "Файл">
@@ -14,7 +14,7 @@
 <!ENTITY main.openFile                  "Відкрити файл ...">
 <!ENTITY main.browseLibrary.accesskey   "B">
 <!ENTITY main.browseLibrary             "Огляд бібліотеки">
-<!ENTITY main.hideLibrary               "Hide library">
+<!ENTITY main.hideLibrary               "Приховати бібліотеку">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "Нещодавно відкриті ...">
 <!ENTITY main.saveFile                  "Зберегти сторінку як...">
@@ -39,7 +39,7 @@
 <!ENTITY main.transliteration.accesskey "T">
 <!ENTITY main.preferences               "Параметри">
 <!ENTITY main.preferences.accesskey     "n">
-<!ENTITY main.server                    "Server">
+<!ENTITY main.server                    "Сервер">
 <!ENTITY main.server.accesskey          "s">
 
 <!-- Display menu -->
@@ -65,7 +65,7 @@
 <!ENTITY main.tabs.accesskey            "T">
 <!ENTITY main.fullscreen                "Повноекранний режим">
 <!ENTITY main.fullscreen.accesskey      "F">
-<!ENTITY main.invertedColors            "Inverted colors">
+<!ENTITY main.invertedColors            "Інвертувати кольори">
 <!ENTITY main.invertedColors.accesskey  "I">
 
 <!-- Tools menu -->
@@ -93,7 +93,7 @@
 <!ENTITY main.home                      "Головна">
 <!ENTITY main.searchBar                 "Панель пошуку">
 <!ENTITY main.search                    "Знайти">
-<!ENTITY main.searchPlaceholder         "Type the text to search here...">
+<!ENTITY main.searchPlaceholder         "Введіть текст для пошуку…">
 <!ENTITY main.findInText                "Знайти в тексті">
 <!ENTITY main.noSearchBar               "Пошук вимагає індексованого файлу ZIM">
 <!ENTITY main.bookmarks                 "Закладки">
@@ -129,13 +129,13 @@
 <!ENTITY preferences.profileDirectory   "Папка профілю користувача">
 <!ENTITY preferences.browse             "Огляд">
 <!ENTITY preferences.tabs               "Збережені вкладки">
-<!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">
+<!ENTITY preferences.downloadCatalogs   "Завантажити віддалений каталог(и)">
 
 <!-- Server -->
-<!ENTITY server.load                    "Load">
-<!ENTITY server.start                   "Start">
-<!ENTITY server.stop                    "Stop">
-<!ENTITY server.close                   "Close">
+<!ENTITY server.load                    "Завантажити">
+<!ENTITY server.start                   "Розпочати">
+<!ENTITY server.stop                    "Зупинити">
+<!ENTITY server.close                   "Закрити">
 
 <!-- Library -->
 <!ENTITY main.library.myLibrary                 "Моя бібліотека">
@@ -155,5 +155,5 @@
 <!ENTITY main.library.filterBy.author.all       "Всі">
 <!ENTITY main.library.filterBy.publisher        "Видавець">
 <!ENTITY main.library.filterBy.publisher.all    "Всі">
-<!ENTITY main.library.filterBy.lessThan         "Less than">
+<!ENTITY main.library.filterBy.lessThan         "Менш ніж">
 
