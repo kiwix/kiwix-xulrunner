@@ -87,30 +87,31 @@ BookmarkNFO.itemInSet	    = function (element, index, array) {
 
 /* Load the bookmar files, should be run at the application startup */
 function initBookmarks () {
-	// Default set stores in user's profile
-	BookmarkNFO.defaultSet = new BookmarkSet ();
-	
-	// loading default file
-	var file = Components.classes["@mozilla.org/file/directory_service;1"]
-	                     .getService (Components.interfaces.nsIProperties)
-	                     .get ("ProfD", Components.interfaces.nsIFile);
+    // Default set stores in user's profile
+    BookmarkNFO.defaultSet = new BookmarkSet ();
+    
+    // Kiwix internal bookmarks set (always there)
+    var file = Components.classes["@mozilla.org/file/directory_service;1"]
+	.getService (Components.interfaces.nsIProperties)
+	.get ("ProfD", Components.interfaces.nsIFile);
+    file.append("bookmarks-notes.xml");
+    if (!file.exists ()) {
+	L.info ("Bookmarks file does not exist: creating thumb one");
+	writeToFile (file, BookmarkNFO.defaultFileStr);
+    }
+    BookmarkNFO.defaultSetFile = file.clone();
 
-	file.append ("bookmarks-notes.xml");
-	BookmarkNFO.defaultSetFile  = file.clone();
-	if (!file.exists ()) {
-		L.info ("Bookmarks file does not exist: creating thumb one");
-		writeToFile (file, BookmarkNFO.defaultFileStr);
+    // User saved default bookmarks set
+    var defaultBookmarksPath = settings.defaultBookmarksPath();
+    if (defaultBookmarksPath != undefined) {
+	file = Components.classes["@mozilla.org/file/local;1"].createInstance(Components.interfaces.nsILocalFile);
+	file.initWithPath(defaultBookmarksPath);
+	if (!file.exists()) {
+	    file = BookmarkNFO.defaultSetFile;
 	}
-	BookmarkNFO.defaultSet.LoadFromFile (file);
-	
-	// displaying default set.
-	BookmarkNFO.currentSet = BookmarkNFO.defaultSet;
+    }
 
-	try {
-		DisplayBookmarkSet (BookmarkNFO.defaultSet);
-	} catch (e) {
-		L.error( "can't display: "+e.toString ());
-	}
+    LoadExternalBookmarkSet(file);
 }
 
 /*
@@ -168,15 +169,16 @@ function BookmarkSet () {
 	this.LoadFromFile	= function (file) {
 		this.file = file;
 		try {
-			this.items  = XMLFileToBookmarks(this.file)
+		    this.items  = XMLFileToBookmarks(this.file)
+		    settings.defaultBookmarksPath(this.file.path);
 		} catch (e) {
-			L.error ("Load can't parse bookmark file: "+e);
+		    L.error ("Load can't parse bookmark file: "+e);
 		}
 	};
 	// saves items to default file.
 	this.save = function () {
 		try {
-			XMLFileFromBookmarks(this.file, this.items);
+		    XMLFileFromBookmarks(this.file, this.items);
 		} catch (e) {
 			L.error ("Save can't parse bookmark file: "+e);
 		}
@@ -259,52 +261,63 @@ function DisplayBookmarkSet (set) {
 }
 
 function UILoadExternalBookmarkFile () {
-	var nsIFilePicker = Components.interfaces.nsIFilePicker;
-	var fp = Components.classes ["@mozilla.org/filepicker;1"]
+    var nsIFilePicker = Components.interfaces.nsIFilePicker;
+    var fp = Components.classes ["@mozilla.org/filepicker;1"]
 	.createInstance(nsIFilePicker);
-	fp.init(window, getProperty("selectBookmarkSet"), nsIFilePicker.modeOpen);
-	fp.appendFilters(nsIFilePicker.filterXML);
-	var res = fp.show();
-	if (res == nsIFilePicker.returnOK) {
-		var thefile = fp.file;
-	} else {
-		return false;
-	}
-
-    UIAddBookmarkSetLine (thefile);
-    LoadExternalBookmarkSet (thefile);
+    fp.init(window, getProperty("selectBookmarkSet"), nsIFilePicker.modeOpen);
+    fp.appendFilters(nsIFilePicker.filterXML);
+    var res = fp.show();
+    if (res == nsIFilePicker.returnOK) {
+	var thefile = fp.file;
+    } else {
+	return false;
+    }
+    
+    LoadExternalBookmarkSet(thefile);
 }
 
 /* Create list element for bookmark set */
 function UIAddBookmarkSetLine(file) {
-    var title   = file.leafName;
-    var slist   = getBookmarksSetsPopup();
-    var elem    = document.createElement('menuitem');
-    elem.setAttribute('label', title.replace(/.xml$/, ""));
-    elem.setAttribute('value', file.path);
-    elem.setAttribute('oncommand', "UIBookmarkSetSwitch(this.value);");
-    slist.appendChild(elem);
+    var title = file.leafName;
+    var title = title.replace(/.xml$/, "");
+
+    // Special behaviour for default bookmarks set
+    if (title == "bookmarks-notes") {
+	return;
+    }
+    
+    var slist = getBookmarksSetsPopup();
+    for (var i = 0; i < slist.parentNode.itemCount; i++) {
+        var item = slist.parentNode.getItemAtIndex(i);
+	if (item.getAttribute('value') == file.path) {
+	    return;
+	}
+    }
+
+    var newItem = document.createElement('menuitem');
+    newItem.setAttribute('label', title);
+    newItem.setAttribute('value', file.path);
+    newItem.setAttribute('oncommand', "UIBookmarkSetSwitch(this.value);");
+    slist.appendChild(newItem);
 }
 
 /* Create bookmark set and select */
 function UICreateNewBookmarkSet () {
-	var nsIFilePicker = Components.interfaces.nsIFilePicker;
-	var fp = Components.classes ["@mozilla.org/filepicker;1"]
+    var nsIFilePicker = Components.interfaces.nsIFilePicker;
+    var fp = Components.classes ["@mozilla.org/filepicker;1"]
 	.createInstance(nsIFilePicker);
-	fp.init(window, getProperty("nameBookmarkSet"), nsIFilePicker.modeSave);
-	fp.defaultString = "*.xml";
-	fp.appendFilters(nsIFilePicker.filterXML);
-	var res = fp.show();
-	if (res == nsIFilePicker.returnOK || res == nsIFilePicker.returnReplace) {
-		var thefile = fp.file;
-	} else {
-		return false;
-	}
-	
-	writeToFile (thefile, BookmarkNFO.defaultFileStr);
-	
-	UIAddBookmarkSetLine (thefile);
-    LoadExternalBookmarkSet (thefile);
+    fp.init(window, getProperty("nameBookmarkSet"), nsIFilePicker.modeSave);
+    fp.defaultString = "*.xml";
+    fp.appendFilters(nsIFilePicker.filterXML);
+    var res = fp.show();
+    if (res == nsIFilePicker.returnOK || res == nsIFilePicker.returnReplace) {
+	var thefile = fp.file;
+    } else {
+	return false;
+    }
+    
+    writeToFile (thefile, BookmarkNFO.defaultFileStr);
+    LoadExternalBookmarkSet(thefile);
 }
 
 /*
@@ -322,13 +335,20 @@ function LoadExternalBookmarkSet (file) {
     
     BookmarkNFO.externalSet = null;
     BookmarkNFO.externalSet = new BookmarkSet ();
-    BookmarkNFO.externalSet.LoadFromFile (file);
-    BookmarkNFO.currentSet  = BookmarkNFO.externalSet;
+    BookmarkNFO.externalSet.LoadFromFile(file);
+    BookmarkNFO.currentSet = BookmarkNFO.externalSet;
     try {
-	DisplayBookmarkSet (BookmarkNFO.externalSet);
+	DisplayBookmarkSet(BookmarkNFO.externalSet);
+	UIAddBookmarkSetLine(file);
+	if (file.path.search("bookmarks-notes.xml") > 0) {
+	    getBookmarksSetsPopup().parentNode.value = "default";
+	} else {
+	    getBookmarksSetsPopup().parentNode.value = file.path;
+	}
     } catch (e) {
 	L.error( "can't display"+e.toString ());
     }
+
 }
 
 /*******************************************
@@ -371,7 +391,7 @@ function UIBookmarkSetSwitch (filepath) {
         file.initWithPath(filepath);
     }
     if (file != BookmarkNFO.currentSet.file)
-        LoadExternalBookmarkSet (file);
+        LoadExternalBookmarkSet(file);
 }
 
 
