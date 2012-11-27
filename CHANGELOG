@@ -10,7 +10,7 @@ Kiwix 0.9 rc2
 * FIXED: Kiwix crashes on MS/Windows with "special" files (#317)
 * FIXED: 0.9rc1 broken Drag&Drop of files
 * FIXED: Multiple bugs impacting kiwix-plug scripts
-* FIXED: Server URL computation (was buggy in a few special cases)
+* FIXED: Server URL computation - was buggy in a few special cases (#363)
 * FIXED: *.zimaa files management (improved)
 * FIXED: Indexing progression computation (more accurate)
 * FIXED: "verbose" mode in kiwix-install, kiwix-index and kiwix-serve
