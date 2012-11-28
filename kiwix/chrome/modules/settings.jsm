@@ -216,7 +216,8 @@ let settings = {
     libraryUrls: function(value) { return this.charSettingParameter("kiwix.libraryUrls", value); },
     downloads: function(value) { return this.charSettingParameter("kiwix.downloads", value); },
     zoomFactor: function(id, zoomFactor) { return this.charSettingParameter("kiwix.zoomFactor." + id, zoomFactor); },   
-    defaultBookmarksPath: function(value) { return this.charSettingParameter("defaultBookmarksPath", value); },   
+    defaultBookmarksPath: function(value) { return this.charSettingParameter("defaultBookmarksPath", value); },
+    bookmarksSets: function(value) { return this.charSettingParameter("bookmarksSets", value); },
     isHighDPI: function(value) { return this.boolSettingParameter("kiwix.isHighDPI", value); },
     displayOnCloseCleanConfirmDialog: function(value) { 
     	return this.boolSettingParameter("displayOnCloseCleanConfirmDialog", value); 

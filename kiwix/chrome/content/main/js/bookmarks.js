@@ -87,6 +87,21 @@ BookmarkNFO.itemInSet	    = function (element, index, array) {
 
 /* Load the bookmar files, should be run at the application startup */
 function initBookmarks () {
+    // Populate the bookmarks sets list
+    var bookmarksSets = settings.bookmarksSets();
+    var bookmarksSetsArray = bookmarksSets.split(';');
+    for (var i=0; i<bookmarksSetsArray.length; i++) {
+	var path = bookmarksSetsArray[i];
+	try {
+	    var file = Components.classes["@mozilla.org/file/local;1"].createInstance(Components.interfaces.nsILocalFile);
+	    file.initWithPath(path);     
+	    if (file.exists()) {
+		UIAddBookmarkSetLine(file, true);
+	    }
+	} catch(e) {
+	}
+    }
+
     // Default set stores in user's profile
     BookmarkNFO.defaultSet = new BookmarkSet ();
     
@@ -277,7 +292,7 @@ function UILoadExternalBookmarkFile () {
 }
 
 /* Create list element for bookmark set */
-function UIAddBookmarkSetLine(file) {
+function UIAddBookmarkSetLine(file, doNotSave) {
     var title = file.leafName;
     var title = title.replace(/.xml$/, "");
 
@@ -285,7 +300,8 @@ function UIAddBookmarkSetLine(file) {
     if (title == "bookmarks-notes") {
 	return;
     }
-    
+
+    // Check if the bookmark set is not already in the list
     var slist = getBookmarksSetsPopup();
     for (var i = 0; i < slist.parentNode.itemCount; i++) {
         var item = slist.parentNode.getItemAtIndex(i);
@@ -294,11 +310,22 @@ function UIAddBookmarkSetLine(file) {
 	}
     }
 
+    // Add the new bookmark set
     var newItem = document.createElement('menuitem');
     newItem.setAttribute('label', title);
     newItem.setAttribute('value', file.path);
     newItem.setAttribute('oncommand', "UIBookmarkSetSwitch(this.value);");
     slist.appendChild(newItem);
+
+    // Save all bookmark sets
+    if (doNotSave == undefined) {
+	var bookmarksSets = "";
+	for (var i = 0; i < slist.parentNode.itemCount; i++) {
+            var item = slist.parentNode.getItemAtIndex(i);
+	    bookmarksSets += ";" + item.getAttribute('value');
+	}
+	settings.bookmarksSets(bookmarksSets);
+    }
 }
 
 /* Create bookmark set and select */
