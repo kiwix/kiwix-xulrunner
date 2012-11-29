@@ -582,11 +582,12 @@ function createLibraryItem(book) {
 					"grid");
     var columns = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
 					   "columns");
-    
+
     var leftColumn = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
 					      "column");
-    leftColumn.setAttribute("style", "width: 400px");
-    
+    leftColumn.setAttribute("flex", "1");    
+    leftColumn.setAttribute("style", "min-width: 300px");
+
     var sizeLabel = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
 					     "label");
     sizeLabel.setAttribute("class", "library-content-item-detail");
@@ -609,7 +610,9 @@ function createLibraryItem(book) {
     
     var rightColumn = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
 					       "column");
-    
+    rightColumn.setAttribute("flex", "2");    
+    rightColumn.setAttribute("style", "min-width: 200px");
+
     var dateLabel = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
 					     "label");
     dateLabel.setAttribute("class", "library-content-item-detail");
