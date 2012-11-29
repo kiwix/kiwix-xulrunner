@@ -89,16 +89,18 @@ BookmarkNFO.itemInSet	    = function (element, index, array) {
 function initBookmarks () {
     // Populate the bookmarks sets list
     var bookmarksSets = settings.bookmarksSets();
-    var bookmarksSetsArray = bookmarksSets.split(';');
-    for (var i=0; i<bookmarksSetsArray.length; i++) {
-	var path = bookmarksSetsArray[i];
-	try {
-	    var file = Components.classes["@mozilla.org/file/local;1"].createInstance(Components.interfaces.nsILocalFile);
-	    file.initWithPath(path);     
-	    if (file.exists()) {
-		UIAddBookmarkSetLine(file, true);
+    if (bookmarksSets != undefined) {
+	var bookmarksSetsArray = bookmarksSets.split(';');
+	for (var i=0; i<bookmarksSetsArray.length; i++) {
+	    var path = bookmarksSetsArray[i];
+	    try {
+		var file = Components.classes["@mozilla.org/file/local;1"].createInstance(Components.interfaces.nsILocalFile);
+		file.initWithPath(path);     
+		if (file.exists()) {
+		    UIAddBookmarkSetLine(file, true);
+		}
+	    } catch(e) {
 	    }
-	} catch(e) {
 	}
     }
 
