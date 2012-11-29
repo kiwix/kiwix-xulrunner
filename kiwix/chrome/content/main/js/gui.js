@@ -26,6 +26,8 @@ var _fullScreenStatusBar    = true;
 var _restore_tab            = null;
 var _firstSideBar	    = true;
 var _isCtrlDown             = false;
+var _minWidth               = 1000;
+var _minHeight              = 600;
 
 /* WebProgress listener */
 const STATE_START =  Components.interfaces.nsIWebProgressListener.STATE_START;
@@ -143,12 +145,10 @@ function configureWindowGeometry(window) {
         setTimeout('window.maximize();', 1);
     } else {
 	var margin = 50;
-	var minSize = 200;
-
 	var width = (settings.windowWidth() != undefined && 
-		     settings.windowWidth() > minSize) ? settings.windowWidth() : screen.width / 100 * 80;
+		     settings.windowWidth() > _minWidth) ? settings.windowWidth() : screen.width / 100 * 80;
 	var height = (settings.windowHeight() != undefined &&
-		      settings.windowHeight() > minSize) ? settings.windowHeight() : screen.height / 100 * 80;
+		      settings.windowHeight() > _minHeight) ? settings.windowHeight() : screen.height / 100 * 80;
 	var x = (settings.windowX() != undefined && 
 		 settings.windowX() > 0 && 
 		 settings.windowX() < screen.width - margin) ? settings.windowX() : (screen.width - width) / 2;
@@ -1309,6 +1309,19 @@ function initHtmlRendererEventListeners(id) {
 
     /* Intercept standard behaviour of tabheaders keypress */
     getTabHeaders().addEventListener("keypress", handleTabHeadersKeyPress, true);
+
+    /* Avoid too small window */
+    if (screen.width > _minWidth && screen.height > _minHeight) {
+	window.addEventListener("resize", function() {
+	    if(window.outerWidth > 100 && window.outerWidth < _minWidth) {
+		window.resizeTo(_minWidth, window.outerHeight);
+	    }
+
+	    if (window.outerHeight > 100 && window.outerHeight < _minHeight) {
+		window.resizeTo(window.outerWidth, _minHeight);
+	    }
+	}, false);
+    }
 }
 
 function handleWindowKeyDown(aEvent) {

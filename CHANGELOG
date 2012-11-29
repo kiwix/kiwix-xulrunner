@@ -21,6 +21,7 @@ Kiwix 0.9 rc2
 * FIXED: Sporadicaly dying (serving big contents) kiwix-serve (#371)
 * FIXED: Crashes with 64bits version on Archlinux (#365)
 * FIXED: Buggy filtering by size in the library
+* FIXED: Not perfect windows handling with small screen resolution
 * NEW: New supported user interface languages: Zazaki (diq), Javanese (jv),
   Khmer (km), Urdu (ur), Burmese (my)
 * NEW: CTRL+R to load random article (ID: 3549370)
