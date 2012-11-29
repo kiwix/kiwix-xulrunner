@@ -99,7 +99,7 @@ _languagesHash['tt-cyrl']      = 'Татарча';
 _languagesHash['ug-arab']      = 'ئۇيغۇرچە';
 _languagesHash['ukr']          = _languagesHashOld['uk']          = 'Українська';
 _languagesHash['urd']          = _languagesHashOld['ur']          = 'اردو';
-_languagesHash['vi']           = 'Tiếng Việt';
+_languagesHash['vie']          = _languagesHashOld['vi']          = 'Tiếng Việt';
 _languagesHash['yi']           = 'ייִדיש';
 _languagesHash['vec']          = 'Vèneto'
 _languagesHash['wol']          = _languagesHashOld['yo']          = 'Wolof';
