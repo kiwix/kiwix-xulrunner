@@ -22,6 +22,7 @@ Kiwix 0.9 rc2
 * FIXED: Crashes with 64bits version on Archlinux (#365)
 * FIXED: Buggy filtering by size in the library
 * FIXED: Not perfect windows handling with small screen resolution
+* FIXED: kiwix-serve integration in OSX
 * NEW: New supported user interface languages: Zazaki (diq), Javanese (jv),
   Khmer (km), Urdu (ur), Burmese (my)
 * NEW: CTRL+R to load random article (ID: 3549370)
@@ -37,7 +38,7 @@ Kiwix 0.9 rc2
 * NEW: if "/M/Description" empty, check "/M/Subtitle" (used by Mediawiki Collection ext.)
 * NEW: Windows compilation using Visual Studio 2010
 * NEW: kiwix-serve (HTTP server) for MS/Windows (#140)
-* NEW: Save the current bookmark set over sessions
+* NEW: Save the current bookmark set over sessions (#188)
 
 Kiwix 0.9 rc1
 * FIXED: Smoothier zooming (ID: 3469927)
