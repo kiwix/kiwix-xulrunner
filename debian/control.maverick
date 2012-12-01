@@ -40,7 +40,7 @@ Replaces:
 Provides: 
 Section: misc
 HomePage: http://www.kiwix.org
-Description: Wikipedia offline reader
+Description: Wikipedia offline & more
  Kiwix allows you to read and search through offline content
  as they were online. Similar to a browser, Kiwix works with
  the highly compressed ZIM file format.
