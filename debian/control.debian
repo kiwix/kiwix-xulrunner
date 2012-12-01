@@ -58,7 +58,7 @@ Description: Wikipedia offline reader
   * Pure ZIM file reader
   * Case and diacritics insensitve full text search engine
   * Bookmarks & Notes
-  * ZIM base HTTP server
+  * ZIM based HTTP server
   * PDF/HTML export
   * Localized
   * Search suggestions
