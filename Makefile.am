@@ -256,8 +256,6 @@ distmac:
 
 	find Kiwix.app/Contents/Frameworks -type f -name '*.dylib' -exec python ./src/macosx/cleanup_rpath.py {} \;
 
-	find Kiwix.app/Contents/Resources/bin -type f -name '*' -exec python ./src/macosx/cleanup_rpath.py {} \;
-
 	mv Kiwix.app/Contents/Resources/chrome/content/main/js/logger_rlz.js Kiwix.app/Contents/Resources/chrome/content/main/js/logger.js
 
 	if [ -f Kiwix.app/Contents/Resources/chrome/content.jar ] ; then rm -rf Kiwix.app/Contents/Resources/chrome/content ; fi
