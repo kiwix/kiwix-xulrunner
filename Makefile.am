@@ -252,9 +252,9 @@ distmac:
 	rsync -rl $(DEP_PATH)/xr_target/xulrunner-14.0.1.en-US.mac/XUL.framework/ Kiwix.app/Contents/Frameworks/XUL.framework/
 	cp -v $(DEP_PATH)/xr_target/xulrunner-14.0.1.en-US.mac/XUL.framework/Versions/Current/xulrunner Kiwix.app/Contents/MacOS/xulrunner
 
-	find Kiwix.app/Contents/Resources/components -type f -name '*.dylib' -exec python ./src/macosx/cleanup_rpath.py {} \;
+	find Kiwix.app/Contents/Resources/components -type f -name '*.dylib' -exec python ./src/macosx/cleanup_rpath.py c {} \;
 
-	find Kiwix.app/Contents/Frameworks -type f -name '*.dylib' -exec python ./src/macosx/cleanup_rpath.py {} \;
+	find Kiwix.app/Contents/Frameworks -type f -name '*.dylib' -exec python ./src/macosx/cleanup_rpath.py l {} \;
 
 	mv Kiwix.app/Contents/Resources/chrome/content/main/js/logger_rlz.js Kiwix.app/Contents/Resources/chrome/content/main/js/logger.js
 
@@ -351,11 +351,11 @@ if WITH_SERVER
 	lipo -create -output universal_tmp/ub/Kiwix.app/Contents/Resources/bin/kiwix-serve -arch i386 universal_tmp/i386/Kiwix.app/Contents/Resources/bin/kiwix-serve -arch x86_64 universal_tmp/x86_64/Kiwix.app/Contents/Resources/bin/kiwix-serve
 endif
 
-	find universal_tmp/ub/Kiwix.app/Contents/Resources/components -type f -name '*.dylib' -exec python ./src/macosx/cleanup_rpath.py {} \;
+	find universal_tmp/ub/Kiwix.app/Contents/Resources/components -type f -name '*.dylib' -exec python ./src/macosx/cleanup_rpath.py c {} \;
 
-	find universal_tmp/ub/Kiwix.app/Contents/Frameworks -type f -name '*.dylib' -exec python ./src/macosx/cleanup_rpath.py {} \;
+	find universal_tmp/ub/Kiwix.app/Contents/Frameworks -type f -name '*.dylib' -exec python ./src/macosx/cleanup_rpath.py l {} \;
 
-	find universal_tmp/ub/Kiwix.app/Contents/Resources/bin -type f -name '*' -exec python ./src/macosx/cleanup_rpath.py {} \;
+	find universal_tmp/ub/Kiwix.app/Contents/Resources/bin -type f -name '*' -exec python ./src/macosx/cleanup_rpath.py b {} \;
 
 	hdiutil detach universal_tmp/i386 -quiet -force
 	hdiutil detach universal_tmp/x86_64 -quiet -force	
