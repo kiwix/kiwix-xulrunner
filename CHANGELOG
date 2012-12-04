@@ -8,7 +8,7 @@ Kiwix 0.9 rc2
 * FIXED: Unclean Windows Registery after uninstalling (ID: 3467455)
 * FIXED: Problems in creating PDF/HTML from tabs (#362)
 * FIXED: Kiwix crashes on MS/Windows with "special" files (#317)
-* FIXED: 0.9rc1 broken Drag&Drop of files
+* FIXED: 0.9rc1 broken Drag&Drop of files (regression)
 * FIXED: Multiple bugs impacting kiwix-plug scripts
 * FIXED: Server URL computation - was buggy in a few special cases (#363)
 * FIXED: *.zimaa files management (improved)
@@ -19,18 +19,17 @@ Kiwix 0.9 rc2
 * FIXED: Buggy kiwix-manage remove feature
 * FIXED: Internet Explorer compatibility with kiwix-serve.
 * FIXED: Sporadicaly dying (serving big contents) kiwix-serve (#371)
-* FIXED: Crashes with 64bits version on Archlinux (#365)
+* FIXED: 64bits kiwix crashes on Archlinux (#365)
 * FIXED: Buggy filtering by size in the library
-* FIXED: Not perfect windows handling with small screen resolution
-* FIXED: kiwix-serve integration in OSX
+* FIXED: Weak windows handling with small screen resolution
+* FIXED: kiwix- console tools do not start on OSX
 * NEW: New supported user interface languages: Zazaki (diq), Javanese (jv),
   Khmer (km), Urdu (ur), Burmese (my)
 * NEW: CTRL+R to load random article (ID: 3549370)
 * NEW: Improved server dialog window
 * NEW: "Inverted colors" feature (ID: 3551975)
 * NEW: Internationalisation of kiwix-plug welcome page (en, fr, de)
-* NEW: Autoredirect to the kiwix-plug localised welcome page
-* NEW: Way to start search from the console with -search cmd line argument (ID: 3538176)
+* NEW: Start Kiwix from the console with -search cmd line argument (ID: 3538176)
 * NEW: Search suggestions in kiwix-serve (ID: 2945983)
 * NEW: Xulrunner 14.0.1 (instead of 12)
 * NEW: Desktop shortcut creation in Windows installer
@@ -38,7 +37,7 @@ Kiwix 0.9 rc2
 * NEW: if "/M/Description" empty, check "/M/Subtitle" (used by Mediawiki Collection ext.)
 * NEW: Windows compilation using Visual Studio 2010
 * NEW: kiwix-serve (HTTP server) for MS/Windows (#140)
-* NEW: Save the current bookmark set over sessions (#188)
+* NEW: Persistent bookmark set over sessions (#188)
 
 Kiwix 0.9 rc1
 * FIXED: Smoothier zooming (ID: 3469927)
