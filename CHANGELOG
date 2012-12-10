@@ -24,7 +24,7 @@ Kiwix 0.9 rc2
 * FIXED: Weak windows handling with small screen resolution
 * FIXED: kiwix- console tools do not start on OSX
 * NEW: New supported user interface languages: Zazaki (diq), Javanese (jv),
-  Khmer (km), Urdu (ur), Burmese (my)
+  Khmer (km), Urdu (ur), Burmese (my), South Azerbaijani (azb)
 * NEW: CTRL+R to load random article (ID: 3549370)
 * NEW: Improved server dialog window
 * NEW: "Inverted colors" feature (ID: 3551975)

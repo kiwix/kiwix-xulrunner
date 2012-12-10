@@ -9,6 +9,7 @@ locale main ar             locale/ar/main/
 locale main ary            locale/ary/main/
 locale main as             locale/as/main/
 locale main ast            locale/ast/main/
+locale main azb            locale/azb/main/
 locale main ba             locale/ba/main/
 locale main be             locale/be/main/
 locale main be-tarask      locale/be-tarask/main/
@@ -112,6 +113,7 @@ locale branding ar         locale/branding/
 locale branding ary        locale/branding/
 locale branding as         locale/branding/
 locale branding ast        locale/branding/
+locale branding azb        locale/branding/
 locale branding ba         locale/branding/
 locale branding be         locale/branding/
 locale branding be-tarask  locale/branding/

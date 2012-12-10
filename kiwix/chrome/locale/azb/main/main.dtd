@@ -1,0 +1,159 @@
+<!-- Window -->
+<!ENTITY main.title                     "&brand.brandShortName;">
+<!ENTITY main.cssdirection              "ltr">
+
+<!-- Mac menu -->
+<!ENTITY main.osxservices               "خیدمتلر">
+<!ENTITY main.osxhideapp                "گیزلت &brand.brandShortName;">
+<!ENTITY main.osxhideothers             "آیریلاری گیزلت">
+<!ENTITY main.osxshowall                "هاممی‌سین گؤستر">
+
+<!-- File menu -->
+<!ENTITY main.file                      "فایل">
+<!ENTITY main.file.accesskey            "F">
+<!ENTITY main.openFile                  "فایلی آچ">
+<!ENTITY main.browseLibrary.accesskey   "B">
+<!ENTITY main.browseLibrary             "کیتابخانایا گوز ائت">
+<!ENTITY main.hideLibrary               "کیتاب‌ائوین گیزلت">
+<!ENTITY main.openFile.accesskey        "O">
+<!ENTITY main.lastOpen                  "سونلاردا آچیلیب دیر">
+<!ENTITY main.saveFile                  "صحیفه‌نی ... کیمی ساخلا">
+<!ENTITY main.saveFile.accesskey        "S">
+<!ENTITY main.print                     "یازدیر">
+<!ENTITY main.print.accesskey           "P">
+<!ENTITY main.printPdf                  "کیمی یازدیر PDF">
+<!ENTITY main.printPdf.accesskey        "D">
+<!ENTITY main.quit                      "چیخیش">
+<!ENTITY main.quit.accesskey            "Q">
+
+<!-- Edit menu -->
+<!ENTITY main.edit                      "دَییش">
+<!ENTITY main.edit.accesskey            "E">
+<!ENTITY main.find                      "صحیفه‌ده ایچینده آختار...">
+<!ENTITY main.find.accesskey            "S">
+<!ENTITY main.selectall                 "هاممیین سئچ">
+<!ENTITY main.selectall.accesskey       "a">
+<!ENTITY main.copy                      "گوتور">
+<!ENTITY main.copy.accesskey            "p">
+<!ENTITY main.transliteration           "یازی چئویریسی">
+<!ENTITY main.transliteration.accesskey "T">
+<!ENTITY main.preferences               "ترجیحلر">
+<!ENTITY main.preferences.accesskey     "n">
+<!ENTITY main.server                    "سئروئر">
+<!ENTITY main.server.accesskey          "s">
+
+<!-- Display menu -->
+<!ENTITY main.display                   "گؤستر">
+<!ENTITY main.display.accesskey         "D">
+<!ENTITY main.zoom                      "بؤیوتمه">
+<!ENTITY main.zoom.accesskey            "Z">
+<!ENTITY main.zoomin                    "بؤیوت">
+<!ENTITY main.zoomin.accesskey          "M">
+<!ENTITY main.zoomout                   "کیچیت">
+<!ENTITY main.zoomout.accesskey         "R">
+<!ENTITY main.zoomorig                  "ایلکین اؤلچوسو">
+<!ENTITY main.zoomorig.accesskey        "O">
+<!ENTITY main.language                  "دیل">
+<!ENTITY main.language.accesskey        "L">
+<!ENTITY main.skin                      "قابیق">
+<!ENTITY main.skin.accesskey            "S">
+<!ENTITY main.statusbar                 "دوروم جوبوقو">
+<!ENTITY main.statusbar.accesskey       "S">
+<!ENTITY main.resultsbar                "سونوجلار جوبوقو">
+<!ENTITY main.resultsbar.accesskey      "R">
+<!ENTITY main.tabs                      "یارپاقلار">
+<!ENTITY main.tabs.accesskey            "T">
+<!ENTITY main.fullscreen                "صحیفه‌نین بوتونلد">
+<!ENTITY main.fullscreen.accesskey      "F">
+<!ENTITY main.invertedColors            "رنگ لر باش یوخاری اولوب لار">
+<!ENTITY main.invertedColors.accesskey  "I">
+
+<!-- Tools menu -->
+<!ENTITY main.tools                     "آراجلار">
+<!ENTITY main.tools.accesskey           "T">
+<!ENTITY main.randomArticle             "تصادفی مقاله">
+<!ENTITY main.randomArticle.accesskey   "R">
+<!ENTITY main.checkIntegrity            "Integrity check">
+<!ENTITY main.checkIntegrity.accesskey  "k">
+<!ENTITY main.purgeHistory              "گئچمیشی یئر‌به‌یئر ائله">
+<!ENTITY main.purgeHistory.accesskey    "P">
+
+<!-- Help menu -->
+<!ENTITY main.help                      "یاردیم">
+<!ENTITY main.help.accesskey            "H">
+<!ENTITY main.feedback                  "گئری‌بسلمه">
+<!ENTITY main.reportabug                "ایشکالی بیلدیر و ساو وئر">
+<!ENTITY main.requestafeature           "بیر اؤزئللیک ایستئک">
+<!ENTITY main.about                     "About &brand.brandShortName;">
+<!ENTITY main.about.accesskey           "A">
+
+<!-- Tool bar -->
+<!ENTITY main.back                      "گئری">
+<!ENTITY main.forward                   "ایرلی">
+<!ENTITY main.home                      "ائو">
+<!ENTITY main.searchBar                 "آختاریش جوبوقو">
+<!ENTITY main.search                    "آختار">
+<!ENTITY main.searchPlaceholder         " متن آختارماق اوچون بورا یازین  ...">
+<!ENTITY main.findInText                "یازی ایچینده آختاریش">
+<!ENTITY main.noSearchBar               "Search requires an indexed ZIM file">
+<!ENTITY main.bookmarks                 "یئر ایملری">
+
+<!-- Results bar -->
+<!ENTITY main.results.title             "آختاریش سونوجلاری">
+
+<!-- Bookmarks Bar -->
+<!ENTITY main.bmkLabel                  "یئر ایملری:">
+<!ENTITY main.notesLabel                "دامغا قئیدلری:">
+<!ENTITY main.loadbmk                   "پارامئترلری بووکمارکس گیریش">
+<!ENTITY main.newbmk                    "Create new Bookmark Set">
+<!ENTITY main.mark                      "بو صحیفه‌نی دامغالا">
+<!ENTITY main.unmark                    "سئچیلن‌لری علامتی گوتور">
+<!ENTITY main.reload                    "Reload Bookmark Set">
+<!ENTITY main.defaultset                "Default Set">
+
+<!-- Contextual Menu -->
+<!ENTITY main.saveImageAs               "شکیلی ... کیمی ساخلا">
+<!ENTITY main.openLinkInNewTab          "يئنی نیشانی لینک آچماق">
+<!ENTITY main.searchFor                 "آختاریش اوچون">
+<!ENTITY main.copyLinkAdress            "Copy link address">
+<!ENTITY main.mute                      "سوسغون">
+<!ENTITY main.audible                   "سَسلی">
+
+<!-- About Window -->
+<!ENTITY main.close                     "باغلا">
+
+<!-- Preferences Window -->
+<!ENTITY preferences.preferences        "ترجیحلر">
+<!ENTITY preferences.save               "ساخلا">
+<!ENTITY preferences.cancel             "پوز">
+<!ENTITY preferences.profileDirectory   "بؤلمه نمایه">
+<!ENTITY preferences.browse             "گؤزدن کئچیر">
+<!ENTITY preferences.tabs               "زبانه‌لری یادا ساخلاماق">
+<!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">
+
+<!-- Server -->
+<!ENTITY server.load                    "یوکله">
+<!ENTITY server.start                   "باشلا">
+<!ENTITY server.stop                    "دوردور">
+<!ENTITY server.close                   "باغلا">
+
+<!-- Library -->
+<!ENTITY main.library.myLibrary                 "کیتابخانام">
+<!ENTITY main.library.getNewFiles               "یئنی فایلاری آلماخ">
+<!ENTITY main.library.searchZimFiles            "Search ZIM files">
+<!ENTITY main.library.sortBy                    "Sort by">
+<!ENTITY main.library.sortBy.title              "باشلیق">
+<!ENTITY main.library.sortBy.size               "اؤلچو">
+<!ENTITY main.library.sortBy.date               "تاریخ">
+<!ENTITY main.library.sortBy.author             "یازار">
+<!ENTITY main.library.sortBy.publisher          "یازار">
+<!ENTITY main.library.filterBy                  "Filter by">
+<!ENTITY main.library.filterBy.fileSize         "فایل اؤلچوسو">
+<!ENTITY main.library.filterBy.language         "دیل">
+<!ENTITY main.library.filterBy.language.all     "بوتون">
+<!ENTITY main.library.filterBy.author           "یازار">
+<!ENTITY main.library.filterBy.author.all       "بوتون">
+<!ENTITY main.library.filterBy.publisher        "یازار">
+<!ENTITY main.library.filterBy.publisher.all    "بوتون">
+<!ENTITY main.library.filterBy.lessThan         "دن آز">
+
