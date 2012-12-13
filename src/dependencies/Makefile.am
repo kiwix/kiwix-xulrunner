@@ -107,7 +107,7 @@ xulrunner-win.zip:
 ####################################################
 
 zlib.tar.gz:
-	$(DOWNLOADER) zlib.tar.gz $(DEP_MIRROR)/zlib-1.2.3.tar.gz 
+	$(DOWNLOADER) zlib.tar.gz $(DEP_MIRROR)/zlib-1.2.3.tar.gz
 
 zlib-1.2.3: zlib.tar.gz
 	tar -xf zlib.tar.gz
@@ -139,15 +139,15 @@ xapian-core-1.2.3/build/lib/libxapian.so: xapian-core-1.2.3
 
 # OSX Join
 xapian-core-1.2.3/build/lib/libxapian.dylib xapian-core-1.2.3/build/bin/xapian-compact: xapian-core-1.2.3/build-i386/lib/libxapian.dylib xapian-core-1.2.3/build-x86_64/lib/libxapian.dylib xapian-core-1.2.3/build-i386/bin/xapian-compact xapian-core-1.2.3/build-x86_64/bin/xapian-compact
-	mkdir -p xapian-core-1.2.3/build/{lib,bin} && cd xapian-core-1.2.3/build/lib && cp -r ../../build-i386/include ../ && lipo ../../build-x86_64/lib/libxapian.dylib ../../build-i386/lib/libxapian.dylib -create -output libxapian.dylib && lipo ../../build-x86_64/lib/libxapian.a ../../build-i386/lib/libxapian.a -create -output libxapian.a && cd ../bin && lipo ../../build-x86_64/bin/xapian-compact ../../build-i386/bin/xapian-compact -create -output xapian-compact
+	mkdir -p xapian-core-1.2.3/build/{lib,bin} && cd xapian-core-1.2.3/build/lib && cp -r ../../build-i386/include ../ && lipo ../../build-x86_64/lib/libxapian.dylib ../../build-i386/lib/libxapian.dylib -create -output libxapian.dylib && lipo ../../build-x86_64/lib/libxapian.a ../../build-i386/lib/libxapian.a -create -output libxapian.a && cd ../bin && lipo ../../build-x86_64/bin/xapian-compact ../../build-i386/bin/xapian-compact -create -output xapian-compact && install_name_tool -id libxapian.dylib libxapian.dylib
 
 # OSX i386
 xapian-core-1.2.3/build-i386/lib/libxapian.dylib xapian-core-1.2.3/build-i386/bin/xapian-compact: xapian-core-1.2.3
-	cd xapian-core-1.2.3 && mkdir -p build-i386 && EXTERN_PATH=`pwd` CC="gcc -arch i386" CXX="g++ -arch i386" CPPFLAGS="-I${CURRENT_PATH}/src/dependencies/zlib-1.2.3/" CXXFLAGS=" -fPIC -L${CURRENT_PATH}/src/dependencies/zlib-1.2.3" ./configure --enable-shared --enable-static --prefix=$(DEP_PATH)/xapian-core-1.2.3/build-i386 && make clean && make && make install
+	cd xapian-core-1.2.3 && mkdir -p build-i386 && EXTERN_PATH=`pwd` CC="gcc -arch i386" CXX="g++ -arch i386" CPPFLAGS="-I${CURRENT_PATH}/src/dependencies/zlib-1.2.3/" CXXFLAGS=" -fPIC -L${CURRENT_PATH}/src/dependencies/zlib-1.2.3" ./configure --enable-shared --enable-static --prefix=$(DEP_PATH)/xapian-core-1.2.3/build-i386 && make clean && make && make install && install_name_tool -id libxapian.dylib build-i386/lib/libxapian.dylib
 
 # OSX x86_64
 xapian-core-1.2.3/build-x86_64/lib/libxapian.dylib xapian-core-1.2.3/build-x86_64/bin/xapian-compact: xapian-core-1.2.3
-	cd xapian-core-1.2.3 && mkdir -p build-x86_64 && EXTERN_PATH=`pwd` CC="gcc -arch x86_64" CXX="g++ -arch x86_64" CPPFLAGS="-I${CURRENT_PATH}/src/dependencies/zlib-1.2.3/" CXXFLAGS=" -fPIC -L${CURRENT_PATH}/src/dependencies/zlib-1.2.3" ./configure --enable-shared --enable-static --prefix=$(DEP_PATH)/xapian-core-1.2.3/build-x86_64 && make clean && make && make install
+	cd xapian-core-1.2.3 && mkdir -p build-x86_64 && EXTERN_PATH=`pwd` CC="gcc -arch x86_64" CXX="g++ -arch x86_64" CPPFLAGS="-I${CURRENT_PATH}/src/dependencies/zlib-1.2.3/" CXXFLAGS=" -fPIC -L${CURRENT_PATH}/src/dependencies/zlib-1.2.3" ./configure --enable-shared --enable-static --prefix=$(DEP_PATH)/xapian-core-1.2.3/build-x86_64 && make clean && make && make install && install_name_tool -id libxapian.dylib build-x86_64/lib/libxapian.dylib
 
 # Windows
 xapian-win32.zip:
@@ -212,10 +212,10 @@ icu/lib/icuio.lib icu/lib/icudata.lib icu/lib/icuuc.lib icu/lib/icui18n.lib: icu
 ############ MICROHTTPD
 ####################################################
 
-libmicrohttpd-0.9.19.tar.gz: 
+libmicrohttpd-0.9.19.tar.gz:
 	$(DOWNLOADER) libmicrohttpd-0.9.19.tar.gz $(DEP_MIRROR)/libmicrohttpd-0.9.19.tar.gz
 
-libmicrohttpd-0.9.19: libmicrohttpd-0.9.19.tar.gz	
+libmicrohttpd-0.9.19: libmicrohttpd-0.9.19.tar.gz
 	tar xf libmicrohttpd-0.9.19.tar.gz
 
 libmicrohttpd-0.9.19/build/lib/libmicrohttpd.so: libmicrohttpd-0.9.19
@@ -287,7 +287,7 @@ xz-win/bin_i486/liblzma.lib: xz-5.0.3-windows.zip
 ############ ARIA2 (downloaded)
 ####################################################
 
-aria2c: 
+aria2c:
 	$(DOWNLOADER) aria2c $(DEP_MIRROR)/aria2c.$(ARCH)
 	chmod +x aria2c
 
@@ -305,7 +305,7 @@ aria2-1.14.2/usr/bin/aria2c: aria2-1.14.2.pkg
 	./tools/unpkg.py aria2-1.14.2.pkg
 
 # Windows
-aria2c.exe: 
+aria2c.exe:
 	$(DOWNLOADER) aria2c.exe $(DEP_MIRROR)/aria2c.exe
 
 ####################################################
@@ -423,7 +423,7 @@ DISTCLEANFILES= xulrunner-sdk.tar.bz2 \
 	clucene-core-0.9.21b.tar.bz2 \
 	e2fsprogs-1.42.tar.gz \
 	argtable2-13.tar.gz \
-	pthread-win32.zip 
+	pthread-win32.zip
 
 clean-local:
 	-rm -rf zlib-1.2.3
