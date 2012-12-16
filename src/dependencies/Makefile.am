@@ -323,7 +323,7 @@ clucene-core-0.9.21b/build/lib/libclucene.so: clucene-core-0.9.21b
 
 # OSX Join
 clucene-core-0.9.21b/build/lib/libclucene.dylib: clucene-core-0.9.21b/build-i386/lib/libclucene.dylib clucene-core-0.9.21b/build-x86_64/lib/libclucene.dylib
-	mkdir -p clucene-core-0.9.21b/build/lib && cd clucene-core-0.9.21b/build/lib && lipo ../../build-x86_64/lib/libclucene.dylib ../../build-i386/lib/libclucene.dylib -create -output libclucene.dylib && lipo ../../build-x86_64/lib/libclucene.a ../../build-i386/lib/libclucene.a -create -output libclucene.a install_name_tool -id libclucene.dylib libclucene.dylib
+	mkdir -p clucene-core-0.9.21b/build/lib && cd clucene-core-0.9.21b/build/lib && lipo ../../build-x86_64/lib/libclucene.dylib ../../build-i386/lib/libclucene.dylib -create -output libclucene.dylib && lipo ../../build-x86_64/lib/libclucene.a ../../build-i386/lib/libclucene.a -create -output libclucene.a && install_name_tool -id libclucene.dylib libclucene.dylib
 
 # OSX i386
 clucene-core-0.9.21b/build-i386/lib/libclucene.dylib: clucene-core-0.9.21b
