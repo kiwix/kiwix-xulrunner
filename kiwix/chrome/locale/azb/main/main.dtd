@@ -73,7 +73,7 @@
 <!ENTITY main.tools.accesskey           "T">
 <!ENTITY main.randomArticle             "تصادفی مقاله">
 <!ENTITY main.randomArticle.accesskey   "R">
-<!ENTITY main.checkIntegrity            "Integrity check">
+<!ENTITY main.checkIntegrity            "بیر پارچالیق تفتیشی">
 <!ENTITY main.checkIntegrity.accesskey  "k">
 <!ENTITY main.purgeHistory              "گئچمیشی یئر‌به‌یئر ائله">
 <!ENTITY main.purgeHistory.accesskey    "P">
@@ -84,7 +84,7 @@
 <!ENTITY main.feedback                  "گئری‌بسلمه">
 <!ENTITY main.reportabug                "ایشکالی بیلدیر و ساو وئر">
 <!ENTITY main.requestafeature           "بیر اؤزئللیک ایستئک">
-<!ENTITY main.about                     "About &brand.brandShortName;">
+<!ENTITY main.about                     "برئندی حاقیندا. قیسا  برئند آدی؛">
 <!ENTITY main.about.accesskey           "A">
 
 <!-- Tool bar -->
@@ -93,9 +93,9 @@
 <!ENTITY main.home                      "ائو">
 <!ENTITY main.searchBar                 "آختاریش جوبوقو">
 <!ENTITY main.search                    "آختار">
-<!ENTITY main.searchPlaceholder         " متن آختارماق اوچون بورا یازین  ...">
+<!ENTITY main.searchPlaceholder         "متن آختارماق اوچون بورا یازین  ...">
 <!ENTITY main.findInText                "یازی ایچینده آختاریش">
-<!ENTITY main.noSearchBar               "Search requires an indexed ZIM file">
+<!ENTITY main.noSearchBar               "آختاریش زیم فايلینی طلب ائدیر">
 <!ENTITY main.bookmarks                 "یئر ایملری">
 
 <!-- Results bar -->
@@ -105,11 +105,11 @@
 <!ENTITY main.bmkLabel                  "یئر ایملری:">
 <!ENTITY main.notesLabel                "دامغا قئیدلری:">
 <!ENTITY main.loadbmk                   "پارامئترلری بووکمارکس گیریش">
-<!ENTITY main.newbmk                    "Create new Bookmark Set">
+<!ENTITY main.newbmk                    "يئنی نیشانک اوچون تنظیم يارادین">
 <!ENTITY main.mark                      "بو صحیفه‌نی دامغالا">
 <!ENTITY main.unmark                    "سئچیلن‌لری علامتی گوتور">
-<!ENTITY main.reload                    "Reload Bookmark Set">
-<!ENTITY main.defaultset                "Default Set">
+<!ENTITY main.reload                    "نشانه مجموعه لری یئنی دن یوکلمه">
+<!ENTITY main.defaultset                "نیشانک‌لر اوچون تنظیم">
 
 <!-- Contextual Menu -->
 <!ENTITY main.saveImageAs               "شکیلی ... کیمی ساخلا">
@@ -129,25 +129,25 @@
 <!ENTITY preferences.profileDirectory   "بؤلمه نمایه">
 <!ENTITY preferences.browse             "گؤزدن کئچیر">
 <!ENTITY preferences.tabs               "زبانه‌لری یادا ساخلاماق">
-<!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">
+<!ENTITY preferences.downloadCatalogs   "اوزاق Download کالانما (س)">
 
 <!-- Server -->
 <!ENTITY server.load                    "یوکله">
 <!ENTITY server.start                   "باشلا">
-<!ENTITY server.stop                    "دوردور">
+<!ENTITY server.stop                    "دور (دایان)">
 <!ENTITY server.close                   "باغلا">
 
 <!-- Library -->
 <!ENTITY main.library.myLibrary                 "کیتابخانام">
 <!ENTITY main.library.getNewFiles               "یئنی فایلاری آلماخ">
-<!ENTITY main.library.searchZimFiles            "Search ZIM files">
-<!ENTITY main.library.sortBy                    "Sort by">
+<!ENTITY main.library.searchZimFiles            "ZIM فایل‌لار اوچون آختار">
+<!ENTITY main.library.sortBy                    "جوتده مک بو اساسلا">
 <!ENTITY main.library.sortBy.title              "باشلیق">
 <!ENTITY main.library.sortBy.size               "اؤلچو">
 <!ENTITY main.library.sortBy.date               "تاریخ">
 <!ENTITY main.library.sortBy.author             "یازار">
 <!ENTITY main.library.sortBy.publisher          "یازار">
-<!ENTITY main.library.filterBy                  "Filter by">
+<!ENTITY main.library.filterBy                  "فیلتر ائتمک دن:">
 <!ENTITY main.library.filterBy.fileSize         "فایل اؤلچوسو">
 <!ENTITY main.library.filterBy.language         "دیل">
 <!ENTITY main.library.filterBy.language.all     "بوتون">
