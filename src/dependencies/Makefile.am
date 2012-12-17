@@ -116,7 +116,11 @@ zlib-1.2.3: zlib.tar.gz
 zlib-1.2.3/static/lib/libz.a: zlib-1.2.3
 	cd zlib-1.2.3 && mkdir -p static && CC=$(COMPC) CXX=$(COMPCXX) CFLAGS=" -fPIC " ./configure --prefix=$(DEP_PATH)/zlib-1.2.3/static && make clean && make && make install
 
-zlib-1.2.3/shared/lib/libz.so zlib-1.2.3/shared/lib/libz.dylib: zlib-1.2.3 zlib-1.2.3/static/lib/libz.a
+zlib-1.2.3/shared/lib/libz.so: zlib-1.2.3 zlib-1.2.3/static/lib/libz.a
+	cd zlib-1.2.3 && mkdir -p shared && CC=$(COMPC) CXX=$(COMPCXX) CFLAGS=" -fPIC " ./configure --shared --prefix=$(DEP_PATH)/zlib-1.2.3/shared && make clean && make && make install
+
+# OSX
+zlib-1.2.3/shared/lib/libz.dylib: zlib-1.2.3 zlib-1.2.3/static/lib/libz.a
 	cd zlib-1.2.3 && mkdir -p shared && CC=$(COMPC) CXX=$(COMPCXX) CFLAGS=" -fPIC " ./configure --shared --prefix=$(DEP_PATH)/zlib-1.2.3/shared && make clean && make && make install && install_name_tool -id libz.dylib shared/lib/libz.dylib
 
 # Windows
