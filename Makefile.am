@@ -327,6 +327,8 @@ universal: $(PACKAGE)-$(VERSION)-i386.dmg $(PACKAGE)-$(VERSION)-x86_64.dmg
 
 	lipo -create -output universal_tmp/ub/Kiwix.app/Contents/Resources/components/contentManager.dylib -arch i386 universal_tmp/i386/Kiwix.app/Contents/Resources/components/contentManager.dylib -arch x86_64 universal_tmp/x86_64/Kiwix.app/Contents/Resources/components/contentManager.dylib
 
+	lipo -create -output universal_tmp/ub/Kiwix.app/Contents/Resources/components/serverManager.dylib -arch i386 universal_tmp/i386/Kiwix.app/Contents/Resources/components/serverManager.dylib -arch x86_64 universal_tmp/x86_64/Kiwix.app/Contents/Resources/components/serverManager.dylib
+
 	lipo -create -output universal_tmp/ub/Kiwix.app/Contents/Resources/components/xapianAccessor.dylib -arch i386 universal_tmp/i386/Kiwix.app/Contents/Resources/components/xapianAccessor.dylib -arch x86_64 universal_tmp/x86_64/Kiwix.app/Contents/Resources/components/xapianAccessor.dylib
 
 	lipo -create -output universal_tmp/ub/Kiwix.app/Contents/Resources/components/zimXapianIndexer.dylib -arch i386 universal_tmp/i386/Kiwix.app/Contents/Resources/components/zimXapianIndexer.dylib -arch x86_64 universal_tmp/x86_64/Kiwix.app/Contents/Resources/components/zimXapianIndexer.dylib
