@@ -16,10 +16,6 @@ kiwix_search_CXXFLAGS=$(XAPIAN_CFLAGS) $(CLUCENE_CFLAGS) $(ICU_CFLAGS) $(CTPP2_C
 
 kiwix_search_LDFLAGS=$(CHECK_LDFLAGS)
 
-if IS_OSX
-kiwix_search_LDFLAGS += -isysroot /Developer/SDKs/MacOSX10.5.sdk -mmacosx-version-min=10.5
-endif
-
 if STATIC_BINS
 kiwix_search_LDFLAGS+= $(XAPIAN_STATIC_LDFLAGS) $(CLUCENE_STATIC_LDFLAGS) $(ICU_STATIC_LDFLAGS) $(CTPP2_STATIC_LDFLAGS) $(ZLIB_STATIC_LDFLAGS) ../ctpp2/src/.libs/libctpp2.a $(UUID_STATIC_LDFLAGS) $(STATIC_LIBM_ARCHIVE) $(STATIC_LIBSTDCPP_ARCHIVE) $(STATIC_LIBDL_ARCHIVE) $(STATIC_LIBGCC_ARCHIVE) $(STATIC_LIBPTHREAD_ARCHIVE) --static
 else
@@ -28,4 +24,8 @@ endif
 
 if IS_OSX
 kiwix_search_LDFLAGS+= /opt/local/lib/libiconv.a /opt/local/lib/libintl.a -framework IOKit -framework CoreFoundation
+endif
+
+if IS_OSX
+kiwix_search_LDFLAGS+= -isysroot /Developer/SDKs/MacOSX10.5.sdk -mmacosx-version-min=10.5
 endif

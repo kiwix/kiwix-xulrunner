@@ -33,12 +33,12 @@ kiwix_install_CXXFLAGS=$(XAPIAN_CFLAGS) $(CLUCENE_CFLAGS) $(ICU_CFLAGS) $(LZMA_C
 
 kiwix_install_LDFLAGS=$(CHECK_LDFLAGS)
 
-if IS_OSX
-kiwix_install_LDFLAGS += -isysroot /Developer/SDKs/MacOSX10.5.sdk -mmacosx-version-min=10.5
-endif
-
 if STATIC_BINS
 kiwix_install_LDFLAGS+= $(XAPIAN_STATIC_LDFLAGS) $(CLUCENE_STATIC_LDFLAGS) $(ICU_STATIC_LDFLAGS) $(UUID_STATIC_LDFLAGS) ../zimlib/src/.libs/libzim.a ../pugixml/.libs/libpugixml.a $(LZMA_STATIC_LDFLAGS) $(ZLIB_STATIC_LDFLAGS) $(STATIC_LIBM_ARCHIVE) $(STATIC_LIBSTDCPP_ARCHIVE) $(STATIC_LIBDL_ARCHIVE) $(STATIC_LIBGCC_ARCHIVE) $(STATIC_LIBPTHREAD_ARCHIVE) --static
 else
 kiwix_install_LDFLAGS+= $(XAPIAN_LDFLAGS) $(CLUCENE_LDFLAGS) $(ICU_LDFLAGS) $(UUID_LDFLAGS) ../zimlib/src/.libs/libzim.a ../pugixml/.libs/libpugixml.a $(LZMA_LDFLAGS) $(ZLIB_LDFLAGS) -ldl -lpthread
+endif
+
+if IS_OSX
+kiwix_install_LDFLAGS+= -isysroot /Developer/SDKs/MacOSX10.5.sdk -mmacosx-version-min=10.5
 endif

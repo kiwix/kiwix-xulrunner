@@ -28,10 +28,6 @@ kiwix_serve_CXXFLAGS=${MICROHTTPD_CFLAGS} -I${CURRENT_PATH}/src/ctpp2/include $(
 
 kiwix_serve_LDFLAGS=$(CHECK_LDFLAGS)
 
-if IS_OSX
-kiwix_serve_LDFLAGS += -isysroot /Developer/SDKs/MacOSX10.5.sdk -mmacosx-version-min=10.5
-endif
-
 if STATIC_BINS
 kiwix_serve_LDFLAGS+= $(XAPIAN_STATIC_LDFLAGS) $(ICU_STATIC_LDFLAGS) $(MICROHTTPD_STATIC_LDFLAGS) ../zimlib/src/.libs/libzim.a ../ctpp2/src/.libs/libctpp2.a ../pugixml/.libs/libpugixml.a $(LZMA_STATIC_LDFLAGS) $(CLUCENE_STATIC_LDFLAGS) $(UUID_STATIC_LDFLAGS) $(ZLIB_STATIC_LDFLAGS) $(STATIC_LIBM_ARCHIVE) $(STATIC_LIBSTDCPP_ARCHIVE) $(STATIC_LIBDL_ARCHIVE) $(STATIC_LIBGCC_ARCHIVE) $(STATIC_LIBPTHREAD_ARCHIVE) --static
 else
@@ -39,5 +35,5 @@ kiwix_serve_LDFLAGS+= $(XAPIAN_LDFLAGS) $(ICU_LDFLAGS) $(MICROHTTPD_LDFLAGS) ../
 endif
 
 if IS_OSX
-kiwix_serve_LDFLAGS+= /opt/local/lib/libiconv.a /opt/local/lib/libintl.a -framework IOKit -framework CoreFoundation
+kiwix_serve_LDFLAGS+= /opt/local/lib/libiconv.a /opt/local/lib/libintl.a -framework IOKit -framework CoreFoundation -isysroot /Developer/SDKs/MacOSX10.5.sdk -mmacosx-version-min=10.5
 endif
