@@ -37,7 +37,3 @@ endif
 if IS_OSX
 kiwix_serve_LDFLAGS+= /opt/local/lib/libiconv.a /opt/local/lib/libintl.a -framework IOKit -framework CoreFoundation-min=10.5
 endif
-
-if IS_OSX
-kiwix_serve_CXXFLAGS+= -isysroot /Developer/SDKs/MacOSX10.5.sdk -mmacosx-version-min=10.5
-endif

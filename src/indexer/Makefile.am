@@ -28,7 +28,3 @@ kiwix_index_LDFLAGS+= $(XAPIAN_STATIC_LDFLAGS) $(CLUCENE_STATIC_LDFLAGS) $(ICU_S
 else
 kiwix_index_LDFLAGS+= $(XAPIAN_LDFLAGS) $(CLUCENE_LDFLAGS) $(ICU_LDFLAGS) ../zimlib/src/.libs/libzim.a $(LZMA_LDFLAGS) $(ZLIB_LDFLAGS) -lpthread $(UUID_LDFLAGS) -ldl
 endif
-
-if IS_OSX
-kiwix_index_CXXFLAGS+= -isysroot /Developer/SDKs/MacOSX10.5.sdk -mmacosx-version-min=10.5
-endif
