@@ -27,5 +27,5 @@ kiwix_manage_LDFLAGS+= $(ZIMLIB_LDFLAGS) $(ICU_LDFLAGS) ../zimlib/src/.libs/libz
 endif
 
 if IS_OSX
-kiwix_manage_LDFLAGS+= -isysroot /Developer/SDKs/MacOSX10.5.sdk -mmacosx-version-min=10.5
+kiwix_manage_CXXFLAGS+= -isysroot /Developer/SDKs/MacOSX10.5.sdk -mmacosx-version-min=10.5
 endif

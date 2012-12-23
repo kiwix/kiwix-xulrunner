@@ -27,5 +27,5 @@ kiwix_search_LDFLAGS+= /opt/local/lib/libiconv.a /opt/local/lib/libintl.a -frame
 endif
 
 if IS_OSX
-kiwix_search_LDFLAGS+= -isysroot /Developer/SDKs/MacOSX10.5.sdk -mmacosx-version-min=10.5
+kiwix_search_CXXFLAGS+= -isysroot /Developer/SDKs/MacOSX10.5.sdk -mmacosx-version-min=10.5
 endif
