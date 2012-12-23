@@ -32,6 +32,10 @@ libServerManager_la_CXXFLAGS=$(LIBXUL_CFLAGS) $(ZIMLIB_CFLAGS) $(LZMA_CFLAGS) $(
 libServerManager_la_LDFLAGS=$(LIBXUL_LDFLAGS) $(ZIMLIB_LDFLAGS) $(LZMA_LDFLAGS) $(ICU_LDFLAGS) $(PUGIXML_LDFLAGS) $(XPCOM_LDFLAGS)
 libServerManager_la_LIBADD=$(top_builddir)/src/zimlib/src/libzim.la $(top_builddir)/src/pugixml/libpugixml.la
 
+if IS_OSX
+libServerManager_la_LDFLAGS += -isysroot /Developer/SDKs/MacOSX10.5.sdk -mmacosx-version-min=10.5
+endif
+
 EXTRA_DIST=IServerManager.idl
 BUILT_SOURCES=serverManager.xpt IServerManager.h
 CLEANFILES=serverManager.xpt IServerManager.h *.lib *.obj *.dll *.h *.xpt
@@ -40,7 +44,7 @@ serverManager.xpt:
 if HAVE_XPIDL
 	$(XPIDL) -m typelib -o serverManager -I $(GECKO_IDL_PATH) $(top_srcdir)/src/components/serverManager/IServerManager.idl
 else
-	$(TYPELIB_PY) --cachedir=/tmp -o serverManager.xpt -I $(GECKO_IDL_PATH) $(top_srcdir)/src/components/serverManager/IServerManager.idl		
+	$(TYPELIB_PY) --cachedir=/tmp -o serverManager.xpt -I $(GECKO_IDL_PATH) $(top_srcdir)/src/components/serverManager/IServerManager.idl
 endif
 
 IServerManager.h:

@@ -23,10 +23,14 @@ kiwix_serve_SOURCES= \
 	../common/pathTools.h \
 	../common/regexTools.h \
 	../common/resourceTools.h \
-	../common/stringTools.h 
+	../common/stringTools.h
 kiwix_serve_CXXFLAGS=${MICROHTTPD_CFLAGS} -I${CURRENT_PATH}/src/ctpp2/include $(CLUCENE_CFLAGS) $(XAPIAN_CFLAGS) $(ICU_CFLAGS) $(LZMA_CFLAGS) $(ZLIB_CFLAGS) -I../common/
 
 kiwix_serve_LDFLAGS=$(CHECK_LDFLAGS)
+
+if IS_OSX
+kiwix_serve_LDFLAGS += -isysroot /Developer/SDKs/MacOSX10.5.sdk -mmacosx-version-min=10.5
+endif
 
 if STATIC_BINS
 kiwix_serve_LDFLAGS+= $(XAPIAN_STATIC_LDFLAGS) $(ICU_STATIC_LDFLAGS) $(MICROHTTPD_STATIC_LDFLAGS) ../zimlib/src/.libs/libzim.a ../ctpp2/src/.libs/libctpp2.a ../pugixml/.libs/libpugixml.a $(LZMA_STATIC_LDFLAGS) $(CLUCENE_STATIC_LDFLAGS) $(UUID_STATIC_LDFLAGS) $(ZLIB_STATIC_LDFLAGS) $(STATIC_LIBM_ARCHIVE) $(STATIC_LIBSTDCPP_ARCHIVE) $(STATIC_LIBDL_ARCHIVE) $(STATIC_LIBGCC_ARCHIVE) $(STATIC_LIBPTHREAD_ARCHIVE) --static

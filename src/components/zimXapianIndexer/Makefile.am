@@ -27,8 +27,12 @@ libZimXapianIndexer_la_SOURCES= \
 	$(top_srcdir)/src/common/kiwix/xapianIndexer.h
 libZimXapianIndexer_la_CXXFLAGS=$(LIBXUL_CFLAGS) $(XAPIAN_CFLAGS) $(ICU_CFLAGS) $(ZIMLIB_CFLAGS) $(LZMA_CFLAGS) $(XPCOM_CFLAGS) -D GECKO_VERSION=$(GECKO_VERSION) -I$(top_srcdir)/src/common/
 
-libZimXapianIndexer_la_LDFLAGS=$(LIBXUL_LDFLAGS) $(XAPIAN_LDFLAGS) $(ICU_LDFLAGS) $(ZIMLIB_LDFLAGS) $(LZMA_LDFLAGS) $(XPCOM_LDFLAGS) 
+libZimXapianIndexer_la_LDFLAGS=$(LIBXUL_LDFLAGS) $(XAPIAN_LDFLAGS) $(ICU_LDFLAGS) $(ZIMLIB_LDFLAGS) $(LZMA_LDFLAGS) $(XPCOM_LDFLAGS)
 libZimXapianIndexer_la_LIBADD=$(top_builddir)/src/zimlib/src/libzim.la
+
+if IS_OSX
+libZimXapianIndexer_la_LDFLAGS += -isysroot /Developer/SDKs/MacOSX10.5.sdk -mmacosx-version-min=10.5
+endif
 
 EXTRA_DIST=IZimXapianIndexer.idl
 BUILT_SOURCES=zimXapianIndexer.xpt IZimXapianIndexer.h
