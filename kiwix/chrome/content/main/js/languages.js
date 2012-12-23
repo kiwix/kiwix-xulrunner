@@ -115,6 +115,7 @@ function getLanguageNameFromISO(code) {
     var language = _languagesHash[code] || _languagesHashOld[code] || '';
     if (!language && code) {
 	dump('"' + code + '" is not available in languages.js.\n');
+	return code;
     }
     return language;
 }
