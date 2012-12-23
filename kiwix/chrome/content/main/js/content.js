@@ -622,7 +622,8 @@ function createLibraryItem(book) {
     var languageLabel = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
 						 "label");
     languageLabel.setAttribute("class", "library-content-item-detail");
-    languageLabel.setAttribute("value", "Language: " + getLanguageNameFromISO(book.language));
+    languageLabel.setAttribute("value", "Language: " + 
+			       (getLanguageNameFromISO(book.language) || book.language));
     rightColumn.appendChild(languageLabel);
     
     columns.appendChild(rightColumn);
