@@ -11,7 +11,7 @@ kiwix_search_SOURCES= \
 	../common/resourceTools.h \
 	../common/stringTools.h \
 	../common/kiwix/xapianSearcher.h \
-	../common/kiwix/cluceneSearcher.h
+	../common/kiwix/cluceneSearcher.h 
 kiwix_search_CXXFLAGS=$(XAPIAN_CFLAGS) $(CLUCENE_CFLAGS) $(ICU_CFLAGS) $(CTPP2_CFLAGS) $(ZLIB_CFLAGS) $(UUID_CFLAGS) -I../common/
 
 kiwix_search_LDFLAGS=$(CHECK_LDFLAGS)

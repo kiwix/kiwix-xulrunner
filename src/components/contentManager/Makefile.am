@@ -30,10 +30,6 @@ libContentManager_la_CXXFLAGS=$(LIBXUL_CFLAGS) $(ZIMLIB_CFLAGS) $(LZMA_CFLAGS) $
 libContentManager_la_LDFLAGS=$(LIBXUL_LDFLAGS) $(ZIMLIB_LDFLAGS) $(LZMA_LDFLAGS) $(ICU_LDFLAGS) $(PUGIXML_LDFLAGS) $(XPCOM_LDFLAGS)
 libContentManager_la_LIBADD=$(top_builddir)/src/zimlib/src/libzim.la $(top_builddir)/src/pugixml/libpugixml.la
 
-if IS_OSX
-libContentManager_la_LDFLAGS += -isysroot /Developer/SDKs/MacOSX10.5.sdk -mmacosx-version-min=10.5
-endif
-
 EXTRA_DIST=IContentManager.idl IContentManager_gecko_old_bool_type.idl
 BUILT_SOURCES=contentManager.xpt IContentManager.h
 CLEANFILES=contentManager.xpt IContentManager.h *.lib *.obj *.dll *.h *.xpt
@@ -45,7 +41,7 @@ else
 if GECKO_OLD_BOOL_TYPE
 	$(TYPELIB_PY) --cachedir=/tmp -o contentManager.xpt -I $(GECKO_IDL_PATH) $(top_srcdir)/src/components/contentManager/IContentManager_gecko_old_bool_type.idl
 else
-	$(TYPELIB_PY) --cachedir=/tmp -o contentManager.xpt -I $(GECKO_IDL_PATH) $(top_srcdir)/src/components/contentManager/IContentManager.idl
+	$(TYPELIB_PY) --cachedir=/tmp -o contentManager.xpt -I $(GECKO_IDL_PATH) $(top_srcdir)/src/components/contentManager/IContentManager.idl		
 endif
 endif
 

@@ -19,10 +19,6 @@ libZimAccessor_la_CXXFLAGS=$(LIBXUL_CFLAGS) $(LZMA_CFLAGS) $(ICU_CFLAGS) $(XPCOM
 libZimAccessor_la_LDFLAGS=$(LIBXUL_LDFLAGS) $(ZIMLIB_LDFLAGS) $(ICU_LDFLAGS) $(LZMA_LDFLAGS) $(XPCOM_LDFLAGS)
 libZimAccessor_la_LIBADD=$(top_builddir)/src/zimlib/src/libzim.la
 
-if IS_OSX
-libZimAccessor_la_LDFLAGS += -isysroot /Developer/SDKs/MacOSX10.5.sdk -mmacosx-version-min=10.5
-endif
-
 # if STATIC_BINS
 # libZimAccessor_la_LDFLAGS+= $(STATIC_LIBM_ARCHIVE) $(STATIC_LIBSTDCPP_ARCHIVE) $(STATIC_LIBDL_ARCHIVE) $(STATIC_LIBGCC_ARCHIVE) $(STATIC_LIBPTHREAD_ARCHIVE)
 # endif

@@ -18,7 +18,7 @@ kiwix_index_SOURCES= \
 	../common/kiwix/indexer.h \
 	../common/kiwix/reader.h \
 	../common/kiwix/xapianIndexer.h \
-	../common/kiwix/cluceneIndexer.h
+	../common/kiwix/cluceneIndexer.h 
 kiwix_index_CXXFLAGS=$(XAPIAN_CFLAGS) $(CLUCENE_CFLAGS) $(ICU_CFLAGS) $(LZMA_CFLAGS) $(ZLIB_CFLAGS) -I../common/
 
 kiwix_index_LDFLAGS=$(CHECK_LDFLAGS)
