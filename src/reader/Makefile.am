@@ -15,3 +15,7 @@ kiwix_read_LDFLAGS+= $(ZIMLIB_STATIC_LDFLAGS) $(top_builddir)/src/zimlib/src/.li
 else
 kiwix_read_LDFLAGS+= $(ZIMLIB_LDFLAGS) $(ICU_LDFLAGS) $(top_builddir)/src/zimlib/src/.libs/libzim.a $(LZMA_LDFLAGS) -lpthread
 endif
+
+if IS_OSX
+kiwix_read_CXXFLAGS+= -mmacosx-version-min=10.5
+endif

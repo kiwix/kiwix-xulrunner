@@ -55,3 +55,7 @@ else
 	$(HEADER_PY) --cachedir=/tmp -o IContentManager.h -I $(GECKO_IDL_PATH) $(top_srcdir)/src/components/contentManager/IContentManager.idl
 endif
 endif
+
+if IS_OSX
+libContentManager_la_CXXFLAGS+= -mmacosx-version-min=10.5
+endif

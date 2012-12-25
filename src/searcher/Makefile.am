@@ -24,4 +24,5 @@ endif
 
 if IS_OSX
 kiwix_search_LDFLAGS+= /opt/local/lib/libiconv.a /opt/local/lib/libintl.a -framework IOKit -framework CoreFoundation
+kiwix_search_CXXFLAGS+= -mmacosx-version-min=10.5
 endif

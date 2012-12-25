@@ -38,3 +38,7 @@ kiwix_install_LDFLAGS+= $(XAPIAN_STATIC_LDFLAGS) $(CLUCENE_STATIC_LDFLAGS) $(ICU
 else
 kiwix_install_LDFLAGS+= $(XAPIAN_LDFLAGS) $(CLUCENE_LDFLAGS) $(ICU_LDFLAGS) $(UUID_LDFLAGS) ../zimlib/src/.libs/libzim.a ../pugixml/.libs/libpugixml.a $(LZMA_LDFLAGS) $(ZLIB_LDFLAGS) -ldl -lpthread
 endif
+
+if IS_OSX
+kiwix_install_CXXFLAGS+= -mmacosx-version-min=10.5
+endif

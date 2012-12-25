@@ -40,3 +40,7 @@ if HAVE_XPIDL
 else
 	$(HEADER_PY) --cachedir=/tmp -o IZimAccessor.h -I $(GECKO_IDL_PATH) $(top_srcdir)/src/components/zimAccessor/IZimAccessor.idl
 endif
+
+if IS_OSX
+libZimAccessor_la_CXXFLAGS+= -mmacosx-version-min=10.5
+endif
