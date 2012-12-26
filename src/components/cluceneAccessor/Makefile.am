@@ -13,7 +13,7 @@ libCluceneAccessor_la_SOURCES= \
 	$(top_srcdir)/src/common/kiwix/cluceneSearcher.cpp \
 	$(top_srcdir)/src/common/stringTools.h \
 	$(top_srcdir)/src/common/resourceTools.h \
-	$(top_srcdir)/src/common/kiwix/searcher.h 
+	$(top_srcdir)/src/common/kiwix/searcher.h
 libCluceneAccessor_la_CXXFLAGS=$(CTPP2_CFLAGS) $(LIBXUL_CFLAGS) $(CLUCENE_CFLAGS) $(ICU_CFLAGS) $(XPCOM_CFLAGS) -D GECKO_VERSION=$(GECKO_VERSION) -I$(top_srcdir)/src/common/
 
 libCluceneAccessor_la_LDFLAGS=$(CTPP2_LDFLAGS) $(LIBXUL_LDFLAGS) $(CLUCENE_LDFLAGS) $(ICU_LDFLAGS) $(XPCOM_LDFLAGS)
@@ -23,7 +23,7 @@ EXTRA_DIST=ICluceneAccessor.idl
 BUILT_SOURCES=cluceneAccessor.xpt ICluceneAccessor.h
 CLEANFILES=cluceneAccessor.xpt ICluceneAccessor.h *.lib *.obj *.dll *.xpt *.h
 
-cluceneAccessor.xpt: 
+cluceneAccessor.xpt:
 if HAVE_XPIDL
 	$(XPIDL) -m typelib -o cluceneAccessor -I $(GECKO_IDL_PATH) $(top_srcdir)/src/components/cluceneAccessor/ICluceneAccessor.idl
 else
@@ -38,5 +38,5 @@ else
 endif
 
 if IS_OSX
-libCluceneAccessor_la_CXXFLAGS+= -mmacosx-version-min=10.5
+libCluceneAccessor_la_CXXFLAGS+= -mmacosx-version-min=10.5 -isysroot /Developer/SDKs/MacOSX10.5.sdk
 endif

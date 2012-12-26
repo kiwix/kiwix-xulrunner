@@ -40,7 +40,7 @@ serverManager.xpt:
 if HAVE_XPIDL
 	$(XPIDL) -m typelib -o serverManager -I $(GECKO_IDL_PATH) $(top_srcdir)/src/components/serverManager/IServerManager.idl
 else
-	$(TYPELIB_PY) --cachedir=/tmp -o serverManager.xpt -I $(GECKO_IDL_PATH) $(top_srcdir)/src/components/serverManager/IServerManager.idl		
+	$(TYPELIB_PY) --cachedir=/tmp -o serverManager.xpt -I $(GECKO_IDL_PATH) $(top_srcdir)/src/components/serverManager/IServerManager.idl
 endif
 
 IServerManager.h:
@@ -48,4 +48,8 @@ if HAVE_XPIDL
 	$(XPIDL) -m header -o IServerManager -I $(GECKO_IDL_PATH) $(top_srcdir)/src/components/serverManager/IServerManager.idl
 else
 	$(HEADER_PY) --cachedir=/tmp -o IServerManager.h -I $(GECKO_IDL_PATH) $(top_srcdir)/src/components/serverManager/IServerManager.idl
+endif
+
+if IS_OSX
+libServerManager_la_CXXFLAGS+= -mmacosx-version-min=10.5 -isysroot /Developer/SDKs/MacOSX10.5.sdk
 endif

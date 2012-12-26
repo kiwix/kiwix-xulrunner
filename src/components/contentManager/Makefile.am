@@ -41,7 +41,7 @@ else
 if GECKO_OLD_BOOL_TYPE
 	$(TYPELIB_PY) --cachedir=/tmp -o contentManager.xpt -I $(GECKO_IDL_PATH) $(top_srcdir)/src/components/contentManager/IContentManager_gecko_old_bool_type.idl
 else
-	$(TYPELIB_PY) --cachedir=/tmp -o contentManager.xpt -I $(GECKO_IDL_PATH) $(top_srcdir)/src/components/contentManager/IContentManager.idl		
+	$(TYPELIB_PY) --cachedir=/tmp -o contentManager.xpt -I $(GECKO_IDL_PATH) $(top_srcdir)/src/components/contentManager/IContentManager.idl
 endif
 endif
 
@@ -57,5 +57,5 @@ endif
 endif
 
 if IS_OSX
-libContentManager_la_CXXFLAGS+= -mmacosx-version-min=10.5
+libContentManager_la_CXXFLAGS+= -mmacosx-version-min=10.5 -isysroot /Developer/SDKs/MacOSX10.5.sdk
 endif

@@ -11,7 +11,7 @@ kiwix_search_SOURCES= \
 	../common/resourceTools.h \
 	../common/stringTools.h \
 	../common/kiwix/xapianSearcher.h \
-	../common/kiwix/cluceneSearcher.h 
+	../common/kiwix/cluceneSearcher.h
 kiwix_search_CXXFLAGS=$(XAPIAN_CFLAGS) $(CLUCENE_CFLAGS) $(ICU_CFLAGS) $(CTPP2_CFLAGS) $(ZLIB_CFLAGS) $(UUID_CFLAGS) -I../common/
 
 kiwix_search_LDFLAGS=$(CHECK_LDFLAGS)
@@ -24,5 +24,5 @@ endif
 
 if IS_OSX
 kiwix_search_LDFLAGS+= /opt/local/lib/libiconv.a /opt/local/lib/libintl.a -framework IOKit -framework CoreFoundation
-kiwix_search_CXXFLAGS+= -mmacosx-version-min=10.5
+kiwix_search_CXXFLAGS+= -mmacosx-version-min=10.5 -isysroot /Developer/SDKs/MacOSX10.5.sdk
 endif

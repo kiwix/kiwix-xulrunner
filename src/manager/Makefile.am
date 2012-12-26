@@ -18,7 +18,7 @@ kiwix_manage_SOURCES= \
 	../common/pathTools.h
 kiwix_manage_CXXFLAGS=$(ZIMLIB_CFLAGS) $(ICU_CFLAGS) $(LZMA_CFLAGS) -I../common/
 
-kiwix_manage_LDFLAGS= $(CHECK_LDFLAGS) 
+kiwix_manage_LDFLAGS= $(CHECK_LDFLAGS)
 
 if STATIC_BINS
 kiwix_manage_LDFLAGS+= $(CHECK_LDFLAGS) $(ZIMLIB_STATIC_LDFLAGS) $(ICU_STATIC_LDFLAGS) ../zimlib/src/.libs/libzim.a ../pugixml/.libs/libpugixml.a $(LZMA_STATIC_LDFLAGS) $(STATIC_LIBM_ARCHIVE) $(STATIC_LIBSTDCPP_ARCHIVE) $(STATIC_LIBDL_ARCHIVE) $(STATIC_LIBGCC_ARCHIVE) $(STATIC_LIBPTHREAD_ARCHIVE) --static
@@ -27,5 +27,5 @@ kiwix_manage_LDFLAGS+= $(ZIMLIB_LDFLAGS) $(ICU_LDFLAGS) ../zimlib/src/.libs/libz
 endif
 
 if IS_OSX
-kiwix_manage_CXXFLAGS+= -mmacosx-version-min=10.5
+kiwix_manage_CXXFLAGS+= -mmacosx-version-min=10.5 -isysroot /Developer/SDKs/MacOSX10.5.sdk
 endif

@@ -17,5 +17,5 @@ kiwix_read_LDFLAGS+= $(ZIMLIB_LDFLAGS) $(ICU_LDFLAGS) $(top_builddir)/src/zimlib
 endif
 
 if IS_OSX
-kiwix_read_CXXFLAGS+= -mmacosx-version-min=10.5
+kiwix_read_CXXFLAGS+= -mmacosx-version-min=10.5 -isysroot /Developer/SDKs/MacOSX10.5.sdk
 endif

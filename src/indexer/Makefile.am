@@ -18,7 +18,7 @@ kiwix_index_SOURCES= \
 	../common/kiwix/indexer.h \
 	../common/kiwix/reader.h \
 	../common/kiwix/xapianIndexer.h \
-	../common/kiwix/cluceneIndexer.h 
+	../common/kiwix/cluceneIndexer.h
 kiwix_index_CXXFLAGS=$(XAPIAN_CFLAGS) $(CLUCENE_CFLAGS) $(ICU_CFLAGS) $(LZMA_CFLAGS) $(ZLIB_CFLAGS) -I../common/
 
 kiwix_index_LDFLAGS=$(CHECK_LDFLAGS)
@@ -30,5 +30,5 @@ kiwix_index_LDFLAGS+= $(XAPIAN_LDFLAGS) $(CLUCENE_LDFLAGS) $(ICU_LDFLAGS) ../zim
 endif
 
 if IS_OSX
-kiwix_index_CXXFLAGS+= -mmacosx-version-min=10.5
+kiwix_index_CXXFLAGS+= -mmacosx-version-min=10.5 -isysroot /Developer/SDKs/MacOSX10.5.sdk
 endif

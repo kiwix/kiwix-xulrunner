@@ -17,14 +17,14 @@ libXapianAccessor_la_SOURCES= \
 	$(top_srcdir)/src/common/kiwix/xapianSearcher.h
 libXapianAccessor_la_CXXFLAGS=$(CTPP2_CFLAGS) $(LIBXUL_CFLAGS) $(XAPIAN_CFLAGS) $(ICU_CFLAGS) $(XPCOM_CFLAGS) -I/$(top_srcdir)/src/common/ -D GECKO_VERSION=$(GECKO_VERSION)
 
-libXapianAccessor_la_LDFLAGS=$(CTPP2_LDFLAGS) $(LIBXUL_LDFLAGS) $(XAPIAN_LDFLAGS) $(ICU_LDFLAGS) $(XPCOM_LDFLAGS) 
+libXapianAccessor_la_LDFLAGS=$(CTPP2_LDFLAGS) $(LIBXUL_LDFLAGS) $(XAPIAN_LDFLAGS) $(ICU_LDFLAGS) $(XPCOM_LDFLAGS)
 libXapianAccessor_la_LIBADD=$(top_builddir)/src/ctpp2/src/libctpp2.la
 
 EXTRA_DIST=IXapianAccessor.idl
 BUILT_SOURCES=xapianAccessor.xpt IXapianAccessor.h
 CLEANFILES=xapianAccessor.xpt IXapianAccessor.h *.lib *.obj *.dll *.h *.xpt
 
-xapianAccessor.xpt: 
+xapianAccessor.xpt:
 if HAVE_XPIDL
 	$(XPIDL) -m typelib -o xapianAccessor -I $(GECKO_IDL_PATH) $(top_srcdir)/src/components/xapianAccessor/IXapianAccessor.idl
 else
@@ -39,5 +39,5 @@ else
 endif
 
 if IS_OSX
-libXapianAccessor_la_CXXFLAGS+= -mmacosx-version-min=10.5
+libXapianAccessor_la_CXXFLAGS+= -mmacosx-version-min=10.5 -isysroot /Developer/SDKs/MacOSX10.5.sdk
 endif

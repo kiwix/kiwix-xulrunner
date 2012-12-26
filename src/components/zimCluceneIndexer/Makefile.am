@@ -45,5 +45,5 @@ else
 endif
 
 if IS_OSX
-libZimCluceneIndexer_la_CXXFLAGS+= -mmacosx-version-min=10.5
+libZimCluceneIndexer_la_CXXFLAGS+= -mmacosx-version-min=10.5 -isysroot /Developer/SDKs/MacOSX10.5.sdk
 endif
