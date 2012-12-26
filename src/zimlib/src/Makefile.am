@@ -32,4 +32,8 @@ libzim_la_SOURCES = \
 libzim_la_CXXFLAGS=${LZMA_CFLAGS} -fPIC -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE
 libzim_la_LDFLAGS=$(CHECK_LDFLAGS) ${LZMA_STATIC_LDFLAGS}
 
+if IS_OSX
+libzim_la_CXXFLAGS+= -mmacosx-version-min=10.5 -isysroot /Developer/SDKs/MacOSX10.5.sdk
+endif
+
 CLEANFILES=*.obj *.lib *.dll

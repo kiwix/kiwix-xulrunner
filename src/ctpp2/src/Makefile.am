@@ -92,4 +92,8 @@ endif
 
 libctpp2_la_LDFLAGS=$(CHECK_LDFLAGS)
 
+if IS_OSX
+libpugixml_la_CXXFLAGS+= -mmacosx-version-min=10.5 -isysroot /Developer/SDKs/MacOSX10.5.sdk
+endif
+
 CLEANFILES=*.obj *.lib *.dll
