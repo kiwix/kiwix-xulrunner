@@ -101,6 +101,7 @@ _languagesHash['tt-cyrl']      = 'Татарча';
 _languagesHash['ug-arab']      = 'ئۇيغۇرچە';
 _languagesHash['ukr']          = _languagesHashOld['uk']          = 'Українська';
 _languagesHash['urd']          = _languagesHashOld['ur']          = 'اردو';
+_languagesHash['uzb']          = _languagesHashOld['uz']          = 'Oʻzbekcha';
 _languagesHash['vie']          = _languagesHashOld['vi']          = 'Tiếng Việt';
 _languagesHash['yi']           = 'ייִדיש';
 _languagesHash['vec']          = 'Vèneto'
