@@ -1,3 +1,6 @@
+Kiwix 0.9 rc3
+* FIXED: Fulltext search results page for pattern including mustbeurlencoded characters
+
 Kiwix 0.9 rc2
 * FIXED: kiwix-manage generate wrong size for splitted ZIM files (ID: 3547892)
 * FIXED: kiwix-install crashes
