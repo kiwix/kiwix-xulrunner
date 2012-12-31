@@ -3,7 +3,7 @@
 <!ENTITY main.cssdirection              "ltr">
 
 <!-- Mac menu -->
-<!ENTITY main.osxservices               "Services">
+<!ENTITY main.osxservices               "Teenused">
 <!ENTITY main.osxhideapp                "Hide &brand.brandShortName;">
 <!ENTITY main.osxhideothers             "Peida ülejäänud">
 <!ENTITY main.osxshowall                "Näita kõiki">

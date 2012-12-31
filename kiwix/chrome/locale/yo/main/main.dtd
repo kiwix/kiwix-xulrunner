@@ -3,10 +3,10 @@
 <!ENTITY main.cssdirection              "ltr">
 
 <!-- Mac menu -->
-<!ENTITY main.osxservices               "Services">
-<!ENTITY main.osxhideapp                "Hide &brand.brandShortName;">
-<!ENTITY main.osxhideothers             "Hide Others">
-<!ENTITY main.osxshowall                "Show All">
+<!ENTITY main.osxservices               "Àwọn ìwọ̀fà">
+<!ENTITY main.osxhideapp                "Ìbòmọ́lẹ̀ &brand.brandShortName;">
+<!ENTITY main.osxhideothers             "Ìbòmọ́lẹ̀ Àwọn Ẹlòmíràn">
+<!ENTITY main.osxshowall                "Ìfihàn Ohungbogbo">
 
 <!-- File menu -->
 <!ENTITY main.file                      "Fáìlì">
@@ -14,7 +14,7 @@
 <!ENTITY main.openFile                  "Ṣí fáìlì...">
 <!ENTITY main.browseLibrary.accesskey   "B">
 <!ENTITY main.browseLibrary             "Ìsíwò ilé-ìwé">
-<!ENTITY main.hideLibrary               "Hide library">
+<!ENTITY main.hideLibrary               "Ìbòmọ́lẹ̀ ibiàmúlò">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "Fáìlì àìpẹ́...">
 <!ENTITY main.saveFile                  "Ìmúpamọ́ ojúewé bíi...">
@@ -65,7 +65,7 @@
 <!ENTITY main.tabs.accesskey            "T">
 <!ENTITY main.fullscreen                "Ojúìran kíkúnrẹ́rẹ́">
 <!ENTITY main.fullscreen.accesskey      "F">
-<!ENTITY main.invertedColors            "Inverted colors">
+<!ENTITY main.invertedColors            "Àwọn àwọ́ yíyísódì">
 <!ENTITY main.invertedColors.accesskey  "I">
 
 <!-- Tools menu -->
@@ -93,7 +93,7 @@
 <!ENTITY main.home                      "Ibùdó">
 <!ENTITY main.searchBar                 "Pẹpẹ àwáàrí">
 <!ENTITY main.search                    "Àwárí">
-<!ENTITY main.searchPlaceholder         "Type the text to search here...">
+<!ENTITY main.searchPlaceholder         "Ẹ tẹ orúkọ-ọ̀rọ̀ tí ẹ fẹ́ wá síbí...">
 <!ENTITY main.findInText                "Ìwárí nínú ìkọ">
 <!ENTITY main.noSearchBar               "Àwáàrí pọndandan kí fáìlì ZIM atọ́ka ó wà">
 <!ENTITY main.bookmarks                 "Àwọn ojúewé àdápamọ́">
@@ -132,10 +132,10 @@
 <!ENTITY preferences.downloadCatalogs   "Ìrùjádé (àwọn) àpò fáìlì ọ̀ọ́kán">
 
 <!-- Server -->
-<!ENTITY server.load                    "Load">
-<!ENTITY server.start                   "Start">
-<!ENTITY server.stop                    "Stop">
-<!ENTITY server.close                   "Close">
+<!ENTITY server.load                    "Ìrùjáde">
+<!ENTITY server.start                   "Ìbẹ̀rẹ̀">
+<!ENTITY server.stop                    "Ìdẹ́kun">
+<!ENTITY server.close                   "Ìpadé">
 
 <!-- Library -->
 <!ENTITY main.library.myLibrary                 "Ilé-ìwé mi">
@@ -155,5 +155,5 @@
 <!ENTITY main.library.filterBy.author.all       "Gbogbo wọn">
 <!ENTITY main.library.filterBy.publisher        "Olùtẹ̀jáde">
 <!ENTITY main.library.filterBy.publisher.all    "Gbogbo wọn">
-<!ENTITY main.library.filterBy.lessThan         "Less than">
+<!ENTITY main.library.filterBy.lessThan         "Kéré sí">
 

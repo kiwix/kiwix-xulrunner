@@ -3,10 +3,10 @@
 <!ENTITY main.cssdirection              "ltr">
 
 <!-- Mac menu -->
-<!ENTITY main.osxservices               "Services">
+<!ENTITY main.osxservices               "ಸೇವೆಗಳು">
 <!ENTITY main.osxhideapp                "Hide &brand.brandShortName;">
-<!ENTITY main.osxhideothers             "Hide Others">
-<!ENTITY main.osxshowall                "Show All">
+<!ENTITY main.osxhideothers             "ಬೇರೆಯದನ್ನು ಅಡಗಿಸಿ">
+<!ENTITY main.osxshowall                "ಎಲ್ಲಾ ತೋರಿಸಿ">
 
 <!-- File menu -->
 <!ENTITY main.file                      "ಕಡತ">
@@ -14,7 +14,7 @@
 <!ENTITY main.openFile                  "ಕಡತವನ್ನು ಉದ್ಘಾಟಿಸಿ...">
 <!ENTITY main.browseLibrary.accesskey   "B">
 <!ENTITY main.browseLibrary             "ಗ್ರಂಥಾಲಯವನ್ನು ವಿಹರಿಸಿ">
-<!ENTITY main.hideLibrary               "Hide library">
+<!ENTITY main.hideLibrary               "ಗ್ರಂಥಾಲಯವನ್ನು  ಅಡಗಿಸಿ">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "ಇತ್ತೀಚೆಗೆ ಉದ್ಘಾಟಿಸಲ್ಪಟ್ಟಂತಹ...">
 <!ENTITY main.saveFile                  "ಪುಟಸಂರಕ್ಷಣೆಯನ್ನು ಈ ರೀತಿ ಮಾಡಿ...">
@@ -39,7 +39,7 @@
 <!ENTITY main.transliteration.accesskey "T">
 <!ENTITY main.preferences               "ಪ್ರಾಶಸ್ತ್ಯಗಳು">
 <!ENTITY main.preferences.accesskey     "n">
-<!ENTITY main.server                    "Server">
+<!ENTITY main.server                    "ಸರ್ವರ್">
 <!ENTITY main.server.accesskey          "s">
 
 <!-- Display menu -->
@@ -93,7 +93,7 @@
 <!ENTITY main.home                      "ಮುಖ್ಯಪುಟ">
 <!ENTITY main.searchBar                 "ಅನ್ವೇಷಣಾಪಟ್ಟಿ">
 <!ENTITY main.search                    "ಅನ್ವೇಷಿಸಿ">
-<!ENTITY main.searchPlaceholder         "Type the text to search here...">
+<!ENTITY main.searchPlaceholder         "ಹುಡುಕಲು ಪದಗಳನ್ನು ನಮೂದಿಸಿ">
 <!ENTITY main.findInText                "ಪಠ್ಯದಲ್ಲಿ ಹುಡುಕಿ">
 <!ENTITY main.noSearchBar               "ಈ ಅನ್ವೇಷಣೆಗೆ ಅನುಕ್ರಮಣಿತವಾದ ಜ಼ಿಮ್(ZIM) ಕಡತದ ಅವಶ್ಯಕತೆ ಇದೆ">
 <!ENTITY main.bookmarks                 "ಓದುಗುರುತುಗಳು">
@@ -133,9 +133,9 @@
 
 <!-- Server -->
 <!ENTITY server.load                    "Load">
-<!ENTITY server.start                   "Start">
-<!ENTITY server.stop                    "Stop">
-<!ENTITY server.close                   "Close">
+<!ENTITY server.start                   "ಆರಂಭ">
+<!ENTITY server.stop                    "ನಿಲ್ಲಿಸಿ">
+<!ENTITY server.close                   "ಮುಚ್ಚಿ">
 
 <!-- Library -->
 <!ENTITY main.library.myLibrary                 "ನನ್ನ ಗ್ರಂಥಾಲಯ">
@@ -155,5 +155,5 @@
 <!ENTITY main.library.filterBy.author.all       "ಎಲ್ಲಾ">
 <!ENTITY main.library.filterBy.publisher        "ಪ್ರಕಾಶಕ">
 <!ENTITY main.library.filterBy.publisher.all    "ಎಲ್ಲಾ">
-<!ENTITY main.library.filterBy.lessThan         "Less than">
+<!ENTITY main.library.filterBy.lessThan         "ಇದಕ್ಕಿಂತ ಕಡಿಮೆ">
 

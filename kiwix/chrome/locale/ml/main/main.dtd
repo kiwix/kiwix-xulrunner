@@ -3,10 +3,10 @@
 <!ENTITY main.cssdirection              "ltr">
 
 <!-- Mac menu -->
-<!ENTITY main.osxservices               "Services">
+<!ENTITY main.osxservices               "സേവനങ്ങൾ">
 <!ENTITY main.osxhideapp                "Hide &brand.brandShortName;">
-<!ENTITY main.osxhideothers             "Hide Others">
-<!ENTITY main.osxshowall                "Show All">
+<!ENTITY main.osxhideothers             "മറ്റുള്ളവ മറയ്ക്കുക">
+<!ENTITY main.osxshowall                "എല്ലാം കാണിക്കുക">
 
 <!-- File menu -->
 <!ENTITY main.file                      "പ്രമാണം">
@@ -14,7 +14,7 @@
 <!ENTITY main.openFile                  "പ്രമാണം തുറക്കുക...">
 <!ENTITY main.browseLibrary.accesskey   "B">
 <!ENTITY main.browseLibrary             "പ്രമാണശേഖരത്തിൽ തിരയുക">
-<!ENTITY main.hideLibrary               "Hide library">
+<!ENTITY main.hideLibrary               "ലൈബ്രറി മറയ്ക്കുക">
 <!ENTITY main.openFile.accesskey        "ത">
 <!ENTITY main.lastOpen                  "സമീപകാലത്ത് തുറന്നതു്...">
 <!ENTITY main.saveFile                  "താള്‍ സൂക്ഷിക്കുക...">
@@ -93,7 +93,7 @@
 <!ENTITY main.home                      "ആസ്ഥാനം">
 <!ENTITY main.searchBar                 "തിരച്ചില്‍ പട്ട">
 <!ENTITY main.search                    "തിരയുക">
-<!ENTITY main.searchPlaceholder         "Type the text to search here...">
+<!ENTITY main.searchPlaceholder         "തിരയാൻ ഇവിടെ എഴുതുക">
 <!ENTITY main.findInText                "എഴുത്തിൽ തിരയുക">
 <!ENTITY main.noSearchBar               "തിരയുന്നതിനു് സൂചികാവത്കരിച്ച സിം (ZIM) പ്രമാണം ആവശ്യമാണു്">
 <!ENTITY main.bookmarks                 "ബൂക്ക്മാർക്കുകൾ">
@@ -117,7 +117,7 @@
 <!ENTITY main.searchFor                 "തിരയുക">
 <!ENTITY main.copyLinkAdress            "Copy link address">
 <!ENTITY main.mute                      "നിശബ്ദമാക്കുക">
-<!ENTITY main.audible                   "Audible">
+<!ENTITY main.audible                   "കേൾക്കാവുന്നത്">
 
 <!-- About Window -->
 <!ENTITY main.close                     "അടയ്ക്കുക">
@@ -135,19 +135,19 @@
 <!ENTITY server.load                    "Load">
 <!ENTITY server.start                   "Start">
 <!ENTITY server.stop                    "Stop">
-<!ENTITY server.close                   "Close">
+<!ENTITY server.close                   "അടയ്ക്കുക">
 
 <!-- Library -->
-<!ENTITY main.library.myLibrary                 "My library">
-<!ENTITY main.library.getNewFiles               "Get new files">
-<!ENTITY main.library.searchZimFiles            "Search ZIM files">
-<!ENTITY main.library.sortBy                    "Sort by">
+<!ENTITY main.library.myLibrary                 "എന്റെ ഗ്രന്ഥപ്പുര">
+<!ENTITY main.library.getNewFiles               "പുതിയ ഫയലുകൾ സ്വീകരിക്കുക">
+<!ENTITY main.library.searchZimFiles            "സിം ഫയലുകൾ തിരയുക">
+<!ENTITY main.library.sortBy                    "ക്രമപ്പെടുത്തുക">
 <!ENTITY main.library.sortBy.title              "ശീർഷകം">
 <!ENTITY main.library.sortBy.size               "വലിപ്പം">
 <!ENTITY main.library.sortBy.date               "തീയതി">
 <!ENTITY main.library.sortBy.author             "രചയിതാവ്">
 <!ENTITY main.library.sortBy.publisher          "പ്രസാധകർ">
-<!ENTITY main.library.filterBy                  "Filter by">
+<!ENTITY main.library.filterBy                  "തിരയുക">
 <!ENTITY main.library.filterBy.fileSize         "പ്രമാണത്തിന്റെ വലിപ്പം">
 <!ENTITY main.library.filterBy.language         "ഭാഷ">
 <!ENTITY main.library.filterBy.language.all     "എല്ലാം">

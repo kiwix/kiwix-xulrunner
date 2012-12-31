@@ -3,10 +3,10 @@
 <!ENTITY main.cssdirection              "ltr">
 
 <!-- Mac menu -->
-<!ENTITY main.osxservices               "Services">
-<!ENTITY main.osxhideapp                "Hide &brand.brandShortName;">
-<!ENTITY main.osxhideothers             "Hide Others">
-<!ENTITY main.osxshowall                "Show All">
+<!ENTITY main.osxservices               "सेवाहरू">
+<!ENTITY main.osxhideapp                "लुकाउने &brand.brandShortName;">
+<!ENTITY main.osxhideothers             "अन्य लुकाउने">
+<!ENTITY main.osxshowall                "सबै देखाउने">
 
 <!-- File menu -->
 <!ENTITY main.file                      "फाइल">
@@ -37,7 +37,7 @@
 <!ENTITY main.copy.accesskey            "प">
 <!ENTITY main.transliteration           "अनुवर्ण">
 <!ENTITY main.transliteration.accesskey "अ">
-<!ENTITY main.preferences               "प्राथमिकता">
+<!ENTITY main.preferences               "प्राथमिकताहरू">
 <!ENTITY main.preferences.accesskey     "त">
 <!ENTITY main.server                    "Server">
 <!ENTITY main.server.accesskey          "s">

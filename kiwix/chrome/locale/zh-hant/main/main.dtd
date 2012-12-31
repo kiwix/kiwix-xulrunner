@@ -65,7 +65,7 @@
 <!ENTITY main.tabs.accesskey            "T">
 <!ENTITY main.fullscreen                "全螢幕">
 <!ENTITY main.fullscreen.accesskey      "F">
-<!ENTITY main.invertedColors            "Inverted colors">
+<!ENTITY main.invertedColors            "反轉色">
 <!ENTITY main.invertedColors.accesskey  "I">
 
 <!-- Tools menu -->
@@ -117,7 +117,7 @@
 <!ENTITY main.searchFor                 "搜尋">
 <!ENTITY main.copyLinkAdress            "Copy link address">
 <!ENTITY main.mute                      "靜音">
-<!ENTITY main.audible                   "Audible">
+<!ENTITY main.audible                   "有聲">
 
 <!-- About Window -->
 <!ENTITY main.close                     "關閉">

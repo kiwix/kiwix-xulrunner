@@ -27,11 +27,11 @@
 <!ENTITY main.quit.accesskey            "Q">
 
 <!-- Edit menu -->
-<!ENTITY main.edit                      "دَییش">
+<!ENTITY main.edit                      "دَییشدیر">
 <!ENTITY main.edit.accesskey            "E">
 <!ENTITY main.find                      "صحیفه‌ده ایچینده آختار...">
 <!ENTITY main.find.accesskey            "S">
-<!ENTITY main.selectall                 "هاممیین سئچ">
+<!ENTITY main.selectall                 "هامیسین سئچ">
 <!ENTITY main.selectall.accesskey       "a">
 <!ENTITY main.copy                      "گوتور">
 <!ENTITY main.copy.accesskey            "p">

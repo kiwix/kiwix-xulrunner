@@ -27,7 +27,7 @@
 <!ENTITY main.quit.accesskey            "Q">
 
 <!-- Edit menu -->
-<!ENTITY main.edit                      "Rediģēt">
+<!ENTITY main.edit                      "Labot">
 <!ENTITY main.edit.accesskey            "E">
 <!ENTITY main.find                      "Meklēt lapā...">
 <!ENTITY main.find.accesskey            "S">

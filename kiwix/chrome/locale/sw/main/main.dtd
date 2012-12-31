@@ -4,7 +4,7 @@
 
 <!-- Mac menu -->
 <!ENTITY main.osxservices               "Huduma">
-<!ENTITY main.osxhideapp                "Hide &brand.brandShortName;">
+<!ENTITY main.osxhideapp                "Ficha &brand.brandShortName;">
 <!ENTITY main.osxhideothers             "Ficha zingine">
 <!ENTITY main.osxshowall                "Onyesha yote">
 
@@ -129,7 +129,7 @@
 <!ENTITY preferences.profileDirectory   "Saraka ya profaili">
 <!ENTITY preferences.browse             "Vinjari">
 <!ENTITY preferences.tabs               "Kumbuka tabo">
-<!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">
+<!ENTITY preferences.downloadCatalogs   "Pakua orodha ya (za) mbali">
 
 <!-- Server -->
 <!ENTITY server.load                    "Pakia">

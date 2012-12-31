@@ -95,7 +95,7 @@
 <!ENTITY main.search                    "찾기">
 <!ENTITY main.searchPlaceholder         "찾을 텍스트를 여기에 입력하세요...">
 <!ENTITY main.findInText                "본문에서 찾기">
-<!ENTITY main.noSearchBar               "찾기를 위한 색인된 ZIM파일이 필요합니다.">
+<!ENTITY main.noSearchBar               "찾기를 위한 색인된 ZIM 파일이 필요합니다.">
 <!ENTITY main.bookmarks                 "책갈피">
 
 <!-- Results bar -->
@@ -140,7 +140,7 @@
 <!-- Library -->
 <!ENTITY main.library.myLibrary                 "내 라이브러리">
 <!ENTITY main.library.getNewFiles               "새로운 파일 얻기">
-<!ENTITY main.library.searchZimFiles            "ZIM파일 찾기">
+<!ENTITY main.library.searchZimFiles            "ZIM 파일 찾기">
 <!ENTITY main.library.sortBy                    "정렬">
 <!ENTITY main.library.sortBy.title              "제목">
 <!ENTITY main.library.sortBy.size               "크기">
