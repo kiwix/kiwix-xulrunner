@@ -1,0 +1,159 @@
+<!-- Window -->
+<!ENTITY main.title                     "&brand.brandShortName;">
+<!ENTITY main.cssdirection              "ltr">
+
+<!-- Mac menu -->
+<!ENTITY main.osxservices               "Xizmatlar">
+<!ENTITY main.osxhideapp                "&brand.brandShortName;ni yashirish">
+<!ENTITY main.osxhideothers             "Boshqalarni yashirish">
+<!ENTITY main.osxshowall                "Hammasini ko‘rsatish">
+
+<!-- File menu -->
+<!ENTITY main.file                      "Fayl">
+<!ENTITY main.file.accesskey            "F">
+<!ENTITY main.openFile                  "Faylni ochish...">
+<!ENTITY main.browseLibrary.accesskey   "B">
+<!ENTITY main.browseLibrary             "Kutubxonani koʻrish">
+<!ENTITY main.hideLibrary               "Kutubxonani yashirish">
+<!ENTITY main.openFile.accesskey        "O">
+<!ENTITY main.lastOpen                  "Oldin ochilganlari...">
+<!ENTITY main.saveFile                  "Sahifani ... kabi saqlash">
+<!ENTITY main.saveFile.accesskey        "S">
+<!ENTITY main.print                     "Chop etish">
+<!ENTITY main.print.accesskey           "P">
+<!ENTITY main.printPdf                  "PDF kabi chop etish">
+<!ENTITY main.printPdf.accesskey        "D">
+<!ENTITY main.quit                      "Chiqish">
+<!ENTITY main.quit.accesskey            "Q">
+
+<!-- Edit menu -->
+<!ENTITY main.edit                      "Tahrir">
+<!ENTITY main.edit.accesskey            "E">
+<!ENTITY main.find                      "Sahifadan qidirish...">
+<!ENTITY main.find.accesskey            "S">
+<!ENTITY main.selectall                 "Hammasini belgilash">
+<!ENTITY main.selectall.accesskey       "a">
+<!ENTITY main.copy                      "Nusxa olish">
+<!ENTITY main.copy.accesskey            "p">
+<!ENTITY main.transliteration           "Oʻgirish">
+<!ENTITY main.transliteration.accesskey "T">
+<!ENTITY main.preferences               "Moslamalar">
+<!ENTITY main.preferences.accesskey     "n">
+<!ENTITY main.server                    "Server">
+<!ENTITY main.server.accesskey          "s">
+
+<!-- Display menu -->
+<!ENTITY main.display                   "Koʻrsatish">
+<!ENTITY main.display.accesskey         "D">
+<!ENTITY main.zoom                      "Miqyos">
+<!ENTITY main.zoom.accesskey            "Z">
+<!ENTITY main.zoomin                    "Kattalashtirish">
+<!ENTITY main.zoomin.accesskey          "M">
+<!ENTITY main.zoomout                   "Kichiklashtirish">
+<!ENTITY main.zoomout.accesskey         "R">
+<!ENTITY main.zoomorig                  "Asl oʻlchami">
+<!ENTITY main.zoomorig.accesskey        "O">
+<!ENTITY main.language                  "Til">
+<!ENTITY main.language.accesskey        "L">
+<!ENTITY main.skin                      "Bezash mavzusi">
+<!ENTITY main.skin.accesskey            "S">
+<!ENTITY main.statusbar                 "Holat qatori">
+<!ENTITY main.statusbar.accesskey       "S">
+<!ENTITY main.resultsbar                "Natijalar darchasi">
+<!ENTITY main.resultsbar.accesskey      "R">
+<!ENTITY main.tabs                      "Bandlar">
+<!ENTITY main.tabs.accesskey            "T">
+<!ENTITY main.fullscreen                "Toʻliq ekran">
+<!ENTITY main.fullscreen.accesskey      "F">
+<!ENTITY main.invertedColors            "Ranglarni invertlash">
+<!ENTITY main.invertedColors.accesskey  "I">
+
+<!-- Tools menu -->
+<!ENTITY main.tools                     "Asboblar">
+<!ENTITY main.tools.accesskey           "T">
+<!ENTITY main.randomArticle             "Tasodifiy sahifa">
+<!ENTITY main.randomArticle.accesskey   "R">
+<!ENTITY main.checkIntegrity            "Butunlik tekshiruvi">
+<!ENTITY main.checkIntegrity.accesskey  "k">
+<!ENTITY main.purgeHistory              "Tarixni tozalash">
+<!ENTITY main.purgeHistory.accesskey    "P">
+
+<!-- Help menu -->
+<!ENTITY main.help                      "Yordam">
+<!ENTITY main.help.accesskey            "H">
+<!ENTITY main.feedback                  "Teskari aloqa">
+<!ENTITY main.reportabug                "Xato haqida xabar berish">
+<!ENTITY main.requestafeature           "Vazifani soʻrash">
+<!ENTITY main.about                     "&brand.brandShortName; haqida">
+<!ENTITY main.about.accesskey           "A">
+
+<!-- Tool bar -->
+<!ENTITY main.back                      "Orqaga">
+<!ENTITY main.forward                   "Oldinga">
+<!ENTITY main.home                      "Boshiga">
+<!ENTITY main.searchBar                 "Qidiruv darchasi">
+<!ENTITY main.search                    "Qidiruv">
+<!ENTITY main.searchPlaceholder         "Qidiruv uchun matn kiriting...">
+<!ENTITY main.findInText                "Matndan qidirish">
+<!ENTITY main.noSearchBar               "Qidiruv indekslangan ZIM faylini talab etadi">
+<!ENTITY main.bookmarks                 "Xatchoʻplar">
+
+<!-- Results bar -->
+<!ENTITY main.results.title             "Qidiruv natijalari">
+
+<!-- Bookmarks Bar -->
+<!ENTITY main.bmkLabel                  "Xatchoʻplar:">
+<!ENTITY main.notesLabel                "Yozuvlar:">
+<!ENTITY main.loadbmk                   "Xatchoʻplar toʻplamini import qilish">
+<!ENTITY main.newbmk                    "Xatchoʻplarning yangi toʻplamini yaratish">
+<!ENTITY main.mark                      "Ushbu sahifani belgilash">
+<!ENTITY main.unmark                    "Tanlangandan belgini olib tashlash">
+<!ENTITY main.reload                    "Xatchoʻplar toʻplamini yangilash">
+<!ENTITY main.defaultset                "Boshlangʻich holatga oʻrnatish">
+
+<!-- Contextual Menu -->
+<!ENTITY main.saveImageAs               "Rasmni ... kabi saqlash">
+<!ENTITY main.openLinkInNewTab          "Havolani yangi bandda ochish">
+<!ENTITY main.searchFor                 "Qidiruv">
+<!ENTITY main.copyLinkAdress            "Copy link address">
+<!ENTITY main.mute                      "Tovushsiz">
+<!ENTITY main.audible                   "Tovush bilan">
+
+<!-- About Window -->
+<!ENTITY main.close                     "Yopish">
+
+<!-- Preferences Window -->
+<!ENTITY preferences.preferences        "Moslamalar">
+<!ENTITY preferences.save               "Saqlash">
+<!ENTITY preferences.cancel             "Bekor">
+<!ENTITY preferences.profileDirectory   "Profil jildi">
+<!ENTITY preferences.browse             "Koʻrish">
+<!ENTITY preferences.tabs               "Bandlarni eslab qolish">
+<!ENTITY preferences.downloadCatalogs   "Masofaviy jildlarni yuklash">
+
+<!-- Server -->
+<!ENTITY server.load                    "Yuklash">
+<!ENTITY server.start                   "Ishga tushirish">
+<!ENTITY server.stop                    "Toʻxtatish">
+<!ENTITY server.close                   "Yopish">
+
+<!-- Library -->
+<!ENTITY main.library.myLibrary                 "Mening kutubxonam">
+<!ENTITY main.library.getNewFiles               "Yangi fayllarni olish">
+<!ENTITY main.library.searchZimFiles            "ZIM-fayllarni qidirish">
+<!ENTITY main.library.sortBy                    "Quyidagi boʻyicha saralash">
+<!ENTITY main.library.sortBy.title              "Sarlavha">
+<!ENTITY main.library.sortBy.size               "Oʻlcham">
+<!ENTITY main.library.sortBy.date               "Sana">
+<!ENTITY main.library.sortBy.author             "Muallif">
+<!ENTITY main.library.sortBy.publisher          "Noshir">
+<!ENTITY main.library.filterBy                  "Quyidagi boʻyicha filtrlash">
+<!ENTITY main.library.filterBy.fileSize         "Fayl oʻlchami">
+<!ENTITY main.library.filterBy.language         "Til">
+<!ENTITY main.library.filterBy.language.all     "Barcha">
+<!ENTITY main.library.filterBy.author           "Muallif">
+<!ENTITY main.library.filterBy.author.all       "Barcha">
+<!ENTITY main.library.filterBy.publisher        "Noshir">
+<!ENTITY main.library.filterBy.publisher.all    "Barcha">
+<!ENTITY main.library.filterBy.lessThan         "dan kichik">
+

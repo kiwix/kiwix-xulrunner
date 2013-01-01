@@ -1,0 +1,159 @@
+<!-- Window -->
+<!ENTITY main.title                     "&brand.brandShortName;">
+<!ENTITY main.cssdirection              "ltr">
+
+<!-- Mac menu -->
+<!ENTITY main.osxservices               "Үйлчилгээ">
+<!ENTITY main.osxhideapp                "&brand.brandShortName; -г хаа">
+<!ENTITY main.osxhideothers             "Бусдыг хаа">
+<!ENTITY main.osxshowall                "Бүгдийг харах">
+
+<!-- File menu -->
+<!ENTITY main.file                      "Файл">
+<!ENTITY main.file.accesskey            "F">
+<!ENTITY main.openFile                  "Файл нээх...">
+<!ENTITY main.browseLibrary.accesskey   "B">
+<!ENTITY main.browseLibrary             "Веб хөтөч сангууд">
+<!ENTITY main.hideLibrary               "Сан-г нуух">
+<!ENTITY main.openFile.accesskey        "O">
+<!ENTITY main.lastOpen                  "Саяхан үзсэн...">
+<!ENTITY main.saveFile                  "Хуудсанд нэр өгч хадгалах">
+<!ENTITY main.saveFile.accesskey        "S">
+<!ENTITY main.print                     "Хэвлэх">
+<!ENTITY main.print.accesskey           "P">
+<!ENTITY main.printPdf                  "PDF болгож хадгалах">
+<!ENTITY main.printPdf.accesskey        "D">
+<!ENTITY main.quit                      "Гарах">
+<!ENTITY main.quit.accesskey            "Q">
+
+<!-- Edit menu -->
+<!ENTITY main.edit                      "Засах">
+<!ENTITY main.edit.accesskey            "E">
+<!ENTITY main.find                      "Хуудаснаас хайлт хийх...">
+<!ENTITY main.find.accesskey            "S">
+<!ENTITY main.selectall                 "Бүгдийг сонгох">
+<!ENTITY main.selectall.accesskey       "a">
+<!ENTITY main.copy                      "Хуулах">
+<!ENTITY main.copy.accesskey            "p">
+<!ENTITY main.transliteration           "Хөрвүүлсэн транскрипт">
+<!ENTITY main.transliteration.accesskey "T">
+<!ENTITY main.preferences               "Тохиргоо">
+<!ENTITY main.preferences.accesskey     "n">
+<!ENTITY main.server                    "Сервер">
+<!ENTITY main.server.accesskey          "s">
+
+<!-- Display menu -->
+<!ENTITY main.display                   "Үзүүлэх">
+<!ENTITY main.display.accesskey         "D">
+<!ENTITY main.zoom                      "Ойртуулах">
+<!ENTITY main.zoom.accesskey            "Z">
+<!ENTITY main.zoomin                    "Томруулж харах">
+<!ENTITY main.zoomin.accesskey          "M">
+<!ENTITY main.zoomout                   "Багасгах">
+<!ENTITY main.zoomout.accesskey         "R">
+<!ENTITY main.zoomorig                  "Үндсэн хэмжээ">
+<!ENTITY main.zoomorig.accesskey        "O">
+<!ENTITY main.language                  "Хэл">
+<!ENTITY main.language.accesskey        "L">
+<!ENTITY main.skin                      "Арьс">
+<!ENTITY main.skin.accesskey            "S">
+<!ENTITY main.statusbar                 "Статус талбар">
+<!ENTITY main.statusbar.accesskey       "S">
+<!ENTITY main.resultsbar                "Үр дүнгийн талбар">
+<!ENTITY main.resultsbar.accesskey      "R">
+<!ENTITY main.tabs                      "Таб">
+<!ENTITY main.tabs.accesskey            "T">
+<!ENTITY main.fullscreen                "Дэлгэц дүүргэн харах">
+<!ENTITY main.fullscreen.accesskey      "F">
+<!ENTITY main.invertedColors            "Эсрэг өнгүүд">
+<!ENTITY main.invertedColors.accesskey  "I">
+
+<!-- Tools menu -->
+<!ENTITY main.tools                     "Хэрэгсэлүүд">
+<!ENTITY main.tools.accesskey           "T">
+<!ENTITY main.randomArticle             "Санаандгүй сонгосон нийлэл">
+<!ENTITY main.randomArticle.accesskey   "R">
+<!ENTITY main.checkIntegrity            "Файлын эвдрэл шалгалт">
+<!ENTITY main.checkIntegrity.accesskey  "k">
+<!ENTITY main.purgeHistory              "Хөтөчийн түүх устгах">
+<!ENTITY main.purgeHistory.accesskey    "P">
+
+<!-- Help menu -->
+<!ENTITY main.help                      "Тусламж">
+<!ENTITY main.help.accesskey            "H">
+<!ENTITY main.feedback                  "Санал зөвлөмж">
+<!ENTITY main.reportabug                "Bug явуулах">
+<!ENTITY main.requestafeature           "Шинээр функц оруулах">
+<!ENTITY main.about                     "&brand.brandShortName; -ы тухай">
+<!ENTITY main.about.accesskey           "A">
+
+<!-- Tool bar -->
+<!ENTITY main.back                      "Буцах">
+<!ENTITY main.forward                   "Дараагийх">
+<!ENTITY main.home                      "Нүүр">
+<!ENTITY main.searchBar                 "Хайх цонх">
+<!ENTITY main.search                    "Хайлт">
+<!ENTITY main.searchPlaceholder         "Энд хайх өгүүлбэрээ бичнэ үү...">
+<!ENTITY main.findInText                "Бичвэрээс хайх">
+<!ENTITY main.noSearchBar               "Хайхын тулд ZIM төрлийн индекс файл хэрэгтэй">
+<!ENTITY main.bookmarks                 "Тэмдэглэсэн хуудсууд">
+
+<!-- Results bar -->
+<!ENTITY main.results.title             "Хайлтын үр дүн">
+
+<!-- Bookmarks Bar -->
+<!ENTITY main.bmkLabel                  "Тэмдэглэсэн хуудсууд:">
+<!ENTITY main.notesLabel                "Тэмдэглэсэн бичвэрүүд:">
+<!ENTITY main.loadbmk                   "Тэмдэглэсэн хуудсыг өөрт нэмэх">
+<!ENTITY main.newbmk                    "Шинээр хуудас тэмдэглэх">
+<!ENTITY main.mark                      "Энэ хуудсыг сана">
+<!ENTITY main.unmark                    "Сонгосон хэсгийг бүү сана">
+<!ENTITY main.reload                    "Тэмдэглэсэн хуудсын цуглуулгыг ахин унш">
+<!ENTITY main.defaultset                "Үндсэн цуглуулга">
+
+<!-- Contextual Menu -->
+<!ENTITY main.saveImageAs               "Зурагт нэр өгч хадгал...">
+<!ENTITY main.openLinkInNewTab          "Холбоосыг өөр табд нээ">
+<!ENTITY main.searchFor                 "Үүгээр хайх">
+<!ENTITY main.copyLinkAdress            "Copy link address">
+<!ENTITY main.mute                      "Дуугүй">
+<!ENTITY main.audible                   "Audible сонголт">
+
+<!-- About Window -->
+<!ENTITY main.close                     "Хаах">
+
+<!-- Preferences Window -->
+<!ENTITY preferences.preferences        "Тохиргоо">
+<!ENTITY preferences.save               "Хадгалах">
+<!ENTITY preferences.cancel             "Болих">
+<!ENTITY preferences.profileDirectory   "Хэрэглэгчийн Бүртгэлийн хавтас">
+<!ENTITY preferences.browse             "Дэлгэх">
+<!ENTITY preferences.tabs               "Табуудыг сана">
+<!ENTITY preferences.downloadCatalogs   "Гадна сервер дээрх каталог татах">
+
+<!-- Server -->
+<!ENTITY server.load                    "Унших">
+<!ENTITY server.start                   "Эхлэх">
+<!ENTITY server.stop                    "Зогсоох">
+<!ENTITY server.close                   "Хаах">
+
+<!-- Library -->
+<!ENTITY main.library.myLibrary                 "Өөрийн сан">
+<!ENTITY main.library.getNewFiles               "Шинээр файл авах">
+<!ENTITY main.library.searchZimFiles            "ZIM файл хайх">
+<!ENTITY main.library.sortBy                    "Эрэбэлэх">
+<!ENTITY main.library.sortBy.title              "Гарчиг">
+<!ENTITY main.library.sortBy.size               "Хэмжээ">
+<!ENTITY main.library.sortBy.date               "Огноо">
+<!ENTITY main.library.sortBy.author             "Зохиогч">
+<!ENTITY main.library.sortBy.publisher          "Хэвлэсэн">
+<!ENTITY main.library.filterBy                  "Шүүлтүүр хийсэн">
+<!ENTITY main.library.filterBy.fileSize         "Файлын хэмжээ">
+<!ENTITY main.library.filterBy.language         "Хэл">
+<!ENTITY main.library.filterBy.language.all     "Бүх">
+<!ENTITY main.library.filterBy.author           "Зохиогч">
+<!ENTITY main.library.filterBy.author.all       "Бүх">
+<!ENTITY main.library.filterBy.publisher        "Хэвлэсэн">
+<!ENTITY main.library.filterBy.publisher.all    "Бүх">
+<!ENTITY main.library.filterBy.lessThan         "Түүнээс бага">
+

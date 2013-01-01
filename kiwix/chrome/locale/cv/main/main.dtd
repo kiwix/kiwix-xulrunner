@@ -1,0 +1,159 @@
+<!-- Window -->
+<!ENTITY main.title                     "&brand.brandShortName;">
+<!ENTITY main.cssdirection              "ltr">
+
+<!-- Mac menu -->
+<!ENTITY main.osxservices               "Сервиссем">
+<!ENTITY main.osxhideapp                "&brand.brandShortName; пытар">
+<!ENTITY main.osxhideothers             "Урăхлисене пытар">
+<!ENTITY main.osxshowall                "Мĕн пур кăтарт">
+
+<!-- File menu -->
+<!ENTITY main.file                      "Файл">
+<!ENTITY main.file.accesskey            "F">
+<!ENTITY main.openFile                  "Файла уç">
+<!ENTITY main.browseLibrary.accesskey   "B">
+<!ENTITY main.browseLibrary             "Вулавăша пăх">
+<!ENTITY main.hideLibrary               "Вулавăша пытар">
+<!ENTITY main.openFile.accesskey        "O">
+<!ENTITY main.lastOpen                  "Тин хупнисем...">
+<!ENTITY main.saveFile                  "Страницăна упрамалли май...">
+<!ENTITY main.saveFile.accesskey        "S">
+<!ENTITY main.print                     "Пичетле">
+<!ENTITY main.print.accesskey           "P">
+<!ENTITY main.printPdf                  "PDF-ла леçни">
+<!ENTITY main.printPdf.accesskey        "D">
+<!ENTITY main.quit                      "Вĕçле">
+<!ENTITY main.quit.accesskey            "Q">
+
+<!-- Edit menu -->
+<!ENTITY main.edit                      "Тӳрлет">
+<!ENTITY main.edit.accesskey            "E">
+<!ENTITY main.find                      "Страницăра шыра...">
+<!ENTITY main.find.accesskey            "S">
+<!ENTITY main.selectall                 "Йăлт пайăрт">
+<!ENTITY main.selectall.accesskey       "a">
+<!ENTITY main.copy                      "Копиле">
+<!ENTITY main.copy.accesskey            "p">
+<!ENTITY main.transliteration           "Транслитераци">
+<!ENTITY main.transliteration.accesskey "T">
+<!ENTITY main.preferences               "Ĕнерлев">
+<!ENTITY main.preferences.accesskey     "n">
+<!ENTITY main.server                    "Сервер">
+<!ENTITY main.server.accesskey          "s">
+
+<!-- Display menu -->
+<!ENTITY main.display                   "Кăтарт">
+<!ENTITY main.display.accesskey         "D">
+<!ENTITY main.zoom                      "Сарăм">
+<!ENTITY main.zoom.accesskey            "Z">
+<!ENTITY main.zoomin                    "Ÿстер">
+<!ENTITY main.zoomin.accesskey          "M">
+<!ENTITY main.zoomout                   "Чакар">
+<!ENTITY main.zoomout.accesskey         "R">
+<!ENTITY main.zoomorig                  "Пÿрнĕ пек виçе">
+<!ENTITY main.zoomorig.accesskey        "O">
+<!ENTITY main.language                  "Чĕлхе">
+<!ENTITY main.language.accesskey        "L">
+<!ENTITY main.skin                      "Эрешленÿ">
+<!ENTITY main.skin.accesskey            "S">
+<!ENTITY main.statusbar                 "Тăрăм çÿлĕкĕ">
+<!ENTITY main.statusbar.accesskey       "S">
+<!ENTITY main.resultsbar                "Результат çÿлĕкĕ">
+<!ENTITY main.resultsbar.accesskey      "R">
+<!ENTITY main.tabs                      "Кантăксем">
+<!ENTITY main.tabs.accesskey            "T">
+<!ENTITY main.fullscreen                "Тулли экран">
+<!ENTITY main.fullscreen.accesskey      "F">
+<!ENTITY main.invertedColors            "Тĕссене инверсиле">
+<!ENTITY main.invertedColors.accesskey  "I">
+
+<!-- Tools menu -->
+<!ENTITY main.tools                     "Хатĕрсем">
+<!ENTITY main.tools.accesskey           "T">
+<!ENTITY main.randomArticle             "Ăнсăртран илнĕ статья">
+<!ENTITY main.randomArticle.accesskey   "R">
+<!ENTITY main.checkIntegrity            "Пĕтĕмлĕх тĕрĕслевĕ">
+<!ENTITY main.checkIntegrity.accesskey  "k">
+<!ENTITY main.purgeHistory              "Историе тасат">
+<!ENTITY main.purgeHistory.accesskey    "P">
+
+<!-- Help menu -->
+<!ENTITY main.help                      "Пулăшу">
+<!ENTITY main.help.accesskey            "H">
+<!ENTITY main.feedback                  "Хире-хирӗҫ ҫыхӑну">
+<!ENTITY main.reportabug                "Йăнăш çинчен пĕлтер">
+<!ENTITY main.requestafeature           "Çĕнĕ функцие ыйт">
+<!ENTITY main.about                     "&brand.brandShortName; çинчен">
+<!ENTITY main.about.accesskey           "A">
+
+<!-- Tool bar -->
+<!ENTITY main.back                      "Каялла">
+<!ENTITY main.forward                   "Малалла">
+<!ENTITY main.home                      "Тĕпел">
+<!ENTITY main.searchBar                 "Шырав çÿлĕкĕ">
+<!ENTITY main.search                    "Шырав">
+<!ENTITY main.searchPlaceholder         "Шырамалли текст кĕртĕр...">
+<!ENTITY main.findInText                "Текстра шыра">
+<!ENTITY main.noSearchBar               "Шырава индексациленĕ ZIM файл кирлĕ">
+<!ENTITY main.bookmarks                 "Картсем">
+
+<!-- Results bar -->
+<!ENTITY main.results.title             "Тупрăмăр">
+
+<!-- Bookmarks Bar -->
+<!ENTITY main.bmkLabel                  "Картсем:">
+<!ENTITY main.notesLabel                "Çыркаланчăксем:">
+<!ENTITY main.loadbmk                   "Картсен ушкăнне кÿрсе кил">
+<!ENTITY main.newbmk                    "Çĕнĕ картсен ушкăнне ту">
+<!ENTITY main.mark                      "Ку страницăна палăрт">
+<!ENTITY main.unmark                    "Палăртнисенчен паллăсене пăрахăçла">
+<!ENTITY main.reload                    "Картсен ушкăнне çĕнет">
+<!ENTITY main.defaultset                "Пÿрнĕ пек ушкăн">
+
+<!-- Contextual Menu -->
+<!ENTITY main.saveImageAs               "Ÿкерчĕке упрамалли май...">
+<!ENTITY main.openLinkInNewTab          "Çĕнĕ кантăкра уç">
+<!ENTITY main.searchFor                 "Шыра">
+<!ENTITY main.copyLinkAdress            "Copy link address">
+<!ENTITY main.mute                      "Сасăсăр">
+<!ENTITY main.audible                   "Сасăллă">
+
+<!-- About Window -->
+<!ENTITY main.close                     "Хуп">
+
+<!-- Preferences Window -->
+<!ENTITY preferences.preferences        "Ĕнерлев">
+<!ENTITY preferences.save               "Упраса хур">
+<!ENTITY preferences.cancel             "Пăрахăçла">
+<!ENTITY preferences.profileDirectory   "Профиль вырнăçăвĕ">
+<!ENTITY preferences.browse             "Курăм">
+<!ENTITY preferences.tabs               "Кантăксене ас ту">
+<!ENTITY preferences.downloadCatalogs   "Инçет каталог(сене) тиесе ил">
+
+<!-- Server -->
+<!ENTITY server.load                    "Тие">
+<!ENTITY server.start                   "Тапрат">
+<!ENTITY server.stop                    "Тăрат">
+<!ENTITY server.close                   "Хуп">
+
+<!-- Library -->
+<!ENTITY main.library.myLibrary                 "Ман вулавăш">
+<!ENTITY main.library.getNewFiles               "Çĕнĕ файлсене ил">
+<!ENTITY main.library.searchZimFiles            "ZIM файлсене шыра">
+<!ENTITY main.library.sortBy                    "Сортла">
+<!ENTITY main.library.sortBy.title              "...пуçелĕкпе">
+<!ENTITY main.library.sortBy.size               "...виçепе">
+<!ENTITY main.library.sortBy.date               "...датăпа">
+<!ENTITY main.library.sortBy.author             "...авторпа">
+<!ENTITY main.library.sortBy.publisher          "...кăлараканпа">
+<!ENTITY main.library.filterBy                  "Ала ту">
+<!ENTITY main.library.filterBy.fileSize         "...файл виçипе">
+<!ENTITY main.library.filterBy.language         "...чĕлхепе">
+<!ENTITY main.library.filterBy.language.all     "мĕн пур чĕлхе">
+<!ENTITY main.library.filterBy.author           "...авторпа">
+<!ENTITY main.library.filterBy.author.all       "мĕн пур автор">
+<!ENTITY main.library.filterBy.publisher        "...кăлараканпа">
+<!ENTITY main.library.filterBy.publisher.all    "мĕн пур кăларакан">
+<!ENTITY main.library.filterBy.lessThan         "...пĕчĕкрех">
+

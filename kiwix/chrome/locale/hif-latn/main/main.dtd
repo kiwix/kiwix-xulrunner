@@ -1,0 +1,159 @@
+<!-- Window -->
+<!ENTITY main.title                     "&brand.brandShortName;">
+<!ENTITY main.cssdirection              "ltr">
+
+<!-- Mac menu -->
+<!ENTITY main.osxservices               "Sewa">
+<!ENTITY main.osxhideapp                "Duusra ke lukao">
+<!ENTITY main.osxhideothers             "Sab ke dekhao">
+<!ENTITY main.osxshowall                "Sab dekhao">
+
+<!-- File menu -->
+<!ENTITY main.file                      "File">
+<!ENTITY main.file.accesskey            "F">
+<!ENTITY main.openFile                  "File ke kholo...">
+<!ENTITY main.browseLibrary.accesskey   "B">
+<!ENTITY main.browseLibrary             "Library me dekho">
+<!ENTITY main.hideLibrary               "Library ke lukao">
+<!ENTITY main.openFile.accesskey        "O">
+<!ENTITY main.lastOpen                  "Abhi haali khola gais...">
+<!ENTITY main.saveFile                  "Panna ke bachao ii naam se...">
+<!ENTITY main.saveFile.accesskey        "S">
+<!ENTITY main.print                     "Print karo">
+<!ENTITY main.print.accesskey           "P">
+<!ENTITY main.printPdf                  "PDF chapo">
+<!ENTITY main.printPdf.accesskey        "D">
+<!ENTITY main.quit                      "Khalaas karo">
+<!ENTITY main.quit.accesskey            "Q">
+
+<!-- Edit menu -->
+<!ENTITY main.edit                      "Badlo">
+<!ENTITY main.edit.accesskey            "E">
+<!ENTITY main.find                      "Panna me khojo...">
+<!ENTITY main.find.accesskey            "S">
+<!ENTITY main.selectall                 "Sab ke select karo">
+<!ENTITY main.selectall.accesskey       "a">
+<!ENTITY main.copy                      "Copy karo">
+<!ENTITY main.copy.accesskey            "p">
+<!ENTITY main.transliteration           "Anuwaad">
+<!ENTITY main.transliteration.accesskey "T">
+<!ENTITY main.preferences               "Pasand">
+<!ENTITY main.preferences.accesskey     "n">
+<!ENTITY main.server                    "Server">
+<!ENTITY main.server.accesskey          "s">
+
+<!-- Display menu -->
+<!ENTITY main.display                   "Dekhao">
+<!ENTITY main.display.accesskey         "D">
+<!ENTITY main.zoom                      "Zoom karo">
+<!ENTITY main.zoom.accesskey            "Z">
+<!ENTITY main.zoomin                    "Barraa karo">
+<!ENTITY main.zoomin.accesskey          "M">
+<!ENTITY main.zoomout                   "Chhotaa karo">
+<!ENTITY main.zoomout.accesskey         "R">
+<!ENTITY main.zoomorig                  "Pahile waala size">
+<!ENTITY main.zoomorig.accesskey        "O">
+<!ENTITY main.language                  "Bhasa">
+<!ENTITY main.language.accesskey        "L">
+<!ENTITY main.skin                      "Chamrraa">
+<!ENTITY main.skin.accesskey            "S">
+<!ENTITY main.statusbar                 "Status bar">
+<!ENTITY main.statusbar.accesskey       "S">
+<!ENTITY main.resultsbar                "Results bar">
+<!ENTITY main.resultsbar.accesskey      "R">
+<!ENTITY main.tabs                      "Tabs">
+<!ENTITY main.tabs.accesskey            "T">
+<!ENTITY main.fullscreen                "Puura screen">
+<!ENTITY main.fullscreen.accesskey      "F">
+<!ENTITY main.invertedColors            "Rang ke ulta karo">
+<!ENTITY main.invertedColors.accesskey  "I">
+
+<!-- Tools menu -->
+<!ENTITY main.tools                     "Aujar">
+<!ENTITY main.tools.accesskey           "T">
+<!ENTITY main.randomArticle             "Ramdom panna">
+<!ENTITY main.randomArticle.accesskey   "R">
+<!ENTITY main.checkIntegrity            "Integrity check">
+<!ENTITY main.checkIntegrity.accesskey  "k">
+<!ENTITY main.purgeHistory              "History ke mitao">
+<!ENTITY main.purgeHistory.accesskey    "P">
+
+<!-- Help menu -->
+<!ENTITY main.help                      "Madat">
+<!ENTITY main.help.accesskey            "H">
+<!ENTITY main.feedback                  "Sujhao">
+<!ENTITY main.reportabug                "Ek bug ke report karo">
+<!ENTITY main.requestafeature           "Ek feature ke report karo">
+<!ENTITY main.about                     "&brand.brandShortName; ke baare me">
+<!ENTITY main.about.accesskey           "A">
+
+<!-- Tool bar -->
+<!ENTITY main.back                      "Piichhe">
+<!ENTITY main.forward                   "Aage">
+<!ENTITY main.home                      "Ghare">
+<!ENTITY main.searchBar                 "Search bar">
+<!ENTITY main.search                    "Khojo">
+<!ENTITY main.searchPlaceholder         "Text me khojo">
+<!ENTITY main.findInText                "Text me khojo">
+<!ENTITY main.noSearchBar               "Khoje ke khatir indexed ZIM file ke jaruri hae">
+<!ENTITY main.bookmarks                 "Bookmark">
+
+<!-- Results bar -->
+<!ENTITY main.results.title             "Khoj ke natija">
+
+<!-- Bookmarks Bar -->
+<!ENTITY main.bmkLabel                  "Bookmark:">
+<!ENTITY main.notesLabel                "Bookmark notes:">
+<!ENTITY main.loadbmk                   "Bookmark Set import karo">
+<!ENTITY main.newbmk                    "Nawaa Bookmark Set ke banao">
+<!ENTITY main.mark                      "Ii panna ke mark karo">
+<!ENTITY main.unmark                    "Cuna gais chijse mark ke hatao">
+<!ENTITY main.reload                    "Bookmark Set ke fir se load karo">
+<!ENTITY main.defaultset                "Default Set">
+
+<!-- Contextual Menu -->
+<!ENTITY main.saveImageAs               "Ke ruup me chapa ke bachao...">
+<!ENTITY main.openLinkInNewTab          "Nawaa tab me link kholo">
+<!ENTITY main.searchFor                 "Ke khatir khojo">
+<!ENTITY main.copyLinkAdress            "Copy link address">
+<!ENTITY main.mute                      "Koi awaaj nai">
+<!ENTITY main.audible                   "Sunai de">
+
+<!-- About Window -->
+<!ENTITY main.close                     "Band karo">
+
+<!-- Preferences Window -->
+<!ENTITY preferences.preferences        "Pasand">
+<!ENTITY preferences.save               "Bachao">
+<!ENTITY preferences.cancel             "Cancel karo">
+<!ENTITY preferences.profileDirectory   "Profile directory">
+<!ENTITY preferences.browse             "Browse karo">
+<!ENTITY preferences.tabs               "Tabs ke yaad rakkho">
+<!ENTITY preferences.downloadCatalogs   "Duur ke catalog ke download karo">
+
+<!-- Server -->
+<!ENTITY server.load                    "Load karo">
+<!ENTITY server.start                   "Suruu karo">
+<!ENTITY server.stop                    "Roko">
+<!ENTITY server.close                   "Band Karo">
+
+<!-- Library -->
+<!ENTITY main.library.myLibrary                 "Hamaar library">
+<!ENTITY main.library.getNewFiles               "Nawaa file ke laao">
+<!ENTITY main.library.searchZimFiles            "ZIM file ke khojo">
+<!ENTITY main.library.sortBy                    "Sort by">
+<!ENTITY main.library.sortBy.title              "Title">
+<!ENTITY main.library.sortBy.size               "Naap">
+<!ENTITY main.library.sortBy.date               "Tarik">
+<!ENTITY main.library.sortBy.author             "Likhe waala">
+<!ENTITY main.library.sortBy.publisher          "Publish kare waala">
+<!ENTITY main.library.filterBy                  "Filter karo">
+<!ENTITY main.library.filterBy.fileSize         "File ke naap">
+<!ENTITY main.library.filterBy.language         "Bhasa">
+<!ENTITY main.library.filterBy.language.all     "Sab">
+<!ENTITY main.library.filterBy.author           "Likhe waala">
+<!ENTITY main.library.filterBy.author.all       "Sab">
+<!ENTITY main.library.filterBy.publisher        "Publish kare waala">
+<!ENTITY main.library.filterBy.publisher.all    "Sab">
+<!ENTITY main.library.filterBy.lessThan         "se kamti">
+

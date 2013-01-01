@@ -1,0 +1,159 @@
+<!-- Window -->
+<!ENTITY main.title                     "&brand.brandShortName;">
+<!ENTITY main.cssdirection              "ltr">
+
+<!-- Mac menu -->
+<!ENTITY main.osxservices               "सेवात">
+<!ENTITY main.osxhideapp                "&brand.brandShortName; सुचुकादिसँ;">
+<!ENTITY main.osxhideothers             "मेमेगु सुचुकादिसँ">
+<!ENTITY main.osxshowall                "सकल क्यनादिसँ">
+
+<!-- File menu -->
+<!ENTITY main.file                      "फाइल">
+<!ENTITY main.file.accesskey            "F">
+<!ENTITY main.openFile                  "फाइल चायेकादिसँ...">
+<!ENTITY main.browseLibrary.accesskey   "B">
+<!ENTITY main.browseLibrary             "लाइब्ररी ब्राउज यानादिसँ">
+<!ENTITY main.hideLibrary               "लाइब्ररी सुचुकादिसँ">
+<!ENTITY main.openFile.accesskey        "O">
+<!ENTITY main.lastOpen                  "नकतिनि चायेकूगु">
+<!ENTITY main.saveFile                  "पौ स्वथनादिसँ...">
+<!ENTITY main.saveFile.accesskey        "S">
+<!ENTITY main.print                     "ध्वायादिसँ">
+<!ENTITY main.print.accesskey           "P">
+<!ENTITY main.printPdf                  "PDFया रुपय ध्वायादिसँ">
+<!ENTITY main.printPdf.accesskey        "D">
+<!ENTITY main.quit                      "त्वतादिसँ">
+<!ENTITY main.quit.accesskey            "Q">
+
+<!-- Edit menu -->
+<!ENTITY main.edit                      "सम्पादन">
+<!ENTITY main.edit.accesskey            "E">
+<!ENTITY main.find                      "थ्व पतिइ मालादिसँ ...">
+<!ENTITY main.find.accesskey            "S">
+<!ENTITY main.selectall                 "दक्वँ ल्ययादिसँ">
+<!ENTITY main.selectall.accesskey       "a">
+<!ENTITY main.copy                      "नकल (कपि)">
+<!ENTITY main.copy.accesskey            "p">
+<!ENTITY main.transliteration           "लिपि हिला">
+<!ENTITY main.transliteration.accesskey "T">
+<!ENTITY main.preferences               "प्राथमिकतात">
+<!ENTITY main.preferences.accesskey     "n">
+<!ENTITY main.server                    "सर्भर">
+<!ENTITY main.server.accesskey          "s">
+
+<!-- Display menu -->
+<!ENTITY main.display                   "ब्वयेज्या (दिस्प्ले)">
+<!ENTITY main.display.accesskey         "D">
+<!ENTITY main.zoom                      "जुम">
+<!ENTITY main.zoom.accesskey            "Z">
+<!ENTITY main.zoomin                    "तःग्वकादिसँ">
+<!ENTITY main.zoomin.accesskey          "M">
+<!ENTITY main.zoomout                   "चिग्वः यानादिसँ">
+<!ENTITY main.zoomout.accesskey         "R">
+<!ENTITY main.zoomorig                  "धाथेंया आकार">
+<!ENTITY main.zoomorig.accesskey        "O">
+<!ENTITY main.language                  "भाय्">
+<!ENTITY main.language.accesskey        "L">
+<!ENTITY main.skin                      "भुँसा">
+<!ENTITY main.skin.accesskey            "S">
+<!ENTITY main.statusbar                 "अवस्था हाकः">
+<!ENTITY main.statusbar.accesskey       "S">
+<!ENTITY main.resultsbar                "लिच्वः हाकः">
+<!ENTITY main.resultsbar.accesskey      "R">
+<!ENTITY main.tabs                      "त्याबत">
+<!ENTITY main.tabs.accesskey            "T">
+<!ENTITY main.fullscreen                "स्क्रिन जायेकः">
+<!ENTITY main.fullscreen.accesskey      "F">
+<!ENTITY main.invertedColors            "उल्ता रंग">
+<!ENTITY main.invertedColors.accesskey  "I">
+
+<!-- Tools menu -->
+<!ENTITY main.tools                     "ज्याभःत">
+<!ENTITY main.tools.accesskey           "T">
+<!ENTITY main.randomArticle             "छुं छपू च्वसु">
+<!ENTITY main.randomArticle.accesskey   "R">
+<!ENTITY main.checkIntegrity            "इन्तेग्रिति जाँच">
+<!ENTITY main.checkIntegrity.accesskey  "k">
+<!ENTITY main.purgeHistory              "इतिहास वायादिसँ">
+<!ENTITY main.purgeHistory.accesskey    "P">
+
+<!-- Help menu -->
+<!ENTITY main.help                      "ग्वहालि">
+<!ENTITY main.help.accesskey            "H">
+<!ENTITY main.feedback                  "लिसूचँ">
+<!ENTITY main.reportabug                "बगया सुचँ बियादिसँ">
+<!ENTITY main.requestafeature           "न्हुगु फिचर इनाप यानादिसँ">
+<!ENTITY main.about                     "&brand.brandShortName;या बारेय्">
+<!ENTITY main.about.accesskey           "A">
+
+<!-- Tool bar -->
+<!ENTITY main.back                      "ल्युने">
+<!ENTITY main.forward                   "न्ह्यने">
+<!ENTITY main.home                      "छेँ">
+<!ENTITY main.searchBar                 "मालिगु ब्याः">
+<!ENTITY main.search                    "मालादिसँ">
+<!ENTITY main.searchPlaceholder         "मालेमाःगु खँग्वः थन च्वयादिसँ...">
+<!ENTITY main.findInText                "पाठय् मालादिसँ">
+<!ENTITY main.noSearchBar               "थ्व मालेत इन्देक्स्द ZIM फाइल मा">
+<!ENTITY main.bookmarks                 "बुकमार्कत">
+
+<!-- Results bar -->
+<!ENTITY main.results.title             "मालेज्याया लिच्वः">
+
+<!-- Bookmarks Bar -->
+<!ENTITY main.bmkLabel                  "बुकमार्कत:">
+<!ENTITY main.notesLabel                "बुकमार्क नोतत:">
+<!ENTITY main.loadbmk                   "बुकमार्क सेत आयात यानादिसँ">
+<!ENTITY main.newbmk                    "न्हुगु बुकमार्क सेत दयेकादिसँ">
+<!ENTITY main.mark                      "थ्व पतिइ चिं तयादिसँ">
+<!ENTITY main.unmark                    "ल्ययातःगुलिं चिंहुयादिसँ">
+<!ENTITY main.reload                    "बुकमार्क सेत रिलोद यानादिसँ">
+<!ENTITY main.defaultset                "दिफल्त सेत">
+
+<!-- Contextual Menu -->
+<!ENTITY main.saveImageAs               "किपायात स्वथनादिसँ...">
+<!ENTITY main.openLinkInNewTab          "लिंकयात न्हुगु त्याबय् चायेकादिसँ">
+<!ENTITY main.searchFor                 "थ्व मालादिसँ">
+<!ENTITY main.copyLinkAdress            "Copy link address">
+<!ENTITY main.mute                      "सः पनादिसँ (म्युट)">
+<!ENTITY main.audible                   "सःताःगु (अडिबल)">
+
+<!-- About Window -->
+<!ENTITY main.close                     "तिनादिसँ">
+
+<!-- Preferences Window -->
+<!ENTITY preferences.preferences        "प्राथमिकता">
+<!ENTITY preferences.save               "स्वथनादिसँ">
+<!ENTITY preferences.cancel             "खारेज">
+<!ENTITY preferences.profileDirectory   "प्रोफाइल दिरेक्तरी">
+<!ENTITY preferences.browse             "ब्राउज">
+<!ENTITY preferences.tabs               "त्याब लुमंकादिसँ">
+<!ENTITY preferences.downloadCatalogs   "रिमोत क्यातालग(त) दाउनलोद यानादिसँ">
+
+<!-- Server -->
+<!ENTITY server.load                    "लोद">
+<!ENTITY server.start                   "Start">
+<!ENTITY server.stop                    "Stop">
+<!ENTITY server.close                   "तिनादिसँ">
+
+<!-- Library -->
+<!ENTITY main.library.myLibrary                 "जिगु लाइब्ररी">
+<!ENTITY main.library.getNewFiles               "न्हुगु फाइल हयादिसँ">
+<!ENTITY main.library.searchZimFiles            "ZIM फाइलत मालादिसँ">
+<!ENTITY main.library.sortBy                    "थ्व कथं ब्वयादिसँ">
+<!ENTITY main.library.sortBy.title              "छ्यँआखः">
+<!ENTITY main.library.sortBy.size               "आकार">
+<!ENTITY main.library.sortBy.date               "तिथि">
+<!ENTITY main.library.sortBy.author             "च्वमि">
+<!ENTITY main.library.sortBy.publisher          "पिथनामि">
+<!ENTITY main.library.filterBy                  "थ्व कथं छानेयानादिसँ">
+<!ENTITY main.library.filterBy.fileSize         "फाइलया आकार">
+<!ENTITY main.library.filterBy.language         "भाय्">
+<!ENTITY main.library.filterBy.language.all     "दक्वं">
+<!ENTITY main.library.filterBy.author           "च्वमि">
+<!ENTITY main.library.filterBy.author.all       "दक्वं">
+<!ENTITY main.library.filterBy.publisher        "पिथनामि">
+<!ENTITY main.library.filterBy.publisher.all    "दक्वं">
+<!ENTITY main.library.filterBy.lessThan         "स्वया म्हो">
+
