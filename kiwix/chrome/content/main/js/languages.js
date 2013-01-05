@@ -36,7 +36,7 @@ _languagesHash['fo']           = 'Føroyskt';
 _languagesHash['fra']          = _languagesHashOld['fr']          = 'Français';
 _languagesHash['frp']          = 'Provençau';
 _languagesHash['gl']           = 'Galego';
-_languagesHash['grn']          = _languagesHashOldp['gn']         = 'Avañe\'ẽ';
+_languagesHash['grn']          = _languagesHashOld['gn']         = 'Avañe\'ẽ';
 _languagesHash['gu']           = 'ગુજરાતી';
 _languagesHash['gsw']          = 'Schwyzerdütsch';
 _languagesHash['he']           = 'עברית';
