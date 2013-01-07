@@ -4,7 +4,7 @@
 
 <!-- Mac menu -->
 <!ENTITY main.osxservices               "सेवात">
-<!ENTITY main.osxhideapp                "&brand.brandShortName; सुचुकादिसँ;">
+<!ENTITY main.osxhideapp                "&brand.brandShortName; सुचुकादिसँ">
 <!ENTITY main.osxhideothers             "मेमेगु सुचुकादिसँ">
 <!ENTITY main.osxshowall                "सकल क्यनादिसँ">
 

@@ -6,7 +6,7 @@
 <!ENTITY main.osxservices               "Services">
 <!ENTITY main.osxhideapp                "Hide &brand.brandShortName;">
 <!ENTITY main.osxhideothers             "Hide Others">
-<!ENTITY main.osxshowall                "Show All">
+<!ENTITY main.osxshowall                "सभी दिखाएँ">
 
 <!-- File menu -->
 <!ENTITY main.file                      "फ़ाइल">
@@ -132,10 +132,10 @@
 <!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">
 
 <!-- Server -->
-<!ENTITY server.load                    "Load">
-<!ENTITY server.start                   "Start">
-<!ENTITY server.stop                    "Stop">
-<!ENTITY server.close                   "Close">
+<!ENTITY server.load                    "लोड">
+<!ENTITY server.start                   "आरम्भ">
+<!ENTITY server.stop                    "रोकें">
+<!ENTITY server.close                   "बंद करें">
 
 <!-- Library -->
 <!ENTITY main.library.myLibrary                 "मेरे पुस्तकालय">

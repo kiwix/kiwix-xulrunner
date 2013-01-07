@@ -33,7 +33,7 @@
 <!ENTITY main.find.accesskey            "S">
 <!ENTITY main.selectall                 "Изабери све">
 <!ENTITY main.selectall.accesskey       "a">
-<!ENTITY main.copy                      "Умножи">
+<!ENTITY main.copy                      "Копирај">
 <!ENTITY main.copy.accesskey            "p">
 <!ENTITY main.transliteration           "Пресловљавање">
 <!ENTITY main.transliteration.accesskey "T">

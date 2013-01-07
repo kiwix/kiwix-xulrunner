@@ -4,7 +4,7 @@
 
 <!-- Mac menu -->
 <!ENTITY main.osxservices               "सेवाः">
-<!ENTITY main.osxhideapp                "&brand.brandShortName; इत्येतत् गोप्यताम्;">
+<!ENTITY main.osxhideapp                "&brand.brandShortName; इत्येतत् गोप्यताम्">
 <!ENTITY main.osxhideothers             "अन्ये गोप्यन्ताम्">
 <!ENTITY main.osxshowall                "सर्वे दर्श्यन्ताम्">
 
@@ -84,7 +84,7 @@
 <!ENTITY main.feedback                  "प्रतिक्रिया">
 <!ENTITY main.reportabug                "बग आवेदनं करोति">
 <!ENTITY main.requestafeature           "सुविधार्थं निवेद्यताम्">
-<!ENTITY main.about                     "&brand.brandShortName; इत्येतद्विषये;">
+<!ENTITY main.about                     "&brand.brandShortName; इत्येतद्विषये">
 <!ENTITY main.about.accesskey           "A">
 
 <!-- Tool bar -->

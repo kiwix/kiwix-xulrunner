@@ -3,10 +3,10 @@
 <!ENTITY main.cssdirection              "ltr">
 
 <!-- Mac menu -->
-<!ENTITY main.osxservices               "Services">
-<!ENTITY main.osxhideapp                "Hide &brand.brandShortName;">
-<!ENTITY main.osxhideothers             "Hide Others">
-<!ENTITY main.osxshowall                "Show All">
+<!ENTITY main.osxservices               "Layanan">
+<!ENTITY main.osxhideapp                "Umpetna &brand.brandShortName;">
+<!ENTITY main.osxhideothers             "Umpetna Liyane">
+<!ENTITY main.osxshowall                "Tidokna Kabeh">
 
 <!-- File menu -->
 <!ENTITY main.file                      "Berkas">
@@ -14,7 +14,7 @@
 <!ENTITY main.openFile                  "Mbukak berkas...">
 <!ENTITY main.browseLibrary.accesskey   "B">
 <!ENTITY main.browseLibrary             "Ndeleng perpustakaan">
-<!ENTITY main.hideLibrary               "Hide library">
+<!ENTITY main.hideLibrary               "Umpetna perpustakaan">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "Sing tembe dibukak...">
 <!ENTITY main.saveFile                  "Simpen kaca dadi...">
@@ -65,7 +65,7 @@
 <!ENTITY main.tabs.accesskey            "T">
 <!ENTITY main.fullscreen                "Sekebeke layar">
 <!ENTITY main.fullscreen.accesskey      "F">
-<!ENTITY main.invertedColors            "Inverted colors">
+<!ENTITY main.invertedColors            "Werna kewalikane">
 <!ENTITY main.invertedColors.accesskey  "I">
 
 <!-- Tools menu -->
@@ -93,7 +93,7 @@
 <!ENTITY main.home                      "Kaca Utama">
 <!ENTITY main.searchBar                 "Lempengan nggo nggoleti">
 <!ENTITY main.search                    "Goleti">
-<!ENTITY main.searchPlaceholder         "Type the text to search here...">
+<!ENTITY main.searchPlaceholder         "Ketikna teks sing arep digoleti nang kene...">
 <!ENTITY main.findInText                "Goleti nang teks">
 <!ENTITY main.noSearchBar               "Penggoletan merlokna berkas ZIM sing uwis diindeks">
 <!ENTITY main.bookmarks                 "Ditandani">
@@ -129,13 +129,13 @@
 <!ENTITY preferences.profileDirectory   "Direktori profil">
 <!ENTITY preferences.browse             "Jelajahi">
 <!ENTITY preferences.tabs               "Emutna lempengan kiye">
-<!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">
+<!ENTITY preferences.downloadCatalogs   "Ngunduh katalog adoh">
 
 <!-- Server -->
-<!ENTITY server.load                    "Load">
-<!ENTITY server.start                   "Start">
-<!ENTITY server.stop                    "Stop">
-<!ENTITY server.close                   "Close">
+<!ENTITY server.load                    "Ngunggah">
+<!ENTITY server.start                   "Molai">
+<!ENTITY server.stop                    "Mandheg">
+<!ENTITY server.close                   "Tutup">
 
 <!-- Library -->
 <!ENTITY main.library.myLibrary                 "Perpustakaane inyong">
@@ -155,5 +155,5 @@
 <!ENTITY main.library.filterBy.author.all       "Kabeh">
 <!ENTITY main.library.filterBy.publisher        "Penerbite">
 <!ENTITY main.library.filterBy.publisher.all    "Kabeh">
-<!ENTITY main.library.filterBy.lessThan         "Less than">
+<!ENTITY main.library.filterBy.lessThan         "Kurang sekang">
 
