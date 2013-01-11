@@ -1,5 +1,6 @@
 Kiwix 0.9 rc3
 * FIXED: Fulltext search results page for pattern including mustbeurlencoded characters
+* FIXED: Kiwix-serve bug under Windows with library containing relative paths
 * NEW: New supported user interface languages: Chuvash (cv), Fiji
   Hindi Latin script (hif-latn), Mongolian (mn), Newari (new),
   Sanskrit (sa), Uzbek (uz)
