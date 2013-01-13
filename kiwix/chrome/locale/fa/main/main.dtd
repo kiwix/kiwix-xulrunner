@@ -21,7 +21,7 @@
 <!ENTITY main.saveFile.accesskey        "S">
 <!ENTITY main.print                     "چاپ">
 <!ENTITY main.print.accesskey           "P">
-<!ENTITY main.printPdf                  "چاپ به‌صورت پی‌دی‌اف">
+<!ENTITY main.printPdf                  "چاپ در قالب پی‌دی‌اف">
 <!ENTITY main.printPdf.accesskey        "D">
 <!ENTITY main.quit                      "خروج">
 <!ENTITY main.quit.accesskey            "Q">
@@ -39,7 +39,7 @@
 <!ENTITY main.transliteration.accesskey "T">
 <!ENTITY main.preferences               "ترجیحات">
 <!ENTITY main.preferences.accesskey     "n">
-<!ENTITY main.server                    "کارگزار">
+<!ENTITY main.server                    "سرور">
 <!ENTITY main.server.accesskey          "s">
 
 <!-- Display menu -->
@@ -93,7 +93,7 @@
 <!ENTITY main.home                      "خانه">
 <!ENTITY main.searchBar                 "نوار جستجو">
 <!ENTITY main.search                    "جستجو">
-<!ENTITY main.searchPlaceholder         "برای جستجو متنی در اینجا بنویسید ...">
+<!ENTITY main.searchPlaceholder         "متن مورد نظر را جهت جستجو وارد کنید ...">
 <!ENTITY main.findInText                "جستجو در متن">
 <!ENTITY main.noSearchBar               "جستجو نیاز به یک فایل ZIM فهرست بندی شده دارد">
 <!ENTITY main.bookmarks                 "نشانکها">
