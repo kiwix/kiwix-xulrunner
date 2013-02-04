@@ -84,7 +84,7 @@
 <!ENTITY main.feedback                  "უკუკავშირი">
 <!ENTITY main.reportabug                "დარღვევის შეტყობინება">
 <!ENTITY main.requestafeature           "ფუნქციის მოთხოვნა">
-<!ENTITY main.about                     "&brand.brandShortName-ის შესახებ;">
+<!ENTITY main.about                     "&brand.brandShortName;-ის შესახებ">
 <!ENTITY main.about.accesskey           "A">
 
 <!-- Tool bar -->
