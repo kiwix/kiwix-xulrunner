@@ -615,7 +615,7 @@ function whereis(binary) {
 
     /* Append ../src/server for Linux only */
     if (env.isLinux()) {
-	var serverCodeDirectory = file.clone().parent.parent;
+	var serverCodeDirectory = file.clone().parent;
         serverCodeDirectory.append("src");
         serverCodeDirectory.append("server");
         path = serverCodeDirectory.path + sep + path;
