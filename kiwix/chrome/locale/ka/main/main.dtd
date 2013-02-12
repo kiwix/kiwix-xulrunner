@@ -4,7 +4,7 @@
 
 <!-- Mac menu -->
 <!ENTITY main.osxservices               "სერვისები">
-<!ENTITY main.osxhideapp                "Hide &brand.brandShortName;">
+<!ENTITY main.osxhideapp                "&brand.brandShortName;-ის დამალვა">
 <!ENTITY main.osxhideothers             "სხვების დამალვა">
 <!ENTITY main.osxshowall                "ყველას ჩვენება">
 
@@ -65,7 +65,7 @@
 <!ENTITY main.tabs.accesskey            "T">
 <!ENTITY main.fullscreen                "სრულ ეკრანზე">
 <!ENTITY main.fullscreen.accesskey      "F">
-<!ENTITY main.invertedColors            "Inverted colors">
+<!ENTITY main.invertedColors            "შებრუნებული ფერები">
 <!ENTITY main.invertedColors.accesskey  "I">
 
 <!-- Tools menu -->
@@ -93,7 +93,7 @@
 <!ENTITY main.home                      "შინ">
 <!ENTITY main.searchBar                 "საძიებო ველი">
 <!ENTITY main.search                    "ძიება">
-<!ENTITY main.searchPlaceholder         "Type the text to search here...">
+<!ENTITY main.searchPlaceholder         "შეიყვანეთ საძიებო ტექსტი...">
 <!ENTITY main.findInText                "ძიება ტექსტში">
 <!ENTITY main.noSearchBar               "ძიება მოითხოვს ინდექსირებულ ZIM ფაილს">
 <!ENTITY main.bookmarks                 "სანიშნები">
@@ -129,7 +129,7 @@
 <!ENTITY preferences.profileDirectory   "პროფილის დირექტორია">
 <!ENTITY preferences.browse             "დათვალიერება">
 <!ENTITY preferences.tabs               "ჩანართების დამახსოვრება">
-<!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">
+<!ENTITY preferences.downloadCatalogs   "შორეული კატალოგ(ებ)ის გადმოწერა">
 
 <!-- Server -->
 <!ENTITY server.load                    "ჩატვირთვა">
@@ -155,5 +155,5 @@
 <!ENTITY main.library.filterBy.author.all       "ყველა">
 <!ENTITY main.library.filterBy.publisher        "გამომქვეყნებელი">
 <!ENTITY main.library.filterBy.publisher.all    "ყველა">
-<!ENTITY main.library.filterBy.lessThan         "Less than">
+<!ENTITY main.library.filterBy.lessThan         "ნაკლები ვიდრე">
 

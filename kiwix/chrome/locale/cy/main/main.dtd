@@ -3,10 +3,10 @@
 <!ENTITY main.cssdirection              "ltr">
 
 <!-- Mac menu -->
-<!ENTITY main.osxservices               "Services">
-<!ENTITY main.osxhideapp                "Hide &brand.brandShortName;">
-<!ENTITY main.osxhideothers             "Hide Others">
-<!ENTITY main.osxshowall                "Show All">
+<!ENTITY main.osxservices               "Gwasanaethau">
+<!ENTITY main.osxhideapp                "Cuddio &brand.brandShortName;">
+<!ENTITY main.osxhideothers             "Cuddio'r Lleill">
+<!ENTITY main.osxshowall                "Dangos y Cwbl">
 
 <!-- File menu -->
 <!ENTITY main.file                      "Ffeil">
@@ -14,7 +14,7 @@
 <!ENTITY main.openFile                  "Agor ffeil...">
 <!ENTITY main.browseLibrary.accesskey   "B">
 <!ENTITY main.browseLibrary             "Pori'r llyfrgell">
-<!ENTITY main.hideLibrary               "Hide library">
+<!ENTITY main.hideLibrary               "Cuddio'r llyfrgell">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "Agorwyd yn ddiweddar...">
 <!ENTITY main.saveFile                  "Cadw'r dudalen fel...">
@@ -43,7 +43,7 @@
 <!ENTITY main.server.accesskey          "s">
 
 <!-- Display menu -->
-<!ENTITY main.display                   "Arddangos">
+<!ENTITY main.display                   "Golwg">
 <!ENTITY main.display.accesskey         "D">
 <!ENTITY main.zoom                      "Chwyddo">
 <!ENTITY main.zoom.accesskey            "Z">
@@ -84,7 +84,7 @@
 <!ENTITY main.feedback                  "Adborth">
 <!ENTITY main.reportabug                "Adrodd nam">
 <!ENTITY main.requestafeature           "Gwneud cais am nodwedd">
-<!ENTITY main.about                     "Amdano &brand.brandShortName;">
+<!ENTITY main.about                     "Am &brand.brandShortName;">
 <!ENTITY main.about.accesskey           "A">
 
 <!-- Tool bar -->

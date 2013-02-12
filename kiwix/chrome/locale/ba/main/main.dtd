@@ -141,7 +141,7 @@
 <!ENTITY main.library.myLibrary                 "Китапханам">
 <!ENTITY main.library.getNewFiles               "Яңы файлдар алырға">
 <!ENTITY main.library.searchZimFiles            "ZIM файлдар эҙләү">
-<!ENTITY main.library.sortBy                    "Теҙеү">
+<!ENTITY main.library.sortBy                    "Тәртипләштереү">
 <!ENTITY main.library.sortBy.title              "Исем">
 <!ENTITY main.library.sortBy.size               "Үлсәм">
 <!ENTITY main.library.sortBy.date               "Дата">

@@ -3,18 +3,18 @@
 <!ENTITY main.cssdirection              "ltr">
 
 <!-- Mac menu -->
-<!ENTITY main.osxservices               "Services">
-<!ENTITY main.osxhideapp                "Hide &brand.brandShortName;">
-<!ENTITY main.osxhideothers             "Hide Others">
-<!ENTITY main.osxshowall                "Show All">
+<!ENTITY main.osxservices               "Servicis">
+<!ENTITY main.osxhideapp                "Amagar &brand.brandShortName;">
+<!ENTITY main.osxhideothers             "Amagar los autres">
+<!ENTITY main.osxshowall                "Afichar tot">
 
 <!-- File menu -->
 <!ENTITY main.file                      "Fichièr">
 <!ENTITY main.file.accesskey            "F">
 <!ENTITY main.openFile                  "Dobrir un fichièr...">
 <!ENTITY main.browseLibrary.accesskey   "B">
-<!ENTITY main.browseLibrary             "Browse library">
-<!ENTITY main.hideLibrary               "Hide library">
+<!ENTITY main.browseLibrary             "Percórrer la bibliotèca">
+<!ENTITY main.hideLibrary               "Amagar la bibliotèca">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "Fichièrs recents...">
 <!ENTITY main.saveFile                  "Enregistrar coma...">
@@ -39,7 +39,7 @@
 <!ENTITY main.transliteration.accesskey "T">
 <!ENTITY main.preferences               "Opcions">
 <!ENTITY main.preferences.accesskey     "n">
-<!ENTITY main.server                    "Server">
+<!ENTITY main.server                    "Servidor">
 <!ENTITY main.server.accesskey          "s">
 
 <!-- Display menu -->
@@ -65,7 +65,7 @@
 <!ENTITY main.tabs.accesskey            "T">
 <!ENTITY main.fullscreen                "Plen ecran">
 <!ENTITY main.fullscreen.accesskey      "F">
-<!ENTITY main.invertedColors            "Inverted colors">
+<!ENTITY main.invertedColors            "Colors inversadas">
 <!ENTITY main.invertedColors.accesskey  "I">
 
 <!-- Tools menu -->
@@ -81,7 +81,7 @@
 <!-- Help menu -->
 <!ENTITY main.help                      "Ajuda">
 <!ENTITY main.help.accesskey            "H">
-<!ENTITY main.feedback                  "Feedback">
+<!ENTITY main.feedback                  "Vejaire">
 <!ENTITY main.reportabug                "Senhalar una error">
 <!ENTITY main.requestafeature           "Demandar una melhora">
 <!ENTITY main.about                     "&brand.brandShortName;, qu'es aquò?">
@@ -93,7 +93,7 @@
 <!ENTITY main.home                      "Acuèlh">
 <!ENTITY main.searchBar                 "Barra de cèrca">
 <!ENTITY main.search                    "Cèrca">
-<!ENTITY main.searchPlaceholder         "Type the text to search here...">
+<!ENTITY main.searchPlaceholder         "Entrar lo tèxte de recercar aicí...">
 <!ENTITY main.findInText                "Trobar dins lo tèxte">
 <!ENTITY main.noSearchBar               "Per cercar cal un fichièr ZIM indexat">
 <!ENTITY main.bookmarks                 "Onglets">
@@ -108,16 +108,16 @@
 <!ENTITY main.newbmk                    "Crear un ensems d'onglets">
 <!ENTITY main.mark                      "Marcar aquela pagina">
 <!ENTITY main.unmark                    "Desmarcar la seleccion">
-<!ENTITY main.reload                    "Escafar l'ensems d'onglets">
+<!ENTITY main.reload                    "Recargar lo juòc de marcapaginas">
 <!ENTITY main.defaultset                "Ensems per manca">
 
 <!-- Contextual Menu -->
 <!ENTITY main.saveImageAs               "Enregistrar l'imatge...">
-<!ENTITY main.openLinkInNewTab          "Open link in new tab">
-<!ENTITY main.searchFor                 "Search for">
+<!ENTITY main.openLinkInNewTab          "Dobrir lo ligam dins un onglet novèl">
+<!ENTITY main.searchFor                 "Recercar">
 <!ENTITY main.copyLinkAdress            "Copy link address">
-<!ENTITY main.mute                      "Mute">
-<!ENTITY main.audible                   "Audible">
+<!ENTITY main.mute                      "Mut">
+<!ENTITY main.audible                   "Ausible">
 
 <!-- About Window -->
 <!ENTITY main.close                     "Barrar">
@@ -128,32 +128,32 @@
 <!ENTITY preferences.cancel             "Anullar">
 <!ENTITY preferences.profileDirectory   "Repertòri del profil">
 <!ENTITY preferences.browse             "Legir">
-<!ENTITY preferences.tabs               "Remember tabs">
-<!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">
+<!ENTITY preferences.tabs               "Se remembrar dels onglets dobèrts en quitant Kiwix">
+<!ENTITY preferences.downloadCatalogs   "Telecargar lo(s) catalòg(s) distant(s)">
 
 <!-- Server -->
-<!ENTITY server.load                    "Load">
-<!ENTITY server.start                   "Start">
-<!ENTITY server.stop                    "Stop">
-<!ENTITY server.close                   "Close">
+<!ENTITY server.load                    "Cargar">
+<!ENTITY server.start                   "Començament">
+<!ENTITY server.stop                    "Arrèst">
+<!ENTITY server.close                   "Tampar">
 
 <!-- Library -->
-<!ENTITY main.library.myLibrary                 "My library">
-<!ENTITY main.library.getNewFiles               "Get new files">
-<!ENTITY main.library.searchZimFiles            "Search ZIM files">
-<!ENTITY main.library.sortBy                    "Sort by">
-<!ENTITY main.library.sortBy.title              "Title">
-<!ENTITY main.library.sortBy.size               "Size">
-<!ENTITY main.library.sortBy.date               "Date">
-<!ENTITY main.library.sortBy.author             "Author">
-<!ENTITY main.library.sortBy.publisher          "Publisher">
-<!ENTITY main.library.filterBy                  "Filter by">
-<!ENTITY main.library.filterBy.fileSize         "File size">
-<!ENTITY main.library.filterBy.language         "Language">
-<!ENTITY main.library.filterBy.language.all     "All">
-<!ENTITY main.library.filterBy.author           "Author">
-<!ENTITY main.library.filterBy.author.all       "All">
-<!ENTITY main.library.filterBy.publisher        "Publisher">
-<!ENTITY main.library.filterBy.publisher.all    "All">
-<!ENTITY main.library.filterBy.lessThan         "Less than">
+<!ENTITY main.library.myLibrary                 "Ma bibliotèca">
+<!ENTITY main.library.getNewFiles               "Obténer de fichièrs novèls">
+<!ENTITY main.library.searchZimFiles            "Recercar de fichièrs ZIM">
+<!ENTITY main.library.sortBy                    "Triar per">
+<!ENTITY main.library.sortBy.title              "Títol">
+<!ENTITY main.library.sortBy.size               "Talha">
+<!ENTITY main.library.sortBy.date               "Data">
+<!ENTITY main.library.sortBy.author             "Autor">
+<!ENTITY main.library.sortBy.publisher          "Editor">
+<!ENTITY main.library.filterBy                  "Filtrar per">
+<!ENTITY main.library.filterBy.fileSize         "Talha del fichièr">
+<!ENTITY main.library.filterBy.language         "Lenga">
+<!ENTITY main.library.filterBy.language.all     "Totas">
+<!ENTITY main.library.filterBy.author           "Autor">
+<!ENTITY main.library.filterBy.author.all       "Totes">
+<!ENTITY main.library.filterBy.publisher        "Editor">
+<!ENTITY main.library.filterBy.publisher.all    "Totes">
+<!ENTITY main.library.filterBy.lessThan         "Mens que">
 
