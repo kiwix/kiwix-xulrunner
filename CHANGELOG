@@ -8,6 +8,7 @@ Kiwix 0.9 rc3
 * FIXED: Crashing UI with Kannada (kn) and Georgian (ka) (#413)
 * FIXED: Unavailable kiwix-serve from the UI on Linux, if not installed (#411)
 * FIXED: kiwix-serve UI for non-javascript browsers like Dillo (#587)
+* FIXED: kiwix-serve crahs if really long URL (#400)
 
 Kiwix 0.9 rc2
 * FIXED: kiwix-manage generate wrong size for splitted ZIM files (ID: 3547892)
