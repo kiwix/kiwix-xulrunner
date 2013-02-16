@@ -4,7 +4,7 @@
 
 <!-- Mac menu -->
 <!ENTITY main.osxservices               "সেৱাসমূহ">
-<!ENTITY main.osxhideapp                "Hide &brand.brandShortName;">
+<!ENTITY main.osxhideapp                "&brand.brandShortName; লুকুৱাওক">
 <!ENTITY main.osxhideothers             "অন্যবোৰ লুকাই থওক">
 <!ENTITY main.osxshowall                "সকলোবোৰ দেখুৱাওক">
 

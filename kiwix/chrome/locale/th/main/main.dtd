@@ -3,8 +3,8 @@
 <!ENTITY main.cssdirection              "ltr">
 
 <!-- Mac menu -->
-<!ENTITY main.osxservices               "Services">
-<!ENTITY main.osxhideapp                "Hide &brand.brandShortName;">
+<!ENTITY main.osxservices               "บริการ">
+<!ENTITY main.osxhideapp                "ซ่อน &brand.brandShortName;">
 <!ENTITY main.osxhideothers             "ซ่อนอื่น ๆ">
 <!ENTITY main.osxshowall                "แสดงทั้งหมด">
 
@@ -14,7 +14,7 @@
 <!ENTITY main.openFile                  "เปิดแฟ้ม...">
 <!ENTITY main.browseLibrary.accesskey   "B">
 <!ENTITY main.browseLibrary             "เปิดดูคลังดาวน์โหลด">
-<!ENTITY main.hideLibrary               "Hide library">
+<!ENTITY main.hideLibrary               "ซ่อนรายการ">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "เปิดล่าสุด...">
 <!ENTITY main.saveFile                  "บันทึกหน้าเป็น...">
@@ -37,9 +37,9 @@
 <!ENTITY main.copy.accesskey            "p">
 <!ENTITY main.transliteration           "การทับศัพท์">
 <!ENTITY main.transliteration.accesskey "T">
-<!ENTITY main.preferences               "ตั้งค่า">
+<!ENTITY main.preferences               "การตั้งค่า">
 <!ENTITY main.preferences.accesskey     "n">
-<!ENTITY main.server                    "Server">
+<!ENTITY main.server                    "เซิร์ฟเวอร์">
 <!ENTITY main.server.accesskey          "s">
 
 <!-- Display menu -->
@@ -93,7 +93,7 @@
 <!ENTITY main.home                      "หน้าแรก">
 <!ENTITY main.searchBar                 "แถบค้นหา">
 <!ENTITY main.search                    "ค้นหา">
-<!ENTITY main.searchPlaceholder         "Type the text to search here...">
+<!ENTITY main.searchPlaceholder         "พิมพ์ข้อความการค้นหาที่นี่...">
 <!ENTITY main.findInText                "ค้นหาในข้อความ">
 <!ENTITY main.noSearchBar               "การค้นหาต้องมีการจัดทำดัชนีแฟ้ม ZIM">
 <!ENTITY main.bookmarks                 "ที่คั่นหน้าเว็บ">
@@ -129,13 +129,13 @@
 <!ENTITY preferences.profileDirectory   "ไดเรกทอรีโปรไฟล์">
 <!ENTITY preferences.browse             "เรียกดู">
 <!ENTITY preferences.tabs               "จำแท็บนี้ไว้">
-<!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">
+<!ENTITY preferences.downloadCatalogs   "ดาวน์โหลดบัญชีรายชื่อระยะไกล">
 
 <!-- Server -->
-<!ENTITY server.load                    "Load">
-<!ENTITY server.start                   "Start">
-<!ENTITY server.stop                    "Stop">
-<!ENTITY server.close                   "Close">
+<!ENTITY server.load                    "โหลด">
+<!ENTITY server.start                   "เริ่ม">
+<!ENTITY server.stop                    "หยุด">
+<!ENTITY server.close                   "ปิด">
 
 <!-- Library -->
 <!ENTITY main.library.myLibrary                 "คลังดาวน์โหลดของฉัน">
