@@ -102,7 +102,7 @@ _languagesHash['swa']          = _languagesHashOld['sw']          = 'Kiswahili';
 _languagesHash['ta']           = 'தமிழ்';
 _languagesHash['tcy']          = 'ತುಳು';
 _languagesHash['te']           = 'తెలుగు';
-_languagesHash['th']           = 'ไทย';
+_languagesHash['tha']          = _languagesHashOld['th']          = 'ไทย';
 _languagesHash['tt-cyrl']      = 'Татарча';
 _languagesHash['tur']          = _languagesHashOld['tr']          = 'Türkçe';
 _languagesHash['ug-arab']      = 'ئۇيغۇرچە';
