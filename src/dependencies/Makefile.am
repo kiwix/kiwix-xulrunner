@@ -249,21 +249,11 @@ libmicrohttpd/lib/libmicrohttpd.dll.a: libmicrohttpd-0.9.17+libiconv-w32.zip
 ####################################################
 
 xz.tar.bz2:
-if IS_OSX
-	$(DOWNLOADER) xz.tar.bz2 $(DEP_MIRROR)/xz-4.999.9beta.tar.bz2
-else
-	$(DOWNLOADER) xz.tar.bz2 $(DEP_MIRROR)/xz-5.0.3.tar.bz2
-endif
+	$(DOWNLOADER) xz.tar.bz2 $(DEP_MIRROR)/xz-5.0.4.tar.bz2
 
 xz: xz.tar.bz2
 	tar -xf xz.tar.bz2
-if IS_OSX
-	mv xz-4.999.9beta xz
-	echo "patching liblzma for OSX"
-	cd xz && patch -p0 < ../patches/xz-4.999.9beta-sysctl-darwin.patch && patch -p0 < ../patches/xz-4.999.9beta-lzma-versioninfo.patch
-else
-	mv xz-5.0.3 xz
-endif
+	mv xz-5.0.4 xz
 
 xz/build/lib/liblzma.so: xz
 	cd xz && mkdir -p build && CC=$(COMPC) CXX=$(COMPCXX) CFLAGS=" -fPIC " ./configure --disable-assembler --enable-shared --enable-static --prefix=$(DEP_PATH)/xz/build && make clean && make && make install
@@ -281,11 +271,11 @@ xz/build-x86_64/lib/liblzma.dylib: xz
 	cd xz && mkdir -p build-x86_64 && CC="gcc -arch x86_64" CXX="g++ -arch x86_64" CFLAGS=" -fPIC -mmacosx-version-min=10.5 -isysroot /Developer/SDKs/MacOSX10.5.sdk " ./configure --disable-assembler --enable-shared --enable-static --prefix=$(DEP_PATH)/xz/build-x86_64 && make clean && make && make install && install_name_tool -id liblzma.dylib build-x86_64/lib/liblzma.dylib
 
 # Windows
-xz-5.0.3-windows.zip:
-	$(DOWNLOADER) xz-5.0.3-windows.zip $(DEP_MIRROR)/xz-5.0.3-windows.zip
+xz-5.0.4-windows.zip:
+	$(DOWNLOADER) xz-5.0.4-windows.zip $(DEP_MIRROR)/xz-5.0.4-windows.zip
 
-xz-win/bin_i486/liblzma.lib: xz-5.0.3-windows.zip
-	mkdir -p xz-win ; unzip -o -d xz-win xz-5.0.3-windows.zip ; cd xz-win/bin_i486 ; cp -v ../doc/liblzma.def . ; lib /def:liblzma.def /out:liblzma.lib /machine:ix86
+xz-win/bin_i486/liblzma.lib: xz-5.0.4-windows.zip
+	mkdir -p xz-win ; unzip -o -d xz-win xz-5.0.4-windows.zip ; cd xz-win/bin_i486 ; cp -v ../doc/liblzma.def . ; lib /def:liblzma.def /out:liblzma.lib /machine:ix86
 
 ####################################################
 ############ ARIA2 (downloaded)
@@ -419,7 +409,7 @@ DISTCLEANFILES= xulrunner-sdk.tar.bz2 \
 	icu.zip \
 	libmicrohttpd-0.9.19.tar.gz \
 	xz.tar.bz2 \
-	xz-5.0.3-windows.zip \
+	xz-5.0.4-windows.zip \
 	aria2c \
 	aria2-1.14.2.dmg \
 	aria2-1.14.2.pkg \
