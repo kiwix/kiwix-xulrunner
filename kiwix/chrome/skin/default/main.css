@@ -397,18 +397,14 @@ tab[selected="true"] label {
 #tabs-add-button {
     -moz-appearance: none;
     list-style-image: url("chrome://main/skin/icon/add12.png");
-    padding: 0px;
+    padding: 2px 0px 3px 6px;
     margin: 0px;
     border-radius: 5px 5px 0 0;
     border: 1px solid #cdcdcd !important;
     border-bottom: none !important;
-    background-color: #f2f1f0;
     background-color: #dfdbd2 !important;
     width: 25px;
     height: 25px;
-    padding-left: 5px;
-    padding-top: 2px;
-    padding-bottom: 5px;
 }
 
 #tabs-add-button:hover {
