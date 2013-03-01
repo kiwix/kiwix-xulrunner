@@ -622,7 +622,7 @@ function createLibraryItem(book) {
     var languageLabel = document.createElementNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul", 
 						 "label");
     languageLabel.setAttribute("class", "library-content-item-detail");
-    languageLabel.setAttribute("value", "Language: " + (getLanguageNameFromISO(book.language) || book.language));
+    languageLabel.setAttribute("value", "Language: " + (getLanguageNameFromISOCodes(book.language) || book.language));
     rightColumn.appendChild(languageLabel);
     
     columns.appendChild(rightColumn);
@@ -780,7 +780,7 @@ function populateLibraryFilters() {
 	var currentLanguageCode = bookLanguageCodes[index];
 
 	if (currentLanguageCode) {
-	    var currentLanguage = getLanguageNameFromISO(currentLanguageCode);
+	    var currentLanguage = getLanguageNameFromISOCodes(currentLanguageCode);
 	    var currentLanguageRegex = getLanguageRegex(currentLanguage);
 	    
 	    if (currentLanguage && alreadyListedLanguages[currentLanguageRegex] === undefined) {

@@ -6,6 +6,7 @@ Kiwix 0.9 rc3
 * FIXED: Unavailable kiwix-serve from the UI on Linux, if not installed (#411)
 * FIXED: kiwix-serve UI for non-javascript browsers like Dillo (#587)
 * FIXED: kiwix-serve crahs if really long URL (#400)
+* FIXED: small display issue if multilingual ZIM file
 * NEW: New supported user interface languages: Chuvash (cv), Fiji
   Hindi Latin script (hif-latn), Mongolian (mn), Newari (new),
   Sanskrit (sa), Uzbek (uz)

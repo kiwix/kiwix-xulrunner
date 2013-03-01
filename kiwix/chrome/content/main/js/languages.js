@@ -127,6 +127,17 @@ function getLanguageNameFromISO(code) {
     return language;
 }
 
+function getLanguageNameFromISOCodes(codes) {
+    var result = "";
+    var codeArray = codes.split(',');
+    for (var i in codeArray) {
+	result += getLanguageNameFromISO(codeArray[i]);
+	if (i < codeArray.length-1)
+	    result += ', ';
+    }
+    return result;
+}
+
 /* Be careful, this function returns false, also if undefined - that
  * means nothing because the table _languagesHashOld is not complete */
 function isOldLanguageCode(code) {
