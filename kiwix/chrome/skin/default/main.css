@@ -294,7 +294,7 @@ window[langdir="rtl"] #button-next {
 
 /* Tabs */
 #tab-box {
-    margin: 0;
+    margin: 0px;
     position: relative;
     padding-top: 4px;
     background-color: #f2f1f0;
@@ -333,7 +333,6 @@ window[langdir="rtl"] #button-next {
     box-shadow: 2px 2px 5px #888;
 }
 
-/* Under Linux, never set margin or paddin, this generate displaying issues */
 #main * .tab-header {
     height: 25px;
     width: 150px;
@@ -376,8 +375,6 @@ window[langdir="rtl"] #button-next {
 #tab-headers tab[selected="true"] {
     background-color: #f2f1f0 !important;
     border-bottom: none;
-
-
     top: -1px;
     height: 31px;
 }
@@ -396,15 +393,21 @@ tab[selected="true"] label {
 
 #tabs-add-button {
     -moz-appearance: none;
+    width: 25px;
+    height: 25px;
+    background-color: #dfdbd2 !important;
     list-style-image: url("chrome://main/skin/icon/add12.png");
-    padding: 2px 0px 3px 6px;
+    padding-top: 2px;
     margin: 0px;
     border-radius: 5px 5px 0 0;
     border: 1px solid #cdcdcd !important;
     border-bottom: none !important;
-    background-color: #dfdbd2 !important;
-    width: 25px;
-    height: 25px;
+}
+window[langdir="rtl"] #tabs-add-button {
+    padding-right: 5px;  
+}
+window[langdir="ltr"] #tabs-add-button {
+    padding-left: 6px;  
 }
 
 #tabs-add-button:hover {
@@ -425,12 +428,12 @@ tab[selected="true"] label {
 /******** WINDOWS */
 
 #main.win #tool-box {
-	margin-left: 0 !important;
+    margin-left: 0 !important;
 }
 
 #main.win * .tab-header  {
-	top: 6px;
-	bottom: auto;
+    top: 6px;
+    bottom: auto;
 }
 
 #main.win * tab[selected="true"] {
@@ -438,17 +441,17 @@ tab[selected="true"] label {
 }
 
 #main.win * .tabs-close-button {
-	top: -2px;
+    top: -2px;
 }
 
 #main.win * #tabs-add-button {
-	position: relative;
+    position: relative;
     height: 22px;
-	bottom: -11px;
+    bottom: -11px;
 }
 
 #main.win * tab[selected="true"] .tab-header-label {
-	margin-bottom: -5px !important;
+    margin-bottom: -5px !important;
 }
 
 #main.win.notabs * #tab-box {
