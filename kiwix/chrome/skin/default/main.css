@@ -344,7 +344,6 @@ window[langdir="rtl"] #button-next {
 }
 
 .tab-header-label {
-    text-align: left;
     width: 120px;
     margin: 0px;
     padding: 0px;
@@ -519,10 +518,17 @@ window[langdir="ltr"] #tabs-add-button {
 
 /* Status bar */
 #status-bar {
-    height: auto;
     margin: 0px;
-    padding-top: 5px;
-    padding-left: 5px;
+    height: 22px;
+}
+
+#status-bar-image {
+    margin: 3px 3px 0px 3px;
+}
+
+#address-bar {
+    margin: 0px;
+    padding: 3px 0px 0px 3px;
 }
 
 #earth-icon {
@@ -535,13 +541,11 @@ window[langdir="ltr"] #tabs-add-button {
 
 #progress-bar {
     width: 200px;
-    height: 19px;
 }
 
 #progress-bar-label {
-    margin-top: 3px;
+    margin-top: 2px;
     text-align: center;
-    font-size: 90%;
 }
 
 /* Library manager */
