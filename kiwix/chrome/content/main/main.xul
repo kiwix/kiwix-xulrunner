@@ -247,18 +247,10 @@
 <toolbox id="tool-box">
   <toolbar id="tool-bar" class="chromeclass-toolbar">
     <toolbarbutton id="sugar-button-options" oncommand="openSugarOptionsMenu()"/>
+    <toolbarbutton id="button-library" oncommand="toggleLibrary()" tooltiptext="&main.browseLibrary;" checked="false" />
     <toolbarbutton id="button-home" oncommand="goHome(isCtrlDown())" tooltiptext="&main.home;"/>
     <toolbarbutton id="button-back" oncommand="pageBack(isCtrlDown())" tooltiptext="&main.back;"/>
     <toolbarbutton id="button-next" oncommand="pageNext(isCtrlDown())" tooltiptext="&main.forward;"/>
-    <toolbarbutton id="sugar-button-display" oncommand="toggleSugarDisplayBar()" />
-    <toolbarbutton id="button-zoom-in" oncommand="zoomIn()" tooltiptext="&main.zoomin;"/>
-    <toolbarbutton id="button-zoom-out" oncommand="zoomOut()" tooltiptext="&main.zoomout;"/>
-    <toolbarbutton id="button-fullscreen" oncommand="UIToggleFullScreen(true)" tooltiptext="&main.fullscreen;"/>
-    <toolbarbutton id="button-print" oncommand="print()" tooltiptext="&main.print;"/>
-    <toolbarbutton id="button-bookmarks" oncommand="UIToggleBookmarksBar()" tooltiptext="&main.bookmarks;"/>
-    <toolbarbutton id="button-search-article" oncommand="find()" tooltiptext="&main.findInText;" />
-    <toolbarbutton id="button-library" oncommand="toggleLibrary()" tooltiptext="&main.browseLibrary;" checked="false" />
-
     <stack flex="1">
       <hbox>
 	<textbox id="textbox-search" flex="1" tooltiptext="&main.searchBar;" placeholder="&main.searchPlaceholder;"
@@ -272,6 +264,13 @@
       </hbox>
       <label id="search-label" style="margin: 0px;" collapsed="true" tooltiptext="&main.noSearchBar;"/>
     </stack>
+    <toolbarbutton id="button-bookmarks" oncommand="UIToggleBookmarksBar()" tooltiptext="&main.bookmarks;"/>
+    <toolbarbutton id="button-print" oncommand="print()" tooltiptext="&main.print;"/>
+    <toolbarbutton id="button-search-article" oncommand="find()" tooltiptext="&main.findInText;" />
+    <toolbarbutton id="button-zoom-in" oncommand="zoomIn()" tooltiptext="&main.zoomin;"/>
+    <toolbarbutton id="button-zoom-out" oncommand="zoomOut()" tooltiptext="&main.zoomout;"/>
+    <toolbarbutton id="sugar-button-display" oncommand="toggleSugarDisplayBar()" />
+    <toolbarbutton id="button-fullscreen" oncommand="UIToggleFullScreen(true)" tooltiptext="&main.fullscreen;"/>
     <toolbarbutton id="sugar-button-back" oncommand="pageBack()" tooltiptext="&main.back;"/>
     <toolbarbutton id="sugar-button-next" oncommand="pageNext()" tooltiptext="&main.forward;"/>
     <toolbarbutton id="sugar-button-bookmark" tooltiptext="Mark/Unmark this page" oncommand="toggleBookmarkStatusForCurrentPage()" />
@@ -344,7 +343,7 @@
 
 	<!-- Status bar -->
 	<hbox id="status-bar">
-	  <vbox>
+	  <vbox id="status-bar-image">
 	    <image id="earth-icon" collapsed="true"/>
 	    <image id="book-icon" collapsed="true"/>
 	  </vbox>
