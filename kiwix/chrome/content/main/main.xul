@@ -267,8 +267,8 @@
     <toolbarbutton id="button-bookmarks" oncommand="UIToggleBookmarksBar()" tooltiptext="&main.bookmarks;"/>
     <toolbarbutton id="button-print" oncommand="print()" tooltiptext="&main.print;"/>
     <toolbarbutton id="button-search-article" oncommand="find()" tooltiptext="&main.findInText;" />
-    <toolbarbutton id="button-zoom-in" oncommand="zoomIn()" tooltiptext="&main.zoomin;"/>
     <toolbarbutton id="button-zoom-out" oncommand="zoomOut()" tooltiptext="&main.zoomout;"/>
+    <toolbarbutton id="button-zoom-in" oncommand="zoomIn()" tooltiptext="&main.zoomin;"/>
     <toolbarbutton id="sugar-button-display" oncommand="toggleSugarDisplayBar()" />
     <toolbarbutton id="button-fullscreen" oncommand="UIToggleFullScreen(true)" tooltiptext="&main.fullscreen;"/>
     <toolbarbutton id="sugar-button-back" oncommand="pageBack()" tooltiptext="&main.back;"/>
@@ -277,8 +277,8 @@
     <toolbarbutton id="sugar-button-quit" tooltiptext="Quit" command="cmd:quit"/>
   </toolbar>
   <toolbar id="sugar-display-toolbar">
-    <toolbarbutton id="sugar-button-zoom-in" oncommand="zoomIn()" tooltiptext="&main.zoomin;"/>
     <toolbarbutton id="sugar-button-zoom-out" oncommand="zoomOut()" tooltiptext="&main.zoomout;"/>
+    <toolbarbutton id="sugar-button-zoom-in" oncommand="zoomIn()" tooltiptext="&main.zoomin;"/>
     <toolbarbutton id="sugar-button-copy" oncommand="copySelectedContent()" tooltiptext="&main.copy;"/>
     <toolbarbutton id="sugar-button-bookmarks" oncommand="UIToggleBookmarksBar()" tooltiptext="&main.bookmarks;"/>
   </toolbar>
