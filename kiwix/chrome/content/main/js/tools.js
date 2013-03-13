@@ -316,11 +316,12 @@ function loadContentFromCommandLine(commandLine) {
 	    var argument;
 	    var firstLoad = true;
 
+
 	    while ((argument = commandLine.handleFlagWithParam("articleByUrl", false)) != undefined) {
 		if (!argument.match(/^zim:\/\/.*$/)) {
 		    argument = "zim://" + argument;
 		}
-		
+
 		if (firstLoad) {
 		    manageOpenUrl(argument);
 		    firstLoad = false;

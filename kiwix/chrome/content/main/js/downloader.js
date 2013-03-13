@@ -32,6 +32,35 @@ function loadBinaryResource(url) {
     return (req.status == 200 ? req.responseText : '');
 }
 
+function checkIfOnline() {
+    var url = 'http://www.kiwix.org/robots.txt';
+    var xmlhttp = new XMLHttpRequest();
+    var online = false;
+
+    function onStateChange() {
+	if (xmlhttp.readyState == 4) {
+            try {
+		if (xmlhttp.status == 200) {
+		    online = true;
+		} else {
+		    oneline = false;
+		}
+	    } catch(err) {
+	    }
+	}
+    }
+    
+    if (xmlhttp != null) {
+        xmlhttp.onreadystatechange = onStateChange;
+        xmlhttp.open("GET", url, false);
+        xmlhttp.send(null);
+    } else {
+	online = false;
+    }
+
+    return online;
+}
+
 onmessage = function(event) {
     var message = event.data;
     if (message.id == "downloadBookList") {
@@ -46,6 +75,10 @@ onmessage = function(event) {
 	var id = message.callbackParameters[0];
 	var content = loadBinaryResource(url);
 	message = new WorkerMessage("downloadedMetalink", [ id, content ]);
+	postMessage(message);
+    } else if (message.id == "updateOnlineStatus") {
+	var isOnline = checkIfOnline();
+	message = new WorkerMessage("updateOnlineStatus", [ isOnline ]);
 	postMessage(message);
     }
 };

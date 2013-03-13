@@ -26,12 +26,16 @@ var _oldWindowTitle = "";
 var _libraryKeyCursorOnMenu = false;
 var _isDownloaderRunningTimestamp = Number(new Date());
 var _isDownloaderRunning = false;
+var _isOnline = undefined;
 var checkDownloaderId;
 var checkDownloadStatusId;
+var updateOnlineStatusId;
 
 downloader.onmessage = function(event) {
     var message = event.data;
-    if (message.id == "downloadedMetalink") {
+    if (message.id == "updateOnlineStatus") {
+	_isOnline = message.parameters[0];
+    } else if (message.id == "downloadedMetalink") {
 	addMetalink(message.parameters[0], message.parameters[1]);
     } else if (message.id == "downloadedBookList") {
 	var xml = message.parameters[0];
@@ -813,7 +817,9 @@ function populateLibraryFilters() {
 
     var publishers = library.getBooksPublishers();
     var publisherMenu = document.getElementById('library-filter-publisher');
-    while (publisherMenu.firstChild.childNodes.length>1) { publisherMenu.firstChild.removeChild(publisherMenu.firstChild.lastChild); }
+    while (publisherMenu.firstChild.childNodes.length>1) { 
+	publisherMenu.firstChild.removeChild(publisherMenu.firstChild.lastChild);
+    }
     tmpHash = new Array();
 
     for(var index=0; index<publishers.length; index++) {
@@ -828,26 +834,35 @@ function populateLibraryFilters() {
     }
 }
 
-function manageDownloadRemoteBookList() {
-    var continueWithDownloading = settings.downloadRemoteCatalogs();
-
-    /* If necesseray ask for permission to download the remote catalog */
-    if (continueWithDownloading === undefined) {
-	var doNotAskAnymore = new Object();
-	doNotAskAnymore.value = true;
-
-	continueWithDownloading = displayConfirmDialogEx(getProperty("downloadRemoteCatalogsConfirm"), getProperty("downloadRemoteCatalogs"), getProperty("doNotAskAnymore"), doNotAskAnymore);
-
-	/* Save the autorisation to not ask each time */
-	if (doNotAskAnymore.value == true) {
-	    settings.downloadRemoteCatalogs(continueWithDownloading);
+function manageDownloadRemoteBookListCore() {
+    if (_isOnline !== undefined) {
+	clearInterval(updateOnlineStatusId);
+	var continueWithDownloading = settings.downloadRemoteCatalogs();
+	
+	/* If necesseray ask for permission to download the remote catalog */
+	if (continueWithDownloading === undefined) {
+	    var doNotAskAnymore = new Object();
+	    doNotAskAnymore.value = true;
+	    
+	    continueWithDownloading = displayConfirmDialogEx(getProperty("downloadRemoteCatalogsConfirm"), getProperty("downloadRemoteCatalogs"), getProperty("doNotAskAnymore"), doNotAskAnymore);
+	    
+	    /* Save the autorisation to not ask each time */
+	    if (doNotAskAnymore.value == true) {
+		settings.downloadRemoteCatalogs(continueWithDownloading);
+	    }
+	}
+	
+	/* Download the remote catalogs */
+	if (continueWithDownloading) {
+	    downloadRemoteBookList(true, true);
 	}
     }
+}
 
-    /* Download the remote catalogs */
-    if (continueWithDownloading) {
-	downloadRemoteBookList(true, true);
-    }
+function manageDownloadRemoteBookList() {
+    updateOnlineStatusId = window.setInterval("manageDownloadRemoteBookListCore()", 1000);
+    var message = new WorkerMessage("updateOnlineStatus");             
+    downloader.postMessage(message);
 }
 
 function downloadRemoteBookList(populateRemoteBookList, resumeDownloads) {
@@ -1016,6 +1031,7 @@ function initLibrary() {
 
 /* No download for Sugar */
 function initDownloader() {
+    
     if (!env.isSugar()) {
 	startDownloader();
         startDownloadObserver();

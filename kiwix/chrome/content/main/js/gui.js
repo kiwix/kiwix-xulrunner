@@ -909,12 +909,12 @@ function toggleBrowserContextualMenu(event) {
     var copyLinkAddressMenuItem = document.getElementById("browser-contextual-menu-copylinkaddress");
     var url = getNodeLinkUrl(target);
     if (url != undefined) {
-	if (!isInternalUrl(url)) {
+//	if (!isInternalUrl(url)) {
 	    copyLinkAddressMenuItem.setAttribute("style", "display: visible;");
 	    copyLinkAddressMenuItem.setAttribute("onclick", "copyTextToClipboard(\"" + url.replace("\"", "\\\"") + "\")");
-	} else {
-	    copyLinkAddressMenuItem.setAttribute("style", "display: none;");
-	}
+//	} else {
+//	    copyLinkAddressMenuItem.setAttribute("style", "display: none;");
+//	}
     } else {
 	copyLinkAddressMenuItem.setAttribute("style", "display: none;");
     }    
@@ -1476,14 +1476,13 @@ function initEventListeners() {
 	getService(Components.interfaces.nsIObserverService);
     var observer = {
 	observe: function(subject, topic, data) {
-
-		gOS.removeObserver(this, "xul-window-visible");
-        if (!env.isSugar()) {
-		    manageDownloadRemoteBookList();
-        }
+	    gOS.removeObserver(this, "xul-window-visible");
+            if (!env.isSugar()) {
+		manageDownloadRemoteBookList();
+            }
 	}
     }
-	gOS.addObserver(observer, "xul-window-visible", false);    
+    gOS.addObserver(observer, "xul-window-visible", false);    
     
     /* Kiwix called with ZIM file path on command line */
     document.addEventListener("onZimArg", function(e) { loadContentFromCommandLine(e.data) }, false);
