@@ -837,24 +837,26 @@ function populateLibraryFilters() {
 function manageDownloadRemoteBookListCore() {
     if (_isOnline !== undefined) {
 	clearInterval(updateOnlineStatusId);
-	var continueWithDownloading = settings.downloadRemoteCatalogs();
+	if (_isOnline == true) {
+	    var continueWithDownloading = settings.downloadRemoteCatalogs();
 	
-	/* If necesseray ask for permission to download the remote catalog */
-	if (continueWithDownloading === undefined) {
-	    var doNotAskAnymore = new Object();
-	    doNotAskAnymore.value = true;
-	    
-	    continueWithDownloading = displayConfirmDialogEx(getProperty("downloadRemoteCatalogsConfirm"), getProperty("downloadRemoteCatalogs"), getProperty("doNotAskAnymore"), doNotAskAnymore);
-	    
-	    /* Save the autorisation to not ask each time */
-	    if (doNotAskAnymore.value == true) {
-		settings.downloadRemoteCatalogs(continueWithDownloading);
+	    /* If necesseray ask for permission to download the remote catalog */
+	    if (continueWithDownloading === undefined) {
+		var doNotAskAnymore = new Object();
+		doNotAskAnymore.value = true;
+		
+		continueWithDownloading = displayConfirmDialogEx(getProperty("downloadRemoteCatalogsConfirm"), getProperty("downloadRemoteCatalogs"), getProperty("doNotAskAnymore"), doNotAskAnymore);
+		
+		/* Save the autorisation to not ask each time */
+		if (doNotAskAnymore.value == true) {
+		    settings.downloadRemoteCatalogs(continueWithDownloading);
+		}
 	    }
-	}
-	
-	/* Download the remote catalogs */
-	if (continueWithDownloading) {
-	    downloadRemoteBookList(true, true);
+	    
+	    /* Download the remote catalogs */
+	    if (continueWithDownloading) {
+		downloadRemoteBookList(true, true);
+	    }
 	}
     }
 }
