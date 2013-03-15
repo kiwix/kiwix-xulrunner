@@ -357,7 +357,7 @@
 
       </vbox>
     </page>
-    <page id="library-page" flex="1">
+    <page id="library-page" flex="1" style="display: none;"><!-- Do not remove display:non, browser size problem -->
       <hbox flex="1">
 	<vbox class="library-left">
 	  <box class="library-left-stuffer" style="height: 10px;" />

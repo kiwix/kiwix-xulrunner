@@ -891,6 +891,7 @@ function toggleLibrary(visible) {
     var newWindowTitle = getProperty("library") + " - Kiwix";
     var browseLibraryMenuItem = document.getElementById("file-browse-library");
     var hideLibraryMenuItem = document.getElementById("file-hide-library");
+    var libraryPage = document.getElementById("library-page");
 
     if (visible == undefined) {
 	visible = isLibraryVisible() ? false : true;
@@ -899,6 +900,9 @@ function toggleLibrary(visible) {
     }
 
     if (!visible) {
+	/* Do not remove, insible decks still have side effects on visible ones */
+	libraryPage.setAttribute("style", "display: none;");
+
 	browseLibraryMenuItem.setAttribute("style", "display: visible;");
 	hideLibraryMenuItem.setAttribute("style", "display: none;");
 	libraryButton.setAttribute("tooltiptext", getProperty("browseLibrary"));
@@ -918,6 +922,9 @@ function toggleLibrary(visible) {
 	    UIToggleBookmarksBar(true);
 	}
     } else {
+	/* Do not remove, insible decks still have side effects on visible ones */
+	libraryPage.setAttribute("style", "display: visible;");
+
 	browseLibraryMenuItem.setAttribute("style", "display: none;");
 	hideLibraryMenuItem.setAttribute("style", "display: visible;");
 	libraryButton.setAttribute("tooltiptext", getProperty("hideLibrary"));
