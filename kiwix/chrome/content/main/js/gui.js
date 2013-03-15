@@ -61,15 +61,17 @@ var articleLoadingListener = {
 
 /* Load an url in the HTML render element */
 function loadContent(url, id, scrollY) {
+    var browser = getHtmlRenderer(id);
+
     try {
 	if (areColorsInverted()) {
-	    getHtmlRenderer(id).loadURI("chrome://main/content/other/invertColors.html#" + url, null, null);
+	    browser.loadURI("chrome://main/content/other/invertColors.html#" + url, null, null);
 	} else {
-	    getHtmlRenderer(id).loadURI(url, null, null);
+	    browser.loadURI(url, null, null);
 	}
 
 	if (scrollY) {
-	    getHtmlRenderer(id).setAttribute("initScrollY", scrollY);
+	    browser.setAttribute("initScrollY", scrollY);
 	}
 
     } catch(e) {
@@ -350,11 +352,11 @@ function manageOpenUrl(url, id, scrollY) {
     if (!isInternalUrl(url)) {
 	openUrlWithExternalBrowser(url);
     } else { /* If the a ZIM or chrome url */
-	if (loadContent(url, id, scrollY)) { 	 
+	if (loadContent(url, id, scrollY)) {
 	    updateGuiHistoryComponents();
 	}
     }
-    
+
     return true;
 }
 
