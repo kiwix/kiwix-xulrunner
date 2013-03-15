@@ -10,6 +10,7 @@ Kiwix 0.9 rc3
 * FIXED: Toolbar buttons order
 * FIXED: Argument forwarding in kiwix-launcher
 * FIXED: Copy to clipboard if inverted colors (#414)
+* FIXED: Select all inverted colors
 * NEW: New supported user interface languages: Chuvash (cv), Fiji
   Hindi Latin script (hif-latn), Mongolian (mn), Newari (new),
   Sanskrit (sa), Uzbek (uz)

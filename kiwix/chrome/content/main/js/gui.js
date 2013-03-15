@@ -546,7 +546,19 @@ function copySelectedContent() {
 
 /* Select all content of the page */
 function selectAll() {
-    getHtmlRenderer().contentViewerEdit.selectAll();
+    var browser = getHtmlRenderer();
+
+    if (areColorsInverted() && browser.contentDocument.getElementsByTagName("iframe").length > 0) {
+	var iframe = browser.contentDocument.getElementsByTagName("iframe")[0];
+	var content = iframe.contentDocument;
+	var range = content.createRange();
+	range.selectNodeContents(iframe.contentWindow.document.body);
+	var selection = iframe.contentWindow.getSelection();
+	selection.removeAllRanges();
+	selection.addRange(range);
+    } else {
+	browser.contentViewerEdit.selectAll();
+    }
 }
 
 function updateHistoryNavigationButtons() {
