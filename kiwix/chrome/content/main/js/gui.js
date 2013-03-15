@@ -532,7 +532,16 @@ function setExternalBrowser() {
 
 /* Copy in memory the currently selected content */
 function copySelectedContent() {
-    getHtmlRenderer().contentViewerEdit.copySelection();
+    var browser = getHtmlRenderer();
+
+    if (areColorsInverted() && browser.contentDocument.getElementsByTagName("iframe").length > 0) {
+	const gClipboardHelper = Components.classes["@mozilla.org/widget/clipboardhelper;1"]
+	    .getService(Components.interfaces.nsIClipboardHelper);
+	var iframe = browser.contentDocument.getElementsByTagName("iframe")[0];
+	gClipboardHelper.copyString(iframe.contentDocument.getSelection());
+    } else {
+	browser.contentViewerEdit.copySelection();
+    }
 }
 
 /* Select all content of the page */
