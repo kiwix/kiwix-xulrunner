@@ -12,6 +12,7 @@ Kiwix 0.9 rc3
 * FIXED: Copy to clipboard if inverted colors (#414)
 * FIXED: Select all inverted colors
 * FIXED: Browser widget resizing sync. with the window (#382)
+* FIXED: Encoding issue in kiwix-serve 404 error message
 * NEW: New supported user interface languages: Chuvash (cv), Fiji
   Hindi Latin script (hif-latn), Mongolian (mn), Newari (new),
   Sanskrit (sa), Uzbek (uz)
