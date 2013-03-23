@@ -130,6 +130,7 @@
 <!ENTITY preferences.browse             "Курăм">
 <!ENTITY preferences.tabs               "Кантăксене ас ту">
 <!ENTITY preferences.downloadCatalogs   "Инçет каталог(сене) тиесе ил">
+<!ENTITY preferences.neverAskToIndex    "Never ask to index">
 
 <!-- Server -->
 <!ENTITY server.load                    "Тие">

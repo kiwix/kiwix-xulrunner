@@ -130,6 +130,7 @@
 <!ENTITY preferences.browse             "瀏覽">
 <!ENTITY preferences.tabs               "記住簽頁">
 <!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">
+<!ENTITY preferences.neverAskToIndex    "Never ask to index">
 
 <!-- Server -->
 <!ENTITY server.load                    "Load">

@@ -130,6 +130,7 @@
 <!ENTITY preferences.browse             "Duerchsichen">
 <!ENTITY preferences.tabs               "Sech un d'Tabben erënneren">
 <!ENTITY preferences.downloadCatalogs   "Extern(e) Katalog(en) eroflueden">
+<!ENTITY preferences.neverAskToIndex    "Never ask to index">
 
 <!-- Server -->
 <!ENTITY server.load                    "Lueden">

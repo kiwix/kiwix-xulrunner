@@ -35,6 +35,9 @@ function onPreferencesDialogStart() {
 
     var downloadRemoteCatalogsCheckbox = document.getElementById("downloadCatalogs-checkbox");
     downloadRemoteCatalogsCheckbox.checked = settings.downloadRemoteCatalogs();
+
+    var neverAskToIndexCheckbox = document.getElementById("neverAskToIndex-checkbox");
+    neverAskToIndexCheckbox.checked = settings.neverAskToIndex();
 }
 
 function savePreferences() {
@@ -50,6 +53,9 @@ function savePreferences() {
     if (!oldDownloadRemoteCatalogs && downloadRemoteCatalogs) {
 	restart();
     }
+
+    var neverAskToIndexCheckbox = document.getElementById("neverAskToIndex-checkbox");
+    settings.neverAskToIndex(neverAskToIndexCheckbox.checked);
 }
 
 /* Choose new profile directory */

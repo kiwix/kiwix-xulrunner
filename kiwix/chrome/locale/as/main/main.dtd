@@ -130,6 +130,7 @@
 <!ENTITY preferences.browse             "ব্রাওজ">
 <!ENTITY preferences.tabs               "টাঁব মনত ৰাখক">
 <!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">
+<!ENTITY preferences.neverAskToIndex    "Never ask to index">
 
 <!-- Server -->
 <!ENTITY server.load                    "ল'ড কৰক">

@@ -130,6 +130,7 @@
 <!ENTITY preferences.browse             "ब्राउस् इत्येतत् करोतु।">
 <!ENTITY preferences.tabs               "पीठिकाः स्मर्यन्ताम्">
 <!ENTITY preferences.downloadCatalogs   "दूरस्थवस्तुसूचिः (-सूचयः) अवारोप्यताम्">
+<!ENTITY preferences.neverAskToIndex    "Never ask to index">
 
 <!-- Server -->
 <!ENTITY server.load                    "आरोप्यताम्">

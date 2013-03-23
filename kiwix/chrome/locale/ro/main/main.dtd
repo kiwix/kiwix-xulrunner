@@ -130,6 +130,7 @@
 <!ENTITY preferences.browse             "Răsfoire">
 <!ENTITY preferences.tabs               "Memorează filele">
 <!ENTITY preferences.downloadCatalogs   "Descarcă catalogul(oagele) la distanță">
+<!ENTITY preferences.neverAskToIndex    "Never ask to index">
 
 <!-- Server -->
 <!ENTITY server.load                    "Încarcă">

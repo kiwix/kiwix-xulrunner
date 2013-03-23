@@ -130,6 +130,7 @@
 <!ENTITY preferences.browse             "Праглядаць">
 <!ENTITY preferences.tabs               "Remember tabs">
 <!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">
+<!ENTITY preferences.neverAskToIndex    "Never ask to index">
 
 <!-- Server -->
 <!ENTITY server.load                    "Load">

@@ -130,6 +130,7 @@
 <!ENTITY preferences.browse             "ವಿಹರಿಸಿ">
 <!ENTITY preferences.tabs               "ಟ್ಯಾಬ್ಗಳನ್ನು ನೆನಪಿನಲ್ಲಿಡಿ">
 <!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">
+<!ENTITY preferences.neverAskToIndex    "Never ask to index">
 
 <!-- Server -->
 <!ENTITY server.load                    "Load">

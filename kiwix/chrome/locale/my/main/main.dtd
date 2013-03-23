@@ -130,6 +130,7 @@
 <!ENTITY preferences.browse             "ရှာဖွေလှန်လှောရန်">
 <!ENTITY preferences.tabs               "ဖွင့်ပြနေရာကို မှတ်ထားပေးရန်">
 <!ENTITY preferences.downloadCatalogs   "အခြားနေရာမှ စာမျက်နှာများကို ရယူရန်">
+<!ENTITY preferences.neverAskToIndex    "Never ask to index">
 
 <!-- Server -->
 <!ENTITY server.load                    "ကူးယူ">

@@ -130,6 +130,7 @@
 <!ENTITY preferences.browse             "Прагляд">
 <!ENTITY preferences.tabs               "Памятаць закладкі">
 <!ENTITY preferences.downloadCatalogs   "Загрузіць аддалены(я) каталёг(і)">
+<!ENTITY preferences.neverAskToIndex    "Never ask to index">
 
 <!-- Server -->
 <!ENTITY server.load                    "Загрузіць">

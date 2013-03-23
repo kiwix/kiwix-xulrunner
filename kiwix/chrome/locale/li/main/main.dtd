@@ -130,6 +130,7 @@
 <!ENTITY preferences.browse             "Blajere">
 <!ENTITY preferences.tabs               "Tabblajer ónthauwe">
 <!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">
+<!ENTITY preferences.neverAskToIndex    "Never ask to index">
 
 <!-- Server -->
 <!ENTITY server.load                    "Load">

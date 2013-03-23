@@ -130,6 +130,7 @@
 <!ENTITY preferences.browse             "Koʻrish">
 <!ENTITY preferences.tabs               "Bandlarni eslab qolish">
 <!ENTITY preferences.downloadCatalogs   "Masofaviy jildlarni yuklash">
+<!ENTITY preferences.neverAskToIndex    "Never ask to index">
 
 <!-- Server -->
 <!ENTITY server.load                    "Yuklash">

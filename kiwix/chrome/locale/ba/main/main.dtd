@@ -130,6 +130,7 @@
 <!ENTITY preferences.browse             "Байҡарға">
 <!ENTITY preferences.tabs               "Һалынмаларҙы хәтерҙә тоторға">
 <!ENTITY preferences.downloadCatalogs   "Юйылған каталогты (-тарҙы) күсереп алың">
+<!ENTITY preferences.neverAskToIndex    "Never ask to index">
 
 <!-- Server -->
 <!ENTITY server.load                    "Тейәргә">

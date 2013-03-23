@@ -130,6 +130,7 @@
 <!ENTITY preferences.browse             "Browse karo">
 <!ENTITY preferences.tabs               "Tabs ke yaad rakkho">
 <!ENTITY preferences.downloadCatalogs   "Duur ke catalog ke download karo">
+<!ENTITY preferences.neverAskToIndex    "Never ask to index">
 
 <!-- Server -->
 <!ENTITY server.load                    "Load karo">

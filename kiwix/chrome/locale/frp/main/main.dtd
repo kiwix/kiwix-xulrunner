@@ -130,6 +130,7 @@
 <!ENTITY preferences.browse             "Dèfelar">
 <!ENTITY preferences.tabs               "Sè rapelar des ongllètes">
 <!ENTITY preferences.downloadCatalogs   "Tèlèchargiér lo(s) catalogo(s) distant(s)">
+<!ENTITY preferences.neverAskToIndex    "Never ask to index">
 
 <!-- Server -->
 <!ENTITY server.load                    "Chargiér">

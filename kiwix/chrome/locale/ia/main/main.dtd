@@ -130,6 +130,7 @@
 <!ENTITY preferences.browse             "Foliar">
 <!ENTITY preferences.tabs               "Memorar schedas">
 <!ENTITY preferences.downloadCatalogs   "Discargar catalogo(s) remote">
+<!ENTITY preferences.neverAskToIndex    "Never ask to index">
 
 <!-- Server -->
 <!ENTITY server.load                    "Cargar">

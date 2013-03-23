@@ -130,6 +130,7 @@
 <!ENTITY preferences.browse             "Sfeuja">
 <!ENTITY preferences.tabs               "Arcordé je schede">
 <!ENTITY preferences.downloadCatalogs   "Dëscarié ij catàlogh da leugn">
+<!ENTITY preferences.neverAskToIndex    "Never ask to index">
 
 <!-- Server -->
 <!ENTITY server.load                    "Carié">

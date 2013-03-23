@@ -130,6 +130,7 @@
 <!ENTITY preferences.browse             "Tallózás">
 <!ENTITY preferences.tabs               "Emlékezzen a fülekre">
 <!ENTITY preferences.downloadCatalogs   "Távoli katalógus(ok) letöltése">
+<!ENTITY preferences.neverAskToIndex    "Never ask to index">
 
 <!-- Server -->
 <!ENTITY server.load                    "Betöltés">

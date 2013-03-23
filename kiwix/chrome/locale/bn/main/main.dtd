@@ -130,6 +130,7 @@
 <!ENTITY preferences.browse             "ব্রাউজ">
 <!ENTITY preferences.tabs               "টাঁব মনে রাখুন">
 <!ENTITY preferences.downloadCatalogs   "ক্যাটালগ ডাউনলোড করুন">
+<!ENTITY preferences.neverAskToIndex    "Never ask to index">
 
 <!-- Server -->
 <!ENTITY server.load                    "লোড">

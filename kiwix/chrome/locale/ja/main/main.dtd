@@ -130,6 +130,7 @@
 <!ENTITY preferences.browse             "閲覧">
 <!ENTITY preferences.tabs               "タブを記憶">
 <!ENTITY preferences.downloadCatalogs   "リモート カタログをダウンロード">
+<!ENTITY preferences.neverAskToIndex    "Never ask to index">
 
 <!-- Server -->
 <!ENTITY server.load                    "読み込み">

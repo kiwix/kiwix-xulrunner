@@ -130,6 +130,7 @@
 <!ENTITY preferences.browse             "Переглядати">
 <!ENTITY preferences.tabs               "Уложыти табы">
 <!ENTITY preferences.downloadCatalogs   "Скачаня одлеглого каталоґу(ів)">
+<!ENTITY preferences.neverAskToIndex    "Never ask to index">
 
 <!-- Server -->
 <!ENTITY server.load                    "Начітати">

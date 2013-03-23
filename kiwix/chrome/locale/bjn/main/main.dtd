@@ -130,6 +130,7 @@
 <!ENTITY preferences.browse             "Tangadahi">
 <!ENTITY preferences.tabs               "Ingati tab">
 <!ENTITY preferences.downloadCatalogs   "Unggah katalug rimut">
+<!ENTITY preferences.neverAskToIndex    "Never ask to index">
 
 <!-- Server -->
 <!ENTITY server.load                    "Load">

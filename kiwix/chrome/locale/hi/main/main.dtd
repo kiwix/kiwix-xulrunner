@@ -130,6 +130,7 @@
 <!ENTITY preferences.browse             "ब्राउज़ करें">
 <!ENTITY preferences.tabs               "पट्टीयाँ याद रखें">
 <!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">
+<!ENTITY preferences.neverAskToIndex    "Never ask to index">
 
 <!-- Server -->
 <!ENTITY server.load                    "लोड">

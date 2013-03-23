@@ -130,6 +130,7 @@
 <!ENTITY preferences.browse             "Esplora">
 <!ENTITY preferences.tabs               "Ricorda schede">
 <!ENTITY preferences.downloadCatalogs   "Scarica cataloghi remoti">
+<!ENTITY preferences.neverAskToIndex    "Never ask to index">
 
 <!-- Server -->
 <!ENTITY server.load                    "Carica">

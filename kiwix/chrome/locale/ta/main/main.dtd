@@ -130,6 +130,7 @@
 <!ENTITY preferences.browse             "உலவு">
 <!ENTITY preferences.tabs               "தாவல்களை நினைவில் கொள்">
 <!ENTITY preferences.downloadCatalogs   "தொலைதூர வரிசைப் பட்டியலை(பட்டியல்களை) தகவலிறக்கு">
+<!ENTITY preferences.neverAskToIndex    "Never ask to index">
 
 <!-- Server -->
 <!ENTITY server.load                    "ஏற்று">

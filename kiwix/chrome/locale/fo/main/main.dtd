@@ -130,6 +130,7 @@
 <!ENTITY preferences.browse             "Leita (brovsa)">
 <!ENTITY preferences.tabs               "Minst til flikrur (tabs, faneblade)">
 <!ENTITY preferences.downloadCatalogs   "Heintað eksterna(r) mappu(r)">
+<!ENTITY preferences.neverAskToIndex    "Never ask to index">
 
 <!-- Server -->
 <!ENTITY server.load                    "Tak niður">

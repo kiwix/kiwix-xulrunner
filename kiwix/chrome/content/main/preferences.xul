@@ -56,6 +56,10 @@
   <checkbox id="downloadCatalogs-checkbox" label="&preferences.downloadCatalogs;"/>
 </hbox>
 
+<hbox style="text-align: center; width: 600px;" align="center">
+  <checkbox id="neverAskToIndex-checkbox" label="&preferences.neverAskToIndex;"/>
+</hbox>
+
 <hbox>
   <spacer flex="1"/>
   <button oncommand="window.close();" label="&preferences.cancel;" />

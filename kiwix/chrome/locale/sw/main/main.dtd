@@ -130,6 +130,7 @@
 <!ENTITY preferences.browse             "Vinjari">
 <!ENTITY preferences.tabs               "Kumbuka tabo">
 <!ENTITY preferences.downloadCatalogs   "Pakua orodha ya (za) mbali">
+<!ENTITY preferences.neverAskToIndex    "Never ask to index">
 
 <!-- Server -->
 <!ENTITY server.load                    "Pakia">

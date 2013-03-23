@@ -130,6 +130,7 @@
 <!ENTITY preferences.browse             "Jelajahi">
 <!ENTITY preferences.tabs               "Emutna lempengan kiye">
 <!ENTITY preferences.downloadCatalogs   "Ngunduh katalog adoh">
+<!ENTITY preferences.neverAskToIndex    "Never ask to index">
 
 <!-- Server -->
 <!ENTITY server.load                    "Ngunggah">

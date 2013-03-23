@@ -130,6 +130,7 @@
 <!ENTITY preferences.browse             "เรียกดู">
 <!ENTITY preferences.tabs               "จำแท็บนี้ไว้">
 <!ENTITY preferences.downloadCatalogs   "ดาวน์โหลดบัญชีรายชื่อระยะไกล">
+<!ENTITY preferences.neverAskToIndex    "Never ask to index">
 
 <!-- Server -->
 <!ENTITY server.load                    "โหลด">

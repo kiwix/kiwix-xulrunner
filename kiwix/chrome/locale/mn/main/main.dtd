@@ -130,6 +130,7 @@
 <!ENTITY preferences.browse             "Дэлгэх">
 <!ENTITY preferences.tabs               "Табуудыг сана">
 <!ENTITY preferences.downloadCatalogs   "Гадна сервер дээрх каталог татах">
+<!ENTITY preferences.neverAskToIndex    "Never ask to index">
 
 <!-- Server -->
 <!ENTITY server.load                    "Унших">

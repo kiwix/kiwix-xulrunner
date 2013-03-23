@@ -130,6 +130,7 @@
 <!ENTITY preferences.browse             "Потражи">
 <!ENTITY preferences.tabs               "Запамти језичке">
 <!ENTITY preferences.downloadCatalogs   "Преузми удаљене каталоге">
+<!ENTITY preferences.neverAskToIndex    "Never ask to index">
 
 <!-- Server -->
 <!ENTITY server.load                    "Учитај">

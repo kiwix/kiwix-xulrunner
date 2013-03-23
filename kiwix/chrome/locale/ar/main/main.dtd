@@ -130,6 +130,7 @@
 <!ENTITY preferences.browse             "تصفّح">
 <!ENTITY preferences.tabs               "تذكّر الألسنة">
 <!ENTITY preferences.downloadCatalogs   "نزّل دفتر/دفاتر مصور/ة بعيد/ة">
+<!ENTITY preferences.neverAskToIndex    "Never ask to index">
 
 <!-- Server -->
 <!ENTITY server.load                    "حمّل">

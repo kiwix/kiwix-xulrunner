@@ -130,6 +130,7 @@
 <!ENTITY preferences.browse             "រាវរក">
 <!ENTITY preferences.tabs               "ចងចាំផ្ទាំងរង">
 <!ENTITY preferences.downloadCatalogs   "ទាញយកកាតាឡុកពីចំងាយ">
+<!ENTITY preferences.neverAskToIndex    "Never ask to index">
 
 <!-- Server -->
 <!ENTITY server.load                    "ផ្ទុក">

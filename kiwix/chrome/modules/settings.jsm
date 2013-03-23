@@ -219,6 +219,7 @@ let settings = {
     defaultBookmarksPath: function(value) { return this.charSettingParameter("defaultBookmarksPath", value); },
     bookmarksSets: function(value) { return this.charSettingParameter("bookmarksSets", value); },
     isHighDPI: function(value) { return this.boolSettingParameter("kiwix.isHighDPI", value); },
+    neverAskToIndex: function(value) { return this.boolSettingParameter("kiwix.neverAskToIndex", value); },
     displayOnCloseCleanConfirmDialog: function(value) { 
     	return this.boolSettingParameter("displayOnCloseCleanConfirmDialog", value); 
     }

@@ -130,6 +130,7 @@
 <!ENTITY preferences.browse             "Πλοήγηση">
 <!ENTITY preferences.tabs               "Απομνημόνευση καρτελών">
 <!ENTITY preferences.downloadCatalogs   "Κατεβάστε απομακρυσμένους καταλόγους">
+<!ENTITY preferences.neverAskToIndex    "Never ask to index">
 
 <!-- Server -->
 <!ENTITY server.load                    "Φόρτωση">
@@ -145,15 +146,15 @@
 <!ENTITY main.library.sortBy.title              "Τίτλο">
 <!ENTITY main.library.sortBy.size               "Μέγεθος">
 <!ENTITY main.library.sortBy.date               "Ημερομηνία">
-<!ENTITY main.library.sortBy.author             "Συγγραφέα">
-<!ENTITY main.library.sortBy.publisher          "Εκδότη">
+<!ENTITY main.library.sortBy.author             "Συγγραφέας">
+<!ENTITY main.library.sortBy.publisher          "Εκδότης">
 <!ENTITY main.library.filterBy                  "Φιλτράρισμα με βάση">
 <!ENTITY main.library.filterBy.fileSize         "Μέγεθος αρχείου">
 <!ENTITY main.library.filterBy.language         "Γλώσσα">
 <!ENTITY main.library.filterBy.language.all     "Όλες">
-<!ENTITY main.library.filterBy.author           "Συγγραφέα">
+<!ENTITY main.library.filterBy.author           "Συγγραφέας">
 <!ENTITY main.library.filterBy.author.all       "Όλοι">
-<!ENTITY main.library.filterBy.publisher        "Εκδότη">
+<!ENTITY main.library.filterBy.publisher        "Εκδότης">
 <!ENTITY main.library.filterBy.publisher.all    "Όλοι">
 <!ENTITY main.library.filterBy.lessThan         "Μικρότερο από">
 

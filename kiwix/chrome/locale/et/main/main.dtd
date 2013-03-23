@@ -130,6 +130,7 @@
 <!ENTITY preferences.browse             "Sirvi">
 <!ENTITY preferences.tabs               "Pea kaardid meeles">
 <!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">
+<!ENTITY preferences.neverAskToIndex    "Never ask to index">
 
 <!-- Server -->
 <!ENTITY server.load                    "Laadi">

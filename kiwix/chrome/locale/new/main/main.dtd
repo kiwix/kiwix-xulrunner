@@ -130,6 +130,7 @@
 <!ENTITY preferences.browse             "ब्राउज">
 <!ENTITY preferences.tabs               "त्याब लुमंकादिसँ">
 <!ENTITY preferences.downloadCatalogs   "रिमोत क्यातालग(त) दाउनलोद यानादिसँ">
+<!ENTITY preferences.neverAskToIndex    "Never ask to index">
 
 <!-- Server -->
 <!ENTITY server.load                    "लोद">

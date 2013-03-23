@@ -130,6 +130,7 @@
 <!ENTITY preferences.browse             "Çımpawe">
 <!ENTITY preferences.tabs               "na tab xo vira mekeri">
 <!ENTITY preferences.downloadCatalogs   "Duri ra katalog(an) ronê">
+<!ENTITY preferences.neverAskToIndex    "Never ask to index">
 
 <!-- Server -->
 <!ENTITY server.load                    "Buwan">

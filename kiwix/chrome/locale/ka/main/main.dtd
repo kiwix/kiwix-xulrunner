@@ -130,6 +130,7 @@
 <!ENTITY preferences.browse             "დათვალიერება">
 <!ENTITY preferences.tabs               "ჩანართების დამახსოვრება">
 <!ENTITY preferences.downloadCatalogs   "შორეული კატალოგ(ებ)ის გადმოწერა">
+<!ENTITY preferences.neverAskToIndex    "Never ask to index">
 
 <!-- Server -->
 <!ENTITY server.load                    "ჩატვირთვა">

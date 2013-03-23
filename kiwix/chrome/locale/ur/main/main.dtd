@@ -130,6 +130,7 @@
 <!ENTITY preferences.browse             "ورق گردانی کریں">
 <!ENTITY preferences.tabs               "لوحات یاد رکھیں">
 <!ENTITY preferences.downloadCatalogs   "بعید فہرس (ات) زبراثقال کریں">
+<!ENTITY preferences.neverAskToIndex    "Never ask to index">
 
 <!-- Server -->
 <!ENTITY server.load                    "اثقال">

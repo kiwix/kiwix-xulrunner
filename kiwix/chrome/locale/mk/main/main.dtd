@@ -130,6 +130,7 @@
 <!ENTITY preferences.browse             "Прелистај">
 <!ENTITY preferences.tabs               "Запомни ги јазичињата">
 <!ENTITY preferences.downloadCatalogs   "Преземи далечински каталог/зи">
+<!ENTITY preferences.neverAskToIndex    "Never ask to index">
 
 <!-- Server -->
 <!ENTITY server.load                    "Бчитај">

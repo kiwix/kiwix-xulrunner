@@ -130,6 +130,7 @@
 <!ENTITY preferences.browse             "浏览">
 <!ENTITY preferences.tabs               "记住标签页">
 <!ENTITY preferences.downloadCatalogs   "下载远程目录">
+<!ENTITY preferences.neverAskToIndex    "Never ask to index">
 
 <!-- Server -->
 <!ENTITY server.load                    "载入">

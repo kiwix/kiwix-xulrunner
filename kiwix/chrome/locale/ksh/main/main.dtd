@@ -130,6 +130,7 @@
 <!ENTITY preferences.browse             "Aanluure">
 <!ENTITY preferences.tabs               "Tabbulatoore behallde">
 <!ENTITY preferences.downloadCatalogs   "Donn dä Kattalooch udder de Kattaloore vun ußerhallfe eronger laade">
+<!ENTITY preferences.neverAskToIndex    "Never ask to index">
 
 <!-- Server -->
 <!ENTITY server.load                    "Laade">

@@ -130,6 +130,7 @@
 <!ENTITY preferences.browse             "Shfleto">
 <!ENTITY preferences.tabs               "Mba mend skedat">
 <!ENTITY preferences.downloadCatalogs   "Shkarko katalogun (-gjet) ne distancë">
+<!ENTITY preferences.neverAskToIndex    "Never ask to index">
 
 <!-- Server -->
 <!ENTITY server.load                    "Ngarko">

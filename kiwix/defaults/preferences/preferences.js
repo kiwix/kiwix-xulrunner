@@ -80,7 +80,6 @@ pref("dom.allow_scripts_to_close_windows", true);
 
 /* Online library */
 pref("kiwix.libraryUrls", "http://www.kiwix.org/library.xml");
-//pref("kiwix.libraryUrls", "http://pediapress.com/files/zim/zim_feed.xml;http://www.kiwix.org/library.xml");
 
 /* Enable High DPI Sugar UI tweaks */
 pref("kiwix.isHighDPI", false);
@@ -90,6 +89,9 @@ pref("toolkit.singletonWindowType", "singleton");
 
 /* Download remote catalog. To force behaviour, set to true or false */
 pref("kiwix.downloadRemoteCatalogs", undefined);
+
+/* Indexing */
+pref("kiwix.neverAskToIndex", false);
 
 /* Remove accept-encoding HTTP request header for aria2 xml-rpc for debugging purpose */
 //pref("network.http.accept-encoding", "gzip;q=0,deflate;q=0");

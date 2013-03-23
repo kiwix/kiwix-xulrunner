@@ -130,6 +130,7 @@
 <!ENTITY preferences.browse             "Selaa">
 <!ENTITY preferences.tabs               "Muista välilehdet">
 <!ENTITY preferences.downloadCatalogs   "Lataa etäkatalogi(t)">
+<!ENTITY preferences.neverAskToIndex    "Never ask to index">
 
 <!-- Server -->
 <!ENTITY server.load                    "Lataa">

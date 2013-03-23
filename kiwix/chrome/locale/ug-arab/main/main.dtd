@@ -130,6 +130,7 @@
 <!ENTITY preferences.browse             "كۆز يۈگۈرت">
 <!ENTITY preferences.tabs               "بەتكۈچلەرنى ئەستە تۇت">
 <!ENTITY preferences.downloadCatalogs   "يىراقتىكى مۇندەرىجىنى چۈشۈر">
+<!ENTITY preferences.neverAskToIndex    "Never ask to index">
 
 <!-- Server -->
 <!ENTITY server.load                    "يۈكلە">

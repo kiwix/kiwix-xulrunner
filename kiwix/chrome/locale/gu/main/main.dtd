@@ -130,6 +130,7 @@
 <!ENTITY preferences.browse             "ચરવું">
 <!ENTITY preferences.tabs               "ફાટા ને યાદ રાખો">
 <!ENTITY preferences.downloadCatalogs   "રીમોટ કેટેલોગ(ગ્સ) ડાઉનલોડ કરો">
+<!ENTITY preferences.neverAskToIndex    "Never ask to index">
 
 <!-- Server -->
 <!ENTITY server.load                    "લાવો">

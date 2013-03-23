@@ -130,6 +130,7 @@
 <!ENTITY preferences.browse             "Bläddra">
 <!ENTITY preferences.tabs               "Kom ihåg flikar">
 <!ENTITY preferences.downloadCatalogs   "Ladda ned avlägsna katalog(er)">
+<!ENTITY preferences.neverAskToIndex    "Never ask to index">
 
 <!-- Server -->
 <!ENTITY server.load                    "Läs in">

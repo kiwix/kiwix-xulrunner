@@ -130,6 +130,7 @@
 <!ENTITY preferences.browse             "Přepytać">
 <!ENTITY preferences.tabs               "Rajtarki sej spomjatkować">
 <!ENTITY preferences.downloadCatalogs   "Zdalene katalogi sćahnyć">
+<!ENTITY preferences.neverAskToIndex    "Never ask to index">
 
 <!-- Server -->
 <!ENTITY server.load                    "Začitać">

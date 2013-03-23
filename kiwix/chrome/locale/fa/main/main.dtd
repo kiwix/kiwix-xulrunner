@@ -130,6 +130,7 @@
 <!ENTITY preferences.browse             "مرور">
 <!ENTITY preferences.tabs               "به‌خاطرسپردن زبانه‌ها">
 <!ENTITY preferences.downloadCatalogs   "دانلود کالانما(ها) از راه دور">
+<!ENTITY preferences.neverAskToIndex    "Never ask to index">
 
 <!-- Server -->
 <!ENTITY server.load                    "بارگیری">

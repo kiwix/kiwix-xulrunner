@@ -130,6 +130,7 @@
 <!ENTITY preferences.browse             "Procházet">
 <!ENTITY preferences.tabs               "Uložit záložky">
 <!ENTITY preferences.downloadCatalogs   "Stažení vzdáleného katalogu(ů)">
+<!ENTITY preferences.neverAskToIndex    "Never ask to index">
 
 <!-- Server -->
 <!ENTITY server.load                    "Načíst">

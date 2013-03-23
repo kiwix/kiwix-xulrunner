@@ -130,6 +130,7 @@
 <!ENTITY preferences.browse             "Bladeren">
 <!ENTITY preferences.tabs               "Tabbladen onthouden">
 <!ENTITY preferences.downloadCatalogs   "Catalogi downloaden">
+<!ENTITY preferences.neverAskToIndex    "Never ask to index">
 
 <!-- Server -->
 <!ENTITY server.load                    "Laden">

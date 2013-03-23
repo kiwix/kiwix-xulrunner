@@ -130,6 +130,7 @@
 <!ENTITY preferences.browse             "Ìṣíwò">
 <!ENTITY preferences.tabs               "Rántí àwọn ìpele">
 <!ENTITY preferences.downloadCatalogs   "Ìrùjádé (àwọn) àpò fáìlì ọ̀ọ́kán">
+<!ENTITY preferences.neverAskToIndex    "Never ask to index">
 
 <!-- Server -->
 <!ENTITY server.load                    "Ìrùjáde">

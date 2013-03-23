@@ -130,6 +130,7 @@
 <!ENTITY preferences.browse             "Maskapuy">
 <!ENTITY preferences.tabs               "Tikllakunata yuyay">
 <!ENTITY preferences.downloadCatalogs   "Karu kataluta chaqnamuy">
+<!ENTITY preferences.neverAskToIndex    "Never ask to index">
 
 <!-- Server -->
 <!ENTITY server.load                    "Load">

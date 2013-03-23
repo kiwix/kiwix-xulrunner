@@ -261,19 +261,21 @@ function manageSearchInIndex(stringToSearch, start, end) {
 
 	/* Check if a search index exists */
 	if (!checkSearchIndex()) {
-	    manageIndexCurrentBook();
+	    if (!settings.neverAskToIndex()) {
+		manageIndexCurrentBook();
+	    }
 	    return undefined;
+	} else {
+	    if (start == undefined)
+		start = 0;
+	    
+	    if (end == undefined)
+		end = start + 20;
+	
+	    /* Make the search and display results */
+	    var currentBook = library.getCurrentBook();
+	    loadContent("search://?pattern=" + stringToSearch + "&start=" + start + "&end=" + end);
 	}
-	
-	if (start == undefined)
-	    start = 0;
-	
-	if (end == undefined)
-	    end = start + 20;
-	
-	/* Make the search and display results */
-	var currentBook = library.getCurrentBook();
-	loadContent("search://?pattern=" + stringToSearch + "&start=" + start + "&end=" + end);
     }
 
     return undefined;

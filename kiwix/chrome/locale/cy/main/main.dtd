@@ -130,12 +130,13 @@
 <!ENTITY preferences.browse             "Pori">
 <!ENTITY preferences.tabs               "Cofier tabiau">
 <!ENTITY preferences.downloadCatalogs   "Islwytho catalog(au) allanol">
+<!ENTITY preferences.neverAskToIndex    "Never ask to index">
 
 <!-- Server -->
-<!ENTITY server.load                    "Load">
-<!ENTITY server.start                   "Start">
+<!ENTITY server.load                    "Llwytho">
+<!ENTITY server.start                   "Dechrau">
 <!ENTITY server.stop                    "Stop">
-<!ENTITY server.close                   "Close">
+<!ENTITY server.close                   "Cau">
 
 <!-- Library -->
 <!ENTITY main.library.myLibrary                 "Fy llyfrgell">
@@ -155,5 +156,5 @@
 <!ENTITY main.library.filterBy.author.all       "Oll">
 <!ENTITY main.library.filterBy.publisher        "Cyhoeddwr">
 <!ENTITY main.library.filterBy.publisher.all    "Oll">
-<!ENTITY main.library.filterBy.lessThan         "Less than">
+<!ENTITY main.library.filterBy.lessThan         "Llai na">
 

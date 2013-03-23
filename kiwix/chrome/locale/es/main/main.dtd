@@ -130,6 +130,7 @@
 <!ENTITY preferences.browse             "Examinar">
 <!ENTITY preferences.tabs               "Recordar las pestañas">
 <!ENTITY preferences.downloadCatalogs   "Descargar catálogo(s) remoto(s)">
+<!ENTITY preferences.neverAskToIndex    "Never ask to index">
 
 <!-- Server -->
 <!ENTITY server.load                    "Cargar">

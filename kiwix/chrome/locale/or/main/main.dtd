@@ -130,6 +130,7 @@
 <!ENTITY preferences.browse             "ଖୋଜିବା">
 <!ENTITY preferences.tabs               "ଟାବ୍ ଗୁଡ଼ିକୁ ମନେ ରଖନ୍ତୁ.">
 <!ENTITY preferences.downloadCatalogs   "ଅନ୍ୟ ଜାଗାରେ ଥିବା ଦେଖଣାଟିକୁ ଡାଉନଲୋଡ କରନ୍ତୁ">
+<!ENTITY preferences.neverAskToIndex    "Never ask to index">
 
 <!-- Server -->
 <!ENTITY server.load                    "ଲୋଡ କରନ୍ତୁ">

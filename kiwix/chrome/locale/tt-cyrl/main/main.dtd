@@ -130,6 +130,7 @@
 <!ENTITY preferences.browse             "Карау">
 <!ENTITY preferences.tabs               "Кыстырмаларны истә тотарга">
 <!ENTITY preferences.downloadCatalogs   "Бетерелгән каталог(лар)ны йөкләргә">
+<!ENTITY preferences.neverAskToIndex    "Never ask to index">
 
 <!-- Server -->
 <!ENTITY server.load                    "Йөкләү">

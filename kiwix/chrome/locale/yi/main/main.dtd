@@ -130,6 +130,7 @@
 <!ENTITY preferences.browse             "דורכזוכן">
 <!ENTITY preferences.tabs               "געדענקען טאבן">
 <!ENTITY preferences.downloadCatalogs   "אראפלאדן ווייטער(ע) קאטאלאג(ן)">
+<!ENTITY preferences.neverAskToIndex    "Never ask to index">
 
 <!-- Server -->
 <!ENTITY server.load                    "אָנלאָדן">

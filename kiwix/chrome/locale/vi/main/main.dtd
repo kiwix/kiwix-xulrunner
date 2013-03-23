@@ -130,6 +130,7 @@
 <!ENTITY preferences.browse             "Duyệt">
 <!ENTITY preferences.tabs               "Nhớ các thẻ">
 <!ENTITY preferences.downloadCatalogs   "Tải về mục lục từ xa">
+<!ENTITY preferences.neverAskToIndex    "Never ask to index">
 
 <!-- Server -->
 <!ENTITY server.load                    "Tải">

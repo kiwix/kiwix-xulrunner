@@ -130,6 +130,7 @@
 <!ENTITY preferences.browse             "Parcourir">
 <!ENTITY preferences.tabs               "Se souvenir des onglets ouverts en quittant Kiwix">
 <!ENTITY preferences.downloadCatalogs   "Télécharger le(s) catalogue(s) distant">
+<!ENTITY preferences.neverAskToIndex    "Never ask to index">
 
 <!-- Server -->
 <!ENTITY server.load                    "Charger">

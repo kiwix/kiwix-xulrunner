@@ -130,6 +130,7 @@
 <!ENTITY preferences.browse             "Blättre">
 <!ENTITY preferences.tabs               "Ryter merke">
 <!ENTITY preferences.downloadCatalogs   "Externi Katalog abelade">
+<!ENTITY preferences.neverAskToIndex    "Never ask to index">
 
 <!-- Server -->
 <!ENTITY server.load                    "Lade">

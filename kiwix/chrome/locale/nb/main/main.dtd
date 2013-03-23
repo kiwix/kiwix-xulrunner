@@ -130,6 +130,7 @@
 <!ENTITY preferences.browse             "Bla gjennom">
 <!ENTITY preferences.tabs               "Husk faner">
 <!ENTITY preferences.downloadCatalogs   "Last ned ekstern(e) katalog(er)">
+<!ENTITY preferences.neverAskToIndex    "Never ask to index">
 
 <!-- Server -->
 <!ENTITY server.load                    "Last">

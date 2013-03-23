@@ -130,6 +130,7 @@
 <!ENTITY preferences.browse             "Tlusur">
 <!ENTITY preferences.tabs               "Éling tab">
 <!ENTITY preferences.downloadCatalogs   "Ngundhuh katalog adoh">
+<!ENTITY preferences.neverAskToIndex    "Never ask to index">
 
 <!-- Server -->
 <!ENTITY server.load                    "Ngemot">

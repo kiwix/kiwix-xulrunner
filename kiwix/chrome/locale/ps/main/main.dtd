@@ -130,6 +130,7 @@
 <!ENTITY preferences.browse             "سپړل">
 <!ENTITY preferences.tabs               "پاڼې په ياد ساتل">
 <!ENTITY preferences.downloadCatalogs   "ليري کتلاک (کتلاکونه) ښکته کول">
+<!ENTITY preferences.neverAskToIndex    "Never ask to index">
 
 <!-- Server -->
 <!ENTITY server.load                    "برسېرول">

@@ -130,6 +130,7 @@
 <!ENTITY preferences.browse             "Furchal">
 <!ENTITY preferences.tabs               "Kaout soñj eus an ivinelloù digor">
 <!ENTITY preferences.downloadCatalogs   "Pellgargañ ar c'hatalog(où) a-bell">
+<!ENTITY preferences.neverAskToIndex    "Never ask to index">
 
 <!-- Server -->
 <!ENTITY server.load                    "Kargañ">

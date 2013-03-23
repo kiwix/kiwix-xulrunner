@@ -130,6 +130,7 @@
 <!ENTITY preferences.browse             "Foliumi">
 <!ENTITY preferences.tabs               "Memori langetojn">
 <!ENTITY preferences.downloadCatalogs   "Elŝuti forkatalogo(j)n">
+<!ENTITY preferences.neverAskToIndex    "Never ask to index">
 
 <!-- Server -->
 <!ENTITY server.load                    "Alŝuti">

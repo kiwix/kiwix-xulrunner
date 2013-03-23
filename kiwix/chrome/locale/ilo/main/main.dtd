@@ -130,6 +130,7 @@
 <!ENTITY preferences.browse             "Agbasabasa">
 <!ENTITY preferences.tabs               "Laglagipen dagiti etiketa">
 <!ENTITY preferences.downloadCatalogs   "Alaen ti (dagiti) adayo a katologo">
+<!ENTITY preferences.neverAskToIndex    "Never ask to index">
 
 <!-- Server -->
 <!ENTITY server.load                    "Ikarga">

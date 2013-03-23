@@ -130,6 +130,7 @@
 <!ENTITY preferences.browse             "Esplora">
 <!ENTITY preferences.tabs               "Ftakar it-twieqi">
 <!ENTITY preferences.downloadCatalogs   "Niżżel katalgi remoti">
+<!ENTITY preferences.neverAskToIndex    "Never ask to index">
 
 <!-- Server -->
 <!ENTITY server.load                    "Tella'">

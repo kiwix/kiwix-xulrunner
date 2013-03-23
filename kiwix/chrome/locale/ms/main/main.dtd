@@ -130,6 +130,7 @@
 <!ENTITY preferences.browse             "Semak imbas">
 <!ENTITY preferences.tabs               "Ingati tab">
 <!ENTITY preferences.downloadCatalogs   "Muat turun katalog jauh">
+<!ENTITY preferences.neverAskToIndex    "Never ask to index">
 
 <!-- Server -->
 <!ENTITY server.load                    "Muatkan">

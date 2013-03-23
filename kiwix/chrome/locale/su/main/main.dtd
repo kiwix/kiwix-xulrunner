@@ -130,6 +130,7 @@
 <!ENTITY preferences.browse             "Sungsi">
 <!ENTITY preferences.tabs               "Apalkeun tab">
 <!ENTITY preferences.downloadCatalogs   "Unduh katalog jauh">
+<!ENTITY preferences.neverAskToIndex    "Never ask to index">
 
 <!-- Server -->
 <!ENTITY server.load                    "Muat">

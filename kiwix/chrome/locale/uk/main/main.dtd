@@ -130,6 +130,7 @@
 <!ENTITY preferences.browse             "Огляд">
 <!ENTITY preferences.tabs               "Збережені вкладки">
 <!ENTITY preferences.downloadCatalogs   "Завантажити віддалений каталог(и)">
+<!ENTITY preferences.neverAskToIndex    "Never ask to index">
 
 <!-- Server -->
 <!ENTITY server.load                    "Завантажити">

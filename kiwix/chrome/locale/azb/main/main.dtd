@@ -130,6 +130,7 @@
 <!ENTITY preferences.browse             "گؤزدن کئچیر">
 <!ENTITY preferences.tabs               "زبانه‌لری یادا ساخلاماق">
 <!ENTITY preferences.downloadCatalogs   "اوزاق Download کالانما (س)">
+<!ENTITY preferences.neverAskToIndex    "Never ask to index">
 
 <!-- Server -->
 <!ENTITY server.load                    "یوکله">

@@ -130,6 +130,7 @@
 <!ENTITY preferences.browse             "Legir">
 <!ENTITY preferences.tabs               "Se remembrar dels onglets dobèrts en quitant Kiwix">
 <!ENTITY preferences.downloadCatalogs   "Telecargar lo(s) catalòg(s) distant(s)">
+<!ENTITY preferences.neverAskToIndex    "Never ask to index">
 
 <!-- Server -->
 <!ENTITY server.load                    "Cargar">

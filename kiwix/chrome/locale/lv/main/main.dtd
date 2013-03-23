@@ -130,6 +130,7 @@
 <!ENTITY preferences.browse             "Pārlūkot">
 <!ENTITY preferences.tabs               "Atcerēties cilnes">
 <!ENTITY preferences.downloadCatalogs   "Lejupielādēt attālos katalogus">
+<!ENTITY preferences.neverAskToIndex    "Never ask to index">
 
 <!-- Server -->
 <!ENTITY server.load                    "Ielādēt">

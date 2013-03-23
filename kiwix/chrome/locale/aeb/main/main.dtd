@@ -130,6 +130,7 @@
 <!ENTITY preferences.browse             "ara">
 <!ENTITY preferences.tabs               "تذكّر الألسنة">
 <!ENTITY preferences.downloadCatalogs   "قم بتحميل فهرس (اث) عن بعد">
+<!ENTITY preferences.neverAskToIndex    "Never ask to index">
 
 <!-- Server -->
 <!ENTITY server.load                    "Load">

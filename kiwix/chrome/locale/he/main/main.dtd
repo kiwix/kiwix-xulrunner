@@ -130,6 +130,7 @@
 <!ENTITY preferences.browse             "עיון">
 <!ENTITY preferences.tabs               "לזכור לשוניות">
 <!ENTITY preferences.downloadCatalogs   "הורדת קטלוגים מרוחקים">
+<!ENTITY preferences.neverAskToIndex    "Never ask to index">
 
 <!-- Server -->
 <!ENTITY server.load                    "לטעון">

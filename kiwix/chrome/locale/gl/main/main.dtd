@@ -130,6 +130,7 @@
 <!ENTITY preferences.browse             "Navegar">
 <!ENTITY preferences.tabs               "Lembrar as lapelas">
 <!ENTITY preferences.downloadCatalogs   "Descargar o(s) catálogo(s) remoto(s)">
+<!ENTITY preferences.neverAskToIndex    "Never ask to index">
 
 <!-- Server -->
 <!ENTITY server.load                    "Cargar">

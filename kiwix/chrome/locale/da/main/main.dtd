@@ -130,6 +130,7 @@
 <!ENTITY preferences.browse             "Gennemse">
 <!ENTITY preferences.tabs               "Husk faneblade">
 <!ENTITY preferences.downloadCatalogs   "Hent eksterne kataloger ned">
+<!ENTITY preferences.neverAskToIndex    "Never ask to index">
 
 <!-- Server -->
 <!ENTITY server.load                    "Indlæs">

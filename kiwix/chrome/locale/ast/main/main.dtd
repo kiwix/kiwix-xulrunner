@@ -130,6 +130,7 @@
 <!ENTITY preferences.browse             "Navegar">
 <!ENTITY preferences.tabs               "Recordar les llingüetes">
 <!ENTITY preferences.downloadCatalogs   "Descargar catálogu remotu">
+<!ENTITY preferences.neverAskToIndex    "Never ask to index">
 
 <!-- Server -->
 <!ENTITY server.load                    "Cargar">

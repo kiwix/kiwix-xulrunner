@@ -130,6 +130,7 @@
 <!ENTITY preferences.browse             "열람하기">
 <!ENTITY preferences.tabs               "탭 저장하기">
 <!ENTITY preferences.downloadCatalogs   "원격 카탈로그 다운로드">
+<!ENTITY preferences.neverAskToIndex    "Never ask to index">
 
 <!-- Server -->
 <!ENTITY server.load                    "불러오기">
