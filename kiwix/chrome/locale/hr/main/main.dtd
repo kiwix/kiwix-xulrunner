@@ -75,6 +75,7 @@
 <!ENTITY main.randomArticle.accesskey   "R">
 <!ENTITY main.checkIntegrity            "Provjera valjanosti">
 <!ENTITY main.checkIntegrity.accesskey  "k">
+<!ENTITY main.launchIndexing            "Launch indexing">
 <!ENTITY main.purgeHistory              "Očisti povijest">
 <!ENTITY main.purgeHistory.accesskey    "P">
 

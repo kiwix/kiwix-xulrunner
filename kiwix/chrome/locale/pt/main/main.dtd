@@ -75,6 +75,7 @@
 <!ENTITY main.randomArticle.accesskey   "A">
 <!ENTITY main.checkIntegrity            "Verificação de integridade">
 <!ENTITY main.checkIntegrity.accesskey  "k">
+<!ENTITY main.launchIndexing            "Launch indexing">
 <!ENTITY main.purgeHistory              "Limpar histórico">
 <!ENTITY main.purgeHistory.accesskey    "P">
 

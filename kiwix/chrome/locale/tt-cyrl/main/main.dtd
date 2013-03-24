@@ -75,6 +75,7 @@
 <!ENTITY main.randomArticle.accesskey   "R">
 <!ENTITY main.checkIntegrity            "Тулылыгын тикшерү">
 <!ENTITY main.checkIntegrity.accesskey  "k">
+<!ENTITY main.launchIndexing            "Launch indexing">
 <!ENTITY main.purgeHistory              "Тарихын чистарту">
 <!ENTITY main.purgeHistory.accesskey    "P">
 

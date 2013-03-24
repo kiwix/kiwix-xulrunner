@@ -75,6 +75,7 @@
 <!ENTITY main.randomArticle.accesskey   "R">
 <!ENTITY main.checkIntegrity            "ארנטלעכקייט קאנטראל">
 <!ENTITY main.checkIntegrity.accesskey  "k">
+<!ENTITY main.launchIndexing            "Launch indexing">
 <!ENTITY main.purgeHistory              "אויסמעקן היסטאריע">
 <!ENTITY main.purgeHistory.accesskey    "P">
 

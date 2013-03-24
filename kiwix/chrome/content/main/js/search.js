@@ -85,6 +85,9 @@ function manageIndexCurrentBook() {
 
     /* Necessary to avoid a flickering in the HTML renderer */
     getHtmlRenderer().reload();
+    
+    /* Disable indexing launch menu */
+    getLaunchIndexingMenuItem().disabled = true;
 
     return undefined;
 }

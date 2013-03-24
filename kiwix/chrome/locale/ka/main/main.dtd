@@ -75,6 +75,7 @@
 <!ENTITY main.randomArticle.accesskey   "R">
 <!ENTITY main.checkIntegrity            "მთლიანობის შემოწმება">
 <!ENTITY main.checkIntegrity.accesskey  "k">
+<!ENTITY main.launchIndexing            "Launch indexing">
 <!ENTITY main.purgeHistory              "ისტორიის გასუფთავება">
 <!ENTITY main.purgeHistory.accesskey    "P">
 

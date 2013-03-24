@@ -75,6 +75,7 @@
 <!ENTITY main.randomArticle.accesskey   "S">
 <!ENTITY main.checkIntegrity            "Eheydentarkistus">
 <!ENTITY main.checkIntegrity.accesskey  "y">
+<!ENTITY main.launchIndexing            "Launch indexing">
 <!ENTITY main.purgeHistory              "Tyhjennä historia">
 <!ENTITY main.purgeHistory.accesskey    "j">
 

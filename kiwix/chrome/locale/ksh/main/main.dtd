@@ -75,6 +75,7 @@
 <!ENTITY main.randomArticle.accesskey   "R">
 <!ENTITY main.checkIntegrity            "Der ennere Zosammehald vun dä ZIM-Dattei prööfe">
 <!ENTITY main.checkIntegrity.accesskey  "k">
+<!ENTITY main.launchIndexing            "Launch indexing">
 <!ENTITY main.purgeHistory              "Schmieß de Leß met de köözlesch opjemaate Deieje fott">
 <!ENTITY main.purgeHistory.accesskey    "P">
 

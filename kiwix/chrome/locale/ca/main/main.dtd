@@ -75,6 +75,7 @@
 <!ENTITY main.randomArticle.accesskey   "Z">
 <!ENTITY main.checkIntegrity            "Integrity check">
 <!ENTITY main.checkIntegrity.accesskey  "k">
+<!ENTITY main.launchIndexing            "Launch indexing">
 <!ENTITY main.purgeHistory              "Netejar historial">
 <!ENTITY main.purgeHistory.accesskey    "N">
 

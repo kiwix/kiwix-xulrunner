@@ -75,6 +75,7 @@
 <!ENTITY main.randomArticle.accesskey   "क">
 <!ENTITY main.checkIntegrity            "स्थिती परीक्षण">
 <!ENTITY main.checkIntegrity.accesskey  "प">
+<!ENTITY main.launchIndexing            "Launch indexing">
 <!ENTITY main.purgeHistory              "सफाइ इतिहास">
 <!ENTITY main.purgeHistory.accesskey    "इ">
 

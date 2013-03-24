@@ -75,6 +75,7 @@
 <!ENTITY main.randomArticle.accesskey   "ഏ">
 <!ENTITY main.checkIntegrity            "കെട്ടുറപ്പു് പരിശോധന">
 <!ENTITY main.checkIntegrity.accesskey  "ക">
+<!ENTITY main.launchIndexing            "Launch indexing">
 <!ENTITY main.purgeHistory              "നാള്‍വഴി വെടിപ്പാക്കുക">
 <!ENTITY main.purgeHistory.accesskey    "ന">
 

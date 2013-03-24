@@ -36,6 +36,7 @@ function getFindBar() { return document.getElementById("find-bar"); }
 function getNextButton() { return document.getElementById("button-next"); }
 function getSearchLabel() { return document.getElementById("search-label"); }
 function getCheckIntegrityMenuItem() { return document.getElementById("tools-checkIntegrity"); }
+function getLaunchIndexingMenuItem() { return document.getElementById("tools-launchIndexing"); }
 function getLoadRandomArticleMenuItem() { return document.getElementById("tools-randomArticle"); }
 function getPurgeHistoryMenuItem() { return document.getElementById("tools-purgeHistory"); }
 function getProgressBar() { return document.getElementById("progress-bar"); }

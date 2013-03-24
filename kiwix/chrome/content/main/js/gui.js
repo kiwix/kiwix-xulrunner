@@ -652,6 +652,7 @@ function manageUnload(clearCurrentAccessor, help) {
 	}
 	getLoadRandomArticleMenuItem().disabled = true;
 	getCheckIntegrityMenuItem().disabled = true;
+	getLaunchIndexingMenuItem().disabled = true;
     } 
 
     if (help) {
@@ -759,6 +760,9 @@ function manageOpenFile(path, noSearchIndexCheck) {
 	/* verify if we can check the integrity */
 	getCheckIntegrityMenuItem().disabled = !canCheckIntegrity();
 	
+	/* Allow to index the file */
+	getLaunchIndexingMenuItem().disabled = checkSearchIndex();
+
 	/* Enable load random article */
 	getLoadRandomArticleMenuItem().disabled = false;
     } else {

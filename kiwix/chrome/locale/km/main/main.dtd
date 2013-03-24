@@ -75,6 +75,7 @@
 <!ENTITY main.randomArticle.accesskey   "R">
 <!ENTITY main.checkIntegrity            "ពិនិត្យភាពពេញលេញ">
 <!ENTITY main.checkIntegrity.accesskey  "k">
+<!ENTITY main.launchIndexing            "Launch indexing">
 <!ENTITY main.purgeHistory              "ជំរះប្រវត្តិ">
 <!ENTITY main.purgeHistory.accesskey    "P">
 

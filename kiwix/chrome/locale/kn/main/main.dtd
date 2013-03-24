@@ -75,6 +75,7 @@
 <!ENTITY main.randomArticle.accesskey   "R">
 <!ENTITY main.checkIntegrity            "ಸಮಗ್ರತೆಯನ್ನು ಪರಿಶೀಲಿಸಿ">
 <!ENTITY main.checkIntegrity.accesskey  "k">
+<!ENTITY main.launchIndexing            "Launch indexing">
 <!ENTITY main.purgeHistory              "ಇತಿಹಾಸವನ್ನು ಶುದ್ಧಿಗೊಳಿಸಿ">
 <!ENTITY main.purgeHistory.accesskey    "P">
 

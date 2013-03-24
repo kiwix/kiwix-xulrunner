@@ -75,6 +75,7 @@
 <!ENTITY main.randomArticle.accesskey   "u">
 <!ENTITY main.checkIntegrity            "Kiểm tra Tính toàn vẹn">
 <!ENTITY main.checkIntegrity.accesskey  "v">
+<!ENTITY main.launchIndexing            "Launch indexing">
 <!ENTITY main.purgeHistory              "Dọn sạch Lịch sử">
 <!ENTITY main.purgeHistory.accesskey    "D">
 

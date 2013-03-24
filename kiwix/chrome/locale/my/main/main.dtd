@@ -75,6 +75,7 @@
 <!ENTITY main.randomArticle.accesskey   "R">
 <!ENTITY main.checkIntegrity            "စာစုံမှု စိစစ်ခြင်း">
 <!ENTITY main.checkIntegrity.accesskey  "k">
+<!ENTITY main.launchIndexing            "Launch indexing">
 <!ENTITY main.purgeHistory              "မှတ်တမ်းများ ဖယ်ရှားခြင်း">
 <!ENTITY main.purgeHistory.accesskey    "P">
 

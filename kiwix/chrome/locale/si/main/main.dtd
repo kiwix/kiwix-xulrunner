@@ -75,6 +75,7 @@
 <!ENTITY main.randomArticle.accesskey   "R">
 <!ENTITY main.checkIntegrity            "සම්පූර්ණත්ව අවේක්ෂාව">
 <!ENTITY main.checkIntegrity.accesskey  "k">
+<!ENTITY main.launchIndexing            "Launch indexing">
 <!ENTITY main.purgeHistory              "ශෝධන ඉතිහාසය">
 <!ENTITY main.purgeHistory.accesskey    "P">
 

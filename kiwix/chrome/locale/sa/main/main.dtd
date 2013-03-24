@@ -75,6 +75,7 @@
 <!ENTITY main.randomArticle.accesskey   "R">
 <!ENTITY main.checkIntegrity            "अवैकल्य-परीक्षणम्">
 <!ENTITY main.checkIntegrity.accesskey  "k">
+<!ENTITY main.launchIndexing            "Launch indexing">
 <!ENTITY main.purgeHistory              "इतिहासः निष्कास्यताम्">
 <!ENTITY main.purgeHistory.accesskey    "P">
 

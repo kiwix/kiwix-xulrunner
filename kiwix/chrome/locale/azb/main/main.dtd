@@ -75,6 +75,7 @@
 <!ENTITY main.randomArticle.accesskey   "R">
 <!ENTITY main.checkIntegrity            "بیر پارچالیق تفتیشی">
 <!ENTITY main.checkIntegrity.accesskey  "k">
+<!ENTITY main.launchIndexing            "Launch indexing">
 <!ENTITY main.purgeHistory              "گئچمیشی یئر‌به‌یئر ائله">
 <!ENTITY main.purgeHistory.accesskey    "P">
 

@@ -114,6 +114,8 @@
 		accesskey="&main.randomArticle.accesskey;" oncommand="loadRandomArticle()"/>
       <menuitem id="tools-server" label="&main.server;" key="server-key" class="menuitem-iconic" 
 		accesskey="&main.server.accesskey;" oncommand="showServerDialog()"/>
+      <menuitem id="tools-launchIndexing" label="&main.launchIndexing;" class="menuitem-iconic" 
+		oncommand="manageIndexCurrentBook()" disabled="true"/>
       <menuitem id="tools-checkIntegrity" label="&main.checkIntegrity;" class="menuitem-iconic" 
 		accesskey="&main.checkIntegrity.accesskey;" oncommand="manageCheckIntegrity()" disabled="true"/>
       <menuitem id="tools-purgeHistory" label="&main.purgeHistory;" key="purge-history-key" class="menuitem-iconic" 
