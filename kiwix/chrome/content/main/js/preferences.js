@@ -55,7 +55,7 @@ function savePreferences() {
     }
 
     var neverAskToIndexCheckbox = document.getElementById("neverAskToIndex-checkbox");
-    settings.neverAskToIndex(neverAskToIndexCheckbox.checked);
+    settings.neverAskToIndex(undefined, neverAskToIndexCheckbox.checked);
 }
 
 /* Choose new profile directory */

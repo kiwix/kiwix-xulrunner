@@ -219,7 +219,18 @@ let settings = {
     defaultBookmarksPath: function(value) { return this.charSettingParameter("defaultBookmarksPath", value); },
     bookmarksSets: function(value) { return this.charSettingParameter("bookmarksSets", value); },
     isHighDPI: function(value) { return this.boolSettingParameter("kiwix.isHighDPI", value); },
-    neverAskToIndex: function(value) { return this.boolSettingParameter("kiwix.neverAskToIndex", value); },
+    neverAskToIndex: function(id, value) {
+        if (id === undefined) {
+           return this.boolSettingParameter("kiwix.neverAskToIndex", value);
+	} else {
+	   if (value === undefined) {
+	       return this.boolSettingParameter("kiwix.neverAskToIndex." + id, value) || 
+	       	      this.boolSettingParameter("kiwix.neverAskToIndex", value);
+           } else {
+	       return this.boolSettingParameter("kiwix.neverAskToIndex." + id, value)
+	   }
+	}
+    },
     displayOnCloseCleanConfirmDialog: function(value) { 
     	return this.boolSettingParameter("displayOnCloseCleanConfirmDialog", value); 
     }

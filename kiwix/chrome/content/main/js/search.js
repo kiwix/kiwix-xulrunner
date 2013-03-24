@@ -67,28 +67,39 @@ function existsSearchIndex(zimFilePath) {
 }
 
 /* Show a dialog box to ask if the user want to index the ZIM file now */
-function manageIndexCurrentBook() {
+function manageIndexCurrentBook(noConfirmation) {
     var currentBook = library.getCurrentBook();
 
     if (isIndexing()) {
 	displayErrorDialog(getProperty("alreadyIndexingError"));
     } else if (!currentBook) {
 	displayErrorDialog(getProperty("noActiveZimFile"));
-    } else if (displayConfirmDialog(getProperty("indexZimFileConfirm"))) {
-    	// if launched too early, index crash on OSX.
-	if (env.isMac()) {
-            setTimeout(indexCurrentBook, 3000);
-	} else {
-            setTimeout(indexCurrentBook, 0);
+    } else {
+	var doNotAskAnymore = new Object();
+        doNotAskAnymore.value = false;
+
+	if (noConfirmation ||
+	    displayConfirmDialogEx(getProperty("indexZimFileConfirm"), undefined, 
+				   getProperty("doNotAskAnymore"), doNotAskAnymore)) {
+    	    // if launched too early, index crash on OSX.
+	    if (env.isMac()) {
+		setTimeout(indexCurrentBook, 3000);
+	    } else {
+		setTimeout(indexCurrentBook, 0);
+	    }
+
+	    /* Disable indexing launch menu */
+	    getLaunchIndexingMenuItem().disabled = true;
+	}
+
+	if (doNotAskAnymore.value) {
+	    settings.neverAskToIndex(currentBook.id, true);
 	}
     }
 
     /* Necessary to avoid a flickering in the HTML renderer */
     getHtmlRenderer().reload();
     
-    /* Disable indexing launch menu */
-    getLaunchIndexingMenuItem().disabled = true;
-
     return undefined;
 }
 
@@ -263,8 +274,10 @@ function manageSearchInIndex(stringToSearch, start, end) {
 	    return true;
 
 	/* Check if a search index exists */
+	var currentBook = library.getCurrentBook();
+
 	if (!checkSearchIndex()) {
-	    if (!settings.neverAskToIndex()) {
+	    if (!settings.neverAskToIndex(currentBook.id)) {
 		manageIndexCurrentBook();
 	    }
 	    return undefined;
@@ -276,7 +289,6 @@ function manageSearchInIndex(stringToSearch, start, end) {
 		end = start + 20;
 	
 	    /* Make the search and display results */
-	    var currentBook = library.getCurrentBook();
 	    loadContent("search://?pattern=" + stringToSearch + "&start=" + start + "&end=" + end);
 	}
     }
