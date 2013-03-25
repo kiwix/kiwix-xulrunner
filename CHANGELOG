@@ -18,7 +18,7 @@ Kiwix 0.9 rc3
   Sanskrit (sa), Uzbek (uz)
 * NEW: Does not ask to download remote catalogs if user is offline
 * NEW: Option to avoid dialog box asking for indexing (#330)
-* NEW: Menu item to launch indexing
+* NEW: Menu item to launch indexing (#455)
 
 Kiwix 0.9 rc2
 * FIXED: kiwix-manage generate wrong size for splitted ZIM files (ID: 3547892)
