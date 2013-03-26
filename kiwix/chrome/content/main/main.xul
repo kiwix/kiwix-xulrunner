@@ -255,7 +255,8 @@
     <toolbarbutton id="button-next" oncommand="pageNext(isCtrlDown())" tooltiptext="&main.forward;"/>
     <stack flex="1">
       <hbox>
-	<textbox id="textbox-search" flex="1" tooltiptext="&main.searchBar;" placeholder="&main.searchPlaceholder;"
+	<textbox id="textbox-search" flex="1" tooltiptext="&main.searchBar;"  
+		 placeholder="&main.searchPlaceholder;" disabled="true"
 		 onkeypress="if (event.keyCode == 27) { this.value = '' }"
 		 ontextentered="blur(); manageSearchInIndex();" type="autocomplete" 
 		 autocompletesearch="kiwix-suggest" maxrows="11" onfocus="focusOnSearch()">

@@ -642,7 +642,8 @@ function manageUnload(clearCurrentAccessor, help) {
     
     /* Empty the search box */
     getSearchBox().value = "";
-   
+    getSearchBox().disabled = true;
+
     if (clearCurrentAccessor) {
 	desactivateHomeButton();
 	library.setCurrentId("");
