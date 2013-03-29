@@ -384,8 +384,8 @@ function formatFileSize(filesize) {
 
 function manageRemoveContent(id) {
     var keepContent = new Object();
-    if (displayConfirmDialogEx("Are you sure you want to remove this entry from the list and all related files?", 
-			       undefined, "Do not delete content (ZIM) file.", keepContent)) {
+    if (displayConfirmDialogEx(getProperty("removeContentConfirm"),
+			       undefined, getProperty("dontDeleteContentFiles"), keepContent)) {
 	keepContent = keepContent.value;
 	var book = library.getBookById(id);
 
