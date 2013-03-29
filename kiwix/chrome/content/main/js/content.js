@@ -89,8 +89,9 @@ downloader.onerror = function(message) {
 
 function addMetalink(id, metalinkContent) {
     /* Make a cache if necessary */
-    if (!isFile(appendToPath(settings.getRootPath(), id + ".meta4")))
+    if (!isFile(appendToPath(settings.getRootPath(), id + ".meta4"))) {
     	writeFile(appendToPath(settings.getRootPath(), id + ".meta4"), metalinkContent);
+    }
 
     /* Tell aria2c to start the download */
     var param = new xmlrpcval(metalinkContent, "base64");
@@ -196,8 +197,8 @@ function startDownload(url, id) {
 	if (isFile(appendToPath(settings.getRootPath(), id + ".meta4"))) {
 	    addMetalink(id, readFile(appendToPath(settings.getRootPath(), id + ".meta4")));
 	} else {
-	    var message = new WorkerMessage("downloadMetalink", [ url ], [ id ] );
-	downloader.postMessage(message);
+            var message = new WorkerMessage("downloadMetalink", [ url ], [ id ] );
+            downloader.postMessage(message);
 	}
     } else {
 	addUri(id, url);
@@ -291,7 +292,7 @@ function getDownloadStatus() {
 		if (ariaDownloadCompleted > 0 || ariaDownloadSpeed > 0) {
 
 		    /* Update the settings */
-		    settings.setDownloadProperty(kiwixDownload.id,  "completed", ariaDownloadCompleted);
+		    settings.setDownloadProperty(kiwixDownload.id, "completed", ariaDownloadCompleted);
 
 		    /* Compute the remaining time */
 		    var remaining = (book.size * 1024 - ariaDownloadCompleted) / ariaDownloadSpeed;
@@ -314,7 +315,8 @@ function getDownloadStatus() {
 		    populateRemoteBookList();
 		    settings.setDownloadProperty(kiwixDownload.id, "id", "");
 		    removeDownload(kiwixDownload.gid);
-                    
+                    cleanDownloadTemporaryFiles(book.id);
+
 		    /* Show the notifications */
   		    var callback = function(subject, topic, data) {  
 			if (topic == "alertfinished")
@@ -422,19 +424,29 @@ function manageStopDownload(id) {
 	configureLibraryContentItemVisuals(id, "online");
 	
 	/* Get corresponding gid */
-	var kiwixDownloadGid = settings.getDownloadProperty(id, "gid");
-	
-	/* Remove Kiwix download */
-	settings.setDownloadProperty(id, "id", "");
+	var gid = settings.getDownloadProperty(id, "gid");
 	
 	/* Stop the download */
-	stopDownload(kiwixDownloadGid);
-	var path = getAriaDownloadPath(kiwixDownloadGid);
+	stopDownload(gid);
+
+	/* Delete file */
+	var path = getAriaDownloadPath(gid);
 	deleteFile(path);
-	deleteFile(path + ".aria2");
-	deleteFile(appendToPath(settings.getRootPath(), id + ".meta4"));
-	deleteFile(appendToPath(settings.getRootPath(), id + ".metalink"));
+
+	/* Clean temporary files */
+	cleanDownloadTemporaryFiles(id);
+
+	/* Remove Kiwix download */
+	settings.setDownloadProperty(id, "id", "");
     }
+}
+
+function cleanDownloadTemporaryFiles(id) {
+    var gid = settings.getDownloadProperty(id, "gid");
+    var path = getAriaDownloadPath(gid);
+    deleteFile(path + ".aria2");
+    deleteFile(appendToPath(settings.getRootPath(), id + ".meta4"));
+    deleteFile(appendToPath(settings.getRootPath(), id + ".metalink"));
 }
 
 function configureLibraryContentItemVisuals(id, mode) {
