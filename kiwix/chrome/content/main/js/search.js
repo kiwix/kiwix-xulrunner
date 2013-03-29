@@ -49,10 +49,10 @@ function getSearchIndexDirectory(zimFilePath) {
 
 /* Return the name of the search index directory */
 function getSearchIndexDirectoryName(zimFilePath) {
-    var zimAccessor = openZimFile(zimFilePath);
-    var zimId = new Object();
-    zimAccessor.getId(zimId);
-    return zimId.value + ".index";
+    var file = Components.classes["@mozilla.org/file/local;1"].
+	createInstance(Components.interfaces.nsILocalFile);
+    file.initWithPath(zimFilePath);
+    return file.leafName + ".idx";
 }
 
 /* Return the tmp directory path where the search index is build */
@@ -187,7 +187,9 @@ function checkIndexing() {
 	    setIndexingProgression(100);
 	    
 	    /* Move the xapian tmp directory to the well named xapian directory */
-	    moveFile(getTmpSearchIndexDirectory(), settings.getRootPath(), getSearchIndexDirectoryName(_currentlyIndexedBook.path)); 
+	    moveFile(getTmpSearchIndexDirectory(), 
+		     settings.getRootPath(), 
+		     getSearchIndexDirectoryName(_currentlyIndexedBook.path)); 
 	    
 	    /* Save the information in the library */
 	    library.setBookIndex(_currentlyIndexedBook.id, getSearchIndexDirectory(_currentlyIndexedBook.path));

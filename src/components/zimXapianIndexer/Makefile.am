@@ -12,6 +12,7 @@ libZimXapianIndexer_la_SOURCES= \
 	$(top_srcdir)/src/common/stringTools.cpp \
 	$(top_srcdir)/src/common/componentTools.cpp \
 	$(top_srcdir)/src/common/resourceTools.cpp \
+	$(top_srcdir)/src/common/pathTools.cpp \
 	$(top_srcdir)/src/common/kiwix/indexer.cpp \
 	$(top_srcdir)/src/common/kiwix/reader.cpp \
 	$(top_srcdir)/src/common/kiwix/xapianIndexer.cpp \
@@ -22,6 +23,7 @@ libZimXapianIndexer_la_SOURCES= \
 	$(top_srcdir)/src/common/stringTools.h \
 	$(top_srcdir)/src/common/componentTools.h \
 	$(top_srcdir)/src/common/resourceTools.h \
+	$(top_srcdir)/src/common/pathTools.h \
 	$(top_srcdir)/src/common/kiwix/indexer.h \
 	$(top_srcdir)/src/common/kiwix/reader.h \
 	$(top_srcdir)/src/common/kiwix/xapianIndexer.h
