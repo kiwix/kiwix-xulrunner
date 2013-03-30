@@ -147,6 +147,22 @@ function startDownloader() {
 	dump("Unable to find the aria2c binary.\n");
 	return;
     }
+
+    /* Check an create if necessary the data directory */
+    var directoryService = Components.classes["@mozilla.org/file/directory_service;1"].
+	getService(Components.interfaces.nsIProperties); 
+    var rootDir = directoryService.get("PrefD", Components.interfaces.nsIFile);
+    rootDir.append("data");
+    var dir = rootDir.clone();
+    createDirectory(dir.path);
+    dir.append("content");
+    createDirectory(dir.path);
+    dir = rootDir.clone();
+    dir.append("library");
+    createDirectory(dir.path);
+    dir = rootDir.clone();
+    dir.append("index");
+    createDirectory(dir.path);
     
     /* Start the aria2c binary */
     var contentManager = Components.classes["@kiwix.org/contentManager"].getService().
