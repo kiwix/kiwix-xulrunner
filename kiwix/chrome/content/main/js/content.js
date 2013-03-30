@@ -151,7 +151,7 @@ function startDownloader() {
     /* Start the aria2c binary */
     var contentManager = Components.classes["@kiwix.org/contentManager"].getService().
 	QueryInterface(Components.interfaces.IContentManager);
-    if (!contentManager.launchAria2c(binaryPath, settings.getRootPath(), getDownloaderLogPath())) {
+    if (!contentManager.launchAria2c(binaryPath, getDownloadPath(), getDownloaderLogPath())) {
 	dump("Unable to launch the aria2c binary.\n");
     }
 }
@@ -356,6 +356,11 @@ function getDownloadStatus() {
 /* Return the tmp directory path where the search index is build */
 function getDownloaderLogPath() {
     return appendToPath(settings.getRootPath(), "downloader.log");
+}
+
+function getDownloadPath() {
+    var dir = appendToPath(settings.getRootPath(), "data");
+    return appendToPath(dir, "content");
 }
 
 function formatNumber( number, decimals, dec_point, thousands_sep ) {
