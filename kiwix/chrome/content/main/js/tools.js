@@ -441,12 +441,7 @@ function openUrlWithExternalBrowser(url) {
 function isDirectory(path) {
     var file = Components.classes['@mozilla.org/file/local;1'].
 	createInstance(Components.interfaces.nsILocalFile);
-
-    var directoryService = Components.classes["@mozilla.org/file/directory_service;1"].
-	getService(Ci.nsIProperties);
-
     file.initWithPath(path);
-    
     return (file.exists() && file.isDirectory());
 }
 
