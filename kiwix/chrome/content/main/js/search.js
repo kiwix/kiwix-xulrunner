@@ -44,7 +44,10 @@ function isIndexing() {
 
 /* Return the directory path where the search index is stored */
 function getSearchIndexDirectory(zimFilePath) {
-    return appendToPath(settings.getRootPath(), getSearchIndexDirectoryName(zimFilePath));
+    var dir = appendToPath(settings.getRootPath(), "data");
+    dir = appendToPath(dir, "index");
+    return (zimFilePath === undefined) ?
+	dir : appendToPath(dir, getSearchIndexDirectoryName(zimFilePath));
 }
 
 /* Return the name of the search index directory */
@@ -188,7 +191,7 @@ function checkIndexing() {
 	    
 	    /* Move the xapian tmp directory to the well named xapian directory */
 	    moveFile(getTmpSearchIndexDirectory(), 
-		     settings.getRootPath(), 
+		     getSearchIndexDirectory(), 
 		     getSearchIndexDirectoryName(_currentlyIndexedBook.path)); 
 	    
 	    /* Save the information in the library */
