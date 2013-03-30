@@ -439,10 +439,30 @@ function openUrlWithExternalBrowser(url) {
 
 /* Check if a directory exists */
 function isDirectory(path) {
-    var file = Components.classes['@mozilla.org/file/local;1'].createInstance(Components.interfaces.nsILocalFile);
+    var file = Components.classes['@mozilla.org/file/local;1'].
+	createInstance(Components.interfaces.nsILocalFile);
+
+    var directoryService = Components.classes["@mozilla.org/file/directory_service;1"].
+	getService(Ci.nsIProperties);
+
     file.initWithPath(path);
     
     return (file.exists() && file.isDirectory());
+}
+
+function createDirectory(path) {
+    var dir = Components.classes["@mozilla.org/file/local;1"]
+        .createInstance(Components.interfaces.nsILocalFile);
+    dir.initWithPath(path);
+    if (!dir.exists() || !dir.isDirectory()) {
+	try {
+	    dir.create(Components.interfaces.nsIFile.DIRECTORY_TYPE, 0775)
+	} catch(error) {
+	    L.error("Unable to create directory " + path);
+	    return false;
+	}
+	return true;
+    }
 }
 
 /* Return the size of a file */
