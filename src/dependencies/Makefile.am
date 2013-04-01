@@ -286,17 +286,9 @@ aria2c:
 	chmod +x aria2c
 
 # OSX
-aria2-1.14.2.dmg:
-	$(DOWNLOADER) aria2-1.14.2.dmg $(DEP_MIRROR)/aria2-1.14.2.dmg
-
-aria2-1.14.2.pkg: aria2-1.14.2.dmg
-	mkdir -p ./aria_dmg
-	hdiutil attach aria2-1.14.2.dmg -noautoopen -quiet -mountpoint ./aria_dmg
-	cp -r ./aria_dmg/aria2-1.14.2.pkg aria2-1.14.2.pkg
-	hdiutil detach ./aria_dmg
-
-aria2-1.14.2/usr/bin/aria2c: aria2-1.14.2.pkg
-	./tools/unpkg.py aria2-1.14.2.pkg
+aria2c-1.14.2-universal:
+    $(DOWNLOADER) aria2c-1.14.2-universal $(DEP_MIRROR)/aria2c-1.14.2-universal
+    chmod +x aria2c-1.14.2-universal
 
 # Windows
 aria2c.exe:
@@ -411,8 +403,7 @@ DISTCLEANFILES= xulrunner-sdk.tar.bz2 \
 	xz.tar.bz2 \
 	xz-5.0.4-windows.zip \
 	aria2c \
-	aria2-1.14.2.dmg \
-	aria2-1.14.2.pkg \
+    aria2c-1.14.2-universal \
 	aria2c.exe \
 	clucene-core-0.9.21b.tar.bz2 \
 	e2fsprogs-1.42.tar.gz \

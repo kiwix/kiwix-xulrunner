@@ -1,4 +1,4 @@
-	
+
 ##################
 # /!\ ATTENTION
 # Before editting this file, please read the following:
@@ -51,7 +51,7 @@ AC_PROG_LN_S
 AC_PROG_CXX
 AC_CHECK_TOOL(HAVE_CXX, "$CXX")
 if test [ ! "$HAVE_CXX" ]
-then 
+then
     AC_MSG_ERROR([[cannot find any C++ compiler]])
 fi
 
@@ -100,7 +100,7 @@ then
   # Check the compiler version
   if test [ "$CXX" ]
   then
-    CXX_VERSION=`$CXX --version | head -n 1 | cut -d " " -f 3` 
+    CXX_VERSION=`$CXX --version | head -n 1 | cut -d " " -f 3`
     if [[ "$CXX_VERSION" \< "3.3" ]]
     then
       AC_MSG_ERROR([g++ 3.3.x or higher required])
@@ -115,7 +115,7 @@ then
   # Check if the 'pkg-config' binary exists
   AC_CHECK_TOOL(HAVE_PKG_CONFIG, pkg-config)
   if test [ ! "$HAVE_PKG_CONFIG" ]
-  then 
+  then
     AC_MSG_ERROR([[cannot find pkg-config]])
   fi
 
@@ -350,7 +350,7 @@ ARIA2_CFLAGS=""
 ARIA2_LDFLAGS=""
 COMPILE_ARIA2=0
 if test [ $IS_OSX -eq 1 ] ; then
-	COMPILED_ARIA2_FILES="${DEP_PATH}/aria2-1.14.2/usr/bin/aria2c"
+	COMPILED_ARIA2_FILES="${DEP_PATH}/aria2c-1.14.2-universal"
 elif test [ $IS_WIN -eq 1 ] ; then
 	COMPILED_ARIA2_FILES="${DEP_PATH}/aria2c.exe"
 else
@@ -672,7 +672,7 @@ LIBXUL_CFLAGS="-I${GECKO_SDK_INCLUDE} -I${GECKO_INCLUDE_PATH} -fshort-wchar"
 # undefined symbols. supposed to be compatible wth 1.9.
 if test [ $IS_OSX -eq 1 ] ; then
 LIBXUL_LDFLAGS="-L${GECKO_SDK_LIB} -lxpcom -lplds4 -lplc4 -lnspr4 -lpthread -ldl ${GECKO_SDK_LIB}/libxpcomglue_s_nomozalloc.a  ${GECKO_SDK_LIB}/XUL"
-else 
+else
 LIBXUL_LDFLAGS="-L${GECKO_SDK_LIB} -lxul -lxpcom -lplds4 -lplc4 -lnspr4 -lpthread -ldl -lxpcomglue_s"
 fi
 
@@ -688,7 +688,7 @@ then
 else
     # SDK 0.9 and further do not have an xpidl binary anymore
     # This is replace by the python script typelib.py and header.py
-    AC_PATH_PROG([PYTHON], "python")             
+    AC_PATH_PROG([PYTHON], "python")
     if test [ ! "$PYTHON" ]
     then
              AC_MSG_ERROR([[cannot find python]])
@@ -789,7 +789,7 @@ else
 	# look for shared library.
 	AC_CHECK_TOOL(HAVE_XAPIAN_CONFIG, xapian-config,, "${XAPIAN_PATH}:${PATH}")
 	if test [ ! "$HAVE_XAPIAN_CONFIG" ]
-	then 
+	then
 	     AC_MSG_ERROR([[cannot find xapian-config]])
 	else
 		OLDPATH=$PATH
@@ -803,7 +803,7 @@ else
 	AC_CHECK_TOOL([XAPIAN_COMPACT],[xapian-compact],[])
 	XAPIAN_COMPACT=`which $XAPIAN_COMPACT`
 	if test [ ! "$XAPIAN_COMPACT" ]
-	then 
+	then
 	     AC_MSG_ERROR([[cannot find xapian-compact]])
 	fi
 
@@ -860,7 +860,7 @@ else
 
 	AC_CHECK_TOOL(HAVE_ICU_CONFIG, icu-config,, "${ICU_PATH}:${PATH}")
 	if test [ ! "$HAVE_ICU_CONFIG" ]
-	then 
+	then
 	     AC_MSG_ERROR([[cannot find icu-config]])
 	else
 	    OLDPATH=$PATH
@@ -871,7 +871,7 @@ else
 	    ICU_FILES="`findstatic "libicuuc.${SHARED_EXT}"` `findstatic "libicudata.${SHARED_EXT}"` `findstatic "libicui18n.${SHARED_EXT}"`"
 	    PATH=$OLDPATH
 	    if [[ $ICU_VER \< "4.2" ]]
-		then 
+		then
 		     AC_MSG_ERROR([[You need a version of libicu >= 4.2]])
 		fi
 	fi
