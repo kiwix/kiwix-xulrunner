@@ -287,8 +287,8 @@ aria2c:
 
 # OSX
 aria2c-1.14.2-universal:
-    $(DOWNLOADER) aria2c-1.14.2-universal $(DEP_MIRROR)/aria2c-1.14.2-universal
-    chmod +x aria2c-1.14.2-universal
+	$(DOWNLOADER) aria2c-1.14.2-universal $(DEP_MIRROR)/aria2c-1.14.2-universal
+	chmod +x aria2c-1.14.2-universal
 
 # Windows
 aria2c.exe:
