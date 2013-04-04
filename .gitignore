@@ -1,0 +1,47 @@
+# C/C++
+*.slo
+*.lo
+*.o
+*.so
+*.dylib
+*.lai
+*.la
+*.a
+# autotools & co
+Makefile.in
+.deps
+.deps/*
+.libs
+.libs/*
+Makefile
+config.guess
+config.log
+config.status
+config.sub
+autom4te.cache
+autom4te.cache/*
+*.gch
+configure
+depcomp
+install-sh
+ltmain.sh
+missing
+aclocal.m4
+libtool
+src/zimlib/src/stamp-h1
+
+# android
+android/platforms
+*.class
+
+# dependencies
+src/dependencies/*.bz2
+src/dependencies/*.tar
+src/dependencies/*.zip
+src/dependencies/*.exe
+src/dependencies/*
+!src/dependencies/Makefile.am
+!src/dependencies/patches
+
+# specificaly generated files
+src/zimlib/src/config.h
