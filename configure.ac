@@ -69,7 +69,7 @@ else
 fi
 
 # Check if running on OSX
-AC_CHECK_PROG(HAVE_XCODE, Xcode, yes, no, [$PATH$PATH_SEPARATOR/Developer/Applications/Xcode.app/Contents/MacOS/$PATH_SEPARATOR])
+AC_CHECK_PROG(HAVE_XCODE, Xcode, yes, no, [$PATH$PATH_SEPARATOR/Developer/Applications/Xcode.app/Contents/MacOS/$PATH_SEPARATOR,$PATH$PATH_SEPARATOR/Applications/Xcode.app/Contents/MacOS/$PATH_SEPARATOR])
 AM_CONDITIONAL([IS_OSX], [test "$HAVE_XCODE" = yes])
 if test [ "$HAVE_XCODE" = yes ]
 then
@@ -271,6 +271,8 @@ else
 	XULRUNNER_RUNTIME_PATH="${DEP_PATH}/xulrunner"
 fi
 
+ANDROID_NDK_PATH="${DEP_PATH}/android-ndk-r8e/"
+
 ZLIB_CFLAGS=""
 ZLIB_LDFLAGS=" -lz"
 ZLIB_STATIC_LDFLAGS=""
@@ -404,6 +406,7 @@ WITH_INDEXER=1
 WITH_INSTALLER=1
 WITH_SEARCHER=0
 WITH_READER=0
+WITH_ANDROID=0
 COMPILE_ARGTABLE=0
 COMPILE_PTHREAD=0
 
@@ -435,6 +438,7 @@ then
 	COMPILE_UUID=1
 	WITH_LAUNCHER=1
 	WITH_SERVER=1
+	WITH_ANDROID=1
 	REQUIRE_STATIC=1
 elif test [ $IS_WIN -eq 1 ]
 then
@@ -524,6 +528,13 @@ AC_ARG_ENABLE(components,
 			  				 [compile gecko components (default is yes)]),
 			  [], [enable_components=$WITH_COMPONENTS])
 AS_IF([test "x$enable_components" = "xyes" -o "x$enable_components" = "x1" ], [WITH_COMPONENTS=1], [WITH_COMPONENTS=0])
+
+# android version
+AC_ARG_ENABLE(android,
+			  AC_HELP_STRING([--enable-android],
+			  				 [compile android version (default is no)]),
+			  [], [enable_android=$WITH_ANDROID])
+AS_IF([test "x$enable_android" = "xyes" -o "x$enable_android" = "x1" ], [WITH_ANDROID=1], [WITH_ANDROID=0])
 
 # all enables all optional tools
 AC_ARG_ENABLE(all,
@@ -1213,6 +1224,12 @@ then
     DEP_LIST+=" $COMPILED_GECKO_SDK_PATH/"
     DEP_LIST+=" $XULRUNNER_RUNTIME_PATH/"
 fi
+
+if test [ $WITH_ANDROID -eq 1 ]
+then
+    DEP_LIST+=" $ANDROID_NDK_PATH"
+fi
+
 if test [ $COMPILE_ZLIB -eq 1 ]
 then
     DEP_LIST+=" $COMPILED_ZLIB_FILES"
@@ -1361,6 +1378,7 @@ AM_CONDITIONAL([WITH_INDEXER], [test $WITH_INDEXER -eq 1])
 AM_CONDITIONAL([WITH_INSTALLER], [test $WITH_INSTALLER -eq 1])
 AM_CONDITIONAL([WITH_SEARCHER], [test $WITH_SEARCHER -eq 1])
 AM_CONDITIONAL([WITH_READER], [test $WITH_READER -eq 1])
+AM_CONDITIONAL([WITH_ANDROID], [test $WITH_ANDROID -eq 1])
 AM_CONDITIONAL([IS_OLD_GECKO], [test $IS_OLD_GECKO -eq 1])
 AM_CONDITIONAL([IS_OLD_ICU], [test $IS_OLD_ICU -eq 1])
 AM_CONDITIONAL([STATIC_BINS], [test $STATIC_BINS -eq 1])
@@ -1378,6 +1396,7 @@ AC_SUBST(WITH_INDEXER)
 AC_SUBST(WITH_INSTALLER)
 AC_SUBST(WITH_SEARCHER)
 AC_SUBST(WITH_READER)
+AC_SUBST(WITH_ANDROID)
 
 AC_SUBST(CTPP2_CFLAGS)
 AC_SUBST(CTPP2_LDFLAGS)
