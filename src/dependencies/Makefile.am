@@ -29,8 +29,10 @@ endif
 
 if IS_LINUX
 ANDROIDNDKURL=$(DEP_MIRROR)/android-ndk-r8e-linux-$(ARCH).tar.bz2
+ANDROIDSDKURL=$(DEP_MIRROR)/adt-bundle-linux-$(ARCH)-20130219.zip
 else
 ANDROIDNDKURL=$(DEP_MIRROR)/android-ndk-r8e-darwin-x86_64.tar.bz2
+ANDROIDSDKURL=$(DEP_MIRROR)/adt-bundle-mac-x86_64-20130219.zip
 endif
 
 ####################################################
@@ -394,6 +396,16 @@ android-ndk-r8e: android-ndk-r8e.tar.bz2
 	tar xf android-ndk-r8e.tar.bz2
 
 ####################################################
+############ ANDROID-SDK
+####################################################
+android-sdk.zip:
+	$(DOWNLOADER) android-sdk.zip $(ANDROIDSDKURL)
+
+android-sdk/sdk: android-sdk.zip
+	unzip -o -d android-sdk android-sdk.zip
+	mv android-sdk/*/* android-sdk/
+
+####################################################
 ############ CLEANUP (ALL)
 ####################################################
 
@@ -423,7 +435,8 @@ DISTCLEANFILES= xulrunner-sdk.tar.bz2 \
 	clucene-core-0.9.21b.tar.bz2 \
 	e2fsprogs-1.42.tar.gz \
 	argtable2-13.tar.gz \
-	pthread-win32.zip
+	pthread-win32.zip \
+	android-ndk-r8e.tar.bz2
 
 clean-local:
 	-rm -rf zlib-1.2.3
@@ -447,6 +460,8 @@ distclean-local:
 	-rm -rf xulrunner-sdk
 	-rm -rf xulrunner
 	-rm -rf xr_target
+	-rm -rf android-ndk-mac
+	-rm -rf android-ndk-linux
 
 # list of targets is built in configure.ac
 all-local: deps
