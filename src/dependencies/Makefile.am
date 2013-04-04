@@ -405,6 +405,16 @@ android-sdk/sdk: android-sdk.zip
 	unzip -o -d android-sdk android-sdk.zip
 	mv android-sdk/*/* android-sdk/
 
+android-14.tar.bz2:
+	$(DOWNLOADER) android-14.tar.bz2 $(DEP_MIRROR)/android-14.tar.bz2
+
+android-sdk/sdk/platforms/android-14: android-sdk/sdk android-14.tar.bz2
+	tar xf android-14.tar.bz2
+	mv android-14 android-sdk/sdk/platforms/
+
+android-deps: android-ndk-r8e android-sdk/sdk/platforms/android-14
+	echo "Android NDK & SDK ready."
+
 ####################################################
 ############ CLEANUP (ALL)
 ####################################################
@@ -436,7 +446,9 @@ DISTCLEANFILES= xulrunner-sdk.tar.bz2 \
 	e2fsprogs-1.42.tar.gz \
 	argtable2-13.tar.gz \
 	pthread-win32.zip \
-	android-ndk-r8e.tar.bz2
+	android-ndk-r8e.tar.bz2 \
+	android-sdk.zip \
+	android-14.tar.bz2
 
 clean-local:
 	-rm -rf zlib-1.2.3
@@ -462,6 +474,8 @@ distclean-local:
 	-rm -rf xr_target
 	-rm -rf android-ndk-mac
 	-rm -rf android-ndk-linux
+	-rm -rf android-sdk
+	-rm -rf android-14
 
 # list of targets is built in configure.ac
 all-local: deps

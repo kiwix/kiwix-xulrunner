@@ -273,6 +273,7 @@ fi
 
 ANDROID_NDK_PATH="${DEP_PATH}/android-ndk-r8e/"
 ANDROID_SDK_PATH="${DEP_PATH}/android-sdk/sdk"
+ANDROID_DEPS="android-deps"
 
 ZLIB_CFLAGS=""
 ZLIB_LDFLAGS=" -lz"
@@ -1228,7 +1229,7 @@ fi
 
 if test [ $WITH_ANDROID -eq 1 ]
 then
-    DEP_LIST+=" $ANDROID_NDK_PATH $ANDROID_SDK_PATH"
+    DEP_LIST+=" $ANDROID_DEPS"
 fi
 
 if test [ $COMPILE_ZLIB -eq 1 ]
