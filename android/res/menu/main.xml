@@ -25,9 +25,9 @@
         android:icon="@drawable/device_access_sd_storage"        
         android:orderInCategory="0"
         android:showAsAction="always|withText" />
-    <item android:id="@+id/menu_search"
+    <item android:id="@+id/menu_searchintext"
         android:icon="@drawable/action_search"
-        android:title="@string/menu_search"
+        android:title="@string/menu_searchintext"
         android:orderInCategory="0"
         android:showAsAction="ifRoom" />
     <item android:id="@+id/menu_back"
@@ -41,6 +41,11 @@
         android:icon="@drawable/navigation_forward"        
         android:orderInCategory="0"
         android:showAsAction="always" />
+    <item android:id="@+id/menu_search"
+          android:title="@string/menu_search"
+          android:icon="@drawable/action_search"
+          android:showAsAction="ifRoom|collapseActionView"
+          android:actionViewClass="android.widget.SearchView" />
     
     
     
