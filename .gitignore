@@ -45,3 +45,7 @@ src/dependencies/*
 
 # specificaly generated files
 src/zimlib/src/config.h
+
+# android
+android/bin
+android/gen

@@ -141,6 +141,11 @@ CURRENT_PATH=`pwd`
 # Check if their is a Perl binary
 AC_CHECK_TOOL(HAVE_PERL, perl)
 
+# check if java tools for Android are present
+AC_CHECK_TOOL(HAVE_JAVA_BIN, java)
+AC_CHECK_TOOL(HAVE_JAVAH_BIN, javah)
+AC_CHECK_TOOL(HAVE_JARSIGNER_BIN, jarsigner)
+
 # Check the existence of stat64 (to handle file >2GB) in the libc
 AC_CHECK_FUNCS([stat64])
 
@@ -1229,6 +1234,18 @@ fi
 
 if test [ $WITH_ANDROID -eq 1 ]
 then
+	if test [ "$HAVE_JAVA_BIN" = "" ]
+	then
+		AC_MSG_ERROR([Unable to find java])
+	fi
+	if test [ "$HAVE_JAVAH_BIN" = "" ]
+	then
+		AC_MSG_ERROR([Unable to find javah])
+	fi
+	if test [ "$HAVE_JARSIGNER_BIN" = "" ]
+	then
+		AC_MSG_ERROR([Unable to find jarsigner])
+	fi
     DEP_LIST+=" $ANDROID_DEPS"
 fi
 
@@ -1530,6 +1547,7 @@ AC_OUTPUT
 ####################################################
 # using the binary echo program instead of shell function
 # since OSX default (SH) does not support -n.
+$BINECHO $HAVE_JAVA_BIN
 BINECHO=`which echo`
 $BINECHO ""
 $BINECHO "Build details:"
