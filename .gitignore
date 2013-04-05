@@ -50,3 +50,5 @@ src/zimlib/src/config.h
 android/bin
 android/gen
 android/src/org_kiwix_kiwixmobile_JNIKiwix.h
+android/.classpath
+android/.project
