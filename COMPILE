@@ -6,31 +6,18 @@ GNU/Linux build uses shared libraries by default.
 You will need the following dependencies to compile Kiwix for Linux
 Debian/Ubuntu packages: build-essential autoconf automake libtool pkg-config \
 libicu-dev libclucene-dev libxapian-dev libmicrohttpd-dev liblzma-dev fastjar \
-xulrunner-1.9.2-dev aria2 libsqlite3-dev zlib1g-dev uuid-dev libuuid1 zip subversion
+xulrunner-1.9.2-dev aria2 libsqlite3-dev zlib1g-dev uuid-dev libuuid1 zip \
+subversion git-core openjdk-7-jre openjdk-7-jre-headless
 # xapian-tools (debian wheezy)
 
 Fedora (Sugar build) packages: gcc gcc-c++ automake glibc-devel libtool \
 c-ares autoconf aria2 libicu-devel xapian-core-devel lzma-libs lzma-devel \
 xapian-core-libs xulrunner-devel jpackage-utils expat-devel sqlite-devel \
 zlib-devel zlib-static uuid uuid-devel openssl-devel libxml2-devel \
-libgnutls-devel libgpg-error-devel libgcrypt-devel c-ares-devel cmake sugar subversion
+libgnutls-devel libgpg-error-devel libgcrypt-devel c-ares-devel cmake \
+sugar subversion git java-1.7.0-openjdk
 
-* ./autogen.sh to generate the ./configure file if not already
-done.
-
-* ./configure to prepare the compilation and check if all
-  necessary libraries are installed. You may get more information by
-  running ./configure --help
-
-* Use ./configure --without-dependences to compile a static version
-
-* make to compile kiwix
-
-* make install to install it on the system
-
-== GNU/Linux (alternative) ==
-
-The new build system (not default) now builds kiwix with shared libraries only.
+The new build system now builds kiwix with shared libraries only.
 A static build of Kiwix is a build which packages the dependencies.
 Command line tools (indexer, server, etc) are compiled statically.
 
@@ -91,7 +78,21 @@ make universal
 - Shared Object (.so files on Linux) have .dylib extension on OSX.
 - use dtruss to inspect program execution like strace.
 
-== Windows (Experimental) ==
+== Android ==
+
+Android is just an additional target but you can still build for Android only
+from a Linux or Mac (it cross-compiles).
+
+* ./autogen.sh
+
+* ./configure --disable-staticbins --disable-manager --disable-server --disable-launcher --disable-indexer --disable-installer --disable-searcher --disable-reader --disable-components --enable-android
+this configures for an android-only build
+
+* cd src/dependencies && make android-deps && cd -
+
+* cd android && ./build-android-with-native.py
+
+== Windows ==
 
 * Install Windows XP SP2+
 * Install Visual Studio Express 2008
@@ -123,51 +124,3 @@ make universal
   make win
   make windist
   make wininstaller
-
-== Windows ==
-
-* You need now to install the free (as free beer) Microsoft Visual
-  Studio express C++ compiler. You can download the installer here:
-  "http://download.kiwix.org/dev/vcsetup.exe"
-
-* To install it, run the self installer. Choose none of the optional
-  features and install it in the default directory:
-  "c:\Program Files\Microsft Visual Studio 9.0\"
-
-* If installed sucessfuly run one time VS to configure it and maybe
-  register it (follow the instructions).
-
-* You have to install a MinGW environnement. You have to download it
-  here: "http://download.kiwix.org/dev/MozillaBuildSetup-1.5.1.exe" and
-  install it in the default proposed directory "C:\mozilla-build".
-
-* Go to "c:\mozilla-build" with the Windows explorer and start the
-  script start-msvc9.bat. You have now an UNIX shell.
-
-* Change the current directory by typing:
-  > cd /c/mozilla-build/
-
-* Check out the kiwix client code by typing:
-  "svn co https://kiwix.svn.sourceforge.net/svnroot/kiwix/moulinkiwix"
-
-* You need to install Perl. Download it here:
-  "http://download.kiwix.org/dev/ActivePerl-5.10.1.1007-MSWin32-x86-291969.msi"
-  and install it in the default directory "c:\Perl\"
-
-* You have also to install gcc (for liblzma). You can download it
-  here:
-  "http://download.kiwix.org/dev/gcc-4.3.0-20080502-mingw32-alpha-bin.7z"
-  ... and unzip it (with 7zip) in "c:\mozilla-build\msys"
-
-* You have also to install GNU binutils. Please download it here:
-  "http://download.kiwix.org/dev/binutils-2.20.1-2-mingw32-bin.tar.gz"
-  ... and detar it in "c:\mozilla-build\msys"
-
-* Now we will download, configurate and compile kiwix.
-  Run the following commands:
-  > cd /c/mozilla-build/moulinkiwix/
-  > ./autogen.sh
-  > ./configure
-  > make win
-
-
