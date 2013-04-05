@@ -56,14 +56,15 @@ creates tarbal suitable for distribution (no deps)
 
 == Mac OSX Universal ==
 
-[warning] To build the Mac OS version you will have to install 
+[warning] To build the Mac OS version you will have to install
 proprietary software which are free of charge.
 You will also need to build on an Apple Mac computer.
 
 * Install OSX 10.6.5+ (proprietary)
-* Install XCode 3.2.5+ (proprietary) - 
+* Install XCode 3.2.5+ (proprietary) -
   http://developer.apple.com/technologies/xcode.html (requires registration)
   http://download.kiwix.org/dev/xcode_3.2.5_and_ios_sdk_4.2_final.dmg
+* Install Java
 * Install MacPorts - http://www.macports.org/install.php
 
 * Configure Macports
@@ -82,54 +83,6 @@ make clean
 make
 make distmac
 make universal
-
-== Mac OSX (i386 only for now) ==
-
-Mac OS build is close to the Linux one but it compile everything statically.
-[warning] To build the Mac OS version you will have to install 
-proprietary software which are free of charge.
-You will also need to build on an Apple Mac computer.
-
-* Install OSX 10.6.5+ (proprietary)
-* Install XCode 3.2.5+ (proprietary) - 
-  http://developer.apple.com/technologies/xcode.html (requires registration)
-  http://download.kiwix.org/dev/xcode_3.2.5_and_ios_sdk_4.2_final.dmg
-* Install XulRunner
-  http://download.kiwix.org/dev/xulrunner-1.9.2.13.en-US.mac-pkg.dmg
-* Install MacPorts - http://www.macports.org/install.php
-
-* Configure Macports
-
-* Install the following tools and libraries
-sudo port install autogen +universal pkgconfig +universal wget +universal gmake +universal coreutils +universal libidl +universal autoconf213 +universal icu +universal
-
-* short-circuit libtoolize which is a different tool on OSX.
-sudo ln -s /opt/local/bin/glibtoolize /opt/local/bin/libtoolize
-
-* set default target architecture by replacing gcc and g++ files
-sudo mv /usr/bin/gcc /usr/bin/gcc.default
-sudo mv /usr/bin/g++ /usr/bin/g++.default
-sudo echo "/usr/bin/gcc-4.2 -arch i386 -m32 \"\$@\"" > /usr/bin/gcc
-sudo echo "/usr/bin/g++-4.2 -arch i386 -m32 \"\$@\"" > /usr/bin/g++
-sudo chmod +x /usr/bin/g{cc,++}
-Alternatively, you can choose to append CC="gcc -arch i386 -m32" 
-CXX="g++ -arch i386 -m32" to the configure command.
-
-* ./autogen.sh to generate the ./configure script.
-
-* ./configure --prefix=/opt/local
-  to prepare the compilation and check if all
-  necessary libraries are installed. You may get more information by
-  running ./configure --help
-  /opt/local is the path where you installed MacPorts (/opt/local is default)
-
-* make in src/dependences to fetch dependencies.
-
-* re-do ./configure script so it knows about new dependencies.
-
-* make to compile kiwix
-
-* make distmac to generate a complete dmg archive.
 
 * Debugging tips:
 
@@ -178,7 +131,7 @@ CXX="g++ -arch i386 -m32" to the configure command.
   "http://download.kiwix.org/dev/vcsetup.exe"
 
 * To install it, run the self installer. Choose none of the optional
-  features and install it in the default directory: 
+  features and install it in the default directory:
   "c:\Program Files\Microsft Visual Studio 9.0\"
 
 * If installed sucessfuly run one time VS to configure it and maybe
@@ -210,11 +163,11 @@ CXX="g++ -arch i386 -m32" to the configure command.
   "http://download.kiwix.org/dev/binutils-2.20.1-2-mingw32-bin.tar.gz"
   ... and detar it in "c:\mozilla-build\msys"
 
-* Now we will download, configurate and compile kiwix. 
-  Run the following commands: 
-  > cd /c/mozilla-build/moulinkiwix/ 
+* Now we will download, configurate and compile kiwix.
+  Run the following commands:
+  > cd /c/mozilla-build/moulinkiwix/
   > ./autogen.sh
-  > ./configure 
+  > ./configure
   > make win
 
 
