@@ -58,3 +58,6 @@ android/.project
 !android/libs/armeabi-v7a/*.so
 !android/libs/mips/*.so
 !android/libs/x86/*.so
+*.keystore
+android/local.properties
+android/proguard-project.txt
