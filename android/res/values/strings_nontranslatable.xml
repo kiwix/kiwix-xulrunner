@@ -8,4 +8,14 @@
         <item>medium</item>
         <item>large</item>
     </string-array>
+    
+     <string-array
+        name="pref_initpage_entryvalues"
+        translatable="false">
+        <item>main</item>
+        <item>last</item>
+        <item>random</item>
+        <item>welcome</item>
+    </string-array>
+  
 </resources>

@@ -13,6 +13,18 @@
         	android:defaultValue="automatic" />
         
     </PreferenceCategory>
+    <PreferenceCategory 
+        android:key="pref_content"
+        android:title="@string/pref_content_title">
+        <ListPreference
+        	android:key="pref_initpage"
+        	android:title="@string/pref_initpage_title"
+        	android:dialogTitle="@string/pref_initpage_dialogtitle"
+        	android:entries="@array/pref_initpage_entries"
+        	android:entryValues="@array/pref_initpage_entryvalues"
+        	android:defaultValue="main" />        
+    </PreferenceCategory>
+    
     <!-- PreferenceCategory 
            android:title="INFO"
            android:key="pref_key_info">

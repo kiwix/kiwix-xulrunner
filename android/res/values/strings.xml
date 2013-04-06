@@ -28,7 +28,15 @@
         <item>Medium</item>
         <item>Large</item>
     </string-array>
-    
-   
+    <string name="pref_content_title">Content</string>
+    <string name="pref_initpage_title">When Kiwix starts</string>
+    <string name="pref_initpage_dialogtitle">When Kiwix starts</string>    
+    <string-array
+        name="pref_initpage_entries">
+        <item>Show main article</item>
+        <item>Show last visited article</item>
+        <item>Show random article</item>
+        <item>Show welcome page</item>
+    </string-array>
     
 </resources>

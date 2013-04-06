@@ -231,13 +231,15 @@ public class KiwixMobileActivity extends Activity {
         if (getIntent().getData()!=null) {        	
         	String filePath = getIntent().getData().getEncodedPath();
             Log.d("kiwix", " Kiwix started from a filemanager. Intent filePath: "+filePath+" -> open this zimfile and load main page");
-            openZimFile(new File(filePath), false);
+            openZimFile(new File(filePath), false, true, true);
 
         } else if (savedInstanceState!=null) {
         	 Log.d("kiwix", " Kiwix started with a savedInstanceState (That is was closed by OS) -> restore webview state and zimfile (if set)");
         	 if (savedInstanceState.getString("currentzimfile")!=null) {
-	        	 	openZimFile(new File(savedInstanceState.getString("currentzimfile")), false);
-
+        		 //Don'l load init page here (webview has stored it)
+        		 // (Note that this special handling not strictly necessary, as webview state is restored 
+        		 // afterwards, but it is cleaner.)
+        		 openZimFile(new File(savedInstanceState.getString("currentzimfile")), false, false, true);
 	         }
         	 // Restore the state of the WebView
 
@@ -247,7 +249,7 @@ public class KiwixMobileActivity extends Activity {
         	String zimfile = settings.getString("currentzimfile", null);
             if (zimfile != null) {
             	Log.d("kiwix", " Kiwix normal start, zimfile loaded last time -> Open last used zimfile "+zimfile);
-            	openZimFile(new File(zimfile), false);
+            	openZimFile(new File(zimfile), false, true, false);
             	// Alternative would be to restore webView state. But more effort to implement, and actually
         		//  fits better normal android behavior if after closing app ("back" button) state is not maintained.
             } else {
@@ -280,12 +282,15 @@ public class KiwixMobileActivity extends Activity {
     @Override
     public void onPause() {
     	super.onPause();
+    	String lastArticleUrl =  webView.getUrl();
     	SharedPreferences settings = getSharedPreferences(PREFS_KIWIX_MOBILE, 0);
         SharedPreferences.Editor editor = settings.edit();
-        editor.putString("currentzimfile", ZimContentProvider.getZimFile());
+        editor.putString("currentzimfile", ZimContentProvider.getZimFile());    	
+    	editor.putString("lastarticleurl", lastArticleUrl);
+    	
         // Commit the edits!
         editor.commit();
-
+    	Log.d("kiwix", "onPause Save lastarticleurl preferences:"+lastArticleUrl);
     	Log.d("kiwix", "onPause Save currentzimfile to preferences:"+ZimContentProvider.getZimFile());
     }
 
@@ -444,7 +449,7 @@ public class KiwixMobileActivity extends Activity {
                 if (file==null)
                 	return;
                 // Create a File from this Uri
-                openZimFile(file, true);
+                openZimFile(file, true, true, true);
             }
             break;
         case PREFERENCES_REQUEST_CODE:
@@ -457,7 +462,7 @@ public class KiwixMobileActivity extends Activity {
 
 
 
-	private boolean openZimFile(File file, boolean clearHistory) {
+	private boolean openZimFile(File file, boolean clearHistory, boolean loadInitPage, boolean forceMainPage) {
 		if (file.exists()) {
 			if (ZimContentProvider.setZimFile(file.getAbsolutePath())!=null) {
 
@@ -471,9 +476,34 @@ public class KiwixMobileActivity extends Activity {
 				//       but should be good enough.
 				// Actually probably redundant if no zim file openend before in session,
 				//  but to be on save side don't clear history in such cases.
-				if (clearHistory)
+				if (clearHistory) {
 					requestClearHistoryAfterLoad=true;
-				loadMainPage();
+				}
+				Log.d("kiwix", "openZimFile. loadInitPage="+loadInitPage);
+				if (loadInitPage) {
+					
+					if (forceMainPage) {
+						loadMainPage();
+					} else {
+						SharedPreferences prefs =  PreferenceManager.getDefaultSharedPreferences(this);
+						String initpage = prefs.getString("pref_initpage", "main");
+						Log.d("kiwix", "Preference pref_initpage "+ initpage);
+						if (initpage.equals("main")) {
+							loadMainPage();
+						} else if (initpage.equals("random")) {
+							openRandomArticle();						
+						} else if (initpage.equals("welcome")) {
+							showWelcome();
+						} else if (initpage.equals("last")) {
+							SharedPreferences kiwixSettings = getSharedPreferences(PREFS_KIWIX_MOBILE, 0);
+				        	String lastArticleUrl = kiwixSettings.getString("lastarticleurl", null);
+				        	webView.loadUrl(lastArticleUrl);
+						} else {
+							Log.w("kiwix", "Preference pref_initpage value ("+initpage+" unknown. Load main page");
+							loadMainPage();
+						}
+					}
+				}
 				return true;
 			} else {
 				Toast.makeText(this, getResources().getString(R.string.error_fileinvalid), Toast.LENGTH_LONG).show();

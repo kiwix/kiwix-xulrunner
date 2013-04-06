@@ -16,7 +16,8 @@ public class KiwixSettings extends PreferenceActivity {
         // Load the preferences from an XML resource
         addPreferencesFromResource(R.xml.preferences);
         
-        prepareListPreferenceForAutoSummary("pref_zoom");        
+        prepareListPreferenceForAutoSummary("pref_zoom");
+        prepareListPreferenceForAutoSummary("pref_initpage");
     }
 
 
