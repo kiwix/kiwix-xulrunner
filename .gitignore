@@ -52,3 +52,9 @@ android/gen
 android/src/org_kiwix_kiwixmobile_JNIKiwix.h
 android/.classpath
 android/.project
+!android/libs
+!android/libs/*/*.so
+!android/libs/armeabi/*.so
+!android/libs/armeabi-v7a/*.so
+!android/libs/mips/*.so
+!android/libs/x86/*.so
