@@ -1,0 +1,161 @@
+<!-- Window -->
+<!ENTITY main.title                     "&brand.brandShortName;">
+<!ENTITY main.cssdirection              "mula sa kaliwa papunta sa kanan">
+
+<!-- Mac menu -->
+<!ENTITY main.osxservices               "Mga paglilingkod">
+<!ENTITY main.osxhideapp                "Itago ang &brand.brandShortName;">
+<!ENTITY main.osxhideothers             "Itago Ang Iba Pa">
+<!ENTITY main.osxshowall                "Ipakita Ang Lahat">
+
+<!-- File menu -->
+<!ENTITY main.file                      "Talaksan">
+<!ENTITY main.file.accesskey            "F">
+<!ENTITY main.openFile                  "Buksan ang talaksan...">
+<!ENTITY main.browseLibrary.accesskey   "B">
+<!ENTITY main.browseLibrary             "Tumingin-tingin sa aklatan">
+<!ENTITY main.hideLibrary               "Itago ang aklatan">
+<!ENTITY main.openFile.accesskey        "O">
+<!ENTITY main.lastOpen                  "Kamakailang pagbubukas...">
+<!ENTITY main.saveFile                  "Sagipin ang pahina bilang...">
+<!ENTITY main.saveFile.accesskey        "S">
+<!ENTITY main.print                     "Ilimbag">
+<!ENTITY main.print.accesskey           "P">
+<!ENTITY main.printPdf                  "Ilimbag bilang PDF">
+<!ENTITY main.printPdf.accesskey        "D">
+<!ENTITY main.quit                      "Umayaw">
+<!ENTITY main.quit.accesskey            "Q">
+
+<!-- Edit menu -->
+<!ENTITY main.edit                      "Baguhin">
+<!ENTITY main.edit.accesskey            "E">
+<!ENTITY main.find                      "Maghanap sa pahina...">
+<!ENTITY main.find.accesskey            "S">
+<!ENTITY main.selectall                 "Piliin lahat">
+<!ENTITY main.selectall.accesskey       "a">
+<!ENTITY main.copy                      "Kopyahin">
+<!ENTITY main.copy.accesskey            "p">
+<!ENTITY main.transliteration           "Pagsasatitik">
+<!ENTITY main.transliteration.accesskey "T">
+<!ENTITY main.preferences               "Mga nais">
+<!ENTITY main.preferences.accesskey     "n">
+<!ENTITY main.server                    "Tagapaghain">
+<!ENTITY main.server.accesskey          "s">
+
+<!-- Display menu -->
+<!ENTITY main.display                   "Palitawin">
+<!ENTITY main.display.accesskey         "D">
+<!ENTITY main.zoom                      "Lapitan">
+<!ENTITY main.zoom.accesskey            "Z">
+<!ENTITY main.zoomin                    "Palakihin">
+<!ENTITY main.zoomin.accesskey          "M">
+<!ENTITY main.zoomout                   "Paliitin">
+<!ENTITY main.zoomout.accesskey         "R">
+<!ENTITY main.zoomorig                  "Orihinal na sukat">
+<!ENTITY main.zoomorig.accesskey        "O">
+<!ENTITY main.language                  "Wika">
+<!ENTITY main.language.accesskey        "L">
+<!ENTITY main.skin                      "Pabalat">
+<!ENTITY main.skin.accesskey            "S">
+<!ENTITY main.statusbar                 "Bareta ng katayuan">
+<!ENTITY main.statusbar.accesskey       "S">
+<!ENTITY main.resultsbar                "Bareta ng resulta">
+<!ENTITY main.resultsbar.accesskey      "R">
+<!ENTITY main.tabs                      "Mga laylay">
+<!ENTITY main.tabs.accesskey            "T">
+<!ENTITY main.fullscreen                "Buong panooran">
+<!ENTITY main.fullscreen.accesskey      "F">
+<!ENTITY main.invertedColors            "Binaliktad na mga kulay">
+<!ENTITY main.invertedColors.accesskey  "I">
+
+<!-- Tools menu -->
+<!ENTITY main.tools                     "Mga kagamitan">
+<!ENTITY main.tools.accesskey           "T">
+<!ENTITY main.randomArticle             "Alin mang artikulo">
+<!ENTITY main.randomArticle.accesskey   "R">
+<!ENTITY main.checkIntegrity            "Pagsusuri ng pagkabuo">
+<!ENTITY main.checkIntegrity.accesskey  "k">
+<!ENTITY main.launchIndexing            "Launch indexing">
+<!ENTITY main.purgeHistory              "Purgahin ang kasaysayan">
+<!ENTITY main.purgeHistory.accesskey    "P">
+
+<!-- Help menu -->
+<!ENTITY main.help                      "Tulong">
+<!ENTITY main.help.accesskey            "H">
+<!ENTITY main.feedback                  "Tugon">
+<!ENTITY main.reportabug                "Mag-ulat ng sira">
+<!ENTITY main.requestafeature           "Humiling ng isang tampok">
+<!ENTITY main.about                     "Patungkol sa &brand.brandShortName;">
+<!ENTITY main.about.accesskey           "A">
+
+<!-- Tool bar -->
+<!ENTITY main.back                      "Magbalik">
+<!ENTITY main.forward                   "Isulong">
+<!ENTITY main.home                      "Tahanan">
+<!ENTITY main.searchBar                 "Baretang panghanap">
+<!ENTITY main.search                    "Humanap">
+<!ENTITY main.searchPlaceholder         "Imakinilya rito ang tekstong hahanapin...">
+<!ENTITY main.findInText                "Hanapin sa teksto">
+<!ENTITY main.noSearchBar               "Ang paghahanap ay nangangailangan ng isang talaksang ZIM na may taluntunan">
+<!ENTITY main.bookmarks                 "Mga pananda">
+
+<!-- Results bar -->
+<!ENTITY main.results.title             "Mga resulta ng paghanap">
+
+<!-- Bookmarks Bar -->
+<!ENTITY main.bmkLabel                  "Mga pananda:">
+<!ENTITY main.notesLabel                "Mga tala ng pananda:">
+<!ENTITY main.loadbmk                   "Angkatin ang Pangkat ng Pananda">
+<!ENTITY main.newbmk                    "Lumikha ng bagong Pangkat ng Pananda">
+<!ENTITY main.mark                      "Markahan ang pahinang ito">
+<!ENTITY main.unmark                    "Pinili ang hindi pagmamarka">
+<!ENTITY main.reload                    "Muling Ikarga ang Pangkat ng Pananda">
+<!ENTITY main.defaultset                "Pangkat ng Likas na Katakdaan">
+
+<!-- Contextual Menu -->
+<!ENTITY main.saveImageAs               "Sagipin ang larawan bilang...">
+<!ENTITY main.openLinkInNewTab          "Buksan ang kawing sa bagong laylay">
+<!ENTITY main.searchFor                 "Hanapin ang">
+<!ENTITY main.copyLinkAdress            "Copy link address">
+<!ENTITY main.mute                      "Walang tunog">
+<!ENTITY main.audible                   "Maririnig">
+
+<!-- About Window -->
+<!ENTITY main.close                     "Isara">
+
+<!-- Preferences Window -->
+<!ENTITY preferences.preferences        "Mga nais">
+<!ENTITY preferences.save               "Sagipin">
+<!ENTITY preferences.cancel             "Huwag ituloy">
+<!ENTITY preferences.profileDirectory   "Panuto sa lista ng katangian">
+<!ENTITY preferences.browse             "Tumingin-tingin">
+<!ENTITY preferences.tabs               "Isaisip ang mga laylay">
+<!ENTITY preferences.downloadCatalogs   "Ikargang paibaba ang malalayong (mga) katalogo">
+<!ENTITY preferences.neverAskToIndex    "Never ask to index">
+
+<!-- Server -->
+<!ENTITY server.load                    "Ikarga">
+<!ENTITY server.start                   "Umpisahan">
+<!ENTITY server.stop                    "Huminto">
+<!ENTITY server.close                   "Isara">
+
+<!-- Library -->
+<!ENTITY main.library.myLibrary                 "Aklatan ko">
+<!ENTITY main.library.getNewFiles               "Kunin ang bagong mga talaksan">
+<!ENTITY main.library.searchZimFiles            "Maghanap ng mga talaksang ZIM">
+<!ENTITY main.library.sortBy                    "Ayusin ayon sa">
+<!ENTITY main.library.sortBy.title              "Pamagat">
+<!ENTITY main.library.sortBy.size               "Sukat">
+<!ENTITY main.library.sortBy.date               "Petsa">
+<!ENTITY main.library.sortBy.author             "May-akda">
+<!ENTITY main.library.sortBy.publisher          "Tagapaglathala">
+<!ENTITY main.library.filterBy                  "Salain ayon sa">
+<!ENTITY main.library.filterBy.fileSize         "Sukat ng talaksan">
+<!ENTITY main.library.filterBy.language         "Wika">
+<!ENTITY main.library.filterBy.language.all     "Lahat">
+<!ENTITY main.library.filterBy.author           "May-akda">
+<!ENTITY main.library.filterBy.author.all       "Lahat">
+<!ENTITY main.library.filterBy.publisher        "Tagapaglathala">
+<!ENTITY main.library.filterBy.publisher.all    "Lahat">
+<!ENTITY main.library.filterBy.lessThan         "Mas mababa kaysa sa">
+

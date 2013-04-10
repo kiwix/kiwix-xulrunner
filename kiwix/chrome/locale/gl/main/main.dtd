@@ -75,7 +75,7 @@
 <!ENTITY main.randomArticle.accesskey   "R">
 <!ENTITY main.checkIntegrity            "Comprobación da integridade">
 <!ENTITY main.checkIntegrity.accesskey  "k">
-<!ENTITY main.launchIndexing            "Launch indexing">
+<!ENTITY main.launchIndexing            "Iniciar a indexación">
 <!ENTITY main.purgeHistory              "Limpar o historial">
 <!ENTITY main.purgeHistory.accesskey    "P">
 
@@ -131,7 +131,7 @@
 <!ENTITY preferences.browse             "Navegar">
 <!ENTITY preferences.tabs               "Lembrar as lapelas">
 <!ENTITY preferences.downloadCatalogs   "Descargar o(s) catálogo(s) remoto(s)">
-<!ENTITY preferences.neverAskToIndex    "Never ask to index">
+<!ENTITY preferences.neverAskToIndex    "Non pedir nunca a indexación">
 
 <!-- Server -->
 <!ENTITY server.load                    "Cargar">

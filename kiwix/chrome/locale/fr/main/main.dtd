@@ -75,7 +75,7 @@
 <!ENTITY main.randomArticle.accesskey   "A">
 <!ENTITY main.checkIntegrity            "Vérifier l'intégrité du contenu">
 <!ENTITY main.checkIntegrity.accesskey  "k">
-<!ENTITY main.launchIndexing            "Launch indexing">
+<!ENTITY main.launchIndexing            "Lancer l'indexation">
 <!ENTITY main.purgeHistory              "Purger l'historique">
 <!ENTITY main.purgeHistory.accesskey    "P">
 
@@ -131,7 +131,7 @@
 <!ENTITY preferences.browse             "Parcourir">
 <!ENTITY preferences.tabs               "Se souvenir des onglets ouverts en quittant Kiwix">
 <!ENTITY preferences.downloadCatalogs   "Télécharger le(s) catalogue(s) distant">
-<!ENTITY preferences.neverAskToIndex    "Never ask to index">
+<!ENTITY preferences.neverAskToIndex    "Ne jamais demander d'indexer">
 
 <!-- Server -->
 <!ENTITY server.load                    "Charger">

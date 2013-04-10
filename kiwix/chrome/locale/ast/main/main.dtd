@@ -75,7 +75,7 @@
 <!ENTITY main.randomArticle.accesskey   "R">
 <!ENTITY main.checkIntegrity            "Comprobación d'integridá">
 <!ENTITY main.checkIntegrity.accesskey  "k">
-<!ENTITY main.launchIndexing            "Launch indexing">
+<!ENTITY main.launchIndexing            "Llanzar xeneración d'índices">
 <!ENTITY main.purgeHistory              "Llimpiar historial">
 <!ENTITY main.purgeHistory.accesskey    "P">
 
@@ -131,7 +131,7 @@
 <!ENTITY preferences.browse             "Navegar">
 <!ENTITY preferences.tabs               "Recordar les llingüetes">
 <!ENTITY preferences.downloadCatalogs   "Descargar catálogu remotu">
-<!ENTITY preferences.neverAskToIndex    "Never ask to index">
+<!ENTITY preferences.neverAskToIndex    "Nun entrugar pola xeneración d'índices">
 
 <!-- Server -->
 <!ENTITY server.load                    "Cargar">

@@ -100,6 +100,9 @@ locale main ta             locale/ta/main/
 locale main tcy            locale/tcy/main/
 locale main te             locale/te/main/
 locale main th             locale/th/main/
+locale main tl             locale/tl/main/
+locale main tly            locale/tly/main/
+locale main tr             locale/tly/main/
 locale main tt-cyrl        locale/tt-cyrl/main/
 locale main ug-arab        locale/ug-arab/main/
 locale main uk             locale/uk/main/
@@ -210,6 +213,9 @@ locale branding ta         locale/branding/
 locale branding tcy        locale/branding/
 locale branding te         locale/branding/
 locale branding th         locale/branding/
+locale branding tl         locale/branding/
+locale branding tly        locale/branding/
+locale branding tr         locale/branding/
 locale branding tt-cyrl    locale/branding/
 locale branding ug-arab    locale/branding/
 locale branding uk         locale/branding/

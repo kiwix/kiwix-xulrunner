@@ -75,7 +75,7 @@
 <!ENTITY main.randomArticle.accesskey   "Z">
 <!ENTITY main.checkIntegrity            "Integritätsprüfung">
 <!ENTITY main.checkIntegrity.accesskey  "k">
-<!ENTITY main.launchIndexing            "Launch indexing">
+<!ENTITY main.launchIndexing            "Indexierung starten">
 <!ENTITY main.purgeHistory              "Verlauf löschen">
 <!ENTITY main.purgeHistory.accesskey    "G">
 
@@ -131,7 +131,7 @@
 <!ENTITY preferences.browse             "Durchsuchen">
 <!ENTITY preferences.tabs               "Reiter merken">
 <!ENTITY preferences.downloadCatalogs   "Externe(n) Katalog(e) herunterladen">
-<!ENTITY preferences.neverAskToIndex    "Never ask to index">
+<!ENTITY preferences.neverAskToIndex    "Nie nach Indexierung fragen">
 
 <!-- Server -->
 <!ENTITY server.load                    "Laden">

@@ -1,0 +1,161 @@
+<!-- Window -->
+<!ENTITY main.title                     "&brand.brandShortName;">
+<!ENTITY main.cssdirection              "ltr">
+
+<!-- Mac menu -->
+<!ENTITY main.osxservices               "Hizmetler">
+<!ENTITY main.osxhideapp                "&brand.brandShortName;' gizle">
+<!ENTITY main.osxhideothers             "Diğerlerini gizle">
+<!ENTITY main.osxshowall                "Hepsini Göster">
+
+<!-- File menu -->
+<!ENTITY main.file                      "Dosya">
+<!ENTITY main.file.accesskey            "F">
+<!ENTITY main.openFile                  "Dosya aç...">
+<!ENTITY main.browseLibrary.accesskey   "B">
+<!ENTITY main.browseLibrary             "Kütüphaneye gözat">
+<!ENTITY main.hideLibrary               "Kütüphaneyi gizle">
+<!ENTITY main.openFile.accesskey        "O">
+<!ENTITY main.lastOpen                  "Son zamanlarda açılanlar...">
+<!ENTITY main.saveFile                  "Sayfayı farklı kaydet...">
+<!ENTITY main.saveFile.accesskey        "S">
+<!ENTITY main.print                     "Yazdır">
+<!ENTITY main.print.accesskey           "P">
+<!ENTITY main.printPdf                  "PDF olarak yazdır">
+<!ENTITY main.printPdf.accesskey        "D">
+<!ENTITY main.quit                      "Çık">
+<!ENTITY main.quit.accesskey            "Q">
+
+<!-- Edit menu -->
+<!ENTITY main.edit                      "Düzenle">
+<!ENTITY main.edit.accesskey            "E">
+<!ENTITY main.find                      "Sayfa içinde ara...">
+<!ENTITY main.find.accesskey            "S">
+<!ENTITY main.selectall                 "Tümünü seç">
+<!ENTITY main.selectall.accesskey       "a">
+<!ENTITY main.copy                      "Kopyala">
+<!ENTITY main.copy.accesskey            "p">
+<!ENTITY main.transliteration           "Harf çevirisi">
+<!ENTITY main.transliteration.accesskey "T">
+<!ENTITY main.preferences               "Tercihler">
+<!ENTITY main.preferences.accesskey     "n">
+<!ENTITY main.server                    "Sunucu">
+<!ENTITY main.server.accesskey          "s">
+
+<!-- Display menu -->
+<!ENTITY main.display                   "Göster">
+<!ENTITY main.display.accesskey         "D">
+<!ENTITY main.zoom                      "Yakınlaştır">
+<!ENTITY main.zoom.accesskey            "Z">
+<!ENTITY main.zoomin                    "Büyüt">
+<!ENTITY main.zoomin.accesskey          "M">
+<!ENTITY main.zoomout                   "Küçült">
+<!ENTITY main.zoomout.accesskey         "R">
+<!ENTITY main.zoomorig                  "Orijinal boyut">
+<!ENTITY main.zoomorig.accesskey        "O">
+<!ENTITY main.language                  "Dil">
+<!ENTITY main.language.accesskey        "L">
+<!ENTITY main.skin                      "Görünüm">
+<!ENTITY main.skin.accesskey            "S">
+<!ENTITY main.statusbar                 "Durum çubuğu">
+<!ENTITY main.statusbar.accesskey       "S">
+<!ENTITY main.resultsbar                "Sonuçlar çubuğu">
+<!ENTITY main.resultsbar.accesskey      "R">
+<!ENTITY main.tabs                      "Sekmeler">
+<!ENTITY main.tabs.accesskey            "T">
+<!ENTITY main.fullscreen                "Tam ekran">
+<!ENTITY main.fullscreen.accesskey      "F">
+<!ENTITY main.invertedColors            "Karşıt renkler">
+<!ENTITY main.invertedColors.accesskey  "I">
+
+<!-- Tools menu -->
+<!ENTITY main.tools                     "Araçlar">
+<!ENTITY main.tools.accesskey           "T">
+<!ENTITY main.randomArticle             "Rastgele madde">
+<!ENTITY main.randomArticle.accesskey   "R">
+<!ENTITY main.checkIntegrity            "Bütünlük denetimi">
+<!ENTITY main.checkIntegrity.accesskey  "k">
+<!ENTITY main.launchIndexing            "Launch indexing">
+<!ENTITY main.purgeHistory              "Geçmişi temizle">
+<!ENTITY main.purgeHistory.accesskey    "P">
+
+<!-- Help menu -->
+<!ENTITY main.help                      "Yardım">
+<!ENTITY main.help.accesskey            "H">
+<!ENTITY main.feedback                  "Geri bildirim">
+<!ENTITY main.reportabug                "Hata bildir">
+<!ENTITY main.requestafeature           "Bir özellik iste">
+<!ENTITY main.about                     "&brand.brandShortName; Hakkında">
+<!ENTITY main.about.accesskey           "A">
+
+<!-- Tool bar -->
+<!ENTITY main.back                      "Geri">
+<!ENTITY main.forward                   "İleri">
+<!ENTITY main.home                      "Ana Sayfa">
+<!ENTITY main.searchBar                 "Arama çubuğu">
+<!ENTITY main.search                    "Ara">
+<!ENTITY main.searchPlaceholder         "Aramak için metni buraya girin...">
+<!ENTITY main.findInText                "Metinde bul">
+<!ENTITY main.noSearchBar               "Arama, indekslenmiş bir ZIM dosyası gerektirir.">
+<!ENTITY main.bookmarks                 "Yer imleri">
+
+<!-- Results bar -->
+<!ENTITY main.results.title             "Arama sonuçları">
+
+<!-- Bookmarks Bar -->
+<!ENTITY main.bmkLabel                  "Yer imleri:">
+<!ENTITY main.notesLabel                "Yer imi notları:">
+<!ENTITY main.loadbmk                   "Yer İmlerini İçe Aktar">
+<!ENTITY main.newbmk                    "Yeni bir Yer İmi oluştur">
+<!ENTITY main.mark                      "Bu sayfayı işaretle">
+<!ENTITY main.unmark                    "Seçilenin işaretini kaldır">
+<!ENTITY main.reload                    "Yer İmlerini Yeniden Yükle">
+<!ENTITY main.defaultset                "Varsayılan Ayar">
+
+<!-- Contextual Menu -->
+<!ENTITY main.saveImageAs               "Resmi farklı kaydet">
+<!ENTITY main.openLinkInNewTab          "Bağlantıyı yeni sekmede aç">
+<!ENTITY main.searchFor                 "Bunu ara">
+<!ENTITY main.copyLinkAdress            "Copy link address">
+<!ENTITY main.mute                      "Sessiz">
+<!ENTITY main.audible                   "Sesli">
+
+<!-- About Window -->
+<!ENTITY main.close                     "Kapat">
+
+<!-- Preferences Window -->
+<!ENTITY preferences.preferences        "Tercihler">
+<!ENTITY preferences.save               "Kaydet">
+<!ENTITY preferences.cancel             "İptal">
+<!ENTITY preferences.profileDirectory   "Profil dizini">
+<!ENTITY preferences.browse             "Gözat">
+<!ENTITY preferences.tabs               "Sekmeleri hatırla">
+<!ENTITY preferences.downloadCatalogs   "Uzaktan katalog(lar)ı indir">
+<!ENTITY preferences.neverAskToIndex    "Never ask to index">
+
+<!-- Server -->
+<!ENTITY server.load                    "Yükle">
+<!ENTITY server.start                   "Başla">
+<!ENTITY server.stop                    "Dur">
+<!ENTITY server.close                   "Kapat">
+
+<!-- Library -->
+<!ENTITY main.library.myLibrary                 "Kütüphanem">
+<!ENTITY main.library.getNewFiles               "Yeni dosyalar edin">
+<!ENTITY main.library.searchZimFiles            "ZIM dosyası ara">
+<!ENTITY main.library.sortBy                    "Sıralama ölçütü">
+<!ENTITY main.library.sortBy.title              "Başlık">
+<!ENTITY main.library.sortBy.size               "Boyut">
+<!ENTITY main.library.sortBy.date               "Tarih">
+<!ENTITY main.library.sortBy.author             "Yazar">
+<!ENTITY main.library.sortBy.publisher          "Yayıncı">
+<!ENTITY main.library.filterBy                  "Ayıklama ölçütü">
+<!ENTITY main.library.filterBy.fileSize         "Dosya boyutu">
+<!ENTITY main.library.filterBy.language         "Dil">
+<!ENTITY main.library.filterBy.language.all     "Hepsi">
+<!ENTITY main.library.filterBy.author           "Yazar">
+<!ENTITY main.library.filterBy.author.all       "Hepsi">
+<!ENTITY main.library.filterBy.publisher        "Yayıncı">
+<!ENTITY main.library.filterBy.publisher.all    "Hepsi">
+<!ENTITY main.library.filterBy.lessThan         "Daha az">
+

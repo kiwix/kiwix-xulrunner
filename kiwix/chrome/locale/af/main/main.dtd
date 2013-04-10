@@ -75,7 +75,7 @@
 <!ENTITY main.randomArticle.accesskey   "R">
 <!ENTITY main.checkIntegrity            "Integriteitskontrole">
 <!ENTITY main.checkIntegrity.accesskey  "k">
-<!ENTITY main.launchIndexing            "Launch indexing">
+<!ENTITY main.launchIndexing            "Begin indeksering">
 <!ENTITY main.purgeHistory              "Skrap geskiedenis">
 <!ENTITY main.purgeHistory.accesskey    "P">
 
@@ -131,7 +131,7 @@
 <!ENTITY preferences.browse             "Blaai">
 <!ENTITY preferences.tabs               "Onthou oortjies">
 <!ENTITY preferences.downloadCatalogs   "Laai katalogus(se) af">
-<!ENTITY preferences.neverAskToIndex    "Never ask to index">
+<!ENTITY preferences.neverAskToIndex    "Moet nooit vir indeksering vra nie">
 
 <!-- Server -->
 <!ENTITY server.load                    "Laai">

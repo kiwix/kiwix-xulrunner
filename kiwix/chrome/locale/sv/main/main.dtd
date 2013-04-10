@@ -75,7 +75,7 @@
 <!ENTITY main.randomArticle.accesskey   "R">
 <!ENTITY main.checkIntegrity            "Integritetskontroll">
 <!ENTITY main.checkIntegrity.accesskey  "k">
-<!ENTITY main.launchIndexing            "Launch indexing">
+<!ENTITY main.launchIndexing            "Starta indexering">
 <!ENTITY main.purgeHistory              "Rensa historik">
 <!ENTITY main.purgeHistory.accesskey    "P">
 
@@ -131,7 +131,7 @@
 <!ENTITY preferences.browse             "Bläddra">
 <!ENTITY preferences.tabs               "Kom ihåg flikar">
 <!ENTITY preferences.downloadCatalogs   "Ladda ned avlägsna katalog(er)">
-<!ENTITY preferences.neverAskToIndex    "Never ask to index">
+<!ENTITY preferences.neverAskToIndex    "Fråga aldrig att indexera">
 
 <!-- Server -->
 <!ENTITY server.load                    "Läs in">

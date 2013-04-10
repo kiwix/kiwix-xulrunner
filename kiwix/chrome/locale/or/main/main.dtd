@@ -4,7 +4,7 @@
 
 <!-- Mac menu -->
 <!ENTITY main.osxservices               "ସେବାଗୁଡିକ">
-<!ENTITY main.osxhideapp                "&brand.brandShortName ଲୁଚାଇବେ;">
+<!ENTITY main.osxhideapp                "&brand.brandShortName; ଲୁଚାଇବେ">
 <!ENTITY main.osxhideothers             "ଅନ୍ୟ ସବୁକୁ ଲୁଚାଇବେ">
 <!ENTITY main.osxshowall                "ସବୁ ଦେଖିବେ">
 
@@ -85,7 +85,7 @@
 <!ENTITY main.feedback                  "ମତାମତ">
 <!ENTITY main.reportabug                "Bug ଟିଏ ଦାଖଲ କରିବେ">
 <!ENTITY main.requestafeature           "ଏକ ସୁବିଧା ନିମନ୍ତେ ଅନୁରୋଧ କରିବେ">
-<!ENTITY main.about                     "&brand.brandShortName ବାବଦରେ;">
+<!ENTITY main.about                     "&brand.brandShortName; ବାବଦରେ">
 <!ENTITY main.about.accesskey           "A">
 
 <!-- Tool bar -->

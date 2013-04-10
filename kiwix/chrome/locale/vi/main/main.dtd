@@ -75,7 +75,7 @@
 <!ENTITY main.randomArticle.accesskey   "u">
 <!ENTITY main.checkIntegrity            "Kiểm tra Tính toàn vẹn">
 <!ENTITY main.checkIntegrity.accesskey  "v">
-<!ENTITY main.launchIndexing            "Launch indexing">
+<!ENTITY main.launchIndexing            "Khởi động quá trình lập chỉ mục">
 <!ENTITY main.purgeHistory              "Dọn sạch Lịch sử">
 <!ENTITY main.purgeHistory.accesskey    "D">
 
@@ -131,7 +131,7 @@
 <!ENTITY preferences.browse             "Duyệt">
 <!ENTITY preferences.tabs               "Nhớ các thẻ">
 <!ENTITY preferences.downloadCatalogs   "Tải về mục lục từ xa">
-<!ENTITY preferences.neverAskToIndex    "Never ask to index">
+<!ENTITY preferences.neverAskToIndex    "Không bao giờ hỏi lập chỉ mục">
 
 <!-- Server -->
 <!ENTITY server.load                    "Tải">

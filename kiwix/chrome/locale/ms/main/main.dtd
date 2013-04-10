@@ -75,7 +75,7 @@
 <!ENTITY main.randomArticle.accesskey   "R">
 <!ENTITY main.checkIntegrity            "Periksa Keutuhan">
 <!ENTITY main.checkIntegrity.accesskey  "k">
-<!ENTITY main.launchIndexing            "Launch indexing">
+<!ENTITY main.launchIndexing            "Lancarkan pengindeksan">
 <!ENTITY main.purgeHistory              "Singkirkan sejarah">
 <!ENTITY main.purgeHistory.accesskey    "P">
 
@@ -131,7 +131,7 @@
 <!ENTITY preferences.browse             "Semak imbas">
 <!ENTITY preferences.tabs               "Ingati tab">
 <!ENTITY preferences.downloadCatalogs   "Muat turun katalog jauh">
-<!ENTITY preferences.neverAskToIndex    "Never ask to index">
+<!ENTITY preferences.neverAskToIndex    "Jangan sesekali minta pengindekskan">
 
 <!-- Server -->
 <!ENTITY server.load                    "Muatkan">

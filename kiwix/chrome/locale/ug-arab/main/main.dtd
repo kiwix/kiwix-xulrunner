@@ -4,7 +4,7 @@
 
 <!-- Mac menu -->
 <!ENTITY main.osxservices               "مۇلازىمەتلەر">
-<!ENTITY main.osxhideapp                "&brand.brandShortName نى يوشۇر:">
+<!ENTITY main.osxhideapp                "&brand.brandShortName; نى يوشۇر">
 <!ENTITY main.osxhideothers             "باشقىلارنى يوشۇر">
 <!ENTITY main.osxshowall                "ھەممىنى كۆرسەت">
 
@@ -85,7 +85,7 @@
 <!ENTITY main.feedback                  "قايتۇرما ئىنكاس">
 <!ENTITY main.reportabug                "خاتالىق دوكلاتى">
 <!ENTITY main.requestafeature           "ئىقتىدار ئىلتىماسى">
-<!ENTITY main.about                     "&brand.brandShortName ھەققىدە:">
+<!ENTITY main.about                     "&brand.brandShortName; ھەققىدە">
 <!ENTITY main.about.accesskey           "A">
 
 <!-- Tool bar -->

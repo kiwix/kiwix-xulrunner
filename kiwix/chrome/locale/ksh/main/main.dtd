@@ -75,7 +75,7 @@
 <!ENTITY main.randomArticle.accesskey   "R">
 <!ENTITY main.checkIntegrity            "Der ennere Zosammehald vun dä ZIM-Dattei prööfe">
 <!ENTITY main.checkIntegrity.accesskey  "k">
-<!ENTITY main.launchIndexing            "Launch indexing">
+<!ENTITY main.launchIndexing            "Donn der Endäx opboue">
 <!ENTITY main.purgeHistory              "Schmieß de Leß met de köözlesch opjemaate Deieje fott">
 <!ENTITY main.purgeHistory.accesskey    "P">
 
@@ -131,7 +131,7 @@
 <!ENTITY preferences.browse             "Aanluure">
 <!ENTITY preferences.tabs               "Tabbulatoore behallde">
 <!ENTITY preferences.downloadCatalogs   "Donn dä Kattalooch udder de Kattaloore vun ußerhallfe eronger laade">
-<!ENTITY preferences.neverAskToIndex    "Never ask to index">
+<!ENTITY preferences.neverAskToIndex    "Frooch nie dernoh, der Endäx neu opzeboue">
 
 <!-- Server -->
 <!ENTITY server.load                    "Laade">

@@ -100,6 +100,9 @@ locale main ta             jar:locale.jar!/locale/ta/main/
 locale main tcy            jar:locale.jar!/locale/tcy/main/
 locale main te             jar:locale.jar!/locale/te/main/
 locale main th             jar:locale.jar!/locale/th/main/
+locale main tl             jar:locale.jar!/locale/tl/main/
+locale main tly            jar:locale.jar!/locale/tly/main/
+locale main tr             jar:locale.jar!/locale/tr/main/
 locale main tt-cyrl        jar:locale.jar!/locale/tt-cyrl/main/
 locale main ug-arab        jar:locale.jar!/locale/ug-arab/main/
 locale main uk             jar:locale.jar!/locale/uk/main/
@@ -210,6 +213,9 @@ locale branding ta         jar:locale.jar!/locale/branding/
 locale branding tcy        jar:locale.jar!/locale/branding/
 locale branding te         jar:locale.jar!/locale/branding/
 locale branding th         jar:locale.jar!/locale/branding/
+locale branding tl         jar:locale.jar!/locale/branding/
+locale branding tly        jar:locale.jar!/locale/branding/
+locale branding tr         jar:locale.jar!/locale/branding/
 locale branding tt-cyrl    jar:locale.jar!/locale/branding/
 locale branding ug-arab    jar:locale.jar!/locale/branding/
 locale branding uk         jar:locale.jar!/locale/branding/

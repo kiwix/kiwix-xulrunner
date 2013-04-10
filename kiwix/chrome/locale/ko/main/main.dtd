@@ -75,7 +75,7 @@
 <!ENTITY main.randomArticle.accesskey   "R">
 <!ENTITY main.checkIntegrity            "유효성 검사">
 <!ENTITY main.checkIntegrity.accesskey  "k">
-<!ENTITY main.launchIndexing            "Launch indexing">
+<!ENTITY main.launchIndexing            "색인 만들기 실행">
 <!ENTITY main.purgeHistory              "최근에 사용한 항목 지우기">
 <!ENTITY main.purgeHistory.accesskey    "P">
 
@@ -92,7 +92,7 @@
 <!ENTITY main.back                      "뒤로">
 <!ENTITY main.forward                   "앞으로">
 <!ENTITY main.home                      "처음으로">
-<!ENTITY main.searchBar                 "검색 줄">
+<!ENTITY main.searchBar                 "찾기 막대">
 <!ENTITY main.search                    "찾기">
 <!ENTITY main.searchPlaceholder         "찾을 텍스트를 여기에 입력하세요...">
 <!ENTITY main.findInText                "본문에서 찾기">
@@ -100,21 +100,21 @@
 <!ENTITY main.bookmarks                 "책갈피">
 
 <!-- Results bar -->
-<!ENTITY main.results.title             "검색결과 찾기">
+<!ENTITY main.results.title             "찾기 결과">
 
 <!-- Bookmarks Bar -->
 <!ENTITY main.bmkLabel                  "책갈피:">
-<!ENTITY main.notesLabel                "서표 노트">
-<!ENTITY main.loadbmk                   "서표 세트 불러오기">
-<!ENTITY main.newbmk                    "새로운 서표 세트 만들기">
-<!ENTITY main.mark                      "이 페이지의 표시하기">
-<!ENTITY main.unmark                    "이 페이지의 표시의 취소하기">
-<!ENTITY main.reload                    "서표 세트 읽어오기">
+<!ENTITY main.notesLabel                "책갈피 노트:">
+<!ENTITY main.loadbmk                   "책갈피 세트 불러오기">
+<!ENTITY main.newbmk                    "새 책갈피 세트 만들기">
+<!ENTITY main.mark                      "이 페이지 표시하기">
+<!ENTITY main.unmark                    "이 페이지 표시 취소하기">
+<!ENTITY main.reload                    "책갈피 세트 다시 불러오기">
 <!ENTITY main.defaultset                "기본값 세트">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveImageAs               "그림 파일 다름 이름으로 저장하기">
-<!ENTITY main.openLinkInNewTab          "새로운 탭에 열기">
+<!ENTITY main.saveImageAs               "그림을 다른 이름으로 저장...">
+<!ENTITY main.openLinkInNewTab          "새 탭에 링크 열기">
 <!ENTITY main.searchFor                 "을(를) 찾기">
 <!ENTITY main.copyLinkAdress            "Copy link address">
 <!ENTITY main.mute                      "무음">
@@ -128,10 +128,10 @@
 <!ENTITY preferences.save               "저장">
 <!ENTITY preferences.cancel             "취소">
 <!ENTITY preferences.profileDirectory   "프로필 디렉토리">
-<!ENTITY preferences.browse             "열람하기">
+<!ENTITY preferences.browse             "찾아보기">
 <!ENTITY preferences.tabs               "탭 저장하기">
 <!ENTITY preferences.downloadCatalogs   "원격 카탈로그 다운로드">
-<!ENTITY preferences.neverAskToIndex    "Never ask to index">
+<!ENTITY preferences.neverAskToIndex    "색인 만들기를 절대 묻지 않음">
 
 <!-- Server -->
 <!ENTITY server.load                    "불러오기">
@@ -141,7 +141,7 @@
 
 <!-- Library -->
 <!ENTITY main.library.myLibrary                 "내 라이브러리">
-<!ENTITY main.library.getNewFiles               "새로운 파일 얻기">
+<!ENTITY main.library.getNewFiles               "새 파일 얻기">
 <!ENTITY main.library.searchZimFiles            "ZIM 파일 찾기">
 <!ENTITY main.library.sortBy                    "정렬">
 <!ENTITY main.library.sortBy.title              "제목">

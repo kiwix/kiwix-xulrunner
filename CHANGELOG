@@ -1,25 +1,30 @@
-Kiwix 0.9 rc3
-* FIXED: Fulltext search results page for pattern including mustbeurlencoded characters
-* FIXED: Kiwix-serve bug under Windows with library containing relative paths
+Kiwix 0.9 rc3 
+* FIXED: Fulltext search results page for pattern including
+  mustbeurlencoded characters
+* FIXED: Kiwix-serve bug under Windows with library containing
+  relative paths
 * FIXED: Unclear usage() for console tools
-* FIXED: Crashing UI with Kannada (kn) and Georgian (ka) (#413)
+* FIXED: Crashing UI with Kannada (kn), Oriya (or) and Georgian (ka)
+  (#413)
 * FIXED: Unavailable kiwix-serve from the UI on Linux, if not installed (#411)
 * FIXED: kiwix-serve UI for non-javascript browsers like Dillo (#587)
 * FIXED: kiwix-serve crahs if really long URL (#400)
-* FIXED: Small display issue if multilingual ZIM file
+* FIXED: Small display issue with multilingual ZIM file
 * FIXED: Toolbar buttons order
 * FIXED: Argument forwarding in kiwix-launcher
 * FIXED: Copy to clipboard if inverted colors (#414)
-* FIXED: Select all inverted colors
+* FIXED: "Select all" with inverted colors
 * FIXED: Browser widget resizing sync. with the window (#382)
 * FIXED: Encoding issue in kiwix-serve 404 error message
 * FIXED: Abstruse index names (#84)
 * NEW: New supported user interface languages: Chuvash (cv), Fiji
   Hindi Latin script (hif-latn), Mongolian (mn), Newari (new),
-  Sanskrit (sa), Uzbek (uz)
+  Sanskrit (sa), Uzbek (uz), Turkish (tr), Tagalog (tl), Talysh
+  language (tly) and Uyghur in Arabic script (ug-arab)
 * NEW: Does not ask to download remote catalogs if user is offline
 * NEW: Option to avoid dialog box asking for indexing (#330)
 * NEW: Menu item to launch indexing (#455)
+* NEW: Kiwix for Android (#109)
 
 Kiwix 0.9 rc2
 * FIXED: kiwix-manage generate wrong size for splitted ZIM files (ID: 3547892)
