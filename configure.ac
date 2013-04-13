@@ -726,7 +726,7 @@ else
 
     if test [ ! -f "$XPIDL_PATH/header.py" -o ! -f "$XPIDL_PATH/typelib.py" ]
     then
-        ErrorOrWarning "$COMPILE_GECKO_SDK" "unable to find neither the xpidl binary nor the typelib.py and header.py scripts in '$XPIDL_PATH' directory."
+        ErrorOrWarning "$COMPILE_GECKO_SDK" "unable to find either the xpidl binary or the typelib.py or header.py scripts in '$XPIDL_PATH' directory."
     fi
 
     HEADER_PY="$PYTHON $XPIDL_PATH/header.py"
