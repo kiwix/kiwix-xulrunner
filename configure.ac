@@ -185,7 +185,7 @@ function yesno {
 function findLibrary {
 	found=0
 	for f in $(echo $LIBS_ROOT|tr ":" "\n") ; do
-		sf=`find $f -name $1 | head -1`
+		sf=`find $f -name $1 | head -1 2> /dev/null`
 		if [[ -f "$sf" -a $found -eq 0 ]]
 		then
 			found=1
