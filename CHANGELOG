@@ -17,6 +17,7 @@ Kiwix 0.9 rc3
 * FIXED: Browser widget resizing sync. with the window (#382)
 * FIXED: Encoding issue in kiwix-serve 404 error message
 * FIXED: Abstruse index names (#84)
+* FIXED: Compilation configuration for Gecko SDK 17+
 * NEW: New supported user interface languages: Chuvash (cv), Fiji
   Hindi Latin script (hif-latn), Mongolian (mn), Newari (new),
   Sanskrit (sa), Uzbek (uz), Turkish (tr), Tagalog (tl), Talysh
