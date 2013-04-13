@@ -182,10 +182,10 @@ function yesno {
 	fi
 }
 
-function findstatic {
+function findLibrary {
 	found=0
 	for f in $(echo $LIBS_ROOT|tr ":" "\n") ; do
-		sf=`find $f -name $1 |head -1`
+		sf=`find $f -name $1 | head -1`
 		if [[ -f "$sf" -a $found -eq 0 ]]
 		then
 			found=1
@@ -768,12 +768,12 @@ else
 	# look for shared library.
 	AC_CHECK_HEADER([zlib.h],, [AC_MSG_ERROR([[cannot find zlib header]])])
 	AC_CHECK_LIB([z], [zlibVersion],, [AC_MSG_ERROR([[cannot find zlib]]);COMPILE_ZLIB=1])
-	ZLIB_FILES=`findstatic "libz.${SHARED_EXT}"`
+	ZLIB_FILES=`findLibrary "libz.${SHARED_EXT}"`
 
 	# if static is required
 	if test [ $REQUIRE_STATIC -eq 1 ] ; then
 		AC_CHECK_FILE($ZLIB_ARCHIVE, [ZLIB_ARCHIVE_FOUND=1], [ZLIB_ARCHIVE_FOUND=0])
-		AUTO_ZLIB_ARCHIVE=`findstatic "libz.a"`
+		AUTO_ZLIB_ARCHIVE=`findLibrary "libz.a"`
 
 		if test [ $ZLIB_ARCHIVE_FOUND -eq 0 -a "$AUTO_ZLIB_ARCHIVE" == "no" ] ; then
 			# can't stat files. force compile
@@ -826,7 +826,7 @@ else
 		PATH="${XAPIAN_PATH}:${PATH}"
 	    XAPIAN_CFLAGS=`xapian-config --cxxflags`;
 	    XAPIAN_LDFLAGS=`xapian-config --ltlibs`;
-	    XAPIAN_FILES=`findstatic "libxapian.${SHARED_EXT}"`
+	    XAPIAN_FILES=`findLibrary "libxapian.${SHARED_EXT}"`
 	    PATH=$OLDPATH
 	fi
 
@@ -840,7 +840,7 @@ else
 	# if static is required
 	if test [ $REQUIRE_STATIC -eq 1 ] ; then
 		AC_CHECK_FILE($XAPIAN_ARCHIVE, [XAPIAN_ARCHIVE_FOUND=1], [XAPIAN_ARCHIVE_FOUND=0])
-		AUTO_XAPIAN_ARCHIVE=`findstatic "libxapian.a"`
+		AUTO_XAPIAN_ARCHIVE=`findLibrary "libxapian.a"`
 
 		if test [ $XAPIAN_ARCHIVE_FOUND -eq 0 -a "$AUTO_XAPIAN_ARCHIVE" == "no" ] ; then
 			# can't stat files. force compile
@@ -886,7 +886,7 @@ else
 	# look for shared library.
 	# AC_CHECK_HEADER([zlib.h],, [AC_MSG_ERROR([[cannot find zlib header]])])
 	# AC_CHECK_LIB([z], [zlibVersion],, [AC_MSG_ERROR([[cannot find zlib]]);COMPILE_ICU=1])
-	# ICU_FILES=`findstatic "libicuuc.${SHARED_EXT}"`
+	# ICU_FILES=`findLibrary "libicuuc.${SHARED_EXT}"`
 
 	AC_CHECK_TOOL(HAVE_ICU_CONFIG, icu-config,, "${ICU_PATH}:${PATH}")
 	if test [ ! "$HAVE_ICU_CONFIG" ]
@@ -898,7 +898,7 @@ else
 	    ICU_CFLAGS=`icu-config --cxxflags`;
 	    ICU_LDFLAGS=`icu-config --ldflags`;
 	    ICU_VER=`icu-config --version`;
-	    ICU_FILES="`findstatic "libicuuc.${SHARED_EXT}"` `findstatic "libicudata.${SHARED_EXT}"` `findstatic "libicui18n.${SHARED_EXT}"`"
+	    ICU_FILES="`findLibrary "libicuuc.${SHARED_EXT}"` `findLibrary "libicudata.${SHARED_EXT}"` `findLibrary "libicui18n.${SHARED_EXT}"`"
 	    PATH=$OLDPATH
 	    if [[ $ICU_VER \< "4.2" ]]
 		then
@@ -909,7 +909,7 @@ else
 	# if static is required
 	if test [ $REQUIRE_STATIC -eq 1 ] ; then
 		AC_CHECK_FILE("$ICU_ARCHIVE/libicuuc.a", [ICU_ARCHIVE_FOUND=1], [ICU_ARCHIVE_FOUND=0])
-		AUTO_ICU_ARCHIVE=`findstatic "libicuuc.a"`
+		AUTO_ICU_ARCHIVE=`findLibrary "libicuuc.a"`
 
 		if test [ $ICU_ARCHIVE_FOUND -eq 0 -a "$AUTO_ICU_ARCHIVE" == "no" ] ; then
 			# can't stat files. force compile
@@ -923,7 +923,7 @@ else
   			ICU_STATIC_LDFLAGS="$ICU_ARCHIVE/libicuuc.a $ICU_ARCHIVE/libicudata.a $ICU_ARCHIVE/libicui18n.a"
   		else
   			# can stat auto file
-  			ICU_STATIC_LDFLAGS="`findstatic 'libicuuc.a'` `findstatic 'libicudata.a'` `findstatic 'libicui18n.a'`"
+  			ICU_STATIC_LDFLAGS="`findLibrary 'libicuuc.a'` `findLibrary 'libicudata.a'` `findLibrary 'libicui18n.a'`"
   		fi
   	fi
 fi
@@ -963,12 +963,12 @@ then
 	then
 		AC_MSG_ERROR([[The libmicrohttpd version must be 0.4.0 or higher.]])
 	fi
-	MICROHTTPD_FILES=`findstatic "libmicrohttpd.${SHARED_EXT}"`
+	MICROHTTPD_FILES=`findLibrary "libmicrohttpd.${SHARED_EXT}"`
 
 	# if static is required
 	if test [ $REQUIRE_STATIC -eq 1 ] ; then
 		AC_CHECK_FILE($MICROHTTPD_ARCHIVE, [MICROHTTPD_ARCHIVE_FOUND=1], [MICROHTTPD_ARCHIVE_FOUND=0])
-		AUTO_MICROHTTPD_ARCHIVE=`findstatic "libmicrohttpd.a"`
+		AUTO_MICROHTTPD_ARCHIVE=`findLibrary "libmicrohttpd.a"`
 
 		if test [ $MICROHTTPD_ARCHIVE_FOUND -eq 0 -a "$AUTO_MICROHTTPD_ARCHIVE" == "no" ] ; then
 			# can't stat files. force compile
@@ -1021,12 +1021,12 @@ else
 	then
 		AC_MSG_ERROR([[The liblzma version must be 0.4.0 or higher.]])
 	fi
-	LZMA_FILES=`findstatic "liblzma.${SHARED_EXT}"`
+	LZMA_FILES=`findLibrary "liblzma.${SHARED_EXT}"`
 
 	# if static is required
 	if test [ $REQUIRE_STATIC -eq 1 ] ; then
 		AC_CHECK_FILE($LZMA_ARCHIVE, [LZMA_ARCHIVE_FOUND=1], [LZMA_ARCHIVE_FOUND=0])
-		AUTO_LZMA_ARCHIVE=`findstatic "liblzma.a"`
+		AUTO_LZMA_ARCHIVE=`findLibrary "liblzma.a"`
 
 		if test [ $LZMA_ARCHIVE_FOUND -eq 0 -a "$AUTO_LZMA_ARCHIVE" == "no" ] ; then
 			# can't stat files. force compile
@@ -1126,12 +1126,12 @@ elif test [ $IS_WIN -eq 0 ] ; then
 	])
 
 	AC_DEFINE(_SUPPRESS_MAKE_BASED_CONFIG, [TRUE], [CLUCENE VERSION SWITCH])
-	CLUCENE_FILES=`findstatic "libclucene.${SHARED_EXT}"`
+	CLUCENE_FILES=`findLibrary "libclucene.${SHARED_EXT}"`
 
 	# if static is required
 	if test [ $REQUIRE_STATIC -eq 1 ] ; then
 		AC_CHECK_FILE($CLUCENE_ARCHIVE, [CLUCENE_ARCHIVE_FOUND=1], [CLUCENE_ARCHIVE_FOUND=0])
-		AUTO_CLUCENE_ARCHIVE=`findstatic "libclucene.a"`
+		AUTO_CLUCENE_ARCHIVE=`findLibrary "libclucene.a"`
 
 		if test [ $CLUCENE_ARCHIVE_FOUND -eq 0 -a "$AUTO_CLUCENE_ARCHIVE" == "no" ] ; then
 			# can't stat files. force compile
@@ -1171,7 +1171,7 @@ elif test [ $WITH_SERVER -eq 1 ] ; then
 	# if static is required
 	if test [ $REQUIRE_STATIC -eq 1 ] ; then
 		AC_CHECK_FILE($UUID_ARCHIVE, [UUID_ARCHIVE_FOUND=1], [UUID_ARCHIVE_FOUND=0])
-		AUTO_UUID_ARCHIVE=`findstatic "libuuid.a"`
+		AUTO_UUID_ARCHIVE=`findLibrary "libuuid.a"`
 
 		if test [ $UUID_ARCHIVE_FOUND -eq 0 -a "$AUTO_UUID_ARCHIVE" == "no" ] ; then
 			# can't stat files. force compile
@@ -1197,37 +1197,37 @@ fi
 if test [ $STATIC_BINS -eq 1 -a $IS_OSX -eq 0 ]
 then
 	# libm
-	STATIC_LIBM_ARCHIVE=`findstatic "libm.a"`
+	STATIC_LIBM_ARCHIVE=`findLibrary "libm.a"`
 	if test [ "$STATIC_LIBM_ARCHIVE" == "no" ] ; then
 		AC_MSG_ERROR([Unable to find libm.a])
 	fi
 
 	# librt
-	STATIC_LIBRT_ARCHIVE=`findstatic "librt.a"`
+	STATIC_LIBRT_ARCHIVE=`findLibrary "librt.a"`
 	if test [ "$STATIC_LIBRT_ARCHIVE" == "no" ] ; then
 		AC_MSG_ERROR([Unable to find librt.a])
 	fi
 
 	# libstdc++
-	STATIC_LIBSTDCPP_ARCHIVE=`findstatic "libstdc++.a"`
+	STATIC_LIBSTDCPP_ARCHIVE=`findLibrary "libstdc++.a"`
 	if test [ "$STATIC_LIBSTDCPP_ARCHIVE" == "no" ] ; then
 		AC_MSG_ERROR([Unable to find libstdc++.a])
 	fi
 
 	# libstdc++
-	STATIC_LIBDL_ARCHIVE=`findstatic "libdl.a"`
+	STATIC_LIBDL_ARCHIVE=`findLibrary "libdl.a"`
 	if test [ "$STATIC_LIBDL_ARCHIVE" == "no" ] ; then
 		AC_MSG_ERROR([Unable to find libdl.a])
 	fi
 
 	# libgcc
-	STATIC_LIBGCC_ARCHIVE=`findstatic "libgcc.a"`
+	STATIC_LIBGCC_ARCHIVE=`findLibrary "libgcc.a"`
 	if test [ "$STATIC_LIBGCC_ARCHIVE" == "no" ] ; then
 		AC_MSG_ERROR([Unable to find libgcc.a])
 	fi
 
 	# libpthread
-	STATIC_LIBPTHREAD_ARCHIVE=`findstatic "libpthread.a"`
+	STATIC_LIBPTHREAD_ARCHIVE=`findLibrary "libpthread.a"`
 	if test [ "$STATIC_LIBPTHREAD_ARCHIVE" == "no" ] ; then
 		AC_MSG_ERROR([Unable to find libpthread.a])
 	fi
