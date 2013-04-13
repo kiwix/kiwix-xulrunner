@@ -647,13 +647,13 @@ if test [ $IS_OSX -eq 1 ] ; then
 	GECKO_SDK_INCLUDE="${GECKO_SDK_PATH}/x86_64/sdk/include"
 	GECKO_SDK_LIB="${GECKO_SDK_PATH}/${ARCH}/lib"
 	GECKO_IDL_PATH=${GECKO_SDK_PATH}/x86_64/idl
-	XPIDL_PATH=$GECKO_SDK_PATH/x86_64/sdk/bin
+	XPIDL_PATH=${GECKO_SDK_PATH}/x86_64/sdk/bin
 else
 	GECKO_INCLUDE_PATH="${GECKO_SDK_PATH}/include"
 	GECKO_SDK_INCLUDE="${GECKO_SDK_PATH}/sdk/include"
 	GECKO_SDK_LIB="${GECKO_SDK_PATH}/sdk/lib"
 	GECKO_IDL_PATH=${GECKO_SDK_PATH}/idl
-	XPIDL_PATH=$GECKO_SDK_PATH/sdk/bin
+	XPIDL_PATH=${GECKO_SDK_PATH}/sdk/bin
 fi
 
 if test [ $IS_OSX -eq 1 ]
@@ -664,20 +664,31 @@ else
 fi
 
 # Gecko version
-GECKO_VERSION_FALLBACK=0
-GECKO_VERSION=`if [[ -f "${GECKO_INCLUDE_PATH}/mozilla-config.h" ]]; then grep MOZILLA_VERSION_U "${GECKO_INCLUDE_PATH}/mozilla-config.h" | cut -d " " -f 3 | cut -d "." -f 1 ; fi`
-if [[ "$GECKO_VERSION" = "" ]]
+for FILE in mozilla-config64.h mozilla-config32.h mozilla-config.h
+do
+    if [[ -f "${GECKO_INCLUDE_PATH}/${FILE}" ]]
+    then
+	GECKO_VERSION=`grep MOZILLA_VERSION_U "${GECKO_INCLUDE_PATH}/${FILE}" | cut -d " " -f 3 | cut -d "." -f 1`
+    fi
+
+    if [[ ! "${GECKO_VERSION}" = "" ]]
+    then
+	break
+    fi
+done
+
+if [[ "${GECKO_VERSION}" = "" ]]
 then
-	GECKO_VERSION=$GECKO_VERSION_FALLBACK
+    ErrorOrWarning "$COMPILE_GECKO_SDK" "unable to determine Gecko SDK version"
 fi
 let GECKO_VERSION=GECKO_VERSION
 
-if [[ $GECKO_VERSION -lt 2 ]]
+if [[ ${GECKO_VERSION} -lt 2 ]]
 then
 	CXXFLAGS="${CXXFLAGS} -I${GECKO_INCLUDE_PATH}/nspr"
 	XPIDL_PATH="${GECKO_SDK_PATH}/bin"
 else
-	if [[ $GECKO_VERSION -lt 10 ]]
+	if [[ ${GECKO_VERSION} -lt 10 ]]
 	then
 		GECKO_OLD_BOOL_TYPE=1
 	fi
@@ -715,7 +726,7 @@ else
 
     if test [ ! -f "$XPIDL_PATH/header.py" -o ! -f "$XPIDL_PATH/typelib.py" ]
     then
-        ErrorOrWarning "$COMPILE_GECKO_SDK" "unable to find neither the xpidl binary nor the typelib.py and header.py scripts"
+        ErrorOrWarning "$COMPILE_GECKO_SDK" "unable to find neither the xpidl binary nor the typelib.py and header.py scripts in '$XPIDL_PATH' directory."
     fi
 
     HEADER_PY="$PYTHON $XPIDL_PATH/header.py"
