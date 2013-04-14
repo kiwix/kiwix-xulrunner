@@ -658,7 +658,7 @@ fi
 
 if test [ $IS_OSX -eq 1 ]
 then
-   CXXFLAGS="${CXXFLAGS} -fexceptions -DMOZ_CPP_EXCEPTIONS -DMOZ_NO_MOZALLOC"
+  CXXFLAGS="${CXXFLAGS} -fexceptions -DMOZ_CPP_EXCEPTIONS -DMOZ_NO_MOZALLOC"
 else
   CXXFLAGS="${CXXFLAGS} -std=gnu++0x -fexceptions -DMOZ_CPP_EXCEPTIONS -DMOZ_NO_MOZALLOC"
 fi
@@ -685,19 +685,24 @@ let GECKO_VERSION=GECKO_VERSION
 
 if [[ ${GECKO_VERSION} -lt 2 ]]
 then
-	CXXFLAGS="${CXXFLAGS} -I${GECKO_INCLUDE_PATH}/nspr"
 	XPIDL_PATH="${GECKO_SDK_PATH}/bin"
 else
 	if [[ ${GECKO_VERSION} -lt 10 ]]
 	then
 		GECKO_OLD_BOOL_TYPE=1
 	fi
+
+	if [[ ${GECKO_VERSION} -lt 17 ]]
+	then
+		GECKO_OLD_INT_TYPE=1
+	fi
 fi
 
 AC_MSG_RESULT(checking for Gecko version... ${GECKO_VERSION})
 AM_CONDITIONAL([GECKO_OLD_BOOL_TYPE], [test "$GECKO_OLD_BOOL_TYPE"])
+AM_CONDITIONAL([GECKO_OLD_INT_TYPE], [test "$GECKO_OLD_INT_TYPE"])
 
-LIBXUL_CFLAGS="-I${GECKO_SDK_INCLUDE} -I${GECKO_INCLUDE_PATH} -fshort-wchar"
+LIBXUL_CFLAGS="-I${GECKO_SDK_INCLUDE} -I${GECKO_INCLUDE_PATH} -I${GECKO_INCLUDE_PATH}/nspr/ -fshort-wchar -D__STDC_LIMIT_MACROS"
 # replaced -lxpcomglue_s with libxpcomglue_s_nomozalloc.a to prevent
 # undefined symbols. supposed to be compatible wth 1.9.
 if test [ $IS_OSX -eq 1 ] ; then

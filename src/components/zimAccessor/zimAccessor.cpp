@@ -44,6 +44,12 @@
   #define mozbool PRBool
 #endif
 
+#if GECKO_VERSION > 16
+  #define mozuint32 unit32_t
+#else
+  #define mozuint32 PRUint32
+#endif
+
 #include "IZimAccessor.h"
 #include <stdio.h>
 #include <stdlib.h>
@@ -140,7 +146,7 @@ NS_IMETHODIMP ZimAccessor::Reset(mozbool *retVal) {
 }
 
 /* Get the count of articles which can be indexed/displayed */
-NS_IMETHODIMP ZimAccessor::GetArticleCount(PRUint32 *count, mozbool *retVal) {
+NS_IMETHODIMP ZimAccessor::GetArticleCount(uint32_t *count, mozbool *retVal) {
   *retVal = PR_FALSE;
 
   try {
@@ -249,7 +255,7 @@ NS_IMETHODIMP ZimAccessor::GetMetatag(const nsACString &name,
 }
 
 /* Get a content from a zim file */
-NS_IMETHODIMP ZimAccessor::GetContent(nsIURI *urlObject, nsACString &content, PRUint32 *contentLength, 
+NS_IMETHODIMP ZimAccessor::GetContent(nsIURI *urlObject, nsACString &content, uint32_t *contentLength, 
 				      nsACString &contentType, mozbool *retVal) {
 
   *retVal = PR_FALSE;
@@ -285,7 +291,7 @@ NS_IMETHODIMP ZimAccessor::GetContent(nsIURI *urlObject, nsACString &content, PR
 }
 
 /* Search titles by prefix*/
-NS_IMETHODIMP ZimAccessor::SearchSuggestions(const nsACString &prefix, PRUint32 suggestionsCount, mozbool *retVal) {
+NS_IMETHODIMP ZimAccessor::SearchSuggestions(const nsACString &prefix, uint32_t suggestionsCount, mozbool *retVal) {
   *retVal = PR_FALSE;
   const char *titlePrefix;
   NS_CStringGetData(prefix, &titlePrefix);
