@@ -75,7 +75,7 @@
 <!ENTITY main.randomArticle.accesskey   "R">
 <!ENTITY main.checkIntegrity            "د ټينګښت بياکتنه">
 <!ENTITY main.checkIntegrity.accesskey  "k">
-<!ENTITY main.launchIndexing            "Launch indexing">
+<!ENTITY main.launchIndexing            "ليکلړ جوړېدنه پيلول">
 <!ENTITY main.purgeHistory              "پېښليک سپينول">
 <!ENTITY main.purgeHistory.accesskey    "P">
 
@@ -131,7 +131,7 @@
 <!ENTITY preferences.browse             "سپړل">
 <!ENTITY preferences.tabs               "پاڼې په ياد ساتل">
 <!ENTITY preferences.downloadCatalogs   "ليري کتلاک (کتلاکونه) ښکته کول">
-<!ENTITY preferences.neverAskToIndex    "Never ask to index">
+<!ENTITY preferences.neverAskToIndex    "هېڅکله د ليکلړ جوړولو مه پوښته">
 
 <!-- Server -->
 <!ENTITY server.load                    "برسېرول">

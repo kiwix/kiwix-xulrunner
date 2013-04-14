@@ -75,7 +75,7 @@
 <!ENTITY main.randomArticle.accesskey   "R">
 <!ENTITY main.checkIntegrity            "Integritetskontrol">
 <!ENTITY main.checkIntegrity.accesskey  "k">
-<!ENTITY main.launchIndexing            "Launch indexing">
+<!ENTITY main.launchIndexing            "Start indeksering">
 <!ENTITY main.purgeHistory              "Udrens historik">
 <!ENTITY main.purgeHistory.accesskey    "P">
 
@@ -131,7 +131,7 @@
 <!ENTITY preferences.browse             "Gennemse">
 <!ENTITY preferences.tabs               "Husk faneblade">
 <!ENTITY preferences.downloadCatalogs   "Hent eksterne kataloger ned">
-<!ENTITY preferences.neverAskToIndex    "Never ask to index">
+<!ENTITY preferences.neverAskToIndex    "Spørg aldrig om indeksering">
 
 <!-- Server -->
 <!ENTITY server.load                    "Indlæs">

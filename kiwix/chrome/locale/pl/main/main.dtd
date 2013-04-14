@@ -131,7 +131,7 @@
 <!ENTITY preferences.browse             "Przeglądaj">
 <!ENTITY preferences.tabs               "Zapamiętaj zakładki">
 <!ENTITY preferences.downloadCatalogs   "Pobierz katalog(i) zdalny(e)">
-<!ENTITY preferences.neverAskToIndex    "Never ask to index">
+<!ENTITY preferences.neverAskToIndex    "Nigdy nie pytaj o indeksowanie">
 
 <!-- Server -->
 <!ENTITY server.load                    "Wczytaj">

@@ -131,7 +131,7 @@
 <!ENTITY preferences.browse             "Navegar">
 <!ENTITY preferences.tabs               "Memorizar os separadores">
 <!ENTITY preferences.downloadCatalogs   "Descarregar catálogo(s) remoto(s)">
-<!ENTITY preferences.neverAskToIndex    "Never ask to index">
+<!ENTITY preferences.neverAskToIndex    "Nunca peça para indexar">
 
 <!-- Server -->
 <!ENTITY server.load                    "Carregar">

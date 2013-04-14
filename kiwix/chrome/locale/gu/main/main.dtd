@@ -75,7 +75,7 @@
 <!ENTITY main.randomArticle.accesskey   "R">
 <!ENTITY main.checkIntegrity            "અખંડતાની જાંચ">
 <!ENTITY main.checkIntegrity.accesskey  "k">
-<!ENTITY main.launchIndexing            "Launch indexing">
+<!ENTITY main.launchIndexing            "અનુક્રમ શરુ કરો">
 <!ENTITY main.purgeHistory              "પાનાનો ઇતિહાસ">
 <!ENTITY main.purgeHistory.accesskey    "P">
 
@@ -131,7 +131,7 @@
 <!ENTITY preferences.browse             "ચરવું">
 <!ENTITY preferences.tabs               "ફાટા ને યાદ રાખો">
 <!ENTITY preferences.downloadCatalogs   "રીમોટ કેટેલોગ(ગ્સ) ડાઉનલોડ કરો">
-<!ENTITY preferences.neverAskToIndex    "Never ask to index">
+<!ENTITY preferences.neverAskToIndex    "અનુક્રમ કરવાનું ક્યારેય પૂછશો નહી">
 
 <!-- Server -->
 <!ENTITY server.load                    "લાવો">
