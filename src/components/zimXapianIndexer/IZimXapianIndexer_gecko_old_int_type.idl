@@ -7,6 +7,6 @@ interface IZimXapianIndexer : nsISupports
 {
   boolean start(in AString zimFilePath, in AString xapianDirectoryPath);
   boolean stop();
-  boolean getProgression(out uint32_t progression);
+  boolean getProgression(out PRUint32 progression);
   boolean isRunning();
 };

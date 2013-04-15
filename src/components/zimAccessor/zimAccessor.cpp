@@ -45,7 +45,7 @@
 #endif
 
 #if GECKO_VERSION > 16
-  #define mozuint32 unit32_t
+  #define mozuint32 uint32_t
 #else
   #define mozuint32 PRUint32
 #endif

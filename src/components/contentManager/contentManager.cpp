@@ -44,6 +44,12 @@
   #define mozbool PRBool
 #endif
 
+#if GECKO_VERSION > 16
+  #define mozuint32 uint32_t
+#else
+  #define mozuint32 PRUint32
+#endif
+
 #include "IContentManager.h"
 #include <string>
 #include <iostream>
@@ -333,7 +339,7 @@ NS_IMETHODIMP ContentManager::UpdateBookLastOpenDateById(const nsACString &id, m
   return NS_OK;
 }
 
-NS_IMETHODIMP ContentManager::GetBookCount(const mozbool localBooks, const mozbool remoteBooks, PRUint32 *count, mozbool *retVal) {
+NS_IMETHODIMP ContentManager::GetBookCount(const mozbool localBooks, const mozbool remoteBooks, mozuint32 *count, mozbool *retVal) {
   *retVal = PR_TRUE;
   *count = 0;
 
@@ -346,7 +352,7 @@ NS_IMETHODIMP ContentManager::GetBookCount(const mozbool localBooks, const mozbo
   return NS_OK;
 }
 
-NS_IMETHODIMP ContentManager::ListBooks(const nsACString &mode, const nsACString &sortBy, PRUint32 maxSize, 
+NS_IMETHODIMP ContentManager::ListBooks(const nsACString &mode, const nsACString &sortBy, mozuint32 maxSize, 
 					const nsACString &language, const nsACString &creator, 
 					const nsACString &publisher, const nsACString &search, mozbool *retVal) {
   *retVal = PR_FALSE;

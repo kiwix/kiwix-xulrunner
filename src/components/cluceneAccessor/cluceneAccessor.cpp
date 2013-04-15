@@ -44,6 +44,12 @@
   #define mozbool PRBool
 #endif
 
+#if GECKO_VERSION > 16
+  #define mozuint32 uint32_t
+#else
+  #define mozuint32 PRUint32
+#endif
+
 #include "nsXPCOM.h"
 #include "nsEmbedString.h"
 #include "nsIURI.h"
@@ -113,7 +119,7 @@ NS_IMETHODIMP CluceneAccessor::CloseReadableDatabase(mozbool *retVal) {
 }
 
 /* Search strings in the database */
-NS_IMETHODIMP CluceneAccessor::Search(const nsACString &search, PRUint32 resultStart, PRUint32 resultEnd, mozbool *retVal) {
+NS_IMETHODIMP CluceneAccessor::Search(const nsACString &search, mozuint32 resultStart, mozuint32 resultEnd, mozbool *retVal) {
   *retVal = PR_TRUE;
   const char *csearch;
   NS_CStringGetData(search, &csearch, NULL);
@@ -145,7 +151,7 @@ NS_IMETHODIMP CluceneAccessor::Reset(mozbool *retVal) {
 
 /* Get next result */
 NS_IMETHODIMP CluceneAccessor::GetNextResult(nsACString &url, nsACString &title, 
-					    PRUint32 *score, mozbool *retVal) {
+					    mozuint32 *score, mozbool *retVal) {
   *retVal = PR_FALSE;
   std::string urlStr;
   std::string titleStr;

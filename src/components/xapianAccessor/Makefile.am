@@ -28,14 +28,22 @@ xapianAccessor.xpt:
 if HAVE_XPIDL
 	$(XPIDL) -m typelib -o xapianAccessor -I $(GECKO_IDL_PATH) $(top_srcdir)/src/components/xapianAccessor/IXapianAccessor.idl
 else
+if GECKO_OLD_INT_TYPE
+	$(TYPELIB_PY) --cachedir=/tmp -o xapianAccessor.xpt -I $(GECKO_IDL_PATH) $(top_srcdir)/src/components/xapianAccessor/IXapianAccessor_gecko_old_int_type.idl
+else
 	$(TYPELIB_PY) --cachedir=/tmp -o xapianAccessor.xpt -I $(GECKO_IDL_PATH) $(top_srcdir)/src/components/xapianAccessor/IXapianAccessor.idl
+endif
 endif
 
 IXapianAccessor.h:
 if HAVE_XPIDL
 	$(XPIDL) -m header -I $(GECKO_IDL_PATH) $(top_srcdir)/src/components/xapianAccessor/IXapianAccessor.idl
 else
+if GECKO_OLD_INT_TYPE
+	$(HEADER_PY) --cachedir=/tmp -o IXapianAccessor.h -I $(GECKO_IDL_PATH) $(top_srcdir)/src/components/xapianAccessor/IXapianAccessor_gecko_old_int_type.idl
+else
 	$(HEADER_PY) --cachedir=/tmp -o IXapianAccessor.h -I $(GECKO_IDL_PATH) $(top_srcdir)/src/components/xapianAccessor/IXapianAccessor.idl
+endif
 endif
 
 if IS_OSX

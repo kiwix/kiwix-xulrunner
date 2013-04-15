@@ -44,6 +44,12 @@
   #define mozbool PRBool
 #endif
 
+#if GECKO_VERSION > 16
+  #define mozuint32 uint32_t
+#else
+  #define mozuint32 PRUint32
+#endif
+
 #include "IZimCluceneIndexer.h"
 
 #include "nsXPCOM.h"
@@ -145,7 +151,7 @@ NS_IMETHODIMP ZimCluceneIndexer::IsRunning(mozbool *retVal) {
   return NS_OK;
 }
 
-NS_IMETHODIMP ZimCluceneIndexer::GetProgression(PRUint32 *progression, mozbool *retVal) {
+NS_IMETHODIMP ZimCluceneIndexer::GetProgression(mozuint32 *progression, mozbool *retVal) {
   *retVal = PR_TRUE;
 
   try {    

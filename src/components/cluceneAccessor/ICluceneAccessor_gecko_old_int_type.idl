@@ -6,8 +6,8 @@ interface nsIURI;
 interface ICluceneAccessor : nsISupports
 {
   boolean openReadableDatabase(in AUTF8String unixXapianDirectoryPath, in ACString winXapianDirectoryPath);
-  boolean search(in AUTF8String search, in uint32_t resultStart, in uint32_t resultEnd);
+  boolean search(in AUTF8String search, in PRUint32 resultStart, in PRUint32 resultEnd);
   boolean reset();
-  boolean getNextResult(out AUTF8String url, out AUTF8String title, out uint32_t score);
+  boolean getNextResult(out AUTF8String url, out AUTF8String title, out PRUint32 score);
   boolean closeReadableDatabase();
 };

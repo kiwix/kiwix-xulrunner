@@ -44,6 +44,12 @@
   #define mozbool PRBool
 #endif
 
+#if GECKO_VERSION > 16
+  #define mozuint32 uint32_t
+#else
+  #define mozuint32 PRUint32
+#endif
+
 #include "IZimXapianIndexer.h"
 
 #include "nsXPCOM.h"
@@ -146,7 +152,7 @@ NS_IMETHODIMP ZimXapianIndexer::IsRunning(mozbool *retVal) {
   return NS_OK;
 }
 
-NS_IMETHODIMP ZimXapianIndexer::GetProgression(PRUint32 *progression, mozbool *retVal) {
+NS_IMETHODIMP ZimXapianIndexer::GetProgression(mozuint32 *progression, mozbool *retVal) {
   *retVal = PR_TRUE;
 
   try {    

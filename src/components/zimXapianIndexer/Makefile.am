@@ -40,14 +40,22 @@ zimXapianIndexer.xpt:
 if HAVE_XPIDL
 	$(XPIDL) -m typelib -o zimXapianIndexer -I $(GECKO_IDL_PATH) $(top_srcdir)/src/components/zimXapianIndexer/IZimXapianIndexer.idl
 else
+if GECKO_OLD_INT_TYPE
+	$(TYPELIB_PY) --cachedir=/tmp -o zimXapianIndexer.xpt -I $(GECKO_IDL_PATH) $(top_srcdir)/src/components/zimXapianIndexer/IZimXapianIndexer_gecko_old_int_type.idl
+else
 	$(TYPELIB_PY) --cachedir=/tmp -o zimXapianIndexer.xpt -I $(GECKO_IDL_PATH) $(top_srcdir)/src/components/zimXapianIndexer/IZimXapianIndexer.idl
+endif
 endif
 
 IZimXapianIndexer.h:
 if HAVE_XPIDL
 	$(XPIDL) -m header -I $(GECKO_IDL_PATH) $(top_srcdir)/src/components/zimXapianIndexer/IZimXapianIndexer.idl
 else
+if GECKO_OLD_INT_TYPE
+	$(HEADER_PY) --cachedir=/tmp -o IZimXapianIndexer.h -I $(GECKO_IDL_PATH) $(top_srcdir)/src/components/zimXapianIndexer/IZimXapianIndexer_gecko_old_int_type.idl
+else
 	$(HEADER_PY) --cachedir=/tmp -o IZimXapianIndexer.h -I $(GECKO_IDL_PATH) $(top_srcdir)/src/components/zimXapianIndexer/IZimXapianIndexer.idl
+endif
 endif
 
 if IS_OSX

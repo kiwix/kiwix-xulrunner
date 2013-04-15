@@ -24,9 +24,9 @@ interface IContentManager : nsISupports
   boolean setBookIndex(in ACString id, in AString path, in ACString indexType);
   boolean setBookPath(in ACString id, in AString path);
   boolean updateBookLastOpenDateById(in ACString id);
-  boolean listBooks(in ACString mode, in ACString sortBy, in uint32_t maxSize, 
+  boolean listBooks(in ACString mode, in ACString sortBy, in PRUint32 maxSize, 
 		    in ACString language, in ACString creator, in ACString publisher, in ACString search);
-  boolean getBookCount(in bool localBooks, in bool remoteBooks, out uint32_t count);
+  boolean getBookCount(in bool localBooks, in bool remoteBooks, out PRUint32 count);
   boolean getBooksLanguages(out AUTF8String languages);
   boolean getBooksCreators(out AUTF8String creators);
   boolean getBooksPublishers(out AUTF8String publishers);
