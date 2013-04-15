@@ -21,7 +21,7 @@ libCluceneAccessor_la_CXXFLAGS=$(CTPP2_CFLAGS) $(LIBXUL_CFLAGS) $(CLUCENE_CFLAGS
 libCluceneAccessor_la_LDFLAGS=$(CTPP2_LDFLAGS) $(LIBXUL_LDFLAGS) $(CLUCENE_LDFLAGS) $(ICU_LDFLAGS) $(XPCOM_LDFLAGS)
 libCluceneAccessor_la_LIBADD=$(top_builddir)/src/ctpp2/src/libctpp2.la
 
-EXTRA_DIST=ICluceneAccessor.idl
+EXTRA_DIST=*.idl
 BUILT_SOURCES=cluceneAccessor.xpt ICluceneAccessor.h
 CLEANFILES=cluceneAccessor.xpt ICluceneAccessor.h *.lib *.obj *.dll *.xpt *.h
 

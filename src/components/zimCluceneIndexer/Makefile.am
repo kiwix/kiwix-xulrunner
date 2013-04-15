@@ -26,7 +26,7 @@ libZimCluceneIndexer_la_CXXFLAGS=$(LIBXUL_CFLAGS) $(XAPIAN_CFLAGS) $(CLUCENE_CFL
 libZimCluceneIndexer_la_LDFLAGS=$(LIBXUL_LDFLAGS) $(XAPIAN_LDFLAGS) $(CLUCENE_LDFLAGS) $(ICU_LDFLAGS) $(ZIMLIB_LDFLAGS) $(LZMA_LDFLAGS) $(XPCOM_LDFLAGS)
 libZimCluceneIndexer_la_LIBADD=$(top_builddir)/src/zimlib/src/libzim.la
 
-EXTRA_DIST=IZimCluceneIndexer.idl
+EXTRA_DIST=*.idl
 BUILT_SOURCES=zimCluceneIndexer.xpt IZimCluceneIndexer.h
 CLEANFILES=zimCluceneIndexer.xpt IZimCluceneIndexer.h *.lib *.obj *.dll *.h *.xpt
 

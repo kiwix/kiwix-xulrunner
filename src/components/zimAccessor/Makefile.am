@@ -23,7 +23,7 @@ libZimAccessor_la_LIBADD=$(top_builddir)/src/zimlib/src/libzim.la
 # libZimAccessor_la_LDFLAGS+= $(STATIC_LIBM_ARCHIVE) $(STATIC_LIBSTDCPP_ARCHIVE) $(STATIC_LIBDL_ARCHIVE) $(STATIC_LIBGCC_ARCHIVE) $(STATIC_LIBPTHREAD_ARCHIVE)
 # endif
 
-EXTRA_DIST=IZimAccessor.idl
+EXTRA_DIST=*.idl
 BUILT_SOURCES=zimAccessor.xpt IZimAccessor.h
 CLEANFILES=zimAccessor.xpt IZimAccessor.h *.lib *.obj *.dll *.xpt *.h
 

@@ -32,7 +32,7 @@ libZimXapianIndexer_la_CXXFLAGS=$(LIBXUL_CFLAGS) $(XAPIAN_CFLAGS) $(ICU_CFLAGS) 
 libZimXapianIndexer_la_LDFLAGS=$(LIBXUL_LDFLAGS) $(XAPIAN_LDFLAGS) $(ICU_LDFLAGS) $(ZIMLIB_LDFLAGS) $(LZMA_LDFLAGS) $(XPCOM_LDFLAGS)
 libZimXapianIndexer_la_LIBADD=$(top_builddir)/src/zimlib/src/libzim.la
 
-EXTRA_DIST=IZimXapianIndexer.idl
+EXTRA_DIST=*.idl
 BUILT_SOURCES=zimXapianIndexer.xpt IZimXapianIndexer.h
 CLEANFILES=zimXapianIndexer.xpt IZimXapianIndexer.h *.lib *.obj *.dll *.h *.xpt
 

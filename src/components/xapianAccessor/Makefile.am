@@ -20,7 +20,7 @@ libXapianAccessor_la_CXXFLAGS=$(CTPP2_CFLAGS) $(LIBXUL_CFLAGS) $(XAPIAN_CFLAGS) 
 libXapianAccessor_la_LDFLAGS=$(CTPP2_LDFLAGS) $(LIBXUL_LDFLAGS) $(XAPIAN_LDFLAGS) $(ICU_LDFLAGS) $(XPCOM_LDFLAGS)
 libXapianAccessor_la_LIBADD=$(top_builddir)/src/ctpp2/src/libctpp2.la
 
-EXTRA_DIST=IXapianAccessor.idl
+EXTRA_DIST=*.idl
 BUILT_SOURCES=xapianAccessor.xpt IXapianAccessor.h
 CLEANFILES=xapianAccessor.xpt IXapianAccessor.h *.lib *.obj *.dll *.h *.xpt
 
