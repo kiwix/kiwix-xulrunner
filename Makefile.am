@@ -12,6 +12,7 @@ EXTRA_DIST = \
 	kiwix \
 	desktop \
 	etc \
+	android \
 	CHANGELOG \
 	autogen.sh \
 	COMPILE
