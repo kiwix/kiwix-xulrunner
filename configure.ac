@@ -702,7 +702,7 @@ AC_MSG_RESULT(checking for Gecko version... ${GECKO_VERSION})
 AM_CONDITIONAL([GECKO_OLD_BOOL_TYPE], [test "$GECKO_OLD_BOOL_TYPE"])
 AM_CONDITIONAL([GECKO_OLD_INT_TYPE], [test "$GECKO_OLD_INT_TYPE"])
 
-LIBXUL_CFLAGS="-I${GECKO_SDK_INCLUDE} -I${GECKO_INCLUDE_PATH} -I${GECKO_INCLUDE_PATH}/nspr/ -fshort-wchar -D__STDC_LIMIT_MACROS"
+LIBXUL_CFLAGS="-I${GECKO_SDK_INCLUDE} -I${GECKO_INCLUDE_PATH} -I${GECKO_INCLUDE_PATH}/nspr/ -I/usr/include/nspr4 -fshort-wchar -D__STDC_LIMIT_MACROS"
 # replaced -lxpcomglue_s with libxpcomglue_s_nomozalloc.a to prevent
 # undefined symbols. supposed to be compatible wth 1.9.
 if test [ $IS_OSX -eq 1 ] ; then
