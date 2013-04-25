@@ -342,6 +342,19 @@ e2fsprogs-1.42/lib/libuuid.a: e2fsprogs-1.42
 	test ! -f e2fsprogs-1.42/lib/libuuid.a && mkdir -p e2fsprogs-1.42/build && cd e2fsprogs-1.42/ && CC=$(COMPC) CXX=$(COMPCXX) CXXFLAGS=" -fPIC " ./configure --enable-libuuid --prefix=$(DEP_PATH)/e2fsprogs-1.42/build && make clean && make && make install || true
 
 ####################################################
+############ PUGIXML
+####################################################
+
+pugixml-1.2.tar.gz:
+	$(DOWNLOADER) pugixml-1.2.tar.gz $(DEP_MIRROR)/pugixml-1.2.tar.gz
+
+pugixml: pugixml-1.2.tar.gz
+	test -d pugixml || mkdir pugixml; tar xf pugixml-1.2.tar.gz -C pugixml
+
+pugixml/libpugixml.a: pugixml
+	test ! -f pugixml/libpugixml.a && cd pugixml && $(CXX) -c src/pugixml.cpp -o pugixml.o && ar rvs libpugixml.a pugixml.o || true
+
+####################################################
 ############ ARGTABLE
 ####################################################
 
@@ -437,11 +450,12 @@ DISTCLEANFILES= xulrunner-sdk.tar.bz2 \
 	icu4c-49_1_1-Win32-msvc10.zip \
 	icu4c-49_1_1-src.tgz \
 	icu.zip \
+	pugixml*.tar.gz \
 	libmicrohttpd-0.9.19.tar.gz \
 	xz.tar.bz2 \
 	xz-5.0.4-windows.zip \
 	aria2c \
-    aria2c-1.14.2-universal \
+	aria2c-1.14.2-universal \
 	aria2c.exe \
 	clucene-core-0.9.21b.tar.bz2 \
 	e2fsprogs-1.42.tar.gz \
@@ -455,6 +469,7 @@ clean-local:
 	-rm -rf zlib-1.2.3
 	-rm -rf xapian-core-1.2.3
 	-rm -rf icu
+	-rm -rf pugixml
 	-rm -rf libmicrohttpd-0.9.19
 	-rm -rf xz-4.999.9beta
 	-rm -rf xz
