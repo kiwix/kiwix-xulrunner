@@ -75,7 +75,7 @@
 <!ENTITY main.randomArticle.accesskey   "R">
 <!ENTITY main.checkIntegrity            "Kontrola integrity">
 <!ENTITY main.checkIntegrity.accesskey  "k">
-<!ENTITY main.launchIndexing            "Launch indexing">
+<!ENTITY main.launchIndexing            "Spustit indexování">
 <!ENTITY main.purgeHistory              "Vymazat historii">
 <!ENTITY main.purgeHistory.accesskey    "P">
 
@@ -131,7 +131,7 @@
 <!ENTITY preferences.browse             "Procházet">
 <!ENTITY preferences.tabs               "Uložit záložky">
 <!ENTITY preferences.downloadCatalogs   "Stažení vzdáleného katalogu(ů)">
-<!ENTITY preferences.neverAskToIndex    "Never ask to index">
+<!ENTITY preferences.neverAskToIndex    "Nikdy se neptat na indexování">
 
 <!-- Server -->
 <!ENTITY server.load                    "Načíst">

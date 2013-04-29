@@ -75,7 +75,7 @@
 <!ENTITY main.randomArticle.accesskey   "R">
 <!ENTITY main.checkIntegrity            "Verificare integritate">
 <!ENTITY main.checkIntegrity.accesskey  "k">
-<!ENTITY main.launchIndexing            "Launch indexing">
+<!ENTITY main.launchIndexing            "Lansează indexul">
 <!ENTITY main.purgeHistory              "Curăță istoricul">
 <!ENTITY main.purgeHistory.accesskey    "P">
 
@@ -131,7 +131,7 @@
 <!ENTITY preferences.browse             "Răsfoire">
 <!ENTITY preferences.tabs               "Memorează filele">
 <!ENTITY preferences.downloadCatalogs   "Descarcă catalogul(oagele) la distanță">
-<!ENTITY preferences.neverAskToIndex    "Never ask to index">
+<!ENTITY preferences.neverAskToIndex    "Nu cere niciodată să se indexeze">
 
 <!-- Server -->
 <!ENTITY server.load                    "Încarcă">

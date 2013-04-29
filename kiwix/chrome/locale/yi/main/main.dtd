@@ -75,7 +75,7 @@
 <!ENTITY main.randomArticle.accesskey   "R">
 <!ENTITY main.checkIntegrity            "ארנטלעכקייט קאנטראל">
 <!ENTITY main.checkIntegrity.accesskey  "k">
-<!ENTITY main.launchIndexing            "Launch indexing">
+<!ENTITY main.launchIndexing            "אנהייבן אינדעקסירן">
 <!ENTITY main.purgeHistory              "אויסמעקן היסטאריע">
 <!ENTITY main.purgeHistory.accesskey    "P">
 
@@ -131,7 +131,7 @@
 <!ENTITY preferences.browse             "דורכזוכן">
 <!ENTITY preferences.tabs               "געדענקען טאבן">
 <!ENTITY preferences.downloadCatalogs   "אראפלאדן ווייטער(ע) קאטאלאג(ן)">
-<!ENTITY preferences.neverAskToIndex    "Never ask to index">
+<!ENTITY preferences.neverAskToIndex    "נישט פרעגן צו אינדעקסירן">
 
 <!-- Server -->
 <!ENTITY server.load                    "אָנלאָדן">

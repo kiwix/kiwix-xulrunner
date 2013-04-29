@@ -4,7 +4,7 @@
 
 <!-- Mac menu -->
 <!ENTITY main.osxservices               "സേവനങ്ങൾ">
-<!ENTITY main.osxhideapp                "Hide &brand.brandShortName;">
+<!ENTITY main.osxhideapp                "&brand.brandShortName; മറയ്ക്കുക">
 <!ENTITY main.osxhideothers             "മറ്റുള്ളവ മറയ്ക്കുക">
 <!ENTITY main.osxshowall                "എല്ലാം കാണിക്കുക">
 
@@ -65,7 +65,7 @@
 <!ENTITY main.tabs.accesskey            "ള">
 <!ENTITY main.fullscreen                "മുഴുവന്‍ സ്ക്രീനില്‍">
 <!ENTITY main.fullscreen.accesskey      "സ">
-<!ENTITY main.invertedColors            "Inverted colors">
+<!ENTITY main.invertedColors            "വിപരീതനിറങ്ങൾ എടുക്കുക">
 <!ENTITY main.invertedColors.accesskey  "I">
 
 <!-- Tools menu -->
@@ -73,9 +73,9 @@
 <!ENTITY main.tools.accesskey           "ഉ">
 <!ENTITY main.randomArticle             "ഏതെങ്കിലും ലേഖനം">
 <!ENTITY main.randomArticle.accesskey   "ഏ">
-<!ENTITY main.checkIntegrity            "കെട്ടുറപ്പു് പരിശോധന">
+<!ENTITY main.checkIntegrity            "സമഗ്രതാ പരിശോധന">
 <!ENTITY main.checkIntegrity.accesskey  "ക">
-<!ENTITY main.launchIndexing            "Launch indexing">
+<!ENTITY main.launchIndexing            "സൂചികാവത്കരണമാരംഭിക്കുക">
 <!ENTITY main.purgeHistory              "നാള്‍വഴി വെടിപ്പാക്കുക">
 <!ENTITY main.purgeHistory.accesskey    "ന">
 
@@ -83,18 +83,18 @@
 <!ENTITY main.help                      "സഹായം">
 <!ENTITY main.help.accesskey            "സ">
 <!ENTITY main.feedback                  "പ്രതികരണം">
-<!ENTITY main.reportabug                "പിഴവു് ചൂണ്ടിക്കാണിയ്ക്കുക">
+<!ENTITY main.reportabug                "ബഗ് അറിയിക്കുക">
 <!ENTITY main.requestafeature           "പരിഷ്കാരങ്ങള്‍ നിര്‍ദ്ദേശിക്കുക">
 <!ENTITY main.about                     "വിവരണം:&brand.brandShortName;">
 <!ENTITY main.about.accesskey           "പ">
 
 <!-- Tool bar -->
-<!ENTITY main.back                      "പിന്നോട്ടു്">
-<!ENTITY main.forward                   "മുന്നോട്ടു്">
-<!ENTITY main.home                      "ആസ്ഥാനം">
+<!ENTITY main.back                      "പിന്നോട്ട്">
+<!ENTITY main.forward                   "മുന്നോട്ട്">
+<!ENTITY main.home                      "പ്രധാനം">
 <!ENTITY main.searchBar                 "തിരച്ചില്‍ പട്ട">
 <!ENTITY main.search                    "തിരയുക">
-<!ENTITY main.searchPlaceholder         "തിരയാൻ ഇവിടെ എഴുതുക">
+<!ENTITY main.searchPlaceholder         "തിരയാൻ ഇവിടെ എഴുതുക...">
 <!ENTITY main.findInText                "എഴുത്തിൽ തിരയുക">
 <!ENTITY main.noSearchBar               "തിരയുന്നതിനു് സൂചികാവത്കരിച്ച സിം (ZIM) പ്രമാണം ആവശ്യമാണു്">
 <!ENTITY main.bookmarks                 "ബൂക്ക്മാർക്കുകൾ">
@@ -130,13 +130,13 @@
 <!ENTITY preferences.profileDirectory   "പ്രൊഫൈല്‍ ഡയറക്ടറി">
 <!ENTITY preferences.browse             "പരതുക">
 <!ENTITY preferences.tabs               "ടാബുകൾ ഓർമ്മിക്കുക">
-<!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">
-<!ENTITY preferences.neverAskToIndex    "Never ask to index">
+<!ENTITY preferences.downloadCatalogs   "വിദൂരസ്ഥ കാറ്റലോഗ് (കാറ്റലോഗുകൾ) ഡൗൺലോഡ് ചെയ്യുക">
+<!ENTITY preferences.neverAskToIndex    "സൂചികാവത്കരിക്കണോയെന്ന് ചോദിക്കേണ്ടതില്ല">
 
 <!-- Server -->
-<!ENTITY server.load                    "Load">
-<!ENTITY server.start                   "Start">
-<!ENTITY server.stop                    "Stop">
+<!ENTITY server.load                    "ശേഖരിക്കുക">
+<!ENTITY server.start                   "തുടങ്ങുക">
+<!ENTITY server.stop                    "അവസാനിപ്പിക്കുക">
 <!ENTITY server.close                   "അടയ്ക്കുക">
 
 <!-- Library -->
@@ -157,5 +157,5 @@
 <!ENTITY main.library.filterBy.author.all       "എല്ലാം">
 <!ENTITY main.library.filterBy.publisher        "പ്രസാധകർ">
 <!ENTITY main.library.filterBy.publisher.all    "എല്ലാം">
-<!ENTITY main.library.filterBy.lessThan         "Less than">
+<!ENTITY main.library.filterBy.lessThan         "ഇതിലും കുറവ്">
 

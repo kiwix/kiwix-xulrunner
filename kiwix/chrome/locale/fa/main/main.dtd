@@ -75,7 +75,7 @@
 <!ENTITY main.randomArticle.accesskey   "R">
 <!ENTITY main.checkIntegrity            "بررسی یکپارچگی">
 <!ENTITY main.checkIntegrity.accesskey  "k">
-<!ENTITY main.launchIndexing            "Launch indexing">
+<!ENTITY main.launchIndexing            "راه اندازی نمایه سازی">
 <!ENTITY main.purgeHistory              "پاکسازی تاریخچه">
 <!ENTITY main.purgeHistory.accesskey    "P">
 
@@ -131,7 +131,7 @@
 <!ENTITY preferences.browse             "مرور">
 <!ENTITY preferences.tabs               "به‌خاطرسپردن زبانه‌ها">
 <!ENTITY preferences.downloadCatalogs   "دانلود کالانما(ها) از راه دور">
-<!ENTITY preferences.neverAskToIndex    "Never ask to index">
+<!ENTITY preferences.neverAskToIndex    "هرگز از شاخه نپرسید">
 
 <!-- Server -->
 <!ENTITY server.load                    "بارگیری">

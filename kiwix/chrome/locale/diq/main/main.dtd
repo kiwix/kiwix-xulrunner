@@ -75,7 +75,7 @@
 <!ENTITY main.randomArticle.accesskey   "R">
 <!ENTITY main.checkIntegrity            "Cerbiya pêroneyin">
 <!ENTITY main.checkIntegrity.accesskey  "k">
-<!ENTITY main.launchIndexing            "Launch indexing">
+<!ENTITY main.launchIndexing            "Rezayışe indeksi">
 <!ENTITY main.purgeHistory              "Verenayışe newekerdışi">
 <!ENTITY main.purgeHistory.accesskey    "P">
 
@@ -131,7 +131,7 @@
 <!ENTITY preferences.browse             "Çımpawe">
 <!ENTITY preferences.tabs               "na tab xo vira mekeri">
 <!ENTITY preferences.downloadCatalogs   "Duri ra katalog(an) ronê">
-<!ENTITY preferences.neverAskToIndex    "Never ask to index">
+<!ENTITY preferences.neverAskToIndex    "İndeks de qet pers me ke">
 
 <!-- Server -->
 <!ENTITY server.load                    "Buwan">

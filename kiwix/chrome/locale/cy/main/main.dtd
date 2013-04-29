@@ -65,7 +65,7 @@
 <!ENTITY main.tabs.accesskey            "T">
 <!ENTITY main.fullscreen                "Sgrin lawn">
 <!ENTITY main.fullscreen.accesskey      "F">
-<!ENTITY main.invertedColors            "Inverted colors">
+<!ENTITY main.invertedColors            "Lliwiau tu chwith">
 <!ENTITY main.invertedColors.accesskey  "I">
 
 <!-- Tools menu -->
@@ -75,7 +75,7 @@
 <!ENTITY main.randomArticle.accesskey   "R">
 <!ENTITY main.checkIntegrity            "Gwiriad dilysrwydd">
 <!ENTITY main.checkIntegrity.accesskey  "k">
-<!ENTITY main.launchIndexing            "Launch indexing">
+<!ENTITY main.launchIndexing            "Dechrau mynegeio">
 <!ENTITY main.purgeHistory              "Gwaredu'r hanes">
 <!ENTITY main.purgeHistory.accesskey    "P">
 
@@ -94,7 +94,7 @@
 <!ENTITY main.home                      "Hafan">
 <!ENTITY main.searchBar                 "Bar chwilio">
 <!ENTITY main.search                    "Chwilio">
-<!ENTITY main.searchPlaceholder         "Type the text to search here...">
+<!ENTITY main.searchPlaceholder         "Man ysgrifennu geiriau'r chwiliad...">
 <!ENTITY main.findInText                "Chwilio'r testun">
 <!ENTITY main.noSearchBar               "Mae angen ffeil ZIM mynegedig ar gyfer chwilio">
 <!ENTITY main.bookmarks                 "Llyfrnodau">
@@ -131,12 +131,12 @@
 <!ENTITY preferences.browse             "Pori">
 <!ENTITY preferences.tabs               "Cofier tabiau">
 <!ENTITY preferences.downloadCatalogs   "Islwytho catalog(au) allanol">
-<!ENTITY preferences.neverAskToIndex    "Never ask to index">
+<!ENTITY preferences.neverAskToIndex    "Peidio byth a gofyn cael mynegeio">
 
 <!-- Server -->
 <!ENTITY server.load                    "Llwytho">
 <!ENTITY server.start                   "Dechrau">
-<!ENTITY server.stop                    "Stop">
+<!ENTITY server.stop                    "Rhoi'r gorau iddi">
 <!ENTITY server.close                   "Cau">
 
 <!-- Library -->

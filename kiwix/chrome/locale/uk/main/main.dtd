@@ -75,7 +75,7 @@
 <!ENTITY main.randomArticle.accesskey   "R">
 <!ENTITY main.checkIntegrity            "Перевірка цілісності">
 <!ENTITY main.checkIntegrity.accesskey  "k">
-<!ENTITY main.launchIndexing            "Launch indexing">
+<!ENTITY main.launchIndexing            "Запустити індексування">
 <!ENTITY main.purgeHistory              "Очистити історію">
 <!ENTITY main.purgeHistory.accesskey    "P">
 
@@ -131,7 +131,7 @@
 <!ENTITY preferences.browse             "Огляд">
 <!ENTITY preferences.tabs               "Збережені вкладки">
 <!ENTITY preferences.downloadCatalogs   "Завантажити віддалений каталог(и)">
-<!ENTITY preferences.neverAskToIndex    "Never ask to index">
+<!ENTITY preferences.neverAskToIndex    "Ніколи не індексувати">
 
 <!-- Server -->
 <!ENTITY server.load                    "Завантажити">

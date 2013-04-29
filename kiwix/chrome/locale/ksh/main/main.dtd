@@ -97,13 +97,13 @@
 <!ENTITY main.searchPlaceholder         "Jev heh ene Täx en, woh mer noh söke sulle&nbsp;&hellip;">
 <!ENTITY main.findInText                "En Täx fenge">
 <!ENTITY main.noSearchBar               "Öm söhke ze künne, bruch mer en ZIM-Dattei met enem Index.">
-<!ENTITY main.bookmarks                 "Lesezeiche">
+<!ENTITY main.bookmarks                 "Leesezeische">
 
 <!-- Results bar -->
 <!ENTITY main.results.title             "Wat bem Söke eruß kohm">
 
 <!-- Bookmarks Bar -->
-<!ENTITY main.bmkLabel                  "Lesezeiche:">
+<!ENTITY main.bmkLabel                  "Leesezeische:">
 <!ENTITY main.notesLabel                "Notize:">
 <!ENTITY main.loadbmk                   "Ene Pöngel Lesezeiche us ene Dattei empoteere">
 <!ENTITY main.newbmk                    "Ene neue Pöngel Lesezeiche aanfange">
