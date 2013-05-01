@@ -45,7 +45,3 @@ else
 	$(HEADER_PY) --cachedir=/tmp -o IXapianAccessor.h -I $(GECKO_IDL_PATH) $(top_srcdir)/src/components/xapianAccessor/IXapianAccessor.idl
 endif
 endif
-
-if IS_OSX
-libXapianAccessor_la_CXXFLAGS+= -mmacosx-version-min=10.5 -isysroot /Developer/SDKs/MacOSX10.5.sdk
-endif

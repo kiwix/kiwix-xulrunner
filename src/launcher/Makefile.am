@@ -11,7 +11,3 @@ kiwix_launcher_LDFLAGS=$(CHECK_LDFLAGS)
 if STATIC_BINS
 kiwix_launcher_LDFLAGS+= $(STATIC_LIBM_ARCHIVE) $(STATIC_LIBSTDCPP_ARCHIVE) $(STATIC_LIBDL_ARCHIVE) $(STATIC_LIBGCC_ARCHIVE) $(STATIC_LIBPTHREAD_ARCHIVE) --static
 endif
-
-if IS_OSX
-kiwix_launcher_CXXFLAGS+= -mmacosx-version-min=10.5 -isysroot /Developer/SDKs/MacOSX10.5.sdk
-endif

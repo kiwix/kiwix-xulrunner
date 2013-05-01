@@ -50,5 +50,5 @@ endif
 endif
 
 if IS_OSX
-libZimAccessor_la_CXXFLAGS+= -mmacosx-version-min=10.5 -isysroot /Developer/SDKs/MacOSX10.5.sdk
+libZimAccessor_la_CXXFLAGS+= -I/opt/local/include
 endif

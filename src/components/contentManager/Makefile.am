@@ -63,7 +63,3 @@ else
 endif
 endif
 endif
-
-if IS_OSX
-libContentManager_la_CXXFLAGS+= -mmacosx-version-min=10.5 -isysroot /Developer/SDKs/MacOSX10.5.sdk
-endif

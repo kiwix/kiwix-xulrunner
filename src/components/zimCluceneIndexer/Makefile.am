@@ -51,7 +51,3 @@ else
 	$(HEADER_PY) --cachedir=/tmp -o IZimCluceneIndexer.h -I $(GECKO_IDL_PATH) $(top_srcdir)/src/components/zimCluceneIndexer/IZimCluceneIndexer.idl
 endif
 endif
-
-if IS_OSX
-libZimCluceneIndexer_la_CXXFLAGS+= -mmacosx-version-min=10.5 -isysroot /Developer/SDKs/MacOSX10.5.sdk
-endif
