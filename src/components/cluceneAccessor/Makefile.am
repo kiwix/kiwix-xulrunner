@@ -27,7 +27,7 @@ CLEANFILES=cluceneAccessor.xpt ICluceneAccessor.h *.lib *.obj *.dll *.xpt *.h
 
 cluceneAccessor.xpt:
 if HAVE_XPIDL
-	$(XPIDL) -m typelib -o cluceneAccessor -I $(GECKO_IDL_PATH) $(top_srcdir)/src/components/cluceneAccessor/ICluceneAccessor.idl
+	$(XPIDL) -m typelib -o cluceneAccessor -I $(GECKO_IDL_PATH) $(top_srcdir)/src/components/cluceneAccessor/ICluceneAccessor_gecko_old_int_type.idl
 else
 if GECKO_OLD_INT_TYPE
 	$(TYPELIB_PY) --cachedir=/tmp -o cluceneAccessor.xpt -I $(GECKO_IDL_PATH) $(top_srcdir)/src/components/cluceneAccessor/ICluceneAccessor_gecko_old_int_type.idl
@@ -38,7 +38,7 @@ endif
 
 ICluceneAccessor.h:
 if HAVE_XPIDL
-	$(XPIDL) -m header -I $(GECKO_IDL_PATH) $(top_srcdir)/src/components/cluceneAccessor/ICluceneAccessor.idl
+	$(XPIDL) -m header -o ICluceneAccessor -I $(GECKO_IDL_PATH) $(top_srcdir)/src/components/cluceneAccessor/ICluceneAccessor_gecko_old_int_type.idl
 else
 if GECKO_OLD_INT_TYPE
 	$(HEADER_PY) --cachedir=/tmp -o ICluceneAccessor.h -I $(GECKO_IDL_PATH) $(top_srcdir)/src/components/cluceneAccessor/ICluceneAccessor_gecko_old_int_type.idl

@@ -1,3 +1,4 @@
+
 #include "nsISupports.idl"
 
 interface nsIURI;
@@ -5,7 +6,7 @@ interface nsILocalFile;
 [scriptable, uuid(0e41f9d0-f08e-11dd-ba2f-0800200c9a66)]
 interface IZimAccessor : nsISupports
 {
-  boolean loadFile(in AString winPath);
+  boolean loadFile(in AString path);
   boolean unload();
   boolean getMainPageUrl(out AUTF8String url);
   boolean getRandomPageUrl(out AUTF8String url);

@@ -32,7 +32,7 @@ CLEANFILES=zimCluceneIndexer.xpt IZimCluceneIndexer.h *.lib *.obj *.dll *.h *.xp
 
 zimCluceneIndexer.xpt:
 if HAVE_XPIDL
-	$(XPIDL) -m typelib -o zimCluceneIndexer -I $(GECKO_IDL_PATH) $(top_srcdir)/src/components/zimCluceneIndexer/IZimCluceneIndexer.idl
+	$(XPIDL) -m typelib -o zimCluceneIndexer -I $(GECKO_IDL_PATH) $(top_srcdir)/src/components/zimCluceneIndexer/IZimCluceneIndexer_gecko_old_int_type.idl
 else
 if GECKO_OLD_INT_TYPE
 	$(TYPELIB_PY) --cachedir=/tmp -o zimCluceneIndexer.xpt -I $(GECKO_IDL_PATH) $(top_srcdir)/src/components/zimCluceneIndexer/IZimCluceneIndexer_gecko_old_int_type.idl
@@ -43,7 +43,7 @@ endif
 
 IZimCluceneIndexer.h:
 if HAVE_XPIDL
-	$(XPIDL) -m header -I $(GECKO_IDL_PATH) $(top_srcdir)/src/components/zimCluceneIndexer/IZimCluceneIndexer.idl
+	$(XPIDL) -m header -o IZimCluceneIndexer -I $(GECKO_IDL_PATH) $(top_srcdir)/src/components/zimCluceneIndexer/IZimCluceneIndexer_gecko_old_int_type.idl
 else
 if GECKO_OLD_INT_TYPE
 	$(HEADER_PY) --cachedir=/tmp -o IZimCluceneIndexer.h -I $(GECKO_IDL_PATH) $(top_srcdir)/src/components/zimCluceneIndexer/IZimCluceneIndexer_gecko_old_int_type.idl
