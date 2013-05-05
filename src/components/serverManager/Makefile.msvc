@@ -44,4 +44,4 @@ serverManager.lib: objs
 		       $(LD) -lib -OUT:libServerManager.lib $(LDFLAGS) reader.obj manager.obj library.obj base64.obj stringTools.obj pathTools.obj regexTools.obj componentTools.obj networkTools.obj
 
 serverManager.dll: serverManager.lib
-		    $(LD) -OUT:"serverManager.dll" -NOLOGO $(LDFLAGS) -DLL -NODEFAULTLIB:"MSVCRT" -OPT:REF -OPT:ICF -DYNAMICBASE -NXCOMPAT -MACHINE:X86 zim.lib pugixml.lib icuin.lib icuio.lib icule.lib iculx.lib icutu.lib icuuc.lib libcmt.lib ws2_32.lib nspr4.lib xpcom.lib xpcomglue_s.lib DelayImp.lib winmm.lib libServerManager.lib mozalloc.lib serverManager.obj
+		    $(LD) -OUT:"serverManager.dll" -NOLOGO $(LDFLAGS) -DLL -NODEFAULTLIB:"MSVCRT" -OPT:REF -OPT:ICF -DYNAMICBASE -NXCOMPAT -MACHINE:X86 zim.lib pugixml.lib icuin.lib icuio.lib icule.lib iculx.lib icutu.lib icuuc.lib libcmt.lib ws2_32.lib nspr4.lib xpcom.lib xpcomglue_staticruntime_s.lib DelayImp.lib winmm.lib libServerManager.lib mozalloc.lib serverManager.obj
