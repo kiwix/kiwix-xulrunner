@@ -29,7 +29,7 @@ CLEANFILES=zimAccessor.xpt IZimAccessor.h *.lib *.obj *.dll *.xpt *.h
 
 zimAccessor.xpt:
 if HAVE_XPIDL
-	$(XPIDL) -m typelib -o zimAccessor -I $(GECKO_IDL_PATH) $(top_srcdir)/src/components/zimAccessor/IZimAccessor.idl
+	$(XPIDL) -m typelib -o zimAccessor -I $(GECKO_IDL_PATH) $(top_srcdir)/src/components/zimAccessor/IZimAccessor_gecko_old_int_type.idl
 else
 if GECKO_OLD_INT_TYPE
 	$(TYPELIB_PY) --cachedir=/tmp -o zimAccessor.xpt -I $(GECKO_IDL_PATH) $(top_srcdir)/src/components/zimAccessor/IZimAccessor_gecko_old_int_type.idl
@@ -40,7 +40,7 @@ endif
 
 IZimAccessor.h:
 if HAVE_XPIDL
-	$(XPIDL) -m header -I $(GECKO_IDL_PATH) $(top_srcdir)/src/components/zimAccessor/IZimAccessor.idl
+	$(XPIDL) -m header -o IZimAccessor -I $(GECKO_IDL_PATH) $(top_srcdir)/src/components/zimAccessor/IZimAccessor_gecko_old_int_type.idl
 else
 if GECKO_OLD_INT_TYPE
 	$(HEADER_PY) --cachedir=/tmp -o IZimAccessor.h -I $(GECKO_IDL_PATH) $(top_srcdir)/src/components/zimAccessor/IZimAccessor_gecko_old_int_type.idl

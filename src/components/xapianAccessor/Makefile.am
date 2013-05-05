@@ -26,7 +26,7 @@ CLEANFILES=xapianAccessor.xpt IXapianAccessor.h *.lib *.obj *.dll *.h *.xpt
 
 xapianAccessor.xpt:
 if HAVE_XPIDL
-	$(XPIDL) -m typelib -o xapianAccessor -I $(GECKO_IDL_PATH) $(top_srcdir)/src/components/xapianAccessor/IXapianAccessor.idl
+	$(XPIDL) -m typelib -o xapianAccessor -I $(GECKO_IDL_PATH) $(top_srcdir)/src/components/xapianAccessor/IXapianAccessor_gecko_old_int_type.idl
 else
 if GECKO_OLD_INT_TYPE
 	$(TYPELIB_PY) --cachedir=/tmp -o xapianAccessor.xpt -I $(GECKO_IDL_PATH) $(top_srcdir)/src/components/xapianAccessor/IXapianAccessor_gecko_old_int_type.idl
@@ -37,7 +37,7 @@ endif
 
 IXapianAccessor.h:
 if HAVE_XPIDL
-	$(XPIDL) -m header -I $(GECKO_IDL_PATH) $(top_srcdir)/src/components/xapianAccessor/IXapianAccessor.idl
+	$(XPIDL) -m header -o IXapianAccessor -I $(GECKO_IDL_PATH) $(top_srcdir)/src/components/xapianAccessor/IXapianAccessor_gecko_old_int_type.idl
 else
 if GECKO_OLD_INT_TYPE
 	$(HEADER_PY) --cachedir=/tmp -o IXapianAccessor.h -I $(GECKO_IDL_PATH) $(top_srcdir)/src/components/xapianAccessor/IXapianAccessor_gecko_old_int_type.idl
