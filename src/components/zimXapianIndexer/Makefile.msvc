@@ -32,7 +32,7 @@ PTHREAD_LIB=${PTHREAD}/lib
 XULRUNNER_IDL=$(XULRUNNER_SDK)/idl
 
 # Compiler and linker flags
-CFLAGS=-D"XP_WIN" -D"XP_WIN32" -D"GECKO_VERSION=11" -O2 -Oi  -I"${PTHREAD_INCLUDE}" -I"$(XULRUNNER_INCLUDE)" -I../../common/ -I../../zimlib/include/win -I../../zimlib/include -I"$(XAPIAN_INCLUDE)" -I$(ICU_INCLUDE) -D"_WINDLL" -FD -EHsc -MT -Gy -W3 -nologo -c -Zi -TP		    
+CFLAGS=-D"XP_WIN" -D"XP_WIN32" -D"GECKO_VERSION=20" -O2 -Oi  -I"${PTHREAD_INCLUDE}" -I"$(XULRUNNER_INCLUDE)" -I"$(XULRUNNER_INCLUDE)/nspr/" -I../../common/ -I../../zimlib/include/win -I../../zimlib/include -I"$(XAPIAN_INCLUDE)" -I$(ICU_INCLUDE) -D"_WINDLL" -FD -EHsc -MT -Gy -W3 -nologo -c -Zi -TP		    
 LDFLAGS=-nologo -LIBPATH:"$(XAPIAN_LIB)"  -LIBPATH:"$(PTHREAD_LIB)" -LIBPATH:"$(Z_LIB)" -LIBPATH:"$(XULRUNNER_LIB)" -LIBPATH:"$(ICU_LIB)" -LIBPATH:"${ZIM_LIB}"
 
 all: zimXapianIndexer.dll
