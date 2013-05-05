@@ -403,7 +403,6 @@ fi
 # argtable & pthread is required only on Windows
 COMPILED_ARGTABLE_FILES="${DEP_PATH}/argtable2-13/src/argtable2.lib"
 COMPILED_PTHREAD_FILES="${DEP_PATH}/pthread-win32/lib/pthreadVC2.lib"
-COMPILED_MSVC_FILES="${DEP_PATH}/msvc100/msvcr100.dll ${DEP_PATH}/msvc100/msvcp100.dll"
 
 WITH_COMPONENTS=1
 WITH_CLUCENE=0

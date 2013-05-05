@@ -413,7 +413,6 @@ win:
 if IS_OLD_CL
 	cp $(DEP_PATH)/msvc90/* ./kiwix/xulrunner/
 endif
-	cp $(DEP_PATH)/msvc100/* ./kiwix/xulrunner/
 	cp -r $(DEP_PATH)/xz-win/bin_i486/liblzma.dll ./kiwix/xulrunner
 	cp -r $(DEP_PATH)/pthread-win32/lib/pthreadVC2.dll ./kiwix/xulrunner
 	cp $(DEP_PATH)/icu/bin/icudt*.dll ./kiwix/xulrunner
