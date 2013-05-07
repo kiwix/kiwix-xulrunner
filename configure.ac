@@ -34,7 +34,6 @@ IS_OSX=0
 IS_POSIX=0
 IS_LINUX=0
 IS_OLD_GCC=0
-IS_OLD_CL=0
 
 AC_CONFIG_AUX_DIR([.]) # where are autotools scripts located
 
@@ -125,11 +124,6 @@ fi
 if test [ $IS_WIN -eq 1 ] ; then
    CL_VERSION=`cl.exe 2>&1 | grep Version | sed 's/.*Version //' | sed 's/\..*//'`
    AC_MSG_RESULT(checking for cl version... ${CL_VERSION})
-
-   if test [ $CL_VERSION -lt 16]
-   then
-     IS_OLD_CL=1;
-   fi
 fi
 
 # Set current language to C++
@@ -1424,7 +1418,6 @@ AM_CONDITIONAL([STATIC_BINS], [test $STATIC_BINS -eq 1])
 AM_CONDITIONAL([JAR_CONTENT], [test $JAR_CONTENT -eq 1])
 AM_CONDITIONAL([DEBIAN_RULES], [test $DEBIAN_RULES -eq 1])
 AM_CONDITIONAL([IS_OLD_GCC], [test $IS_OLD_GCC -eq 1])
-AM_CONDITIONAL([IS_OLD_CL], [test $IS_OLD_CL -eq 1])
 
 AC_SUBST(WITH_COMPONENTS)
 AC_SUBST(WITH_CLUCENE)
@@ -1578,7 +1571,6 @@ $BINECHO -n "IS_POSIX				" ; yesno $IS_POSIX
 $BINECHO -n "IS_LINUX				" ; yesno $IS_LINUX
 $BINECHO -n "IS_OSX				" ; yesno $IS_OSX
 $BINECHO -n "IS_WIN				" ; yesno $IS_WIN
-$BINECHO -n "IS_OLD_CL				" ; yesno $IS_OLD_CL
 $BINECHO -n "IS_OLD_GECKO			" ; yesno $IS_OLD_GECKO
 $BINECHO -n "IS_OLD_ICU				" ; yesno $IS_OLD_ICU
 $BINECHO -n "IS_OLD_GCC				" ; yesno $IS_OLD_GCC
