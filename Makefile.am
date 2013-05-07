@@ -74,7 +74,7 @@ all-local:
 
 dist-hook:
 	rm -rf `find $(DESTDIR)$(distdir) -name "*.svn" -o -name "*.git" -o -name "*.so" -o -name "*.apk" -o -name "*.dat" -o -name "*~" -o -name "*#"`
-	rm -rf $(DESTDIR)$(distdir)/android/platforms 
+	rm -rf $(DESTDIR)$(distdir)/android/platforms
 	rm -rf `find $(DESTDIR)$(distdir) -name "Makefile"`
 	find $(DESTDIR)$(distdir)/src/components/ -name 'I*.h' -delete
 	find $(DESTDIR)$(distdir) -name 'aclocal.m4' -delete
@@ -96,7 +96,7 @@ deb: dist
 	tar -xvzf $(PACKAGE)-$(VERSION).tar.gz
 	rm -rf `find $(DESTDIR)$(distdir) -name "Makefile" -o -name "Makefile.in"`
 	rm -rf `find $(PACKAGE)-$(VERSION)/debian/ -name "*.svn" -o -name "*.dat" -o -name "*~" -o -name "*#"`
-	rm -rf `find $(DESTDIR)$(distdir) -name "config.guess" -o -name "config.sub" -o -name "configure"` 
+	rm -rf `find $(DESTDIR)$(distdir) -name "config.guess" -o -name "config.sub" -o -name "configure"`
 	cd $(PACKAGE)-$(VERSION) ; dpkg-buildpackage -rfakeroot
 
 rpm: dist
@@ -227,7 +227,7 @@ distmac:
 	$(MKDIR_P) Kiwix.app/Contents/Frameworks
 	$(MKDIR_P) Kiwix.app/Contents/MacOS
 	$(MKDIR_P) Kiwix.app/Contents/Resources
-	
+
 	cp -LR ./kiwix/ Kiwix.app/Contents/Resources/
 	rm -rf `find Kiwix.app/Contents/Resources -type d -name .svn`
 	find Kiwix.app/Contents/Resources -name '*.inised' -exec rm -rf {} \;
@@ -270,7 +270,7 @@ distmac:
 	strip `find Kiwix.app/Contents/Resources -executable -type f | grep -v ".sh" | grep -v ".py" | grep -v sugar` || true
 
 	mkdir -p Kiwix.app/Contents/Resources/bin
-	cp -v $(ARIA2_FILES) Kiwix.app/Contents/Resources/bin/
+	cp -v $(ARIA2_FILES) Kiwix.app/Contents/Resources/bin/aria2c
 	cp -v $(XAPIAN_COMPACT) Kiwix.app/Contents/Resources/bin/xapian-compact
 
 if WITH_INDEXER
@@ -300,7 +300,7 @@ endif
 	sed -i -e 's,\.so,\.dylib,g' Kiwix.app/Contents/Resources/chrome.manifest
 
 	cp -v Kiwix.app/Contents/Frameworks/XUL.framework/Versions/Current/libmozglue.dylib Kiwix.app/Contents/MacOS/libmozglue.dylib
-	
+
 	chmod -R 755 Kiwix.app
 
 	bunzip2 -kf src/macosx/kiwix_template.dmg.bz2
@@ -362,7 +362,7 @@ endif
 	find universal_tmp/ub/Kiwix.app/Contents/Resources/bin -type f -name '*' -exec python ./src/macosx/cleanup_rpath.py b {} \;
 
 	hdiutil detach universal_tmp/i386 -quiet -force
-	hdiutil detach universal_tmp/x86_64 -quiet -force	
+	hdiutil detach universal_tmp/x86_64 -quiet -force
 
 	hdiutil detach universal_tmp/ub -quiet -force
 	rm -f $(PACKAGE)-$(VERSION).dmg
@@ -443,13 +443,13 @@ if WITH_SERVER
 	cd src/server ; if [ ! -f kiwix-serve.exe ] ; then make -f Makefile.msvc ; fi
 	cp src/server/kiwix-serve.exe ./kiwix/xulrunner
 endif
-	
+
 	bash -c "sed -e 's,\.so,\.dll,g' kiwix/chrome.manifest > kiwix/chrome.manifest.sed"
 	mv kiwix/chrome.manifest.sed kiwix/chrome.manifest
 	mkdir -p kiwix/bin
 	cp -v $(ARIA2_FILES) kiwix/bin/
 
-windist: 
+windist:
 	cp -rf kiwix dvd/
 	find dvd/kiwix -name '*.inised' -exec rm -rf {} \;
 	find dvd/kiwix -name 'Makefile' -delete
