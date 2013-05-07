@@ -191,7 +191,6 @@ endif
 
 # Sugar for Fedora9
 distsugar: diststatic
-	
 	rm -rf $(SUGAR_TMP)/Kiwix.activity
 	mkdir -p $(SUGAR_TMP)/Kiwix.activity
 
@@ -410,9 +409,6 @@ win:
 	if [ -f ./kiwix/chrome/locale.jar ] ; then rm -rf ./kiwix/chrome/locale ; fi
 	if [ -f ./kiwix/chrome/skin.jar ] ; then rm -rf ./kiwix/chrome/skin ; fi
 
-if IS_OLD_CL
-	cp $(DEP_PATH)/msvc90/* ./kiwix/xulrunner/
-endif
 	cp -r $(DEP_PATH)/xz-win/bin_i486/liblzma.dll ./kiwix/xulrunner
 	cp -r $(DEP_PATH)/pthread-win32/lib/pthreadVC2.dll ./kiwix/xulrunner
 	cp $(DEP_PATH)/icu/bin/icudt*.dll ./kiwix/xulrunner
@@ -453,13 +449,13 @@ endif
 	cp -v $(ARIA2_FILES) kiwix/bin/
 
 windist: 
-	-rm -rf dvd/kiwix
 	cp -rf kiwix dvd/
-	-rm -rf `find dvd -type d -name "*.svn" -o -name "*.git"`
 	find dvd/kiwix -name '*.inised' -exec rm -rf {} \;
 	find dvd/kiwix -name 'Makefile' -delete
 	find dvd/kiwix -name 'Makefile.in' -delete
 	find dvd/kiwix -name 'Makefile.am*' -delete
+	find dvd/kiwix -name '*.svn' -delete
+	find dvd/kiwix -name '*.git' -delete
 	-rm -f dvd/kiwix/kiwix
 	-rm -f dvd/kiwix/kiwix-compact
 	-rm -f dvd/kiwix/kiwix/chrome/chrome.manifest.{prod,dev}
