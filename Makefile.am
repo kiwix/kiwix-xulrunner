@@ -131,7 +131,8 @@ diststatic:
 	if [ -f $(STATIC_TMP)/kiwix/chrome/skin.jar ] ; then rm -rf $(STATIC_TMP)/kiwix/chrome/skin ; fi
 
 	cp -r $(XULRUNNER_RUNTIME_PATH) $(STATIC_TMP)/kiwix/xulrunner
-	chmod +x $(STATIC_TMP)/kiwix/xulrunner/xulrunner $(STATIC_TMP)/kiwix/xulrunner/xulrunner-bin
+	if [ -f "$(STATIC_TMP)/kiwix/xulrunner/xulrunner-bin" ] ; then chmod +x "$(STATIC_TMP)/kiwix/xulrunner/xulrunner-bin" ; fi
+	if [ -f "$(STATIC_TMP)/kiwix/xulrunner/xulrunner" ] ; then chmod +x "$(STATIC_TMP)/kiwix/xulrunner/xulrunner" ; fi
 	cp -v $(STATIC_TMP)/kiwix/xulrunner/libplc4.so $(STATIC_TMP)/kiwix/xulrunner/libplc4.so.0d
 	cp -v $(STATIC_TMP)/kiwix/xulrunner/libnspr4.so $(STATIC_TMP)/kiwix/xulrunner/libnspr4.so.0d
 	cp -v $(STATIC_TMP)/kiwix/xulrunner/libplds4.so $(STATIC_TMP)/kiwix/xulrunner/libplds4.so.0d
