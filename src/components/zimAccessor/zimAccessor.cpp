@@ -50,13 +50,13 @@
   #define mozuint32 PRUint32
 #endif
 
-#ifdef __APPLE__
-  typedef uint16_t char16_t;
-#endif
-
 #include "IZimAccessor.h"
 #include <stdio.h>
 #include <stdlib.h>
+
+#include <kiwix/reader.h>
+#include <pathTools.h>
+#include <componentTools.h>
 
 #include "nsXPCOM.h"
 #include "nsEmbedString.h"
@@ -68,10 +68,6 @@
 #include "nsCOMPtr.h"
 #include "nsIProperties.h"
 #include "nsDirectoryServiceDefs.h"
-
-#include <kiwix/reader.h>
-#include <pathTools.h>
-#include <componentTools.h>
 
 class ZimAccessor : public IZimAccessor {
 
