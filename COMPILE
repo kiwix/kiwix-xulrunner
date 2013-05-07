@@ -95,7 +95,7 @@ this configures for an android-only build
 == Windows ==
 
 * Install Windows XP SP2+
-* Install Visual Studio Express 2008
+* Install Visual Studio Express 2010
 * Install 7-zip
 * Install MozillaBuild 1.6
 * Install ActivePerl
@@ -114,7 +114,7 @@ this configures for an android-only build
   - Perl
   - mozilla-build\msys\bin\
 
-* Get shell from c:\mozilla-build\start-msvc9.bat
+* Get shell from c:\mozilla-build\start-msvc10.bat
 
 * mkdir -p /c/slave/windows-32b
   svn co https://kiwix.svn.sourceforge.net/svnroot/kiwix/moulinkiwix build
