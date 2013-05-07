@@ -73,7 +73,7 @@ all-local:
 	$(LN_S) -f ../../src/components/serverManager/serverManager.xpt ./kiwix/components/serverManager.xpt
 
 dist-hook:
-	rm -rf `find $(DESTDIR)$(distdir) -name "*.svn" -o -name "*.so" -o -name "*.apk" -o -name "*.dat" -o -name "*~" -o -name "*#"`
+	rm -rf `find $(DESTDIR)$(distdir) -name "*.svn" -o -name "*.git" -o -name "*.so" -o -name "*.apk" -o -name "*.dat" -o -name "*~" -o -name "*#"`
 	rm -rf $(DESTDIR)$(distdir)/android/platforms 
 	rm -rf `find $(DESTDIR)$(distdir) -name "Makefile"`
 	find $(DESTDIR)$(distdir)/src/components/ -name 'I*.h' -delete
@@ -453,16 +453,15 @@ endif
 	cp -v $(ARIA2_FILES) kiwix/bin/
 
 windist: 
-	rm -rf dvd
-	git checkout dvd
+	-rm -rf dvd/kiwix
 	cp -rf kiwix dvd/
-	rm -rf `find dvd -type d -name .svn`
+	-rm -rf `find dvd -type d -name "*.svn" -o -name "*.git"`
 	find dvd/kiwix -name '*.inised' -exec rm -rf {} \;
 	find dvd/kiwix -name 'Makefile' -delete
 	find dvd/kiwix -name 'Makefile.in' -delete
 	find dvd/kiwix -name 'Makefile.am*' -delete
-	rm -f dvd/kiwix/kiwix
-	rm -f dvd/kiwix/kiwix-compact
+	-rm -f dvd/kiwix/kiwix
+	-rm -f dvd/kiwix/kiwix-compact
 	-rm -f dvd/kiwix/kiwix/chrome/chrome.manifest.{prod,dev}
 
 wininstaller:
