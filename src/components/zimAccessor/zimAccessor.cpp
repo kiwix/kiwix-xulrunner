@@ -50,6 +50,10 @@
   #define mozuint32 PRUint32
 #endif
 
+#ifdef __APPLE__
+  typedef uint16_t char16_t;
+#endif
+
 #include "IZimAccessor.h"
 #include <stdio.h>
 #include <stdlib.h>
