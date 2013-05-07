@@ -454,7 +454,7 @@ endif
 
 windist: 
 	rm -rf dvd
-	svn update dvd
+	git checkout dvd
 	cp -rf kiwix dvd/
 	rm -rf `find dvd -type d -name .svn`
 	find dvd/kiwix -name '*.inised' -exec rm -rf {} \;
