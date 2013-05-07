@@ -377,29 +377,6 @@ pthread-win32.zip:
 pthread-win32/lib/pthreadVC2.lib: pthread-win32.zip
 	test -d pthread-win32 || unzip -o -d pthread-win32 pthread-win32.zip
 
-
-####################################################
-############ MS Visual C Runtime
-####################################################
-
-msvc100.zip:
-	$(DOWNLOADER) msvc100.zip $(DEP_MIRROR)/msvc100.zip
-
-msvc90.zip:
-	$(DOWNLOADER) msvc90.zip $(DEP_MIRROR)/msvc90.zip
-
-msvc100:
-	mkdir -p msvc100
-
-msvc90:
-	mkdir -p msvc90
-
-msvc100/msvcr100.dll msvc100/msvcp100.dll: msvc100 msvc100.zip
-	test -d msvc100 || unzip -o -d msvc100 msvc100.zip
-
-msvc90/msvcr90.dll msvcp90.dll msvcm90.dll Microsoft.VC90.CRT.manifest: msvc90 msvc90.zip
-	test -d msvc90 || unzip -o -d msvc90 msvc90.zip
-
 ####################################################
 ############ ANDROID-NDK
 ####################################################
