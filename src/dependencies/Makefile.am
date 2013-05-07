@@ -448,9 +448,8 @@ clean-local:
 	-rm -rf icu
 	-rm -rf pugixml
 	-rm -rf libmicrohttpd-0.9.19
-	-rm -rf xz-4.999.9beta
 	-rm -rf xz
-	-rm -rf xz-5.0.3
+	-rm -rf xz-5.0.4
 	-rm -rf xz-win
 	-rm -rf aria2-1.14.2
 	-rm -rf clucene-core-0.9.21b
