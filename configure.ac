@@ -1318,11 +1318,6 @@ then
     DEP_LIST+=" $COMPILED_PTHREAD_FILES"
 fi
 
-if test [ $IS_WIN -eq 1 ]
-then
-    DEP_LIST+=" $COMPILED_MSVC_FILES"
-fi
-
 DEP_LIST=`echo $DEP_LIST | sed -e "s,$DEP_PATH/,,g"`
 
 ####################################################
