@@ -15,16 +15,16 @@ if IS_LINUX
 if IS_OLD_GECKO
 GECKOSDKURL=$(DEP_MIRROR)/xulrunner-1.9.2.13.en-US.linux-i686.sdk.tar.bz2
 else
-GECKOSDKURL=$(DEP_MIRROR)/xulrunner-14.0.1.en-US.linux-$(ARCH).sdk.tar.bz2
+GECKOSDKURL=$(DEP_MIRROR)/xulrunner-20.0.1.en-US.linux-$(ARCH).sdk.tar.bz2
 endif
 else
-GECKOSDKURL=$(DEP_MIRROR)/xulrunner-14.0.1.en-US.mac-$(ARCH).sdk.tar.bz2
+GECKOSDKURL=$(DEP_MIRROR)/xulrunner-20.0.1.en-US.mac-$(ARCH).sdk.tar.bz2
 endif
 
 if IS_OLD_GECKO
 XULRUNNERRUNTIMEURL=$(DEP_MIRROR)/xulrunner-3.6.26.en-US.linux-i686.tar.bz2
 else
-XULRUNNERRUNTIMEURL=$(DEP_MIRROR)/xulrunner-14.0.1.en-US.linux-$(ARCH).tar.bz2
+XULRUNNERRUNTIMEURL=$(DEP_MIRROR)/xulrunner-20.0.1.en-US.linux-$(ARCH).tar.bz2
 endif
 
 if IS_LINUX
@@ -41,18 +41,18 @@ endif
 xulrunner-sdk.tar.bz2:
 	$(DOWNLOADER) xulrunner-sdk.tar.bz2 $(GECKOSDKURL)
 
-xulrunner-14.0.1.en-US.mac-i386.sdk.tar.bz2:
-	$(DOWNLOADER) xulrunner-14.0.1.en-US.mac-i386.sdk.tar.bz2 $(DEP_MIRROR)/xulrunner-14.0.1.en-US.mac-i386.sdk.tar.bz2
+xulrunner-20.0.1.en-US.mac-i386.sdk.tar.bz2:
+	$(DOWNLOADER) xulrunner-20.0.1.en-US.mac-i386.sdk.tar.bz2 $(DEP_MIRROR)/xulrunner-20.0.1.en-US.mac-i386.sdk.tar.bz2
 
-xulrunner-14.0.1.en-US.mac-x86_64.sdk.tar.bz2:
-	$(DOWNLOADER) xulrunner-14.0.1.en-US.mac-x86_64.sdk.tar.bz2 $(DEP_MIRROR)/xulrunner-14.0.1.en-US.mac-x86_64.sdk.tar.bz2
+xulrunner-20.0.1.en-US.mac-x86_64.sdk.tar.bz2:
+	$(DOWNLOADER) xulrunner-20.0.1.en-US.mac-x86_64.sdk.tar.bz2 $(DEP_MIRROR)/xulrunner-20.0.1.en-US.mac-x86_64.sdk.tar.bz2
 
-xulrunner-sdk-i386: xulrunner-14.0.1.en-US.mac-i386.sdk.tar.bz2
-	test -d xulrunner-sdk-i386 || tar -xf xulrunner-14.0.1.en-US.mac-i386.sdk.tar.bz2
+xulrunner-sdk-i386: xulrunner-20.0.1.en-US.mac-i386.sdk.tar.bz2
+	test -d xulrunner-sdk-i386 || tar -xf xulrunner-20.0.1.en-US.mac-i386.sdk.tar.bz2
 	test -d xulrunner-sdk && mv xulrunner-sdk xulrunner-sdk-i386
 
-xulrunner-sdk-x86_64: xulrunner-14.0.1.en-US.mac-x86_64.sdk.tar.bz2
-	test -d xulrunner-sdk-x86_64 || tar -xf xulrunner-14.0.1.en-US.mac-x86_64.sdk.tar.bz2
+xulrunner-sdk-x86_64: xulrunner-20.0.1.en-US.mac-x86_64.sdk.tar.bz2
+	test -d xulrunner-sdk-x86_64 || tar -xf xulrunner-20.0.1.en-US.mac-x86_64.sdk.tar.bz2
 	test -d xulrunner-sdk && mv xulrunner-sdk xulrunner-sdk-x86_64
 
 universal-sdk: xulrunner-sdk-i386 xulrunner-sdk-x86_64
@@ -101,12 +101,12 @@ endif
 #xr_target/xulrunner-14.0.1.en-US.mac/XUL.framework: xr_target/xulrunner-14.0.1.en-US.mac.pkg
 #	./tools/unpkg.py ./xr_target/xulrunner-14.0.1.en-US.mac.pkg
 
-xulrunner-14.0.1.en-US.mac.tar.bz2:
-	$(DOWNLOADER) xulrunner-14.0.1.en-US.mac.tar.bz2 $(DEP_MIRROR)/xulrunner-14.0.1.en-US.mac.tar.bz2
+xulrunner-20.0.1.en-US.mac.tar.bz2:
+	$(DOWNLOADER) xulrunner-20.0.1.en-US.mac.tar.bz2 $(DEP_MIRROR)/xulrunner-20.0.1.en-US.mac.tar.bz2
 
-xr_target/xulrunner-14.0.1.en-US.mac/XUL.framework: xulrunner-14.0.1.en-US.mac.tar.bz2
-	mkdir -p xr_target/xulrunner-14.0.1.en-US.mac/
-	tar -xvjf xulrunner-14.0.1.en-US.mac.tar.bz2 -C xr_target/xulrunner-14.0.1.en-US.mac/
+xr_target/xulrunner-20.0.1.en-US.mac/XUL.framework: xulrunner-20.0.1.en-US.mac.tar.bz2
+	mkdir -p xr_target/xulrunner-20.0.1.en-US.mac/
+	tar -xvjf xulrunner-20.0.1.en-US.mac.tar.bz2 -C xr_target/xulrunner-20.0.1.en-US.mac/
 
 # Windows
 xulrunner-win.zip:
@@ -414,11 +414,11 @@ android-deps: android-ndk-r8e android-sdk/sdk/platforms/android-14 xz
 CLEANFILES=
 
 DISTCLEANFILES= xulrunner-sdk.tar.bz2 \
-	xulrunner-14.0.1.en-US.mac-i386.sdk.tar.bz2 \
-	xulrunner-14.0.1.en-US.mac-x86_64.sdk.tar.bz2 \
+	xulrunner-20.0.1.en-US.mac-i386.sdk.tar.bz2 \
+	xulrunner-20.0.1.en-US.mac-x86_64.sdk.tar.bz2 \
 	xulrunner-runtime.tar.bz2 \
-	xulrunner-14.0.1.en-US.mac-pkg.dmg \
-	xulrunner-14.0.1.en-US.mac.tar.bz2 \
+	xulrunner-20.0.1.en-US.mac-pkg.dmg \
+	xulrunner-20.0.1.en-US.mac.tar.bz2 \
 	xulrunner-win.zip \
 	zlib.tar.gz \
 	xapian-core.tar.gz \
