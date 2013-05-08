@@ -50,20 +50,19 @@
   #define mozuint32 PRUint32
 #endif
 
+#include <componentTools.h>
+#include <kiwix/cluceneIndexer.h>
+
 #include "IZimCluceneIndexer.h"
 
 #include "nsXPCOM.h"
 #include "nsEmbedString.h"
 #include "nsIURI.h"
-
 #include "nsIServiceManager.h"
 #include "nsIFile.h"
 #include "nsCOMPtr.h"
 #include "nsIProperties.h"
 #include "nsDirectoryServiceDefs.h"
-
-#include <kiwix/cluceneIndexer.h>
-#include <componentTools.h>
 
 using namespace std;
 

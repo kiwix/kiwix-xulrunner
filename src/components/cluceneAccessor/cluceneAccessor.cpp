@@ -50,6 +50,13 @@
   #define mozuint32 PRUint32
 #endif
 
+#include <string>
+
+#include <componentTools.h>
+#include "kiwix/cluceneSearcher.h"
+
+#include "ICluceneAccessor.h"
+
 #include "nsXPCOM.h"
 #include "nsEmbedString.h"
 #include "nsIURI.h"
@@ -58,10 +65,6 @@
 #include "nsCOMPtr.h"
 #include "nsIProperties.h"
 #include "nsDirectoryServiceDefs.h"
-#include "ICluceneAccessor.h"
-
-#include "kiwix/cluceneSearcher.h"
-#include <string>
 
 class CluceneAccessor : public ICluceneAccessor {
 

@@ -57,22 +57,22 @@
 #define MIBSIZE 4
 #endif
 
-#include "IServerManager.h"
 #include <string>
 #include <iostream>
+
+#include <componentTools.h>
+#include <networkTools.h>
+
+#include "IServerManager.h"
 
 #include "nsXPCOM.h"
 #include "nsEmbedString.h"
 #include "nsStringAPI.h"
-
 #include "nsIServiceManager.h"
 #include "nsILocalFile.h"
 #include "nsCOMPtr.h"
 #include "nsIProperties.h"
 #include "nsDirectoryServiceDefs.h"
-
-#include <componentTools.h>
-#include <networkTools.h>
 
 using namespace std;
 

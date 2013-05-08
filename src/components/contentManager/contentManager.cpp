@@ -50,7 +50,6 @@
   #define mozuint32 PRUint32
 #endif
 
-#include "IContentManager.h"
 #include <string>
 #include <iostream>
 #include <sys/types.h>
@@ -70,21 +69,22 @@
 #define MIBSIZE 4
 #endif
 
+#include <componentTools.h>
+#include <kiwix/manager.h>
+#include <pathTools.h>
+#include <regexTools.h>
+
+#include "IContentManager.h"
+
 #include "nsXPCOM.h"
 #include "nsEmbedString.h"
 #include "nsIURI.h"
 #include "nsStringAPI.h"
-
 #include "nsIServiceManager.h"
 #include "nsILocalFile.h"
 #include "nsCOMPtr.h"
 #include "nsIProperties.h"
 #include "nsDirectoryServiceDefs.h"
-
-#include <kiwix/manager.h>
-#include <pathTools.h>
-#include <componentTools.h>
-#include <regexTools.h>
 
 using namespace std;
 

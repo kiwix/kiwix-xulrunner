@@ -50,7 +50,6 @@
   #define mozuint32 PRUint32
 #endif
 
-#include "IZimAccessor.h"
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -58,11 +57,12 @@
 #include <pathTools.h>
 #include <componentTools.h>
 
+#include "IZimAccessor.h"
+
 #include "nsXPCOM.h"
 #include "nsEmbedString.h"
 #include "nsIURI.h"
 #include "nsStringAPI.h"
-
 #include "nsIServiceManager.h"
 #include "nsILocalFile.h"
 #include "nsCOMPtr.h"
