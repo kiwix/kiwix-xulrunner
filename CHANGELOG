@@ -17,6 +17,7 @@ Kiwix 0.9 rc3
 * FIXED: Browser widget resizing sync. with the window (#382)
 * FIXED: Encoding issue in kiwix-serve 404 error message
 * FIXED: Abstruse index names (#84)
+* FIXED: Duplicate suggestions under certain conditions
 * FIXED: Compilation configuration for Gecko SDK 17+
 * FIXED: kiwix-serve index page for chrome/chromium
 * NEW: New supported user interface languages: Chuvash (cv), Fiji
