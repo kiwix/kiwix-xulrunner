@@ -75,7 +75,7 @@
 <!ENTITY main.randomArticle.accesskey   "R">
 <!ENTITY main.checkIntegrity            "Integritets eftirlit">
 <!ENTITY main.checkIntegrity.accesskey  "k">
-<!ENTITY main.launchIndexing            "Launch indexing">
+<!ENTITY main.launchIndexing            "Byrja indeksering">
 <!ENTITY main.purgeHistory              "Viska søguna burtur">
 <!ENTITY main.purgeHistory.accesskey    "P">
 
@@ -131,7 +131,7 @@
 <!ENTITY preferences.browse             "Leita (brovsa)">
 <!ENTITY preferences.tabs               "Minst til flikrur (tabs, faneblade)">
 <!ENTITY preferences.downloadCatalogs   "Heintað eksterna(r) mappu(r)">
-<!ENTITY preferences.neverAskToIndex    "Never ask to index">
+<!ENTITY preferences.neverAskToIndex    "Bið aldrig um at indeksera">
 
 <!-- Server -->
 <!ENTITY server.load                    "Tak niður">

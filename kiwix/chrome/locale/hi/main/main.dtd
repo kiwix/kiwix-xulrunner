@@ -3,9 +3,9 @@
 <!ENTITY main.cssdirection              "ltr">
 
 <!-- Mac menu -->
-<!ENTITY main.osxservices               "Services">
-<!ENTITY main.osxhideapp                "Hide &brand.brandShortName;">
-<!ENTITY main.osxhideothers             "Hide Others">
+<!ENTITY main.osxservices               "सेवाएं">
+<!ENTITY main.osxhideapp                "&brand.brandShortName; छुपायें">
+<!ENTITY main.osxhideothers             "अन्य छुपायें">
 <!ENTITY main.osxshowall                "सभी दिखाएँ">
 
 <!-- File menu -->
@@ -14,7 +14,7 @@
 <!ENTITY main.openFile                  "फ़ाइल खोलें...">
 <!ENTITY main.browseLibrary.accesskey   "B">
 <!ENTITY main.browseLibrary             "लायब्रेरी ब्राउज़ करें">
-<!ENTITY main.hideLibrary               "Hide library">
+<!ENTITY main.hideLibrary               "लाइब्रेरी छुपायें">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "हाल ही में खोला हुआ...">
 <!ENTITY main.saveFile                  "पृष्ठ के रूप में सहेजें...">
@@ -39,7 +39,7 @@
 <!ENTITY main.transliteration.accesskey "T">
 <!ENTITY main.preferences               "वरीयताएँ">
 <!ENTITY main.preferences.accesskey     "n">
-<!ENTITY main.server                    "Server">
+<!ENTITY main.server                    "सर्वर">
 <!ENTITY main.server.accesskey          "s">
 
 <!-- Display menu -->
@@ -157,5 +157,5 @@
 <!ENTITY main.library.filterBy.author.all       "सभी">
 <!ENTITY main.library.filterBy.publisher        "प्रकाशक">
 <!ENTITY main.library.filterBy.publisher.all    "सभी">
-<!ENTITY main.library.filterBy.lessThan         "Less than">
+<!ENTITY main.library.filterBy.lessThan         "लेसस तहान">
 
