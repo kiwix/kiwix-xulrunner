@@ -98,7 +98,7 @@ ZimAccessor::~ZimAccessor() {
 
 NS_IMETHODIMP ZimAccessor::LoadFile(const nsAString &path, mozbool *retVal) {
   *retVal = PR_TRUE;
-  const char *cPath = strdup(nsStringToCString(path));
+  const char *cPath = nsStringToCString(path);
 
 #ifdef __APPLE__
   string zimaa = string(cPath) + "aa";
