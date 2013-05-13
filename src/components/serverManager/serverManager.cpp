@@ -111,9 +111,9 @@ ServerManager::~ServerManager() {
 
 NS_IMETHODIMP ServerManager::Start(const nsAString &binaryPath, const nsAString &libraryPaths, const nsAString &port, mozbool *retVal) {
   *retVal = PR_TRUE;
-  const char *cBinaryPath = strdup(nsStringToCString(binaryPath));
-  const char *cLibraryPaths = strdup(nsStringToCString(libraryPaths));
-  const char *cPort = strdup(nsStringToCString(port));
+  const char *cBinaryPath = nsStringToCString(binaryPath);
+  const char *cLibraryPaths = nsStringToCString(libraryPaths);
+  const char *cPort = nsStringToCString(port);
   string commandLine;
 
   /* Compute server url */
@@ -146,7 +146,6 @@ NS_IMETHODIMP ServerManager::Start(const nsAString &binaryPath, const nsAString 
     cerr << "Unable to start kiwix-serve.exe from path " << commandLine << endl;
     this->serverPid = 0;
     *retVal = PR_FALSE;
-    return NS_OK;
   }
 #else
   /* Essential to avoid zombie kiwix-server process */
@@ -161,7 +160,6 @@ NS_IMETHODIMP ServerManager::Start(const nsAString &binaryPath, const nsAString 
     cerr << "Unable to fork before launching kiwix-serve" << endl;
     this->serverPid = 0;
     *retVal = PR_FALSE;
-    return NS_OK;
     break;
   case 0: /* This is the child process */
     commandLine = string(cBinaryPath);
@@ -170,13 +168,16 @@ NS_IMETHODIMP ServerManager::Start(const nsAString &binaryPath, const nsAString 
       this->serverPid = 0;
       *retVal = PR_FALSE;
     }
-    return NS_OK;
     break;
   default:
     this->serverPid = PID;
     break;
   }
 #endif
+
+  free((void *)cBinaryPath);
+  free((void *)cLibraryPaths);
+  free((void *)cPort);
 
   return NS_OK;
 }
