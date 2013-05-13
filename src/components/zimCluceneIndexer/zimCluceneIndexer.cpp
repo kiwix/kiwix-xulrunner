@@ -99,8 +99,8 @@ NS_IMETHODIMP ZimCluceneIndexer::Start(const nsAString &zimFilePath,
 				       const nsAString &cluceneDirectoryPath, 
 				       mozbool *retVal) {
   *retVal = PR_FALSE;
-  const char *cZimFilePath = strdup(nsStringToCString(zimFilePath));
-  const char *cCluceneDirectoryPath = strdup(nsStringToCString(cluceneDirectoryPath));
+  const char *cZimFilePath = nsStringToCString(zimFilePath);
+  const char *cCluceneDirectoryPath = nsStringToCString(cluceneDirectoryPath);
 
   /* Create the indexer */
   try {    

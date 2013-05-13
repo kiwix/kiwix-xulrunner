@@ -99,8 +99,8 @@ NS_IMETHODIMP ZimXapianIndexer::Start(const nsAString &zimFilePath,
 				      const nsAString &xapianDirectoryPath, 
 				      mozbool *retVal) {
   *retVal = PR_FALSE;
-  const char *cZimFilePath = strdup(nsStringToCString(zimFilePath));
-  const char *cXapianDirectoryPath = strdup(nsStringToCString(xapianDirectoryPath));
+  const char *cZimFilePath = nsStringToCString(zimFilePath);
+  const char *cXapianDirectoryPath = nsStringToCString(xapianDirectoryPath);
 
   /* Create the indexer */
   try {    
