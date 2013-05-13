@@ -124,8 +124,8 @@ ContentManager::~ContentManager() {
 NS_IMETHODIMP ContentManager::OpenLibraryFromFile(const nsAString &path, mozbool readOnly, mozbool *retVal) {
   *retVal = PR_TRUE;
   bool returnValue = true;
-  const char *cNativePath = strdup(nsStringToCString(path));
-  const char *cUTF8Path = strdup(nsStringToUTF8(path));
+  const char *cNativePath = nsStringToCString(path);
+  const char *cUTF8Path = nsStringToUTF8(path);
 
   try {
     returnValue = this->manager.readFile(cNativePath, cUTF8Path, readOnly == PR_TRUE ? true : false);
@@ -178,7 +178,7 @@ NS_IMETHODIMP ContentManager::WriteLibrary(mozbool *retVal) {
 NS_IMETHODIMP ContentManager::WriteLibraryToFile(const nsAString &path, mozbool *retVal) {
   *retVal = PR_TRUE;
   bool returnValue = true;
-  const char *cPath = strdup(nsStringToCString(path));
+  const char *cPath = nsStringToCString(path);
 
   try {
     returnValue = this->manager.writeFile(cPath);
@@ -197,8 +197,8 @@ NS_IMETHODIMP ContentManager::AddBookFromPath(const nsAString &path, mozbool *re
   *retVal = PR_TRUE;
   bool returnValue = true;
 
-  const char *pathToOpen = strdup(nsStringToCString(path));
-  const char *pathToSave = strdup(nsStringToUTF8(path));
+  const char *pathToOpen = nsStringToCString(path);
+  const char *pathToSave = nsStringToUTF8(path);
 
   try {
     returnValue = this->manager.addBookFromPath(pathToOpen, pathToSave);
@@ -424,7 +424,7 @@ NS_IMETHODIMP ContentManager::SetBookIndex(const nsACString &id, const nsAString
   NS_CStringGetData(id, &cid);
   const char *cindexType;
   NS_CStringGetData(indexType, &cindexType);
-  const char *pathToSave = strdup(nsStringToUTF8(path));
+  const char *pathToSave = nsStringToUTF8(path);
 
   try {
     kiwix::supportedIndexType iType;
@@ -451,7 +451,7 @@ NS_IMETHODIMP ContentManager::SetBookPath(const nsACString &id, const nsAString 
 
   const char *cid;
   NS_CStringGetData(id, &cid);
-  const char *pathToSave = strdup(nsStringToUTF8(path));
+  const char *pathToSave = nsStringToUTF8(path);
 
   try {
     if (this->manager.setBookPath(cid, pathToSave)) {
@@ -563,9 +563,9 @@ NS_IMETHODIMP ContentManager::IsAria2cRunning(mozbool *retVal) {
 NS_IMETHODIMP ContentManager::LaunchAria2c(const nsAString &binaryPath, const nsAString &downloadPath, 
 					   const nsAString &logPath, mozbool *retVal) {
   *retVal = PR_TRUE;
-  const char *cBinaryPath = strdup(nsStringToCString(binaryPath));
-  const char *cDownloadPath = strdup(nsStringToCString(downloadPath));
-  const char *cLogPath = strdup(nsStringToCString(logPath));
+  const char *cBinaryPath = nsStringToCString(binaryPath);
+  const char *cDownloadPath = nsStringToCString(downloadPath);
+  const char *cLogPath = nsStringToCString(logPath);
   string commandLine;
 
   /* Get PPID */
