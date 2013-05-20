@@ -20,7 +20,7 @@ Kiwix 0.9 rc3
 * FIXED: Duplicate suggestions under certain conditions
 * FIXED: Compilation configuration for Gecko SDK 17+
 * FIXED: kiwix-serve index page for chrome/chromium
-* FIXED: Buggy kiwix-serve suggestion click handling
+* FIXED: Buggy kiwix-serve suggestion click handling (#463)
 * NEW: New supported user interface languages: Chuvash (cv), Fiji
   Hindi Latin script (hif-latn), Mongolian (mn), Newari (new),
   Sanskrit (sa), Uzbek (uz), Turkish (tr), Tagalog (tl), Talysh
