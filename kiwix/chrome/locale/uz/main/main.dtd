@@ -6,7 +6,7 @@
 <!ENTITY main.osxservices               "Xizmatlar">
 <!ENTITY main.osxhideapp                "&brand.brandShortName;ni yashirish">
 <!ENTITY main.osxhideothers             "Boshqalarni yashirish">
-<!ENTITY main.osxshowall                "Hammasini ko‘rsatish">
+<!ENTITY main.osxshowall                "Hammasini koʻrsatish">
 
 <!-- File menu -->
 <!ENTITY main.file                      "Fayl">

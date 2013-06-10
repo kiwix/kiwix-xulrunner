@@ -75,7 +75,7 @@
 <!ENTITY main.randomArticle.accesskey   "R">
 <!ENTITY main.checkIntegrity            "Contròl d'antegrità">
 <!ENTITY main.checkIntegrity.accesskey  "k">
-<!ENTITY main.launchIndexing            "Launch indexing">
+<!ENTITY main.launchIndexing            "Ancamin-a l'indicisassion">
 <!ENTITY main.purgeHistory              "Polidé la stòria">
 <!ENTITY main.purgeHistory.accesskey    "P">
 
@@ -131,7 +131,7 @@
 <!ENTITY preferences.browse             "Sfeuja">
 <!ENTITY preferences.tabs               "Arcordé je schede">
 <!ENTITY preferences.downloadCatalogs   "Dëscarié ij catàlogh da leugn">
-<!ENTITY preferences.neverAskToIndex    "Never ask to index">
+<!ENTITY preferences.neverAskToIndex    "Ciama mai d'indicisé">
 
 <!-- Server -->
 <!ENTITY server.load                    "Carié">

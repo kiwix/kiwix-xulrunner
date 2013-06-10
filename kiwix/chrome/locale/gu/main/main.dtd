@@ -9,29 +9,29 @@
 <!ENTITY main.osxshowall                "બધું બતાવો">
 
 <!-- File menu -->
-<!ENTITY main.file                      "દસ્તાવેજ">
+<!ENTITY main.file                      "ફાઇલ">
 <!ENTITY main.file.accesskey            "F">
-<!ENTITY main.openFile                  "દસ્તાવેજ ખોલો">
+<!ENTITY main.openFile                  "ફાઇલ ખોલો...">
 <!ENTITY main.browseLibrary.accesskey   "B">
-<!ENTITY main.browseLibrary             "પુસ્તકાલય માંથી શોધો">
+<!ENTITY main.browseLibrary             "પુસ્તકાલયમાંથી શોધો">
 <!ENTITY main.hideLibrary               "લાઇબ્રેરી છુપાવો">
 <!ENTITY main.openFile.accesskey        "O">
-<!ENTITY main.lastOpen                  "અત્યારે ખોલેલો . . .">
+<!ENTITY main.lastOpen                  "અત્યારે ખોલેલું...">
 <!ENTITY main.saveFile                  "પાનું આ નામથી સાચવો...">
 <!ENTITY main.saveFile.accesskey        "S">
 <!ENTITY main.print                     "છાપો">
 <!ENTITY main.print.accesskey           "P">
-<!ENTITY main.printPdf                  "પીડીએફ રીતે સચ્ચ્વો">
+<!ENTITY main.printPdf                  "પીડીએફની રીતે સાચવો">
 <!ENTITY main.printPdf.accesskey        "D">
-<!ENTITY main.quit                      "છોડી ડો">
+<!ENTITY main.quit                      "બહાર નીકળો">
 <!ENTITY main.quit.accesskey            "Q">
 
 <!-- Edit menu -->
 <!ENTITY main.edit                      "ફેરફાર કરો">
 <!ENTITY main.edit.accesskey            "E">
-<!ENTITY main.find                      "આ પેજ ઉપર શોધવું">
+<!ENTITY main.find                      "આ પાનાં ઉપર શોધો...">
 <!ENTITY main.find.accesskey            "S">
-<!ENTITY main.selectall                 "બધ્ધું પસંદ કરો">
+<!ENTITY main.selectall                 "બધું પસંદ કરો">
 <!ENTITY main.selectall.accesskey       "a">
 <!ENTITY main.copy                      "નકલ">
 <!ENTITY main.copy.accesskey            "p">
@@ -43,13 +43,13 @@
 <!ENTITY main.server.accesskey          "s">
 
 <!-- Display menu -->
-<!ENTITY main.display                   "આવ્તરણ">
+<!ENTITY main.display                   "દર્શાવો">
 <!ENTITY main.display.accesskey         "D">
 <!ENTITY main.zoom                      "ઝૂમ">
 <!ENTITY main.zoom.accesskey            "Z">
-<!ENTITY main.zoomin                    "જીનવત થી જુવો">
+<!ENTITY main.zoomin                    "મોટું કરો">
 <!ENTITY main.zoomin.accesskey          "M">
-<!ENTITY main.zoomout                   "ઓછુ કરો">
+<!ENTITY main.zoomout                   "નાનું કરો">
 <!ENTITY main.zoomout.accesskey         "R">
 <!ENTITY main.zoomorig                  "મૂળ માપ">
 <!ENTITY main.zoomorig.accesskey        "O">
@@ -57,23 +57,23 @@
 <!ENTITY main.language.accesskey        "L">
 <!ENTITY main.skin                      "ફલક">
 <!ENTITY main.skin.accesskey            "S">
-<!ENTITY main.statusbar                 "સ્તીથી દર્શાવાની જગ્યા">
+<!ENTITY main.statusbar                 "સ્થિતિપટ્ટી">
 <!ENTITY main.statusbar.accesskey       "S">
-<!ENTITY main.resultsbar                "પરિણામ દર્શાવાની જગ્યા">
+<!ENTITY main.resultsbar                "પરિણામપટ્ટી">
 <!ENTITY main.resultsbar.accesskey      "R">
 <!ENTITY main.tabs                      "ટૅબ્સ">
 <!ENTITY main.tabs.accesskey            "T">
-<!ENTITY main.fullscreen                "આખી સ્ક્રીન">
+<!ENTITY main.fullscreen                "આખી સ્ક્રિન">
 <!ENTITY main.fullscreen.accesskey      "F">
 <!ENTITY main.invertedColors            "ઉંધા રંગો">
 <!ENTITY main.invertedColors.accesskey  "I">
 
 <!-- Tools menu -->
-<!ENTITY main.tools                     "ઉપકરણ">
+<!ENTITY main.tools                     "સાધનો">
 <!ENTITY main.tools.accesskey           "T">
 <!ENTITY main.randomArticle             "કોઈપણ એક લેખ">
 <!ENTITY main.randomArticle.accesskey   "R">
-<!ENTITY main.checkIntegrity            "અખંડતાની જાંચ">
+<!ENTITY main.checkIntegrity            "અખંડતાની તપાસ">
 <!ENTITY main.checkIntegrity.accesskey  "k">
 <!ENTITY main.launchIndexing            "અનુક્રમ શરુ કરો">
 <!ENTITY main.purgeHistory              "પાનાનો ઇતિહાસ">
@@ -96,8 +96,8 @@
 <!ENTITY main.search                    "શોધો">
 <!ENTITY main.searchPlaceholder         "શોધ કરવા માટે અહીં લખો...">
 <!ENTITY main.findInText                "ભાષા ના સંદર્ભ  માં શોધો">
-<!ENTITY main.noSearchBar               "આ શોધ ને ઝીમ ઇન્દેક્ષ ની જરૂર છે">
-<!ENTITY main.bookmarks                 "બુકમાર્ક">
+<!ENTITY main.noSearchBar               "શોધને અનુક્રમિત ZIM ફાઇલની જરુર છે">
+<!ENTITY main.bookmarks                 "બુકમાર્કો">
 
 <!-- Results bar -->
 <!ENTITY main.results.title             "પરિણામોમાં શોધો">
@@ -113,8 +113,8 @@
 <!ENTITY main.defaultset                "મૂળ સંઘ્રહ">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveImageAs               "ફોટા નો સંઘ્રહ આ નામે કરો">
-<!ENTITY main.openLinkInNewTab          "લીનક ને નવા ફાટા માં ખોલો">
+<!ENTITY main.saveImageAs               "ચિત્રને આ રીતે સંગ્રહો...">
+<!ENTITY main.openLinkInNewTab          "લિન્કને નવી ટેબમાં ખોલો">
 <!ENTITY main.searchFor                 "આ માટે શોધો">
 <!ENTITY main.copyLinkAdress            "Copy link address">
 <!ENTITY main.mute                      "મૂંગુ">
@@ -127,9 +127,9 @@
 <!ENTITY preferences.preferences        "પસંદ">
 <!ENTITY preferences.save               "સાચવો">
 <!ENTITY preferences.cancel             "રદ કરો">
-<!ENTITY preferences.profileDirectory   "પ્રોફીલે નો જથ્થો">
+<!ENTITY preferences.profileDirectory   "પ્રોફાઇલ ડિરેક્ટરી">
 <!ENTITY preferences.browse             "ચરવું">
-<!ENTITY preferences.tabs               "ફાટા ને યાદ રાખો">
+<!ENTITY preferences.tabs               "ટેબ્સને યાદ રાખો">
 <!ENTITY preferences.downloadCatalogs   "રીમોટ કેટેલોગ(ગ્સ) ડાઉનલોડ કરો">
 <!ENTITY preferences.neverAskToIndex    "અનુક્રમ કરવાનું ક્યારેય પૂછશો નહી">
 

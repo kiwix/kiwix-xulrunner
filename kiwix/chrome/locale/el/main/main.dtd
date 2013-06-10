@@ -40,7 +40,7 @@
 <!ENTITY main.preferences               "Προτιμήσεις">
 <!ENTITY main.preferences.accesskey     "n">
 <!ENTITY main.server                    "Διακομιστής">
-<!ENTITY main.server.accesskey          "s">
+<!ENTITY main.server.accesskey          "δ">
 
 <!-- Display menu -->
 <!ENTITY main.display                   "Εμφάνιση">
@@ -75,7 +75,7 @@
 <!ENTITY main.randomArticle.accesskey   "R">
 <!ENTITY main.checkIntegrity            "Έλεγχος ακεραιότητας">
 <!ENTITY main.checkIntegrity.accesskey  "k">
-<!ENTITY main.launchIndexing            "Launch indexing">
+<!ENTITY main.launchIndexing            "Εισαγωγή ευρετηριάσης">
 <!ENTITY main.purgeHistory              "Εκκαθάριση ιστορικού">
 <!ENTITY main.purgeHistory.accesskey    "P">
 
@@ -131,7 +131,7 @@
 <!ENTITY preferences.browse             "Πλοήγηση">
 <!ENTITY preferences.tabs               "Απομνημόνευση καρτελών">
 <!ENTITY preferences.downloadCatalogs   "Κατεβάστε απομακρυσμένους καταλόγους">
-<!ENTITY preferences.neverAskToIndex    "Never ask to index">
+<!ENTITY preferences.neverAskToIndex    "Ποτέ μη ζητάτε ευρετήριο">
 
 <!-- Server -->
 <!ENTITY server.load                    "Φόρτωση">

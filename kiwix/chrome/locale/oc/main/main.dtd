@@ -75,7 +75,7 @@
 <!ENTITY main.randomArticle.accesskey   "R">
 <!ENTITY main.checkIntegrity            "Verificacion d'integritat">
 <!ENTITY main.checkIntegrity.accesskey  "k">
-<!ENTITY main.launchIndexing            "Launch indexing">
+<!ENTITY main.launchIndexing            "Aviar l'indexacion">
 <!ENTITY main.purgeHistory              "Voidar l'istoric">
 <!ENTITY main.purgeHistory.accesskey    "P">
 
@@ -131,7 +131,7 @@
 <!ENTITY preferences.browse             "Legir">
 <!ENTITY preferences.tabs               "Se remembrar dels onglets dobèrts en quitant Kiwix">
 <!ENTITY preferences.downloadCatalogs   "Telecargar lo(s) catalòg(s) distant(s)">
-<!ENTITY preferences.neverAskToIndex    "Never ask to index">
+<!ENTITY preferences.neverAskToIndex    "Demandar pas jamai d'indexar">
 
 <!-- Server -->
 <!ENTITY server.load                    "Cargar">
