@@ -30,6 +30,7 @@ Kiwix 0.9 rc3
 * NEW: Menu item to launch indexing (#455)
 * NEW: Kiwix for Android (#109)
 * NEW: Xulrunner 20.0.1 (instead of 14.0.1)
+* NEW: Add "Cache-Control" HTTP headers to kiwix-serve output
 
 Kiwix 0.9 rc2
 * FIXED: kiwix-manage generate wrong size for splitted ZIM files (ID: 3547892)
