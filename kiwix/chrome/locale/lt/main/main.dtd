@@ -75,7 +75,7 @@
 <!ENTITY main.randomArticle.accesskey   "R">
 <!ENTITY main.checkIntegrity            "Vientisumo tikrinimas">
 <!ENTITY main.checkIntegrity.accesskey  "k">
-<!ENTITY main.launchIndexing            "Launch indexing">
+<!ENTITY main.launchIndexing            "Pradėti indeksuoti">
 <!ENTITY main.purgeHistory              "Puslapio istorija">
 <!ENTITY main.purgeHistory.accesskey    "P">
 
@@ -131,7 +131,7 @@
 <!ENTITY preferences.browse             "Naršyti">
 <!ENTITY preferences.tabs               "Prisiminti skirtukus">
 <!ENTITY preferences.downloadCatalogs   "Atsisiųsti nuotolinių katalogų(s)">
-<!ENTITY preferences.neverAskToIndex    "Never ask to index">
+<!ENTITY preferences.neverAskToIndex    "Niekada neprašyti indekso">
 
 <!-- Server -->
 <!ENTITY server.load                    "Įkrauti">
