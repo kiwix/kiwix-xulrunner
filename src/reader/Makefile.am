@@ -5,7 +5,9 @@ kiwix_read_SOURCES= \
 	../common/kiwix/reader.cpp \
 	../common/kiwix/reader.h\
 	../common/stringTools.cpp \
-	../common/stringTools.h
+	../common/stringTools.h \
+	../common/pathTools.cpp \
+	../common/pathTools.h
 kiwix_read_CXXFLAGS=$(ZIMLIB_CFLAGS) $(LZMA_CFLAGS)  $(ICU_CFLAGS) -I../common/
 
 kiwix_read_LDFLAGS=$(CHECK_LDFLAGS)
