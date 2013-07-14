@@ -75,7 +75,7 @@
 <!ENTITY main.randomArticle.accesskey   "R">
 <!ENTITY main.checkIntegrity            "Bütünlük denetimi">
 <!ENTITY main.checkIntegrity.accesskey  "k">
-<!ENTITY main.launchIndexing            "Launch indexing">
+<!ENTITY main.launchIndexing            "Dizin oluşturmayı başlatmak">
 <!ENTITY main.purgeHistory              "Geçmişi temizle">
 <!ENTITY main.purgeHistory.accesskey    "P">
 
@@ -131,7 +131,7 @@
 <!ENTITY preferences.browse             "Gözat">
 <!ENTITY preferences.tabs               "Sekmeleri hatırla">
 <!ENTITY preferences.downloadCatalogs   "Uzaktan katalog(lar)ı indir">
-<!ENTITY preferences.neverAskToIndex    "Never ask to index">
+<!ENTITY preferences.neverAskToIndex    "Dizin oluşturmak için bir daha sorma">
 
 <!-- Server -->
 <!ENTITY server.load                    "Yükle">
