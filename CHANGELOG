@@ -8,7 +8,7 @@ Kiwix 0.9 rc3
   (#413)
 * FIXED: Unavailable kiwix-serve from the UI on Linux, if not installed (#411)
 * FIXED: kiwix-serve UI for non-javascript browsers like Dillo (#587)
-* FIXED: kiwix-serve crahs if really long URL (#400)
+* FIXED: kiwix-serve crash if really long URL (#400)
 * FIXED: Small display issue with multilingual ZIM file
 * FIXED: Toolbar buttons order
 * FIXED: Argument forwarding in kiwix-launcher
@@ -31,6 +31,7 @@ Kiwix 0.9 rc3
 * NEW: Kiwix for Android (#109)
 * NEW: Xulrunner 20.0.1 (instead of 14.0.1)
 * NEW: Add "Cache-Control" HTTP headers to kiwix-serve output
+* NEW: Better searchbox focus handling
 
 Kiwix 0.9 rc2
 * FIXED: kiwix-manage generate wrong size for splitted ZIM files (ID: 3547892)
