@@ -395,6 +395,7 @@ function onStart() {
     initLibrary();
     loadContentFromCommandLine();
     initDownloader();
+    focusOnSearchBox();
 
     /* Remove old profile if necessary - experimental */
     var profileToRemove = settings.profileToRemove();

@@ -173,12 +173,19 @@ function searchFor(text) {
 }
 
 /* Get the focus on the search textbox */
-function focusOnSearchBox() {
+function manageFocusOnSearchBox() {
     var searchBox = getSearchBox();
     if (searchBox.disabled == false) {
 	searchBox.focus();
     } else {
 	manageIndexCurrentBook();
+    }
+}
+
+function focusOnSearchBox() {
+    var searchBox = getSearchBox();
+    if (searchBox.disabled == false) {
+	searchBox.focus();
     }
 }
 
@@ -1232,7 +1239,7 @@ function initUserInterface() {
         menu.setAttribute("style", "display: none;");
     }
 
-    /* Populate last open files */
+    /* Last part */
     populateLastOpenMenu();
 }
 
@@ -1718,16 +1725,15 @@ function thumbnailFromCurrentPage()
         return canvas.toDataURL();
 	}
 
-function focusOnSearch() {
-    // SUGAR: remove content of search box
-    if (env.isSugar())
-        getSearchBox().value = '';
+function emptySearchBox() {
+    getSearchBox().value = '';
 }
 
-function LostFocusOnSearch() {
-    // SUGAR: Update search box label with page name
-    if (env.isSugar())
+/* SUGAR: Update search box label with page name */
+function lostFocusOnSearchBox() {
+    if (env.isSugar()) {
         getSearchBox().value = getTitle();
+    }
 }
 
 function areColorsInverted() {

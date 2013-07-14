@@ -168,26 +168,27 @@
 
 <!-- Keyset (should be implemented after menubar otherwise generate a 1 pixel big space between windows decoration and menubar) -->
 <keyset>
-  <key id="thumb-key" key="y" modifiers="control" oncommand="testThumbnail()"/>
+  <key id="thumb-key" key="Y" modifiers="control" oncommand="testThumbnail()"/>
   <key id="quit-key" key="Q" modifiers="control" oncommand="quit()"/>
   <key id="find-key" key="F" modifiers="control" oncommand="find()"/>
-  <key id="goto-search-fiel-key" key="L" modifiers="control" oncommand="focusOnSearchBox()"/>
+  <key id="goto-search-field-key" key="L" modifiers="control" oncommand="manageFocusOnSearchBox()"/>
+  <key id="goto-search-field-key-bis" keycode="D" modifiers="alt" oncommand="manageFocusOnSearchBox()"/>
   <key id="open-file-key" key="O" modifiers="control" oncommand="manageOpenFile()"/>
   <key id="save-file-key" key="S" modifiers="control" oncommand="saveDocument(window.content.document)"/>
   <key id="print-key" key="P" modifiers="control" oncommand="print()"/>
-  <key id="print-pdf-key" key="d" modifiers="control,shift" oncommand="printPdf()"/>
-  <key id="add-bookmark-key" key="d" modifiers="control" oncommand="bookmarkCurrentPage(); UIToggleBookmarksBar(true)"/>
+  <key id="print-pdf-key" key="D" modifiers="control,shift" oncommand="printPdf()"/>
+  <key id="add-bookmark-key" key="D" modifiers="control" oncommand="bookmarkCurrentPage(); UIToggleBookmarksBar(true)"/>
   <key id="selectall-key" key="A" modifiers="control" oncommand="selectAll()"/>
-  <key id="bookmarks-key" key="b" modifiers="control" oncommand="UIToggleBookmarksBar()"/>
+  <key id="bookmarks-key" key="B" modifiers="control" oncommand="UIToggleBookmarksBar()"/>
   <key id="copy-key" key="C" modifiers="control" oncommand="copySelectedContent()"/>
-  <key id="findnext" key="g" modifiers="control" oncommand="getFindBar().onFindAgainCommand(false);"/>
+  <key id="findnext" key="G" modifiers="control" oncommand="getFindBar().onFindAgainCommand(false);"/>
   <key id="findnextbis" keycode="VK_F3" oncommand="getFindBar().onFindAgainCommand(false);"/>
   <key id="findprevious" key="G" modifiers="control,shift" oncommand="getFindBar().onFindAgainCommand(true);"/>
   <key id="zoomin" key="+" modifiers="control" oncommand="zoomIn()"/>
   <key id="zoomout" key="=" modifiers="control" oncommand="zoomIn()"/> <!-- facilitate the zoomin without using SHIFT-->
   <key id="zoomout" key="-" modifiers="control" oncommand="zoomOut()"/>
   <key id="zoomorig" key="0" modifiers="control" oncommand="zoomOriginal()"/>
-  <key id="open-tab-key" key="T" modifiers="control" oncommand="openNewTab(); getSearchBox().value = ''; getSearchBox().focus()"/>
+  <key id="open-tab-key" key="T" modifiers="control" oncommand="openNewTab(); getSearchBox().value = ''; focusOnSearchBox()"/>
   <key id="close-tab-key" key="w" modifiers="control" oncommand="closeCurrentTab();"/>
   <key id="close-alltab-key" key="W" modifiers="control,shift" oncommand="closeAllTabs();"/>
   <key id="invert-colors-key" key="I" modifiers="control" oncommand="toggleInvertedColors(); reloadContent()"/>
@@ -204,7 +205,6 @@
   <key id="pagedown-key" keycode="VK_PAGE_DOWN" oncommand="scrollPageDown()"/>
   <key id="tabback-key" keycode="VK_PAGE_UP" modifiers="control" oncommand="tabBack()"/>
   <key id="tabnext-key" keycode="VK_PAGE_DOWN" modifiers="control" oncommand="tabNext()"/>
-  <key id="focusonsearchbox-key" keycode="d" modifiers="alt" oncommand="focusOnSearchBox()"/>
   <key id="key:quit" key="Q" modifiers="accel" command="cmd:quit"/>
   <key id="key:hideApp" key="H" modifiers="accel"/>
   <key id="key:hideOthersApp" key="H" modifiers="accel,alt"/>
@@ -259,7 +259,7 @@
 		 placeholder="&main.searchPlaceholder;" disabled="true"
 		 onkeypress="if (event.keyCode == 27) { this.value = '' }"
 		 ontextentered="blur(); manageSearchInIndex();" type="autocomplete" 
-		 autocompletesearch="kiwix-suggest" maxrows="11" onfocus="focusOnSearch()">
+		 autocompletesearch="kiwix-suggest" maxrows="11" onfocus="emptySearchBox()">
 	  <hbox class="textbox-search-go-container">
 	    <image id="textbox-search-go-button" onclick="manageSearchInIndex();" tooltiptext="&main.search;"/>
 	  </hbox>
@@ -324,7 +324,7 @@
   
   <!-- Rendering space -->
   <deck id="rendering-deck" flex="1">
-    <page id="rendering-page" flex="1" onclick="LostFocusOnSearch()">
+    <page id="rendering-page" flex="1" onclick="lostFocusOnSearchBox()">
       <vbox flex="1">
 	<tabbox flex="1" id="tab-box" handleCtrlTab="false" handleCtrlPageUpDown="false">
 	  <tabs id="tab-headers">
