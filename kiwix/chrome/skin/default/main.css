@@ -59,8 +59,6 @@
 }
 
 /* Tool box & bar */
-
-/* Tool box & bar */
 #tool-box {
     margin-left: -1px;
     margin-right: -1px;
@@ -422,6 +420,11 @@ window[langdir="ltr"] #tabs-add-button {
 
 #main.linux * browser {
     margin-top: -1px;
+}
+
+#main.linux * #tool-bar {
+    margin-bottom: -3px;
+    padding-bottom: 4px;
 }
 
 /******** WINDOWS */

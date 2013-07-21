@@ -8,7 +8,7 @@ _languagesHash['aeb']          = 'زَوُن';
 _languagesHash['afr']          = _languagesHashOld['af']          = 'Afrikaans';
 _languagesHash['ara']          = _languagesHashOld['ar']          = 'العربية';
 _languagesHash['ary']          = 'الدارجة';
-_languagesHash['as']           = 'অসমীয়া';
+_languagesHash['asm']          = _languagesHashOld['as']          = 'অসমীয়া';
 _languagesHash['ast']          = 'Asturianu';
 _languagesHash['azb']          = 'South Azerbaijani';
 _languagesHash['ba']           = 'Bašqort';
