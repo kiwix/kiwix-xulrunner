@@ -214,6 +214,9 @@ function switchTab(tabId, tab) {
     getFindBar().browser = getHtmlRenderer();
     var title = getTitle();
     setWindowsTitle(title);
+    if (!title) {
+	focusOnSearchBox();
+    }
 
     // SUGAR: change status of Mark button
     checkIfDocumentIsMarked(getHtmlRenderer(tabId).currentURI.spec);
@@ -271,8 +274,8 @@ function getHtmlRenderer(id) {
 /* Create new tab. open it and adjust UI */
 function switchToNewTab() {
     openNewTab();
-    getSearchBox().value = '';
-    getSearchBox().focus();
+    emptySearchBox();
+    focusOnSearchBox();
 }
 
 /* Close all tabs */

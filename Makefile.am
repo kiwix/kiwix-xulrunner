@@ -198,7 +198,9 @@ distsugar: diststatic
 	tar -xf $(PACKAGE)-$(VERSION)-static-$(ARCH).tar.bz2 -C $(SUGAR_TMP)/Kiwix.activity --strip-components=1
 
 	cp -rv src/sugar/lib src/sugar/activity src/sugar/setup.py $(SUGAR_TMP)/Kiwix.activity/
-	cp -rv src/sugar/bin/* $(SUGAR_TMP)/Kiwix.activity/bin/
+
+#	kiwix console tools are not necessary to run kiwix and need pretty much mass storage
+#	cp -rv src/sugar/bin/* $(SUGAR_TMP)/Kiwix.activity/bin/
 
 	sed -i -e "s/^pref(\"general.skins.selectedSkin\", \"default\");/pref(\"general.skins.selectedSkin\", \"sugar\");/" $(SUGAR_TMP)/Kiwix.activity/defaults/preferences/preferences.js
 	sed -i -e "s/^resource defaultskin skin\/default\//resource defaultskin skin\/sugar\//" $(SUGAR_TMP)/Kiwix.activity/chrome/chrome.manifest

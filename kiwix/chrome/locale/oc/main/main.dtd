@@ -19,9 +19,9 @@
 <!ENTITY main.lastOpen                  "Fichièrs recents...">
 <!ENTITY main.saveFile                  "Enregistrar coma...">
 <!ENTITY main.saveFile.accesskey        "S">
-<!ENTITY main.print                     "Estampar">
+<!ENTITY main.print                     "Imprimir">
 <!ENTITY main.print.accesskey           "P">
-<!ENTITY main.printPdf                  "Estampar de PDF">
+<!ENTITY main.printPdf                  "Crear un PDF">
 <!ENTITY main.printPdf.accesskey        "D">
 <!ENTITY main.quit                      "Sortir">
 <!ENTITY main.quit.accesskey            "Q">

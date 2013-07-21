@@ -75,7 +75,7 @@
 <!ENTITY main.randomArticle.accesskey   "R">
 <!ENTITY main.checkIntegrity            "Праверка цэласнасьці">
 <!ENTITY main.checkIntegrity.accesskey  "k">
-<!ENTITY main.launchIndexing            "Launch indexing">
+<!ENTITY main.launchIndexing            "Пачаць індэксаваньне">
 <!ENTITY main.purgeHistory              "Ачысьціць гісторыю">
 <!ENTITY main.purgeHistory.accesskey    "P">
 
@@ -131,7 +131,7 @@
 <!ENTITY preferences.browse             "Прагляд">
 <!ENTITY preferences.tabs               "Памятаць закладкі">
 <!ENTITY preferences.downloadCatalogs   "Загрузіць аддалены(я) каталёг(і)">
-<!ENTITY preferences.neverAskToIndex    "Never ask to index">
+<!ENTITY preferences.neverAskToIndex    "Ніколі не пытаць пра індэксаваньне">
 
 <!-- Server -->
 <!ENTITY server.load                    "Загрузіць">
