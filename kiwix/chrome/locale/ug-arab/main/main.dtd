@@ -75,7 +75,7 @@
 <!ENTITY main.randomArticle.accesskey   "R">
 <!ENTITY main.checkIntegrity            "مۇكەممەللىك تەكشۈرۈشى">
 <!ENTITY main.checkIntegrity.accesskey  "k">
-<!ENTITY main.launchIndexing            "Launch indexing">
+<!ENTITY main.launchIndexing            "ئىندېكىسلاشنى قوزغات">
 <!ENTITY main.purgeHistory              "تازىلاش تارىخى">
 <!ENTITY main.purgeHistory.accesskey    "P">
 
@@ -131,7 +131,7 @@
 <!ENTITY preferences.browse             "كۆز يۈگۈرت">
 <!ENTITY preferences.tabs               "بەتكۈچلەرنى ئەستە تۇت">
 <!ENTITY preferences.downloadCatalogs   "يىراقتىكى مۇندەرىجىنى چۈشۈر">
-<!ENTITY preferences.neverAskToIndex    "Never ask to index">
+<!ENTITY preferences.neverAskToIndex    "ئىندېكىسلاشنى ھەرگىز سورىما">
 
 <!-- Server -->
 <!ENTITY server.load                    "يۈكلە">

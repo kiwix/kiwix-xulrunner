@@ -21,7 +21,7 @@
 <!ENTITY main.saveFile.accesskey        "S">
 <!ENTITY main.print                     "Afdrukken">
 <!ENTITY main.print.accesskey           "P">
-<!ENTITY main.printPdf                  "Afdrukken als PDF">
+<!ENTITY main.printPdf                  "Afdrukken als pdf">
 <!ENTITY main.printPdf.accesskey        "D">
 <!ENTITY main.quit                      "Stoppen">
 <!ENTITY main.quit.accesskey            "Q">

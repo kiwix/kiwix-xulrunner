@@ -75,7 +75,7 @@
 <!ENTITY main.randomArticle.accesskey   "R">
 <!ENTITY main.checkIntegrity            "完整性检查">
 <!ENTITY main.checkIntegrity.accesskey  "k">
-<!ENTITY main.launchIndexing            "Launch indexing">
+<!ENTITY main.launchIndexing            "启动索引">
 <!ENTITY main.purgeHistory              "清空历史">
 <!ENTITY main.purgeHistory.accesskey    "P">
 
@@ -131,7 +131,7 @@
 <!ENTITY preferences.browse             "浏览">
 <!ENTITY preferences.tabs               "记住标签页">
 <!ENTITY preferences.downloadCatalogs   "下载远程目录">
-<!ENTITY preferences.neverAskToIndex    "Never ask to index">
+<!ENTITY preferences.neverAskToIndex    "不询问就开始索引">
 
 <!-- Server -->
 <!ENTITY server.load                    "载入">

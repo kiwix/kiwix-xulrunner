@@ -108,7 +108,7 @@
 <!ENTITY main.loadbmk                   "Importar Conjunto de Favoritos">
 <!ENTITY main.newbmk                    "Criar novo Conjunto de Favoritos">
 <!ENTITY main.mark                      "Marcar esta página">
-<!ENTITY main.unmark                    "Desmarcar seleccionadas">
+<!ENTITY main.unmark                    "Desmarcar selecionadas">
 <!ENTITY main.reload                    "Recarregar Conjunto de Favoritos">
 <!ENTITY main.defaultset                "Conjunto Padrão">
 
