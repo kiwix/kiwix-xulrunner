@@ -14,6 +14,7 @@ _languagesHash['azb']          = 'South Azerbaijani';
 _languagesHash['ba']           = 'Bašqort';
 _languagesHash['bel']          = _languagesHashOld['be']          = 'Беларуская';
 _languagesHash['bel-tasrask']  = _languagesHashOld['be-tarask']   = 'тарашкевіца, клясычны правапіс';
+_languagesHash['bam']          = _languagesHashOld['bm']           = 'Bamanankan';
 _languagesHash['bul']          = _languagesHashOld['bg']          = 'Български';
 _languagesHash['bjn']          = 'Bahasa Banjar';
 _languagesHash['bn']           = 'বাংলা';
