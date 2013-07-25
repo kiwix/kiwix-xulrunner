@@ -45,6 +45,7 @@ _languagesHash['hi']           = 'हिन्दी';
 _languagesHash['hif-latn']     = 'Fiji Baat';
 _languagesHash['hr']           = 'Олык Марий';
 _languagesHash['hsb']          = 'Hornjoserbsce';
+_languagesHash['hat']          = _languagesHashOld['ht']          = 'Kreyol ayisyen';
 _languagesHash['hun']          = _languagesHashOld['hu']          = 'Magyar';
 _languagesHash['ia']           = 'Interlingua';
 _languagesHash['ind']          =_languagesHashOld['id']           = 'Bahasa Indonesia';
