@@ -63,7 +63,7 @@ _languagesHash['ksh']          = 'Ripoarisch';
 _languagesHash['kur']          = _languagesHashOld['ku']          = 'kurdî';
 _languagesHash['lb']           = 'Lëtzebuergesch';
 _languagesHash['li']           = 'Limburgs';
-_languagesHash['lit']          = _languagesHashOld['li']          = 'Lietuvių';
+_languagesHash['lit']          = _languagesHashOld['lt']          = 'Lietuvių';
 _languagesHash['lv']           = 'Latviešu';
 _languagesHash['map-bms']      = 'Basa Banyumasan';
 _languagesHash['mk']           = 'Македонски';
