@@ -34,60 +34,14 @@ let library = {
 	this.contentManager = Components.classes["@kiwix.org/contentManager"].getService();
 	this.contentManager = this.contentManager.QueryInterface(Components.interfaces.IContentManager);
 
-	/* Try to read install library file */
-	var directoryService = Components.classes["@mozilla.org/file/directory_service;1"].getService(Components.interfaces.nsIProperties);
-	var kiwixDirectory = directoryService.get("CurProcD", Components.interfaces.nsIFile);
-	
-	/* Compute the "../data" directory */
-	var libraryDirectory;
-        libraryDirectory = kiwixDirectory.parent.clone();
-	libraryDirectory.append("data");
-	libraryDirectory.append("library");
-
-	/* List xml library files in the data/library directory */
-	if (libraryDirectory.exists() && libraryDirectory.isDirectory()) {
-	   var entries = libraryDirectory.directoryEntries;
-	   var array = [];  
-	   while(entries.hasMoreElements()) {
-	     var file = entries.getNext();  
-	     file.QueryInterface(Components.interfaces.nsIFile);  
-             this.readFromFile(file.path, true);
-	     this.paths += file.path + ";";
-	   }
-	}
-
-	/* For linux try to read ../share/kiwix */
+	/* Search library XML files in different places */
+        this.readFromDescriptor('<CurProcD>/../data/library', true);
 	if (env.isLinux()) {
-	  /* From /usr/lib/kiwix/ to /usr/share/kiwix */
-          libraryDirectory = kiwixDirectory.parent.parent.clone();
-	  libraryDirectory.append("share");
-	  libraryDirectory.append("kiwix");
-	  libraryDirectory.append("data");
-	  libraryDirectory.append("library");
-
-	  /* List xml library files in the data/library directory */
-	  if (libraryDirectory.exists() && libraryDirectory.isDirectory()) {
-	    var entries = libraryDirectory.directoryEntries;
-	    var array = [];  
-	    while(entries.hasMoreElements()) {
-	      var file = entries.getNext();  
-	      file.QueryInterface(Components.interfaces.nsIFile);  
-              this.readFromFile(file.path, true);
-  	      this.paths += file.path + ";";
-	     }
-	  }
+            this.readFromDescriptor('<CurProcD>/../../share/kiwix/data/library', true);
         }
-
-	/* Check if this is a live instance */
 	if (!env.isLive()) {	
- 	  /* Prepare the library file descriptor */
-	  var directoryService = Components.classes["@mozilla.org/file/directory_service;1"].getService(Components.interfaces.nsIProperties);
-	  var settingsDirectory = directoryService.get("PrefD", Components.interfaces.nsIFile);
-	  settingsDirectory.append("library.xml");
-
-	  /* Load library file */
-	  this.readFromFile(settingsDirectory.path, false);
-          this.paths += settingsDirectory.path + ";";
+	    this.readFromDescriptor('<PrefD>/data/library', false);
+	    this.readFromDescriptor('<PrefD>/library.xml', false);
 	}
     },
 
@@ -109,6 +63,54 @@ let library = {
     unregister: function() {
     },
 
+    /* Open one or more XML file based on a patch descriptor */
+    readFromDescriptor: function(descriptor, readOnly) {
+        var descriptorParts = descriptor.split('/');
+        var directoryService = Components.classes["@mozilla.org/file/directory_service;1"].
+					getService(Components.interfaces.nsIProperties);
+	var fileService = Components.classes["@mozilla.org/file/local;1"];
+	var file;
+
+	/* Determine what is the "base" of the path */
+	if (!descriptorParts[0]) {
+	    file = fileService.createInstance(Components.interfaces.nsILocalFile);
+	    file.initWithPath("/");
+	} else if (matchs = descriptorParts[0].match(/^<(.*)>$/)) {
+	    var id = matchs[1];
+	    try {
+                file = directoryService.get(id, Components.interfaces.nsIFile);
+	    } catch(error) {
+	    }
+	} else {
+	    file = directoryService.get("CurProcD", Components.interfaces.nsIFile).parent;
+	}
+	descriptorParts.shift();	
+
+	/* Go through other parts of the descriptor to build the path */
+	descriptorParts.map(function(part) {
+	    if (part) {
+	       if (part == '..') {
+	           file = file.parent;
+	       } else {
+	           file.append(part);
+               }
+            }
+	});
+	
+	/* Load library file(s) */
+	if (file.exists() && file.isDirectory()) {
+	   var entries = file.directoryEntries;
+	   var array = [];  
+	   while(entries.hasMoreElements()) {
+	      var localFile = entries.getNext();  
+	      localFile.QueryInterface(Components.interfaces.nsIFile);
+              this.readFromFile(localFile.path, readOnly);
+	   }
+	} else {
+	    this.readFromFile(file.path, readOnly);
+	}
+    },
+
     /* Open the XML file */
     readFromFile: function(libraryPath, readOnly) {
 	/* Create the file descriptor */
@@ -118,7 +120,10 @@ let library = {
 	if (!fileDescriptor)
 	   return;
 
-        this.contentManager.openLibraryFromFile(fileDescriptor.path, readOnly);
+	/* Open the file an add to the list of open libraries if successful */
+	if (this.contentManager.openLibraryFromFile(fileDescriptor.path, readOnly)) {
+            this.paths += fileDescriptor.path + ";";
+	}
     },
 
     /* Open the XML file */
