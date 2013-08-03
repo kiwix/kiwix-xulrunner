@@ -40,8 +40,9 @@ let library = {
             this.readFromDescriptor('<CurProcD>/../../share/kiwix/data/library', true);
         }
 	if (!env.isLive()) {	
-	    this.readFromDescriptor('<PrefD>/data/library', false);
-	    this.readFromDescriptor('<PrefD>/library.xml', false);
+	    this.readFromDescriptor('<PrefD>/library.xml', true);
+	    this.readFromDescriptor('<PrefD>/data/library/', false);
+	    this.readFromDescriptor('<PrefD>/data/library/library.xml', false);
 	}
     },
 
@@ -49,6 +50,8 @@ let library = {
     delete: function() {
 	var directoryService = Components.classes["@mozilla.org/file/directory_service;1"].getService(Components.interfaces.nsIProperties);
 	var settingsDirectory = directoryService.get("PrefD", Components.interfaces.nsIFile);
+	settingsDirectory.append("data");
+	settingsDirectory.append("library");
 	settingsDirectory.append("library.xml");
 	var libraryFile = settingsDirectory.clone();
 
@@ -111,18 +114,10 @@ let library = {
 	}
     },
 
-    /* Open the XML file */
+    /* Open the file an add to the list of open libraries if successful */
     readFromFile: function(libraryPath, readOnly) {
-	/* Create the file descriptor */
-	var fileDescriptor = this.openFile(libraryPath);
-
-	/* Return if !fileDescriptor */
-	if (!fileDescriptor)
-	   return;
-
-	/* Open the file an add to the list of open libraries if successful */
-	if (this.contentManager.openLibraryFromFile(fileDescriptor.path, readOnly)) {
-            this.paths += fileDescriptor.path + ";";
+	if (this.contentManager.openLibraryFromFile(libraryPath, readOnly)) {
+            this.paths += libraryPath + ";";
 	}
     },
 
