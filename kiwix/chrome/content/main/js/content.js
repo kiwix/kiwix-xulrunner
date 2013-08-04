@@ -327,9 +327,9 @@ function getDownloadStatus() {
 				     undefined, callback);
 		    
 		    /* Try to open the new file */
+		    book = library.getBookById(kiwixDownload.id);
 		    if (displayConfirmDialog(getProperty("openContentConfirm",  book.title))) {
-			library.setCurrentId(book.id);
-			openCurrentBook();
+			manageOpenFile(book.path);
 		    }
 		} else if (ariaDownloadStatus == "waiting") {
 		}
