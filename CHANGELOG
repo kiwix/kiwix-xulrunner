@@ -32,6 +32,7 @@ Kiwix 0.9 rc3
 * NEW: Xulrunner 20.0.1 (instead of 14.0.1)
 * NEW: Add "Cache-Control" HTTP headers to kiwix-serve output
 * NEW: Better searchbox focus handling
+* NEW: ZIM, indexes & library saved in profile in a portable manner
 
 Kiwix 0.9 rc2
 * FIXED: kiwix-manage generate wrong size for splitted ZIM files (ID: 3547892)
