@@ -680,6 +680,7 @@ function manageOpenFile(path, noSearchIndexCheck) {
 	
 	/* Add filters */
 	filePicker.appendFilter("ZIM files","*.zim; *.zimaa");
+	filePicker.appendFilter("Library files","*.xml");
 	
 	/* Set the default path */
 	var defaultFilePickerPath = settings.defaultFilePickerPath();
@@ -702,80 +703,92 @@ function manageOpenFile(path, noSearchIndexCheck) {
 	} else {
 	    return false;
 	}
+
+	/* OSX prepends path with URL */
+	path = path.replace('file://localhost', '');
     }
 
-    /* Close all tabs */
-    if (!closeAllTabs()) {
-	return true;
-    }
-
-    /* OSX prepends path with URL */
-    path = path.replace('file://localhost', '');
-
-    /* Replace .zimaa by .zim */
-    path = path.replace(new RegExp("^(.*)(\.zimaa)$", "g"), '$1.zim');
-
-    /* Try to open the ZIM file */
-    var zimAccessor = openZimFile(path);
-
-    if (zimAccessor) {
-	manageUnload();
-
-	/* Get the MD5 id */
-	var zimId = new Object();
-	zimAccessor.getId(zimId);
-	zimId = zimId.value;
-
-	/* Update library */
-	var book = library.getBookById(zimId);
-	if (!book) {
-	    library.addBook(zimId, path);
+    /* Load library file */
+    if (path.match(/^.*\.xml$/i)) {
+	if (library.readFromFile(path, false)) {
+	    displayInfoDialog("Library XML file was loaded successfuly.");
 	} else {
-	    library.setBookPath(zimId, path);
+	    displayErrorDialog("Kiwix failed to open the library XML file '" + path + "' library XML file. The file is maybe corrupted?");
 	}
-	library.updateBookLastOpenDateById(zimId);
-	library.setCurrentId(zimId);
+    }
 
-	/* Force to hide the library manager an update it*/
-	toggleLibrary(false);
-	populateLocalBookList();
-	populateLibraryFilters();	
-
-	/* Populate the lastopen menu */
-	populateLastOpenMenu();
-
-	/* Clear the history just after the homepage loading - only this time */
-	addOneShotEventListener(getHtmlRenderer(), "pageshow", function() { managePurgeHistory() }, true);
-
-	/* Load the welcome page of the ZIM file */
-	goHome();
-
-	/* Activate the Home button and desactivate the next/back buttons */
-	activateHomeButton();
-
-	/* Set the zoom */
-	getHtmlRenderer().markupDocumentViewer.fullZoom = 
-	    settings.zoomFactor(library.getCurrentId()) != undefined ? settings.zoomFactor(library.getCurrentId()) : getDefaultZoomFactor();
-
-	/* Ask to index if this files has not already an index */
-	if (!isIndexing() && !noSearchIndexCheck && !checkSearchIndex()) {
-	    manageIndexCurrentBook();
+    /* Load ZIM file */
+    else {
+	/* Close all tabs */
+	if (!closeAllTabs()) {
+	    return true;
 	}
 	
-	/* Update the search bar */
-	updateGuiSearchComponents();
-
-	/* verify if we can check the integrity */
-	getCheckIntegrityMenuItem().disabled = !canCheckIntegrity();
+	/* Replace .zimaa by .zim */
+	path = path.replace(new RegExp("^(.*)(\.zimaa)$", "g"), '$1.zim');
 	
-	/* Allow to index the file */
-	getLaunchIndexingMenuItem().disabled = checkSearchIndex();
-
-	/* Enable load random article */
-	getLoadRandomArticleMenuItem().disabled = false;
-    } else {
-	displayErrorDialog(getProperty("loadZimFileError", path));
-	return false;
+	/* Try to open the ZIM file */
+	var zimAccessor = openZimFile(path);
+	
+	if (zimAccessor) {
+	    manageUnload();
+	    
+	    /* Get the MD5 id */
+	    var zimId = new Object();
+	    zimAccessor.getId(zimId);
+	    zimId = zimId.value;
+	    
+	    /* Update library */
+	    var book = library.getBookById(zimId);
+	    if (!book) {
+		library.addBook(zimId, path);
+	    } else {
+		library.setBookPath(zimId, path);
+	    }
+	    library.updateBookLastOpenDateById(zimId);
+	    library.setCurrentId(zimId);
+	    
+	    /* Force to hide the library manager an update it*/
+	    toggleLibrary(false);
+	    populateLocalBookList();
+	    populateLibraryFilters();	
+	    
+	    /* Populate the lastopen menu */
+	    populateLastOpenMenu();
+	    
+	    /* Clear the history just after the homepage loading - only this time */
+	    addOneShotEventListener(getHtmlRenderer(), "pageshow", function() { managePurgeHistory() }, true);
+	    
+	    /* Load the welcome page of the ZIM file */
+	    goHome();
+	    
+	    /* Activate the Home button and desactivate the next/back buttons */
+	    activateHomeButton();
+	    
+	    /* Set the zoom */
+	    getHtmlRenderer().markupDocumentViewer.fullZoom = 
+		settings.zoomFactor(library.getCurrentId()) != undefined ? settings.zoomFactor(library.getCurrentId()) : getDefaultZoomFactor();
+	    
+	    /* Ask to index if this files has not already an index */
+	    if (!isIndexing() && !noSearchIndexCheck && !checkSearchIndex()) {
+		manageIndexCurrentBook();
+	    }
+	    
+	    /* Update the search bar */
+	    updateGuiSearchComponents();
+	    
+	    /* verify if we can check the integrity */
+	    getCheckIntegrityMenuItem().disabled = !canCheckIntegrity();
+	    
+	    /* Allow to index the file */
+	    getLaunchIndexingMenuItem().disabled = checkSearchIndex();
+	    
+	    /* Enable load random article */
+	    getLoadRandomArticleMenuItem().disabled = false;
+	} else {
+	    displayErrorDialog(getProperty("loadZimFileError", path));
+	    return false;
+	}
     }
 
     return true;
@@ -1636,10 +1649,10 @@ function sendNotification(title, message, link, callback) {
 					    title, message,
                                             link != undefined, link, listener, "");  
 	
-    } catch(error) {
+    } catch (error) {
         if (link)
             message = message + "\n" + link;
-	displayInfoDialog(message   , title);
+	displayInfoDialog(message, title);
     }
 }
 

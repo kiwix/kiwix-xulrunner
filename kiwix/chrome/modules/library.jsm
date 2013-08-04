@@ -122,7 +122,9 @@ let library = {
     readFromFile: function(libraryPath, readOnly) {
 	if (this.contentManager.openLibraryFromFile(libraryPath, readOnly)) {
             this.paths += libraryPath + ";";
+	    return true;
 	}
+	return false;
     },
 
     /* Open the XML file */
