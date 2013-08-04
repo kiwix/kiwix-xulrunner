@@ -59,14 +59,14 @@ You will also need to build on an Apple Mac computer.
 * Install the following tools and libraries
 sudo port install autogen +universal pkgconfig +universal wget +universal gmake +universal coreutils +universal libidl +universal autoconf213 +universal icu +universal
 
-./autogen.sh alt
-./configure --enable-compileall
+./autogen.sh alt && ./configure --enable-compileall
 cd src/dependencies && make
-./configure --enable-compileall --enable-compileall --disable-dependency-tracking --with-target-arch=i386
+make clean
+./autogen.sh alt && ./configure --enable-compileall --enable-compileall --disable-dependency-tracking --with-target-arch=i386
 make
 make distmac
-./configure --enable-compileall --enable-compileall --disable-dependency-tracking --with-target-arch=x86_64
 make clean
+./autogen.sh alt && ./configure --enable-compileall --enable-compileall --disable-dependency-tracking --with-target-arch=x86_64
 make
 make distmac
 make universal
