@@ -266,7 +266,7 @@ fi
 
 if test [ $IS_OSX -eq 1 ]
 then
-	XULRUNNER_RUNTIME_PATH="${DEP_PATH}/xr_target/xulrunner-20.0.1.en-US.mac/XUL.framework"
+	XULRUNNER_RUNTIME_PATH="${DEP_PATH}/xr_target/xulrunner-14.0.1.en-US.mac/XUL.framework"
 else
 	XULRUNNER_RUNTIME_PATH="${DEP_PATH}/xulrunner"
 fi

@@ -41,18 +41,18 @@ endif
 xulrunner-sdk.tar.bz2:
 	$(DOWNLOADER) xulrunner-sdk.tar.bz2 $(GECKOSDKURL)
 
-xulrunner-20.0.1.en-US.mac-i386.sdk.tar.bz2:
-	$(DOWNLOADER) xulrunner-20.0.1.en-US.mac-i386.sdk.tar.bz2 $(DEP_MIRROR)/xulrunner-20.0.1.en-US.mac-i386.sdk.tar.bz2
+xulrunner-14.0.1.en-US.mac-i386.sdk.tar.bz2:
+	$(DOWNLOADER) xulrunner-14.0.1.en-US.mac-i386.sdk.tar.bz2 $(DEP_MIRROR)/xulrunner-14.0.1.en-US.mac-i386.sdk.tar.bz2
 
-xulrunner-20.0.1.en-US.mac-x86_64.sdk.tar.bz2:
-	$(DOWNLOADER) xulrunner-20.0.1.en-US.mac-x86_64.sdk.tar.bz2 $(DEP_MIRROR)/xulrunner-20.0.1.en-US.mac-x86_64.sdk.tar.bz2
+xulrunner-14.0.1.en-US.mac-x86_64.sdk.tar.bz2:
+	$(DOWNLOADER) xulrunner-14.0.1.en-US.mac-x86_64.sdk.tar.bz2 $(DEP_MIRROR)/xulrunner-14.0.1.en-US.mac-x86_64.sdk.tar.bz2
 
-xulrunner-sdk-i386: xulrunner-20.0.1.en-US.mac-i386.sdk.tar.bz2
-	test -d xulrunner-sdk-i386 || tar -xf xulrunner-20.0.1.en-US.mac-i386.sdk.tar.bz2
+xulrunner-sdk-i386: xulrunner-14.0.1.en-US.mac-i386.sdk.tar.bz2
+	test -d xulrunner-sdk-i386 || tar -xf xulrunner-14.0.1.en-US.mac-i386.sdk.tar.bz2
 	test -d xulrunner-sdk && mv xulrunner-sdk xulrunner-sdk-i386
 
-xulrunner-sdk-x86_64: xulrunner-20.0.1.en-US.mac-x86_64.sdk.tar.bz2
-	test -d xulrunner-sdk-x86_64 || tar -xf xulrunner-20.0.1.en-US.mac-x86_64.sdk.tar.bz2
+xulrunner-sdk-x86_64: xulrunner-14.0.1.en-US.mac-x86_64.sdk.tar.bz2
+	test -d xulrunner-sdk-x86_64 || tar -xf xulrunner-14.0.1.en-US.mac-x86_64.sdk.tar.bz2
 	test -d xulrunner-sdk && mv xulrunner-sdk xulrunner-sdk-x86_64
 
 universal-sdk: xulrunner-sdk-i386 xulrunner-sdk-x86_64

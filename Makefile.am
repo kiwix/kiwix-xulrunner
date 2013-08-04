@@ -253,8 +253,8 @@ distmac:
 	cp -v ./kiwix/components/zimCluceneIndexer.xpt Kiwix.app/Contents/Resources/components/zimCluceneIndexer.xpt
 	cp -v ./kiwix/components/zimCluceneIndexer.dylib Kiwix.app/Contents/Resources/components/zimCluceneIndexer.dylib
 	cp -v src/components/components.list Kiwix.app/Contents/Resources/components/components.list
-	rsync -rl $(DEP_PATH)/xr_target/xulrunner-20.0.1.en-US.mac/XUL.framework/ Kiwix.app/Contents/Frameworks/XUL.framework/
-	cp -v $(DEP_PATH)/xr_target/xulrunner-20.0.1.en-US.mac/XUL.framework/Versions/Current/xulrunner Kiwix.app/Contents/MacOS/xulrunner
+	rsync -rl $(DEP_PATH)/xr_target/xulrunner-14.0.en-US.mac/XUL.framework/ Kiwix.app/Contents/Frameworks/XUL.framework/
+	cp -v $(DEP_PATH)/xr_target/xulrunner-14.0.en-US.mac/XUL.framework/Versions/Current/xulrunner Kiwix.app/Contents/MacOS/xulrunner
 
 	find Kiwix.app/Contents/Resources/components -type f -name '*.dylib' -exec python ./src/macosx/cleanup_rpath.py c {} \;
 
