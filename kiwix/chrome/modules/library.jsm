@@ -36,9 +36,13 @@ let library = {
 
 	/* Search library XML files in different places */
         this.readFromDescriptor('<CurProcD>/../data/library', true);
+
 	if (env.isLinux()) {
             this.readFromDescriptor('<CurProcD>/../../share/kiwix/data/library', true);
-        }
+        } else if (env.isMac()) {
+            this.readFromDescriptor('<CurProcD>/../../../data/library', true);
+	}
+
 	if (!env.isLive()) {	
 	    this.readFromDescriptor('<PrefD>/library.xml', true);
 	    this.readFromDescriptor('<PrefD>/data/library/', false);
