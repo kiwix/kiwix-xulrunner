@@ -101,8 +101,8 @@ endif
 #xr_target/xulrunner-14.0.1.en-US.mac/XUL.framework: xr_target/xulrunner-14.0.1.en-US.mac.pkg
 #	./tools/unpkg.py ./xr_target/xulrunner-14.0.1.en-US.mac.pkg
 
-xulrunner-20.0.1.en-US.mac.tar.bz2:
-	$(DOWNLOADER) xulrunner-20.0.1.en-US.mac.tar.bz2 $(DEP_MIRROR)/xulrunner-20.0.1.en-US.mac.tar.bz2
+xulrunner-14.0.1.en-US.mac.tar.bz2:
+	$(DOWNLOADER) xulrunner-14.0.1.en-US.mac.tar.bz2 $(DEP_MIRROR)/xulrunner-14.0.1.en-US.mac.tar.bz2
 
 xr_target/xulrunner-14.0.1.en-US.mac/XUL.framework: xulrunner-14.0.1.en-US.mac.tar.bz2
 	mkdir -p xr_target/xulrunner-14.0.1.en-US.mac/
