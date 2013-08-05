@@ -39,7 +39,7 @@ IXapianAccessor.xpt:
 	$(TYPELIB_PY) -o IXapianAccessor.xpt -I "$(XULRUNNER_IDL)" IXapianAccessor_gecko_old_int_type.idl
 
 IXapianAccessor.h:
-	$(HEADER_PY) -o IXapianAccessor.h -I "$(XULRUNNER_IDL)" IXapianAccessor.idl
+	$(HEADER_PY) -o IXapianAccessor.h -I "$(XULRUNNER_IDL)" IXapianAccessor_gecko_old_int_type.idl
 
 objs: IXapianAccessor.xpt IXapianAccessor.h
 	$(CC) $(CFLAGS) xapianAccessor.cpp ../../common/resourceTools.cpp ../../common/stringTools.cpp ../../common/kiwix/searcher.cpp ../../common/kiwix/xapianSearcher.cpp
