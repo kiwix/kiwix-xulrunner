@@ -38,10 +38,10 @@ LDFLAGS=-nologo -LIBPATH:"$(XAPIAN_LIB)"  -LIBPATH:"$(PTHREAD_LIB)" -LIBPATH:"$(
 all: zimXapianIndexer.dll
      
 IZimXapianIndexer.xpt:
-	$(TYPELIB_PY) -o IZimXapianIndexer.xpt -I "$(XULRUNNER_IDL)" IZimXapianIndexer.idl
+	$(TYPELIB_PY) -o IZimXapianIndexer.xpt -I "$(XULRUNNER_IDL)" IZimXapianIndexer_gecko_old_int_type.idl
 
 IZimXapianIndexer.h:
-	$(HEADER_PY) -o IZimXapianIndexer.h -I "$(XULRUNNER_IDL)" IZimXapianIndexer.idl
+	$(HEADER_PY) -o IZimXapianIndexer.h -I "$(XULRUNNER_IDL)" IZimXapianIndexer_gecko_old_int_type.idl
 
 objs: IZimXapianIndexer.xpt IZimXapianIndexer.h
 	$(CC) $(CFLAGS) zimXapianIndexer.cpp ../../common/stringTools.cpp ../../common/pathTools.cpp ../../common/resourceTools.cpp ../../common/kiwix/indexer.cpp ../../common/kiwix/reader.cpp ../../common/kiwix/xapian/myhtmlparse.cc ../../common/kiwix/xapian/htmlparse.cc ../../common/kiwix/xapianIndexer.cpp ../../common/componentTools.cpp
@@ -50,5 +50,5 @@ zimXapianIndexer.lib: objs
 		       $(LD) -lib -OUT:libZimXapianIndexer.lib $(LDFLAGS) indexer.obj stringTools.obj resourceTools.obj pathTools.obj reader.obj myhtmlparse.obj htmlparse.obj xapianIndexer.obj componentTools.obj
 
 zimXapianIndexer.dll: zimXapianIndexer.lib
-		    $(LD) -OUT:"zimXapianIndexer.dll" -NOLOGO $(LDFLAGS) -DLL -NODEFAULTLIB:"MSVCRT" -OPT:REF -OPT:ICF -DYNAMICBASE -NXCOMPAT -MACHINE:X86 zlib.lib libcommon.lib libbackend.lib libbrass.lib Rpcrt4.lib libbrassbtreecheck.lib libbrassbtreecheck.lib libexpand.lib libflint.lib libflintbtreecheck.lib libchert.lib libweight.lib libinmemory.lib libmulti.lib libmatcher.lib libnet.lib liblanguages.lib libapi.lib libremote.lib libunicode.lib libqueryparser.lib icuin.lib icuio.lib icule.lib iculx.lib icutu.lib icuuc.lib winmm.lib zim.lib libcmt.lib ws2_32.lib nspr4.lib xpcom.lib xpcomglue_staticruntime_s.lib DelayImp.lib mozalloc.lib libZimXapianIndexer.lib pthreadVC2.lib zimXapianIndexer.obj
+		    $(LD) -OUT:"zimXapianIndexer.dll" -NOLOGO $(LDFLAGS) -DLL -NODEFAULTLIB:"MSVCRT" -OPT:REF -OPT:ICF -DYNAMICBASE -NXCOMPAT -MACHINE:X86 zlib.lib libcommon.lib libbackend.lib libbrass.lib Rpcrt4.lib libbrassbtreecheck.lib libbrassbtreecheck.lib libexpand.lib libflint.lib libflintbtreecheck.lib libchert.lib libweight.lib libinmemory.lib libmulti.lib libmatcher.lib libnet.lib liblanguages.lib libapi.lib libremote.lib libunicode.lib libqueryparser.lib icuin.lib icuio.lib icule.lib iculx.lib icutu.lib icuuc.lib winmm.lib zim.lib libcmt.lib ws2_32.lib nspr4.lib xpcom.lib xpcomglue_s.lib DelayImp.lib mozalloc.lib libZimXapianIndexer.lib pthreadVC2.lib zimXapianIndexer.obj
 

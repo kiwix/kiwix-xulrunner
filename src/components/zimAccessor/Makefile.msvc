@@ -30,10 +30,10 @@ LDFLAGS=-nologo -LIBPATH:"$(XULRUNNER_LIB)" -LIBPATH:"${ZIM_LIB}" -LIBPATH:"$(IC
 all: zimAccessor.dll
      
 IZimAccessor.xpt:
-	$(TYPELIB_PY) -o IZimAccessor.xpt -I "$(XULRUNNER_IDL)" IZimAccessor.idl
+	$(TYPELIB_PY) -o IZimAccessor.xpt -I "$(XULRUNNER_IDL)" IZimAccessor_gecko_old_int_type.idl
 
 IZimAccessor.h:
-	$(HEADER_PY) -o IZimAccessor.h -I "$(XULRUNNER_IDL)" IZimAccessor.idl
+	$(HEADER_PY) -o IZimAccessor.h -I "$(XULRUNNER_IDL)" IZimAccessor_gecko_old_int_type.idl
 
 objs: IZimAccessor.xpt IZimAccessor.h
 	$(CC) $(CFLAGS) zimAccessor.cpp ../../common/kiwix/reader.cpp ../../common/pathTools.cpp ../../common/stringTools.cpp ../../common/componentTools.cpp
@@ -42,4 +42,4 @@ zimAccessor.lib: objs
 		       $(LD) -lib -OUT:libZimAccessor.lib $(LDFLAGS) reader.obj pathTools.obj componentTools.obj stringTools.obj
 
 zimAccessor.dll: zimAccessor.lib
-		    $(LD) -OUT:"zimAccessor.dll" -NOLOGO $(LDFLAGS) -DLL -NODEFAULTLIB:"MSVCRT" -OPT:REF -OPT:ICF -DYNAMICBASE -NXCOMPAT -MACHINE:X86 zim.lib icuin.lib icuio.lib icule.lib iculx.lib icutu.lib icuuc.lib libcmt.lib ws2_32.lib nspr4.lib xpcom.lib xpcomglue_staticruntime_s.lib mozalloc.lib DelayImp.lib winmm.lib libZimAccessor.lib zimAccessor.obj
+		    $(LD) -OUT:"zimAccessor.dll" -NOLOGO $(LDFLAGS) -DLL -NODEFAULTLIB:"MSVCRT" -OPT:REF -OPT:ICF -DYNAMICBASE -NXCOMPAT -MACHINE:X86 zim.lib icuin.lib icuio.lib icule.lib iculx.lib icutu.lib icuuc.lib libcmt.lib ws2_32.lib nspr4.lib xpcom.lib xpcomglue_s.lib mozalloc.lib DelayImp.lib winmm.lib libZimAccessor.lib zimAccessor.obj
