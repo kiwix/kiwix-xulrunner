@@ -36,7 +36,7 @@ LDFLAGS=-nologo -LIBPATH:"$(XAPIAN_LIB)" -LIBPATH:"$(Z_LIB)" -LIBPATH:"$(XULRUNN
 all: xapianAccessor.dll
      
 IXapianAccessor.xpt:
-	$(TYPELIB_PY) -o IXapianAccessor.xpt -I "$(XULRUNNER_IDL)" IXapianAccessor.idl
+	$(TYPELIB_PY) -o IXapianAccessor.xpt -I "$(XULRUNNER_IDL)" IXapianAccessor_gecko_old_int_type.idl
 
 IXapianAccessor.h:
 	$(HEADER_PY) -o IXapianAccessor.h -I "$(XULRUNNER_IDL)" IXapianAccessor.idl
