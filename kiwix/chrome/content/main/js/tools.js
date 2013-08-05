@@ -289,6 +289,16 @@ function initModulesAndComponents() {
 	dump("Unable to register the serverManager XPCOM.\n");
 }
 
+function loadCustomLibraries() {
+    settings.customLibraryPaths().split(";").map(function(path) {
+	if (path) {
+	    if (!library.readFromFile(path, true)) {
+		settings.removeCustomLibraryPath(path);
+	    }
+	}
+    });
+}
+
 /* Load the necessary ZIM file at Kiwix startup */
 function loadContentFromCommandLine(commandLine) {
 
@@ -392,6 +402,7 @@ function onStart() {
     initEventListeners();
     initUserInterface();
     initBookmarks();
+    loadCustomLibraries();
     initLibrary();
     loadContentFromCommandLine();
     initDownloader();

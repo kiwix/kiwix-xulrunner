@@ -717,6 +717,7 @@ function manageOpenFile(path, noSearchIndexCheck) {
 	    if (displayConfirmDialog("Library XML file was loaded successfuly.\n" + localBookCountDiff + " local content is/are newly availablle in the library.\nDo you want to open your library now?")) {
 		populateLocalBookList();
 		showLocalBooks();
+		settings.addCustomLibraryPath(path);
 	    }
 	} else {
 	    displayErrorDialog("Kiwix failed to open the library XML file '" + path + "' library XML file. The file is maybe corrupted?");

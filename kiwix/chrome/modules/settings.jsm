@@ -214,6 +214,21 @@ let settings = {
     defaultFilePickerPath: function(value) { return this.charSettingParameter("defaultFilePickerPath", value); },
     profileToRemove: function(value) { return this.charSettingParameter("profileToRemove", value); },
     libraryUrls: function(value) { return this.charSettingParameter("kiwix.libraryUrls", value); },
+    customLibraryPaths: function(value) { return this.charSettingParameter("kiwix.customLibraryPaths", value) || ""; },
+    addCustomLibraryPath: function(value) {
+      var paths = this.customLibraryPaths();
+      if (paths.indexOf(value) == -1) {
+      	 paths = paths + value + ";";
+      }
+      this.customLibraryPaths(paths);
+    },
+    removeCustomLibraryPath: function(value) {
+      var paths = this.customLibraryPaths(); 
+      if (paths.indexOf(value) != -1) {
+      	 paths = paths.replace(value + ";", "");
+      }
+      this.customLibraryPaths(paths);
+    },
     downloads: function(value) { return this.charSettingParameter("kiwix.downloads", value); },
     zoomFactor: function(id, zoomFactor) { return this.charSettingParameter("kiwix.zoomFactor." + id, zoomFactor); },   
     defaultBookmarksPath: function(value) { return this.charSettingParameter("defaultBookmarksPath", value); },
