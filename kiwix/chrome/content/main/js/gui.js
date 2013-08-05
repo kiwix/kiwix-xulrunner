@@ -710,8 +710,14 @@ function manageOpenFile(path, noSearchIndexCheck) {
 
     /* Load library file */
     if (path.match(/^.*\.xml$/i)) {
+	var oldLocalBookCount = library.getLocalBookCount();
 	if (library.readFromFile(path, false)) {
-	    displayInfoDialog("Library XML file was loaded successfuly.");
+	    var newLocalBookCount = library.getLocalBookCount();
+	    var localBookCountDiff = newLocalBookCount - oldLocalBookCount;
+	    if (displayConfirmDialog("Library XML file was loaded successfuly.\n" + localBookCountDiff + " local content is/are newly availablle in the library.\nDo you want to open your library now?")) {
+		populateLocalBookList();
+		showLocalBooks();
+	    }
 	} else {
 	    displayErrorDialog("Kiwix failed to open the library XML file '" + path + "' library XML file. The file is maybe corrupted?");
 	}
@@ -748,7 +754,7 @@ function manageOpenFile(path, noSearchIndexCheck) {
 	    library.updateBookLastOpenDateById(zimId);
 	    library.setCurrentId(zimId);
 	    
-	    /* Force to hide the library manager an update it*/
+	    /* Force to hide the library manager an update it */
 	    toggleLibrary(false);
 	    populateLocalBookList();
 	    populateLibraryFilters();	
