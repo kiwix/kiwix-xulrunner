@@ -715,7 +715,7 @@ function manageOpenFile(path, noSearchIndexCheck) {
 	    var newLocalBookCount = library.getLocalBookCount();
 	    var localBookCountDiff = newLocalBookCount - oldLocalBookCount;
 	    if (displayConfirmDialog("Library XML file was loaded successfuly.\n" + localBookCountDiff + " local content is/are newly availablle in the library.\nDo you want to open your library now?")) {
-		populateLocalBookList();
+		populateBookList();
 		showLocalBooks();
 		settings.addCustomLibraryPath(path);
 	    }

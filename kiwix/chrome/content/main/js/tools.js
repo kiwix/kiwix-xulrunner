@@ -297,6 +297,7 @@ function loadCustomLibraries() {
 	    }
 	}
     });
+    populateBookList();
 }
 
 /* Load the necessary ZIM file at Kiwix startup */
