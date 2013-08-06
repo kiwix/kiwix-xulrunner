@@ -24,7 +24,7 @@ ICU_LIB=${ICU}/lib
 XULRUNNER_IDL=$(XULRUNNER_SDK)/idl
 
 # Compiler and linker flags
-CFLAGS=-D"XP_WIN" -D"XP_WIN32" -D"GECKO_VERSION=20" -O2 -Oi -I"${ZIM_INCLUDE}" -I"$(ICU_INCLUDE)" -I"$(XULRUNNER_INCLUDE)" -I"$(XULRUNNER_INCLUDE)/nspr/" -I../../common/ -I../../zimlib/include/win -D"_WINDLL" -FD -EHsc -MT -Gy -nologo -c -Zi -TP		    
+CFLAGS=-D"XP_WIN" -D"XP_WIN32" -D"GECKO_VERSION=14" -O2 -Oi -I"${ZIM_INCLUDE}" -I"$(ICU_INCLUDE)" -I"$(XULRUNNER_INCLUDE)" -I"$(XULRUNNER_INCLUDE)/nspr/" -I../../common/ -I../../zimlib/include/win -D"_WINDLL" -FD -EHsc -MT -Gy -nologo -c -Zi -TP		    
 LDFLAGS=-nologo -LIBPATH:"$(XULRUNNER_LIB)" -LIBPATH:"${ZIM_LIB}" -LIBPATH:"$(ICU_LIB)"
 
 all: zimAccessor.dll
