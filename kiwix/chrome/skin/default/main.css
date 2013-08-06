@@ -176,7 +176,7 @@ window[langdir="rtl"] #button-next {
   background-color: transparent !important;
   padding: 0;
   margin: 0;
-  border: 0;  
+  border: 0;
 }
 
 /* Textbox search */
@@ -237,7 +237,7 @@ window[langdir="rtl"] #button-next {
 }
 
 #results-bar-header {
-    padding: 2px 0px 2px 0px; 
+    padding: 2px 0px 2px 0px;
 }
 
 .results-title {
@@ -252,7 +252,7 @@ window[langdir="rtl"] #button-next {
 }
 
 #bookmarks-bar-header {
-    padding: 2px 0px 2px 0px; 
+    padding: 2px 0px 2px 0px;
 }
 
 #bookmarks-bar {
@@ -384,7 +384,7 @@ tab[selected="true"] label {
     font-weight: bold;
 }
 
-#tab-headers tab.tab-header:first-child {
+window[langdir="ltr"] #tab-headers tab.tab-header:first-child {
     margin-left: 0px;
 }
 
@@ -401,10 +401,10 @@ tab[selected="true"] label {
     border-bottom: none !important;
 }
 window[langdir="rtl"] #tabs-add-button {
-    padding-right: 5px;  
+    padding-right: 5px;
 }
 window[langdir="ltr"] #tabs-add-button {
-    padding-left: 6px;  
+    padding-left: 6px;
 }
 
 #tabs-add-button:hover {
@@ -519,6 +519,10 @@ window[langdir="ltr"] #tabs-add-button {
     padding-top: 0 !important;
 }
 
+#main.mac #tab-headers tab {
+    height: 25px;
+}
+
 /* Status bar */
 #status-bar {
     margin: 0px;
@@ -559,8 +563,8 @@ window[langdir="ltr"] #tabs-add-button {
 }
 
 .library-left-stuffer {
-    border-color: #777777; 
-    border-width: 0px 2px 0px 0px; 
+    border-color: #777777;
+    border-width: 0px 2px 0px 0px;
     border-style: solid;
 }
 
@@ -586,8 +590,8 @@ window[langdir="ltr"] #tabs-add-button {
 
 .library-menuitem-unselected {
     background-color: white;
-    border-color: #777777; 
-    border-width: 0px 2px 0px 0px; 
+    border-color: #777777;
+    border-width: 0px 2px 0px 0px;
     border-style: solid;
 }
 
@@ -622,9 +626,9 @@ richlistbox {
 
 .library-content-item-favicon {
     background-image: url("chrome://main/skin/icon/book48.png");
-    background-repeat: no-repeat; 
-    background-position: right top; 
-    width: 55px; 
+    background-repeat: no-repeat;
+    background-position: right top;
+    width: 55px;
     margin: 10px 5px 0px 0px;
 }
 
@@ -688,3 +692,36 @@ treechildren::-moz-tree-cell-text(italic) {
 
 /* SUGAR REMOVAL */
 #sugar-display-toolbar, toolbarbutton[id^="sugar"] { display: none; }
+
+/* RTL tweaks */
+window[langdir="rtl"] * .tabs-close-button {
+    right: -5px;
+}
+
+window[langdir="rtl"] #tabs-add-button {
+    margin-right: 10px;
+}
+
+window[langdir="rtl"] * .tab-header-label {
+   text-align: center !important;
+   padding-left: 12px;
+   padding-right: 2px;
+}
+
+/* MAC RTL */
+
+window[langdir="rtl"].mac #tabs-add-button {
+    padding-right: 18px;
+}
+
+window[langdir="ltr"].mac #tabs-add-button {
+    padding-left: 12px !important;
+}
+
+window[langdir="ltr"].mac #tool-bar:first-child {
+	padding-left: 10px !important;
+}
+
+window[langdir="rtl"].mac #tool-bar:first-child {
+	padding-right: 10px !important;
+}

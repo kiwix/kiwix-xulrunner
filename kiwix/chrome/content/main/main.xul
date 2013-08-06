@@ -37,7 +37,7 @@
       <menuitem id="file-browse-library" label="&main.browseLibrary;" class="menuitem-iconic"
 		accesskey="&main.browseLibrary.accesskey;" oncommand="toggleLibrary(true);"/>
       <menuitem id="file-hide-library" label="&main.hideLibrary;" class="menuitem-iconic"
-		accesskey="&main.browseLibrary.accesskey;" oncommand="toggleLibrary(false);" 
+		accesskey="&main.browseLibrary.accesskey;" oncommand="toggleLibrary(false);"
 		style="display: none;"/>
       <menuitem id="file-open" label="&main.openFile;" key="open-file-key" class="menuitem-iconic"
 		accesskey="&main.openFile.accesskey;" oncommand="manageOpenFile()"/>
@@ -47,12 +47,12 @@
       </menu>
       <menuitem id="file-save" label="&main.saveFile;" key="save-file-key" class="menuitem-iconic"
 		accesskey="&main.saveFile.accesskey;" oncommand="saveDocument(getHtmlRenderer().contentDocument);"/>
-      <menuitem id="file-print" label="&main.print;" key="print-key" class="menuitem-iconic" 
+      <menuitem id="file-print" label="&main.print;" key="print-key" class="menuitem-iconic"
 		accesskey="&main.print.accesskey;" oncommand="print()"/>
-      <menuitem id="file-print-pdf" label="&main.printPdf;" key="print-pdf-key" class="menuitem-iconic" 
+      <menuitem id="file-print-pdf" label="&main.printPdf;" key="print-pdf-key" class="menuitem-iconic"
 		accesskey="&main.printPdf.accesskey;" oncommand="printPdf()"/>
       <menuseparator id="file-sep" />
-      <menuitem id="file-quit" label="&main.quit;" key="quit-key" class="menuitem-iconic" 
+      <menuitem id="file-quit" label="&main.quit;" key="quit-key" class="menuitem-iconic"
 		accesskey="&main.quit.accesskey;" command="cmd:quit"/>
     </menupopup>
   </menu>
@@ -69,7 +69,7 @@
 	</menupopup>
       </menu>
       <menuseparator style="display: none;"/>
-      <menuitem id="file-preferences" label="&main.preferences;" class="menuitem-iconic" 
+      <menuitem id="file-preferences" label="&main.preferences;" class="menuitem-iconic"
 		accesskey="&main.preferences.accesskey;" command="cmd:prefs" />
     </menupopup>
   </menu>
@@ -78,18 +78,18 @@
       <menuitem id="display-tabs" label="&main.tabs;" type="checkbox" checked="false"
 		accesskey="&main.tabs.accesskey;" key="change-tabs-visibility-status"
 		oncommand="changeTabsVisibilityStatus(undefined, true)"/>
-      <menuitem id="display-fullscreen" label="&main.fullscreen;" type="checkbox" checked="false" class="menuitem-iconic" 
+      <menuitem id="display-fullscreen" label="&main.fullscreen;" type="checkbox" checked="false" class="menuitem-iconic"
 		key="fullscreen-key" accesskey="&main.fullscreen.accesskey;" oncommand="UIToggleFullScreen(true)"/>
       <menuitem id="display-statusbar" label="&main.statusbar;" type="checkbox" checked="true"
 		accesskey="&main.statusbar.accesskey;" oncommand="changeStatusBarVisibilityStatus(undefined, true)"/>
       <menu label="&main.zoom;" accesskey="&main.zoom.accesskey;">
 	<menupopup id="menu-zoom">
-	  <menuitem id="display-zoom-in" label="&main.zoomin;" key="zoomin" class="menuitem-iconic" 
+	  <menuitem id="display-zoom-in" label="&main.zoomin;" key="zoomin" class="menuitem-iconic"
 		    accesskey="&main.zoomin.accesskey;" oncommand="zoomIn()"/>
-	  <menuitem id="display-zoom-out" label="&main.zoomout;" key="zoomout" class="menuitem-iconic" 
+	  <menuitem id="display-zoom-out" label="&main.zoomout;" key="zoomout" class="menuitem-iconic"
 		    accesskey="&main.zoomout.accesskey;" oncommand="zoomOut()"/>
 	  <menuseparator/>
-	  <menuitem id="display-zoom-orig" label="&main.zoomorig;" key="zoomorig" class="menuitem-iconic" 
+	  <menuitem id="display-zoom-orig" label="&main.zoomorig;" key="zoomorig" class="menuitem-iconic"
 		    accesskey="&main.zoomorig.accesskey;" oncommand="zoomOriginal()"/>
 	</menupopup>
       </menu>
@@ -109,32 +109,32 @@
   </menu>
   <menu id="menu-tools" label="&main.tools;" accesskey="&main.tools.accesskey;">
     <menupopup id="tools-popup">
-      <menuitem id="tools-randomArticle" label="&main.randomArticle;" key="random-article-key" 
+      <menuitem id="tools-randomArticle" label="&main.randomArticle;" key="random-article-key"
 		class="menuitem-iconic" disabled="true"
 		accesskey="&main.randomArticle.accesskey;" oncommand="loadRandomArticle()"/>
-      <menuitem id="tools-server" label="&main.server;" key="server-key" class="menuitem-iconic" 
+      <menuitem id="tools-server" label="&main.server;" key="server-key" class="menuitem-iconic"
 		accesskey="&main.server.accesskey;" oncommand="showServerDialog()"/>
-      <menuitem id="tools-launchIndexing" label="&main.launchIndexing;" class="menuitem-iconic" 
+      <menuitem id="tools-launchIndexing" label="&main.launchIndexing;" class="menuitem-iconic"
 		oncommand="manageIndexCurrentBook(true)" disabled="true"/>
-      <menuitem id="tools-checkIntegrity" label="&main.checkIntegrity;" class="menuitem-iconic" 
+      <menuitem id="tools-checkIntegrity" label="&main.checkIntegrity;" class="menuitem-iconic"
 		accesskey="&main.checkIntegrity.accesskey;" oncommand="manageCheckIntegrity()" disabled="true"/>
-      <menuitem id="tools-purgeHistory" label="&main.purgeHistory;" key="purge-history-key" class="menuitem-iconic" 
+      <menuitem id="tools-purgeHistory" label="&main.purgeHistory;" key="purge-history-key" class="menuitem-iconic"
 		accesskey="&main.purgeHistory.accesskey;" oncommand="managePurgeHistory()"/>
     </menupopup>
   </menu>
   <menu id="menu-help" label="&main.help;" accesskey="&main.help.accesskey;">
     <menupopup id="help-popup">
-      <menuitem id="help-help" label="&main.help;" class="menuitem-iconic" 
+      <menuitem id="help-help" label="&main.help;" class="menuitem-iconic"
 		key="help-key" accesskey="&main.help.accesskey;" oncommand="showHelp(undefined, true)"/>
       <menuseparator/>
-      <menuitem id="help-feedback" label="&main.feedback;" class="menuitem-iconic" 
+      <menuitem id="help-feedback" label="&main.feedback;" class="menuitem-iconic"
 		oncommand="openUrlWithExternalBrowser('http://input.kiwix.org/feedback.html?version=0.9-rc3')"/>
-      <menuitem id="help-reportabug" label="&main.reportabug;" class="menuitem-iconic" 
+      <menuitem id="help-reportabug" label="&main.reportabug;" class="menuitem-iconic"
 		oncommand="openUrlWithExternalBrowser('http://reportabug.kiwix.org')"/>
-      <menuitem id="help-requestafeature" label="&main.requestafeature;" class="menuitem-iconic" 
+      <menuitem id="help-requestafeature" label="&main.requestafeature;" class="menuitem-iconic"
 		oncommand="openUrlWithExternalBrowser('http://requestafeature.kiwix.org')"/>
       <menuseparator/>
-      <menuitem id="help-about" label="&main.about;" class="menuitem-iconic" 
+      <menuitem id="help-about" label="&main.about;" class="menuitem-iconic"
 		accesskey="&main.about.accesskey;" command="cmd:about" />
     </menupopup>
   </menu>
@@ -248,17 +248,17 @@
 <!-- Tool bar -->
 <toolbox id="tool-box">
   <toolbar id="tool-bar" class="chromeclass-toolbar">
-    <toolbarbutton id="sugar-button-options" oncommand="openSugarOptionsMenu()"/>
     <toolbarbutton id="button-library" oncommand="toggleLibrary()" tooltiptext="&main.browseLibrary;" checked="false" />
+    <toolbarbutton id="sugar-button-options" oncommand="openSugarOptionsMenu()"/>
     <toolbarbutton id="button-home" oncommand="goHome(isCtrlDown())" tooltiptext="&main.home;"/>
     <toolbarbutton id="button-back" oncommand="pageBack(isCtrlDown())" tooltiptext="&main.back;"/>
     <toolbarbutton id="button-next" oncommand="pageNext(isCtrlDown())" tooltiptext="&main.forward;"/>
     <stack flex="1">
       <hbox>
-	<textbox id="textbox-search" flex="1" tooltiptext="&main.searchBar;"  
+	<textbox id="textbox-search" flex="1" tooltiptext="&main.searchBar;"
 		 placeholder="&main.searchPlaceholder;" disabled="true"
 		 onkeypress="if (event.keyCode == 27) { this.value = '' }"
-		 ontextentered="blur(); manageSearchInIndex();" type="autocomplete" 
+		 ontextentered="blur(); manageSearchInIndex();" type="autocomplete"
 		 autocompletesearch="kiwix-suggest" maxrows="11" onfocus="emptySearchBox()">
 	  <hbox class="textbox-search-go-container">
 	    <image id="textbox-search-go-button" onclick="manageSearchInIndex();" tooltiptext="&main.search;"/>
@@ -317,11 +317,11 @@
     </menulist>
 
     <listbox flex="1" id="bookmarks-list" />
-	
+
     <label id="notesLabel" value="&main.notesLabel;" />
     <textbox id="notesTextBox" onchange="UISaveCurrentNote(null);" multiline="true" flex="1" dir="&main.cssdirection;" disabled="true" />
   </vbox>
-  
+
   <!-- Rendering space -->
   <deck id="rendering-deck" flex="1">
     <page id="rendering-page" flex="1" onclick="lostFocusOnSearchBox()">
@@ -367,7 +367,7 @@
 	  <vbox class="library-menu">
 	    <vbox id="library-menuitem-local" onclick="selectLibraryMenu(this.id);">
 	      <description class="library-menuitem-description">&main.library.myLibrary;</description>
-	    </vbox> 
+	    </vbox>
 	    <div style="height: 6px;" class="library-left-stuffer"/>
 	    <vbox id="library-menuitem-remote" onclick="selectLibraryMenu(this.id);">
 	      <description class="library-menuitem-description">&main.library.getNewFiles;</description>
@@ -393,14 +393,14 @@
 	    </vbox>
 	    <vbox class="library-filter" style="border-radius: 0px 0px 5px 5px; margin: 0px 10px 10px 10px;">
 	      <label value="&main.library.filterBy;"/>
-	      
+
 	      <label value="▾ &main.library.filterBy.fileSize;"/>
 	      <box style="margin-left: 10px; font-size: smaller;" align="center">
 		<label value="&main.library.filterBy.lessThan;"/>
 		<textbox id="library-content-maxsize" size="2" type="number" min="0" max="99" onchange="populateBookList()"/>
 		<label value="GB"/>
 	      </box>
-	      
+
 	      <label value="▾ &main.library.filterBy.language;"/>
 	      <box style="margin-left: 10px; font-size: smaller;" align="center">
 		<menulist id="library-filter-language" oncommand="populateBookList()" flex="1">
@@ -409,7 +409,7 @@
 		  </menupopup>
 		</menulist>
 	      </box>
-	      
+
 	      <label value="▾ &main.library.filterBy.author;"/>
 	      <vbox style="margin-left: 10px; font-size: smaller;">
 		<menulist id="library-filter-creator" oncommand="populateBookList()" flex="1">
@@ -418,7 +418,7 @@
 		  </menupopup>
 		</menulist>
 	      </vbox>
-	      
+
 	      <label value="▾ &main.library.filterBy.publisher;"/>
 	      <vbox style="margin-left: 10px; font-size: smaller;">
 		<menulist id="library-filter-publisher" oncommand="populateBookList()" flex="1">
