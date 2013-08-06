@@ -711,7 +711,9 @@ function manageOpenFile(path, noSearchIndexCheck) {
     /* Load library file */
     if (path.match(/^.*\.xml$/i)) {
 	var oldLocalBookCount = library.getLocalBookCount();
+	var currentBookId = library.getCurrentId();
 	if (library.readFromFile(path, true)) {
+	    library.setCurrentId(currentBookId);
 	    var newLocalBookCount = library.getLocalBookCount();
 	    var localBookCountDiff = newLocalBookCount - oldLocalBookCount;
 	    if (displayConfirmDialog("Library XML file was loaded successfuly.\n" + localBookCountDiff + " local content is/are newly availablle in the library.\nDo you want to open your library now?")) {

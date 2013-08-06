@@ -290,6 +290,7 @@ function initModulesAndComponents() {
 }
 
 function loadCustomLibraries() {
+    var currentBookId = library.getCurrentId();
     settings.customLibraryPaths().split(";").map(function(path) {
 	if (path) {
 	    if (!library.readFromFile(path, true)) {
@@ -297,6 +298,7 @@ function loadCustomLibraries() {
 	    }
 	}
     });
+    library.setCurrentId(currentBookId);
     populateBookList();
 }
 
