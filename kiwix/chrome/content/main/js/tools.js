@@ -266,11 +266,11 @@ function initModulesAndComponents() {
         Components.utils.import("resource://modules/env.jsm");
     } catch (e) { dump("Unable to import env.jsm. " + e.toString() + "\n"); }
     try {
-        Components.utils.import("resource://modules/settings.jsm");
-    } catch (e) { dump("Unable to import settings.jsm. " + e.toString() + "\n"); }
-    try {
         Components.utils.import("resource://modules/library.jsm");
     } catch (e) { dump("Unable to import library.jsm. " + e.toString() + "\n"); }
+    try {
+        Components.utils.import("resource://modules/settings.jsm");
+    } catch (e) { dump("Unable to import settings.jsm. " + e.toString() + "\n"); }
 
     /* Check the XPCOM registration */
     if (Components.classes["@kiwix.org/zimAccessor"] == undefined)
@@ -299,6 +299,7 @@ function loadCustomLibraries() {
 	}
     });
     library.setCurrentId(currentBookId);
+
     populateBookList();
 }
 
@@ -381,19 +382,27 @@ function loadContentFromCommandLine(commandLine) {
 }
 
 /* Check an create if necessary the data directory */
-function initDirectories() {
-    var directoryService = Components.classes["@mozilla.org/file/directory_service;1"].
-	getService(Components.interfaces.nsIProperties); 
-    var rootDir = directoryService.get("PrefD", Components.interfaces.nsIFile);
-    rootDir.append("data");
-    var dir = rootDir.clone();
-    createDirectory(dir.path);
+function initDirectories(path) {
+    var dir;
+
+    if (!path) {
+	var directoryService = Components.classes["@mozilla.org/file/directory_service;1"].
+	    getService(Components.interfaces.nsIProperties); 
+	var dir = directoryService.get("PrefD", Components.interfaces.nsIFile);
+	dir.append("data");
+	createDirectory(dir.path);
+    } else {
+	var dir = Components.classes["@mozilla.org/file/local;1"]
+	    .createInstance(Components.interfaces.nsILocalFile);
+	dir.initWithPath(path);
+    }
+
     dir.append("content");
     createDirectory(dir.path);
-    dir = rootDir.clone();
+    dir = dir.parent;
     dir.append("library");
     createDirectory(dir.path);
-    dir = rootDir.clone();
+    dir = dir.parent;
     dir.append("index");
     createDirectory(dir.path);
 }

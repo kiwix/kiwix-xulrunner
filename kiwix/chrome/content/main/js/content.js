@@ -359,7 +359,7 @@ function getDownloaderLogPath() {
 }
 
 function getDownloadPath() {
-    var dir = appendToPath(settings.getRootPath(), "data");
+    var dir = appendToPath(settings.dataDirectory());
     return appendToPath(dir, "content");
 }
 

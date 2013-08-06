@@ -60,6 +60,12 @@
   <checkbox id="neverAskToIndex-checkbox" label="&preferences.neverAskToIndex;"/>
 </hbox>
 
+<hbox style="text-align: center; width: 600px;" align="center">
+  <description>&preferences.dataDirectory;</description>
+  <textbox style="text-align: left;" id="dataDirectory-textbox" flex="1" disabled="true"/>
+  <button oncommand="manageChangeDataDirectory()" label="&preferences.browse;..." />
+</hbox>
+
 <hbox>
   <spacer flex="1"/>
   <button oncommand="window.close();" label="&preferences.cancel;" />

@@ -27,8 +27,13 @@ function getPreferencesWindow() {
 }
 
 function onPreferencesDialogStart() {
+    /*
     var profileDirectoryTextbox = document.getElementById("profileDirectory-textbox");
     profileDirectoryTextbox.value = settings.getRootPath();
+    */
+
+    var dataDirectoryTextbox = document.getElementById("dataDirectory-textbox");
+    dataDirectoryTextbox.value = settings.dataDirectory()
 
     var saveTabsCheckbox = document.getElementById("saveTabs-checkbox");
     saveTabsCheckbox.checked = settings.saveTabs();
@@ -56,6 +61,51 @@ function savePreferences() {
 
     var neverAskToIndexCheckbox = document.getElementById("neverAskToIndex-checkbox");
     settings.neverAskToIndex(undefined, neverAskToIndexCheckbox.checked);
+
+    var oldDataDirectory = settings.dataDirectory();
+    if (settings.dataDirectory() != document.getElementById("dataDirectory-textbox").value) {
+	settings.dataDirectory(document.getElementById("dataDirectory-textbox").value);
+	if (displayConfirmDialog("Kiwix needs to be stoped and restarted to apply this change.\nMaybe a good time to migrate your old data directory to your new location...")) {
+	    quit();
+	}
+    }
+}
+
+function manageChangeDataDirectory() {
+
+    /* Create the file picker object */
+    var nsIFilePicker = Components.interfaces.nsIFilePicker;
+    var filePicker = Components.classes["@mozilla.org/filepicker;1"].createInstance(nsIFilePicker);
+    filePicker.init(window, "Choose a directory to store your data...", nsIFilePicker.modeGetFolder);
+
+    /* Create a nsIFile from the data directory path */
+    var dataDirectory = Components.classes["@mozilla.org/file/local;1"]
+	.createInstance(Components.interfaces.nsILocalFile);
+    dataDirectory.initWithPath(settings.dataDirectory());
+
+    /* Set the default path */
+    if (dataDirectory.exists() == true) {
+	filePicker.displayDirectory = dataDirectory;
+    }
+    
+    /* Show the dialog and get the file path */
+    var res = filePicker.show();
+    
+    /* Get the file path */
+    if (res == nsIFilePicker.returnOK) {
+	var newDataDirectory = filePicker.file;
+
+	/* Check if the target directory is writable */
+	if (newDataDirectory.isWritable()) {
+	    document.getElementById("dataDirectory-textbox").value = newDataDirectory.path;
+	    return true;
+	} else {
+	    displayErrorDialog("The choosen directory is readonly. You need a writable directory.");
+	    return false;
+	}
+    } else {
+	return false;
+    }
 }
 
 /* Choose new profile directory */
@@ -83,10 +133,6 @@ function manageChangeProfileDirectory() {
     if (res == nsIFilePicker.returnOK) {
 	var newProfileDirectory = filePicker.file;
 	var newProfileDirectoryParent = newProfileDirectory.parent;
-
-	/* Check if the target directory is writable */
-	//	if( newProfileDirectory.isWritable()) {
-	//}
 
 	/* Check if the target directory is empty */
 

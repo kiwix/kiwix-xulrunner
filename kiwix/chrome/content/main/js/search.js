@@ -44,7 +44,7 @@ function isIndexing() {
 
 /* Return the directory path where the search index is stored */
 function getSearchIndexDirectory(zimFilePath) {
-    var dir = appendToPath(settings.getRootPath(), "data");
+    var dir = appendToPath(settings.dataDirectory());
     dir = appendToPath(dir, "index");
     return (zimFilePath === undefined) ?
 	dir : appendToPath(dir, getSearchIndexDirectoryName(zimFilePath));

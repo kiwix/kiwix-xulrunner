@@ -195,6 +195,21 @@ let settings = {
 	return downloadsArray;
     },
 
+    dataDirectory: function(value) {
+        if (value !== undefined) {
+	    return this.charSettingParameter("kiwix.dataDirectory", value);
+	} else {
+	    var path = this.charSettingParameter("kiwix.dataDirectory");
+	    if (!path) {
+	    	var directoryService = Components.classes["@mozilla.org/file/directory_service;1"].getService(Components.interfaces.nsIProperties);
+		var dir = directoryService.get("PrefD", Components.interfaces.nsIFile);
+		dir.appendRelativePath("data");
+		path = dir.path;
+	    }
+	    return path;
+	}
+    },
+
     invertedColors: function(value) { return this.boolSettingParameter("kiwix.invertedColors", value); },   
     defaultSearchBackend: function(value) { return this.charSettingParameter("kiwix.defaultsearchbackend", value); },
     skin: function(value) { return this.charSettingParameter("general.skins.selectedSkin", value); },

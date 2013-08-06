@@ -128,6 +128,7 @@
 <!ENTITY preferences.save               "Save">
 <!ENTITY preferences.cancel             "Cancel">
 <!ENTITY preferences.profileDirectory   "Profile directory">
+<!ENTITY preferences.dataDirectory      "Data directory">
 <!ENTITY preferences.browse             "Browse">
 <!ENTITY preferences.tabs               "Remember tabs">
 <!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">

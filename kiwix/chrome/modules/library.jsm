@@ -30,6 +30,9 @@ let library = {
     register: function() {
         this.paths = "";
 
+	/* Initiate a few modules */
+        Components.utils.import("resource://modules/settings.jsm");
+
        	/* Initiate the content manager */
 	this.contentManager = Components.classes["@kiwix.org/contentManager"].getService();
 	this.contentManager = this.contentManager.QueryInterface(Components.interfaces.IContentManager);
@@ -43,10 +46,10 @@ let library = {
             this.readFromDescriptor('<CurProcD>/../../../data/library', true);
 	}
 
-	if (!env.isLive()) {	
+	if (!env.isLive()) {
 	    this.readFromDescriptor('<PrefD>/library.xml', true);
-	    this.readFromDescriptor('<PrefD>/data/library/', false);
-	    this.readFromDescriptor('<PrefD>/data/library/library.xml', false);
+	    this.readFromDescriptor('<DataD>/library/', false);
+	    this.readFromDescriptor('<DataD>/library/library.xml', false);
 	}
     },
 
@@ -79,13 +82,24 @@ let library = {
 	var file;
 
 	/* Determine what is the "base" of the path */
-	if (!descriptorParts[0]) {
+	var isWindowAbsolutePath = descriptorParts[0].substr(0, 3).match(/^[A-Za-z]{1}:\/.*$/);
+	var isPosixAbsolutePath = !descriptorParts[0];
+	if (isWindowAbsolutePath || isPosixAbsolutePath) {
 	    file = fileService.createInstance(Components.interfaces.nsILocalFile);
-	    file.initWithPath("/");
+	    if (isWindowAbsolutePath) {
+	        file.initWithPath(descriptorParts[0].substr(0, 3));
+	    } else {	   
+	        file.initWithPath("/");
+	    }
 	} else if (matchs = descriptorParts[0].match(/^<(.*)>$/)) {
 	    var id = matchs[1];
 	    try {
-                file = directoryService.get(id, Components.interfaces.nsIFile);
+	        if (id == "DataD") {
+		    file = fileService.createInstance(Components.interfaces.nsILocalFile);
+		    file.initWithPath(settings.dataDirectory());
+		} else {
+		    file = directoryService.get(id, Components.interfaces.nsIFile);
+		}
 	    } catch(error) {
 	    }
 	} else {
@@ -318,5 +332,5 @@ let library = {
     
 }
 
-/* Create the settings object */
+/* Create the library object */
 library.register();
