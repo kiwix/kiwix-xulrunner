@@ -418,6 +418,7 @@ win:
 	cp $(DEP_PATH)/icu/bin/icuin*.dll ./kiwix/xulrunner
 	cp $(DEP_PATH)/icu/bin/icuuc*.dll ./kiwix/xulrunner
 	cp $(DEP_PATH)/libmicrohttpd/bin/*dll ./kiwix/xulrunner
+	cp $(DEP_PATH)/msvc100/* ./kiwix/xulrunner/
 	rm -rf kiwix/xulrunner/dictionaries
 	rm -f kiwix/xulrunner/xulrunner-stub.exe
 	rm -f kiwix/xulrunner/README
