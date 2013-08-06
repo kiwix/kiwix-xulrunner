@@ -22,6 +22,7 @@ Kiwix 0.9 rc3
 * FIXED: kiwix-serve index page for chrome/chromium
 * FIXED: Buggy kiwix-serve suggestion click handling (#463)
 * FIXED: Hanging page loading with specific pages on Win&Mac (#440, #376) 
+* FIXED: Buggy tabs with RTL disposition (#424)
 * NEW: New supported user interface languages: Chuvash (cv), Fiji
   Hindi Latin script (hif-latn), Mongolian (mn), Newari (new),
   Sanskrit (sa), Uzbek (uz), Turkish (tr), Tagalog (tl), Talysh
