@@ -79,3 +79,5 @@ src/installer/kiwix-install
 src/launcher/kiwix-launcher
 src/manager/kiwix-manage
 src/server/kiwix-serve
+
+*.pyc
