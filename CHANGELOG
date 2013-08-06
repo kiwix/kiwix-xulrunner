@@ -36,6 +36,7 @@ Kiwix 0.9 rc3
 * NEW: Better searchbox focus handling
 * NEW: ZIM, indexes & library saved in profile in a portable manner
 * NEW: Open XML library files from the menu
+* NEW: Preference to set custom data directory (#279, #323, #366,  #573, #692, #633)
 
 Kiwix 0.9 rc2
 * FIXED: kiwix-manage generate wrong size for splitted ZIM files (ID: 3547892)
