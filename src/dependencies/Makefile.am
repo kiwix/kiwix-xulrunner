@@ -423,6 +423,27 @@ android-deps: android-ndk-r8e android-sdk/sdk/platforms/android-14 xz
 	true
 
 ####################################################
+############ ZIMLIB
+####################################################
+zimlib-1.1.tar.gz:
+	$(DOWNLOADER) zimlib-1.1.tar.gz $(DEP_MIRROR)/zimlib-1.1.tar.gz
+
+zimlib-1.1: zimlib-1.1.tar.gz
+	tar xf zimlib-1.1.tar.gz
+
+# OSX i386
+zimlib-1.1/build-i386/lib/libzim.dylib zimlib-1.1/build-i386/lib/libzim.a: zimlib-1.1 xz/build/lib/liblzma.dylib
+	test ! -f zimlib-1.1/build-i386/lib/libzim.dylib && cd zimlib-1.1 && mkdir -p build-i386 && LDFLAGS=" -L$(DEP_PATH)/xz/build/lib/ " CC="gcc -arch i386" CXX="g++ -arch i386" CFLAGS=" -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE " ./configure --enable-shared --disable-dependency-tracking --with-pic --prefix=$(DEP_PATH)/zimlib-1.1/build-i386 --enable-static --disable-libtool-lock && make clean && make && make install && install_name_tool -id libzim.dylib build-i386/lib/libzim.dylib || true
+
+# OSX x86_64
+zimlib-1.1/build-x86_64/lib/libzim.dylib zimlib-1.1/build-x86_64/lib/libzim.a: zimlib-1.1 xz/build/lib/liblzma.dylib
+	test ! -f zimlib-1.1/build-x86_64/lib/libzim.dylib && cd zimlib-1.1 && mkdir -p build-x86_64 && LDFLAGS=" -L$(DEP_PATH)/xz/build/lib/ " CC="gcc -arch x86_64" CXX="g++ -arch x86_64" CFLAGS=" -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE " ./configure --enable-shared --disable-dependency-tracking --with-pic --prefix=$(DEP_PATH)/zimlib-1.1/build-x86_64 --enable-static --disable-libtool-lock && make clean && make && make install && install_name_tool -id libzim.dylib build-x86_64/lib/libzim.dylib || true
+
+# OSX Join
+zimlib-1.1/build/lib/libzim.dylib zimlib-1.1/build/lib/libzim.a: zimlib-1.1/build-i386/lib/libzim.dylib zimlib-1.1/build-x86_64/lib/libzim.dylib zimlib-1.1/build-i386/lib/libzim.a zimlib-1.1/build-x86_64/lib/libzim.a
+	test ! -f zimlib-1.1/build/lib/libzim.dylib && mkdir -p zimlib-1.1/build/lib && cd zimlib-1.1/build/lib && lipo ../../build-x86_64/lib/libzim.dylib ../../build-i386/lib/libzim.dylib -create -output libzim.dylib && lipo ../../build-x86_64/lib/libzim.a ../../build-i386/lib/libzim.a -create -output libzim.a && install_name_tool -id libzim.dylib libzim.dylib || true
+
+####################################################
 ############ CLEANUP (ALL)
 ####################################################
 
@@ -456,7 +477,8 @@ DISTCLEANFILES= xulrunner-sdk.tar.bz2 \
 	pthread-win32.zip \
 	android-ndk-r8e.tar.bz2 \
 	android-sdk.zip \
-	android-14.tar.bz2
+	android-14.tar.bz2 \
+	zimlib-1.1.tar.gz
 
 clean-local:
 	-rm -rf zlib-1.2.3
@@ -472,6 +494,7 @@ clean-local:
 	-rm -rf e2fsprogs-1.42
 	-rm -rf argtable2-13
 	-rm -rf pthread-win32
+	-rm -rf zimlib-1.1
 
 distclean-local:
 	-rm -rf xulrunner-sdk-i386
