@@ -6,8 +6,13 @@ import os
 import shutil
 import sys
 import imp
-
-import pexpect
+try:
+    import pexpect
+    IS_WIN = False
+except ImportError:
+    # win32 doesn't support pexpect
+    from ftplib import FTP
+    IS_WIN = True
 
 """ Kiwix nightly builds uploader
 
@@ -46,44 +51,58 @@ def main(argv):
 
     # create a symlink from source file to dest
     # so that FTP can submit using wanted remote name
-    if not os.path.exists(dest_name):
+    if not os.path.exists(dest_name) and not IS_WIN:
         if hasattr(os, 'symlink'):
             os.symlink(source_path, dest_name)
         else:
             shutil.copy(source_path, dest_name)
 
     print("Connecting to {} with user {}".format(FTP_HOST, FTP_USER))
-    ftp = pexpect.spawn ('ftp -p {}'.format(FTP_HOST))
-    ftp.expect ('Name .*: ')
-    ftp.sendline (FTP_USER)
-    ftp.expect ('Password:')
-    ftp.sendline (FTP_PASSWD)
-    ftp.expect ('ftp> ')
-    if not ftp.before.strip().startswith('230'):
-        print("Unable to authenticate user {}".format(FTP_USER))
-        print(ftp.before)
-        return 1
+    if IS_WIN:
+        ftp = FTP(FTP_HOST, FTP_USER, FTP_PASSWD)
+    else:
+        ftp = pexpect.spawn ('ftp -p {}'.format(FTP_HOST))
+        ftp.expect ('Name .*: ')
+        ftp.sendline (FTP_USER)
+        ftp.expect ('Password:')
+        ftp.sendline (FTP_PASSWD)
+        ftp.expect ('ftp> ')
+        if not ftp.before.strip().startswith('230'):
+            print("Unable to authenticate user {}".format(FTP_USER))
+            print(ftp.before)
+            return 1
     print("Connected successfuly")
 
     print("Moving to directory {}".format(dest_folder))
-    ftp.sendline ('cd {}'.format(dest_folder))
-    ftp.expect('ftp> ')
-    if not '250 ' in ftp.before.strip():
-        print("Unable to move to directory `{}`".format(dest_folder))
-        print(ftp.before)
-        return 1
+    if IS_WIN:
+        ftp.cwd(dest_folder)
+    else:
+        ftp.sendline ('cd {}'.format(dest_folder))
+        ftp.expect('ftp> ')
+        if not '250 ' in ftp.before.strip():
+            print("Unable to move to directory `{}`".format(dest_folder))
+            print(ftp.before)
+            return 1
 
     print("Staring upload of {} to {}".format(filename, dest_name))
-    ftp.sendline ('put {}'.format(dest_name))
-    ftp.expect('ftp> ', timeout=30*60)
-    if not '226 ' in ftp.before.strip():
-        print("Unable to complete tranfer.")
-        print(ftp.before)
-        return 1
+    if IS_WIN:
+        ftp.storbinary('STOR {}'.format(dest_name),
+                       open(source_path, 'rb'),
+                       blocksize=8192 * 10)
+    else:
+        ftp.sendline ('put {}'.format(dest_name))
+        ftp.expect('ftp> ', timeout=30*60)
+        if not '226 ' in ftp.before.strip():
+            print("Unable to complete tranfer.")
+            print(ftp.before)
+            return 1
+        print(ftp.before.strip().split('\n')[-1])
     print("Transfer complete. Closing")
-    print(ftp.before.strip().split('\n')[-1])
 
-    ftp.sendline ('bye')
+    if IS_WIN:
+        ftp.quit()
+    else:
+        ftp.sendline ('bye')
     return 0
 
 if __name__ == '__main__':
