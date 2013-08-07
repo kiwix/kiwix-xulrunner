@@ -81,3 +81,4 @@ src/manager/kiwix-manage
 src/server/kiwix-serve
 
 *.pyc
+ftp_pass.py
