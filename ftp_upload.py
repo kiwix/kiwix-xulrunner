@@ -2,12 +2,12 @@
 # -*- coding: utf-8 -*-
 # vim: ai ts=4 sts=4 et sw=4 nu
 
-from __future__ import (unicode_literals, absolute_import,
-                        division, print_function)
 import os
+import shutil
 import sys
 import imp
-from ftplib import FTP
+
+import pexpect
 
 """ Kiwix nightly builds uploader
 
@@ -44,21 +44,46 @@ def main(argv):
     if not os.path.exists(source_path):
         print("source_path not found: {}".format(source_path))
 
+    # create a symlink from source file to dest
+    # so that FTP can submit using wanted remote name
+    if not os.path.exists(dest_name):
+        if hasattr(os, 'symlink'):
+            os.symlink(source_path, dest_name)
+        else:
+            shutil.copy(source_path, dest_name)
+
     print("Connecting to {} with user {}".format(FTP_HOST, FTP_USER))
-    ftp = FTP(FTP_HOST, FTP_USER, FTP_PASSWD)
+    ftp = pexpect.spawn ('ftp {}'.format(FTP_HOST))
+    ftp.expect ('Name .*: ')
+    ftp.sendline (FTP_USER)
+    ftp.expect ('Password:')
+    ftp.sendline (FTP_PASSWD)
+    ftp.expect ('ftp> ')
+    if not ftp.before.strip().startswith('230'):
+        print("Unable to authenticate user {}".format(FTP_USER))
+        print(ftp.before)
+        return 1
     print("Connected successfuly")
 
-    print("Fetching folder list")
-    ftp.retrlines('LIST')
-
     print("Moving to directory {}".format(dest_folder))
-    ftp.cwd(dest_folder)
+    ftp.sendline ('cd {}'.format(dest_folder))
+    ftp.expect('ftp> ')
+    if not '250 ' in ftp.before.strip():
+        print("Unable to move to directory `{}`".format(dest_folder))
+        print(ftp.before)
+        return 1
 
     print("Staring upload of {} to {}".format(filename, dest_name))
-    ftp.storbinary('STOR {}'.format(dest_name), open(source_path, 'rb'))
-
+    ftp.sendline ('put {}'.format(dest_name))
+    ftp.expect('ftp> ', timeout=30*60)
+    if not '226 ' in ftp.before.strip():
+        print("Unable to complete tranfer.")
+        print(ftp.before)
+        return 1
     print("Transfer complete. Closing")
-    ftp.quit()
+    print(ftp.before.strip().split('\n')[-1])
+
+    ftp.sendline ('bye')
 
 if __name__ == '__main__':
     main(sys.argv[1:])
