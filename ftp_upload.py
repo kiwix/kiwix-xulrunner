@@ -53,7 +53,7 @@ def main(argv):
             shutil.copy(source_path, dest_name)
 
     print("Connecting to {} with user {}".format(FTP_HOST, FTP_USER))
-    ftp = pexpect.spawn ('ftp {}'.format(FTP_HOST))
+    ftp = pexpect.spawn ('ftp -p {}'.format(FTP_HOST))
     ftp.expect ('Name .*: ')
     ftp.sendline (FTP_USER)
     ftp.expect ('Password:')
@@ -84,6 +84,7 @@ def main(argv):
     print(ftp.before.strip().split('\n')[-1])
 
     ftp.sendline ('bye')
+    return 0
 
 if __name__ == '__main__':
-    main(sys.argv[1:])
+    sys.exit(main(sys.argv[1:]))
