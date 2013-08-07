@@ -4,7 +4,7 @@ pkglibdir=$(libdir)/kiwix/components
 xptdir=$(libdir)/kiwix/components
 xpt_DATA=zimXapianIndexer.xpt
 
-AM_CPPFLAGS=-I$(top_srcdir)/src/common -I$(top_srcdir)/src/zimlib/include
+AM_CPPFLAGS=-I$(top_srcdir)/src/common
 libZimXapianIndexer_la_SOURCES= \
 	zimXapianIndexer.cpp \
 	$(top_srcdir)/src/common/kiwix/xapian/myhtmlparse.cc \
@@ -27,10 +27,9 @@ libZimXapianIndexer_la_SOURCES= \
 	$(top_srcdir)/src/common/kiwix/indexer.h \
 	$(top_srcdir)/src/common/kiwix/reader.h \
 	$(top_srcdir)/src/common/kiwix/xapianIndexer.h
-libZimXapianIndexer_la_CXXFLAGS=$(LIBXUL_CFLAGS) $(XAPIAN_CFLAGS) $(ICU_CFLAGS) $(ZIMLIB_CFLAGS) $(LZMA_CFLAGS) $(XPCOM_CFLAGS) -D GECKO_VERSION=$(GECKO_VERSION) -I$(top_srcdir)/src/common/
+libZimXapianIndexer_la_CXXFLAGS=$(LIBZIM_CFLAGS) $(LIBXUL_CFLAGS) $(XAPIAN_CFLAGS) $(ICU_CFLAGS) $(ZIMLIB_CFLAGS) $(LZMA_CFLAGS) $(XPCOM_CFLAGS) -D GECKO_VERSION=$(GECKO_VERSION) -I$(top_srcdir)/src/common/
 
-libZimXapianIndexer_la_LDFLAGS=$(LIBXUL_LDFLAGS) $(XAPIAN_LDFLAGS) $(ICU_LDFLAGS) $(ZIMLIB_LDFLAGS) $(LZMA_LDFLAGS) $(XPCOM_LDFLAGS)
-libZimXapianIndexer_la_LIBADD=$(top_builddir)/src/zimlib/src/libzim.la
+libZimXapianIndexer_la_LDFLAGS=$(LIBZIM_LDFLAGS) $(LIBXUL_LDFLAGS) $(XAPIAN_LDFLAGS) $(ICU_LDFLAGS) $(ZIMLIB_LDFLAGS) $(LZMA_LDFLAGS) $(XPCOM_LDFLAGS)
 
 EXTRA_DIST=*.idl
 BUILT_SOURCES=zimXapianIndexer.xpt IZimXapianIndexer.h

@@ -4,7 +4,7 @@ pkglibdir=$(libdir)/kiwix/components
 xptdir=$(libdir)/kiwix/components
 xpt_DATA=serverManager.xpt
 
-AM_CPPFLAGS=-I$(top_srcdir)/src/common -I$(top_srcdir)/src/zimlib/include -I$(top_srcdir)/src/pugixml
+AM_CPPFLAGS=-I$(top_srcdir)/src/common -I$(top_srcdir)/src/pugixml
 libServerManager_la_SOURCES= \
 	serverManager.cpp \
 	$(top_srcdir)/src/common/kiwix/library.cpp \
@@ -27,10 +27,10 @@ libServerManager_la_SOURCES= \
 	$(top_srcdir)/src/common/stringTools.h \
 	$(top_srcdir)/src/common/regexTools.h \
 	$(top_srcdir)/src/common/networkTools.h
-libServerManager_la_CXXFLAGS=$(LIBXUL_CFLAGS) $(ZIMLIB_CFLAGS) $(LZMA_CFLAGS) $(ICU_CFLAGS) $(PUGIXML_CFLAGS) $(XPCOM_CFLAGS) -D GECKO_VERSION=$(GECKO_VERSION) -I$(top_srcdir)/src/common/
+libServerManager_la_CXXFLAGS=$(LIBZIM_CFLAGS) $(LIBXUL_CFLAGS) $(ZIMLIB_CFLAGS) $(LZMA_CFLAGS) $(ICU_CFLAGS) $(PUGIXML_CFLAGS) $(XPCOM_CFLAGS) -D GECKO_VERSION=$(GECKO_VERSION) -I$(top_srcdir)/src/common/
 
-libServerManager_la_LDFLAGS=$(LIBXUL_LDFLAGS) $(ZIMLIB_LDFLAGS) $(LZMA_LDFLAGS) $(ICU_LDFLAGS) $(PUGIXML_LDFLAGS) $(XPCOM_LDFLAGS)
-libServerManager_la_LIBADD=$(top_builddir)/src/zimlib/src/libzim.la $(top_builddir)/src/pugixml/libpugixml.la
+libServerManager_la_LDFLAGS=$(LIBZIM_LDFLAGS) $(LIBXUL_LDFLAGS) $(ZIMLIB_LDFLAGS) $(LZMA_LDFLAGS) $(ICU_LDFLAGS) $(PUGIXML_LDFLAGS) $(XPCOM_LDFLAGS)
+libServerManager_la_LIBADD=$(top_builddir)/src/pugixml/libpugixml.la
 
 EXTRA_DIST=*.idl
 BUILT_SOURCES=serverManager.xpt IServerManager.h

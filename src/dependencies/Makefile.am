@@ -503,6 +503,8 @@ clean-local:
 	-rm -rf argtable2-13
 	-rm -rf pthread-win32
 	-rm -rf zimlib-1.1
+	-rm -rf aria2c-1.14.2-universal
+	-rm -rf XUL.framework
 
 distclean-local:
 	-rm -rf xulrunner-sdk-i386
@@ -513,6 +515,7 @@ distclean-local:
 	-rm -rf xr_target
 	-rm -rf android-ndk-mac
 	-rm -rf android-ndk-linux
+	-rm -rf android-ndk-r8e
 	-rm -rf android-sdk
 	-rm -rf android-14
 

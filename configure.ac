@@ -144,9 +144,6 @@ AC_CHECK_TOOL(HAVE_JARSIGNER_BIN, jarsigner)
 # Check the existence of stat64 (to handle file >2GB) in the libc
 AC_CHECK_FUNCS([stat64])
 
-# Generate the headers
-AC_CONFIG_HEADERS([src/zimlib/src/config.h])
-
 # used to display a warning message at end of configure
 # if there are unmet dependencies which will be compiled.
 MISSING_SELF_DEPS=0
@@ -349,6 +346,19 @@ else
 fi
 COMPILED_LZMA_CFLAGS="-I${DEP_PATH}/xz/src/liblzma/api"
 
+LIBZIM_CFLAGS=""
+LIBZIM_LDFLAGS=" -lzim"
+LIBZIM_STATIC_LDFLAGS=""
+COMPILE_LIBZIM=0
+if test [ $IS_WIN -eq 1 ] ; then
+	COMPILED_LIBZIM_FILES="${DEP_PATH}/zimlib-1.1/src/zim.lib"
+else
+	COMPILED_LIBZIM_CFLAGS="-I${DEP_PATH}/zimlib-1.1/include"
+	COMPILED_LIBZIM_LDFLAGS="-L${DEP_PATH}/zimlib-1.1/build/lib -lzim"
+	COMPILED_LIBZIM_STATIC_LDFLAGS="${DEP_PATH}/zimlib-1.1/build/lib/libzim.a"
+    COMPILED_LIBZIM_FILES="${DEP_PATH}/zimlib-1.1/build/lib/libzim.${SHARED_EXT}"
+fi
+
 
 ARIA2_CFLAGS=""
 ARIA2_LDFLAGS=""
@@ -417,8 +427,6 @@ CTPP2_CFLAGS="-I${CURRENT_PATH}/src/ctpp2/include"
 CTPP2_LDFLAGS=""
 PUGIXML_CFLAGS=""
 PUGIXML_LDFLAGS=""
-ZIMLIB_CFLAGS=""
-ZIMLIB_LDFLAGS=""
 
 # --enable-compileall
 AC_ARG_ENABLE(compileall,
@@ -435,6 +443,7 @@ then
 	COMPILE_ICU=1
 	COMPILE_MICROHTTPD=1
 	COMPILE_LZMA=1
+	COMPILE_LIBZIM=1
 	COMPILE_ARIA2=1
 	COMPILE_CLUCENE=1
 	COMPILE_UUID=1
@@ -450,6 +459,7 @@ then
 	COMPILE_ICU=1
 	COMPILE_MICROHTTPD=1
 	COMPILE_LZMA=1
+	COMPILE_LIBZIM=1
 	COMPILE_ARIA2=1
 	COMPILE_CLUCENE=0
 	COMPILE_UUID=0
@@ -1045,6 +1055,64 @@ else
 fi
 
 ####################################################
+############ LIBZIM
+####################################################
+
+# if --with-x, add path to LIBRARY_PATH
+AC_ARG_WITH(libzim,
+			AC_HELP_STRING([--with-libzim=DIR], [alternate location for libzim]),
+			  	export LIBRARY_PATH="${withval}:${LIBRARY_PATH}";LIBZIM_PATH=${withval})
+
+# if --with-static-x, set path as X_ARCHIVE
+AC_ARG_WITH(static-libzim,
+            AC_HELP_STRING([--with-static-libzim=DIR/libx.a],
+            			   [Path to static archive]),
+            LIBZIM_ARCHIVE=${withval})
+
+# compilation required
+if test [ $COMPILE_LIBZIM -eq 1 -o "$LIBZIM_PATH" == "$SELF" -o "$LIBZIM_ARCHIVE" == "$SELF"] ; then
+	COMPILE_LIBZIM=1
+	LIBZIM_CFLAGS=$COMPILED_LIBZIM_CFLAGS
+    LIBZIM_LDFLAGS=$COMPILED_LIBZIM_LDFLAGS
+	LIBZIM_FILES=$COMPILED_LIBZIM_FILES
+	LIBZIM_STATIC_LDFLAGS=$COMPILED_LIBZIM_STATIC_LDFLAGS
+else
+	# look for shared library.
+	AC_CHECK_HEADER([libzim.h],, [AC_MSG_ERROR([[cannot find libzim header]])])
+	AC_CHECK_LIB([libzim], [libzim_version_string],, [AC_MSG_ERROR([[cannot find libzim]])])
+
+	# Check the liblibzim version
+	`pkg-config --atleast-version="1.1" libzim`
+	LIBZIM_VERSION_OK=$?
+	if test [ ! $LIBZIM_VERSION_OK -eq 0 ]
+	then
+		AC_MSG_ERROR([[The libzim version must be 1.1 or higher.]])
+	fi
+	LIBZIM_FILES=`findLibrary "libzim.${SHARED_EXT}"`
+
+	# if static is required
+	if test [ $REQUIRE_STATIC -eq 1 ] ; then
+		AC_CHECK_FILE($LIBZIM_ARCHIVE, [LIBZIM_ARCHIVE_FOUND=1], [LIBZIM_ARCHIVE_FOUND=0])
+		AUTO_LIBZIM_ARCHIVE=`findLibrary "libzim.a"`
+
+		if test [ $LIBZIM_ARCHIVE_FOUND -eq 0 -a "$AUTO_LIBZIM_ARCHIVE" == "no" ] ; then
+			# can't stat files. force compile
+  			COMPILE_LIBZIM=1
+			LIBZIM_CFLAGS=$COMPILED_LIBZIM_CFLAGS
+		    LIBZIM_LDFLAGS=$COMPILED_LIBZIM_LDFLAGS
+			LIBZIM_FILES=$COMPILED_LIBZIM_FILES
+			LIBZIM_STATIC_LDFLAGS=$COMPILED_LIBZIM_STATIC_LDFLAGS
+  		elif test [ $LIBZIM_ARCHIVE_FOUND -eq 1 ] ; then
+			# can stat suplied file.
+  			LIBZIM_STATIC_LDFLAGS="${LIBZIM_ARCHIVE}"
+  		else
+  			# can stat auto file
+  			LIBZIM_STATIC_LDFLAGS="${AUTO_LIBZIM_ARCHIVE}"
+  		fi
+  	fi
+fi
+
+####################################################
 ############ ARIA2
 ####################################################
 
@@ -1294,6 +1362,12 @@ then
 fi
 EMBED_LIBS+=" $LZMA_FILES"
 
+if test [ $COMPILE_LIBZIM -eq 1 ]
+then
+    DEP_LIST+=" $COMPILED_LIBZIM_FILES"
+fi
+EMBED_LIBS+=" $LIBZIM_FILES"
+
 if test [ $COMPILE_ARIA2 -eq 1 -a $IS_ARM -eq 0 ]
 then
     DEP_LIST+=" $COMPILED_ARIA2_FILES"
@@ -1435,8 +1509,6 @@ AC_SUBST(CTPP2_CFLAGS)
 AC_SUBST(CTPP2_LDFLAGS)
 AC_SUBST(PUGIXML_CFLAGS)
 AC_SUBST(PUGIXML_LDFLAGS)
-AC_SUBST(ZIMLIB_CFLAGS)
-AC_SUBST(ZIMLIB_LDFLAGS)
 
 AC_SUBST(GECKO_SDK_PATH)
 AC_SUBST(XULRUNNER_RUNTIME_PATH)
@@ -1481,6 +1553,12 @@ AC_SUBST(LZMA_STATIC_LDFLAGS)
 AC_SUBST(COMPILE_LZMA)
 AC_SUBST(LZMA_FILES)
 
+AC_SUBST(LIBZIM_CFLAGS)
+AC_SUBST(LIBZIM_LDFLAGS)
+AC_SUBST(LIBZIM_STATIC_LDFLAGS)
+AC_SUBST(COMPILE_LIBZIM)
+AC_SUBST(LIBZIM_FILES)
+
 AC_SUBST(ARIA2_CFLAGS)
 AC_SUBST(ARIA2_LDFLAGS)
 AC_SUBST(COMPILE_ARIA2)
@@ -1515,8 +1593,6 @@ AC_CONFIG_FILES([
   src/man/Makefile
   src/man/fr/Makefile
   src/dependencies/Makefile
-  src/zimlib/Makefile
-  src/zimlib/src/Makefile
   src/ctpp2/Makefile
   src/ctpp2/src/Makefile
   src/pugixml/Makefile
@@ -1609,6 +1685,7 @@ $BINECHO -n "ZLIB_LDFLAGS			" ; $BINECHO $ZLIB_LDFLAGS
 $BINECHO -n "XAPIAN_LDFLAGS			" ; $BINECHO $XAPIAN_LDFLAGS
 $BINECHO -n "MICROHTTPD_LDFLAGS		" ; $BINECHO $MICROHTTPD_LDFLAGS
 $BINECHO -n "LZMA_LDFLAGS			" ; $BINECHO $LZMA_LDFLAGS
+$BINECHO -n "LIBZIM_LDFLAGS			" ; $BINECHO $LIBZIM_LDFLAGS
 $BINECHO -n "ARIA2_FILES			" ; $BINECHO $ARIA2_FILES
 $BINECHO -n "CLUCENE_LDFLAGS			" ; $BINECHO $CLUCENE_LDFLAGS
 $BINECHO -n "ICU_LDFLAGS			" ; $BINECHO $ICU_LDFLAGS
@@ -1619,6 +1696,7 @@ $BINECHO -n "ZLIB_STATIC_LDFLAGS		" ; $BINECHO $ZLIB_STATIC_LDFLAGS
 $BINECHO -n "XAPIAN_STATIC_LDFLAGS		" ; $BINECHO $XAPIAN_STATIC_LDFLAGS
 $BINECHO -n "MICROHTTPD_STATIC_LDFLAGS	" ; $BINECHO $MICROHTTPD_STATIC_LDFLAGS
 $BINECHO -n "LZMA_STATIC_LDFLAGS		" ; $BINECHO $LZMA_STATIC_LDFLAGS
+$BINECHO -n "LIBZIM_STATIC_LDFLAGS		" ; $BINECHO $LIBZIM_STATIC_LDFLAGS
 $BINECHO -n "CLUCENE_STATIC_LDFLAGS		" ; $BINECHO $CLUCENE_STATIC_LDFLAGS
 $BINECHO -n "UUID_STATIC_LDFLAGS		" ; $BINECHO $UUID_STATIC_LDFLAGS
 $BINECHO -n "ICU_STATIC_LDFLAGS		" ; $BINECHO $ICU_STATIC_LDFLAGS

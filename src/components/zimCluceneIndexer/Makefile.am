@@ -2,7 +2,7 @@ pkglib_LTLIBRARIES=libZimCluceneIndexer.la
 xptdir=$(libdir)/kiwix/components
 pkglibdir=$(libdir)/kiwix/components
 xpt_DATA=zimCluceneIndexer.xpt
-AM_CPPFLAGS=-I$(top_srcdir)/src/common -I$(top_srcdir)/src/zimlib/include
+AM_CPPFLAGS=-I$(top_srcdir)/src/common
 libZimCluceneIndexer_la_SOURCES= \
 	zimCluceneIndexer.cpp \
 	$(top_srcdir)/src/common/kiwix/xapian/myhtmlparse.cc \
@@ -21,10 +21,9 @@ libZimCluceneIndexer_la_SOURCES= \
 	$(top_srcdir)/src/common/kiwix/indexer.h \
 	$(top_srcdir)/src/common/kiwix/reader.h \
 	$(top_srcdir)/src/common/kiwix/cluceneIndexer.h
-libZimCluceneIndexer_la_CXXFLAGS=$(LIBXUL_CFLAGS) $(XAPIAN_CFLAGS) $(CLUCENE_CFLAGS) $(ICU_CFLAGS) $(ZIMLIB_CFLAGS) $(LZMA_CFLAGS) $(XPCOM_CFLAGS) -D GECKO_VERSION=$(GECKO_VERSION) -I$(top_srcdir)/src/common/
+libZimCluceneIndexer_la_CXXFLAGS=$(LIBZIM_CFLAGS) $(LIBXUL_CFLAGS) $(XAPIAN_CFLAGS) $(CLUCENE_CFLAGS) $(ICU_CFLAGS) $(ZIMLIB_CFLAGS) $(LZMA_CFLAGS) $(XPCOM_CFLAGS) -D GECKO_VERSION=$(GECKO_VERSION) -I$(top_srcdir)/src/common/
 
-libZimCluceneIndexer_la_LDFLAGS=$(LIBXUL_LDFLAGS) $(XAPIAN_LDFLAGS) $(CLUCENE_LDFLAGS) $(ICU_LDFLAGS) $(ZIMLIB_LDFLAGS) $(LZMA_LDFLAGS) $(XPCOM_LDFLAGS)
-libZimCluceneIndexer_la_LIBADD=$(top_builddir)/src/zimlib/src/libzim.la
+libZimCluceneIndexer_la_LDFLAGS=$(LIBZIM_LDFLAGS) $(LIBXUL_LDFLAGS) $(XAPIAN_LDFLAGS) $(CLUCENE_LDFLAGS) $(ICU_LDFLAGS) $(ZIMLIB_LDFLAGS) $(LZMA_LDFLAGS) $(XPCOM_LDFLAGS)
 
 EXTRA_DIST=*.idl
 BUILT_SOURCES=zimCluceneIndexer.xpt IZimCluceneIndexer.h
