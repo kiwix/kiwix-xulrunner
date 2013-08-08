@@ -49,9 +49,9 @@ def main(argv):
         shutil.copy(source_path, dest_name)
 
     if IS_WIN:
-        script = ("open -u {user},{passwd} {host}\n\r"
-                  "cd {dest_folder}\n\r"
-                  "put {dest_name}\n\r"
+        script = ("open -u {user},{passwd} {host}\n"
+                  "cd {dest_folder}\n"
+                  "put {dest_name}\n"
                   "quit")
         script_name = 'ftp_cmd.txt'
     else:
