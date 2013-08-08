@@ -6,13 +6,7 @@ import os
 import shutil
 import sys
 import imp
-try:
-    import pexpect
-    IS_WIN = False
-except ImportError:
-    # win32 doesn't support pexpect
-    from ftplib import FTP
-    IS_WIN = True
+import subprocess
 
 """ Kiwix nightly builds uploader
 
@@ -27,6 +21,7 @@ except ImportError:
 FTP_HOST = "download.kiwix.org"
 FTP_PORT = 21
 FTP_USER = "nightlybot"
+IS_WIN = os.name == 'nt'
 
 
 def getpasswd(pathname):
@@ -44,7 +39,6 @@ def main(argv):
 
     passwd_module_path, source_path, dest_folder, dest_name = argv
     FTP_PASSWD = getpasswd(passwd_module_path)
-    filename = os.path.basename(source_path)
 
     if not os.path.exists(source_path):
         print("source_path not found: {}".format(source_path))
@@ -57,53 +51,32 @@ def main(argv):
         else:
             shutil.copy(source_path, dest_name)
 
-    print("Connecting to {} with user {}".format(FTP_HOST, FTP_USER))
     if IS_WIN:
-        ftp = FTP(FTP_HOST, FTP_USER, FTP_PASSWD)
+        script = ("open -u {user},{passwd} {host}\n\r"
+                  "cd {dest_folder}\n\r"
+                  "put {dest_name}\n\r"
+                  "quit")
+        script_name = 'ftp_cmd.txt'
     else:
-        ftp = pexpect.spawn ('ftp -p {}'.format(FTP_HOST))
-        ftp.expect ('Name .*: ')
-        ftp.sendline (FTP_USER)
-        ftp.expect ('Password:')
-        ftp.sendline (FTP_PASSWD)
-        ftp.expect ('ftp> ')
-        if not ftp.before.strip().startswith('230'):
-            print("Unable to authenticate user {}".format(FTP_USER))
-            print(ftp.before)
-            return 1
-    print("Connected successfuly")
+        script = ("machine {host} login {user} password {passwd}\n\n"
+                  "macdef init\n"
+                  "put {dest_name} {dest_folder}/\n"
+                  "quit\n\n\n")
+        script_name = 'netrc'
 
-    print("Moving to directory {}".format(dest_folder))
-    if IS_WIN:
-        ftp.cwd(dest_folder)
-    else:
-        ftp.sendline ('cd {}'.format(dest_folder))
-        ftp.expect('ftp> ')
-        if not '250 ' in ftp.before.strip():
-            print("Unable to move to directory `{}`".format(dest_folder))
-            print(ftp.before)
-            return 1
-
-    print("Staring upload of {} to {}".format(filename, dest_name))
-    if IS_WIN:
-        ftp.storbinary('STOR {}'.format(dest_name),
-                       open(source_path, 'rb'),
-                       blocksize=8192 * 10)
-    else:
-        ftp.sendline ('put {}'.format(dest_name))
-        ftp.expect('ftp> ', timeout=30*60)
-        if not '226 ' in ftp.before.strip():
-            print("Unable to complete tranfer.")
-            print(ftp.before)
-            return 1
-        print(ftp.before.strip().split('\n')[-1])
-    print("Transfer complete. Closing")
+    f = open(script_name, 'w')
+    f.write(script.format(user=FTP_USER, passwd=FTP_PASSWD,
+                          host=FTP_HOST, dest_folder=dest_folder,
+                          dest_name=dest_name))
+    f.close()
 
     if IS_WIN:
-        ftp.quit()
+        cmd = "lftp -f {script}"
     else:
-        ftp.sendline ('bye')
-    return 0
+        cmd = "ftp -p -N {script} {host}"
+    cmd = cmd.format(script=script_name, host=FTP_HOST)
+
+    return subprocess.call(cmd)
 
 if __name__ == '__main__':
     sys.exit(main(sys.argv[1:]))
