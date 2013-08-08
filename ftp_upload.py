@@ -78,7 +78,7 @@ def main(argv):
     if IS_WIN:
         cmd = "lftp -f {script}"
     else:
-        cmd = "ftp -p -N {script} {host}"
+        cmd = "ftp -p {host}"
     cmd = cmd.format(script=script_name, host=FTP_HOST)
 
     return subprocess.call(cmd.split())
