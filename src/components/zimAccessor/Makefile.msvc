@@ -3,7 +3,7 @@ LD=link.exe
 
 # Global paths
 XULRUNNER_SDK=../../dependencies/xulrunner-sdk
-ZIM=../../zimlib
+ZIM=../../dependencies/zimlib-1.1
 ICU=../../dependencies/icu/
 
 # Binary paths
@@ -24,11 +24,11 @@ ICU_LIB=${ICU}/lib
 XULRUNNER_IDL=$(XULRUNNER_SDK)/idl
 
 # Compiler and linker flags
-CFLAGS=-D"XP_WIN" -D"XP_WIN32" -D"GECKO_VERSION=14" -O2 -Oi -I"${ZIM_INCLUDE}" -I"$(ICU_INCLUDE)" -I"$(XULRUNNER_INCLUDE)" -I"$(XULRUNNER_INCLUDE)/nspr/" -I../../common/ -I../../zimlib/include/win -D"_WINDLL" -FD -EHsc -MT -Gy -nologo -c -Zi -TP		    
+CFLAGS=-D"XP_WIN" -D"XP_WIN32" -D"GECKO_VERSION=14" -O2 -Oi -I"${ZIM_INCLUDE}" -I"$(ICU_INCLUDE)" -I"$(XULRUNNER_INCLUDE)" -I"$(XULRUNNER_INCLUDE)/nspr/" -I../../common/ -I"${ZIM_INCLUDE}/win" -D"_WINDLL" -FD -EHsc -MT -Gy -nologo -c -Zi -TP
 LDFLAGS=-nologo -LIBPATH:"$(XULRUNNER_LIB)" -LIBPATH:"${ZIM_LIB}" -LIBPATH:"$(ICU_LIB)"
 
 all: zimAccessor.dll
-     
+
 IZimAccessor.xpt:
 	$(TYPELIB_PY) -o IZimAccessor.xpt -I "$(XULRUNNER_IDL)" IZimAccessor_gecko_old_int_type.idl
 

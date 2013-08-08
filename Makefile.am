@@ -383,7 +383,6 @@ distserver:
 # Windows rule
 win:
 	cd $(DEP_PATH) ; make
-	cd src/zimlib/src ; if [ ! -f zim.lib ] ; then make -f Makefile.msvc ; fi
 	cd src/ctpp2/src ; if [ ! -f ctpp2.lib ] ; then make -f Makefile.msvc ; fi
 	cd src/pugixml ; if [ ! -f pugixml.lib ] ; then make -f Makefile.msvc ; fi
 	cd src/components/xapianAccessor ; if [ ! -f xapianAccessor.dll ] ; then make -f Makefile.msvc ; fi

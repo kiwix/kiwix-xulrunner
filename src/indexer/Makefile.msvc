@@ -2,7 +2,7 @@ CC=cl.exe
 LD=link.exe
 
 # Global paths
-ZIM=../zimlib
+ZIM=../dependencies/zimlib-1.1
 ICU=../dependencies/icu
 XAPIAN=../dependencies/xapian-core-1.2.3
 ARGTABLE=../dependencies/argtable2-13
@@ -23,9 +23,9 @@ ARGTABLE_LIB=${ARGTABLE}/src
 PTHREAD_LIB=${PTHREAD}/lib
 
 # Compiler and linker flags
-CFLAGS=-D"XP_WIN" -D"__GNU_LIBRARY__" -D"(__STDC__)" -D"__STDC__"  -D"XP_WIN32" -O2 -Oi -I"${XAPIAN_INCLUDE}" -I"${ZIM_INCLUDE}" -I"${PTHREAD_INCLUDE}" -I${ARGTABLE_INCLUDE} -I$(ICU_INCLUDE) -I../common/ -I../zimlib/include/win -D"_WINDLL" -D"_MBCS" -FD -EHsc -MT -Gy -nologo -c -Zi -TP
+CFLAGS=-D"XP_WIN" -D"__GNU_LIBRARY__" -D"(__STDC__)" -D"__STDC__"  -D"XP_WIN32" -O2 -Oi -I"${XAPIAN_INCLUDE}" -I"${ZIM_INCLUDE}" -I"${PTHREAD_INCLUDE}" -I${ARGTABLE_INCLUDE} -I$(ICU_INCLUDE) -I../common/ -I"${ZIM_INCLUDE}/win" -D"_WINDLL" -D"_MBCS" -FD -EHsc -MT -Gy -nologo -c -Zi -TP
 
-LDFLAGS=-nologo -LIBPATH:"$(PTHREAD_LIB)" -LIBPATH:"${ZIM_LIB}" -LIBPATH:"$(ICU_LIB)" -LIBPATH:"$(XAPIAN_LIB)" -LIBPATH:"${ARGTABLE_LIB}" 
+LDFLAGS=-nologo -LIBPATH:"$(PTHREAD_LIB)" -LIBPATH:"${ZIM_LIB}" -LIBPATH:"$(ICU_LIB)" -LIBPATH:"$(XAPIAN_LIB)" -LIBPATH:"${ARGTABLE_LIB}"
 
 all: kiwix-index.exe
 

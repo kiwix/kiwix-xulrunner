@@ -2,7 +2,7 @@ CC=cl.exe
 LD=link.exe
 
 # Global paths
-ZIM=../zimlib
+ZIM=../dependencies/zimlib-1.1
 PUGIXML=../pugixml
 ICU=../dependencies/icu
 CTPP2=../ctpp2
@@ -35,11 +35,11 @@ PTHREAD_LIB=${PTHREAD}/lib
 ZLIB_LIB=${ZLIB}
 
 #cl.exe -c -I"C:\Documents and Settings\DEV\Desktop\mhdTest\mhdTest\libmicrohttpd-09.17-w32\include" -ZI -W3 -WX- -Od -Oy- -D WIN32 -D _CONSOLE -D _UNICODE -D UNICODE -Gm -EHsc -RTC1 -MDd -GS -fp:precise -Zc:wchar_t -Zc:forScope -Gd -TP -analyze- -errorReport:prompt kiwix-serve.cpp
-#link.exe "-OUT:kiwix-serve.exe" -INCREMENTAL "-LIBPATH:C:\Documents and Settings\DEV\Desktop\mhdTest\mhdTest\libmicrohttpd-09.17-w32\lib" libmicrohttpd.dll.a -SUBSYSTEM:CONSOLE -TLBID:1 -DYNAMICBASE -NXCOMPAT -MACHINE:X86 "kiwix-serve.obj" 
+#link.exe "-OUT:kiwix-serve.exe" -INCREMENTAL "-LIBPATH:C:\Documents and Settings\DEV\Desktop\mhdTest\mhdTest\libmicrohttpd-09.17-w32\lib" libmicrohttpd.dll.a -SUBSYSTEM:CONSOLE -TLBID:1 -DYNAMICBASE -NXCOMPAT -MACHINE:X86 "kiwix-serve.obj"
 
 # Compiler and linker flags
-CFLAGS=-D WIN32 -D _CONSOLE -I"${XAPIAN_INCLUDE}" -I"${HTTPD_INCLUDE}" -I"${ZIM_INCLUDE}" -I"${PTHREAD_INCLUDE}" -I"${PUGIXML_INCLUDE}" -I${ARGTABLE_INCLUDE} -I$(ZLIB_INCLUDE) -I$(ICU_INCLUDE) -I${CTPP2_INCLUDE} -I../common/ -I../zimlib/include/win -FD -EHsc -MT -Gy -nologo -c -Zi -TP -O2 -Oi
-LDFLAGS=-INCREMENTAL -SUBSYSTEM:CONSOLE -TLBID:1 -DYNAMICBASE -NXCOMPAT -MACHINE:X86 -LIBPATH:"$(PTHREAD_LIB)" -LIBPATH:"$(CTPP2_LIB)" -LIBPATH:"${XAPIAN_LIB}" -LIBPATH:"${HTTPD_LIB}" -LIBPATH:"${ZIM_LIB}" -LIBPATH:"${PUGIXML_LIB}" -LIBPATH:"$(ZLIB_LIB)" -LIBPATH:"$(ICU_LIB)" -LIBPATH:"${ARGTABLE_LIB}" 
+CFLAGS=-D WIN32 -D _CONSOLE -I"${XAPIAN_INCLUDE}" -I"${HTTPD_INCLUDE}" -I"${ZIM_INCLUDE}" -I"${PTHREAD_INCLUDE}" -I"${PUGIXML_INCLUDE}" -I${ARGTABLE_INCLUDE} -I$(ZLIB_INCLUDE) -I$(ICU_INCLUDE) -I${CTPP2_INCLUDE} -I../common/ -I"${ZIM_INCLUDE}/win" -FD -EHsc -MT -Gy -nologo -c -Zi -TP -O2 -Oi
+LDFLAGS=-INCREMENTAL -SUBSYSTEM:CONSOLE -TLBID:1 -DYNAMICBASE -NXCOMPAT -MACHINE:X86 -LIBPATH:"$(PTHREAD_LIB)" -LIBPATH:"$(CTPP2_LIB)" -LIBPATH:"${XAPIAN_LIB}" -LIBPATH:"${HTTPD_LIB}" -LIBPATH:"${ZIM_LIB}" -LIBPATH:"${PUGIXML_LIB}" -LIBPATH:"$(ZLIB_LIB)" -LIBPATH:"$(ICU_LIB)" -LIBPATH:"${ARGTABLE_LIB}"
 
 all: kiwix-serve.exe
 
@@ -49,5 +49,5 @@ argtableobjs:
 objs:
 	$(CC) $(CFLAGS) ../common/base64.cpp ../common/kiwix/manager.cpp ../common/kiwix/reader.cpp ../common/kiwix/library.cpp ../common/kiwix/searcher.cpp ../common/kiwix/xapianSearcher.cpp ../common/stringTools.cpp ../common/regexTools.cpp ../common/pathTools.cpp ../common/resourceTools.cpp
 
-kiwix-serve.exe: argtableobjs objs 
+kiwix-serve.exe: argtableobjs objs
 	$(LD) -OUT:"kiwix-serve.exe" $(LDFLAGS) -NODEFAULTLIB:"MSVCRT" zim.lib argtable2.lib pugixml.lib libmicrohttpd.dll.a ctpp2.lib libcommon.lib libbackend.lib libbrass.lib Rpcrt4.lib libbrassbtreecheck.lib libbrassbtreecheck.lib libexpand.lib libflint.lib libflintbtreecheck.lib libchert.lib libweight.lib libinmemory.lib libmulti.lib libmatcher.lib libnet.lib liblanguages.lib libapi.lib libremote.lib libunicode.lib libqueryparser.lib icuin.lib icuio.lib icule.lib iculx.lib icutu.lib icuuc.lib libcmt.lib ws2_32.lib DelayImp.lib winmm.lib pthreadVC2.lib zlib.lib *.obj
