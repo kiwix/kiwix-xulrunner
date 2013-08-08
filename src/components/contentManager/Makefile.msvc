@@ -4,7 +4,7 @@ LD=link.exe
 # Global paths
 XULRUNNER_SDK=../../dependencies/xulrunner-sdk
 ZIM=../../dependencies/zimlib-1.1
-PUGIXML=../../pugixml
+PUGIXML=../../dependencies/pugixml-1.2
 ICU=../../dependencies/icu/
 
 # Binary paths
