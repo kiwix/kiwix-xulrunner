@@ -57,7 +57,9 @@ def main(argv):
     else:
         script = ("machine {host} login {user} password {passwd}\n\n"
                   "macdef init\n"
-                  "put {dest_name} {dest_folder}/\n"
+                  "cd {dest_folder}\n"
+                  "binary\n"
+                  "put {dest_name}\n"
                   "quit\n\n\n")
         script_name = 'netrc'
 
