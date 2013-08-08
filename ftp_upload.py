@@ -46,10 +46,7 @@ def main(argv):
     # create a symlink from source file to dest
     # so that FTP can submit using wanted remote name
     if not os.path.exists(dest_name):
-        if hasattr(os, 'symlink'):
-            os.symlink(source_path, dest_name)
-        else:
-            shutil.copy(source_path, dest_name)
+        shutil.copy(source_path, dest_name)
 
     if IS_WIN:
         script = ("open -u {user},{passwd} {host}\n\r"
