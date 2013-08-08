@@ -67,6 +67,10 @@ def main(argv):
                           dest_name=dest_name))
     f.close()
 
+    if not IS_WIN:
+        os.symlink(os.path.abspath(script_name),
+                   os.path.abspath(os.path.expanduser("~/.netrc")))
+
     if IS_WIN:
         cmd = "lftp -f {script}"
     else:
