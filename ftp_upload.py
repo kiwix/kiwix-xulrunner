@@ -45,7 +45,7 @@ def main(argv):
 
     # create a symlink from source file to dest
     # so that FTP can submit using wanted remote name
-    if not os.path.exists(dest_name) and not IS_WIN:
+    if not os.path.exists(dest_name):
         if hasattr(os, 'symlink'):
             os.symlink(source_path, dest_name)
         else:
@@ -76,7 +76,7 @@ def main(argv):
         cmd = "ftp -p -N {script} {host}"
     cmd = cmd.format(script=script_name, host=FTP_HOST)
 
-    return subprocess.call(cmd)
+    return subprocess.call(cmd.split())
 
 if __name__ == '__main__':
     sys.exit(main(sys.argv[1:]))
