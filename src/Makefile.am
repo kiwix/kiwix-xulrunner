@@ -1,4 +1,4 @@
-SUBDIRS = man ctpp2 pugixml
+SUBDIRS = man ctpp2
 
 if WITH_COMPONENTS
 SUBDIRS += components

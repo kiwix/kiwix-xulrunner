@@ -1,5 +1,5 @@
 bin_PROGRAMS=kiwix-manage
-AM_CPPFLAGS=-I$(top_srcdir)/src/common -I$(top_srcdir)/src/pugixml
+AM_CPPFLAGS=-I$(top_srcdir)/src/common
 kiwix_manage_SOURCES= \
 	kiwix-manage.cpp \
 	../common/kiwix/manager.cpp \
@@ -16,12 +16,12 @@ kiwix_manage_SOURCES= \
 	../common/regexTools.h \
 	../common/stringTools.h \
 	../common/pathTools.h
-kiwix_manage_CXXFLAGS=$(LIBZIM_CFLAGS) $(ICU_CFLAGS) $(LZMA_CFLAGS) -I../common/
+kiwix_manage_CXXFLAGS=$(LIBZIM_CFLAGS) $(ICU_CFLAGS) $(LZMA_CFLAGS) $(LIBPUGIXML_CFLAGS) -I../common/
 
 kiwix_manage_LDFLAGS= $(CHECK_LDFLAGS)
 
 if STATIC_BINS
-kiwix_manage_LDFLAGS+= $(CHECK_LDFLAGS) $(LIBZIM_STATIC_LDFLAGS) $(ICU_STATIC_LDFLAGS) ../pugixml/.libs/libpugixml.a $(LZMA_STATIC_LDFLAGS) $(STATIC_LIBM_ARCHIVE) $(STATIC_LIBSTDCPP_ARCHIVE) $(STATIC_LIBDL_ARCHIVE) $(STATIC_LIBGCC_ARCHIVE) $(STATIC_LIBPTHREAD_ARCHIVE) --static
+kiwix_manage_LDFLAGS+= $(CHECK_LDFLAGS) $(LIBZIM_STATIC_LDFLAGS) $(ICU_STATIC_LDFLAGS) $(LIBPUGIXML_STATIC_LDLAGS) $(LZMA_STATIC_LDFLAGS) $(STATIC_LIBM_ARCHIVE) $(STATIC_LIBSTDCPP_ARCHIVE) $(STATIC_LIBDL_ARCHIVE) $(STATIC_LIBGCC_ARCHIVE) $(STATIC_LIBPTHREAD_ARCHIVE) --static
 else
-kiwix_manage_LDFLAGS+= $(LIBZIM_LDFLAGS) $(ICU_LDFLAGS) ../pugixml/.libs/libpugixml.a $(LZMA_LDFLAGS) -ldl
+kiwix_manage_LDFLAGS+= $(LIBZIM_LDFLAGS) $(ICU_LDFLAGS) $(LIBPUGIXML_LDFLAGS) $(LZMA_LDFLAGS) -ldl
 endif

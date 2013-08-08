@@ -359,6 +359,19 @@ else
     COMPILED_LIBZIM_FILES="${DEP_PATH}/zimlib-1.1/build/lib/libzim.${SHARED_EXT}"
 fi
 
+LIBPUGIXML_CFLAGS=""
+LIBPUGIXML_LDFLAGS=" -lpugixml"
+LIBPUGIXML_STATIC_LDFLAGS=""
+COMPILE_LIBPUGIXML=0
+if test [ $IS_WIN -eq 1 ] ; then
+	COMPILED_LIBPUGIXML_FILES="${DEP_PATH}/pugixml-1.2/pugixml.lib"
+else
+	COMPILED_LIBPUGIXML_CFLAGS="-I${DEP_PATH}/pugixml-1.2/src"
+	COMPILED_LIBPUGIXML_LDFLAGS="-L${DEP_PATH}/pugixml-1.2 -lpugixml"
+	COMPILED_LIBPUGIXML_STATIC_LDFLAGS="${DEP_PATH}/pugixml-1.2/libpugixml.a"
+    COMPILED_LIBPUGIXML_FILES="${DEP_PATH}/pugixml-1.2/libpugixml.${SHARED_EXT}"
+fi
+
 
 ARIA2_CFLAGS=""
 ARIA2_LDFLAGS=""
@@ -444,6 +457,7 @@ then
 	COMPILE_MICROHTTPD=1
 	COMPILE_LZMA=1
 	COMPILE_LIBZIM=1
+	COMPILE_LIBPUGIXML=1
 	COMPILE_ARIA2=1
 	COMPILE_CLUCENE=1
 	COMPILE_UUID=1
@@ -460,6 +474,7 @@ then
 	COMPILE_MICROHTTPD=1
 	COMPILE_LZMA=1
 	COMPILE_LIBZIM=1
+	COMPILE_LIBPUGIXML=1
 	COMPILE_ARIA2=1
 	COMPILE_CLUCENE=0
 	COMPILE_UUID=0
@@ -1113,6 +1128,64 @@ else
 fi
 
 ####################################################
+############ PUGIXML
+####################################################
+
+# if --with-x, add path to LIBRARY_PATH
+AC_ARG_WITH(libpugixml,
+			AC_HELP_STRING([--with-libpugixml=DIR], [alternate location for libpugixml]),
+			  	export LIBRARY_PATH="${withval}:${LIBRARY_PATH}";LIBPUGIXML_PATH=${withval})
+
+# if --with-static-x, set path as X_ARCHIVE
+AC_ARG_WITH(static-libpugixml,
+            AC_HELP_STRING([--with-static-libpugixml=DIR/libx.a],
+            			   [Path to static archive]),
+            LIBPUGIXML_ARCHIVE=${withval})
+
+# compilation required
+if test [ $COMPILE_LIBPUGIXML -eq 1 -o "$LIBPUGIXML_PATH" == "$SELF" -o "$LIBPUGIXML_ARCHIVE" == "$SELF"] ; then
+	COMPILE_LIBPUGIXML=1
+	LIBPUGIXML_CFLAGS=$COMPILED_LIBPUGIXML_CFLAGS
+    LIBPUGIXML_LDFLAGS=$COMPILED_LIBPUGIXML_LDFLAGS
+	LIBPUGIXML_FILES=$COMPILED_LIBPUGIXML_FILES
+	LIBPUGIXML_STATIC_LDFLAGS=$COMPILED_LIBPUGIXML_STATIC_LDFLAGS
+else
+	# look for shared library.
+	AC_CHECK_HEADER([libpugixml.h],, [AC_MSG_ERROR([[cannot find libpugixml header]])])
+	AC_CHECK_LIB([libpugixml], [libpugixml_version_string],, [AC_MSG_ERROR([[cannot find libpugixml]])])
+
+	# Check the liblibpugixml version
+	`pkg-config --atleast-version="1.1" libpugixml`
+	LIBPUGIXML_VERSION_OK=$?
+	if test [ ! $LIBPUGIXML_VERSION_OK -eq 0 ]
+	then
+		AC_MSG_ERROR([[The libpugixml version must be 1.1 or higher.]])
+	fi
+	LIBPUGIXML_FILES=`findLibrary "libpugixml.${SHARED_EXT}"`
+
+	# if static is required
+	if test [ $REQUIRE_STATIC -eq 1 ] ; then
+		AC_CHECK_FILE($LIBPUGIXML_ARCHIVE, [LIBPUGIXML_ARCHIVE_FOUND=1], [LIBPUGIXML_ARCHIVE_FOUND=0])
+		AUTO_LIBPUGIXML_ARCHIVE=`findLibrary "libpugixml.a"`
+
+		if test [ $LIBPUGIXML_ARCHIVE_FOUND -eq 0 -a "$AUTO_LIBPUGIXML_ARCHIVE" == "no" ] ; then
+			# can't stat files. force compile
+  			COMPILE_LIBPUGIXML=1
+			LIBPUGIXML_CFLAGS=$COMPILED_LIBPUGIXML_CFLAGS
+		    LIBPUGIXML_LDFLAGS=$COMPILED_LIBPUGIXML_LDFLAGS
+			LIBPUGIXML_FILES=$COMPILED_LIBPUGIXML_FILES
+			LIBPUGIXML_STATIC_LDFLAGS=$COMPILED_LIBPUGIXML_STATIC_LDFLAGS
+  		elif test [ $LIBPUGIXML_ARCHIVE_FOUND -eq 1 ] ; then
+			# can stat suplied file.
+  			LIBPUGIXML_STATIC_LDFLAGS="${LIBPUGIXML_ARCHIVE}"
+  		else
+  			# can stat auto file
+  			LIBPUGIXML_STATIC_LDFLAGS="${AUTO_LIBPUGIXML_ARCHIVE}"
+  		fi
+  	fi
+fi
+
+####################################################
 ############ ARIA2
 ####################################################
 
@@ -1368,6 +1441,12 @@ then
 fi
 EMBED_LIBS+=" $LIBZIM_FILES"
 
+if test [ $COMPILE_LIBPUGIXML -eq 1 ]
+then
+    DEP_LIST+=" $COMPILED_LIBPUGIXML_FILES"
+fi
+EMBED_LIBS+=" $LIBPUGIXML_FILES"
+
 if test [ $COMPILE_ARIA2 -eq 1 -a $IS_ARM -eq 0 ]
 then
     DEP_LIST+=" $COMPILED_ARIA2_FILES"
@@ -1559,6 +1638,12 @@ AC_SUBST(LIBZIM_STATIC_LDFLAGS)
 AC_SUBST(COMPILE_LIBZIM)
 AC_SUBST(LIBZIM_FILES)
 
+AC_SUBST(LIBPUGIXML_CFLAGS)
+AC_SUBST(LIBPUGIXML_LDFLAGS)
+AC_SUBST(LIBPUGIXML_STATIC_LDFLAGS)
+AC_SUBST(COMPILE_LIBPUGIXML)
+AC_SUBST(LIBPUGIXML_FILES)
+
 AC_SUBST(ARIA2_CFLAGS)
 AC_SUBST(ARIA2_LDFLAGS)
 AC_SUBST(COMPILE_ARIA2)
@@ -1595,7 +1680,6 @@ AC_CONFIG_FILES([
   src/dependencies/Makefile
   src/ctpp2/Makefile
   src/ctpp2/src/Makefile
-  src/pugixml/Makefile
 
   src/components/Makefile
   src/components/xapianAccessor/Makefile
@@ -1686,6 +1770,7 @@ $BINECHO -n "XAPIAN_LDFLAGS			" ; $BINECHO $XAPIAN_LDFLAGS
 $BINECHO -n "MICROHTTPD_LDFLAGS		" ; $BINECHO $MICROHTTPD_LDFLAGS
 $BINECHO -n "LZMA_LDFLAGS			" ; $BINECHO $LZMA_LDFLAGS
 $BINECHO -n "LIBZIM_LDFLAGS			" ; $BINECHO $LIBZIM_LDFLAGS
+$BINECHO -n "LIBPUGIXML_LDFLAGS			" ; $BINECHO $LIBPUGIXML_LDFLAGS
 $BINECHO -n "ARIA2_FILES			" ; $BINECHO $ARIA2_FILES
 $BINECHO -n "CLUCENE_LDFLAGS			" ; $BINECHO $CLUCENE_LDFLAGS
 $BINECHO -n "ICU_LDFLAGS			" ; $BINECHO $ICU_LDFLAGS
@@ -1697,6 +1782,7 @@ $BINECHO -n "XAPIAN_STATIC_LDFLAGS		" ; $BINECHO $XAPIAN_STATIC_LDFLAGS
 $BINECHO -n "MICROHTTPD_STATIC_LDFLAGS	" ; $BINECHO $MICROHTTPD_STATIC_LDFLAGS
 $BINECHO -n "LZMA_STATIC_LDFLAGS		" ; $BINECHO $LZMA_STATIC_LDFLAGS
 $BINECHO -n "LIBZIM_STATIC_LDFLAGS		" ; $BINECHO $LIBZIM_STATIC_LDFLAGS
+$BINECHO -n "LIBPUGIXML_STATIC_LDFLAGS		" ; $BINECHO $LIBPUGIXML_STATIC_LDFLAGS
 $BINECHO -n "CLUCENE_STATIC_LDFLAGS		" ; $BINECHO $CLUCENE_STATIC_LDFLAGS
 $BINECHO -n "UUID_STATIC_LDFLAGS		" ; $BINECHO $UUID_STATIC_LDFLAGS
 $BINECHO -n "ICU_STATIC_LDFLAGS		" ; $BINECHO $ICU_STATIC_LDFLAGS

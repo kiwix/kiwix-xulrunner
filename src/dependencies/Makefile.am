@@ -1,8 +1,8 @@
 
 # OSX uses fat binaries
 if IS_OSX
-COMPC="gcc -arch i386 -arch x86_64"
-COMPCXX="g++ -arch i386 -arch x86_64"
+COMPC=gcc -arch i386 -arch x86_64
+COMPCXX=g++ -arch i386 -arch x86_64
 else
 COMPC=$(CC)
 COMPCXX=$(CXX)
@@ -348,11 +348,24 @@ e2fsprogs-1.42/lib/libuuid.a: e2fsprogs-1.42
 pugixml-1.2.tar.gz:
 	$(DOWNLOADER) pugixml-1.2.tar.gz $(DEP_MIRROR)/pugixml-1.2.tar.gz
 
-pugixml: pugixml-1.2.tar.gz
-	test -d pugixml || mkdir pugixml; tar xf pugixml-1.2.tar.gz -C pugixml
+pugixml-1.2: pugixml-1.2.tar.gz
+	test -d pugixml-1.2 || mkdir pugixml-1.2; tar xf pugixml-1.2.tar.gz -C pugixml-1.2
 
-pugixml/libpugixml.a: pugixml
-	test ! -f pugixml/libpugixml.a && cd pugixml && $(CXX) -c src/pugixml.cpp -o pugixml.o && ar rvs libpugixml.a pugixml.o || true
+pugixml-1.2/libpugixml.a: pugixml-1.2
+if IS_OSX
+	test ! -f pugixml-1.2/libpugixml.a && cd pugixml-1.2 && rm -f *.o *.a && $(COMPCXX) -fPIC -c src/pugixml.cpp -o libpugixml.o && libtool -static -o libpugixml.a libpugixml.o || true
+else
+	test ! -f pugixml-1.2/libpugixml.a && cd pugixml-1.2 && rm -f *.o *.a && $(COMPCXX) -fPIC -c src/pugixml.cpp -o libpugixml.o && ar rvs libpugixml.a libpugixml.o || true
+endif
+
+pugixml-1.2/libpugixml.dylib: pugixml-1.2
+	test ! -f pugixml-1.2/libpugixml.dylib && cd pugixml-1.2 && rm -f *.o && $(COMPCXX) -fPIC -c src/pugixml.cpp -o libpugixml.o && $(COMPCXX) -shared -o libpugixml.dylib libpugixml.o || true
+
+pugixml-1.2/libpugixml.so: pugixml-1.2
+	test ! -f pugixml-1.2/libpugixml.so && cd pugixml-1.2 && rm -f *.o *.so && $(COMPCXX) -fPIC -c src/pugixml.cpp -o libpugixml.o && $(COMPCXX) -shared -o libpugixml.so libpugixml.o || true
+
+pugixml-1.2/pugixml.lib: pugixml-1.2
+	test ! -f pugixml-1.2/pugixml.lib && cd pugixml-1.2 && rm -f vc90* *.o pugixml.lib && cl.exe CFLAGS=-O2 -Oi -I"./"  -D"WIN32" -FD -EHsc -MT -Gy -nologo -c -Zi -TP *.cpp && link.exe -lib -NOLOGO -NODEFAULTLIB:"MSVCRT" -MACHINE:X86 -OUT:pugixml.lib *.obj || true
 
 ####################################################
 ############ ARGTABLE
@@ -492,7 +505,7 @@ clean-local:
 	-rm -rf zlib-1.2.3
 	-rm -rf xapian-core-1.2.3
 	-rm -rf icu
-	-rm -rf pugixml
+	-rm -rf pugixml-1.2
 	-rm -rf libmicrohttpd-0.9.19
 	-rm -rf xz
 	-rm -rf xz-5.0.4
