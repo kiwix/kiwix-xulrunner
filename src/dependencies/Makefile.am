@@ -135,7 +135,7 @@ zlib-1.2.3/shared/lib/libz.dylib: zlib-1.2.3 zlib-1.2.3/static/lib/libz.a
 
 # Windows
 zlib-1.2.3/zlib.lib: zlib-1.2.3
-	test ! -f zlib-1.2.3/zlib.lib && cd zlib-1.2.3 ; cp ./win32/Makefile.msc ./ ; sed -e "s/\\-MD/\\-MT/" Makefile.msc > Makefile.msc.custom ; export MAKEFLAGS=; nmake.exe -f Makefile.msc.custom || true
+	test ! -f zlib-1.2.3/zlib.lib && cd zlib-1.2.3 && cp win32/Makefile.msc . && sed -e "s/\\-MD/\\-MT/" Makefile.msc > Makefile.msc.custom && export MAKEFLAGS="" && nmake.exe -f Makefile.msc.custom || true
 
 ####################################################
 ############ XAPIAN
@@ -365,7 +365,7 @@ pugixml-1.2/libpugixml.so: pugixml-1.2
 	test ! -f pugixml-1.2/libpugixml.so && cd pugixml-1.2 && rm -f *.o *.so && $(COMPCXX) -fPIC -c src/pugixml.cpp -o libpugixml.o && $(COMPCXX) -shared -o libpugixml.so libpugixml.o || true
 
 pugixml-1.2/pugixml.lib: pugixml-1.2
-	test ! -f pugixml-1.2/pugixml.lib && cd pugixml-1.2 && rm -f vc90* *.o pugixml.lib && cl.exe CFLAGS=-O2 -Oi -I"./"  -D"WIN32" -FD -EHsc -MT -Gy -nologo -c -Zi -TP *.cpp && link.exe -lib -NOLOGO -NODEFAULTLIB:"MSVCRT" -MACHINE:X86 -OUT:pugixml.lib *.obj || true
+	test ! -f pugixml-1.2/pugixml.lib && cd pugixml-1.2 && rm -f vc90* *.o pugixml.lib && cl.exe CFLAGS=-O2 -Oi -I"./"  -D"WIN32" -FD -EHsc -MT -Gy -nologo -c -Zi -TP src/*.cpp && link.exe -lib -NOLOGO -NODEFAULTLIB:"MSVCRT" -MACHINE:X86 -OUT:pugixml.lib *.obj || true
 
 ####################################################
 ############ ARGTABLE
