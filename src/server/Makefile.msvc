@@ -3,7 +3,7 @@ LD=link.exe
 
 # Global paths
 ZIM=../dependencies/zimlib-1.1
-PUGIXML=../dependencies/pugixml-1.2
+PUGIXML=../dependencies/pugixml-1.2/src
 ICU=../dependencies/icu
 CTPP2=../ctpp2
 ARGTABLE=../dependencies/argtable2-13
