@@ -3,19 +3,21 @@ LD=link.exe
 
 # Global paths
 Z=../../zlib-1.2.3
-LZMA=../../xz-win/
+LZMAW=../../xz-win
+LZMA=../../xz
 
 # Include paths
 Z_INCLUDE=${Z}
+LZMAW_INCLUDE=${LZMAW}/include
 LZMA_INCLUDE=${LZMA}/include
 
 # Lib paths
 Z_LIB=${Z}
-LZMA_LIB=${LZMA}/bin_i486
+LZMAW_LIB=${LZMAW}/bin_i486
 
 # Compiler and linker flags
-CFLAGS=-O2 -Oi -I"../include/win" -I"../include" -I"${LZMA_INCLUDE}" -I"${Z_INCLUDE}" -D"WIN32" -FD -EHsc -MT -Gy  -nologo -c -Zi -TP
-LDFLAGS=-LIBPATH:"$(Z_LIB)"  -LIBPATH:"${LZMA_LIB}"
+CFLAGS=-O2 -Oi -I"../include/win" -I"../include" -I"${LZMAW_INCLUDE}" -I"${Z_INCLUDE}" -D"WIN32" -FD -EHsc -MT -Gy  -nologo -c -Zi -TP
+LDFLAGS=-LIBPATH:"$(Z_LIB)"  -LIBPATH:"${LZMAW_LIB}"
 
 all: zim.lib
 
