@@ -364,7 +364,10 @@ pugixml-1.2/libpugixml.dylib: pugixml-1.2
 pugixml-1.2/libpugixml.so: pugixml-1.2
 	test ! -f pugixml-1.2/libpugixml.so && cd pugixml-1.2 && rm -f *.o *.so && $(COMPCXX) -fPIC -c src/pugixml.cpp -o libpugixml.o && $(COMPCXX) -shared -o libpugixml.so libpugixml.o || true
 
-pugixml-1.2/src/pugixml.lib: pugixml-1.2
+pugixml-1.2/src/config.h: pugixml-1.2
+	test ! -f pugixml-1.2/src/config.h && cd pugixml-1.2 && ./configure || true
+
+pugixml-1.2/src/pugixml.lib: pugixml-1.2/src/config.h
 	test ! -f pugixml-1.2/src/pugixml.lib && cd pugixml-1.2/src && rm -f vc90* *.o pugixml.lib && CFLAGS=-O2 cl.exe -Oi -I"./"  -D"WIN32" -FD -EHsc -MT -Gy -nologo -c -Zi -TP *.cpp && link.exe -lib -NOLOGO -NODEFAULTLIB:"MSVCRT" -MACHINE:X86 -OUT:pugixml.lib *.obj || true
 
 ####################################################
