@@ -441,8 +441,15 @@ android-deps: android-ndk-r8e android-sdk/sdk/platforms/android-14 xz
 zimlib-1.1.tar.gz:
 	$(DOWNLOADER) zimlib-1.1.tar.gz $(DEP_MIRROR)/zimlib-1.1.tar.gz
 
-zimlib-1.1: zimlib-1.1.tar.gz
-	tar xf zimlib-1.1.tar.gz
+# zimlib-1.1: zimlib-1.1.tar.gz
+# 	tar xf zimlib-1.1.tar.gz
+
+zimlib-master.zip:
+	$(DOWNLOADER) zimlib-master.zip http://github.com/kiwix/openzim/archive/master.zip
+
+zimlib-1.1: zimlib-master.zip
+	unzip -o zimlib-master.zip
+	mv openzim-master/zimlib zimlib-1.1
 
 # OSX i386
 zimlib-1.1/build-i386/lib/libzim.dylib zimlib-1.1/build-i386/lib/libzim.a: zimlib-1.1 xz/build/lib/liblzma.dylib
@@ -462,7 +469,8 @@ zimlib-1.1/build/lib/libzim.so: zimlib-1.1
 
 # Win32
 zimlib-1.1/src/config.h: zimlib-1.1
-	test ! -f zimlib-1.1/src/config.h && cp patches/zimlib_config.h zimlib-1.1/src/config.h && cd zimlib-1.1 && patch -p2 < ../patches/zimlib-win32-headers-instead-of-unix.patch || true
+	test ! -f zimlib-1.1/src/config.h && cp patches/zimlib_config.h zimlib-1.1/src/config.h && cd zimlib-1.1 || true
+# && patch -p2 < ../patches/zimlib-win32-headers-instead-of-unix.patch
 
 zimlib-1.1/src/zim.lib: zimlib-1.1 zimlib-1.1/src/config.h xz-win/bin_i486/liblzma.lib zlib-1.2.3/zlib.lib
 	test ! -f zimlib-1.1/src/zim.lib && cd zimlib-1.1/src && cp ../../patches/Makefile.zimlib.msvc Makefile.msvc && make -f Makefile.msvc || true
