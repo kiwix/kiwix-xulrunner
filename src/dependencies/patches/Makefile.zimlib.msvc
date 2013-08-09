@@ -26,6 +26,7 @@ objs:
 	rm -f vc90*
 	rm -f bunzip2stream.cpp bzip2.cpp bzip2stream.cpp
 	$(CC) $(CFLAGS) *.cpp
+	$(CC) $(CFLAGS) *.c
 
 zim.lib: objs
 	$(LD) -lib -NOLOGO -NODEFAULTLIB:"MSVCRT" -MACHINE:X86 -OUT:zim.lib $(LDFLAGS) zlib.lib liblzma.lib *.obj
