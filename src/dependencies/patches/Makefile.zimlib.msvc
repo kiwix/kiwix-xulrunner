@@ -2,8 +2,8 @@ CC=cl.exe
 LD=link.exe
 
 # Global paths
-Z=../../dependencies/zlib-1.2.3
-LZMA=../../dependencies/xz-win/
+Z=../../zlib-1.2.3
+LZMA=../../xz-win/
 
 # Include paths
 Z_INCLUDE=${Z}

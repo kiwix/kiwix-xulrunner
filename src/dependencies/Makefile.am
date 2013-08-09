@@ -364,8 +364,8 @@ pugixml-1.2/libpugixml.dylib: pugixml-1.2
 pugixml-1.2/libpugixml.so: pugixml-1.2
 	test ! -f pugixml-1.2/libpugixml.so && cd pugixml-1.2 && rm -f *.o *.so && $(COMPCXX) -fPIC -c src/pugixml.cpp -o libpugixml.o && $(COMPCXX) -shared -o libpugixml.so libpugixml.o || true
 
-pugixml-1.2/pugixml.lib: pugixml-1.2
-	test ! -f pugixml-1.2/pugixml.lib && cd pugixml-1.2 && rm -f vc90* *.o pugixml.lib && cl.exe CFLAGS=-O2 -Oi -I"./"  -D"WIN32" -FD -EHsc -MT -Gy -nologo -c -Zi -TP src/*.cpp && link.exe -lib -NOLOGO -NODEFAULTLIB:"MSVCRT" -MACHINE:X86 -OUT:pugixml.lib *.obj || true
+pugixml-1.2/src/pugixml.lib: pugixml-1.2
+	test ! -f pugixml-1.2/src/pugixml.lib && cd pugixml-1.2/src && rm -f vc90* *.o pugixml.lib && cl.exe CFLAGS=-O2 -Oi -I"./"  -D"WIN32" -FD -EHsc -MT -Gy -nologo -c -Zi -TP *.cpp && link.exe -lib -NOLOGO -NODEFAULTLIB:"MSVCRT" -MACHINE:X86 -OUT:pugixml.lib *.obj || true
 
 ####################################################
 ############ ARGTABLE
@@ -461,7 +461,7 @@ zimlib-1.1/build/lib/libzim.so: zimlib-1.1
 	test ! -f zimlib-1.1/build/lib/libzim.so && cd zimlib-1.1 && mkdir -p build && CC=$(COMPC) CXX=$(COMPCXX) CFLAGS=" -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE " ./configure --enable-shared --with-pic --prefix=$(DEP_PATH)/zimlib-1.1/build --enable-static --disable-libtool-lock && make clean && make && make install || true
 
 # Win32
-zimlib-1.1/src/zim.lib: zimlib-1.1 xz-win/bin_i486/liblzma.lib zlib-1.2.3/zlib.lib
+zimlib-1.1/src/zim.lib: zimlib-1.1 xz-win/bin_i486/liblzma.lib zlib-1.2.3/zlib.lib xz
 	test ! -f zimlib-1.1/src/zim.lib && cd zimlib-1.1/src && cp ../../patches/Makefile.zimlib.msvc Makefile.msvc && make -f Makefile.msvc || true
 
 ####################################################
