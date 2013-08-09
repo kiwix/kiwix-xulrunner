@@ -1,0 +1,80 @@
+From a79aa2885e6adadd250877702df06d338865074b Mon Sep 17 00:00:00 2001
+From: renaud gaudin <rgaudin@gmail.com>
+Date: Fri, 9 Aug 2013 14:45:22 +0800
+Subject: [PATCH] win32 headers instead of unix
+
+---
+ zimlib/include/zim/cache.h      | 7 +++++++
+ zimlib/include/zim/fileheader.h | 7 +++++++
+ zimlib/include/zim/zim.h        | 2 +-
+ zimlib/src/zimcreator.cpp       | 4 ++++
+ 4 files changed, 19 insertions(+), 1 deletion(-)
+
+diff --git a/zimlib/include/zim/cache.h b/zimlib/include/zim/cache.h
+index 51a889f..c0ea6a7 100644
+--- a/zimlib/include/zim/cache.h
++++ b/zimlib/include/zim/cache.h
+@@ -24,6 +24,13 @@
+ #include <limits>
+ #include <iostream>
+ 
++#ifdef _WIN32
++#define NOMINMAX
++#  include <windows.h>
++#undef NOMINMAX
++#undef max
++#endif
++
+ namespace zim
+ {
+   /**
+diff --git a/zimlib/include/zim/fileheader.h b/zimlib/include/zim/fileheader.h
+index a34ed72..46d7fc5 100644
+--- a/zimlib/include/zim/fileheader.h
++++ b/zimlib/include/zim/fileheader.h
+@@ -26,6 +26,13 @@
+ #include <iosfwd>
+ #include <limits>
+ 
++#ifdef _WIN32
++#define NOMINMAX
++#  include <windows.h>
++#undef NOMINMAX
++#undef max
++#endif
++
+ namespace zim
+ {
+   class Fileheader
+diff --git a/zimlib/include/zim/zim.h b/zimlib/include/zim/zim.h
+index fb88a39..08965b2 100644
+--- a/zimlib/include/zim/zim.h
++++ b/zimlib/include/zim/zim.h
+@@ -107,7 +107,7 @@ namespace zim
+ #endif
+ 
+   typedef uint32_t size_type;
+-  
++
+   #ifdef _WIN32
+   typedef __int64 offset_type;
+   #else
+diff --git a/zimlib/src/zimcreator.cpp b/zimlib/src/zimcreator.cpp
+index bbc9420..cabb2f5 100644
+--- a/zimlib/src/zimcreator.cpp
++++ b/zimlib/src/zimcreator.cpp
+@@ -24,7 +24,11 @@
+ #include <zim/endian.h>
+ #include <algorithm>
+ #include <fstream>
++#ifdef _WIN32
++#include <io.h>
++#else
+ #include <unistd.h>
++#endif
+ #include <stdio.h>
+ #include <limits>
+ #include <stdexcept>
+-- 
+1.8.2.1
+

@@ -24,6 +24,7 @@ all: zim.lib
 
 objs:
 	rm -f vc90*
+	rm -f bunzip2stream.cpp bzip2.cpp bzip2stream.cpp
 	$(CC) $(CFLAGS) *.cpp
 
 zim.lib: objs

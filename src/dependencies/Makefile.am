@@ -462,7 +462,7 @@ zimlib-1.1/build/lib/libzim.so: zimlib-1.1
 
 # Win32
 zimlib-1.1/src/config.h: zimlib-1.1
-	test ! -f zimlib-1.1/src/config.h && cp patches/zimlib_config.h zimlib-1.1/src/config.h || true
+	test ! -f zimlib-1.1/src/config.h && cp patches/zimlib_config.h zimlib-1.1/src/config.h && cd zimlib-1.1 && patch -p2 < ../patches/zimlib-win32-headers-instead-of-unix.patch || true
 
 zimlib-1.1/src/zim.lib: zimlib-1.1 zimlib-1.1/src/config.h xz-win/bin_i486/liblzma.lib zlib-1.2.3/zlib.lib
 	test ! -f zimlib-1.1/src/zim.lib && cd zimlib-1.1/src && cp ../../patches/Makefile.zimlib.msvc Makefile.msvc && make -f Makefile.msvc || true
