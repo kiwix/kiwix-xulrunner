@@ -124,14 +124,14 @@ zlib-1.2.3: zlib.tar.gz
 
 # Linux
 zlib-1.2.3/static/lib/libz.a: zlib-1.2.3
-	test ! -f zlib-1.2.3/static/lib/libz.a && cd zlib-1.2.3 && mkdir -p static && CC=$(COMPC) CXX=$(COMPCXX) CFLAGS=" -fPIC " ./configure --prefix=$(DEP_PATH)/zlib-1.2.3/static && make clean && make && make install || true
+	test ! -f zlib-1.2.3/static/lib/libz.a && cd zlib-1.2.3 && mkdir -p static && CC="$(COMPC)" CXX="$(COMPCXX)" CFLAGS=" -fPIC " ./configure --prefix=$(DEP_PATH)/zlib-1.2.3/static && make clean && make && make install || true
 
 zlib-1.2.3/shared/lib/libz.so: zlib-1.2.3 zlib-1.2.3/static/lib/libz.a
-	test ! -f zlib-1.2.3/shared/lib/libz.so && cd zlib-1.2.3 && mkdir -p shared && CC=$(COMPC) CXX=$(COMPCXX) CFLAGS=" -fPIC " ./configure --shared --prefix=$(DEP_PATH)/zlib-1.2.3/shared && make clean && make && make install || true
+	test ! -f zlib-1.2.3/shared/lib/libz.so && cd zlib-1.2.3 && mkdir -p shared && CC="$(COMPC)" CXX="$(COMPCXX)" CFLAGS=" -fPIC " ./configure --shared --prefix=$(DEP_PATH)/zlib-1.2.3/shared && make clean && make && make install || true
 
 # OSX
 zlib-1.2.3/shared/lib/libz.dylib: zlib-1.2.3 zlib-1.2.3/static/lib/libz.a
-	test ! -f zlib-1.2.3/shared/lib/libz.dylib && cd zlib-1.2.3 && mkdir -p shared && CC=$(COMPC) CXX=$(COMPCXX) CFLAGS=" -fPIC  " ./configure --shared --prefix=$(DEP_PATH)/zlib-1.2.3/shared && make clean && make && make install && install_name_tool -id libz.dylib shared/lib/libz.dylib || true
+	test ! -f zlib-1.2.3/shared/lib/libz.dylib && cd zlib-1.2.3 && mkdir -p shared && CC="$(COMPC)" CXX="$(COMPCXX)" CFLAGS=" -fPIC  " ./configure --shared --prefix=$(DEP_PATH)/zlib-1.2.3/shared && make clean && make && make install && install_name_tool -id libz.dylib shared/lib/libz.dylib || true
 
 # Windows
 zlib-1.2.3/zlib.lib: zlib-1.2.3
@@ -233,7 +233,7 @@ libmicrohttpd-0.9.19: libmicrohttpd-0.9.19.tar.gz
 	test -d libmicrohttpd-0.9.19 || tar xf libmicrohttpd-0.9.19.tar.gz
 
 libmicrohttpd-0.9.19/build/lib/libmicrohttpd.so: libmicrohttpd-0.9.19
-	test ! -f libmicrohttpd-0.9.19/build/lib/libmicrohttpd.so && cd libmicrohttpd-0.9.19 && mkdir -p build && CC=$(COMPC) CXX=$(COMPCXX) CFLAGS=" -fPIC " ./configure --enable-shared --enable-static --disable-https --without-libgcrypt --without-libcurl --prefix=$(DEP_PATH)/libmicrohttpd-0.9.19/build  && make clean && make && make install || true
+	test ! -f libmicrohttpd-0.9.19/build/lib/libmicrohttpd.so && cd libmicrohttpd-0.9.19 && mkdir -p build && CC="$(COMPC)" CXX="$(COMPCXX)" CFLAGS=" -fPIC " ./configure --enable-shared --enable-static --disable-https --without-libgcrypt --without-libcurl --prefix=$(DEP_PATH)/libmicrohttpd-0.9.19/build  && make clean && make && make install || true
 
 # OSX Join
 libmicrohttpd-0.9.19/build/lib/libmicrohttpd.dylib: libmicrohttpd-0.9.19/build-i386/lib/libmicrohttpd.dylib libmicrohttpd-0.9.19/build-x86_64/lib/libmicrohttpd.dylib
@@ -266,7 +266,7 @@ xz: xz.tar.bz2
 	test -d xz-5.0.4 && mv xz-5.0.4 xz
 
 xz/build/lib/liblzma.so: xz
-	test ! -f xz/build/lib/liblzma.so && cd xz && mkdir -p build && CC=$(COMPC) CXX=$(COMPCXX) CFLAGS=" -fPIC " ./configure --disable-assembler --enable-shared --enable-static --prefix=$(DEP_PATH)/xz/build && make clean && make && make install || true
+	test ! -f xz/build/lib/liblzma.so && cd xz && mkdir -p build && CC="$(COMPC)" CXX="$(COMPCXX)" CFLAGS=" -fPIC " ./configure --disable-assembler --enable-shared --enable-static --prefix=$(DEP_PATH)/xz/build && make clean && make && make install || true
 
 # OSX Join
 xz/build/lib/liblzma.dylib: xz/build-i386/lib/liblzma.dylib xz/build-x86_64/lib/liblzma.dylib
@@ -314,7 +314,7 @@ clucene-core-0.9.21b: clucene-core-0.9.21b.tar.bz2
 	test -d clucene-core-0.9.21b || tar xf clucene-core-0.9.21b.tar.bz2
 
 clucene-core-0.9.21b/build/lib/libclucene.so: clucene-core-0.9.21b
-	test ! -f clucene-core-0.9.21b/build/lib/libclucene.so && cd clucene-core-0.9.21b && mkdir -p build && CC=$(COMPC) CXX=$(COMPCXX) CXXFLAGS=" -fPIC " ./configure --enable-shared --enable-static --prefix=$(DEP_PATH)/clucene-core-0.9.21b/build && make clean && make && make install || true
+	test ! -f clucene-core-0.9.21b/build/lib/libclucene.so && cd clucene-core-0.9.21b && mkdir -p build && CC="$(COMPC)" CXX="$(COMPCXX)" CXXFLAGS=" -fPIC " ./configure --enable-shared --enable-static --prefix=$(DEP_PATH)/clucene-core-0.9.21b/build && make clean && make && make install || true
 
 # OSX Join
 clucene-core-0.9.21b/build/lib/libclucene.dylib: clucene-core-0.9.21b/build-i386/lib/libclucene.dylib clucene-core-0.9.21b/build-x86_64/lib/libclucene.dylib
@@ -339,7 +339,7 @@ e2fsprogs-1.42: e2fsprogs-1.42.tar.gz
 	test -d e2fsprogs-1.42 || tar xf e2fsprogs-1.42.tar.gz
 
 e2fsprogs-1.42/lib/libuuid.a: e2fsprogs-1.42
-	test ! -f e2fsprogs-1.42/lib/libuuid.a && mkdir -p e2fsprogs-1.42/build && cd e2fsprogs-1.42/ && CC=$(COMPC) CXX=$(COMPCXX) CXXFLAGS=" -fPIC " ./configure --enable-libuuid --prefix=$(DEP_PATH)/e2fsprogs-1.42/build && make clean && make && make install || true
+	test ! -f e2fsprogs-1.42/lib/libuuid.a && mkdir -p e2fsprogs-1.42/build && cd e2fsprogs-1.42/ && CC="$(COMPC)" CXX="$(COMPCXX)" CXXFLAGS=" -fPIC " ./configure --enable-libuuid --prefix=$(DEP_PATH)/e2fsprogs-1.42/build && make clean && make && make install || true
 
 ####################################################
 ############ PUGIXML
@@ -366,6 +366,25 @@ pugixml-1.2/libpugixml.so: pugixml-1.2
 
 pugixml-1.2/src/pugixml.lib: pugixml-1.2
 	test ! -f pugixml-1.2/src/pugixml.lib && cd pugixml-1.2/src && rm -f vc90* *.o pugixml.lib && cl.exe -O2 -Oi -I"./"  -D"WIN32" -FD -EHsc -MT -Gy -nologo -c -Zi -TP *.cpp && link.exe -lib -NOLOGO -NODEFAULTLIB:"MSVCRT" -MACHINE:X86 -OUT:pugixml.lib *.obj || true
+
+
+####################################################
+############ CTPP2
+####################################################
+
+ctpp2-2.8.3.tar.gz:
+	$(DOWNLOADER) ctpp2-2.8.3.tar.gz $(DEP_MIRROR)/ctpp2-2.8.3.tar.gz
+
+ctpp2-2.8.3: ctpp2-2.8.3.tar.gz
+	test -d ctpp2-2.8.3 || tar xf ctpp2-2.8.3.tar.gz || true
+
+# OSX & Linux
+ctpp2-2.8.3/build/complete/lib/libctpp2.${SHARED_EXT} ctpp2-2.8.3/build/complete/lib/libctpp2-st.a: ctpp2-2.8.3
+	test ! -f 2-2.8.3/build/complete/lib/libctpp2.${SHARED_EXT} && rm -rf ctpp2-2.8.3/build && mkdir -p ctpp2-2.8.3/build && cd ctpp2-2.8.3/build && CC="$(COMPC)" CXX="$(COMPCXX)" CXXFLAGS="-fPIC -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE" cmake -DCMAKE_INSTALL_PREFIX=./complete .. && make && make install || true
+
+# Windows
+ctpp2.2.8.3/src/ctpp2.lib: ctpp2-2.8.3
+	test ! -f ctpp2.2.8.3/src/ctpp2.lib && cd ctpp2.2.8.3/src && rm -f vc90* && cl.exe -O2 -Oi -I"../include"  -I"../include/functions" -D"WIN32" -FD -EHsc -MT -Gy -nologo -c -Zi -TP *.cpp functions/*.cpp && link.exe -lib -NOLOGO -NODEFAULTLIB:"MSVCRT" -MACHINE:X86 -OUT:ctpp2.lib *.obj || true
 
 ####################################################
 ############ ARGTABLE
@@ -445,11 +464,10 @@ zimlib-1.1.tar.gz:
 # 	tar xf zimlib-1.1.tar.gz
 
 zimlib-master.zip:
-	$(DOWNLOADER) zimlib-master.zip http://github.com/kiwix/openzim/archive/master.zip
+	$(DOWNLOADER) zimlib-master.zip --no-check-certificate https://github.com/kiwix/openzim/archive/master.zip
 
 zimlib-1.1: zimlib-master.zip
-	unzip -o zimlib-master.zip
-	mv openzim-master/zimlib zimlib-1.1
+	unzip -o zimlib-master.zip && mv openzim-master/zimlib zimlib-1.1 && cd zimlib-1.1 && touch Makefile.in && ./autogen.sh || true
 
 # OSX i386
 zimlib-1.1/build-i386/lib/libzim.dylib zimlib-1.1/build-i386/lib/libzim.a: zimlib-1.1 xz/build/lib/liblzma.dylib
@@ -465,7 +483,7 @@ zimlib-1.1/build/lib/libzim.dylib zimlib-1.1/build/lib/libzim.a: zimlib-1.1/buil
 
 # Linux
 zimlib-1.1/build/lib/libzim.so: zimlib-1.1
-	test ! -f zimlib-1.1/build/lib/libzim.so && cd zimlib-1.1 && mkdir -p build && CC=$(COMPC) CXX=$(COMPCXX) CFLAGS=" -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE " ./configure --enable-shared --with-pic --prefix=$(DEP_PATH)/zimlib-1.1/build --enable-static --disable-libtool-lock && make clean && make && make install || true
+	test ! -f zimlib-1.1/build/lib/libzim.so && cd zimlib-1.1 && mkdir -p build && CC="$(COMPC)" CXX="$(COMPCXX)" CFLAGS=" -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE " ./configure --enable-shared --with-pic --prefix=$(DEP_PATH)/zimlib-1.1/build --enable-static --disable-libtool-lock && make clean && make && make install || true
 
 # Win32
 zimlib-1.1/src/config.h: zimlib-1.1

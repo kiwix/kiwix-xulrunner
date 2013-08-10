@@ -1,4 +1,4 @@
-SUBDIRS = man ctpp2
+SUBDIRS = man
 
 if WITH_COMPONENTS
 SUBDIRS += components

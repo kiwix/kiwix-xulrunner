@@ -1,5 +1,5 @@
 bin_PROGRAMS=kiwix-index
-AM_CPPFLAGS=-I$(top_srcdir)/src/common -I$(top_srcdir)/src/ctpp2/include
+AM_CPPFLAGS=-I$(top_srcdir)/src/common
 kiwix_index_SOURCES= \
 	kiwix-index.cpp \
 	../common/kiwix/xapian/myhtmlparse.cc \
@@ -9,6 +9,7 @@ kiwix_index_SOURCES= \
 	../common/pathTools.cpp \
 	../common/kiwix/indexer.cpp \
 	../common/kiwix/reader.cpp \
+	../common/kiwix/ctpp2/CTPP2TextLoader.cpp \
 	../common/kiwix/xapianIndexer.cpp \
 	../common/kiwix/cluceneIndexer.cpp \
 	../common/kiwix/xapian/myhtmlparse.h \
@@ -17,11 +18,12 @@ kiwix_index_SOURCES= \
 	../common/stringTools.h \
 	../common/resourceTools.h \
 	../common/pathTools.h \
+	../common/kiwix/ctpp2/CTPP2TextLoader.h \
 	../common/kiwix/indexer.h \
 	../common/kiwix/reader.h \
 	../common/kiwix/xapianIndexer.h \
 	../common/kiwix/cluceneIndexer.h
-kiwix_index_CXXFLAGS=$(LIBZIM_CFLAGS) $(XAPIAN_CFLAGS) $(CLUCENE_CFLAGS) $(ICU_CFLAGS) $(LZMA_CFLAGS) $(ZLIB_CFLAGS) -I../common/
+kiwix_index_CXXFLAGS=$(LIBZIM_CFLAGS) $(LIBCTPP2_CFLAGS) $(XAPIAN_CFLAGS) $(CLUCENE_CFLAGS) $(ICU_CFLAGS) $(LZMA_CFLAGS) $(ZLIB_CFLAGS) -I../common/
 
 kiwix_index_LDFLAGS=$(CHECK_LDFLAGS)
 
