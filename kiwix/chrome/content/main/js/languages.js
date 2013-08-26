@@ -56,6 +56,7 @@ _languagesHash['ita']          = _languagesHashOld['it']          = 'Italiano';
 _languagesHash['jav']          = _languagesHashOld['jv']          = 'Basa Jawa';
 _languagesHash['jpn']          = _languagesHashOld['ja']          = '日本語';
 _languagesHash['ka']           = 'ქართული';
+_languagesHash['kaz']          = _languagesHashOld['kk']          = 'Қазақша';
 _languagesHash['khm']          = _languagesHashOld['km']          = 'ភាសាខ្មែរ';
 _languagesHash['kn']           = 'ಕನ್ನಡ';
 _languagesHash['kor']          = _languagesHashOld['ko']          = '한국어';
