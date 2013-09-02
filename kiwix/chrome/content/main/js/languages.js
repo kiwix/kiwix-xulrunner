@@ -58,6 +58,7 @@ _languagesHash['jpn']          = _languagesHashOld['ja']          = '日本語';
 _languagesHash['ka']           = 'ქართული';
 _languagesHash['kaz']          = _languagesHashOld['kk']          = 'Қазақша';
 _languagesHash['khm']          = _languagesHashOld['km']          = 'ភាសាខ្មែរ';
+_languagesHash['kir']          = _languagesHashOld['ky']          = 'قىرعىز تىلى';
 _languagesHash['kn']           = 'ಕನ್ನಡ';
 _languagesHash['kor']          = _languagesHashOld['ko']          = '한국어';
 _languagesHash['kor-kp']       = _languagesHashOld['ko-kp']       = '조선어';
