@@ -128,6 +128,7 @@
 <!ENTITY preferences.save               "Spara">
 <!ENTITY preferences.cancel             "Avbryt">
 <!ENTITY preferences.profileDirectory   "Profilkatalog">
+<!ENTITY preferences.dataDirectory      "Data directory">
 <!ENTITY preferences.browse             "Bläddra">
 <!ENTITY preferences.tabs               "Kom ihåg flikar">
 <!ENTITY preferences.downloadCatalogs   "Ladda ned avlägsna katalog(er)">

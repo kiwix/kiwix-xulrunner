@@ -128,6 +128,7 @@
 <!ENTITY preferences.save               "Encartar">
 <!ENTITY preferences.cancel             "Anular">
 <!ENTITY preferences.profileDirectory   "Rèpèrtouèro du profil">
+<!ENTITY preferences.dataDirectory      "Data directory">
 <!ENTITY preferences.browse             "Dèfelar">
 <!ENTITY preferences.tabs               "Sè rapelar des ongllètes">
 <!ENTITY preferences.downloadCatalogs   "Tèlèchargiér lo(s) catalogo(s) distant(s)">

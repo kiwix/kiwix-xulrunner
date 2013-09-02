@@ -128,6 +128,7 @@
 <!ENTITY preferences.save               "Саклау">
 <!ENTITY preferences.cancel             "Баш тарту">
 <!ENTITY preferences.profileDirectory   "Профиль каталогы">
+<!ENTITY preferences.dataDirectory      "Data directory">
 <!ENTITY preferences.browse             "Карау">
 <!ENTITY preferences.tabs               "Кыстырмаларны истә тотарга">
 <!ENTITY preferences.downloadCatalogs   "Бетерелгән каталог(лар)ны йөкләргә">

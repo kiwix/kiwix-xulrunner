@@ -128,6 +128,7 @@
 <!ENTITY preferences.save               "خوندي کول">
 <!ENTITY preferences.cancel             "ناګارل">
 <!ENTITY preferences.profileDirectory   "پېژنيال لارښودټولګه">
+<!ENTITY preferences.dataDirectory      "Data directory">
 <!ENTITY preferences.browse             "سپړل">
 <!ENTITY preferences.tabs               "پاڼې په ياد ساتل">
 <!ENTITY preferences.downloadCatalogs   "ليري کتلاک (کتلاکونه) ښکته کول">

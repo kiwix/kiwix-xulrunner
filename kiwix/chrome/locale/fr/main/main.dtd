@@ -128,6 +128,7 @@
 <!ENTITY preferences.save               "Enregistrer">
 <!ENTITY preferences.cancel             "Annuler">
 <!ENTITY preferences.profileDirectory   "Répertoire du profil">
+<!ENTITY preferences.dataDirectory      "Data directory">
 <!ENTITY preferences.browse             "Parcourir">
 <!ENTITY preferences.tabs               "Se souvenir des onglets ouverts en quittant Kiwix">
 <!ENTITY preferences.downloadCatalogs   "Télécharger le(s) catalogue(s) distant">
@@ -135,7 +136,7 @@
 
 <!-- Server -->
 <!ENTITY server.load                    "Charger">
-<!ENTITY server.start                   "Début">
+<!ENTITY server.start                   "Démarrer">
 <!ENTITY server.stop                    "Arrêt">
 <!ENTITY server.close                   "Fermer">
 

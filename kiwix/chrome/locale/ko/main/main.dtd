@@ -127,7 +127,8 @@
 <!ENTITY preferences.preferences        "환경 설정">
 <!ENTITY preferences.save               "저장">
 <!ENTITY preferences.cancel             "취소">
-<!ENTITY preferences.profileDirectory   "프로필 디렉토리">
+<!ENTITY preferences.profileDirectory   "프로필 디렉터리">
+<!ENTITY preferences.dataDirectory      "Data directory">
 <!ENTITY preferences.browse             "찾아보기">
 <!ENTITY preferences.tabs               "탭 저장하기">
 <!ENTITY preferences.downloadCatalogs   "원격 카탈로그 다운로드">

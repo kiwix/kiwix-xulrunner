@@ -75,7 +75,7 @@
 <!ENTITY main.randomArticle.accesskey   "Z">
 <!ENTITY main.checkIntegrity            "Integrity check">
 <!ENTITY main.checkIntegrity.accesskey  "k">
-<!ENTITY main.launchIndexing            "Launch indexing">
+<!ENTITY main.launchIndexing            "Iniciar la indexació">
 <!ENTITY main.purgeHistory              "Netejar historial">
 <!ENTITY main.purgeHistory.accesskey    "N">
 
@@ -128,10 +128,11 @@
 <!ENTITY preferences.save               "Save">
 <!ENTITY preferences.cancel             "Cancel">
 <!ENTITY preferences.profileDirectory   "Profile directory">
+<!ENTITY preferences.dataDirectory      "Data directory">
 <!ENTITY preferences.browse             "Browse">
 <!ENTITY preferences.tabs               "Recordeu tabs">
 <!ENTITY preferences.downloadCatalogs   "Descarregar catàlegs remots">
-<!ENTITY preferences.neverAskToIndex    "Never ask to index">
+<!ENTITY preferences.neverAskToIndex    "No preguntar mai per la indexació">
 
 <!-- Server -->
 <!ENTITY server.load                    "Carrega">

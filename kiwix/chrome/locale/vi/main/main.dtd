@@ -128,6 +128,7 @@
 <!ENTITY preferences.save               "Lưu">
 <!ENTITY preferences.cancel             "Hủy bỏ">
 <!ENTITY preferences.profileDirectory   "Thư mục Hồ sơ">
+<!ENTITY preferences.dataDirectory      "Data directory">
 <!ENTITY preferences.browse             "Duyệt">
 <!ENTITY preferences.tabs               "Nhớ các thẻ">
 <!ENTITY preferences.downloadCatalogs   "Tải về mục lục từ xa">

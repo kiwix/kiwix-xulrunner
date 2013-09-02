@@ -128,6 +128,7 @@
 <!ENTITY preferences.save               "ساخلا">
 <!ENTITY preferences.cancel             "پوز">
 <!ENTITY preferences.profileDirectory   "بؤلمه نمایه">
+<!ENTITY preferences.dataDirectory      "Data directory">
 <!ENTITY preferences.browse             "گؤزدن کئچیر">
 <!ENTITY preferences.tabs               "زبانه‌لری یادا ساخلاماق">
 <!ENTITY preferences.downloadCatalogs   "اوزاق Download کالانما (س)">

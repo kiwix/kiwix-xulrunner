@@ -128,6 +128,7 @@
 <!ENTITY preferences.save               "Salvesta">
 <!ENTITY preferences.cancel             "Loobu">
 <!ENTITY preferences.profileDirectory   "Profiili kaust">
+<!ENTITY preferences.dataDirectory      "Data directory">
 <!ENTITY preferences.browse             "Sirvi">
 <!ENTITY preferences.tabs               "Pea kaardid meeles">
 <!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">

@@ -128,6 +128,7 @@
 <!ENTITY preferences.save               "Składować">
 <!ENTITY preferences.cancel             "Přetorhnyć">
 <!ENTITY preferences.profileDirectory   "Profilowy rjadowak">
+<!ENTITY preferences.dataDirectory      "Data directory">
 <!ENTITY preferences.browse             "Přepytać">
 <!ENTITY preferences.tabs               "Rajtarki sej spomjatkować">
 <!ENTITY preferences.downloadCatalogs   "Zdalene katalogi sćahnyć">

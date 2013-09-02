@@ -128,6 +128,7 @@
 <!ENTITY preferences.save               "Огәтеј">
 <!ENTITY preferences.cancel             "Ләғв кардеј">
 <!ENTITY preferences.profileDirectory   "Профили сијоһи">
+<!ENTITY preferences.dataDirectory      "Data directory">
 <!ENTITY preferences.browse             "Чәшонку дәвоније">
 <!ENTITY preferences.tabs               "Әлфәҹинон јодәдә огәтеј">
 <!ENTITY preferences.downloadCatalogs   "Дијәроәдә быә сијоһи(јон) окырније">

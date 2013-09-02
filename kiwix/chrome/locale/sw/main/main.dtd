@@ -128,6 +128,7 @@
 <!ENTITY preferences.save               "Hifadhi">
 <!ENTITY preferences.cancel             "Batilisha">
 <!ENTITY preferences.profileDirectory   "Saraka ya profaili">
+<!ENTITY preferences.dataDirectory      "Data directory">
 <!ENTITY preferences.browse             "Vinjari">
 <!ENTITY preferences.tabs               "Kumbuka tabo">
 <!ENTITY preferences.downloadCatalogs   "Pakua orodha ya (za) mbali">

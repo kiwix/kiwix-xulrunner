@@ -128,6 +128,7 @@
 <!ENTITY preferences.save               "Star ke">
 <!ENTITY preferences.cancel             "Bıtexelne">
 <!ENTITY preferences.profileDirectory   "Peşiya Profili">
+<!ENTITY preferences.dataDirectory      "Data directory">
 <!ENTITY preferences.browse             "Çımpawe">
 <!ENTITY preferences.tabs               "na tab xo vira mekeri">
 <!ENTITY preferences.downloadCatalogs   "Duri ra katalog(an) ronê">

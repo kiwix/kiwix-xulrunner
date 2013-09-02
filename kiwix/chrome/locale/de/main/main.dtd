@@ -128,6 +128,7 @@
 <!ENTITY preferences.save               "Speichern">
 <!ENTITY preferences.cancel             "Abbrechen">
 <!ENTITY preferences.profileDirectory   "Profilverzeichnis">
+<!ENTITY preferences.dataDirectory      "Data directory">
 <!ENTITY preferences.browse             "Durchsuchen">
 <!ENTITY preferences.tabs               "Reiter merken">
 <!ENTITY preferences.downloadCatalogs   "Externe(n) Katalog(e) herunterladen">

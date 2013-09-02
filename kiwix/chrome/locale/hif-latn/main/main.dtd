@@ -128,6 +128,7 @@
 <!ENTITY preferences.save               "Bachao">
 <!ENTITY preferences.cancel             "Cancel karo">
 <!ENTITY preferences.profileDirectory   "Profile directory">
+<!ENTITY preferences.dataDirectory      "Data directory">
 <!ENTITY preferences.browse             "Browse karo">
 <!ENTITY preferences.tabs               "Tabs ke yaad rakkho">
 <!ENTITY preferences.downloadCatalogs   "Duur ke catalog ke download karo">

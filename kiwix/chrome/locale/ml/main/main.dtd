@@ -128,6 +128,7 @@
 <!ENTITY preferences.save               "സേവ് ചെയ്യുക">
 <!ENTITY preferences.cancel             "റദ്ദാക്കുക">
 <!ENTITY preferences.profileDirectory   "പ്രൊഫൈല്‍ ഡയറക്ടറി">
+<!ENTITY preferences.dataDirectory      "Data directory">
 <!ENTITY preferences.browse             "പരതുക">
 <!ENTITY preferences.tabs               "ടാബുകൾ ഓർമ്മിക്കുക">
 <!ENTITY preferences.downloadCatalogs   "വിദൂരസ്ഥ കാറ്റലോഗ് (കാറ്റലോഗുകൾ) ഡൗൺലോഡ് ചെയ്യുക">

@@ -128,6 +128,7 @@
 <!ENTITY preferences.save               "Lagre">
 <!ENTITY preferences.cancel             "Avbryt">
 <!ENTITY preferences.profileDirectory   "Profilmappe">
+<!ENTITY preferences.dataDirectory      "Data directory">
 <!ENTITY preferences.browse             "Sjå gjennom">
 <!ENTITY preferences.tabs               "Remember tabs">
 <!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">

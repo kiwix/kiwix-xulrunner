@@ -128,6 +128,7 @@
 <!ENTITY preferences.save               "Зберегти">
 <!ENTITY preferences.cancel             "Скасувати">
 <!ENTITY preferences.profileDirectory   "Папка профілю користувача">
+<!ENTITY preferences.dataDirectory      "Data directory">
 <!ENTITY preferences.browse             "Огляд">
 <!ENTITY preferences.tabs               "Збережені вкладки">
 <!ENTITY preferences.downloadCatalogs   "Завантажити віддалений каталог(и)">

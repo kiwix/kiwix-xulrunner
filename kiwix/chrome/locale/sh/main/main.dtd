@@ -128,6 +128,7 @@
 <!ENTITY preferences.save               "Snimi">
 <!ENTITY preferences.cancel             "Odustani">
 <!ENTITY preferences.profileDirectory   "Profiliraj direktorij">
+<!ENTITY preferences.dataDirectory      "Data directory">
 <!ENTITY preferences.browse             "Pregledaj">
 <!ENTITY preferences.tabs               "Remember tabs">
 <!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">

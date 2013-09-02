@@ -128,6 +128,7 @@
 <!ENTITY preferences.save               "Memorisar">
 <!ENTITY preferences.cancel             "Interrumper">
 <!ENTITY preferences.profileDirectory   "Ordinatur dal profil">
+<!ENTITY preferences.dataDirectory      "Data directory">
 <!ENTITY preferences.browse             "Navigar">
 <!ENTITY preferences.tabs               "Remember tabs">
 <!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">

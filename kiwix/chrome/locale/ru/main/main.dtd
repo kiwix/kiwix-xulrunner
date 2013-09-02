@@ -128,6 +128,7 @@
 <!ENTITY preferences.save               "Сохранить">
 <!ENTITY preferences.cancel             "Отмена">
 <!ENTITY preferences.profileDirectory   "Каталог профиля">
+<!ENTITY preferences.dataDirectory      "Data directory">
 <!ENTITY preferences.browse             "Обзор">
 <!ENTITY preferences.tabs               "Запомнить закладки">
 <!ENTITY preferences.downloadCatalogs   "Скачать удалённый(-ые) каталог(и)">

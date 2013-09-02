@@ -128,6 +128,7 @@
 <!ENTITY preferences.save               "स्वथनादिसँ">
 <!ENTITY preferences.cancel             "खारेज">
 <!ENTITY preferences.profileDirectory   "प्रोफाइल दिरेक्तरी">
+<!ENTITY preferences.dataDirectory      "Data directory">
 <!ENTITY preferences.browse             "ब्राउज">
 <!ENTITY preferences.tabs               "त्याब लुमंकादिसँ">
 <!ENTITY preferences.downloadCatalogs   "रिमोत क्यातालग(त) दाउनलोद यानादिसँ">

@@ -128,6 +128,7 @@
 <!ENTITY preferences.save               "ಸಂರಕ್ಷಿಸಿ">
 <!ENTITY preferences.cancel             "ರದ್ದುಗೊಳಿಸಿ">
 <!ENTITY preferences.profileDirectory   "ಸಂಕ್ಷಿಪ್ತ ವ್ಯಕ್ತಿಚಿತ್ರದ ಕೋಶ">
+<!ENTITY preferences.dataDirectory      "Data directory">
 <!ENTITY preferences.browse             "ವಿಹರಿಸಿ">
 <!ENTITY preferences.tabs               "ಟ್ಯಾಬ್ಗಳನ್ನು ನೆನಪಿನಲ್ಲಿಡಿ">
 <!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">

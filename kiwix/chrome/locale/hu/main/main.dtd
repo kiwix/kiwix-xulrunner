@@ -128,6 +128,7 @@
 <!ENTITY preferences.save               "Mentés">
 <!ENTITY preferences.cancel             "Mégse">
 <!ENTITY preferences.profileDirectory   "Profilkönyvtár">
+<!ENTITY preferences.dataDirectory      "Data directory">
 <!ENTITY preferences.browse             "Tallózás">
 <!ENTITY preferences.tabs               "Emlékezzen a fülekre">
 <!ENTITY preferences.downloadCatalogs   "Távoli katalógus(ok) letöltése">

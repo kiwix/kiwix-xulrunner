@@ -128,6 +128,7 @@
 <!ENTITY preferences.save               "சேமி">
 <!ENTITY preferences.cancel             "ரத்து செய்">
 <!ENTITY preferences.profileDirectory   "சுயகுறிப்பு அடைவு">
+<!ENTITY preferences.dataDirectory      "Data directory">
 <!ENTITY preferences.browse             "உலவு">
 <!ENTITY preferences.tabs               "தாவல்களை நினைவில் கொள்">
 <!ENTITY preferences.downloadCatalogs   "தொலைதூர வரிசைப் பட்டியலை(பட்டியல்களை) தகவலிறக்கு">

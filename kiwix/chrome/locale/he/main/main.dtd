@@ -128,6 +128,7 @@
 <!ENTITY preferences.save               "שמירה">
 <!ENTITY preferences.cancel             "ביטול">
 <!ENTITY preferences.profileDirectory   "תיקיית פרופיל">
+<!ENTITY preferences.dataDirectory      "Data directory">
 <!ENTITY preferences.browse             "עיון">
 <!ENTITY preferences.tabs               "לזכור לשוניות">
 <!ENTITY preferences.downloadCatalogs   "הורדת קטלוגים מרוחקים">

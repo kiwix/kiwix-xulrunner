@@ -128,6 +128,7 @@
 <!ENTITY preferences.save               "Stoor">
 <!ENTITY preferences.cancel             "Kanselleer">
 <!ENTITY preferences.profileDirectory   "Profielgids">
+<!ENTITY preferences.dataDirectory      "Data directory">
 <!ENTITY preferences.browse             "Blaai">
 <!ENTITY preferences.tabs               "Onthou oortjies">
 <!ENTITY preferences.downloadCatalogs   "Laai katalogus(se) af">

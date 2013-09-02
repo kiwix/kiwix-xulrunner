@@ -128,6 +128,7 @@
 <!ENTITY preferences.save               "រក្សាទុក">
 <!ENTITY preferences.cancel             "បោះបង់​">
 <!ENTITY preferences.profileDirectory   "ថតព័ត៌មានផ្ទាល់ខ្លួន">
+<!ENTITY preferences.dataDirectory      "Data directory">
 <!ENTITY preferences.browse             "រាវរក">
 <!ENTITY preferences.tabs               "ចងចាំផ្ទាំងរង">
 <!ENTITY preferences.downloadCatalogs   "ទាញយកកាតាឡុកពីចំងាយ">

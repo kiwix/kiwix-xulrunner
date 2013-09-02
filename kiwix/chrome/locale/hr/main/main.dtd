@@ -128,6 +128,7 @@
 <!ENTITY preferences.save               "Snimi">
 <!ENTITY preferences.cancel             "Odustani">
 <!ENTITY preferences.profileDirectory   "Direktorij profila">
+<!ENTITY preferences.dataDirectory      "Data directory">
 <!ENTITY preferences.browse             "Pregledaj">
 <!ENTITY preferences.tabs               "Zapamti kartice">
 <!ENTITY preferences.downloadCatalogs   "Preuzmi udaljeni(e) katalog(e)">

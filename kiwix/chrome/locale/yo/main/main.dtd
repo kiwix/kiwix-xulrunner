@@ -128,6 +128,7 @@
 <!ENTITY preferences.save               "Ìmúpamọ́">
 <!ENTITY preferences.cancel             "Fagilé">
 <!ENTITY preferences.profileDirectory   "Àpò orukọ">
+<!ENTITY preferences.dataDirectory      "Data directory">
 <!ENTITY preferences.browse             "Ìṣíwò">
 <!ENTITY preferences.tabs               "Rántí àwọn ìpele">
 <!ENTITY preferences.downloadCatalogs   "Ìrùjádé (àwọn) àpò fáìlì ọ̀ọ́kán">

@@ -128,10 +128,11 @@
 <!ENTITY preferences.save               "Saglabāt">
 <!ENTITY preferences.cancel             "Atcelt">
 <!ENTITY preferences.profileDirectory   "Profila direktorija">
+<!ENTITY preferences.dataDirectory      "Data directory">
 <!ENTITY preferences.browse             "Pārlūkot">
 <!ENTITY preferences.tabs               "Atcerēties cilnes">
 <!ENTITY preferences.downloadCatalogs   "Lejupielādēt attālos katalogus">
-<!ENTITY preferences.neverAskToIndex    "Never ask to index">
+<!ENTITY preferences.neverAskToIndex    "Nekad nejautāt, vai indeksēt">
 
 <!-- Server -->
 <!ENTITY server.load                    "Ielādēt">

@@ -128,6 +128,7 @@
 <!ENTITY preferences.save               "သိမ်းရန်">
 <!ENTITY preferences.cancel             "မလုပ်တော့">
 <!ENTITY preferences.profileDirectory   "မှတ်တမ်းများ မှတ်သားရာနေရာ">
+<!ENTITY preferences.dataDirectory      "Data directory">
 <!ENTITY preferences.browse             "ရှာဖွေလှန်လှောရန်">
 <!ENTITY preferences.tabs               "ဖွင့်ပြနေရာကို မှတ်ထားပေးရန်">
 <!ENTITY preferences.downloadCatalogs   "အခြားနေရာမှ စာမျက်နှာများကို ရယူရန်">

@@ -128,6 +128,7 @@
 <!ENTITY preferences.save               "Kaydet">
 <!ENTITY preferences.cancel             "İptal">
 <!ENTITY preferences.profileDirectory   "Profil dizini">
+<!ENTITY preferences.dataDirectory      "Data directory">
 <!ENTITY preferences.browse             "Gözat">
 <!ENTITY preferences.tabs               "Sekmeleri hatırla">
 <!ENTITY preferences.downloadCatalogs   "Uzaktan katalog(lar)ı indir">

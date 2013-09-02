@@ -128,6 +128,7 @@
 <!ENTITY preferences.save               "Съхраняване">
 <!ENTITY preferences.cancel             "Отказване">
 <!ENTITY preferences.profileDirectory   "Директория на профил">
+<!ENTITY preferences.dataDirectory      "Data directory">
 <!ENTITY preferences.browse             "Преглеждане">
 <!ENTITY preferences.tabs               "Запомняне на табовете">
 <!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">

@@ -128,6 +128,7 @@
 <!ENTITY preferences.save               "Ruaj">
 <!ENTITY preferences.cancel             "Anulo">
 <!ENTITY preferences.profileDirectory   "Regjistri i profilit">
+<!ENTITY preferences.dataDirectory      "Data directory">
 <!ENTITY preferences.browse             "Shfleto">
 <!ENTITY preferences.tabs               "Mba mend skedat">
 <!ENTITY preferences.downloadCatalogs   "Shkarko katalogun (-gjet) ne distancë">

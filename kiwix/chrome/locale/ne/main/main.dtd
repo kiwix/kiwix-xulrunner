@@ -128,6 +128,7 @@
 <!ENTITY preferences.save               "बचत गर्ने">
 <!ENTITY preferences.cancel             "रद्द गर्ने">
 <!ENTITY preferences.profileDirectory   "प्रोफाइल डाइरेक्टरी">
+<!ENTITY preferences.dataDirectory      "Data directory">
 <!ENTITY preferences.browse             "पहिल्याउने">
 <!ENTITY preferences.tabs               "ट्याबहरु सम्झने">
 <!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">

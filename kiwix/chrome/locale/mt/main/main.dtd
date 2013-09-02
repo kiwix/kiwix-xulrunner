@@ -128,6 +128,7 @@
 <!ENTITY preferences.save               "Salva">
 <!ENTITY preferences.cancel             "Annulla">
 <!ENTITY preferences.profileDirectory   "Direttorju tal-profili">
+<!ENTITY preferences.dataDirectory      "Data directory">
 <!ENTITY preferences.browse             "Esplora">
 <!ENTITY preferences.tabs               "Ftakar it-twieqi">
 <!ENTITY preferences.downloadCatalogs   "Niżżel katalgi remoti">

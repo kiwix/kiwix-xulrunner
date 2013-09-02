@@ -128,6 +128,7 @@
 <!ENTITY preferences.save               "उद्धरति">
 <!ENTITY preferences.cancel             "निवर्तयते">
 <!ENTITY preferences.profileDirectory   "व्यक्तिविवरणनिर्देशिका">
+<!ENTITY preferences.dataDirectory      "Data directory">
 <!ENTITY preferences.browse             "ब्राउस् इत्येतत् करोतु।">
 <!ENTITY preferences.tabs               "पीठिकाः स्मर्यन्ताम्">
 <!ENTITY preferences.downloadCatalogs   "दूरस्थवस्तुसूचिः (-सूचयः) अवारोप्यताम्">

@@ -128,6 +128,7 @@
 <!ENTITY preferences.save               "Spychere">
 <!ENTITY preferences.cancel             "Abbräche">
 <!ENTITY preferences.profileDirectory   "Profilverzeichnis">
+<!ENTITY preferences.dataDirectory      "Data directory">
 <!ENTITY preferences.browse             "Blättre">
 <!ENTITY preferences.tabs               "Ryter merke">
 <!ENTITY preferences.downloadCatalogs   "Externi Katalog abelade">

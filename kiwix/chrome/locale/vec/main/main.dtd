@@ -128,6 +128,7 @@
 <!ENTITY preferences.save               "Salva">
 <!ENTITY preferences.cancel             "Anuła">
 <!ENTITY preferences.profileDirectory   "Carteła del profiło">
+<!ENTITY preferences.dataDirectory      "Data directory">
 <!ENTITY preferences.browse             "Sfoja">
 <!ENTITY preferences.tabs               "Ricorda schede">
 <!ENTITY preferences.downloadCatalogs   "Scarga catałoghi remoti">

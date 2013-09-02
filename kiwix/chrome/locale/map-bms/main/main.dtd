@@ -75,7 +75,7 @@
 <!ENTITY main.randomArticle.accesskey   "R">
 <!ENTITY main.checkIntegrity            "Mriksa integritas">
 <!ENTITY main.checkIntegrity.accesskey  "k">
-<!ENTITY main.launchIndexing            "Launch indexing">
+<!ENTITY main.launchIndexing            "Luncurna pengindekan">
 <!ENTITY main.purgeHistory              "Mbusak riwayate">
 <!ENTITY main.purgeHistory.accesskey    "P">
 
@@ -128,10 +128,11 @@
 <!ENTITY preferences.save               "Simpen">
 <!ENTITY preferences.cancel             "Ora sida">
 <!ENTITY preferences.profileDirectory   "Direktori profil">
+<!ENTITY preferences.dataDirectory      "Data directory">
 <!ENTITY preferences.browse             "Jelajahi">
 <!ENTITY preferences.tabs               "Emutna lempengan kiye">
 <!ENTITY preferences.downloadCatalogs   "Ngunduh katalog adoh">
-<!ENTITY preferences.neverAskToIndex    "Never ask to index">
+<!ENTITY preferences.neverAskToIndex    "Ora usa takon kon ngindeks">
 
 <!-- Server -->
 <!ENTITY server.load                    "Ngunggah">
