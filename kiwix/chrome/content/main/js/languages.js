@@ -160,7 +160,7 @@ function buildLanguagesRegexHash() {
 
     for (var code in _languagesHashOld) {
 	var regex = _languagesRegexHash[_languagesHashOld[code]];
-	_languagesRegexHash[_languagesHashOld[code]] = (regex ? regex + '|' : '') + code;
+	_languagesRegexHash[_languagesHashOld[code]] = '^(' + (regex ? regex + '|' : '') + code + ')$';
     }
 }
 
