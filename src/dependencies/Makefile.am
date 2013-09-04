@@ -376,7 +376,7 @@ ctpp2-2.8.3.tar.gz:
 	$(DOWNLOADER) ctpp2-2.8.3.tar.gz $(DEP_MIRROR)/ctpp2-2.8.3.tar.gz
 
 ctpp2-2.8.3: ctpp2-2.8.3.tar.gz
-	test -d ctpp2-2.8.3 || tar xf ctpp2-2.8.3.tar.gz || true
+	test -d ctpp2-2.8.3 || ! tar xf ctpp2-2.8.3.tar.gz || patch -p2 ctpp2-2.8.3/include/CTPP2SourceLoader.hpp patches/CTPP2SourceLoader.hpp.patch || true
 
 # OSX & Linux
 ctpp2-2.8.3/build/complete/lib/libctpp2.${SHARED_EXT} ctpp2-2.8.3/build/complete/lib/libctpp2-st.a: ctpp2-2.8.3
