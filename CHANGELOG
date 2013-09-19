@@ -24,6 +24,7 @@ Kiwix 0.9 rc3
 * FIXED: Hanging page loading with specific pages on Win&Mac (#440, #376) 
 * FIXED: Buggy tabs with RTL disposition (#424)
 * FIXED: Small bug in library filtering (by language)
+* FIXED: "Illegal instruction" crash with old CPUs without SSE2 (#478)
 * NEW: New supported user interface languages: Chuvash (cv), Fiji
   Hindi Latin script (hif-latn), Mongolian (mn), Newari (new),
   Sanskrit (sa), Uzbek (uz), Turkish (tr), Tagalog (tl), Talysh
