@@ -105,7 +105,7 @@
 <!-- Bookmarks Bar -->
 <!ENTITY main.bmkLabel                  "పుటీకలు:">
 <!ENTITY main.notesLabel                "పుటీక గమనికలు:">
-<!ENTITY main.loadbmk                   " ఇష్టాంశాల సమితి దిగుమతి చేయు">
+<!ENTITY main.loadbmk                   "ఇష్టాంశాల సమితి దిగుమతి చేయు">
 <!ENTITY main.newbmk                    "కొత్త ఇష్టాంశాల సమితి సృష్టించు">
 <!ENTITY main.mark                      "ఈ పుటను గుర్తించు">
 <!ENTITY main.unmark                    "ఎంపికచేసినవాటినితొలగించు">
