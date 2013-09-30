@@ -15,6 +15,7 @@ locale main be             locale/be/main/
 locale main be-tarask      locale/be-tarask/main/
 locale main bg             locale/bg/main/
 locale main bjn            locale/bjn/main/
+locale main bm             locale/bm/main/
 locale main bn             locale/bn/main/
 locale main br             locale/br/main/
 locale main ca             locale/ca/main/
@@ -129,6 +130,7 @@ locale branding be         locale/branding/
 locale branding be-tarask  locale/branding/
 locale branding bg         locale/branding/
 locale branding bjn        locale/branding/
+locale branding bm         locale/branding/
 locale branding bn         locale/branding/
 locale branding br         locale/branding/
 locale branding ca         locale/branding/

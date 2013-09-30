@@ -28,7 +28,7 @@ Kiwix 0.9 rc3
 * NEW: New supported user interface languages: Chuvash (cv), Fiji
   Hindi Latin script (hif-latn), Mongolian (mn), Newari (new),
   Sanskrit (sa), Uzbek (uz), Turkish (tr), Tagalog (tl), Talysh
-  language (tly), Kyrgyz (kir) and Uyghur in Arabic script (ug-arab)
+  language (tly), Kyrgyz (kir), Bambara (bam) and Uyghur in Arabic script (ug-arab)
 * NEW: Does not ask to download remote catalogs if user is offline
 * NEW: Option to avoid dialog box asking for indexing (#330)
 * NEW: Menu item to launch indexing (#455)
