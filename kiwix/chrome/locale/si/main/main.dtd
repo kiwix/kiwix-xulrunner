@@ -148,7 +148,7 @@
 <!ENTITY main.library.sortBy.title              "මාතෘකාව">
 <!ENTITY main.library.sortBy.size               "විශාලත්වය">
 <!ENTITY main.library.sortBy.date               "දිනය">
-<!ENTITY main.library.sortBy.author             "කර්තෘ">
+<!ENTITY main.library.sortBy.author             "කතෘ">
 <!ENTITY main.library.sortBy.publisher          "ප්‍රකාශකයා">
 <!ENTITY main.library.filterBy                  "මෙසේ පෙරන්න">
 <!ENTITY main.library.filterBy.fileSize         "ගොනුවේ විශාලත්වය">

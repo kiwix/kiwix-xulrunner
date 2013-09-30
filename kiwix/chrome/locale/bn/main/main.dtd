@@ -3,7 +3,7 @@
 <!ENTITY main.cssdirection              "ltr">
 
 <!-- Mac menu -->
-<!ENTITY main.osxservices               "সার্ভিস">
+<!ENTITY main.osxservices               "সেবা">
 <!ENTITY main.osxhideapp                "&brand.brandShortName; লুকান">
 <!ENTITY main.osxhideothers             "অন্যান্যগুলো লুকান">
 <!ENTITY main.osxshowall                "সবগুলো দেখাও">
@@ -75,7 +75,7 @@
 <!ENTITY main.randomArticle.accesskey   "R">
 <!ENTITY main.checkIntegrity            "সম্পূর্ণতা পরীক্ষা">
 <!ENTITY main.checkIntegrity.accesskey  "k">
-<!ENTITY main.launchIndexing            "Launch indexing">
+<!ENTITY main.launchIndexing            "নির্ঘন্ট প্রকাশ করা হচ্ছে">
 <!ENTITY main.purgeHistory              "পার্জ ইতিহাস">
 <!ENTITY main.purgeHistory.accesskey    "P">
 
@@ -132,7 +132,7 @@
 <!ENTITY preferences.browse             "ব্রাউজ">
 <!ENTITY preferences.tabs               "টাঁব মনে রাখুন">
 <!ENTITY preferences.downloadCatalogs   "ক্যাটালগ ডাউনলোড করুন">
-<!ENTITY preferences.neverAskToIndex    "Never ask to index">
+<!ENTITY preferences.neverAskToIndex    "কখনই নির্ঘন্ট করা না হোক">
 
 <!-- Server -->
 <!ENTITY server.load                    "লোড">

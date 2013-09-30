@@ -65,7 +65,7 @@
 <!ENTITY main.tabs.accesskey            "T">
 <!ENTITY main.fullscreen                "Helskärm">
 <!ENTITY main.fullscreen.accesskey      "F">
-<!ENTITY main.invertedColors            "Invertera färger">
+<!ENTITY main.invertedColors            "Inverterade färger">
 <!ENTITY main.invertedColors.accesskey  "I">
 
 <!-- Tools menu -->
@@ -94,7 +94,7 @@
 <!ENTITY main.home                      "Hem">
 <!ENTITY main.searchBar                 "Sökfält">
 <!ENTITY main.search                    "Sök">
-<!ENTITY main.searchPlaceholder         "Skriv texten du vill söka efter här...">
+<!ENTITY main.searchPlaceholder         "Skriv söktexten här...">
 <!ENTITY main.findInText                "Hitta i text">
 <!ENTITY main.noSearchBar               "Sök kräver en indexerad ZIM-fil">
 <!ENTITY main.bookmarks                 "Bokmärken">
@@ -131,8 +131,8 @@
 <!ENTITY preferences.dataDirectory      "Data directory">
 <!ENTITY preferences.browse             "Bläddra">
 <!ENTITY preferences.tabs               "Kom ihåg flikar">
-<!ENTITY preferences.downloadCatalogs   "Ladda ned avlägsna katalog(er)">
-<!ENTITY preferences.neverAskToIndex    "Fråga aldrig att indexera">
+<!ENTITY preferences.downloadCatalogs   "Ladda ner extern(a) katalog(er)">
+<!ENTITY preferences.neverAskToIndex    "Fråga aldrig om indexering">
 
 <!-- Server -->
 <!ENTITY server.load                    "Läs in">
