@@ -4,7 +4,7 @@
 
 <!-- Mac menu -->
 <!ENTITY main.osxservices               "چوپړونه">
-<!ENTITY main.osxhideapp                "سوداګريزې نخښې لنډ سوداګريز نوم پټول؛">
+<!ENTITY main.osxhideapp                "سوداگريزې نخښې لنډ سوداگريز نوم پټول؛">
 <!ENTITY main.osxhideothers             "نور پټول">
 <!ENTITY main.osxshowall                "ټول ښکاره کول">
 
@@ -21,7 +21,7 @@
 <!ENTITY main.saveFile.accesskey        "S">
 <!ENTITY main.print                     "چاپول">
 <!ENTITY main.print.accesskey           "P">
-<!ENTITY main.printPdf                  "د پي ډي اېف په توګه چاپول">
+<!ENTITY main.printPdf                  "د پي ډي اېف په توگه چاپول">
 <!ENTITY main.printPdf.accesskey        "D">
 <!ENTITY main.quit                      "بندول">
 <!ENTITY main.quit.accesskey            "Q">
@@ -39,7 +39,7 @@
 <!ENTITY main.transliteration.accesskey "T">
 <!ENTITY main.preferences               "غوره توبونه">
 <!ENTITY main.preferences.accesskey     "n">
-<!ENTITY main.server                    "پالنګر">
+<!ENTITY main.server                    "پالنگر">
 <!ENTITY main.server.accesskey          "s">
 
 <!-- Display menu -->
@@ -65,7 +65,7 @@
 <!ENTITY main.tabs.accesskey            "T">
 <!ENTITY main.fullscreen                "ډکه پرده">
 <!ENTITY main.fullscreen.accesskey      "F">
-<!ENTITY main.invertedColors            "نسکور شوي رنګونه">
+<!ENTITY main.invertedColors            "نسکور شوي رنگونه">
 <!ENTITY main.invertedColors.accesskey  "I">
 
 <!-- Tools menu -->
@@ -73,7 +73,7 @@
 <!ENTITY main.tools.accesskey           "T">
 <!ENTITY main.randomArticle             "ناټاکلې ليکنه">
 <!ENTITY main.randomArticle.accesskey   "R">
-<!ENTITY main.checkIntegrity            "د ټينګښت بياکتنه">
+<!ENTITY main.checkIntegrity            "د ټينگښت بياکتنه">
 <!ENTITY main.checkIntegrity.accesskey  "k">
 <!ENTITY main.launchIndexing            "ليکلړ جوړېدنه پيلول">
 <!ENTITY main.purgeHistory              "پېښليک سپينول">
@@ -82,10 +82,10 @@
 <!-- Help menu -->
 <!ENTITY main.help                      "لارښود">
 <!ENTITY main.help.accesskey            "H">
-<!ENTITY main.feedback                  "غبرګون">
+<!ENTITY main.feedback                  "غبرگون">
 <!ENTITY main.reportabug                "د تېروتنې راپور ورکول">
-<!ENTITY main.requestafeature           "د يوې ځانګړنې غوښتنه">
-<!ENTITY main.about                     "د سوداګريزې نخښې لنډ سوداګريز نوم په اړه؛">
+<!ENTITY main.requestafeature           "د يوې ځانگړنې غوښتنه">
+<!ENTITY main.about                     "د سوداگريزې نخښې لنډ سوداگريز نوم په اړه؛">
 <!ENTITY main.about.accesskey           "A">
 
 <!-- Tool bar -->
@@ -105,11 +105,11 @@
 <!-- Bookmarks Bar -->
 <!ENTITY main.bmkLabel                  "کتاب نخښې:">
 <!ENTITY main.notesLabel                "د کتابنښې يادښتونه:">
-<!ENTITY main.loadbmk                   "د کتابنښو ټولګه واردول">
-<!ENTITY main.newbmk                    "د کتابنښو نوی جونګ جوړول">
+<!ENTITY main.loadbmk                   "د کتابنښو ټولگه واردول">
+<!ENTITY main.newbmk                    "د کتابنښو نوی جونگ جوړول">
 <!ENTITY main.mark                      "دا مخ په نخښه کول">
 <!ENTITY main.unmark                    "ټاکلي بې نخښې کول">
-<!ENTITY main.reload                    "د کتابنښو ټولګه بيابرسېرول">
+<!ENTITY main.reload                    "د کتابنښو ټولگه بيابرسېرول">
 <!ENTITY main.defaultset                "تلواليزې امستنې">
 
 <!-- Contextual Menu -->
@@ -127,7 +127,7 @@
 <!ENTITY preferences.preferences        "غوره توبونه">
 <!ENTITY preferences.save               "خوندي کول">
 <!ENTITY preferences.cancel             "ناګارل">
-<!ENTITY preferences.profileDirectory   "پېژنيال لارښودټولګه">
+<!ENTITY preferences.profileDirectory   "پېژنيال لارښودټولگه">
 <!ENTITY preferences.dataDirectory      "Data directory">
 <!ENTITY preferences.browse             "سپړل">
 <!ENTITY preferences.tabs               "پاڼې په ياد ساتل">

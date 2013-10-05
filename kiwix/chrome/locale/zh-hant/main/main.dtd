@@ -150,7 +150,7 @@
 <!ENTITY main.library.sortBy.date               "日期">
 <!ENTITY main.library.sortBy.author             "作者">
 <!ENTITY main.library.sortBy.publisher          "出版商">
-<!ENTITY main.library.filterBy                  "過濾方式">
+<!ENTITY main.library.filterBy                  "搜尋依">
 <!ENTITY main.library.filterBy.fileSize         "檔案大小">
 <!ENTITY main.library.filterBy.language         "語言">
 <!ENTITY main.library.filterBy.language.all     "全部">
