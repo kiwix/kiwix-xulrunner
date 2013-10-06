@@ -12,6 +12,7 @@ _languagesHash['asm']          = _languagesHashOld['as']          = 'অসম�
 _languagesHash['ast']          = 'Asturianu';
 _languagesHash['azb']          = 'South Azerbaijani';
 _languagesHash['ba']           = 'Bašqort';
+_languagesHash['ben']          = _languagesHashOld['bn']          = 'বাংলা';
 _languagesHash['bel']          = _languagesHashOld['be']          = 'Беларуская';
 _languagesHash['bel-tasrask']  = _languagesHashOld['be-tarask']   = 'тарашкевіца, клясычны правапіс';
 _languagesHash['bam']          = _languagesHashOld['bm']          = 'Bamanankan';
