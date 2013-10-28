@@ -17,7 +17,7 @@
 <!ENTITY main.hideLibrary               "پنهان کردن کتابخانه">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "اخیراً گشوده شده...">
-<!ENTITY main.saveFile                  "...ذخیره صفحه به عنوان">
+<!ENTITY main.saveFile                  "...ذخیرهٔ صفحه به‌عنوان">
 <!ENTITY main.saveFile.accesskey        "S">
 <!ENTITY main.print                     "چاپ">
 <!ENTITY main.print.accesskey           "P">
@@ -85,7 +85,7 @@
 <!ENTITY main.feedback                  "بازخورد">
 <!ENTITY main.reportabug                "گزارش یک اشکال">
 <!ENTITY main.requestafeature           "درخواست یک ویژگی">
-<!ENTITY main.about                     "درباره علامت تجاری.نام کوتاه تجاری;">
+<!ENTITY main.about                     "دربارهٔ &brand.brandShortName;">
 <!ENTITY main.about.accesskey           "A">
 
 <!-- Tool bar -->

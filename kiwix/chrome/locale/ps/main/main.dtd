@@ -126,7 +126,7 @@
 <!-- Preferences Window -->
 <!ENTITY preferences.preferences        "غوره توبونه">
 <!ENTITY preferences.save               "خوندي کول">
-<!ENTITY preferences.cancel             "ناګارل">
+<!ENTITY preferences.cancel             "ناگارل">
 <!ENTITY preferences.profileDirectory   "پېژنيال لارښودټولگه">
 <!ENTITY preferences.dataDirectory      "Data directory">
 <!ENTITY preferences.browse             "سپړل">

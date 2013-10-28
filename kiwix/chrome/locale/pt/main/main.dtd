@@ -9,7 +9,7 @@
 <!ENTITY main.osxshowall                "Mostrar todos">
 
 <!-- File menu -->
-<!ENTITY main.file                      "Arquivo">
+<!ENTITY main.file                      "Ficheiro">
 <!ENTITY main.file.accesskey            "F">
 <!ENTITY main.openFile                  "Abrir ficheiro...">
 <!ENTITY main.browseLibrary.accesskey   "B">
@@ -125,7 +125,7 @@
 
 <!-- Preferences Window -->
 <!ENTITY preferences.preferences        "Preferências">
-<!ENTITY preferences.save               "Salvar">
+<!ENTITY preferences.save               "Gravar">
 <!ENTITY preferences.cancel             "Cancelar">
 <!ENTITY preferences.profileDirectory   "Diretório de perfil">
 <!ENTITY preferences.dataDirectory      "Data directory">

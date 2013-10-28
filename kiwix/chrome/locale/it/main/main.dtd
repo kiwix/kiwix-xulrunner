@@ -141,7 +141,7 @@
 <!ENTITY server.close                   "Chiudi">
 
 <!-- Library -->
-<!ENTITY main.library.myLibrary                 "Mia biblioteca">
+<!ENTITY main.library.myLibrary                 "La mia libreria">
 <!ENTITY main.library.getNewFiles               "Ottieni nuovi file">
 <!ENTITY main.library.searchZimFiles            "Cerca file ZIM">
 <!ENTITY main.library.sortBy                    "Ordina per">

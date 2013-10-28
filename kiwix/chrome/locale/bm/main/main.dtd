@@ -4,14 +4,14 @@
 
 <!-- Mac menu -->
 <!ENTITY main.osxservices               "Services">
-<!ENTITY main.osxhideapp                "Brand.brandShortName kun">
+<!ENTITY main.osxhideapp                "&Brand.brandShortName; kun">
 <!ENTITY main.osxhideothers             "Tɔw dogo">
 <!ENTITY main.osxshowall                "A bɛɛ jira">
 
 <!-- File menu -->
 <!ENTITY main.file                      "Fisiyew">
 <!ENTITY main.file.accesskey            "F">
-<!ENTITY main.openFile                  "fisiye dayɛlɛn">
+<!ENTITY main.openFile                  "Fisiye dayɛlɛn">
 <!ENTITY main.browseLibrary.accesskey   "B">
 <!ENTITY main.browseLibrary             "Taa gafeso kɔnɔ">
 <!ENTITY main.hideLibrary               "Gafeso dogo">
@@ -80,12 +80,12 @@
 <!ENTITY main.purgeHistory.accesskey    "P">
 
 <!-- Help menu -->
-<!ENTITY main.help                      "dɛmɛ">
+<!ENTITY main.help                      "Dɛmɛ">
 <!ENTITY main.help.accesskey            "H">
 <!ENTITY main.feedback                  "Hakilinanta">
 <!ENTITY main.reportabug                "Gɛlɛya dɔ jira">
-<!ENTITY main.requestafeature           "kɛta dɔ ɲininkali kɛ">
-<!ENTITY main.about                     "Brand.brandShortName kun,">
+<!ENTITY main.requestafeature           "Kɛta dɔ ɲininkali kɛ">
+<!ENTITY main.about                     "&Brand.brandShortName; kun,">
 <!ENTITY main.about.accesskey           "A">
 
 <!-- Tool bar -->
