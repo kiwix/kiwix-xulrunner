@@ -110,6 +110,7 @@ _languagesHash['su']           = 'Basa Sunda';
 _languagesHash['swe']          = _languagesHashOld['sv']          = 'Svenska';
 _languagesHash['swa']          = _languagesHashOld['sw']          = 'Kiswahili';
 _languagesHash['ta']           = 'தமிழ்';
+_languagesHash['tuk']          = _languagesHashOld['tk']          = 'Türkmen dili';
 _languagesHash['tcy']          = 'ತುಳು';
 _languagesHash['tel']          = _languagesHashOld['te']          = 'తెలుగు';
 _languagesHash['tgl']          = _languagesHashOld['tl']          = 'Wikang Tagalog';
