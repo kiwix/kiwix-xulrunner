@@ -66,6 +66,7 @@ _languagesHash['kor']          = _languagesHashOld['ko']          = '한국어';
 _languagesHash['kor-kp']       = _languagesHashOld['ko-kp']       = '조선어';
 _languagesHash['ksh']          = 'Ripoarisch';
 _languagesHash['kur']          = _languagesHashOld['ku']          = 'kurdî';
+_languagesHash['lat']          = _languagesHashOld['la']          = 'Lingua Latīna';
 _languagesHash['lb']           = 'Lëtzebuergesch';
 _languagesHash['li']           = 'Limburgs';
 _languagesHash['lit']          = _languagesHashOld['lt']          = 'Lietuvių';
