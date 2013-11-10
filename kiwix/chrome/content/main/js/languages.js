@@ -75,7 +75,7 @@ _languagesHash['map-bms']      = 'Basa Banyumasan';
 _languagesHash['mk']           = 'Македонски';
 _languagesHash['mal']          = _languagesHashOld['ml']          = 'മലയാളം';
 _languagesHash['mon']          = _languagesHashOld['mn']          = 'Монгол хэл';
-_languagesHash['mr']           = 'मराठी';
+_languagesHash['mar']          = _languagesHashOld['mr']          = 'मराठी';
 _languagesHash['msa']          = _languagesHashOld['ms']          = 'Bahasa Melayu';
 _languagesHash['mt']           = 'Malti';
 _languagesHash['mya']          = _languagesHashOld['my']          = 'မြန်မာဘာသာ';
