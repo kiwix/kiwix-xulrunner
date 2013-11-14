@@ -4,11 +4,11 @@ kiwix_search_SOURCES= \
 	kiwix-search.cpp \
 	../common/resourceTools.cpp \
 	../common/stringTools.cpp \
-	../common/kiwix/ctpp2/CTPP2TextLoader.cpp \
+	../common/kiwix/ctpp2/CTPP2VMStringLoader.cpp \
 	../common/kiwix/searcher.cpp \
 	../common/kiwix/xapianSearcher.cpp \
 	../common/kiwix/cluceneSearcher.cpp \
-	../common/kiwix/ctpp2/CTPP2TextLoader.h \
+	../common/kiwix/ctpp2/CTPP2VMStringLoader.hpp \
 	../common/kiwix/searcher.h \
 	../common/resourceTools.h \
 	../common/stringTools.h \

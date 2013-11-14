@@ -10,13 +10,13 @@ libCluceneAccessor_la_SOURCES= \
 	$(top_srcdir)/src/common/stringTools.cpp \
 	$(top_srcdir)/src/common/resourceTools.cpp \
 	$(top_srcdir)/src/common/pathTools.cpp \
-	$(top_srcdir)/src/common/kiwix/ctpp2/CTPP2TextLoader.cpp \
+	$(top_srcdir)/src/common/kiwix/ctpp2/CTPP2VMStringLoader.cpp \
 	$(top_srcdir)/src/common/kiwix/searcher.cpp \
 	$(top_srcdir)/src/common/kiwix/cluceneSearcher.cpp \
 	$(top_srcdir)/src/common/stringTools.h \
 	$(top_srcdir)/src/common/resourceTools.h \
 	$(top_srcdir)/src/common/pathTools.h \
-	$(top_srcdir)/src/common/kiwix/ctpp2/CTPP2TextLoader.h \
+	$(top_srcdir)/src/common/kiwix/ctpp2/CTPP2VMStringLoader.hpp \
 	$(top_srcdir)/src/common/kiwix/searcher.h
 libCluceneAccessor_la_CXXFLAGS=$(LIBCTPP2_CFLAGS) $(LIBXUL_CFLAGS) $(CLUCENE_CFLAGS) $(ICU_CFLAGS) $(XPCOM_CFLAGS) -D GECKO_VERSION=$(GECKO_VERSION) -I$(top_srcdir)/src/common/
 

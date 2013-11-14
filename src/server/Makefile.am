@@ -6,7 +6,7 @@ kiwix_serve_SOURCES= \
 	../common/kiwix/searcher.cpp \
 	../common/kiwix/manager.cpp \
 	../common/kiwix/library.cpp \
-	../common/kiwix/ctpp2/CTPP2TextLoader.cpp \
+	../common/kiwix/ctpp2/CTPP2VMStringLoader.cpp \
 	../common/kiwix/xapianSearcher.cpp \
 	../common/kiwix/cluceneSearcher.cpp \
 	../common/base64.cpp \
@@ -18,7 +18,7 @@ kiwix_serve_SOURCES= \
 	../common/kiwix/searcher.h \
 	../common/kiwix/manager.h \
 	../common/kiwix/library.h \
-	../common/kiwix/ctpp2/CTPP2TextLoader.h \
+	../common/kiwix/ctpp2/CTPP2VMStringLoader.hpp \
 	../common/kiwix/xapianSearcher.h \
 	../common/kiwix/cluceneSearcher.h \
 	../common/base64.h \
