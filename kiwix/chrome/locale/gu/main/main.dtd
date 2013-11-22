@@ -83,9 +83,9 @@
 <!ENTITY main.help                      "મદદ">
 <!ENTITY main.help.accesskey            "H">
 <!ENTITY main.feedback                  "અભિપ્રાય">
-<!ENTITY main.reportabug                "તૃતી હોએ તો દરશાવો">
+<!ENTITY main.reportabug                "બગ અહેવાલ મોકલો">
 <!ENTITY main.requestafeature           "વિશિષ્ટતા માટે પૂછો">
-<!ENTITY main.about                     "માટે">
+<!ENTITY main.about                     "વિશે &brand.brandShortName;">
 <!ENTITY main.about.accesskey           "A">
 
 <!-- Tool bar -->
@@ -103,14 +103,14 @@
 <!ENTITY main.results.title             "પરિણામોમાં શોધો">
 
 <!-- Bookmarks Bar -->
-<!ENTITY main.bmkLabel                  "બુકમાર્ક">
-<!ENTITY main.notesLabel                "બુકમાર્ક નોધ">
+<!ENTITY main.bmkLabel                  "બુકમાર્ક્સ:">
+<!ENTITY main.notesLabel                "બુકમાર્ક નોંધો:">
 <!ENTITY main.loadbmk                   "બુકમાર્ક નો સંઘ્રહ આયાત કરો">
 <!ENTITY main.newbmk                    "બુકમાર્ક નો નવો  સંઘ્રહ આયાત કરો">
 <!ENTITY main.mark                      "આ પાનું ચિન્હિત  કરો">
 <!ENTITY main.unmark                    "આ પાનું  ચિન્હિત  ના કરો">
 <!ENTITY main.reload                    "બુકમાર્ક નો સંઘ્રહ પાછુ શરુ કરો">
-<!ENTITY main.defaultset                "મૂળ સંઘ્રહ">
+<!ENTITY main.defaultset                "મૂળ સમૂહ">
 
 <!-- Contextual Menu -->
 <!ENTITY main.saveImageAs               "ચિત્રને આ રીતે સંગ્રહો...">
@@ -153,10 +153,10 @@
 <!ENTITY main.library.filterBy                  "દ્વારા ફિલ્ટર કરો">
 <!ENTITY main.library.filterBy.fileSize         "ફાઇલનું કદ">
 <!ENTITY main.library.filterBy.language         "ભાષા">
-<!ENTITY main.library.filterBy.language.all     "બધી">
+<!ENTITY main.library.filterBy.language.all     "બધું">
 <!ENTITY main.library.filterBy.author           "લેખક">
-<!ENTITY main.library.filterBy.author.all       "બધા">
+<!ENTITY main.library.filterBy.author.all       "બધું">
 <!ENTITY main.library.filterBy.publisher        "પ્રકાશક">
-<!ENTITY main.library.filterBy.publisher.all    "બધા">
+<!ENTITY main.library.filterBy.publisher.all    "બધું">
 <!ENTITY main.library.filterBy.lessThan         "આના કરતાં નાનું">
 

@@ -90,7 +90,7 @@
 
 <!-- Tool bar -->
 <!ENTITY main.back                      "Endarrere">
-<!ENTITY main.forward                   "Enadvant">
+<!ENTITY main.forward                   "Endavant">
 <!ENTITY main.home                      "Pàgina d'inici">
 <!ENTITY main.searchBar                 "Barra de cerca">
 <!ENTITY main.search                    "Cerca">
@@ -121,15 +121,15 @@
 <!ENTITY main.audible                   "Perceptible">
 
 <!-- About Window -->
-<!ENTITY main.close                     "Close">
+<!ENTITY main.close                     "Tanca">
 
 <!-- Preferences Window -->
-<!ENTITY preferences.preferences        "Preferences">
-<!ENTITY preferences.save               "Save">
-<!ENTITY preferences.cancel             "Cancel">
+<!ENTITY preferences.preferences        "Preferències">
+<!ENTITY preferences.save               "Desa">
+<!ENTITY preferences.cancel             "Canceŀla">
 <!ENTITY preferences.profileDirectory   "Profile directory">
 <!ENTITY preferences.dataDirectory      "Data directory">
-<!ENTITY preferences.browse             "Browse">
+<!ENTITY preferences.browse             "Navega">
 <!ENTITY preferences.tabs               "Recordeu tabs">
 <!ENTITY preferences.downloadCatalogs   "Descarregar catàlegs remots">
 <!ENTITY preferences.neverAskToIndex    "No preguntar mai per la indexació">
