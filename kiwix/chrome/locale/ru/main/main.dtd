@@ -11,13 +11,13 @@
 <!-- File menu -->
 <!ENTITY main.file                      "Файл">
 <!ENTITY main.file.accesskey            "F">
-<!ENTITY main.openFile                  "Открыть файл ...">
+<!ENTITY main.openFile                  "Открыть файл…">
 <!ENTITY main.browseLibrary.accesskey   "B">
 <!ENTITY main.browseLibrary             "Просмотр библиотеки">
 <!ENTITY main.hideLibrary               "Скрыть библиотеку">
 <!ENTITY main.openFile.accesskey        "O">
-<!ENTITY main.lastOpen                  "Недавно открытые ...">
-<!ENTITY main.saveFile                  "Сохранить страницу как...">
+<!ENTITY main.lastOpen                  "Недавно открытые…">
+<!ENTITY main.saveFile                  "Сохранить страницу как…">
 <!ENTITY main.saveFile.accesskey        "S">
 <!ENTITY main.print                     "Печать">
 <!ENTITY main.print.accesskey           "P">
@@ -94,9 +94,9 @@
 <!ENTITY main.home                      "В начало">
 <!ENTITY main.searchBar                 "Панель поиска">
 <!ENTITY main.search                    "Поиск">
-<!ENTITY main.searchPlaceholder         "Введите текст для поиска...">
+<!ENTITY main.searchPlaceholder         "Введите текст для поиска…">
 <!ENTITY main.findInText                "Найти в тексте">
-<!ENTITY main.noSearchBar               "Поиск требует индексированного файла ZIM">
+<!ENTITY main.noSearchBar               "Поиск требует индексированного ZIM-файла">
 <!ENTITY main.bookmarks                 "Закладки">
 
 <!-- Results bar -->
