@@ -75,7 +75,7 @@
 <!ENTITY main.randomArticle.accesskey   "R">
 <!ENTITY main.checkIntegrity            "Kontrola integrity">
 <!ENTITY main.checkIntegrity.accesskey  "k">
-<!ENTITY main.launchIndexing            "Launch indexing">
+<!ENTITY main.launchIndexing            "Indicěrowanje startowaś">
 <!ENTITY main.purgeHistory              "Historiju wuprozniś">
 <!ENTITY main.purgeHistory.accesskey    "P">
 
@@ -132,7 +132,7 @@
 <!ENTITY preferences.browse             "Pśepytaś">
 <!ENTITY preferences.tabs               "Rejtarki se spomnjeś">
 <!ENTITY preferences.downloadCatalogs   "Zdalone katalogi ześěgnuś">
-<!ENTITY preferences.neverAskToIndex    "Never ask to index">
+<!ENTITY preferences.neverAskToIndex    "Nigda za indicěrowanim se pšašaś">
 
 <!-- Server -->
 <!ENTITY server.load                    "Zacytaś">

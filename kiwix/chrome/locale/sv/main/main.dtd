@@ -9,7 +9,7 @@
 <!ENTITY main.osxshowall                "Visa alla">
 
 <!-- File menu -->
-<!ENTITY main.file                      "Arkiv">
+<!ENTITY main.file                      "Fil">
 <!ENTITY main.file.accesskey            "F">
 <!ENTITY main.openFile                  "Öppna fil...">
 <!ENTITY main.browseLibrary.accesskey   "B">
@@ -84,7 +84,7 @@
 <!ENTITY main.help.accesskey            "H">
 <!ENTITY main.feedback                  "Feedback">
 <!ENTITY main.reportabug                "Rapportera ett fel">
-<!ENTITY main.requestafeature           "Begär en funktion">
+<!ENTITY main.requestafeature           "Begär ett tillägg">
 <!ENTITY main.about                     "Om &brand.brandShortName;">
 <!ENTITY main.about.accesskey           "A">
 
