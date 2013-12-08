@@ -200,7 +200,8 @@ icu: icu4c-4_4_2-src.tgz
 	test -d icu || tar xf icu4c-4_4_2-src.tgz
 else
 icu: icu4c-49_1_1-src.tgz
-	test -d icu || tar xf icu4c-49_1_1-src.tgz || cp icudt49l.dat icu/source/data/in/icudt49l.dat
+	test -d icu || tar xf icu4c-49_1_1-src.tgz
+	cp icudt49l.dat icu/source/data/in/icudt49l.dat
 endif
 
 # Linux
