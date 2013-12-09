@@ -128,6 +128,7 @@
 <!ENTITY preferences.save               "ସାଇତିବେ">
 <!ENTITY preferences.cancel             "ନାକଚ">
 <!ENTITY preferences.profileDirectory   "ପ୍ରଫାଇଲ ତାଲିକା">
+<!ENTITY preferences.dataDirectory      "Data directory">
 <!ENTITY preferences.browse             "ଖୋଜିବା">
 <!ENTITY preferences.tabs               "ଟାବ୍ ଗୁଡ଼ିକୁ ମନେ ରଖନ୍ତୁ.">
 <!ENTITY preferences.downloadCatalogs   "ଅନ୍ୟ ଜାଗାରେ ଥିବା ଦେଖଣାଟିକୁ ଡାଉନଲୋଡ କରନ୍ତୁ">

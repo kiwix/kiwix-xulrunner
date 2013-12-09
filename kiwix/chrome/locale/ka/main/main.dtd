@@ -128,6 +128,7 @@
 <!ENTITY preferences.save               "შენახვა">
 <!ENTITY preferences.cancel             "გაუქმება">
 <!ENTITY preferences.profileDirectory   "პროფილის დირექტორია">
+<!ENTITY preferences.dataDirectory      "Data directory">
 <!ENTITY preferences.browse             "დათვალიერება">
 <!ENTITY preferences.tabs               "ჩანართების დამახსოვრება">
 <!ENTITY preferences.downloadCatalogs   "შორეული კატალოგ(ებ)ის გადმოწერა">

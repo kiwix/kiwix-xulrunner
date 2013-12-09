@@ -128,6 +128,7 @@
 <!ENTITY preferences.save               "Enregistrar">
 <!ENTITY preferences.cancel             "Anullar">
 <!ENTITY preferences.profileDirectory   "Repertòri del profil">
+<!ENTITY preferences.dataDirectory      "Data directory">
 <!ENTITY preferences.browse             "Legir">
 <!ENTITY preferences.tabs               "Se remembrar dels onglets dobèrts en quitant Kiwix">
 <!ENTITY preferences.downloadCatalogs   "Telecargar lo(s) catalòg(s) distant(s)">

@@ -128,6 +128,7 @@
 <!ENTITY preferences.save               "Cadw">
 <!ENTITY preferences.cancel             "Canslo">
 <!ENTITY preferences.profileDirectory   "Cyfeiriadur proffil">
+<!ENTITY preferences.dataDirectory      "Data directory">
 <!ENTITY preferences.browse             "Pori">
 <!ENTITY preferences.tabs               "Cofier tabiau">
 <!ENTITY preferences.downloadCatalogs   "Islwytho catalog(au) allanol">

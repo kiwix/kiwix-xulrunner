@@ -36,9 +36,6 @@ CLEANFILES = \
 
 # Additional things to remove by running "make clean"
 clean-local:
-	-rm -rf src/dependencies/Makefile
-	find . -name 'Makefile.in' -delete
-	find . -name 'aclocal.m4' -delete
 
 UPDATE_MIME = \
 	if which update-mime-database>/dev/null 2>&1; then \

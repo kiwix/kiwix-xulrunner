@@ -11,7 +11,7 @@
 <!-- File menu -->
 <!ENTITY main.file                      "Archivo">
 <!ENTITY main.file.accesskey            "A">
-<!ENTITY main.openFile                  "Abrir archivo…">
+<!ENTITY main.openFile                  "Abrir un archivo…">
 <!ENTITY main.browseLibrary.accesskey   "B">
 <!ENTITY main.browseLibrary             "Examinar la biblioteca">
 <!ENTITY main.hideLibrary               "Ocultar la biblioteca">
@@ -75,8 +75,8 @@
 <!ENTITY main.randomArticle.accesskey   "P">
 <!ENTITY main.checkIntegrity            "Comprobar integridad">
 <!ENTITY main.checkIntegrity.accesskey  "k">
-<!ENTITY main.launchIndexing            "Inicializar indexación">
-<!ENTITY main.purgeHistory              "Purgar historial">
+<!ENTITY main.launchIndexing            "Iniciar la indización">
+<!ENTITY main.purgeHistory              "Purgar el histórico">
 <!ENTITY main.purgeHistory.accesskey    "P">
 
 <!-- Help menu -->
@@ -106,14 +106,14 @@
 <!ENTITY main.bmkLabel                  "Marcadores:">
 <!ENTITY main.notesLabel                "Notas de marcador:">
 <!ENTITY main.loadbmk                   "Importar conjunto de marcadores">
-<!ENTITY main.newbmk                    "Crear nuevo conjunto de marcadores">
+<!ENTITY main.newbmk                    "Crear un conjunto de marcadores nuevo">
 <!ENTITY main.mark                      "Marcar esta página">
 <!ENTITY main.unmark                    "Desmarcar seleccionados">
 <!ENTITY main.reload                    "Recargar el conjunto de marcadores">
 <!ENTITY main.defaultset                "Conjunto predeterminado">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveImageAs               "Guardar imagen como…">
+<!ENTITY main.saveImageAs               "Guardar la imagen como…">
 <!ENTITY main.openLinkInNewTab          "Abrir el enlace en una nueva pestaña">
 <!ENTITY main.searchFor                 "Buscar por">
 <!ENTITY main.copyLinkAdress            "Copy link address">
@@ -128,10 +128,11 @@
 <!ENTITY preferences.save               "Guardar">
 <!ENTITY preferences.cancel             "Cancelar">
 <!ENTITY preferences.profileDirectory   "Carpeta del perfil">
+<!ENTITY preferences.dataDirectory      "Data directory">
 <!ENTITY preferences.browse             "Examinar">
 <!ENTITY preferences.tabs               "Recordar las pestañas">
 <!ENTITY preferences.downloadCatalogs   "Descargar catálogo(s) remoto(s)">
-<!ENTITY preferences.neverAskToIndex    "Nunca preguntar para indexar">
+<!ENTITY preferences.neverAskToIndex    "No preguntar más sobre la indización">
 
 <!-- Server -->
 <!ENTITY server.load                    "Cargar">

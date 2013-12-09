@@ -128,6 +128,7 @@
 <!ENTITY preferences.save               "Uložit">
 <!ENTITY preferences.cancel             "Storno">
 <!ENTITY preferences.profileDirectory   "Profilový adresář">
+<!ENTITY preferences.dataDirectory      "Data directory">
 <!ENTITY preferences.browse             "Procházet">
 <!ENTITY preferences.tabs               "Uložit záložky">
 <!ENTITY preferences.downloadCatalogs   "Stažení vzdáleného katalogu(ů)">

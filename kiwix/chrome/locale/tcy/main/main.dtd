@@ -128,6 +128,7 @@
 <!ENTITY preferences.save               "ಒರಿಪಾಲೆ">
 <!ENTITY preferences.cancel             "ವಜಾ ಮಲ್ಪುಲೆ">
 <!ENTITY preferences.profileDirectory   "ಕಿರುಪರಿಚಯ ಸೂಚಿಕೆ">
+<!ENTITY preferences.dataDirectory      "Data directory">
 <!ENTITY preferences.browse             "ಕಣ್ಣಾಡಿಸಾಲೆ">
 <!ENTITY preferences.tabs               "ಸೂಚಿಕೆ ಪಟ್ಟಿನ್ ನೆನಪು ದೀಲೆ">
 <!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">

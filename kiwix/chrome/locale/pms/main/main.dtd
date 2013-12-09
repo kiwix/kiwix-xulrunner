@@ -128,6 +128,7 @@
 <!ENTITY preferences.save               "Salvé">
 <!ENTITY preferences.cancel             "Scancela">
 <!ENTITY preferences.profileDirectory   "Dossié dël profil">
+<!ENTITY preferences.dataDirectory      "Data directory">
 <!ENTITY preferences.browse             "Sfeuja">
 <!ENTITY preferences.tabs               "Arcordé je schede">
 <!ENTITY preferences.downloadCatalogs   "Dëscarié ij catàlogh da leugn">

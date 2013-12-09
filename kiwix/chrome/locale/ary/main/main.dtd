@@ -128,6 +128,7 @@
 <!ENTITY preferences.save               "sjl">
 <!ENTITY preferences.cancel             "lġi">
 <!ENTITY preferences.profileDirectory   "l-idara dial l-profile">
+<!ENTITY preferences.dataDirectory      "Data directory">
 <!ENTITY preferences.browse             "ṫsffeh">
 <!ENTITY preferences.tabs               "Remember tabs">
 <!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">

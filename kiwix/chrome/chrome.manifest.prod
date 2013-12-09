@@ -15,6 +15,7 @@ locale main be             jar:locale.jar!/locale/be/main/
 locale main be-tarask      jar:locale.jar!/locale/be-tarask/main/
 locale main bg             jar:locale.jar!/locale/bg/main/
 locale main bjn            jar:locale.jar!/locale/bjn/main/
+locale main bm             jar:locale.jar!/locale/bm/main/
 locale main bn             jar:locale.jar!/locale/bn/main/
 locale main br             jar:locale.jar!/locale/br/main/
 locale main ca             jar:locale.jar!/locale/ca/main/
@@ -57,6 +58,7 @@ locale main kn             jar:locale.jar!/locale/kn/main/
 locale main ko             jar:locale.jar!/locale/ko/main/
 locale main ko-kp          jar:locale.jar!/locale/ko-kp/main/
 locale main ksh            jar:locale.jar!/locale/ksh/main/
+locale main ky             jar:locale.jar!/locale/ky/main/
 locale main lb             jar:locale.jar!/locale/lb/main/
 locale main li             jar:locale.jar!/locale/li/main/
 locale main lt             jar:locale.jar!/locale/lt/main/
@@ -128,6 +130,7 @@ locale branding be         jar:locale.jar!/locale/branding/
 locale branding be-tarask  jar:locale.jar!/locale/branding/
 locale branding bg         jar:locale.jar!/locale/branding/
 locale branding bjn        jar:locale.jar!/locale/branding/
+locale branding bm         jar:locale.jar!/locale/branding/
 locale branding bn         jar:locale.jar!/locale/branding/
 locale branding br         jar:locale.jar!/locale/branding/
 locale branding ca         jar:locale.jar!/locale/branding/
@@ -170,6 +173,7 @@ locale branding kn         jar:locale.jar!/locale/branding/
 locale branding ko         jar:locale.jar!/locale/branding/
 locale branding ko-kp      jar:locale.jar!/locale/branding/
 locale branding ksh        jar:locale.jar!/locale/branding/
+locale branding ky         jar:locale.jar!/locale/branding/
 locale branding lb         jar:locale.jar!/locale/branding/
 locale branding li         jar:locale.jar!/locale/branding/
 locale branding lt         jar:locale.jar!/locale/branding/

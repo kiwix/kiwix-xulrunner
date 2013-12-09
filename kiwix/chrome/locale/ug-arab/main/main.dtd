@@ -128,6 +128,7 @@
 <!ENTITY preferences.save               "ساقلا">
 <!ENTITY preferences.cancel             "ۋاز كەچ">
 <!ENTITY preferences.profileDirectory   "سەپلىمە ھۆججەت مۇندەرىجىسى">
+<!ENTITY preferences.dataDirectory      "Data directory">
 <!ENTITY preferences.browse             "كۆز يۈگۈرت">
 <!ENTITY preferences.tabs               "بەتكۈچلەرنى ئەستە تۇت">
 <!ENTITY preferences.downloadCatalogs   "يىراقتىكى مۇندەرىجىنى چۈشۈر">

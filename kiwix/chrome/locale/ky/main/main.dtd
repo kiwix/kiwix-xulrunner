@@ -1,0 +1,162 @@
+<!-- Window -->
+<!ENTITY main.title                     "&brand.brandShortName;">
+<!ENTITY main.cssdirection              "ltr">
+
+<!-- Mac menu -->
+<!ENTITY main.osxservices               "Сервистер">
+<!ENTITY main.osxhideapp                "Жашыруу &brand.brandShortName;">
+<!ENTITY main.osxhideothers             "Башкасын жашыруу">
+<!ENTITY main.osxshowall                "Баарын көрсөтүү">
+
+<!-- File menu -->
+<!ENTITY main.file                      "Файл">
+<!ENTITY main.file.accesskey            "F">
+<!ENTITY main.openFile                  "Файлды ачуу...">
+<!ENTITY main.browseLibrary.accesskey   "B">
+<!ENTITY main.browseLibrary             "Китепкананы кароо">
+<!ENTITY main.hideLibrary               "Китепкананы жашыруу">
+<!ENTITY main.openFile.accesskey        "O">
+<!ENTITY main.lastOpen                  "Жакында ачылгандар...">
+<!ENTITY main.saveFile                  "Баракты мындай деп сактоо...">
+<!ENTITY main.saveFile.accesskey        "S">
+<!ENTITY main.print                     "Басма">
+<!ENTITY main.print.accesskey           "P">
+<!ENTITY main.printPdf                  "PDF кылып басуу">
+<!ENTITY main.printPdf.accesskey        "D">
+<!ENTITY main.quit                      "Чыгуу">
+<!ENTITY main.quit.accesskey            "Q">
+
+<!-- Edit menu -->
+<!ENTITY main.edit                      "Оңдоо">
+<!ENTITY main.edit.accesskey            "E">
+<!ENTITY main.find                      "Барактан издөө...">
+<!ENTITY main.find.accesskey            "S">
+<!ENTITY main.selectall                 "Баарын тандоо">
+<!ENTITY main.selectall.accesskey       "a">
+<!ENTITY main.copy                      "Көчүрүү">
+<!ENTITY main.copy.accesskey            "p">
+<!ENTITY main.transliteration           "Транслитерация">
+<!ENTITY main.transliteration.accesskey "T">
+<!ENTITY main.preferences               "Параметрлер">
+<!ENTITY main.preferences.accesskey     "n">
+<!ENTITY main.server                    "Сервер">
+<!ENTITY main.server.accesskey          "s">
+
+<!-- Display menu -->
+<!ENTITY main.display                   "Көрсөтүү">
+<!ENTITY main.display.accesskey         "D">
+<!ENTITY main.zoom                      "Масштаб">
+<!ENTITY main.zoom.accesskey            "Z">
+<!ENTITY main.zoomin                    "Чоңойтуу">
+<!ENTITY main.zoomin.accesskey          "M">
+<!ENTITY main.zoomout                   "Азайтуу">
+<!ENTITY main.zoomout.accesskey         "R">
+<!ENTITY main.zoomorig                  "Баштапкы өлчөмү">
+<!ENTITY main.zoomorig.accesskey        "O">
+<!ENTITY main.language                  "Тил">
+<!ENTITY main.language.accesskey        "L">
+<!ENTITY main.skin                      "Тема">
+<!ENTITY main.skin.accesskey            "S">
+<!ENTITY main.statusbar                 "Абал сабы">
+<!ENTITY main.statusbar.accesskey       "S">
+<!ENTITY main.resultsbar                "Жыйынтыктар көрсөткүчү">
+<!ENTITY main.resultsbar.accesskey      "R">
+<!ENTITY main.tabs                      "Белгилер">
+<!ENTITY main.tabs.accesskey            "T">
+<!ENTITY main.fullscreen                "Толук көрүнүшү">
+<!ENTITY main.fullscreen.accesskey      "F">
+<!ENTITY main.invertedColors            "Түстөрдү жаңылап өзгөртүү">
+<!ENTITY main.invertedColors.accesskey  "I">
+
+<!-- Tools menu -->
+<!ENTITY main.tools                     "Аспаптар">
+<!ENTITY main.tools.accesskey           "T">
+<!ENTITY main.randomArticle             "Тушкелди макала">
+<!ENTITY main.randomArticle.accesskey   "R">
+<!ENTITY main.checkIntegrity            "Бүтүндүгүн текшерүү">
+<!ENTITY main.checkIntegrity.accesskey  "k">
+<!ENTITY main.launchIndexing            "Индексацияны баштоо">
+<!ENTITY main.purgeHistory              "Тарыхты тазалоо">
+<!ENTITY main.purgeHistory.accesskey    "P">
+
+<!-- Help menu -->
+<!ENTITY main.help                      "Жардам">
+<!ENTITY main.help.accesskey            "H">
+<!ENTITY main.feedback                  "Кайтарма жооп">
+<!ENTITY main.reportabug                "Ката тууралуу билдирүү жөнөтүү">
+<!ENTITY main.requestafeature           "Функцияны суроо">
+<!ENTITY main.about                     "brand.brandShortName& тууралуу;">
+<!ENTITY main.about.accesskey           "A">
+
+<!-- Tool bar -->
+<!ENTITY main.back                      "Артка">
+<!ENTITY main.forward                   "Алдыга">
+<!ENTITY main.home                      "Башына">
+<!ENTITY main.searchBar                 "Издөө панели">
+<!ENTITY main.search                    "Издөө">
+<!ENTITY main.searchPlaceholder         "Издөө текстти териңиз...">
+<!ENTITY main.findInText                "Тексттен табуу">
+<!ENTITY main.noSearchBar               "Издөө ZIM индекс файлын талап кылууда">
+<!ENTITY main.bookmarks                 "Чөп каттар">
+
+<!-- Results bar -->
+<!ENTITY main.results.title             "Издөө жыйынтыктары">
+
+<!-- Bookmarks Bar -->
+<!ENTITY main.bmkLabel                  "Чөп каттар:">
+<!ENTITY main.notesLabel                "Жазуулар:">
+<!ENTITY main.loadbmk                   "Кыстырмалар аспабын импорттоо">
+<!ENTITY main.newbmk                    "Кыстырмалардын жаңы аспабын түзүү">
+<!ENTITY main.mark                      "Бул барактын белгилөө">
+<!ENTITY main.unmark                    "Тандалгандардан белгисин алып салуу">
+<!ENTITY main.reload                    "Кыстырмалардын аспабын жаңылоо">
+<!ENTITY main.defaultset                "Автоматтык түрдө кошуу">
+
+<!-- Contextual Menu -->
+<!ENTITY main.saveImageAs               "Сүрөттү мындай деп сактоо...">
+<!ENTITY main.openLinkInNewTab          "Шилтемени жаңы кыстырмада ачуу">
+<!ENTITY main.searchFor                 "Издөө">
+<!ENTITY main.copyLinkAdress            "Copy link address">
+<!ENTITY main.mute                      "Добушсуз">
+<!ENTITY main.audible                   "Добуштуу">
+
+<!-- About Window -->
+<!ENTITY main.close                     "Жабуу">
+
+<!-- Preferences Window -->
+<!ENTITY preferences.preferences        "Параметрлер">
+<!ENTITY preferences.save               "Сактоо">
+<!ENTITY preferences.cancel             "Жокко чыгаруу">
+<!ENTITY preferences.profileDirectory   "Профиль каталогу">
+<!ENTITY preferences.dataDirectory      "Data directory">
+<!ENTITY preferences.browse             "Карап чыгуу">
+<!ENTITY preferences.tabs               "Кыстырмаларды сактап калуу">
+<!ENTITY preferences.downloadCatalogs   "өчүрүлгөн каталогдорду жүктөө">
+<!ENTITY preferences.neverAskToIndex    "Индекстөөнү эч качан сурабоо">
+
+<!-- Server -->
+<!ENTITY server.load                    "Жүктөө">
+<!ENTITY server.start                   "Баштоо">
+<!ENTITY server.stop                    "Токтотуу">
+<!ENTITY server.close                   "Жабуу">
+
+<!-- Library -->
+<!ENTITY main.library.myLibrary                 "Китепканам">
+<!ENTITY main.library.getNewFiles               "Жаңы файлдары алуу">
+<!ENTITY main.library.searchZimFiles            "ZIM-файлдарын издөө">
+<!ENTITY main.library.sortBy                    "Иргөө">
+<!ENTITY main.library.sortBy.title              "Башжазуу">
+<!ENTITY main.library.sortBy.size               "Өлчөм">
+<!ENTITY main.library.sortBy.date               "Дата">
+<!ENTITY main.library.sortBy.author             "Автор">
+<!ENTITY main.library.sortBy.publisher          "Бастыруучу">
+<!ENTITY main.library.filterBy                  "Чыпкалоо">
+<!ENTITY main.library.filterBy.fileSize         "Файл өлчөмү">
+<!ENTITY main.library.filterBy.language         "Тил">
+<!ENTITY main.library.filterBy.language.all     "Баары">
+<!ENTITY main.library.filterBy.author           "Автор">
+<!ENTITY main.library.filterBy.author.all       "Баары">
+<!ENTITY main.library.filterBy.publisher        "Бастыруучу">
+<!ENTITY main.library.filterBy.publisher.all    "Баары">
+<!ENTITY main.library.filterBy.lessThan         "Азыраак">
+

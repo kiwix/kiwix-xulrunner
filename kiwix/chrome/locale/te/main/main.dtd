@@ -3,27 +3,27 @@
 <!ENTITY main.cssdirection              "ltr">
 
 <!-- Mac menu -->
-<!ENTITY main.osxservices               "Services">
-<!ENTITY main.osxhideapp                "Hide &brand.brandShortName;">
-<!ENTITY main.osxhideothers             "Hide Others">
-<!ENTITY main.osxshowall                "Show All">
+<!ENTITY main.osxservices               "సేవలు">
+<!ENTITY main.osxhideapp                "&brand.brandShortName;ని దాచు">
+<!ENTITY main.osxhideothers             "వేరేవాటిని దాచు">
+<!ENTITY main.osxshowall                "అన్నిటినీ చూపించు">
 
 <!-- File menu -->
-<!ENTITY main.file                      "File">
+<!ENTITY main.file                      "దస్త్రం">
 <!ENTITY main.file.accesskey            "F">
-<!ENTITY main.openFile                  "Open file...">
+<!ENTITY main.openFile                  "దస్త్రాన్ని తెరువు...">
 <!ENTITY main.browseLibrary.accesskey   "B">
-<!ENTITY main.browseLibrary             "Browse library">
-<!ENTITY main.hideLibrary               "Hide library">
+<!ENTITY main.browseLibrary             "గ్రంథాలయాన్ని చూడు">
+<!ENTITY main.hideLibrary               "గ్రంథాలయాన్ని మరుగుపరుచు">
 <!ENTITY main.openFile.accesskey        "O">
-<!ENTITY main.lastOpen                  "Recently open...">
-<!ENTITY main.saveFile                  "Save page as...">
+<!ENTITY main.lastOpen                  "ఇటీవల తెరిచినవి...">
+<!ENTITY main.saveFile                  "పేజీ భద్రపరచు విధము..">
 <!ENTITY main.saveFile.accesskey        "S">
 <!ENTITY main.print                     "ముద్రించు">
 <!ENTITY main.print.accesskey           "P">
 <!ENTITY main.printPdf                  "PDF గా ప్రచురించు">
 <!ENTITY main.printPdf.accesskey        "D">
-<!ENTITY main.quit                      "Quit">
+<!ENTITY main.quit                      "నిలిపివేయి">
 <!ENTITY main.quit.accesskey            "Q">
 
 <!-- Edit menu -->
@@ -33,23 +33,23 @@
 <!ENTITY main.find.accesskey            "S">
 <!ENTITY main.selectall                 "అన్నీ ఎంచుకో">
 <!ENTITY main.selectall.accesskey       "a">
-<!ENTITY main.copy                      "Copy">
+<!ENTITY main.copy                      "కాపీచేయి">
 <!ENTITY main.copy.accesskey            "p">
 <!ENTITY main.transliteration           "లిప్యంతరీకరణ">
 <!ENTITY main.transliteration.accesskey "T">
 <!ENTITY main.preferences               "అభిరుచులు">
 <!ENTITY main.preferences.accesskey     "n">
-<!ENTITY main.server                    "Server">
+<!ENTITY main.server                    "సేవకి">
 <!ENTITY main.server.accesskey          "s">
 
 <!-- Display menu -->
-<!ENTITY main.display                   "Display">
+<!ENTITY main.display                   "దర్శనం">
 <!ENTITY main.display.accesskey         "D">
-<!ENTITY main.zoom                      "Zoom">
+<!ENTITY main.zoom                      "జూమ్">
 <!ENTITY main.zoom.accesskey            "Z">
-<!ENTITY main.zoomin                    "Magnify">
+<!ENTITY main.zoomin                    "పెద్దదిగాచూపు">
 <!ENTITY main.zoomin.accesskey          "M">
-<!ENTITY main.zoomout                   "Reduce">
+<!ENTITY main.zoomout                   "తగ్గించు">
 <!ENTITY main.zoomout.accesskey         "R">
 <!ENTITY main.zoomorig                  "అసలు పరిమాణం">
 <!ENTITY main.zoomorig.accesskey        "O">
@@ -61,11 +61,11 @@
 <!ENTITY main.statusbar.accesskey       "S">
 <!ENTITY main.resultsbar                "ఫలితాల పట్టీ">
 <!ENTITY main.resultsbar.accesskey      "R">
-<!ENTITY main.tabs                      "Tabs">
+<!ENTITY main.tabs                      "ట్యాబులు">
 <!ENTITY main.tabs.accesskey            "T">
 <!ENTITY main.fullscreen                "నిండుతెర">
 <!ENTITY main.fullscreen.accesskey      "F">
-<!ENTITY main.invertedColors            "Inverted colors">
+<!ENTITY main.invertedColors            "రంగులనువిలోమం చేయు">
 <!ENTITY main.invertedColors.accesskey  "I">
 
 <!-- Tools menu -->
@@ -73,19 +73,19 @@
 <!ENTITY main.tools.accesskey           "T">
 <!ENTITY main.randomArticle             "యాదృచ్చిక వ్యాసం">
 <!ENTITY main.randomArticle.accesskey   "R">
-<!ENTITY main.checkIntegrity            "Integrity check">
+<!ENTITY main.checkIntegrity            "సమగ్రతా పరీక్ష">
 <!ENTITY main.checkIntegrity.accesskey  "k">
-<!ENTITY main.launchIndexing            "Launch indexing">
-<!ENTITY main.purgeHistory              "Purge history">
+<!ENTITY main.launchIndexing            "క్రమబద్దీకరణ ప్రారంభించు">
+<!ENTITY main.purgeHistory              "చరిత్రను తుడిచివేయి">
 <!ENTITY main.purgeHistory.accesskey    "P">
 
 <!-- Help menu -->
 <!ENTITY main.help                      "సహాయం">
 <!ENTITY main.help.accesskey            "H">
-<!ENTITY main.feedback                  "Feedback">
-<!ENTITY main.reportabug                "Report a bug">
-<!ENTITY main.requestafeature           "Request a feature">
-<!ENTITY main.about                     "About &brand.brandShortName;">
+<!ENTITY main.feedback                  "ప్రతిస్పందన">
+<!ENTITY main.reportabug                "దోషాలను నివేదించండి">
+<!ENTITY main.requestafeature           "కొత్త సౌలభ్యాలన్ని కోరండి">
+<!ENTITY main.about                     "&brand.brandShortName; గురించి">
 <!ENTITY main.about.accesskey           "A">
 
 <!-- Tool bar -->
@@ -94,31 +94,31 @@
 <!ENTITY main.home                      "ముంగిలి">
 <!ENTITY main.searchBar                 "అన్వేషణ పట్టీ">
 <!ENTITY main.search                    "వెతుకు">
-<!ENTITY main.searchPlaceholder         "Type the text to search here...">
-<!ENTITY main.findInText                "Find in text">
-<!ENTITY main.noSearchBar               "Search requires an indexed ZIM file">
-<!ENTITY main.bookmarks                 "Bookmarks">
+<!ENTITY main.searchPlaceholder         "వెతుకుటకు పాఠ్యాన్ని ఇక్కడ టైపుచేయు...">
+<!ENTITY main.findInText                "పాఠ్యంలో వెతుకు">
+<!ENTITY main.noSearchBar               "వెతుకుటకు క్రమబద్ధీకరించిన జిమ్(indexed ZIM) ఫైల్ అవసరము">
+<!ENTITY main.bookmarks                 "పుటీకలు">
 
 <!-- Results bar -->
-<!ENTITY main.results.title             "Search results">
+<!ENTITY main.results.title             "అన్వేషణ ఫలితాలు">
 
 <!-- Bookmarks Bar -->
-<!ENTITY main.bmkLabel                  "Bookmarks:">
-<!ENTITY main.notesLabel                "Bookmark notes:">
-<!ENTITY main.loadbmk                   "Import Bookmark Set">
-<!ENTITY main.newbmk                    "Create new Bookmark Set">
-<!ENTITY main.mark                      "Mark this page">
-<!ENTITY main.unmark                    "Unmark selected">
-<!ENTITY main.reload                    "Reload Bookmark Set">
-<!ENTITY main.defaultset                "Default Set">
+<!ENTITY main.bmkLabel                  "పుటీకలు:">
+<!ENTITY main.notesLabel                "పుటీక గమనికలు:">
+<!ENTITY main.loadbmk                   "ఇష్టాంశాల సమితి దిగుమతి చేయు">
+<!ENTITY main.newbmk                    "కొత్త ఇష్టాంశాల సమితి సృష్టించు">
+<!ENTITY main.mark                      "ఈ పుటను గుర్తించు">
+<!ENTITY main.unmark                    "ఎంపికచేసినవాటినితొలగించు">
+<!ENTITY main.reload                    "ఇష్టాంశాల సమితి మరల ఎక్కించు">
+<!ENTITY main.defaultset                "అప్రమేయ సమితి">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveImageAs               "Save image as...">
-<!ENTITY main.openLinkInNewTab          "Open link in new tab">
-<!ENTITY main.searchFor                 "Search for">
+<!ENTITY main.saveImageAs               "బొమ్మను భద్రపరచువిధము...">
+<!ENTITY main.openLinkInNewTab          "లంకెను కొత్త ట్యాబులో తెరువు">
+<!ENTITY main.searchFor                 "దీనికై వెతుకు">
 <!ENTITY main.copyLinkAdress            "Copy link address">
-<!ENTITY main.mute                      "Mute">
-<!ENTITY main.audible                   "Audible">
+<!ENTITY main.mute                      "ధ్వని నిలిపివేయి">
+<!ENTITY main.audible                   "వినిపించునట్లుచేయు">
 
 <!-- About Window -->
 <!ENTITY main.close                     "మూసివేయి">
@@ -127,35 +127,36 @@
 <!ENTITY preferences.preferences        "అభిరుచులు">
 <!ENTITY preferences.save               "భద్రపరచు">
 <!ENTITY preferences.cancel             "రద్దుచేయి">
-<!ENTITY preferences.profileDirectory   "Profile directory">
-<!ENTITY preferences.browse             "Browse">
-<!ENTITY preferences.tabs               "Remember tabs">
-<!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">
-<!ENTITY preferences.neverAskToIndex    "Never ask to index">
+<!ENTITY preferences.profileDirectory   "ప్రవర సంచయం">
+<!ENTITY preferences.dataDirectory      "Data directory">
+<!ENTITY preferences.browse             "విహరణ">
+<!ENTITY preferences.tabs               "ట్యాబులను గుర్తుంచుకో">
+<!ENTITY preferences.downloadCatalogs   "సుదూర కేటాలాగ్(లు) ను దించు">
+<!ENTITY preferences.neverAskToIndex    "క్రమబద్ధీకరణ గురించి అడగవద్దు">
 
 <!-- Server -->
-<!ENTITY server.load                    "Load">
-<!ENTITY server.start                   "Start">
-<!ENTITY server.stop                    "Stop">
-<!ENTITY server.close                   "Close">
+<!ENTITY server.load                    "దించు">
+<!ENTITY server.start                   "మొదలుపెట్టు">
+<!ENTITY server.stop                    "నిలిపివేయి">
+<!ENTITY server.close                   "మూసివేయి">
 
 <!-- Library -->
-<!ENTITY main.library.myLibrary                 "My library">
-<!ENTITY main.library.getNewFiles               "Get new files">
-<!ENTITY main.library.searchZimFiles            "Search ZIM files">
-<!ENTITY main.library.sortBy                    "Sort by">
-<!ENTITY main.library.sortBy.title              "Title">
-<!ENTITY main.library.sortBy.size               "Size">
-<!ENTITY main.library.sortBy.date               "Date">
-<!ENTITY main.library.sortBy.author             "Author">
-<!ENTITY main.library.sortBy.publisher          "Publisher">
-<!ENTITY main.library.filterBy                  "Filter by">
-<!ENTITY main.library.filterBy.fileSize         "File size">
-<!ENTITY main.library.filterBy.language         "Language">
-<!ENTITY main.library.filterBy.language.all     "All">
-<!ENTITY main.library.filterBy.author           "Author">
-<!ENTITY main.library.filterBy.author.all       "All">
-<!ENTITY main.library.filterBy.publisher        "Publisher">
-<!ENTITY main.library.filterBy.publisher.all    "All">
-<!ENTITY main.library.filterBy.lessThan         "Less than">
+<!ENTITY main.library.myLibrary                 "నా గ్రంథాలయం">
+<!ENTITY main.library.getNewFiles               "కొత్త దస్త్రాలను పొందండి">
+<!ENTITY main.library.searchZimFiles            "జిమ్(ZIM)ఫైళ్లలో వెతుకు">
+<!ENTITY main.library.sortBy                    "ఈ క్రమంలో">
+<!ENTITY main.library.sortBy.title              "శీర్షిక">
+<!ENTITY main.library.sortBy.size               "పరిమాణం">
+<!ENTITY main.library.sortBy.date               "తేదీ">
+<!ENTITY main.library.sortBy.author             "రచయిత">
+<!ENTITY main.library.sortBy.publisher          "ప్రచురణకర్త">
+<!ENTITY main.library.filterBy                  "వడపోత">
+<!ENTITY main.library.filterBy.fileSize         "దస్త్రపు పరిమాణం">
+<!ENTITY main.library.filterBy.language         "భాష">
+<!ENTITY main.library.filterBy.language.all     "అన్నీ">
+<!ENTITY main.library.filterBy.author           "రచయిత">
+<!ENTITY main.library.filterBy.author.all       "అందరూ">
+<!ENTITY main.library.filterBy.publisher        "ప్రచురణకర్త">
+<!ENTITY main.library.filterBy.publisher.all    "అందరూ">
+<!ENTITY main.library.filterBy.lessThan         "కంటే తక్కువ">
 

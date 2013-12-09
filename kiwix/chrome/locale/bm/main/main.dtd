@@ -1,0 +1,162 @@
+<!-- Window -->
+<!ENTITY main.title                     "&brand.brandShortName;">
+<!ENTITY main.cssdirection              "ltr">
+
+<!-- Mac menu -->
+<!ENTITY main.osxservices               "Services">
+<!ENTITY main.osxhideapp                "&Brand.brandShortName; kun">
+<!ENTITY main.osxhideothers             "Tɔw dogo">
+<!ENTITY main.osxshowall                "A bɛɛ jira">
+
+<!-- File menu -->
+<!ENTITY main.file                      "Fisiyew">
+<!ENTITY main.file.accesskey            "F">
+<!ENTITY main.openFile                  "Fisiye dayɛlɛn">
+<!ENTITY main.browseLibrary.accesskey   "B">
+<!ENTITY main.browseLibrary             "Taa gafeso kɔnɔ">
+<!ENTITY main.hideLibrary               "Gafeso dogo">
+<!ENTITY main.openFile.accesskey        "O">
+<!ENTITY main.lastOpen                  "Min dayɛlɛnna laban na">
+<!ENTITY main.saveFile                  "Ɲɛ mara ... kan">
+<!ENTITY main.saveFile.accesskey        "S">
+<!ENTITY main.print                     "A kɛ papiye kan">
+<!ENTITY main.print.accesskey           "P">
+<!ENTITY main.printPdf                  "A bɔ i ko PDF">
+<!ENTITY main.printPdf.accesskey        "D">
+<!ENTITY main.quit                      "Bɔ">
+<!ENTITY main.quit.accesskey            "Q">
+
+<!-- Edit menu -->
+<!ENTITY main.edit                      "Sɛbɛnni">
+<!ENTITY main.edit.accesskey            "E">
+<!ENTITY main.find                      "ka ɲinini kɛ ɲɛ kan">
+<!ENTITY main.find.accesskey            "S">
+<!ENTITY main.selectall                 "A bɛɛ suganti">
+<!ENTITY main.selectall.accesskey       "a">
+<!ENTITY main.copy                      "A kopiye">
+<!ENTITY main.copy.accesskey            "p">
+<!ENTITY main.transliteration           "Sɛbɛncogo">
+<!ENTITY main.transliteration.accesskey "T">
+<!ENTITY main.preferences               "I diyanyeta">
+<!ENTITY main.preferences.accesskey     "n">
+<!ENTITY main.server                    "Sɛriwɛri">
+<!ENTITY main.server.accesskey          "s">
+
+<!-- Display menu -->
+<!ENTITY main.display                   "Jirayɔrɔ">
+<!ENTITY main.display.accesskey         "D">
+<!ENTITY main.zoom                      "Bonyali/dɔgɔyali">
+<!ENTITY main.zoom.accesskey            "Z">
+<!ENTITY main.zoomin                    "A bonya">
+<!ENTITY main.zoomin.accesskey          "M">
+<!ENTITY main.zoomout                   "A dɔgɔya">
+<!ENTITY main.zoomout.accesskey         "R">
+<!ENTITY main.zoomorig                  "A bila a jujɔn na">
+<!ENTITY main.zoomorig.accesskey        "O">
+<!ENTITY main.language                  "Kan">
+<!ENTITY main.language.accesskey        "L">
+<!ENTITY main.skin                      "Ɲɛ cogoya">
+<!ENTITY main.skin.accesskey            "S">
+<!ENTITY main.statusbar                 "Cogoya bari">
+<!ENTITY main.statusbar.accesskey       "S">
+<!ENTITY main.resultsbar                "Jaabiw bari">
+<!ENTITY main.resultsbar.accesskey      "R">
+<!ENTITY main.tabs                      "Selekew">
+<!ENTITY main.tabs.accesskey            "T">
+<!ENTITY main.fullscreen                "Ekaran fa">
+<!ENTITY main.fullscreen.accesskey      "F">
+<!ENTITY main.invertedColors            "Ɲɛ yɛlɛmannenw">
+<!ENTITY main.invertedColors.accesskey  "I">
+
+<!-- Tools menu -->
+<!ENTITY main.tools                     "Minɛnw">
+<!ENTITY main.tools.accesskey           "T">
+<!ENTITY main.randomArticle             "Laala kunnafoni">
+<!ENTITY main.randomArticle.accesskey   "R">
+<!ENTITY main.checkIntegrity            "Kɔnɔta bɛɛlajɛlen sɛgɛsɛgɛ">
+<!ENTITY main.checkIntegrity.accesskey  "k">
+<!ENTITY main.launchIndexing            "Ɛndɛkisasiyɔn daminɛ">
+<!ENTITY main.purgeHistory              "Tariku kɔrɔlen bɔ yen">
+<!ENTITY main.purgeHistory.accesskey    "P">
+
+<!-- Help menu -->
+<!ENTITY main.help                      "Dɛmɛ">
+<!ENTITY main.help.accesskey            "H">
+<!ENTITY main.feedback                  "Hakilinanta">
+<!ENTITY main.reportabug                "Gɛlɛya dɔ jira">
+<!ENTITY main.requestafeature           "Kɛta dɔ ɲininkali kɛ">
+<!ENTITY main.about                     "&Brand.brandShortName; kun,">
+<!ENTITY main.about.accesskey           "A">
+
+<!-- Tool bar -->
+<!ENTITY main.back                      "Segin kɔfɛ">
+<!ENTITY main.forward                   "Taa ɲɛfɛ">
+<!ENTITY main.home                      "Soba">
+<!ENTITY main.searchBar                 "Ɲininikɛ yɔrɔ">
+<!ENTITY main.search                    "Ɲinini kɛ">
+<!ENTITY main.searchPlaceholder         "I ka ɲininfɛn sɛbɛn yan...">
+<!ENTITY main.findInText                "Ɲinini kɛ sɛbɛnni kɔnɔ">
+<!ENTITY main.noSearchBar               "Fisiye ZIMU ɛndɛkiselen jɔyɔrɔ b'i ka ɲinini na">
+<!ENTITY main.bookmarks                 "Ɲɛ dogo">
+
+<!-- Results bar -->
+<!ENTITY main.results.title             "Ɲinini jaabiw">
+
+<!-- Bookmarks Bar -->
+<!ENTITY main.bmkLabel                  "Ɲɛ tamasiyɛw">
+<!ENTITY main.notesLabel                "Ɲɛ tamasiyɛnw danfara">
+<!ENTITY main.loadbmk                   "Ɲɛ tamasiyɛnw tulonkɛ yɔrɔ dɔ ta">
+<!ENTITY main.newbmk                    "Ɲɛtamasiyɛnw tulonkɛ yɔrɔ dɔ labɛn">
+<!ENTITY main.mark                      "Tamasiyɛn bila nin ɲɛ in na">
+<!ENTITY main.unmark                    "Ɲɛ tamasiyɛn sugantilen jɔɔsi">
+<!ENTITY main.reload                    "Ɲɛ tamasiyɛn tulonkɛlan sariziye">
+<!ENTITY main.defaultset                "Labɛnni bɛnka fɔlɔ">
+
+<!-- Contextual Menu -->
+<!ENTITY main.saveImageAs               "Ja mara ... kan">
+<!ENTITY main.openLinkInNewTab          "tugu sira dayɛlɛɛn seleke wɛrɛ kɔnɔ">
+<!ENTITY main.searchFor                 "Ɲininikɛ ...">
+<!ENTITY main.copyLinkAdress            "Copy link address">
+<!ENTITY main.mute                      "Bobo">
+<!ENTITY main.audible                   "Mankan">
+
+<!-- About Window -->
+<!ENTITY main.close                     "A datugu">
+
+<!-- Preferences Window -->
+<!ENTITY preferences.preferences        "I diyanyeta">
+<!ENTITY preferences.save               "A mara">
+<!ENTITY preferences.cancel             "A bɔ yen">
+<!ENTITY preferences.profileDirectory   "Bugunatigɛ yɔrɔ">
+<!ENTITY preferences.dataDirectory      "Data directory">
+<!ENTITY preferences.browse             "A ɲini">
+<!ENTITY preferences.tabs               "K'i hakili lajigin seleke dayɛlɛnnenw na n'i bɛ bɔ kiwikisi kan">
+<!ENTITY preferences.downloadCatalogs   "yɔrɔjan katalɔguw telesariziye">
+<!ENTITY preferences.neverAskToIndex    "Ka na Ɛndɛkiseli ɲininkali kɛ">
+
+<!-- Server -->
+<!ENTITY server.load                    "A sariziye">
+<!ENTITY server.start                   "A daminɛ">
+<!ENTITY server.stop                    "A jɔ">
+<!ENTITY server.close                   "A datugu">
+
+<!-- Library -->
+<!ENTITY main.library.myLibrary                 "N ka gafeso">
+<!ENTITY main.library.getNewFiles               "Ka fiye kuraw sɔrɔ">
+<!ENTITY main.library.searchZimFiles            "Ka fisiye ZIMUW ɲini">
+<!ENTITY main.library.sortBy                    "Ka wolomali kɛ">
+<!ENTITY main.library.sortBy.title              "Titiri">
+<!ENTITY main.library.sortBy.size               "Hakɛ">
+<!ENTITY main.library.sortBy.date               "Waati">
+<!ENTITY main.library.sortBy.author             "Kɛbaga">
+<!ENTITY main.library.sortBy.publisher          "Sɛbɛnbaga">
+<!ENTITY main.library.filterBy                  "Filiterebaga">
+<!ENTITY main.library.filterBy.fileSize         "Fisiye hakɛ">
+<!ENTITY main.library.filterBy.language         "Kan">
+<!ENTITY main.library.filterBy.language.all     "A bɛɛlajɛlen">
+<!ENTITY main.library.filterBy.author           "Kɛbaga">
+<!ENTITY main.library.filterBy.author.all       "A bɛɛlajɛlen">
+<!ENTITY main.library.filterBy.publisher        "Sɛbɛnbaga">
+<!ENTITY main.library.filterBy.publisher.all    "A bɛɛlajɛlen">
+<!ENTITY main.library.filterBy.lessThan         "A ka dɔgɔ nin...">
+

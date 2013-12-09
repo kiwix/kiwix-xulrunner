@@ -128,6 +128,7 @@
 <!ENTITY preferences.save               "Gravar">
 <!ENTITY preferences.cancel             "Cancelar">
 <!ENTITY preferences.profileDirectory   "Diretório de perfil">
+<!ENTITY preferences.dataDirectory      "Data directory">
 <!ENTITY preferences.browse             "Navegar">
 <!ENTITY preferences.tabs               "Memorizar os separadores">
 <!ENTITY preferences.downloadCatalogs   "Descarregar catálogo(s) remoto(s)">

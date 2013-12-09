@@ -128,6 +128,7 @@
 <!ENTITY preferences.save               "Opslaan">
 <!ENTITY preferences.cancel             "Annuleren">
 <!ENTITY preferences.profileDirectory   "Profielmap">
+<!ENTITY preferences.dataDirectory      "Data directory">
 <!ENTITY preferences.browse             "Bladeren">
 <!ENTITY preferences.tabs               "Tabbladen onthouden">
 <!ENTITY preferences.downloadCatalogs   "Catalogi downloaden">

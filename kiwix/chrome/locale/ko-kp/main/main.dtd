@@ -75,7 +75,7 @@
 <!ENTITY main.randomArticle.accesskey   "R">
 <!ENTITY main.checkIntegrity            "유효성 검열">
 <!ENTITY main.checkIntegrity.accesskey  "k">
-<!ENTITY main.launchIndexing            "Launch indexing">
+<!ENTITY main.launchIndexing            "색인 만들기 실행">
 <!ENTITY main.purgeHistory              "최근항목 지우기">
 <!ENTITY main.purgeHistory.accesskey    "P">
 
@@ -128,10 +128,11 @@
 <!ENTITY preferences.save               "저장">
 <!ENTITY preferences.cancel             "취소">
 <!ENTITY preferences.profileDirectory   "개인략력 보판장소">
+<!ENTITY preferences.dataDirectory      "Data directory">
 <!ENTITY preferences.browse             "열람하기">
 <!ENTITY preferences.tabs               "콤퓨터 표시를 저장하기">
 <!ENTITY preferences.downloadCatalogs   "원격 사용설명서 내려받기">
-<!ENTITY preferences.neverAskToIndex    "Never ask to index">
+<!ENTITY preferences.neverAskToIndex    "색인 만들기를 절대 묻지 않음">
 
 <!-- Server -->
 <!ENTITY server.load                    "불러오기">

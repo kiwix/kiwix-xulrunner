@@ -128,6 +128,7 @@
 <!ENTITY preferences.save               "Tallenna">
 <!ENTITY preferences.cancel             "Peruuta">
 <!ENTITY preferences.profileDirectory   "Profiilihakemisto">
+<!ENTITY preferences.dataDirectory      "Data directory">
 <!ENTITY preferences.browse             "Selaa">
 <!ENTITY preferences.tabs               "Muista välilehdet">
 <!ENTITY preferences.downloadCatalogs   "Lataa etäkatalogi(t)">

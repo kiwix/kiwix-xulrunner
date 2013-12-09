@@ -128,6 +128,7 @@
 <!ENTITY preferences.save               "Αποθήκευση">
 <!ENTITY preferences.cancel             "Ακύρωση">
 <!ENTITY preferences.profileDirectory   "Κατάλογος Προφίλ">
+<!ENTITY preferences.dataDirectory      "Data directory">
 <!ENTITY preferences.browse             "Πλοήγηση">
 <!ENTITY preferences.tabs               "Απομνημόνευση καρτελών">
 <!ENTITY preferences.downloadCatalogs   "Κατεβάστε απομακρυσμένους καταλόγους">

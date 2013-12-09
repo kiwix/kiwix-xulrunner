@@ -128,6 +128,7 @@
 <!ENTITY preferences.save               "Išsaugoti">
 <!ENTITY preferences.cancel             "Atšaukti">
 <!ENTITY preferences.profileDirectory   "Profilis katalogas">
+<!ENTITY preferences.dataDirectory      "Data directory">
 <!ENTITY preferences.browse             "Naršyti">
 <!ENTITY preferences.tabs               "Prisiminti skirtukus">
 <!ENTITY preferences.downloadCatalogs   "Atsisiųsti nuotolinių katalogų(s)">

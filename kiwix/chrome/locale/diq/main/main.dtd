@@ -71,7 +71,7 @@
 <!-- Tools menu -->
 <!ENTITY main.tools                     "Xecetî">
 <!ENTITY main.tools.accesskey           "T">
-<!ENTITY main.randomArticle             "Wesiqaya ke raşt amê">
+<!ENTITY main.randomArticle             "Wesiqaya raştami">
 <!ENTITY main.randomArticle.accesskey   "R">
 <!ENTITY main.checkIntegrity            "Cerbiya pêroneyin">
 <!ENTITY main.checkIntegrity.accesskey  "k">
@@ -80,7 +80,7 @@
 <!ENTITY main.purgeHistory.accesskey    "P">
 
 <!-- Help menu -->
-<!ENTITY main.help                      "Peşti">
+<!ENTITY main.help                      "Desteg">
 <!ENTITY main.help.accesskey            "H">
 <!ENTITY main.feedback                  "Peydrışten">
 <!ENTITY main.reportabug                "Xırabin bırışê">
@@ -128,6 +128,7 @@
 <!ENTITY preferences.save               "Star ke">
 <!ENTITY preferences.cancel             "Bıtexelne">
 <!ENTITY preferences.profileDirectory   "Peşiya Profili">
+<!ENTITY preferences.dataDirectory      "Data directory">
 <!ENTITY preferences.browse             "Çımpawe">
 <!ENTITY preferences.tabs               "na tab xo vira mekeri">
 <!ENTITY preferences.downloadCatalogs   "Duri ra katalog(an) ronê">

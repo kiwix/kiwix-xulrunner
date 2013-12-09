@@ -128,6 +128,7 @@
 <!ENTITY preferences.save               "محفوظ کریں">
 <!ENTITY preferences.cancel             "منسوخ">
 <!ENTITY preferences.profileDirectory   "رہنامچۂ نمایہ صارف">
+<!ENTITY preferences.dataDirectory      "Data directory">
 <!ENTITY preferences.browse             "ورق گردانی کریں">
 <!ENTITY preferences.tabs               "لوحات یاد رکھیں">
 <!ENTITY preferences.downloadCatalogs   "بعید فہرس (ات) زبراثقال کریں">

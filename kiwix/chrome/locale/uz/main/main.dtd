@@ -128,6 +128,7 @@
 <!ENTITY preferences.save               "Saqlash">
 <!ENTITY preferences.cancel             "Bekor">
 <!ENTITY preferences.profileDirectory   "Profil jildi">
+<!ENTITY preferences.dataDirectory      "Data directory">
 <!ENTITY preferences.browse             "Koʻrish">
 <!ENTITY preferences.tabs               "Bandlarni eslab qolish">
 <!ENTITY preferences.downloadCatalogs   "Masofaviy jildlarni yuklash">

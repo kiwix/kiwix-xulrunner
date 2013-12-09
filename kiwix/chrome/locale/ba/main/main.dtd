@@ -128,6 +128,7 @@
 <!ENTITY preferences.save               "Һаҡларға">
 <!ENTITY preferences.cancel             "Кире алырға">
 <!ENTITY preferences.profileDirectory   "Профиль каталогы">
+<!ENTITY preferences.dataDirectory      "Data directory">
 <!ENTITY preferences.browse             "Байҡарға">
 <!ENTITY preferences.tabs               "Һалынмаларҙы хәтерҙә тоторға">
 <!ENTITY preferences.downloadCatalogs   "Юйылған каталогты (-тарҙы) күсереп алың">

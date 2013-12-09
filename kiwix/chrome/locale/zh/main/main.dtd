@@ -128,6 +128,7 @@
 <!ENTITY preferences.save               "保存">
 <!ENTITY preferences.cancel             "取消">
 <!ENTITY preferences.profileDirectory   "设置目录">
+<!ENTITY preferences.dataDirectory      "Data directory">
 <!ENTITY preferences.browse             "浏览">
 <!ENTITY preferences.tabs               "Remember tabs">
 <!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">

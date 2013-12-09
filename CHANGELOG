@@ -23,10 +23,12 @@ Kiwix 0.9 rc3
 * FIXED: Buggy kiwix-serve suggestion click handling (#463)
 * FIXED: Hanging page loading with specific pages on Win&Mac (#440, #376) 
 * FIXED: Buggy tabs with RTL disposition (#424)
+* FIXED: Small bug in library filtering (by language)
+* FIXED: "Illegal instruction" crash with old CPUs without SSE2 (#478)
 * NEW: New supported user interface languages: Chuvash (cv), Fiji
   Hindi Latin script (hif-latn), Mongolian (mn), Newari (new),
   Sanskrit (sa), Uzbek (uz), Turkish (tr), Tagalog (tl), Talysh
-  language (tly) and Uyghur in Arabic script (ug-arab)
+  language (tly), Kyrgyz (kir), Bambara (bam) and Uyghur in Arabic script (ug-arab)
 * NEW: Does not ask to download remote catalogs if user is offline
 * NEW: Option to avoid dialog box asking for indexing (#330)
 * NEW: Menu item to launch indexing (#455)
@@ -37,6 +39,7 @@ Kiwix 0.9 rc3
 * NEW: ZIM, indexes & library saved in profile in a portable manner
 * NEW: Open XML library files from the menu
 * NEW: Preference to set custom data directory (#279, #323, #366,  #573, #692, #633)
+* NEW: --nosearchbar option for kiwix-serve
 
 Kiwix 0.9 rc2
 * FIXED: kiwix-manage generate wrong size for splitted ZIM files (ID: 3547892)

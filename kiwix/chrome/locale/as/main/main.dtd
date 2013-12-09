@@ -128,6 +128,7 @@
 <!ENTITY preferences.save               "সঞ্চিত কৰক">
 <!ENTITY preferences.cancel             "বাতিল কৰক">
 <!ENTITY preferences.profileDirectory   "প্রোফাইল নিৰ্দেশিকা">
+<!ENTITY preferences.dataDirectory      "Data directory">
 <!ENTITY preferences.browse             "ব্রাওজ">
 <!ENTITY preferences.tabs               "টাঁব মনত ৰাখক">
 <!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">

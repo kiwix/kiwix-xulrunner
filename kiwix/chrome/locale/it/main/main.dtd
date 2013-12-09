@@ -128,6 +128,7 @@
 <!ENTITY preferences.save               "Salva">
 <!ENTITY preferences.cancel             "Annulla">
 <!ENTITY preferences.profileDirectory   "Cartella del profilo">
+<!ENTITY preferences.dataDirectory      "Data directory">
 <!ENTITY preferences.browse             "Esplora">
 <!ENTITY preferences.tabs               "Ricorda schede">
 <!ENTITY preferences.downloadCatalogs   "Scarica cataloghi remoti">
@@ -140,7 +141,7 @@
 <!ENTITY server.close                   "Chiudi">
 
 <!-- Library -->
-<!ENTITY main.library.myLibrary                 "Mia biblioteca">
+<!ENTITY main.library.myLibrary                 "La mia libreria">
 <!ENTITY main.library.getNewFiles               "Ottieni nuovi file">
 <!ENTITY main.library.searchZimFiles            "Cerca file ZIM">
 <!ENTITY main.library.sortBy                    "Ordina per">

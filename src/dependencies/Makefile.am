@@ -149,7 +149,7 @@ xapian-core-1.2.3: xapian-core.tar.gz
 
 # Linux
 xapian-core-1.2.3/build/lib/libxapian.so: xapian-core-1.2.3
-	test ! -f xapian-core-1.2.3/build/lib/libxapian.so && cd xapian-core-1.2.3 mkdir -p build && EXTERN_PATH=`pwd` CPPFLAGS="-I${CURRENT_PATH}/src/dependencies/zlib-1.2.3/" CXXFLAGS=" -fPIC -L${CURRENT_PATH}/src/dependencies/zlib-1.2.3" ./configure --enable-shared --enable-static --prefix=$(DEP_PATH)/xapian-core-1.2.3/build && make clean && make clean && make && make install || true
+	test ! -f xapian-core-1.2.3/build/lib/libxapian.so && cd xapian-core-1.2.3 mkdir -p build && EXTERN_PATH=`pwd` CPPFLAGS="-I${CURRENT_PATH}/src/dependencies/zlib-1.2.3/" CXXFLAGS=" -fPIC -L${CURRENT_PATH}/src/dependencies/zlib-1.2.3" ./configure --enable-shared --enable-static --disable-sse --prefix=$(DEP_PATH)/xapian-core-1.2.3/build && make clean && make clean && make && make install || true
 
 # OSX Join
 xapian-core-1.2.3/build/lib/libxapian.dylib xapian-core-1.2.3/build/bin/xapian-compact: xapian-core-1.2.3/build-i386/lib/libxapian.dylib xapian-core-1.2.3/build-x86_64/lib/libxapian.dylib xapian-core-1.2.3/build-i386/bin/xapian-compact xapian-core-1.2.3/build-x86_64/bin/xapian-compact
@@ -451,7 +451,7 @@ android-sdk/sdk/platforms/android-14: android-sdk/sdk android-14.tar.bz2
 	test -d android-sdk/sdk/platforms/android-14 || tar xf android-14.tar.bz2
 	test -d android-14 && mv android-14 android-sdk/sdk/platforms/ || true
 
-android-deps: android-ndk-r8e android-sdk/sdk/platforms/android-14 xz
+android-deps: android-ndk-r8e android-sdk/sdk/platforms/android-14 xz icu
 	true
 
 ####################################################

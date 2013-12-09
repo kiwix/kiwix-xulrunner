@@ -128,6 +128,7 @@
 <!ENTITY preferences.save               "Guardar">
 <!ENTITY preferences.cancel             "Encaboxar">
 <!ENTITY preferences.profileDirectory   "Carpeta del perfil">
+<!ENTITY preferences.dataDirectory      "Data directory">
 <!ENTITY preferences.browse             "Navegar">
 <!ENTITY preferences.tabs               "Recordar les llingüetes">
 <!ENTITY preferences.downloadCatalogs   "Descargar catálogu remotu">

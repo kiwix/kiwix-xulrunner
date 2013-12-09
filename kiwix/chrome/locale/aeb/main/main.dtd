@@ -128,6 +128,7 @@
 <!ENTITY preferences.save               "sajjel">
 <!ENTITY preferences.cancel             "ifsa5">
 <!ENTITY preferences.profileDirectory   "dalil el milaf echa5ss'i">
+<!ENTITY preferences.dataDirectory      "Data directory">
 <!ENTITY preferences.browse             "ara">
 <!ENTITY preferences.tabs               "تذكّر الألسنة">
 <!ENTITY preferences.downloadCatalogs   "قم بتحميل فهرس (اث) عن بعد">

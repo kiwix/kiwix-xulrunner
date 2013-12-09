@@ -3,10 +3,10 @@
 <!ENTITY main.cssdirection              "ltr">
 
 <!-- Mac menu -->
-<!ENTITY main.osxservices               "Services">
-<!ENTITY main.osxhideapp                "Hide &brand.brandShortName;">
-<!ENTITY main.osxhideothers             "Hide Others">
-<!ENTITY main.osxshowall                "Show All">
+<!ENTITY main.osxservices               "Sirwiykuna">
+<!ENTITY main.osxhideapp                "&brand.brandShortName;-ta pakay">
+<!ENTITY main.osxhideothers             "Wakinkunata pakay">
+<!ENTITY main.osxshowall                "Tukuykunata rikuchiy">
 
 <!-- File menu -->
 <!ENTITY main.file                      "Willañiqi">
@@ -65,7 +65,7 @@
 <!ENTITY main.tabs.accesskey            "T">
 <!ENTITY main.fullscreen                "Hunt'a qhawana pampa">
 <!ENTITY main.fullscreen.accesskey      "F">
-<!ENTITY main.invertedColors            "Inverted colors">
+<!ENTITY main.invertedColors            "T'ikrasqa llimphikuna">
 <!ENTITY main.invertedColors.accesskey  "I">
 
 <!-- Tools menu -->
@@ -75,7 +75,7 @@
 <!ENTITY main.randomArticle.accesskey   "R">
 <!ENTITY main.checkIntegrity            "Allin kayninta llanchiy">
 <!ENTITY main.checkIntegrity.accesskey  "k">
-<!ENTITY main.launchIndexing            "Launch indexing">
+<!ENTITY main.launchIndexing            "Yuyarinachayta qallarichiy">
 <!ENTITY main.purgeHistory              "Wiñay kawsayta ch'usaqchay">
 <!ENTITY main.purgeHistory.accesskey    "P">
 
@@ -94,7 +94,7 @@
 <!ENTITY main.home                      "Qallarina">
 <!ENTITY main.searchBar                 "Maskay sinru">
 <!ENTITY main.search                    "Maskay">
-<!ENTITY main.searchPlaceholder         "Type the text to search here...">
+<!ENTITY main.searchPlaceholder         "Qillqata qillqamuy kaypi maskanaykipaq...">
 <!ENTITY main.findInText                "Qillqapi maskay">
 <!ENTITY main.noSearchBar               "Maskanapaqqa yuyarinachasqa ZIM willañiqim kana tiyan">
 <!ENTITY main.bookmarks                 "Yuyana unanchakuna">
@@ -128,16 +128,17 @@
 <!ENTITY preferences.save               "Waqaychay">
 <!ENTITY preferences.cancel             "Ama niy">
 <!ENTITY preferences.profileDirectory   "K'utupa churana">
+<!ENTITY preferences.dataDirectory      "Data directory">
 <!ENTITY preferences.browse             "Maskapuy">
 <!ENTITY preferences.tabs               "Tikllakunata yuyay">
 <!ENTITY preferences.downloadCatalogs   "Karu kataluta chaqnamuy">
-<!ENTITY preferences.neverAskToIndex    "Never ask to index">
+<!ENTITY preferences.neverAskToIndex    "Ama hayk'appas tapuychu yuyarinachaymanta">
 
 <!-- Server -->
-<!ENTITY server.load                    "Load">
-<!ENTITY server.start                   "Start">
-<!ENTITY server.stop                    "Stop">
-<!ENTITY server.close                   "Close">
+<!ENTITY server.load                    "Chaqnay">
+<!ENTITY server.start                   "Qallariy">
+<!ENTITY server.stop                    "Tukuchiy">
+<!ENTITY server.close                   "Wichq'ay">
 
 <!-- Library -->
 <!ENTITY main.library.myLibrary                 "Ñuqap ñawirina ukhuy">
@@ -157,5 +158,5 @@
 <!ENTITY main.library.filterBy.author.all       "Tukuy">
 <!ENTITY main.library.filterBy.publisher        "Uyaychaqnin">
 <!ENTITY main.library.filterBy.publisher.all    "Tukuy">
-<!ENTITY main.library.filterBy.lessThan         "Less than">
+<!ENTITY main.library.filterBy.lessThan         "Kaymanta aswan pisi:">
 

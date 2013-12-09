@@ -128,6 +128,7 @@
 <!ENTITY preferences.save               "Simpen">
 <!ENTITY preferences.cancel             "Batal">
 <!ENTITY preferences.profileDirectory   "Bilik propil">
+<!ENTITY preferences.dataDirectory      "Data directory">
 <!ENTITY preferences.browse             "Tlusur">
 <!ENTITY preferences.tabs               "Éling tab">
 <!ENTITY preferences.downloadCatalogs   "Ngundhuh katalog adoh">

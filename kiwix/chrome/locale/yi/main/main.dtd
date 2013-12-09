@@ -128,6 +128,7 @@
 <!ENTITY preferences.save               "אויפֿהיטן">
 <!ENTITY preferences.cancel             "אַנולירן">
 <!ENTITY preferences.profileDirectory   "פראפֿיל ארכיוו">
+<!ENTITY preferences.dataDirectory      "Data directory">
 <!ENTITY preferences.browse             "דורכזוכן">
 <!ENTITY preferences.tabs               "געדענקען טאבן">
 <!ENTITY preferences.downloadCatalogs   "אראפלאדן ווייטער(ע) קאטאלאג(ן)">
