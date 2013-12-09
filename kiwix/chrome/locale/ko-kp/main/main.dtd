@@ -93,14 +93,14 @@
 <!ENTITY main.forward                   "다음으로">
 <!ENTITY main.home                      "처음으로">
 <!ENTITY main.searchBar                 "자료 검색 줄">
-<!ENTITY main.search                    "찾기">
+<!ENTITY main.search                    "검색">
 <!ENTITY main.searchPlaceholder         "검색할 본문을 여기에 입력하십시오...">
 <!ENTITY main.findInText                "원문에서 찾기">
 <!ENTITY main.noSearchBar               "찾기를 위한 색인된 ZIM자료기록철이 필요합니다.">
 <!ENTITY main.bookmarks                 "자료 표시점">
 
 <!-- Results bar -->
-<!ENTITY main.results.title             "찾기 결과">
+<!ENTITY main.results.title             "검색 결과">
 
 <!-- Bookmarks Bar -->
 <!ENTITY main.bmkLabel                  "자료 표시점:">
@@ -115,7 +115,7 @@
 <!-- Contextual Menu -->
 <!ENTITY main.saveImageAs               "그림자료기록철 새 이름으로 저장하기">
 <!ENTITY main.openLinkInNewTab          "새로운 화면 열기">
-<!ENTITY main.searchFor                 "을(를) 찾기">
+<!ENTITY main.searchFor                 "검색 대상">
 <!ENTITY main.copyLinkAdress            "Copy link address">
 <!ENTITY main.mute                      "소리없음">
 <!ENTITY main.audible                   "소리있음">

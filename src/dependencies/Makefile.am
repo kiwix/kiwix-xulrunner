@@ -186,10 +186,13 @@ xapian-core-1.2.3/win32/Release/libs/libunicode.lib: xapian-core-1.2.3 xapian-co
 ############ ICU
 ####################################################
 
+icudt49l.dat:
+	$(DOWNLOADER) icudt49l.dat $(DEP_MIRROR)/icudt49l.dat	
+
 icu4c-4_4_2-src.tgz:
 	$(DOWNLOADER) icu4c-4_4_2-src.tgz $(DEP_MIRROR)/icu4c-4_4_2-src.tgz
 
-icu4c-49_1_1-src.tgz:
+icu4c-49_1_1-src.tgz: icudt49l.dat
 	$(DOWNLOADER) icu4c-49_1_1-src.tgz $(DEP_MIRROR)/icu4c-49_1_1-src.tgz
 
 if IS_OLD_ICU
@@ -198,6 +201,7 @@ icu: icu4c-4_4_2-src.tgz
 else
 icu: icu4c-49_1_1-src.tgz
 	test -d icu || tar xf icu4c-49_1_1-src.tgz
+	cp icudt49l.dat icu/source/data/in/icudt49l.dat
 endif
 
 # Linux

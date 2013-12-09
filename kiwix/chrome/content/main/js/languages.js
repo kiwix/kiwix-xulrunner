@@ -72,7 +72,7 @@ _languagesHash['li']           = 'Limburgs';
 _languagesHash['lit']          = _languagesHashOld['lt']          = 'Lietuvių';
 _languagesHash['lv']           = 'Latviešu';
 _languagesHash['map-bms']      = 'Basa Banyumasan';
-_languagesHash['mk']           = 'Македонски';
+_languagesHash['mkd']          = _languagesHashOld['mk']          = 'Македонски';
 _languagesHash['mal']          = _languagesHashOld['ml']          = 'മലയാളം';
 _languagesHash['mon']          = _languagesHashOld['mn']          = 'Монгол хэл';
 _languagesHash['mar']          = _languagesHashOld['mr']          = 'मराठी';

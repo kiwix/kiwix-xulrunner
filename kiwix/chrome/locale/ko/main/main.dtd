@@ -29,7 +29,7 @@
 <!-- Edit menu -->
 <!ENTITY main.edit                      "편집">
 <!ENTITY main.edit.accesskey            "E">
-<!ENTITY main.find                      "이 페이지에서 찾기...">
+<!ENTITY main.find                      "페이지에서 검색...">
 <!ENTITY main.find.accesskey            "S">
 <!ENTITY main.selectall                 "모두 선택">
 <!ENTITY main.selectall.accesskey       "a">
@@ -92,15 +92,15 @@
 <!ENTITY main.back                      "뒤로">
 <!ENTITY main.forward                   "앞으로">
 <!ENTITY main.home                      "처음으로">
-<!ENTITY main.searchBar                 "찾기 막대">
-<!ENTITY main.search                    "찾기">
+<!ENTITY main.searchBar                 "검색 막대">
+<!ENTITY main.search                    "검색">
 <!ENTITY main.searchPlaceholder         "찾을 텍스트를 여기에 입력하세요...">
 <!ENTITY main.findInText                "본문에서 찾기">
 <!ENTITY main.noSearchBar               "찾기를 위한 색인된 ZIM 파일이 필요합니다.">
 <!ENTITY main.bookmarks                 "책갈피">
 
 <!-- Results bar -->
-<!ENTITY main.results.title             "찾기 결과">
+<!ENTITY main.results.title             "검색 결과">
 
 <!-- Bookmarks Bar -->
 <!ENTITY main.bmkLabel                  "책갈피:">
@@ -115,7 +115,7 @@
 <!-- Contextual Menu -->
 <!ENTITY main.saveImageAs               "그림을 다른 이름으로 저장...">
 <!ENTITY main.openLinkInNewTab          "새 탭에 링크 열기">
-<!ENTITY main.searchFor                 "을(를) 찾기">
+<!ENTITY main.searchFor                 "검색 대상">
 <!ENTITY main.copyLinkAdress            "Copy link address">
 <!ENTITY main.mute                      "무음">
 <!ENTITY main.audible                   "유음">
@@ -143,7 +143,7 @@
 <!-- Library -->
 <!ENTITY main.library.myLibrary                 "내 라이브러리">
 <!ENTITY main.library.getNewFiles               "새 파일 얻기">
-<!ENTITY main.library.searchZimFiles            "ZIM 파일 찾기">
+<!ENTITY main.library.searchZimFiles            "ZIM 파일 검색">
 <!ENTITY main.library.sortBy                    "정렬">
 <!ENTITY main.library.sortBy.title              "제목">
 <!ENTITY main.library.sortBy.size               "크기">
