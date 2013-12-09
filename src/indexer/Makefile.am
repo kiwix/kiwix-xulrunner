@@ -11,7 +11,6 @@ kiwix_index_SOURCES= \
 	../common/kiwix/reader.cpp \
 	../common/kiwix/ctpp2/CTPP2VMStringLoader.cpp \
 	../common/kiwix/xapianIndexer.cpp \
-	../common/kiwix/cluceneIndexer.cpp \
 	../common/kiwix/xapian/myhtmlparse.h \
 	../common/kiwix/xapian/namedentities.h \
 	../common/kiwix/xapian/htmlparse.h \
@@ -21,16 +20,15 @@ kiwix_index_SOURCES= \
 	../common/kiwix/ctpp2/CTPP2VMStringLoader.hpp \
 	../common/kiwix/indexer.h \
 	../common/kiwix/reader.h \
-	../common/kiwix/xapianIndexer.h \
-	../common/kiwix/cluceneIndexer.h
-kiwix_index_CXXFLAGS=$(LIBZIM_CFLAGS) $(LIBCTPP2_CFLAGS) $(XAPIAN_CFLAGS) $(CLUCENE_CFLAGS) $(ICU_CFLAGS) $(LZMA_CFLAGS) $(ZLIB_CFLAGS) -I../common/
+	../common/kiwix/xapianIndexer.h
+kiwix_index_CXXFLAGS=$(LIBZIM_CFLAGS) $(LIBCTPP2_CFLAGS) $(XAPIAN_CFLAGS) $(ICU_CFLAGS) $(LZMA_CFLAGS) $(ZLIB_CFLAGS) -I../common/
 
 kiwix_index_LDFLAGS=$(CHECK_LDFLAGS)
 
 if STATIC_BINS
-kiwix_index_LDFLAGS+= $(XAPIAN_STATIC_LDFLAGS) $(CLUCENE_STATIC_LDFLAGS) $(LIBCTPP2_STATIC_LDFLAGS) $(ICU_STATIC_LDFLAGS) $(LIBZIM_STATIC_LDFLAGS) $(LZMA_STATIC_LDFLAGS) $(ZLIB_STATIC_LDFLAGS) $(UUID_STATIC_LDFLAGS) $(STATIC_LIBM_ARCHIVE) $(STATIC_LIBSTDCPP_ARCHIVE) $(STATIC_LIBDL_ARCHIVE) $(STATIC_LIBGCC_ARCHIVE) $(STATIC_LIBPTHREAD_ARCHIVE) --static
+kiwix_index_LDFLAGS+= $(XAPIAN_STATIC_LDFLAGS) $(LIBCTPP2_STATIC_LDFLAGS) $(ICU_STATIC_LDFLAGS) $(LIBZIM_STATIC_LDFLAGS) $(LZMA_STATIC_LDFLAGS) $(ZLIB_STATIC_LDFLAGS) $(UUID_STATIC_LDFLAGS) $(STATIC_LIBM_ARCHIVE) $(STATIC_LIBSTDCPP_ARCHIVE) $(STATIC_LIBDL_ARCHIVE) $(STATIC_LIBGCC_ARCHIVE) $(STATIC_LIBPTHREAD_ARCHIVE) --static
 else
-kiwix_index_LDFLAGS+= $(XAPIAN_LDFLAGS) $(CLUCENE_LDFLAGS) $(ICU_LDFLAGS) $(LIBCTPP2_LDFLAGS) $(LIBZIM_LDFLAGS) $(LZMA_LDFLAGS) $(ZLIB_LDFLAGS) -lpthread $(UUID_LDFLAGS) -ldl
+kiwix_index_LDFLAGS+= $(XAPIAN_LDFLAGS) $(ICU_LDFLAGS) $(LIBCTPP2_LDFLAGS) $(LIBZIM_LDFLAGS) $(LZMA_LDFLAGS) $(ZLIB_LDFLAGS) -lpthread $(UUID_LDFLAGS) -ldl
 endif
 
 if IS_OSX

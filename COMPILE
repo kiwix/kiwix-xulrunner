@@ -8,7 +8,7 @@ Debian/Ubuntu packages: build-essential autoconf automake libtool pkg-config \
 libicu-dev libclucene-dev libxapian-dev libmicrohttpd-dev liblzma-dev fastjar \
 xulrunner-1.9.2-dev aria2 libsqlite3-dev zlib1g-dev uuid-dev libuuid1 zip \
 subversion git-core openjdk-7-jre openjdk-7-jre-headless openjdk-7-jdk ant \
-libctpp2-2 libctpp2-dev
+curl cmake
 # xapian-tools (debian wheezy)
 
 Fedora (Sugar build) packages: gcc gcc-c++ automake glibc-devel libtool \

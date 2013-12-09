@@ -25,10 +25,6 @@ CLEANFILES = \
 	kiwix/components/xapianAccessor.xpt \
 	kiwix/components/zimXapianIndexer.$(SHARED_EXT) \
 	kiwix/components/zimXapianIndexer.xpt \
-	kiwix/components/cluceneAccessor.$(SHARED_EXT) \
-	kiwix/components/cluceneAccessor.xpt \
-	kiwix/components/zimCluceneIndexer.$(SHARED_EXT) \
-	kiwix/components/zimCluceneIndexer.xpt \
 	kiwix/components/contentManager$(SHARED_EXT). \
 	kiwix/components/contentManager.xpt \
 	kiwix/components/serverManager.$(SHARED_EXT) \
@@ -63,10 +59,6 @@ all-local:
 	$(LN_S) -f ../../src/components/xapianAccessor/xapianAccessor.xpt ./kiwix/components/xapianAccessor.xpt
 	$(LN_S) -f ../../src/components/zimXapianIndexer/.libs/libZimXapianIndexer.$(SHARED_EXT) ./kiwix/components/zimXapianIndexer.$(SHARED_EXT)
 	$(LN_S) -f ../../src/components/zimXapianIndexer/zimXapianIndexer.xpt ./kiwix/components/zimXapianIndexer.xpt
-	$(LN_S) -f ../../src/components/cluceneAccessor/.libs/libCluceneAccessor.$(SHARED_EXT) ./kiwix/components/cluceneAccessor.$(SHARED_EXT)
-	$(LN_S) -f ../../src/components/cluceneAccessor/cluceneAccessor.xpt ./kiwix/components/cluceneAccessor.xpt
-	$(LN_S) -f ../../src/components/zimCluceneIndexer/.libs/libZimCluceneIndexer.$(SHARED_EXT) ./kiwix/components/zimCluceneIndexer.$(SHARED_EXT)
-	$(LN_S) -f ../../src/components/zimCluceneIndexer/zimCluceneIndexer.xpt ./kiwix/components/zimCluceneIndexer.xpt
 	$(LN_S) -f ../../src/components/contentManager/.libs/libContentManager.$(SHARED_EXT) ./kiwix/components/contentManager.$(SHARED_EXT)
 	$(LN_S) -f ../../src/components/contentManager/contentManager.xpt ./kiwix/components/contentManager.xpt
 	$(LN_S) -f ../../src/components/serverManager/.libs/libServerManager.$(SHARED_EXT) ./kiwix/components/serverManager.$(SHARED_EXT)
@@ -83,12 +75,10 @@ dist-hook:
 install-exec-hook:
 	rm -rf `find $(DESTDIR)$(libdir) -name "*.la" -o -name "*.a"`
 	cd $(DESTDIR)$(libdir)/kiwix/components && ln -sf libZimXapianIndexer.$(SHARED_EXT) zimXapianIndexer.$(SHARED_EXT)
-	cd $(DESTDIR)$(libdir)/kiwix/components && ln -sf libCluceneAccessor.$(SHARED_EXT) cluceneAccessor.$(SHARED_EXT)
 	cd $(DESTDIR)$(libdir)/kiwix/components && ln -sf libContentManager.$(SHARED_EXT) contentManager.$(SHARED_EXT)
 	cd $(DESTDIR)$(libdir)/kiwix/components && ln -sf libServerManager.$(SHARED_EXT) serverManager.$(SHARED_EXT)
 	cd $(DESTDIR)$(libdir)/kiwix/components && ln -sf libXapianAccessor.$(SHARED_EXT) xapianAccessor.$(SHARED_EXT)
 	cd $(DESTDIR)$(libdir)/kiwix/components && ln -sf libZimAccessor.$(SHARED_EXT) zimAccessor.$(SHARED_EXT)
-	cd $(DESTDIR)$(libdir)/kiwix/components && ln -sf libZimCluceneIndexer.$(SHARED_EXT) zimCluceneIndexer.$(SHARED_EXT)
 
 
 deb: dist
@@ -147,7 +137,6 @@ diststatic:
 	cp -Lv $(EMBED_LIBS) $(STATIC_TMP)/kiwix/xulrunner/
 
 	ln -s ./liblzma.so $(STATIC_TMP)/kiwix/xulrunner/liblzma.so.5
-	ln -s ./libclucene.so $(STATIC_TMP)/kiwix/xulrunner/libclucene.so.0
 
 	ln -s ./libz.so $(STATIC_TMP)/kiwix/xulrunner/libz.so.1
 	ln -s ./libxapian.so $(STATIC_TMP)/kiwix/xulrunner/libxapian.so.22
@@ -248,10 +237,6 @@ distmac:
 	cp -v ./kiwix/components/contentManager.dylib Kiwix.app/Contents/Resources/components/contentManager.dylib
 	cp -v ./kiwix/components/serverManager.xpt Kiwix.app/Contents/Resources/components/serverManager.xpt
 	cp -v ./kiwix/components/serverManager.dylib Kiwix.app/Contents/Resources/components/serverManager.dylib
-	cp -v ./kiwix/components/cluceneAccessor.xpt Kiwix.app/Contents/Resources/components/cluceneAccessor.xpt
-	cp -v ./kiwix/components/cluceneAccessor.dylib Kiwix.app/Contents/Resources/components/cluceneAccessor.dylib
-	cp -v ./kiwix/components/zimCluceneIndexer.xpt Kiwix.app/Contents/Resources/components/zimCluceneIndexer.xpt
-	cp -v ./kiwix/components/zimCluceneIndexer.dylib Kiwix.app/Contents/Resources/components/zimCluceneIndexer.dylib
 	cp -v src/components/components.list Kiwix.app/Contents/Resources/components/components.list
 	rsync -rl $(DEP_PATH)/xr_target/xulrunner-14.0.1.en-US.mac/XUL.framework/ Kiwix.app/Contents/Frameworks/XUL.framework/
 	cp -v $(DEP_PATH)/xr_target/xulrunner-14.0.1.en-US.mac/XUL.framework/Versions/Current/xulrunner Kiwix.app/Contents/MacOS/xulrunner
@@ -336,10 +321,6 @@ universal: $(PACKAGE)-$(VERSION)-i386.dmg $(PACKAGE)-$(VERSION)-x86_64.dmg
 	lipo -create -output universal_tmp/ub/Kiwix.app/Contents/Resources/components/xapianAccessor.dylib -arch i386 universal_tmp/i386/Kiwix.app/Contents/Resources/components/xapianAccessor.dylib -arch x86_64 universal_tmp/x86_64/Kiwix.app/Contents/Resources/components/xapianAccessor.dylib
 
 	lipo -create -output universal_tmp/ub/Kiwix.app/Contents/Resources/components/zimXapianIndexer.dylib -arch i386 universal_tmp/i386/Kiwix.app/Contents/Resources/components/zimXapianIndexer.dylib -arch x86_64 universal_tmp/x86_64/Kiwix.app/Contents/Resources/components/zimXapianIndexer.dylib
-
-	lipo -create -output universal_tmp/ub/Kiwix.app/Contents/Resources/components/cluceneAccessor.dylib -arch i386 universal_tmp/i386/Kiwix.app/Contents/Resources/components/cluceneAccessor.dylib -arch x86_64 universal_tmp/x86_64/Kiwix.app/Contents/Resources/components/cluceneAccessor.dylib
-
-	lipo -create -output universal_tmp/ub/Kiwix.app/Contents/Resources/components/zimCluceneIndexer.dylib -arch i386 universal_tmp/i386/Kiwix.app/Contents/Resources/components/zimCluceneIndexer.dylib -arch x86_64 universal_tmp/x86_64/Kiwix.app/Contents/Resources/components/zimCluceneIndexer.dylib
 
 if WITH_INDEXER
 	lipo -create -output universal_tmp/ub/Kiwix.app/Contents/Resources/bin/kiwix-index -arch i386 universal_tmp/i386/Kiwix.app/Contents/Resources/bin/kiwix-index -arch x86_64 universal_tmp/x86_64/Kiwix.app/Contents/Resources/bin/kiwix-index
