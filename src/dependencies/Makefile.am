@@ -387,7 +387,7 @@ ctpp2-2.8.3/build/complete/lib/libctpp2.${SHARED_EXT} ctpp2-2.8.3/build/complete
 	test ! -f 2-2.8.3/build/complete/lib/libctpp2.${SHARED_EXT} && rm -rf ctpp2-2.8.3/build && mkdir -p ctpp2-2.8.3/build && cd ctpp2-2.8.3/build && CC="$(COMPC)" CXX="$(COMPCXX)" CXXFLAGS="-fPIC -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE" cmake -DCMAKE_INSTALL_PREFIX=./complete .. && make && make install || true
 
 # Windows
-ctpp2.2.8.3/src/ctpp2.lib: ctpp2-2.8.3
+ctpp2-2.8.3/src/ctpp2.lib: ctpp2-2.8.3
 	test ! -f ctpp2.2.8.3/src/ctpp2.lib && cd ctpp2.2.8.3/src && rm -f vc90* && cl.exe -O2 -Oi -I"../include"  -I"../include/functions" -D"WIN32" -FD -EHsc -MT -Gy -nologo -c -Zi -TP *.cpp functions/*.cpp && link.exe -lib -NOLOGO -NODEFAULTLIB:"MSVCRT" -MACHINE:X86 -OUT:ctpp2.lib *.obj || true
 
 ####################################################
