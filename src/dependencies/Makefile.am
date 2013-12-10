@@ -388,7 +388,7 @@ ctpp2-2.8.3/build/complete/lib/libctpp2.${SHARED_EXT} ctpp2-2.8.3/build/complete
 
 # Windows
 ctpp2-2.8.3/src/ctpp2.lib: ctpp2-2.8.3
-	test ! -f ctpp2-2.8.3/src/ctpp2.lib && cd ctpp2-2.8.3/src && rm -f vc90* && cp ../../patches/CTPP2SysHeaders.h ../include/ && cl.exe -O2 -Oi -I"../include"  -I"../include/functions" -D"WIN32" -FD -EHsc -MT -Gy -nologo -c -Zi -TP *.cpp functions/*.cpp && link.exe -lib -NOLOGO -NODEFAULTLIB:"MSVCRT" -MACHINE:X86 -OUT:ctpp2.lib *.obj || true
+	test ! -f ctpp2-2.8.3/src/ctpp2.lib && cd ctpp2-2.8.3/src && rm -f vc90* && cp ../../patches/CTPP2SysHeaders.h ../include/ && rm CTPP2StringIconvOutputCollector.cpp && cl.exe -O2 -Oi -I"../include"  -I"../include/functions" -D"WIN32" -FD -EHsc -MT -Gy -nologo -c -Zi -TP *.cpp functions/*.cpp && link.exe -lib -NOLOGO -NODEFAULTLIB:"MSVCRT" -MACHINE:X86 -OUT:ctpp2.lib *.obj || true
 
 ####################################################
 ############ ARGTABLE

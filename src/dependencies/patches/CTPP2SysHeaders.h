@@ -79,7 +79,7 @@
 
 #define ICONV_TRANSLITERATE 1
 
-#define CTPP_VERSION         "2.6.7"
+#define CTPP_VERSION         "2.8.3"
 #define CTPP_IDENT           "Dzoraget"
 #define CTPP_MASTER_SITE_URL "http://ctpp.havoc.ru/"
 
