@@ -10,6 +10,7 @@ xulrunner-1.9.2-dev aria2 libsqlite3-dev zlib1g-dev uuid-dev libuuid1 zip \
 subversion git-core openjdk-7-jre openjdk-7-jre-headless openjdk-7-jdk ant \
 curl cmake
 # xapian-tools (debian wheezy)
+# libzim-dev libzim0 libctpp2-dev libctpp2-2 libpugixml-dev libpugixml1 xulrunner-dev (debian jessie+)
 
 Fedora (Sugar build) packages: gcc gcc-c++ automake glibc-devel libtool \
 c-ares autoconf aria2 libicu-devel xapian-core-devel lzma-libs lzma-devel \

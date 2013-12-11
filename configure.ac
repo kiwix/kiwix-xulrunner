@@ -40,6 +40,8 @@ AC_CONFIG_AUX_DIR([.]) # where are autotools scripts located
 AM_INIT_AUTOMAKE
 AM_MAINTAINER_MODE
 
+AC_PREFIX_PROGRAM("whoami")
+
 # find C compiler
 AC_PROG_CC
 
@@ -346,7 +348,7 @@ else
 fi
 COMPILED_LZMA_CFLAGS="-I${DEP_PATH}/xz/src/liblzma/api"
 
-LIBZIM_CFLAGS=""
+LIBZIM_CFLAGS=" -I${prefix}/include -I${prefix}/include/zim"
 LIBZIM_LDFLAGS=" -lzim"
 LIBZIM_STATIC_LDFLAGS=""
 COMPILE_LIBZIM=0
@@ -359,7 +361,7 @@ else
     COMPILED_LIBZIM_FILES="${DEP_PATH}/zimlib-1.1/build/lib/libzim.${SHARED_EXT}"
 fi
 
-LIBPUGIXML_CFLAGS=""
+LIBPUGIXML_CFLAGS=" -I${prefix}/include"
 LIBPUGIXML_LDFLAGS=" -lpugixml"
 LIBPUGIXML_STATIC_LDFLAGS=""
 COMPILE_LIBPUGIXML=0
@@ -372,7 +374,7 @@ else
     COMPILED_LIBPUGIXML_FILES="${DEP_PATH}/pugixml-1.2/libpugixml.${SHARED_EXT} ${DEP_PATH}/pugixml-1.2/libpugixml.a"
 fi
 
-LIBCTPP2_CFLAGS=""
+LIBCTPP2_CFLAGS=" -I${prefix}/include -I${prefix}/include/ctpp2"
 LIBCTPP2_LDFLAGS=" -lctpp2"
 LIBCTPP2_STATIC_LDFLAGS=""
 COMPILE_LIBCTPP2=0
@@ -648,10 +650,14 @@ AC_ARG_ENABLE(oldgecko,
 			  [], [enable_oldgecko=no])
 AS_IF([test "x$enable_oldgecko" = "xyes"], [IS_OLD_GECKO=1], [IS_OLD_GECKO=0])
 
-
 AC_ARG_WITH(gecko-sdk,
             AC_HELP_STRING([--with-gecko-sdk=DIR], [Gecko SDK path]),
-            GECKO_SDK_PATH=`cd ${withval} && pwd || $GECKO_SDK_PATH`)
+            GECKO_SDK_PATH=`echo "${withval}"`)
+
+if test [ "$GECKO_SDK_PATH" != "" -a "$GECKO_SDK_PATH" != "$SELF" ]
+then
+	GECKO_SDK_PATH=`cd ${GECKO_SDK_PATH} && pwd || echo ""`
+fi
 
 # try to find installed gecko-sdk. default to SELF
 if test [ "$GECKO_SDK_PATH" = "" ]
@@ -735,7 +741,8 @@ LIBXUL_CFLAGS="-I${GECKO_SDK_INCLUDE} -I${GECKO_INCLUDE_PATH} -I${GECKO_INCLUDE_
 if test [ $IS_OSX -eq 1 ] ; then
 LIBXUL_LDFLAGS="-L${GECKO_SDK_LIB} -lxpcom -lplds4 -lplc4 -lnspr4 -lpthread -ldl ${GECKO_SDK_LIB}/libxpcomglue_s_nomozalloc.a  ${GECKO_SDK_LIB}/XUL"
 else
-LIBXUL_LDFLAGS="-L${GECKO_SDK_LIB} -lxul -lxpcom -lplds4 -lplc4 -lnspr4 -lpthread -ldl -lxpcomglue_s"
+# LIBXUL_LDFLAGS="-L${GECKO_SDK_LIB} -lxul -lxpcom -lplds4 -lplc4 -lnspr4 -lpthread -ldl -lxpcomglue_s"
+LIBXUL_LDFLAGS="-L${GECKO_SDK_LIB} -lxul -lplds4 -lplc4 -lnspr4 -lpthread -ldl ${GECKO_SDK_LIB}/libxpcomglue_s.a"
 fi
 
 if test [ ! -f "$GECKO_IDL_PATH/nsISupports.idl" ]
@@ -1101,15 +1108,20 @@ if test [ $COMPILE_LIBZIM -eq 1 -o "$LIBZIM_PATH" == "$SELF" -o "$LIBZIM_ARCHIVE
 	LIBZIM_STATIC_LDFLAGS=$COMPILED_LIBZIM_STATIC_LDFLAGS
 else
 	# look for shared library.
-	AC_CHECK_HEADER([libzim.h],, [AC_MSG_ERROR([[cannot find libzim header]])])
-	AC_CHECK_LIB([libzim], [libzim_version_string],, [AC_MSG_ERROR([[cannot find libzim]])])
+	AC_CHECK_HEADER([zim/zim.h],, [AC_MSG_ERROR([[cannot find libzim header]])])
+	AC_CHECK_LIB([zim], [zim_MD5Init],, [AC_MSG_ERROR([[cannot find libzim]])])
 
 	# Check the liblibzim version
 	`pkg-config --atleast-version="1.1" libzim`
 	LIBZIM_VERSION_OK=$?
 	if test [ ! $LIBZIM_VERSION_OK -eq 0 ]
 	then
-		AC_MSG_ERROR([[The libzim version must be 1.1 or higher.]])
+		# TODO: uncomment once we release it with pkg-config file
+		# AC_MSG_ERROR([[The libzim version must be 1.1 or higher.]])
+		echo "Assuming libzim version is 1.1"
+	else
+		LIBZIM_CFLAGS=`pkg-config --cflags libzim`
+		LIBZIM_LDFLAGS=`pkg-config --libs libzim`
 	fi
 	LIBZIM_FILES=`findLibrary "libzim.${SHARED_EXT}"`
 
@@ -1159,15 +1171,20 @@ if test [ $COMPILE_LIBPUGIXML -eq 1 -o "$LIBPUGIXML_PATH" == "$SELF" -o "$LIBPUG
 	LIBPUGIXML_STATIC_LDFLAGS=$COMPILED_LIBPUGIXML_STATIC_LDFLAGS
 else
 	# look for shared library.
-	AC_CHECK_HEADER([libpugixml.h],, [AC_MSG_ERROR([[cannot find libpugixml header]])])
-	AC_CHECK_LIB([libpugixml], [libpugixml_version_string],, [AC_MSG_ERROR([[cannot find libpugixml]])])
+	AC_CHECK_HEADER([pugixml.hpp],, [AC_MSG_ERROR([[cannot find libpugixml header]])])
+	AC_CHECK_LIB([pugixml], [_init],, [AC_MSG_ERROR([[cannot find libpugixml]])])
 
 	# Check the liblibpugixml version
-	`pkg-config --atleast-version="1.1" libpugixml`
+	`pkg-config --atleast-version="1.2" libpugixml`
 	LIBPUGIXML_VERSION_OK=$?
 	if test [ ! $LIBPUGIXML_VERSION_OK -eq 0 ]
 	then
-		AC_MSG_ERROR([[The libpugixml version must be 1.1 or higher.]])
+		# TODO: uncomment once we release it with pkg-config file
+		# AC_MSG_ERROR([[The libpugixml version must be 1.1 or higher.]])
+		echo "Assuming libzim version is 1.2"
+	else
+		LIBPUGIXML_CFLAGS=`pkg-config --cflags libpugixml`
+		LIBPUGIXML_LDFLAGS=`pkg-config --libs libpugixml`
 	fi
 	LIBPUGIXML_FILES=`findLibrary "libpugixml.${SHARED_EXT}"`
 
@@ -1217,15 +1234,20 @@ if test [ $COMPILE_LIBCTPP2 -eq 1 -o "$LIBCTPP2_PATH" == "$SELF" -o "$LIBCTPP2_A
 	LIBCTPP2_STATIC_LDFLAGS=$COMPILED_LIBCTPP2_STATIC_LDFLAGS
 else
 	# look for shared library.
-	AC_CHECK_HEADER([libctpp2.h],, [AC_MSG_ERROR([[cannot find libctpp2 header]])])
-	AC_CHECK_LIB([libctpp2], [libctpp2_version_string],, [AC_MSG_ERROR([[cannot find libctpp2]])])
+	AC_CHECK_HEADER([ctpp2/CTPP2GlobalDefines.h],, [AC_MSG_ERROR([[cannot find libctpp2 header]])])
+	AC_CHECK_LIB([ctpp2], [_init],, [AC_MSG_ERROR([[cannot find libctpp2]])])
 
 	# Check the liblibctpp2 version
-	`pkg-config --atleast-version="1.1" libctpp2`
+	`pkg-config --atleast-version="2.8.3" libctpp2`
 	LIBCTPP2_VERSION_OK=$?
 	if test [ ! $LIBCTPP2_VERSION_OK -eq 0 ]
 	then
-		AC_MSG_ERROR([[The libctpp2 version must be 1.1 or higher.]])
+		# TODO: uncomment once we release it with pkg-config file
+		# AC_MSG_ERROR([[The libctpp2 version must be 1.1 or higher.]])
+		echo "Assuming libzim version is 2.8.3"
+	else
+		LIBCTPP2_CFLAGS=`pkg-config --cflags libctpp2`
+		LIBCTPP2_LDFLAGS=`pkg-config --libs libctpp2`
 	fi
 	LIBCTPP2_FILES=`findLibrary "libctpp2.${SHARED_EXT}"`
 
