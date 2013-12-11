@@ -186,6 +186,9 @@ xapian-core-1.2.3/win32/Release/libs/libunicode.lib: xapian-core-1.2.3 xapian-co
 ############ ICU
 ####################################################
 
+# This files gathers ICU related data. It's a custom one generated
+# with http://apps.icu-project.org/datacustom/ICUData49.html. It
+# contains Break iterators, Collators and Transliterators.
 icudt49l.dat:
 	$(DOWNLOADER) icudt49l.dat $(DEP_MIRROR)/icudt49l.dat
 
