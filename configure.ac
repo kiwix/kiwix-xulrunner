@@ -1588,9 +1588,14 @@ AC_ARG_WITH(downloader,
 			  			   DOWNLOADERREQ=${withval})
 
 # wget is default
+echo "$DOWNLOADERREQ"
 if test [ "$DOWNLOADERREQ" = "" -o "$DOWNLOADERREQ" = "wget" ]
 then
-	DOWNLOADER="wget --wait=10 --timeout=600 --no-use-server-timestamps -c -O"
+	DOWNLOADER="wget --wait=10 --timeout=600 -c -O"
+	if [test $IS_WIN -eq 0]
+	then
+		DOWNLOADER="$DOWNLOADER --no-use-server-timestamps"
+	fi
 elif test [ "$DOWNLOADERREQ" = "curl" ]
 then
 	DOWNLOADER="curl -C - --retry 10 --retry-delay 10 -o"
