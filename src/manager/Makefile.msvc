@@ -20,7 +20,7 @@ PUGIXML_LIB=${PUGIXML}
 ARGTABLE_LIB=${ARGTABLE}/src
 
 # Compiler and linker flags
-CFLAGS=-D"XP_WIN" -D"XP_WIN32" -O2 -Oi -I"${ZIM_INCLUDE}" -I"${PUGIXML_INCLUDE}" -I${ARGTABLE_INCLUDE} -I$(ICU_INCLUDE) -I../common/ -I"${ZIM_INCLUDE}/win" -D"_WINDLL" -D"_MBCS" -FD -EHsc -MT -Gy -nologo -c -Zi -TP
+CFLAGS=-D"XP_WIN" -D"XP_WIN32" -O2 -Oi -I"${ZIM_INCLUDE}" -I"${ZIM_INCLUDE}/zim" -I"${PUGIXML_INCLUDE}" -I${ARGTABLE_INCLUDE} -I$(ICU_INCLUDE) -I../common/ -I"${ZIM_INCLUDE}/win" -D"_WINDLL" -D"_MBCS" -FD -EHsc -MT -Gy -nologo -c -Zi -TP
 LDFLAGS=-nologo -LIBPATH:"${PUGIXML_LIB}" -LIBPATH:"${ZIM_LIB}" -LIBPATH:"$(ICU_LIB)" -LIBPATH:"${ARGTABLE_LIB}"
 
 all: kiwix-manage.exe
