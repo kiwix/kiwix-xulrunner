@@ -132,6 +132,7 @@ diststatic:
 	rm -f $(STATIC_TMP)/kiwix/xulrunner/crashreporter
 
 	cp -Lv $(EMBED_LIBS) $(STATIC_TMP)/kiwix/xulrunner/
+	chmod +x $(STATIC_TMP)/kiwix/xulrunner/*.so
 
 	ln -s ./liblzma.so $(STATIC_TMP)/kiwix/xulrunner/liblzma.so.5
 
@@ -145,6 +146,8 @@ diststatic:
 	ln -s ./libicui18n.so $(STATIC_TMP)/kiwix/xulrunner/libicui18n.so.49
 	ln -s ./libsqlite3.so $(STATIC_TMP)/kiwix/xulrunner/libsqlite3.so.0
 	ln -s ./liblzma.so $(STATIC_TMP)/kiwix/xulrunner/liblzma.so.2
+	ln -s ./libzim.so $(STATIC_TMP)/kiwix/xulrunner/libzim.so.0
+	ln -s ./libctpp2.so $(STATIC_TMP)/kiwix/xulrunner/libctpp2.so.2
 
 
 	strip `find $(STATIC_TMP)/kiwix -executable -type f | grep -v ".sh" | grep -v ".py" | grep -v sugar` || true
