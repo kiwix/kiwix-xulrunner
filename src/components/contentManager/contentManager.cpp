@@ -93,7 +93,7 @@ class ContentManager : public IContentManager {
 public:
   NS_DECL_ISUPPORTS
   NS_DECL_ICONTENTMANAGER
-  
+
   ContentManager();
 
 private:
@@ -219,7 +219,7 @@ NS_IMETHODIMP ContentManager::RemoveBookById(const nsACString &id, mozbool *retV
   *retVal = PR_FALSE;
   const char *cid;
   NS_CStringGetData(id, &cid);
-  
+
   try {
     if (this->manager.removeBookById(cid)) {
       *retVal = PR_TRUE;
@@ -227,7 +227,7 @@ NS_IMETHODIMP ContentManager::RemoveBookById(const nsACString &id, mozbool *retV
   } catch (exception &e) {
     cerr << e.what() << endl;
   }
-  
+
   return NS_OK;
 }
 
@@ -235,7 +235,7 @@ NS_IMETHODIMP ContentManager::SetCurrentBookId(const nsACString &id, mozbool *re
   *retVal = PR_FALSE;
   const char *cid;
   NS_CStringGetData(id, &cid);
-  
+
   try {
     if (this->manager.setCurrentBookId(cid)) {
       *retVal = PR_TRUE;
@@ -243,13 +243,13 @@ NS_IMETHODIMP ContentManager::SetCurrentBookId(const nsACString &id, mozbool *re
   } catch (exception &e) {
     cerr << e.what() << endl;
   }
-  
+
   return NS_OK;
 }
 
 NS_IMETHODIMP ContentManager::GetCurrentBookId(nsACString &id, mozbool *retVal) {
   *retVal = PR_FALSE;
-  
+
   try {
     string current = this->manager.getCurrentBookId();
     id = nsDependentCString(current.data(), current.size());
@@ -257,25 +257,25 @@ NS_IMETHODIMP ContentManager::GetCurrentBookId(nsACString &id, mozbool *retVal) 
   } catch (exception &e) {
     cerr << e.what() << endl;
   }
-  
+
   return NS_OK;
 }
 
-NS_IMETHODIMP ContentManager::GetBookById(const nsACString &id, 
-					  nsACString &path, 
+NS_IMETHODIMP ContentManager::GetBookById(const nsACString &id,
+					  nsACString &path,
 					  mozbool *relativeLibraryPath,
 					  nsACString &title,
-					  nsACString &indexPath, 
-					  nsACString &indexType, 
+					  nsACString &indexPath,
+					  nsACString &indexType,
 					  nsACString &description,
-					  nsACString &articleCount, 
-					  nsACString &mediaCount, 
+					  nsACString &articleCount,
+					  nsACString &mediaCount,
 					  nsACString &size,
 					  nsACString &creator,
 					  nsACString &publisher,
 					  nsACString &date,
-					  nsACString &language, 
-					  nsACString &favicon, 
+					  nsACString &language,
+					  nsACString &favicon,
 					  nsACString &url, mozbool *retVal) {
   *retVal = PR_FALSE;
   const char *cid;
@@ -297,7 +297,7 @@ NS_IMETHODIMP ContentManager::GetBookById(const nsACString &id,
       date = nsDependentCString(book.date.data(), book.date.size());
       language = nsDependentCString(book.language.data(), book.language.size());
       url = nsDependentCString(book.url.data(), book.url.size());
-      
+
       string faviconUrl = "";
       if (!book.faviconMimeType.empty()) {
 	faviconUrl = "url(data:" + book.faviconMimeType + ";base64," + book.favicon + ")";
@@ -307,8 +307,6 @@ NS_IMETHODIMP ContentManager::GetBookById(const nsACString &id,
       string indexTypeString = "";
       if (book.indexType == kiwix::XAPIAN) {
 	indexTypeString = "xapian";
-      } else if (book.indexType == kiwix::CLUCENE) {
-	indexTypeString = "clucene";
       }
       indexType = nsDependentCString(indexTypeString.data(), indexTypeString.size());
 
@@ -319,7 +317,7 @@ NS_IMETHODIMP ContentManager::GetBookById(const nsACString &id,
   } catch (exception &e) {
     cerr << e.what() << endl;
   }
-  
+
   return NS_OK;
 }
 
@@ -327,7 +325,7 @@ NS_IMETHODIMP ContentManager::UpdateBookLastOpenDateById(const nsACString &id, m
   *retVal = PR_FALSE;
   const char *cid;
   NS_CStringGetData(id, &cid);
-  
+
   try {
     if (this->manager.updateBookLastOpenDateById(cid)) {
       *retVal = PR_TRUE;
@@ -335,7 +333,7 @@ NS_IMETHODIMP ContentManager::UpdateBookLastOpenDateById(const nsACString &id, m
   } catch (exception &e) {
     cerr << e.what() << endl;
   }
-  
+
   return NS_OK;
 }
 
@@ -352,8 +350,8 @@ NS_IMETHODIMP ContentManager::GetBookCount(const mozbool localBooks, const mozbo
   return NS_OK;
 }
 
-NS_IMETHODIMP ContentManager::ListBooks(const nsACString &mode, const nsACString &sortBy, mozuint32 maxSize, 
-					const nsACString &language, const nsACString &creator, 
+NS_IMETHODIMP ContentManager::ListBooks(const nsACString &mode, const nsACString &sortBy, mozuint32 maxSize,
+					const nsACString &language, const nsACString &creator,
 					const nsACString &publisher, const nsACString &search, mozbool *retVal) {
   *retVal = PR_FALSE;
   const char *cmode; NS_CStringGetData(mode, &cmode);
@@ -395,14 +393,14 @@ NS_IMETHODIMP ContentManager::ListBooks(const nsACString &mode, const nsACString
   } catch (exception &e) {
     cerr << e.what() << endl;
   }
-  
+
 
   return NS_OK;
 }
 
 NS_IMETHODIMP ContentManager::GetListNextBookId(nsACString &id, mozbool *retVal) {
   *retVal = PR_FALSE;
-  
+
   try {
     if (!this->manager.bookIdList.empty()) {
       string idString = *(this->manager.bookIdList.begin());
@@ -413,7 +411,7 @@ NS_IMETHODIMP ContentManager::GetListNextBookId(nsACString &id, mozbool *retVal)
   } catch (exception &e) {
     cerr << e.what() << endl;
   }
-  
+
   return NS_OK;
 }
 
@@ -428,11 +426,7 @@ NS_IMETHODIMP ContentManager::SetBookIndex(const nsACString &id, const nsAString
 
   try {
     kiwix::supportedIndexType iType;
-    if (std::string(cindexType) == "clucene") {
-      iType = kiwix::CLUCENE;
-    } else {
-      iType = kiwix::XAPIAN;
-    }
+    iType = kiwix::XAPIAN;
 
     if (this->manager.setBookIndex(cid, pathToSave, iType)) {
       *retVal = PR_TRUE;
@@ -440,7 +434,7 @@ NS_IMETHODIMP ContentManager::SetBookIndex(const nsACString &id, const nsAString
   } catch (exception &e) {
     cerr << e.what() << endl;
   }
-  
+
   free((void*)pathToSave);
 
   return NS_OK;
@@ -460,7 +454,7 @@ NS_IMETHODIMP ContentManager::SetBookPath(const nsACString &id, const nsAString 
   } catch (exception &e) {
     cerr << e.what() << endl;
   }
-  
+
   free((void*)pathToSave);
 
   return NS_OK;
@@ -469,7 +463,7 @@ NS_IMETHODIMP ContentManager::SetBookPath(const nsACString &id, const nsAString 
 NS_IMETHODIMP ContentManager::GetBooksLanguages(nsACString &languages, mozbool *retVal) {
   *retVal = PR_TRUE;
   string languagesStr = "";
-  
+
   vector<string> booksLanguages = this->manager.getBooksLanguages();
   vector<string>::iterator itr;
   for ( itr = booksLanguages.begin(); itr != booksLanguages.end(); ++itr ) {
@@ -483,7 +477,7 @@ NS_IMETHODIMP ContentManager::GetBooksLanguages(nsACString &languages, mozbool *
 NS_IMETHODIMP ContentManager::GetBooksCreators(nsACString &creators, mozbool *retVal) {
   *retVal = PR_TRUE;
   string creatorsStr = "";
-  
+
   vector<string> booksCreators = this->manager.getBooksCreators();
   vector<string>::iterator itr;
   for ( itr = booksCreators.begin(); itr != booksCreators.end(); ++itr ) {
@@ -497,7 +491,7 @@ NS_IMETHODIMP ContentManager::GetBooksCreators(nsACString &creators, mozbool *re
 NS_IMETHODIMP ContentManager::GetBooksPublishers(nsACString &publishers, mozbool *retVal) {
   *retVal = PR_TRUE;
   string publishersStr = "";
-  
+
   vector<string> booksPublishers = this->manager.getBooksPublishers();
   vector<string>::iterator itr;
   for ( itr = booksPublishers.begin(); itr != booksPublishers.end(); ++itr ) {
@@ -513,7 +507,7 @@ NS_IMETHODIMP ContentManager::KillAria2c(mozbool *retVal) {
 
   if (this->aria2cPid > 0) {
     #ifdef _WIN32
-      HANDLE ps = OpenProcess( SYNCHRONIZE|PROCESS_TERMINATE, 
+      HANDLE ps = OpenProcess( SYNCHRONIZE|PROCESS_TERMINATE,
     			   FALSE, this->aria2cPid);
       TerminateProcess(ps, 0);
     #else
@@ -539,12 +533,12 @@ NS_IMETHODIMP ContentManager::IsAria2cRunning(mozbool *retVal) {
   int mib[MIBSIZE];
   struct kinfo_proc kp;
   size_t len = sizeof(kp);
-  
+
   mib[0]=CTL_KERN;
   mib[1]=KERN_PROC;
   mib[2]=KERN_PROC_PID;
   mib[3]=this->aria2cPid;
-  
+
   int ret = sysctl(mib, MIBSIZE, &kp, &len, NULL, 0);
   if (ret != -1 && len > 0) {
     *retVal = PR_TRUE;
@@ -560,7 +554,7 @@ NS_IMETHODIMP ContentManager::IsAria2cRunning(mozbool *retVal) {
   return NS_OK;
 }
 
-NS_IMETHODIMP ContentManager::LaunchAria2c(const nsAString &binaryPath, const nsAString &downloadPath, 
+NS_IMETHODIMP ContentManager::LaunchAria2c(const nsAString &binaryPath, const nsAString &downloadPath,
 					   const nsAString &logPath, mozbool *retVal) {
   *retVal = PR_TRUE;
   const char *cBinaryPath = nsStringToCString(binaryPath);
@@ -572,7 +566,7 @@ NS_IMETHODIMP ContentManager::LaunchAria2c(const nsAString &binaryPath, const ns
 #ifdef _WIN32
   int PID = GetCurrentProcessId();
 #else
-  pid_t PID = getpid(); 
+  pid_t PID = getpid();
 #endif
 
   /* Launch child-process */
@@ -586,7 +580,7 @@ NS_IMETHODIMP ContentManager::LaunchAria2c(const nsAString &binaryPath, const ns
   PROCESS_INFORMATION procInfo;
   startInfo.cb = sizeof(startInfo);
 
-  if(CreateProcess(NULL, _strdup(commandLine.c_str()),  NULL, NULL, FALSE, 
+  if(CreateProcess(NULL, _strdup(commandLine.c_str()),  NULL, NULL, FALSE,
 		   CREATE_NO_WINDOW, NULL, NULL, &startInfo, &procInfo)) {
     this->aria2cPid = procInfo.dwProcessId;
     CloseHandle(procInfo.hProcess);
@@ -614,9 +608,9 @@ NS_IMETHODIMP ContentManager::LaunchAria2c(const nsAString &binaryPath, const ns
     break;
   case 0: /* This is the child process */
     commandLine = string(cBinaryPath);
-    if (execl(commandLine.c_str(), commandLine.c_str(), "--enable-rpc", "--rpc-listen-port=42042", 
-	      downloadPathArgument.c_str(), logPathArgument.c_str(), stopWithProcessArgument.c_str(), "--allow-overwrite=true", 
-	      "--disable-ipv6=true", "--quiet=true", "--always-resume=true", "--max-concurrent-downloads=42", 
+    if (execl(commandLine.c_str(), commandLine.c_str(), "--enable-rpc", "--rpc-listen-port=42042",
+	      downloadPathArgument.c_str(), logPathArgument.c_str(), stopWithProcessArgument.c_str(), "--allow-overwrite=true",
+	      "--disable-ipv6=true", "--quiet=true", "--always-resume=true", "--max-concurrent-downloads=42",
 	      "--rpc-max-request-size=6M", "--bt-enable-lpd=true", "--file-allocation=none", NULL) == -1) {
       cerr << "Unable to start aria2c from path " << commandLine << endl;
       *retVal = PR_FALSE;

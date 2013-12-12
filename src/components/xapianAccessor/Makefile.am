@@ -4,21 +4,22 @@ pkglibdir = $(libdir)/kiwix/components
 xptdir = $(libdir)/kiwix/components/
 xpt_DATA = xapianAccessor.xpt
 
-AM_CPPFLAGS=-I$(top_srcdir)/src/common -I$(top_srcdir)/src/ctpp2/include
+AM_CPPFLAGS=-I$(top_srcdir)/src/common
 libXapianAccessor_la_SOURCES= \
 	xapianAccessor.cpp \
 	$(top_srcdir)/src/common/stringTools.cpp \
 	$(top_srcdir)/src/common/resourceTools.cpp \
+	$(top_srcdir)/src/common/kiwix/ctpp2/CTPP2VMStringLoader.cpp \
 	$(top_srcdir)/src/common/kiwix/searcher.cpp \
 	$(top_srcdir)/src/common/kiwix/xapianSearcher.cpp \
 	$(top_srcdir)/src/common/stringTools.h \
 	$(top_srcdir)/src/common/resourceTools.h \
+	$(top_srcdir)/src/common/ctpp2/CTPP2VMStringLoader.hpp \
 	$(top_srcdir)/src/common/kiwix/searcher.h \
 	$(top_srcdir)/src/common/kiwix/xapianSearcher.h
-libXapianAccessor_la_CXXFLAGS=$(CTPP2_CFLAGS) $(LIBXUL_CFLAGS) $(XAPIAN_CFLAGS) $(ICU_CFLAGS) $(XPCOM_CFLAGS) -I/$(top_srcdir)/src/common/ -D GECKO_VERSION=$(GECKO_VERSION)
+libXapianAccessor_la_CXXFLAGS=$(LIBCTPP2_CFLAGS) $(LIBXUL_CFLAGS) $(XAPIAN_CFLAGS) $(ICU_CFLAGS) $(XPCOM_CFLAGS) -I/$(top_srcdir)/src/common/ -D GECKO_VERSION=$(GECKO_VERSION)
 
-libXapianAccessor_la_LDFLAGS=$(CTPP2_LDFLAGS) $(LIBXUL_LDFLAGS) $(XAPIAN_LDFLAGS) $(ICU_LDFLAGS) $(XPCOM_LDFLAGS)
-libXapianAccessor_la_LIBADD=$(top_builddir)/src/ctpp2/src/libctpp2.la
+libXapianAccessor_la_LDFLAGS=$(LIBCTPP2_LDFLAGS) $(LIBXUL_LDFLAGS) $(XAPIAN_LDFLAGS) $(ICU_LDFLAGS) $(XPCOM_LDFLAGS)
 
 EXTRA_DIST=*.idl
 BUILT_SOURCES=xapianAccessor.xpt IXapianAccessor.h

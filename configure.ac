@@ -40,6 +40,8 @@ AC_CONFIG_AUX_DIR([.]) # where are autotools scripts located
 AM_INIT_AUTOMAKE
 AM_MAINTAINER_MODE
 
+AC_PREFIX_PROGRAM("whoami")
+
 # find C compiler
 AC_PROG_CC
 
@@ -143,9 +145,6 @@ AC_CHECK_TOOL(HAVE_JARSIGNER_BIN, jarsigner)
 
 # Check the existence of stat64 (to handle file >2GB) in the libc
 AC_CHECK_FUNCS([stat64])
-
-# Generate the headers
-AC_CONFIG_HEADERS([src/zimlib/src/config.h])
 
 # used to display a warning message at end of configure
 # if there are unmet dependencies which will be compiled.
@@ -349,6 +348,44 @@ else
 fi
 COMPILED_LZMA_CFLAGS="-I${DEP_PATH}/xz/src/liblzma/api"
 
+LIBZIM_CFLAGS=" -I${prefix}/include -I${prefix}/include/zim"
+LIBZIM_LDFLAGS=" -lzim"
+LIBZIM_STATIC_LDFLAGS=""
+COMPILE_LIBZIM=0
+if test [ $IS_WIN -eq 1 ] ; then
+	COMPILED_LIBZIM_FILES="${DEP_PATH}/zimlib-1.1/src/zim.lib"
+else
+	COMPILED_LIBZIM_CFLAGS="-I${DEP_PATH}/zimlib-1.1/include"
+	COMPILED_LIBZIM_LDFLAGS="-L${DEP_PATH}/zimlib-1.1/build/lib -lzim"
+	COMPILED_LIBZIM_STATIC_LDFLAGS="${DEP_PATH}/zimlib-1.1/build/lib/libzim.a"
+    COMPILED_LIBZIM_FILES="${DEP_PATH}/zimlib-1.1/build/lib/libzim.${SHARED_EXT}"
+fi
+
+LIBPUGIXML_CFLAGS=" -I${prefix}/include"
+LIBPUGIXML_LDFLAGS=" -lpugixml"
+LIBPUGIXML_STATIC_LDFLAGS=""
+COMPILE_LIBPUGIXML=0
+if test [ $IS_WIN -eq 1 ] ; then
+	COMPILED_LIBPUGIXML_FILES="${DEP_PATH}/pugixml-1.2/src/pugixml.lib"
+else
+	COMPILED_LIBPUGIXML_CFLAGS="-I${DEP_PATH}/pugixml-1.2/src"
+	COMPILED_LIBPUGIXML_LDFLAGS="-L${DEP_PATH}/pugixml-1.2 -lpugixml"
+	COMPILED_LIBPUGIXML_STATIC_LDFLAGS="${DEP_PATH}/pugixml-1.2/libpugixml.a"
+    COMPILED_LIBPUGIXML_FILES="${DEP_PATH}/pugixml-1.2/libpugixml.${SHARED_EXT} ${DEP_PATH}/pugixml-1.2/libpugixml.a"
+fi
+
+LIBCTPP2_CFLAGS=" -I${prefix}/include -I${prefix}/include/ctpp2"
+LIBCTPP2_LDFLAGS=" -lctpp2"
+LIBCTPP2_STATIC_LDFLAGS=""
+COMPILE_LIBCTPP2=0
+if test [ $IS_WIN -eq 1 ] ; then
+	COMPILED_LIBCTPP2_FILES="${DEP_PATH}/ctpp2-2.8.3/src/ctpp2.lib"
+else
+	COMPILED_LIBCTPP2_CFLAGS="-I${DEP_PATH}/ctpp2-2.8.3/build/complete/include/ctpp2"
+	COMPILED_LIBCTPP2_LDFLAGS="-L${DEP_PATH}/ctpp2-2.8.3/build/complete/lib -lctpp2"
+	COMPILED_LIBCTPP2_STATIC_LDFLAGS="${DEP_PATH}/ctpp2-2.8.3/build/complete/lib/libctpp2-st.a"
+    COMPILED_LIBCTPP2_FILES="${DEP_PATH}/ctpp2-2.8.3/build/complete/lib/libctpp2.${SHARED_EXT}"
+fi
 
 ARIA2_CFLAGS=""
 ARIA2_LDFLAGS=""
@@ -412,14 +449,6 @@ WITH_ANDROID=0
 COMPILE_ARGTABLE=0
 COMPILE_PTHREAD=0
 
-# INTERNAL COMPONENTS
-CTPP2_CFLAGS="-I${CURRENT_PATH}/src/ctpp2/include"
-CTPP2_LDFLAGS=""
-PUGIXML_CFLAGS=""
-PUGIXML_LDFLAGS=""
-ZIMLIB_CFLAGS=""
-ZIMLIB_LDFLAGS=""
-
 # --enable-compileall
 AC_ARG_ENABLE(compileall,
 			  AC_HELP_STRING([--enable-compileall],
@@ -435,6 +464,9 @@ then
 	COMPILE_ICU=1
 	COMPILE_MICROHTTPD=1
 	COMPILE_LZMA=1
+	COMPILE_LIBZIM=1
+	COMPILE_LIBPUGIXML=1
+	COMPILE_LIBCTPP2=1
 	COMPILE_ARIA2=1
 	COMPILE_CLUCENE=1
 	COMPILE_UUID=1
@@ -450,6 +482,9 @@ then
 	COMPILE_ICU=1
 	COMPILE_MICROHTTPD=1
 	COMPILE_LZMA=1
+	COMPILE_LIBZIM=1
+	COMPILE_LIBPUGIXML=1
+	COMPILE_LIBCTPP2=1
 	COMPILE_ARIA2=1
 	COMPILE_CLUCENE=0
 	COMPILE_UUID=0
@@ -615,10 +650,14 @@ AC_ARG_ENABLE(oldgecko,
 			  [], [enable_oldgecko=no])
 AS_IF([test "x$enable_oldgecko" = "xyes"], [IS_OLD_GECKO=1], [IS_OLD_GECKO=0])
 
-
 AC_ARG_WITH(gecko-sdk,
             AC_HELP_STRING([--with-gecko-sdk=DIR], [Gecko SDK path]),
-            GECKO_SDK_PATH=`cd ${withval} && pwd || $GECKO_SDK_PATH`)
+            GECKO_SDK_PATH=`echo "${withval}"`)
+
+if test [ "$GECKO_SDK_PATH" != "" -a "$GECKO_SDK_PATH" != "$SELF" ]
+then
+	GECKO_SDK_PATH=`cd ${GECKO_SDK_PATH} && pwd || echo ""`
+fi
 
 # try to find installed gecko-sdk. default to SELF
 if test [ "$GECKO_SDK_PATH" = "" ]
@@ -702,7 +741,8 @@ LIBXUL_CFLAGS="-I${GECKO_SDK_INCLUDE} -I${GECKO_INCLUDE_PATH} -I${GECKO_INCLUDE_
 if test [ $IS_OSX -eq 1 ] ; then
 LIBXUL_LDFLAGS="-L${GECKO_SDK_LIB} -lxpcom -lplds4 -lplc4 -lnspr4 -lpthread -ldl ${GECKO_SDK_LIB}/libxpcomglue_s_nomozalloc.a  ${GECKO_SDK_LIB}/XUL"
 else
-LIBXUL_LDFLAGS="-L${GECKO_SDK_LIB} -lxul -lxpcom -lplds4 -lplc4 -lnspr4 -lpthread -ldl -lxpcomglue_s"
+# LIBXUL_LDFLAGS="-L${GECKO_SDK_LIB} -lxul -lxpcom -lplds4 -lplc4 -lnspr4 -lpthread -ldl -lxpcomglue_s"
+LIBXUL_LDFLAGS="-L${GECKO_SDK_LIB} -lxul -lplds4 -lplc4 -lnspr4 -lpthread -ldl ${GECKO_SDK_LIB}/libxpcomglue_s.a"
 fi
 
 if test [ ! -f "$GECKO_IDL_PATH/nsISupports.idl" ]
@@ -1045,6 +1085,195 @@ else
 fi
 
 ####################################################
+############ LIBZIM
+####################################################
+
+# if --with-x, add path to LIBRARY_PATH
+AC_ARG_WITH(libzim,
+			AC_HELP_STRING([--with-libzim=DIR], [alternate location for libzim]),
+			  	export LIBRARY_PATH="${withval}:${LIBRARY_PATH}";LIBZIM_PATH=${withval})
+
+# if --with-static-x, set path as X_ARCHIVE
+AC_ARG_WITH(static-libzim,
+            AC_HELP_STRING([--with-static-libzim=DIR/libx.a],
+            			   [Path to static archive]),
+            LIBZIM_ARCHIVE=${withval})
+
+# compilation required
+if test [ $COMPILE_LIBZIM -eq 1 -o "$LIBZIM_PATH" == "$SELF" -o "$LIBZIM_ARCHIVE" == "$SELF"] ; then
+	COMPILE_LIBZIM=1
+	LIBZIM_CFLAGS=$COMPILED_LIBZIM_CFLAGS
+    LIBZIM_LDFLAGS=$COMPILED_LIBZIM_LDFLAGS
+	LIBZIM_FILES=$COMPILED_LIBZIM_FILES
+	LIBZIM_STATIC_LDFLAGS=$COMPILED_LIBZIM_STATIC_LDFLAGS
+else
+	# look for shared library.
+	AC_CHECK_HEADER([zim/zim.h],, [AC_MSG_ERROR([[cannot find libzim header]])])
+	AC_CHECK_LIB([zim], [zim_MD5Init],, [AC_MSG_ERROR([[cannot find libzim]])])
+
+	# Check the liblibzim version
+	`pkg-config --atleast-version="1.1" libzim`
+	LIBZIM_VERSION_OK=$?
+	if test [ ! $LIBZIM_VERSION_OK -eq 0 ]
+	then
+		# TODO: uncomment once we release it with pkg-config file
+		# AC_MSG_ERROR([[The libzim version must be 1.1 or higher.]])
+		echo "Assuming libzim version is 1.1"
+	else
+		LIBZIM_CFLAGS=`pkg-config --cflags libzim`
+		LIBZIM_LDFLAGS=`pkg-config --libs libzim`
+	fi
+	LIBZIM_FILES=`findLibrary "libzim.${SHARED_EXT}"`
+
+	# if static is required
+	if test [ $REQUIRE_STATIC -eq 1 ] ; then
+		AC_CHECK_FILE($LIBZIM_ARCHIVE, [LIBZIM_ARCHIVE_FOUND=1], [LIBZIM_ARCHIVE_FOUND=0])
+		AUTO_LIBZIM_ARCHIVE=`findLibrary "libzim.a"`
+
+		if test [ $LIBZIM_ARCHIVE_FOUND -eq 0 -a "$AUTO_LIBZIM_ARCHIVE" == "no" ] ; then
+			# can't stat files. force compile
+  			COMPILE_LIBZIM=1
+			LIBZIM_CFLAGS=$COMPILED_LIBZIM_CFLAGS
+		    LIBZIM_LDFLAGS=$COMPILED_LIBZIM_LDFLAGS
+			LIBZIM_FILES=$COMPILED_LIBZIM_FILES
+			LIBZIM_STATIC_LDFLAGS=$COMPILED_LIBZIM_STATIC_LDFLAGS
+  		elif test [ $LIBZIM_ARCHIVE_FOUND -eq 1 ] ; then
+			# can stat suplied file.
+  			LIBZIM_STATIC_LDFLAGS="${LIBZIM_ARCHIVE}"
+  		else
+  			# can stat auto file
+  			LIBZIM_STATIC_LDFLAGS="${AUTO_LIBZIM_ARCHIVE}"
+  		fi
+  	fi
+fi
+
+####################################################
+############ PUGIXML
+####################################################
+
+# if --with-x, add path to LIBRARY_PATH
+AC_ARG_WITH(libpugixml,
+			AC_HELP_STRING([--with-libpugixml=DIR], [alternate location for libpugixml]),
+			  	export LIBRARY_PATH="${withval}:${LIBRARY_PATH}";LIBPUGIXML_PATH=${withval})
+
+# if --with-static-x, set path as X_ARCHIVE
+AC_ARG_WITH(static-libpugixml,
+            AC_HELP_STRING([--with-static-libpugixml=DIR/libx.a],
+            			   [Path to static archive]),
+            LIBPUGIXML_ARCHIVE=${withval})
+
+# compilation required
+if test [ $COMPILE_LIBPUGIXML -eq 1 -o "$LIBPUGIXML_PATH" == "$SELF" -o "$LIBPUGIXML_ARCHIVE" == "$SELF"] ; then
+	COMPILE_LIBPUGIXML=1
+	LIBPUGIXML_CFLAGS=$COMPILED_LIBPUGIXML_CFLAGS
+    LIBPUGIXML_LDFLAGS=$COMPILED_LIBPUGIXML_LDFLAGS
+	LIBPUGIXML_FILES=$COMPILED_LIBPUGIXML_FILES
+	LIBPUGIXML_STATIC_LDFLAGS=$COMPILED_LIBPUGIXML_STATIC_LDFLAGS
+else
+	# look for shared library.
+	AC_CHECK_HEADER([pugixml.hpp],, [AC_MSG_ERROR([[cannot find libpugixml header]])])
+	AC_CHECK_LIB([pugixml], [_init],, [AC_MSG_ERROR([[cannot find libpugixml]])])
+
+	# Check the liblibpugixml version
+	`pkg-config --atleast-version="1.2" libpugixml`
+	LIBPUGIXML_VERSION_OK=$?
+	if test [ ! $LIBPUGIXML_VERSION_OK -eq 0 ]
+	then
+		# TODO: uncomment once we release it with pkg-config file
+		# AC_MSG_ERROR([[The libpugixml version must be 1.1 or higher.]])
+		echo "Assuming libzim version is 1.2"
+	else
+		LIBPUGIXML_CFLAGS=`pkg-config --cflags libpugixml`
+		LIBPUGIXML_LDFLAGS=`pkg-config --libs libpugixml`
+	fi
+	LIBPUGIXML_FILES=`findLibrary "libpugixml.${SHARED_EXT}"`
+
+	# if static is required
+	if test [ $REQUIRE_STATIC -eq 1 ] ; then
+		AC_CHECK_FILE($LIBPUGIXML_ARCHIVE, [LIBPUGIXML_ARCHIVE_FOUND=1], [LIBPUGIXML_ARCHIVE_FOUND=0])
+		AUTO_LIBPUGIXML_ARCHIVE=`findLibrary "libpugixml.a"`
+
+		if test [ $LIBPUGIXML_ARCHIVE_FOUND -eq 0 -a "$AUTO_LIBPUGIXML_ARCHIVE" == "no" ] ; then
+			# can't stat files. force compile
+  			COMPILE_LIBPUGIXML=1
+			LIBPUGIXML_CFLAGS=$COMPILED_LIBPUGIXML_CFLAGS
+		    LIBPUGIXML_LDFLAGS=$COMPILED_LIBPUGIXML_LDFLAGS
+			LIBPUGIXML_FILES=$COMPILED_LIBPUGIXML_FILES
+			LIBPUGIXML_STATIC_LDFLAGS=$COMPILED_LIBPUGIXML_STATIC_LDFLAGS
+  		elif test [ $LIBPUGIXML_ARCHIVE_FOUND -eq 1 ] ; then
+			# can stat suplied file.
+  			LIBPUGIXML_STATIC_LDFLAGS="${LIBPUGIXML_ARCHIVE}"
+  		else
+  			# can stat auto file
+  			LIBPUGIXML_STATIC_LDFLAGS="${AUTO_LIBPUGIXML_ARCHIVE}"
+  		fi
+  	fi
+fi
+
+####################################################
+############ CTPP2
+####################################################
+
+# if --with-x, add path to LIBRARY_PATH
+AC_ARG_WITH(libctpp2,
+			AC_HELP_STRING([--with-libctpp2=DIR], [alternate location for libctpp2]),
+			  	export LIBRARY_PATH="${withval}:${LIBRARY_PATH}";LIBCTPP2_PATH=${withval})
+
+# if --with-static-x, set path as X_ARCHIVE
+AC_ARG_WITH(static-libctpp2,
+            AC_HELP_STRING([--with-static-libctpp2=DIR/libx.a],
+            			   [Path to static archive]),
+            LIBCTPP2_ARCHIVE=${withval})
+
+# compilation required
+if test [ $COMPILE_LIBCTPP2 -eq 1 -o "$LIBCTPP2_PATH" == "$SELF" -o "$LIBCTPP2_ARCHIVE" == "$SELF"] ; then
+	COMPILE_LIBCTPP2=1
+	LIBCTPP2_CFLAGS=$COMPILED_LIBCTPP2_CFLAGS
+    LIBCTPP2_LDFLAGS=$COMPILED_LIBCTPP2_LDFLAGS
+	LIBCTPP2_FILES=$COMPILED_LIBCTPP2_FILES
+	LIBCTPP2_STATIC_LDFLAGS=$COMPILED_LIBCTPP2_STATIC_LDFLAGS
+else
+	# look for shared library.
+	AC_CHECK_HEADER([ctpp2/CTPP2GlobalDefines.h],, [AC_MSG_ERROR([[cannot find libctpp2 header]])])
+	AC_CHECK_LIB([ctpp2], [_init],, [AC_MSG_ERROR([[cannot find libctpp2]])])
+
+	# Check the liblibctpp2 version
+	`pkg-config --atleast-version="2.8.3" libctpp2`
+	LIBCTPP2_VERSION_OK=$?
+	if test [ ! $LIBCTPP2_VERSION_OK -eq 0 ]
+	then
+		# TODO: uncomment once we release it with pkg-config file
+		# AC_MSG_ERROR([[The libctpp2 version must be 1.1 or higher.]])
+		echo "Assuming libzim version is 2.8.3"
+	else
+		LIBCTPP2_CFLAGS=`pkg-config --cflags libctpp2`
+		LIBCTPP2_LDFLAGS=`pkg-config --libs libctpp2`
+	fi
+	LIBCTPP2_FILES=`findLibrary "libctpp2.${SHARED_EXT}"`
+
+	# if static is required
+	if test [ $REQUIRE_STATIC -eq 1 ] ; then
+		AC_CHECK_FILE($LIBCTPP2_ARCHIVE, [LIBCTPP2_ARCHIVE_FOUND=1], [LIBCTPP2_ARCHIVE_FOUND=0])
+		AUTO_LIBCTPP2_ARCHIVE=`findLibrary "libctpp2.a"`
+
+		if test [ $LIBCTPP2_ARCHIVE_FOUND -eq 0 -a "$AUTO_LIBCTPP2_ARCHIVE" == "no" ] ; then
+			# can't stat files. force compile
+  			COMPILE_LIBCTPP2=1
+			LIBCTPP2_CFLAGS=$COMPILED_LIBCTPP2_CFLAGS
+		    LIBCTPP2_LDFLAGS=$COMPILED_LIBCTPP2_LDFLAGS
+			LIBCTPP2_FILES=$COMPILED_LIBCTPP2_FILES
+			LIBCTPP2_STATIC_LDFLAGS=$COMPILED_LIBCTPP2_STATIC_LDFLAGS
+  		elif test [ $LIBCTPP2_ARCHIVE_FOUND -eq 1 ] ; then
+			# can stat suplied file.
+  			LIBCTPP2_STATIC_LDFLAGS="${LIBCTPP2_ARCHIVE}"
+  		else
+  			# can stat auto file
+  			LIBCTPP2_STATIC_LDFLAGS="${AUTO_LIBCTPP2_ARCHIVE}"
+  		fi
+  	fi
+fi
+
+####################################################
 ############ ARIA2
 ####################################################
 
@@ -1294,6 +1523,24 @@ then
 fi
 EMBED_LIBS+=" $LZMA_FILES"
 
+if test [ $COMPILE_LIBZIM -eq 1 ]
+then
+    DEP_LIST+=" $COMPILED_LIBZIM_FILES"
+fi
+EMBED_LIBS+=" $LIBZIM_FILES"
+
+if test [ $COMPILE_LIBPUGIXML -eq 1 ]
+then
+    DEP_LIST+=" $COMPILED_LIBPUGIXML_FILES"
+fi
+EMBED_LIBS+=" $LIBPUGIXML_FILES"
+
+if test [ $COMPILE_LIBCTPP2 -eq 1 ]
+then
+    DEP_LIST+=" $COMPILED_LIBCTPP2_FILES"
+fi
+EMBED_LIBS+=" $LIBCTPP2_FILES"
+
 if test [ $COMPILE_ARIA2 -eq 1 -a $IS_ARM -eq 0 ]
 then
     DEP_LIST+=" $COMPILED_ARIA2_FILES"
@@ -1341,9 +1588,14 @@ AC_ARG_WITH(downloader,
 			  			   DOWNLOADERREQ=${withval})
 
 # wget is default
+echo "$DOWNLOADERREQ"
 if test [ "$DOWNLOADERREQ" = "" -o "$DOWNLOADERREQ" = "wget" ]
 then
 	DOWNLOADER="wget --wait=10 --timeout=600 -c -O"
+	if [test $IS_WIN -eq 0]
+	then
+		DOWNLOADER="$DOWNLOADER --no-use-server-timestamps"
+	fi
 elif test [ "$DOWNLOADERREQ" = "curl" ]
 then
 	DOWNLOADER="curl -C - --retry 10 --retry-delay 10 -o"
@@ -1431,13 +1683,6 @@ AC_SUBST(WITH_SEARCHER)
 AC_SUBST(WITH_READER)
 AC_SUBST(WITH_ANDROID)
 
-AC_SUBST(CTPP2_CFLAGS)
-AC_SUBST(CTPP2_LDFLAGS)
-AC_SUBST(PUGIXML_CFLAGS)
-AC_SUBST(PUGIXML_LDFLAGS)
-AC_SUBST(ZIMLIB_CFLAGS)
-AC_SUBST(ZIMLIB_LDFLAGS)
-
 AC_SUBST(GECKO_SDK_PATH)
 AC_SUBST(XULRUNNER_RUNTIME_PATH)
 AC_SUBST(COMPILE_GECKO_SDK)
@@ -1481,6 +1726,24 @@ AC_SUBST(LZMA_STATIC_LDFLAGS)
 AC_SUBST(COMPILE_LZMA)
 AC_SUBST(LZMA_FILES)
 
+AC_SUBST(LIBZIM_CFLAGS)
+AC_SUBST(LIBZIM_LDFLAGS)
+AC_SUBST(LIBZIM_STATIC_LDFLAGS)
+AC_SUBST(COMPILE_LIBZIM)
+AC_SUBST(LIBZIM_FILES)
+
+AC_SUBST(LIBPUGIXML_CFLAGS)
+AC_SUBST(LIBPUGIXML_LDFLAGS)
+AC_SUBST(LIBPUGIXML_STATIC_LDFLAGS)
+AC_SUBST(COMPILE_LIBPUGIXML)
+AC_SUBST(LIBPUGIXML_FILES)
+
+AC_SUBST(LIBCTPP2_CFLAGS)
+AC_SUBST(LIBCTPP2_LDFLAGS)
+AC_SUBST(LIBCTPP2_STATIC_LDFLAGS)
+AC_SUBST(COMPILE_LIBCTPP2)
+AC_SUBST(LIBCTPP2_FILES)
+
 AC_SUBST(ARIA2_CFLAGS)
 AC_SUBST(ARIA2_LDFLAGS)
 AC_SUBST(COMPILE_ARIA2)
@@ -1515,11 +1778,6 @@ AC_CONFIG_FILES([
   src/man/Makefile
   src/man/fr/Makefile
   src/dependencies/Makefile
-  src/zimlib/Makefile
-  src/zimlib/src/Makefile
-  src/ctpp2/Makefile
-  src/ctpp2/src/Makefile
-  src/pugixml/Makefile
 
   src/components/Makefile
   src/components/xapianAccessor/Makefile
@@ -1609,6 +1867,9 @@ $BINECHO -n "ZLIB_LDFLAGS			" ; $BINECHO $ZLIB_LDFLAGS
 $BINECHO -n "XAPIAN_LDFLAGS			" ; $BINECHO $XAPIAN_LDFLAGS
 $BINECHO -n "MICROHTTPD_LDFLAGS		" ; $BINECHO $MICROHTTPD_LDFLAGS
 $BINECHO -n "LZMA_LDFLAGS			" ; $BINECHO $LZMA_LDFLAGS
+$BINECHO -n "LIBZIM_LDFLAGS			" ; $BINECHO $LIBZIM_LDFLAGS
+$BINECHO -n "LIBPUGIXML_LDFLAGS			" ; $BINECHO $LIBPUGIXML_LDFLAGS
+$BINECHO -n "LIBCTPP2_LDFLAGS			" ; $BINECHO $LIBCTPP2_LDFLAGS
 $BINECHO -n "ARIA2_FILES			" ; $BINECHO $ARIA2_FILES
 $BINECHO -n "CLUCENE_LDFLAGS			" ; $BINECHO $CLUCENE_LDFLAGS
 $BINECHO -n "ICU_LDFLAGS			" ; $BINECHO $ICU_LDFLAGS
@@ -1619,6 +1880,9 @@ $BINECHO -n "ZLIB_STATIC_LDFLAGS		" ; $BINECHO $ZLIB_STATIC_LDFLAGS
 $BINECHO -n "XAPIAN_STATIC_LDFLAGS		" ; $BINECHO $XAPIAN_STATIC_LDFLAGS
 $BINECHO -n "MICROHTTPD_STATIC_LDFLAGS	" ; $BINECHO $MICROHTTPD_STATIC_LDFLAGS
 $BINECHO -n "LZMA_STATIC_LDFLAGS		" ; $BINECHO $LZMA_STATIC_LDFLAGS
+$BINECHO -n "LIBZIM_STATIC_LDFLAGS		" ; $BINECHO $LIBZIM_STATIC_LDFLAGS
+$BINECHO -n "LIBPUGIXML_STATIC_LDFLAGS		" ; $BINECHO $LIBPUGIXML_STATIC_LDFLAGS
+$BINECHO -n "LIBCTPP2_STATIC_LDFLAGS		" ; $BINECHO $LIBCTPP2_STATIC_LDFLAGS
 $BINECHO -n "CLUCENE_STATIC_LDFLAGS		" ; $BINECHO $CLUCENE_STATIC_LDFLAGS
 $BINECHO -n "UUID_STATIC_LDFLAGS		" ; $BINECHO $UUID_STATIC_LDFLAGS
 $BINECHO -n "ICU_STATIC_LDFLAGS		" ; $BINECHO $ICU_STATIC_LDFLAGS

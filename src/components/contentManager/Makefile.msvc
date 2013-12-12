@@ -3,8 +3,8 @@ LD=link.exe
 
 # Global paths
 XULRUNNER_SDK=../../dependencies/xulrunner-sdk
-ZIM=../../zimlib
-PUGIXML=../../pugixml
+ZIM=../../dependencies/zimlib-1.1
+PUGIXML=../../dependencies/pugixml-1.2/src
 ICU=../../dependencies/icu/
 
 # Binary paths
@@ -27,11 +27,11 @@ ICU_LIB=${ICU}/lib
 XULRUNNER_IDL=$(XULRUNNER_SDK)/idl
 
 # Compiler and linker flags
-CFLAGS=-D"XP_WIN" -D"GECKO_VERSION=14" -D"XP_WIN32" -O2 -Oi -I"${ZIM_INCLUDE}" -I"${PUGIXML_INCLUDE}" -I"$(XULRUNNER_INCLUDE)" -I"$(XULRUNNER_INCLUDE)/nspr/" -I$(ICU_INCLUDE) -I../../common/ -I../../zimlib/include/win -D"_WINDLL" -FD -EHsc -MT -Gy -nologo -c -Zi -TP
+CFLAGS=-D"XP_WIN" -D"GECKO_VERSION=14" -D"XP_WIN32" -O2 -Oi -I"${ZIM_INCLUDE}" -I"${PUGIXML_INCLUDE}" -I"$(XULRUNNER_INCLUDE)" -I"$(XULRUNNER_INCLUDE)/nspr/" -I$(ICU_INCLUDE) -I../../common/ -D"_WINDLL" -FD -EHsc -MT -Gy -nologo -c -Zi -TP
 LDFLAGS=-nologo -LIBPATH:"$(XULRUNNER_LIB)" -LIBPATH:"${ZIM_LIB}" -LIBPATH:"${PUGIXML_LIB}" -LIBPATH:"$(ICU_LIB)"
 
 all: contentManager.dll
-     
+
 IContentManager.xpt:
 	$(TYPELIB_PY) -o IContentManager.xpt -I "$(XULRUNNER_IDL)" IContentManager_gecko_old_int_type.idl
 

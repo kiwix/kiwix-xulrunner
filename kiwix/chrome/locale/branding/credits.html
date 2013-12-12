@@ -6,19 +6,16 @@
 var titlea = new Array();
 var texta = new Array();
 
-titlea[0] = "Version";
-texta[0] = "Kiwix 0.9 rc3";
+titlea[0] = "Release";
+texta[0] = "Kiwix 0.9 rc3<br/>This software is released under the terms of the GNU General Public License version 3. See COPYING file for complete license text.<br/>Get the source code at http://code.kiwix.org";    
 
 titlea[1] = "Developers";
-texta[1] = "Emmanuel Engelhart (kelson@kiwix.org)<br/>Guillaume Duhamel (gduhamel@linterweb.com)<br/>Fabien Coulon (fcoulon@linterweb.com)<br/>Renaud Gaudin (reg@kiwix.org)<br/>Wilfredo Rodriguez (wilfredor@kiwix.org)";
+texta[1] = "Emmanuel Engelhart (kelson@kiwix.org)<br/>Renaud Gaudin (reg@kiwix.org)<br/>Guillaume Duhamel (gduhamel@linterweb.com)<br/>Fabien Coulon (fcoulon@linterweb.com)<br/>Wilfredo Rodriguez (wilfredor@kiwix.org)";
 
-titlea[2] = "OpenZIM";
-texta[2] = "This software uses parts of the GPL2 licensed libzim from the OpenZIM project (openzim.org).";
+titlea[2] = "Libraries";
+texta[2] = "LibZIM - GPLv2 (openzim.org)<br/>Xulrunner - MPL/GPL/LGPL (mozilla.org)<br/>Xapian - GPL (xapian.org)<br/>CTPP2 - BSD (ctpp.havoc.ru)<br/>Pugixml - MIT (pugixml.org)<br/>ICU - ICU License (icu-project.org)<br/>Libmicrohttpd - GPL (www.gnu.org/software/libmicrohttpd/)<br/>Aria2 - GPL (aria2.sourceforge.net)";
 
-titlea[3] = "License";
-texta[3] = "This software is released under the terms of the GNU General Public License version 3. See COPYING file for complete license text.";
-
-var mc=4;
+var mc=3;
 var inoout=false;
 var spage;
 
@@ -45,7 +42,7 @@ function dotrans() {
 		uzuntop--;
 		for(i=0;i<mc;i++) {
 			objd=document.getElementById('d'+i);
-			objd.style.top=""+(uzuntop+(i*115))+"px";
+			objd.style.top=""+(uzuntop+(i*125))+"px";
 		}
 
 		if(uzuntop<(-1*(mc)*115)) {
@@ -61,7 +58,7 @@ function init2() {
 	for(i=0;i<mc;i++) {
 		objd=document.getElementById('d'+i);
 		objd.style.visibility="visible";
-		objd.style.top=""+(toplay+(115*i))+"px";
+		objd.style.top=""+(toplay+(125*i))+"px";
 		objd.style.left=""+8+"px";
 	}
 

@@ -1,0 +1,32 @@
+CC=cl.exe
+LD=link.exe
+
+# Global paths
+Z=../../zlib-1.2.3
+LZMAW=../../xz-win
+LZMA=../../xz
+
+# Include paths
+Z_INCLUDE=${Z}
+LZMAW_INCLUDE=${LZMAW}/include
+LZMA_INCLUDE=${LZMA}/include
+
+# Lib paths
+Z_LIB=${Z}
+LZMAW_LIB=${LZMAW}/bin_i486
+
+# Compiler and linker flags
+CFLAGS=-O2 -Oi -I"../include" -I"${LZMAW_INCLUDE}" -I"${Z_INCLUDE}" -D"WIN32" -FD -EHsc -MT -Gy  -nologo -c -Zi -TP
+LDFLAGS=-LIBPATH:"$(Z_LIB)"  -LIBPATH:"${LZMAW_LIB}"
+
+all: zim.lib
+
+
+objs:
+	rm -f vc90*
+	rm -f bunzip2stream.cpp bzip2.cpp bzip2stream.cpp
+	$(CC) $(CFLAGS) *.cpp
+	$(CC) $(CFLAGS) *.c
+
+zim.lib: objs
+	$(LD) -lib -NOLOGO -NODEFAULTLIB:"MSVCRT" -MACHINE:X86 -OUT:zim.lib $(LDFLAGS) zlib.lib liblzma.lib *.obj
