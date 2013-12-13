@@ -1592,7 +1592,8 @@ echo "$DOWNLOADERREQ"
 if test [ "$DOWNLOADERREQ" = "" -o "$DOWNLOADERREQ" = "wget" ]
 then
 	DOWNLOADER="wget --wait=10 --timeout=600 -c"
-	if [test $IS_WIN -eq 0]
+	wgetvers=`wget -V | head -n 1|cut -f 3 -d " "`
+	if [test $IS_WIN -eq 0 -a `echo "$wgetvers >= 1.13"|bc` -eq 1]
 	then
 		DOWNLOADER="$DOWNLOADER --no-use-server-timestamps"
 	fi
