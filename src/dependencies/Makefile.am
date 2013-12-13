@@ -491,7 +491,7 @@ zimlib-1.1/build/lib/libzim.dylib zimlib-1.1/build/lib/libzim.a: zimlib-1.1/buil
 
 # Linux
 zimlib-1.1/build/lib/libzim.so: zimlib-1.1
-	test ! -f zimlib-1.1/build/lib/libzim.so && cd zimlib-1.1 && mkdir -p build && CC="$(COMPC)" CXX="$(COMPCXX)" CFLAGS=" -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE" ./configure --enable-shared --with-pic --prefix=$(DEP_PATH)/zimlib-1.1/build --enable-static --disable-libtool-lock && make clean && make && make install || true
+	test ! -f zimlib-1.1/build/lib/libzim.so && cd zimlib-1.1 && mkdir -p build && CC="$(COMPC)" CXX="$(COMPCXX)" CFLAGS=" -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -I../xz/src/liblzma/api" ./configure --enable-shared --with-pic --prefix=$(DEP_PATH)/zimlib-1.1/build --enable-static --disable-libtool-lock && make clean && make && make install || true
 
 # Win32
 zimlib-1.1/src/config.h: zimlib-1.1
