@@ -1591,11 +1591,12 @@ AC_ARG_WITH(downloader,
 echo "$DOWNLOADERREQ"
 if test [ "$DOWNLOADERREQ" = "" -o "$DOWNLOADERREQ" = "wget" ]
 then
-	DOWNLOADER="wget --wait=10 --timeout=600 -c -O"
+	DOWNLOADER="wget --wait=10 --timeout=600 -c"
 	if [test $IS_WIN -eq 0]
 	then
 		DOWNLOADER="$DOWNLOADER --no-use-server-timestamps"
 	fi
+	DOWNLOADER="$DOWNLOADER -O"
 elif test [ "$DOWNLOADERREQ" = "curl" ]
 then
 	DOWNLOADER="curl -C - --retry 10 --retry-delay 10 -o"
