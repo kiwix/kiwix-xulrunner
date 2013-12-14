@@ -459,7 +459,7 @@ android-sdk/sdk/platforms/android-14: android-sdk/sdk android-14.tar.bz2
 	test -d android-sdk/sdk/platforms/android-14 || tar xf android-14.tar.bz2
 	test -d android-14 && mv android-14 android-sdk/sdk/platforms/ || true
 
-android-deps: android-ndk-r8e android-sdk/sdk/platforms/android-14 xz icu zimlib-1.1
+android-deps: android-ndk-r8e android-sdk/sdk/platforms/android-14 xz icu zimlib-1.1 zimlib-1.1/build/lib/libzim.so
 	true
 
 ####################################################
