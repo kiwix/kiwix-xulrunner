@@ -387,7 +387,7 @@ ctpp2-2.8.3: ctpp2-2.8.3.tar.gz
 
 # OSX & Linux
 ctpp2-2.8.3/build/complete/lib/libctpp2.${SHARED_EXT} ctpp2-2.8.3/build/complete/lib/libctpp2-st.a: ctpp2-2.8.3
-	test ! -f 2-2.8.3/build/complete/lib/libctpp2.${SHARED_EXT} && rm -rf ctpp2-2.8.3/build && mkdir -p ctpp2-2.8.3/build && cd ctpp2-2.8.3/build && CC="$(COMPC)" CXX="$(COMPCXX)" CXXFLAGS="-fPIC -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE" cmake -DCMAKE_INSTALL_PREFIX=./complete .. && make && make install || true
+	test ! -f 2-2.8.3/build/complete/lib/libctpp2.${SHARED_EXT} && rm -rf ctpp2-2.8.3/build && mkdir -p ctpp2-2.8.3/build && cd ctpp2-2.8.3/build && CC="$(COMPC)" CXX="$(COMPCXX)" CXXFLAGS="-fPIC -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE" cmake -DMD5_SUPPORT=OFF -DCMAKE_INSTALL_PREFIX=./complete .. && make && make install || true
 
 # Windows
 ctpp2-2.8.3/src/ctpp2.lib: ctpp2-2.8.3
