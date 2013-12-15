@@ -14,7 +14,7 @@ libXapianAccessor_la_SOURCES= \
 	$(top_srcdir)/src/common/kiwix/xapianSearcher.cpp \
 	$(top_srcdir)/src/common/stringTools.h \
 	$(top_srcdir)/src/common/resourceTools.h \
-	$(top_srcdir)/src/common/ctpp2/CTPP2VMStringLoader.hpp \
+	$(top_srcdir)/src/common/kiwix/ctpp2/CTPP2VMStringLoader.hpp \
 	$(top_srcdir)/src/common/kiwix/searcher.h \
 	$(top_srcdir)/src/common/kiwix/xapianSearcher.h
 libXapianAccessor_la_CXXFLAGS=$(LIBCTPP2_CFLAGS) $(LIBXUL_CFLAGS) $(XAPIAN_CFLAGS) $(ICU_CFLAGS) $(XPCOM_CFLAGS) -I/$(top_srcdir)/src/common/ -D GECKO_VERSION=$(GECKO_VERSION)
