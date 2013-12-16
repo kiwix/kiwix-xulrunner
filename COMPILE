@@ -5,7 +5,7 @@ These are the instructions to compile Kiwix.
 GNU/Linux build uses shared libraries by default.
 You will need the following dependencies to compile Kiwix for Linux
 Debian/Ubuntu packages: build-essential autoconf automake libtool pkg-config \
-libicu-dev libclucene-dev libxapian-dev libmicrohttpd-dev liblzma-dev fastjar \
+libicu-dev libxapian-dev libmicrohttpd-dev liblzma-dev fastjar \
 xulrunner-1.9.2-dev aria2 libsqlite3-dev zlib1g-dev uuid-dev libuuid1 zip \
 subversion git-core openjdk-7-jre openjdk-7-jre-headless openjdk-7-jdk ant \
 curl cmake libssl-dev libcrypto++-dev

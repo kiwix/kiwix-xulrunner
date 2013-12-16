@@ -518,7 +518,7 @@ AC_ARG_ENABLE(launcher,
 			  [], [enable_launcher=$WITH_LAUNCHER])
 AS_IF([test "x$enable_launcher" = "xyes" -o "x$enable_launcher" = "x1" ], [WITH_LAUNCHER=1], [WITH_LAUNCHER=0])
 
-# zim indexer is a command line tool to create xapian/lucene index
+# zim indexer is a command line tool to create xapian index
 AC_ARG_ENABLE(indexer,
 			  AC_HELP_STRING([--enable-indexer],
 			  				 [compile indexer (default is no)]),
