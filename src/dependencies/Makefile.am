@@ -311,31 +311,6 @@ aria2c.exe:
 	$(DOWNLOADER) aria2c.exe $(DEP_MIRROR)/aria2c.exe
 
 ####################################################
-############ CLUCENE
-####################################################
-
-clucene-core-0.9.21b.tar.bz2:
-	$(DOWNLOADER) clucene-core-0.9.21b.tar.bz2 $(DEP_MIRROR)/clucene-core-0.9.21b.tar.bz2
-
-clucene-core-0.9.21b: clucene-core-0.9.21b.tar.bz2
-	test -d clucene-core-0.9.21b || tar xf clucene-core-0.9.21b.tar.bz2
-
-clucene-core-0.9.21b/build/lib/libclucene.so: clucene-core-0.9.21b
-	test ! -f clucene-core-0.9.21b/build/lib/libclucene.so && cd clucene-core-0.9.21b && mkdir -p build && CC="$(COMPC)" CXX="$(COMPCXX)" CXXFLAGS=" -fPIC " ./configure --enable-shared --enable-static --prefix=$(DEP_PATH)/clucene-core-0.9.21b/build && make clean && make && make install || true
-
-# OSX Join
-clucene-core-0.9.21b/build/lib/libclucene.dylib: clucene-core-0.9.21b/build-i386/lib/libclucene.dylib clucene-core-0.9.21b/build-x86_64/lib/libclucene.dylib
-	test ! -f clucene-core-0.9.21b/build/lib/libclucene.dylib && mkdir -p clucene-core-0.9.21b/build/lib && cd clucene-core-0.9.21b/build/lib && lipo ../../build-x86_64/lib/libclucene.dylib ../../build-i386/lib/libclucene.dylib -create -output libclucene.dylib && lipo ../../build-x86_64/lib/libclucene.a ../../build-i386/lib/libclucene.a -create -output libclucene.a && install_name_tool -id libclucene.dylib libclucene.dylib || true
-
-# OSX i386
-clucene-core-0.9.21b/build-i386/lib/libclucene.dylib: clucene-core-0.9.21b
-	test ! -f clucene-core-0.9.21b/build-i386/lib/libclucene.dylib && cd clucene-core-0.9.21b && mkdir -p build-i386 && CC="gcc -arch i386" CXX="g++ -arch i386" CFLAGS=" -fPIC  " ./configure --enable-shared --enable-static --prefix=$(DEP_PATH)/clucene-core-0.9.21b/build-i386 && make clean && make && make install && install_name_tool -id libclucene.dylib build-i386/lib/libclucene.dylib || true
-
-# OSX x86_64
-clucene-core-0.9.21b/build-x86_64/lib/libclucene.dylib: clucene-core-0.9.21b
-	test ! -f clucene-core-0.9.21b/build-x86_64/lib/libclucene.dylib && cd clucene-core-0.9.21b && mkdir -p build-x86_64 && CC="gcc -arch x86_64" CXX="g++ -arch x86_64" CFLAGS=" -fPIC  " ./configure --enable-shared --enable-static --prefix=$(DEP_PATH)/clucene-core-0.9.21b/build-x86_64 && make clean && make && make install && install_name_tool -id libclucene.dylib build-x86_64/lib/libclucene.dylib || true
-
-####################################################
 ############ UUID
 ####################################################
 
@@ -529,7 +504,6 @@ DISTCLEANFILES= xulrunner-sdk.tar.bz2 \
 	aria2c \
 	aria2c-1.14.2-universal \
 	aria2c.exe \
-	clucene-core-0.9.21b.tar.bz2 \
 	e2fsprogs-1.42.tar.gz \
 	argtable2-13.tar.gz \
 	pthread-win32.zip \
@@ -548,7 +522,6 @@ clean-local:
 	-rm -rf xz-5.0.4
 	-rm -rf xz-win
 	-rm -rf aria2-1.14.2
-	-rm -rf clucene-core-0.9.21b
 	-rm -rf e2fsprogs-1.42
 	-rm -rf argtable2-13
 	-rm -rf pthread-win32
