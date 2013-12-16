@@ -10,12 +10,6 @@ xapianAccessor.dll
 searchProtocol.js
 zimProtocol.js
 suggest.js
-cluceneAccessor.dylib
-cluceneAccessor.so
-cluceneAccessor.dll
-zimCluceneIndexer.dylib
-zimCluceneIndexer.so
-zimCluceneIndexer.dll
 contentManager.dylib
 contentManager.so
 contentManager.dll
