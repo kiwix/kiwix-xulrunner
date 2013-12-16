@@ -87,7 +87,7 @@ _languagesHash['nor']          = _languagesHashOld['no']          = 'Norsk (bokm
 _languagesHash['nno']          = _languagesHashOld['nn']          = 'Norsk (nynorsk)';
 _languagesHash['oci']          = _languagesHashOld['oc']          = 'Occitan';
 _languagesHash['or']           = 'ଓଡ଼ିଆ';
-_languagesHash['per']          = _languagesHashOld['fa']          = 'فارسی';
+_languagesHash['fas']          = _languagesHashOld['fa']          = 'فارسی';
 _languagesHash['pol']          = _languagesHashOld['pl']          = 'Język polski';
 _languagesHash['pms']          = 'Piemontèis';
 _languagesHash['ps']           = 'پښتو';
