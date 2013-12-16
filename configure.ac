@@ -1459,6 +1459,18 @@ then
 	if test [ "$STATIC_LIBPTHREAD_ARCHIVE" == "no" ] ; then
 		AC_MSG_ERROR([Unable to find libpthread.a])
 	fi
+
+	# libssl
+	STATIC_LIBSSL_ARCHIVE=`findLibrary "libssl.a"`
+	if test [ "$STATIC_LIBSSL_ARCHIVE" == "no" ] ; then
+		AC_MSG_ERROR([Unable to find libssl.a])
+	fi
+
+	# libcryptopp
+	STATIC_LIBCRYPTO_ARCHIVE=`findLibrary "libcryptopp.a"`
+	if test [ "$STATIC_LIBCRYPTO_ARCHIVE" == "no" ] ; then
+		AC_MSG_ERROR([Unable to find libcryptopp.a])
+	fi
 fi
 
 ####################################################
@@ -1591,11 +1603,13 @@ AC_ARG_WITH(downloader,
 echo "$DOWNLOADERREQ"
 if test [ "$DOWNLOADERREQ" = "" -o "$DOWNLOADERREQ" = "wget" ]
 then
-	DOWNLOADER="wget --wait=10 --timeout=600 -c -O"
-	if [test $IS_WIN -eq 0]
+	DOWNLOADER="wget --wait=10 --timeout=600 -c"
+	wgetvers=`wget -V | head -n 1|cut -f 3 -d " "`
+	if [test $IS_WIN -eq 0 -a `echo "$wgetvers >= 1.13"|bc` -eq 1]
 	then
 		DOWNLOADER="$DOWNLOADER --no-use-server-timestamps"
 	fi
+	DOWNLOADER="$DOWNLOADER -O"
 elif test [ "$DOWNLOADERREQ" = "curl" ]
 then
 	DOWNLOADER="curl -C - --retry 10 --retry-delay 10 -o"
@@ -1770,6 +1784,8 @@ AC_SUBST(STATIC_LIBSTDCPP_ARCHIVE)
 AC_SUBST(STATIC_LIBDL_ARCHIVE)
 AC_SUBST(STATIC_LIBGCC_ARCHIVE)
 AC_SUBST(STATIC_LIBPTHREAD_ARCHIVE)
+AC_SUBST(STATIC_LIBSSL_ARCHIVE)
+AC_SUBST(STATIC_LIBCRYPTO_ARCHIVE)
 
 # Configure the output files
 AC_CONFIG_FILES([
@@ -1893,6 +1909,8 @@ $BINECHO -n "STATIC_LIBSTDCPP_ARCHIVE	" ; $BINECHO $STATIC_LIBSTDCPP_ARCHIVE
 $BINECHO -n "STATIC_LIBDL_ARCHIVE		" ; $BINECHO $STATIC_LIBDL_ARCHIVE
 $BINECHO -n "STATIC_LIBGCC_ARCHIVE		" ; $BINECHO $STATIC_LIBGCC_ARCHIVE
 $BINECHO -n "STATIC_LIBPTHREAD_ARCHIVE	" ; $BINECHO $STATIC_LIBPTHREAD_ARCHIVE
+$BINECHO -n "STATIC_LIBSSL_ARCHIVE	" ; $BINECHO $STATIC_LIBSSL_ARCHIVE
+$BINECHO -n "STATIC_LIBCRYPTO_ARCHIVE	" ; $BINECHO $STATIC_LIBCRYPTO_ARCHIVE
 
 if test $IS_64B -eq 1
 then
