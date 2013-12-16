@@ -4,8 +4,8 @@
 
 <!-- Mac menu -->
 <!ENTITY main.osxservices               "خدمات">
-<!ENTITY main.osxhideapp                "پنهان کردن &brand.brandShortName;">
-<!ENTITY main.osxhideothers             "پنهان کردن دیگران">
+<!ENTITY main.osxhideapp                "پنهان‌کردن &brand.brandShortName;">
+<!ENTITY main.osxhideothers             "پنهان‌کردن دیگران">
 <!ENTITY main.osxshowall                "نمایش همه">
 
 <!-- File menu -->
@@ -14,10 +14,10 @@
 <!ENTITY main.openFile                  "گشودن پرونده...">
 <!ENTITY main.browseLibrary.accesskey   "B">
 <!ENTITY main.browseLibrary             "مرور کتابخانه">
-<!ENTITY main.hideLibrary               "پنهان کردن کتابخانه">
+<!ENTITY main.hideLibrary               "پنهان‌کردن کتابخانه">
 <!ENTITY main.openFile.accesskey        "O">
-<!ENTITY main.lastOpen                  "اخیراً گشوده شده...">
-<!ENTITY main.saveFile                  "...ذخیرهٔ صفحه به‌عنوان">
+<!ENTITY main.lastOpen                  "اخیراً گشوده‌شده...">
+<!ENTITY main.saveFile                  "ذخیرهٔ صفحه به‌عنوان...">
 <!ENTITY main.saveFile.accesskey        "S">
 <!ENTITY main.print                     "چاپ">
 <!ENTITY main.print.accesskey           "P">
@@ -29,13 +29,13 @@
 <!-- Edit menu -->
 <!ENTITY main.edit                      "ویرایش">
 <!ENTITY main.edit.accesskey            "E">
-<!ENTITY main.find                      "...جستجو در صفحه">
+<!ENTITY main.find                      "جستجو در صفحه...">
 <!ENTITY main.find.accesskey            "S">
 <!ENTITY main.selectall                 "انتخاب همه">
 <!ENTITY main.selectall.accesskey       "a">
 <!ENTITY main.copy                      "رونوشت">
 <!ENTITY main.copy.accesskey            "p">
-<!ENTITY main.transliteration           "نويسه گردانى">
+<!ENTITY main.transliteration           "نويسه‌گردانى">
 <!ENTITY main.transliteration.accesskey "T">
 <!ENTITY main.preferences               "ترجیحات">
 <!ENTITY main.preferences.accesskey     "n">
@@ -97,18 +97,18 @@
 <!ENTITY main.searchPlaceholder         "متن مورد نظر را جهت جستجو وارد کنید ...">
 <!ENTITY main.findInText                "جستجو در متن">
 <!ENTITY main.noSearchBar               "جستجو نیاز به یک فایل ZIM فهرست بندی شده دارد">
-<!ENTITY main.bookmarks                 "نشانکها">
+<!ENTITY main.bookmarks                 "نشانک‌ها">
 
 <!-- Results bar -->
 <!ENTITY main.results.title             "یافته‌ها">
 
 <!-- Bookmarks Bar -->
-<!ENTITY main.bmkLabel                  ":نشانکها">
+<!ENTITY main.bmkLabel                  "نشانک‌ها:">
 <!ENTITY main.notesLabel                "یادداشتهای نشانک">
 <!ENTITY main.loadbmk                   "ورود تنظیمات نشانک">
 <!ENTITY main.newbmk                    "ایجاد تنظیمات جدید نشانک">
 <!ENTITY main.mark                      "این صفحه را علامت بزن">
-<!ENTITY main.unmark                    "علامت انتخاب شده را بردار">
+<!ENTITY main.unmark                    "علامت انتخاب‌شده را بردار">
 <!ENTITY main.reload                    "بارگذاری مجدد مجموعه نشانک">
 <!ENTITY main.defaultset                "تنظیمات نشانک">
 
