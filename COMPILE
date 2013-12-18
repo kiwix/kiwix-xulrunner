@@ -15,7 +15,7 @@ etc) are compiled statically.
 ./configure --enable-compileall --enable-staticbins --disable-android
 
 # Download all dependencies
-make src/dependencies
+cd src/dependencies; make ; cd ../..
 
 # Reconfigure with dependencies (Gecko version)
 ./configure --enable-compileall --enable-staticbins --disable-android      
