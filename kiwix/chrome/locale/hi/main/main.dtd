@@ -65,7 +65,7 @@
 <!ENTITY main.tabs.accesskey            "T">
 <!ENTITY main.fullscreen                "संपूर्ण स्क्रीन">
 <!ENTITY main.fullscreen.accesskey      "F">
-<!ENTITY main.invertedColors            "Inverted colors">
+<!ENTITY main.invertedColors            "उल्टे रंग">
 <!ENTITY main.invertedColors.accesskey  "I">
 
 <!-- Tools menu -->
@@ -75,7 +75,7 @@
 <!ENTITY main.randomArticle.accesskey   "R">
 <!ENTITY main.checkIntegrity            "अखंडता की जाँच करें">
 <!ENTITY main.checkIntegrity.accesskey  "k">
-<!ENTITY main.launchIndexing            "Launch indexing">
+<!ENTITY main.launchIndexing            "इन्डेक्सिंग प्रारंभ करें">
 <!ENTITY main.purgeHistory              "इतिहास को पर्ज करें">
 <!ENTITY main.purgeHistory.accesskey    "P">
 
@@ -94,7 +94,7 @@
 <!ENTITY main.home                      "होम">
 <!ENTITY main.searchBar                 "खोज पट्टी">
 <!ENTITY main.search                    "खोजें">
-<!ENTITY main.searchPlaceholder         "Type the text to search here...">
+<!ENTITY main.searchPlaceholder         "खोजने के लिए यहाँ टेक्स्ट लिखें...">
 <!ENTITY main.findInText                "पाठ में खोजें">
 <!ENTITY main.noSearchBar               "खोज के लिए अनुक्रमणित ZIM फ़ाइल की आवश्यकता है">
 <!ENTITY main.bookmarks                 "बुकमार्क्स">
@@ -131,8 +131,8 @@
 <!ENTITY preferences.dataDirectory      "Data directory">
 <!ENTITY preferences.browse             "ब्राउज़ करें">
 <!ENTITY preferences.tabs               "पट्टीयाँ याद रखें">
-<!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">
-<!ENTITY preferences.neverAskToIndex    "Never ask to index">
+<!ENTITY preferences.downloadCatalogs   "रिमोट कैटलॉग डाउनलोड करें">
+<!ENTITY preferences.neverAskToIndex    "इंडेक्स करने के लिए कभी ना पूछें">
 
 <!-- Server -->
 <!ENTITY server.load                    "लोड">

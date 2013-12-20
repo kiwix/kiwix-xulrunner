@@ -43,7 +43,7 @@
 <!ENTITY main.server.accesskey          "s">
 
 <!-- Display menu -->
-<!ENTITY main.display                   "Exibição">
+<!ENTITY main.display                   "Exibir">
 <!ENTITY main.display.accesskey         "D">
 <!ENTITY main.zoom                      "Zoom">
 <!ENTITY main.zoom.accesskey            "Z">
@@ -92,7 +92,7 @@
 <!ENTITY main.back                      "Voltar">
 <!ENTITY main.forward                   "Avançar">
 <!ENTITY main.home                      "Início">
-<!ENTITY main.searchBar                 "Buscador">
+<!ENTITY main.searchBar                 "Barra de busca">
 <!ENTITY main.search                    "Buscar">
 <!ENTITY main.searchPlaceholder         "Digite o texto a pesquisar aqui...">
 <!ENTITY main.findInText                "Buscar no texto">
@@ -103,8 +103,8 @@
 <!ENTITY main.results.title             "Resultados da Busca">
 
 <!-- Bookmarks Bar -->
-<!ENTITY main.bmkLabel                  "Favoritos">
-<!ENTITY main.notesLabel                "Notas dos Favoritos">
+<!ENTITY main.bmkLabel                  "Favoritos:">
+<!ENTITY main.notesLabel                "Notas dos Favoritos:">
 <!ENTITY main.loadbmk                   "Importar Favoritos">
 <!ENTITY main.newbmk                    "Criar novo grupo de Favoritos">
 <!ENTITY main.mark                      "Marcar esta página">
@@ -144,7 +144,7 @@
 <!ENTITY main.library.myLibrary                 "Minha biblioteca">
 <!ENTITY main.library.getNewFiles               "Obter novos arquivos">
 <!ENTITY main.library.searchZimFiles            "Procurar por arquivos ZIM">
-<!ENTITY main.library.sortBy                    "Classificar por">
+<!ENTITY main.library.sortBy                    "Ordenar por">
 <!ENTITY main.library.sortBy.title              "Título">
 <!ENTITY main.library.sortBy.size               "Tamanho">
 <!ENTITY main.library.sortBy.date               "Data">

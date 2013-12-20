@@ -75,7 +75,7 @@
 <!ENTITY main.randomArticle.accesskey   "R">
 <!ENTITY main.checkIntegrity            "Integrietätsprüefig">
 <!ENTITY main.checkIntegrity.accesskey  "k">
-<!ENTITY main.launchIndexing            "Launch indexing">
+<!ENTITY main.launchIndexing            "Indizierig starte">
 <!ENTITY main.purgeHistory              "Verlauf lösche">
 <!ENTITY main.purgeHistory.accesskey    "P">
 
@@ -132,7 +132,7 @@
 <!ENTITY preferences.browse             "Blättre">
 <!ENTITY preferences.tabs               "Ryter merke">
 <!ENTITY preferences.downloadCatalogs   "Externi Katalog abelade">
-<!ENTITY preferences.neverAskToIndex    "Never ask to index">
+<!ENTITY preferences.neverAskToIndex    "Nie frooge ob me indiziere soll">
 
 <!-- Server -->
 <!ENTITY server.load                    "Lade">
