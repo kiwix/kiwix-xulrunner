@@ -1,5 +1,5 @@
 /*
- * Copyright 2013
+ * Copyright 2013  Rashiq Ahmad <rashiq.z@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU  General Public License as published by
@@ -221,8 +221,9 @@ public class LanguageUtils {
                             TextView textView = ((TextView) view);
 
                             // Set the custom typeface
-                            textView.setTypeface(Typeface.createFromAsset(
-                                    mContext.getAssets(), getTypeface()));
+                            textView.setTypeface(
+                                    Typeface.createFromAsset(mContext.getAssets(), getTypeface()));
+                            Log.d("kiwix", "Applying custom font");
 
                             // Reduce the text size
                             textView.setTextSize(TypedValue.COMPLEX_UNIT_PX, textView.getTextSize() - 3f);
@@ -232,11 +233,13 @@ public class LanguageUtils {
                     return view;
 
                 } catch (InflateException e) {
+                    Log.e("kiwix", "Could not apply the custom font");
 
                 } catch (ClassNotFoundException e) {
-
+                    Log.e("kiwix", "Could not apply the custom font");
                 }
             }
+
             return null;
         }
 
