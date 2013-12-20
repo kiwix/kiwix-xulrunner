@@ -2,46 +2,85 @@ These are the instructions to compile Kiwix.
 
 == GNU/Linux ==
 
-GNU/Linux build uses shared libraries by default.
-You will need the following dependencies to compile Kiwix for Linux
-Debian/Ubuntu packages: build-essential autoconf automake libtool pkg-config \
-libicu-dev libxapian-dev libmicrohttpd-dev liblzma-dev fastjar \
-xulrunner-1.9.2-dev aria2 libsqlite3-dev zlib1g-dev uuid-dev libuuid1 zip \
-subversion git-core openjdk-7-jre openjdk-7-jre-headless openjdk-7-jdk ant \
-curl cmake libssl-dev libcrypto++-dev
-# xapian-tools (debian wheezy)
-# libzim-dev libzim0 libctpp2-dev libctpp2-2 libpugixml-dev libpugixml1 xulrunner-dev (debian jessie+)
+=== Static ===
 
-Fedora (Sugar build) packages: gcc gcc-c++ automake glibc-devel libtool \
-c-ares autoconf aria2 libicu-devel xapian-core-devel lzma-libs lzma-devel \
-xapian-core-libs xulrunner-devel jpackage-utils expat-devel sqlite-devel \
-zlib-devel zlib-static uuid uuid-devel openssl-devel libxml2-devel \
-libgnutls-devel libgpg-error-devel libgcrypt-devel c-ares-devel cmake \
-sugar subversion git java-1.7.0-openjdk
+Kiwix uses shared libraries only. A static build of Kiwix is a build
+which packages the dependencies.  Command line tools (indexer, server,
+etc) are compiled statically.
 
-The new build system now builds kiwix with shared libraries only.
-A static build of Kiwix is a build which packages the dependencies.
-Command line tools (indexer, server, etc) are compiled statically.
+# Run automake
+./autogen.sh
 
-* ./autogen.sh alt
+# Run autoconf
+./configure --enable-compileall --enable-staticbins --disable-android
 
-* ./configure # check --help for options
-Most dependencies accept --with-dep=XX and with-static-dep=XX.a
-Static version of libraries are used for building static binaries (server, indexer, etc)
-Use --with-dep=SELF or --with-static-dep=SELF to trigger fetch and build for the dependency.
+# Download all dependencies
+cd src/dependencies; make ; cd ../..
 
-* ./configure --enable-compileall --enable-compileall
-to fetch and build all dependencies.
+# Reconfigure with dependencies (Gecko version)
+./configure --enable-compileall --enable-staticbins --disable-android      
 
-* make src/dependencies
+# Compile
+make
 
-* ./configure
-To reconfigure with dependencies (Gecko version)
+# Creates tarbal suitable for distribution (no deps)
+make diststatic
 
-* make
+# If you want to be able to run directly from your dev repository copy
+# the "xulrunner" directory in the distributation tarball to the
+# "kiwix" sub-directory of your developement tree.
 
-* make diststatic
-creates tarbal suitable for distribution (no deps)
+# Don't try to install with "make install", if you want to have kiwix
+# install on your system just copy the directory in a /usr/local/bin
+# directory.
+
+== Dynamic ==
+
+GNU/Linux build uses shared libraries by default. You will need the
+following dependencies (also -dev packages) to compile Kiwix for Linux
+(this list can vary a little bit depending of the GNU/Linux
+distribution):
+* g++
+* gcc
+* autoconf
+* automake
+* libtool
+* pkg-config
+* liblzma
+* libicu
+* libmicrohttpd
+* zlib
+* libcrypto++
+* cmake
+* wget
+* aria2
+* libuuid
+* libssl
+* libzim
+* libpugixml
+* libctpp2
+* xulrunner
+
+Debian is the only distribution providing natively all these
+packages. Ubuntu provides most of them, excluding xulrunner and
+zimlib. You will have to download and install them separatly or run
+configure --with-static-dep=SELF. Then run the following commands:
+
+# Run automake
+./autogen.sh
+
+# Configure the compilation
+# check --help for options. Most dependencies accept --with-dep=XX and
+# with-static-dep=XX.a. Static version of libraries are used for building
+# static binaries (server, indexer, etc) Use --with-dep=SELF or
+# --with-static-dep=SELF to trigger fetch and build for the dependency.
+./configure
+
+# Compile
+make
+
+# Optionaly install on the filesystem
+sudo make install
 
 == Mac OSX Universal ==
 

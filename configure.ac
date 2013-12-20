@@ -1391,16 +1391,17 @@ then
 	fi
 
 	# libssl
-	STATIC_LIBSSL_ARCHIVE=`findLibrary "libssl.a"`
-	if test [ "$STATIC_LIBSSL_ARCHIVE" == "no" ] ; then
-		AC_MSG_ERROR([Unable to find libssl.a])
-	fi
+#	STATIC_LIBSSL_ARCHIVE=`findLibrary "libssl.a"`
+#	if test [ "$STATIC_LIBSSL_ARCHIVE" == "no" ] ; then
+#		AC_MSG_ERROR([Unable to find libssl.a])
+#	fi
 
 	# libcryptopp
-	STATIC_LIBCRYPTO_ARCHIVE=`findLibrary "libcryptopp.a"`
-	if test [ "$STATIC_LIBCRYPTO_ARCHIVE" == "no" ] ; then
-		AC_MSG_ERROR([Unable to find libcryptopp.a])
-	fi
+#	STATIC_LIBCRYPTO_ARCHIVE=`findLibrary "libcryptopp.a"`
+#	if test [ "$STATIC_LIBCRYPTO_ARCHIVE" == "no" ] ; then
+#		AC_MSG_ERROR([Unable to find libcryptopp.a])
+#	fi
+
 fi
 
 ####################################################
