@@ -65,7 +65,7 @@ function savePreferences() {
     var oldDataDirectory = settings.dataDirectory();
     if (settings.dataDirectory() != document.getElementById("dataDirectory-textbox").value) {
 	settings.dataDirectory(document.getElementById("dataDirectory-textbox").value);
-	if (displayConfirmDialog("Kiwix needs to be stoped and restarted to apply this change.\nMaybe a good time to migrate your old data directory to your new location...")) {
+	if (displayConfirmDialog("Kiwix needs to be stopped and restarted to apply this change.\nMaybe a good time to migrate your old data directory to your new location...")) {
 	    quit();
 	}
     }
