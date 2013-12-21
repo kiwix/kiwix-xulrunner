@@ -29,10 +29,10 @@ endif
 
 if IS_LINUX
 ANDROIDNDKURL=$(DEP_MIRROR)/android-ndk-r8e-linux-$(ARCH).tar.bz2
-ANDROIDSDKURL=$(DEP_MIRROR)/adt-bundle-linux-$(ARCH)-20130219.zip
+ANDROIDSDKURL=$(DEP_MIRROR)/adt-bundle-linux-$(ARCH)-20131030.zip
 else
 ANDROIDNDKURL=$(DEP_MIRROR)/android-ndk-r8e-darwin-x86_64.tar.bz2
-ANDROIDSDKURL=$(DEP_MIRROR)/adt-bundle-mac-x86_64-20130219.zip
+ANDROIDSDKURL=$(DEP_MIRROR)/adt-bundle-mac-x86_64-20131030.zip
 endif
 
 ####################################################
