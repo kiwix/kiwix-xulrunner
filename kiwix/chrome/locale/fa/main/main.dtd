@@ -45,7 +45,7 @@
 <!-- Display menu -->
 <!ENTITY main.display                   "نمایش">
 <!ENTITY main.display.accesskey         "D">
-<!ENTITY main.zoom                      "اندازه‌نمایی">
+<!ENTITY main.zoom                      "بزرگ‌نمایی">
 <!ENTITY main.zoom.accesskey            "Z">
 <!ENTITY main.zoomin                    "افزایش اندازه">
 <!ENTITY main.zoomin.accesskey          "M">
@@ -65,7 +65,7 @@
 <!ENTITY main.tabs.accesskey            "T">
 <!ENTITY main.fullscreen                "تمام صفحه">
 <!ENTITY main.fullscreen.accesskey      "F">
-<!ENTITY main.invertedColors            "رنگ‌ها وارونه شده‌اند">
+<!ENTITY main.invertedColors            "رنگ‌های وارونه">
 <!ENTITY main.invertedColors.accesskey  "I">
 
 <!-- Tools menu -->
@@ -75,16 +75,16 @@
 <!ENTITY main.randomArticle.accesskey   "R">
 <!ENTITY main.checkIntegrity            "بررسی یکپارچگی">
 <!ENTITY main.checkIntegrity.accesskey  "k">
-<!ENTITY main.launchIndexing            "راه اندازی نمایه سازی">
+<!ENTITY main.launchIndexing            "شروع ایندکس">
 <!ENTITY main.purgeHistory              "پاکسازی تاریخچه">
 <!ENTITY main.purgeHistory.accesskey    "P">
 
 <!-- Help menu -->
-<!ENTITY main.help                      "کمک">
+<!ENTITY main.help                      "راهنما">
 <!ENTITY main.help.accesskey            "H">
 <!ENTITY main.feedback                  "بازخورد">
-<!ENTITY main.reportabug                "گزارش یک اشکال">
-<!ENTITY main.requestafeature           "درخواست یک ویژگی">
+<!ENTITY main.reportabug                "گزارش خطا">
+<!ENTITY main.requestafeature           "درخواست امکانات جدید">
 <!ENTITY main.about                     "دربارهٔ &brand.brandShortName;">
 <!ENTITY main.about.accesskey           "A">
 
@@ -96,7 +96,7 @@
 <!ENTITY main.search                    "جستجو">
 <!ENTITY main.searchPlaceholder         "متن مورد نظر را جهت جستجو وارد کنید ...">
 <!ENTITY main.findInText                "جستجو در متن">
-<!ENTITY main.noSearchBar               "جستجو نیاز به یک فایل ZIM فهرست بندی شده دارد">
+<!ENTITY main.noSearchBar               "برای جستجو نیاز به یک فایل ZIM ایندکس‌شده است">
 <!ENTITY main.bookmarks                 "نشانک‌ها">
 
 <!-- Results bar -->
@@ -105,8 +105,8 @@
 <!-- Bookmarks Bar -->
 <!ENTITY main.bmkLabel                  "نشانک‌ها:">
 <!ENTITY main.notesLabel                "یادداشتهای نشانک">
-<!ENTITY main.loadbmk                   "ورود تنظیمات نشانک">
-<!ENTITY main.newbmk                    "ایجاد تنظیمات جدید نشانک">
+<!ENTITY main.loadbmk                   "ورود مجموعه نشانک">
+<!ENTITY main.newbmk                    "ایجاد مجموعه نشانک جدید">
 <!ENTITY main.mark                      "این صفحه را علامت بزن">
 <!ENTITY main.unmark                    "علامت انتخاب‌شده را بردار">
 <!ENTITY main.reload                    "بارگذاری مجدد مجموعه نشانک">
