@@ -1,0 +1,4 @@
+218c218
+< 	LZMA_PROG_ERROR         = 11,
+---
+> 	LZMA_PROG_ERROR         = 11

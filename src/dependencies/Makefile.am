@@ -271,6 +271,7 @@ xz.tar.bz2:
 xz: xz.tar.bz2
 	test -d xz || tar -xf xz.tar.bz2
 	test -d xz-5.0.4 && mv xz-5.0.4 xz
+	patch -p2 xz/src/liblzma/api/lzma/base.h patches/lzma-base-header-enum.patch
 
 xz/build/lib/liblzma.so: xz
 	test ! -f xz/build/lib/liblzma.so && cd xz && mkdir -p build && CC="$(COMPC)" CXX="$(COMPCXX)" CFLAGS=" -fPIC " ./configure --disable-assembler --enable-shared --enable-static --prefix=$(DEP_PATH)/xz/build && make clean && make && make install || true
@@ -454,11 +455,11 @@ zimlib-1.1: zimlib-master.zip
 
 # OSX i386
 zimlib-1.1/build-i386/lib/libzim.dylib zimlib-1.1/build-i386/lib/libzim.a: zimlib-1.1 xz/build/lib/liblzma.dylib
-	test ! -f zimlib-1.1/build-i386/lib/libzim.dylib && cd zimlib-1.1 && mkdir -p build-i386 && LDFLAGS=" -L$(DEP_PATH)/xz/build/lib/ " CC="gcc -arch i386" CXX="g++ -arch i386" CFLAGS="-I$(DEP_PATH)/xz/build/include" CXXFLAGS=" -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -I$(DEP_PATH)/xz/build/include" LDFLAGS="-L$(DEP_PATH)/xz/build/lib" ./configure --enable-shared --disable-dependency-tracking --with-pic --prefix=$(DEP_PATH)/zimlib-1.1/build-i386 --enable-static --disable-libtool-lock && make clean && make && make install && install_name_tool -id libzim.dylib build-i386/lib/libzim.dylib || true
+	test ! -f zimlib-1.1/build-i386/lib/libzim.dylib && cd zimlib-1.1 && mkdir -p build-i386 && LDFLAGS=" -L$(DEP_PATH)/xz/build/lib/ " CC="gcc -arch i386" CXX="g++ -arch i386" CFLAGS="-I$(DEP_PATH)/xz/build-i386/include" CXXFLAGS=" -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -I$(DEP_PATH)/xz/build-i386/include" LDFLAGS="-L$(DEP_PATH)/xz/build/lib" ./configure --enable-shared --disable-dependency-tracking --with-pic --prefix=$(DEP_PATH)/zimlib-1.1/build-i386 --enable-static --disable-libtool-lock && make clean && make && make install && install_name_tool -id libzim.dylib build-i386/lib/libzim.dylib || true
 
 # OSX x86_64
 zimlib-1.1/build-x86_64/lib/libzim.dylib zimlib-1.1/build-x86_64/lib/libzim.a: zimlib-1.1 xz/build/lib/liblzma.dylib
-	test ! -f zimlib-1.1/build-x86_64/lib/libzim.dylib && cd zimlib-1.1 && mkdir -p build-x86_64 && LDFLAGS=" -L$(DEP_PATH)/xz/build/lib/ " CC="gcc -arch x86_64" CXX="g++ -arch x86_64" CFLAGS="-I$(DEP_PATH)/xz/build/include" CXXFLAGS=" -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -I$(DEP_PATH)/xz/build/include" LDFLAGS="-L$(DEP_PATH)/xz/build/lib" ./configure --enable-shared --disable-dependency-tracking --with-pic --prefix=$(DEP_PATH)/zimlib-1.1/build-x86_64 --enable-static --disable-libtool-lock && make clean && make && make install && install_name_tool -id libzim.dylib build-x86_64/lib/libzim.dylib || true
+	test ! -f zimlib-1.1/build-x86_64/lib/libzim.dylib && cd zimlib-1.1 && mkdir -p build-x86_64 && LDFLAGS=" -L$(DEP_PATH)/xz/build/lib/ " CC="gcc -arch x86_64" CXX="g++ -arch x86_64" CFLAGS="-I$(DEP_PATH)/xz/build-x86_64/include" CXXFLAGS=" -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -I$(DEP_PATH)/xz/build-x86_64/include" LDFLAGS="-L$(DEP_PATH)/xz/build/lib" ./configure --enable-shared --disable-dependency-tracking --with-pic --prefix=$(DEP_PATH)/zimlib-1.1/build-x86_64 --enable-static --disable-libtool-lock && make clean && make && make install && install_name_tool -id libzim.dylib build-x86_64/lib/libzim.dylib || true
 
 # OSX Join
 zimlib-1.1/build/lib/libzim.dylib zimlib-1.1/build/lib/libzim.a: zimlib-1.1/build-i386/lib/libzim.dylib zimlib-1.1/build-x86_64/lib/libzim.dylib zimlib-1.1/build-i386/lib/libzim.a zimlib-1.1/build-x86_64/lib/libzim.a
