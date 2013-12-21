@@ -1409,6 +1409,31 @@ fi
 ####################################################
 
 DEP_LIST=""
+
+if test [ $COMPILE_LZMA -eq 1 ]
+then
+    DEP_LIST+=" $COMPILED_LZMA_FILES"
+fi
+EMBED_LIBS+=" $LZMA_FILES"
+
+if test [ $COMPILE_LIBZIM -eq 1 ]
+then
+    DEP_LIST+=" $COMPILED_LIBZIM_FILES"
+fi
+EMBED_LIBS+=" $LIBZIM_FILES"
+
+if test [ $COMPILE_LIBPUGIXML -eq 1 ]
+then
+    DEP_LIST+=" $COMPILED_LIBPUGIXML_FILES"
+fi
+EMBED_LIBS+=" $LIBPUGIXML_FILES"
+
+if test [ $COMPILE_LIBCTPP2 -eq 1 ]
+then
+    DEP_LIST+=" $COMPILED_LIBCTPP2_FILES"
+fi
+EMBED_LIBS+=" $LIBCTPP2_FILES"
+
 if test [ $COMPILE_GECKO_SDK -eq 1 -a $IS_ARM -eq 0 ]
 then
     DEP_LIST+=" $COMPILED_GECKO_SDK_PATH/"
@@ -1459,30 +1484,6 @@ then
     DEP_LIST+=" $COMPILED_MICROHTTPD_FILES"
 fi
 EMBED_LIBS+=" $MICROHTTPD_FILES"
-
-if test [ $COMPILE_LZMA -eq 1 ]
-then
-    DEP_LIST+=" $COMPILED_LZMA_FILES"
-fi
-EMBED_LIBS+=" $LZMA_FILES"
-
-if test [ $COMPILE_LIBZIM -eq 1 ]
-then
-    DEP_LIST+=" $COMPILED_LIBZIM_FILES"
-fi
-EMBED_LIBS+=" $LIBZIM_FILES"
-
-if test [ $COMPILE_LIBPUGIXML -eq 1 ]
-then
-    DEP_LIST+=" $COMPILED_LIBPUGIXML_FILES"
-fi
-EMBED_LIBS+=" $LIBPUGIXML_FILES"
-
-if test [ $COMPILE_LIBCTPP2 -eq 1 ]
-then
-    DEP_LIST+=" $COMPILED_LIBCTPP2_FILES"
-fi
-EMBED_LIBS+=" $LIBCTPP2_FILES"
 
 if test [ $COMPILE_ARIA2 -eq 1 -a $IS_ARM -eq 0 ]
 then
