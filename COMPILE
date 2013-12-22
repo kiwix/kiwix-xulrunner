@@ -126,7 +126,7 @@ from a Linux or Mac (it cross-compiles).
 
 * ./autogen.sh
 
-* ./configure --disable-staticbins --disable-manager --disable-server --disable-launcher --disable-indexer --disable-installer --disable-searcher --disable-reader --disable-components --enable-android
+* ./configure --disable-staticbins --disable-manager --disable-server --disable-launcher --disable-indexer --disable-installer --disable-searcher --disable-reader --disable-components --enable-android --enable-compileall
 this configures for an android-only build. Remark: If you have difficulties with aria2 (too old version, or not on the system), you may download a recent version "wget http://download.kiwix.org/dev/aria2c" in the "./configure" directory and add the option "--with-aria2=./aria2c" to the ./configure call.
 
 * cd src/dependencies && make android-deps && cd -
