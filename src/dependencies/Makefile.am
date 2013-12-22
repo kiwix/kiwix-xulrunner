@@ -421,12 +421,16 @@ android-ndk-r8e: android-ndk-r8e.tar.bz2
 ####################################################
 ############ ANDROID-SDK
 ####################################################
+android-m2repository.zip:
+	$(DOWNLOADER) android-m2repository.zip $(DEP_MIRROR)/android_m2repository_r03.zip
+
 android-sdk.zip:
 	$(DOWNLOADER) android-sdk.zip $(ANDROIDSDKURL)
 
-android-sdk/sdk: android-sdk.zip
+android-sdk/sdk: android-sdk.zip android-m2repository.zip
 	test -d android-sdk || unzip -o -d android-sdk android-sdk.zip
 	test -d android-sdk/sdk || mv android-sdk/*/* android-sdk/
+	test -d android-sdk/sdk/extras/android/m2repository || unzip -o -d android-sdk/sdk/extras/android/ android-m2repository.zip
 
 android-14.tar.bz2:
 	$(DOWNLOADER) android-14.tar.bz2 $(DEP_MIRROR)/android-14.tar.bz2
