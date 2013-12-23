@@ -22,12 +22,6 @@ binary-component components/xapianAccessor.so
 interfaces components/zimXapianIndexer.xpt
 binary-component components/zimXapianIndexer.so
 
-interfaces components/cluceneAccessor.xpt
-binary-component components/cluceneAccessor.so
-
-interfaces components/zimCluceneIndexer.xpt
-binary-component components/zimCluceneIndexer.so
-
 interfaces components/zimAccessor.xpt
 binary-component components/zimAccessor.so
 
