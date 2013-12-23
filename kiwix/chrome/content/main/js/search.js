@@ -132,7 +132,6 @@ function indexCurrentBook() {
     var zimFilePath = currentBook.path;
     var zimFileId = currentBook.id;
     var settingsRootPath = settings.getRootPath();
-    var backend = settings.defaultSearchBackend();
     var indexTmpDirectory = getTmpSearchIndexDirectory();
     var indexDirectoryName = getSearchIndexDirectoryName(zimFilePath);
     var indexDirectory = getSearchIndexDirectory(zimFilePath);
@@ -151,13 +150,8 @@ function indexCurrentBook() {
 	}
 	
 	/* Create the ZIM Xapian Indexer */
-	if (backend == "clucene") {
-	    _zimIndexer = Components.classes["@kiwix.org/zimCluceneIndexer"].getService();
-	    _zimIndexer = _zimIndexer.QueryInterface(Components.interfaces.IZimCluceneIndexer);
-	} else {
-	    _zimIndexer = Components.classes["@kiwix.org/zimXapianIndexer"].getService();
-	    _zimIndexer = _zimIndexer.QueryInterface(Components.interfaces.IZimXapianIndexer);
-	}
+	_zimIndexer = Components.classes["@kiwix.org/zimXapianIndexer"].getService();
+	_zimIndexer = _zimIndexer.QueryInterface(Components.interfaces.IZimXapianIndexer);
 	
 	/* Load the ZIM file */
 	if (_zimIndexer.start(zimFilePath, indexTmpDirectory)) {
@@ -222,17 +216,11 @@ function stopIndexingObserver() {
 }
 
 function openSearchIndex(path, quiet) {
-    var backend = settings.defaultSearchBackend();
     var indexAccessor;
 
     /* Create the xapian accessor */
-    if (backend == "clucene") {
-	indexAccessor = Components.classes["@kiwix.org/cluceneAccessor"].getService();
-	indexAccessor = indexAccessor.QueryInterface(Components.interfaces.ICluceneAccessor);
-    } else {
-	indexAccessor = Components.classes["@kiwix.org/xapianAccessor"].getService();
-	indexAccessor = indexAccessor.QueryInterface(Components.interfaces.IXapianAccessor);
-    }
+    indexAccessor = Components.classes["@kiwix.org/xapianAccessor"].getService();
+    indexAccessor = indexAccessor.QueryInterface(Components.interfaces.IXapianAccessor);
 
     /* Open the search engine index */
     if (!indexAccessor.openReadableDatabase(path, path)) {

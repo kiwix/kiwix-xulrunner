@@ -163,18 +163,11 @@ SearchPipeChannel.prototype = {
     openSearchIndex: function(path) {
 
 	Components.utils.import("resource://modules/settings.jsm");
-
-	var backend = settings.defaultSearchBackend();
 	var indexAccessor;
 	
 	/* Create the xapian accessor */
-	if (backend == "clucene") {
-	    indexAccessor = Components.classes["@kiwix.org/cluceneAccessor"].getService();
-	    indexAccessor = indexAccessor.QueryInterface(Components.interfaces.ICluceneAccessor);
-	} else {
-	    indexAccessor = Components.classes["@kiwix.org/xapianAccessor"].getService();
-	    indexAccessor = indexAccessor.QueryInterface(Components.interfaces.IXapianAccessor);
-	}
+	indexAccessor = Components.classes["@kiwix.org/xapianAccessor"].getService();
+	indexAccessor = indexAccessor.QueryInterface(Components.interfaces.IXapianAccessor);
 	
 	/* Open the xapian readable database */
 	if (!indexAccessor.openReadableDatabase(path, path))
