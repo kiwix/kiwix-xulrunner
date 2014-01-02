@@ -1,4 +1,10 @@
-These are the instructions to compile Kiwix.
+*********************************************************************
+************* COMPILATION INSTRUCTIONS FOR KIWIX ********************
+*********************************************************************
+
+Take care, the paragraphs are about the *target platforms*. If you
+want to build Kiwix for Android on a GNU/Linux system, you should
+follow the instructions of the "Android" paragraph.
 
 == GNU/Linux ==
 
