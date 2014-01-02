@@ -17,7 +17,7 @@
 <!ENTITY main.hideLibrary               "পুথিভৰাল আঁৰ কৰক">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "বর্তমানে খোলা পৃষ্ঠা...">
-<!ENTITY main.saveFile                  "অন্ন্য বাবে পৃষ্ঠা সংৰক্ষণ কৰক ...">
+<!ENTITY main.saveFile                  "এই ধৰণে পৃষ্ঠা সংৰক্ষণ কৰক...">
 <!ENTITY main.saveFile.accesskey        "S">
 <!ENTITY main.print                     "প্ৰিন্ট কৰিবলৈ">
 <!ENTITY main.print.accesskey           "P">

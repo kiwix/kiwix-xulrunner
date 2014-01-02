@@ -135,7 +135,7 @@
 <!ENTITY preferences.neverAskToIndex    "Seba zerreki qet pers me ke">
 
 <!-- Server -->
-<!ENTITY server.load                    "Buwan">
+<!ENTITY server.load                    "Bar ke">
 <!ENTITY server.start                   "Serokne">
 <!ENTITY server.stop                    "Vınd">
 <!ENTITY server.close                   "Racnê">
