@@ -490,13 +490,13 @@ function createDirectory(path) {
     dir.initWithPath(path);
     if (!dir.exists() || !dir.isDirectory()) {
 	try {
-	    dir.create(Components.interfaces.nsIFile.DIRECTORY_TYPE, 0775)
+	    dir.create(Components.interfaces.nsIFile.DIRECTORY_TYPE, parseInt("0775", 8))
 	} catch(error) {
 	    L.error("Unable to create directory " + path);
 	    return false;
 	}
-	return true;
     }
+    return true;
 }
 
 /* Return the size of a file */
