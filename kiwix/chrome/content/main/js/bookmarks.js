@@ -163,7 +163,7 @@ function writeToFile (file, content) {
 	
 	var fos = Components.classes["@mozilla.org/network/file-output-stream;1"]
 	.createInstance(Components.interfaces.nsIFileOutputStream);
-	fos.init(file, 0x02 | 0x08 | 0x20, 0666, 0); // write, create, truncate
+        fos.init(file, 0x02 | 0x08 | 0x20, parseInt("0666", 8), 0); // write, create, truncate
 
 	os.init(fos, charset, 0, 0x0000);
 
