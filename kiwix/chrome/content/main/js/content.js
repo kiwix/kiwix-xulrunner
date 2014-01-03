@@ -268,14 +268,20 @@ function getDownloadStatus() {
 
 	/* Download is running */
 	if (kiwixDownload.status == 1) {
-
 	    /* Find the corresponding ariaDownload */
 	    var ariaDownload = undefined;
 	    for (var j=0; j<ariaDownloadsCount; j++) {
 		var currentAriaDownload = ariaResponse.val.arrayMem(j);
 		var ariaDownloadGid = currentAriaDownload.structMem('gid').scalarVal();
+		var ariaDownloadBelongsTo =currentAriaDownload.structMem('belongsTo') != undefined ? 
+		    currentAriaDownload.structMem('belongsTo').scalarVal() : ariaDownloadGid;
+
 		if (ariaDownloadGid == kiwixDownload.gid) {
-		    ariaDownload = currentAriaDownload;
+		    if (ariaDownloadBelongsTo != ariaDownloadGid) {
+			settings.setDownloadProperty(kiwixDownload.id, "gid", ariaDownloadBelongsTo);
+		    } else {
+			ariaDownload = currentAriaDownload;
+		    }
 		}
 	    }
 
