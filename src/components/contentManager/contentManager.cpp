@@ -575,7 +575,7 @@ NS_IMETHODIMP ContentManager::LaunchAria2c(const nsAString &binaryPath, const ns
 
 #ifdef _WIN32
   commandLine = string(cBinaryPath) + " --enable-rpc --rpc-listen-port=42042 --dir=\"" + string(cDownloadPath) + "\" \
-     --log=\"" + string(cLogPath) + "\" --stop-with-process=\"" + string(PIDStr) + "\" --allow-overwrite=true --disable-ipv6=true --quiet=true --bt-enable-lpd=true --always-resume=true --max-concurrent-downloads=42 --rpc-max-request-size=6M --file-allocation=none";
+     --log=\"" + string(cLogPath) + "\" --stop-with-process=\"" + string(PIDStr) + "\" --allow-overwrite=true --disable-ipv6=true --dht-entry-point=router.bittorrent.com:6881 --dht-entry-point6=router.bittorrent.com:6881 --quiet=true --bt-enable-lpd=true --always-resume=true --max-concurrent-downloads=42 --rpc-max-request-size=6M --file-allocation=none";
   STARTUPINFO startInfo = {0};
   PROCESS_INFORMATION procInfo;
   startInfo.cb = sizeof(startInfo);
@@ -611,6 +611,7 @@ NS_IMETHODIMP ContentManager::LaunchAria2c(const nsAString &binaryPath, const ns
     if (execl(commandLine.c_str(), commandLine.c_str(), "--enable-rpc", "--rpc-listen-port=42042",
 	      downloadPathArgument.c_str(), logPathArgument.c_str(), stopWithProcessArgument.c_str(), "--allow-overwrite=true",
 	      "--disable-ipv6=true", "--quiet=true", "--always-resume=true", "--max-concurrent-downloads=42",
+	      "--dht-entry-point=router.bittorrent.com:6881", "--dht-entry-point6=router.bittorrent.com:6881",
 	      "--rpc-max-request-size=6M", "--bt-enable-lpd=true", "--file-allocation=none", NULL) == -1) {
       cerr << "Unable to start aria2c from path " << commandLine << endl;
       *retVal = PR_FALSE;
