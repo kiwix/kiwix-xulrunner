@@ -98,12 +98,10 @@ ZimAccessor::~ZimAccessor() {
 
 NS_IMETHODIMP ZimAccessor::LoadFile(const nsAString &path, mozbool *retVal) {
   *retVal = PR_TRUE;
-  const char *cPath = nsStringToCString(path);
+  string zimPath = nsStringToString(nsEmbedString(path));
 
 #ifdef __APPLE__
-  string zimaa = string(cPath) + "aa";
-
-  if ( !fileExists(string(cPath)) && !fileExists(zimaa) ) {
+  if (!fileExists(zimPath) && !fileExists(zimPath + "aa")) {
     *retVal = PR_FALSE;
     return NS_OK;
   }
@@ -111,13 +109,11 @@ NS_IMETHODIMP ZimAccessor::LoadFile(const nsAString &path, mozbool *retVal) {
 
   /* Instanciate the ZIM file handler */
   try {
-    this->reader = new kiwix::Reader(cPath);
+    this->reader = new kiwix::Reader(zimPath);
   } catch (exception &e) {
     cerr << e.what() << endl;
     *retVal = PR_FALSE;
   }
-
-  free((void*)cPath);
 
   return NS_OK;
 }
