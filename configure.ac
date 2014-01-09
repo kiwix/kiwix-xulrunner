@@ -349,7 +349,7 @@ else
 fi
 COMPILED_LZMA_CFLAGS="-I${DEP_PATH}/xz/src/liblzma/api"
 
-LIBZIM_CFLAGS=" -I${prefix}/include -I${prefix}/include/zim"
+LIBZIM_CFLAGS=" -I${prefix}/include -I${prefix}/include"
 LIBZIM_LDFLAGS=" -lzim"
 LIBZIM_STATIC_LDFLAGS=""
 COMPILE_LIBZIM=0
