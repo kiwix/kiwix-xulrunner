@@ -238,8 +238,8 @@ distmac:
 	cp -v ./kiwix/components/serverManager.xpt Kiwix.app/Contents/Resources/components/serverManager.xpt
 	cp -v ./kiwix/components/serverManager.dylib Kiwix.app/Contents/Resources/components/serverManager.dylib
 	cp -v src/components/components.list Kiwix.app/Contents/Resources/components/components.list
-	rsync -rl $(DEP_PATH)/xr_target/xulrunner-14.0.1.en-US.mac/XUL.framework/ Kiwix.app/Contents/Frameworks/XUL.framework/
-	cp -v $(DEP_PATH)/xr_target/xulrunner-14.0.1.en-US.mac/XUL.framework/Versions/Current/xulrunner Kiwix.app/Contents/MacOS/xulrunner
+	rsync -rl $(DEP_PATH)/xr_target/xulrunner-$(EXACT_GECKO_VERSION).en-US.mac/XUL.framework/ Kiwix.app/Contents/Frameworks/XUL.framework/
+	cp -v $(DEP_PATH)/xr_target/xulrunner-$(EXACT_GECKO_VERSION).en-US.mac/XUL.framework/Versions/Current/xulrunner Kiwix.app/Contents/MacOS/xulrunner
 
 	find Kiwix.app/Contents/Resources/components -type f -name '*.dylib' -exec python ./src/macosx/cleanup_rpath.py c {} \;
 
@@ -343,6 +343,13 @@ endif
 	find universal_tmp/ub/Kiwix.app/Contents/Frameworks -type f -name '*.dylib' -exec python ./src/macosx/cleanup_rpath.py l {} \;
 
 	find universal_tmp/ub/Kiwix.app/Contents/Resources/bin -type f -name '*' -exec python ./src/macosx/cleanup_rpath.py b {} \;
+
+if SIGN_BUILD
+	cp universal_tmp/ub/Kiwix.app/Contents/Frameworks/Versions/$(EXACT_GECKO_VERSION)/Info.plist universal_tmp/ub/Kiwix.app/Contents/Frameworks/Versions/$(EXACT_GECKO_VERSION)/Resources/Info.plist
+
+	codesign --deep -vvv -s "$(CERTIFICATE)" universal_tmp/ub/Kiwix.app/Contents/Frameworks/XUL.framework/Versions/$(EXACT_GECKO_VERSION)
+	codesign --deep -vvv -s "$(CERTIFICATE)" universal_tmp/ub/Kiwix.app
+endif
 
 	hdiutil detach universal_tmp/i386 -quiet -force
 	hdiutil detach universal_tmp/x86_64 -quiet -force

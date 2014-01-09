@@ -220,6 +220,8 @@ else
 	IS_ARM=1
 fi
 
+DEFAULT_CERTIFICATE="Developer ID Application: Renaud Gaudin (S3QKTMRU8F)"
+
 ####################################################
 ############ DEPENDENCIES DEFAULT VALUES
 ####################################################
@@ -264,7 +266,7 @@ fi
 
 if test [ $IS_OSX -eq 1 ]
 then
-	XULRUNNER_RUNTIME_PATH="${DEP_PATH}/xr_target/xulrunner-14.0.1.en-US.mac/XUL.framework"
+	XULRUNNER_RUNTIME_PATH="${DEP_PATH}/xr_target/xulrunner-26.0.en-US.mac/XUL.framework"
 else
 	XULRUNNER_RUNTIME_PATH="${DEP_PATH}/xulrunner"
 fi
@@ -370,7 +372,7 @@ else
 	COMPILED_LIBPUGIXML_CFLAGS="-I${DEP_PATH}/pugixml-1.2/src"
 	COMPILED_LIBPUGIXML_LDFLAGS="-L${DEP_PATH}/pugixml-1.2 -lpugixml"
 	COMPILED_LIBPUGIXML_STATIC_LDFLAGS="${DEP_PATH}/pugixml-1.2/libpugixml.a"
-    COMPILED_LIBPUGIXML_FILES="${DEP_PATH}/pugixml-1.2/libpugixml.${SHARED_EXT} ${DEP_PATH}/pugixml-1.2/libpugixml.a"
+    COMPILED_LIBPUGIXML_FILES="${DEP_PATH}/pugixml-1.2/libpugixml.${SHARED_EXT}"
 fi
 
 LIBCTPP2_CFLAGS=" -I${prefix}/include -I${prefix}/include/ctpp2"
@@ -688,6 +690,7 @@ do
     if [[ -f "${GECKO_INCLUDE_PATH}/${FILE}" ]]
     then
 	GECKO_VERSION=`grep MOZILLA_VERSION_U "${GECKO_INCLUDE_PATH}/${FILE}" | cut -d " " -f 3 | cut -d "." -f 1`
+	EXACT_GECKO_VERSION=`grep MOZILLA_VERSION_U "${GECKO_INCLUDE_PATH}/${FILE}" | cut -d " " -f 3`
     fi
 
     if [[ ! "${GECKO_VERSION}" = "" ]]
@@ -1528,6 +1531,28 @@ else
 fi
 
 ####################################################
+############ CODE SIGNING
+####################################################
+
+# --enable-signature
+AC_ARG_ENABLE(signature,
+			  AC_HELP_STRING([--enable-signature],
+			  				 [Code Sign the resulting build (OSX only) (default is no)]),
+			  [], [enable_signature=no])
+AS_IF([test "x$enable_signature" = "xyes"], [SIGN_BUILD=1], [SIGN_BUILD=0])
+
+# sets URI to dependencies mirror
+AC_ARG_WITH(certificate,
+			AC_HELP_STRING([--with-certificate=(wget|curl|command)], [Specify a custome certificate Common Name (default is Kiwix one)]),
+			  			   CERTIFICATE=${withval})
+
+# Only OSX for now
+if test [ "$CERTIFICATE" = "" ]
+then
+	CERTIFICATE=$DEFAULT_CERTIFICATE
+fi
+
+####################################################
 ############ EXPORTS & OUTPUT
 ####################################################
 
@@ -1609,6 +1634,7 @@ AC_SUBST(GECKO_SDK_PATH)
 AC_SUBST(XULRUNNER_RUNTIME_PATH)
 AC_SUBST(COMPILE_GECKO_SDK)
 AC_SUBST(GECKO_VERSION)
+AC_SUBST(EXACT_GECKO_VERSION)
 AC_SUBST(GECKO_IDL_PATH)
 AC_SUBST(LIBXUL_CFLAGS)
 AC_SUBST(LIBXUL_LDFLAGS)
@@ -1687,6 +1713,9 @@ AC_SUBST(STATIC_LIBDL_ARCHIVE)
 AC_SUBST(STATIC_LIBGCC_ARCHIVE)
 AC_SUBST(STATIC_LIBPTHREAD_ARCHIVE)
 
+AM_CONDITIONAL([SIGN_BUILD], [test $SIGN_BUILD -eq 1])
+AC_SUBST(CERTIFICATE)
+
 # Configure the output files
 AC_CONFIG_FILES([
   Makefile
@@ -1733,20 +1762,19 @@ AC_OUTPUT
 ####################################################
 # using the binary echo program instead of shell function
 # since OSX default (SH) does not support -n.
-$BINECHO $HAVE_JAVA_BIN
 BINECHO=`which echo`
 $BINECHO ""
 $BINECHO "Build details:"
 $BINECHO -n "ARCH				" ; $BINECHO $ARCH
 $BINECHO -n "IS_64B				" ; yesno $IS_64B
 $BINECHO -n "IS_ARM				" ; yesno $IS_ARM
-$BINECHO -n "IS_POSIX				" ; yesno $IS_POSIX
-$BINECHO -n "IS_LINUX				" ; yesno $IS_LINUX
+$BINECHO -n "IS_POSIX			" ; yesno $IS_POSIX
+$BINECHO -n "IS_LINUX			" ; yesno $IS_LINUX
 $BINECHO -n "IS_OSX				" ; yesno $IS_OSX
 $BINECHO -n "IS_WIN				" ; yesno $IS_WIN
 $BINECHO -n "IS_OLD_GECKO			" ; yesno $IS_OLD_GECKO
-$BINECHO -n "IS_OLD_ICU				" ; yesno $IS_OLD_ICU
-$BINECHO -n "IS_OLD_GCC				" ; yesno $IS_OLD_GCC
+$BINECHO -n "IS_OLD_ICU			" ; yesno $IS_OLD_ICU
+$BINECHO -n "IS_OLD_GCC			" ; yesno $IS_OLD_GCC
 $BINECHO -n "COMPIL_DEPS			" ; yesno $COMPIL_DEPS
 $BINECHO -n "WITH_COMPONENTS			" ; yesno $WITH_COMPONENTS
 $BINECHO -n "STATIC_BINS			" ; yesno $STATIC_BINS
@@ -1759,6 +1787,11 @@ $BINECHO -n "WITH_SEARCHER			" ; yesno $WITH_SEARCHER
 $BINECHO -n "WITH_READER			" ; yesno $WITH_READER
 $BINECHO -n "JAR_CONTENT			" ; yesno $JAR_CONTENT
 $BINECHO -n "DEBIAN_RULES			" ; yesno $DEBIAN_RULES
+$BINECHO -n "SIGN_BUILD			" ; yesno $SIGN_BUILD
+$BINECHO -n "CERTIFICATE			" ; $BINECHO $CERTIFICATE
+echo ""
+$BINECHO -n "GECKO_VERSION			" ; $BINECHO $GECKO_VERSION
+$BINECHO -n "EXACT_GECKO_VERSION		" ; $BINECHO $EXACT_GECKO_VERSION
 echo ""
 $BINECHO -n "DEP_MIRROR			" ; $BINECHO $DEP_MIRROR
 $BINECHO -n "DOWNLOADER			" ; $BINECHO $DOWNLOADER
@@ -1766,7 +1799,7 @@ $BINECHO -n "DEP_LIST			" ; $BINECHO $DEP_LIST
 echo ""
 $BINECHO -n "EMBED_LIBS			" ; $BINECHO $EMBED_LIBS
 echo ""
-$BINECHO -n "CC					" ; $BINECHO $CC
+$BINECHO -n "CC				" ; $BINECHO $CC
 $BINECHO -n "CXX				" ; $BINECHO $CXX
 $BINECHO -n "CPP				" ; $BINECHO $CPP
 $BINECHO -n "CXXCPP				" ; $BINECHO $CXXCPP
@@ -1782,8 +1815,8 @@ $BINECHO -n "XAPIAN_LDFLAGS			" ; $BINECHO $XAPIAN_LDFLAGS
 $BINECHO -n "MICROHTTPD_LDFLAGS		" ; $BINECHO $MICROHTTPD_LDFLAGS
 $BINECHO -n "LZMA_LDFLAGS			" ; $BINECHO $LZMA_LDFLAGS
 $BINECHO -n "LIBZIM_LDFLAGS			" ; $BINECHO $LIBZIM_LDFLAGS
-$BINECHO -n "LIBPUGIXML_LDFLAGS			" ; $BINECHO $LIBPUGIXML_LDFLAGS
-$BINECHO -n "LIBCTPP2_LDFLAGS			" ; $BINECHO $LIBCTPP2_LDFLAGS
+$BINECHO -n "LIBPUGIXML_LDFLAGS		" ; $BINECHO $LIBPUGIXML_LDFLAGS
+$BINECHO -n "LIBCTPP2_LDFLAGS		" ; $BINECHO $LIBCTPP2_LDFLAGS
 $BINECHO -n "ARIA2_FILES			" ; $BINECHO $ARIA2_FILES
 $BINECHO -n "ICU_LDFLAGS			" ; $BINECHO $ICU_LDFLAGS
 $BINECHO -n "XAPIAN_COMPACT			" ; $BINECHO $XAPIAN_COMPACT
@@ -1794,7 +1827,7 @@ $BINECHO -n "XAPIAN_STATIC_LDFLAGS		" ; $BINECHO $XAPIAN_STATIC_LDFLAGS
 $BINECHO -n "MICROHTTPD_STATIC_LDFLAGS	" ; $BINECHO $MICROHTTPD_STATIC_LDFLAGS
 $BINECHO -n "LZMA_STATIC_LDFLAGS		" ; $BINECHO $LZMA_STATIC_LDFLAGS
 $BINECHO -n "LIBZIM_STATIC_LDFLAGS		" ; $BINECHO $LIBZIM_STATIC_LDFLAGS
-$BINECHO -n "LIBPUGIXML_STATIC_LDFLAGS		" ; $BINECHO $LIBPUGIXML_STATIC_LDFLAGS
+$BINECHO -n "LIBPUGIXML_STATIC_LDFLAGS	" ; $BINECHO $LIBPUGIXML_STATIC_LDFLAGS
 $BINECHO -n "LIBCTPP2_STATIC_LDFLAGS		" ; $BINECHO $LIBCTPP2_STATIC_LDFLAGS
 $BINECHO -n "UUID_STATIC_LDFLAGS		" ; $BINECHO $UUID_STATIC_LDFLAGS
 $BINECHO -n "ICU_STATIC_LDFLAGS		" ; $BINECHO $ICU_STATIC_LDFLAGS
