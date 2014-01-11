@@ -43,7 +43,7 @@
 <!ENTITY main.server.accesskey          "s">
 
 <!-- Display menu -->
-<!ENTITY main.display                   "표시">
+<!ENTITY main.display                   "보기">
 <!ENTITY main.display.accesskey         "D">
 <!ENTITY main.zoom                      "확대/축소">
 <!ENTITY main.zoom.accesskey            "Z">
@@ -108,7 +108,7 @@
 <!ENTITY main.loadbmk                   "책갈피 세트 불러오기">
 <!ENTITY main.newbmk                    "새 책갈피 세트 만들기">
 <!ENTITY main.mark                      "이 페이지 표시하기">
-<!ENTITY main.unmark                    "이 페이지 표시 취소하기">
+<!ENTITY main.unmark                    "선택을 표시 취소하기">
 <!ENTITY main.reload                    "책갈피 세트 다시 불러오기">
 <!ENTITY main.defaultset                "기본값 세트">
 

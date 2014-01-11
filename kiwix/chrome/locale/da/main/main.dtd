@@ -76,7 +76,7 @@
 <!ENTITY main.checkIntegrity            "Integritetskontrol">
 <!ENTITY main.checkIntegrity.accesskey  "k">
 <!ENTITY main.launchIndexing            "Start indeksering">
-<!ENTITY main.purgeHistory              "Udrens historik">
+<!ENTITY main.purgeHistory              "Tøm historik">
 <!ENTITY main.purgeHistory.accesskey    "P">
 
 <!-- Help menu -->

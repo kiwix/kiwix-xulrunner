@@ -100,7 +100,7 @@
 <!ENTITY main.bookmarks                 "자료 표시점">
 
 <!-- Results bar -->
-<!ENTITY main.results.title             "검색 결과">
+<!ENTITY main.results.title             "자료 검색결과">
 
 <!-- Bookmarks Bar -->
 <!ENTITY main.bmkLabel                  "자료 표시점:">
