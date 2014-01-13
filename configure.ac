@@ -372,7 +372,7 @@ else
 	COMPILED_LIBPUGIXML_CFLAGS="-I${DEP_PATH}/pugixml-1.2/src"
 	COMPILED_LIBPUGIXML_LDFLAGS="-L${DEP_PATH}/pugixml-1.2 -lpugixml"
 	COMPILED_LIBPUGIXML_STATIC_LDFLAGS="${DEP_PATH}/pugixml-1.2/libpugixml.a"
-    COMPILED_LIBPUGIXML_FILES="${DEP_PATH}/pugixml-1.2/libpugixml.${SHARED_EXT}"
+    COMPILED_LIBPUGIXML_FILES="${DEP_PATH}/pugixml-1.2/libpugixml.${SHARED_EXT} ${DEP_PATH}/pugixml-1.2/libpugixml.a"
 fi
 
 LIBCTPP2_CFLAGS=" -I${prefix}/include -I${prefix}/include/ctpp2"
