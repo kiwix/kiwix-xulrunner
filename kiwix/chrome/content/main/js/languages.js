@@ -33,6 +33,7 @@ _languagesHash['epo']          = _languagesHashOld['eo']          = 'Esperanto';
 _languagesHash['ful']          = _languagesHashOld['ff']          = 'Fulfulde';
 _languagesHash['spa']          = _languagesHashOld['es']          = 'Español';
 _languagesHash['est']          = _languagesHashOld['et']          = 'Eesti';
+_languagesHash['fas']          = _languagesHashOld['fa']          = 'فارسی';
 _languagesHash['fin']          = _languagesHashOld['fi']          = 'Suomi';
 _languagesHash['fo']           = 'Føroyskt';
 _languagesHash['fra']          = _languagesHashOld['fr']          = 'Français';
@@ -86,8 +87,7 @@ _languagesHash['nob']          = _languagesHashOld['nb']          = 'Norsk (bokm
 _languagesHash['nor']          = _languagesHashOld['no']          = 'Norsk (bokmål)';
 _languagesHash['nno']          = _languagesHashOld['nn']          = 'Norsk (nynorsk)';
 _languagesHash['oci']          = _languagesHashOld['oc']          = 'Occitan';
-_languagesHash['or']           = 'ଓଡ଼ିଆ';
-_languagesHash['fas']          = _languagesHashOld['fa']          = 'فارسی';
+_languagesHash['ori']          = _languagesHashOld['or']          = 'ଓଡ଼ିଆ';
 _languagesHash['pol']          = _languagesHashOld['pl']          = 'Język polski';
 _languagesHash['pms']          = 'Piemontèis';
 _languagesHash['ps']           = 'پښتو';
@@ -100,8 +100,8 @@ _languagesHash['rus']          = _languagesHashOld['ru']          = 'Русск�
 _languagesHash['rue']          = 'Русиньскый';
 _languagesHash['san']          = _languagesHashOld['sa']          = 'संस्कृतम्';
 _languagesHash['sh']           = 'Srpskohrvatski / Српскохрватски';
-_languagesHash['si']           = 'සිංහල';
-_languagesHash['sk']           = 'Slovenčina';
+_languagesHash['sin']          = _languagesHashOld['si']          = 'සිංහල';
+_languagesHash['slk']          = _languagesHashOld['sk']          = 'Slovenčina';
 _languagesHash['slv']          = _languagesHashOld['sl']          = 'Slovenščina';
 _languagesHash['sq']           = 'Shqip';
 _languagesHash['srp']          = _languagesHashOld['sr']          = 'Српски';
