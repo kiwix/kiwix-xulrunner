@@ -125,7 +125,7 @@
 
 <!-- Preferences Window -->
 <!ENTITY preferences.preferences        "Tercihi">
-<!ENTITY preferences.save               "Star ke">
+<!ENTITY preferences.save               "Qeyd ke">
 <!ENTITY preferences.cancel             "Bıtexelne">
 <!ENTITY preferences.profileDirectory   "Peşiya Profili">
 <!ENTITY preferences.dataDirectory      "Data directory">

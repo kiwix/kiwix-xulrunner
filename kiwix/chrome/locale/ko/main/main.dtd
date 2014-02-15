@@ -110,7 +110,7 @@
 <!ENTITY main.mark                      "이 페이지 표시하기">
 <!ENTITY main.unmark                    "선택을 표시 취소하기">
 <!ENTITY main.reload                    "책갈피 세트 다시 불러오기">
-<!ENTITY main.defaultset                "기본값 세트">
+<!ENTITY main.defaultset                "기본 값 세트">
 
 <!-- Contextual Menu -->
 <!ENTITY main.saveImageAs               "그림을 다른 이름으로 저장...">

@@ -13,7 +13,7 @@
 <!ENTITY main.file.accesskey            "F">
 <!ENTITY main.openFile                  "Deschide un fișier...">
 <!ENTITY main.browseLibrary.accesskey   "B">
-<!ENTITY main.browseLibrary             "Răsfoire bibliotecă">
+<!ENTITY main.browseLibrary             "Răsfoiește biblioteca">
 <!ENTITY main.hideLibrary               "Ascunde biblioteca">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "Deschise recent...">
