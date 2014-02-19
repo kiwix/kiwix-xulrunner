@@ -173,6 +173,7 @@
   <key id="find-key" key="F" modifiers="control" oncommand="find()"/>
   <key id="goto-search-field-key" key="L" modifiers="control" oncommand="manageFocusOnSearchBox()"/>
   <key id="goto-search-field-key-bis" keycode="D" modifiers="alt" oncommand="manageFocusOnSearchBox()"/>
+  <key id="goto-search-field-key-ter" keycode="F" modifiers="control,shift" oncommand="manageFocusOnSearchBox()"/>
   <key id="open-file-key" key="O" modifiers="control" oncommand="manageOpenFile()"/>
   <key id="save-file-key" key="S" modifiers="control" oncommand="saveDocument(window.content.document)"/>
   <key id="print-key" key="P" modifiers="control" oncommand="print()"/>
