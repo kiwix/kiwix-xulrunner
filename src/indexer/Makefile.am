@@ -5,6 +5,7 @@ kiwix_index_SOURCES= \
 	../common/kiwix/xapian/myhtmlparse.cc \
 	../common/kiwix/xapian/htmlparse.cc \
 	../common/stringTools.cpp \
+	../common/otherTools.cpp \
 	../common/resourceTools.cpp \
 	../common/pathTools.cpp \
 	../common/kiwix/indexer.cpp \
@@ -15,6 +16,7 @@ kiwix_index_SOURCES= \
 	../common/kiwix/xapian/namedentities.h \
 	../common/kiwix/xapian/htmlparse.h \
 	../common/stringTools.h \
+	../common/otherTools.h \
 	../common/resourceTools.h \
 	../common/pathTools.h \
 	../common/kiwix/ctpp2/CTPP2VMStringLoader.hpp \
