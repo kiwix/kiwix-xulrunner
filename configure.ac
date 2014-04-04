@@ -25,9 +25,7 @@
 # find the archive and fail if not found.
 ##################
 
-
-
-# autotools initializations
+# Autotools initializations
 AC_INIT([kiwix], [0.9])
 IS_WIN=0
 IS_OSX=0
@@ -345,7 +343,7 @@ if test [ $IS_WIN -eq 1 ] ; then
 else
 	COMPILED_LZMA_LDFLAGS="-L${DEP_PATH}/xz/build/lib  -llzma"
 	COMPILED_LZMA_STATIC_LDFLAGS="${DEP_PATH}/xz/build/lib/liblzma.a"
-    COMPILED_LZMA_FILES="${DEP_PATH}/xz/build/lib/liblzma.${SHARED_EXT}"
+	COMPILED_LZMA_FILES="${DEP_PATH}/xz/build/lib/liblzma.${SHARED_EXT}"
 fi
 COMPILED_LZMA_CFLAGS="-I${DEP_PATH}/xz/src/liblzma/api"
 
@@ -359,7 +357,7 @@ else
 	COMPILED_LIBZIM_CFLAGS="-I${DEP_PATH}/zimlib-1.1/include"
 	COMPILED_LIBZIM_LDFLAGS="-L${DEP_PATH}/zimlib-1.1/build/lib -lzim"
 	COMPILED_LIBZIM_STATIC_LDFLAGS="${DEP_PATH}/zimlib-1.1/build/lib/libzim.a"
-    COMPILED_LIBZIM_FILES="${DEP_PATH}/zimlib-1.1/build/lib/libzim.${SHARED_EXT}"
+	COMPILED_LIBZIM_FILES="${DEP_PATH}/zimlib-1.1/build/lib/libzim.${SHARED_EXT}"
 fi
 
 LIBPUGIXML_CFLAGS=" -I${prefix}/include"
@@ -372,7 +370,7 @@ else
 	COMPILED_LIBPUGIXML_CFLAGS="-I${DEP_PATH}/pugixml-1.2/src"
 	COMPILED_LIBPUGIXML_LDFLAGS="-L${DEP_PATH}/pugixml-1.2 -lpugixml"
 	COMPILED_LIBPUGIXML_STATIC_LDFLAGS="${DEP_PATH}/pugixml-1.2/libpugixml.a"
-    COMPILED_LIBPUGIXML_FILES="${DEP_PATH}/pugixml-1.2/libpugixml.${SHARED_EXT} ${DEP_PATH}/pugixml-1.2/libpugixml.a"
+	COMPILED_LIBPUGIXML_FILES="${DEP_PATH}/pugixml-1.2/libpugixml.${SHARED_EXT} ${DEP_PATH}/pugixml-1.2/libpugixml.a"
 fi
 
 LIBCTPP2_CFLAGS=" -I${prefix}/include -I${prefix}/include/ctpp2"
@@ -385,7 +383,7 @@ else
 	COMPILED_LIBCTPP2_CFLAGS="-I${DEP_PATH}/ctpp2-2.8.3/build/complete/include/ctpp2"
 	COMPILED_LIBCTPP2_LDFLAGS="-L${DEP_PATH}/ctpp2-2.8.3/build/complete/lib -lctpp2"
 	COMPILED_LIBCTPP2_STATIC_LDFLAGS="${DEP_PATH}/ctpp2-2.8.3/build/complete/lib/libctpp2-st.a"
-    COMPILED_LIBCTPP2_FILES="${DEP_PATH}/ctpp2-2.8.3/build/complete/lib/libctpp2.${SHARED_EXT}"
+	COMPILED_LIBCTPP2_FILES="${DEP_PATH}/ctpp2-2.8.3/build/complete/lib/libctpp2.${SHARED_EXT}"
 fi
 
 ARIA2_CFLAGS=""
@@ -837,10 +835,11 @@ AC_ARG_WITH(static-xapian,
             XAPIAN_ARCHIVE=${withval})
 
 # compilation required
-if test [ $COMPILE_XAPIAN -eq 1 -o "$XAPIAN_PATH" == "$SELF" -o "$XAPIAN_ARCHIVE" == "$SELF"] ; then
+if test [ $COMPILE_XAPIAN -eq 1 -o "$XAPIAN_PATH" == "$SELF" -o "$XAPIAN_ARCHIVE" == "$SELF" ]
+then
 	COMPILE_XAPIAN=1
 	XAPIAN_CFLAGS=$COMPILED_XAPIAN_CFLAGS
-    XAPIAN_LDFLAGS=$COMPILED_XAPIAN_LDFLAGS
+	XAPIAN_LDFLAGS=$COMPILED_XAPIAN_LDFLAGS
 	XAPIAN_FILES=$COMPILED_XAPIAN_FILES
 	XAPIAN_STATIC_LDFLAGS=$COMPILED_XAPIAN_STATIC_LDFLAGS
 	XAPIAN_COMPACT=$COMPILED_XAPIAN_COMPACT
@@ -849,14 +848,14 @@ else
 	AC_CHECK_TOOL(HAVE_XAPIAN_CONFIG, xapian-config,, "${XAPIAN_PATH}:${PATH}")
 	if test [ ! "$HAVE_XAPIAN_CONFIG" ]
 	then
-	     AC_MSG_ERROR([[cannot find xapian-config]])
+		AC_MSG_ERROR([[cannot find xapian-config]])
 	else
 		OLDPATH=$PATH
 		PATH="${XAPIAN_PATH}:${PATH}"
-	    XAPIAN_CFLAGS=`xapian-config --cxxflags`;
-	    XAPIAN_LDFLAGS=`xapian-config --ltlibs`;
-	    XAPIAN_FILES=`findLibrary "libxapian.${SHARED_EXT}"`
-	    PATH=$OLDPATH
+		XAPIAN_CFLAGS=`xapian-config --cxxflags`;
+		XAPIAN_LDFLAGS=`xapian-config --ltlibs`;
+		XAPIAN_FILES=`findLibrary "libxapian.${SHARED_EXT}"`
+		PATH=$OLDPATH
 	fi
 
 	AC_CHECK_TOOL([XAPIAN_COMPACT],[xapian-compact],[])
@@ -1216,10 +1215,11 @@ AC_ARG_WITH(static-libctpp2,
             LIBCTPP2_ARCHIVE=${withval})
 
 # compilation required
-if test [ $COMPILE_LIBCTPP2 -eq 1 -o "$LIBCTPP2_PATH" == "$SELF" -o "$LIBCTPP2_ARCHIVE" == "$SELF"] ; then
+if test [ $COMPILE_LIBCTPP2 -eq 1 -o "$LIBCTPP2_PATH" == "$SELF" -o "$LIBCTPP2_ARCHIVE" == "$SELF" ]
+then
 	COMPILE_LIBCTPP2=1
 	LIBCTPP2_CFLAGS=$COMPILED_LIBCTPP2_CFLAGS
-    LIBCTPP2_LDFLAGS=$COMPILED_LIBCTPP2_LDFLAGS
+	LIBCTPP2_LDFLAGS=$COMPILED_LIBCTPP2_LDFLAGS
 	LIBCTPP2_FILES=$COMPILED_LIBCTPP2_FILES
 	LIBCTPP2_STATIC_LDFLAGS=$COMPILED_LIBCTPP2_STATIC_LDFLAGS
 else
@@ -1234,7 +1234,9 @@ else
 	then
 		# TODO: uncomment once we release it with pkg-config file
 		# AC_MSG_ERROR([[The libctpp2 version must be 1.1 or higher.]])
-		echo "Assuming libzim version is 2.8.3"
+		echo "Assuming libctpp2 version is 2.8.3"
+		LIBCTPP2_CFLAGS=`ctpp2-config --includes2`
+		LIBCTPP2_LDFLAGS=-L`ctpp2-config --libs`
 	else
 		LIBCTPP2_CFLAGS=`pkg-config --cflags libctpp2`
 		LIBCTPP2_LDFLAGS=`pkg-config --libs libctpp2`
@@ -1250,7 +1252,7 @@ else
 			# can't stat files. force compile
   			COMPILE_LIBCTPP2=1
 			LIBCTPP2_CFLAGS=$COMPILED_LIBCTPP2_CFLAGS
-		    LIBCTPP2_LDFLAGS=$COMPILED_LIBCTPP2_LDFLAGS
+			LIBCTPP2_LDFLAGS=$COMPILED_LIBCTPP2_LDFLAGS
 			LIBCTPP2_FILES=$COMPILED_LIBCTPP2_FILES
 			LIBCTPP2_STATIC_LDFLAGS=$COMPILED_LIBCTPP2_STATIC_LDFLAGS
   		elif test [ $LIBCTPP2_ARCHIVE_FOUND -eq 1 ] ; then
@@ -1325,7 +1327,7 @@ AC_ARG_WITH(static-uuid,
 if test [ $COMPILE_UUID -eq 1 -o "$UUID_PATH" == "$SELF" -o "$UUID_ARCHIVE" == "$SELF"] ; then
 	COMPILE_UUID=1
 	UUID_CFLAGS=$COMPILED_UUID_CFLAGS
-    UUID_LDFLAGS=$COMPILED_UUID_LDFLAGS
+	UUID_LDFLAGS=$COMPILED_UUID_LDFLAGS
 	UUID_FILES=$COMPILED_UUID_FILES
 	UUID_STATIC_LDFLAGS=$COMPILED_UUID_STATIC_LDFLAGS
 elif test [ $WITH_SERVER -eq 1 ] ; then
@@ -1338,7 +1340,7 @@ elif test [ $WITH_SERVER -eq 1 ] ; then
 			# can't stat files. force compile
   			COMPILE_UUID=1
 			UUID_CFLAGS=$COMPILED_UUID_CFLAGS
-		    UUID_LDFLAGS=$COMPILED_UUID_LDFLAGS
+			UUID_LDFLAGS=$COMPILED_UUID_LDFLAGS
 			UUID_FILES=$COMPILED_UUID_FILES
 			UUID_STATIC_LDFLAGS=$COMPILED_UUID_STATIC_LDFLAGS
   		elif test [ $UUID_ARCHIVE_FOUND -eq 1 ] ; then
@@ -1518,8 +1520,8 @@ echo "$DOWNLOADERREQ"
 if test [ "$DOWNLOADERREQ" = "" -o "$DOWNLOADERREQ" = "wget" ]
 then
 	DOWNLOADER="wget --wait=10 --timeout=600 -c"
-	wgetvers=`wget -V | head -n 1|cut -f 3 -d " "`
-	if [test $IS_WIN -eq 0 -a `echo "$wgetvers >= 1.13"|bc` -eq 1]
+	wgetvers=`wget -V | head -n 1 | cut -f 3 -d " " | cut -f 1,2 -d "."`
+	if [ test $IS_WIN -eq 0 -a `echo "$wgetvers >= 1.13" | bc` -eq 1 ]
 	then
 		DOWNLOADER="$DOWNLOADER --no-use-server-timestamps"
 	fi

@@ -10,6 +10,7 @@ kiwix_serve_SOURCES= \
 	../common/kiwix/xapianSearcher.cpp \
 	../common/base64.cpp \
 	../common/pathTools.cpp \
+	../common/otherTools.cpp \
 	../common/regexTools.cpp \
 	../common/resourceTools.cpp \
 	../common/stringTools.cpp \
@@ -21,6 +22,7 @@ kiwix_serve_SOURCES= \
 	../common/kiwix/xapianSearcher.h \
 	../common/base64.h \
 	../common/pathTools.h \
+	../common/otherTools.h \
 	../common/regexTools.h \
 	../common/resourceTools.h \
 	../common/stringTools.h
