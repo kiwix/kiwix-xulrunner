@@ -23,6 +23,7 @@ _languagesHash['bre']          = _languagesHashOld['br']          = 'Brezhoneg';
 _languagesHash['cat']          = _languagesHashOld['ca']          = 'Català';
 _languagesHash['ces']          = _languagesHashOld['cs']          = 'Česky';
 _languagesHash['chv']          = _languagesHashOld['cv']          = 'Чӑвашла';
+_languagesHash['ckb']          = 'کوردیی ناوەندی';
 _languagesHash['cym']          = _languagesHashOld['cy']          = 'Cymraeg';
 _languagesHash['deu']          = _languagesHashOld['de']          = 'Deutsch';
 _languagesHash['dan']          = _languagesHashOld['da']          = 'Dansk';
