@@ -38,7 +38,8 @@ AC_CONFIG_AUX_DIR([.]) # where are autotools scripts located
 AM_INIT_AUTOMAKE
 AM_MAINTAINER_MODE
 
-AC_PREFIX_PROGRAM("whoami")
+# I have commented out this. Default prefix should be /usr/local
+#AC_PREFIX_PROGRAM("whoami")
 
 # find C compiler
 AC_PROG_CC
