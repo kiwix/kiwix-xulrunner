@@ -1,0 +1,162 @@
+<!-- Window -->
+<!ENTITY main.title                     "&brand.brandShortName;">
+<!ENTITY main.cssdirection              "ltr">
+
+<!-- Mac menu -->
+<!ENTITY main.osxservices               "服務">
+<!ENTITY main.osxhideapp                "偋起 &brand.brandShortName;">
+<!ENTITY main.osxhideothers             "偋起其他">
+<!ENTITY main.osxshowall                "顯示全部">
+
+<!-- File menu -->
+<!ENTITY main.file                      "文件">
+<!ENTITY main.file.accesskey            "F">
+<!ENTITY main.openFile                  "打開文件">
+<!ENTITY main.browseLibrary.accesskey   "B">
+<!ENTITY main.browseLibrary             "瀏覽文件庫">
+<!ENTITY main.hideLibrary               "隱藏庫">
+<!ENTITY main.openFile.accesskey        "O">
+<!ENTITY main.lastOpen                  "最近使用...">
+<!ENTITY main.saveFile                  "另存為...">
+<!ENTITY main.saveFile.accesskey        "S">
+<!ENTITY main.print                     "列印">
+<!ENTITY main.print.accesskey           "P">
+<!ENTITY main.printPdf                  "列印成PDF">
+<!ENTITY main.printPdf.accesskey        "D">
+<!ENTITY main.quit                      "離開">
+<!ENTITY main.quit.accesskey            "Q">
+
+<!-- Edit menu -->
+<!ENTITY main.edit                      "編寫">
+<!ENTITY main.edit.accesskey            "E">
+<!ENTITY main.find                      "搜尋網頁 ...">
+<!ENTITY main.find.accesskey            "S">
+<!ENTITY main.selectall                 "全選">
+<!ENTITY main.selectall.accesskey       "a">
+<!ENTITY main.copy                      "複製">
+<!ENTITY main.copy.accesskey            "p">
+<!ENTITY main.transliteration           "音譯">
+<!ENTITY main.transliteration.accesskey "T">
+<!ENTITY main.preferences               "偏好設定">
+<!ENTITY main.preferences.accesskey     "n">
+<!ENTITY main.server                    "服務器">
+<!ENTITY main.server.accesskey          "s">
+
+<!-- Display menu -->
+<!ENTITY main.display                   "顯示">
+<!ENTITY main.display.accesskey         "D">
+<!ENTITY main.zoom                      "縮放">
+<!ENTITY main.zoom.accesskey            "Z">
+<!ENTITY main.zoomin                    "放大">
+<!ENTITY main.zoomin.accesskey          "M">
+<!ENTITY main.zoomout                   "縮小">
+<!ENTITY main.zoomout.accesskey         "R">
+<!ENTITY main.zoomorig                  "原本大小">
+<!ENTITY main.zoomorig.accesskey        "O">
+<!ENTITY main.language                  "介面語言">
+<!ENTITY main.language.accesskey        "L">
+<!ENTITY main.skin                      "外觀">
+<!ENTITY main.skin.accesskey            "S">
+<!ENTITY main.statusbar                 "狀態欄">
+<!ENTITY main.statusbar.accesskey       "S">
+<!ENTITY main.resultsbar                "結果欄">
+<!ENTITY main.resultsbar.accesskey      "R">
+<!ENTITY main.tabs                      "頁籤">
+<!ENTITY main.tabs.accesskey            "T">
+<!ENTITY main.fullscreen                "全螢幕">
+<!ENTITY main.fullscreen.accesskey      "F">
+<!ENTITY main.invertedColors            "反轉色">
+<!ENTITY main.invertedColors.accesskey  "I">
+
+<!-- Tools menu -->
+<!ENTITY main.tools                     "工具">
+<!ENTITY main.tools.accesskey           "T">
+<!ENTITY main.randomArticle             "隨機文章">
+<!ENTITY main.randomArticle.accesskey   "R">
+<!ENTITY main.checkIntegrity            "完整性檢查">
+<!ENTITY main.checkIntegrity.accesskey  "k">
+<!ENTITY main.launchIndexing            "啟動索引">
+<!ENTITY main.purgeHistory              "頁面歷史">
+<!ENTITY main.purgeHistory.accesskey    "P">
+
+<!-- Help menu -->
+<!ENTITY main.help                      "說明">
+<!ENTITY main.help.accesskey            "H">
+<!ENTITY main.feedback                  "返饋">
+<!ENTITY main.reportabug                "報告漏洞">
+<!ENTITY main.requestafeature           "建議新功能">
+<!ENTITY main.about                     "關於 &brand.brandShortName;">
+<!ENTITY main.about.accesskey           "A">
+
+<!-- Tool bar -->
+<!ENTITY main.back                      "返回">
+<!ENTITY main.forward                   "前進">
+<!ENTITY main.home                      "頭頁">
+<!ENTITY main.searchBar                 "搜索欄">
+<!ENTITY main.search                    "搜尋">
+<!ENTITY main.searchPlaceholder         "在邇位輸入要搜索的文字...">
+<!ENTITY main.findInText                "在文本中搜尋">
+<!ENTITY main.noSearchBar               "搜索需要索引个ZIM文件">
+<!ENTITY main.bookmarks                 "書籤">
+
+<!-- Results bar -->
+<!ENTITY main.results.title             "搜尋結果">
+
+<!-- Bookmarks Bar -->
+<!ENTITY main.bmkLabel                  "書籤">
+<!ENTITY main.notesLabel                "書籤註記：">
+<!ENTITY main.loadbmk                   "導入書籤集">
+<!ENTITY main.newbmk                    "創建新書籤集">
+<!ENTITY main.mark                      "標記本頁">
+<!ENTITY main.unmark                    "取消標記">
+<!ENTITY main.reload                    "刷新書籤集">
+<!ENTITY main.defaultset                "預設設定">
+
+<!-- Contextual Menu -->
+<!ENTITY main.saveImageAs               "另存圖像為 ...">
+<!ENTITY main.openLinkInNewTab          "在新頁籤打開連結">
+<!ENTITY main.searchFor                 "搜尋">
+<!ENTITY main.copyLinkAdress            "Copy link address">
+<!ENTITY main.mute                      "靜音">
+<!ENTITY main.audible                   "有聲">
+
+<!-- About Window -->
+<!ENTITY main.close                     "關閉">
+
+<!-- Preferences Window -->
+<!ENTITY preferences.preferences        "偏好設定">
+<!ENTITY preferences.save               "儲存">
+<!ENTITY preferences.cancel             "取消">
+<!ENTITY preferences.profileDirectory   "配置文件目錄">
+<!ENTITY preferences.dataDirectory      "Data directory">
+<!ENTITY preferences.browse             "瀏覽">
+<!ENTITY preferences.tabs               "記住簽頁">
+<!ENTITY preferences.downloadCatalogs   "下載遠端目錄">
+<!ENTITY preferences.neverAskToIndex    "從未請求到索引">
+
+<!-- Server -->
+<!ENTITY server.load                    "載入">
+<!ENTITY server.start                   "開始">
+<!ENTITY server.stop                    "停止">
+<!ENTITY server.close                   "關閉">
+
+<!-- Library -->
+<!ENTITY main.library.myLibrary                 "𠊎个文件庫">
+<!ENTITY main.library.getNewFiles               "獲取新文件">
+<!ENTITY main.library.searchZimFiles            "搜尋ZIM檔案">
+<!ENTITY main.library.sortBy                    "排序方式">
+<!ENTITY main.library.sortBy.title              "標題">
+<!ENTITY main.library.sortBy.size               "大小">
+<!ENTITY main.library.sortBy.date               "日期">
+<!ENTITY main.library.sortBy.author             "作者">
+<!ENTITY main.library.sortBy.publisher          "發佈者">
+<!ENTITY main.library.filterBy                  "過濾方式">
+<!ENTITY main.library.filterBy.fileSize         "文件大小">
+<!ENTITY main.library.filterBy.language         "語言">
+<!ENTITY main.library.filterBy.language.all     "全部">
+<!ENTITY main.library.filterBy.author           "作者">
+<!ENTITY main.library.filterBy.author.all       "全部">
+<!ENTITY main.library.filterBy.publisher        "發佈者">
+<!ENTITY main.library.filterBy.publisher.all    "全部">
+<!ENTITY main.library.filterBy.lessThan         "小於">
+

@@ -96,7 +96,7 @@
 <!ENTITY main.search                    "جستجو">
 <!ENTITY main.searchPlaceholder         "متن مورد نظر را جهت جستجو وارد کنید ...">
 <!ENTITY main.findInText                "جستجو در متن">
-<!ENTITY main.noSearchBar               "برای جستجو نیاز به یک فایل ZIM ایندکس‌شده است">
+<!ENTITY main.noSearchBar               "برای جستجو نیاز به یک پروندهٔ ZIM فهرست شده‌است">
 <!ENTITY main.bookmarks                 "نشانک‌ها">
 
 <!-- Results bar -->

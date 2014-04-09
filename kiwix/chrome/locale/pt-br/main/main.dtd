@@ -53,7 +53,7 @@
 <!ENTITY main.zoomout.accesskey         "R">
 <!ENTITY main.zoomorig                  "Tamanho original">
 <!ENTITY main.zoomorig.accesskey        "O">
-<!ENTITY main.language                  "Língua">
+<!ENTITY main.language                  "Idioma">
 <!ENTITY main.language.accesskey        "L">
 <!ENTITY main.skin                      "Aparência">
 <!ENTITY main.skin.accesskey            "S">
@@ -117,7 +117,7 @@
 <!ENTITY main.openLinkInNewTab          "Abrir link em uma nova aba">
 <!ENTITY main.searchFor                 "Procurar por">
 <!ENTITY main.copyLinkAdress            "Copy link address">
-<!ENTITY main.mute                      "Sem som">
+<!ENTITY main.mute                      "Mudo">
 <!ENTITY main.audible                   "Audível">
 
 <!-- About Window -->

@@ -13,7 +13,7 @@
 <!ENTITY main.file.accesskey            "F">
 <!ENTITY main.openFile                  "បើកឯកសារ...">
 <!ENTITY main.browseLibrary.accesskey   "B">
-<!ENTITY main.browseLibrary             "រាយរកក្នុងបណ្ណាល័យ">
+<!ENTITY main.browseLibrary             "រក​មើល​ក្នុង​បណ្ណាល័យ">
 <!ENTITY main.hideLibrary               "លាក់បណ្ណាល័យ">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "បើកមើលនាពេលថ្មីៗ...">
@@ -21,7 +21,7 @@
 <!ENTITY main.saveFile.accesskey        "S">
 <!ENTITY main.print                     "បោះពុម្ព">
 <!ENTITY main.print.accesskey           "P">
-<!ENTITY main.printPdf                  "បោះពុម្ភជា PDF">
+<!ENTITY main.printPdf                  "បោះពុម្ព​ជា PDF">
 <!ENTITY main.printPdf.accesskey        "D">
 <!ENTITY main.quit                      "ចាកចេញ">
 <!ENTITY main.quit.accesskey            "Q">
@@ -31,19 +31,19 @@
 <!ENTITY main.edit.accesskey            "E">
 <!ENTITY main.find                      "ស្វែករកក្នុងទំព័រ...">
 <!ENTITY main.find.accesskey            "S">
-<!ENTITY main.selectall                 "ជ្រើសយកទាំងអស់">
+<!ENTITY main.selectall                 "ជ្រើស​ទាំង​អស់">
 <!ENTITY main.selectall.accesskey       "a">
-<!ENTITY main.copy                      "ចំលង">
+<!ENTITY main.copy                      "ចម្លង">
 <!ENTITY main.copy.accesskey            "p">
 <!ENTITY main.transliteration           "ការសរសេរជាអក្សរខ្មែរ">
 <!ENTITY main.transliteration.accesskey "T">
-<!ENTITY main.preferences               "ចំណង់ចំណូលចិត្ត">
+<!ENTITY main.preferences               "ចំណូល​ចិត្ត">
 <!ENTITY main.preferences.accesskey     "n">
-<!ENTITY main.server                    "ម៉ាស៊ីនបំរើការ">
+<!ENTITY main.server                    "ម៉ាស៊ីន​បម្រើ">
 <!ENTITY main.server.accesskey          "s">
 
 <!-- Display menu -->
-<!ENTITY main.display                   "បង្ហាញ">
+<!ENTITY main.display                   "ការ​បង្ហាញ">
 <!ENTITY main.display.accesskey         "D">
 <!ENTITY main.zoom                      "ពង្រីកឬបង្រួម">
 <!ENTITY main.zoom.accesskey            "Z">
@@ -76,20 +76,20 @@
 <!ENTITY main.checkIntegrity            "ពិនិត្យភាពពេញលេញ">
 <!ENTITY main.checkIntegrity.accesskey  "k">
 <!ENTITY main.launchIndexing            "Launch indexing">
-<!ENTITY main.purgeHistory              "ជំរះប្រវត្តិ">
+<!ENTITY main.purgeHistory              "សម្អាត​ប្រវត្តិ">
 <!ENTITY main.purgeHistory.accesskey    "P">
 
 <!-- Help menu -->
 <!ENTITY main.help                      "ជំនួយ">
 <!ENTITY main.help.accesskey            "H">
-<!ENTITY main.feedback                  "មតិយោបល់">
-<!ENTITY main.reportabug                "រាយការណ៍ពី Bug">
-<!ENTITY main.requestafeature           "សំនើសុំមុខងារពិសេស">
+<!ENTITY main.feedback                  "មតិ​កែ​លម្អ">
+<!ENTITY main.reportabug                "រាយ​ការណ៍​អំពី​កំហុស">
+<!ENTITY main.requestafeature           "ស្នើ​សុំ​មុខងារ​មួយ">
 <!ENTITY main.about                     "អំពី &brand.brandShortName;">
 <!ENTITY main.about.accesskey           "A">
 
 <!-- Tool bar -->
-<!ENTITY main.back                      "ត្រលប់ក្រោយ">
+<!ENTITY main.back                      "បក​ក្រោយ">
 <!ENTITY main.forward                   "ទៅមុខ">
 <!ENTITY main.home                      "ទំព័រដើម">
 <!ENTITY main.searchBar                 "របារស្វែងរក">
@@ -117,8 +117,8 @@
 <!ENTITY main.openLinkInNewTab          "បើ់កតំណភ្ជាប់ក្នុងផ្ទាំងរងថ្មី">
 <!ENTITY main.searchFor                 "ស្វែងរក">
 <!ENTITY main.copyLinkAdress            "Copy link address">
-<!ENTITY main.mute                      "បិទសំលេង">
-<!ENTITY main.audible                   "បើកសំលេង">
+<!ENTITY main.mute                      "បិទ​សំឡេង">
+<!ENTITY main.audible                   "បើក​សំឡេង">
 
 <!-- About Window -->
 <!ENTITY main.close                     "បិទ">

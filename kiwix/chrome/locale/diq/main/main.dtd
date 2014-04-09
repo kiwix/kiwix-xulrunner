@@ -3,35 +3,35 @@
 <!ENTITY main.cssdirection              "ltr">
 
 <!-- Mac menu -->
-<!ENTITY main.osxservices               "Serwisi">
+<!ENTITY main.osxservices               "Servisi">
 <!ENTITY main.osxhideapp                "&brand.brandShortName; bınımne">
-<!ENTITY main.osxhideothers             "Êbina Bınımnê">
-<!ENTITY main.osxshowall                "Pêron Bımocne">
+<!ENTITY main.osxhideothers             "Binan Bınımne">
+<!ENTITY main.osxshowall                "Pêro Bımocne">
 
 <!-- File menu -->
 <!ENTITY main.file                      "Dosya">
 <!ENTITY main.file.accesskey            "F">
-<!ENTITY main.openFile                  "Dosyay aqeri">
+<!ENTITY main.openFile                  "Dosya ake...">
 <!ENTITY main.browseLibrary.accesskey   "B">
-<!ENTITY main.browseLibrary             "Bewni kıtıbxani">
-<!ENTITY main.hideLibrary               "Kıtıbxani bınımnê">
+<!ENTITY main.browseLibrary             "Kıtıbxaney bıvêne">
+<!ENTITY main.hideLibrary               "Kıtıbxaney bınımne">
 <!ENTITY main.openFile.accesskey        "O">
-<!ENTITY main.lastOpen                  "Peyênan ra ake...">
-<!ENTITY main.saveFile                  "Peler zewmi qeyd ke...">
+<!ENTITY main.lastOpen                  "Peyênan ake...">
+<!ENTITY main.saveFile                  "Pele zewbi qeyd ke...">
 <!ENTITY main.saveFile.accesskey        "S">
-<!ENTITY main.print                     "Nusten ke">
+<!ENTITY main.print                     "Çap ke">
 <!ENTITY main.print.accesskey           "P">
-<!ENTITY main.printPdf                  "Çapi PDFi bıke">
+<!ENTITY main.printPdf                  "Zey PDF çap ke">
 <!ENTITY main.printPdf.accesskey        "D">
-<!ENTITY main.quit                      "bıvci">
+<!ENTITY main.quit                      "bıveciye">
 <!ENTITY main.quit.accesskey            "Q">
 
 <!-- Edit menu -->
 <!ENTITY main.edit                      "Bıvurne">
 <!ENTITY main.edit.accesskey            "E">
-<!ENTITY main.find                      "Pela tede cı geyrê...">
+<!ENTITY main.find                      "Pele de cı geyre...">
 <!ENTITY main.find.accesskey            "S">
-<!ENTITY main.selectall                 "Pêron weçin">
+<!ENTITY main.selectall                 "Pêrıne weçine">
 <!ENTITY main.selectall.accesskey       "a">
 <!ENTITY main.copy                      "Kopya ke">
 <!ENTITY main.copy.accesskey            "p">
@@ -51,7 +51,7 @@
 <!ENTITY main.zoomin.accesskey          "M">
 <!ENTITY main.zoomout                   "Tayn kerdış">
 <!ENTITY main.zoomout.accesskey         "R">
-<!ENTITY main.zoomorig                  "Oricinal ebat">
+<!ENTITY main.zoomorig                  "Ebado oricinal">
 <!ENTITY main.zoomorig.accesskey        "O">
 <!ENTITY main.language                  "Zıwan">
 <!ENTITY main.language.accesskey        "L">
@@ -113,7 +113,7 @@
 <!ENTITY main.defaultset                "Hesıbyayê saz">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveImageAs               "Peler zewmi qeyd ke...">
+<!ENTITY main.saveImageAs               "Resım zewbina qeyd ke...">
 <!ENTITY main.openLinkInNewTab          "Gri tab da newide ake">
 <!ENTITY main.searchFor                 "Cı geyre">
 <!ENTITY main.copyLinkAdress            "Copy link address">

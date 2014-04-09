@@ -21,7 +21,7 @@
 <!ENTITY main.saveFile.accesskey        "S">
 <!ENTITY main.print                     "Imprimir">
 <!ENTITY main.print.accesskey           "I">
-<!ENTITY main.printPdf                  "Imprimir para PDF">
+<!ENTITY main.printPdf                  "Imprimir como PDF">
 <!ENTITY main.printPdf.accesskey        "D">
 <!ENTITY main.quit                      "Sair">
 <!ENTITY main.quit.accesskey            "R">
@@ -35,7 +35,7 @@
 <!ENTITY main.selectall.accesskey       "T">
 <!ENTITY main.copy                      "Copiar">
 <!ENTITY main.copy.accesskey            "C">
-<!ENTITY main.transliteration           "Translineação">
+<!ENTITY main.transliteration           "Transliteração">
 <!ENTITY main.transliteration.accesskey "T">
 <!ENTITY main.preferences               "Preferências">
 <!ENTITY main.preferences.accesskey     "s">
