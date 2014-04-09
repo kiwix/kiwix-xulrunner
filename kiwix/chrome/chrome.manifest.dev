@@ -39,10 +39,12 @@ locale main frp            locale/frp/main/
 locale main gl             locale/gl/main/
 locale main gsw            locale/gsw/main/
 locale main gu             locale/gu/main/
+locale main hak            locale/hak/main/
 locale main he             locale/he/main/
 locale main hi             locale/hi/main/
 locale main hif-latn       locale/hif-latn/main/
 locale main hr             locale/hr/main/
+locale main hrx            locale/hrx/main/
 locale main hsb            locale/hsb/main/
 locale main hu             locale/hu/main/
 locale main ia             locale/ia/main/
@@ -154,10 +156,12 @@ locale branding frp        locale/branding/
 locale branding gl         locale/branding/
 locale branding gsw        locale/branding/
 locale branding gu         locale/branding/
+locale branding hak        locale/branding/
 locale branding he         locale/branding/
 locale branding hi         locale/branding/
 locale branding hif-latn   locale/branding/
 locale branding hr         locale/branding/
+locale branding hrx        locale/branding/
 locale branding hsb        locale/branding/
 locale branding hu         locale/branding/
 locale branding ia         locale/branding/

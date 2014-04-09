@@ -39,10 +39,12 @@ locale main frp            jar:locale.jar!/locale/frp/main/
 locale main gl             jar:locale.jar!/locale/gl/main/
 locale main gsw            jar:locale.jar!/locale/gsw/main/
 locale main gu             jar:locale.jar!/locale/gu/main/
+locale main hak            jar:locale.jar!/locale/hak/main/
 locale main he             jar:locale.jar!/locale/he/main/
 locale main hi             jar:locale.jar!/locale/hi/main/
 locale main hif-latn       jar:locale.jar!/locale/hif-latn/main/
 locale main hr             jar:locale.jar!/locale/hr/main/
+locale main hrx            jar:locale.jar!/locale/hrx/main/
 locale main hu             jar:locale.jar!/locale/hu/main/
 locale main hsb            jar:locale.jar!/locale/hsb/main/
 locale main ia             jar:locale.jar!/locale/ia/main/
@@ -154,10 +156,12 @@ locale branding frp        jar:locale.jar!/locale/branding/
 locale branding gl         jar:locale.jar!/locale/branding/
 locale branding gsw        jar:locale.jar!/locale/branding/
 locale branding gu         jar:locale.jar!/locale/branding/
+locale branding hak        jar:locale.har!/locale/branding/
 locale branding he         jar:locale.jar!/locale/branding/
 locale branding hi         jar:locale.jar!/locale/branding/
 locale branding hif-latn   jar:locale.jar!/locale/branding/
 locale branding hr         jar:locale.jar!/locale/branding/
+locale branding hrx        jar:locale.jar!/locale/branding/
 locale branding hsb        jar:locale.jar!/locale/branding/
 locale branding hu         jar:locale.jar!/locale/branding/
 locale branding ia         jar:locale.jar!/locale/branding/
