@@ -271,6 +271,10 @@ function RemoveBookmarkFromDatasource (uri) {
 function DisplayBookmarkSet (set) {
     UIEmptyBookmarkListBox ();
     L.info ("DisplayBookmarkSet");
+    
+    /* Sort items alphabetically by title */
+    set.items.sort(function(a,b){return a['title'] > b['title']});
+
     for (var i in set.items) {
 	var bk = set.itemAt(i);
 	AddBookmarkLine (set.itemAt(i)['title'], set.itemAt(i)['uri'], set.itemAt(i)['book']);
@@ -473,8 +477,8 @@ function bookmarkCurrentPage () {
     if ( url.substr(0, 3) != 'zim')
 	return false;
     
-    if (AddBookmarkToDatasource (title, url)) {
-	AddBookmarkLine(title, url, currentBookId);
+    if (AddBookmarkToDatasource (title, url)) {	
+	DisplayBookmarkSet(BookmarkNFO.currentSet);
 	UIBookmarkFocus(url);
     }
     

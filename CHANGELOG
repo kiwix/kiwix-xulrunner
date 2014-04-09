@@ -42,6 +42,7 @@ Kiwix 0.9 rc3
 * NEW: Preference to set custom data directory (#279, #323, #366,  #573, #692, #633)
 * NEW: --nosearchbar option for kiwix-serve
 * NEW: Signature of Windows and OSX releases (install without warning)
+* NEW: Sort bookmarks alphabetically
 
 Kiwix 0.9 rc2
 * FIXED: kiwix-manage generate wrong size for splitted ZIM files (ID: 3547892)
