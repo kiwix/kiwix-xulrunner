@@ -45,5 +45,5 @@ endif
 endif
 
 if IS_OSX
-libZimAccessor_la_CXXFLAGS+= -I/opt/local/include
+libZimAccessor_la_CXXFLAGS+= -I$(LIBICONV_CFLAGS)
 endif

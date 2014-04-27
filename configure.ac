@@ -421,6 +421,25 @@ else
 	STATIC_ICONV_LDFLAGS=""
 fi
 
+# used only for building kiwix-serve.
+LIBICONV_CFLAGS=""
+LIBICONV_LDFLAGS="-liconv"
+LIBICONV_STATIC_LDFLAGS=""
+COMPILE_LIBICONV=0
+if test [ $IS_OSX -eq 1 ]
+then
+   COMPILE_LIBICONV=1
+   COMPILED_LIBICONV_FILES="${DEP_PATH}/libiconv-1.13.1/build/lib/libiconv.${SHARED_EXT}"
+   COMPILED_LIBICONV_CFLAGS="-I${DEP_PATH}/libiconv-1.13.1/build-x86_64/include"
+   COMPILED_LIBICONV_LDFLAGS="-L${DEP_PATH}/libiconv-1.13.1/build/lib/ -lmicrohttpd"
+   COMPILED_LIBICONV_STATIC_LDFLAGS="${DEP_PATH}/libiconv-1.13.1/build/lib/libmicrohttpd.a"
+
+   LIBICONV_CFLAGS=$COMPILED_LIBICONV_CFLAGS
+   LIBICONV_LDFLAGS=$COMPILED_LIBICONV_LDFLAGS
+   LIBICONV_FILES=$COMPILED_LIBICONV_FILES
+   LIBICONV_STATIC_LDFLAGS=$COMPILED_LIBICONV_STATIC_LDFLAGS
+fi
+
 # argtable & pthread is required only on Windows
 COMPILED_ARGTABLE_FILES="${DEP_PATH}/argtable2-13/src/argtable2.lib"
 COMPILED_PTHREAD_FILES="${DEP_PATH}/pthread-win32/lib/pthreadVC2.lib"
@@ -1498,6 +1517,11 @@ fi
 if test [ $IS_WIN -eq 1 ]
 then
     DEP_LIST+=" $COMPILED_MSVC_FILES"
+fi
+
+if test [ $COMPILE_LIBICONV -eq 1 ]
+then
+    DEP_LIST+=" $COMPILED_LIBICONV_FILES"
 fi
 
 DEP_LIST=`echo $DEP_LIST | sed -e "s,$DEP_PATH/,,g"`

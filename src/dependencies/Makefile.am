@@ -467,6 +467,31 @@ zimlib-1.1/src/config.h: zimlib-1.1
 zimlib-1.1/src/zim.lib: zimlib-1.1 zimlib-1.1/src/config.h xz-win/bin_i486/liblzma.lib zlib-1.2.3/zlib.lib
 	test ! -f zimlib-1.1/src/zim.lib && cd zimlib-1.1/src && cp ../../patches/Makefile.zimlib.msvc Makefile.msvc && make -f Makefile.msvc || true
 
+
+####################################################
+############ LIBICONV
+# http://ftp.gnu.org/pub/gnu/libiconv/libiconv-1.13.1.tar.gz
+####################################################
+libiconv-1.13.1.tar.gz:
+	$(DOWNLOADER) libiconv-1.13.1.tar.gz $(DEP_MIRROR)/libiconv-1.13.1.tar.gz
+
+libiconv-1.13.1: libiconv-1.13.1.tar.gz
+	test -d libiconv-1.13.1 || tar -xf libiconv-1.13.1.tar.gz
+
+# OSX Join
+libiconv-1.13.1/build/lib/libiconv.dylib: libiconv-1.13.1/build-i386/lib/libiconv.dylib libiconv-1.13.1/build-x86_64/lib/libiconv.dylib
+	test ! -f libiconv-1.13.1/build/lib/libiconv.dylib && mkdir -p libiconv-1.13.1/build/{lib,bin} && cd libiconv-1.13.1/build/lib && cp -r ../../build-i386/include ../ && lipo ../../build-x86_64/lib/libiconv.dylib ../../build-i386/lib/libiconv.dylib -create -output libiconv.dylib && lipo ../../build-x86_64/lib/libiconv.a ../../build-i386/lib/libiconv.a -create -output libiconv.a && cd ../lib && install_name_tool -id libiconv.dylib libiconv.dylib || true
+
+# OSX i386
+libiconv-1.13.1/build-i386/lib/libiconv.dylib: libiconv-1.13.1
+	test ! -f libiconv-1.13.1/build-i386/lib/libiconv.dylib && cd libiconv-1.13.1 && mkdir -p build-i386 && CC="gcc -arch i386" CXX="g++ -arch i386" CXXFLAGS=" -fPIC " ./configure --enable-shared --enable-static --prefix=$(DEP_PATH)/libiconv-1.13.1/build-i386 && make clean && make && make install && install_name_tool -id libiconv.dylib build-i386/lib/libiconv.dylib || true
+
+# OSX x86_64
+libiconv-1.13.1/build-x86_64/lib/libiconv.dylib: libiconv-1.13.1
+	test ! -f libiconv-1.13.1/build-x86_64/lib/libiconv.dylib && cd libiconv-1.13.1 && mkdir -p build-x86_64 && CC="gcc -arch x86_64" CXX="g++ -arch x86_64" CXXFLAGS=" -fPIC " ./configure --enable-shared --enable-static --prefix=$(DEP_PATH)/libiconv-1.13.1/build-x86_64 && make clean && make && make install && install_name_tool -id libiconv.dylib build-x86_64/lib/libiconv.dylib || true
+
+
+
 ####################################################
 ############ CLEANUP (ALL)
 ####################################################
