@@ -34,5 +34,5 @@ kiwix_index_LDFLAGS+= $(XAPIAN_LDFLAGS) $(ICU_LDFLAGS) $(LIBCTPP2_LDFLAGS) $(LIB
 endif
 
 if IS_OSX
-kiwix_index_LDFLAGS+= $(LIBICONV_STATIC_LDFLAGS) /usr/local/Cellar/gettext/0.18.3.2/lib/libintl.a -framework IOKit -framework CoreFoundation
+kiwix_index_LDFLAGS+= $(LIBICONV_STATIC_LDFLAGS) $(GETTEXT_STATIC_LDFLAGS) -framework IOKit -framework CoreFoundation
 endif

@@ -37,5 +37,5 @@ kiwix_serve_LDFLAGS+= $(XAPIAN_LDFLAGS) $(ICU_LDFLAGS) $(MICROHTTPD_LDFLAGS) $(L
 endif
 
 if IS_OSX
-kiwix_serve_LDFLAGS+= $(LIBICONV_STATIC_LDFLAGS) /usr/local/Cellar/gettext/0.18.3.2/lib/libintl.a -framework IOKit -framework CoreFoundation
+kiwix_serve_LDFLAGS+= $(LIBICONV_STATIC_LDFLAGS) $(GETTEXT_STATIC_LDFLAGS) -framework IOKit -framework CoreFoundation
 endif

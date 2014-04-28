@@ -265,7 +265,7 @@ fi
 
 if test [ $IS_OSX -eq 1 ]
 then
-	XULRUNNER_RUNTIME_PATH="${DEP_PATH}/xr_target/xulrunner-26.0.en-US.mac/XUL.framework"
+	XULRUNNER_RUNTIME_PATH="${DEP_PATH}/xr_target/xulrunner-28.0.en-US.mac/XUL.framework"
 else
 	XULRUNNER_RUNTIME_PATH="${DEP_PATH}/xulrunner"
 fi
@@ -413,15 +413,7 @@ else
 	COMPILED_UUID_FILES="${DEP_PATH}/e2fsprogs-1.42/lib/libuuid.a"
 fi
 
-if test [ $IS_OSX -eq 1 ] ; then
-	STATIC_GETTEXT_LDFLAGS="/opt/local/lib/libintl.a"
-	STATIC_ICONV_LDFLAGS="/opt/local/lib/libiconv.a"
-else
-	STATIC_GETTEXT_LDFLAGS=""
-	STATIC_ICONV_LDFLAGS=""
-fi
-
-# used only for building kiwix-serve.
+# for binaries
 LIBICONV_CFLAGS=""
 LIBICONV_LDFLAGS="-liconv"
 LIBICONV_STATIC_LDFLAGS=""
@@ -431,13 +423,32 @@ then
    COMPILE_LIBICONV=1
    COMPILED_LIBICONV_FILES="${DEP_PATH}/libiconv-1.13.1/build/lib/libiconv.${SHARED_EXT}"
    COMPILED_LIBICONV_CFLAGS="-I${DEP_PATH}/libiconv-1.13.1/build-x86_64/include"
-   COMPILED_LIBICONV_LDFLAGS="-L${DEP_PATH}/libiconv-1.13.1/build/lib/ -lmicrohttpd"
-   COMPILED_LIBICONV_STATIC_LDFLAGS="${DEP_PATH}/libiconv-1.13.1/build/lib/libmicrohttpd.a"
+   COMPILED_LIBICONV_LDFLAGS="-L${DEP_PATH}/libiconv-1.13.1/build/lib/ -liconv"
+   COMPILED_LIBICONV_STATIC_LDFLAGS="${DEP_PATH}/libiconv-1.13.1/build/lib/libiconv.a"
 
    LIBICONV_CFLAGS=$COMPILED_LIBICONV_CFLAGS
    LIBICONV_LDFLAGS=$COMPILED_LIBICONV_LDFLAGS
    LIBICONV_FILES=$COMPILED_LIBICONV_FILES
    LIBICONV_STATIC_LDFLAGS=$COMPILED_LIBICONV_STATIC_LDFLAGS
+fi
+
+# for binaries
+GETTEXT_CFLAGS=""
+GETTEXT_LDFLAGS="-lintl"
+GETTEXT_STATIC_LDFLAGS=""
+COMPILE_GETTEXT=0
+if test [ $IS_OSX -eq 1 ]
+then
+   COMPILE_GETTEXT=1
+   COMPILED_GETTEXT_FILES="${DEP_PATH}/gettext-0.18.3.2/build/lib/libintl.${SHARED_EXT}"
+   COMPILED_GETTEXT_CFLAGS="-I${DEP_PATH}/gettext-0.18.3.2/build-x86_64/include"
+   COMPILED_GETTEXT_LDFLAGS="-L${DEP_PATH}/gettext-0.18.3.2/build/lib/ -lintl"
+   COMPILED_GETTEXT_STATIC_LDFLAGS="${DEP_PATH}/gettext-0.18.3.2/build/lib/libintl.a"
+
+   GETTEXT_CFLAGS=$COMPILED_GETTEXT_CFLAGS
+   GETTEXT_LDFLAGS=$COMPILED_GETTEXT_LDFLAGS
+   GETTEXT_FILES=$COMPILED_GETTEXT_FILES
+   GETTEXT_STATIC_LDFLAGS=$COMPILED_GETTEXT_STATIC_LDFLAGS
 fi
 
 # argtable & pthread is required only on Windows
@@ -682,11 +693,11 @@ then
 fi
 
 if test [ $IS_OSX -eq 1 ] ; then
-	GECKO_INCLUDE_PATH="${GECKO_SDK_PATH}/x86_64/include"
-	GECKO_SDK_INCLUDE="${GECKO_SDK_PATH}/x86_64/sdk/include"
+	GECKO_INCLUDE_PATH="${GECKO_SDK_PATH}/i386/include"
+	GECKO_SDK_INCLUDE="${GECKO_SDK_PATH}/i386/sdk/include"
 	GECKO_SDK_LIB="${GECKO_SDK_PATH}/${ARCH}/lib"
-	GECKO_IDL_PATH=${GECKO_SDK_PATH}/x86_64/idl
-	XPIDL_PATH=${GECKO_SDK_PATH}/x86_64/sdk/bin
+	GECKO_IDL_PATH=${GECKO_SDK_PATH}/i386/idl
+	XPIDL_PATH=${GECKO_SDK_PATH}/i386/sdk/bin
 else
 	GECKO_INCLUDE_PATH="${GECKO_SDK_PATH}/include"
 	GECKO_SDK_INCLUDE="${GECKO_SDK_PATH}/sdk/include"
@@ -1522,6 +1533,11 @@ fi
 if test [ $COMPILE_LIBICONV -eq 1 ]
 then
     DEP_LIST+=" $COMPILED_LIBICONV_FILES"
+fi
+
+if test [ $COMPILE_GETTEXT -eq 1 ]
+then
+    DEP_LIST+=" $COMPILED_GETTEXT_FILES"
 fi
 
 DEP_LIST=`echo $DEP_LIST | sed -e "s,$DEP_PATH/,,g"`

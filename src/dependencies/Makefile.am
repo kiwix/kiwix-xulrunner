@@ -18,7 +18,7 @@ else
 GECKOSDKURL=$(DEP_MIRROR)/xulrunner-14.0.1.en-US.linux-$(ARCH).sdk.tar.bz2
 endif
 else
-GECKOSDKURL=$(DEP_MIRROR)/xulrunner-26.0.en-US.mac-$(ARCH).sdk.tar.bz2
+GECKOSDKURL=$(DEP_MIRROR)/xulrunner-28.0.en-US.mac-$(ARCH).sdk.tar.bz2
 endif
 
 if IS_OLD_GECKO
@@ -41,18 +41,18 @@ endif
 xulrunner-sdk.tar.bz2:
 	$(DOWNLOADER) xulrunner-sdk.tar.bz2 $(GECKOSDKURL)
 
-xulrunner-26.0.en-US.mac-i386.sdk.tar.bz2:
-	$(DOWNLOADER) xulrunner-26.0.en-US.mac-i386.sdk.tar.bz2 $(DEP_MIRROR)/xulrunner-26.0.en-US.mac-i386.sdk.tar.bz2
+xulrunner-28.0.en-US.mac-i386.sdk.tar.bz2:
+	$(DOWNLOADER) xulrunner-28.0.en-US.mac-i386.sdk.tar.bz2 $(DEP_MIRROR)/xulrunner-28.0.en-US.mac-i386.sdk.tar.bz2
 
-xulrunner-26.0.en-US.mac-x86_64.sdk.tar.bz2:
-	$(DOWNLOADER) xulrunner-26.0.en-US.mac-x86_64.sdk.tar.bz2 $(DEP_MIRROR)/xulrunner-26.0.en-US.mac-x86_64.sdk.tar.bz2
+xulrunner-28.0.en-US.mac-x86_64.sdk.tar.bz2:
+	$(DOWNLOADER) xulrunner-28.0.en-US.mac-x86_64.sdk.tar.bz2 $(DEP_MIRROR)/xulrunner-28.0.en-US.mac-x86_64.sdk.tar.bz2
 
-xulrunner-sdk-i386: xulrunner-26.0.en-US.mac-i386.sdk.tar.bz2
-	test -d xulrunner-sdk-i386 || tar -xf xulrunner-26.0.en-US.mac-i386.sdk.tar.bz2
+xulrunner-sdk-i386: xulrunner-28.0.en-US.mac-i386.sdk.tar.bz2
+	test -d xulrunner-sdk-i386 || tar -xf xulrunner-28.0.en-US.mac-i386.sdk.tar.bz2
 	test -d xulrunner-sdk && mv xulrunner-sdk xulrunner-sdk-i386
 
-xulrunner-sdk-x86_64: xulrunner-26.0.en-US.mac-x86_64.sdk.tar.bz2
-	test -d xulrunner-sdk-x86_64 || tar -xf xulrunner-26.0.en-US.mac-x86_64.sdk.tar.bz2
+xulrunner-sdk-x86_64: xulrunner-28.0.en-US.mac-x86_64.sdk.tar.bz2
+	test -d xulrunner-sdk-x86_64 || tar -xf xulrunner-28.0.en-US.mac-x86_64.sdk.tar.bz2
 	test -d xulrunner-sdk && mv xulrunner-sdk xulrunner-sdk-x86_64
 
 universal-sdk: xulrunner-sdk-i386 xulrunner-sdk-x86_64
@@ -87,12 +87,12 @@ xulrunner: xulrunner-runtime.tar.bz2
 	test -d xulrunner || tar -xf xulrunner-runtime.tar.bz2
 endif
 
-xulrunner-26.0.en-US.mac.tar.bz2:
-	$(DOWNLOADER) xulrunner-26.0.en-US.mac.tar.bz2 $(DEP_MIRROR)/xulrunner-26.0.en-US.mac.tar.bz2
+xulrunner-28.0.en-US.mac.tar.bz2:
+	$(DOWNLOADER) xulrunner-28.0.en-US.mac.tar.bz2 $(DEP_MIRROR)/xulrunner-28.0.en-US.mac.tar.bz2
 
-xr_target/xulrunner-26.0.en-US.mac/XUL.framework: xulrunner-26.0.en-US.mac.tar.bz2
-	mkdir -p xr_target/xulrunner-26.0.en-US.mac/
-	tar -xvjf xulrunner-26.0.en-US.mac.tar.bz2 -C xr_target/xulrunner-26.0.en-US.mac/
+xr_target/xulrunner-28.0.en-US.mac/XUL.framework: xulrunner-28.0.en-US.mac.tar.bz2
+	mkdir -p xr_target/xulrunner-28.0.en-US.mac/
+	tar -xvjf xulrunner-28.0.en-US.mac.tar.bz2 -C xr_target/xulrunner-28.0.en-US.mac/
 
 # Windows
 xulrunner-win.zip:
@@ -490,7 +490,27 @@ libiconv-1.13.1/build-i386/lib/libiconv.dylib: libiconv-1.13.1
 libiconv-1.13.1/build-x86_64/lib/libiconv.dylib: libiconv-1.13.1
 	test ! -f libiconv-1.13.1/build-x86_64/lib/libiconv.dylib && cd libiconv-1.13.1 && mkdir -p build-x86_64 && CC="gcc -arch x86_64" CXX="g++ -arch x86_64" CXXFLAGS=" -fPIC " ./configure --enable-shared --enable-static --prefix=$(DEP_PATH)/libiconv-1.13.1/build-x86_64 && make clean && make && make install && install_name_tool -id libiconv.dylib build-x86_64/lib/libiconv.dylib || true
 
+####################################################
+############ GETTEXT
+# http://ftp.gnu.org/pub/gnu/gettext/gettext-0.18.3.2.tar.gz
+####################################################
+gettext-0.18.3.2.tar.gz:
+	$(DOWNLOADER) gettext-0.18.3.2.tar.gz $(DEP_MIRROR)/gettext-0.18.3.2.tar.gz
 
+gettext-0.18.3.2: gettext-0.18.3.2.tar.gz
+	test -d gettext-0.18.3.2 || tar -xf gettext-0.18.3.2.tar.gz
+
+# OSX Join
+gettext-0.18.3.2/build/lib/libintl.dylib: gettext-0.18.3.2/build-i386/lib/libintl.dylib gettext-0.18.3.2/build-x86_64/lib/libintl.dylib
+	test ! -f gettext-0.18.3.2/build/lib/libintl.dylib && mkdir -p gettext-0.18.3.2/build/{lib,bin} && cd gettext-0.18.3.2/build/lib && cp -r ../../build-i386/include ../ && lipo ../../build-x86_64/lib/libintl.dylib ../../build-i386/lib/libintl.dylib -create -output libintl.dylib && lipo ../../build-x86_64/lib/libintl.a ../../build-i386/lib/libintl.a -create -output libintl.a && cd ../lib && install_name_tool -id libintl.dylib libintl.dylib || true
+
+# OSX i386
+gettext-0.18.3.2/build-i386/lib/libintl.dylib: gettext-0.18.3.2
+	test ! -f gettext-0.18.3.2/build-i386/lib/libintl.dylib && cd gettext-0.18.3.2 && mkdir -p build-i386 && CC="gcc -arch i386" CXX="g++ -arch i386" CXXFLAGS=" -fPIC " ./configure --disable-dependency-tracking --disable-java --disable-native-java --disable-rpath --enable-relocatable --enable-shared --enable-static --prefix=$(DEP_PATH)/gettext-0.18.3.2/build-i386 && make clean && make && make install && install_name_tool -id libintl.dylib build-i386/lib/libintl.dylib || true
+
+# OSX x86_64
+gettext-0.18.3.2/build-x86_64/lib/libintl.dylib: gettext-0.18.3.2
+	test ! -f gettext-0.18.3.2/build-x86_64/lib/libintl.dylib && cd gettext-0.18.3.2 && mkdir -p build-x86_64 && CC="gcc -arch x86_64" CXX="g++ -arch x86_64" CXXFLAGS=" -fPIC " ./configure --disable-dependency-tracking --disable-java --disable-native-java --disable-rpath --enable-relocatable --enable-shared --enable-static --prefix=$(DEP_PATH)/gettext-0.18.3.2/build-x86_64 && make clean && make && make install && install_name_tool -id libintl.dylib build-x86_64/lib/libintl.dylib || true
 
 ####################################################
 ############ CLEANUP (ALL)
@@ -500,11 +520,11 @@ libiconv-1.13.1/build-x86_64/lib/libiconv.dylib: libiconv-1.13.1
 CLEANFILES=
 
 DISTCLEANFILES= xulrunner-sdk.tar.bz2 \
-	xulrunner-26.0.en-US.mac-i386.sdk.tar.bz2 \
-	xulrunner-26.0.en-US.mac-x86_64.sdk.tar.bz2 \
+	xulrunner-28.0.en-US.mac-i386.sdk.tar.bz2 \
+	xulrunner-28.0.en-US.mac-x86_64.sdk.tar.bz2 \
 	xulrunner-runtime.tar.bz2 \
-	xulrunner-26.0.en-US.mac-pkg.dmg \
-	xulrunner-26.0.en-US.mac.tar.bz2 \
+	xulrunner-28.0.en-US.mac-pkg.dmg \
+	xulrunner-28.0.en-US.mac.tar.bz2 \
 	xulrunner-win.zip \
 	zlib.tar.gz \
 	xapian-core.tar.gz \
@@ -526,7 +546,9 @@ DISTCLEANFILES= xulrunner-sdk.tar.bz2 \
 	android-ndk-r8e.tar.bz2 \
 	android-sdk.zip \
 	android-14.tar.bz2 \
-	zimlib-1.1.tar.gz
+	zimlib-1.1.tar.gz \
+	gettext-0.18.3.2.tar.gz \
+	libiconv-1.13.1.tar.gz
 
 clean-local:
 	-rm -rf zlib-1.2.3
@@ -544,6 +566,8 @@ clean-local:
 	-rm -rf zimlib-1.1
 	-rm -rf aria2c-1.14.2-universal
 	-rm -rf XUL.framework
+	-rm -rf gettext-0.18.3.2
+	-rm -rf libiconv-1.13.1
 
 distclean-local:
 	-rm -rf xulrunner-sdk-i386
