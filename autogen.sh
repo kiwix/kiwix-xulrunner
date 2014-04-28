@@ -18,7 +18,12 @@ rm -f config.cache
 rm -f config.log
 
 # Generate the configure script based on configure.in
-autoconf
+if [ "`(uname -s) 2>/dev/null`" = "Darwin" ]
+then
+    autoconf213 || autoconf
+else
+    autoconf
+fi
 
 # Generate the Makefile.in
 automake -a --foreign
