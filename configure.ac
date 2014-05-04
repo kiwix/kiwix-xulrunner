@@ -265,7 +265,7 @@ fi
 
 if test [ $IS_OSX -eq 1 ]
 then
-	XULRUNNER_RUNTIME_PATH="${DEP_PATH}/xr_target/xulrunner-28.0.en-US.mac/XUL.framework"
+	XULRUNNER_RUNTIME_PATH="${DEP_PATH}/xr_target/xulrunner-29.0.en-US.mac/XUL.framework"
 else
 	XULRUNNER_RUNTIME_PATH="${DEP_PATH}/xulrunner"
 fi
@@ -278,21 +278,26 @@ ZLIB_CFLAGS=""
 ZLIB_LDFLAGS=" -lz"
 ZLIB_STATIC_LDFLAGS=""
 COMPILE_ZLIB=0
-COMPILED_ZLIB_CFLAGS="-I${DEP_PATH}/zlib-1.2.3"
-COMPILED_ZLIB_LDFLAGS="-L${DEP_PATH}/zlib-1.2.3/shared/lib  -lz"
+COMPILED_ZLIB_CFLAGS="-I${DEP_PATH}/zlib-1.2.8"
+COMPILED_ZLIB_LDFLAGS="-L${DEP_PATH}/zlib-1.2.8/shared/lib  -lz"
 if test [ $IS_WIN -eq 1 ]
 then
-    COMPILED_ZLIB_FILES="${DEP_PATH}/zlib-1.2.3/zlib.lib"
+    COMPILED_ZLIB_FILES="${DEP_PATH}/zlib-1.2.8/zlib.lib"
 else
-    COMPILED_ZLIB_FILES="${DEP_PATH}/zlib-1.2.3/shared/lib/libz.${SHARED_EXT}"
+    COMPILED_ZLIB_FILES="${DEP_PATH}/zlib-1.2.8/shared/lib/libz.${SHARED_EXT}"
 fi
-COMPILED_ZLIB_STATIC_LDFLAGS="${DEP_PATH}/zlib-1.2.3/static/lib/libz.a"
+COMPILED_ZLIB_STATIC_LDFLAGS="${DEP_PATH}/zlib-1.2.8/static/lib/libz.a"
+if test [ $IS_OSX -eq 1 ]
+then
+	COMPILED_ZLIB_FILES="${DEP_PATH}/zlib-1.2.8/build/shared/lib/libz.${SHARED_EXT}"
+	COMPILED_ZLIB_STATIC_LDFLAGS="${DEP_PATH}/zlib-1.2.8/build/static/lib/libz.a"
+fi
 
 XAPIAN_CFLAGS=""
 XAPIAN_LDFLAGS="-lxapian"
 XAPIAN_STATIC_LDFLAGS=""
 COMPILE_XAPIAN=0
-COMPILED_XAPIAN_CFLAGS="-I${DEP_PATH}/xapian-core-1.2.3/build/include"
+COMPILED_XAPIAN_CFLAGS="-I${DEP_PATH}/xapian-core-1.2.3/include"
 if test [ $IS_WIN -eq 1 ] ; then
     COMPILED_XAPIAN_FILES="${DEP_PATH}/xapian-core-1.2.3/win32/Release/libs/libunicode.lib"
 else
@@ -367,6 +372,9 @@ LIBPUGIXML_STATIC_LDFLAGS=""
 COMPILE_LIBPUGIXML=0
 if test [ $IS_WIN -eq 1 ] ; then
 	COMPILED_LIBPUGIXML_FILES="${DEP_PATH}/pugixml-1.2/src/pugixml.lib"
+elif test [ $IS_OSX -eq 1 ] ; then
+	COMPILED_LIBPUGIXML_STATIC_LDFLAGS="${DEP_PATH}/pugixml-1.2/build/libpugixml.a"
+	COMPILED_LIBPUGIXML_FILES="${DEP_PATH}/pugixml-1.2/build/libpugixml.${SHARED_EXT} ${DEP_PATH}/pugixml-1.2/build/libpugixml.a"
 else
 	COMPILED_LIBPUGIXML_CFLAGS="-I${DEP_PATH}/pugixml-1.2/src"
 	COMPILED_LIBPUGIXML_LDFLAGS="-L${DEP_PATH}/pugixml-1.2 -lpugixml"
@@ -380,6 +388,9 @@ LIBCTPP2_STATIC_LDFLAGS=""
 COMPILE_LIBCTPP2=0
 if test [ $IS_WIN -eq 1 ] ; then
 	COMPILED_LIBCTPP2_FILES="${DEP_PATH}/ctpp2-2.8.3/src/ctpp2.lib"
+elif test [ $IS_OSX -eq 1 ] ; then
+	COMPILED_LIBCTPP2_STATIC_LDFLAGS="ctpp2-2.8.3/build/lib/libctpp2-st.a"
+	COMPILED_LIBCTPP2_FILES="${DEP_PATH}/ctpp2-2.8.3/build/lib/libctpp2.${SHARED_EXT}"
 else
 	COMPILED_LIBCTPP2_CFLAGS="-I${DEP_PATH}/ctpp2-2.8.3/build/complete/include/ctpp2"
 	COMPILED_LIBCTPP2_LDFLAGS="-L${DEP_PATH}/ctpp2-2.8.3/build/complete/lib -lctpp2"
@@ -758,7 +769,7 @@ LIBXUL_CFLAGS="-I${GECKO_SDK_INCLUDE} -I${GECKO_INCLUDE_PATH} -I${GECKO_INCLUDE_
 # replaced -lxpcomglue_s with libxpcomglue_s_nomozalloc.a to prevent
 # undefined symbols. supposed to be compatible wth 1.9.
 if test [ $IS_OSX -eq 1 ] ; then
-LIBXUL_LDFLAGS="-L${GECKO_SDK_LIB} -lxpcom -lplds4 -lplc4 -lnspr4 -lpthread -ldl ${GECKO_SDK_LIB}/libxpcomglue_s_nomozalloc.a  ${GECKO_SDK_LIB}/XUL"
+LIBXUL_LDFLAGS="-L${GECKO_SDK_LIB} -lpthread -ldl ${GECKO_SDK_LIB}/libxpcomglue_s_nomozalloc.a  ${GECKO_SDK_LIB}/XUL"
 else
 # LIBXUL_LDFLAGS="-L${GECKO_SDK_LIB} -lxul -lxpcom -lplds4 -lplc4 -lnspr4 -lpthread -ldl -lxpcomglue_s"
 LIBXUL_LDFLAGS="-L${GECKO_SDK_LIB} -lxul -lplds4 -lplc4 -lnspr4 -lpthread -ldl ${GECKO_SDK_LIB}/libxpcomglue_s.a"
