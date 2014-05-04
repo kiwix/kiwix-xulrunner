@@ -1,5 +1,6 @@
 bin_PROGRAMS=kiwix-manage
 AM_CPPFLAGS=-I$(top_srcdir)/src/common
+AUTOMAKE_OPTIONS=subdir-objects
 kiwix_manage_SOURCES= \
 	kiwix-manage.cpp \
 	../common/kiwix/manager.cpp \

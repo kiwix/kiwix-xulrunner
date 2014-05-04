@@ -1,5 +1,6 @@
 bin_PROGRAMS=kiwix-read
 AM_CPPFLAGS=-I$(top_srcdir)/src/common
+AUTOMAKE_OPTIONS=subdir-objects
 kiwix_read_SOURCES= \
 	kiwix-read.cpp \
 	../common/kiwix/reader.cpp \

@@ -1,13 +1,11 @@
 noinst_PROGRAMS=kiwix-launcher
-
 AM_CPPFLAGS=-I$(top_srcdir)/src/common
-
+AUTOMAKE_OPTIONS=subdir-objects
 kiwix_launcher_SOURCES= kiwix-launcher.cpp \
 			../common/pathTools.cpp \
 			../common/stringTools.cpp \
 			../common/pathTools.h \
 			../common/stringTools.h
-
 kiwix_launcher_CXXFLAGS= $(ICU_CFLAGS) -I../common/ -DMAJOR_GECKO_VERSION=\"$(MAJOR_GECKO_VERSION)\" 
 kiwix_launcher_LDFLAGS=$(CHECK_LDFLAGS)
 

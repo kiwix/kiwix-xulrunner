@@ -3,6 +3,7 @@ xptdir=$(libdir)/kiwix/components
 pkglibdir=$(libdir)/kiwix/components
 xpt_DATA=zimAccessor.xpt
 AM_CPPFLAGS=-I$(top_srcdir)/src/common
+AUTOMAKE_OPTIONS=subdir-objects
 libZimAccessor_la_SOURCES= \
 	zimAccessor.cpp \
 	$(top_srcdir)/src/common/kiwix/reader.cpp \

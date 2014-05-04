@@ -1,5 +1,6 @@
 pkglib_LTLIBRARIES=libContentManager.la
 pkglibdir=$(libdir)/kiwix/components
+AUTOMAKE_OPTIONS=subdir-objects
 
 xptdir=$(libdir)/kiwix/components
 xpt_DATA=contentManager.xpt

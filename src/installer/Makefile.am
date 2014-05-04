@@ -1,5 +1,6 @@
 bin_PROGRAMS=kiwix-install
 AM_CPPFLAGS=-I$(top_srcdir)/src/common
+AUTOMAKE_OPTIONS=subdir-objects
 kiwix_install_SOURCES= \
 	kiwix-install.cpp \
 	../common/kiwix/xapian/myhtmlparse.cc \

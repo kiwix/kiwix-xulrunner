@@ -1,5 +1,6 @@
 bin_PROGRAMS=kiwix-search
 AM_CPPFLAGS=-I$(top_srcdir)/src/common
+AUTOMAKE_OPTIONS=subdir-objects
 kiwix_search_SOURCES= \
 	kiwix-search.cpp \
 	../common/resourceTools.cpp \
