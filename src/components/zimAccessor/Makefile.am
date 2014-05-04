@@ -1,20 +1,20 @@
+AUTOMAKE_OPTIONS=subdir-objects
 pkglib_LTLIBRARIES=libZimAccessor.la
 xptdir=$(libdir)/kiwix/components
 pkglibdir=$(libdir)/kiwix/components
 xpt_DATA=zimAccessor.xpt
 AM_CPPFLAGS=-I$(top_srcdir)/src/common
-AUTOMAKE_OPTIONS=subdir-objects
 libZimAccessor_la_SOURCES= \
-	zimAccessor.cpp \
-	$(top_srcdir)/src/common/kiwix/reader.cpp \
 	IZimAccessor.h \
-	$(top_srcdir)/src/common/kiwix/reader.h \
-	$(top_srcdir)/src/common/pathTools.h \
-	$(top_srcdir)/src/common/pathTools.cpp \
-	$(top_srcdir)/src/common/stringTools.h \
-	$(top_srcdir)/src/common/stringTools.cpp \
-	$(top_srcdir)/src/common/componentTools.h \
-	$(top_srcdir)/src/common/componentTools.cpp
+	zimAccessor.cpp \
+	../../common/kiwix/reader.h \
+	../../common/kiwix/reader.cpp \
+	../../common/pathTools.h \
+	../../common/pathTools.cpp \
+	../../common/stringTools.h \
+	../../common/stringTools.cpp \
+	../../common/componentTools.h \
+	../../common/componentTools.cpp
 libZimAccessor_la_CXXFLAGS=$(LIBZIM_CFLAGS) $(LIBXUL_CFLAGS) $(LZMA_CFLAGS) $(ICU_CFLAGS) $(XPCOM_CFLAGS) -D GECKO_VERSION=$(GECKO_VERSION) -I../../common/
 
 libZimAccessor_la_LDFLAGS=$(LIBZIM_LDFLAGS) $(LIBXUL_LDFLAGS) $(ICU_LDFLAGS) $(LZMA_LDFLAGS) $(XPCOM_LDFLAGS)
