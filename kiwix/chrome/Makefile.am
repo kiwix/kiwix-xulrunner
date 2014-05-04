@@ -2,13 +2,13 @@ chromedir=$(DESTDIR)$(pkgdatadir)/chrome
 chrome_DATA=
 
 locale.jar:
-	zip -9 -r locale.jar locale/ -x '*.svn*'
+	zip -9 -r locale.jar locale/
 
 content.jar:
-	zip -9 -r content.jar content/ -x '*.svn*'
+	zip -9 -r content.jar content/
 
 skin.jar:
-	zip -9 -r skin.jar skin/ -x '*.svn*'
+	zip -9 -r skin.jar skin/
 
 install-exec-hook: locale.jar content.jar skin.jar
 	-mkdir -p $(chromedir)

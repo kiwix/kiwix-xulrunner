@@ -121,7 +121,7 @@ function updateGuiHistoryComponents() {
 
 	var browserHistory = Components.classes["@mozilla.org/browser/nav-history-service;1"]
             .getService(Components.interfaces.nsIBrowserHistory);
-	getPurgeHistoryMenuItem().disabled = browserHistory.count == 0 ? true : false;;
+	getPurgeHistoryMenuItem().disabled = browserHistory.isEmpty;
     } else {
 	desactivateBackButton();
 	desactivateNextButton();

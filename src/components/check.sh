@@ -13,9 +13,9 @@ fi
 
 
 # Try to find run-mozilla.sh localy
-if [ -e ../../kiwix/xulrunner/run-mozilla.sh ]
+if [ -e ../dependencies/xulrunner-sdk/bin/run-mozilla.sh ]
 then
-RUN_MOZILLA=../../kiwix/xulrunner/run-mozilla.sh;
+RUN_MOZILLA=../dependencies/xulrunner-sdk/bin/run-mozilla.sh;
 else
 RUN_MOZILLA=`find /usr/lib/xulrunner* -name run-mozilla.sh`;
 fi
