@@ -176,11 +176,11 @@ xapian-core-1.2.3/build/lib/libxapian.dylib xapian-core-1.2.3/build/bin/xapian-c
 
 # OSX i386
 xapian-core-1.2.3/build-i386/lib/libxapian.dylib xapian-core-1.2.3/build-i386/bin/xapian-compact: xapian-core-1.2.3
-	test ! -f xapian-core-1.2.3/build-i386/lib/libxapian.dylib && cd xapian-core-1.2.3 && mkdir -p build-i386 && EXTERN_PATH=`pwd` CC="$(CC32)" CXX="$(CXX32)" CPPFLAGS="-I${CURRENT_PATH}/src/dependencies/zlib-1.2.8/" CXXFLAGS=" -fPIC  -L${CURRENT_PATH}/src/dependencies/zlib-1.2.8" ./configure --disable-backend-inmemory --enable-shared --enable-static --prefix=$(DEP_PATH)/xapian-core-1.2.3/build-i386 && make clean && make && make install && install_name_tool -id libxapian.dylib build-i386/lib/libxapian.dylib || true
+	test ! -f xapian-core-1.2.3/build-i386/lib/libxapian.dylib && cd xapian-core-1.2.3 && mkdir -p build-i386 && EXTERN_PATH=`pwd` CC="$(CC32)" CXX="$(CXX32)" CPPFLAGS="-I${CURRENT_PATH}/src/dependencies/zlib-1.2.8/" CXXFLAGS=" -fPIC  -L${CURRENT_PATH}/src/dependencies/zlib-1.2.8/build/shared/lib" ./configure --disable-backend-inmemory --enable-shared --enable-static --prefix=$(DEP_PATH)/xapian-core-1.2.3/build-i386 && make clean && make && make install && install_name_tool -id libxapian.dylib build-i386/lib/libxapian.dylib || true
 
 # OSX x86_64
 xapian-core-1.2.3/build-x86_64/lib/libxapian.dylib xapian-core-1.2.3/build-x86_64/bin/xapian-compact: xapian-core-1.2.3
-	test ! -f xapian-core-1.2.3/build-x86_64/lib/libxapian.dylib && cd xapian-core-1.2.3 && mkdir -p build-x86_64 && EXTERN_PATH=`pwd` CC="$(CC64)" CXX="$(CXX64)" CPPFLAGS="-I${CURRENT_PATH}/src/dependencies/zlib-1.2.8/" CXXFLAGS=" -fPIC  -L${CURRENT_PATH}/src/dependencies/zlib-1.2.8" ./configure --disable-backend-inmemory --enable-shared --enable-static --prefix=$(DEP_PATH)/xapian-core-1.2.3/build-x86_64 && make clean && make && make install && install_name_tool -id libxapian.dylib build-x86_64/lib/libxapian.dylib || true
+	test ! -f xapian-core-1.2.3/build-x86_64/lib/libxapian.dylib && cd xapian-core-1.2.3 && mkdir -p build-x86_64 && EXTERN_PATH=`pwd` CC="$(CC64)" CXX="$(CXX64)" CPPFLAGS="-I${CURRENT_PATH}/src/dependencies/zlib-1.2.8/" CXXFLAGS=" -fPIC  -L${CURRENT_PATH}/src/dependencies/zlib-1.2.8/build/shared/lib" ./configure --disable-backend-inmemory --enable-shared --enable-static --prefix=$(DEP_PATH)/xapian-core-1.2.3/build-x86_64 && make clean && make && make install && install_name_tool -id libxapian.dylib build-x86_64/lib/libxapian.dylib || true
 
 # Windows
 xapian-win32.zip:
@@ -416,7 +416,7 @@ ctpp2-2.8.3/build-x86_64/complete/lib/libctpp2.dylib ctpp2-2.8.3/build-x86_64/co
 
 # OSX Join
 ctpp2-2.8.3/build/lib/libctpp2.dylib ctpp2-2.8.3/build/lib/libctpp2-st.a: ctpp2-2.8.3/build-x86_64/complete/lib/libctpp2.dylib ctpp2-2.8.3/build-x86_64/complete/lib/libctpp2-st.a ctpp2-2.8.3/build-i386/complete/lib/libctpp2.dylib ctpp2-2.8.3/build-i386/complete/lib/libctpp2-st.a
-	test ! -f 2-2.8.3/build/lib/libctpp2.dylib && mkdir -p ctpp2-2.8.3/build/lib && cd ctpp2-2.8.3/build/lib && lipo ../../build-i386/libctpp2.dylib ../../build-x86_64/libctpp2.dylib -create -output libctpp2.dylib && install_name_tool -id libctpp2.dylib libctpp2.dylib && lipo ../../build-i386/libctpp2-st.a ../../build-x86_64/libctpp2-st.a -create -output libctpp2-st.a || true
+	test ! -f 2-2.8.3/build/lib/libctpp2.dylib && mkdir -p ctpp2-2.8.3/build/{lib,include} && cd ctpp2-2.8.3/build/lib && cp -r ../../build-i386/complete/include ../ && lipo ../../build-i386/complete/lib/libctpp2.dylib ../../build-x86_64/complete/lib/libctpp2.dylib -create -output libctpp2.dylib && install_name_tool -id libctpp2.dylib libctpp2.dylib && lipo ../../build-i386/complete/lib/libctpp2-st.a ../../build-x86_64/complete/lib/libctpp2-st.a -create -output libctpp2-st.a || true
 
 
 # Windows

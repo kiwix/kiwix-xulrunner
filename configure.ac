@@ -372,30 +372,36 @@ LIBPUGIXML_STATIC_LDFLAGS=""
 COMPILE_LIBPUGIXML=0
 if test [ $IS_WIN -eq 1 ] ; then
 	COMPILED_LIBPUGIXML_FILES="${DEP_PATH}/pugixml-1.2/src/pugixml.lib"
-elif test [ $IS_OSX -eq 1 ] ; then
-	COMPILED_LIBPUGIXML_STATIC_LDFLAGS="${DEP_PATH}/pugixml-1.2/build/libpugixml.a"
-	COMPILED_LIBPUGIXML_FILES="${DEP_PATH}/pugixml-1.2/build/libpugixml.${SHARED_EXT} ${DEP_PATH}/pugixml-1.2/build/libpugixml.a"
 else
 	COMPILED_LIBPUGIXML_CFLAGS="-I${DEP_PATH}/pugixml-1.2/src"
 	COMPILED_LIBPUGIXML_LDFLAGS="-L${DEP_PATH}/pugixml-1.2 -lpugixml"
 	COMPILED_LIBPUGIXML_STATIC_LDFLAGS="${DEP_PATH}/pugixml-1.2/libpugixml.a"
 	COMPILED_LIBPUGIXML_FILES="${DEP_PATH}/pugixml-1.2/libpugixml.${SHARED_EXT} ${DEP_PATH}/pugixml-1.2/libpugixml.a"
 fi
+if test [ $IS_OSX -eq 1 ] ; then
+	COMPILED_LIBPUGIXML_STATIC_LDFLAGS="${DEP_PATH}/pugixml-1.2/build/libpugixml.a"
+	COMPILED_LIBPUGIXML_LDFLAGS="-L${DEP_PATH}/pugixml-1.2/build -lpugixml"
+	COMPILED_LIBPUGIXML_STATIC_LDFLAGS="${DEP_PATH}/pugixml-1.2/build/libpugixml.a"
+	COMPILED_LIBPUGIXML_FILES="${DEP_PATH}/pugixml-1.2/build/libpugixml.${SHARED_EXT} ${DEP_PATH}/pugixml-1.2/build/libpugixml.a"
+fi
 
-LIBCTPP2_CFLAGS=" -I${prefix}/include -I${prefix}/include/ctpp2"
+LIBCTPP2_CFLAGS=" -I${prefix}/include"
 LIBCTPP2_LDFLAGS=" -lctpp2"
 LIBCTPP2_STATIC_LDFLAGS=""
 COMPILE_LIBCTPP2=0
 if test [ $IS_WIN -eq 1 ] ; then
 	COMPILED_LIBCTPP2_FILES="${DEP_PATH}/ctpp2-2.8.3/src/ctpp2.lib"
-elif test [ $IS_OSX -eq 1 ] ; then
-	COMPILED_LIBCTPP2_STATIC_LDFLAGS="ctpp2-2.8.3/build/lib/libctpp2-st.a"
-	COMPILED_LIBCTPP2_FILES="${DEP_PATH}/ctpp2-2.8.3/build/lib/libctpp2.${SHARED_EXT}"
 else
-	COMPILED_LIBCTPP2_CFLAGS="-I${DEP_PATH}/ctpp2-2.8.3/build/complete/include/ctpp2"
+	COMPILED_LIBCTPP2_CFLAGS="-I${DEP_PATH}/ctpp2-2.8.3/build/complete/include"
 	COMPILED_LIBCTPP2_LDFLAGS="-L${DEP_PATH}/ctpp2-2.8.3/build/complete/lib -lctpp2"
 	COMPILED_LIBCTPP2_STATIC_LDFLAGS="${DEP_PATH}/ctpp2-2.8.3/build/complete/lib/libctpp2-st.a"
 	COMPILED_LIBCTPP2_FILES="${DEP_PATH}/ctpp2-2.8.3/build/complete/lib/libctpp2.${SHARED_EXT}"
+fi
+if test [ $IS_OSX -eq 1 ] ; then
+	COMPILED_LIBCTPP2_STATIC_LDFLAGS="ctpp2-2.8.3/build/lib/libctpp2-st.a"
+	COMPILED_LIBCTPP2_FILES="${DEP_PATH}/ctpp2-2.8.3/build/lib/libctpp2.${SHARED_EXT}"
+	COMPILED_LIBCTPP2_LDFLAGS="-L${DEP_PATH}/ctpp2-2.8.3/build/lib -lctpp2"
+	COMPILED_LIBCTPP2_CFLAGS="-I${DEP_PATH}/ctpp2-2.8.3/build/include"
 fi
 
 ARIA2_CFLAGS=""
