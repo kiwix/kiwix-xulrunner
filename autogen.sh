@@ -1,7 +1,5 @@
 #! /bin/sh
 
-ls -lh configure.ac
-
 # Generate the aclocal.m4 file for automake, based on configure.in
 aclocal
 
