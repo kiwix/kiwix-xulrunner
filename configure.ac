@@ -1266,8 +1266,12 @@ else
 		# TODO: uncomment once we release it with pkg-config file
 		# AC_MSG_ERROR([[The libctpp2 version must be 1.1 or higher.]])
 		echo "Assuming libctpp2 version is 2.8.3"
-		LIBCTPP2_CFLAGS=`ctpp2-config --includes2`
-		LIBCTPP2_LDFLAGS=-L`ctpp2-config --libs`
+                AC_CHECK_TOOL(HAVE_CTPP2_CONFIG, "ctpp2-config", [], $CTPP2_CONFIG_PATH)
+                if test [ "$HAVE_CTPP2_CONFIG" ]
+                then
+                       LIBCTPP2_CFLAGS=`ctpp2-config --includes2`
+                       LIBCTPP2_LDFLAGS=-L`ctpp2-config --libs`
+                fi
 	else
 		LIBCTPP2_CFLAGS=`pkg-config --cflags libctpp2`
 		LIBCTPP2_LDFLAGS=`pkg-config --libs libctpp2`
