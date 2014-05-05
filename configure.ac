@@ -374,14 +374,14 @@ else
 	COMPILED_LIBPUGIXML_FILES="${DEP_PATH}/pugixml-1.2/libpugixml.${SHARED_EXT} ${DEP_PATH}/pugixml-1.2/libpugixml.a"
 fi
 
-LIBCTPP2_CFLAGS=" -I${prefix}/include -I${prefix}/include/ctpp2"
+LIBCTPP2_CFLAGS=" -I${prefix}/include "
 LIBCTPP2_LDFLAGS=" -lctpp2"
 LIBCTPP2_STATIC_LDFLAGS=""
 COMPILE_LIBCTPP2=0
 if test [ $IS_WIN -eq 1 ] ; then
 	COMPILED_LIBCTPP2_FILES="${DEP_PATH}/ctpp2-2.8.3/src/ctpp2.lib"
 else
-	COMPILED_LIBCTPP2_CFLAGS="-I${DEP_PATH}/ctpp2-2.8.3/build/complete/include/ctpp2"
+	COMPILED_LIBCTPP2_CFLAGS="-I${DEP_PATH}/ctpp2-2.8.3/build/complete/include"
 	COMPILED_LIBCTPP2_LDFLAGS="-L${DEP_PATH}/ctpp2-2.8.3/build/complete/lib -lctpp2"
 	COMPILED_LIBCTPP2_STATIC_LDFLAGS="${DEP_PATH}/ctpp2-2.8.3/build/complete/lib/libctpp2-st.a"
 	COMPILED_LIBCTPP2_FILES="${DEP_PATH}/ctpp2-2.8.3/build/complete/lib/libctpp2.${SHARED_EXT}"
