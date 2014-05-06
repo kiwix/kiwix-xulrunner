@@ -289,6 +289,7 @@ fi
 COMPILED_ZLIB_STATIC_LDFLAGS="${DEP_PATH}/zlib-1.2.8/static/lib/libz.a"
 if test [ $IS_OSX -eq 1 ]
 then
+	COMPILED_ZLIB_LDFLAGS="-L${DEP_PATH}/zlib-1.2.8/build/shared/lib  -lz"
 	COMPILED_ZLIB_FILES="${DEP_PATH}/zlib-1.2.8/build/shared/lib/libz.${SHARED_EXT}"
 	COMPILED_ZLIB_STATIC_LDFLAGS="${DEP_PATH}/zlib-1.2.8/build/static/lib/libz.a"
 fi
@@ -415,6 +416,13 @@ else
 	COMPILED_ARIA2_FILES="${DEP_PATH}/aria2c"
 fi
 
+# OSX only
+if test [ $IS_OSX -eq 1 ] ; then
+	COMPILED_XULRUNNERBIN_FILES="${DEP_PATH}/kiwix-osx-xulrunner-bin"
+else
+	COMPILED_XULRUNNERBIN_FILES=""
+fi
+
 # uuid is used for binaries. only static.
 UUID_CFLAGS=""
 UUID_LDFLAGS=""
@@ -508,6 +516,7 @@ then
 	WITH_LAUNCHER=1
 	WITH_SERVER=1
 	WITH_ANDROID=1
+	WITH_READER=1
 	REQUIRE_STATIC=1
 elif test [ $IS_WIN -eq 1 ]
 then
@@ -771,11 +780,12 @@ AC_MSG_RESULT(checking for Gecko version... ${GECKO_VERSION})
 AM_CONDITIONAL([GECKO_OLD_BOOL_TYPE], [test "$GECKO_OLD_BOOL_TYPE"])
 AM_CONDITIONAL([GECKO_OLD_INT_TYPE], [test "$GECKO_OLD_INT_TYPE"])
 
-LIBXUL_CFLAGS="-I${GECKO_SDK_INCLUDE} -I${GECKO_INCLUDE_PATH} -I${GECKO_INCLUDE_PATH}/nspr/ -I/usr/include/nspr4 -fshort-wchar -D__STDC_LIMIT_MACROS"
+LIBXUL_CFLAGS="-I${GECKO_SDK_INCLUDE} -I${GECKO_INCLUDE_PATH} -I${GECKO_INCLUDE_PATH}/nspr/ -I/usr/include/nspr4 -fshort-wchar"
 # replaced -lxpcomglue_s with libxpcomglue_s_nomozalloc.a to prevent
 # undefined symbols. supposed to be compatible wth 1.9.
+# -lmozalloc ${GECKO_SDK_LIB}/libxpcomglue_s.a
 if test [ $IS_OSX -eq 1 ] ; then
-LIBXUL_LDFLAGS="-L${GECKO_SDK_LIB} -lpthread -ldl ${GECKO_SDK_LIB}/libxpcomglue_s_nomozalloc.a  ${GECKO_SDK_LIB}/XUL"
+LIBXUL_LDFLAGS="-L${GECKO_SDK_LIB} ${GECKO_SDK_LIB}/libxpcomglue_s_nomozalloc.a ${GECKO_SDK_LIB}/XUL"
 else
 # LIBXUL_LDFLAGS="-L${GECKO_SDK_LIB} -lxul -lxpcom -lplds4 -lplc4 -lnspr4 -lpthread -ldl -lxpcomglue_s"
 LIBXUL_LDFLAGS="-L${GECKO_SDK_LIB} -lxul -lplds4 -lplc4 -lnspr4 -lpthread -ldl ${GECKO_SDK_LIB}/libxpcomglue_s.a"
@@ -1557,6 +1567,10 @@ then
     DEP_LIST+=" $COMPILED_GETTEXT_FILES"
 fi
 
+if test [ $IS_OSX -eq 1 ] ; then
+	DEP_LIST+=" $COMPILED_XULRUNNERBIN_FILES"
+fi
+
 DEP_LIST=`echo $DEP_LIST | sed -e "s,$DEP_PATH/,,g"`
 
 ####################################################
@@ -1774,6 +1788,9 @@ AC_SUBST(STATIC_LIBSTDCPP_ARCHIVE)
 AC_SUBST(STATIC_LIBDL_ARCHIVE)
 AC_SUBST(STATIC_LIBGCC_ARCHIVE)
 AC_SUBST(STATIC_LIBPTHREAD_ARCHIVE)
+
+# OSX XR binary
+AC_SUBST(COMPILED_XULRUNNERBIN_FILES)
 
 AM_CONDITIONAL([SIGN_BUILD], [test $SIGN_BUILD -eq 1])
 AC_SUBST(CERTIFICATE)
