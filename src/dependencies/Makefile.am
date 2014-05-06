@@ -513,11 +513,11 @@ zimlib-1.1: zimlib-master.zip
 
 # OSX i386
 zimlib-1.1/build-i386/lib/libzim.dylib zimlib-1.1/build-i386/lib/libzim.a: zimlib-1.1 xz/build/lib/liblzma.dylib
-	test ! -f zimlib-1.1/build-i386/lib/libzim.dylib && cd zimlib-1.1 && mkdir -p build-i386 && LDFLAGS=" -L$(DEP_PATH)/xz/build/lib/ " CC="$(CC32)" CXX="$(CXX32)" CFLAGS="-I$(DEP_PATH)/xz/build-i386/include" CXXFLAGS=" -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -I$(DEP_PATH)/xz/build-i386/include" LDFLAGS="-L$(DEP_PATH)/xz/build/lib" ./configure --enable-shared --disable-dependency-tracking --with-pic --prefix=$(DEP_PATH)/zimlib-1.1/build-i386 --enable-static --disable-libtool-lock && make clean && make && make install && install_name_tool -id libzim.dylib build-i386/lib/libzim.dylib || true
+	test ! -f zimlib-1.1/build-i386/lib/libzim.dylib && cd zimlib-1.1 && mkdir -p build-i386 && LDFLAGS=" -L$(DEP_PATH)/xz/build/lib/ " CC="$(CLCC32)" CXX="$(CLCXX32)" CFLAGS="-I$(DEP_PATH)/xz/build-i386/include" CXXFLAGS=" -stdlib=libstdc++ -std=c++11 -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -I$(DEP_PATH)/xz/build-i386/include" LDFLAGS="-L$(DEP_PATH)/xz/build/lib" ./configure --enable-shared --disable-dependency-tracking --with-pic --prefix=$(DEP_PATH)/zimlib-1.1/build-i386 --enable-static --disable-libtool-lock && make clean && make && make install && install_name_tool -id libzim.dylib build-i386/lib/libzim.dylib || true
 
 # OSX x86_64
 zimlib-1.1/build-x86_64/lib/libzim.dylib zimlib-1.1/build-x86_64/lib/libzim.a: zimlib-1.1 xz/build/lib/liblzma.dylib
-	test ! -f zimlib-1.1/build-x86_64/lib/libzim.dylib && cd zimlib-1.1 && mkdir -p build-x86_64 && LDFLAGS=" -L$(DEP_PATH)/xz/build/lib/ " CC="$(CC64)" CXX="$(CXX64)" CFLAGS="-I$(DEP_PATH)/xz/build-x86_64/include" CXXFLAGS=" -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -I$(DEP_PATH)/xz/build-x86_64/include" LDFLAGS="-L$(DEP_PATH)/xz/build/lib" ./configure --enable-shared --disable-dependency-tracking --with-pic --prefix=$(DEP_PATH)/zimlib-1.1/build-x86_64 --enable-static --disable-libtool-lock && make clean && make && make install && install_name_tool -id libzim.dylib build-x86_64/lib/libzim.dylib || true
+	test ! -f zimlib-1.1/build-x86_64/lib/libzim.dylib && cd zimlib-1.1 && mkdir -p build-x86_64 && LDFLAGS=" -L$(DEP_PATH)/xz/build/lib/ " CC="$(CLCC64)" CXX="$(CLCXX64)" CFLAGS="-I$(DEP_PATH)/xz/build-x86_64/include" CXXFLAGS=" -stdlib=libstdc++ -std=c++11 -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -I$(DEP_PATH)/xz/build-x86_64/include" LDFLAGS="-L$(DEP_PATH)/xz/build/lib" ./configure --enable-shared --disable-dependency-tracking --with-pic --prefix=$(DEP_PATH)/zimlib-1.1/build-x86_64 --enable-static --disable-libtool-lock && make clean && make && make install && install_name_tool -id libzim.dylib build-x86_64/lib/libzim.dylib || true
 
 # OSX Join
 zimlib-1.1/build/lib/libzim.dylib zimlib-1.1/build/lib/libzim.a: zimlib-1.1/build-i386/lib/libzim.dylib zimlib-1.1/build-x86_64/lib/libzim.dylib zimlib-1.1/build-i386/lib/libzim.a zimlib-1.1/build-x86_64/lib/libzim.a
@@ -580,6 +580,10 @@ gettext-0.18.3.2/build-i386/lib/libintl.dylib: gettext-0.18.3.2
 gettext-0.18.3.2/build-x86_64/lib/libintl.dylib: gettext-0.18.3.2
 	test ! -f gettext-0.18.3.2/build-x86_64/lib/libintl.dylib && cd gettext-0.18.3.2 && mkdir -p build-x86_64 && CC="$(CC64)" CXX="$(CXX64)" CXXFLAGS=" -fPIC " ./configure --disable-dependency-tracking --disable-java --disable-native-java --disable-rpath --enable-relocatable --enable-shared --enable-static --prefix=$(DEP_PATH)/gettext-0.18.3.2/build-x86_64 && make clean && make && make install && install_name_tool -id libintl.dylib build-x86_64/lib/libintl.dylib || true
 
+
+kiwix-osx-xulrunner-bin:
+	$(DOWNLOADER) kiwix-osx-xulrunner-bin $(DEP_MIRROR)/kiwix-osx-xulrunner-bin
+
 ####################################################
 ############ CLEANUP (ALL)
 ####################################################
@@ -620,6 +624,7 @@ DISTCLEANFILES= xulrunner-sdk.tar.bz2 \
 	android-m2repository.zip \
 	icudt49l.dat \
 	zimlib-master.zip \
+	kiwix-osx-xulrunner-bin \
 	libiconv-1.13.1.tar.gz
 
 clean-local:
