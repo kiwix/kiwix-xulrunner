@@ -62,3 +62,7 @@ else
 endif
 endif
 endif
+
+if IS_OSX
+libContentManager_la_CXXFLAGS+= -stdlib=libstdc++
+endif

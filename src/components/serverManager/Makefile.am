@@ -48,3 +48,7 @@ if HAVE_XPIDL
 else
 	$(HEADER_PY) --cachedir=/tmp -o IServerManager.h -I $(GECKO_IDL_PATH) $(top_srcdir)/src/components/serverManager/IServerManager.idl
 endif
+
+if IS_OSX
+libServerManager_la_CXXFLAGS+= -stdlib=libstdc++
+endif

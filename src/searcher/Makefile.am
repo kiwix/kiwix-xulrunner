@@ -25,4 +25,5 @@ endif
 
 if IS_OSX
 kiwix_search_LDFLAGS+= $(LIBICONV_STATIC_LDFLAGS) $(GETTEXT_STATIC_LDFLAGS) -framework IOKit -framework CoreFoundation
+kiwix_search_CXXFLAGS+= -stdlib=libstdc++
 endif

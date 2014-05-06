@@ -18,3 +18,7 @@ kiwix_read_LDFLAGS+= $(LIBZIM_STATIC_LDFLAGS) $(LZMA_STATIC_LDFLAGS) $(ICU_STATI
 else
 kiwix_read_LDFLAGS+= $(LIBZIM_LDFLAGS) $(ICU_LDFLAGS) $(LZMA_LDFLAGS) -lpthread
 endif
+
+if IS_OSX
+kiwix_read_CXXFLAGS+= -stdlib=libstdc++
+endif
