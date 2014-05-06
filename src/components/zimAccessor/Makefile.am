@@ -14,7 +14,9 @@ libZimAccessor_la_SOURCES= \
 	../../common/stringTools.h \
 	../../common/stringTools.cpp \
 	../../common/componentTools.h \
-	../../common/componentTools.cpp
+	../../common/componentTools.cpp \
+	../../common/regexTools.h \
+	../../common/regexTools.cpp
 libZimAccessor_la_CXXFLAGS=$(LIBZIM_CFLAGS) $(LIBXUL_CFLAGS) $(LZMA_CFLAGS) $(ICU_CFLAGS) $(XPCOM_CFLAGS) -D GECKO_VERSION=$(GECKO_VERSION) -I../../common/
 
 libZimAccessor_la_LDFLAGS=$(LIBZIM_LDFLAGS) $(LIBXUL_LDFLAGS) $(ICU_LDFLAGS) $(LZMA_LDFLAGS) $(XPCOM_LDFLAGS) -stdlib=libstdc++

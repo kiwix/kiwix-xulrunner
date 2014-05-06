@@ -19,8 +19,6 @@
 
 #include "xpcom-config.h"
 
-// #include <atomic>
-
 #if GECKO_VERSION > 1
 #if !defined(NS_ATTR_MALLOC)
   #define NS_ATTR_MALLOC
@@ -57,6 +55,7 @@
 
 #include <kiwix/reader.h>
 #include <pathTools.h>
+#include <regexTools.h>
 #include <componentTools.h>
 
 #include "IZimAccessor.h"
@@ -266,6 +265,7 @@ NS_IMETHODIMP ZimAccessor::GetContent(nsIURI *urlObject, nsACString &content, ui
   /* strings */
   string contentStr;
   string contentTypeStr;
+  string baseUrlStr;
   unsigned int contentLengthInt;
 
   /* default value */
@@ -274,8 +274,15 @@ NS_IMETHODIMP ZimAccessor::GetContent(nsIURI *urlObject, nsACString &content, ui
 
   try {
     if (this->reader != NULL) {
-      if (this->reader->getContentByUrl(url, contentStr, contentLengthInt, contentTypeStr)) {
-	contentType = nsDependentCString(contentTypeStr.data(), contentTypeStr.size());
+      if (this->reader->getContentByEncodedUrl(url, contentStr, contentLengthInt, contentTypeStr, baseUrlStr)) {
+	/* Add <base> tag in case of requested url is not the same delivered one */
+	if (contentTypeStr == "text/html") {
+	  std::string baseCode = "<head><base href=\"" + baseUrlStr + "\" />";
+	  contentStr = replaceRegex(contentStr, baseCode, "<head>");
+	  contentLengthInt += baseCode.size()-6;
+	}
+
+	contentType = nsDependentCString(contentTypeStr.data(), contentTypeStr.size()); 
 	content = nsDependentCString(contentStr.data(), contentStr.size());
 	*contentLength = contentLengthInt;
 	*retVal = PR_TRUE;

@@ -386,7 +386,7 @@ if test [ $IS_OSX -eq 1 ] ; then
 	COMPILED_LIBPUGIXML_FILES="${DEP_PATH}/pugixml-1.2/build/libpugixml.${SHARED_EXT} ${DEP_PATH}/pugixml-1.2/build/libpugixml.a"
 fi
 
-LIBCTPP2_CFLAGS=" -I${prefix}/include"
+LIBCTPP2_CFLAGS=" -I${prefix}/include "
 LIBCTPP2_LDFLAGS=" -lctpp2"
 LIBCTPP2_STATIC_LDFLAGS=""
 COMPILE_LIBCTPP2=0
@@ -1293,8 +1293,12 @@ else
 		# TODO: uncomment once we release it with pkg-config file
 		# AC_MSG_ERROR([[The libctpp2 version must be 1.1 or higher.]])
 		echo "Assuming libctpp2 version is 2.8.3"
-		LIBCTPP2_CFLAGS=`ctpp2-config --includes2`
-		LIBCTPP2_LDFLAGS=-L`ctpp2-config --libs`
+                AC_CHECK_TOOL(HAVE_CTPP2_CONFIG, "ctpp2-config", [], $CTPP2_CONFIG_PATH)
+                if test [ "$HAVE_CTPP2_CONFIG" ]
+                then
+                       LIBCTPP2_CFLAGS=`ctpp2-config --includes2`
+                       LIBCTPP2_LDFLAGS=-L`ctpp2-config --libs`
+                fi
 	else
 		LIBCTPP2_CFLAGS=`pkg-config --cflags libctpp2`
 		LIBCTPP2_LDFLAGS=`pkg-config --libs libctpp2`

@@ -1,6 +1,9 @@
 /* Load no plugin, this is useless and can bring to segfault (remember libmoon) */
 pref("plugin.disable", true);
 
+/* Disable plugin update checks */
+pref("extensions.getAddons.cache.enabled", true);
+
 /* Default skin */
 pref("general.skins.selectedSkin", "default");
 
