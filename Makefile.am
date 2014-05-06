@@ -158,6 +158,10 @@ diststatic:
 	cp -v $(ARIA2_FILES) $(STATIC_TMP)/kiwix/bin/aria2c
 	cp -v $(XAPIAN_COMPACT) $(STATIC_TMP)/kiwix/bin/xapian-compact
 
+if WITH_READER
+	cp src/reader/kiwix-read $(STATIC_TMP)/kiwix/bin/
+endif
+
 if WITH_INDEXER
 	cp src/indexer/kiwix-index $(STATIC_TMP)/kiwix/bin/
 endif
@@ -215,78 +219,90 @@ distmac:
 	rm -rf Kiwix.app
 	$(MKDIR_P) Kiwix.app
 	$(MKDIR_P) Kiwix.app/Contents
-	$(MKDIR_P) Kiwix.app/Contents/Frameworks
+# $(MKDIR_P) Kiwix.app/Contents/Frameworks
 	$(MKDIR_P) Kiwix.app/Contents/MacOS
 	$(MKDIR_P) Kiwix.app/Contents/Resources
 
-	cp -LR ./kiwix/ Kiwix.app/Contents/Resources/
+# Resources only contain English.lproj
+	$(MKDIR_P) Kiwix.app/Contents/Resources/English.lproj
+	cp -v src/macosx/InfoPlist.strings Kiwix.app/Contents/Resources/English.lproj/InfoPlist.strings
+	cp -v kiwix/chrome/icons/default/main.icns Kiwix.app/Contents/Resources/kiwix.icns
+	cp -v kiwix/chrome/icons/default/zim.icns Kiwix.app/Contents/Resources/kiwix-ZIM.icns
+
+# Contents
+	cp -v src/macosx/Info.plist Kiwix.app/Contents/Info.plist
+	cp -v src/macosx/PkgInfo Kiwix.app/Contents/PkgInfo
+
+# MacOS contains everything
+	cp -LR ./kiwix/ Kiwix.app/Contents/MacOS/
 	rm -rf `find Kiwix.app/Contents/Resources -type d -name .svn`
-	find Kiwix.app/Contents/Resources -name '*.inised' -exec rm -rf {} \;
-	find Kiwix.app/Contents/Resources -name 'Makefile' -delete
-	find Kiwix.app/Contents/Resources -name 'Makefile.in' -delete
-	find Kiwix.app/Contents/Resources -name 'Makefile.am*' -delete
+	find Kiwix.app/Contents/MacOS -name '*.inised' -exec rm -rf {} \;
+	find Kiwix.app/Contents/MacOS -name 'Makefile' -delete
+	find Kiwix.app/Contents/MacOS -name 'Makefile.in' -delete
+	find Kiwix.app/Contents/MacOS -name 'Makefile.am*' -delete
 
-	find Kiwix.app/Contents/Resources/components/ -type l -delete
-	cp -v ./kiwix/components/zimAccessor.xpt Kiwix.app/Contents/Resources/components/zimAccessor.xpt
-	cp -v ./kiwix/components/zimAccessor.dylib Kiwix.app/Contents/Resources/components/zimAccessor.dylib
-	cp -v ./kiwix/components/xapianAccessor.xpt Kiwix.app/Contents/Resources/components/xapianAccessor.xpt
-	cp -v ./kiwix/components/xapianAccessor.dylib Kiwix.app/Contents/Resources/components/xapianAccessor.dylib
-	cp -v ./kiwix/components/zimXapianIndexer.xpt Kiwix.app/Contents/Resources/components/zimXapianIndexer.xpt
-	cp -v ./kiwix/components/zimXapianIndexer.dylib Kiwix.app/Contents/Resources/components/zimXapianIndexer.dylib
-	cp -v ./kiwix/components/contentManager.xpt Kiwix.app/Contents/Resources/components/contentManager.xpt
-	cp -v ./kiwix/components/contentManager.dylib Kiwix.app/Contents/Resources/components/contentManager.dylib
-	cp -v ./kiwix/components/serverManager.xpt Kiwix.app/Contents/Resources/components/serverManager.xpt
-	cp -v ./kiwix/components/serverManager.dylib Kiwix.app/Contents/Resources/components/serverManager.dylib
-	cp -v src/components/components.list Kiwix.app/Contents/Resources/components/components.list
-	rsync -rl $(DEP_PATH)/xr_target/xulrunner-$(EXACT_GECKO_VERSION).en-US.mac/XUL.framework/ Kiwix.app/Contents/Frameworks/XUL.framework/
-	cp -v $(DEP_PATH)/xr_target/xulrunner-$(EXACT_GECKO_VERSION).en-US.mac/XUL.framework/Versions/Current/xulrunner Kiwix.app/Contents/MacOS/xulrunner
+	find Kiwix.app/Contents/MacOS/components/ -type l -delete
+	cp -v ./kiwix/components/zimAccessor.xpt Kiwix.app/Contents/MacOS/components/zimAccessor.xpt
+	cp -v ./kiwix/components/zimAccessor.dylib Kiwix.app/Contents/MacOS/components/zimAccessor.dylib
+	cp -v ./kiwix/components/xapianAccessor.xpt Kiwix.app/Contents/MacOS/components/xapianAccessor.xpt
+	cp -v ./kiwix/components/xapianAccessor.dylib Kiwix.app/Contents/MacOS/components/xapianAccessor.dylib
+	cp -v ./kiwix/components/zimXapianIndexer.xpt Kiwix.app/Contents/MacOS/components/zimXapianIndexer.xpt
+	cp -v ./kiwix/components/zimXapianIndexer.dylib Kiwix.app/Contents/MacOS/components/zimXapianIndexer.dylib
+	cp -v ./kiwix/components/contentManager.xpt Kiwix.app/Contents/MacOS/components/contentManager.xpt
+	cp -v ./kiwix/components/contentManager.dylib Kiwix.app/Contents/MacOS/components/contentManager.dylib
+	cp -v ./kiwix/components/serverManager.xpt Kiwix.app/Contents/MacOS/components/serverManager.xpt
+	cp -v ./kiwix/components/serverManager.dylib Kiwix.app/Contents/MacOS/components/serverManager.dylib
+	cp -v src/components/components.list Kiwix.app/Contents/MacOS/components/components.list
 
-	find Kiwix.app/Contents/Resources/components -type f -name '*.dylib' -exec python ./src/macosx/cleanup_rpath.py c {} \;
+# XR
+	rsync -av --copy-unsafe-links $(DEP_PATH)/xr_target/xulrunner-$(EXACT_GECKO_VERSION).en-US.mac/XUL.framework/Versions/Current/ Kiwix.app/Contents/MacOS/
+# cp -v $(DEP_PATH)/xr_target/xulrunner-$(EXACT_GECKO_VERSION).en-US.mac/XUL.framework/Versions/Current/xulrunner Kiwix.app/Contents/MacOS/xulrunner
 
-	find Kiwix.app/Contents/Frameworks -type f -name '*.dylib' -exec python ./src/macosx/cleanup_rpath.py l {} \;
+	find Kiwix.app/Contents/MacOS/components -type f -name '*.dylib' -exec python ./src/macosx/cleanup_rpath.py c {} \;
 
-	mv Kiwix.app/Contents/Resources/chrome/content/main/js/logger_rlz.js Kiwix.app/Contents/Resources/chrome/content/main/js/logger.js
+	find Kiwix.app/Contents/MacOS -type f -name '*.dylib' -exec python ./src/macosx/cleanup_rpath.py l {} \;
 
-	if [ -f Kiwix.app/Contents/Resources/chrome/content.jar ] ; then rm -rf Kiwix.app/Contents/Resources/chrome/content ; fi
-	-rm -f Kiwix.app/Contents/Resources/chrome/chrome.manifest.{prod,dev}
-	if [ -f Kiwix.app/Contents/Resources/chrome/locale.jar ] ; then rm -rf Kiwix.app/Contents/Resources/chrome/locale ; fi
-	if [ -f Kiwix.app/Contents/Resources/chrome/skin.jar ] ; then rm -rf Kiwix.app/Contents/Resources/chrome/skin ; fi
+	mv Kiwix.app/Contents/MacOS/chrome/content/main/js/logger_rlz.js Kiwix.app/Contents/MacOS/chrome/content/main/js/logger.js
 
-	cp -Lv $(EMBED_LIBS) Kiwix.app/Contents/Frameworks/
+	if [ -f Kiwix.app/Contents/MacOS/chrome/content.jar ] ; then rm -rf Kiwix.app/Contents/MacOS/chrome/content ; fi
+	-rm -f Kiwix.app/Contents/MacOS/chrome/chrome.manifest.{prod,dev}
+	if [ -f Kiwix.app/Contents/MacOS/chrome/locale.jar ] ; then rm -rf Kiwix.app/Contents/MacOS/chrome/locale ; fi
+	if [ -f Kiwix.app/Contents/MacOS/chrome/skin.jar ] ; then rm -rf Kiwix.app/Contents/MacOS/chrome/skin ; fi
 
-	strip `find Kiwix.app/Contents/Resources -executable -type f | grep -v ".sh" | grep -v ".py" | grep -v sugar` || true
+	cp -RLv $(EMBED_LIBS) Kiwix.app/Contents/MacOS/
 
-	mkdir -p Kiwix.app/Contents/Resources/bin
-	cp -v $(ARIA2_FILES) Kiwix.app/Contents/Resources/bin/aria2c
-	cp -v $(XAPIAN_COMPACT) Kiwix.app/Contents/Resources/bin/xapian-compact
+	strip `find Kiwix.app/Contents/MacOS -executable -type f | grep -v ".sh" | grep -v ".py" | grep -v sugar` || true
+
+	mkdir -p Kiwix.app/Contents/MacOS/bin
+	cp -v $(ARIA2_FILES) Kiwix.app/Contents/MacOS/bin/aria2c
+	cp -v $(XAPIAN_COMPACT) Kiwix.app/Contents/MacOS/bin/xapian-compact
 
 if WITH_INDEXER
-	cp -v src/indexer/kiwix-index Kiwix.app/Contents/Resources/bin/
+	cp -v src/indexer/kiwix-index Kiwix.app/Contents/MacOS/bin/
 endif
 
 if WITH_MANAGER
-	cp -v src/manager/kiwix-manage Kiwix.app/Contents/Resources/bin/
+	cp -v src/manager/kiwix-manage Kiwix.app/Contents/MacOS/bin/
 endif
 
 if WITH_INSTALLER
-	cp -v src/installer/kiwix-install Kiwix.app/Contents/Resources/bin/
+	cp -v src/installer/kiwix-install Kiwix.app/Contents/MacOS/bin/
 endif
 
 if WITH_SERVER
-	cp -v src/server/kiwix-serve Kiwix.app/Contents/Resources/bin/
+	cp -v src/server/kiwix-serve Kiwix.app/Contents/MacOS/bin/
 endif
 
-	chmod +x Kiwix.app/Contents/Resources/bin/*
+if WITH_READER
+	cp -v src/reader/kiwix-read Kiwix.app/Contents/MacOS/bin/
+endif
 
-	rm Kiwix.app/Contents/Resources/*.bat
+	chmod +x Kiwix.app/Contents/MacOS/bin/*
+	rm Kiwix.app/Contents/MacOS/*.bat
 
-	cp -v kiwix/chrome/icons/default/main.icns Kiwix.app/Contents/Resources/kiwix.icns
-	cp -v kiwix/chrome/icons/default/zim.icns Kiwix.app/Contents/Resources/kiwix-ZIM.icns
-	cp -v src/macosx/Info.plist Kiwix.app/Contents/Info.plist
+	sed -i -e 's,\.so,\.dylib,g' Kiwix.app/Contents/MacOS/chrome.manifest
 
-	sed -i -e 's,\.so,\.dylib,g' Kiwix.app/Contents/Resources/chrome.manifest
-
-	cp -v Kiwix.app/Contents/Frameworks/XUL.framework/Versions/Current/libmozglue.dylib Kiwix.app/Contents/MacOS/libmozglue.dylib
+# cp -v Kiwix.app/Contents/Frameworks/XUL.framework/Versions/Current/libmozglue.dylib Kiwix.app/Contents/MacOS/libmozglue.dylib
 
 	chmod -R 755 Kiwix.app
 
@@ -310,39 +326,48 @@ universal: $(PACKAGE)-$(VERSION)-i386.dmg $(PACKAGE)-$(VERSION)-x86_64.dmg
 	bunzip2 -kf src/macosx/kiwix_template.dmg.bz2
 	hdiutil attach src/macosx/kiwix_template.dmg -noautoopen -quiet -mountpoint universal_tmp/ub
 	rm -rf universal_tmp/ub/Kiwix.app
-	rsync -rl universal_tmp/x86_64/Kiwix.app universal_tmp/ub/
+	rsync -av --copy-unsafe-links universal_tmp/x86_64/Kiwix.app universal_tmp/ub/
 
-	lipo -create -output universal_tmp/ub/Kiwix.app/Contents/Resources/components/zimAccessor.dylib -arch i386 universal_tmp/i386/Kiwix.app/Contents/Resources/components/zimAccessor.dylib -arch x86_64 universal_tmp/x86_64/Kiwix.app/Contents/Resources/components/zimAccessor.dylib
+	lipo -create -output universal_tmp/ub/Kiwix.app/Contents/MacOS/components/zimAccessor.dylib -arch i386 universal_tmp/i386/Kiwix.app/Contents/MacOS/components/zimAccessor.dylib -arch x86_64 universal_tmp/x86_64/Kiwix.app/Contents/MacOS/components/zimAccessor.dylib
 
-	lipo -create -output universal_tmp/ub/Kiwix.app/Contents/Resources/components/contentManager.dylib -arch i386 universal_tmp/i386/Kiwix.app/Contents/Resources/components/contentManager.dylib -arch x86_64 universal_tmp/x86_64/Kiwix.app/Contents/Resources/components/contentManager.dylib
+	lipo -create -output universal_tmp/ub/Kiwix.app/Contents/MacOS/components/contentManager.dylib -arch i386 universal_tmp/i386/Kiwix.app/Contents/MacOS/components/contentManager.dylib -arch x86_64 universal_tmp/x86_64/Kiwix.app/Contents/MacOS/components/contentManager.dylib
 
-	lipo -create -output universal_tmp/ub/Kiwix.app/Contents/Resources/components/serverManager.dylib -arch i386 universal_tmp/i386/Kiwix.app/Contents/Resources/components/serverManager.dylib -arch x86_64 universal_tmp/x86_64/Kiwix.app/Contents/Resources/components/serverManager.dylib
+	lipo -create -output universal_tmp/ub/Kiwix.app/Contents/MacOS/components/serverManager.dylib -arch i386 universal_tmp/i386/Kiwix.app/Contents/MacOS/components/serverManager.dylib -arch x86_64 universal_tmp/x86_64/Kiwix.app/Contents/MacOS/components/serverManager.dylib
 
-	lipo -create -output universal_tmp/ub/Kiwix.app/Contents/Resources/components/xapianAccessor.dylib -arch i386 universal_tmp/i386/Kiwix.app/Contents/Resources/components/xapianAccessor.dylib -arch x86_64 universal_tmp/x86_64/Kiwix.app/Contents/Resources/components/xapianAccessor.dylib
+	lipo -create -output universal_tmp/ub/Kiwix.app/Contents/MacOS/components/xapianAccessor.dylib -arch i386 universal_tmp/i386/Kiwix.app/Contents/MacOS/components/xapianAccessor.dylib -arch x86_64 universal_tmp/x86_64/Kiwix.app/Contents/MacOS/components/xapianAccessor.dylib
 
-	lipo -create -output universal_tmp/ub/Kiwix.app/Contents/Resources/components/zimXapianIndexer.dylib -arch i386 universal_tmp/i386/Kiwix.app/Contents/Resources/components/zimXapianIndexer.dylib -arch x86_64 universal_tmp/x86_64/Kiwix.app/Contents/Resources/components/zimXapianIndexer.dylib
+	lipo -create -output universal_tmp/ub/Kiwix.app/Contents/MacOS/components/zimXapianIndexer.dylib -arch i386 universal_tmp/i386/Kiwix.app/Contents/MacOS/components/zimXapianIndexer.dylib -arch x86_64 universal_tmp/x86_64/Kiwix.app/Contents/MacOS/components/zimXapianIndexer.dylib
 
 if WITH_INDEXER
-	lipo -create -output universal_tmp/ub/Kiwix.app/Contents/Resources/bin/kiwix-index -arch i386 universal_tmp/i386/Kiwix.app/Contents/Resources/bin/kiwix-index -arch x86_64 universal_tmp/x86_64/Kiwix.app/Contents/Resources/bin/kiwix-index
+	lipo -create -output universal_tmp/ub/Kiwix.app/Contents/MacOS/bin/kiwix-index -arch i386 universal_tmp/i386/Kiwix.app/Contents/MacOS/bin/kiwix-index -arch x86_64 universal_tmp/x86_64/Kiwix.app/Contents/MacOS/bin/kiwix-index
 endif
 
 if WITH_MANAGER
-	lipo -create -output universal_tmp/ub/Kiwix.app/Contents/Resources/bin/kiwix-manage -arch i386 universal_tmp/i386/Kiwix.app/Contents/Resources/bin/kiwix-manage -arch x86_64 universal_tmp/x86_64/Kiwix.app/Contents/Resources/bin/kiwix-manage
+	lipo -create -output universal_tmp/ub/Kiwix.app/Contents/MacOS/bin/kiwix-manage -arch i386 universal_tmp/i386/Kiwix.app/Contents/MacOS/bin/kiwix-manage -arch x86_64 universal_tmp/x86_64/Kiwix.app/Contents/MacOS/bin/kiwix-manage
 endif
 
 if WITH_INSTALLER
-	lipo -create -output universal_tmp/ub/Kiwix.app/Contents/Resources/bin/kiwix-install -arch i386 universal_tmp/i386/Kiwix.app/Contents/Resources/bin/kiwix-install -arch x86_64 universal_tmp/x86_64/Kiwix.app/Contents/Resources/bin/kiwix-install
+	lipo -create -output universal_tmp/ub/Kiwix.app/Contents/MacOS/bin/kiwix-install -arch i386 universal_tmp/i386/Kiwix.app/Contents/MacOS/bin/kiwix-install -arch x86_64 universal_tmp/x86_64/Kiwix.app/Contents/MacOS/bin/kiwix-install
 endif
 
 if WITH_SERVER
-	lipo -create -output universal_tmp/ub/Kiwix.app/Contents/Resources/bin/kiwix-serve -arch i386 universal_tmp/i386/Kiwix.app/Contents/Resources/bin/kiwix-serve -arch x86_64 universal_tmp/x86_64/Kiwix.app/Contents/Resources/bin/kiwix-serve
+	lipo -create -output universal_tmp/ub/Kiwix.app/Contents/MacOS/bin/kiwix-serve -arch i386 universal_tmp/i386/Kiwix.app/Contents/MacOS/bin/kiwix-serve -arch x86_64 universal_tmp/x86_64/Kiwix.app/Contents/MacOS/bin/kiwix-serve
 endif
 
-	find universal_tmp/ub/Kiwix.app/Contents/Resources/components -type f -name '*.dylib' -exec python ./src/macosx/cleanup_rpath.py c {} \;
+if WITH_READER
+	lipo -create -output universal_tmp/ub/Kiwix.app/Contents/MacOS/bin/kiwix-read -arch i386 universal_tmp/i386/Kiwix.app/Contents/MacOS/bin/kiwix-read -arch x86_64 universal_tmp/x86_64/Kiwix.app/Contents/MacOS/bin/kiwix-read
+endif
 
-	find universal_tmp/ub/Kiwix.app/Contents/Frameworks -type f -name '*.dylib' -exec python ./src/macosx/cleanup_rpath.py l {} \;
+	find universal_tmp/ub/Kiwix.app/Contents/MacOS/components -type f -name '*.dylib' -exec python ./src/macosx/cleanup_rpath.py c {} \;
 
-	find universal_tmp/ub/Kiwix.app/Contents/Resources/bin -type f -name '*' -exec python ./src/macosx/cleanup_rpath.py b {} \;
+	find universal_tmp/ub/Kiwix.app/Contents/MacOS -type f -name '*.dylib' -exec python ./src/macosx/cleanup_rpath.py l {} \;
+
+	find universal_tmp/ub/Kiwix.app/Contents/MacOS/bin -type f -name '*' -exec python ./src/macosx/cleanup_rpath.py b {} \;
+
+if IS_OSX
+	cp -v $(COMPILED_XULRUNNERBIN_FILES) universal_tmp/ub/Kiwix.app/Contents/MacOS/kiwix
+	chmod +x universal_tmp/ub/Kiwix.app/Contents/MacOS/kiwix
+endif
 
 if SIGN_BUILD
 	cp universal_tmp/ub/Kiwix.app/Contents/Frameworks/Versions/$(EXACT_GECKO_VERSION)/Info.plist universal_tmp/ub/Kiwix.app/Contents/Frameworks/Versions/$(EXACT_GECKO_VERSION)/Resources/Info.plist
