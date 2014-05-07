@@ -215,7 +215,7 @@ NS_IMETHODIMP ZimAccessor::GetPageUrlFromTitle(const nsACString &title, nsACStri
 /* Return the welcome page URL */
 NS_IMETHODIMP ZimAccessor::GetMainPageUrl(nsACString &url, mozbool *retVal) {
   *retVal = PR_FALSE;
-    
+
   try {
     if (this->reader != NULL) {
       string urlstr = this->reader->getMainPageUrl();
