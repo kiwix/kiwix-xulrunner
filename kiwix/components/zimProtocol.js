@@ -23,10 +23,9 @@ ZimprotocolHandler.prototype = {
     allowPort: function(port, scheme) { return false; },
 
     newURI: function(spec, charset, baseURI) {
-	/* Functions to make an url absolute */
+
 	function parseURI(url) {
 	    var m = String(url).replace(/^\s+|\s+$/g, '').match(/^([^:\/?#]+:)?(\/\/(?:[^:@]*(?::[^:@]*)?@)?(([^:\/?#]*)(?::(\d*))?))?([^?#]*)(\?[^#]*)?(#[\s\S]*)?/);
-	    // authority = '//' + user + ':' + pass '@' + hostname + ':' port
 	    return (m ? {
 		href : m[0] || '',
 		protocol : m[1] || '',
@@ -82,7 +81,7 @@ ZimprotocolHandler.prototype = {
 		       (spec[0] == 'A' || spec[0] == 'I' || spec[0] == '-')) {
 		uri.spec = 'zim://' + spec;
 	    } else {
-		uri.spec = absolutizeURI(baseURI.spec, spec);
+		uri.spec = 'zim:/' + absolutizeURI(baseURI.spec.substr(5), spec);
 	    }
 	} else {
 	    uri.spec = spec;
