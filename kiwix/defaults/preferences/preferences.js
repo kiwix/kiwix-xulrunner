@@ -1,3 +1,7 @@
+/* Lower the security and allow better local stuff loading */
+pref("security.fileuri.strict_origin_policy", false);
+pref("signed.applets.codebase_principal_support", true);
+
 /* Always allow fullscreen */
 pref("full-screen-api.approval-required", false);
 pref("full-screen-api.enabled", true);
