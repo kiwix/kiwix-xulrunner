@@ -81,9 +81,9 @@ function onQuit() {
 		} catch (e) { L.error (e.toString ()); }
 		
 		/* History */
-		var globalHistory = Components.classes["@mozilla.org/browser/global-history;2"]
+		var browserHistory = Components.classes["@mozilla.org/browser/nav-history-service;1"]
 		    .getService(Components.interfaces.nsIBrowserHistory);
-		globalHistory.removeAllPages();
+		browserHistory.removeAllPages();
 		
 		try {
 		    var os = Components.classes["@mozilla.org/observer-service;1"]
@@ -444,7 +444,7 @@ function managePurgeHistory() {
 
     /* History */
     var browserHistory = Components.classes["@mozilla.org/browser/nav-history-service;1"]
-        .getService(Components.interfaces.nsIBrowserHistory);
+	.getService(Components.interfaces.nsIBrowserHistory);
     browserHistory.removeAllPages();
     
     try {

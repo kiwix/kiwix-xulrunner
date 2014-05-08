@@ -82,3 +82,10 @@ src/server/kiwix-serve
 
 *.pyc
 ftp_pass.py
+
+.DS_Store
+.dirstamp
+._.*
+
+# OSXFuse
+.apdisk

@@ -1,5 +1,17 @@
+/* Lower the security and allow better local stuff loading */
+pref("security.fileuri.strict_origin_policy", false);
+pref("signed.applets.codebase_principal_support", true);
+
+/* Always allow fullscreen */
+pref("full-screen-api.approval-required", false);
+pref("full-screen-api.enabled", true);
+pref("full-screen-api.allow-trusted-requests-only", false);
+
 /* Load no plugin, this is useless and can bring to segfault (remember libmoon) */
 pref("plugin.disable", true);
+
+/* Disable plugin update checks */
+pref("extensions.getAddons.cache.enabled", true);
 
 /* Default skin */
 pref("general.skins.selectedSkin", "default");

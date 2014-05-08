@@ -265,7 +265,7 @@ fi
 
 if test [ $IS_OSX -eq 1 ]
 then
-	XULRUNNER_RUNTIME_PATH="${DEP_PATH}/xr_target/xulrunner-28.0.en-US.mac/XUL.framework"
+	XULRUNNER_RUNTIME_PATH="${DEP_PATH}/xr_target/xulrunner-29.0.en-US.mac/XUL.framework"
 else
 	XULRUNNER_RUNTIME_PATH="${DEP_PATH}/xulrunner"
 fi
@@ -278,30 +278,36 @@ ZLIB_CFLAGS=""
 ZLIB_LDFLAGS=" -lz"
 ZLIB_STATIC_LDFLAGS=""
 COMPILE_ZLIB=0
-COMPILED_ZLIB_CFLAGS="-I${DEP_PATH}/zlib-1.2.3"
-COMPILED_ZLIB_LDFLAGS="-L${DEP_PATH}/zlib-1.2.3/shared/lib  -lz"
+COMPILED_ZLIB_CFLAGS="-I${DEP_PATH}/zlib-1.2.8"
+COMPILED_ZLIB_LDFLAGS="-L${DEP_PATH}/zlib-1.2.8/shared/lib  -lz"
 if test [ $IS_WIN -eq 1 ]
 then
-    COMPILED_ZLIB_FILES="${DEP_PATH}/zlib-1.2.3/zlib.lib"
+    COMPILED_ZLIB_FILES="${DEP_PATH}/zlib-1.2.8/zlib.lib"
 else
-    COMPILED_ZLIB_FILES="${DEP_PATH}/zlib-1.2.3/shared/lib/libz.${SHARED_EXT}"
+    COMPILED_ZLIB_FILES="${DEP_PATH}/zlib-1.2.8/shared/lib/libz.${SHARED_EXT}"
 fi
-COMPILED_ZLIB_STATIC_LDFLAGS="${DEP_PATH}/zlib-1.2.3/static/lib/libz.a"
+COMPILED_ZLIB_STATIC_LDFLAGS="${DEP_PATH}/zlib-1.2.8/static/lib/libz.a"
+if test [ $IS_OSX -eq 1 ]
+then
+	COMPILED_ZLIB_LDFLAGS="-L${DEP_PATH}/zlib-1.2.8/build/shared/lib  -lz"
+	COMPILED_ZLIB_FILES="${DEP_PATH}/zlib-1.2.8/build/shared/lib/libz.${SHARED_EXT}"
+	COMPILED_ZLIB_STATIC_LDFLAGS="${DEP_PATH}/zlib-1.2.8/build/static/lib/libz.a"
+fi
 
 XAPIAN_CFLAGS=""
 XAPIAN_LDFLAGS="-lxapian"
 XAPIAN_STATIC_LDFLAGS=""
 COMPILE_XAPIAN=0
-COMPILED_XAPIAN_CFLAGS="-I${DEP_PATH}/xapian-core-1.2.3/build/include"
+COMPILED_XAPIAN_CFLAGS="-I${DEP_PATH}/xapian-core-1.2.17/include"
 if test [ $IS_WIN -eq 1 ] ; then
-    COMPILED_XAPIAN_FILES="${DEP_PATH}/xapian-core-1.2.3/win32/Release/libs/libunicode.lib"
+    COMPILED_XAPIAN_FILES="${DEP_PATH}/xapian-core-1.2.17/win32/Release/libs/libunicode.lib"
 else
-    COMPILED_XAPIAN_LDFLAGS="-L${DEP_PATH}/xapian-core-1.2.3/build/lib -lxapian"
-    COMPILED_XAPIAN_FILES="${DEP_PATH}/xapian-core-1.2.3/build/lib/libxapian.${SHARED_EXT}"
-    COMPILED_XAPIAN_STATIC_LDFLAGS="${DEP_PATH}/xapian-core-1.2.3/build/lib/libxapian.a"
+    COMPILED_XAPIAN_LDFLAGS="-L${DEP_PATH}/xapian-core-1.2.17/build/lib -lxapian"
+    COMPILED_XAPIAN_FILES="${DEP_PATH}/xapian-core-1.2.17/build/lib/libxapian.${SHARED_EXT}"
+    COMPILED_XAPIAN_STATIC_LDFLAGS="${DEP_PATH}/xapian-core-1.2.17/build/lib/libxapian.a"
 fi
 XAPIAN_COMPACT=""
-COMPILED_XAPIAN_COMPACT="${DEP_PATH}/xapian-core-1.2.3/build/bin/xapian-compact"
+COMPILED_XAPIAN_COMPACT="${DEP_PATH}/xapian-core-1.2.17/build/bin/xapian-compact"
 
 ICU_CFLAGS=""
 ICU_LDFLAGS="-licui18n -licuuc -licudata" # replaced by icu-config
@@ -316,6 +322,7 @@ else
 	COMPILED_ICU_CFLAGS="-I${DEP_PATH}/icu/source/build/include"
 	COMPILED_ICU_FILES="${DEP_PATH}/icu/source/build/lib/libicui18n.${SHARED_EXT} ${DEP_PATH}/icu/source/build/lib/libicuuc.${SHARED_EXT} ${DEP_PATH}/icu/source/build/lib/libicudata.${SHARED_EXT}"
 fi
+COMPILED_ICUDATA_DAT="${DEP_PATH}/icudt49l.dat"
 
 # used only for building kiwix-serve.
 MICROHTTPD_CFLAGS=""
@@ -373,18 +380,30 @@ else
 	COMPILED_LIBPUGIXML_STATIC_LDFLAGS="${DEP_PATH}/pugixml-1.2/libpugixml.a"
 	COMPILED_LIBPUGIXML_FILES="${DEP_PATH}/pugixml-1.2/libpugixml.${SHARED_EXT} ${DEP_PATH}/pugixml-1.2/libpugixml.a"
 fi
+if test [ $IS_OSX -eq 1 ] ; then
+	COMPILED_LIBPUGIXML_STATIC_LDFLAGS="${DEP_PATH}/pugixml-1.2/build/libpugixml.a"
+	COMPILED_LIBPUGIXML_LDFLAGS="-L${DEP_PATH}/pugixml-1.2/build -lpugixml"
+	COMPILED_LIBPUGIXML_STATIC_LDFLAGS="${DEP_PATH}/pugixml-1.2/build/libpugixml.a"
+	COMPILED_LIBPUGIXML_FILES="${DEP_PATH}/pugixml-1.2/build/libpugixml.${SHARED_EXT} ${DEP_PATH}/pugixml-1.2/build/libpugixml.a"
+fi
 
-LIBCTPP2_CFLAGS=" -I${prefix}/include -I${prefix}/include/ctpp2"
+LIBCTPP2_CFLAGS=" -I${prefix}/include "
 LIBCTPP2_LDFLAGS=" -lctpp2"
 LIBCTPP2_STATIC_LDFLAGS=""
 COMPILE_LIBCTPP2=0
 if test [ $IS_WIN -eq 1 ] ; then
 	COMPILED_LIBCTPP2_FILES="${DEP_PATH}/ctpp2-2.8.3/src/ctpp2.lib"
 else
-	COMPILED_LIBCTPP2_CFLAGS="-I${DEP_PATH}/ctpp2-2.8.3/build/complete/include/ctpp2"
+	COMPILED_LIBCTPP2_CFLAGS="-I${DEP_PATH}/ctpp2-2.8.3/build/complete/include"
 	COMPILED_LIBCTPP2_LDFLAGS="-L${DEP_PATH}/ctpp2-2.8.3/build/complete/lib -lctpp2"
 	COMPILED_LIBCTPP2_STATIC_LDFLAGS="${DEP_PATH}/ctpp2-2.8.3/build/complete/lib/libctpp2-st.a"
 	COMPILED_LIBCTPP2_FILES="${DEP_PATH}/ctpp2-2.8.3/build/complete/lib/libctpp2.${SHARED_EXT}"
+fi
+if test [ $IS_OSX -eq 1 ] ; then
+	COMPILED_LIBCTPP2_STATIC_LDFLAGS="ctpp2-2.8.3/build/lib/libctpp2-st.a"
+	COMPILED_LIBCTPP2_FILES="${DEP_PATH}/ctpp2-2.8.3/build/lib/libctpp2.${SHARED_EXT}"
+	COMPILED_LIBCTPP2_LDFLAGS="-L${DEP_PATH}/ctpp2-2.8.3/build/lib -lctpp2"
+	COMPILED_LIBCTPP2_CFLAGS="-I${DEP_PATH}/ctpp2-2.8.3/build/include"
 fi
 
 ARIA2_CFLAGS=""
@@ -396,6 +415,13 @@ elif test [ $IS_WIN -eq 1 ] ; then
 	COMPILED_ARIA2_FILES="${DEP_PATH}/aria2c.exe"
 else
 	COMPILED_ARIA2_FILES="${DEP_PATH}/aria2c"
+fi
+
+# OSX only
+if test [ $IS_OSX -eq 1 ] ; then
+	COMPILED_XULRUNNERBIN_FILES="${DEP_PATH}/kiwix-osx-xulrunner-bin"
+else
+	COMPILED_XULRUNNERBIN_FILES=""
 fi
 
 # uuid is used for binaries. only static.
@@ -491,6 +517,8 @@ then
 	WITH_LAUNCHER=1
 	WITH_SERVER=1
 	WITH_ANDROID=1
+	WITH_READER=1
+	WITH_SEARCHER=1
 	REQUIRE_STATIC=1
 elif test [ $IS_WIN -eq 1 ]
 then
@@ -621,6 +649,12 @@ AC_ARG_WITH([debug],
 			AC_HELP_STRING([--with-debug],
 						   [add debug symbols]),
 		    CFLAGS="${CFLAGS} -g3 -O0 -Wall -W -ansi"; CXXFLAGS="${CXXFLAGS} -g3 -O0 -Wall -W -ansi")
+
+# add limited debug symbols
+AC_ARG_WITH([minor-debug],
+			AC_HELP_STRING([--with-minor-debug],
+						   [add minor debug symbols]),
+		    CFLAGS="${CFLAGS} -g3 -O0"; CXXFLAGS="${CXXFLAGS} -g3 -O0")
 
 # test hardening
 AC_ARG_WITH([hardening],
@@ -754,11 +788,15 @@ AC_MSG_RESULT(checking for Gecko version... ${GECKO_VERSION})
 AM_CONDITIONAL([GECKO_OLD_BOOL_TYPE], [test "$GECKO_OLD_BOOL_TYPE"])
 AM_CONDITIONAL([GECKO_OLD_INT_TYPE], [test "$GECKO_OLD_INT_TYPE"])
 
-LIBXUL_CFLAGS="-I${GECKO_SDK_INCLUDE} -I${GECKO_INCLUDE_PATH} -I${GECKO_INCLUDE_PATH}/nspr/ -I/usr/include/nspr4 -fshort-wchar -D__STDC_LIMIT_MACROS"
+LIBXUL_CFLAGS="-I${GECKO_SDK_INCLUDE} -I${GECKO_INCLUDE_PATH} -I${GECKO_INCLUDE_PATH}/nspr/ -I/usr/include/nspr4 -fshort-wchar"
+if test [ $IS_OSX -eq 0 ]; then
+LIBXUL_CFLAGS+=" -D__STDC_LIMIT_MACROS"
+fi
 # replaced -lxpcomglue_s with libxpcomglue_s_nomozalloc.a to prevent
 # undefined symbols. supposed to be compatible wth 1.9.
+# -lmozalloc ${GECKO_SDK_LIB}/libxpcomglue_s.a
 if test [ $IS_OSX -eq 1 ] ; then
-LIBXUL_LDFLAGS="-L${GECKO_SDK_LIB} -lxpcom -lplds4 -lplc4 -lnspr4 -lpthread -ldl ${GECKO_SDK_LIB}/libxpcomglue_s_nomozalloc.a  ${GECKO_SDK_LIB}/XUL"
+LIBXUL_LDFLAGS="-L${GECKO_SDK_LIB} ${GECKO_SDK_LIB}/libxpcomglue_s_nomozalloc.a ${GECKO_SDK_LIB}/XUL"
 else
 # LIBXUL_LDFLAGS="-L${GECKO_SDK_LIB} -lxul -lxpcom -lplds4 -lplc4 -lnspr4 -lpthread -ldl -lxpcomglue_s"
 LIBXUL_LDFLAGS="-L${GECKO_SDK_LIB} -lxul -lplds4 -lplc4 -lnspr4 -lpthread -ldl ${GECKO_SDK_LIB}/libxpcomglue_s.a"
@@ -1266,8 +1304,12 @@ else
 		# TODO: uncomment once we release it with pkg-config file
 		# AC_MSG_ERROR([[The libctpp2 version must be 1.1 or higher.]])
 		echo "Assuming libctpp2 version is 2.8.3"
-		LIBCTPP2_CFLAGS=`ctpp2-config --includes2`
-		LIBCTPP2_LDFLAGS=-L`ctpp2-config --libs`
+                AC_CHECK_TOOL(HAVE_CTPP2_CONFIG, "ctpp2-config", [], $CTPP2_CONFIG_PATH)
+                if test [ "$HAVE_CTPP2_CONFIG" ]
+                then
+                       LIBCTPP2_CFLAGS=`ctpp2-config --includes2`
+                       LIBCTPP2_LDFLAGS=-L`ctpp2-config --libs`
+                fi
 	else
 		LIBCTPP2_CFLAGS=`pkg-config --cflags libctpp2`
 		LIBCTPP2_LDFLAGS=`pkg-config --libs libctpp2`
@@ -1540,6 +1582,12 @@ then
     DEP_LIST+=" $COMPILED_GETTEXT_FILES"
 fi
 
+if test [ $IS_OSX -eq 1 ] ; then
+	DEP_LIST+=" $COMPILED_XULRUNNERBIN_FILES"
+	DEP_LIST+=" $COMPILED_ICUDATA_DAT"
+	EMBED_LIBS+=" $COMPILED_ICUDATA_DAT"
+fi
+
 DEP_LIST=`echo $DEP_LIST | sed -e "s,$DEP_PATH/,,g"`
 
 ####################################################
@@ -1706,6 +1754,7 @@ AC_SUBST(ICU_LDFLAGS)
 AC_SUBST(ICU_STATIC_LDFLAGS)
 AC_SUBST(COMPILE_ICU)
 AC_SUBST(ICU_FILES)
+AC_SUBST(COMPILED_ICUDATA_DAT)
 
 AC_SUBST(MICROHTTPD_CFLAGS)
 AC_SUBST(MICROHTTPD_LDFLAGS)
@@ -1757,6 +1806,9 @@ AC_SUBST(STATIC_LIBSTDCPP_ARCHIVE)
 AC_SUBST(STATIC_LIBDL_ARCHIVE)
 AC_SUBST(STATIC_LIBGCC_ARCHIVE)
 AC_SUBST(STATIC_LIBPTHREAD_ARCHIVE)
+
+# OSX XR binary
+AC_SUBST(COMPILED_XULRUNNERBIN_FILES)
 
 AM_CONDITIONAL([SIGN_BUILD], [test $SIGN_BUILD -eq 1])
 AC_SUBST(CERTIFICATE)

@@ -26,6 +26,7 @@ Kiwix 0.9 rc3
 * FIXED: Small bug in library filtering (by language)
 * FIXED: "Illegal instruction" crash with old CPUs without SSE2 (#478)
 * FIXED: Download problem with Metalink files containing magnet links
+* FIXED: Allow fullscreen for videos
 * NEW: New supported user interface languages: Chuvash (cv), Fiji
   Hindi Latin script (hif-latn), Mongolian (mn), Newari (new),
   Sanskrit (sa), Uzbek (uz), Turkish (tr), Tagalog (tl), Talysh
@@ -35,7 +36,7 @@ Kiwix 0.9 rc3
 * NEW: Option to avoid dialog box asking for indexing (#330)
 * NEW: Menu item to launch indexing (#455)
 * NEW: Kiwix for Android (#109)
-* NEW: Compiles with xulrunner 17+
+* NEW: Run with xulrunner 29
 * NEW: Add "Cache-Control" HTTP headers to kiwix-serve output
 * NEW: Better searchbox focus handling
 * NEW: ZIM, indexes & library saved in profile in a portable manner
@@ -44,6 +45,7 @@ Kiwix 0.9 rc3
 * NEW: --nosearchbar option for kiwix-serve
 * NEW: Signature of Windows and OSX releases (install without warning)
 * NEW: Sort bookmarks alphabetically
+* NEW: Able to deal with ZIM files containing relative paths
 
 Kiwix 0.9 rc2
 * FIXED: kiwix-manage generate wrong size for splitted ZIM files (ID: 3547892)

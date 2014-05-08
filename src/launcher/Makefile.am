@@ -6,7 +6,7 @@ kiwix_launcher_SOURCES= kiwix-launcher.cpp \
 			../common/stringTools.cpp \
 			../common/pathTools.h \
 			../common/stringTools.h
-kiwix_launcher_CXXFLAGS= $(ICU_CFLAGS) -I../common/ -DMAJOR_GECKO_VERSION=\"$(MAJOR_GECKO_VERSION)\" 
+kiwix_launcher_CXXFLAGS= $(ICU_CFLAGS) -I../common/ -DMAJOR_GECKO_VERSION=\"$(MAJOR_GECKO_VERSION)\"
 kiwix_launcher_LDFLAGS=$(CHECK_LDFLAGS)
 
 if STATIC_BINS
@@ -15,3 +15,6 @@ else
 kiwix_launcher_LDFLAGS+= $(ICU_LDFLAGS) -ldl $(UUID_LDFLAGS) -lpthread
 endif
 
+if IS_OSX
+kiwix_launcher_CXXFLAGS+= -stdlib=libstdc++
+endif

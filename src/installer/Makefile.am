@@ -39,3 +39,7 @@ kiwix_install_LDFLAGS+= $(XAPIAN_STATIC_LDFLAGS) $(ICU_STATIC_LDFLAGS) $(UUID_ST
 else
 kiwix_install_LDFLAGS+= $(XAPIAN_LDFLAGS) $(ICU_LDFLAGS) $(UUID_LDFLAGS) $(LIBZIM_LDFLAGS) $(LIBPUGIXML_LDFLAGS) $(LZMA_LDFLAGS) $(ZLIB_LDFLAGS) -ldl -lpthread
 endif
+
+if IS_OSX
+kiwix_install_CXXFLAGS+= -stdlib=libstdc++
+endif

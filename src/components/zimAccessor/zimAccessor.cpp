@@ -55,6 +55,7 @@
 
 #include <kiwix/reader.h>
 #include <pathTools.h>
+#include <regexTools.h>
 #include <componentTools.h>
 
 #include "IZimAccessor.h"
@@ -74,7 +75,7 @@ class ZimAccessor : public IZimAccessor {
 public:
   NS_DECL_ISUPPORTS
   NS_DECL_IZIMACCESSOR
-  
+
   ZimAccessor();
 
 private:
@@ -130,7 +131,7 @@ NS_IMETHODIMP ZimAccessor::Unload(mozbool *retVal) {
 /* Reset the cursor for GetNextArticle() */
 NS_IMETHODIMP ZimAccessor::Reset(mozbool *retVal) {
   *retVal = PR_TRUE;
-  
+
   try {
     this->reader->reset();
   } catch (exception &e) {
@@ -152,7 +153,7 @@ NS_IMETHODIMP ZimAccessor::GetArticleCount(uint32_t *count, mozbool *retVal) {
     }
   } catch (exception &e) {
     cerr << e.what() << endl;
-  }  
+  }
 
   return NS_OK;
 }
@@ -163,13 +164,13 @@ NS_IMETHODIMP ZimAccessor::GetId(nsACString &id, mozbool *retVal) {
 
   try {
     if (this->reader != NULL) {
-      id = nsDependentCString(this->reader->getId().c_str(), 
+      id = nsDependentCString(this->reader->getId().c_str(),
 			      this->reader->getId().size());
       *retVal = PR_TRUE;
     }
   } catch (exception &e) {
     cerr << e.what() << endl;
-  }  
+  }
 
   return NS_OK;
 }
@@ -215,7 +216,7 @@ NS_IMETHODIMP ZimAccessor::GetPageUrlFromTitle(const nsACString &title, nsACStri
 /* Return the welcome page URL */
 NS_IMETHODIMP ZimAccessor::GetMainPageUrl(nsACString &url, mozbool *retVal) {
   *retVal = PR_FALSE;
-    
+
   try {
     if (this->reader != NULL) {
       string urlstr = this->reader->getMainPageUrl();
@@ -224,34 +225,34 @@ NS_IMETHODIMP ZimAccessor::GetMainPageUrl(nsACString &url, mozbool *retVal) {
     }
   } catch (exception &e) {
     cerr << e.what() << endl;
-  }  
+  }
 
   return NS_OK;
 }
 
 /* Get a metatag value */
-NS_IMETHODIMP ZimAccessor::GetMetatag(const nsACString &name, 
+NS_IMETHODIMP ZimAccessor::GetMetatag(const nsACString &name,
 				      nsACString &value, mozbool *retVal ) {
   const char *cname;
   NS_CStringGetData(name, &cname);
   string valueStr;
-  
+
   try {
     if (this->reader != NULL) {
       if (this->reader->getMetatag(cname, valueStr)) {
-	value = nsDependentCString(valueStr.data(), valueStr.size()); 
+	value = nsDependentCString(valueStr.data(), valueStr.size());
 	*retVal = PR_TRUE;
       }
     }
   } catch (exception &e) {
     cerr << e.what() << endl;
   }
-  
+
   return NS_OK;
 }
 
 /* Get a content from a zim file */
-NS_IMETHODIMP ZimAccessor::GetContent(nsIURI *urlObject, nsACString &content, uint32_t *contentLength, 
+NS_IMETHODIMP ZimAccessor::GetContent(nsIURI *urlObject, nsACString &content, uint32_t *contentLength,
 				      nsACString &contentType, mozbool *retVal) {
 
   *retVal = PR_FALSE;
@@ -264,6 +265,7 @@ NS_IMETHODIMP ZimAccessor::GetContent(nsIURI *urlObject, nsACString &content, ui
   /* strings */
   string contentStr;
   string contentTypeStr;
+  string baseUrlStr;
   unsigned int contentLengthInt;
 
   /* default value */
@@ -272,7 +274,14 @@ NS_IMETHODIMP ZimAccessor::GetContent(nsIURI *urlObject, nsACString &content, ui
 
   try {
     if (this->reader != NULL) {
-      if (this->reader->getContentByUrl(url, contentStr, contentLengthInt, contentTypeStr)) {
+      if (this->reader->getContentByEncodedUrl(url, contentStr, contentLengthInt, contentTypeStr, baseUrlStr)) {
+	/* Add <base> tag in case of requested url is not the same delivered one */
+	if (contentTypeStr == "text/html") {
+	  std::string baseCode = "<head><base href=\"" + baseUrlStr + "\" />";
+	  contentStr = replaceRegex(contentStr, baseCode, "<head>");
+	  contentLengthInt += baseCode.size()-6;
+	}
+
 	contentType = nsDependentCString(contentTypeStr.data(), contentTypeStr.size()); 
 	content = nsDependentCString(contentStr.data(), contentStr.size());
 	*contentLength = contentLengthInt;
@@ -282,7 +291,7 @@ NS_IMETHODIMP ZimAccessor::GetContent(nsIURI *urlObject, nsACString &content, ui
   } catch (exception &e) {
     cerr << e.what() << endl;
   }
-  
+
   return NS_OK;
 }
 
@@ -313,9 +322,9 @@ NS_IMETHODIMP ZimAccessor::GetNextSuggestion(nsACString &title, mozbool *retVal)
   try {
     if (this->reader != NULL) {
       if (this->reader->getNextSuggestion(titleStr)) {
-	title = nsDependentCString(titleStr.c_str(), 
+	title = nsDependentCString(titleStr.c_str(),
 				   titleStr.length());
-	*retVal = PR_TRUE;    
+	*retVal = PR_TRUE;
       }
     }
   } catch (exception &e) {
