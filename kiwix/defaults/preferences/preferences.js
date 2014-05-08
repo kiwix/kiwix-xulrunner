@@ -1,3 +1,8 @@
+/* Always allow fullscreen */
+pref("full-screen-api.approval-required", false);
+pref("full-screen-api.enabled", true);
+pref("full-screen-api.allow-trusted-requests-only", false);
+
 /* Load no plugin, this is useless and can bring to segfault (remember libmoon) */
 pref("plugin.disable", true);
 
