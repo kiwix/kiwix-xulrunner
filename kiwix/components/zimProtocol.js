@@ -15,7 +15,7 @@ function ZimprotocolHandler() {
 ZimprotocolHandler.prototype = {
     defaultPort: -1,
 
-    protocolFlags: Ci.nsIProtocolHandler.URI_NORELATIVE,
+    protocolFlags: Ci.nsIProtocolHandler.URI_LOADABLE_BY_ANYONE,
 
     classID: Components.ID("{ee042780-dcf9-11dd-8733-0002a5d5c51b}"),
     QueryInterface: XPCOMUtils.generateQI([Components.interfaces.nsIMyComponent]),
