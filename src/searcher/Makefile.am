@@ -5,6 +5,7 @@ kiwix_search_SOURCES= \
 	kiwix-search.cpp \
 	../common/resourceTools.cpp \
 	../common/stringTools.cpp \
+	../common/pathTools.cpp \
 	../common/kiwix/ctpp2/CTPP2VMStringLoader.cpp \
 	../common/kiwix/searcher.cpp \
 	../common/kiwix/xapianSearcher.cpp \
@@ -12,6 +13,7 @@ kiwix_search_SOURCES= \
 	../common/kiwix/searcher.h \
 	../common/resourceTools.h \
 	../common/stringTools.h \
+	../common/pathTools.h \
 	../common/kiwix/xapianSearcher.h
 kiwix_search_CXXFLAGS=$(XAPIAN_CFLAGS) $(ICU_CFLAGS) $(LIBCTPP2_CFLAGS) $(ZLIB_CFLAGS) $(UUID_CFLAGS) -I../common/
 
