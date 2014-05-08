@@ -162,6 +162,10 @@ if WITH_READER
 	cp src/reader/kiwix-read $(STATIC_TMP)/kiwix/bin/
 endif
 
+if WITH_SEARCHER
+	cp src/searcher/kiwix-search $(STATIC_TMP)/kiwix/bin/
+endif
+
 if WITH_INDEXER
 	cp src/indexer/kiwix-index $(STATIC_TMP)/kiwix/bin/
 endif
@@ -297,6 +301,10 @@ if WITH_READER
 	cp -v src/reader/kiwix-read Kiwix.app/Contents/MacOS/bin/
 endif
 
+if WITH_SEARCHER
+	cp -v src/searcher/kiwix-search Kiwix.app/Contents/MacOS/bin/
+endif
+
 	chmod +x Kiwix.app/Contents/MacOS/bin/*
 	rm Kiwix.app/Contents/MacOS/*.bat
 
@@ -356,6 +364,10 @@ endif
 
 if WITH_READER
 	lipo -create -output universal_tmp/ub/Kiwix.app/Contents/MacOS/bin/kiwix-read -arch i386 universal_tmp/i386/Kiwix.app/Contents/MacOS/bin/kiwix-read -arch x86_64 universal_tmp/x86_64/Kiwix.app/Contents/MacOS/bin/kiwix-read
+endif
+
+if WITH_SEARCHER
+	lipo -create -output universal_tmp/ub/Kiwix.app/Contents/MacOS/bin/kiwix-search -arch i386 universal_tmp/i386/Kiwix.app/Contents/MacOS/bin/kiwix-search -arch x86_64 universal_tmp/x86_64/Kiwix.app/Contents/MacOS/bin/kiwix-search
 endif
 
 	find universal_tmp/ub/Kiwix.app/Contents/MacOS/components -type f -name '*.dylib' -exec python ./src/macosx/cleanup_rpath.py c {} \;

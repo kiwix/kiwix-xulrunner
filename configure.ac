@@ -298,16 +298,16 @@ XAPIAN_CFLAGS=""
 XAPIAN_LDFLAGS="-lxapian"
 XAPIAN_STATIC_LDFLAGS=""
 COMPILE_XAPIAN=0
-COMPILED_XAPIAN_CFLAGS="-I${DEP_PATH}/xapian-core-1.2.3/include"
+COMPILED_XAPIAN_CFLAGS="-I${DEP_PATH}/xapian-core-1.2.17/include"
 if test [ $IS_WIN -eq 1 ] ; then
-    COMPILED_XAPIAN_FILES="${DEP_PATH}/xapian-core-1.2.3/win32/Release/libs/libunicode.lib"
+    COMPILED_XAPIAN_FILES="${DEP_PATH}/xapian-core-1.2.17/win32/Release/libs/libunicode.lib"
 else
-    COMPILED_XAPIAN_LDFLAGS="-L${DEP_PATH}/xapian-core-1.2.3/build/lib -lxapian"
-    COMPILED_XAPIAN_FILES="${DEP_PATH}/xapian-core-1.2.3/build/lib/libxapian.${SHARED_EXT}"
-    COMPILED_XAPIAN_STATIC_LDFLAGS="${DEP_PATH}/xapian-core-1.2.3/build/lib/libxapian.a"
+    COMPILED_XAPIAN_LDFLAGS="-L${DEP_PATH}/xapian-core-1.2.17/build/lib -lxapian"
+    COMPILED_XAPIAN_FILES="${DEP_PATH}/xapian-core-1.2.17/build/lib/libxapian.${SHARED_EXT}"
+    COMPILED_XAPIAN_STATIC_LDFLAGS="${DEP_PATH}/xapian-core-1.2.17/build/lib/libxapian.a"
 fi
 XAPIAN_COMPACT=""
-COMPILED_XAPIAN_COMPACT="${DEP_PATH}/xapian-core-1.2.3/build/bin/xapian-compact"
+COMPILED_XAPIAN_COMPACT="${DEP_PATH}/xapian-core-1.2.17/build/bin/xapian-compact"
 
 ICU_CFLAGS=""
 ICU_LDFLAGS="-licui18n -licuuc -licudata" # replaced by icu-config
@@ -322,6 +322,7 @@ else
 	COMPILED_ICU_CFLAGS="-I${DEP_PATH}/icu/source/build/include"
 	COMPILED_ICU_FILES="${DEP_PATH}/icu/source/build/lib/libicui18n.${SHARED_EXT} ${DEP_PATH}/icu/source/build/lib/libicuuc.${SHARED_EXT} ${DEP_PATH}/icu/source/build/lib/libicudata.${SHARED_EXT}"
 fi
+COMPILED_ICUDATA_DAT="${DEP_PATH}/icudt49l.dat"
 
 # used only for building kiwix-serve.
 MICROHTTPD_CFLAGS=""
@@ -517,6 +518,7 @@ then
 	WITH_SERVER=1
 	WITH_ANDROID=1
 	WITH_READER=1
+	WITH_SEARCHER=1
 	REQUIRE_STATIC=1
 elif test [ $IS_WIN -eq 1 ]
 then
@@ -647,6 +649,12 @@ AC_ARG_WITH([debug],
 			AC_HELP_STRING([--with-debug],
 						   [add debug symbols]),
 		    CFLAGS="${CFLAGS} -g3 -O0 -Wall -W -ansi"; CXXFLAGS="${CXXFLAGS} -g3 -O0 -Wall -W -ansi")
+
+# add limited debug symbols
+AC_ARG_WITH([minor-debug],
+			AC_HELP_STRING([--with-minor-debug],
+						   [add minor debug symbols]),
+		    CFLAGS="${CFLAGS} -g3 -O0"; CXXFLAGS="${CXXFLAGS} -g3 -O0")
 
 # test hardening
 AC_ARG_WITH([hardening],
@@ -1573,6 +1581,8 @@ fi
 
 if test [ $IS_OSX -eq 1 ] ; then
 	DEP_LIST+=" $COMPILED_XULRUNNERBIN_FILES"
+	DEP_LIST+=" $COMPILED_ICUDATA_DAT"
+	EMBED_LIBS+=" $COMPILED_ICUDATA_DAT"
 fi
 
 DEP_LIST=`echo $DEP_LIST | sed -e "s,$DEP_PATH/,,g"`
@@ -1741,6 +1751,7 @@ AC_SUBST(ICU_LDFLAGS)
 AC_SUBST(ICU_STATIC_LDFLAGS)
 AC_SUBST(COMPILE_ICU)
 AC_SUBST(ICU_FILES)
+AC_SUBST(COMPILED_ICUDATA_DAT)
 
 AC_SUBST(MICROHTTPD_CFLAGS)
 AC_SUBST(MICROHTTPD_LDFLAGS)

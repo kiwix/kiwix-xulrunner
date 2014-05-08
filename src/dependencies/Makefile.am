@@ -161,45 +161,48 @@ zlib-1.2.8/zlib.lib: zlib-1.2.8
 ####################################################
 
 xapian-core.tar.gz:
-	$(DOWNLOADER) xapian-core.tar.gz $(DEP_MIRROR)/xapian-core-1.2.3.tar.gz
+	$(DOWNLOADER) xapian-core.tar.gz $(DEP_MIRROR)/xapian-core-1.2.17.tar.gz
 
-xapian-core-1.2.3: xapian-core.tar.gz
-	test -d xapian-core-1.2.3 || tar -xf xapian-core.tar.gz
+xapian-core-1.2.17.tar.xz:
+	$(DOWNLOADER) xapian-core-1.2.17.tar.xz $(DEP_MIRROR)/xapian-core-1.2.17.tar.xz
+
+xapian-core-1.2.17: xapian-core-1.2.17.tar.xz
+	test -d xapian-core-1.2.17 || tar -xf xapian-core-1.2.17.tar.xz
 
 # Linux
-xapian-core-1.2.3/build/lib/libxapian.so: xapian-core-1.2.3
-	test ! -f xapian-core-1.2.3/build/lib/libxapian.so && cd xapian-core-1.2.3 mkdir -p build && EXTERN_PATH=`pwd` CPPFLAGS="-I${CURRENT_PATH}/src/dependencies/zlib-1.2.8/" CXXFLAGS=" -fPIC -L${CURRENT_PATH}/src/dependencies/zlib-1.2.8" ./configure --enable-shared --enable-static --disable-sse --disable-backend-inmemory --prefix=$(DEP_PATH)/xapian-core-1.2.3/build && make clean && make clean && make && make install || true
+xapian-core-1.2.17/build/lib/libxapian.so: xapian-core-1.2.17
+	test ! -f xapian-core-1.2.17/build/lib/libxapian.so && cd xapian-core-1.2.17 mkdir -p build && EXTERN_PATH=`pwd` CPPFLAGS="-I${CURRENT_PATH}/src/dependencies/zlib-1.2.8/" CXXFLAGS=" -fPIC -L${CURRENT_PATH}/src/dependencies/zlib-1.2.8" ./configure --enable-shared --enable-static --disable-sse --disable-backend-inmemory --prefix=$(DEP_PATH)/xapian-core-1.2.17/build && make clean && make clean && make && make install || true
 
 # OSX Join
-xapian-core-1.2.3/build/lib/libxapian.dylib xapian-core-1.2.3/build/bin/xapian-compact: xapian-core-1.2.3/build-i386/lib/libxapian.dylib xapian-core-1.2.3/build-x86_64/lib/libxapian.dylib xapian-core-1.2.3/build-i386/bin/xapian-compact xapian-core-1.2.3/build-x86_64/bin/xapian-compact
-	test ! -f xapian-core-1.2.3/build/lib/libxapian.dylib && mkdir -p xapian-core-1.2.3/build/{lib,bin} && cd xapian-core-1.2.3/build/lib && cp -r ../../build-i386/include ../ && lipo ../../build-x86_64/lib/libxapian.dylib ../../build-i386/lib/libxapian.dylib -create -output libxapian.dylib && lipo ../../build-x86_64/lib/libxapian.a ../../build-i386/lib/libxapian.a -create -output libxapian.a && cd ../bin && lipo ../../build-x86_64/bin/xapian-compact ../../build-i386/bin/xapian-compact -create -output xapian-compact && cd ../lib && install_name_tool -id libxapian.dylib libxapian.dylib || true
+xapian-core-1.2.17/build/lib/libxapian.dylib xapian-core-1.2.17/build/bin/xapian-compact: xapian-core-1.2.17/build-i386/lib/libxapian.dylib xapian-core-1.2.17/build-x86_64/lib/libxapian.dylib xapian-core-1.2.17/build-i386/bin/xapian-compact xapian-core-1.2.17/build-x86_64/bin/xapian-compact
+	test ! -f xapian-core-1.2.17/build/lib/libxapian.dylib && mkdir -p xapian-core-1.2.17/build/{lib,bin} && cd xapian-core-1.2.17/build/lib && cp -r ../../build-i386/include ../ && lipo ../../build-x86_64/lib/libxapian.dylib ../../build-i386/lib/libxapian.dylib -create -output libxapian.dylib && lipo ../../build-x86_64/lib/libxapian.a ../../build-i386/lib/libxapian.a -create -output libxapian.a && cd ../bin && lipo ../../build-x86_64/bin/xapian-compact ../../build-i386/bin/xapian-compact -create -output xapian-compact && cd ../lib && install_name_tool -id libxapian.dylib libxapian.dylib || true
 
 # OSX i386
-xapian-core-1.2.3/build-i386/lib/libxapian.dylib xapian-core-1.2.3/build-i386/bin/xapian-compact: xapian-core-1.2.3
-	test ! -f xapian-core-1.2.3/build-i386/lib/libxapian.dylib && cd xapian-core-1.2.3 && mkdir -p build-i386 && EXTERN_PATH=`pwd` CC="$(CC32)" CXX="$(CXX32)" CPPFLAGS="-I${CURRENT_PATH}/src/dependencies/zlib-1.2.8/" CXXFLAGS=" -fPIC  -L${CURRENT_PATH}/src/dependencies/zlib-1.2.8/build/shared/lib" ./configure --disable-backend-inmemory --enable-shared --enable-static --prefix=$(DEP_PATH)/xapian-core-1.2.3/build-i386 && make clean && make && make install && install_name_tool -id libxapian.dylib build-i386/lib/libxapian.dylib || true
+xapian-core-1.2.17/build-i386/lib/libxapian.dylib xapian-core-1.2.17/build-i386/bin/xapian-compact: xapian-core-1.2.17
+	test ! -f xapian-core-1.2.17/build-i386/lib/libxapian.dylib && cd xapian-core-1.2.17 && mkdir -p build-i386 && EXTERN_PATH=`pwd` CC="$(CC32)" CXX="$(CXX32)" ./configure --enable-shared --enable-static --disable-backend-inmemory --prefix=$(DEP_PATH)/xapian-core-1.2.17/build-i386 && make clean && make && make install && install_name_tool -id libxapian.dylib build-i386/lib/libxapian.dylib || true
 
 # OSX x86_64
-xapian-core-1.2.3/build-x86_64/lib/libxapian.dylib xapian-core-1.2.3/build-x86_64/bin/xapian-compact: xapian-core-1.2.3
-	test ! -f xapian-core-1.2.3/build-x86_64/lib/libxapian.dylib && cd xapian-core-1.2.3 && mkdir -p build-x86_64 && EXTERN_PATH=`pwd` CC="$(CC64)" CXX="$(CXX64)" CPPFLAGS="-I${CURRENT_PATH}/src/dependencies/zlib-1.2.8/" CXXFLAGS=" -fPIC  -L${CURRENT_PATH}/src/dependencies/zlib-1.2.8/build/shared/lib" ./configure --disable-backend-inmemory --enable-shared --enable-static --prefix=$(DEP_PATH)/xapian-core-1.2.3/build-x86_64 && make clean && make && make install && install_name_tool -id libxapian.dylib build-x86_64/lib/libxapian.dylib || true
+xapian-core-1.2.17/build-x86_64/lib/libxapian.dylib xapian-core-1.2.17/build-x86_64/bin/xapian-compact: xapian-core-1.2.17
+	test ! -f xapian-core-1.2.17/build-x86_64/lib/libxapian.dylib && cd xapian-core-1.2.17 && mkdir -p build-x86_64 && EXTERN_PATH=`pwd` CC="$(CC64)" CXX="$(CXX64)" ./configure --enable-shared --enable-static --disable-backend-inmemory --prefix=$(DEP_PATH)/xapian-core-1.2.17/build-x86_64 && make clean && make && make install && install_name_tool -id libxapian.dylib build-x86_64/lib/libxapian.dylib || true
 
 # Windows
 xapian-win32.zip:
 	$(DOWNLOADER) xapian-win32.zip $(DEP_MIRROR)/xapian-1.2.3-win32.zip
 
-xapian-core-1.2.3/win32: xapian-win32.zip
-	test -d xapian-core-1.2.3/win32 || unzip -o xapian-win32.zip
-	test -d win32 && mv win32 ./xapian-core-1.2.3/
+xapian-core-1.2.17/win32: xapian-win32.zip
+	test -d xapian-core-1.2.17/win32 || unzip -o xapian-win32.zip
+	test -d win32 && mv win32 ./xapian-core-1.2.17/
 
-xapian-core-1.2.3/win32/Release/libs/libunicode.lib: xapian-core-1.2.3 xapian-core-1.2.3/win32
-	cd xapian-core-1.2.3/win32; sed -e "s/\\-MD/\\-MT/" config.mak > config.mak.bis
-	cd xapian-core-1.2.3/win32; sed -e "s/C\\:\\\gnu\\\zlib123-dll/C\\:\\\slave\\\windows\\-32b\\\build\\\src\\\dependencies\\\zlib\\-1\\.2\\.3/" config.mak.bis > config.mak
-	cd xapian-core-1.2.3/win32; sed -e "s/zdll\\.lib/zlib\\.lib/" config.mak > config.mak.bis
-	cd xapian-core-1.2.3/win32; sed -e "s/.ZLIB_DIR.\\\include/(ZLIB_DIR)/" config.mak.bis > config.mak
-	cd xapian-core-1.2.3/win32; sed -e "s/.ZLIB_DIR.\\\lib/(ZLIB_DIR)/" config.mak > config.mak.bis
-	cd xapian-core-1.2.3/win32; cp config.mak.bis config.mak
-	cd xapian-core-1.2.3/win32; sed "/harness/{x;p;x;}" Makefile > Makefile.bis
-	cd xapian-core-1.2.3/win32; sed "s/^.*harness.*$$/42:/" Makefile.bis > Makefile
-	cd xapian-core-1.2.3/win32; export MAKEFLAGS=; nmake.exe -f Makefile
+xapian-core-1.2.17/win32/Release/libs/libunicode.lib: xapian-core-1.2.17 xapian-core-1.2.17/win32
+	cd xapian-core-1.2.17/win32; sed -e "s/\\-MD/\\-MT/" config.mak > config.mak.bis
+	cd xapian-core-1.2.17/win32; sed -e "s/C\\:\\\gnu\\\zlib123-dll/C\\:\\\slave\\\windows\\-32b\\\build\\\src\\\dependencies\\\zlib\\-1\\.2\\.3/" config.mak.bis > config.mak
+	cd xapian-core-1.2.17/win32; sed -e "s/zdll\\.lib/zlib\\.lib/" config.mak > config.mak.bis
+	cd xapian-core-1.2.17/win32; sed -e "s/.ZLIB_DIR.\\\include/(ZLIB_DIR)/" config.mak.bis > config.mak
+	cd xapian-core-1.2.17/win32; sed -e "s/.ZLIB_DIR.\\\lib/(ZLIB_DIR)/" config.mak > config.mak.bis
+	cd xapian-core-1.2.17/win32; cp config.mak.bis config.mak
+	cd xapian-core-1.2.17/win32; sed "/harness/{x;p;x;}" Makefile > Makefile.bis
+	cd xapian-core-1.2.17/win32; sed "s/^.*harness.*$$/42:/" Makefile.bis > Makefile
+	cd xapian-core-1.2.17/win32; export MAKEFLAGS=; nmake.exe -f Makefile
 
 ####################################################
 ############ ICU
@@ -236,11 +239,11 @@ icu/source/build/lib/libicudata.dylib icu/source/build/lib/libicuuc.dylib icu/so
 
 # OSX i386
 icu/source/build-i386/lib/libicudata.dylib icu/source/build-i386/lib/libicuuc.dylib icu/source/build-i386/lib/libicui18n.dylib: icu
-	test ! -f icu/source/build-i386/lib/libicudata.dylib && cd icu/source && mkdir -p build-i386 && CC="$(CC32)" CXX="$(CXX32)" CFLAGS=" -fPIC  " ./runConfigureICU MacOSX --prefix=${DEP_PATH}/icu/source/build-i386 --with-library-bits=32 --disable-samples --disable-tests --disable-extras --enable-static --disable-dyload && make clean && make && make install && install_name_tool -id libicudata.dylib build-i386/lib/libicudata.dylib && install_name_tool -id libicuuc.dylib build-i386/lib/libicuuc.dylib && install_name_tool -id libicui18n.dylib build-i386/lib/libicui18n.dylib || true
+	test ! -f icu/source/build-i386/lib/libicudata.dylib && cd icu/source && mkdir -p build-i386 && CC="$(CC32)" CXX="$(CXX32)" CFLAGS=" -fPIC -DICU_DATA_DIR='./' " ./runConfigureICU MacOSX --prefix=${DEP_PATH}/icu/source/build-i386 --with-library-bits=32 --disable-samples --disable-tests --disable-extras --enable-static --disable-dyload && make clean && make && make install && install_name_tool -id libicudata.dylib build-i386/lib/libicudata.dylib && install_name_tool -id libicuuc.dylib build-i386/lib/libicuuc.dylib && install_name_tool -id libicui18n.dylib build-i386/lib/libicui18n.dylib || true
 
 # OSX x86_64
 icu/source/build-x86_64/lib/libicudata.dylib icu/source/build-x86_64/lib/libicuuc.dylib icu/source/build-x86_64/lib/libicui18n.dylib: icu
-	test ! -f icu/source/build-x86_64/lib/libicudata.dylib && cd icu/source && mkdir -p build-x86_64 && CC="$(CC64)" CXX="$(CXX64)" CFLAGS=" -fPIC  " ./runConfigureICU MacOSX --prefix=${DEP_PATH}/icu/source/build-x86_64 --with-library-bits=64 --disable-samples --disable-tests --disable-extras --enable-static --disable-dyload && make clean && make && make install && install_name_tool -id libicudata.dylib build-x86_64/lib/libicudata.dylib && install_name_tool -id libicuuc.dylib build-x86_64/lib/libicuuc.dylib && install_name_tool -id libicui18n.dylib build-x86_64/lib/libicui18n.dylib || true
+	test ! -f icu/source/build-x86_64/lib/libicudata.dylib && cd icu/source && mkdir -p build-x86_64 && CC="$(CC64)" CXX="$(CXX64)" CFLAGS=" -fPIC -DICU_DATA_DIR='./' " ./runConfigureICU MacOSX --prefix=${DEP_PATH}/icu/source/build-x86_64 --with-library-bits=64 --disable-samples --disable-tests --disable-extras --enable-static --disable-dyload && make clean && make && make install && install_name_tool -id libicudata.dylib build-x86_64/lib/libicudata.dylib && install_name_tool -id libicuuc.dylib build-x86_64/lib/libicuuc.dylib && install_name_tool -id libicui18n.dylib build-x86_64/lib/libicui18n.dylib || true
 
 icu.zip:
 	$(DOWNLOADER) icu.zip $(DEP_MIRROR)/icu4c-49_1_1-Win32-msvc10.zip
@@ -629,7 +632,7 @@ DISTCLEANFILES= xulrunner-sdk.tar.bz2 \
 
 clean-local:
 	-rm -rf zlib-1.2.8
-	-rm -rf xapian-core-1.2.3
+	-rm -rf xapian-core-1.2.17
 	-rm -rf icu
 	-rm -rf pugixml-1.2
 	-rm -rf libmicrohttpd-0.9.19
