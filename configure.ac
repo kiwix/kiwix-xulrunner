@@ -789,6 +789,9 @@ AM_CONDITIONAL([GECKO_OLD_BOOL_TYPE], [test "$GECKO_OLD_BOOL_TYPE"])
 AM_CONDITIONAL([GECKO_OLD_INT_TYPE], [test "$GECKO_OLD_INT_TYPE"])
 
 LIBXUL_CFLAGS="-I${GECKO_SDK_INCLUDE} -I${GECKO_INCLUDE_PATH} -I${GECKO_INCLUDE_PATH}/nspr/ -I/usr/include/nspr4 -fshort-wchar"
+if test [ $IS_OSX -eq 0 ]; then
+LIBXUL_CFLAGS+=" -D__STDC_LIMIT_MACROS"
+fi
 # replaced -lxpcomglue_s with libxpcomglue_s_nomozalloc.a to prevent
 # undefined symbols. supposed to be compatible wth 1.9.
 # -lmozalloc ${GECKO_SDK_LIB}/libxpcomglue_s.a
