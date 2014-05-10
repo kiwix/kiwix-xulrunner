@@ -32,7 +32,9 @@ CLCXX64=clang++ -arch x86_64
 
 # tweak
 CC32=$(CLCC32)
-CXX64=$(CLCC32)
+CXX32=$(CLCC32)
+CC64=$(CLCC64)
+CXX64=$(CLCC64)
 
 else
 COMPC=$(CC)
