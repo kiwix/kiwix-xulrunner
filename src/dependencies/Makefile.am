@@ -510,7 +510,7 @@ zimlib-1.1.tar.gz:
 # 	tar xf zimlib-1.1.tar.gz
 
 zimlib-master.zip:
-	$(DOWNLOADER) zimlib-master.zip --no-check-certificate https://github.com/kiwix/openzim/archive/master.zip
+	$(DOWNLOADER) zimlib-master.zip https://github.com/kiwix/openzim/archive/master.zip
 
 zimlib-1.1: zimlib-master.zip
 	unzip -o zimlib-master.zip && mv openzim-master/zimlib zimlib-1.1 && cd zimlib-1.1 && touch Makefile.in && ./autogen.sh || true
