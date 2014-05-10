@@ -1617,7 +1617,7 @@ then
 	DOWNLOADER="$DOWNLOADER -O"
 elif test [ "$DOWNLOADERREQ" = "curl" ]
 then
-	DOWNLOADER="curl -C - --retry 10 --retry-delay 10 -o"
+	DOWNLOADER="curl -L -C - --retry 10 --retry-delay 10 -o"
 else
 	DOWNLOADER=$DOWNLOADERREQ
 fi
