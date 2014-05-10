@@ -1,20 +1,39 @@
 
 # OSX uses fat binaries
 if IS_OSX
-COMPC=gcc-4.8 -arch i386 -arch x86_64
-COMPCXX=g++-4.8 -arch i386 -arch x86_64
-CLCOMPC=gcc -arch i386 -arch x86_64
-CLCOMPCXX=g++ -arch i386 -arch x86_64
-CC=gcc-4.8
-CXX=g++-4.8
-CC32=gcc-4.8 -arch i386
-CXX32=g++-4.8 -arch i386
-CC64=gcc-4.8 -arch x86_64
-CXX64=g++-4.8 -arch x86_64
-CLCC32=gcc -arch i386
-CLCXX32=g++ -arch i386
-CLCC64=gcc -arch x86_64
-CLCXX64=g++ -arch x86_64
+# COMPC=gcc-4.8 -arch i386 -arch x86_64
+# COMPCXX=g++-4.8 -arch i386 -arch x86_64
+# CLCOMPC=gcc -arch i386 -arch x86_64
+# CLCOMPCXX=g++ -arch i386 -arch x86_64
+# CC=gcc-4.8
+# CXX=g++-4.8
+# CC32=gcc-4.8 -arch i386
+# CXX32=g++-4.8 -arch i386
+# CC64=gcc-4.8 -arch x86_64
+# CXX64=g++-4.8 -arch x86_64
+# CLCC32=gcc -arch i386
+# CLCXX32=g++ -arch i386
+# CLCC64=gcc -arch x86_64
+# CLCXX64=g++ -arch x86_64
+
+# GCC
+GNCC32=gcc-4.8 -arch i386
+GNCC64=gcc-4.8 -arch x86_64
+#G++
+GNCXX32=g++-4.8 -arch i386
+GNCXX64=g++-4.8 -arch x86_64
+
+# CLANG
+CLCC32=clang -arch i386
+CLCC64-clang -arch x86_64
+# CLANG++
+CLCXX32=clang++ -arch i386
+CLCXX64-clang++ -arch x86_64
+
+# tweak
+CC32=$(CLCC32)
+CXX64=$(CLCC32)
+
 else
 COMPC=$(CC)
 COMPCXX=$(CXX)
@@ -127,23 +146,19 @@ zlib-1.2.8/static/lib/libz.a: zlib-1.2.8
 zlib-1.2.8/shared/lib/libz.so: zlib-1.2.8 zlib-1.2.8/static/lib/libz.a
 	test ! -f zlib-1.2.8/shared/lib/libz.so && cd zlib-1.2.8 && mkdir -p shared && CC="$(COMPC)" CXX="$(COMPCXX)" CFLAGS=" -fPIC " ./configure --shared --prefix=$(DEP_PATH)/zlib-1.2.8/shared && make clean && make && make install || true
 
-# # OSX
-# zlib-1.2.8/shared/lib/libz.dylib: zlib-1.2.8 zlib-1.2.8/static/lib/libz.a
-# 	test ! -f zlib-1.2.8/shared/lib/libz.dylib && cd zlib-1.2.8 && mkdir -p shared && CC="$(COMPC)" CXX="$(COMPCXX)" CFLAGS=" -fPIC  " ./configure --shared --prefix=$(DEP_PATH)/zlib-1.2.8/shared && make clean && make && make install && install_name_tool -id libz.dylib shared/lib/libz.dylib || true
-
 # OSX i386
 zlib-1.2.8/build-i386/static/lib/libz.a: zlib-1.2.8
-	test ! -f zlib-1.2.8/build-i386/static/lib/libz.a && cd zlib-1.2.8 && mkdir -p build-i386 && mkdir -p static && CC="$(CC32)" CXX="$(CXX32)" CFLAGS=" -fPIC " ./configure --static --prefix=$(DEP_PATH)/zlib-1.2.8/build-i386/static && make clean && make && make install || true
+	test ! -f zlib-1.2.8/build-i386/static/lib/libz.a && cd zlib-1.2.8 && mkdir -p build-i386 && mkdir -p static && CC="$(CC32)" CFLAGS=" -fPIC " ./configure --static --prefix=$(DEP_PATH)/zlib-1.2.8/build-i386/static && make clean && make && make install || true
 
 zlib-1.2.8/build-i386/shared/lib/libz.dylib: zlib-1.2.8
-	test ! -f zlib-1.2.8/build-i386/shared/lib/libz.dylib && cd zlib-1.2.8 && mkdir -p build-i386 && mkdir -p shared && CC="$(CC32)" CXX="$(CXX32)" CFLAGS=" -fPIC " ./configure --prefix=$(DEP_PATH)/zlib-1.2.8/build-i386/shared && make clean && make && make install || true
+	test ! -f zlib-1.2.8/build-i386/shared/lib/libz.dylib && cd zlib-1.2.8 && mkdir -p build-i386 && mkdir -p shared && CC="$(CC32)" CFLAGS=" -fPIC " ./configure --prefix=$(DEP_PATH)/zlib-1.2.8/build-i386/shared && make clean && make && make install || true
 
 # OSX x86_64
 zlib-1.2.8/build-x86_64/static/lib/libz.a: zlib-1.2.8
-	test ! -f zlib-1.2.8/build-x86_64/static/lib/libz.a && cd zlib-1.2.8 && mkdir -p build-x86_64 && mkdir -p static && CC="$(CC64)" CXX="$(CXX64)" CFLAGS=" -fPIC " ./configure --static --prefix=$(DEP_PATH)/zlib-1.2.8/build-x86_64/static && make clean && make && make install || true
+	test ! -f zlib-1.2.8/build-x86_64/static/lib/libz.a && cd zlib-1.2.8 && mkdir -p build-x86_64 && mkdir -p static && CC="$(CC64)" CFLAGS=" -fPIC " ./configure --static --prefix=$(DEP_PATH)/zlib-1.2.8/build-x86_64/static && make clean && make && make install || true
 
 zlib-1.2.8/build-x86_64/shared/lib/libz.dylib: zlib-1.2.8
-	test ! -f zlib-1.2.8/build-x86_64/shared/lib/libz.dylib && cd zlib-1.2.8 && mkdir -p build-x86_64 && mkdir -p shared && CC="$(CC64)" CXX="$(CXX64)" CFLAGS=" -fPIC " ./configure --prefix=$(DEP_PATH)/zlib-1.2.8/build-x86_64/shared && make clean && make && make install || true
+	test ! -f zlib-1.2.8/build-x86_64/shared/lib/libz.dylib && cd zlib-1.2.8 && mkdir -p build-x86_64 && mkdir -p shared && CC="$(CC64)" CFLAGS=" -fPIC " ./configure --prefix=$(DEP_PATH)/zlib-1.2.8/build-x86_64/shared && make clean && make && make install || true
 
 # OSX Join
 zlib-1.2.8/build/static/lib/libz.a: zlib-1.2.8/build-i386/static/lib/libz.a zlib-1.2.8/build-x86_64/static/lib/libz.a
