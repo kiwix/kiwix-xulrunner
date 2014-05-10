@@ -25,10 +25,10 @@ GNCXX64=g++-4.8 -arch x86_64
 
 # CLANG
 CLCC32=clang -arch i386
-CLCC64-clang -arch x86_64
+CLCC64=clang -arch x86_64
 # CLANG++
 CLCXX32=clang++ -arch i386
-CLCXX64-clang++ -arch x86_64
+CLCXX64=clang++ -arch x86_64
 
 # tweak
 CC32=$(CLCC32)
