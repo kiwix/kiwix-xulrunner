@@ -1,20 +1,6 @@
 
 # OSX uses fat binaries
 if IS_OSX
-# COMPC=gcc-4.8 -arch i386 -arch x86_64
-# COMPCXX=g++-4.8 -arch i386 -arch x86_64
-# CLCOMPC=gcc -arch i386 -arch x86_64
-# CLCOMPCXX=g++ -arch i386 -arch x86_64
-# CC=gcc-4.8
-# CXX=g++-4.8
-# CC32=gcc-4.8 -arch i386
-# CXX32=g++-4.8 -arch i386
-# CC64=gcc-4.8 -arch x86_64
-# CXX64=g++-4.8 -arch x86_64
-# CLCC32=gcc -arch i386
-# CLCXX32=g++ -arch i386
-# CLCC64=gcc -arch x86_64
-# CLCXX64=g++ -arch x86_64
 
 # GCC
 GNCC32=gcc-4.8 -arch i386
@@ -178,48 +164,45 @@ zlib-1.2.8/zlib.lib: zlib-1.2.8
 ####################################################
 
 xapian-core.tar.gz:
-	$(DOWNLOADER) xapian-core.tar.gz $(DEP_MIRROR)/xapian-core-1.2.17.tar.gz
+	$(DOWNLOADER) xapian-core.tar.gz $(DEP_MIRROR)/xapian-core-1.2.3.tar.gz
 
-xapian-core-1.2.17.tar.xz:
-	$(DOWNLOADER) xapian-core-1.2.17.tar.xz $(DEP_MIRROR)/xapian-core-1.2.17.tar.xz
-
-xapian-core-1.2.17: xapian-core-1.2.17.tar.xz
-	test -d xapian-core-1.2.17 || tar -xf xapian-core-1.2.17.tar.xz
+xapian-core-1.2.3: xapian-core.tar.gz
+	test -d xapian-core-1.2.3 || tar -xf xapian-core.tar.gz
 
 # Linux
-xapian-core-1.2.17/build/lib/libxapian.so: xapian-core-1.2.17
-	test ! -f xapian-core-1.2.17/build/lib/libxapian.so && cd xapian-core-1.2.17 mkdir -p build && EXTERN_PATH=`pwd` CPPFLAGS="-I${CURRENT_PATH}/src/dependencies/zlib-1.2.8/" CXXFLAGS=" -fPIC -L${CURRENT_PATH}/src/dependencies/zlib-1.2.8" ./configure --enable-shared --enable-static --disable-sse --disable-backend-inmemory --prefix=$(DEP_PATH)/xapian-core-1.2.17/build && make clean && make clean && make && make install || true
+xapian-core-1.2.3/build/lib/libxapian.so: xapian-core-1.2.3
+	test ! -f xapian-core-1.2.3/build/lib/libxapian.so && cd xapian-core-1.2.3 mkdir -p build && EXTERN_PATH=`pwd` CPPFLAGS="-I${CURRENT_PATH}/src/dependencies/zlib-1.2.3/" CXXFLAGS=" -fPIC -L${CURRENT_PATH}/src/dependencies/zlib-1.2.3" ./configure --enable-shared --enable-static --disable-sse --disable-backend-inmemory --prefix=$(DEP_PATH)/xapian-core-1.2.3/build && make clean && make clean && make && make install || true
 
 # OSX Join
-xapian-core-1.2.17/build/lib/libxapian.dylib xapian-core-1.2.17/build/bin/xapian-compact: xapian-core-1.2.17/build-i386/lib/libxapian.dylib xapian-core-1.2.17/build-x86_64/lib/libxapian.dylib xapian-core-1.2.17/build-i386/bin/xapian-compact xapian-core-1.2.17/build-x86_64/bin/xapian-compact
-	test ! -f xapian-core-1.2.17/build/lib/libxapian.dylib && mkdir -p xapian-core-1.2.17/build/{lib,bin} && cd xapian-core-1.2.17/build/lib && cp -r ../../build-i386/include ../ && lipo ../../build-x86_64/lib/libxapian.dylib ../../build-i386/lib/libxapian.dylib -create -output libxapian.dylib && lipo ../../build-x86_64/lib/libxapian.a ../../build-i386/lib/libxapian.a -create -output libxapian.a && cd ../bin && lipo ../../build-x86_64/bin/xapian-compact ../../build-i386/bin/xapian-compact -create -output xapian-compact && cd ../lib && install_name_tool -id libxapian.dylib libxapian.dylib || true
+xapian-core-1.2.3/build/lib/libxapian.dylib xapian-core-1.2.3/build/bin/xapian-compact: xapian-core-1.2.3/build-i386/lib/libxapian.dylib xapian-core-1.2.3/build-x86_64/lib/libxapian.dylib xapian-core-1.2.3/build-i386/bin/xapian-compact xapian-core-1.2.3/build-x86_64/bin/xapian-compact
+	test ! -f xapian-core-1.2.3/build/lib/libxapian.dylib && mkdir -p xapian-core-1.2.3/build/{lib,bin} && cd xapian-core-1.2.3/build/lib && cp -r ../../build-i386/include ../ && lipo ../../build-x86_64/lib/libxapian.dylib ../../build-i386/lib/libxapian.dylib -create -output libxapian.dylib && lipo ../../build-x86_64/lib/libxapian.a ../../build-i386/lib/libxapian.a -create -output libxapian.a && cd ../bin && lipo ../../build-x86_64/bin/xapian-compact ../../build-i386/bin/xapian-compact -create -output xapian-compact && cd ../lib && install_name_tool -id libxapian.dylib libxapian.dylib || true
 
 # OSX i386
-xapian-core-1.2.17/build-i386/lib/libxapian.dylib xapian-core-1.2.17/build-i386/bin/xapian-compact: xapian-core-1.2.17
-	test ! -f xapian-core-1.2.17/build-i386/lib/libxapian.dylib && cd xapian-core-1.2.17 && mkdir -p build-i386 && EXTERN_PATH=`pwd` CC="$(CC32)" CXX="$(CXX32)" ./configure --enable-shared --enable-static --disable-backend-inmemory --prefix=$(DEP_PATH)/xapian-core-1.2.17/build-i386 && make clean && make && make install && install_name_tool -id libxapian.dylib build-i386/lib/libxapian.dylib || true
+xapian-core-1.2.3/build-i386/lib/libxapian.dylib xapian-core-1.2.3/build-i386/bin/xapian-compact: xapian-core-1.2.3
+	test ! -f xapian-core-1.2.3/build-i386/lib/libxapian.dylib && cd xapian-core-1.2.3 && mkdir -p build-i386 && EXTERN_PATH=`pwd` CC="gcc -arch i386" CXX="g++ -arch i386" CPPFLAGS="-I${CURRENT_PATH}/src/dependencies/zlib-1.2.3/" CXXFLAGS=" -fPIC  -L${CURRENT_PATH}/src/dependencies/zlib-1.2.3" ./configure --disable-backend-inmemory --enable-shared --enable-static --prefix=$(DEP_PATH)/xapian-core-1.2.3/build-i386 && make clean && make && make install && install_name_tool -id libxapian.dylib build-i386/lib/libxapian.dylib || true
 
 # OSX x86_64
-xapian-core-1.2.17/build-x86_64/lib/libxapian.dylib xapian-core-1.2.17/build-x86_64/bin/xapian-compact: xapian-core-1.2.17
-	test ! -f xapian-core-1.2.17/build-x86_64/lib/libxapian.dylib && cd xapian-core-1.2.17 && mkdir -p build-x86_64 && EXTERN_PATH=`pwd` CC="$(CC64)" CXX="$(CXX64)" ./configure --enable-shared --enable-static --disable-backend-inmemory --prefix=$(DEP_PATH)/xapian-core-1.2.17/build-x86_64 && make clean && make && make install && install_name_tool -id libxapian.dylib build-x86_64/lib/libxapian.dylib || true
+xapian-core-1.2.3/build-x86_64/lib/libxapian.dylib xapian-core-1.2.3/build-x86_64/bin/xapian-compact: xapian-core-1.2.3
+	test ! -f xapian-core-1.2.3/build-x86_64/lib/libxapian.dylib && cd xapian-core-1.2.3 && mkdir -p build-x86_64 && EXTERN_PATH=`pwd` CC="gcc -arch x86_64" CXX="g++ -arch x86_64" CPPFLAGS="-I${CURRENT_PATH}/src/dependencies/zlib-1.2.3/" CXXFLAGS=" -fPIC  -L${CURRENT_PATH}/src/dependencies/zlib-1.2.3" ./configure --disable-backend-inmemory --enable-shared --enable-static --prefix=$(DEP_PATH)/xapian-core-1.2.3/build-x86_64 && make clean && make && make install && install_name_tool -id libxapian.dylib build-x86_64/lib/libxapian.dylib || true
 
 # Windows
 xapian-win32.zip:
 	$(DOWNLOADER) xapian-win32.zip $(DEP_MIRROR)/xapian-1.2.3-win32.zip
 
-xapian-core-1.2.17/win32: xapian-win32.zip
-	test -d xapian-core-1.2.17/win32 || unzip -o xapian-win32.zip
-	test -d win32 && mv win32 ./xapian-core-1.2.17/
+xapian-core-1.2.3/win32: xapian-win32.zip
+	test -d xapian-core-1.2.3/win32 || unzip -o xapian-win32.zip
+	test -d win32 && mv win32 ./xapian-core-1.2.3/
 
-xapian-core-1.2.17/win32/Release/libs/libunicode.lib: xapian-core-1.2.17 xapian-core-1.2.17/win32
-	cd xapian-core-1.2.17/win32; sed -e "s/\\-MD/\\-MT/" config.mak > config.mak.bis
-	cd xapian-core-1.2.17/win32; sed -e "s/C\\:\\\gnu\\\zlib123-dll/C\\:\\\slave\\\windows\\-32b\\\build\\\src\\\dependencies\\\zlib\\-1\\.2\\.3/" config.mak.bis > config.mak
-	cd xapian-core-1.2.17/win32; sed -e "s/zdll\\.lib/zlib\\.lib/" config.mak > config.mak.bis
-	cd xapian-core-1.2.17/win32; sed -e "s/.ZLIB_DIR.\\\include/(ZLIB_DIR)/" config.mak.bis > config.mak
-	cd xapian-core-1.2.17/win32; sed -e "s/.ZLIB_DIR.\\\lib/(ZLIB_DIR)/" config.mak > config.mak.bis
-	cd xapian-core-1.2.17/win32; cp config.mak.bis config.mak
-	cd xapian-core-1.2.17/win32; sed "/harness/{x;p;x;}" Makefile > Makefile.bis
-	cd xapian-core-1.2.17/win32; sed "s/^.*harness.*$$/42:/" Makefile.bis > Makefile
-	cd xapian-core-1.2.17/win32; export MAKEFLAGS=; nmake.exe -f Makefile
+xapian-core-1.2.3/win32/Release/libs/libunicode.lib: xapian-core-1.2.3 xapian-core-1.2.3/win32
+	cd xapian-core-1.2.3/win32; sed -e "s/\\-MD/\\-MT/" config.mak > config.mak.bis
+	cd xapian-core-1.2.3/win32; sed -e "s/C\\:\\\gnu\\\zlib123-dll/C\\:\\\slave\\\windows\\-32b\\\build\\\src\\\dependencies\\\zlib\\-1\\.2\\.3/" config.mak.bis > config.mak
+	cd xapian-core-1.2.3/win32; sed -e "s/zdll\\.lib/zlib\\.lib/" config.mak > config.mak.bis
+	cd xapian-core-1.2.3/win32; sed -e "s/.ZLIB_DIR.\\\include/(ZLIB_DIR)/" config.mak.bis > config.mak
+	cd xapian-core-1.2.3/win32; sed -e "s/.ZLIB_DIR.\\\lib/(ZLIB_DIR)/" config.mak > config.mak.bis
+	cd xapian-core-1.2.3/win32; cp config.mak.bis config.mak
+	cd xapian-core-1.2.3/win32; sed "/harness/{x;p;x;}" Makefile > Makefile.bis
+	cd xapian-core-1.2.3/win32; sed "s/^.*harness.*$$/42:/" Makefile.bis > Makefile
+	cd xapian-core-1.2.3/win32; export MAKEFLAGS=; nmake.exe -f Makefile
 
 ####################################################
 ############ ICU
