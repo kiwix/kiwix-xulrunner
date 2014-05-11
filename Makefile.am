@@ -15,7 +15,7 @@ EXTRA_DIST = \
 	android \
 	CHANGELOG \
 	autogen.sh \
-	COMPILE
+	README
 
 # Additional files to remove by remove by running "make clean"
 CLEANFILES = \
