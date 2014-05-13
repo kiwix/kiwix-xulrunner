@@ -9,11 +9,13 @@ AM_CPPFLAGS=-I$(top_srcdir)/src/common
 libXapianAccessor_la_SOURCES= \
 	xapianAccessor.cpp \
 	../../common/stringTools.cpp \
+	../../common/pathTools.cpp \
 	../../common/resourceTools.cpp \
 	../../common/kiwix/ctpp2/CTPP2VMStringLoader.cpp \
 	../../common/kiwix/searcher.cpp \
 	../../common/kiwix/xapianSearcher.cpp \
 	../../common/stringTools.h \
+	../../common/pathTools.h \
 	../../common/resourceTools.h \
 	../../common/kiwix/ctpp2/CTPP2VMStringLoader.hpp \
 	../../common/kiwix/searcher.h \

@@ -298,16 +298,16 @@ XAPIAN_CFLAGS=""
 XAPIAN_LDFLAGS="-lxapian"
 XAPIAN_STATIC_LDFLAGS=""
 COMPILE_XAPIAN=0
-COMPILED_XAPIAN_CFLAGS="-I${DEP_PATH}/xapian-core-1.2.17/include"
+COMPILED_XAPIAN_CFLAGS="-I${DEP_PATH}/xapian-core-1.2.3/include"
 if test [ $IS_WIN -eq 1 ] ; then
-    COMPILED_XAPIAN_FILES="${DEP_PATH}/xapian-core-1.2.17/win32/Release/libs/libunicode.lib"
+    COMPILED_XAPIAN_FILES="${DEP_PATH}/xapian-core-1.2.3/win32/Release/libs/libunicode.lib"
 else
-    COMPILED_XAPIAN_LDFLAGS="-L${DEP_PATH}/xapian-core-1.2.17/build/lib -lxapian"
-    COMPILED_XAPIAN_FILES="${DEP_PATH}/xapian-core-1.2.17/build/lib/libxapian.${SHARED_EXT}"
-    COMPILED_XAPIAN_STATIC_LDFLAGS="${DEP_PATH}/xapian-core-1.2.17/build/lib/libxapian.a"
+    COMPILED_XAPIAN_LDFLAGS="-L${DEP_PATH}/xapian-core-1.2.3/build/lib -lxapian"
+    COMPILED_XAPIAN_FILES="${DEP_PATH}/xapian-core-1.2.3/build/lib/libxapian.${SHARED_EXT}"
+    COMPILED_XAPIAN_STATIC_LDFLAGS="${DEP_PATH}/xapian-core-1.2.3/build/lib/libxapian.a"
 fi
 XAPIAN_COMPACT=""
-COMPILED_XAPIAN_COMPACT="${DEP_PATH}/xapian-core-1.2.17/build/bin/xapian-compact"
+COMPILED_XAPIAN_COMPACT="${DEP_PATH}/xapian-core-1.2.3/build/bin/xapian-compact"
 
 ICU_CFLAGS=""
 ICU_LDFLAGS="-licui18n -licuuc -licudata" # replaced by icu-config
@@ -1608,7 +1608,7 @@ AC_ARG_WITH(downloader,
 echo "$DOWNLOADERREQ"
 if test [ "$DOWNLOADERREQ" = "" -o "$DOWNLOADERREQ" = "wget" ]
 then
-	DOWNLOADER="wget --wait=10 --timeout=600 -c"
+	DOWNLOADER="wget --wait=10 --timeout=600 --no-check-certificate -c"
 	wgetvers=`wget -V | head -n 1 | cut -f 3 -d " " | cut -f 1,2 -d "."`
 	if [ test $IS_WIN -eq 0 -a `echo "$wgetvers >= 1.13" | bc` -eq 1 ]
 	then
@@ -1617,7 +1617,7 @@ then
 	DOWNLOADER="$DOWNLOADER -O"
 elif test [ "$DOWNLOADERREQ" = "curl" ]
 then
-	DOWNLOADER="curl -C - --retry 10 --retry-delay 10 -o"
+	DOWNLOADER="curl -L -C - --retry 10 --retry-delay 10 -o"
 else
 	DOWNLOADER=$DOWNLOADERREQ
 fi
