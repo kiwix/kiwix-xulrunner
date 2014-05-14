@@ -39,7 +39,7 @@
 <!ENTITY main.transliteration.accesskey "अ">
 <!ENTITY main.preferences               "प्राथमिकताहरू">
 <!ENTITY main.preferences.accesskey     "त">
-<!ENTITY main.server                    "Server">
+<!ENTITY main.server                    "सर्भर">
 <!ENTITY main.server.accesskey          "s">
 
 <!-- Display menu -->
@@ -65,7 +65,7 @@
 <!ENTITY main.tabs.accesskey            "ट">
 <!ENTITY main.fullscreen                "पूरा पर्दा">
 <!ENTITY main.fullscreen.accesskey      "प">
-<!ENTITY main.invertedColors            "Inverted colors">
+<!ENTITY main.invertedColors            "रङ्ग उल्टाइएको">
 <!ENTITY main.invertedColors.accesskey  "I">
 
 <!-- Tools menu -->
@@ -117,8 +117,8 @@
 <!ENTITY main.openLinkInNewTab          "लिङ्कलाइ नयाँ ट्याबमा खोल्नुहोस">
 <!ENTITY main.searchFor                 "यसलाइ खोज्ने">
 <!ENTITY main.copyLinkAdress            "Copy link address">
-<!ENTITY main.mute                      "Mute">
-<!ENTITY main.audible                   "Audible">
+<!ENTITY main.mute                      "बन्द गर्ने">
+<!ENTITY main.audible                   "सुन्न मिल्ने">
 
 <!-- About Window -->
 <!ENTITY main.close                     "बन्द गर्ने">
@@ -131,14 +131,14 @@
 <!ENTITY preferences.dataDirectory      "Data directory">
 <!ENTITY preferences.browse             "पहिल्याउने">
 <!ENTITY preferences.tabs               "ट्याबहरु सम्झने">
-<!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">
-<!ENTITY preferences.neverAskToIndex    "Never ask to index">
+<!ENTITY preferences.downloadCatalogs   "क्याटालग(हरू) डाउनलोड गर्नुहोस्">
+<!ENTITY preferences.neverAskToIndex    "सुचीकरण गर्न कहिले पनि नसोध्नुहोस">
 
 <!-- Server -->
-<!ENTITY server.load                    "Load">
-<!ENTITY server.start                   "Start">
-<!ENTITY server.stop                    "Stop">
-<!ENTITY server.close                   "Close">
+<!ENTITY server.load                    "लोड गर्ने">
+<!ENTITY server.start                   "सुरु गर्ने">
+<!ENTITY server.stop                    "रोक्ने">
+<!ENTITY server.close                   "बन्द गर्ने">
 
 <!-- Library -->
 <!ENTITY main.library.myLibrary                 "मेरो पुस्तकालय">
@@ -158,5 +158,5 @@
 <!ENTITY main.library.filterBy.author.all       "सबै">
 <!ENTITY main.library.filterBy.publisher        "प्रकाशक">
 <!ENTITY main.library.filterBy.publisher.all    "सबै">
-<!ENTITY main.library.filterBy.lessThan         "Less than">
+<!ENTITY main.library.filterBy.lessThan         "भन्दा कम">
 

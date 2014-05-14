@@ -110,7 +110,7 @@
 <!ENTITY main.mark                      "이 페지의 표시하기">
 <!ENTITY main.unmark                    "이 페지의 표시 취소하기">
 <!ENTITY main.reload                    "여러 표시점 읽기">
-<!ENTITY main.defaultset                "기본 값 설정">
+<!ENTITY main.defaultset                "기본값 설정">
 
 <!-- Contextual Menu -->
 <!ENTITY main.saveImageAs               "그림자료기록철 새 이름으로 저장하기">
