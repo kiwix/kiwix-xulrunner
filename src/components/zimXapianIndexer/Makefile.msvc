@@ -5,7 +5,7 @@ LD=link.exe
 XULRUNNER_SDK=../../dependencies/xulrunner-sdk
 XAPIAN=../../dependencies/xapian-core-1.2.3
 ICU=../../dependencies/icu/
-Z=../../dependencies/zlib-1.2.3
+Z=../../dependencies/zlib-1.2.8
 ZIM=../../dependencies/zimlib-1.1
 PTHREAD=../../dependencies/pthread-win32
 
