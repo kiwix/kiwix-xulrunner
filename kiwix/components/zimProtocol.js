@@ -81,7 +81,11 @@ ZimprotocolHandler.prototype = {
 		       (spec[0] == 'A' || spec[0] == 'I' || spec[0] == '-')) {
 		uri.spec = 'zim://' + spec;
 	    } else {
-		uri.spec = 'zim:/' + absolutizeURI(baseURI.spec.substr(5), spec);
+		if (spec.substr(0, 5) != 'zim:/') {
+		    uri.spec = 'zim:/' + absolutizeURI(baseURI.spec.substr(5), spec);
+		} else {
+		    uri.spec = spec;
+		}
 	    }
 	} else {
 	    uri.spec = spec;
