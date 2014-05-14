@@ -426,7 +426,7 @@ ctpp2-2.8.3/build/lib/libctpp2.dylib ctpp2-2.8.3/build/lib/libctpp2-st.a: ctpp2-
 ctpp2-2.8.3/src/ctpp2.lib: ctpp2-2.8.3
 	test ! -f ctpp2-2.8.3/src/ctpp2.lib && cd ctpp2-2.8.3/src && rm -f vc90* && cp ../../patches/CTPP2SysHeaders.h ../include/ && cl.exe -O2 -Oi -I"../ctpp2"  -I"../cttp2/functions" -D"WIN32" -FD -EHsc -MT -Gy -nologo -c -Zi -TP *.cpp functions/*.cpp || true
 	test ! -f ctpp2-2.8.3/src/ctpp2.lib && cd ctpp2-2.8.3/src && link.exe -lib -NOLOGO -NODEFAULTLIB:"MSVCRT" -MACHINE:X86 -OUT:ctpp2.lib *.obj || true
-	test ! -f ctpp2-2.8.3/include && mv ctpp2-2.8.3/include ctpp2-2.8.3/ctpp2 || true
+	test ! -f ctpp2-2.8.3/ctpp2 && cp -r ctpp2-2.8.3/include ctpp2-2.8.3/ctpp2 || true
 
 ####################################################
 ############ ARGTABLE
