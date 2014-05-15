@@ -203,7 +203,7 @@ xapian-core-1.2.3/win32: xapian-win32.zip
 
 xapian-core-1.2.3/win32/Release/libs/libunicode.lib: xapian-core-1.2.3 xapian-core-1.2.3/win32
 	cd xapian-core-1.2.3/win32; sed -e "s/\\-MD/\\-MT/" config.mak > config.mak.bis
-	cd xapian-core-1.2.3/win32; sed -e "s/C\\:\\\gnu\\\zlib123-dll/C\\:\\\slave\\\windows\\-32b\\\build\\\src\\\dependencies\\\zlib\\-1\\.2\\.3/" config.mak.bis > config.mak
+	cd xapian-core-1.2.3/win32; sed -e "s/C\\:\\\gnu\\\zlib123-dll/C\\:\\\slave\\\windows\\-32b\\\build\\\src\\\dependencies\\\zlib\\-1\\.2\\.8/" config.mak.bis > config.mak
 	cd xapian-core-1.2.3/win32; sed -e "s/zdll\\.lib/zlib\\.lib/" config.mak > config.mak.bis
 	cd xapian-core-1.2.3/win32; sed -e "s/.ZLIB_DIR.\\\include/(ZLIB_DIR)/" config.mak.bis > config.mak
 	cd xapian-core-1.2.3/win32; sed -e "s/.ZLIB_DIR.\\\lib/(ZLIB_DIR)/" config.mak > config.mak.bis
@@ -436,9 +436,9 @@ ctpp2-2.8.3/build/lib/libctpp2.dylib ctpp2-2.8.3/build/lib/libctpp2-st.a: ctpp2-
 
 # Windows
 ctpp2-2.8.3/src/ctpp2.lib: ctpp2-2.8.3
-	test ! -f ctpp2-2.8.3/include && mv ctpp2-2.8.3/include ctpp2-2.8.3/ctpp2
-	test ! -f ctpp2-2.8.3/src/ctpp2.lib && cd ctpp2-2.8.3/src && rm -f vc90* && cp ../../patches/CTPP2SysHeaders.h ../include/ && cl.exe -O2 -Oi -I"../ctpp2"  -I"../cttp2/functions" -D"WIN32" -FD -EHsc -MT -Gy -nologo -c -Zi -TP *.cpp functions/*.cpp || true
+	test ! -f ctpp2-2.8.3/src/ctpp2.lib && cd ctpp2-2.8.3/src && rm -f vc90* && cp ../../patches/CTPP2SysHeaders.h ../include/ && cl.exe -O2 -Oi -I"../include"  -I"../include/functions" -D"WIN32" -FD -EHsc -MT -Gy -nologo -c -Zi -TP *.cpp functions/*.cpp || true
 	test ! -f ctpp2-2.8.3/src/ctpp2.lib && cd ctpp2-2.8.3/src && link.exe -lib -NOLOGO -NODEFAULTLIB:"MSVCRT" -MACHINE:X86 -OUT:ctpp2.lib *.obj || true
+	test ! -f ctpp2-2.8.3/ctpp2 && cp -r ctpp2-2.8.3/include ctpp2-2.8.3/ctpp2 || true
 
 ####################################################
 ############ ARGTABLE
