@@ -64,5 +64,6 @@ endif
 endif
 
 if IS_OSX
-libContentManager_la_CXXFLAGS+= -stdlib=libstdc++
+# libContentManager_la_CXXFLAGS+= -stdlib=libstdc++
+# libContentManager_la_LDFLAGS+= -static-libgcc -static-libstdc++
 endif

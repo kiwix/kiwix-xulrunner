@@ -19,7 +19,8 @@ libZimAccessor_la_SOURCES= \
 	../../common/regexTools.cpp
 libZimAccessor_la_CXXFLAGS=$(LIBZIM_CFLAGS) $(LIBXUL_CFLAGS) $(LZMA_CFLAGS) $(ICU_CFLAGS) $(XPCOM_CFLAGS) -D GECKO_VERSION=$(GECKO_VERSION) -I../../common/
 
-libZimAccessor_la_LDFLAGS=$(LIBZIM_LDFLAGS) $(LIBXUL_LDFLAGS) $(ICU_LDFLAGS) $(LZMA_LDFLAGS) $(XPCOM_LDFLAGS) -stdlib=libstdc++
+libZimAccessor_la_LDFLAGS=$(LIBZIM_LDFLAGS) $(LIBXUL_LDFLAGS) $(ICU_LDFLAGS) $(LZMA_LDFLAGS) $(XPCOM_LDFLAGS)
+#-stdlib=libstdc++
 # libZimAccessor_la_PKG_CXXFLAGS= -stdlib=libstdc++
 
 EXTRA_DIST=*.idl
@@ -49,5 +50,6 @@ endif
 endif
 
 if IS_OSX
-libZimAccessor_la_CXXFLAGS+= -I$(LIBICONV_CFLAGS) -stdlib=libstdc++
+libZimAccessor_la_CXXFLAGS+= -I$(LIBICONV_CFLAGS) # -stdlib=libstdc++
+# libZimAccessor_la_LDFLAGS+= -static-libgcc -static-libstdc++
 endif

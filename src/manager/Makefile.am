@@ -28,5 +28,7 @@ kiwix_manage_LDFLAGS+= $(LIBZIM_LDFLAGS) $(ICU_LDFLAGS) $(LIBPUGIXML_LDFLAGS) $(
 endif
 
 if IS_OSX
-kiwix_manage_CXXFLAGS+= -stdlib=libstdc++
+kiwix_manage_CXXFLAGS+= -std=c++11 -stdlib=libc++
+# kiwix_manage_LDFLAGS+= -static-libgcc -static-libstdc++
+# kiwix_manage_LDFLAGS+= -static-libstdc++
 endif

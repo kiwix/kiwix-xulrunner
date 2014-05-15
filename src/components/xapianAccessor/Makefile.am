@@ -52,4 +52,5 @@ endif
 
 if IS_OSX
 libXapianAccessor_la_CXXFLAGS+= -stdlib=libstdc++
+# libXapianAccessor_la_LDFLAGS+= -static-libgcc -static-libstdc++
 endif

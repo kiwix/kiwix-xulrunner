@@ -20,5 +20,6 @@ kiwix_read_LDFLAGS+= $(LIBZIM_LDFLAGS) $(ICU_LDFLAGS) $(LZMA_LDFLAGS) -lpthread
 endif
 
 if IS_OSX
-kiwix_read_CXXFLAGS+= -stdlib=libstdc++
+# kiwix_read_LDFLAGS+= -static-libgcc -static-libstdc++
+# kiwix_read_CXXFLAGS+= -stdlib=libstdc++
 endif

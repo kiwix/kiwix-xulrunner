@@ -16,5 +16,6 @@ kiwix_launcher_LDFLAGS+= $(ICU_LDFLAGS) -ldl $(UUID_LDFLAGS) -lpthread
 endif
 
 if IS_OSX
-kiwix_launcher_CXXFLAGS+= -stdlib=libstdc++
+# kiwix_launcher_CXXFLAGS+= -stdlib=libstdc++
+# kiwix_launcher_LDFLAGS+= -static-libgcc -static-libstdc++
 endif

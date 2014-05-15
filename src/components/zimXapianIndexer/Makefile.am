@@ -61,5 +61,6 @@ endif
 endif
 
 if IS_OSX
-libZimXapianIndexer_la_CXXFLAGS+= -stdlib=libstdc++
+# libZimXapianIndexer_la_CXXFLAGS+= -stdlib=libstdc++
+# libZimXapianIndexer_la_LDFLAGS+= -static-libgcc -static-libstdc++
 endif

@@ -50,5 +50,6 @@ else
 endif
 
 if IS_OSX
-libServerManager_la_CXXFLAGS+= -stdlib=libstdc++
+# libServerManager_la_CXXFLAGS+= -stdlib=libstdc++
+# libServerManager_la_LDFLAGS+= -static-libgcc -static-libstdc++
 endif

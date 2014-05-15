@@ -1,20 +1,35 @@
 
 # OSX uses fat binaries
 if IS_OSX
-COMPC=gcc-4.8 -arch i386 -arch x86_64
-COMPCXX=g++-4.8 -arch i386 -arch x86_64
-CLCOMPC=gcc -arch i386 -arch x86_64
-CLCOMPCXX=g++ -arch i386 -arch x86_64
-CC=gcc-4.8
-CXX=g++-4.8
-CC32=gcc-4.8 -arch i386
-CXX32=g++-4.8 -arch i386
-CC64=gcc-4.8 -arch x86_64
-CXX64=g++-4.8 -arch x86_64
-CLCC32=gcc -arch i386
-CLCXX32=g++ -arch i386
-CLCC64=gcc -arch x86_64
-CLCXX64=g++ -arch x86_64
+
+# GCC
+GNCCU=gcc-4.8
+GNCC32=gcc-4.8 -arch i386
+GNCC64=gcc-4.8 -arch x86_64
+#G++
+GNCXXU=g++-4.8
+GNCXX32=g++-4.8 -arch i386
+GNCXX64=g++-4.8 -arch x86_64
+GNCXXFLAGS=-static-libgcc -static-libstdc++
+
+# CLANG
+CLCCU=clang
+CLCC32=clang -arch i386
+CLCC64=clang -arch x86_64
+# CLANG++
+CLCXXU=clang++
+CLCXX32=clang++ -arch i386
+CLCXX64=clang++ -arch x86_64
+CLCXXFLAGS=-stdlib=libstdc++ -std=c++11
+
+# tweak
+CCU=$(CLCCU)
+CC32=$(CLCC32)
+CXX32=$(CLCXX32)
+CC64=$(CLCC64)
+CXX64=$(CLCXX64)
+DEPCXXFLAGS=$(CLCXXFLAGS)
+
 else
 COMPC=$(CC)
 COMPCXX=$(CXX)
@@ -127,23 +142,19 @@ zlib-1.2.8/static/lib/libz.a: zlib-1.2.8
 zlib-1.2.8/shared/lib/libz.so: zlib-1.2.8 zlib-1.2.8/static/lib/libz.a
 	test ! -f zlib-1.2.8/shared/lib/libz.so && cd zlib-1.2.8 && mkdir -p shared && CC="$(COMPC)" CXX="$(COMPCXX)" CFLAGS=" -fPIC " ./configure --shared --prefix=$(DEP_PATH)/zlib-1.2.8/shared && make clean && make && make install || true
 
-# # OSX
-# zlib-1.2.8/shared/lib/libz.dylib: zlib-1.2.8 zlib-1.2.8/static/lib/libz.a
-# 	test ! -f zlib-1.2.8/shared/lib/libz.dylib && cd zlib-1.2.8 && mkdir -p shared && CC="$(COMPC)" CXX="$(COMPCXX)" CFLAGS=" -fPIC  " ./configure --shared --prefix=$(DEP_PATH)/zlib-1.2.8/shared && make clean && make && make install && install_name_tool -id libz.dylib shared/lib/libz.dylib || true
-
 # OSX i386
 zlib-1.2.8/build-i386/static/lib/libz.a: zlib-1.2.8
-	test ! -f zlib-1.2.8/build-i386/static/lib/libz.a && cd zlib-1.2.8 && mkdir -p build-i386 && mkdir -p static && CC="$(CC32)" CXX="$(CXX32)" CFLAGS=" -fPIC " ./configure --static --prefix=$(DEP_PATH)/zlib-1.2.8/build-i386/static && make clean && make && make install || true
+	test ! -f zlib-1.2.8/build-i386/static/lib/libz.a && cd zlib-1.2.8 && mkdir -p build-i386 && mkdir -p static && CC="$(CC32)" CFLAGS=" -fPIC " ./configure --static --prefix=$(DEP_PATH)/zlib-1.2.8/build-i386/static && make clean && make && make install || true
 
 zlib-1.2.8/build-i386/shared/lib/libz.dylib: zlib-1.2.8
-	test ! -f zlib-1.2.8/build-i386/shared/lib/libz.dylib && cd zlib-1.2.8 && mkdir -p build-i386 && mkdir -p shared && CC="$(CC32)" CXX="$(CXX32)" CFLAGS=" -fPIC " ./configure --prefix=$(DEP_PATH)/zlib-1.2.8/build-i386/shared && make clean && make && make install || true
+	test ! -f zlib-1.2.8/build-i386/shared/lib/libz.dylib && cd zlib-1.2.8 && mkdir -p build-i386 && mkdir -p shared && CC="$(CC32)" CFLAGS=" -fPIC " ./configure --prefix=$(DEP_PATH)/zlib-1.2.8/build-i386/shared && make clean && make && make install || true
 
 # OSX x86_64
 zlib-1.2.8/build-x86_64/static/lib/libz.a: zlib-1.2.8
-	test ! -f zlib-1.2.8/build-x86_64/static/lib/libz.a && cd zlib-1.2.8 && mkdir -p build-x86_64 && mkdir -p static && CC="$(CC64)" CXX="$(CXX64)" CFLAGS=" -fPIC " ./configure --static --prefix=$(DEP_PATH)/zlib-1.2.8/build-x86_64/static && make clean && make && make install || true
+	test ! -f zlib-1.2.8/build-x86_64/static/lib/libz.a && cd zlib-1.2.8 && mkdir -p build-x86_64 && mkdir -p static && CC="$(CC64)" CFLAGS=" -fPIC " ./configure --static --prefix=$(DEP_PATH)/zlib-1.2.8/build-x86_64/static && make clean && make && make install || true
 
 zlib-1.2.8/build-x86_64/shared/lib/libz.dylib: zlib-1.2.8
-	test ! -f zlib-1.2.8/build-x86_64/shared/lib/libz.dylib && cd zlib-1.2.8 && mkdir -p build-x86_64 && mkdir -p shared && CC="$(CC64)" CXX="$(CXX64)" CFLAGS=" -fPIC " ./configure --prefix=$(DEP_PATH)/zlib-1.2.8/build-x86_64/shared && make clean && make && make install || true
+	test ! -f zlib-1.2.8/build-x86_64/shared/lib/libz.dylib && cd zlib-1.2.8 && mkdir -p build-x86_64 && mkdir -p shared && CC="$(CC64)" CFLAGS=" -fPIC " ./configure --prefix=$(DEP_PATH)/zlib-1.2.8/build-x86_64/shared && make clean && make && make install || true
 
 # OSX Join
 zlib-1.2.8/build/static/lib/libz.a: zlib-1.2.8/build-i386/static/lib/libz.a zlib-1.2.8/build-x86_64/static/lib/libz.a
@@ -160,49 +171,46 @@ zlib-1.2.8/zlib.lib: zlib-1.2.8
 ############ XAPIAN
 ####################################################
 
-xapian-core.tar.gz:
-	$(DOWNLOADER) xapian-core.tar.gz $(DEP_MIRROR)/xapian-core-1.2.17.tar.gz
+xapian-core-1.2.3.tar.gz:
+	$(DOWNLOADER) xapian-core-1.2.3.tar.gz $(DEP_MIRROR)/xapian-core-1.2.3.tar.gz
 
-xapian-core-1.2.17.tar.xz:
-	$(DOWNLOADER) xapian-core-1.2.17.tar.xz $(DEP_MIRROR)/xapian-core-1.2.17.tar.xz
-
-xapian-core-1.2.17: xapian-core-1.2.17.tar.xz
-	test -d xapian-core-1.2.17 || tar -xf xapian-core-1.2.17.tar.xz
+xapian-core-1.2.3: xapian-core-1.2.3.tar.gz
+	test -d xapian-core-1.2.3 || tar -xf xapian-core-1.2.3.tar.gz
 
 # Linux
-xapian-core-1.2.17/build/lib/libxapian.so: xapian-core-1.2.17
-	test ! -f xapian-core-1.2.17/build/lib/libxapian.so && cd xapian-core-1.2.17 mkdir -p build && EXTERN_PATH=`pwd` CPPFLAGS="-I${CURRENT_PATH}/src/dependencies/zlib-1.2.8/" CXXFLAGS=" -fPIC -L${CURRENT_PATH}/src/dependencies/zlib-1.2.8" ./configure --enable-shared --enable-static --disable-sse --disable-backend-inmemory --prefix=$(DEP_PATH)/xapian-core-1.2.17/build && make clean && make clean && make && make install || true
+xapian-core-1.2.3/build/lib/libxapian.so: xapian-core-1.2.3
+	test ! -f xapian-core-1.2.3/build/lib/libxapian.so && cd xapian-core-1.2.3 mkdir -p build && EXTERN_PATH=`pwd` CPPFLAGS="-I${CURRENT_PATH}/src/dependencies/zlib-1.2.3/" CXXFLAGS=" -fPIC -L${CURRENT_PATH}/src/dependencies/zlib-1.2.3" ./configure --enable-shared --enable-static --disable-sse --disable-backend-inmemory --prefix=$(DEP_PATH)/xapian-core-1.2.3/build && make clean && make clean && make && make install || true
 
 # OSX Join
-xapian-core-1.2.17/build/lib/libxapian.dylib xapian-core-1.2.17/build/bin/xapian-compact: xapian-core-1.2.17/build-i386/lib/libxapian.dylib xapian-core-1.2.17/build-x86_64/lib/libxapian.dylib xapian-core-1.2.17/build-i386/bin/xapian-compact xapian-core-1.2.17/build-x86_64/bin/xapian-compact
-	test ! -f xapian-core-1.2.17/build/lib/libxapian.dylib && mkdir -p xapian-core-1.2.17/build/{lib,bin} && cd xapian-core-1.2.17/build/lib && cp -r ../../build-i386/include ../ && lipo ../../build-x86_64/lib/libxapian.dylib ../../build-i386/lib/libxapian.dylib -create -output libxapian.dylib && lipo ../../build-x86_64/lib/libxapian.a ../../build-i386/lib/libxapian.a -create -output libxapian.a && cd ../bin && lipo ../../build-x86_64/bin/xapian-compact ../../build-i386/bin/xapian-compact -create -output xapian-compact && cd ../lib && install_name_tool -id libxapian.dylib libxapian.dylib || true
+xapian-core-1.2.3/build/lib/libxapian.dylib xapian-core-1.2.3/build/bin/xapian-compact: xapian-core-1.2.3/build-i386/lib/libxapian.dylib xapian-core-1.2.3/build-x86_64/lib/libxapian.dylib xapian-core-1.2.3/build-i386/bin/xapian-compact xapian-core-1.2.3/build-x86_64/bin/xapian-compact
+	test ! -f xapian-core-1.2.3/build/lib/libxapian.dylib && mkdir -p xapian-core-1.2.3/build/{lib,bin} && cd xapian-core-1.2.3/build/lib && cp -r ../../build-i386/include ../ && lipo ../../build-x86_64/lib/libxapian.dylib ../../build-i386/lib/libxapian.dylib -create -output libxapian.dylib && lipo ../../build-x86_64/lib/libxapian.a ../../build-i386/lib/libxapian.a -create -output libxapian.a && cd ../bin && lipo ../../build-x86_64/bin/xapian-compact ../../build-i386/bin/xapian-compact -create -output xapian-compact && cd ../lib && install_name_tool -id libxapian.dylib libxapian.dylib || true
 
 # OSX i386
-xapian-core-1.2.17/build-i386/lib/libxapian.dylib xapian-core-1.2.17/build-i386/bin/xapian-compact: xapian-core-1.2.17
-	test ! -f xapian-core-1.2.17/build-i386/lib/libxapian.dylib && cd xapian-core-1.2.17 && mkdir -p build-i386 && EXTERN_PATH=`pwd` CC="$(CC32)" CXX="$(CXX32)" ./configure --enable-shared --enable-static --disable-backend-inmemory --prefix=$(DEP_PATH)/xapian-core-1.2.17/build-i386 && make clean && make && make install && install_name_tool -id libxapian.dylib build-i386/lib/libxapian.dylib || true
+xapian-core-1.2.3/build-i386/lib/libxapian.dylib xapian-core-1.2.3/build-i386/bin/xapian-compact: xapian-core-1.2.3
+	test ! -f xapian-core-1.2.3/build-i386/lib/libxapian.dylib && cd xapian-core-1.2.3 && mkdir -p build-i386 && CXXFLAGS="$(DEPCXXFLAGS)" CXX="$(CXX32) -stdlib=libstdc++ -std=c++11" ./configure --disable-backend-inmemory --enable-shared --enable-static --disable-backend-inmemory --disable-backend-brass --prefix=`pwd`/build-i386 --disable-sse && make clean && make && make install && install_name_tool -id libxapian.dylib build-i386/lib/libxapian.dylib || true
 
 # OSX x86_64
-xapian-core-1.2.17/build-x86_64/lib/libxapian.dylib xapian-core-1.2.17/build-x86_64/bin/xapian-compact: xapian-core-1.2.17
-	test ! -f xapian-core-1.2.17/build-x86_64/lib/libxapian.dylib && cd xapian-core-1.2.17 && mkdir -p build-x86_64 && EXTERN_PATH=`pwd` CC="$(CC64)" CXX="$(CXX64)" ./configure --enable-shared --enable-static --disable-backend-inmemory --prefix=$(DEP_PATH)/xapian-core-1.2.17/build-x86_64 && make clean && make && make install && install_name_tool -id libxapian.dylib build-x86_64/lib/libxapian.dylib || true
+xapian-core-1.2.3/build-x86_64/lib/libxapian.dylib xapian-core-1.2.3/build-x86_64/bin/xapian-compact: xapian-core-1.2.3
+	test ! -f xapian-core-1.2.3/build-x86_64/lib/libxapian.dylib && cd xapian-core-1.2.3 && mkdir -p build-x86_64 && CXXFLAGS="$(DEPCXXFLAGS)" CXX="$(CXX64) -stdlib=libstdc++ -std=c++11" ./configure --disable-backend-inmemory --enable-shared --enable-static --disable-backend-inmemory --disable-backend-brass --prefix=`pwd`/build-x86_64 --disable-sse && make clean && make && make install && install_name_tool -id libxapian.dylib build-x86_64/lib/libxapian.dylib || true
 
 # Windows
 xapian-win32.zip:
 	$(DOWNLOADER) xapian-win32.zip $(DEP_MIRROR)/xapian-1.2.3-win32.zip
 
-xapian-core-1.2.17/win32: xapian-win32.zip
-	test -d xapian-core-1.2.17/win32 || unzip -o xapian-win32.zip
-	test -d win32 && mv win32 ./xapian-core-1.2.17/
+xapian-core-1.2.3/win32: xapian-win32.zip
+	test -d xapian-core-1.2.3/win32 || unzip -o xapian-win32.zip
+	test -d win32 && mv win32 ./xapian-core-1.2.3/
 
-xapian-core-1.2.17/win32/Release/libs/libunicode.lib: xapian-core-1.2.17 xapian-core-1.2.17/win32
-	cd xapian-core-1.2.17/win32; sed -e "s/\\-MD/\\-MT/" config.mak > config.mak.bis
-	cd xapian-core-1.2.17/win32; sed -e "s/C\\:\\\gnu\\\zlib123-dll/C\\:\\\slave\\\windows\\-32b\\\build\\\src\\\dependencies\\\zlib\\-1\\.2\\.3/" config.mak.bis > config.mak
-	cd xapian-core-1.2.17/win32; sed -e "s/zdll\\.lib/zlib\\.lib/" config.mak > config.mak.bis
-	cd xapian-core-1.2.17/win32; sed -e "s/.ZLIB_DIR.\\\include/(ZLIB_DIR)/" config.mak.bis > config.mak
-	cd xapian-core-1.2.17/win32; sed -e "s/.ZLIB_DIR.\\\lib/(ZLIB_DIR)/" config.mak > config.mak.bis
-	cd xapian-core-1.2.17/win32; cp config.mak.bis config.mak
-	cd xapian-core-1.2.17/win32; sed "/harness/{x;p;x;}" Makefile > Makefile.bis
-	cd xapian-core-1.2.17/win32; sed "s/^.*harness.*$$/42:/" Makefile.bis > Makefile
-	cd xapian-core-1.2.17/win32; export MAKEFLAGS=; nmake.exe -f Makefile
+xapian-core-1.2.3/win32/Release/libs/libunicode.lib: xapian-core-1.2.3 xapian-core-1.2.3/win32
+	cd xapian-core-1.2.3/win32; sed -e "s/\\-MD/\\-MT/" config.mak > config.mak.bis
+	cd xapian-core-1.2.3/win32; sed -e "s/C\\:\\\gnu\\\zlib123-dll/C\\:\\\slave\\\windows\\-32b\\\build\\\src\\\dependencies\\\zlib\\-1\\.2\\.3/" config.mak.bis > config.mak
+	cd xapian-core-1.2.3/win32; sed -e "s/zdll\\.lib/zlib\\.lib/" config.mak > config.mak.bis
+	cd xapian-core-1.2.3/win32; sed -e "s/.ZLIB_DIR.\\\include/(ZLIB_DIR)/" config.mak.bis > config.mak
+	cd xapian-core-1.2.3/win32; sed -e "s/.ZLIB_DIR.\\\lib/(ZLIB_DIR)/" config.mak > config.mak.bis
+	cd xapian-core-1.2.3/win32; cp config.mak.bis config.mak
+	cd xapian-core-1.2.3/win32; sed "/harness/{x;p;x;}" Makefile > Makefile.bis
+	cd xapian-core-1.2.3/win32; sed "s/^.*harness.*$$/42:/" Makefile.bis > Makefile
+	cd xapian-core-1.2.3/win32; export MAKEFLAGS=; nmake.exe -f Makefile
 
 ####################################################
 ############ ICU
@@ -234,16 +242,24 @@ icu/source/build/lib/libicudata.so icu/source/lib/libicuuc.so icu/source/build/l
 	test ! -f icu/source/build/lib/libicudata.so && cd icu/source && mkdir -p build && CFLAGS=" -fPIC " ./runConfigureICU Linux --prefix=$(DEP_PATH)/icu/source/build --disable-samples --disable-tests --disable-extras --enable-static --disable-dyload && make clean && make && make install || true
 
 # OSX FAT join
-icu/source/build/lib/libicudata.dylib icu/source/build/lib/libicuuc.dylib icu/source/build/lib/libicui18n.dylib: icu/source/build-x86_64/lib/libicudata.dylib icu/source/build-x86_64/lib/libicuuc.dylib icu/source/build-x86_64/lib/libicui18n.dylib icu/source/build-i386/lib/libicudata.dylib icu/source/build-i386/lib/libicuuc.dylib icu/source/build-i386/lib/libicui18n.dylib
-	test ! -f icu/source/build/lib/libicudata.dylib && mkdir -p icu/source/build/{bin,lib} && cd icu/source/build/lib && lipo ../../build-x86_64/lib/libicudata.dylib ../../build-i386/lib/libicudata.dylib -create -output libicudata.dylib && lipo ../../build-x86_64/lib/libicuuc.dylib ../../build-i386/lib/libicuuc.dylib -create -output libicuuc.dylib && lipo ../../build-x86_64/lib/libicui18n.dylib ../../build-i386/lib/libicui18n.dylib -create -output libicui18n.dylib && lipo ../../build-x86_64/lib/libicudata.a ../../build-i386/lib/libicudata.a -create -output libicudata.a && lipo ../../build-x86_64/lib/libicuuc.a ../../build-i386/lib/libicuuc.a -create -output libicuuc.a && lipo ../../build-x86_64/lib/libicui18n.a ../../build-i386/lib/libicui18n.a -create -output libicui18n.a && cp -r ../../build-i386/include ../  && install_name_tool -id libicudata.dylib libicudata.dylib && install_name_tool -id libicuuc.dylib libicuuc.dylib && install_name_tool -id libicui18n.dylib libicui18n.dylib || true
+icu/source/build/lib/libicudata.dylib icu/source/build/lib/libicuuc.dylib icu/source/build/lib/libicui18n.dylib: icu-x86_64/icu/source/build/lib/libicudata.dylib icu-x86_64/icu/source/build/lib/libicuuc.dylib icu-x86_64/icu/source/build/lib/libicui18n.dylib icu-i386/icu/source/build/lib/libicudata.dylib icu-i386/icu/source/build/lib/libicuuc.dylib icu-i386/icu/source/build/lib/libicui18n.dylib
+	test ! -f icu/source/build/lib/libicudata.dylib && mkdir -p icu/source/build/{bin,lib} && cd icu/source/build/lib && lipo $(DEP_PATH)/icu-x86_64/icu/source/build/lib/libicudata.dylib $(DEP_PATH)/icu-i386/icu/source/build/lib/libicudata.dylib -create -output libicudata.dylib && lipo $(DEP_PATH)/icu-x86_64/icu/source/build/lib/libicuuc.dylib $(DEP_PATH)/icu-i386/icu/source/build/lib/libicuuc.dylib -create -output libicuuc.dylib && lipo $(DEP_PATH)/icu-x86_64/icu/source/build/lib/libicui18n.dylib $(DEP_PATH)/icu-i386/icu/source/build/lib/libicui18n.dylib -create -output libicui18n.dylib && lipo $(DEP_PATH)/icu-x86_64/icu/source/build/lib/libicudata.a $(DEP_PATH)/icu-i386/icu/source/build/lib/libicudata.a -create -output libicudata.a && lipo $(DEP_PATH)/icu-x86_64/icu/source/build/lib/libicuuc.a $(DEP_PATH)/icu-i386/icu/source/build/lib/libicuuc.a -create -output libicuuc.a && lipo $(DEP_PATH)/icu-x86_64/icu/source/build/lib/libicui18n.a $(DEP_PATH)/icu-i386/icu/source/build/lib/libicui18n.a -create -output libicui18n.a && cp -r $(DEP_PATH)/icu-i386/icu/source/build/include ../  && install_name_tool -id libicudata.dylib libicudata.dylib && install_name_tool -id libicuuc.dylib libicuuc.dylib && install_name_tool -id libicui18n.dylib libicui18n.dylib || true
 
 # OSX i386
-icu/source/build-i386/lib/libicudata.dylib icu/source/build-i386/lib/libicuuc.dylib icu/source/build-i386/lib/libicui18n.dylib: icu
-	test ! -f icu/source/build-i386/lib/libicudata.dylib && cd icu/source && mkdir -p build-i386 && CC="$(CC32)" CXX="$(CXX32)" CFLAGS=" -fPIC " ./runConfigureICU MacOSX --prefix=${DEP_PATH}/icu/source/build-i386 --with-library-bits=32 --disable-samples --disable-tests --disable-extras --enable-static --disable-dyload --with-data-packaging=archive && make clean && make && make install && install_name_tool -id libicudata.dylib build-i386/lib/libicudata.dylib && install_name_tool -id libicuuc.dylib build-i386/lib/libicuuc.dylib && install_name_tool -id libicui18n.dylib build-i386/lib/libicui18n.dylib || true
+icu-i386/icu: icu4c-49_1_1-src.tgz
+	test -d icu-i386/icu || mkdir -p icu-i386 && tar -C icu-i386 -xf icu4c-49_1_1-src.tgz
+	cp icudt49l.dat icu-i386/icu/source/data/in/icudt49l.dat
+
+icu-i386/icu/source/build/lib/libicudata.dylib icu-i386/icu/source/build/lib/libicuuc.dylib icu-i386/icu/source/build/lib/libicui18n.dylib: icu-i386/icu
+	test ! -f icu-i386/icu/source/build/lib/libicudata.dylib && cd icu-i386/icu/source && mkdir -p build && CC="$(CCU)" CFLAGS=" -fPIC " ./runConfigureICU MacOSX --prefix=`pwd`/build --with-library-bits=32 --disable-samples --disable-tests --disable-extras --enable-static --disable-dyload --with-data-packaging=archive && make clean && make && make install && install_name_tool -id libicudata.dylib build/lib/libicudata.dylib && install_name_tool -id libicuuc.dylib build/lib/libicuuc.dylib && install_name_tool -id libicui18n.dylib build/lib/libicui18n.dylib || true
 
 # OSX x86_64
-icu/source/build-x86_64/lib/libicudata.dylib icu/source/build-x86_64/lib/libicuuc.dylib icu/source/build-x86_64/lib/libicui18n.dylib: icu
-	test ! -f icu/source/build-x86_64/lib/libicudata.dylib && cd icu/source && mkdir -p build-x86_64 && CC="$(CC64)" CXX="$(CXX64)" CFLAGS=" -fPIC " ./runConfigureICU MacOSX --prefix=${DEP_PATH}/icu/source/build-x86_64 --with-library-bits=64 --disable-samples --disable-tests --disable-extras --enable-static --disable-dyload --with-data-packaging=archive && make clean && make && make install && install_name_tool -id libicudata.dylib build-x86_64/lib/libicudata.dylib && install_name_tool -id libicuuc.dylib build-x86_64/lib/libicuuc.dylib && install_name_tool -id libicui18n.dylib build-x86_64/lib/libicui18n.dylib || true
+icu-x86_64/icu: icu4c-49_1_1-src.tgz
+	test -d icu-x86_64/icu || mkdir -p icu-x86_64 && tar -C icu-x86_64 -xf icu4c-49_1_1-src.tgz
+	cp icudt49l.dat icu-x86_64/icu/source/data/in/icudt49l.dat
+
+icu-x86_64/icu/source/build/lib/libicudata.dylib icu-x86_64/icu/source/build/lib/libicuuc.dylib icu-x86_64/icu/source/build/lib/libicui18n.dylib: icu-x86_64/icu
+	test ! -f icu-x86_64/icu/source/build/lib/libicudata.dylib && cd icu-x86_64/icu/source && mkdir -p build && CC="$(CCU) -m64" CFLAGS=" -fPIC " ./runConfigureICU MacOSX --prefix=`pwd`/build --with-library-bits=64 --disable-samples --disable-tests --disable-extras --enable-static --disable-dyload --with-data-packaging=archive && make clean && make && make install && install_name_tool -id libicudata.dylib build/lib/libicudata.dylib && install_name_tool -id libicuuc.dylib build/lib/libicuuc.dylib && install_name_tool -id libicui18n.dylib build/lib/libicui18n.dylib || true
 
 icu.zip:
 	$(DOWNLOADER) icu.zip $(DEP_MIRROR)/icu4c-49_1_1-Win32-msvc10.zip
@@ -270,11 +286,11 @@ libmicrohttpd-0.9.19/build/lib/libmicrohttpd.dylib: libmicrohttpd-0.9.19/build-i
 
 # OSX i386
 libmicrohttpd-0.9.19/build-i386/lib/libmicrohttpd.dylib: libmicrohttpd-0.9.19
-	test ! -f libmicrohttpd-0.9.19/build-i386/lib/libmicrohttpd.dylib && cd libmicrohttpd-0.9.19 && mkdir -p build-i386 && CC="$(CLCC32)" CXX="$(CLCXX32)" CFLAGS=" -fPIC  " ./configure --enable-shared --enable-static --prefix=$(DEP_PATH)/libmicrohttpd-0.9.19/build-i386 && make clean && make && make install && install_name_tool -id libmicrohttpd.dylib build-i386/lib/libmicrohttpd.dylib || true
+	test ! -f libmicrohttpd-0.9.19/build-i386/lib/libmicrohttpd.dylib && cd libmicrohttpd-0.9.19 && mkdir -p build-i386 && CC="$(CLCC32)" CFLAGS=" -fPIC  " ./configure --enable-shared --enable-static --prefix=$(DEP_PATH)/libmicrohttpd-0.9.19/build-i386 && make clean && make && make install && install_name_tool -id libmicrohttpd.dylib build-i386/lib/libmicrohttpd.dylib || true
 
 # OSX x86_64
 libmicrohttpd-0.9.19/build-x86_64/lib/libmicrohttpd.dylib: libmicrohttpd-0.9.19
-	test ! -f libmicrohttpd-0.9.19/build-x86_64/lib/libmicrohttpd.dylib && cd libmicrohttpd-0.9.19 && mkdir -p build-x86_64 && CC="$(CLCC64)" CXX="$(CLCXX64)" CFLAGS=" -fPIC  " ./configure --enable-shared --enable-static --prefix=$(DEP_PATH)/libmicrohttpd-0.9.19/build-x86_64 && make clean && make && make install && install_name_tool -id libmicrohttpd.dylib build-x86_64/lib/libmicrohttpd.dylib || true
+	test ! -f libmicrohttpd-0.9.19/build-x86_64/lib/libmicrohttpd.dylib && cd libmicrohttpd-0.9.19 && mkdir -p build-x86_64 && CC="$(CLCC64)" CFLAGS=" -fPIC  " ./configure --enable-shared --enable-static --prefix=$(DEP_PATH)/libmicrohttpd-0.9.19/build-x86_64 && make clean && make && make install && install_name_tool -id libmicrohttpd.dylib build-x86_64/lib/libmicrohttpd.dylib || true
 
 # Windows
 libmicrohttpd-0.9.17+libiconv-w32.zip:
@@ -363,23 +379,19 @@ pugixml-1.2/libpugixml.a: pugixml-1.2
 	test ! -f pugixml-1.2/libpugixml.a && cd pugixml-1.2 && rm -f *.o *.a && $(COMPCXX) -fPIC -c src/pugixml.cpp -o libpugixml.o && ar rvs libpugixml.a libpugixml.o || true
 # endif
 
-
-# pugixml-1.2/libpugixml.dylib: pugixml-1.2
-# 	test ! -f pugixml-1.2/libpugixml.dylib && cd pugixml-1.2 && rm -f *.o && $(COMPCXX) -fPIC -c src/pugixml.cpp -o libpugixml.o && $(COMPCXX) -shared -o libpugixml.dylib libpugixml.o || true
-
 # OSX i386
 pugixml-1.2/build-i386/libpugixml.dylib: pugixml-1.2
-	test ! -f pugixml-1.2/build-i386/libpugixml.dylib && mkdir -p pugixml-1.2/build-i386 && cd pugixml-1.2 && rm -f *.o && $(CXX32) -fPIC -c src/pugixml.cpp -o libpugixml.o && $(CXX32) -shared -o build-i386/libpugixml.dylib libpugixml.o || true
+	test ! -f pugixml-1.2/build-i386/libpugixml.dylib && mkdir -p pugixml-1.2/build-i386 && cd pugixml-1.2 && rm -f *.o && $(CXX32) -stdlib=libstdc++ -std=c++11 -fPIC -c src/pugixml.cpp -o libpugixml.o && $(CXX32) -stdlib=libstdc++ -std=c++11 -shared -o build-i386/libpugixml.dylib libpugixml.o || true
 
 pugixml-1.2/build-i386/libpugixml.a: pugixml-1.2
-	test ! -f pugixml-1.2/build-i386/libpugixml.a && mkdir -p pugixml-1.2/build-i386 && cd pugixml-1.2 && rm -f *.o *.a && $(CXX32) -fPIC -c src/pugixml.cpp -o libpugixml.o && libtool -static -o build-i386/libpugixml.a libpugixml.o || true
+	test ! -f pugixml-1.2/build-i386/libpugixml.a && mkdir -p pugixml-1.2/build-i386 && cd pugixml-1.2 && rm -f *.o *.a && $(CXX32) -stdlib=libstdc++ -std=c++11 -fPIC -c src/pugixml.cpp -o libpugixml.o && libtool -static -o build-i386/libpugixml.a libpugixml.o || true
 
 # OSX x86_64
 pugixml-1.2/build-x86_64/libpugixml.dylib: pugixml-1.2
-	test ! -f pugixml-1.2/build-x86_64/libpugixml.dylib && mkdir -p pugixml-1.2/build-x86_64 && cd pugixml-1.2 && rm -f *.o && $(CXX64) -fPIC -c src/pugixml.cpp -o libpugixml.o && $(CXX64) -shared -o build-x86_64/libpugixml.dylib libpugixml.o || true
+	test ! -f pugixml-1.2/build-x86_64/libpugixml.dylib && mkdir -p pugixml-1.2/build-x86_64 && cd pugixml-1.2 && rm -f *.o && $(CXX64) -stdlib=libstdc++ -std=c++11 -fPIC -c src/pugixml.cpp -o libpugixml.o && $(CXX64) -stdlib=libstdc++ -std=c++11 -shared -o build-x86_64/libpugixml.dylib libpugixml.o || true
 
 pugixml-1.2/build-x86_64/libpugixml.a: pugixml-1.2
-	test ! -f pugixml-1.2/build-x86_64/libpugixml.a && mkdir -p pugixml-1.2/build-x86_64 && cd pugixml-1.2 && rm -f *.o *.a && $(CXX64) -fPIC -c src/pugixml.cpp -o libpugixml.o && libtool -static -o build-x86_64/libpugixml.a libpugixml.o || true
+	test ! -f pugixml-1.2/build-x86_64/libpugixml.a && mkdir -p pugixml-1.2/build-x86_64 && cd pugixml-1.2 && rm -f *.o *.a && $(CXX64) -stdlib=libstdc++ -std=c++11 -fPIC -c src/pugixml.cpp -o libpugixml.o && libtool -static -o build-x86_64/libpugixml.a libpugixml.o || true
 
 # OSX Join
 pugixml-1.2/build/libpugixml.dylib: pugixml-1.2/build-i386/libpugixml.dylib pugixml-1.2/build-x86_64/libpugixml.dylib
@@ -410,16 +422,16 @@ ctpp2-2.8.3/build/complete/lib/libctpp2.so ctpp2-2.8.3/build/complete/lib/libctp
 	test ! -f 2-2.8.3/build/complete/lib/libctpp2.${SHARED_EXT} && rm -rf ctpp2-2.8.3/build && mkdir -p ctpp2-2.8.3/build && cd ctpp2-2.8.3/build && CC="$(CC32)" CXX="$(CXX32)" CXXFLAGS="-fPIC -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE" cmake -DMD5_SUPPORT=OFF -DCMAKE_INSTALL_PREFIX=./complete .. && make && make install || true
 
 # OSX i386
-ctpp2-2.8.3/build-i386/complete/lib/libctpp2.dylib ctpp2-2.8.3/build-i386/complete/lib/libctpp2-st.a: ctpp2-2.8.3
-	test ! -f 2-2.8.3/build/complete/lib/libctpp2.dylib && rm -rf ctpp2-2.8.3/build-i386 && mkdir -p ctpp2-2.8.3/build-i386 && cd ctpp2-2.8.3/build-i386 && CC="$(CC32)" CXX="$(CXX32)" CXXFLAGS="-fPIC -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE" cmake -DMD5_SUPPORT=OFF -DCMAKE_INSTALL_PREFIX=./complete .. && make && make install || true
+ctpp2-2.8.3/build-i386/lib/libctpp2.dylib ctpp2-2.8.3/build-i386/lib/libctpp2-st.a: ctpp2-2.8.3
+	test ! -f 2-2.8.3/build/lib/libctpp2.dylib && rm -rf ctpp2-2.8.3/build-i386 && mkdir -p ctpp2-2.8.3/build-i386 && cd ctpp2-2.8.3/build-i386 && CXX="$(CXX32)" CXXFLAGS="-stdlib=libstdc++ -std=c++11 -fPIC -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE" cmake -DMD5_SUPPORT=OFF -DCMAKE_INSTALL_PREFIX=./ .. && make clean &&  make && make install || true
 
 # OSX x86_64
-ctpp2-2.8.3/build-x86_64/complete/lib/libctpp2.dylib ctpp2-2.8.3/build-x86_64/complete/lib/libctpp2-st.a: ctpp2-2.8.3
-	test ! -f 2-2.8.3/build/complete/lib/libctpp2.dylib && rm -rf ctpp2-2.8.3/build-x86_64 && mkdir -p ctpp2-2.8.3/build-x86_64 && cd ctpp2-2.8.3/build-x86_64 && CC="$(CC64)" CXX="$(CXX64)" CXXFLAGS="-fPIC -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE" cmake -DMD5_SUPPORT=OFF -DCMAKE_INSTALL_PREFIX=./complete .. && make && make install || true
+ctpp2-2.8.3/build-x86_64/lib/libctpp2.dylib ctpp2-2.8.3/build-x86_64/lib/libctpp2-st.a: ctpp2-2.8.3
+	test ! -f 2-2.8.3/build/lib/libctpp2.dylib && rm -rf ctpp2-2.8.3/build-x86_64 && mkdir -p ctpp2-2.8.3/build-x86_64 && cd ctpp2-2.8.3/build-x86_64 && CXX="$(CXX64)" CXXFLAGS="-stdlib=libstdc++ -std=c++11 -fPIC -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE" cmake -DMD5_SUPPORT=OFF -DCMAKE_INSTALL_PREFIX=./ .. && make clean &&  make && make install || true
 
 # OSX Join
-ctpp2-2.8.3/build/lib/libctpp2.dylib ctpp2-2.8.3/build/lib/libctpp2-st.a: ctpp2-2.8.3/build-x86_64/complete/lib/libctpp2.dylib ctpp2-2.8.3/build-x86_64/complete/lib/libctpp2-st.a ctpp2-2.8.3/build-i386/complete/lib/libctpp2.dylib ctpp2-2.8.3/build-i386/complete/lib/libctpp2-st.a
-	test ! -f 2-2.8.3/build/lib/libctpp2.dylib && mkdir -p ctpp2-2.8.3/build/{lib,include} && cd ctpp2-2.8.3/build/lib && cp -r ../../build-i386/complete/include ../ && lipo ../../build-i386/complete/lib/libctpp2.dylib ../../build-x86_64/complete/lib/libctpp2.dylib -create -output libctpp2.dylib && install_name_tool -id libctpp2.dylib libctpp2.dylib && lipo ../../build-i386/complete/lib/libctpp2-st.a ../../build-x86_64/complete/lib/libctpp2-st.a -create -output libctpp2-st.a || true
+ctpp2-2.8.3/build/lib/libctpp2.dylib ctpp2-2.8.3/build/lib/libctpp2-st.a: ctpp2-2.8.3/build-x86_64/lib/libctpp2.dylib ctpp2-2.8.3/build-x86_64/lib/libctpp2-st.a ctpp2-2.8.3/build-i386/lib/libctpp2.dylib ctpp2-2.8.3/build-i386/lib/libctpp2-st.a
+	test ! -f 2-2.8.3/build/lib/libctpp2.dylib && mkdir -p ctpp2-2.8.3/build/{lib,include} && cd ctpp2-2.8.3/build/lib && cp -r ../../build-i386/include ../ && lipo ../../build-i386/lib/libctpp2.dylib ../../build-x86_64/lib/libctpp2.dylib -create -output libctpp2.dylib && install_name_tool -id libctpp2.dylib libctpp2.dylib && lipo ../../build-i386/lib/libctpp2-st.a ../../build-x86_64/lib/libctpp2-st.a -create -output libctpp2-st.a || true
 
 
 # Windows
@@ -510,18 +522,18 @@ zimlib-1.1.tar.gz:
 # 	tar xf zimlib-1.1.tar.gz
 
 zimlib-master.zip:
-	$(DOWNLOADER) zimlib-master.zip --no-check-certificate https://github.com/kiwix/openzim/archive/master.zip
+	$(DOWNLOADER) zimlib-master.zip https://github.com/kiwix/openzim/archive/master.zip
 
 zimlib-1.1: zimlib-master.zip
 	unzip -o zimlib-master.zip && mv openzim-master/zimlib zimlib-1.1 && cd zimlib-1.1 && touch Makefile.in && ./autogen.sh || true
 
 # OSX i386
 zimlib-1.1/build-i386/lib/libzim.dylib zimlib-1.1/build-i386/lib/libzim.a: zimlib-1.1 xz/build/lib/liblzma.dylib
-	test ! -f zimlib-1.1/build-i386/lib/libzim.dylib && cd zimlib-1.1 && mkdir -p build-i386 && LDFLAGS=" -L$(DEP_PATH)/xz/build/lib/ " CC="$(CLCC32)" CXX="$(CLCXX32)" CFLAGS="-I$(DEP_PATH)/xz/build-i386/include" CXXFLAGS=" -stdlib=libstdc++ -std=c++11 -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -I$(DEP_PATH)/xz/build-i386/include" LDFLAGS="-L$(DEP_PATH)/xz/build/lib" ./configure --enable-shared --disable-dependency-tracking --with-pic --prefix=$(DEP_PATH)/zimlib-1.1/build-i386 --enable-static --disable-libtool-lock && make clean && make && make install && install_name_tool -id libzim.dylib build-i386/lib/libzim.dylib || true
+	test ! -f zimlib-1.1/build-i386/lib/libzim.dylib && cd zimlib-1.1 && mkdir -p build-i386 && LDFLAGS=" -L$(DEP_PATH)/xz/build/lib/ " CXX="$(CXX32)" CFLAGS="-I$(DEP_PATH)/xz/build-i386/include" CXXFLAGS=" -stdlib=libstdc++ -std=c++11 -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -I$(DEP_PATH)/xz/build-i386/include" LDFLAGS="-L$(DEP_PATH)/xz/build/lib" ./configure --enable-shared --disable-dependency-tracking --with-pic --prefix=$(DEP_PATH)/zimlib-1.1/build-i386 --enable-static --disable-libtool-lock && make clean && make && make install && install_name_tool -id libzim.dylib build-i386/lib/libzim.dylib || true
 
 # OSX x86_64
 zimlib-1.1/build-x86_64/lib/libzim.dylib zimlib-1.1/build-x86_64/lib/libzim.a: zimlib-1.1 xz/build/lib/liblzma.dylib
-	test ! -f zimlib-1.1/build-x86_64/lib/libzim.dylib && cd zimlib-1.1 && mkdir -p build-x86_64 && LDFLAGS=" -L$(DEP_PATH)/xz/build/lib/ " CC="$(CLCC64)" CXX="$(CLCXX64)" CFLAGS="-I$(DEP_PATH)/xz/build-x86_64/include" CXXFLAGS=" -stdlib=libstdc++ -std=c++11 -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -I$(DEP_PATH)/xz/build-x86_64/include" LDFLAGS="-L$(DEP_PATH)/xz/build/lib" ./configure --enable-shared --disable-dependency-tracking --with-pic --prefix=$(DEP_PATH)/zimlib-1.1/build-x86_64 --enable-static --disable-libtool-lock && make clean && make && make install && install_name_tool -id libzim.dylib build-x86_64/lib/libzim.dylib || true
+	test ! -f zimlib-1.1/build-x86_64/lib/libzim.dylib && cd zimlib-1.1 && mkdir -p build-x86_64 && LDFLAGS=" -L$(DEP_PATH)/xz/build/lib/ " CXX="$(CXX64)" CFLAGS="-I$(DEP_PATH)/xz/build-x86_64/include" CXXFLAGS=" -stdlib=libstdc++ -std=c++11 -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -I$(DEP_PATH)/xz/build-x86_64/include" LDFLAGS="-L$(DEP_PATH)/xz/build/lib" ./configure --enable-shared --disable-dependency-tracking --with-pic --prefix=$(DEP_PATH)/zimlib-1.1/build-x86_64 --enable-static --disable-libtool-lock && make clean && make && make install && install_name_tool -id libzim.dylib build-x86_64/lib/libzim.dylib || true
 
 # OSX Join
 zimlib-1.1/build/lib/libzim.dylib zimlib-1.1/build/lib/libzim.a: zimlib-1.1/build-i386/lib/libzim.dylib zimlib-1.1/build-x86_64/lib/libzim.dylib zimlib-1.1/build-i386/lib/libzim.a zimlib-1.1/build-x86_64/lib/libzim.a
@@ -633,7 +645,7 @@ DISTCLEANFILES= xulrunner-sdk.tar.bz2 \
 
 clean-local:
 	-rm -rf zlib-1.2.8
-	-rm -rf xapian-core-1.2.17
+	-rm -rf xapian-core-1.2.3
 	-rm -rf icu
 	-rm -rf pugixml-1.2
 	-rm -rf libmicrohttpd-0.9.19

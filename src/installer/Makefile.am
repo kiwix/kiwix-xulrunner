@@ -41,5 +41,6 @@ kiwix_install_LDFLAGS+= $(XAPIAN_LDFLAGS) $(ICU_LDFLAGS) $(UUID_LDFLAGS) $(LIBZI
 endif
 
 if IS_OSX
-kiwix_install_CXXFLAGS+= -stdlib=libstdc++
+# kiwix_install_CXXFLAGS+= -stdlib=libstdc++
+# kiwix_install_LDFLAGS+= -static-libgcc -static-libstdc++
 endif
