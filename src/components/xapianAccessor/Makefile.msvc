@@ -6,7 +6,7 @@ LD=link.exe
 XULRUNNER_SDK=../../dependencies/xulrunner-sdk
 XAPIAN=../../dependencies/xapian-core-1.2.3
 ICU=../../dependencies/icu/
-Z=../../dependencies/zlib-1.2.3
+Z=../../dependencies/zlib-1.2.8
 CTPP2=../../dependencies/ctpp2-2.8.3
 
 # Binary paths
@@ -17,7 +17,7 @@ HEADER_PY=python $(XULRUNNER_SDK)/sdk/bin/header.py
 XAPIAN_INCLUDE=${XAPIAN}/include
 XULRUNNER_INCLUDE=$(XULRUNNER_SDK)/include
 ICU_INCLUDE=${ICU}/include
-CTPP2_INCLUDE=${CTPP2}/include
+CTPP2_INCLUDE=${CTPP2}
 
 # Lib paths
 XULRUNNER_LIB=$(XULRUNNER_SDK)/lib

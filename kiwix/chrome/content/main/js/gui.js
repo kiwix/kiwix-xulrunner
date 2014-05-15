@@ -1338,12 +1338,12 @@ function handleMouseClick(aEvent) {
     }
 }
 
-/* Add mouse scroll listener to allow zoon in/out with the mouse for example */
+/* Add mouse scroll listener to allow zoom in/out with the mouse for example */
 function initHtmlRendererEventListeners(id) {
     var htmlRenderer =  getHtmlRenderer(id);
     var htmlRendererId = htmlRenderer.id;
     var regexResults = htmlRendererId.match(/html-renderer-(.*)/);
-    var id = regexResults[1];
+    id = regexResults[1];
 
     htmlRenderer.addEventListener("DOMMouseScroll", htmlRendererMouseScroll, false);
     htmlRenderer.addEventListener("mouseover", htmlRendererMouseOver, true);

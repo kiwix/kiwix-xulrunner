@@ -1610,7 +1610,7 @@ AC_ARG_WITH(downloader,
 echo "$DOWNLOADERREQ"
 if test [ "$DOWNLOADERREQ" = "" -o "$DOWNLOADERREQ" = "wget" ]
 then
-	DOWNLOADER="wget --wait=10 --timeout=600 -c"
+	DOWNLOADER="wget --wait=10 --timeout=600 --no-check-certificate -c"
 	wgetvers=`wget -V | head -n 1 | cut -f 3 -d " " | cut -f 1,2 -d "."`
 	if [ test $IS_WIN -eq 0 -a `echo "$wgetvers >= 1.13" | bc` -eq 1 ]
 	then
@@ -1619,7 +1619,7 @@ then
 	DOWNLOADER="$DOWNLOADER -O"
 elif test [ "$DOWNLOADERREQ" = "curl" ]
 then
-	DOWNLOADER="curl -C - --retry 10 --retry-delay 10 -o"
+	DOWNLOADER="curl -L -C - --retry 10 --retry-delay 10 -o"
 else
 	DOWNLOADER=$DOWNLOADERREQ
 fi

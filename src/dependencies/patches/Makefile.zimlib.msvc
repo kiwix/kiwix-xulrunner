@@ -2,7 +2,7 @@ CC=cl.exe
 LD=link.exe
 
 # Global paths
-Z=../../zlib-1.2.3
+Z=../../zlib-1.2.8
 LZMAW=../../xz-win
 LZMA=../../xz
 
