@@ -376,10 +376,11 @@ endif
 
 	find universal_tmp/ub/Kiwix.app/Contents/MacOS/bin -type f -name '*' -exec python ./src/macosx/cleanup_rpath.py b {} \;
 
-if IS_OSX
+
 	cp -v $(COMPILED_XULRUNNERBIN_FILES) universal_tmp/ub/Kiwix.app/Contents/MacOS/kiwix
 	chmod +x universal_tmp/ub/Kiwix.app/Contents/MacOS/kiwix
-endif
+
+	cd universal_tmp/ub/Kiwix.app/Contents/MacOS/bin && ln -s ../icudt49l.dat . && cd -
 
 if SIGN_BUILD
 	cp universal_tmp/ub/Kiwix.app/Contents/Frameworks/Versions/$(EXACT_GECKO_VERSION)/Info.plist universal_tmp/ub/Kiwix.app/Contents/Frameworks/Versions/$(EXACT_GECKO_VERSION)/Resources/Info.plist
