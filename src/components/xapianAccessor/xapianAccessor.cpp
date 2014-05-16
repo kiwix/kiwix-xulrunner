@@ -50,6 +50,10 @@
   #define mozuint32 PRUint32
 #endif
 
+#ifdef _WIN32
+  #include <mozilla/Char16.h>
+#endif
+
 #include <string>
 
 #include <componentTools.h>
