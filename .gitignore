@@ -29,6 +29,8 @@ missing
 aclocal.m4
 libtool
 src/zimlib/src/stamp-h1
+compile
+configure.ac.orig
 
 # android
 android/platforms
@@ -79,6 +81,8 @@ src/installer/kiwix-install
 src/launcher/kiwix-launcher
 src/manager/kiwix-manage
 src/server/kiwix-serve
+src/reader/kiwix-read
+src/searcher/kiwix-search
 
 *.pyc
 ftp_pass.py
