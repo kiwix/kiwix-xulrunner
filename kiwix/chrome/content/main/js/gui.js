@@ -780,7 +780,9 @@ function manageOpenFile(path, noSearchIndexCheck) {
 	    
 	    /* Ask to index if this files has not already an index */
 	    if (!isIndexing() && !noSearchIndexCheck && !checkSearchIndex()) {
-		manageIndexCurrentBook();
+		if (!settings.neverAskToIndex(zimId)) {
+		    manageIndexCurrentBook();
+		}
 	    }
 	    
 	    /* Update the search bar */

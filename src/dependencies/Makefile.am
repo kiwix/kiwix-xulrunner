@@ -42,7 +42,7 @@ if IS_LINUX
 if IS_OLD_GECKO
 GECKOSDKURL=$(DEP_MIRROR)/xulrunner-1.9.2.13.en-US.linux-i686.sdk.tar.bz2
 else
-GECKOSDKURL=$(DEP_MIRROR)/xulrunner-14.0.1.en-US.linux-$(ARCH).sdk.tar.bz2
+GECKOSDKURL=$(DEP_MIRROR)/xulrunner-29.0.en-US.linux-$(ARCH).sdk.tar.bz2
 endif
 else
 GECKOSDKURL=$(DEP_MIRROR)/xulrunner-29.0.en-US.mac-$(ARCH).sdk.tar.bz2
@@ -51,7 +51,7 @@ endif
 if IS_OLD_GECKO
 XULRUNNERRUNTIMEURL=$(DEP_MIRROR)/xulrunner-3.6.26.en-US.linux-i686.tar.bz2
 else
-XULRUNNERRUNTIMEURL=$(DEP_MIRROR)/xulrunner-14.0.1.en-US.linux-$(ARCH).tar.bz2
+XULRUNNERRUNTIMEURL=$(DEP_MIRROR)/xulrunner-29.0.en-US.linux-$(ARCH).tar.bz2
 endif
 
 if IS_LINUX
@@ -98,7 +98,7 @@ endif
 
 # Windows
 xulrunner-sdk-win.zip:
-	$(DOWNLOADER) xulrunner-sdk-win.zip $(DEP_MIRROR)/xulrunner-14.0.1.en-US.win32.sdk.zip
+	$(DOWNLOADER) xulrunner-sdk-win.zip $(DEP_MIRROR)/xulrunner-29.0.en-US.win32.sdk.zip
 
 ####################################################
 ############ XULRUNNER-RUNTIME
@@ -123,7 +123,7 @@ xr_target/xulrunner-29.0.en-US.mac/XUL.framework: xulrunner-29.0.en-US.mac.tar.b
 
 # Windows
 xulrunner-win.zip:
-	$(DOWNLOADER) xulrunner-win.zip $(DEP_MIRROR)/xulrunner-14.0.1.en-US.win32.zip
+	$(DOWNLOADER) xulrunner-win.zip $(DEP_MIRROR)/xulrunner-29.0.en-US.win32.zip
 
 ####################################################
 ############ ZLIB

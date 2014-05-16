@@ -1,0 +1,21 @@
+CC=cl.exe
+LD=link.exe
+
+# Global paths
+
+# Include paths
+
+# Lib paths
+
+# Compiler and linker flags
+CFLAGS=-D"XP_WIN" -D"__GNU_LIBRARY__" -D"(__STDC__)" -D"__STDC__"  -D"XP_WIN32" -O2 -Oi -I../common/ -D"_WINDLL" -D"_MBCS" -FD -EHsc -MT -Gy -nologo -c -Zi -TP
+
+LDFLAGS=-nologo 
+
+all: kiwix-launcher.exe
+
+objs:
+	$(CC) $(CFLAGS) kiwix-launcher.cpp ../common/pathTools.cpp
+
+kiwix-launcher.exe: objs
+	$(LD) -OUT:"kiwix-launcher.exe" -NOLOGO $(LDFLAGS) -NODEFAULTLIB:"MSVCRT" -OPT:REF -OPT:ICF -DYNAMICBASE -NXCOMPAT -MACHINE:X86 pthreadVC2.lib libcmt.lib ws2_32.lib DelayImp.lib winmm.lib *.obj
