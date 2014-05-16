@@ -18,6 +18,9 @@
  */
 
 #include "xpcom-config.h"
+#ifdef _WIN32
+  #include <mozilla/Char16.h>
+#endif
 
 #if GECKO_VERSION > 1
   #if !defined(NS_ATTR_MALLOC)
@@ -48,10 +51,6 @@
   #define mozuint32 uint32_t
 #else
   #define mozuint32 PRUint32
-#endif
-
-#ifdef _WIN32
-  #include <mozilla/Char16.h>
 #endif
 
 #include <string>
