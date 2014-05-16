@@ -30,10 +30,10 @@ LDFLAGS=-nologo -LIBPATH:"$(XULRUNNER_LIB)" -LIBPATH:"${ZIM_LIB}" -LIBPATH:"$(IC
 all: zimAccessor.dll
 
 IZimAccessor.xpt:
-	$(TYPELIB_PY) -o IZimAccessor.xpt -I "$(XULRUNNER_IDL)" IZimAccessor_gecko_old_int_type.idl
+	$(TYPELIB_PY) -o IZimAccessor.xpt -I "$(XULRUNNER_IDL)" IZimAccessor.idl
 
 IZimAccessor.h:
-	$(HEADER_PY) -o IZimAccessor.h -I "$(XULRUNNER_IDL)" IZimAccessor_gecko_old_int_type.idl
+	$(HEADER_PY) -o IZimAccessor.h -I "$(XULRUNNER_IDL)" IZimAccessor.idl
 
 objs: IZimAccessor.xpt IZimAccessor.h
 	$(CC) $(CFLAGS) zimAccessor.cpp ../../common/kiwix/reader.cpp ../../common/regexTools.cpp ../../common/pathTools.cpp ../../common/stringTools.cpp ../../common/componentTools.cpp
