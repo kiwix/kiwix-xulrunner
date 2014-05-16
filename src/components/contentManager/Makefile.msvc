@@ -27,7 +27,7 @@ ICU_LIB=${ICU}/lib
 XULRUNNER_IDL=$(XULRUNNER_SDK)/idl
 
 # Compiler and linker flags
-CFLAGS=-D"XP_WIN" -D"GECKO_VERSION=29" -D"XP_WIN32" -O2 -Oi -I"${ZIM_INCLUDE}" -I"${PUGIXML_INCLUDE}" -I"$(XULRUNNER_INCLUDE)" -I"$(XULRUNNER_INCLUDE)/nspr/" -I$(ICU_INCLUDE) -I../../common/ -D"_WINDLL" -FD -EHsc -MT -Gy -nologo -c -Zi -TP
+CFLAGS=-D"WIN32" -D"XP_WIN" -D"GECKO_VERSION=29" -D"XP_WIN32" -O2 -Oi -I"${ZIM_INCLUDE}" -I"${PUGIXML_INCLUDE}" -I"$(XULRUNNER_INCLUDE)" -I"$(XULRUNNER_INCLUDE)/nspr/" -I$(ICU_INCLUDE) -I../../common/ -D"_WINDLL" -FD -EHsc -MT -Gy -nologo -c -Zi -TP
 LDFLAGS=-nologo -LIBPATH:"$(XULRUNNER_LIB)" -LIBPATH:"${ZIM_LIB}" -LIBPATH:"${PUGIXML_LIB}" -LIBPATH:"$(ICU_LIB)"
 
 all: contentManager.dll
@@ -45,4 +45,4 @@ contentManager.lib: objs
 		       $(LD) -lib -OUT:libContentManager.lib $(LDFLAGS) reader.obj manager.obj library.obj base64.obj stringTools.obj pathTools.obj regexTools.obj componentTools.obj
 
 contentManager.dll: contentManager.lib
-		    $(LD) -OUT:"contentManager.dll" -NOLOGO $(LDFLAGS) -DLL -NODEFAULTLIB:"MSVCRT" -OPT:REF -OPT:ICF -DYNAMICBASE -NXCOMPAT -MACHINE:X86 zim.lib pugixml.lib icuin.lib icuio.lib icule.lib iculx.lib icutu.lib icuuc.lib libcmt.lib ws2_32.lib nspr4.lib xpcom.lib xpcomglue_s.lib mozalloc.lib DelayImp.lib winmm.lib libContentManager.lib contentManager.obj
+		    $(LD) -OUT:"contentManager.dll" -NOLOGO $(LDFLAGS) -DLL -NODEFAULTLIB:"MSVCRT" -OPT:REF -OPT:ICF -DYNAMICBASE -NXCOMPAT -MACHINE:X86 zim.lib pugixml.lib icuin.lib icuio.lib icule.lib iculx.lib icutu.lib icuuc.lib libcmt.lib ws2_32.lib nspr4.lib xul.lib nss3.lib xpcomglue_staticruntime_s.lib mozalloc.lib DelayImp.lib winmm.lib libContentManager.lib contentManager.obj
