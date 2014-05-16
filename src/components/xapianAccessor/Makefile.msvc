@@ -36,10 +36,10 @@ LDFLAGS=-nologo -LIBPATH:"$(XAPIAN_LIB)" -LIBPATH:"$(Z_LIB)" -LIBPATH:"$(XULRUNN
 all: xapianAccessor.dll
 
 IXapianAccessor.xpt:
-	$(TYPELIB_PY) -o IXapianAccessor.xpt -I "$(XULRUNNER_IDL)" IXapianAccessor_gecko_old_int_type.idl
+	$(TYPELIB_PY) -o IXapianAccessor.xpt -I "$(XULRUNNER_IDL)" IXapianAccessor.idl
 
 IXapianAccessor.h:
-	$(HEADER_PY) -o IXapianAccessor.h -I "$(XULRUNNER_IDL)" IXapianAccessor_gecko_old_int_type.idl
+	$(HEADER_PY) -o IXapianAccessor.h -I "$(XULRUNNER_IDL)" IXapianAccessor.idl
 
 objs: IXapianAccessor.xpt IXapianAccessor.h
 	$(CC) $(CFLAGS) xapianAccessor.cpp ../../common/resourceTools.cpp ../../common/stringTools.cpp ../../common/kiwix/searcher.cpp ../../common/kiwix/ctpp2/CTPP2VMStringLoader.cpp ../../common/kiwix/xapianSearcher.cpp
