@@ -42,4 +42,4 @@ zimAccessor.lib: objs
 		       $(LD) -lib -OUT:libZimAccessor.lib $(LDFLAGS) reader.obj regexTools.obj pathTools.obj componentTools.obj stringTools.obj
 
 zimAccessor.dll: zimAccessor.lib
-		    $(LD) -OUT:"zimAccessor.dll" -NOLOGO $(LDFLAGS) -DLL -NODEFAULTLIB:"MSVCRT" -OPT:REF -OPT:ICF -DYNAMICBASE -NXCOMPAT -MACHINE:X86 zim.lib icuin.lib icuio.lib icule.lib iculx.lib icutu.lib icuuc.lib libcmt.lib ws2_32.lib xul.lib xpcomglue_staticruntime_s.lib mozalloc.lib DelayImp.lib winmm.lib libZimAccessor.lib zimAccessor.obj
+		    $(LD) -OUT:"zimAccessor.dll" -NOLOGO $(LDFLAGS) -DLL -NODEFAULTLIB:"MSVCRT" -OPT:REF -OPT:ICF -DYNAMICBASE -NXCOMPAT -MACHINE:X86 zim.lib icuin.lib icuio.lib icule.lib iculx.lib icutu.lib icuuc.lib libcmt.lib ws2_32.lib xul.lib xpcomglue_staticruntime_s.lib mozalloc.lib nss3.lib DelayImp.lib winmm.lib libZimAccessor.lib zimAccessor.obj
