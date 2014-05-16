@@ -24,7 +24,7 @@ ICU_LIB=${ICU}/lib
 XULRUNNER_IDL=$(XULRUNNER_SDK)/idl
 
 # Compiler and linker flags
-CFLAGS=-D"XP_WIN" -D"XP_WIN32" -D"GECKO_VERSION=29" -O2 -Oi -I"${ZIM_INCLUDE}" -I"$(ICU_INCLUDE)" -I"$(XULRUNNER_INCLUDE)" -I"$(XULRUNNER_INCLUDE)/nspr/" -I../../common/ -D"_WINDLL" -FD -EHsc -MT -Gy -nologo -c -Zi -TP
+CFLAGS=-D"WIN32" -D"XP_WIN" -D"XP_WIN32" -D"GECKO_VERSION=29" -O2 -Oi -I"${ZIM_INCLUDE}" -I"$(ICU_INCLUDE)" -I"$(XULRUNNER_INCLUDE)" -I"$(XULRUNNER_INCLUDE)/nspr/" -I../../common/ -D"_WINDLL" -FD -EHsc -MT -Gy -nologo -c -Zi -TP
 LDFLAGS=-nologo -LIBPATH:"$(XULRUNNER_LIB)" -LIBPATH:"${ZIM_LIB}" -LIBPATH:"$(ICU_LIB)"
 
 all: zimAccessor.dll
@@ -42,4 +42,4 @@ zimAccessor.lib: objs
 		       $(LD) -lib -OUT:libZimAccessor.lib $(LDFLAGS) reader.obj regexTools.obj pathTools.obj componentTools.obj stringTools.obj
 
 zimAccessor.dll: zimAccessor.lib
-		    $(LD) -OUT:"zimAccessor.dll" -NOLOGO $(LDFLAGS) -DLL -NODEFAULTLIB:"MSVCRT" -OPT:REF -OPT:ICF -DYNAMICBASE -NXCOMPAT -MACHINE:X86 zim.lib icuin.lib icuio.lib icule.lib iculx.lib icutu.lib icuuc.lib libcmt.lib ws2_32.lib xul.lib xpcomglue_s.lib mozalloc.lib DelayImp.lib winmm.lib libZimAccessor.lib zimAccessor.obj
+		    $(LD) -OUT:"zimAccessor.dll" -NOLOGO $(LDFLAGS) -DLL -NODEFAULTLIB:"MSVCRT" -OPT:REF -OPT:ICF -DYNAMICBASE -NXCOMPAT -MACHINE:X86 zim.lib icuin.lib icuio.lib icule.lib iculx.lib icutu.lib icuuc.lib libcmt.lib ws2_32.lib xul.lib xpcomglue_staticruntime_s.lib mozalloc.lib nss3.lib DelayImp.lib winmm.lib libZimAccessor.lib zimAccessor.obj
