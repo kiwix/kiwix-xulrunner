@@ -45,4 +45,4 @@ contentManager.lib: objs
 		       $(LD) -lib -OUT:libContentManager.lib $(LDFLAGS) reader.obj manager.obj library.obj base64.obj stringTools.obj pathTools.obj regexTools.obj componentTools.obj
 
 contentManager.dll: contentManager.lib
-		    $(LD) -OUT:"contentManager.dll" -NOLOGO $(LDFLAGS) -DLL -NODEFAULTLIB:"MSVCRT" -OPT:REF -OPT:ICF -DYNAMICBASE -NXCOMPAT -MACHINE:X86 zim.lib pugixml.lib icuin.lib icuio.lib icule.lib iculx.lib icutu.lib icuuc.lib libcmt.lib ws2_32.lib nspr4.lib xul.lib nss3.lib xpcomglue_staticruntime_s.lib mozalloc.lib DelayImp.lib winmm.lib libContentManager.lib contentManager.obj
+		    $(LD) -OUT:"contentManager.dll" -NOLOGO $(LDFLAGS) -DLL -NODEFAULTLIB:"MSVCRT" -OPT:REF -OPT:ICF -DYNAMICBASE -NXCOMPAT -MACHINE:X86 zim.lib pugixml.lib icuin.lib icuio.lib icule.lib iculx.lib icutu.lib icuuc.lib libcmt.lib ws2_32.lib xul.lib nss3.lib xpcomglue_staticruntime_s.lib mozalloc.lib DelayImp.lib winmm.lib libContentManager.lib contentManager.obj
