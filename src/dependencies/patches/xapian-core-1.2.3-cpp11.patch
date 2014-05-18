@@ -1,6 +1,6 @@
 diff -crB xapian-core-1.2.3/api/replication.cc xapian-core-1.2.3-edited/api/replication.cc
 *** xapian-core-1.2.3/api/replication.cc	2010-08-24 09:50:23.000000000 +0200
---- xapian-core-1.2.3-edited/api/replication.cc	2014-05-18 11:24:27.000000000 +0200
+--- xapian-core-1.2.3-edited/api/replication.cc	2014-05-18 23:31:04.000000000 +0200
 ***************
 *** 56,62 ****
   
@@ -20,7 +20,7 @@ diff -crB xapian-core-1.2.3/api/replication.cc xapian-core-1.2.3-edited/api/repl
   void
 diff -crB xapian-core-1.2.3/backends/chert/chert_database.cc xapian-core-1.2.3-edited/backends/chert/chert_database.cc
 *** xapian-core-1.2.3/backends/chert/chert_database.cc	2010-08-24 09:50:23.000000000 +0200
---- xapian-core-1.2.3-edited/backends/chert/chert_database.cc	2014-05-18 11:24:27.000000000 +0200
+--- xapian-core-1.2.3-edited/backends/chert/chert_database.cc	2014-05-18 23:31:04.000000000 +0200
 ***************
 *** 1162,1168 ****
   
@@ -57,7 +57,7 @@ diff -crB xapian-core-1.2.3/backends/chert/chert_database.cc xapian-core-1.2.3-e
   		    PositionIterator pos = term.positionlist_begin();
 diff -crB xapian-core-1.2.3/backends/chert/chert_table.cc xapian-core-1.2.3-edited/backends/chert/chert_table.cc
 *** xapian-core-1.2.3/backends/chert/chert_table.cc	2010-08-24 09:50:23.000000000 +0200
---- xapian-core-1.2.3-edited/backends/chert/chert_table.cc	2014-05-18 11:24:27.000000000 +0200
+--- xapian-core-1.2.3-edited/backends/chert/chert_table.cc	2014-05-18 23:31:04.000000000 +0200
 ***************
 *** 567,573 ****
       /* check level overflow - this isn't something that should ever happen
@@ -77,7 +77,7 @@ diff -crB xapian-core-1.2.3/backends/chert/chert_table.cc xapian-core-1.2.3-edit
       byte * q = zeroed_new(block_size);
 diff -crB xapian-core-1.2.3/backends/chert/chert_version.cc xapian-core-1.2.3-edited/backends/chert/chert_version.cc
 *** xapian-core-1.2.3/backends/chert/chert_version.cc	2010-08-24 09:50:23.000000000 +0200
---- xapian-core-1.2.3-edited/backends/chert/chert_version.cc	2014-05-18 11:24:28.000000000 +0200
+--- xapian-core-1.2.3-edited/backends/chert/chert_version.cc	2014-05-18 23:31:04.000000000 +0200
 ***************
 *** 139,145 ****
   	string msg = filename;
@@ -97,7 +97,7 @@ diff -crB xapian-core-1.2.3/backends/chert/chert_version.cc xapian-core-1.2.3-ed
   
 diff -crB xapian-core-1.2.3/backends/flint/flint_database.cc xapian-core-1.2.3-edited/backends/flint/flint_database.cc
 *** xapian-core-1.2.3/backends/flint/flint_database.cc	2010-08-24 09:50:23.000000000 +0200
---- xapian-core-1.2.3-edited/backends/flint/flint_database.cc	2014-05-18 11:24:28.000000000 +0200
+--- xapian-core-1.2.3-edited/backends/flint/flint_database.cc	2014-05-18 23:31:05.000000000 +0200
 ***************
 *** 1150,1156 ****
   
@@ -168,7 +168,7 @@ diff -crB xapian-core-1.2.3/backends/flint/flint_database.cc xapian-core-1.2.3-e
   		    PositionIterator pos = term.positionlist_begin();
 diff -crB xapian-core-1.2.3/backends/flint/flint_table.cc xapian-core-1.2.3-edited/backends/flint/flint_table.cc
 *** xapian-core-1.2.3/backends/flint/flint_table.cc	2010-08-24 09:50:23.000000000 +0200
---- xapian-core-1.2.3-edited/backends/flint/flint_table.cc	2014-05-18 11:24:28.000000000 +0200
+--- xapian-core-1.2.3-edited/backends/flint/flint_table.cc	2014-05-18 23:31:05.000000000 +0200
 ***************
 *** 570,576 ****
       /* check level overflow - this isn't something that should ever happen
@@ -205,7 +205,7 @@ diff -crB xapian-core-1.2.3/backends/flint/flint_table.cc xapian-core-1.2.3-edit
   		set_overwritten();
 diff -crB xapian-core-1.2.3/backends/flint/flint_version.cc xapian-core-1.2.3-edited/backends/flint/flint_version.cc
 *** xapian-core-1.2.3/backends/flint/flint_version.cc	2010-08-24 09:50:23.000000000 +0200
---- xapian-core-1.2.3-edited/backends/flint/flint_version.cc	2014-05-18 11:24:28.000000000 +0200
+--- xapian-core-1.2.3-edited/backends/flint/flint_version.cc	2014-05-18 23:31:05.000000000 +0200
 ***************
 *** 119,125 ****
       if (size != VERSIONFILE_SIZE) {
@@ -242,7 +242,7 @@ diff -crB xapian-core-1.2.3/backends/flint/flint_version.cc xapian-core-1.2.3-ed
   
 diff -crB xapian-core-1.2.3/backends/remote/remote-database.cc xapian-core-1.2.3-edited/backends/remote/remote-database.cc
 *** xapian-core-1.2.3/backends/remote/remote-database.cc	2010-08-24 09:50:23.000000000 +0200
---- xapian-core-1.2.3-edited/backends/remote/remote-database.cc	2014-05-18 11:24:28.000000000 +0200
+--- xapian-core-1.2.3-edited/backends/remote/remote-database.cc	2014-05-18 23:31:05.000000000 +0200
 ***************
 *** 100,106 ****
   	errmsg += str(protocol_major);
@@ -260,9 +260,403 @@ diff -crB xapian-core-1.2.3/backends/remote/remote-database.cc xapian-core-1.2.3
   	throw Xapian::NetworkError(errmsg, context);
       }
   
+diff -crB xapian-core-1.2.3/bin/xapian-check.cc xapian-core-1.2.3-edited/bin/xapian-check.cc
+*** xapian-core-1.2.3/bin/xapian-check.cc	2010-08-24 09:50:22.000000000 +0200
+--- xapian-core-1.2.3-edited/bin/xapian-check.cc	2014-05-18 23:31:45.000000000 +0200
+***************
+*** 45,59 ****
+  // "only" requires (4 * last_docid()) bytes.
+  
+  static void show_usage() {
+!     cout << "Usage: "PROG_NAME" <database directory>|<path to btree and prefix> [[t][f][b][v][+]]\n\n"
+  "The btree(s) is/are always checked - control the output verbosity with:\n"
+  " t = short tree printing\n"
+  " f = full tree printing\n"
+  " b = show bitmap\n"
+  " v = show stats about B-tree (default)\n"
+  " + = same as tbv\n"
+! " e.g. "PROG_NAME" /var/lib/xapian/data/default\n"
+! "      "PROG_NAME" /var/lib/xapian/data/default/postlist fbv" << endl;
+  }
+  
+  static void
+--- 45,59 ----
+  // "only" requires (4 * last_docid()) bytes.
+  
+  static void show_usage() {
+!     cout << "Usage: " PROG_NAME " <database directory>|<path to btree and prefix> [[t][f][b][v][+]]\n\n"
+  "The btree(s) is/are always checked - control the output verbosity with:\n"
+  " t = short tree printing\n"
+  " f = full tree printing\n"
+  " b = show bitmap\n"
+  " v = show stats about B-tree (default)\n"
+  " + = same as tbv\n"
+! " e.g. " PROG_NAME " /var/lib/xapian/data/default\n"
+! "      " PROG_NAME " /var/lib/xapian/data/default/postlist fbv" << endl;
+  }
+  
+  static void
+***************
+*** 86,97 ****
+  {
+      if (argc > 1 && argv[1][0] == '-') {
+  	if (strcmp(argv[1], "--help") == 0) {
+! 	    cout << PROG_NAME" - "PROG_DESC"\n\n";
+  	    show_usage();
+  	    exit(0);
+  	}
+  	if (strcmp(argv[1], "--version") == 0) {
+! 	    cout << PROG_NAME" - "PACKAGE_STRING << endl;
+  	    exit(0);
+  	}
+      }
+--- 86,97 ----
+  {
+      if (argc > 1 && argv[1][0] == '-') {
+  	if (strcmp(argv[1], "--help") == 0) {
+! 	    cout << PROG_NAME " - " PROG_DESC "\n\n";
+  	    show_usage();
+  	    exit(0);
+  	}
+  	if (strcmp(argv[1], "--version") == 0) {
+! 	    cout << PROG_NAME " - " PACKAGE_STRING << endl;
+  	    exit(0);
+  	}
+      }
+diff -crB xapian-core-1.2.3/bin/xapian-chert-update.cc xapian-core-1.2.3-edited/bin/xapian-chert-update.cc
+*** xapian-core-1.2.3/bin/xapian-chert-update.cc	2010-08-24 09:50:22.000000000 +0200
+--- xapian-core-1.2.3-edited/bin/xapian-chert-update.cc	2014-05-18 23:31:45.000000000 +0200
+***************
+*** 62,68 ****
+  #define OPT_NO_RENUMBER 3
+  
+  static void show_usage() {
+!     cout << "Usage: "PROG_NAME" [OPTIONS] SOURCE_DATABASE DESTINATION_DATABASE\n\n"
+  "Options:\n"
+  "  -b, --blocksize   Set the blocksize in bytes (e.g. 4096) or K (e.g. 4K)\n"
+  "                    (must be between 2K and 64K and a power of 2, default 8K)\n"
+--- 62,68 ----
+  #define OPT_NO_RENUMBER 3
+  
+  static void show_usage() {
+!     cout << "Usage: " PROG_NAME " [OPTIONS] SOURCE_DATABASE DESTINATION_DATABASE\n\n"
+  "Options:\n"
+  "  -b, --blocksize   Set the blocksize in bytes (e.g. 4096) or K (e.g. 4K)\n"
+  "                    (must be between 2K and 64K and a power of 2, default 8K)\n"
+***************
+*** 285,295 ****
+  		break;
+  	    }
+  	    case OPT_HELP:
+! 		cout << PROG_NAME" - "PROG_DESC"\n\n";
+  		show_usage();
+  		exit(0);
+  	    case OPT_VERSION:
+! 		cout << PROG_NAME" - "PACKAGE_STRING << endl;
+  		exit(0);
+  	    default:
+  		show_usage();
+--- 285,295 ----
+  		break;
+  	    }
+  	    case OPT_HELP:
+! 		cout << PROG_NAME " - " PROG_DESC"\n\n";
+  		show_usage();
+  		exit(0);
+  	    case OPT_VERSION:
+! 		cout << PROG_NAME " - " PACKAGE_STRING << endl;
+  		exit(0);
+  	    default:
+  		show_usage();
+diff -crB xapian-core-1.2.3/bin/xapian-compact.cc xapian-core-1.2.3-edited/bin/xapian-compact.cc
+*** xapian-core-1.2.3/bin/xapian-compact.cc	2010-08-24 09:50:22.000000000 +0200
+--- xapian-core-1.2.3-edited/bin/xapian-compact.cc	2014-05-18 23:31:45.000000000 +0200
+***************
+*** 58,64 ****
+  #define OPT_NO_RENUMBER 3
+  
+  static void show_usage() {
+!     cout << "Usage: "PROG_NAME" [OPTIONS] SOURCE_DATABASE... DESTINATION_DATABASE\n\n"
+  "Options:\n"
+  "  -b, --blocksize   Set the blocksize in bytes (e.g. 4096) or K (e.g. 4K)\n"
+  "                    (must be between 2K and 64K and a power of 2, default 8K)\n"
+--- 58,64 ----
+  #define OPT_NO_RENUMBER 3
+  
+  static void show_usage() {
+!     cout << "Usage: " PROG_NAME " [OPTIONS] SOURCE_DATABASE... DESTINATION_DATABASE\n\n"
+  "Options:\n"
+  "  -b, --blocksize   Set the blocksize in bytes (e.g. 4096) or K (e.g. 4K)\n"
+  "                    (must be between 2K and 64K and a power of 2, default 8K)\n"
+***************
+*** 221,231 ****
+  		renumber = false;
+  		break;
+  	    case OPT_HELP:
+! 		cout << PROG_NAME" - "PROG_DESC"\n\n";
+  		show_usage();
+  		exit(0);
+  	    case OPT_VERSION:
+! 		cout << PROG_NAME" - "PACKAGE_STRING << endl;
+  		exit(0);
+  	    default:
+  		show_usage();
+--- 221,231 ----
+  		renumber = false;
+  		break;
+  	    case OPT_HELP:
+! 		cout << PROG_NAME " - " PROG_DESC "\n\n";
+  		show_usage();
+  		exit(0);
+  	    case OPT_VERSION:
+! 		cout << PROG_NAME " - " PACKAGE_STRING << endl;
+  		exit(0);
+  	    default:
+  		show_usage();
+diff -crB xapian-core-1.2.3/bin/xapian-inspect.cc xapian-core-1.2.3-edited/bin/xapian-inspect.cc
+*** xapian-core-1.2.3/bin/xapian-inspect.cc	2010-08-24 09:50:22.000000000 +0200
+--- xapian-core-1.2.3-edited/bin/xapian-inspect.cc	2014-05-18 23:31:45.000000000 +0200
+***************
+*** 43,49 ****
+  #define OPT_VERSION 2
+  
+  static void show_usage() {
+!     cout << "Usage: "PROG_NAME" [OPTIONS] TABLE\n\n"
+  "Options:\n"
+  "  --help           display this help and exit\n"
+  "  --version        output version information and exit" << endl;
+--- 43,49 ----
+  #define OPT_VERSION 2
+  
+  static void show_usage() {
+!     cout << "Usage: " PROG_NAME " [OPTIONS] TABLE\n\n"
+  "Options:\n"
+  "  --help           display this help and exit\n"
+  "  --version        output version information and exit" << endl;
+***************
+*** 142,152 ****
+      while ((c = gnu_getopt_long(argc, argv, "", long_opts, 0)) != -1) {
+          switch (c) {
+  	    case OPT_HELP:
+! 		cout << PROG_NAME" - "PROG_DESC"\n\n";
+  		show_usage();
+  		exit(0);
+  	    case OPT_VERSION:
+! 		cout << PROG_NAME" - "PACKAGE_STRING << endl;
+  		exit(0);
+              default:
+  		show_usage();
+--- 142,152 ----
+      while ((c = gnu_getopt_long(argc, argv, "", long_opts, 0)) != -1) {
+          switch (c) {
+  	    case OPT_HELP:
+! 		cout << PROG_NAME " - " PROG_DESC"\n\n";
+  		show_usage();
+  		exit(0);
+  	    case OPT_VERSION:
+! 		cout << PROG_NAME " - " PACKAGE_STRING << endl;
+  		exit(0);
+              default:
+  		show_usage();
+diff -crB xapian-core-1.2.3/bin/xapian-progsrv.cc xapian-core-1.2.3-edited/bin/xapian-progsrv.cc
+*** xapian-core-1.2.3/bin/xapian-progsrv.cc	2010-08-24 09:50:22.000000000 +0200
+--- xapian-core-1.2.3-edited/bin/xapian-progsrv.cc	2014-05-18 23:31:45.000000000 +0200
+***************
+*** 46,52 ****
+  };
+  
+  static void show_usage() {
+!     cout << "Usage: "PROG_NAME" [OPTIONS] DATABASE_DIRECTORY...\n\n"
+  "Options:\n"
+  "  --timeout MSECS         set timeout\n"
+  "  --writable              allow updates (only one database directory allowed)\n"
+--- 46,52 ----
+  };
+  
+  static void show_usage() {
+!     cout << "Usage: " PROG_NAME " [OPTIONS] DATABASE_DIRECTORY...\n\n"
+  "Options:\n"
+  "  --timeout MSECS         set timeout\n"
+  "  --writable              allow updates (only one database directory allowed)\n"
+***************
+*** 64,74 ****
+      while ((c = gnu_getopt_long(argc, argv, opts, long_opts, NULL)) != -1) {
+  	switch (c) {
+  	    case OPT_HELP:
+! 		cout << PROG_NAME" - "PROG_DESC"\n\n";
+  		show_usage();
+  		exit(0);
+  	    case OPT_VERSION:
+! 		cout << PROG_NAME" - "PACKAGE_STRING << endl;
+  		exit(0);
+  	    case 't':
+  		timeout = atoi(optarg) * 1e-3;
+--- 64,74 ----
+      while ((c = gnu_getopt_long(argc, argv, opts, long_opts, NULL)) != -1) {
+  	switch (c) {
+  	    case OPT_HELP:
+! 		cout << PROG_NAME " - " PROG_DESC"\n\n";
+  		show_usage();
+  		exit(0);
+  	    case OPT_VERSION:
+! 		cout << PROG_NAME " - " PACKAGE_STRING << endl;
+  		exit(0);
+  	    case 't':
+  		timeout = atoi(optarg) * 1e-3;
+diff -crB xapian-core-1.2.3/bin/xapian-replicate-server.cc xapian-core-1.2.3-edited/bin/xapian-replicate-server.cc
+*** xapian-core-1.2.3/bin/xapian-replicate-server.cc	2010-08-24 09:50:22.000000000 +0200
+--- xapian-core-1.2.3-edited/bin/xapian-replicate-server.cc	2014-05-18 23:31:45.000000000 +0200
+***************
+*** 39,45 ****
+  #define OPT_VERSION 2
+  
+  static void show_usage() {
+!     cout << "Usage: "PROG_NAME" [OPTIONS] DATABASE_PARENT_DIRECTORY\n\n"
+  "Options:\n"
+  "  -I, --interface=ADDR  listen on interface ADDR\n"
+  "  -p, --port=PORT   port to listen on\n"
+--- 39,45 ----
+  #define OPT_VERSION 2
+  
+  static void show_usage() {
+!     cout << "Usage: " PROG_NAME " [OPTIONS] DATABASE_PARENT_DIRECTORY\n\n"
+  "Options:\n"
+  "  -I, --interface=ADDR  listen on interface ADDR\n"
+  "  -p, --port=PORT   port to listen on\n"
+***************
+*** 79,89 ****
+  		one_shot = true;
+  		break;
+  	    case OPT_HELP:
+! 		cout << PROG_NAME" - "PROG_DESC"\n\n";
+  		show_usage();
+  		exit(0);
+  	    case OPT_VERSION:
+! 		cout << PROG_NAME" - "PACKAGE_STRING << endl;
+  		exit(0);
+  	    default:
+  		show_usage();
+--- 79,89 ----
+  		one_shot = true;
+  		break;
+  	    case OPT_HELP:
+! 		cout << PROG_NAME " - " PROG_DESC"\n\n";
+  		show_usage();
+  		exit(0);
+  	    case OPT_VERSION:
+! 		cout << PROG_NAME " - " PACKAGE_STRING << endl;
+  		exit(0);
+  	    default:
+  		show_usage();
+diff -crB xapian-core-1.2.3/bin/xapian-replicate.cc xapian-core-1.2.3-edited/bin/xapian-replicate.cc
+*** xapian-core-1.2.3/bin/xapian-replicate.cc	2010-08-24 09:50:22.000000000 +0200
+--- xapian-core-1.2.3-edited/bin/xapian-replicate.cc	2014-05-18 23:31:45.000000000 +0200
+***************
+*** 46,60 ****
+  #define READER_CLOSE_TIME 30
+  
+  static void show_usage() {
+!     cout << "Usage: "PROG_NAME" [OPTIONS] DATABASE\n\n"
+  "Options:\n"
+  "  -h, --host=HOST     host to connect to\n"
+  "  -p, --port=PORT     port to connect to\n"
+  "  -m, --master=DB     replicate database DB from the master\n"
+  "  -i, --interval=N    wait N seconds between each connection to the master\n"
+! "                      (default: "STRINGIZE(DEFAULT_INTERVAL)")\n"
+  "  -r, --reader-time=N wait N seconds to allow readers time to close before\n"
+! "                      applying repeated changesets (default: "STRINGIZE(READER_CLOSE_TIME)")\n"
+  "  -o, --one-shot      replicate only once and then exit\n"
+  "  -v, --verbose       be more verbose\n"
+  "  --help              display this help and exit\n"
+--- 46,60 ----
+  #define READER_CLOSE_TIME 30
+  
+  static void show_usage() {
+!     cout << "Usage: " PROG_NAME " [OPTIONS] DATABASE\n\n"
+  "Options:\n"
+  "  -h, --host=HOST     host to connect to\n"
+  "  -p, --port=PORT     port to connect to\n"
+  "  -m, --master=DB     replicate database DB from the master\n"
+  "  -i, --interval=N    wait N seconds between each connection to the master\n"
+! "                      (default: " STRINGIZE(DEFAULT_INTERVAL) ")\n"
+  "  -r, --reader-time=N wait N seconds to allow readers time to close before\n"
+! "                      applying repeated changesets (default: " STRINGIZE(READER_CLOSE_TIME) ")\n"
+  "  -o, --one-shot      replicate only once and then exit\n"
+  "  -v, --verbose       be more verbose\n"
+  "  --help              display this help and exit\n"
+***************
+*** 111,121 ****
+  		verbose = true;
+  		break;
+  	    case OPT_HELP:
+! 		cout << PROG_NAME" - "PROG_DESC"\n\n";
+  		show_usage();
+  		exit(0);
+  	    case OPT_VERSION:
+! 		cout << PROG_NAME" - "PACKAGE_STRING << endl;
+  		exit(0);
+  	    default:
+  		show_usage();
+--- 111,121 ----
+  		verbose = true;
+  		break;
+  	    case OPT_HELP:
+! 		cout << PROG_NAME " - " PROG_DESC"\n\n";
+  		show_usage();
+  		exit(0);
+  	    case OPT_VERSION:
+! 		cout << PROG_NAME " - " PACKAGE_STRING << endl;
+  		exit(0);
+  	    default:
+  		show_usage();
+diff -crB xapian-core-1.2.3/bin/xapian-tcpsrv.cc xapian-core-1.2.3-edited/bin/xapian-tcpsrv.cc
+*** xapian-core-1.2.3/bin/xapian-tcpsrv.cc	2010-08-24 09:50:22.000000000 +0200
+--- xapian-core-1.2.3-edited/bin/xapian-tcpsrv.cc	2014-05-18 23:31:46.000000000 +0200
+***************
+*** 70,76 ****
+  };
+  
+  static void show_usage() {
+!     cout << "Usage: "PROG_NAME" [OPTIONS] DATABASE_DIRECTORY...\n\n"
+  "Options:\n"
+  "  --port PORTNUM          listen on port PORTNUM for connections (no default)\n"
+  "  --interface ADDRESS     listen on the interface associated with name or\n"
+--- 70,76 ----
+  };
+  
+  static void show_usage() {
+!     cout << "Usage: " PROG_NAME " [OPTIONS] DATABASE_DIRECTORY...\n\n"
+  "Options:\n"
+  "  --port PORTNUM          listen on port PORTNUM for connections (no default)\n"
+  "  --interface ADDRESS     listen on the interface associated with name or\n"
+***************
+*** 100,110 ****
+      while ((c = gnu_getopt_long(argc, argv, opts, long_opts, NULL)) != -1) {
+  	switch (c) {
+  	    case OPT_HELP:
+! 		cout << PROG_NAME" - "PROG_DESC"\n\n";
+  		show_usage();
+  		exit(0);
+  	    case OPT_VERSION:
+! 		cout << PROG_NAME" - "PACKAGE_STRING << endl;
+  		exit(0);
+  	    case 'I':
+                  host.assign(optarg);
+--- 100,110 ----
+      while ((c = gnu_getopt_long(argc, argv, opts, long_opts, NULL)) != -1) {
+  	switch (c) {
+  	    case OPT_HELP:
+! 		cout << PROG_NAME " - " PROG_DESC"\n\n";
+  		show_usage();
+  		exit(0);
+  	    case OPT_VERSION:
+! 		cout << PROG_NAME " - " PACKAGE_STRING << endl;
+  		exit(0);
+  	    case 'I':
+                  host.assign(optarg);
 diff -crB xapian-core-1.2.3/examples/copydatabase.cc xapian-core-1.2.3-edited/examples/copydatabase.cc
 *** xapian-core-1.2.3/examples/copydatabase.cc	2010-08-24 09:50:23.000000000 +0200
---- xapian-core-1.2.3-edited/examples/copydatabase.cc	2014-05-18 11:24:29.000000000 +0200
+--- xapian-core-1.2.3-edited/examples/copydatabase.cc	2014-05-18 23:31:05.000000000 +0200
 ***************
 *** 37,43 ****
   static void
@@ -307,7 +701,7 @@ diff -crB xapian-core-1.2.3/examples/copydatabase.cc xapian-core-1.2.3-edited/ex
       }
 diff -crB xapian-core-1.2.3/examples/delve.cc xapian-core-1.2.3-edited/examples/delve.cc
 *** xapian-core-1.2.3/examples/delve.cc	2010-08-24 09:50:23.000000000 +0200
---- xapian-core-1.2.3-edited/examples/delve.cc	2014-05-18 11:24:29.000000000 +0200
+--- xapian-core-1.2.3-edited/examples/delve.cc	2014-05-18 23:31:05.000000000 +0200
 ***************
 *** 47,53 ****
   #define PROG_DESC "Inspect the contents of a Xapian database"
@@ -354,7 +748,7 @@ diff -crB xapian-core-1.2.3/examples/delve.cc xapian-core-1.2.3-edited/examples/
       }
 diff -crB xapian-core-1.2.3/examples/quest.cc xapian-core-1.2.3-edited/examples/quest.cc
 *** xapian-core-1.2.3/examples/quest.cc	2010-08-24 09:50:23.000000000 +0200
---- xapian-core-1.2.3-edited/examples/quest.cc	2014-05-18 11:24:29.000000000 +0200
+--- xapian-core-1.2.3-edited/examples/quest.cc	2014-05-18 23:31:05.000000000 +0200
 ***************
 *** 47,53 ****
   };
@@ -397,7 +791,7 @@ diff -crB xapian-core-1.2.3/examples/quest.cc xapian-core-1.2.3-edited/examples/
   	    case ':': // missing parameter
 diff -crB xapian-core-1.2.3/examples/xapian-metadata.cc xapian-core-1.2.3-edited/examples/xapian-metadata.cc
 *** xapian-core-1.2.3/examples/xapian-metadata.cc	2010-08-24 09:50:23.000000000 +0200
---- xapian-core-1.2.3-edited/examples/xapian-metadata.cc	2014-05-18 11:24:29.000000000 +0200
+--- xapian-core-1.2.3-edited/examples/xapian-metadata.cc	2014-05-18 23:31:05.000000000 +0200
 ***************
 *** 34,41 ****
   #define PROG_DESC "Read and write user metadata"
@@ -446,7 +840,7 @@ diff -crB xapian-core-1.2.3/examples/xapian-metadata.cc xapian-core-1.2.3-edited
       }
 diff -crB xapian-core-1.2.3/queryparser/queryparser_internal.cc xapian-core-1.2.3-edited/queryparser/queryparser_internal.cc
 *** xapian-core-1.2.3/queryparser/queryparser_internal.cc	2010-08-24 09:58:25.000000000 +0200
---- xapian-core-1.2.3-edited/queryparser/queryparser_internal.cc	2014-05-18 11:24:29.000000000 +0200
+--- xapian-core-1.2.3-edited/queryparser/queryparser_internal.cc	2014-05-18 23:31:05.000000000 +0200
 ***************
 *** 1521,1527 ****
   #define BOOL_OP_TO_QUERY(E, A, OP, B, OP_TXT) \
