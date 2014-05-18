@@ -68,6 +68,8 @@ android/proguard-project.txt
 kiwix-0.9-i386.dmg
 kiwix-0.9-x86_64.dmg
 kiwix-0.9.dmg
+kiwix-0.9s.dmg
+
 kiwix/chrome/chrome.manifest
 src/components/cluceneAccessor/ICluceneAccessor.h
 src/components/contentManager/IContentManager.h
@@ -93,3 +95,10 @@ ftp_pass.py
 
 # OSXFuse
 .apdisk
+
+# android
+android/gradle*
+android/assets/icudt49l.dat
+android/libs/android-support-v4.jar
+
+configure.scan
