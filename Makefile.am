@@ -382,13 +382,6 @@ endif
 
 	cd universal_tmp/ub/Kiwix.app/Contents/MacOS/bin && ln -s ../icudt49l.dat . && cd -
 
-if SIGN_BUILD
-	cp universal_tmp/ub/Kiwix.app/Contents/Frameworks/Versions/$(EXACT_GECKO_VERSION)/Info.plist universal_tmp/ub/Kiwix.app/Contents/Frameworks/Versions/$(EXACT_GECKO_VERSION)/Resources/Info.plist
-
-	codesign --deep -vvv -s "$(CERTIFICATE)" universal_tmp/ub/Kiwix.app/Contents/Frameworks/XUL.framework/Versions/$(EXACT_GECKO_VERSION)
-	codesign --deep -vvv -s "$(CERTIFICATE)" universal_tmp/ub/Kiwix.app
-endif
-
 	hdiutil detach universal_tmp/i386 -quiet -force
 	hdiutil detach universal_tmp/x86_64 -quiet -force
 
@@ -396,6 +389,10 @@ endif
 	rm -f $(PACKAGE)-$(VERSION).dmg
 	hdiutil convert src/macosx/kiwix_template.dmg -quiet -format UDZO -imagekey zlib-level=9 -o $(PACKAGE)-$(VERSION).dmg
 	rm -f src/macosx/kiwix_template.dmg
+
+if SIGN_BUILD
+	./sign_osx_build $(PACKAGE)-$(VERSION).dmg $(PACKAGE)-$(VERSION)s.dmg "$(CERTIFICATE)"
+endif
 
 distserver:
 	strip src/server/kiwix-serve src/indexer/kiwix-index src/reader/kiwix-read src/searcher/kiwix-search src/manager/kiwix-manage || true
