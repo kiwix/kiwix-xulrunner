@@ -175,11 +175,11 @@ xapian-core-1.2.3.tar.gz:
 	$(DOWNLOADER) xapian-core-1.2.3.tar.gz $(DEP_MIRROR)/xapian-core-1.2.3.tar.gz
 
 xapian-core-1.2.3: xapian-core-1.2.3.tar.gz
-	test -d xapian-core-1.2.3 || tar -xf xapian-core-1.2.3.tar.gz
+	test -d xapian-core-1.2.3 || tar -xf xapian-core-1.2.3.tar.gz && cd xapian-core-1.2.3 && patch -p1 -i ../patches/xapian-core-1.2.3-cpp11.patch
 
 # Linux
 xapian-core-1.2.3/build/lib/libxapian.so: xapian-core-1.2.3
-	test ! -f xapian-core-1.2.3/build/lib/libxapian.so && cd xapian-core-1.2.3 mkdir -p build && EXTERN_PATH=`pwd` CPPFLAGS="-I${CURRENT_PATH}/src/dependencies/zlib-1.2.3/" CXXFLAGS=" -fPIC -L${CURRENT_PATH}/src/dependencies/zlib-1.2.3" ./configure --enable-shared --enable-static --disable-sse --disable-backend-inmemory --prefix=$(DEP_PATH)/xapian-core-1.2.3/build && make clean && make clean && make && make install || true
+	test ! -f xapian-core-1.2.3/build/lib/libxapian.so && cd xapian-core-1.2.3 mkdir -p build && EXTERN_PATH=`pwd` CPPFLAGS="-I${CURRENT_PATH}/src/dependencies/zlib-1.2.8/" CXXFLAGS=" -fPIC -L${CURRENT_PATH}/src/dependencies/zlib-1.2.8" ./configure --enable-shared --enable-static --disable-sse --disable-backend-inmemory --prefix=$(DEP_PATH)/xapian-core-1.2.3/build && make clean && make clean && make && make install || true
 
 # OSX Join
 xapian-core-1.2.3/build/lib/libxapian.dylib xapian-core-1.2.3/build/bin/xapian-compact: xapian-core-1.2.3/build-i386/lib/libxapian.dylib xapian-core-1.2.3/build-x86_64/lib/libxapian.dylib xapian-core-1.2.3/build-i386/bin/xapian-compact xapian-core-1.2.3/build-x86_64/bin/xapian-compact
