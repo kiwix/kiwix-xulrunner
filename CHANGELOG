@@ -1,4 +1,4 @@
-Kiwix 0.9 rc3 
+Kiwix 0.9 
 * FIXED: Fulltext search results page for pattern including
   mustbeurlencoded characters
 * FIXED: Kiwix-serve bug under Windows with library containing
