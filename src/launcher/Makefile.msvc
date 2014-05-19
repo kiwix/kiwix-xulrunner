@@ -2,20 +2,22 @@ CC=cl.exe
 LD=link.exe
 
 # Global paths
+ICU=../dependencies/icu
 
 # Include paths
+ICU_INCLUDE=${ICU}/include
 
 # Lib paths
+ICU_LIB=${ICU}/lib
 
 # Compiler and linker flags
-CFLAGS=-D"XP_WIN" -D"__GNU_LIBRARY__" -D"(__STDC__)" -D"__STDC__"  -D"XP_WIN32" -O2 -Oi -I../common/ -D"_WINDLL" -D"_MBCS" -FD -EHsc -MT -Gy -nologo -c -Zi -TP
-
-LDFLAGS=-nologo 
+CFLAGS=-D WIN32 -D _CONSOLE -I$(ICU_INCLUDE) -I../common/ -FD -EHsc -MT -Gy -nologo -c -Zi -TP -O2 -Oi
+LDFLAGS=-FORCE -SUBSYSTEM:CONSOLE -TLBID:1 -DYNAMICBASE -NXCOMPAT -MACHINE:X86
 
 all: kiwix-launcher.exe
 
 objs:
-	$(CC) $(CFLAGS) kiwix-launcher.cpp ../common/pathTools.cpp
+	$(CC) $(CFLAGS) ../common/stringTools.cpp ../common/pathTools.cpp kiwix-launcher.cpp
 
 kiwix-launcher.exe: objs
-	$(LD) -OUT:"kiwix-launcher.exe" -NOLOGO $(LDFLAGS) -NODEFAULTLIB:"MSVCRT" -OPT:REF -OPT:ICF -DYNAMICBASE -NXCOMPAT -MACHINE:X86 pthreadVC2.lib libcmt.lib ws2_32.lib DelayImp.lib winmm.lib *.obj
+	$(LD) -OUT:"kiwix-launcher.exe" $(LDFLAGS) -NODEFAULTLIB:"MSVCRT" libcmt.lib ws2_32.lib DelayImp.lib winmm.lib Shlwapi.lib *.obj
