@@ -479,6 +479,7 @@ windist:
 	find dvd/kiwix -name 'Makefile.in' -delete
 	find dvd/kiwix -name 'Makefile.am*' -delete
 	find dvd/kiwix -name '*.git' -delete
+	cp dvd/kiwix/kiwix.exe dvd/
 	-rm -f dvd/kiwix/kiwix
 	-rm -f dvd/kiwix/kiwix-compact
 	-rm -f dvd/kiwix/kiwix/chrome/chrome.manifest.{prod,dev}
