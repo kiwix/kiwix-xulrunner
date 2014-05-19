@@ -488,4 +488,4 @@ wininstaller:
 	cd installer ; ruby make-installer.rb --path=../dvd/ --allinone
 	mv dvd/install/kiwix-install.exe $(PACKAGE)-$(VERSION)-installer.exe
 	cd installer ; ruby make-installer.rb --path=../dvd/
-	cd dvd ; 7z a -mx=9 -tzip -r -y -xr\!?svn\* -xr\!?svn ../$(PACKAGE)-$(VERSION)-win.zip install kiwix
+	cd dvd ; 7z a -mx=9 -tzip -r -y ../$(PACKAGE)-$(VERSION)-win.zip install kiwix *.exe
