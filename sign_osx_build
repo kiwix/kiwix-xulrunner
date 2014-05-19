@@ -5,7 +5,9 @@
 TARGET_DMG="kiwix-0.9.dmg"
 TARGET_MNT="mnt_sign"
 DEST_DMG="kiwix-0.9s.dmg"
-CERTIFICATE="Developer ID Application: Renaud Gaudin (S3QKTMRU8F)"
+CERTIFICATE_DEV="Developer ID Application: Renaud Gaudin (S3QKTMRU8F)"
+CERTIFICATE="3rd Party Mac Developer Application: Renaud Gaudin (S3QKTMRU8F)"
+INSTALLER_CERTIFICATE="3rd Party Mac Developer Installer: Renaud Gaudin (S3QKTMRU8F)"
 
 if [ "$1" != "" ]
 then
@@ -48,7 +50,12 @@ hdiutil detach ${TARGET_MNT}/ro -quiet -force
 
 # sign Kiwix.app
 echo "Signing the build"
-codesign -d -f --all-architectures --deep -vvv -s "${CERTIFICATE}" ${TARGET_MNT}/rw/Kiwix.app
+codesign --entitlements src/macosx/kiwix.entitlements -d -f --all-architectures --deep -vvv -s "${CERTIFICATE}" ${TARGET_MNT}/rw/Kiwix.app/Contents/MacOS/crashreporter.app
+codesign --entitlements src/macosx/kiwix.entitlements -d -f --all-architectures --deep -vvv -s "${CERTIFICATE}" ${TARGET_MNT}/rw/Kiwix.app/Contents/MacOS/plugin-container.app
+codesign --entitlements src/macosx/kiwix.entitlements -d -f --all-architectures --deep -vvv -s "${CERTIFICATE}" ${TARGET_MNT}/rw/Kiwix.app/Contents/MacOS/updater.app
+codesign --entitlements src/macosx/kiwix.entitlements -d -f --all-architectures --deep -vvv -s "${CERTIFICATE}" ${TARGET_MNT}/rw/Kiwix.app
+
+productbuild --quiet --component ${TARGET_MNT}/rw/Kiwix.app /Applications --sign "${INSTALLER_CERTIFICATE}" Kiwix.pkg
 
 # detach rw
 echo "Detaching the new volume"

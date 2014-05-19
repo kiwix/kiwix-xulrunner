@@ -230,8 +230,8 @@ distmac:
 # Resources only contain English.lproj
 	$(MKDIR_P) Kiwix.app/Contents/Resources/English.lproj
 	cp -v src/macosx/InfoPlist.strings Kiwix.app/Contents/Resources/English.lproj/InfoPlist.strings
-	cp -v kiwix/chrome/icons/default/main.icns Kiwix.app/Contents/Resources/kiwix.icns
-	cp -v kiwix/chrome/icons/default/zim.icns Kiwix.app/Contents/Resources/kiwix-ZIM.icns
+	cp -v src/macosx/icons/KIWIX-icon-1024.icns Kiwix.app/Contents/Resources/kiwix.icns
+	cp -v src/macosx/icons/KIWIX-icon-zim-1024.icns Kiwix.app/Contents/Resources/kiwix-ZIM.icns
 
 # Contents
 	cp -v src/macosx/Info.plist Kiwix.app/Contents/Info.plist
