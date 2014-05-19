@@ -47,6 +47,7 @@ Kiwix 0.9
 * NEW: OSX 10.9 support
 * NEW: Sort bookmarks alphabetically
 * NEW: Able to deal with ZIM files containing relative paths
+* NEW: Allow to run launcher in a few other directories
 
 Kiwix 0.9 rc2
 * FIXED: kiwix-manage generate wrong size for splitted ZIM files (ID: 3547892)
