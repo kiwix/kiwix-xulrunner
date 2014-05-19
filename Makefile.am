@@ -62,7 +62,7 @@ all-local:
 	$(LN_S) -f ../../src/components/serverManager/serverManager.xpt ./kiwix/components/serverManager.xpt
 
 dist-hook:
-	rm -rf `find $(DESTDIR)$(distdir) -name "*.svn" -o -name "*.git" -o -name "*.so" -o -name "*.apk" -o -name "*.dat" -o -name "*~" -o -name "*#"`
+	rm -rf `find $(DESTDIR)$(distdir) -name "*.git" -o -name "*.so" -o -name "*.apk" -o -name "*.dat" -o -name "*~" -o -name "*#"`
 	rm -rf $(DESTDIR)$(distdir)/android/platforms
 	rm -rf `find $(DESTDIR)$(distdir) -name "Makefile"`
 	find $(DESTDIR)$(distdir)/src/components/ -name 'I*.h' -delete
@@ -82,7 +82,7 @@ deb: dist
 	if [ `whereis dpkg-buildpackage | cut -f2 -d" "` == "dpkg-buildpackage:" ] ; then echo "You have to install dpkg-buildpackage" ; exit 1 ; fi
 	tar -xvzf $(PACKAGE)-$(VERSION).tar.gz
 	rm -rf `find $(DESTDIR)$(distdir) -name "Makefile" -o -name "Makefile.in"`
-	rm -rf `find $(PACKAGE)-$(VERSION)/debian/ -name "*.svn" -o -name "*.dat" -o -name "*~" -o -name "*#"`
+	rm -rf `find $(PACKAGE)-$(VERSION)/debian/ -name "*.git" -o -name "*.dat" -o -name "*~" -o -name "*#"`
 	rm -rf `find $(DESTDIR)$(distdir) -name "config.guess" -o -name "config.sub" -o -name "configure"`
 	cd $(PACKAGE)-$(VERSION) ; dpkg-buildpackage -rfakeroot
 
@@ -104,7 +104,7 @@ diststatic:
 	mkdir -p $(STATIC_TMP)
 
 	cp -Lr ./kiwix $(STATIC_TMP)/
-	rm -rf `find $(STATIC_TMP)/kiwix -type d -name .svn`
+	rm -rf `find $(STATIC_TMP)/kiwix -type d -name .git`
 	find $(STATIC_TMP)/kiwix -name '*.inised' -exec rm -rf {} \;
 	find $(STATIC_TMP)/kiwix -name 'Makefile' -delete
 	find $(STATIC_TMP)/kiwix -name 'Makefile.in' -delete
@@ -207,7 +207,7 @@ distsugar: diststatic
 
 	rm -f $(SUGAR_TMP)/Kiwix.activity/bin/aria2c
 
-	find $(SUGAR_TMP) -name "\.svn" -exec rm -rf {} \; || /bin/true
+	find $(SUGAR_TMP) -name "\.git" -exec rm -rf {} \; || /bin/true
 
 	cd $(SUGAR_TMP)/Kiwix.activity && find ./ -type f | sed 's,^./,,g' | grep -v MANIFEST > MANIFEST || /bin/true && cd -
 
@@ -239,7 +239,7 @@ distmac:
 
 # MacOS contains everything
 	cp -LR ./kiwix/ Kiwix.app/Contents/MacOS/
-	rm -rf `find Kiwix.app/Contents/Resources -type d -name .svn`
+	rm -rf `find Kiwix.app/Contents/Resources -type d -name .git`
 	find Kiwix.app/Contents/MacOS -name '*.inised' -exec rm -rf {} \;
 	find Kiwix.app/Contents/MacOS -name 'Makefile' -delete
 	find Kiwix.app/Contents/MacOS -name 'Makefile.in' -delete
@@ -478,7 +478,6 @@ windist:
 	find dvd/kiwix -name 'Makefile' -delete
 	find dvd/kiwix -name 'Makefile.in' -delete
 	find dvd/kiwix -name 'Makefile.am*' -delete
-	find dvd/kiwix -name '*.svn' -delete
 	find dvd/kiwix -name '*.git' -delete
 	-rm -f dvd/kiwix/kiwix
 	-rm -f dvd/kiwix/kiwix-compact
