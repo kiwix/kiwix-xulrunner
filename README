@@ -190,8 +190,8 @@ from a Linux or Mac (it cross-compiles).
 * Get shell from c:\mozilla-build\start-msvc10.bat
 
 * mkdir -p /c/slave/windows-32b
-  svn co https://kiwix.svn.sourceforge.net/svnroot/kiwix/moulinkiwix build
-  cd build
+  git clone git://git.code.sf.net/p/kiwix/kiwix kiwix
+  cd kiwix
   ./autogen.sh alt
   ./configure --disable-indexer --enable-jar
   make win
