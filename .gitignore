@@ -7,13 +7,16 @@
 *.lai
 *.la
 *.a
-# autotools & co
-Makefile.in
+
+# Autotools & co
 .deps
 .deps/*
 .libs
 .libs/*
 Makefile
+Makefile.in
+configure
+configure.scan
 config.guess
 config.log
 config.status
@@ -21,7 +24,6 @@ config.sub
 autom4te.cache
 autom4te.cache/*
 *.gch
-configure
 depcomp
 install-sh
 ltmain.sh
@@ -29,26 +31,18 @@ missing
 aclocal.m4
 libtool
 src/zimlib/src/stamp-h1
-compile
-configure.ac.orig
 
-# android
-android/platforms
-*.class
-
-# dependencies
+# Dependencies
 src/dependencies/*.bz2
 src/dependencies/*.tar
 src/dependencies/*.zip
 src/dependencies/*.exe
 src/dependencies/*
+src/zimlib/src/config.h
 !src/dependencies/Makefile.am
 !src/dependencies/patches
 
-# specificaly generated files
-src/zimlib/src/config.h
-
-# android
+# Android
 android/bin
 android/gen
 android/src/org_kiwix_kiwixmobile_JNIKiwix.h
@@ -63,13 +57,24 @@ android/.project
 *.keystore
 android/local.properties
 android/proguard-project.txt
+android/gradle*
+android/assets/icudt49l.dat
+android/libs/android-support-v4.jar
+android/platforms
+*.class
 
-*.xpt
+# OSX
 kiwix-0.9-i386.dmg
 kiwix-0.9-x86_64.dmg
 kiwix-0.9.dmg
 kiwix-0.9s.dmg
+compile
 
+# OSXFuse
+.apdisk
+
+# Xulrunner
+*.xpt
 kiwix/chrome/chrome.manifest
 src/components/cluceneAccessor/ICluceneAccessor.h
 src/components/contentManager/IContentManager.h
@@ -86,19 +91,14 @@ src/server/kiwix-serve
 src/reader/kiwix-read
 src/searcher/kiwix-search
 
+# Buildbot
 *.pyc
 ftp_pass.py
-
 .DS_Store
 .dirstamp
 ._.*
 
-# OSXFuse
-.apdisk
-
-# android
-android/gradle*
-android/assets/icudt49l.dat
-android/libs/android-support-v4.jar
-
-configure.scan
+# Other
+*~
+\#*\#
+.\#*
