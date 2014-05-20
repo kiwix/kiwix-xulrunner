@@ -379,6 +379,7 @@ endif
 
 	cp -v $(COMPILED_XULRUNNERBIN_FILES) universal_tmp/ub/Kiwix.app/Contents/MacOS/kiwix
 	chmod +x universal_tmp/ub/Kiwix.app/Contents/MacOS/kiwix
+	rm -rf universal_tmp/ub/Kiwix.app/Contents/MacOS/xulrunner
 
 	cd universal_tmp/ub/Kiwix.app/Contents/MacOS/bin && ln -s ../icudt49l.dat . && cd -
 

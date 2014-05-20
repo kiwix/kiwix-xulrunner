@@ -50,6 +50,14 @@ hdiutil detach ${TARGET_MNT}/ro -quiet -force
 
 # sign Kiwix.app
 echo "Signing the build"
+
+codesign --entitlements src/macosx/kiwix.entitlements -d -f --all-architectures --deep -vvv -s "${CERTIFICATE}" ${TARGET_MNT}/rw/Kiwix.app/Contents/MacOS/bin/xapian-compact
+codesign --entitlements src/macosx/kiwix.entitlements -d -f --all-architectures --deep -vvv -s "${CERTIFICATE}" ${TARGET_MNT}/rw/Kiwix.app/Contents/MacOS/bin/aria2c
+find ${TARGET_MNT}/rw/Kiwix.app/Contents/MacOS/bin/ -name 'kiwix-*' -exec codesign --entitlements src/macosx/kiwix.entitlements -d -f --all-architectures --deep -vvv -s "${CERTIFICATE}" {} \;
+
+find ${TARGET_MNT}/rw/Kiwix.app/Contents/MacOS/ -name '*.dylib' -exec codesign --entitlements src/macosx/kiwix.entitlements -d -f --all-architectures --deep -vvv -s "${CERTIFICATE}" {} \;
+codesign --entitlements src/macosx/kiwix.entitlements -d -f --all-architectures --deep -vvv -s "${CERTIFICATE}" ${TARGET_MNT}/rw/Kiwix.app/Contents/MacOS/XUL
+
 codesign --entitlements src/macosx/kiwix.entitlements -d -f --all-architectures --deep -vvv -s "${CERTIFICATE}" ${TARGET_MNT}/rw/Kiwix.app/Contents/MacOS/crashreporter.app
 codesign --entitlements src/macosx/kiwix.entitlements -d -f --all-architectures --deep -vvv -s "${CERTIFICATE}" ${TARGET_MNT}/rw/Kiwix.app/Contents/MacOS/plugin-container.app
 codesign --entitlements src/macosx/kiwix.entitlements -d -f --all-architectures --deep -vvv -s "${CERTIFICATE}" ${TARGET_MNT}/rw/Kiwix.app/Contents/MacOS/updater.app
