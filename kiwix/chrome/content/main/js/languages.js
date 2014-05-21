@@ -174,6 +174,6 @@ function buildLanguagesRegexHash() {
 }
 
 function getLanguageRegex(language) {
-    return _languagesRegexHash[language];
+    return _languagesRegexHash[language] || '';
 }
 
