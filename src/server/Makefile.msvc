@@ -2,7 +2,7 @@ CC=cl.exe
 LD=link.exe
 
 # Global paths
-ZIM=../dependencies/zimlib-1.1
+ZIM=../dependencies/zimlib-1.2
 PUGIXML=../dependencies/pugixml-1.2/src
 ICU=../dependencies/icu
 CTPP2=../dependencies/ctpp2-2.8.3
