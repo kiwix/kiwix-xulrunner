@@ -519,7 +519,7 @@ zimlib-1.2.tar.gz:
 	$(DOWNLOADER) zimlib-1.2.tar.gz $(DEP_MIRROR)/zimlib-1.2.tar.gz
 
 zimlib-1.2: zimlib-1.2.tar.gz
-	tar xf zimlib-1.2.tar.gz && cd zimlib-1.2 && touch Makefile.in && ./autogen.sh || true
+	tar xf zimlib-1.2.tar.gz
 
 #zimlib-master.zip:
 #	$(DOWNLOADER) zimlib-master.zip https://github.com/kiwix/openzim/archive/master.zip
