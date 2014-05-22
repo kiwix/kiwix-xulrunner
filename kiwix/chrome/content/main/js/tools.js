@@ -1,5 +1,5 @@
 /*
- * Copyright 2011 Emmanuel Engelhart <kelson@kiwix.org>, Renaud Gaudin
+ * Copyright 2009-2014 Emmanuel Engelhart <kelson@kiwix.org>, Renaud Gaudin
  * <reg@kiwix.org>
  *
  * This program is free software; you can redistribute it and/or modify
