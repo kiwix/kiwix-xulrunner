@@ -18,7 +18,6 @@ Kiwix 0.9
 * FIXED: Encoding issue in kiwix-serve 404 error message
 * FIXED: Abstruse index names (#84)
 * FIXED: Duplicate suggestions under certain conditions
-* FIXED: Compilation configuration for Gecko SDK 17+
 * FIXED: kiwix-serve index page for chrome/chromium
 * FIXED: Buggy kiwix-serve suggestion click handling (#463)
 * FIXED: Hanging page loading with specific pages on Win&Mac (#440, #376) 
