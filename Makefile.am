@@ -407,6 +407,7 @@ distserver:
 # Windows rule
 win:
 	cd $(DEP_PATH) ; make
+	cd src/launcher ; if [ ! -f kiwix-launcher.exe ] ; then make -f Makefile.msvc ; fi
 	cd src/components/xapianAccessor ; if [ ! -f xapianAccessor.dll ] ; then make -f Makefile.msvc ; fi
 	cd src/components/zimAccessor ; if [ ! -f zimAccessor.dll ] ; then make -f Makefile.msvc ; fi
 	cd src/components/zimXapianIndexer ; if [ ! -f zimXapianIndexer.dll ] ; then make -f Makefile.msvc ; fi
