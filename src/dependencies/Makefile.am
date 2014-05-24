@@ -42,7 +42,11 @@ if IS_LINUX
 if IS_OLD_GECKO
 GECKOSDKURL=$(DEP_MIRROR)/xulrunner-1.9.2.13.en-US.linux-i686.sdk.tar.bz2
 else
+if IS_OLD_GCC
+GECKOSDKURL=$(DEP_MIRROR)/xulrunner-14.0.1.en-US.linux-$(ARCH).sdk.tar.bz2
+else
 GECKOSDKURL=$(DEP_MIRROR)/xulrunner-29.0.en-US.linux-$(ARCH).sdk.tar.bz2
+endif
 endif
 else
 GECKOSDKURL=$(DEP_MIRROR)/xulrunner-29.0.en-US.mac-$(ARCH).sdk.tar.bz2
@@ -51,7 +55,11 @@ endif
 if IS_OLD_GECKO
 XULRUNNERRUNTIMEURL=$(DEP_MIRROR)/xulrunner-3.6.26.en-US.linux-i686.tar.bz2
 else
+if IS_OLD_GCC
+XULRUNNERRUNTIMEURL=$(DEP_MIRROR)/xulrunner-14.0.1.en-US.linux-$(ARCH).tar.bz2
+else
 XULRUNNERRUNTIMEURL=$(DEP_MIRROR)/xulrunner-29.0.en-US.linux-$(ARCH).tar.bz2
+endif
 endif
 
 if IS_LINUX
