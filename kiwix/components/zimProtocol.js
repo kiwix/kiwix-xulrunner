@@ -66,11 +66,6 @@ ZimprotocolHandler.prototype = {
 		href.hash;
 	}
 
-	/* Remove local anchor if necessary */
-	if (spec.indexOf("#") != -1) {
-	    spec = spec.substr(0, spec.indexOf ("#"));
-	}
-
 	/* Create the proper absolute zim:// url */
 	var uri = Components.classes["@mozilla.org/network/simple-uri;1"]
 	    .createInstance(Components.interfaces.nsIURI);
