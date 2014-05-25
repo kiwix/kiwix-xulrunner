@@ -10,6 +10,7 @@ _languagesHash['ara']          = _languagesHashOld['ar']          = 'العرب�
 _languagesHash['ary']          = 'الدارجة';
 _languagesHash['asm']          = _languagesHashOld['as']          = 'অসমীয়া';
 _languagesHash['ast']          = 'Asturianu';
+_languagesHash['aze']          = _languagesHashOld['az']          = 'azərbaycanca';
 _languagesHash['azb']          = 'South Azerbaijani';
 _languagesHash['ba']           = 'Bašqort';
 _languagesHash['ben']          = _languagesHashOld['bn']          = 'বাংলা';
