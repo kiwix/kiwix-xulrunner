@@ -27,7 +27,7 @@ Kiwix 0.9
 * FIXED: Download problem with Metalink files containing magnet links
 * FIXED: Allow fullscreen for videos
 * FIXED: Icons for a better rendering on "retina" (like) screens
-* FIXED: Multiple issues with the PDF export on Win7 (#396, #431) 
+* FIXED: Multiple issues with the PDF export on Win7 (#374, #396, #431) 
 * NEW: New supported user interface languages: Chuvash (cv), Fiji
   Hindi Latin script (hif-latn), Mongolian (mn), Newari (new),
   Sanskrit (sa), Uzbek (uz), Turkish (tr), Tagalog (tl), Talysh
