@@ -410,7 +410,7 @@ ARIA2_CFLAGS=""
 ARIA2_LDFLAGS=""
 COMPILE_ARIA2=0
 if test [ $IS_OSX -eq 1 ] ; then
-	COMPILED_ARIA2_FILES="${DEP_PATH}/aria2c-1.14.2-universal"
+	COMPILED_ARIA2_FILES="${DEP_PATH}/aria2c-1.18.5-universal"
 elif test [ $IS_WIN -eq 1 ] ; then
 	COMPILED_ARIA2_FILES="${DEP_PATH}/aria2c.exe"
 else

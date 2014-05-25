@@ -350,8 +350,8 @@ aria2c:
 	chmod +x aria2c
 
 # OSX
-aria2c-1.14.2-universal:
-	$(DOWNLOADER) aria2c-1.14.2-universal $(DEP_MIRROR)/aria2c-1.14.2-universal && chmod +x aria2c-1.14.2-universal
+aria2c-1.18.5-universal:
+	$(DOWNLOADER) aria2c-1.18.5-universal $(DEP_MIRROR)/aria2c-1.18.5-universal && chmod +x aria2c-1.18.5-universal
 
 # Windows
 aria2c.exe:
@@ -634,7 +634,7 @@ DISTCLEANFILES= xulrunner-sdk.tar.bz2 \
 	xz.tar.bz2 \
 	xz-5.0.4-windows.zip \
 	aria2c \
-	aria2c-1.14.2-universal \
+	aria2c-1.18.5-universal \
 	aria2c.exe \
 	e2fsprogs-1.42.tar.gz \
 	argtable2-13.tar.gz \
@@ -665,7 +665,7 @@ clean-local:
 	-rm -rf argtable2-13
 	-rm -rf pthread-win32
 	-rm -rf zimlib-1.2
-	-rm -rf aria2c-1.14.2-universal
+	-rm -rf aria2c-1.18.5-universal
 	-rm -rf XUL.framework
 	-rm -rf gettext-0.18.3.2
 	-rm -rf libiconv-1.13.1
