@@ -898,7 +898,7 @@ function downloadFile(url, path) {
               nsIWBP.PERSIST_FLAGS_REPLACE_EXISTING_FILES |
               nsIWBP.PERSIST_FLAGS_BYPASS_CACHE;
   persist.persistFlags = flags;
-  persist.saveURI(s_uri, null, null, null, null, t_uri);
+  persist.saveURI(s_uri, null, null, null, null, t_uri, null);
 }
 
 /* Manage the image download */
