@@ -411,7 +411,7 @@ function hideFullScreenToolBar() {
 }
 
 function showFullScreenToolBar() {
-    document.getElementById('tool-bar').setAttribute("style", "display: visible;");
+    document.getElementById('tool-bar').setAttribute("style", "display: block;");
     if (_restore_tab)
         changeTabsVisibilityStatus(true, false);
 
@@ -945,7 +945,7 @@ function toggleBrowserContextualMenu(event) {
     if (target.localName == "img") {
 	var src = target.getAttribute("src");
 	saveImageAsMenuItem.setAttribute("onclick", "manageImageDownload(\"" + src.replace("\"", "\\\"") + "\")");
-	saveImageAsMenuItem.setAttribute("style", "display: visible;");
+	saveImageAsMenuItem.setAttribute("style", "display: block;");
     } else {
 	saveImageAsMenuItem.setAttribute("style", "display: none;");
     }
@@ -955,7 +955,7 @@ function toggleBrowserContextualMenu(event) {
     var url = getNodeLinkUrl(target);
     if (url != undefined) {
 	if (isInternalUrl(url) && !isJavascriptUrl(url)) {
-	    openLinkInNewTabMenuItem.setAttribute("style", "display: visible;");
+	    openLinkInNewTabMenuItem.setAttribute("style", "display: block;");
 	    openLinkInNewTabMenuItem.setAttribute("onclick", "manageOpenUrlInNewTab(\"" + url.replace("\"", "\\\"") + "\")");
 	} else {
 	    openLinkInNewTabMenuItem.setAttribute("style", "display: none;");
@@ -969,7 +969,7 @@ function toggleBrowserContextualMenu(event) {
     var url = getNodeLinkUrl(target);
     if (url != undefined) {
 //	if (!isInternalUrl(url)) {
-	    copyLinkAddressMenuItem.setAttribute("style", "display: visible;");
+	    copyLinkAddressMenuItem.setAttribute("style", "display: block;");
 	    copyLinkAddressMenuItem.setAttribute("onclick", "copyTextToClipboard(\"" + url.replace("\"", "\\\"") + "\")");
 //	} else {
 //	    copyLinkAddressMenuItem.setAttribute("style", "display: none;");
@@ -985,9 +985,9 @@ function toggleBrowserContextualMenu(event) {
 	getSelection().toString().replace(/(\r\n|\n|\r)/gm, " ");
 
     if (selectedText.length > 0) {
-	copySelectedTextMenuItem.setAttribute("style", "display: visible;");
+	copySelectedTextMenuItem.setAttribute("style", "display: block;");
 	copySelectedTextMenuItem.setAttribute("onclick", "copySelectedContent()");
-	searchForMenuItem.setAttribute("style", "display: visible;");
+	searchForMenuItem.setAttribute("style", "display: block;");
 	searchForMenuItem.setAttribute("onclick", "searchFor(\"" + selectedText.replace("\"", "\\\"") + "\")");
     } else {
 	copySelectedTextMenuItem.setAttribute("style", "display: none;");
@@ -997,7 +997,7 @@ function toggleBrowserContextualMenu(event) {
     /* Select all */
     var selectAllMenuItem = document.getElementById("browser-contextual-menu-selectall");
     if (target.localName != "img" && selectedText.length <= 0 && url == undefined) {
-	selectAllMenuItem.setAttribute("style", "display: visible;");
+	selectAllMenuItem.setAttribute("style", "display: block;");
     } else {
 	selectAllMenuItem.setAttribute("style", "display: none;");
     }
@@ -1010,9 +1010,9 @@ function toggleBrowserContextualMenu(event) {
     if (target.localName == "video") {
 	var isAudible = !target.muted;
 	if (isAudible) {
-	    muteMenuItem.setAttribute("style", "display: visible;");
+	    muteMenuItem.setAttribute("style", "display: block;");
 	} else {
-	    audibleMenuItem.setAttribute("style", "display: visible;");
+	    audibleMenuItem.setAttribute("style", "display: block;");
 	}
     }
 
