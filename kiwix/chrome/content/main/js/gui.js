@@ -941,7 +941,7 @@ function toggleBrowserContextualMenu(event) {
 
     /* Media target */
     var saveMediaAsMenuItem = document.getElementById("browser-contextual-menu-savemediaas");
-    if (target.localName == "img" || target.localName == "video") {
+    if (target.localName == "img" || target.localName == "video" || target.localName == "audio") {
 	var src = target.getAttribute("src");
 	saveMediaAsMenuItem.setAttribute("onclick", "manageMediaDownload(\"" + src.replace("\"", "\\\"") + "\")");
 	saveMediaAsMenuItem.setAttribute("style", "display: block;");
