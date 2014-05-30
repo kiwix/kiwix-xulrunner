@@ -1,4 +1,5 @@
-noinst_PROGRAMS=kiwix-launcher
+bin_PROGRAMS=kiwix-launcher
+bindir=$(pkglibdir)
 AM_CPPFLAGS=-I$(top_srcdir)/src/common
 AUTOMAKE_OPTIONS=subdir-objects
 kiwix_launcher_SOURCES= kiwix-launcher.cpp \
