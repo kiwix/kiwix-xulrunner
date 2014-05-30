@@ -7,10 +7,9 @@ inidir=$(pkglibdir)
 ini_DATA=application.ini chrome.manifest
 
 launcherdir=$(pkglibdir)
-launcher_SCRIPTS=kiwix
 
 install-exec-hook:
-	-ln -s -f $(DESTDIR)$(launcherdir)/kiwix $(bindir)/kiwix
+	-ln -s -f $(DESTDIR)$(launcherdir)/kiwix-launcher $(bindir)/kiwix
 
 uninstall-hook:
 	-rm $(DESTDIR)$(bindir)/kiwix
