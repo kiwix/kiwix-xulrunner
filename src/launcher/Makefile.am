@@ -6,7 +6,7 @@ kiwix_launcher_SOURCES= kiwix-launcher.cpp \
 			../common/stringTools.cpp \
 			../common/pathTools.h \
 			../common/stringTools.h
-kiwix_launcher_CXXFLAGS= $(ICU_CFLAGS) -I../common/ -DMAJOR_GECKO_VERSION=\"$(MAJOR_GECKO_VERSION)\"
+kiwix_launcher_CXXFLAGS= $(ICU_CFLAGS) -I../common/ -DGECKO_VERSION=\"$(GECKO_VERSION)\" -DMAJOR_GECKO_VERSION=\"$(MAJOR_GECKO_VERSION)\" -DMINOR_GECKO_VERSION=\"$(MINOR_GECKO_VERSION)\"
 kiwix_launcher_LDFLAGS=$(CHECK_LDFLAGS)
 
 if STATIC_BINS
