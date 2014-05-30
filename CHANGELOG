@@ -28,6 +28,7 @@ Kiwix 0.9
 * FIXED: Allow fullscreen for videos
 * FIXED: Icons for a better rendering on "retina" (like) screens
 * FIXED: Multiple issues with the PDF export on Win7 (#374, #396, #431) 
+* NEW: Allow to save videos and sounds
 * NEW: Add a "random article" button to kiwix-serve
 * NEW: New supported user interface languages: Chuvash (cv), Fiji
   Hindi Latin script (hif-latn), Mongolian (mn), Newari (new),
