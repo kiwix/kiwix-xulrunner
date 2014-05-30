@@ -223,7 +223,7 @@
 <!-- Contextual menu (should be implemented after menubar otherwise generate a 1 pixel big space between windows decoration and menubar) -->
 <popupset>
 <menupopup id="browser-contextual-menu">
-  <menuitem label="&main.saveImageAs;" id="browser-contextual-menu-saveimageas"/>
+  <menuitem label="&main.saveMediaAs;" id="browser-contextual-menu-savemediaas"/>
   <menuitem label="&main.openLinkInNewTab;" id="browser-contextual-menu-openlinkinnewtab"/>
   <menuitem label="&main.copy;" id="browser-contextual-menu-copyselectedtext"/>
   <menuitem label="&main.selectall;" id="browser-contextual-menu-selectall" onclick="selectAll()"/>

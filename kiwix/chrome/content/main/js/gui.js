@@ -901,8 +901,8 @@ function downloadFile(url, path) {
   persist.saveURI(s_uri, null, null, null, null, t_uri, null);
 }
 
-/* Manage the image download */
-function manageImageDownload(url) {
+/* Manage the image/video download */
+function manageMediaDownload(url) {
     var path;
 
     /* Compute the extension */
@@ -914,9 +914,8 @@ function manageImageDownload(url) {
     filePicker.init(window, "Save image", nsIFilePicker.modeSave);
     filePicker.appendFilters(filePicker.filterImages);
 
-    /* Compute and set up the default filename */
-    var defaultFilename = url.replace(RegExp("/I/", "i"), "");
-    defaultFilename = defaultFilename.replace(RegExp("\/", "i"), "_");
+    /* Compute and set up the default filename (leaf of url) */
+    var defaultFilename = url.replace(RegExp(".*\/", "i"), "");
     filePicker.defaultString = defaultFilename;
 
     /* Show the dialog and get the file path */
@@ -940,14 +939,14 @@ function toggleBrowserContextualMenu(event) {
     /* Set the trigger Node */
     document.popupNode = target;
 
-    /* Image target */
-    var saveImageAsMenuItem = document.getElementById("browser-contextual-menu-saveimageas");
-    if (target.localName == "img") {
+    /* Media target */
+    var saveMediaAsMenuItem = document.getElementById("browser-contextual-menu-savemediaas");
+    if (target.localName == "img" || target.localName == "video") {
 	var src = target.getAttribute("src");
-	saveImageAsMenuItem.setAttribute("onclick", "manageImageDownload(\"" + src.replace("\"", "\\\"") + "\")");
-	saveImageAsMenuItem.setAttribute("style", "display: block;");
+	saveMediaAsMenuItem.setAttribute("onclick", "manageMediaDownload(\"" + src.replace("\"", "\\\"") + "\")");
+	saveMediaAsMenuItem.setAttribute("style", "display: block;");
     } else {
-	saveImageAsMenuItem.setAttribute("style", "display: none;");
+	saveMediaAsMenuItem.setAttribute("style", "display: none;");
     }
 
     /* Target with a link */
