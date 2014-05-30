@@ -52,7 +52,6 @@ sed -i -e "s/^pref(\"kiwix.downloadRemoteCatalogs\", undefined);$/pref(\"kiwix.d
 # build .xo (write the manifest and zip the package)
 cd /tmp/Kiwix.activity
 rm ./aria2c
-find ./ -name "\.svn" -exec rm -rf {} \;
 find ./ -type f -o -type l | sed 's,^./,,g' | grep -v MANIFEST > MANIFEST
 cd ..
 zip -r Kiwix-$VERSION.xo Kiwix.activity
