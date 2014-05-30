@@ -302,7 +302,7 @@ function htmlRendererMouseOut(aEvent) {
 
 /* Try to find the link behind a node */
 function getNodeLinkUrl(node) {
-    while (node.parentNode != undefined &&  !(node instanceof HTMLAnchorElement)) {
+    while (node.parentNode != undefined && !(node instanceof HTMLAnchorElement)) {
         node = node.parentNode;
     }
     return (node instanceof HTMLAnchorElement ? node.href : undefined);
@@ -888,8 +888,8 @@ function displayInfoDialog(message, title) {
 /* Download an url on the hard disk */
 function downloadFile(url, path) {
   var ioService = Components.classes["@mozilla.org/network/io-service;1"]
-                            .getService(Components.interfaces.nsIIOService);
-  var s_uri = ioService.newURI(url, null, null);
+        .getService(Components.interfaces.nsIIOService);
+  var s_uri = ioService.newURI(url, null, getHtmlRenderer().currentURI);
   var t_uri = ioService.newURI(path, null, null);
   const nsIWBP = Components.interfaces.nsIWebBrowserPersist;
   var persist = Components.classes['@mozilla.org/embedding/browser/nsWebBrowserPersist;1']
@@ -929,7 +929,7 @@ function manageMediaDownload(url) {
     }
 
     /* Write the image */
-    downloadFile('zim://' + url, 'file://' + path);
+    downloadFile(url, 'file://' + path);
 }
 
 /* Toogle browser contextual menu */
