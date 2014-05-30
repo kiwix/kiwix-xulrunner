@@ -70,7 +70,6 @@ dist-hook:
 	find $(DESTDIR)$(distdir)/kiwix/chrome -name 'chrome.manifest' -delete
 
 install-exec-hook:
-	rm -rf `find $(DESTDIR)$(libdir) -name "*.la" -o -name "*.a"`
 	cd $(DESTDIR)$(libdir)/kiwix/components && ln -sf libZimXapianIndexer.$(SHARED_EXT) zimXapianIndexer.$(SHARED_EXT)
 	cd $(DESTDIR)$(libdir)/kiwix/components && ln -sf libContentManager.$(SHARED_EXT) contentManager.$(SHARED_EXT)
 	cd $(DESTDIR)$(libdir)/kiwix/components && ln -sf libServerManager.$(SHARED_EXT) serverManager.$(SHARED_EXT)
