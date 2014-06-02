@@ -113,7 +113,7 @@
 <!ENTITY main.defaultset                "Προεπιλεγμένο Σύνολο">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveImageAs               "Αποθήκευση εικόνας ως...">
+<!ENTITY main.saveMediaAs               "Save media as...">
 <!ENTITY main.openLinkInNewTab          "Άνοιγμα συνδέσμου σε νέα καρτέλα">
 <!ENTITY main.searchFor                 "Αναζήτηση για">
 <!ENTITY main.copyLinkAdress            "Copy link address">

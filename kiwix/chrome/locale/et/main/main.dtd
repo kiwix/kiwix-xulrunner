@@ -113,7 +113,7 @@
 <!ENTITY main.defaultset                "Vaikekomplekt">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveImageAs               "Salvesta pilt nimega...">
+<!ENTITY main.saveMediaAs               "Save media as...">
 <!ENTITY main.openLinkInNewTab          "Ava link uuel kaardil">
 <!ENTITY main.searchFor                 "Otsi fraasi">
 <!ENTITY main.copyLinkAdress            "Copy link address">

@@ -113,7 +113,7 @@
 <!ENTITY main.defaultset                "Collection predefinite">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveImageAs               "Salveguardar imagine sub nomine...">
+<!ENTITY main.saveMediaAs               "Save media as...">
 <!ENTITY main.openLinkInNewTab          "Aperir ligamine in nove scheda">
 <!ENTITY main.searchFor                 "Cercar">
 <!ENTITY main.copyLinkAdress            "Copy link address">

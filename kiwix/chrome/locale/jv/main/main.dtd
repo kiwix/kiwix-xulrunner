@@ -113,7 +113,7 @@
 <!ENTITY main.defaultset                "Tata Baku">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveImageAs               "Simpen gambar dadi...">
+<!ENTITY main.saveMediaAs               "Save media as...">
 <!ENTITY main.openLinkInNewTab          "Mbukak pranala nèng tab anyar">
 <!ENTITY main.searchFor                 "Nggolèki">
 <!ENTITY main.copyLinkAdress            "Copy link address">

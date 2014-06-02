@@ -113,7 +113,7 @@
 <!ENTITY main.defaultset                "অবিকল্পিত সংহতি">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveImageAs               "ছবিক এই ধৰণে সাঁচক...">
+<!ENTITY main.saveMediaAs               "Save media as...">
 <!ENTITY main.openLinkInNewTab          "সংযোগক নতুন টেবত খোলক">
 <!ENTITY main.searchFor                 "এইটো অনুসন্ধান কৰক">
 <!ENTITY main.copyLinkAdress            "Copy link address">

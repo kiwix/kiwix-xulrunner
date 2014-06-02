@@ -113,7 +113,7 @@
 <!ENTITY main.defaultset                "Ìtò àkọ́kọ́ṣe">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveImageAs               "Ìmúpamọ́ àwòrán bíi...">
+<!ENTITY main.saveMediaAs               "Save media as...">
 <!ENTITY main.openLinkInNewTab          "Ṣí ìjápọ̀ nínú ìpele tuntun">
 <!ENTITY main.searchFor                 "Àwáàrí fún">
 <!ENTITY main.copyLinkAdress            "Copy link address">

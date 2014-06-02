@@ -113,7 +113,7 @@
 <!ENTITY main.defaultset                "Пÿрнĕ пек ушкăн">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveImageAs               "Ÿкерчĕке упрамалли май...">
+<!ENTITY main.saveMediaAs               "Save media as...">
 <!ENTITY main.openLinkInNewTab          "Çĕнĕ кантăкра уç">
 <!ENTITY main.searchFor                 "Шыра">
 <!ENTITY main.copyLinkAdress            "Copy link address">

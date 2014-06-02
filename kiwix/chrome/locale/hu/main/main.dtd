@@ -113,7 +113,7 @@
 <!ENTITY main.defaultset                "Alapértelmezett készlet">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveImageAs               "Kép mentése másként...">
+<!ENTITY main.saveMediaAs               "Save media as...">
 <!ENTITY main.openLinkInNewTab          "A hivatkozás megnyitása új lapon">
 <!ENTITY main.searchFor                 "Keresés">
 <!ENTITY main.copyLinkAdress            "Copy link address">

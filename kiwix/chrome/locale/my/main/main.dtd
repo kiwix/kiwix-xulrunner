@@ -113,7 +113,7 @@
 <!ENTITY main.defaultset                "ပုံမှန် အနေအထား">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveImageAs               "ပုံများ သိမ်းဆည်းရန်">
+<!ENTITY main.saveMediaAs               "Save media as...">
 <!ENTITY main.openLinkInNewTab          "ဖွင့်ပြနေရာ အသစ်တွင်ဖွင့်ပါ">
 <!ENTITY main.searchFor                 "ရှာဖွေရန်">
 <!ENTITY main.copyLinkAdress            "Copy link address">

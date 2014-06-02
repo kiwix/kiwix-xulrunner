@@ -113,7 +113,7 @@
 <!ENTITY main.defaultset                "Setingan asale">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveImageAs               "Simpen gambar nganggo jeneng...">
+<!ENTITY main.saveMediaAs               "Save media as...">
 <!ENTITY main.openLinkInNewTab          "Bukak pranala nang tab sing anyar">
 <!ENTITY main.searchFor                 "Sing digoleti">
 <!ENTITY main.copyLinkAdress            "Copy link address">

@@ -113,7 +113,7 @@
 <!ENTITY main.defaultset                "Podrazumevani skup">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveImageAs               "Sačuvaj sliku kao…">
+<!ENTITY main.saveMediaAs               "Save media as...">
 <!ENTITY main.openLinkInNewTab          "Otvori vezu u novom jezičku">
 <!ENTITY main.searchFor                 "Traži">
 <!ENTITY main.copyLinkAdress            "Copy link address">

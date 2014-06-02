@@ -113,7 +113,7 @@
 <!ENTITY main.defaultset                "الخيارات المبدئية">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveImageAs               "enregistri el page ki...">
+<!ENTITY main.saveMediaAs               "Save media as...">
 <!ENTITY main.openLinkInNewTab          "افتح الوصلة في لسان جديد">
 <!ENTITY main.searchFor                 "barre mte3 ettelwij">
 <!ENTITY main.copyLinkAdress            "Copy link address">

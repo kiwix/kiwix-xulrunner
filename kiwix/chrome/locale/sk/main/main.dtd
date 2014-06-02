@@ -113,7 +113,7 @@
 <!ENTITY main.defaultset                "Predvolená množina">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveImageAs               "Uložiť obrázok ako...">
+<!ENTITY main.saveMediaAs               "Save media as...">
 <!ENTITY main.openLinkInNewTab          "Otvoriť odkaz v novej záložke">
 <!ENTITY main.searchFor                 "Hľadať">
 <!ENTITY main.copyLinkAdress            "Copy link address">

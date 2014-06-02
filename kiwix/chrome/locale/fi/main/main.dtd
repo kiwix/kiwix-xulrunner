@@ -113,7 +113,7 @@
 <!ENTITY main.defaultset                "Oletuskokoelma">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveImageAs               "Tallenna kuva nimellä...">
+<!ENTITY main.saveMediaAs               "Save media as...">
 <!ENTITY main.openLinkInNewTab          "Avaa linkki uudessa välilehdessä">
 <!ENTITY main.searchFor                 "Etsi">
 <!ENTITY main.copyLinkAdress            "Copy link address">

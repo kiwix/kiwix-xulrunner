@@ -113,7 +113,7 @@
 <!ENTITY main.defaultset                "การตั้งค่าเริ่มต้น">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveImageAs               "บันทึกภาพเป็น...">
+<!ENTITY main.saveMediaAs               "Save media as...">
 <!ENTITY main.openLinkInNewTab          "เปิดลิงค์ในแท็บใหม่">
 <!ENTITY main.searchFor                 "ค้นหาเกี่ยวกับคำนี้">
 <!ENTITY main.copyLinkAdress            "Copy link address">

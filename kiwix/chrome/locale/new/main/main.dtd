@@ -113,7 +113,7 @@
 <!ENTITY main.defaultset                "दिफल्त सेत">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveImageAs               "किपायात स्वथनादिसँ...">
+<!ENTITY main.saveMediaAs               "Save media as...">
 <!ENTITY main.openLinkInNewTab          "लिंकयात न्हुगु त्याबय् चायेकादिसँ">
 <!ENTITY main.searchFor                 "थ्व मालादिसँ">
 <!ENTITY main.copyLinkAdress            "Copy link address">

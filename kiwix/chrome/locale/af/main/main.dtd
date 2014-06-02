@@ -113,7 +113,7 @@
 <!ENTITY main.defaultset                "Standaardgroep">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveImageAs               "Stoor beeld as...">
+<!ENTITY main.saveMediaAs               "Save media as...">
 <!ENTITY main.openLinkInNewTab          "Open skakel in nuwe oortjie">
 <!ENTITY main.searchFor                 "Soek na">
 <!ENTITY main.copyLinkAdress            "Copy link address">

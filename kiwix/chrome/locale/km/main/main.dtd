@@ -113,7 +113,7 @@
 <!ENTITY main.defaultset                "កញ្ចប់តាមលំនាំដើម">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveImageAs               "រក្សាទុករូបភាពជា...">
+<!ENTITY main.saveMediaAs               "Save media as...">
 <!ENTITY main.openLinkInNewTab          "បើ់កតំណភ្ជាប់ក្នុងផ្ទាំងរងថ្មី">
 <!ENTITY main.searchFor                 "ស្វែងរក">
 <!ENTITY main.copyLinkAdress            "Copy link address">

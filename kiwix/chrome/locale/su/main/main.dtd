@@ -113,7 +113,7 @@
 <!ENTITY main.defaultset                "Sét ti dituna">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveImageAs               "Simpen gambar salaku...">
+<!ENTITY main.saveMediaAs               "Save media as...">
 <!ENTITY main.openLinkInNewTab          "Buka Tutumbu dina Tab Anyar">
 <!ENTITY main.searchFor                 "Paluruh">
 <!ENTITY main.copyLinkAdress            "Copy link address">

@@ -113,7 +113,7 @@
 <!ENTITY main.defaultset                "Standardsamling">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveImageAs               "Lagre bilde som …">
+<!ENTITY main.saveMediaAs               "Save media as...">
 <!ENTITY main.openLinkInNewTab          "Åpne lenke i ny fane">
 <!ENTITY main.searchFor                 "Søk etter">
 <!ENTITY main.copyLinkAdress            "Copy link address">

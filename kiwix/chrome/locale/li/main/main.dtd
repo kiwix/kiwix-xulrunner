@@ -113,7 +113,7 @@
 <!ENTITY main.defaultset                "Sjtandaardgróp">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveImageAs               "Plaetje opsjloon es...">
+<!ENTITY main.saveMediaAs               "Save media as...">
 <!ENTITY main.openLinkInNewTab          "Verwiezing äöpene in nuuj tabblaad">
 <!ENTITY main.searchFor                 "Zeuk nao">
 <!ENTITY main.copyLinkAdress            "Copy link address">

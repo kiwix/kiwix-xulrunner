@@ -113,7 +113,7 @@
 <!ENTITY main.defaultset                "Pangkat ng Likas na Katakdaan">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveImageAs               "Sagipin ang larawan bilang...">
+<!ENTITY main.saveMediaAs               "Save media as...">
 <!ENTITY main.openLinkInNewTab          "Buksan ang kawing sa bagong laylay">
 <!ENTITY main.searchFor                 "Hanapin ang">
 <!ENTITY main.copyLinkAdress            "Copy link address">

@@ -113,7 +113,7 @@
 <!ENTITY main.defaultset                "Grupu predetermináu">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveImageAs               "Guardar imaxe como...">
+<!ENTITY main.saveMediaAs               "Save media as...">
 <!ENTITY main.openLinkInNewTab          "Abrir enllaz en llingüeta nueva">
 <!ENTITY main.searchFor                 "Buscar">
 <!ENTITY main.copyLinkAdress            "Copy link address">

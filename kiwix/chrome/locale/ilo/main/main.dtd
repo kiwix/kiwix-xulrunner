@@ -113,7 +113,7 @@
 <!ENTITY main.defaultset                "Kinasigud nga Agasmang">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveImageAs               "Idulin ti panid a kas...">
+<!ENTITY main.saveMediaAs               "Save media as...">
 <!ENTITY main.openLinkInNewTab          "Lukatan ti panilpo iti baro nga etiketa">
 <!ENTITY main.searchFor                 "Biruken iti">
 <!ENTITY main.copyLinkAdress            "Copy link address">

@@ -113,7 +113,7 @@
 <!ENTITY main.defaultset                "ნაგულისხმევი ნაკრები">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveImageAs               "სურათის შენახვა როგორც...">
+<!ENTITY main.saveMediaAs               "Save media as...">
 <!ENTITY main.openLinkInNewTab          "ბმულის გახსნა ახალ ჩანართში">
 <!ENTITY main.searchFor                 "მოძებნე">
 <!ENTITY main.copyLinkAdress            "Copy link address">

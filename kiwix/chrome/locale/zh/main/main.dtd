@@ -113,7 +113,7 @@
 <!ENTITY main.defaultset                "缺省书签组">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveImageAs               "图片另存为...">
+<!ENTITY main.saveMediaAs               "Save media as...">
 <!ENTITY main.openLinkInNewTab          "Open link in new tab">
 <!ENTITY main.searchFor                 "Search for">
 <!ENTITY main.copyLinkAdress            "Copy link address">

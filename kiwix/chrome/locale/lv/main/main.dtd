@@ -113,7 +113,7 @@
 <!ENTITY main.defaultset                "Noklusētā kopa">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveImageAs               "Saglabāt attēlu kā...">
+<!ENTITY main.saveMediaAs               "Save media as...">
 <!ENTITY main.openLinkInNewTab          "Atvērt saiti jaunā lapā">
 <!ENTITY main.searchFor                 "Meklēt">
 <!ENTITY main.copyLinkAdress            "Copy link address">

@@ -113,7 +113,7 @@
 <!ENTITY main.defaultset                "Імпліцітна сада">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveImageAs               "Уложыти образчік як...">
+<!ENTITY main.saveMediaAs               "Save media as...">
 <!ENTITY main.openLinkInNewTab          "Одкрыти одказ в новім табі">
 <!ENTITY main.searchFor                 "Глядати">
 <!ENTITY main.copyLinkAdress            "Copy link address">

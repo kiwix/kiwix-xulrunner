@@ -113,7 +113,7 @@
 <!ENTITY main.defaultset                "পূর্বনির্ধারিত সেট">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveImageAs               "যেভাবে চিত্রটি সংরক্ষণ করবেন...">
+<!ENTITY main.saveMediaAs               "Save media as...">
 <!ENTITY main.openLinkInNewTab          "নতুন টাঁবে খুলুন">
 <!ENTITY main.searchFor                 "অনুসন্ধান করো">
 <!ENTITY main.copyLinkAdress            "Copy link address">

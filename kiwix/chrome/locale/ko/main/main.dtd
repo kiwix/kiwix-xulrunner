@@ -113,7 +113,7 @@
 <!ENTITY main.defaultset                "기본값 집합">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveImageAs               "그림을 다른 이름으로 저장...">
+<!ENTITY main.saveMediaAs               "Save media as...">
 <!ENTITY main.openLinkInNewTab          "새 탭에 링크 열기">
 <!ENTITY main.searchFor                 "검색 대상">
 <!ENTITY main.copyLinkAdress            "Copy link address">
