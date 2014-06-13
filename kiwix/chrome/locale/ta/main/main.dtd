@@ -113,7 +113,7 @@
 <!ENTITY main.defaultset                "இயல்புநிலை அமை">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveImageAs               "படத்தை இவ்வாறாக சேமி...">
+<!ENTITY main.saveMediaAs               "Save media as...">
 <!ENTITY main.openLinkInNewTab          "புதிய தாவலில் இணைப்பை திற">
 <!ENTITY main.searchFor                 "இதை தேடு">
 <!ENTITY main.copyLinkAdress            "Copy link address">

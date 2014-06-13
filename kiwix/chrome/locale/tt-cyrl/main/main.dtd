@@ -113,7 +113,7 @@
 <!ENTITY main.defaultset                "Баштагы көйләнмәләргә кайтару">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveImageAs               "Рәсем саклау форматы ...">
+<!ENTITY main.saveMediaAs               "Save media as...">
 <!ENTITY main.openLinkInNewTab          "Сылтаманы яңа тәрәзәдә ачу">
 <!ENTITY main.searchFor                 "Эзләү">
 <!ENTITY main.copyLinkAdress            "Copy link address">

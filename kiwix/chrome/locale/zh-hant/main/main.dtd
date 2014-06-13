@@ -113,7 +113,7 @@
 <!ENTITY main.defaultset                "預設設定">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveImageAs               "另存圖像為 ...">
+<!ENTITY main.saveMediaAs               "Save media as...">
 <!ENTITY main.openLinkInNewTab          "在新頁籤打開連結">
 <!ENTITY main.searchFor                 "搜尋">
 <!ENTITY main.copyLinkAdress            "Copy link address">

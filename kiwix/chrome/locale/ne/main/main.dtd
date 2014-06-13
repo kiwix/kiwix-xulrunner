@@ -113,7 +113,7 @@
 <!ENTITY main.defaultset                "पूर्व निर्धारित समुह">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveImageAs               "तस्विरलाई यसरुपमा बचत गर्ने...">
+<!ENTITY main.saveMediaAs               "Save media as...">
 <!ENTITY main.openLinkInNewTab          "लिङ्कलाइ नयाँ ट्याबमा खोल्नुहोस">
 <!ENTITY main.searchFor                 "यसलाइ खोज्ने">
 <!ENTITY main.copyLinkAdress            "Copy link address">

@@ -113,7 +113,7 @@
 <!ENTITY main.defaultset                "Встановити за замовчуванням">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveImageAs               "Зберегти зображення як ...">
+<!ENTITY main.saveMediaAs               "Save media as...">
 <!ENTITY main.openLinkInNewTab          "Відкрити посилання у новій вкладці">
 <!ENTITY main.searchFor                 "Шукати">
 <!ENTITY main.copyLinkAdress            "Copy link address">

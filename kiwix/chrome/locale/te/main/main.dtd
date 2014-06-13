@@ -113,7 +113,7 @@
 <!ENTITY main.defaultset                "అప్రమేయ సమితి">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveImageAs               "బొమ్మను భద్రపరచువిధము...">
+<!ENTITY main.saveMediaAs               "Save media as...">
 <!ENTITY main.openLinkInNewTab          "లంకెను కొత్త ట్యాబులో తెరువు">
 <!ENTITY main.searchFor                 "దీనికై వెతుకు">
 <!ENTITY main.copyLinkAdress            "Copy link address">

@@ -113,7 +113,7 @@
 <!ENTITY main.defaultset                "ಇತ್ತೆ ಉಪ್ಪುನ ವ್ಯವಸ್ಥೆಲೆನ ಗುಂಪು">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveImageAs               "ಇಂಚ ಪುಟನ್ ಒರಿಪಾಲೆ">
+<!ENTITY main.saveMediaAs               "Save media as...">
 <!ENTITY main.openLinkInNewTab          "ಪೊಸ ಪಟ್ಟಿಡ್ ಕೊಂಡಿ ಬಿಚ್ಚಾಲೆ">
 <!ENTITY main.searchFor                 "ನಾಡ್ಲೆ...">
 <!ENTITY main.copyLinkAdress            "Copy link address">

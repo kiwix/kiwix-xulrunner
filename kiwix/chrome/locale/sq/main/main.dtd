@@ -113,7 +113,7 @@
 <!ENTITY main.defaultset                "Kompleti aktiv">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveImageAs               "Ruaj foton si...">
+<!ENTITY main.saveMediaAs               "Save media as...">
 <!ENTITY main.openLinkInNewTab          "Hap lidhjen në një skedë të re">
 <!ENTITY main.searchFor                 "Kërko për">
 <!ENTITY main.copyLinkAdress            "Copy link address">

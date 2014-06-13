@@ -113,7 +113,7 @@
 <!ENTITY main.defaultset                "Автоматтык түрдө кошуу">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveImageAs               "Сүрөттү мындай деп сактоо...">
+<!ENTITY main.saveMediaAs               "Save media as...">
 <!ENTITY main.openLinkInNewTab          "Шилтемени жаңы кыстырмада ачуу">
 <!ENTITY main.searchFor                 "Издөө">
 <!ENTITY main.copyLinkAdress            "Copy link address">

@@ -113,7 +113,7 @@
 <!ENTITY main.defaultset                "Ansema Predefinì">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveImageAs               "Salvé la figura com...">
+<!ENTITY main.saveMediaAs               "Save media as...">
 <!ENTITY main.openLinkInNewTab          "Deurb ël colegament ant na neuva scheda">
 <!ENTITY main.searchFor                 "Sërché">
 <!ENTITY main.copyLinkAdress            "Copy link address">

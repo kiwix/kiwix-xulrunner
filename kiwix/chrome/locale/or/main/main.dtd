@@ -113,7 +113,7 @@
 <!ENTITY main.defaultset                "ଆପେଆପେ ଥିବା ଗୋଠ">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveImageAs               "ଛବିଟି ଏହି ନାମରେ ସାଇତିବେ...">
+<!ENTITY main.saveMediaAs               "Save media as...">
 <!ENTITY main.openLinkInNewTab          "ନୂଆ ଟାବ୍ ରେ ଲିଂକ ଖୋଲ">
 <!ENTITY main.searchFor                 "ଖୋଜିବେ">
 <!ENTITY main.copyLinkAdress            "Copy link address">

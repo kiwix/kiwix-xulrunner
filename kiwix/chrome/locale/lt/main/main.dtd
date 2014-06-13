@@ -113,7 +113,7 @@
 <!ENTITY main.defaultset                "Numatytasis Rinkinys">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveImageAs               "Išsaugoti paveikslėlį kaip...">
+<!ENTITY main.saveMediaAs               "Save media as...">
 <!ENTITY main.openLinkInNewTab          "Atidaryti saitą naujame skirtuke">
 <!ENTITY main.searchFor                 "Ieškoti">
 <!ENTITY main.copyLinkAdress            "Copy link address">

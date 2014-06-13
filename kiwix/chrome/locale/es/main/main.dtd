@@ -113,7 +113,7 @@
 <!ENTITY main.defaultset                "Conjunto predeterminado">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveImageAs               "Guardar la imagen como…">
+<!ENTITY main.saveMediaAs               "Save media as...">
 <!ENTITY main.openLinkInNewTab          "Abrir el enlace en una nueva pestaña">
 <!ENTITY main.searchFor                 "Buscar por">
 <!ENTITY main.copyLinkAdress            "Copy link address">

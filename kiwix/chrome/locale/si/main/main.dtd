@@ -113,7 +113,7 @@
 <!ENTITY main.defaultset                "පෙරනිමි කට්ටලය">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveImageAs               "රූපය මෙසේ සුරකින්න...">
+<!ENTITY main.saveMediaAs               "Save media as...">
 <!ENTITY main.openLinkInNewTab          "සබැඳිය නව ටැබයක විවෘත කරන්න">
 <!ENTITY main.searchFor                 "සඳහා ගවේෂණය">
 <!ENTITY main.copyLinkAdress            "Copy link address">

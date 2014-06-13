@@ -113,7 +113,7 @@
 <!ENTITY main.defaultset                "Set Azali">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveImageAs               "Simpan imej sebagai...">
+<!ENTITY main.saveMediaAs               "Save media as...">
 <!ENTITY main.openLinkInNewTab          "Buka Pautan dalam Tab Baru">
 <!ENTITY main.searchFor                 "Cari">
 <!ENTITY main.copyLinkAdress            "Copy link address">

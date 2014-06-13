@@ -113,7 +113,7 @@
 <!ENTITY main.defaultset                "Msingi uliowekwa">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveImageAs               "Hifadhi picha kama ...">
+<!ENTITY main.saveMediaAs               "Save media as...">
 <!ENTITY main.openLinkInNewTab          "Fungua kiungo katika tabo mpya">
 <!ENTITY main.searchFor                 "Tafuta kwa">
 <!ENTITY main.copyLinkAdress            "Copy link address">

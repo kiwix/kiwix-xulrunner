@@ -113,7 +113,7 @@
 <!ENTITY main.defaultset                "Kollezzjoni oriġinali">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveImageAs               "Salva l-istampa bħala...">
+<!ENTITY main.saveMediaAs               "Save media as...">
 <!ENTITY main.openLinkInNewTab          "Iftaħ il-ħolqa f'tieqa ġdida">
 <!ENTITY main.searchFor                 "Fittex għal">
 <!ENTITY main.copyLinkAdress            "Copy link address">

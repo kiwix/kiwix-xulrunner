@@ -113,7 +113,7 @@
 <!ENTITY main.defaultset                "Labɛnni bɛnka fɔlɔ">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveImageAs               "Ja mara ... kan">
+<!ENTITY main.saveMediaAs               "Save media as...">
 <!ENTITY main.openLinkInNewTab          "tugu sira dayɛlɛɛn seleke wɛrɛ kɔnɔ">
 <!ENTITY main.searchFor                 "Ɲininikɛ ...">
 <!ENTITY main.copyLinkAdress            "Copy link address">

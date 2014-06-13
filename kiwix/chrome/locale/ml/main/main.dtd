@@ -113,7 +113,7 @@
 <!ENTITY main.defaultset                "സ്വതേയുള്ള ഗണം">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveImageAs               "ചിത്രം സൂക്ഷിക്കുക...">
+<!ENTITY main.saveMediaAs               "Save media as...">
 <!ENTITY main.openLinkInNewTab          "കണ്ണി പുതിയ ടാബിൽ തുറക്കുക">
 <!ENTITY main.searchFor                 "തിരയുക">
 <!ENTITY main.copyLinkAdress            "Copy link address">

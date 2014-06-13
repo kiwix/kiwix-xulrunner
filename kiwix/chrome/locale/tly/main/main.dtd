@@ -113,7 +113,7 @@
 <!ENTITY main.defaultset                "Иминә кукон огәтеј">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveImageAs               "Огәте шикили бәнә...">
+<!ENTITY main.saveMediaAs               "Save media as...">
 <!ENTITY main.openLinkInNewTab          "Тожә зијодә вәрәғәдә сәбони окардеј">
 <!ENTITY main.searchFor                 "Нәве">
 <!ENTITY main.copyLinkAdress            "Copy link address">

@@ -20,4 +20,4 @@ objs:
 	$(CC) $(CFLAGS) ../common/stringTools.cpp ../common/pathTools.cpp kiwix-launcher.cpp
 
 kiwix-launcher.exe: objs
-	$(LD) -OUT:"kiwix-launcher.exe" $(LDFLAGS) -NODEFAULTLIB:"MSVCRT" libcmt.lib ws2_32.lib DelayImp.lib winmm.lib Shlwapi.lib *.obj
+	$(LD) -OUT:"kiwix-launcher.exe" $(LDFLAGS) -FORCE:MULTIPLE -NODEFAULTLIB:"MSVCRT" libcmt.lib ws2_32.lib DelayImp.lib winmm.lib Shlwapi.lib *.obj

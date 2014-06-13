@@ -113,7 +113,7 @@
 <!ENTITY main.defaultset                "Standarsamling">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveImageAs               "Goym mynd sum...">
+<!ENTITY main.saveMediaAs               "Save media as...">
 <!ENTITY main.openLinkInNewTab          "Lat upp leinkju í nýggjari flykru (tab)">
 <!ENTITY main.searchFor                 "Leita eftir">
 <!ENTITY main.copyLinkAdress            "Copy link address">

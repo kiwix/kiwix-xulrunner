@@ -113,7 +113,7 @@
 <!ENTITY main.defaultset                "نیشانک‌لر اوچون تنظیم">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveImageAs               "شکیلی ... کیمی ساخلا">
+<!ENTITY main.saveMediaAs               "Save media as...">
 <!ENTITY main.openLinkInNewTab          "يئنی نیشانی لینک آچماق">
 <!ENTITY main.searchFor                 "آختاریش اوچون">
 <!ENTITY main.copyLinkAdress            "Copy link address">

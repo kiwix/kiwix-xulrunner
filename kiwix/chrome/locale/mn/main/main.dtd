@@ -113,7 +113,7 @@
 <!ENTITY main.defaultset                "Үндсэн цуглуулга">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveImageAs               "Зурагт нэр өгч хадгал...">
+<!ENTITY main.saveMediaAs               "Save media as...">
 <!ENTITY main.openLinkInNewTab          "Холбоосыг өөр табд нээ">
 <!ENTITY main.searchFor                 "Үүгээр хайх">
 <!ENTITY main.copyLinkAdress            "Copy link address">

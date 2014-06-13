@@ -113,7 +113,7 @@
 <!ENTITY main.defaultset                "Juè per dèfôt">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveImageAs               "Encartar l’émâge coment...">
+<!ENTITY main.saveMediaAs               "Save media as...">
 <!ENTITY main.openLinkInNewTab          "Uvrir lo lim dens una ongllèta novèla">
 <!ENTITY main.searchFor                 "Rechèrchiér">
 <!ENTITY main.copyLinkAdress            "Copy link address">

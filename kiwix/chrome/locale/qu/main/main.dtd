@@ -113,7 +113,7 @@
 <!ENTITY main.defaultset                "Kikinmanta huñu">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveImageAs               "Rikch'ata waqaychay kay sutiwan...">
+<!ENTITY main.saveMediaAs               "Save media as...">
 <!ENTITY main.openLinkInNewTab          "T'inkita musuq tikllapi kichariy">
 <!ENTITY main.searchFor                 "Kayta maskay:">
 <!ENTITY main.copyLinkAdress            "Copy link address">

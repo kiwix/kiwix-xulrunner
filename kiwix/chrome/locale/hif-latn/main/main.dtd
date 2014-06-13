@@ -113,7 +113,7 @@
 <!ENTITY main.defaultset                "Default Set">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveImageAs               "Ke ruup me chapa ke bachao...">
+<!ENTITY main.saveMediaAs               "Save media as...">
 <!ENTITY main.openLinkInNewTab          "Nawaa tab me link kholo">
 <!ENTITY main.searchFor                 "Ke khatir khojo">
 <!ENTITY main.copyLinkAdress            "Copy link address">

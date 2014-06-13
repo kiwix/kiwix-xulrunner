@@ -113,7 +113,7 @@
 <!ENTITY main.defaultset                "Sarangkai baku">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveImageAs               "Simpan gambar sawagai...">
+<!ENTITY main.saveMediaAs               "Save media as...">
 <!ENTITY main.openLinkInNewTab          "Ungkai tautan dalam tab puga">
 <!ENTITY main.searchFor                 "Manggagai hagan">
 <!ENTITY main.copyLinkAdress            "Copy link address">

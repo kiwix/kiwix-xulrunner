@@ -113,7 +113,7 @@
 <!ENTITY main.defaultset                "كۆڭۈلدىكى تەڭشەك">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveImageAs               "سۈرەتنى باشقا ئاتتا ساقلا">
+<!ENTITY main.saveMediaAs               "Save media as...">
 <!ENTITY main.openLinkInNewTab          "ئۇلانمىنى يېڭى بەتكۈچتە ئاچ">
 <!ENTITY main.searchFor                 "ئىزدە">
 <!ENTITY main.copyLinkAdress            "Copy link address">

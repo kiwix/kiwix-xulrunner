@@ -113,7 +113,7 @@
 <!ENTITY main.defaultset                "Standardna sajźba">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveImageAs               "Wobraz składowaś ako...">
+<!ENTITY main.saveMediaAs               "Save media as...">
 <!ENTITY main.openLinkInNewTab          "Wótkaz w nowem rejtarku wócyniś">
 <!ENTITY main.searchFor                 "Pytaś za">
 <!ENTITY main.copyLinkAdress            "Copy link address">

@@ -113,7 +113,7 @@
 <!ENTITY main.defaultset                "ابتدائی ترتیبات">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveImageAs               "تصویر محفوظ کریں بطور۔۔۔">
+<!ENTITY main.saveMediaAs               "Save media as...">
 <!ENTITY main.openLinkInNewTab          "ربط نئے خانہ میں کھولیں">
 <!ENTITY main.searchFor                 "تلاش برائے">
 <!ENTITY main.copyLinkAdress            "Copy link address">

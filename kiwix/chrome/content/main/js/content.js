@@ -885,9 +885,13 @@ function manageDownloadRemoteBookListCore() {
 }
 
 function manageDownloadRemoteBookList() {
-    updateOnlineStatusId = window.setInterval("manageDownloadRemoteBookListCore()", 1000);
-    var message = new WorkerMessage("updateOnlineStatus");             
-    downloader.postMessage(message);
+    var continueWithDownloading = settings.downloadRemoteCatalogs();
+
+    if (continueWithDownloading !== false) {
+	updateOnlineStatusId = window.setInterval("manageDownloadRemoteBookListCore()", 1000);
+	var message = new WorkerMessage("updateOnlineStatus");             
+	downloader.postMessage(message);
+    }
 }
 
 function downloadRemoteBookList(populateRemoteBookList, resumeDownloads) {

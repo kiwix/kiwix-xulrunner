@@ -113,7 +113,7 @@
 <!ENTITY main.defaultset                "Cołesion predefinida">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveImageAs               "Salva imajine come...">
+<!ENTITY main.saveMediaAs               "Save media as...">
 <!ENTITY main.openLinkInNewTab          "Verxi el cołegamento in nova scheda">
 <!ENTITY main.searchFor                 "Serca">
 <!ENTITY main.copyLinkAdress            "Copy link address">

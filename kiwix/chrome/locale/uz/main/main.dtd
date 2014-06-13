@@ -113,7 +113,7 @@
 <!ENTITY main.defaultset                "Boshlangʻich holatga oʻrnatish">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveImageAs               "Rasmni ... kabi saqlash">
+<!ENTITY main.saveMediaAs               "Save media as...">
 <!ENTITY main.openLinkInNewTab          "Havolani yangi bandda ochish">
 <!ENTITY main.searchFor                 "Qidiruv">
 <!ENTITY main.copyLinkAdress            "Copy link address">
