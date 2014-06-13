@@ -6,9 +6,9 @@ aclocal
 # Regenerate the files autoconf / automake
 if [ "`(uname -s) 2>/dev/null`" = "Darwin" ]
 then
-    glibtoolize --force
+    glibtoolize --force || exit 1
 else
-    libtoolize --force --automake
+    libtoolize --force --automake || exit 1
 fi
 
 # Remove old cache files
