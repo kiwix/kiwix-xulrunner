@@ -71,7 +71,7 @@
 <!-- Tools menu -->
 <!ENTITY main.tools                     "Herramientas">
 <!ENTITY main.tools.accesskey           "H">
-<!ENTITY main.randomArticle             "Página aleatoria">
+<!ENTITY main.randomArticle             "Artículo aleatorio">
 <!ENTITY main.randomArticle.accesskey   "P">
 <!ENTITY main.checkIntegrity            "Comprobar integridad">
 <!ENTITY main.checkIntegrity.accesskey  "k">
@@ -115,7 +115,7 @@
 <!-- Contextual Menu -->
 <!ENTITY main.saveMediaAs               "Save media as...">
 <!ENTITY main.openLinkInNewTab          "Abrir el enlace en una nueva pestaña">
-<!ENTITY main.searchFor                 "Buscar por">
+<!ENTITY main.searchFor                 "Buscar">
 <!ENTITY main.copyLinkAdress            "Copy link address">
 <!ENTITY main.mute                      "Silencio">
 <!ENTITY main.audible                   "Audible">

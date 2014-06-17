@@ -96,7 +96,7 @@
 <!ENTITY main.search                    "Soek">
 <!ENTITY main.searchPlaceholder         "Tik waarna u soek hier in...">
 <!ENTITY main.findInText                "Soek in teks">
-<!ENTITY main.noSearchBar               "Soek vereis 'n geïndekseerde Zim-lêer">
+<!ENTITY main.noSearchBar               "Soek vereis 'n geïndekseerde ZIM-lêer">
 <!ENTITY main.bookmarks                 "Boekmerke">
 
 <!-- Results bar -->

@@ -90,7 +90,7 @@
 
 <!-- Tool bar -->
 <!ENTITY main.back                      "Peyser">
-<!ENTITY main.forward                   "Aser ke">
+<!ENTITY main.forward                   "Raver">
 <!ENTITY main.home                      "Keye">
 <!ENTITY main.searchBar                 "Sıvura cı geyrayışi">
 <!ENTITY main.search                    "Cı geyre">
@@ -151,7 +151,7 @@
 <!ENTITY main.library.sortBy.author             "Nuskar">
 <!ENTITY main.library.sortBy.publisher          "Hesrekar">
 <!ENTITY main.library.filterBy                  "Filtrey cı">
-<!ENTITY main.library.filterBy.fileSize         "Ebatê dosyayî">
+<!ENTITY main.library.filterBy.fileSize         "Ebata dosya">
 <!ENTITY main.library.filterBy.language         "Zıwan">
 <!ENTITY main.library.filterBy.language.all     "Pêro">
 <!ENTITY main.library.filterBy.author           "Nuskar">

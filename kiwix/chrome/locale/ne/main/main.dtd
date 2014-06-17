@@ -14,7 +14,7 @@
 <!ENTITY main.openFile                  "फाइल खोल्ने">
 <!ENTITY main.browseLibrary.accesskey   "ब">
 <!ENTITY main.browseLibrary             "पुस्तकालय हेर्नुहोस">
-<!ENTITY main.hideLibrary               "Hide library">
+<!ENTITY main.hideLibrary               "लाइब्रेरी लुकाउने">
 <!ENTITY main.openFile.accesskey        "ख">
 <!ENTITY main.lastOpen                  "हालसालै खोलिएको">
 <!ENTITY main.saveFile                  "पृष्ठलाई यसरुपमा बचत गर्ने...">
@@ -23,7 +23,7 @@
 <!ENTITY main.print.accesskey           "म">
 <!ENTITY main.printPdf                  "पिडिएफको रुपमा मुद्रण गर्ने">
 <!ENTITY main.printPdf.accesskey        "प">
-<!ENTITY main.quit                      "बन्दगर्ने">
+<!ENTITY main.quit                      "छोड्ने">
 <!ENTITY main.quit.accesskey            "द">
 
 <!-- Edit menu -->
@@ -57,7 +57,7 @@
 <!ENTITY main.language.accesskey        "भ">
 <!ENTITY main.skin                      "खोल">
 <!ENTITY main.skin.accesskey            "ख">
-<!ENTITY main.statusbar                 "स्टेटस बार">
+<!ENTITY main.statusbar                 "स्थिति बार">
 <!ENTITY main.statusbar.accesskey       "स">
 <!ENTITY main.resultsbar                "नतिजा बार">
 <!ENTITY main.resultsbar.accesskey      "न">
@@ -75,7 +75,7 @@
 <!ENTITY main.randomArticle.accesskey   "क">
 <!ENTITY main.checkIntegrity            "स्थिती परीक्षण">
 <!ENTITY main.checkIntegrity.accesskey  "प">
-<!ENTITY main.launchIndexing            "Launch indexing">
+<!ENTITY main.launchIndexing            "अनुक्रमणिका थाल्ने">
 <!ENTITY main.purgeHistory              "सफाइ इतिहास">
 <!ENTITY main.purgeHistory.accesskey    "इ">
 
@@ -94,8 +94,8 @@
 <!ENTITY main.home                      "गृह">
 <!ENTITY main.searchBar                 "खोज बार">
 <!ENTITY main.search                    "खोज">
-<!ENTITY main.searchPlaceholder         "Type the text to search here...">
-<!ENTITY main.findInText                "अर्को भेट्टउने">
+<!ENTITY main.searchPlaceholder         "खोजका लागि यहाँ टाइप गर्नुहोस्">
+<!ENTITY main.findInText                "पाठ्यांशमा भेट्टाउने">
 <!ENTITY main.noSearchBar               "खोजको लागि सुचीकृत ZIM फाइलको आवश्यकता पर्छ">
 <!ENTITY main.bookmarks                 "पुस्तक चिनोहरु">
 
@@ -106,7 +106,7 @@
 <!ENTITY main.bmkLabel                  "पुस्तक चिनोहरु:">
 <!ENTITY main.notesLabel                "पुस्तक चिनो टिप्पणीहरु:">
 <!ENTITY main.loadbmk                   "पुस्तक चिनो समुह आयात गर्ने">
-<!ENTITY main.newbmk                    "पुस्तक चिनो समुह निर्यात गर्ने">
+<!ENTITY main.newbmk                    "नयाँ पुस्तक चिनो सेट सृजना गर्ने">
 <!ENTITY main.mark                      "यो पृष्ठ चिनो लगाउने">
 <!ENTITY main.unmark                    "छानिएकामा चिनो हटाउने">
 <!ENTITY main.reload                    "यो पुस्तक चिनो पूर्वरुपमा फर्काउने">
@@ -117,7 +117,7 @@
 <!ENTITY main.openLinkInNewTab          "लिङ्कलाइ नयाँ ट्याबमा खोल्नुहोस">
 <!ENTITY main.searchFor                 "यसलाइ खोज्ने">
 <!ENTITY main.copyLinkAdress            "Copy link address">
-<!ENTITY main.mute                      "बन्द गर्ने">
+<!ENTITY main.mute                      "चूप">
 <!ENTITY main.audible                   "सुन्न मिल्ने">
 
 <!-- About Window -->
@@ -125,7 +125,7 @@
 
 <!-- Preferences Window -->
 <!ENTITY preferences.preferences        "प्राथमिकताहरु">
-<!ENTITY preferences.save               "बचत गर्ने">
+<!ENTITY preferences.save               "संग्रह गर्ने">
 <!ENTITY preferences.cancel             "रद्द गर्ने">
 <!ENTITY preferences.profileDirectory   "प्रोफाइल डाइरेक्टरी">
 <!ENTITY preferences.dataDirectory      "Data directory">
@@ -151,7 +151,7 @@
 <!ENTITY main.library.sortBy.author             "लेखक">
 <!ENTITY main.library.sortBy.publisher          "प्रकाशक">
 <!ENTITY main.library.filterBy                  "निम्न आधारमा छान्ने">
-<!ENTITY main.library.filterBy.fileSize         "फन्ट आकार">
+<!ENTITY main.library.filterBy.fileSize         "फाइल आकार">
 <!ENTITY main.library.filterBy.language         "भाषा">
 <!ENTITY main.library.filterBy.language.all     "सबै">
 <!ENTITY main.library.filterBy.author           "लेखक">

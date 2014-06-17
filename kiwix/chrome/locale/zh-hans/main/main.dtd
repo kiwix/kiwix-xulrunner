@@ -6,7 +6,7 @@
 <!ENTITY main.osxservices               "服务">
 <!ENTITY main.osxhideapp                "隐藏&brand.brandShortName;">
 <!ENTITY main.osxhideothers             "隐藏其他">
-<!ENTITY main.osxshowall                "全部显示">
+<!ENTITY main.osxshowall                "显示全部">
 
 <!-- File menu -->
 <!ENTITY main.file                      "文件">
@@ -83,7 +83,7 @@
 <!ENTITY main.help                      "帮助">
 <!ENTITY main.help.accesskey            "H">
 <!ENTITY main.feedback                  "反馈">
-<!ENTITY main.reportabug                "错误报告">
+<!ENTITY main.reportabug                "报告错误">
 <!ENTITY main.requestafeature           "功能请求">
 <!ENTITY main.about                     "关于&brand.brandShortName;">
 <!ENTITY main.about.accesskey           "A">
