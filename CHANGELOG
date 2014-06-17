@@ -36,7 +36,8 @@ Kiwix 0.9
   Hindi Latin script (hif-latn), Mongolian (mn), Newari (new),
   Sanskrit (sa), Uzbek (uz), Turkish (tr), Tagalog (tl), Talysh
   language (tly), Kyrgyz (kir), Bambara (bam), Hakka (hak), 
-  Hunsrik (hrx) and Uyghur in Arabic script (ug-arab)
+  Hunsrik (hrx), Uyghur in Arabic script (ug-arab) and
+  Azerbaijani (az)
 * NEW: On GNU/Linux, replace basch script launcher by a binary (kiwix-launcher)
 * NEW: Does not ask to download remote catalogs if user is offline
 * NEW: Option to avoid dialog box asking for indexing (#330)
