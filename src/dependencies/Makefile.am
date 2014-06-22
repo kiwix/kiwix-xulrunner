@@ -545,7 +545,7 @@ zimlib-1.2/build-x86_64/lib/libzim.dylib zimlib-1.2/build-x86_64/lib/libzim.a: z
 
 # OSX Join
 zimlib-1.2/build/lib/libzim.dylib zimlib-1.2/build/lib/libzim.a: zimlib-1.2/build-i386/lib/libzim.dylib zimlib-1.2/build-x86_64/lib/libzim.dylib zimlib-1.2/build-i386/lib/libzim.a zimlib-1.2/build-x86_64/lib/libzim.a
-	test ! -f zimlib-1.2/build/lib/libzim.dylib && mkdir -p zimlib-1.2/build/lib && cd zimlib-1.2/build/lib && lipo ../../build-x86_64/lib/libzim.dylib ../../build-i386/lib/libzim.dylib -create -output libzim.dylib && lipo ../../build-x86_64/lib/libzim.a ../../build-i386/lib/libzim.a -create -output libzim.a && install_name_tool -id libzim.dylib libzim.dylib || true
+	test ! -f zimlib-1.2/build/lib/libzim.dylib && mkdir -p zimlib-1.2/build/lib && cd zimlib-1.2/build/lib && lipo ../../build-x86_64/lib/libzim.dylib ../../build-i386/lib/libzim.dylib -create -output libzim.dylib && lipo ../../build-x86_64/lib/libzim.a ../../build-i386/lib/libzim.a -create -output libzim.a && install_name_tool -id libzim.dylib libzim.dylib && install_name_tool -change /usr/lib/libc++.1.dylib /usr/lib/libstdc++.6.dylib libzim.dylib || true
 
 # Linux
 zimlib-1.2/build/lib/libzim.so: zimlib-1.2 xz/build/lib/liblzma.so
