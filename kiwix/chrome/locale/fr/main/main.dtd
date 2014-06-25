@@ -113,7 +113,7 @@
 <!ENTITY main.defaultset                "Réglages par défaut">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveMediaAs               "Save media as...">
+<!ENTITY main.saveMediaAs               "Enregistrer le média sous…">
 <!ENTITY main.openLinkInNewTab          "Ouvrir le lien dans un nouvel onglet">
 <!ENTITY main.searchFor                 "Rechercher">
 <!ENTITY main.copyLinkAdress            "Copy link address">

@@ -17,7 +17,7 @@
 <!ENTITY main.hideLibrary               "라이브러리 숨기기">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "최근에 사용한 항목...">
-<!ENTITY main.saveFile                  "다른 이름으로 저장...">
+<!ENTITY main.saveFile                  "다른 이름으로 문서 저장...">
 <!ENTITY main.saveFile.accesskey        "S">
 <!ENTITY main.print                     "인쇄">
 <!ENTITY main.print.accesskey           "P">
@@ -113,7 +113,7 @@
 <!ENTITY main.defaultset                "기본값 집합">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveMediaAs               "Save media as...">
+<!ENTITY main.saveMediaAs               "다른 이름으로 미디어 저장...">
 <!ENTITY main.openLinkInNewTab          "새 탭에 링크 열기">
 <!ENTITY main.searchFor                 "검색 대상">
 <!ENTITY main.copyLinkAdress            "Copy link address">

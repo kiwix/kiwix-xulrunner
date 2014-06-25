@@ -113,7 +113,7 @@
 <!ENTITY main.defaultset                "Набор па змоўчваньні">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveMediaAs               "Save media as...">
+<!ENTITY main.saveMediaAs               "Захаваць мэдыя як…">
 <!ENTITY main.openLinkInNewTab          "Адкрыць спасылку ў новай закладцы">
 <!ENTITY main.searchFor                 "Шукаць">
 <!ENTITY main.copyLinkAdress            "Copy link address">

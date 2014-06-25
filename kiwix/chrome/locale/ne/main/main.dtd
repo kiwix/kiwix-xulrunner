@@ -14,7 +14,7 @@
 <!ENTITY main.openFile                  "फाइल खोल्ने">
 <!ENTITY main.browseLibrary.accesskey   "ब">
 <!ENTITY main.browseLibrary             "पुस्तकालय हेर्नुहोस">
-<!ENTITY main.hideLibrary               "लाइब्रेरी लुकाउने">
+<!ENTITY main.hideLibrary               "पुस्तकालय लुकाउने">
 <!ENTITY main.openFile.accesskey        "ख">
 <!ENTITY main.lastOpen                  "हालसालै खोलिएको">
 <!ENTITY main.saveFile                  "पृष्ठलाई यसरुपमा बचत गर्ने...">

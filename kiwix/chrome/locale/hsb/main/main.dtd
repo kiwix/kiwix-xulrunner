@@ -113,7 +113,7 @@
 <!ENTITY main.defaultset                "Standardna skupina">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveMediaAs               "Save media as...">
+<!ENTITY main.saveMediaAs               "Medij składować jako...">
 <!ENTITY main.openLinkInNewTab          "Wotkaz w nowym rajtarku wočinić">
 <!ENTITY main.searchFor                 "Pytać za">
 <!ENTITY main.copyLinkAdress            "Copy link address">

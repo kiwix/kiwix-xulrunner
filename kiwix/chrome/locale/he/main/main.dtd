@@ -113,7 +113,7 @@
 <!ENTITY main.defaultset                "ערכה לפי בררת מחדל">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveMediaAs               "Save media as...">
+<!ENTITY main.saveMediaAs               "לשמור מדיה בתור...">
 <!ENTITY main.openLinkInNewTab          "פתיחת קישור בלשונית חדשה">
 <!ENTITY main.searchFor                 "לחפש את זה">
 <!ENTITY main.copyLinkAdress            "Copy link address">
