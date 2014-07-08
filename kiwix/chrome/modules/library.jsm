@@ -125,7 +125,9 @@ let library = {
 	   while(entries.hasMoreElements()) {
 	      var localFile = entries.getNext();  
 	      localFile.QueryInterface(Components.interfaces.nsIFile);
-              this.readFromFile(localFile.path, readOnly);
+	      if (localFile.path.match(/^.*\.xml$/i)) {
+                  this.readFromFile(localFile.path, readOnly);
+	      }
 	   }
 	} else {
 	    this.readFromFile(file.path, readOnly);
