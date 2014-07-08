@@ -113,7 +113,7 @@
 <!ENTITY main.defaultset                "Danh sách Mặc định">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveMediaAs               "Save media as...">
+<!ENTITY main.saveMediaAs               "Lưu Phương tiện Như…">
 <!ENTITY main.openLinkInNewTab          "Mở liên kết trong thẻ mới">
 <!ENTITY main.searchFor                 "Tìm kiếm">
 <!ENTITY main.copyLinkAdress            "Copy link address">

@@ -83,8 +83,8 @@
 <!ENTITY main.help                      "Bantuan">
 <!ENTITY main.help.accesskey            "H">
 <!ENTITY main.feedback                  "Umpan balik">
-<!ENTITY main.reportabug                "Laporkan bug">
-<!ENTITY main.requestafeature           "Minta fitur">
+<!ENTITY main.reportabug                "Laporkan kekutu">
+<!ENTITY main.requestafeature           "Permintaan fitur">
 <!ENTITY main.about                     "Tentang &brand.brandShortName;">
 <!ENTITY main.about.accesskey           "A">
 
@@ -97,7 +97,7 @@
 <!ENTITY main.searchPlaceholder         "Ketik teks untuk mencari di sini...">
 <!ENTITY main.findInText                "Cari di teks">
 <!ENTITY main.noSearchBar               "Pencarian membutuhkan berkas ZIM yang telah diindeks">
-<!ENTITY main.bookmarks                 "Tandai">
+<!ENTITY main.bookmarks                 "Markah">
 
 <!-- Results bar -->
 <!ENTITY main.results.title             "Hasil pencarian">
@@ -118,7 +118,7 @@
 <!ENTITY main.searchFor                 "Pencarian untuk">
 <!ENTITY main.copyLinkAdress            "Copy link address">
 <!ENTITY main.mute                      "Diam">
-<!ENTITY main.audible                   "Dapat didengar">
+<!ENTITY main.audible                   "Bersuara">
 
 <!-- About Window -->
 <!ENTITY main.close                     "Tutup">
@@ -141,7 +141,7 @@
 <!ENTITY server.close                   "Tutup">
 
 <!-- Library -->
-<!ENTITY main.library.myLibrary                 "Perpustakaan saya">
+<!ENTITY main.library.myLibrary                 "Perpustakaanku">
 <!ENTITY main.library.getNewFiles               "Dapatkan berkas baru">
 <!ENTITY main.library.searchZimFiles            "Cari berkas ZIM">
 <!ENTITY main.library.sortBy                    "Urut berdasarkan">
@@ -154,7 +154,7 @@
 <!ENTITY main.library.filterBy.fileSize         "Ukuran berkas">
 <!ENTITY main.library.filterBy.language         "Bahasa">
 <!ENTITY main.library.filterBy.language.all     "Semua">
-<!ENTITY main.library.filterBy.author           "Penulis">
+<!ENTITY main.library.filterBy.author           "Pembuat">
 <!ENTITY main.library.filterBy.author.all       "Semua">
 <!ENTITY main.library.filterBy.publisher        "Penerbit">
 <!ENTITY main.library.filterBy.publisher.all    "Semua">

@@ -113,7 +113,7 @@
 <!ENTITY main.defaultset                "Varsayılan Ayar">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveMediaAs               "Save media as...">
+<!ENTITY main.saveMediaAs               "Medyayı şu şekilde kaydet...">
 <!ENTITY main.openLinkInNewTab          "Bağlantıyı yeni sekmede aç">
 <!ENTITY main.searchFor                 "Bunu ara">
 <!ENTITY main.copyLinkAdress            "Copy link address">

@@ -75,7 +75,7 @@
 <!ENTITY main.randomArticle.accesskey   "R">
 <!ENTITY main.checkIntegrity            "Integreca kontrolo">
 <!ENTITY main.checkIntegrity.accesskey  "k">
-<!ENTITY main.launchIndexing            "Launch indexing">
+<!ENTITY main.launchIndexing            "Lanĉi indeksadon">
 <!ENTITY main.purgeHistory              "Vakigi kronologion">
 <!ENTITY main.purgeHistory.accesskey    "P">
 
@@ -132,7 +132,7 @@
 <!ENTITY preferences.browse             "Foliumi">
 <!ENTITY preferences.tabs               "Memori langetojn">
 <!ENTITY preferences.downloadCatalogs   "Elŝuti forkatalogo(j)n">
-<!ENTITY preferences.neverAskToIndex    "Never ask to index">
+<!ENTITY preferences.neverAskToIndex    "Neniam proponi indeksadon">
 
 <!-- Server -->
 <!ENTITY server.load                    "Alŝuti">

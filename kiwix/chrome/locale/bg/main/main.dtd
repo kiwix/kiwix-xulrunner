@@ -3,10 +3,10 @@
 <!ENTITY main.cssdirection              "ltr">
 
 <!-- Mac menu -->
-<!ENTITY main.osxservices               "Services">
-<!ENTITY main.osxhideapp                "Hide &brand.brandShortName;">
-<!ENTITY main.osxhideothers             "Hide Others">
-<!ENTITY main.osxshowall                "Show All">
+<!ENTITY main.osxservices               "Услуги">
+<!ENTITY main.osxhideapp                "Скриване на &brand.brandShortName;">
+<!ENTITY main.osxhideothers             "Скриване на Други">
+<!ENTITY main.osxshowall                "Показване на всички">
 
 <!-- File menu -->
 <!ENTITY main.file                      "Файл">
@@ -14,7 +14,7 @@
 <!ENTITY main.openFile                  "Отваряне на файл...">
 <!ENTITY main.browseLibrary.accesskey   "B">
 <!ENTITY main.browseLibrary             "Разглеждане на библиотеката">
-<!ENTITY main.hideLibrary               "Hide library">
+<!ENTITY main.hideLibrary               "Скриване на библиотеката">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "Последно отваряни...">
 <!ENTITY main.saveFile                  "Съхраняване на страницата като...">
@@ -39,7 +39,7 @@
 <!ENTITY main.transliteration.accesskey "T">
 <!ENTITY main.preferences               "Предпочитания">
 <!ENTITY main.preferences.accesskey     "n">
-<!ENTITY main.server                    "Server">
+<!ENTITY main.server                    "Сървър">
 <!ENTITY main.server.accesskey          "s">
 
 <!-- Display menu -->
@@ -65,7 +65,7 @@
 <!ENTITY main.tabs.accesskey            "T">
 <!ENTITY main.fullscreen                "Цял екран">
 <!ENTITY main.fullscreen.accesskey      "F">
-<!ENTITY main.invertedColors            "Inverted colors">
+<!ENTITY main.invertedColors            "Обърнати цветове">
 <!ENTITY main.invertedColors.accesskey  "I">
 
 <!-- Tools menu -->
@@ -75,7 +75,7 @@
 <!ENTITY main.randomArticle.accesskey   "R">
 <!ENTITY main.checkIntegrity            "Проверка за цялост">
 <!ENTITY main.checkIntegrity.accesskey  "k">
-<!ENTITY main.launchIndexing            "Launch indexing">
+<!ENTITY main.launchIndexing            "Стартиране на индексиране">
 <!ENTITY main.purgeHistory              "Изчистване на историята">
 <!ENTITY main.purgeHistory.accesskey    "P">
 
@@ -94,7 +94,7 @@
 <!ENTITY main.home                      "Начална страница">
 <!ENTITY main.searchBar                 "Лента за търсене">
 <!ENTITY main.search                    "Търсене">
-<!ENTITY main.searchPlaceholder         "Type the text to search here...">
+<!ENTITY main.searchPlaceholder         "Въведете текста за търсене тук...">
 <!ENTITY main.findInText                "Откриване в текста">
 <!ENTITY main.noSearchBar               "Търсенето изисква индексиран ZIM файл">
 <!ENTITY main.bookmarks                 "Отметки">
@@ -117,8 +117,8 @@
 <!ENTITY main.openLinkInNewTab          "Отваряне на препратката в нов раздел">
 <!ENTITY main.searchFor                 "Търсене">
 <!ENTITY main.copyLinkAdress            "Copy link address">
-<!ENTITY main.mute                      "Mute">
-<!ENTITY main.audible                   "Audible">
+<!ENTITY main.mute                      "Без звук">
+<!ENTITY main.audible                   "Със звук">
 
 <!-- About Window -->
 <!ENTITY main.close                     "Затваряне">
@@ -131,14 +131,14 @@
 <!ENTITY preferences.dataDirectory      "Data directory">
 <!ENTITY preferences.browse             "Преглеждане">
 <!ENTITY preferences.tabs               "Запомняне на табовете">
-<!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">
-<!ENTITY preferences.neverAskToIndex    "Never ask to index">
+<!ENTITY preferences.downloadCatalogs   "Изтегляне на каталог(каталози) с отдалечен достъп">
+<!ENTITY preferences.neverAskToIndex    "Никога да не се поисква индексиране">
 
 <!-- Server -->
-<!ENTITY server.load                    "Load">
-<!ENTITY server.start                   "Start">
-<!ENTITY server.stop                    "Stop">
-<!ENTITY server.close                   "Close">
+<!ENTITY server.load                    "Зареждане">
+<!ENTITY server.start                   "Стартиране">
+<!ENTITY server.stop                    "Спиране">
+<!ENTITY server.close                   "Затваряне">
 
 <!-- Library -->
 <!ENTITY main.library.myLibrary                 "Моята библиотека">
@@ -158,5 +158,5 @@
 <!ENTITY main.library.filterBy.author.all       "Всички">
 <!ENTITY main.library.filterBy.publisher        "Издател">
 <!ENTITY main.library.filterBy.publisher.all    "Всички">
-<!ENTITY main.library.filterBy.lessThan         "Less than">
+<!ENTITY main.library.filterBy.lessThan         "По-малко от">
 

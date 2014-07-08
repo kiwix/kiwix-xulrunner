@@ -131,7 +131,7 @@
 <!ENTITY preferences.dataDirectory      "Data directory">
 <!ENTITY preferences.browse             "Procházet">
 <!ENTITY preferences.tabs               "Uložit záložky">
-<!ENTITY preferences.downloadCatalogs   "Stažení vzdáleného katalogu(ů)">
+<!ENTITY preferences.downloadCatalogs   "Stažení vzdáleného/ých katalogu/ů">
 <!ENTITY preferences.neverAskToIndex    "Nikdy se neptat na indexování">
 
 <!-- Server -->

@@ -3,18 +3,18 @@
 <!ENTITY main.cssdirection              "ltr">
 
 <!-- Mac menu -->
-<!ENTITY main.osxservices               "Services">
-<!ENTITY main.osxhideapp                "Hide &brand.brandShortName;">
-<!ENTITY main.osxhideothers             "Hide Others">
-<!ENTITY main.osxshowall                "Show All">
+<!ENTITY main.osxservices               "Servetschs">
+<!ENTITY main.osxhideapp                "Zuppentar &brand.brandShortName;">
+<!ENTITY main.osxhideothers             "Zuppar auters">
+<!ENTITY main.osxshowall                "Mussar tut">
 
 <!-- File menu -->
 <!ENTITY main.file                      "Datoteca">
 <!ENTITY main.file.accesskey            "F">
 <!ENTITY main.openFile                  "Avrir ina datoteca…">
 <!ENTITY main.browseLibrary.accesskey   "B">
-<!ENTITY main.browseLibrary             "Browse library">
-<!ENTITY main.hideLibrary               "Hide library">
+<!ENTITY main.browseLibrary             "Navigar tras la biblioteca">
+<!ENTITY main.hideLibrary               "Zuppentar la biblioteca">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "Avert dacurt…">
 <!ENTITY main.saveFile                  "Memorisar la pagina sut…">
@@ -65,7 +65,7 @@
 <!ENTITY main.tabs.accesskey            "T">
 <!ENTITY main.fullscreen                "Maletg entir">
 <!ENTITY main.fullscreen.accesskey      "F">
-<!ENTITY main.invertedColors            "Inverted colors">
+<!ENTITY main.invertedColors            "Colurs invertidas">
 <!ENTITY main.invertedColors.accesskey  "I">
 
 <!-- Tools menu -->
@@ -75,7 +75,7 @@
 <!ENTITY main.randomArticle.accesskey   "R">
 <!ENTITY main.checkIntegrity            "Controlla d'integritad">
 <!ENTITY main.checkIntegrity.accesskey  "k">
-<!ENTITY main.launchIndexing            "Launch indexing">
+<!ENTITY main.launchIndexing            "Iniziar l'indexaziun">
 <!ENTITY main.purgeHistory              "Stizzar la cronologia">
 <!ENTITY main.purgeHistory.accesskey    "P">
 
@@ -94,7 +94,7 @@
 <!ENTITY main.home                      "Pagina da partenza">
 <!ENTITY main.searchBar                 "Trav da tschertgar">
 <!ENTITY main.search                    "Tschertgar">
-<!ENTITY main.searchPlaceholder         "Type the text to search here...">
+<!ENTITY main.searchPlaceholder         "Dar en il text tschertgà qua...">
 <!ENTITY main.findInText                "Tschertgar en il text">
 <!ENTITY main.noSearchBar               "Tschertgar basegna ina datoteca da ZIM indexada">
 <!ENTITY main.bookmarks                 "Segnapaginas">
@@ -114,11 +114,11 @@
 
 <!-- Contextual Menu -->
 <!ENTITY main.saveMediaAs               "Save media as...">
-<!ENTITY main.openLinkInNewTab          "Open link in new tab">
-<!ENTITY main.searchFor                 "Search for">
+<!ENTITY main.openLinkInNewTab          "Avrir il link en in nov tab">
+<!ENTITY main.searchFor                 "Tschertgar">
 <!ENTITY main.copyLinkAdress            "Copy link address">
-<!ENTITY main.mute                      "Mute">
-<!ENTITY main.audible                   "Audible">
+<!ENTITY main.mute                      "Silenzius">
+<!ENTITY main.audible                   "Dad aut">
 
 <!-- About Window -->
 <!ENTITY main.close                     "Serrar">
@@ -130,33 +130,33 @@
 <!ENTITY preferences.profileDirectory   "Ordinatur dal profil">
 <!ENTITY preferences.dataDirectory      "Data directory">
 <!ENTITY preferences.browse             "Navigar">
-<!ENTITY preferences.tabs               "Remember tabs">
-<!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">
-<!ENTITY preferences.neverAskToIndex    "Never ask to index">
+<!ENTITY preferences.tabs               "Memorisar ils tabs">
+<!ENTITY preferences.downloadCatalogs   "Chargiar giu il(s) catalog(s) distant(s)">
+<!ENTITY preferences.neverAskToIndex    "Mai proponer d'indexar">
 
 <!-- Server -->
-<!ENTITY server.load                    "Load">
-<!ENTITY server.start                   "Start">
-<!ENTITY server.stop                    "Stop">
-<!ENTITY server.close                   "Close">
+<!ENTITY server.load                    "Chargiar">
+<!ENTITY server.start                   "Iniziar">
+<!ENTITY server.stop                    "Interrumper">
+<!ENTITY server.close                   "Serrar">
 
 <!-- Library -->
-<!ENTITY main.library.myLibrary                 "My library">
-<!ENTITY main.library.getNewFiles               "Get new files">
-<!ENTITY main.library.searchZimFiles            "Search ZIM files">
-<!ENTITY main.library.sortBy                    "Sort by">
-<!ENTITY main.library.sortBy.title              "Title">
-<!ENTITY main.library.sortBy.size               "Size">
-<!ENTITY main.library.sortBy.date               "Date">
-<!ENTITY main.library.sortBy.author             "Author">
-<!ENTITY main.library.sortBy.publisher          "Publisher">
-<!ENTITY main.library.filterBy                  "Filter by">
-<!ENTITY main.library.filterBy.fileSize         "File size">
-<!ENTITY main.library.filterBy.language         "Language">
-<!ENTITY main.library.filterBy.language.all     "All">
-<!ENTITY main.library.filterBy.author           "Author">
-<!ENTITY main.library.filterBy.author.all       "All">
-<!ENTITY main.library.filterBy.publisher        "Publisher">
-<!ENTITY main.library.filterBy.publisher.all    "All">
-<!ENTITY main.library.filterBy.lessThan         "Less than">
+<!ENTITY main.library.myLibrary                 "Mia biblioteca">
+<!ENTITY main.library.getNewFiles               "Obtegnair novas datotecas">
+<!ENTITY main.library.searchZimFiles            "Tschertgar datotecas ZIM">
+<!ENTITY main.library.sortBy                    "Zavrar suenter">
+<!ENTITY main.library.sortBy.title              "Titel">
+<!ENTITY main.library.sortBy.size               "Grondezza">
+<!ENTITY main.library.sortBy.date               "Data">
+<!ENTITY main.library.sortBy.author             "Autur">
+<!ENTITY main.library.sortBy.publisher          "Editur">
+<!ENTITY main.library.filterBy                  "Filtrar suenter">
+<!ENTITY main.library.filterBy.fileSize         "Grondezza da datoteca">
+<!ENTITY main.library.filterBy.language         "Lingua">
+<!ENTITY main.library.filterBy.language.all     "Tuts">
+<!ENTITY main.library.filterBy.author           "Autur">
+<!ENTITY main.library.filterBy.author.all       "Tuts">
+<!ENTITY main.library.filterBy.publisher        "Editur">
+<!ENTITY main.library.filterBy.publisher.all    "Tuts">
+<!ENTITY main.library.filterBy.lessThan         "Pli pauc che">
 

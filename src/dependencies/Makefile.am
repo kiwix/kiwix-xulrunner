@@ -537,15 +537,15 @@ zimlib-1.2: zimlib-1.2.tar.gz
 
 # OSX i386
 zimlib-1.2/build-i386/lib/libzim.dylib zimlib-1.2/build-i386/lib/libzim.a: zimlib-1.2 xz/build/lib/liblzma.dylib
-	test ! -f zimlib-1.2/build-i386/lib/libzim.dylib && cd zimlib-1.2 && mkdir -p build-i386 && CC="$(CC32)" CXX="$(CXX32)" CFLAGS="-I$(DEP_PATH)/xz/build-i386/include" CXXFLAGS=" -stdlib=libstdc++ -std=c++11 -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -I$(DEP_PATH)/xz/build-i386/include" LDFLAGS="-L$(DEP_PATH)/xz/build/lib -llzma" ./configure --enable-shared --disable-dependency-tracking --with-pic --prefix=$(DEP_PATH)/zimlib-1.2/build-i386 --enable-static --disable-libtool-lock && make clean && make && make install && install_name_tool -id libzim.dylib build-i386/lib/libzim.dylib || true
+	test ! -f zimlib-1.2/build-i386/lib/libzim.dylib && cd zimlib-1.2 && mkdir -p build-i386 && CPPFLAGS="-I../xz/build-i386/include" CXXFLAGS=" -stdlib=libstdc++ -std=c++11 -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE" CC="$(CC32)" CXX="$(CXX32)" LDFLAGS=" -L$(DEP_PATH)/xz/build/lib " ./configure --enable-shared --disable-dependency-tracking --with-pic --prefix=$(DEP_PATH)/zimlib-1.2/build-i386 --enable-static --disable-libtool-lock && make clean && make && make install && install_name_tool -id libzim.dylib build-i386/lib/libzim.dylib || true
 
 # OSX x86_64
 zimlib-1.2/build-x86_64/lib/libzim.dylib zimlib-1.2/build-x86_64/lib/libzim.a: zimlib-1.2 xz/build/lib/liblzma.dylib
-	test ! -f zimlib-1.2/build-x86_64/lib/libzim.dylib && cd zimlib-1.2 && mkdir -p build-x86_64 && CC="$(CC64)" CXX="$(CXX64)" CFLAGS="-I$(DEP_PATH)/xz/build-x86_64/include" CXXFLAGS=" -stdlib=libstdc++ -std=c++11 -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -I$(DEP_PATH)/xz/build-x86_64/include" LDFLAGS="-L$(DEP_PATH)/xz/build/lib -llzma" ./configure --enable-shared --disable-dependency-tracking --with-pic --prefix=$(DEP_PATH)/zimlib-1.2/build-x86_64 --enable-static --disable-libtool-lock && make clean && make && make install && install_name_tool -id libzim.dylib build-x86_64/lib/libzim.dylib || true
+	test ! -f zimlib-1.2/build-x86_64/lib/libzim.dylib && cd zimlib-1.2 && mkdir -p build-x86_64 && CPPFLAGS="-I../xz/build-x86_64/include" CXXFLAGS=" -stdlib=libstdc++ -std=c++11 -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE" CC="$(CC64)" CXX="$(CXX64)" LDFLAGS=" -L$(DEP_PATH)/xz/build/lib " ./configure --enable-shared --disable-dependency-tracking --with-pic --prefix=$(DEP_PATH)/zimlib-1.2/build-x86_64 --enable-static --disable-libtool-lock && make clean && make && make install && install_name_tool -id libzim.dylib build-x86_64/lib/libzim.dylib || true
 
 # OSX Join
 zimlib-1.2/build/lib/libzim.dylib zimlib-1.2/build/lib/libzim.a: zimlib-1.2/build-i386/lib/libzim.dylib zimlib-1.2/build-x86_64/lib/libzim.dylib zimlib-1.2/build-i386/lib/libzim.a zimlib-1.2/build-x86_64/lib/libzim.a
-	test ! -f zimlib-1.2/build/lib/libzim.dylib && mkdir -p zimlib-1.2/build/lib && cd zimlib-1.2/build/lib && lipo ../../build-x86_64/lib/libzim.dylib ../../build-i386/lib/libzim.dylib -create -output libzim.dylib && lipo ../../build-x86_64/lib/libzim.a ../../build-i386/lib/libzim.a -create -output libzim.a && install_name_tool -id libzim.dylib libzim.dylib || true
+	test ! -f zimlib-1.2/build/lib/libzim.dylib && mkdir -p zimlib-1.2/build/lib && cd zimlib-1.2/build/lib && lipo ../../build-x86_64/lib/libzim.dylib ../../build-i386/lib/libzim.dylib -create -output libzim.dylib && lipo ../../build-x86_64/lib/libzim.a ../../build-i386/lib/libzim.a -create -output libzim.a && install_name_tool -id libzim.dylib libzim.dylib && install_name_tool -change /usr/lib/libc++.1.dylib /usr/lib/libstdc++.6.dylib libzim.dylib || true
 
 # Linux
 zimlib-1.2/build/lib/libzim.so: zimlib-1.2 xz/build/lib/liblzma.so

@@ -113,7 +113,7 @@
 <!ENTITY main.defaultset                "Set implicit">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveMediaAs               "Save media as...">
+<!ENTITY main.saveMediaAs               "Salvează multimedia ca...">
 <!ENTITY main.openLinkInNewTab          "Deschide legătura într-o filă nouă">
 <!ENTITY main.searchFor                 "Caută după textul selectat">
 <!ENTITY main.copyLinkAdress            "Copy link address">

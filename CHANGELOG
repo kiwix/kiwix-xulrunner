@@ -1,4 +1,5 @@
-Kiwix 0.9 
+Kiwix 0.9
+* FIXED: Public IP address detection on OSX (#658)
 * FIXED: Fulltext search results page for pattern including
   mustbeurlencoded characters
 * FIXED: Kiwix-serve bug under Windows with library containing
@@ -20,22 +21,24 @@ Kiwix 0.9
 * FIXED: Duplicate suggestions under certain conditions
 * FIXED: kiwix-serve index page for chrome/chromium
 * FIXED: Buggy kiwix-serve suggestion click handling (#463)
-* FIXED: Hanging page loading with specific pages on Win&Mac (#440, #376) 
+* FIXED: Hanging page loading with specific pages on Win&Mac (#440, #376)
 * FIXED: Buggy tabs with RTL disposition (#424)
 * FIXED: Small bug in library filtering (by language)
 * FIXED: "Illegal instruction" crash with old CPUs without SSE2 (#478)
 * FIXED: Download problem with Metalink files containing magnet links
 * FIXED: Allow fullscreen for videos
 * FIXED: Icons for a better rendering on "retina" (like) screens
-* FIXED: Multiple issues with the PDF export on Win7 (#374, #396, #431) 
+* FIXED: Multiple issues with the PDF export on Win7 (#374, #396, #431)
 * FIXED: Save medias on Windows UNC drives (#682)
+* FIXED: Wrong file size in kiwix-serve home page
 * NEW: Allow to save videos and sounds
 * NEW: Add a "random article" button to kiwix-serve
 * NEW: New supported user interface languages: Chuvash (cv), Fiji
   Hindi Latin script (hif-latn), Mongolian (mn), Newari (new),
   Sanskrit (sa), Uzbek (uz), Turkish (tr), Tagalog (tl), Talysh
-  language (tly), Kyrgyz (kir), Bambara (bam), Hakka (hak), 
-  Hunsrik (hrx) and Uyghur in Arabic script (ug-arab)
+  language (tly), Kyrgyz (kir), Bambara (bam), Hakka (hak),
+  Hunsrik (hrx), Uyghur in Arabic script (ug-arab) and
+  Azerbaijani (az)
 * NEW: On GNU/Linux, replace basch script launcher by a binary (kiwix-launcher)
 * NEW: Does not ask to download remote catalogs if user is offline
 * NEW: Option to avoid dialog box asking for indexing (#330)

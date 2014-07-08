@@ -11,59 +11,59 @@
 <!-- File menu -->
 <!ENTITY main.file                      "सञ्चिका">
 <!ENTITY main.file.accesskey            "F">
-<!ENTITY main.openFile                  "प्रकट सञ्चिका...">
+<!ENTITY main.openFile                  "सञ्चिका उद्घाट्यताम्...">
 <!ENTITY main.browseLibrary.accesskey   "B">
-<!ENTITY main.browseLibrary             "ग्रन्थागारे गवेषणम्">
-<!ENTITY main.hideLibrary               "ग्रन्थागारः निगूढ्यताम्">
+<!ENTITY main.browseLibrary             "पुस्तकालयात् अन्विष्यताम्">
+<!ENTITY main.hideLibrary               "ग्रन्थालयः गोप्यताम्">
 <!ENTITY main.openFile.accesskey        "O">
-<!ENTITY main.lastOpen                  "सद्य उद्घाटितम्...">
-<!ENTITY main.saveFile                  "इति रूपेण पृष्ठं रक्ष्यताम्...">
+<!ENTITY main.lastOpen                  "सद्यः उद्घाटितम्...">
+<!ENTITY main.saveFile                  "पृष्ठं रक्ष्यताम् (योग्यप्रारूपं चित्वा)">
 <!ENTITY main.saveFile.accesskey        "S">
-<!ENTITY main.print                     "मुद्रण">
+<!ENTITY main.print                     "मुद्र्यताम्">
 <!ENTITY main.print.accesskey           "P">
-<!ENTITY main.printPdf                  "PDF रूपेण मुद्र्यताम्">
+<!ENTITY main.printPdf                  "PDF प्रारूपेण मुद्र्यताम्">
 <!ENTITY main.printPdf.accesskey        "D">
-<!ENTITY main.quit                      "त्यजति">
+<!ENTITY main.quit                      "त्यजतु">
 <!ENTITY main.quit.accesskey            "Q">
 
 <!-- Edit menu -->
-<!ENTITY main.edit                      "सम्पादयति">
+<!ENTITY main.edit                      "सम्पाद्यताम्">
 <!ENTITY main.edit.accesskey            "E">
 <!ENTITY main.find                      "पृष्ठे अन्विष्यताम्...">
 <!ENTITY main.find.accesskey            "S">
-<!ENTITY main.selectall                 "वृशति सर्वे">
+<!ENTITY main.selectall                 "सर्वं चीयताम्">
 <!ENTITY main.selectall.accesskey       "a">
-<!ENTITY main.copy                      "प्रतिकृति">
+<!ENTITY main.copy                      "प्रतिकृतिः">
 <!ENTITY main.copy.accesskey            "p">
-<!ENTITY main.transliteration           "अक्षरान्तर">
+<!ENTITY main.transliteration           "लिप्यन्तरणम्">
 <!ENTITY main.transliteration.accesskey "T">
 <!ENTITY main.preferences               "इष्टतमानि">
 <!ENTITY main.preferences.accesskey     "n">
-<!ENTITY main.server                    "परिवेषकम्">
+<!ENTITY main.server                    "वितरकः">
 <!ENTITY main.server.accesskey          "s">
 
 <!-- Display menu -->
-<!ENTITY main.display                   "प्रकाश">
+<!ENTITY main.display                   "प्रदर्श्यताम्">
 <!ENTITY main.display.accesskey         "D">
 <!ENTITY main.zoom                      "वीक्षणम्">
 <!ENTITY main.zoom.accesskey            "Z">
 <!ENTITY main.zoomin                    "विशालीक्रियताम्">
 <!ENTITY main.zoomin.accesskey          "M">
-<!ENTITY main.zoomout                   "धमति">
+<!ENTITY main.zoomout                   "लघु क्रियताम्">
 <!ENTITY main.zoomout.accesskey         "R">
-<!ENTITY main.zoomorig                  "प्राकृत आकार">
+<!ENTITY main.zoomorig                  "मूलापरिमाणम्">
 <!ENTITY main.zoomorig.accesskey        "O">
 <!ENTITY main.language                  "भाषा">
 <!ENTITY main.language.accesskey        "L">
-<!ENTITY main.skin                      "छादन">
+<!ENTITY main.skin                      "त्वक्">
 <!ENTITY main.skin.accesskey            "S">
-<!ENTITY main.statusbar                 "प्रत्यववस्थान प्रच्छेद">
+<!ENTITY main.statusbar                 "अवस्थितिशलाका (Status bar)">
 <!ENTITY main.statusbar.accesskey       "S">
-<!ENTITY main.resultsbar                "परिणति प्रच्छेद">
+<!ENTITY main.resultsbar                "परिणामशलाका (Results bar)">
 <!ENTITY main.resultsbar.accesskey      "R">
-<!ENTITY main.tabs                      "पीठिकाः">
+<!ENTITY main.tabs                      "शालाकाः">
 <!ENTITY main.tabs.accesskey            "T">
-<!ENTITY main.fullscreen                "संपूर्ण पटल">
+<!ENTITY main.fullscreen                "सम्पूर्णपटलम्">
 <!ENTITY main.fullscreen.accesskey      "F">
 <!ENTITY main.invertedColors            "विपरीतानि वर्णानि">
 <!ENTITY main.invertedColors.accesskey  "I">
@@ -71,11 +71,11 @@
 <!-- Tools menu -->
 <!ENTITY main.tools                     "उपकरणानि">
 <!ENTITY main.tools.accesskey           "T">
-<!ENTITY main.randomArticle             "यादृच्छिक लेख">
+<!ENTITY main.randomArticle             "अशृङ्खलं (Random) पृष्ठम्">
 <!ENTITY main.randomArticle.accesskey   "R">
-<!ENTITY main.checkIntegrity            "अवैकल्य-परीक्षणम्">
+<!ENTITY main.checkIntegrity            "अखण्डता-परीक्षणम्">
 <!ENTITY main.checkIntegrity.accesskey  "k">
-<!ENTITY main.launchIndexing            "Launch indexing">
+<!ENTITY main.launchIndexing            "अनुक्रमः प्रारभ्यताम्">
 <!ENTITY main.purgeHistory              "इतिहासः निष्कास्यताम्">
 <!ENTITY main.purgeHistory.accesskey    "P">
 
@@ -83,20 +83,20 @@
 <!ENTITY main.help                      "साहाय्यम्">
 <!ENTITY main.help.accesskey            "H">
 <!ENTITY main.feedback                  "प्रतिक्रिया">
-<!ENTITY main.reportabug                "बग आवेदनं करोति">
+<!ENTITY main.reportabug                "मत्कुणस्य (bug) वृत्तान्तं लिखतु">
 <!ENTITY main.requestafeature           "सुविधार्थं निवेद्यताम्">
 <!ENTITY main.about                     "&brand.brandShortName; इत्येतद्विषये">
 <!ENTITY main.about.accesskey           "A">
 
 <!-- Tool bar -->
-<!ENTITY main.back                      "प्रतिपद्यते">
-<!ENTITY main.forward                   "अग्रे गच्छतु">
+<!ENTITY main.back                      "प्रतिगम्यताम्">
+<!ENTITY main.forward                   "पुरोगम्यताम्">
 <!ENTITY main.home                      "गृहम्">
-<!ENTITY main.searchBar                 "अन्वेषण प्रच्छेद">
-<!ENTITY main.search                    "अन्वेषणम्">
+<!ENTITY main.searchBar                 "अन्वेषणशलाका">
+<!ENTITY main.search                    "अन्विष्यताम्">
 <!ENTITY main.searchPlaceholder         "अन्वेषणार्थम् अत्र पाठः लिख्यताम्...">
 <!ENTITY main.findInText                "पाठे अन्विष्यताम्">
-<!ENTITY main.noSearchBar               "अन्वेषणार्थं सूचकाङ्किता ZIM सञ्चिका अपेक्ष्यते">
+<!ENTITY main.noSearchBar               "अन्वेषणार्थं  ZIM सूचकाङ्कसञ्चिका अपेक्ष्यते">
 <!ENTITY main.bookmarks                 "पुस्तकचिह्नानि">
 
 <!-- Results bar -->
@@ -107,56 +107,56 @@
 <!ENTITY main.notesLabel                "पुस्तकचिह्नलेखाः :">
 <!ENTITY main.loadbmk                   "पुस्तकचिह्नसमुच्चयः आयाप्यताम्">
 <!ENTITY main.newbmk                    "नूतनपुस्तकचिह्नसमुच्चयः निर्मीयताम्">
-<!ENTITY main.mark                      "एतत् पृष्ठं चिह्नाङ्कितं क्रियताम्">
-<!ENTITY main.unmark                    "चितं तु अचिह्नाङ्कितं क्रियताम्">
+<!ENTITY main.mark                      "एतत् पृष्ठम् अङ्क्यताम्">
+<!ENTITY main.unmark                    "अङ्कितम् अनङ्कितं करोतु">
 <!ENTITY main.reload                    "पुस्तकचिह्नसमुच्चयः पुनः उद्भार्यताम्">
-<!ENTITY main.defaultset                "पूर्वन्यस्तसमुच्चयः">
+<!ENTITY main.defaultset                "मूलसमुच्चयः">
 
 <!-- Contextual Menu -->
 <!ENTITY main.saveMediaAs               "Save media as...">
-<!ENTITY main.openLinkInNewTab          "सम्पर्कसूत्रं नूतनपीठिकायाम् उद्घाट्यताम्">
-<!ENTITY main.searchFor                 "इत्यर्थे अन्विष्यताम्">
+<!ENTITY main.openLinkInNewTab          "एतत् परिसन्धिं नवीन-टेब्-मध्ये उद्घाटयतु">
+<!ENTITY main.searchFor                 "इत्यस्मै अन्विष्यताम्">
 <!ENTITY main.copyLinkAdress            "Copy link address">
-<!ENTITY main.mute                      "निःशब्दीक्रियताम्">
+<!ENTITY main.mute                      "मौनं करोतु">
 <!ENTITY main.audible                   "श्रव्यम्">
 
 <!-- About Window -->
-<!ENTITY main.close                     "पिधानं करोति">
+<!ENTITY main.close                     "पिदधातु">
 
 <!-- Preferences Window -->
-<!ENTITY preferences.preferences        "प्रवरेश">
-<!ENTITY preferences.save               "उद्धरति">
+<!ENTITY preferences.preferences        "इष्टतमानि">
+<!ENTITY preferences.save               "संरक्ष्यताम्">
 <!ENTITY preferences.cancel             "निवर्तयते">
 <!ENTITY preferences.profileDirectory   "व्यक्तिविवरणनिर्देशिका">
 <!ENTITY preferences.dataDirectory      "Data directory">
-<!ENTITY preferences.browse             "ब्राउस् इत्येतत् करोतु।">
+<!ENTITY preferences.browse             "अन्विष्यताम्">
 <!ENTITY preferences.tabs               "पीठिकाः स्मर्यन्ताम्">
-<!ENTITY preferences.downloadCatalogs   "दूरस्थवस्तुसूचिः (-सूचयः) अवारोप्यताम्">
-<!ENTITY preferences.neverAskToIndex    "Never ask to index">
+<!ENTITY preferences.downloadCatalogs   "दूरस्थवस्तुसूचिः (-सूचयः) अवारोप्यताम् (download)">
+<!ENTITY preferences.neverAskToIndex    "अनुक्रमणिकायै न कदापि पृच्छतु">
 
 <!-- Server -->
 <!ENTITY server.load                    "आरोप्यताम्">
 <!ENTITY server.start                   "प्रारभ्यताम्">
 <!ENTITY server.stop                    "विरम्यताम्">
-<!ENTITY server.close                   "पिधीयताम्">
+<!ENTITY server.close                   "पिदधातु">
 
 <!-- Library -->
-<!ENTITY main.library.myLibrary                 "मम ग्रन्थालय">
+<!ENTITY main.library.myLibrary                 "मम ग्रन्थालयः">
 <!ENTITY main.library.getNewFiles               "नूतनाः सञ्चिकाः प्राप्यन्ताम्">
 <!ENTITY main.library.searchZimFiles            "ZIM सञ्चिकाः अन्विष्यन्ताम्">
-<!ENTITY main.library.sortBy                    "एतदाधृत्य अनुन्यस्यताम्">
-<!ENTITY main.library.sortBy.title              "शीर्षक">
-<!ENTITY main.library.sortBy.size               "आकार">
-<!ENTITY main.library.sortBy.date               "दिनाङ्क">
-<!ENTITY main.library.sortBy.author             "लेखक">
-<!ENTITY main.library.sortBy.publisher          "प्रकाशक">
-<!ENTITY main.library.filterBy                  "एतदाधृत्य शोध्यताम् :">
-<!ENTITY main.library.filterBy.fileSize         "सञ्चिका आकार">
+<!ENTITY main.library.sortBy                    "एतदाधृत्य क्रमागतीकरोतु">
+<!ENTITY main.library.sortBy.title              "शीर्षकम्">
+<!ENTITY main.library.sortBy.size               "आकारः">
+<!ENTITY main.library.sortBy.date               "दिनाङ्कः">
+<!ENTITY main.library.sortBy.author             "लेखकः">
+<!ENTITY main.library.sortBy.publisher          "प्रकाशकः">
+<!ENTITY main.library.filterBy                  "द्वारा शोधितम्">
+<!ENTITY main.library.filterBy.fileSize         "सञ्चिकायाः आकारः">
 <!ENTITY main.library.filterBy.language         "भाषा">
 <!ENTITY main.library.filterBy.language.all     "सर्वम्">
-<!ENTITY main.library.filterBy.author           "लेखक">
+<!ENTITY main.library.filterBy.author           "लेखकः">
 <!ENTITY main.library.filterBy.author.all       "सर्वम्">
-<!ENTITY main.library.filterBy.publisher        "प्रकाशक">
+<!ENTITY main.library.filterBy.publisher        "प्रकाशकः">
 <!ENTITY main.library.filterBy.publisher.all    "सर्वम्">
-<!ENTITY main.library.filterBy.lessThan         "इत्यतो न्यूनानि">
+<!ENTITY main.library.filterBy.lessThan         "इत्यस्मात् न्यूनानि">
 

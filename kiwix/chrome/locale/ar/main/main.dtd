@@ -5,7 +5,7 @@
 <!-- Mac menu -->
 <!ENTITY main.osxservices               "خدمات">
 <!ENTITY main.osxhideapp                "إخفاء &brand.brandShortName;">
-<!ENTITY main.osxhideothers             "إخفاء الأخرى">
+<!ENTITY main.osxhideothers             "إخفاء الآخرين">
 <!ENTITY main.osxshowall                "أظهر الكل">
 
 <!-- File menu -->
@@ -17,11 +17,11 @@
 <!ENTITY main.hideLibrary               "إخفاء المكتبة">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "المفتوح مؤخراً...">
-<!ENTITY main.saveFile                  "حفظ الصفحة ك...">
+<!ENTITY main.saveFile                  "حفظ الصفحة كـ...">
 <!ENTITY main.saveFile.accesskey        "S">
 <!ENTITY main.print                     "طباعة">
 <!ENTITY main.print.accesskey           "P">
-<!ENTITY main.printPdf                  "طباعة كملف PDF">
+<!ENTITY main.printPdf                  "طباعة كملف جوال PDF">
 <!ENTITY main.printPdf.accesskey        "D">
 <!ENTITY main.quit                      "خروج">
 <!ENTITY main.quit.accesskey            "Q">
@@ -76,13 +76,13 @@
 <!ENTITY main.checkIntegrity            "إفحص الإستقامة">
 <!ENTITY main.checkIntegrity.accesskey  "k">
 <!ENTITY main.launchIndexing            "بدء الفهرسة">
-<!ENTITY main.purgeHistory              "إستنزاف التاريخ">
+<!ENTITY main.purgeHistory              "مسح تاريخ التصفح">
 <!ENTITY main.purgeHistory.accesskey    "P">
 
 <!-- Help menu -->
 <!ENTITY main.help                      "المساعدة">
 <!ENTITY main.help.accesskey            "H">
-<!ENTITY main.feedback                  "Feedback">
+<!ENTITY main.feedback                  "تعليقات">
 <!ENTITY main.reportabug                "بلغ عن علة">
 <!ENTITY main.requestafeature           "اطلب ميزة">
 <!ENTITY main.about                     "حول &brand.brandShortName;">
@@ -96,7 +96,7 @@
 <!ENTITY main.search                    "إبحث">
 <!ENTITY main.searchPlaceholder         "أدخل النص للبحث هنا...">
 <!ENTITY main.findInText                "إبحث في النص">
-<!ENTITY main.noSearchBar               "Search requires an indexed ZIM file">
+<!ENTITY main.noSearchBar               "ابحث عن ملفات زيم المفهرسة">
 <!ENTITY main.bookmarks                 "علامات القراءة">
 
 <!-- Results bar -->
@@ -105,16 +105,16 @@
 <!-- Bookmarks Bar -->
 <!ENTITY main.bmkLabel                  "علامات القراءة:">
 <!ENTITY main.notesLabel                "ملاحظات علامات القراءة:">
-<!ENTITY main.loadbmk                   "اسورد مجموعة علامات قراءة">
+<!ENTITY main.loadbmk                   "استورد مجموعة علامات قراءة">
 <!ENTITY main.newbmk                    "أنشئ مجموعة علامات قراءة جديدة">
-<!ENTITY main.mark                      "علم هذه الصفحة">
+<!ENTITY main.mark                      "علّم هذه الصفحة">
 <!ENTITY main.unmark                    "أزل تعليم المحدد">
 <!ENTITY main.reload                    "أعد تحميل مجموعة المفضلة">
-<!ENTITY main.defaultset                "Default Set">
+<!ENTITY main.defaultset                "تفضيلات أصليّة">
 
 <!-- Contextual Menu -->
 <!ENTITY main.saveMediaAs               "Save media as...">
-<!ENTITY main.openLinkInNewTab          "افتح الوصلة في لسان جديد">
+<!ENTITY main.openLinkInNewTab          "افتح الوصلة في علامة تبويب جديدة">
 <!ENTITY main.searchFor                 "إبحث عن">
 <!ENTITY main.copyLinkAdress            "Copy link address">
 <!ENTITY main.mute                      "كتم الصوت">
@@ -127,17 +127,17 @@
 <!ENTITY preferences.preferences        "التفضيلات">
 <!ENTITY preferences.save               "إحفظ">
 <!ENTITY preferences.cancel             "ألغِ">
-<!ENTITY preferences.profileDirectory   "Profile directory">
+<!ENTITY preferences.profileDirectory   "ملف الاختيارات">
 <!ENTITY preferences.dataDirectory      "Data directory">
 <!ENTITY preferences.browse             "تصفّح">
-<!ENTITY preferences.tabs               "تذكّر الألسنة">
+<!ENTITY preferences.tabs               "تذكر علامات التبويب">
 <!ENTITY preferences.downloadCatalogs   "نزّل دفتر/دفاتر مصور/ة بعيد/ة">
 <!ENTITY preferences.neverAskToIndex    "لا تطلب أبدًا إلى الفهرس">
 
 <!-- Server -->
 <!ENTITY server.load                    "حمّل">
 <!ENTITY server.start                   "إبدأ">
-<!ENTITY server.stop                    "قفّ">
+<!ENTITY server.stop                    "قف">
 <!ENTITY server.close                   "أغلق">
 
 <!-- Library -->

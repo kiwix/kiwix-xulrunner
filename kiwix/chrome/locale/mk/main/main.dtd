@@ -113,7 +113,7 @@
 <!ENTITY main.defaultset                "Основен збир">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveMediaAs               "Save media as...">
+<!ENTITY main.saveMediaAs               "Зачувај го медиумиот како...">
 <!ENTITY main.openLinkInNewTab          "Отвори ја врската во ново јазиче">
 <!ENTITY main.searchFor                 "Пребарување на">
 <!ENTITY main.copyLinkAdress            "Copy link address">

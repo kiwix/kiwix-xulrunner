@@ -6,14 +6,14 @@
 <!ENTITY main.osxservices               "Huduma">
 <!ENTITY main.osxhideapp                "Ficha &brand.brandShortName;">
 <!ENTITY main.osxhideothers             "Ficha zingine">
-<!ENTITY main.osxshowall                "Onyesha yote">
+<!ENTITY main.osxshowall                "Onesha yote">
 
 <!-- File menu -->
 <!ENTITY main.file                      "Faili">
 <!ENTITY main.file.accesskey            "F">
 <!ENTITY main.openFile                  "Fungua faili ...">
 <!ENTITY main.browseLibrary.accesskey   "B">
-<!ENTITY main.browseLibrary             "Vinjari maktabani">
+<!ENTITY main.browseLibrary             "Fungua maktabani">
 <!ENTITY main.hideLibrary               "Ficha maktaba">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "Zilizofunguliwa karibuni ...">
@@ -31,9 +31,9 @@
 <!ENTITY main.edit.accesskey            "E">
 <!ENTITY main.find                      "Tafuta katika ukurasa ...">
 <!ENTITY main.find.accesskey            "S">
-<!ENTITY main.selectall                 "Chagua yote">
+<!ENTITY main.selectall                 "Chagua zote">
 <!ENTITY main.selectall.accesskey       "a">
-<!ENTITY main.copy                      "Nakilisha">
+<!ENTITY main.copy                      "Nakili">
 <!ENTITY main.copy.accesskey            "p">
 <!ENTITY main.transliteration           "Unukuzi">
 <!ENTITY main.transliteration.accesskey "T">
@@ -47,15 +47,15 @@
 <!ENTITY main.display.accesskey         "D">
 <!ENTITY main.zoom                      "Vuta karibu/mbali">
 <!ENTITY main.zoom.accesskey            "Z">
-<!ENTITY main.zoomin                    "Vuta karibu">
+<!ENTITY main.zoomin                    "Kuza">
 <!ENTITY main.zoomin.accesskey          "M">
-<!ENTITY main.zoomout                   "Vuta mbali">
+<!ENTITY main.zoomout                   "Punguza">
 <!ENTITY main.zoomout.accesskey         "R">
 <!ENTITY main.zoomorig                  "Ukubwa wa awali">
 <!ENTITY main.zoomorig.accesskey        "O">
 <!ENTITY main.language                  "Lugha">
 <!ENTITY main.language.accesskey        "L">
-<!ENTITY main.skin                      "Ngozi">
+<!ENTITY main.skin                      "Sura">
 <!ENTITY main.skin.accesskey            "S">
 <!ENTITY main.statusbar                 "Mwambaa wa hali">
 <!ENTITY main.statusbar.accesskey       "S">
@@ -75,23 +75,23 @@
 <!ENTITY main.randomArticle.accesskey   "R">
 <!ENTITY main.checkIntegrity            "Kuangalia uadilifu">
 <!ENTITY main.checkIntegrity.accesskey  "k">
-<!ENTITY main.launchIndexing            "Launch indexing">
+<!ENTITY main.launchIndexing            "Anzisha upekuzi">
 <!ENTITY main.purgeHistory              "Futa historia">
 <!ENTITY main.purgeHistory.accesskey    "P">
 
 <!-- Help menu -->
 <!ENTITY main.help                      "Msaada">
 <!ENTITY main.help.accesskey            "H">
-<!ENTITY main.feedback                  "Maoni">
+<!ENTITY main.feedback                  "Mrejesho">
 <!ENTITY main.reportabug                "Ripoti hitilafu">
-<!ENTITY main.requestafeature           "kuomba umbile">
+<!ENTITY main.requestafeature           "Kuomba umbile">
 <!ENTITY main.about                     "Kususu &brand.brandShortName;">
 <!ENTITY main.about.accesskey           "A">
 
 <!-- Tool bar -->
-<!ENTITY main.back                      "Rudia ukurasa uliopita">
+<!ENTITY main.back                      "Rudi">
 <!ENTITY main.forward                   "Pelekea">
-<!ENTITY main.home                      "Kaya">
+<!ENTITY main.home                      "Maskani">
 <!ENTITY main.searchBar                 "Mstari wa kutafuta">
 <!ENTITY main.search                    "Tafuta">
 <!ENTITY main.searchPlaceholder         "Ingiza maandishi ya kutafutwa hapa...">
@@ -132,7 +132,7 @@
 <!ENTITY preferences.browse             "Vinjari">
 <!ENTITY preferences.tabs               "Kumbuka tabo">
 <!ENTITY preferences.downloadCatalogs   "Pakua orodha ya (za) mbali">
-<!ENTITY preferences.neverAskToIndex    "Never ask to index">
+<!ENTITY preferences.neverAskToIndex    "Usiulize tena kutaka kupekua">
 
 <!-- Server -->
 <!ENTITY server.load                    "Pakia">

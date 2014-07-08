@@ -4,8 +4,8 @@
 
 <!-- Mac menu -->
 <!ENTITY main.osxservices               "సేవలు">
-<!ENTITY main.osxhideapp                "&brand.brandShortName;ని దాచు">
-<!ENTITY main.osxhideothers             "వేరేవాటిని దాచు">
+<!ENTITY main.osxhideapp                "&brand.brandShortName;ను దాచు">
+<!ENTITY main.osxhideothers             "ఇతరాలను దాచు">
 <!ENTITY main.osxshowall                "అన్నిటినీ చూపించు">
 
 <!-- File menu -->
@@ -14,10 +14,10 @@
 <!ENTITY main.openFile                  "దస్త్రాన్ని తెరువు...">
 <!ENTITY main.browseLibrary.accesskey   "B">
 <!ENTITY main.browseLibrary             "గ్రంథాలయాన్ని చూడు">
-<!ENTITY main.hideLibrary               "గ్రంథాలయాన్ని మరుగుపరుచు">
+<!ENTITY main.hideLibrary               "గ్రంథాలయాన్ని దాచు">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "ఇటీవల తెరిచినవి...">
-<!ENTITY main.saveFile                  "పేజీ భద్రపరచు విధము..">
+<!ENTITY main.saveFile                  "పేజీను ఇలా భద్రపరుచు...">
 <!ENTITY main.saveFile.accesskey        "S">
 <!ENTITY main.print                     "ముద్రించు">
 <!ENTITY main.print.accesskey           "P">
@@ -33,23 +33,23 @@
 <!ENTITY main.find.accesskey            "S">
 <!ENTITY main.selectall                 "అన్నీ ఎంచుకో">
 <!ENTITY main.selectall.accesskey       "a">
-<!ENTITY main.copy                      "కాపీచేయి">
+<!ENTITY main.copy                      "నకలు తీయి">
 <!ENTITY main.copy.accesskey            "p">
 <!ENTITY main.transliteration           "లిప్యంతరీకరణ">
 <!ENTITY main.transliteration.accesskey "T">
 <!ENTITY main.preferences               "అభిరుచులు">
 <!ENTITY main.preferences.accesskey     "n">
-<!ENTITY main.server                    "సేవకి">
+<!ENTITY main.server                    "సేవిక">
 <!ENTITY main.server.accesskey          "s">
 
 <!-- Display menu -->
-<!ENTITY main.display                   "దర్శనం">
+<!ENTITY main.display                   "వీక్షణం">
 <!ENTITY main.display.accesskey         "D">
-<!ENTITY main.zoom                      "జూమ్">
+<!ENTITY main.zoom                      "అతిరూపణం">
 <!ENTITY main.zoom.accesskey            "Z">
 <!ENTITY main.zoomin                    "పెద్దదిగాచూపు">
 <!ENTITY main.zoomin.accesskey          "M">
-<!ENTITY main.zoomout                   "తగ్గించు">
+<!ENTITY main.zoomout                   "పరిమాణం తగ్గించు">
 <!ENTITY main.zoomout.accesskey         "R">
 <!ENTITY main.zoomorig                  "అసలు పరిమాణం">
 <!ENTITY main.zoomorig.accesskey        "O">
@@ -65,17 +65,17 @@
 <!ENTITY main.tabs.accesskey            "T">
 <!ENTITY main.fullscreen                "నిండుతెర">
 <!ENTITY main.fullscreen.accesskey      "F">
-<!ENTITY main.invertedColors            "రంగులనువిలోమం చేయు">
+<!ENTITY main.invertedColors            "విలోమం చేయబడిన రంగులు">
 <!ENTITY main.invertedColors.accesskey  "I">
 
 <!-- Tools menu -->
 <!ENTITY main.tools                     "పనిముట్లు">
 <!ENTITY main.tools.accesskey           "T">
-<!ENTITY main.randomArticle             "యాదృచ్చిక వ్యాసం">
+<!ENTITY main.randomArticle             "యాదృచ్ఛిక వ్యాసం">
 <!ENTITY main.randomArticle.accesskey   "R">
 <!ENTITY main.checkIntegrity            "సమగ్రతా పరీక్ష">
 <!ENTITY main.checkIntegrity.accesskey  "k">
-<!ENTITY main.launchIndexing            "క్రమబద్దీకరణ ప్రారంభించు">
+<!ENTITY main.launchIndexing            "క్రమబద్ధీకరణ ప్రారంభించు">
 <!ENTITY main.purgeHistory              "చరిత్రను తుడిచివేయి">
 <!ENTITY main.purgeHistory.accesskey    "P">
 
@@ -104,13 +104,13 @@
 
 <!-- Bookmarks Bar -->
 <!ENTITY main.bmkLabel                  "పుటీకలు:">
-<!ENTITY main.notesLabel                "పుటీక గమనికలు:">
-<!ENTITY main.loadbmk                   "ఇష్టాంశాల సమితి దిగుమతి చేయు">
+<!ENTITY main.notesLabel                "మడతపేజీ వ్రాతలు:">
+<!ENTITY main.loadbmk                   "ఇష్టాంశాలసెట్ ను దిగుమతి చెయ్యి">
 <!ENTITY main.newbmk                    "కొత్త ఇష్టాంశాల సమితి సృష్టించు">
 <!ENTITY main.mark                      "ఈ పుటను గుర్తించు">
 <!ENTITY main.unmark                    "ఎంపికచేసినవాటినితొలగించు">
-<!ENTITY main.reload                    "ఇష్టాంశాల సమితి మరల ఎక్కించు">
-<!ENTITY main.defaultset                "అప్రమేయ సమితి">
+<!ENTITY main.reload                    "ఇష్టాంశాల సెట్ మరల ఎక్కించు">
+<!ENTITY main.defaultset                "అప్రమేయ సెట్">
 
 <!-- Contextual Menu -->
 <!ENTITY main.saveMediaAs               "Save media as...">
@@ -132,10 +132,10 @@
 <!ENTITY preferences.browse             "విహరణ">
 <!ENTITY preferences.tabs               "ట్యాబులను గుర్తుంచుకో">
 <!ENTITY preferences.downloadCatalogs   "సుదూర కేటాలాగ్(లు) ను దించు">
-<!ENTITY preferences.neverAskToIndex    "క్రమబద్ధీకరణ గురించి అడగవద్దు">
+<!ENTITY preferences.neverAskToIndex    "క్రమబద్ధీకరణ గురించి ఎప్పటికీ అడగవద్దు">
 
 <!-- Server -->
-<!ENTITY server.load                    "దించు">
+<!ENTITY server.load                    "లోడుచెయ్యి">
 <!ENTITY server.start                   "మొదలుపెట్టు">
 <!ENTITY server.stop                    "నిలిపివేయి">
 <!ENTITY server.close                   "మూసివేయి">

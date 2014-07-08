@@ -3,18 +3,18 @@
 <!ENTITY main.cssdirection              "ltr">
 
 <!-- Mac menu -->
-<!ENTITY main.osxservices               "ସେବାଗୁଡିକ">
+<!ENTITY main.osxservices               "ସୁବିଧାମାନ">
 <!ENTITY main.osxhideapp                "&brand.brandShortName; ଲୁଚାଇବେ">
-<!ENTITY main.osxhideothers             "ଅନ୍ୟ ସବୁକୁ ଲୁଚାଇବେ">
-<!ENTITY main.osxshowall                "ସବୁ ଦେଖିବେ">
+<!ENTITY main.osxhideothers             "ବାକି ସବୁକୁ ଲୁଚାନ୍ତୁ">
+<!ENTITY main.osxshowall                "ସବୁ ଦେଖାନ୍ତୁ">
 
 <!-- File menu -->
 <!ENTITY main.file                      "ଫାଇଲ">
 <!ENTITY main.file.accesskey            "F">
 <!ENTITY main.openFile                  "ଫାଇଲଟି ଖୋଲିବେ...">
 <!ENTITY main.browseLibrary.accesskey   "B">
-<!ENTITY main.browseLibrary             "ଲାଇବ୍ରେରୀ ଦେଖ">
-<!ENTITY main.hideLibrary               "ପାଠାଗାର ଲୁଚାଇବେ">
+<!ENTITY main.browseLibrary             "ପାଠାଗାର ଦେଖନ୍ତୁ">
+<!ENTITY main.hideLibrary               "ପାଠାଗାର ଲୁଚାନ୍ତୁ">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "ନଗଦ ଖୋଲାଯାଇଥିବା...">
 <!ENTITY main.saveFile                  "ପୃଷ୍ଠାଟି ଏହି ନାମରେ ସାଇତିବେ...">
@@ -37,7 +37,7 @@
 <!ENTITY main.copy.accesskey            "p">
 <!ENTITY main.transliteration           "ଲିପି ଅନ୍ତରଣ">
 <!ENTITY main.transliteration.accesskey "T">
-<!ENTITY main.preferences               "ପସନ୍ଦଗୁଡିକ">
+<!ENTITY main.preferences               "ପସନ୍ଦମାନ">
 <!ENTITY main.preferences.accesskey     "n">
 <!ENTITY main.server                    "ସର୍ଭର">
 <!ENTITY main.server.accesskey          "s">
@@ -75,7 +75,7 @@
 <!ENTITY main.randomArticle.accesskey   "R">
 <!ENTITY main.checkIntegrity            "ଅଖଣ୍ଡତା ପରଖ">
 <!ENTITY main.checkIntegrity.accesskey  "k">
-<!ENTITY main.launchIndexing            "Launch indexing">
+<!ENTITY main.launchIndexing            "ସୂଚୀ ଆରମ୍ଭ କରନ୍ତୁ">
 <!ENTITY main.purgeHistory              "ଇତିହାସ ସତେଜ କରିବେ">
 <!ENTITY main.purgeHistory.accesskey    "P">
 
@@ -114,8 +114,8 @@
 
 <!-- Contextual Menu -->
 <!ENTITY main.saveMediaAs               "Save media as...">
-<!ENTITY main.openLinkInNewTab          "ନୂଆ ଟାବ୍ ରେ ଲିଂକ ଖୋଲ">
-<!ENTITY main.searchFor                 "ଖୋଜିବେ">
+<!ENTITY main.openLinkInNewTab          "ନୂଆ ଟ୍ୟାବରେ ଲିଙ୍କ ଖୋଲନ୍ତୁ">
+<!ENTITY main.searchFor                 "ଖୋଜନ୍ତୁ">
 <!ENTITY main.copyLinkAdress            "Copy link address">
 <!ENTITY main.mute                      "ବନ୍ଦ">
 <!ENTITY main.audible                   "ଶୁଣିବାଯୋଗ୍ୟ">
@@ -130,12 +130,12 @@
 <!ENTITY preferences.profileDirectory   "ପ୍ରଫାଇଲ ତାଲିକା">
 <!ENTITY preferences.dataDirectory      "Data directory">
 <!ENTITY preferences.browse             "ଖୋଜିବା">
-<!ENTITY preferences.tabs               "ଟାବ୍ ଗୁଡ଼ିକୁ ମନେ ରଖନ୍ତୁ.">
-<!ENTITY preferences.downloadCatalogs   "ଅନ୍ୟ ଜାଗାରେ ଥିବା ଦେଖଣାଟିକୁ ଡାଉନଲୋଡ କରନ୍ତୁ">
-<!ENTITY preferences.neverAskToIndex    "Never ask to index">
+<!ENTITY preferences.tabs               "ଟ୍ୟାବମାନ ମନେ ରଖନ୍ତୁ">
+<!ENTITY preferences.downloadCatalogs   "ଅନ୍ୟ ସ୍ଥାନରେ ଥିବା ଦେଖଣାଟିକୁ ଡାଉନଲୋଡ଼ କରନ୍ତୁ">
+<!ENTITY preferences.neverAskToIndex    "ସୂଚୀ ନିର୍ମାଣ ପାଇଁ ପଚାରନ୍ତୁ ନାହିଁ">
 
 <!-- Server -->
-<!ENTITY server.load                    "ଲୋଡ କରନ୍ତୁ">
+<!ENTITY server.load                    "ଲୋଡ଼ କରନ୍ତୁ">
 <!ENTITY server.start                   "ଆରମ୍ଭ">
 <!ENTITY server.stop                    "ବନ୍ଦ">
 <!ENTITY server.close                   "ବନ୍ଦ କରିବେ">
@@ -158,5 +158,5 @@
 <!ENTITY main.library.filterBy.author.all       "ସବୁ">
 <!ENTITY main.library.filterBy.publisher        "ପ୍ରକାଶକ">
 <!ENTITY main.library.filterBy.publisher.all    "ସବୁ">
-<!ENTITY main.library.filterBy.lessThan         "ତାଠୁ କମ">
+<!ENTITY main.library.filterBy.lessThan         "ତା'ଠୁ କମ">
 
