@@ -10,6 +10,7 @@ Kiwix 0.9
 * FIXED: Unavailable kiwix-serve from the UI on Linux, if not installed (#411)
 * FIXED: kiwix-serve UI for non-javascript browsers like Dillo (#587)
 * FIXED: kiwix-serve crash if really long URL (#400)
+* FIXED: kiwix-serve welcome page Doctype HTML line fix (for Opera)
 * FIXED: Small display issue with multilingual ZIM file
 * FIXED: Toolbar buttons order
 * FIXED: Argument forwarding in kiwix-launcher
