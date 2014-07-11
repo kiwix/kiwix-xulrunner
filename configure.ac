@@ -176,13 +176,24 @@ function yesno {
 function findLibrary {
 	found=0
 	for f in $(echo $LIBS_ROOT|tr ":" "\n") ; do
-		sf=`find $f -name $1 | head -1 2> /dev/null`
+		sf=`find $f -name $1 | grep $ARCH | head -1 2> /dev/null`
 		if [[ -f "$sf" -a $found -eq 0 ]]
 		then
 			found=1
 			echo $sf
 		fi
 	done
+	if [[ $found -eq 0 ]]
+	then
+		for f in $(echo $LIBS_ROOT|tr ":" "\n") ; do
+			sf=`find $f -name $1 | head -1 2> /dev/null`
+			if [[ -f "$sf" -a $found -eq 0 ]]
+			then
+				found=1
+				echo $sf
+			fi
+		done
+	fi
 	if [[ $found -eq 0 ]]
 	then
 		echo "no"
