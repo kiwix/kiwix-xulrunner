@@ -69,7 +69,7 @@ ZimprotocolHandler.prototype = {
 	/* Create the proper absolute zim:// url */
 	var uri = Components.classes["@mozilla.org/network/simple-uri;1"]
 	    .createInstance(Components.interfaces.nsIURI);
-	if (baseURI instanceof Components.interfaces.nsIURI) {
+	if (baseURI instanceof Components.interfaces.nsIURI && spec) {
 	    if (spec[0] == '/') {
 		uri.spec = 'zim:/' + spec;
 	    } else if (spec[1] == '/' && /* This is a hack to work well with ZIM files with wrong urls */ 
