@@ -1,9 +1,8 @@
-# Subdirectories where to exectue Makefile recursively
+# Subdirectories where to execute Makefile recursively
 SUBDIRS = \
 	src \
 	kiwix \
 	desktop \
-	static \
 	etc
 
 # Files and directories which should be include in the source
