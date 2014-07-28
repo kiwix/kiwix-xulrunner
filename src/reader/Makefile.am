@@ -23,3 +23,8 @@ if IS_OSX
 # kiwix_read_LDFLAGS+= -static-libgcc -static-libstdc++
 # kiwix_read_CXXFLAGS+= -stdlib=libstdc++
 endif
+
+if HAVE_UPX
+all-am: all
+	upx -9 $(bin_PROGRAMS)
+endif
