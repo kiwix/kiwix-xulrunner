@@ -44,6 +44,6 @@ kiwix_serve_LDFLAGS+= $(LIBICONV_STATIC_LDFLAGS) $(GETTEXT_STATIC_LDFLAGS) -fram
 endif
 
 if HAVE_UPX
-all-local:
+all-am: all
 	upx -9 $(bin_PROGRAMS)
 endif

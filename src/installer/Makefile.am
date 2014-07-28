@@ -46,6 +46,6 @@ if IS_OSX
 endif
 
 if HAVE_UPX
-all-local:
+all-am: all
 	upx -9 $(bin_PROGRAMS)
 endif
