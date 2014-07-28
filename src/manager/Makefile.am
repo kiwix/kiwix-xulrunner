@@ -34,6 +34,6 @@ kiwix_manage_CXXFLAGS+= -std=c++11 -stdlib=libc++
 endif
 
 if HAVE_UPX
-all-local:
+all-am: all
 	upx -9 $(bin_PROGRAMS)
 endif
