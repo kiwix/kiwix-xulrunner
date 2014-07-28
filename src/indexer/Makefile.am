@@ -39,3 +39,8 @@ kiwix_index_LDFLAGS+= $(LIBICONV_STATIC_LDFLAGS) $(GETTEXT_STATIC_LDFLAGS) -fram
 # -static-libgcc -static-libstdc++
 # kiwix_index_CXXFLAGS+= -stdlib=libstdc++
 endif
+
+if HAVE_UPX
+all-local:
+	upx -9 $(bin_PROGRAMS)
+endif

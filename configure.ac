@@ -59,6 +59,7 @@ fi
 
 # Check binary compressor
 AC_CHECK_PROG(HAVE_UPX, upx, 1)
+AM_CONDITIONAL([HAVE_UPX], [test "$HAVE_UPX" = 1])
 
 # Check if running on Windows
 AC_CHECK_PROG(HAVE_CL, cl.exe, yes, no)

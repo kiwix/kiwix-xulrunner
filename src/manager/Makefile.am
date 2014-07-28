@@ -32,3 +32,8 @@ kiwix_manage_CXXFLAGS+= -std=c++11 -stdlib=libc++
 # kiwix_manage_LDFLAGS+= -static-libgcc -static-libstdc++
 # kiwix_manage_LDFLAGS+= -static-libstdc++
 endif
+
+if HAVE_UPX
+all-local:
+	upx -9 $(bin_PROGRAMS)
+endif

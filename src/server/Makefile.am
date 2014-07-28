@@ -45,6 +45,5 @@ endif
 
 if HAVE_UPX
 all-local:
-	echo "42"
 	upx -9 $(bin_PROGRAMS)
 endif
