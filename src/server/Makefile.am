@@ -42,3 +42,9 @@ if IS_OSX
 kiwix_serve_LDFLAGS+= $(LIBICONV_STATIC_LDFLAGS) $(GETTEXT_STATIC_LDFLAGS) -framework IOKit -framework CoreFoundation
 #-static-libgcc -static-libstdc++
 endif
+
+if HAVE_UPX
+all-local:
+	echo "42"
+	upx -9 $(bin_PROGRAMS)
+endif
