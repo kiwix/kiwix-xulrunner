@@ -14,13 +14,35 @@
 		9719EEAB198AE80C00A8F51D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9719EEAA198AE80C00A8F51D /* main.m */; };
 		9719EEAF198AE80C00A8F51D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9719EEAE198AE80C00A8F51D /* AppDelegate.m */; };
 		9719EEB2198AE80C00A8F51D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9719EEB0198AE80C00A8F51D /* Main.storyboard */; };
-		9719EEB5198AE80C00A8F51D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9719EEB4198AE80C00A8F51D /* ViewController.m */; };
+		9719EEB5198AE80C00A8F51D /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9719EEB4198AE80C00A8F51D /* ViewController.mm */; };
 		9719EEB7198AE80C00A8F51D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9719EEB6198AE80C00A8F51D /* Images.xcassets */; };
 		9719EEBE198AE80C00A8F51D /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9719EEBD198AE80C00A8F51D /* XCTest.framework */; };
 		9719EEBF198AE80C00A8F51D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9719EE9E198AE80C00A8F51D /* Foundation.framework */; };
 		9719EEC0198AE80C00A8F51D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9719EEA2198AE80C00A8F51D /* UIKit.framework */; };
 		9719EEC8198AE80C00A8F51D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9719EEC6198AE80C00A8F51D /* InfoPlist.strings */; };
 		9719EECA198AE80C00A8F51D /* KiwixTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9719EEC9198AE80C00A8F51D /* KiwixTestTests.m */; };
+		9719EFC0198AE90200A8F51D /* pathTools.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9719EFBC198AE90200A8F51D /* pathTools.cpp */; };
+		9719EFC1198AE90200A8F51D /* stringTools.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9719EFBE198AE90200A8F51D /* stringTools.cpp */; };
+		9719EFC4198AE91B00A8F51D /* reader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9719EFC2198AE91B00A8F51D /* reader.cpp */; };
+		9719EFC7198AE93F00A8F51D /* zimReader.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9719EFC6198AE93F00A8F51D /* zimReader.mm */; };
+		9719EFCE198AEA8600A8F51D /* libc++.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9719EFC8198AEA8600A8F51D /* libc++.1.dylib */; };
+		9719EFCF198AEA8600A8F51D /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9719EFC9198AEA8600A8F51D /* libc++.dylib */; };
+		9719EFD0198AEA8600A8F51D /* libc++abi.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9719EFCA198AEA8600A8F51D /* libc++abi.dylib */; };
+		9719EFD1198AEA8600A8F51D /* libstdc++.6.0.9.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9719EFCB198AEA8600A8F51D /* libstdc++.6.0.9.dylib */; };
+		9719EFD2198AEA8600A8F51D /* libstdc++.6.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9719EFCC198AEA8600A8F51D /* libstdc++.6.dylib */; };
+		9719EFD3198AEA8600A8F51D /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9719EFCD198AEA8600A8F51D /* libstdc++.dylib */; };
+		9719EFD5198AEA9100A8F51D /* libc.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9719EFD4198AEA9100A8F51D /* libc.dylib */; };
+		9719EFE0198AECBC00A8F51D /* libicudata.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9719EFD6198AECBC00A8F51D /* libicudata.a */; };
+		9719EFE1198AECBC00A8F51D /* libicui18n.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9719EFD7198AECBC00A8F51D /* libicui18n.a */; };
+		9719EFE2198AECBC00A8F51D /* libicuio.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9719EFD8198AECBC00A8F51D /* libicuio.a */; };
+		9719EFE3198AECBC00A8F51D /* libicule.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9719EFD9198AECBC00A8F51D /* libicule.a */; };
+		9719EFE4198AECBC00A8F51D /* libiculx.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9719EFDA198AECBC00A8F51D /* libiculx.a */; };
+		9719EFE5198AECBC00A8F51D /* libicutest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9719EFDB198AECBC00A8F51D /* libicutest.a */; };
+		9719EFE6198AECBC00A8F51D /* libicutu.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9719EFDC198AECBC00A8F51D /* libicutu.a */; };
+		9719EFE7198AECBC00A8F51D /* libicuuc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9719EFDD198AECBC00A8F51D /* libicuuc.a */; };
+		9719EFE8198AECBC00A8F51D /* liblzma.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9719EFDE198AECBC00A8F51D /* liblzma.a */; };
+		9719EFE9198AECBC00A8F51D /* libzim.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9719EFDF198AECBC00A8F51D /* libzim.a */; };
+		9719EFEB198AED4E00A8F51D /* Book about Aviation.zim in Resources */ = {isa = PBXBuildFile; fileRef = 9719EFEA198AED4E00A8F51D /* Book about Aviation.zim */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,13 +68,39 @@
 		9719EEAE198AE80C00A8F51D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		9719EEB1198AE80C00A8F51D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9719EEB3198AE80C00A8F51D /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		9719EEB4198AE80C00A8F51D /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		9719EEB4198AE80C00A8F51D /* ViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ViewController.mm; sourceTree = "<group>"; };
 		9719EEB6198AE80C00A8F51D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		9719EEBC198AE80C00A8F51D /* KiwixTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KiwixTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9719EEBD198AE80C00A8F51D /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		9719EEC5198AE80C00A8F51D /* KiwixTestTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "KiwixTestTests-Info.plist"; sourceTree = "<group>"; };
 		9719EEC7198AE80C00A8F51D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		9719EEC9198AE80C00A8F51D /* KiwixTestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KiwixTestTests.m; sourceTree = "<group>"; };
+		9719EFBC198AE90200A8F51D /* pathTools.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = pathTools.cpp; sourceTree = "<group>"; };
+		9719EFBD198AE90200A8F51D /* pathTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pathTools.h; sourceTree = "<group>"; };
+		9719EFBE198AE90200A8F51D /* stringTools.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = stringTools.cpp; sourceTree = "<group>"; };
+		9719EFBF198AE90200A8F51D /* stringTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stringTools.h; sourceTree = "<group>"; };
+		9719EFC2198AE91B00A8F51D /* reader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = reader.cpp; sourceTree = "<group>"; };
+		9719EFC3198AE91B00A8F51D /* reader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = reader.h; sourceTree = "<group>"; };
+		9719EFC5198AE93F00A8F51D /* zimReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zimReader.h; sourceTree = "<group>"; };
+		9719EFC6198AE93F00A8F51D /* zimReader.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = zimReader.mm; sourceTree = "<group>"; };
+		9719EFC8198AEA8600A8F51D /* libc++.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.1.dylib"; path = "usr/lib/libc++.1.dylib"; sourceTree = SDKROOT; };
+		9719EFC9198AEA8600A8F51D /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
+		9719EFCA198AEA8600A8F51D /* libc++abi.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++abi.dylib"; path = "usr/lib/libc++abi.dylib"; sourceTree = SDKROOT; };
+		9719EFCB198AEA8600A8F51D /* libstdc++.6.0.9.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.0.9.dylib"; path = "usr/lib/libstdc++.6.0.9.dylib"; sourceTree = SDKROOT; };
+		9719EFCC198AEA8600A8F51D /* libstdc++.6.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.dylib"; path = "usr/lib/libstdc++.6.dylib"; sourceTree = SDKROOT; };
+		9719EFCD198AEA8600A8F51D /* libstdc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.dylib"; path = "usr/lib/libstdc++.dylib"; sourceTree = SDKROOT; };
+		9719EFD4198AEA9100A8F51D /* libc.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libc.dylib; path = usr/lib/libc.dylib; sourceTree = SDKROOT; };
+		9719EFD6198AECBC00A8F51D /* libicudata.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libicudata.a; path = KiwixTest/libicudata.a; sourceTree = "<group>"; };
+		9719EFD7198AECBC00A8F51D /* libicui18n.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libicui18n.a; path = KiwixTest/libicui18n.a; sourceTree = "<group>"; };
+		9719EFD8198AECBC00A8F51D /* libicuio.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libicuio.a; path = KiwixTest/libicuio.a; sourceTree = "<group>"; };
+		9719EFD9198AECBC00A8F51D /* libicule.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libicule.a; path = KiwixTest/libicule.a; sourceTree = "<group>"; };
+		9719EFDA198AECBC00A8F51D /* libiculx.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libiculx.a; path = KiwixTest/libiculx.a; sourceTree = "<group>"; };
+		9719EFDB198AECBC00A8F51D /* libicutest.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libicutest.a; path = KiwixTest/libicutest.a; sourceTree = "<group>"; };
+		9719EFDC198AECBC00A8F51D /* libicutu.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libicutu.a; path = KiwixTest/libicutu.a; sourceTree = "<group>"; };
+		9719EFDD198AECBC00A8F51D /* libicuuc.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libicuuc.a; path = KiwixTest/libicuuc.a; sourceTree = "<group>"; };
+		9719EFDE198AECBC00A8F51D /* liblzma.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = liblzma.a; path = KiwixTest/liblzma.a; sourceTree = "<group>"; };
+		9719EFDF198AECBC00A8F51D /* libzim.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libzim.a; path = KiwixTest/libzim.a; sourceTree = "<group>"; };
+		9719EFEA198AED4E00A8F51D /* Book about Aviation.zim */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Book about Aviation.zim"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +108,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9719EFD5198AEA9100A8F51D /* libc.dylib in Frameworks */,
+				9719EFCE198AEA8600A8F51D /* libc++.1.dylib in Frameworks */,
+				9719EFCF198AEA8600A8F51D /* libc++.dylib in Frameworks */,
+				9719EFD0198AEA8600A8F51D /* libc++abi.dylib in Frameworks */,
+				9719EFD1198AEA8600A8F51D /* libstdc++.6.0.9.dylib in Frameworks */,
+				9719EFD2198AEA8600A8F51D /* libstdc++.6.dylib in Frameworks */,
+				9719EFD3198AEA8600A8F51D /* libstdc++.dylib in Frameworks */,
+				9719EFE0198AECBC00A8F51D /* libicudata.a in Frameworks */,
+				9719EFE1198AECBC00A8F51D /* libicui18n.a in Frameworks */,
+				9719EFE2198AECBC00A8F51D /* libicuio.a in Frameworks */,
+				9719EFE3198AECBC00A8F51D /* libicule.a in Frameworks */,
+				9719EFE4198AECBC00A8F51D /* libiculx.a in Frameworks */,
+				9719EFE5198AECBC00A8F51D /* libicutest.a in Frameworks */,
+				9719EFE6198AECBC00A8F51D /* libicutu.a in Frameworks */,
+				9719EFE7198AECBC00A8F51D /* libicuuc.a in Frameworks */,
+				9719EFE8198AECBC00A8F51D /* liblzma.a in Frameworks */,
+				9719EFE9198AECBC00A8F51D /* libzim.a in Frameworks */,
 				9719EEA1198AE80C00A8F51D /* CoreGraphics.framework in Frameworks */,
 				9719EEA3198AE80C00A8F51D /* UIKit.framework in Frameworks */,
 				9719EE9F198AE80C00A8F51D /* Foundation.framework in Frameworks */,
@@ -101,6 +166,23 @@
 		9719EE9D198AE80C00A8F51D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9719EFD6198AECBC00A8F51D /* libicudata.a */,
+				9719EFD7198AECBC00A8F51D /* libicui18n.a */,
+				9719EFD8198AECBC00A8F51D /* libicuio.a */,
+				9719EFD9198AECBC00A8F51D /* libicule.a */,
+				9719EFDA198AECBC00A8F51D /* libiculx.a */,
+				9719EFDB198AECBC00A8F51D /* libicutest.a */,
+				9719EFDC198AECBC00A8F51D /* libicutu.a */,
+				9719EFDD198AECBC00A8F51D /* libicuuc.a */,
+				9719EFDE198AECBC00A8F51D /* liblzma.a */,
+				9719EFDF198AECBC00A8F51D /* libzim.a */,
+				9719EFD4198AEA9100A8F51D /* libc.dylib */,
+				9719EFC8198AEA8600A8F51D /* libc++.1.dylib */,
+				9719EFC9198AEA8600A8F51D /* libc++.dylib */,
+				9719EFCA198AEA8600A8F51D /* libc++abi.dylib */,
+				9719EFCB198AEA8600A8F51D /* libstdc++.6.0.9.dylib */,
+				9719EFCC198AEA8600A8F51D /* libstdc++.6.dylib */,
+				9719EFCD198AEA8600A8F51D /* libstdc++.dylib */,
 				9719EE9E198AE80C00A8F51D /* Foundation.framework */,
 				9719EEA0198AE80C00A8F51D /* CoreGraphics.framework */,
 				9719EEA2198AE80C00A8F51D /* UIKit.framework */,
@@ -112,11 +194,14 @@
 		9719EEA4198AE80C00A8F51D /* KiwixTest */ = {
 			isa = PBXGroup;
 			children = (
+				9719EFC5198AE93F00A8F51D /* zimReader.h */,
+				9719EFC6198AE93F00A8F51D /* zimReader.mm */,
+				9719EFBB198AE8D400A8F51D /* KiwixC++Reader */,
 				9719EEAD198AE80C00A8F51D /* AppDelegate.h */,
 				9719EEAE198AE80C00A8F51D /* AppDelegate.m */,
 				9719EEB0198AE80C00A8F51D /* Main.storyboard */,
 				9719EEB3198AE80C00A8F51D /* ViewController.h */,
-				9719EEB4198AE80C00A8F51D /* ViewController.m */,
+				9719EEB4198AE80C00A8F51D /* ViewController.mm */,
 				9719EEB6198AE80C00A8F51D /* Images.xcassets */,
 				9719EEA5198AE80C00A8F51D /* Supporting Files */,
 			);
@@ -126,6 +211,7 @@
 		9719EEA5198AE80C00A8F51D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				9719EFEA198AED4E00A8F51D /* Book about Aviation.zim */,
 				9719EEA6198AE80C00A8F51D /* KiwixTest-Info.plist */,
 				9719EEA7198AE80C00A8F51D /* InfoPlist.strings */,
 				9719EEAA198AE80C00A8F51D /* main.m */,
@@ -150,6 +236,19 @@
 				9719EEC6198AE80C00A8F51D /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9719EFBB198AE8D400A8F51D /* KiwixC++Reader */ = {
+			isa = PBXGroup;
+			children = (
+				9719EFBC198AE90200A8F51D /* pathTools.cpp */,
+				9719EFBD198AE90200A8F51D /* pathTools.h */,
+				9719EFBE198AE90200A8F51D /* stringTools.cpp */,
+				9719EFBF198AE90200A8F51D /* stringTools.h */,
+				9719EFC2198AE91B00A8F51D /* reader.cpp */,
+				9719EFC3198AE91B00A8F51D /* reader.h */,
+			);
+			name = "KiwixC++Reader";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -230,6 +329,7 @@
 			files = (
 				9719EEB7198AE80C00A8F51D /* Images.xcassets in Resources */,
 				9719EEA9198AE80C00A8F51D /* InfoPlist.strings in Resources */,
+				9719EFEB198AED4E00A8F51D /* Book about Aviation.zim in Resources */,
 				9719EEB2198AE80C00A8F51D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -249,8 +349,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9719EEB5198AE80C00A8F51D /* ViewController.m in Sources */,
+				9719EFC1198AE90200A8F51D /* stringTools.cpp in Sources */,
+				9719EFC7198AE93F00A8F51D /* zimReader.mm in Sources */,
+				9719EFC0198AE90200A8F51D /* pathTools.cpp in Sources */,
+				9719EEB5198AE80C00A8F51D /* ViewController.mm in Sources */,
 				9719EEAF198AE80C00A8F51D /* AppDelegate.m in Sources */,
+				9719EFC4198AE91B00A8F51D /* reader.cpp in Sources */,
 				9719EEAB198AE80C00A8F51D /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -374,12 +478,29 @@
 		9719EECE198AE80C00A8F51D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_CXX_LIBRARY = "libstdc++";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "KiwixTest/KiwixTest-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(PROJECT_DIR)/KiwixTest/",
+				);
 				INFOPLIST_FILE = "KiwixTest/KiwixTest-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/KiwixTest/",
+					"$(PROJECT_DIR)/KiwixTest",
+				);
+				OTHER_LDFLAGS = (
+					"-lz",
+					"-lstdc++",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -387,12 +508,29 @@
 		9719EECF198AE80C00A8F51D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_CXX_LIBRARY = "libstdc++";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "KiwixTest/KiwixTest-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(PROJECT_DIR)/KiwixTest/",
+				);
 				INFOPLIST_FILE = "KiwixTest/KiwixTest-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/KiwixTest/",
+					"$(PROJECT_DIR)/KiwixTest",
+				);
+				OTHER_LDFLAGS = (
+					"-lz",
+					"-lstdc++",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "zimReader.h"
 
 @interface ViewController : UIViewController
 
