@@ -68,6 +68,7 @@ locale main lt             jar:locale.jar!/locale/lt/main/
 locale main lv             jar:locale.jar!/locale/lv/main/
 locale main map-bms        jar:locale.jar!/locale/map-bms/main/
 locale main mk             jar:locale.jar!/locale/mk/main/
+locale main mg             jar:locale.jar!/locale/mg/main/
 locale main ml             jar:locale.jar!/locale/ml/main/
 locale main mn             jar:locale.jar!/locale/mn/main/
 locale main ms             jar:locale.jar!/locale/ms/main/
@@ -185,6 +186,7 @@ locale branding li         jar:locale.jar!/locale/branding/
 locale branding lt         jar:locale.jar!/locale/branding/
 locale branding lv         jar:locale.jar!/locale/branding/
 locale branding map-bms    jar:locale.jar!/locale/branding/
+locale branding mg         jar:locale.jar!/locale/branding/
 locale branding mk         jar:locale.jar!/locale/branding/
 locale branding ml         jar:locale.jar!/locale/branding/
 locale branding mn         jar:locale.jar!/locale/branding/
