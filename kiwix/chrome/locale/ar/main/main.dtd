@@ -113,7 +113,7 @@
 <!ENTITY main.defaultset                "تفضيلات أصليّة">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveMediaAs               "Save media as...">
+<!ENTITY main.saveMediaAs               "حفظ وسائط باسم...">
 <!ENTITY main.openLinkInNewTab          "افتح الوصلة في علامة تبويب جديدة">
 <!ENTITY main.searchFor                 "إبحث عن">
 <!ENTITY main.copyLinkAdress            "Copy link address">

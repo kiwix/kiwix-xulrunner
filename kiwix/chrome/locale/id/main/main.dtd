@@ -113,7 +113,7 @@
 <!ENTITY main.defaultset                "Set Baku">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveMediaAs               "Save media as...">
+<!ENTITY main.saveMediaAs               "Simpan media sebagai...">
 <!ENTITY main.openLinkInNewTab          "Buka pranala di tab baru">
 <!ENTITY main.searchFor                 "Pencarian untuk">
 <!ENTITY main.copyLinkAdress            "Copy link address">

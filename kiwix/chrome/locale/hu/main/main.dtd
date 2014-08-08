@@ -59,7 +59,7 @@
 <!ENTITY main.skin.accesskey            "S">
 <!ENTITY main.statusbar                 "Állapotsor">
 <!ENTITY main.statusbar.accesskey       "S">
-<!ENTITY main.resultsbar                "Eredménysor">
+<!ENTITY main.resultsbar                "Eredmény sáv">
 <!ENTITY main.resultsbar.accesskey      "R">
 <!ENTITY main.tabs                      "Fülek">
 <!ENTITY main.tabs.accesskey            "T">
@@ -94,9 +94,9 @@
 <!ENTITY main.home                      "Kezdőlap">
 <!ENTITY main.searchBar                 "Keresősáv">
 <!ENTITY main.search                    "Keresés">
-<!ENTITY main.searchPlaceholder         "írd be ide a keresendő szöveget...">
+<!ENTITY main.searchPlaceholder         "Írd be ide a keresendő szöveget...">
 <!ENTITY main.findInText                "Keresés a szövegben">
-<!ENTITY main.noSearchBar               "A kereséshez indexelt Zim fájl szükséges">
+<!ENTITY main.noSearchBar               "A kereséshez indexelt ZIM fájl szükséges">
 <!ENTITY main.bookmarks                 "Könyvjelzők">
 
 <!-- Results bar -->
@@ -108,8 +108,8 @@
 <!ENTITY main.loadbmk                   "Könyvjelzőkészlet importálása">
 <!ENTITY main.newbmk                    "Új könyvjelzőkészlet létrehozása">
 <!ENTITY main.mark                      "Oldal megjelölése">
-<!ENTITY main.unmark                    "Kijelöltek megjelölésének törlése">
-<!ENTITY main.reload                    "!Könyvjelzőkészlet visszaátöltése">
+<!ENTITY main.unmark                    "Kijelölés megszüntetése">
+<!ENTITY main.reload                    "Könyvjelzőkészlet újratöltése">
 <!ENTITY main.defaultset                "Alapértelmezett készlet">
 
 <!-- Contextual Menu -->

@@ -113,7 +113,7 @@
 <!ENTITY main.defaultset                "Ma sinedoù">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveMediaAs               "Save media as...">
+<!ENTITY main.saveMediaAs               "Enrollañ ar media evel...">
 <!ENTITY main.openLinkInNewTab          "Digeriñ al liamm en un ivinell nevez">
 <!ENTITY main.searchFor                 "Klask">
 <!ENTITY main.copyLinkAdress            "Copy link address">

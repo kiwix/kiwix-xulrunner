@@ -113,7 +113,7 @@
 <!ENTITY main.defaultset                "تلواليزې امستنې">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveMediaAs               "Save media as...">
+<!ENTITY main.saveMediaAs               "رسنۍ ساتل لکه...">
 <!ENTITY main.openLinkInNewTab          "تړنه په نوې کړکۍ کې پرانيستل">
 <!ENTITY main.searchFor                 "پلټل">
 <!ENTITY main.copyLinkAdress            "Copy link address">
