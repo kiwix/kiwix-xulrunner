@@ -1,0 +1,162 @@
+<!-- Window -->
+<!ENTITY main.title                     "&brand.brandShortName;">
+<!ENTITY main.cssdirection              "ltr">
+
+<!-- Mac menu -->
+<!ENTITY main.osxservices               "Sampan-draharaha">
+<!ENTITY main.osxhideapp                "Hanafina &brand.brandShortName;">
+<!ENTITY main.osxhideothers             "Hanitrika ny hafa">
+<!ENTITY main.osxshowall                "Asehoy daholo">
+
+<!-- File menu -->
+<!ENTITY main.file                      "Rakitra">
+<!ENTITY main.file.accesskey            "F">
+<!ENTITY main.openFile                  "Hanokatra rakitra">
+<!ENTITY main.browseLibrary.accesskey   "B">
+<!ENTITY main.browseLibrary             "Hitety ny tahirim-boky">
+<!ENTITY main.hideLibrary               "Hanitrika ny tahirim-boky">
+<!ENTITY main.openFile.accesskey        "O">
+<!ENTITY main.lastOpen                  "Nosokafana vao haingana...">
+<!ENTITY main.saveFile                  "Tahirizana ho...">
+<!ENTITY main.saveFile.accesskey        "S">
+<!ENTITY main.print                     "Atonta printy">
+<!ENTITY main.print.accesskey           "P">
+<!ENTITY main.printPdf                  "Hamorona PDF">
+<!ENTITY main.printPdf.accesskey        "D">
+<!ENTITY main.quit                      "Hiala">
+<!ENTITY main.quit.accesskey            "Q">
+
+<!-- Edit menu -->
+<!ENTITY main.edit                      "Hanova">
+<!ENTITY main.edit.accesskey            "E">
+<!ENTITY main.find                      "Hikaroka anatin'ilay pejy...">
+<!ENTITY main.find.accesskey            "S">
+<!ENTITY main.selectall                 "Hisafidy ny rehetra">
+<!ENTITY main.selectall.accesskey       "a">
+<!ENTITY main.copy                      "Dikaina">
+<!ENTITY main.copy.accesskey            "p">
+<!ENTITY main.transliteration           "Dikan-tsoratra">
+<!ENTITY main.transliteration.accesskey "T">
+<!ENTITY main.preferences               "Safidy">
+<!ENTITY main.preferences.accesskey     "n">
+<!ENTITY main.server                    "Lohamilina">
+<!ENTITY main.server.accesskey          "s">
+
+<!-- Display menu -->
+<!ENTITY main.display                   "Fiseho">
+<!ENTITY main.display.accesskey         "D">
+<!ENTITY main.zoom                      "Zoom">
+<!ENTITY main.zoom.accesskey            "Z">
+<!ENTITY main.zoomin                    "Alehibeazina">
+<!ENTITY main.zoomin.accesskey          "M">
+<!ENTITY main.zoomout                   "Akelezina">
+<!ENTITY main.zoomout.accesskey         "R">
+<!ENTITY main.zoomorig                  "Habe voalohany">
+<!ENTITY main.zoomorig.accesskey        "O">
+<!ENTITY main.language                  "Tenim-pirenena">
+<!ENTITY main.language.accesskey        "L">
+<!ENTITY main.skin                      "Skin">
+<!ENTITY main.skin.accesskey            "S">
+<!ENTITY main.statusbar                 "Baran-tsata">
+<!ENTITY main.statusbar.accesskey       "S">
+<!ENTITY main.resultsbar                "Valin-karoka">
+<!ENTITY main.resultsbar.accesskey      "R">
+<!ENTITY main.tabs                      "Sasa-joro">
+<!ENTITY main.tabs.accesskey            "T">
+<!ENTITY main.fullscreen                "Fisehoana mameno ekrà">
+<!ENTITY main.fullscreen.accesskey      "F">
+<!ENTITY main.invertedColors            "Loko navadika">
+<!ENTITY main.invertedColors.accesskey  "I">
+
+<!-- Tools menu -->
+<!ENTITY main.tools                     "Fitaovana">
+<!ENTITY main.tools.accesskey           "T">
+<!ENTITY main.randomArticle             "Takelaka kisendra">
+<!ENTITY main.randomArticle.accesskey   "R">
+<!ENTITY main.checkIntegrity            "Hanamarina ny tsifanodinana ny votoatiny">
+<!ENTITY main.checkIntegrity.accesskey  "k">
+<!ENTITY main.launchIndexing            "Handefa ny "indexation"">
+<!ENTITY main.purgeHistory              "Hamafa ny tantaram-pejy">
+<!ENTITY main.purgeHistory.accesskey    "P">
+
+<!-- Help menu -->
+<!ENTITY main.help                      "Fanoroana">
+<!ENTITY main.help.accesskey            "H">
+<!ENTITY main.feedback                  "Famoahan-kevitra">
+<!ENTITY main.reportabug                "Hilaza baogy">
+<!ENTITY main.requestafeature           "Hangataka fahafahana">
+<!ENTITY main.about                     "Momba ny &brand.brandShortName;">
+<!ENTITY main.about.accesskey           "A">
+
+<!-- Tool bar -->
+<!ENTITY main.back                      "Taloha">
+<!ENTITY main.forward                   "Manaraka">
+<!ENTITY main.home                      "Fandraisana">
+<!ENTITY main.searchBar                 "Fikarohana">
+<!ENTITY main.search                    "Hikaroka">
+<!ENTITY main.searchPlaceholder         "Soraty eto ny teny hokarohana...">
+<!ENTITY main.findInText                "Hitady anaty lahatsoratra">
+<!ENTITY main.noSearchBar               "Mila rakitra ZIM vita indexation ny fikarohana">
+<!ENTITY main.bookmarks                 "Marika pejy">
+
+<!-- Results bar -->
+<!ENTITY main.results.title             "Valim-pikarohana">
+
+<!-- Bookmarks Bar -->
+<!ENTITY main.bmkLabel                  "Marika pejy:">
+<!ENTITY main.notesLabel                "Dinika amin'ny marika pejy:">
+<!ENTITY main.loadbmk                   "Hampiditra rakitra marika pejy">
+<!ENTITY main.newbmk                    "Hamorona vondrona sori-pejy">
+<!ENTITY main.mark                      "Hanamarika ity pejy ity">
+<!ENTITY main.unmark                    "Hanala marika ny voafidy">
+<!ENTITY main.reload                    "Hamerina ny vondron-tsori-pejy">
+<!ENTITY main.defaultset                "Averina amin'ny laoniny">
+
+<!-- Contextual Menu -->
+<!ENTITY main.saveMediaAs               "Hitahiry ny media ho...">
+<!ENTITY main.openLinkInNewTab          "Hanokatra rohy anaty sasa-joro vaovao">
+<!ENTITY main.searchFor                 "Hitady">
+<!ENTITY main.copyLinkAdress            "Copy link address">
+<!ENTITY main.mute                      "Ampanginina">
+<!ENTITY main.audible                   "Heno">
+
+<!-- About Window -->
+<!ENTITY main.close                     "Akatona">
+
+<!-- Preferences Window -->
+<!ENTITY preferences.preferences        "Safidy">
+<!ENTITY preferences.save               "Tehirizina">
+<!ENTITY preferences.cancel             "Aoka">
+<!ENTITY preferences.profileDirectory   "Takela-pitadidiana ny profil">
+<!ENTITY preferences.dataDirectory      "Data directory">
+<!ENTITY preferences.browse             "Tadiavina">
+<!ENTITY preferences.tabs               "Tadidio ny sasa-joro">
+<!ENTITY preferences.downloadCatalogs   "Hampidina katalaogy any lavitra">
+<!ENTITY preferences.neverAskToIndex    "Asa antonaniana intsony raha hanao index">
+
+<!-- Server -->
+<!ENTITY server.load                    "Hasesika">
+<!ENTITY server.start                   "Atomboka">
+<!ENTITY server.stop                    "Ajanona">
+<!ENTITY server.close                   "Akatona">
+
+<!-- Library -->
+<!ENTITY main.library.myLibrary                 "Tahirim-bokiko">
+<!ENTITY main.library.getNewFiles               "Haka rakitra vaovao">
+<!ENTITY main.library.searchZimFiles            "Hikaroka rakitra ZIM">
+<!ENTITY main.library.sortBy                    "Hampirina araka">
+<!ENTITY main.library.sortBy.title              "Lohateny">
+<!ENTITY main.library.sortBy.size               "Habe">
+<!ENTITY main.library.sortBy.date               "Daty">
+<!ENTITY main.library.sortBy.author             "Mpamorona">
+<!ENTITY main.library.sortBy.publisher          "Mpamoaka">
+<!ENTITY main.library.filterBy                  "Hanivana araka">
+<!ENTITY main.library.filterBy.fileSize         "Haben-drakitra">
+<!ENTITY main.library.filterBy.language         "Tenim-pirenena">
+<!ENTITY main.library.filterBy.language.all     "Manontolo">
+<!ENTITY main.library.filterBy.author           "Mpamorona">
+<!ENTITY main.library.filterBy.author.all       "Manontolo">
+<!ENTITY main.library.filterBy.publisher        "Mpamoaka">
+<!ENTITY main.library.filterBy.publisher.all    "Manontolo">
+<!ENTITY main.library.filterBy.lessThan         "Latsaky ny">
+
