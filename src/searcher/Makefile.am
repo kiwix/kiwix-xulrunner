@@ -30,3 +30,8 @@ kiwix_search_LDFLAGS+= $(LIBICONV_STATIC_LDFLAGS) $(GETTEXT_STATIC_LDFLAGS) -fra
 # -static-libgcc -static-libstdc++
 # kiwix_search_CXXFLAGS+= -stdlib=libstdc++
 endif
+
+if HAVE_UPX
+all-am: all
+	upx -9 $(bin_PROGRAMS)
+endif

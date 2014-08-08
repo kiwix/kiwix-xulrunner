@@ -44,3 +44,8 @@ if IS_OSX
 # kiwix_install_CXXFLAGS+= -stdlib=libstdc++
 # kiwix_install_LDFLAGS+= -static-libgcc -static-libstdc++
 endif
+
+if HAVE_UPX
+all-am: all
+	upx -9 $(bin_PROGRAMS)
+endif
