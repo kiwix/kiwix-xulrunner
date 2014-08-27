@@ -57,6 +57,7 @@ Kiwix 0.9
 * NEW: Sort bookmarks alphabetically
 * NEW: Able to deal with ZIM files containing relative paths
 * NEW: Allow to run launcher in a few other directories
+* NEW: Improve file size display in kiwix-serve
 
 Kiwix 0.9 rc2
 * FIXED: kiwix-manage generate wrong size for splitted ZIM files (ID: 3547892)
