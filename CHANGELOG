@@ -46,7 +46,7 @@ Kiwix 0.9
 * NEW: Does not ask to download remote catalogs if user is offline
 * NEW: Option to avoid dialog box asking for indexing (#330)
 * NEW: Menu item to launch indexing (#455)
-* NEW: Run with xulrunner 29
+* NEW: Compiles and run with xulrunner up to 29
 * NEW: Add "Cache-Control" HTTP headers to kiwix-serve output
 * NEW: Better searchbox focus handling
 * NEW: ZIM, indexes & library saved in profile in a portable manner
@@ -57,7 +57,7 @@ Kiwix 0.9
 * NEW: OSX 10.9 support
 * NEW: Sort bookmarks alphabetically
 * NEW: Able to deal with ZIM files containing relative paths
-* NEW: Allow to run launcher in a few other directories
+* NEW: Allow to run launcher in a few additional directories
 * NEW: Improve file size display in kiwix-serve
 
 Kiwix 0.9 rc2
