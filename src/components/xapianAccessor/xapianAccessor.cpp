@@ -125,7 +125,7 @@ NS_IMETHODIMP XapianAccessor::CloseReadableDatabase(mozbool *retVal) {
 }
 
 /* Return true if a database is currently open */
-NS_IMETHODIMP XapianAccessor::IsDatabaseOpen(mozbool *retVal) {
+NS_IMETHODIMP XapianAccessor::IsReadableDatabaseOpen(mozbool *retVal) {
   *retVal = (this->searcher != NULL ? PR_TRUE : PR_FALSE);
   return NS_OK;
 }

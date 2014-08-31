@@ -52,7 +52,7 @@ gS.prototype={
 	/* Adding the 'containing...' for a fulltext search if possible  */
 	indexAccessor = Components.classes["@kiwix.org/xapianAccessor"].getService();
 	indexAccessor = indexAccessor.QueryInterface(Components.interfaces.IXapianAccessor);
-	if (indexAccessor.isDatabaseOpen()) {
+	if (indexAccessor.isReadableDatabaseOpen()) {
 	    r.push(new Result(searchString + " ", "containing '" + searchString + "'...", "italic"));
 	}
 

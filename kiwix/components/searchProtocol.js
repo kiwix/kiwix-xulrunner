@@ -170,7 +170,7 @@ SearchPipeChannel.prototype = {
 	indexAccessor = indexAccessor.QueryInterface(Components.interfaces.IXapianAccessor);
 	
 	/* Open the xapian readable database */
-	if (!indexAccessor.openReadableDatabase(path, path))
+	if (!indexAccessor.isReadableDatabaseOpen() || !indexAccessor.openReadableDatabase(path, path))
 	    return;    
 	
 	return indexAccessor;
