@@ -48,9 +48,13 @@ gS.prototype={
 	while (zimAccessor.getNextSuggestion(title)) {
 	    r.push(new Result(title.value, title.value, null)); 
 	}
-	
-	/* Adding the 'containing...' */
-	r.push(new Result(searchString + " ", "containing '" + searchString + "'...", "italic"));
+
+	/* Adding the 'containing...' for a fulltext search if possible  */
+	indexAccessor = Components.classes["@kiwix.org/xapianAccessor"].getService();
+	indexAccessor = indexAccessor.QueryInterface(Components.interfaces.IXapianAccessor);
+	if (indexAccessor.isDatabaseOpen()) {
+	    r.push(new Result(searchString + " ", "containing '" + searchString + "'...", "italic"));
+	}
 
 	listener.onSearchResult(j, new gR(4,r));
     },

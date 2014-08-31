@@ -11,4 +11,5 @@ interface IXapianAccessor : nsISupports
   boolean getNextResult(out AUTF8String url, out AUTF8String title, out uint32_t score);
   boolean getHtml(out ACString html);
   boolean closeReadableDatabase();
+  boolean isDatabaseOpen();
 };
