@@ -51,7 +51,7 @@ function updateServerDialog() {
 function startServer() {
     var serverManager = Components.classes["@kiwix.org/serverManager"].getService().
 	QueryInterface(Components.interfaces.IServerManager);
-    var libraryPaths = library.paths;
+    var libraryPaths = library.paths + settings.customLibraryPaths();
     var port = document.getElementById("port-textbox").value;
     var binaryPath = whereis(env.isWindows() ? "kiwix-serve.exe" : "kiwix-serve");
 
