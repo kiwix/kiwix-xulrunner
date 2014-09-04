@@ -33,14 +33,15 @@ Kiwix 0.9
 * FIXED: Save medias on Windows UNC drives (#682)
 * FIXED: Wrong file size in kiwix-serve home page
 * FIXED: Deal with multi-arch compilation architectures
+* FIXED: kiwix-serve crash if unattended search "start" & "end" values
 * NEW: Allow to save videos and sounds
 * NEW: Add a "random article" button to kiwix-serve
 * NEW: New supported user interface languages: Chuvash (cv), Fiji
   Hindi Latin script (hif-latn), Mongolian (mn), Newari (new),
   Sanskrit (sa), Uzbek (uz), Turkish (tr), Tagalog (tl), Talysh
   language (tly), Kyrgyz (kir), Bambara (bam), Hakka (hak),
-  Hunsrik (hrx), Uyghur in Arabic script (ug-arab) and
-  Azerbaijani (az)
+  Hunsrik (hrx), Uyghur in Arabic script (ug-arab), 
+  Malagazy (mg) and Azerbaijani (az)
 * NEW: On GNU/Linux, replace basch script launcher by a binary (kiwix-launcher)
 * NEW: Does not ask to download remote catalogs if user is offline
 * NEW: Option to avoid dialog box asking for indexing (#330)
@@ -57,6 +58,7 @@ Kiwix 0.9
 * NEW: Sort bookmarks alphabetically
 * NEW: Able to deal with ZIM files containing relative paths
 * NEW: Allow to run launcher in a few other directories
+* NEW: Improve file size display in kiwix-serve
 
 Kiwix 0.9 rc2
 * FIXED: kiwix-manage generate wrong size for splitted ZIM files (ID: 3547892)

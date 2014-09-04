@@ -398,6 +398,7 @@ distserver:
 	tar -C src/server/ -cf $(PACKAGE)-$(VERSION)-server_$(ARCH).tar kiwix-serve
 	tar -C src/indexer/ -rf $(PACKAGE)-$(VERSION)-server_$(ARCH).tar kiwix-index
 	tar -C src/manager/ -rf $(PACKAGE)-$(VERSION)-server_$(ARCH).tar kiwix-manage
+	tar -C src/installer/ -rf $(PACKAGE)-$(VERSION)-server_$(ARCH).tar kiwix-install
 	tar -C src/reader/ -rf $(PACKAGE)-$(VERSION)-server_$(ARCH).tar kiwix-read
 	tar -C src/searcher/ -rf $(PACKAGE)-$(VERSION)-server_$(ARCH).tar kiwix-search
 	bzip2 -f $(PACKAGE)-$(VERSION)-server_$(ARCH).tar

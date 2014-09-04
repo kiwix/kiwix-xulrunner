@@ -113,7 +113,7 @@
 <!ENTITY main.defaultset                "تنظیمات نشانک">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveMediaAs               "Save media as...">
+<!ENTITY main.saveMediaAs               "ذخیره رسانه با نام ....">
 <!ENTITY main.openLinkInNewTab          "بازکردن پیوند در زبانهٔ جدید">
 <!ENTITY main.searchFor                 "جستجو برای">
 <!ENTITY main.copyLinkAdress            "Copy link address">

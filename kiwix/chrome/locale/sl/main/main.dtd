@@ -113,7 +113,7 @@
 <!ENTITY main.defaultset                "Privzeta množica">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveMediaAs               "Save media as...">
+<!ENTITY main.saveMediaAs               "Shrani predstavnost kot ...">
 <!ENTITY main.openLinkInNewTab          "Odpri povezavo na novem zavihku">
 <!ENTITY main.searchFor                 "Išči">
 <!ENTITY main.copyLinkAdress            "Copy link address">
