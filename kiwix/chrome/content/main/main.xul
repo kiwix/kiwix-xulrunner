@@ -186,7 +186,7 @@
   <key id="findnextbis" keycode="VK_F3" oncommand="getFindBar().onFindAgainCommand(false);"/>
   <key id="findprevious" key="G" modifiers="control,shift" oncommand="getFindBar().onFindAgainCommand(true);"/>
   <key id="zoomin" key="+" modifiers="control" oncommand="zoomIn()"/>
-  <key id="zoomout" key="=" modifiers="control" oncommand="zoomIn()"/> <!-- facilitate the zoomin without using SHIFT-->
+  <key id="zoomin-bis" key="=" modifiers="control" oncommand="zoomIn()"/> <!-- facilitate the zoomin without using SHIFT-->
   <key id="zoomout" key="-" modifiers="control" oncommand="zoomOut()"/>
   <key id="zoomorig" key="0" modifiers="control" oncommand="zoomOriginal()"/>
   <key id="open-tab-key" key="T" modifiers="control" oncommand="openNewTab(); getSearchBox().value = ''; focusOnSearchBox()"/>
