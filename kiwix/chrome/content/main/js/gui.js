@@ -1027,13 +1027,15 @@ function toggleBrowserContextualMenu(event) {
 function displayConfirmDialog(message, title) {
     var promptService = Components.classes["@mozilla.org/embedcomp/prompt-service;1"]
 	.getService(Components.interfaces.nsIPromptService);
+    var flags = promptService.BUTTON_TITLE_IS_STRING * promptService.BUTTON_POS_0 +
+        promptService.BUTTON_TITLE_IS_STRING * promptService.BUTTON_POS_1;
 
     /* Default title */
     if (title == undefined) {
 	title = getProperty("confirm");
     }
 
-    return promptService.confirm(window, title, message);
+    return (promptService.confirmEx(window, title, message, flags, getProperty("yes"), getProperty("cancel"), null, null, new Object()) == 0);
 }
 
 /* Display a confirm dialog box like confirm() but with an additional checkbox */
