@@ -34,6 +34,7 @@ Kiwix 0.9
 * FIXED: Wrong file size in kiwix-serve home page
 * FIXED: Deal with multi-arch compilation architectures
 * FIXED: kiwix-serve crash if unattended search "start" & "end" values
+* FIXED: "yes" and "cancel" buttons translations in confirm dialogs
 * NEW: Allow to save videos and sounds
 * NEW: Add a "random article" button to kiwix-serve
 * NEW: New supported user interface languages: Chuvash (cv), Fiji
