@@ -238,7 +238,7 @@ function BookmarkSet () {
 	}
 	// save note async
 	this.update = function (index, item) {
-	    for (field in item)
+	    for (var field in item)
 	        this.items[index][field] = item[field];
 	    
 	    this.save();
