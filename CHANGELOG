@@ -35,6 +35,7 @@ Kiwix 0.9
 * FIXED: Deal with multi-arch compilation architectures
 * FIXED: kiwix-serve crash if unattended search "start" & "end" values
 * FIXED: "yes" and "cancel" buttons translations in confirm dialogs
+* FIXED: Unstable library fulltext search 
 * NEW: Allow to save videos and sounds
 * NEW: Add a "random article" button to kiwix-serve
 * NEW: New supported user interface languages: Chuvash (cv), Fiji
