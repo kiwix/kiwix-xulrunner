@@ -585,6 +585,7 @@ function decodeUrl (text) {
     var c = 0;
     var c1 = 0;
     var c2 = 0;
+    var c3 = 0;
     var utftext = unescape(text);
     
     while ( i < utftext.length ) {
