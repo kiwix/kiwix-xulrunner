@@ -58,7 +58,7 @@ fi
 # AC_CHECK_TOOL(HAVE_ZIP, zip)
 
 # Check binary compressor
-AC_CHECK_PROG(HAVE_UPX, upx, 1)
+AC_CHECK_PROG(HAVE_UPX, upx, 1, 0)
 AM_CONDITIONAL([HAVE_UPX], [test "$HAVE_UPX" = 1])
 
 # Check if running on Windows
