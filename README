@@ -28,6 +28,11 @@ want to build Kiwix for Android on a GNU/Linux system, you should
 follow the instructions of the "Android" paragraph.
 
 == GNU/Linux ==
+Install pre-requisties
+
+sudo apt-get install zip pkg-config aptitude
+sudo apt-get install libmagic-dev
+sudo aptitude install libtool
 
 === Static ===
 
