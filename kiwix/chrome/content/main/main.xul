@@ -319,7 +319,7 @@
       </menupopup>
     </menulist>
 
-    <listbox flex="1" id="bookmarks-list" />
+    <listbox flex="1" id="bookmarks-list" onkeypress="if (event.keyCode == 13) { onBookmarkItemClicked( this.selectedItem ) }" />
 
     <label id="notesLabel" value="&main.notesLabel;" />
     <textbox id="notesTextBox" onchange="UISaveCurrentNote(null);" multiline="true" flex="1" dir="&main.cssdirection;" disabled="true" />

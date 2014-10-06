@@ -34,10 +34,10 @@ sudo apt-get install zip pkg-config aptitude
 sudo apt-get install libmagic-dev
 sudo aptitude install libtool
 
-=== Static ===
+=== Static (Probably what you need to do if you don't know) ===
 
 Kiwix uses shared libraries only. A static build of Kiwix is a build
-which packages the dependencies.  Command line tools (indexer, server,
+which packages the dependencies. Command line tools (indexer, server,
 etc) are compiled statically.
 
 # Run automake

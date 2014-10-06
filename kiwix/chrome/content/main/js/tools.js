@@ -317,7 +317,7 @@ function loadContentFromCommandLine(commandLine) {
 	    if (argument.match(/^.*\.(zim|zimaa)$/i)) {
 		argument = pathFromURL(argument);
 		argument = argument.replace('%20', ' ');
-		managedToOpenFile = manageOpenFile(argument, true);
+		managedToOpenFile = manageOpenFile(getAbsolutePath(argument), true);
 	    }
 	}
 
@@ -325,7 +325,6 @@ function loadContentFromCommandLine(commandLine) {
 	if (managedToOpenFile) {
 	    var argument;
 	    var firstLoad = true;
-
 
 	    while ((argument = commandLine.handleFlagWithParam("articleByUrl", false)) != undefined) {
 		if (!argument.match(/^zim:\/\/.*$/)) {
@@ -585,6 +584,7 @@ function decodeUrl (text) {
     var c = 0;
     var c1 = 0;
     var c2 = 0;
+    var c3 = 0;
     var utftext = unescape(text);
     
     while ( i < utftext.length ) {
@@ -728,4 +728,22 @@ function copyTextToClipboard(text) {
     const gClipboardHelper = Components.classes["@mozilla.org/widget/clipboardhelper;1"].
 	getService(Components.interfaces.nsIClipboardHelper);
     gClipboardHelper.copyString(text);
+}
+
+function getAbsolutePath(path) {
+    var result = path;
+
+    var file = Components.classes["@mozilla.org/file/local;1"]
+        .createInstance(Components.interfaces.nsILocalFile);
+    try {
+	file.initWithPath(path);
+    } catch (e) {
+	var directory = Components.classes["@mozilla.org/file/directory_service;1"]
+            .getService(Components.interfaces.nsIDirectoryServiceProvider)
+            .getFile("CurWorkD",{});
+	directory.appendRelativePath(path);
+	result = directory.path;
+    }
+
+    return result;
 }

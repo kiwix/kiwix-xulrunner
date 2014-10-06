@@ -13,6 +13,7 @@ Kiwix 0.9
 * FIXED: kiwix-serve welcome page Doctype HTML line fix (for Opera)
 * FIXED: Small display issue with multilingual ZIM file
 * FIXED: Toolbar buttons order
+* FIXED: pause/resume refreshing problem in library
 * FIXED: Argument forwarding in kiwix-launcher
 * FIXED: Copy to clipboard if inverted colors (#414)
 * FIXED: "Select all" with inverted colors
@@ -34,6 +35,8 @@ Kiwix 0.9
 * FIXED: Wrong file size in kiwix-serve home page
 * FIXED: Deal with multi-arch compilation architectures
 * FIXED: kiwix-serve crash if unattended search "start" & "end" values
+* FIXED: "yes" and "cancel" buttons translations in confirm dialogs
+* FIXED: Unstable library fulltext search 
 * NEW: Allow to save videos and sounds
 * NEW: Add a "random article" button to kiwix-serve
 * NEW: New supported user interface languages: Chuvash (cv), Fiji

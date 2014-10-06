@@ -344,8 +344,15 @@ function getDownloadStatus() {
 	    
 	/* Download is paused */
 	var downloadStatusLabel = document.getElementById("download-status-label-" + kiwixDownload.id);
+	var playButton = document.getElementById("play-button-" + kiwixDownload.id);
+	var pauseButton = document.getElementById("pause-button-" + kiwixDownload.id);
 	if (downloadStatusLabel != undefined && kiwixDownload.status == 0 && kiwixDownload.completed > 1) { 
 	    downloadStatusLabel.setAttribute("value", "Paused – " + formatFileSize(kiwixDownload.completed) + " of " + formatFileSize(book.size * 1024));
+	    playButton.setAttribute("style", "display: block;");
+	    pauseButton.setAttribute("style", "display: none;");
+	} else {
+	    playButton.setAttribute("style", "display: none;");
+	    pauseButton.setAttribute("style", "display: block;");
 	}
 	
 	/* Set the progressbar */
@@ -471,7 +478,7 @@ function configureLibraryContentItemVisuals(id, mode) {
 	var playButton = document.getElementById("play-button-" + id);
 	playButton.setAttribute("style", "display: none;");
 	var pauseButton = document.getElementById("pause-button-" + id);
-	pauseButton.setAttribute("style", "display: block;");
+	pauseButton.setAttribute("style", "display: none;");
 	var downloadStatusLabel = document.getElementById("download-status-label-" + id);
 	downloadStatusLabel.setAttribute("value", getProperty("preparingContentDownload"));
 	var detailsDeck = document.getElementById("download-deck-" + id);

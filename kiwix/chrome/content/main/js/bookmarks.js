@@ -238,7 +238,7 @@ function BookmarkSet () {
 	}
 	// save note async
 	this.update = function (index, item) {
-	    for (field in item)
+	    for (var field in item)
 	        this.items[index][field] = item[field];
 	    
 	    this.save();
@@ -448,21 +448,23 @@ function UIResetBookmarkSet () {
  * Called by click on a bk in the list ; calls the browser
  */
 function onBookmarkItemClicked (aListItem) {
-    var uri = aListItem.value;
-    var bookId = aListItem.getAttribute("book");
-    var currentBook = library.getCurrentBook();
-    var currentBookId = currentBook != undefined ? currentBook.id : undefined;
-
-    if (bookId != currentBookId) {
-	if (displayConfirmDialog("This bookmark is refering to an other content, do you want to load it?")) {
-	    var book = library.getBookById(bookId);
-	    manageOpenFile(book.path, true);
-	} else {
-	    return;
+    if (aListItem) {
+	var uri = aListItem.value;
+	var bookId = aListItem.getAttribute("book");
+	var currentBook = library.getCurrentBook();
+	var currentBookId = currentBook != undefined ? currentBook.id : undefined;
+	
+	if (bookId != currentBookId) {
+	    if (displayConfirmDialog("This bookmark is refering to an other content, do you want to load it?")) {
+		var book = library.getBookById(bookId);
+		manageOpenFile(book.path, true);
+	    } else {
+		return;
+	    }
 	}
+	
+	loadContent(uri);
     }
-
-    loadContent(uri);
 }
 
 /*
