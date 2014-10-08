@@ -113,7 +113,7 @@
 <!ENTITY main.defaultset                "Grup predeterminat">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveMediaAs               "Save media as...">
+<!ENTITY main.saveMediaAs               "Desa medis com...">
 <!ENTITY main.openLinkInNewTab          "Obre l'enllaç en una pestanya nova">
 <!ENTITY main.searchFor                 "Buscar">
 <!ENTITY main.copyLinkAdress            "Copy link address">

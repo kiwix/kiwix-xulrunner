@@ -113,7 +113,7 @@
 <!ENTITY main.defaultset                "Hesıbyayê saz">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveMediaAs               "Save media as...">
+<!ENTITY main.saveMediaAs               "Medya wına qeyd ke...">
 <!ENTITY main.openLinkInNewTab          "Gri tab da newide ake">
 <!ENTITY main.searchFor                 "Cı geyre">
 <!ENTITY main.copyLinkAdress            "Copy link address">

@@ -113,7 +113,7 @@
 <!ENTITY main.defaultset                "Ensems per manca">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveMediaAs               "Save media as...">
+<!ENTITY main.saveMediaAs               "Enregistrar lo mèdia jos…">
 <!ENTITY main.openLinkInNewTab          "Dobrir lo ligam dins un onglet novèl">
 <!ENTITY main.searchFor                 "Recercar">
 <!ENTITY main.copyLinkAdress            "Copy link address">

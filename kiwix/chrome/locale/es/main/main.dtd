@@ -76,7 +76,7 @@
 <!ENTITY main.checkIntegrity            "Comprobar integridad">
 <!ENTITY main.checkIntegrity.accesskey  "k">
 <!ENTITY main.launchIndexing            "Iniciar la indización">
-<!ENTITY main.purgeHistory              "Purgar el histórico">
+<!ENTITY main.purgeHistory              "Purgar el historial">
 <!ENTITY main.purgeHistory.accesskey    "P">
 
 <!-- Help menu -->
@@ -132,7 +132,7 @@
 <!ENTITY preferences.browse             "Examinar">
 <!ENTITY preferences.tabs               "Recordar las pestañas">
 <!ENTITY preferences.downloadCatalogs   "Descargar catálogo(s) remoto(s)">
-<!ENTITY preferences.neverAskToIndex    "No preguntar más sobre la indización">
+<!ENTITY preferences.neverAskToIndex    "Nunca pedir la indización">
 
 <!-- Server -->
 <!ENTITY server.load                    "Cargar">
@@ -153,10 +153,10 @@
 <!ENTITY main.library.filterBy                  "Filtrar por">
 <!ENTITY main.library.filterBy.fileSize         "Tamaño del archivo">
 <!ENTITY main.library.filterBy.language         "Idioma">
-<!ENTITY main.library.filterBy.language.all     "Todos los idiomas">
+<!ENTITY main.library.filterBy.language.all     "Todos">
 <!ENTITY main.library.filterBy.author           "Autor">
-<!ENTITY main.library.filterBy.author.all       "Todos los autores">
+<!ENTITY main.library.filterBy.author.all       "Todos">
 <!ENTITY main.library.filterBy.publisher        "Editor">
-<!ENTITY main.library.filterBy.publisher.all    "Todos los editores">
+<!ENTITY main.library.filterBy.publisher.all    "Todos">
 <!ENTITY main.library.filterBy.lessThan         "Menos de">
 

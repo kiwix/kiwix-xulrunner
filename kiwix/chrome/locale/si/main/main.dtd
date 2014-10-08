@@ -75,7 +75,7 @@
 <!ENTITY main.randomArticle.accesskey   "R">
 <!ENTITY main.checkIntegrity            "සම්පූර්ණත්ව අවේක්ෂාව">
 <!ENTITY main.checkIntegrity.accesskey  "k">
-<!ENTITY main.launchIndexing            "Launch indexing">
+<!ENTITY main.launchIndexing            "දියත් කිරීම සූචිගත කෙරේ">
 <!ENTITY main.purgeHistory              "ශෝධන ඉතිහාසය">
 <!ENTITY main.purgeHistory.accesskey    "P">
 
@@ -113,7 +113,7 @@
 <!ENTITY main.defaultset                "පෙරනිමි කට්ටලය">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveMediaAs               "Save media as...">
+<!ENTITY main.saveMediaAs               "මාධ්‍යය සුරකින්න...">
 <!ENTITY main.openLinkInNewTab          "සබැඳිය නව ටැබයක විවෘත කරන්න">
 <!ENTITY main.searchFor                 "සඳහා ගවේෂණය">
 <!ENTITY main.copyLinkAdress            "Copy link address">

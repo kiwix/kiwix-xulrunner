@@ -75,7 +75,7 @@
 <!ENTITY main.randomArticle.accesskey   "R">
 <!ENTITY main.checkIntegrity            "Файлын эвдрэл шалгалт">
 <!ENTITY main.checkIntegrity.accesskey  "k">
-<!ENTITY main.launchIndexing            "Launch indexing">
+<!ENTITY main.launchIndexing            "Индексжүүлэх">
 <!ENTITY main.purgeHistory              "Хөтөчийн түүх устгах">
 <!ENTITY main.purgeHistory.accesskey    "P">
 
@@ -113,7 +113,7 @@
 <!ENTITY main.defaultset                "Үндсэн цуглуулга">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveMediaAs               "Save media as...">
+<!ENTITY main.saveMediaAs               "медиаг өөр төрлөөр хадгалах">
 <!ENTITY main.openLinkInNewTab          "Холбоосыг өөр табд нээ">
 <!ENTITY main.searchFor                 "Үүгээр хайх">
 <!ENTITY main.copyLinkAdress            "Copy link address">
@@ -132,7 +132,7 @@
 <!ENTITY preferences.browse             "Дэлгэх">
 <!ENTITY preferences.tabs               "Табуудыг сана">
 <!ENTITY preferences.downloadCatalogs   "Гадна сервер дээрх каталог татах">
-<!ENTITY preferences.neverAskToIndex    "Never ask to index">
+<!ENTITY preferences.neverAskToIndex    "Индексжүүлэхийг ахин бүү асуух">
 
 <!-- Server -->
 <!ENTITY server.load                    "Унших">

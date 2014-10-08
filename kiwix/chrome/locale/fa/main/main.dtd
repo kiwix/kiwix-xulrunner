@@ -84,7 +84,7 @@
 <!ENTITY main.help.accesskey            "H">
 <!ENTITY main.feedback                  "بازخورد">
 <!ENTITY main.reportabug                "گزارش خطا">
-<!ENTITY main.requestafeature           "درخواست امکانات جدید">
+<!ENTITY main.requestafeature           "درخواست امکانات تازه">
 <!ENTITY main.about                     "دربارهٔ &brand.brandShortName;">
 <!ENTITY main.about.accesskey           "A">
 
@@ -142,7 +142,7 @@
 
 <!-- Library -->
 <!ENTITY main.library.myLibrary                 "کتابخانهٔ من">
-<!ENTITY main.library.getNewFiles               "دریافت پرونده‌های جدید">
+<!ENTITY main.library.getNewFiles               "دریافت پرونده‌های تازه">
 <!ENTITY main.library.searchZimFiles            "جستجو برای پرونده‌های ZIM">
 <!ENTITY main.library.sortBy                    "مرتب‌سازی بر اساس">
 <!ENTITY main.library.sortBy.title              "عنوان">
