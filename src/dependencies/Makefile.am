@@ -557,7 +557,7 @@ zimlib-1.2/src/config.h: zimlib-1.2
 # && patch -p2 < ../patches/zimlib-win32-headers-instead-of-unix.patch
 
 zimlib-1.2/src/zim.lib: zimlib-1.2 zimlib-1.2/src/config.h xz-win/bin_i486/liblzma.lib zlib-1.2.8/zlib.lib
-	test ! -f zimlib-1.2/src/zim.lib && cd zimlib-1.2/src && cp ../../patches/Makefile.zimlib.msvc Makefile.msvc && make -f Makefile.msvc || true
+	test ! -f zimlib-1.2/src/zim.lib && cd zimlib-1.2/src && cp ../../patches/Makefile.zimlib.msvc Makefile.msvc && cat dirent.cpp | grep -v "const uint16_t Dirent::" > dirent.cpp && make -f Makefile.msvc || true
 
 
 ####################################################
