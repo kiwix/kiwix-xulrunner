@@ -432,3 +432,15 @@ function restoreTabs() {
 	}
     }
 }
+
+function reloadContentInAllTabs() {
+    var tabPanels = document.getElementById("tab-panels"); 
+    var browsers = tabPanels.getElementsByTagName('browser');
+
+    for (var i=0; i < browsers.length ; i++) {
+	var browser = browsers[i];
+	var uri = getCurrentUrl(browser.id);
+	var scrollY = getScrollY(browser.id);
+	loadContent(getCurrentUrl(browser.id), browser.id, scrollY);
+    }
+}

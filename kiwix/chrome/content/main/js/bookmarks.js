@@ -455,7 +455,7 @@ function onBookmarkItemClicked (aListItem) {
 	var currentBookId = currentBook != undefined ? currentBook.id : undefined;
 	
 	if (bookId != currentBookId) {
-	    if (displayConfirmDialog("This bookmark is refering to an other content, do you want to load it?")) {
+	    if (displayConfirmDialog(getProperty("bookmarkReferingOtherContent"))) {
 		var book = library.getBookById(bookId);
 		manageOpenFile(book.path, true);
 	    } else {

@@ -104,7 +104,7 @@
 	</menupopup>
       </menu>
       <menuitem id="display-inverted-colors" label="&main.invertedColors;" type="checkbox" checked="false"
-		accesskey="&main.invertedColors.accesskey;" oncommand="reloadContent()" key="invert-colors-key"/>
+		accesskey="&main.invertedColors.accesskey;" oncommand="reloadContentInAllTabs()" key="invert-colors-key"/>
     </menupopup>
   </menu>
   <menu id="menu-tools" label="&main.tools;" accesskey="&main.tools.accesskey;">
