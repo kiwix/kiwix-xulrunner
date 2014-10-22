@@ -1,0 +1,162 @@
+<!-- Window -->
+<!ENTITY main.title                     "&brand.brandShortName;">
+<!ENTITY main.cssdirection              "ltr">
+
+<!-- Mac menu -->
+<!ENTITY main.osxservices               "خدمات">
+<!ENTITY main.osxhideapp                "چیهر داتین &brand.brandShortName;">
+<!ENTITY main.osxhideothers             "دیگرانی چیهر داتین">
+<!ENTITY main.osxshowall                "نمایش همه">
+
+<!-- File menu -->
+<!ENTITY main.file                      "پایل">
+<!ENTITY main.file.accesskey            "F">
+<!ENTITY main.openFile                  "گشودن پرونده...">
+<!ENTITY main.browseLibrary.accesskey   "B">
+<!ENTITY main.browseLibrary             "مرور کتابخانه">
+<!ENTITY main.hideLibrary               "پنهان‌کردن کتابخانه">
+<!ENTITY main.openFile.accesskey        "O">
+<!ENTITY main.lastOpen                  "اخیراً گشوده‌شده...">
+<!ENTITY main.saveFile                  "ذخیرهٔ صفحه به‌عنوان...">
+<!ENTITY main.saveFile.accesskey        "S">
+<!ENTITY main.print                     "پرینٹ">
+<!ENTITY main.print.accesskey           "P">
+<!ENTITY main.printPdf                  "چاپ در قالب پی‌دی‌اف">
+<!ENTITY main.printPdf.accesskey        "D">
+<!ENTITY main.quit                      "خروج">
+<!ENTITY main.quit.accesskey            "Q">
+
+<!-- Edit menu -->
+<!ENTITY main.edit                      "ایڈیٹ">
+<!ENTITY main.edit.accesskey            "E">
+<!ENTITY main.find                      "جستجو در صفحه...">
+<!ENTITY main.find.accesskey            "S">
+<!ENTITY main.selectall                 "انتخاب همه">
+<!ENTITY main.selectall.accesskey       "a">
+<!ENTITY main.copy                      "رونوشت">
+<!ENTITY main.copy.accesskey            "p">
+<!ENTITY main.transliteration           "نويسه‌گردانى">
+<!ENTITY main.transliteration.accesskey "T">
+<!ENTITY main.preferences               "ترجیحات">
+<!ENTITY main.preferences.accesskey     "n">
+<!ENTITY main.server                    "سرور :">
+<!ENTITY main.server.accesskey          "s">
+
+<!-- Display menu -->
+<!ENTITY main.display                   "نمایش">
+<!ENTITY main.display.accesskey         "D">
+<!ENTITY main.zoom                      "ٹوهچار">
+<!ENTITY main.zoom.accesskey            "Z">
+<!ENTITY main.zoomin                    "افزایش اندازه">
+<!ENTITY main.zoomin.accesskey          "M">
+<!ENTITY main.zoomout                   "کاهش اندازه">
+<!ENTITY main.zoomout.accesskey         "R">
+<!ENTITY main.zoomorig                  "اولیگین سایز">
+<!ENTITY main.zoomorig.accesskey        "O">
+<!ENTITY main.language                  "زبان">
+<!ENTITY main.language.accesskey        "L">
+<!ENTITY main.skin                      "پوست">
+<!ENTITY main.skin.accesskey            "S">
+<!ENTITY main.statusbar                 "نوار وضعیت">
+<!ENTITY main.statusbar.accesskey       "S">
+<!ENTITY main.resultsbar                "نوار نتایج">
+<!ENTITY main.resultsbar.accesskey      "R">
+<!ENTITY main.tabs                      "برگه‌ها">
+<!ENTITY main.tabs.accesskey            "T">
+<!ENTITY main.fullscreen                "تمام صفحه">
+<!ENTITY main.fullscreen.accesskey      "F">
+<!ENTITY main.invertedColors            "رنگ‌های وارونه">
+<!ENTITY main.invertedColors.accesskey  "I">
+
+<!-- Tools menu -->
+<!ENTITY main.tools                     "ابزارها">
+<!ENTITY main.tools.accesskey           "T">
+<!ENTITY main.randomArticle             "مقاله تصادفی">
+<!ENTITY main.randomArticle.accesskey   "R">
+<!ENTITY main.checkIntegrity            "بررسی یکپارچگی">
+<!ENTITY main.checkIntegrity.accesskey  "k">
+<!ENTITY main.launchIndexing            "شروع ایندکس">
+<!ENTITY main.purgeHistory              "پاکسازی تاریخچه">
+<!ENTITY main.purgeHistory.accesskey    "P">
+
+<!-- Help menu -->
+<!ENTITY main.help                      "کومک">
+<!ENTITY main.help.accesskey            "H">
+<!ENTITY main.feedback                  "بازخورد">
+<!ENTITY main.reportabug                "گزارش خطا">
+<!ENTITY main.requestafeature           "درخواست امکانات تازه">
+<!ENTITY main.about                     "دربارهٔ &brand.brandShortName;">
+<!ENTITY main.about.accesskey           "A">
+
+<!-- Tool bar -->
+<!ENTITY main.back                      "عقب">
+<!ENTITY main.forward                   "جلو">
+<!ENTITY main.home                      "خانه">
+<!ENTITY main.searchBar                 "نوار جستجو">
+<!ENTITY main.search                    "جستجو">
+<!ENTITY main.searchPlaceholder         "متن مورد نظر را جهت جستجو وارد کنید ...">
+<!ENTITY main.findInText                "جستجو در متن">
+<!ENTITY main.noSearchBar               "برای جستجو نیاز به یک پروندهٔ ZIM فهرست شده‌است">
+<!ENTITY main.bookmarks                 "نشانک‌ها">
+
+<!-- Results bar -->
+<!ENTITY main.results.title             "یافته‌ها">
+
+<!-- Bookmarks Bar -->
+<!ENTITY main.bmkLabel                  "نشانک‌ها:">
+<!ENTITY main.notesLabel                "یادداشتهای نشانک">
+<!ENTITY main.loadbmk                   "ورود مجموعه نشانک">
+<!ENTITY main.newbmk                    "ایجاد مجموعه نشانک جدید">
+<!ENTITY main.mark                      "این صفحه را علامت بزن">
+<!ENTITY main.unmark                    "علامت انتخاب‌شده را بردار">
+<!ENTITY main.reload                    "بارگذاری مجدد مجموعه نشانک">
+<!ENTITY main.defaultset                "تنظیمات نشانک">
+
+<!-- Contextual Menu -->
+<!ENTITY main.saveMediaAs               "ذخیره رسانه با نام ....">
+<!ENTITY main.openLinkInNewTab          "بازکردن پیوند در زبانهٔ جدید">
+<!ENTITY main.searchFor                 "گردگ په">
+<!ENTITY main.copyLinkAdress            "Copy link address">
+<!ENTITY main.mute                      "صامت‌سازی">
+<!ENTITY main.audible                   "قابل شنیدن">
+
+<!-- About Window -->
+<!ENTITY main.close                     "بستین">
+
+<!-- Preferences Window -->
+<!ENTITY preferences.preferences        "ترجیحات">
+<!ENTITY preferences.save               "ذخیره">
+<!ENTITY preferences.cancel             "لغو">
+<!ENTITY preferences.profileDirectory   "شاخهٔ نمایه">
+<!ENTITY preferences.dataDirectory      "Data directory">
+<!ENTITY preferences.browse             "مرور">
+<!ENTITY preferences.tabs               "به‌خاطرسپردن زبانه‌ها">
+<!ENTITY preferences.downloadCatalogs   "دانلود کالانما(ها) از راه دور">
+<!ENTITY preferences.neverAskToIndex    "هرگز از شاخه نپرسید">
+
+<!-- Server -->
+<!ENTITY server.load                    "بارگیری">
+<!ENTITY server.start                   "شروع">
+<!ENTITY server.stop                    "بند">
+<!ENTITY server.close                   "بندگ">
+
+<!-- Library -->
+<!ENTITY main.library.myLibrary                 "کتابخانهٔ من">
+<!ENTITY main.library.getNewFiles               "دریافت پرونده‌های تازه">
+<!ENTITY main.library.searchZimFiles            "جستجو برای پرونده‌های ZIM">
+<!ENTITY main.library.sortBy                    "مرتب‌سازی بر اساس">
+<!ENTITY main.library.sortBy.title              "عنوان">
+<!ENTITY main.library.sortBy.size               "اندازه">
+<!ENTITY main.library.sortBy.date               "تاریخ">
+<!ENTITY main.library.sortBy.author             "نویسوک">
+<!ENTITY main.library.sortBy.publisher          "ناشر">
+<!ENTITY main.library.filterBy                  "پالایش با">
+<!ENTITY main.library.filterBy.fileSize         "اندازهٔ پرونده">
+<!ENTITY main.library.filterBy.language         "زبان">
+<!ENTITY main.library.filterBy.language.all     "همه">
+<!ENTITY main.library.filterBy.author           "نویسوک">
+<!ENTITY main.library.filterBy.author.all       "کل">
+<!ENTITY main.library.filterBy.publisher        "ناشر">
+<!ENTITY main.library.filterBy.publisher.all    "کل">
+<!ENTITY main.library.filterBy.lessThan         "کمتر از">
+

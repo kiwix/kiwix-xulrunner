@@ -12,6 +12,7 @@ locale main ast            jar:locale.jar!/locale/ast/main/
 locale main az             jar:locale.jar!/locale/az/main/
 locale main azb            jar:locale.jar!/locale/azb/main/
 locale main ba             jar:locale.jar!/locale/ba/main/
+locale main bcc            jar:locale.jar!/locale/bcc/main/
 locale main be             jar:locale.jar!/locale/be/main/
 locale main be-tarask      jar:locale.jar!/locale/be-tarask/main/
 locale main bg             jar:locale.jar!/locale/bg/main/
@@ -131,6 +132,7 @@ locale branding ast        jar:locale.jar!/locale/branding/
 locale branding az         jar:locale.jar!/locale/branding/
 locale branding azb        jar:locale.jar!/locale/branding/
 locale branding ba         jar:locale.jar!/locale/branding/
+locale branding bcc        jar:locale.jar!/locale/branding/
 locale branding be         jar:locale.jar!/locale/branding/
 locale branding be-tarask  jar:locale.jar!/locale/branding/
 locale branding bg         jar:locale.jar!/locale/branding/

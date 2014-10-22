@@ -12,6 +12,7 @@ locale main ast            locale/ast/main/
 locale main az             locale/az/main/
 locale main azb            locale/azb/main/
 locale main ba             locale/ba/main/
+locale main bcc            locale/bcc/main/
 locale main be             locale/be/main/
 locale main be-tarask      locale/be-tarask/main/
 locale main bg             locale/bg/main/
@@ -131,6 +132,7 @@ locale branding ast        locale/branding/
 locale branding az         locale/branding/
 locale branding azb        locale/branding/
 locale branding ba         locale/branding/
+locale branding bcc        locale/branding/
 locale branding be         locale/branding/
 locale branding be-tarask  locale/branding/
 locale branding bg         locale/branding/

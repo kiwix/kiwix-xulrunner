@@ -44,7 +44,7 @@ Kiwix 0.9
   Sanskrit (sa), Uzbek (uz), Turkish (tr), Tagalog (tl), Talysh
   language (tly), Kyrgyz (kir), Bambara (bam), Hakka (hak),
   Hunsrik (hrx), Uyghur in Arabic script (ug-arab), 
-  Malagazy (mg) and Azerbaijani (az)
+  Malagazy (mg), Southern Balochi (bcc) and Azerbaijani (az)
 * NEW: On GNU/Linux, replace basch script launcher by a binary (kiwix-launcher)
 * NEW: Does not ask to download remote catalogs if user is offline
 * NEW: Option to avoid dialog box asking for indexing (#330)
