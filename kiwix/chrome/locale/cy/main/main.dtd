@@ -113,7 +113,7 @@
 <!ENTITY main.defaultset                "Set rhagosodedig">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveMediaAs               "Save media as...">
+<!ENTITY main.saveMediaAs               "Cadw'r cyfrwng fel...">
 <!ENTITY main.openLinkInNewTab          "Agor y cyswllt mewn tab newydd">
 <!ENTITY main.searchFor                 "Chwilier am">
 <!ENTITY main.copyLinkAdress            "Copy link address">

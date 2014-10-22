@@ -113,7 +113,7 @@
 <!ENTITY main.defaultset                "既定のセット">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveMediaAs               "Save media as...">
+<!ENTITY main.saveMediaAs               "メディアに名前を付けて保存...">
 <!ENTITY main.openLinkInNewTab          "リンクを新規タブで開く">
 <!ENTITY main.searchFor                 "検索対象:">
 <!ENTITY main.copyLinkAdress            "Copy link address">

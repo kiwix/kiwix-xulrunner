@@ -13,11 +13,11 @@
 <!ENTITY main.file.accesskey            "F">
 <!ENTITY main.openFile                  "فایلی آچ">
 <!ENTITY main.browseLibrary.accesskey   "B">
-<!ENTITY main.browseLibrary             "کیتابخانایا گوز ائت">
+<!ENTITY main.browseLibrary             "کیتاب‌ائوینه گوز ائت">
 <!ENTITY main.hideLibrary               "کیتاب‌ائوین گیزلت">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "سونلاردا آچیلیب دیر">
-<!ENTITY main.saveFile                  "صحیفه‌نی ... کیمی ساخلا">
+<!ENTITY main.saveFile                  "صفحه‌نی ... کیمی ساخلا">
 <!ENTITY main.saveFile.accesskey        "S">
 <!ENTITY main.print                     "یازدیر">
 <!ENTITY main.print.accesskey           "P">
@@ -29,17 +29,17 @@
 <!-- Edit menu -->
 <!ENTITY main.edit                      "دَییشدیر">
 <!ENTITY main.edit.accesskey            "E">
-<!ENTITY main.find                      "صحیفه‌ده ایچینده آختار...">
+<!ENTITY main.find                      "...صفحه‌ده آختار">
 <!ENTITY main.find.accesskey            "S">
 <!ENTITY main.selectall                 "هامیسین سئچ">
 <!ENTITY main.selectall.accesskey       "a">
-<!ENTITY main.copy                      "گوتور">
+<!ENTITY main.copy                      "اوزوندن گؤتور">
 <!ENTITY main.copy.accesskey            "p">
 <!ENTITY main.transliteration           "یازی چئویریسی">
 <!ENTITY main.transliteration.accesskey "T">
 <!ENTITY main.preferences               "ترجیحلر">
 <!ENTITY main.preferences.accesskey     "n">
-<!ENTITY main.server                    "سئروئر">
+<!ENTITY main.server                    "سرور">
 <!ENTITY main.server.accesskey          "s">
 
 <!-- Display menu -->
@@ -107,7 +107,7 @@
 <!ENTITY main.notesLabel                "دامغا قئیدلری:">
 <!ENTITY main.loadbmk                   "پارامئترلری بووکمارکس گیریش">
 <!ENTITY main.newbmk                    "يئنی نیشانک اوچون تنظیم يارادین">
-<!ENTITY main.mark                      "بو صحیفه‌نی دامغالا">
+<!ENTITY main.mark                      "بو صفحه‌نی دامغالا">
 <!ENTITY main.unmark                    "سئچیلن‌لری علامتی گوتور">
 <!ENTITY main.reload                    "نشانه مجموعه لری یئنی دن یوکلمه">
 <!ENTITY main.defaultset                "نیشانک‌لر اوچون تنظیم">
@@ -117,7 +117,7 @@
 <!ENTITY main.openLinkInNewTab          "يئنی نیشانی لینک آچماق">
 <!ENTITY main.searchFor                 "آختاریش اوچون">
 <!ENTITY main.copyLinkAdress            "Copy link address">
-<!ENTITY main.mute                      "سوسغون">
+<!ENTITY main.mute                      "سس سیزلشدیرمه">
 <!ENTITY main.audible                   "سَسلی">
 
 <!-- About Window -->
@@ -142,7 +142,7 @@
 
 <!-- Library -->
 <!ENTITY main.library.myLibrary                 "کیتابخانام">
-<!ENTITY main.library.getNewFiles               "یئنی فایلاری آلماخ">
+<!ENTITY main.library.getNewFiles               "یئنی فایل‌لاری آلماق">
 <!ENTITY main.library.searchZimFiles            "ZIM فایل‌لار اوچون آختار">
 <!ENTITY main.library.sortBy                    "جوتده مک بو اساسلا">
 <!ENTITY main.library.sortBy.title              "باشلیق">
