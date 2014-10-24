@@ -11,7 +11,7 @@
 <!-- File menu -->
 <!ENTITY main.file                      "پایل">
 <!ENTITY main.file.accesskey            "F">
-<!ENTITY main.openFile                  "گشودن پرونده...">
+<!ENTITY main.openFile                  "پاچ کورتین پایلی...">
 <!ENTITY main.browseLibrary.accesskey   "B">
 <!ENTITY main.browseLibrary             "مرور کتابخانه">
 <!ENTITY main.hideLibrary               "پنهان‌کردن کتابخانه">
