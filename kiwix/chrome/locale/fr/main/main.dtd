@@ -27,7 +27,7 @@
 <!ENTITY main.quit.accesskey            "Q">
 
 <!-- Edit menu -->
-<!ENTITY main.edit                      "Édition">
+<!ENTITY main.edit                      "Modifier">
 <!ENTITY main.edit.accesskey            "n">
 <!ENTITY main.find                      "Chercher dans la page...">
 <!ENTITY main.find.accesskey            "c">
@@ -51,7 +51,7 @@
 <!ENTITY main.zoomin.accesskey          "A">
 <!ENTITY main.zoomout                   "Réduire">
 <!ENTITY main.zoomout.accesskey         "R">
-<!ENTITY main.zoomorig                  "Normal">
+<!ENTITY main.zoomorig                  "Réinitialiser le zoom">
 <!ENTITY main.zoomorig.accesskey        "N">
 <!ENTITY main.language                  "Langue">
 <!ENTITY main.language.accesskey        "L">
@@ -108,7 +108,7 @@
 <!ENTITY main.loadbmk                   "Importer un jeu de marque-pages">
 <!ENTITY main.newbmk                    "Créer un nouveau jeu de marque-pages">
 <!ENTITY main.mark                      "Marquer cette page">
-<!ENTITY main.unmark                    "Supprimer le marque-page sélectionné">
+<!ENTITY main.unmark                    "Ne plus sélectionner ce marque-page">
 <!ENTITY main.reload                    "Recharger le jeu de marque-pages">
 <!ENTITY main.defaultset                "Réglages par défaut">
 
@@ -131,7 +131,7 @@
 <!ENTITY preferences.dataDirectory      "Data directory">
 <!ENTITY preferences.browse             "Parcourir">
 <!ENTITY preferences.tabs               "Se souvenir des onglets ouverts en quittant Kiwix">
-<!ENTITY preferences.downloadCatalogs   "Télécharger le(s) catalogue(s) distant">
+<!ENTITY preferences.downloadCatalogs   "Télécharger le(s) catalogue(s) distant(s)">
 <!ENTITY preferences.neverAskToIndex    "Ne jamais demander d'indexer">
 
 <!-- Server -->

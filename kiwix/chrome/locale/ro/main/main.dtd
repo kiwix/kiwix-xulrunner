@@ -95,8 +95,8 @@
 <!ENTITY main.searchBar                 "Bara de căutare">
 <!ENTITY main.search                    "Căutare">
 <!ENTITY main.searchPlaceholder         "Introduceți aici textul de căutat...">
-<!ENTITY main.findInText                "Căutare în text">
-<!ENTITY main.noSearchBar               "Căutarea necesită un fișier Zim indexat">
+<!ENTITY main.findInText                "Caută în text">
+<!ENTITY main.noSearchBar               "Căutarea necesită un fișier ZIM indexat">
 <!ENTITY main.bookmarks                 "Semne de carte">
 
 <!-- Results bar -->
