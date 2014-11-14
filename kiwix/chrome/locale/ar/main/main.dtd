@@ -96,7 +96,7 @@
 <!ENTITY main.search                    "إبحث">
 <!ENTITY main.searchPlaceholder         "أدخل النص للبحث هنا...">
 <!ENTITY main.findInText                "إبحث في النص">
-<!ENTITY main.noSearchBar               "ابحث عن ملفات زيم المفهرسة">
+<!ENTITY main.noSearchBar               "ابحث عن ملفات ZIM المفهرسة">
 <!ENTITY main.bookmarks                 "علامات القراءة">
 
 <!-- Results bar -->
