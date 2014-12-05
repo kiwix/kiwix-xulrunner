@@ -170,6 +170,9 @@ from a Linux or Mac (it cross-compiles).
 
 * cd android && ./build-android-with-native.py
 
+To install the newly created APK on your device, use the following script:
+./android/install-kiwix-on-device.sh
+
 == Windows ==
 
 * Install Windows XP SP2+
