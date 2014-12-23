@@ -56,7 +56,6 @@ Kiwix 0.9
 * NEW: Open XML library files from the menu
 * NEW: Preference to set custom data directory (#279, #323, #366,  #573, #692, #633)
 * NEW: --nosearchbar option for kiwix-serve
-* NEW: Signature for OSX releases (install without warning)
 * NEW: OSX 10.9 support
 * NEW: Sort bookmarks alphabetically
 * NEW: Able to deal with ZIM files containing relative paths
