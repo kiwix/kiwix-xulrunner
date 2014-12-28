@@ -168,7 +168,7 @@ from a Linux or Mac (it cross-compiles).
 
 * cd src/dependencies && make android-deps && cd -
 
-* cd android && ./build-android-with-native.py
+* cd android && ./build-android-with-native.py (If you have problem with aapt on a 64bits Linux, you might have to install 32 libsm on Ubuntu: lib32gcc1, lib32stdc++6, lib32z1)
 
 To install the newly created APK on your device, use the following script:
 ./android/install-kiwix-on-device.sh
