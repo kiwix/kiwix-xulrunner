@@ -4,8 +4,8 @@
 
 <!-- Mac menu -->
 <!ENTITY main.osxservices               "خدمات">
-<!ENTITY main.osxhideapp                "پنهان‌کردن &brand.brandShortName;">
-<!ENTITY main.osxhideothers             "پنهان‌کردن دیگران">
+<!ENTITY main.osxhideapp                "پنهان کردن &brand.brandShortName;">
+<!ENTITY main.osxhideothers             "پنهان کردن دیگران">
 <!ENTITY main.osxshowall                "نمایش همه">
 
 <!-- File menu -->
@@ -14,7 +14,7 @@
 <!ENTITY main.openFile                  "گشودن پرونده...">
 <!ENTITY main.browseLibrary.accesskey   "B">
 <!ENTITY main.browseLibrary             "مرور کتابخانه">
-<!ENTITY main.hideLibrary               "پنهان‌کردن کتابخانه">
+<!ENTITY main.hideLibrary               "پنهان کردن کتابخانه">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "اخیراً گشوده‌شده...">
 <!ENTITY main.saveFile                  "ذخیرهٔ صفحه به‌عنوان...">

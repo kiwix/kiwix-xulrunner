@@ -113,7 +113,7 @@
 <!ENTITY main.defaultset                "Defaŭlta aro">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveMediaAs               "Save media as...">
+<!ENTITY main.saveMediaAs               "Konservi plurmediaĵon kiel...">
 <!ENTITY main.openLinkInNewTab          "Malfermi ligilon en nova langeto">
 <!ENTITY main.searchFor                 "Serĉi">
 <!ENTITY main.copyLinkAdress            "Copy link address">

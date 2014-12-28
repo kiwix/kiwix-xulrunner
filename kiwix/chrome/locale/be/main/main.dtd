@@ -37,7 +37,7 @@
 <!ENTITY main.copy.accesskey            "p">
 <!ENTITY main.transliteration           "Транслітарацыя">
 <!ENTITY main.transliteration.accesskey "T">
-<!ENTITY main.preferences               "Настаўленні">
+<!ENTITY main.preferences               "Настройкі">
 <!ENTITY main.preferences.accesskey     "n">
 <!ENTITY main.server                    "Server">
 <!ENTITY main.server.accesskey          "s">
@@ -124,7 +124,7 @@
 <!ENTITY main.close                     "Закрыць">
 
 <!-- Preferences Window -->
-<!ENTITY preferences.preferences        "Настаўленні">
+<!ENTITY preferences.preferences        "Настройкі">
 <!ENTITY preferences.save               "Запісаць">
 <!ENTITY preferences.cancel             "Адмена">
 <!ENTITY preferences.profileDirectory   "Каталог профіля">
