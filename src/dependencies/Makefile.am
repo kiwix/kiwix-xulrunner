@@ -62,9 +62,14 @@ XULRUNNERRUNTIMEURL=$(DEP_MIRROR)/xulrunner-29.0.en-US.linux-$(ARCH).tar.bz2
 endif
 endif
 
+## Android dev tools for OSX needs to be updated for OSX
+## 1 - Download Android studio
+## 2 - With the UI remove/add the necessary (only API 21+ tools)
+## 3 - Put the stuf in android-sdk directory
+## 4 - Pack the directory in a tar.xz file an upload on download.kiwix.org
 if IS_LINUX
 ANDROIDNDKURL=$(DEP_MIRROR)/android-ndk-r8e-linux-$(ARCH).tar.bz2
-ANDROIDSDKURL=$(DEP_MIRROR)/adt-bundle-linux-$(ARCH)-20131030.zip
+ANDROIDSDKURL=$(DEP_MIRROR)/android-sdk-21-linux.tar.xz
 else
 ANDROIDNDKURL=$(DEP_MIRROR)/android-ndk-r8e-darwin-x86_64.tar.bz2
 ANDROIDSDKURL=$(DEP_MIRROR)/adt-bundle-mac-x86_64-20131030.zip
@@ -499,25 +504,13 @@ android-ndk-r8e: android-ndk-r8e.tar.bz2
 ####################################################
 ############ ANDROID-SDK
 ####################################################
-android-m2repository.zip:
-	$(DOWNLOADER) android-m2repository.zip $(DEP_MIRROR)/android_m2repository_r03.zip
+android-sdk.tar.xz:
+	$(DOWNLOADER) android-sdk.tar.xz $(ANDROIDSDKURL)
 
-android-sdk.zip:
-	$(DOWNLOADER) android-sdk.zip $(ANDROIDSDKURL)
+android-sdk: android-sdk.tar.xz
+	test -d android-sdk || tar xf android-sdk.tar.xz
 
-android-sdk/sdk: android-sdk.zip android-m2repository.zip
-	test -d android-sdk || unzip -o -d android-sdk android-sdk.zip
-	test -d android-sdk/sdk || mv android-sdk/*/* android-sdk/
-	test -d android-sdk/sdk/extras/android/m2repository || unzip -o -d android-sdk/sdk/extras/android/ android-m2repository.zip
-
-android-14.tar.bz2:
-	$(DOWNLOADER) android-14.tar.bz2 $(DEP_MIRROR)/android-14.tar.bz2
-
-android-sdk/sdk/platforms/android-14: android-sdk/sdk android-14.tar.bz2
-	test -d android-sdk/sdk/platforms/android-14 || tar xf android-14.tar.bz2
-	test -d android-14 && mv android-14 android-sdk/sdk/platforms/ || true
-
-android-deps: android-ndk-r8e android-sdk/sdk/platforms/android-14 xz icu zimlib-1.2 zimlib-1.2/build/lib/libzim.so
+android-deps: android-ndk-r8e android-sdk xz icu zimlib-1.2 zimlib-1.2/build/lib/libzim.so
 	true
 
 ####################################################
