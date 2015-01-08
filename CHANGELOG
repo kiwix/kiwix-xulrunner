@@ -1,3 +1,6 @@
+Kiwix 0.9.1
+* FIXED: kiwix-serve XSS attack vulnerability (#763)
+
 Kiwix 0.9
 * FIXED: Public IP address detection on OSX (#658)
 * FIXED: Fulltext search results page for pattern including
