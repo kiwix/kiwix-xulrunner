@@ -3,23 +3,23 @@
 <!ENTITY main.cssdirection              "ltr">
 
 <!-- Mac menu -->
-<!ENTITY main.osxservices               "5adamet">
-<!ENTITY main.osxhideapp                "a5fi &brand.brandShortName;">
-<!ENTITY main.osxhideothers             "ghathi el o5rin">
-<!ENTITY main.osxshowall                "warri el kol">
+<!ENTITY main.osxservices               "Khedmèt">
+<!ENTITY main.osxhideapp                "Khabbi &brand.brandShortName;">
+<!ENTITY main.osxhideothers             "Khabbi l'okhrina">
+<!ENTITY main.osxshowall                "Warri el Koll">
 
 <!-- File menu -->
-<!ENTITY main.file                      "milaf (Fichier)">
+<!ENTITY main.file                      "Fichié">
 <!ENTITY main.file.accesskey            "F">
-<!ENTITY main.openFile                  "ifta7 el fichier">
+<!ENTITY main.openFile                  "Ħell el fichié">
 <!ENTITY main.browseLibrary.accesskey   "B">
-<!ENTITY main.browseLibrary             "ara el maktba mte3 el wiki">
-<!ENTITY main.hideLibrary               "إخفاء المكتبة">
+<!ENTITY main.browseLibrary             "Ħawwes fel maktba">
+<!ENTITY main.hideLibrary               "Khabbi el maktba">
 <!ENTITY main.openFile.accesskey        "O">
-<!ENTITY main.lastOpen                  "elli 7allaytou ss'arlek chouiya">
-<!ENTITY main.saveFile                  "enregistri el page ki...">
+<!ENTITY main.lastOpen                  "Elli mezzelt ki ħallitou...">
+<!ENTITY main.saveFile                  "Onrejistri el pàj taħt...">
 <!ENTITY main.saveFile.accesskey        "S">
-<!ENTITY main.print                     "itthba3">
+<!ENTITY main.print                     "Emprimi">
 <!ENTITY main.print.accesskey           "P">
 <!ENTITY main.printPdf                  "itthb3ou PDF">
 <!ENTITY main.printPdf.accesskey        "D">
@@ -65,7 +65,7 @@
 <!ENTITY main.tabs.accesskey            "T">
 <!ENTITY main.fullscreen                "ملئ الشاشة">
 <!ENTITY main.fullscreen.accesskey      "F">
-<!ENTITY main.invertedColors            "Inverted colors">
+<!ENTITY main.invertedColors            "couleret me3kousa">
 <!ENTITY main.invertedColors.accesskey  "I">
 
 <!-- Tools menu -->

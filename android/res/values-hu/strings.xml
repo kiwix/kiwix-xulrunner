@@ -9,10 +9,12 @@
     <string name="menu_settings">Beállítások</string>
     <string name="menu_search">Keresés</string>
     <string name="menu_searchintext">Keresés a szövegben</string>
-    <string name="menu_bookmarks">Bookmarks</string>
+    <string name="menu_bookmarks">Könyvjelzők</string>
     <string name="menu_randomarticle">Lap találomra</string>
     <string name="menu_fullscreen">Teljes képernyő</string>
     <string name="menu_exitfullscreen">Kilépés a teljes képernyőből</string>
+    <string name="menu_read_aloud">Read aloud</string>
+    <string name="menu_read_aloud_stop">Stop reading aloud</string>
     <string name="menu_exit">Kilépés</string>
     <string name="menu_rescan_fs">Rescan SD card</string>
     <string name="menu_share">Megosztás ismerősökkel</string>
@@ -27,9 +29,8 @@
     <string name="open_in_new_tab">Hivatkozás megnyitása új lapon?</string>
     <string name="remove_tab_confirm">Eltávolítja ezt a lapot?</string>
     <string name="remove_tab">Lap eltávolítása</string>
-    <string name="add_bookmark">Add bookmark</string>
-    <string name="remove_bookmark">Remove bookmark</string>
-    <string name="view_bookmarks">View all bookmarks</string>
+    <string name="add_bookmark">Oldal megjelölése</string>
+    <string name="remove_bookmark">Kijelölés megszüntetése</string>
     <string name="info_share_title">Kedvelem a Kiwix offline Wikipédia-olvasót!</string>
     <string name="info_share_content">Kedvelem a Kiwix offline Wikipédia-olvasót! Az emberiség teljes tudása kéznél van, bárhova is megy! Internetkapcsolat nélkül! http://goo.gl/h9Smkk</string>
     <string name="error_nozimfilesfound">Nem található ZIM-fájl a készülékén. Tekintse meg a súgóoldalt, ahol útmutatót talál a Kiwix-tartalom letöltéséhez. Ha a ZIM-fájlt már átmásolta készülékére/az SD-kártyára, próbálja meg egy perc múlva ismét, vagy indítsa újra a készülékét!</string>
@@ -58,4 +59,5 @@
     <string name="pref_language_title">Nyelv</string>
     <string name="pref_language_chooser">Choose a language</string>
     <string name="error_internet_connection_failed">Couldn\'t connect to the internet.</string>
+    <string name="tts_lang_not_supported">The language of this page is not supported, or appropriate language data was not installed. The article may not be properly read.</string>
 </resources>

@@ -9,16 +9,18 @@
     <string name="menu_settings">Preferensi</string>
     <string name="menu_search">Cari</string>
     <string name="menu_searchintext">Cari di teks</string>
-    <string name="menu_bookmarks">Bookmarks</string>
+    <string name="menu_bookmarks">Markah</string>
     <string name="menu_randomarticle">Artikel sembarang</string>
     <string name="menu_fullscreen">Layar penuh</string>
     <string name="menu_exitfullscreen">Keluar dari modus layar penuh</string>
+    <string name="menu_read_aloud">Read aloud</string>
+    <string name="menu_read_aloud_stop">Stop reading aloud</string>
     <string name="menu_exit">Keluar</string>
     <string name="menu_rescan_fs">Rescan SD card</string>
     <string name="menu_share">Bagikan dengan teman</string>
     <string name="save_media">Simpan media sebagai...</string>
-    <string name="save_media_error">An error occured when trying to save the media!</string>
-    <string name="save_media_saved">Saved media as %s in your Pictures folder.</string>
+    <string name="save_media_error">Kesalahan terjadi ketika menyimpan media!</string>
+    <string name="save_media_saved">Simpan media sebagai %1$s pada folder Gambar</string>
     <string name="rescan_fs_warning">Pemindaian berkas ZIM, mohon ditunggu...</string>
     <string name="button_backtotop">Kembali ke Atas</string>
     <string name="search_label">Cari</string>
@@ -27,9 +29,8 @@
     <string name="open_in_new_tab">Buka pranala di tab baru?</string>
     <string name="remove_tab_confirm">Apakah Anda ingin menghapus tab ini?</string>
     <string name="remove_tab">Hapuskan tab</string>
-    <string name="add_bookmark">Add bookmark</string>
-    <string name="remove_bookmark">Remove bookmark</string>
-    <string name="view_bookmarks">View all bookmarks</string>
+    <string name="add_bookmark">Tandai halaman ini</string>
+    <string name="remove_bookmark">Hapus tanda yang dipilih</string>
     <string name="info_share_title">Saya senang menggunakan Kiwix untuk Wikipedia Luring!</string>
     <string name="info_share_content">Saya senang menggunakan Kiwix untuk Wikipedia Luring! Seluruh ilmu pengetahuan dapat diakses di mana saja Anda berada tanpa Internet!</string>
     <string name="error_nozimfilesfound">Berkas ZIM tidak ditemukan di perangkat Anda.\nLihat di Halaman Bantuan untuk memuat konten ke dalam Kiwix.\nJika Anda meletakkan berkas ZIM di perangkat/media penyimpanan ektsternal Anda, silakan diulang lagi atau nyalakan ulang perangkat Anda.</string>
@@ -41,10 +42,10 @@
     <string name="pref_zoom_title">Tingkat perbesaran</string>
     <string name="pref_zoom_dialogtitle">Tingkat perbesaran</string>
     <string-array name="pref_zoom_entries">
-        <item name="pref_zoom_entry_automatic">Automatic</item>
-        <item name="pref_zoom_entry_small">Small</item>
-        <item name="pref_zoom_entry_medium">Medium</item>
-        <item name="pref_zoom_entry_large">Large</item>
+        <item name="pref_zoom_entry_automatic">Otomatis</item>
+        <item name="pref_zoom_entry_small">Kecil</item>
+        <item name="pref_zoom_entry_medium">Menengah</item>
+        <item name="pref_zoom_entry_large">Besar</item>
     </string-array>
     <string name="pref_info_title">Informasi</string>
     <string name="pref_info_version">Versi</string>
@@ -56,6 +57,7 @@
     <string name="pref_backtotop_summary">Tampilkan tombol di akhir halaman untuk menggulir ke atas</string>
     <string name="share_via">Berbagi melalui...</string>
     <string name="pref_language_title">Bahasa</string>
-    <string name="pref_language_chooser">Choose a language</string>
+    <string name="pref_language_chooser">Pilih bahasa</string>
     <string name="error_internet_connection_failed">Couldn\'t connect to the internet.</string>
+    <string name="tts_lang_not_supported">The language of this page is not supported, or appropriate language data was not installed. The article may not be properly read.</string>
 </resources>

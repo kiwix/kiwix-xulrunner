@@ -9,10 +9,12 @@
     <string name="menu_settings">Opcions</string>
     <string name="menu_search">Cèrca</string>
     <string name="menu_searchintext">Trobar dins lo tèxte</string>
-    <string name="menu_bookmarks">Bookmarks</string>
+    <string name="menu_bookmarks">Onglets</string>
     <string name="menu_randomarticle">Article per escasença</string>
     <string name="menu_fullscreen">Plen ecran</string>
     <string name="menu_exitfullscreen">Quitar l\'ecran complet</string>
+    <string name="menu_read_aloud">Read aloud</string>
+    <string name="menu_read_aloud_stop">Stop reading aloud</string>
     <string name="menu_exit">Sortir</string>
     <string name="menu_rescan_fs">Rescan SD card</string>
     <string name="menu_share">Partejar amb vòstres amics</string>
@@ -27,9 +29,8 @@
     <string name="open_in_new_tab">Dobrir lo ligam dins un onglet novèl ?</string>
     <string name="remove_tab_confirm">Volètz suprimir aqueste onglet ?</string>
     <string name="remove_tab">Suprimir l\'onglet</string>
-    <string name="add_bookmark">Add bookmark</string>
-    <string name="remove_bookmark">Remove bookmark</string>
-    <string name="view_bookmarks">View all bookmarks</string>
+    <string name="add_bookmark">Marcar aquela pagina</string>
+    <string name="remove_bookmark">Desmarcar la seleccion</string>
     <string name="info_share_title">M\'agrada Wikipèdia Offline amb Kiwix !</string>
     <string name="info_share_content">M\'agrada Wikipedia Offline amb Kiwix ! Tota la coneissença umana a portada de man pertot ont anatz ! Sens Internet ! http://goo.GL/h9Smkk</string>
     <string name="error_nozimfilesfound">Cap de fichièr ZIM es pas estat trobat sus vòstra maquina.\nGetatz un còp d’uèlh a la pagina d’ajuda per aver d\'instruccions sul biais de cargar de contengut dins Kiwix.\nS\'avètz mes un fichièr ZIM sus vòstre emmagazinatge intèrne o extèrne, podètz tornar ensajar dins una minuta o reamodar vòstre aparelh.</string>
@@ -58,4 +59,5 @@
     <string name="pref_language_title">Lenga</string>
     <string name="pref_language_chooser">Choose a language</string>
     <string name="error_internet_connection_failed">Couldn\'t connect to the internet.</string>
+    <string name="tts_lang_not_supported">The language of this page is not supported, or appropriate language data was not installed. The article may not be properly read.</string>
 </resources>

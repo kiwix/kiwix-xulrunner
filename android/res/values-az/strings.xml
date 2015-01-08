@@ -9,10 +9,12 @@
     <string name="menu_settings">Nizamlamalar</string>
     <string name="menu_search">Axtar</string>
     <string name="menu_searchintext">Mətndə axtar</string>
-    <string name="menu_bookmarks">Bookmarks</string>
+    <string name="menu_bookmarks">Əlfəcinlər</string>
     <string name="menu_randomarticle">Təsadüfi məqalə</string>
     <string name="menu_fullscreen">Tam ekran</string>
     <string name="menu_exitfullscreen">Tam ekran rejimini bağla</string>
+    <string name="menu_read_aloud">Read aloud</string>
+    <string name="menu_read_aloud_stop">Stop reading aloud</string>
     <string name="menu_exit">Çıxış</string>
     <string name="menu_rescan_fs">Rescan SD card</string>
     <string name="menu_share">Dostlarınla paylaş</string>
@@ -27,9 +29,8 @@
     <string name="open_in_new_tab">Linki yeni pəncərədə aç?</string>
     <string name="remove_tab_confirm">Siz bu pəncərəni silmək istədiyinizə əminsiz?</string>
     <string name="remove_tab">Pəncərəni sil</string>
-    <string name="add_bookmark">Add bookmark</string>
-    <string name="remove_bookmark">Remove bookmark</string>
-    <string name="view_bookmarks">View all bookmarks</string>
+    <string name="add_bookmark">Bu səhifəni qeyd et</string>
+    <string name="remove_bookmark">Seçilmiş işarələri götür</string>
     <string name="info_share_title">Kiwix-dən istifadə edərək internetə qoşulmadan Vikipediyaya daxil olmaq  əladır!</string>
     <string name="info_share_content">Kiwix-dən istifadə edərək internetə qoşulmadan Vikipediyaya daxil olmaq əladır və Kiwix mənim xoşuma gəlir! Bütün bəşəriyyətin biliyi sizin əlinizin altında! Ən əsası İnternetsiz! http://goo.GL/h9Smkk</string>
     <string name="error_nozimfilesfound">Sizin qurğunuzda ZIM-faylları tapılmadı. Kiwix tərkibinin necə yüklənilməsi barədə göstərişlər\nməlumat səhifəsində yerləşdirilmişdir.\nƏgər siz, cihaz və ya daşıyıcı yaddaş qurğusunda ZIM-fayl yerləşdirmisinzə, proqramı və ya cihazı yenidən başladın.</string>
@@ -58,4 +59,5 @@
     <string name="pref_language_title">Dil</string>
     <string name="pref_language_chooser">Choose a language</string>
     <string name="error_internet_connection_failed">Couldn\'t connect to the internet.</string>
+    <string name="tts_lang_not_supported">The language of this page is not supported, or appropriate language data was not installed. The article may not be properly read.</string>
 </resources>

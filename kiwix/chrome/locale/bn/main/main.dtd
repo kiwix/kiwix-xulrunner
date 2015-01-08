@@ -109,11 +109,11 @@
 <!ENTITY main.newbmk                    "নতুন বুকমার্ক সেট তৈরি করুন">
 <!ENTITY main.mark                      "এটি পাতাটি নজরে রাখুন">
 <!ENTITY main.unmark                    "নজর সরিয়ে নেওয়া হয়েছে">
-<!ENTITY main.reload                    "বুকমার্ক সেট রিলোড করুন">
+<!ENTITY main.reload                    "বুকমার্ক সেট পুনঃলোড করুন">
 <!ENTITY main.defaultset                "পূর্বনির্ধারিত সেট">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveMediaAs               "Save media as...">
+<!ENTITY main.saveMediaAs               "...হিসাবে মিডিয়া সংরক্ষণ করুন">
 <!ENTITY main.openLinkInNewTab          "নতুন টাঁবে খুলুন">
 <!ENTITY main.searchFor                 "অনুসন্ধান করো">
 <!ENTITY main.copyLinkAdress            "Copy link address">
@@ -130,14 +130,14 @@
 <!ENTITY preferences.profileDirectory   "প্রোফাইল ডিরেক্টরি">
 <!ENTITY preferences.dataDirectory      "Data directory">
 <!ENTITY preferences.browse             "ব্রাউজ">
-<!ENTITY preferences.tabs               "টাঁব মনে রাখুন">
+<!ENTITY preferences.tabs               "ট্যাব মনে রাখুন">
 <!ENTITY preferences.downloadCatalogs   "ক্যাটালগ ডাউনলোড করুন">
 <!ENTITY preferences.neverAskToIndex    "কখনই নির্ঘন্ট করা না হোক">
 
 <!-- Server -->
 <!ENTITY server.load                    "লোড">
 <!ENTITY server.start                   "শুরু">
-<!ENTITY server.stop                    "বন্ধ">
+<!ENTITY server.stop                    "থামুন">
 <!ENTITY server.close                   "বন্ধ">
 
 <!-- Library -->

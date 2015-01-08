@@ -9,10 +9,12 @@
     <string name="menu_settings">Options</string>
     <string name="menu_search">Rechercher</string>
     <string name="menu_searchintext">Rechercher dans le texte</string>
-    <string name="menu_bookmarks">Bookmarks</string>
+    <string name="menu_bookmarks">Marque-pages</string>
     <string name="menu_randomarticle">Article au hasard</string>
     <string name="menu_fullscreen">Plein écran</string>
     <string name="menu_exitfullscreen">Quitter le plein écran</string>
+    <string name="menu_read_aloud">Lire à haute voix</string>
+    <string name="menu_read_aloud_stop">Arrêter de lire à haute voix</string>
     <string name="menu_exit">Quitter</string>
     <string name="menu_rescan_fs">Rescan SD card</string>
     <string name="menu_share">Partager avec vos amis</string>
@@ -27,9 +29,8 @@
     <string name="open_in_new_tab">Ouvrir le lien dans un nouvel onglet ?</string>
     <string name="remove_tab_confirm">Voulez-vous supprimer cet onglet ?</string>
     <string name="remove_tab">Supprimer l\'onglet</string>
-    <string name="add_bookmark">Add bookmark</string>
-    <string name="remove_bookmark">Remove bookmark</string>
-    <string name="view_bookmarks">View all bookmarks</string>
+    <string name="add_bookmark">Marquer cette page</string>
+    <string name="remove_bookmark">Ne plus sélectionner ce marque-page</string>
     <string name="info_share_title">J\'aime Wikipedia Offline avec Kiwix !</string>
     <string name="info_share_content">J\'aime Wikipedia Offline avec Kiwix ! Toute la connaissance humaine à portée de main partout où vous allez ! Sans Internet ! http://goo.GL/h9Smkk</string>
     <string name="error_nozimfilesfound">Aucun fichier ZIM n’a été trouvé sur votre machine.\nJetez un coup d’œil à la page d’aide pour avoir des instructions sur la manière de charger du contenu dans Kiwix.\nSi vous avez mis un fichier ZIM sur votre stockage interne ou externe, vous pouvez réessayer dans une minute ou redémarrer votre appareil.</string>
@@ -58,4 +59,5 @@
     <string name="pref_language_title">Langue</string>
     <string name="pref_language_chooser">Choisir une langue</string>
     <string name="error_internet_connection_failed">Couldn\'t connect to the internet.</string>
+    <string name="tts_lang_not_supported">The language of this page is not supported, or appropriate language data was not installed. The article may not be properly read.</string>
 </resources>

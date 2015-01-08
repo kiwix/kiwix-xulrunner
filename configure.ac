@@ -413,6 +413,13 @@ else
 	COMPILED_LIBCTPP2_LDFLAGS="-L${DEP_PATH}/ctpp2-2.8.3/build/complete/lib -lctpp2"
 	COMPILED_LIBCTPP2_STATIC_LDFLAGS="${DEP_PATH}/ctpp2-2.8.3/build/complete/lib/libctpp2-st.a"
 	COMPILED_LIBCTPP2_FILES="${DEP_PATH}/ctpp2-2.8.3/build/complete/lib/libctpp2.${SHARED_EXT}"
+
+	# find C++ compiler
+        AC_CHECK_TOOL(HAVE_CMAKE, "cmake")
+        if test [ ! "$HAVE_CMAKE" ]
+        then
+            AC_MSG_ERROR([[cannot find cmake]])
+        fi
 fi
 if test [ $IS_OSX -eq 1 ] ; then
 	COMPILED_LIBCTPP2_STATIC_LDFLAGS="ctpp2-2.8.3/build/lib/libctpp2-st.a"

@@ -1,5 +1,6 @@
 Kiwix 0.9.1
 * FIXED: Buggy pagination in fulltext result page
+* FIXED: kiwix-serve XSS attack vulnerability (#763)
 
 Kiwix 0.9
 * FIXED: Public IP address detection on OSX (#658)
@@ -59,7 +60,6 @@ Kiwix 0.9
 * NEW: Open XML library files from the menu
 * NEW: Preference to set custom data directory (#279, #323, #366,  #573, #692, #633)
 * NEW: --nosearchbar option for kiwix-serve
-* NEW: Signature for OSX releases (install without warning)
 * NEW: OSX 10.9 support
 * NEW: Sort bookmarks alphabetically
 * NEW: Able to deal with ZIM files containing relative paths

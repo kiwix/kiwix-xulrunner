@@ -9,10 +9,12 @@
     <string name="menu_settings">Tercihler</string>
     <string name="menu_search">Ara</string>
     <string name="menu_searchintext">Metinde bul</string>
-    <string name="menu_bookmarks">Bookmarks</string>
+    <string name="menu_bookmarks">Yer imleri</string>
     <string name="menu_randomarticle">Rastgele madde</string>
     <string name="menu_fullscreen">Tam ekran</string>
     <string name="menu_exitfullscreen">Tam ekrandan çık</string>
+    <string name="menu_read_aloud">Read aloud</string>
+    <string name="menu_read_aloud_stop">Stop reading aloud</string>
     <string name="menu_exit">Çık</string>
     <string name="menu_rescan_fs">Rescan SD card</string>
     <string name="menu_share">Arkadaşlarınla paylaş</string>
@@ -27,9 +29,8 @@
     <string name="open_in_new_tab">Bağlantı yeni sekmede açılsın mı?</string>
     <string name="remove_tab_confirm">Bu sekmeyi kaldırmak istediğinizden emin misiniz?</string>
     <string name="remove_tab">Sekmeyi kaldır</string>
-    <string name="add_bookmark">Add bookmark</string>
-    <string name="remove_bookmark">Remove bookmark</string>
-    <string name="view_bookmarks">View all bookmarks</string>
+    <string name="add_bookmark">Bu sayfayı işaretle</string>
+    <string name="remove_bookmark">Seçilenin işaretini kaldır</string>
     <string name="info_share_title">Kiwix ile Çevrim Dışı Vikipedi\'nin tadını çıkarıyorum!</string>
     <string name="info_share_content">Kiwix ile Wikipedia Offline tadını çıkarın! Bütün insan bilgi el gidersen git! Internet! http://goo.gl/h9Smkk</string>
     <string name="error_nozimfilesfound">Cihazınızda bir ZIM dosyası bulunamadı.\nKiwix\'e içerik yükleme talimatlarını görmek için Yardım Sayfası\'na bir göz atın.\nEğer cihazınıza/harici depolama kaynağınıza bir ZIM dosyası koyduysanız, birkaç dakika içerisinde yeniden deneyebilir veya cihazınızı yeniden başlatabilirsiniz.</string>
@@ -41,10 +42,10 @@
     <string name="pref_zoom_title">Zum seviyesi</string>
     <string name="pref_zoom_dialogtitle">Zum seviyesi</string>
     <string-array name="pref_zoom_entries">
-        <item name="pref_zoom_entry_automatic">Automatic</item>
-        <item name="pref_zoom_entry_small">Small</item>
-        <item name="pref_zoom_entry_medium">Medium</item>
-        <item name="pref_zoom_entry_large">Large</item>
+        <item name="pref_zoom_entry_automatic">Otomatik</item>
+        <item name="pref_zoom_entry_small">Küçük</item>
+        <item name="pref_zoom_entry_medium">Orta</item>
+        <item name="pref_zoom_entry_large">Büyük</item>
     </string-array>
     <string name="pref_info_title">Bilgi</string>
     <string name="pref_info_version">Sürüm</string>
@@ -56,6 +57,7 @@
     <string name="pref_backtotop_summary">Başa dönmek için sayfanın altında bir düğme görüntüler</string>
     <string name="share_via">Üzerinden paylaşın...</string>
     <string name="pref_language_title">Dil</string>
-    <string name="pref_language_chooser">Choose a language</string>
+    <string name="pref_language_chooser">Bir dil seçin</string>
     <string name="error_internet_connection_failed">Couldn\'t connect to the internet.</string>
+    <string name="tts_lang_not_supported">The language of this page is not supported, or appropriate language data was not installed. The article may not be properly read.</string>
 </resources>

@@ -9,10 +9,12 @@
     <string name="menu_settings">Тохиргоо</string>
     <string name="menu_search">Хайлт</string>
     <string name="menu_searchintext">Бичвэрээс хайх</string>
-    <string name="menu_bookmarks">Bookmarks</string>
+    <string name="menu_bookmarks">Тэмдэглэсэн хуудсууд</string>
     <string name="menu_randomarticle">Санаандгүй сонгосон нийлэл</string>
     <string name="menu_fullscreen">Дэлгэц дүүргэн харах</string>
     <string name="menu_exitfullscreen">Бүтэн дэлгэцээр үзүүлэхийг болиулах</string>
+    <string name="menu_read_aloud">Read aloud</string>
+    <string name="menu_read_aloud_stop">Stop reading aloud</string>
     <string name="menu_exit">Гарах</string>
     <string name="menu_rescan_fs">Rescan SD card</string>
     <string name="menu_share">Найзууддаа хуваалцах</string>
@@ -27,9 +29,8 @@
     <string name="open_in_new_tab">Холбоосыг өөр табд нээ</string>
     <string name="remove_tab_confirm">Энэ табыг арилгах уу?</string>
     <string name="remove_tab">Таб арилгах</string>
-    <string name="add_bookmark">Add bookmark</string>
-    <string name="remove_bookmark">Remove bookmark</string>
-    <string name="view_bookmarks">View all bookmarks</string>
+    <string name="add_bookmark">Энэ хуудсыг сана</string>
+    <string name="remove_bookmark">Сонгосон хэсгийг бүү сана</string>
     <string name="info_share_title">Kiwix -г ашиглаж Wikipedia -г Offline -аар хэрэглэхэд надад маш таатай!</string>
     <string name="info_share_content">Kiwix -г ашиглаж Wikipedia -г Offline -аар хэрэглэхэд маш таатай! Хүн төрөлхтний бүхий л мэдлэгт хаа ч явсан нэвтэрч чадна. Интернэт хэрэггүй! http://goo.gl/h9Smkk</string>
     <string name="error_nozimfilesfound">Эндээс ZIM файл олдсонгүй. \nKiwix -ын агуулгыг хэрхэн оруулах талаар Help Page -ээс харна уу.\nТа ZIM файлаа хуулсандаа итгэлтэй байгаа бол хэдэн минутын дараа ахин оролд, эсвэл төхөөрөмжөө унтрааж асаагаарай.</string>
@@ -58,4 +59,5 @@
     <string name="pref_language_title">Хэл</string>
     <string name="pref_language_chooser">Choose a language</string>
     <string name="error_internet_connection_failed">Couldn\'t connect to the internet.</string>
+    <string name="tts_lang_not_supported">The language of this page is not supported, or appropriate language data was not installed. The article may not be properly read.</string>
 </resources>

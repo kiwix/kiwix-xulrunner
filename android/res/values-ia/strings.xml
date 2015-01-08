@@ -9,10 +9,12 @@
     <string name="menu_settings">Preferentias</string>
     <string name="menu_search">Cercar</string>
     <string name="menu_searchintext">Cercar in texto</string>
-    <string name="menu_bookmarks">Bookmarks</string>
+    <string name="menu_bookmarks">Marcapaginas</string>
     <string name="menu_randomarticle">Articulo aleatori</string>
     <string name="menu_fullscreen">Schermo complete</string>
     <string name="menu_exitfullscreen">Exir del schermo complete</string>
+    <string name="menu_read_aloud">Read aloud</string>
+    <string name="menu_read_aloud_stop">Stop reading aloud</string>
     <string name="menu_exit">Quitar</string>
     <string name="menu_rescan_fs">Rescan SD card</string>
     <string name="menu_share">Divider con amicos</string>
@@ -27,9 +29,8 @@
     <string name="open_in_new_tab">Aperir ligamine in nove scheda?</string>
     <string name="remove_tab_confirm">Vole tu remover iste scheda?</string>
     <string name="remove_tab">Remover scheda</string>
-    <string name="add_bookmark">Add bookmark</string>
-    <string name="remove_bookmark">Remove bookmark</string>
-    <string name="view_bookmarks">View all bookmarks</string>
+    <string name="add_bookmark">Marcar iste pagina</string>
+    <string name="remove_bookmark">Dismarcar selection</string>
     <string name="info_share_title">Me place Wikipedia Offline con Kiwix!</string>
     <string name="info_share_content">Me place Wikipedia Offline con Kiwix! Tote le cognoscentia human a portata de mano, ubicinque tu va! Sin Internet! http://goo.gl/h9Smkk</string>
     <string name="error_nozimfilesfound">Nulle file ZIM trovate in vostre dispositivo.\nIn le pagina de adjuta se trova instructiones pro cargar contento in Kiwix.\nSi vos ha de facto mittite un file ZIM in vostre dispositivo o spatio de immagazinage externe, vos pote essayar de novo post un minuta o reinitiar vostre dispositivo.</string>
@@ -42,9 +43,9 @@
     <string name="pref_zoom_dialogtitle">Nivello de zoom</string>
     <string-array name="pref_zoom_entries">
         <item name="pref_zoom_entry_automatic">Automatic</item>
-        <item name="pref_zoom_entry_small">Small</item>
-        <item name="pref_zoom_entry_medium">Medium</item>
-        <item name="pref_zoom_entry_large">Large</item>
+        <item name="pref_zoom_entry_small">Micre</item>
+        <item name="pref_zoom_entry_medium">Medie</item>
+        <item name="pref_zoom_entry_large">Grande</item>
     </string-array>
     <string name="pref_info_title">Information</string>
     <string name="pref_info_version">Version</string>
@@ -56,6 +57,7 @@
     <string name="pref_backtotop_summary">Monstrar un button al fin del pagina pro retornar al initio</string>
     <string name="share_via">Divider via...</string>
     <string name="pref_language_title">Lingua</string>
-    <string name="pref_language_chooser">Choose a language</string>
+    <string name="pref_language_chooser">Selige un lingua</string>
     <string name="error_internet_connection_failed">Couldn\'t connect to the internet.</string>
+    <string name="tts_lang_not_supported">The language of this page is not supported, or appropriate language data was not installed. The article may not be properly read.</string>
 </resources>

@@ -9,10 +9,12 @@
     <string name="menu_settings">ترجیحات</string>
     <string name="menu_search">جستجو</string>
     <string name="menu_searchintext">جستجو در متن</string>
-    <string name="menu_bookmarks">Bookmarks</string>
+    <string name="menu_bookmarks">نشانک‌ها</string>
     <string name="menu_randomarticle">مقاله تصادفی</string>
     <string name="menu_fullscreen">تمام صفحه</string>
     <string name="menu_exitfullscreen">خروج از تمام‌صفحه</string>
+    <string name="menu_read_aloud">Read aloud</string>
+    <string name="menu_read_aloud_stop">Stop reading aloud</string>
     <string name="menu_exit">خروج</string>
     <string name="menu_rescan_fs">Rescan SD card</string>
     <string name="menu_share">اشتراک گذاری با دوستان</string>
@@ -27,9 +29,8 @@
     <string name="open_in_new_tab">بازکردن پیوند در زبانهٔ جدید؟</string>
     <string name="remove_tab_confirm">آیا قصد حذف این زبانه را دارید؟</string>
     <string name="remove_tab">برداشتن زبانه</string>
-    <string name="add_bookmark">Add bookmark</string>
-    <string name="remove_bookmark">Remove bookmark</string>
-    <string name="view_bookmarks">View all bookmarks</string>
+    <string name="add_bookmark">این صفحه را علامت بزن</string>
+    <string name="remove_bookmark">علامت انتخاب‌شده را بردار</string>
     <string name="info_share_title">از ویکی‌پدیای آفلاین با کیویکس لذت بردم!</string>
     <string name="info_share_content">از کار کردن با کیویکس لذب بردم. استفاده از دانش بشر بدر هر کجا که بروید! بدون اینترنت! http://goo.gl/h9Smkk</string>
     <string name="error_nozimfilesfound">هیچ پروندهٔ ZIM در دستگاه شما یافت نشد.\nنگاهی به صفحهٔ کمک برای گرفتن جهت‌هایی به بارگذاری محتویات به Kiwix نگاهی بیندازید.\nاگر شما پروندهٔ ZIM در دستگاه/حافظهٔ خارجی خود قرار دهید، شما چند دقیقه دیگر مجدداً سعی کنید یا دستگاه خود را ری‌استارت کنید.</string>
@@ -58,4 +59,5 @@
     <string name="pref_language_title">تغییر زبان</string>
     <string name="pref_language_chooser">انتخاب زبان</string>
     <string name="error_internet_connection_failed">Couldn\'t connect to the internet.</string>
+    <string name="tts_lang_not_supported">The language of this page is not supported, or appropriate language data was not installed. The article may not be properly read.</string>
 </resources>

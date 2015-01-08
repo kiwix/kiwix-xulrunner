@@ -53,7 +53,7 @@
 <!ENTITY main.zoomout.accesskey         "R">
 <!ENTITY main.zoomorig                  "Ojinal">
 <!ENTITY main.zoomorig.accesskey        "O">
-<!ENTITY main.language                  "Schprooch">
+<!ENTITY main.language                  "Schprohch">
 <!ENTITY main.language.accesskey        "L">
 <!ENTITY main.skin                      "Et Ussinn">
 <!ENTITY main.skin.accesskey            "S">
@@ -152,8 +152,8 @@
 <!ENTITY main.library.sortBy.publisher          "Verläjer udder Veröffentlescher">
 <!ENTITY main.library.filterBy                  "Ußsöhke noh">
 <!ENTITY main.library.filterBy.fileSize         "Datteiömfang">
-<!ENTITY main.library.filterBy.language         "Schprooch">
-<!ENTITY main.library.filterBy.language.all     "Alle Schprooche">
+<!ENTITY main.library.filterBy.language         "de Schprohch">
+<!ENTITY main.library.filterBy.language.all     "Alle Schprohche">
 <!ENTITY main.library.filterBy.author           "Fottojraaf udder Maacher">
 <!ENTITY main.library.filterBy.author.all       "Jeeder Ein">
 <!ENTITY main.library.filterBy.publisher        "Verläjer udder Veröffentlescher">

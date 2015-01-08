@@ -9,10 +9,12 @@
     <string name="menu_settings">Keutamaan</string>
     <string name="menu_search">Cari</string>
     <string name="menu_searchintext">Cari dalam teks</string>
-    <string name="menu_bookmarks">Bookmarks</string>
+    <string name="menu_bookmarks">Kegemaran</string>
     <string name="menu_randomarticle">Rencana rawak</string>
     <string name="menu_fullscreen">Skrin penuh</string>
     <string name="menu_exitfullscreen">Keluar dari skrin penuh</string>
+    <string name="menu_read_aloud">Read aloud</string>
+    <string name="menu_read_aloud_stop">Stop reading aloud</string>
     <string name="menu_exit">Keluar</string>
     <string name="menu_rescan_fs">Rescan SD card</string>
     <string name="menu_share">Kongsi dengan kawan²</string>
@@ -27,9 +29,8 @@
     <string name="open_in_new_tab">Buka pautan dalam tab baru?</string>
     <string name="remove_tab_confirm">Mahu gugurkan tab ini?</string>
     <string name="remove_tab">Gugurkan tab</string>
-    <string name="add_bookmark">Add bookmark</string>
-    <string name="remove_bookmark">Remove bookmark</string>
-    <string name="view_bookmarks">View all bookmarks</string>
+    <string name="add_bookmark">Gemari halaman ini</string>
+    <string name="remove_bookmark">Buang yang dipilih</string>
     <string name="info_share_title">Seronoknya Wikipedia Offline dengan Kiwix!</string>
     <string name="info_share_content">Seronoknya Wikipedia Offline dengan Kiwix! Seluruh ilmu pengetahuan insani di tanganmu di mana sahaja anda berada! Malah tanpa Internet! http://goo.gl/h9Smkk</string>
     <string name="error_nozimfilesfound">Tidak terdapat fail ZIM di dalam peranti anda.\nSila baca halaman Bantuan untuk mendapat petua untuk cara memuatkan kandungan ke dalam Kiwix.\nJika benar anda meletakkan fail ZIM di dalam peranti/storan luaran anda, apa kata anda cuba lagi sebentar kemudian atau me-restart peranti anda.</string>
@@ -58,4 +59,5 @@
     <string name="pref_language_title">Bahasa</string>
     <string name="pref_language_chooser">Pilih bahasa</string>
     <string name="error_internet_connection_failed">Couldn\'t connect to the internet.</string>
+    <string name="tts_lang_not_supported">The language of this page is not supported, or appropriate language data was not installed. The article may not be properly read.</string>
 </resources>

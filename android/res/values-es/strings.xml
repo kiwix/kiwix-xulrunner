@@ -9,10 +9,12 @@
     <string name="menu_settings">Preferencias</string>
     <string name="menu_search">Buscar</string>
     <string name="menu_searchintext">Buscar en el texto</string>
-    <string name="menu_bookmarks">Bookmarks</string>
+    <string name="menu_bookmarks">Marcadores</string>
     <string name="menu_randomarticle">Artículo aleatorio</string>
     <string name="menu_fullscreen">Pantalla completa</string>
     <string name="menu_exitfullscreen">Salir de pantalla completa</string>
+    <string name="menu_read_aloud">Read aloud</string>
+    <string name="menu_read_aloud_stop">Stop reading aloud</string>
     <string name="menu_exit">Salir</string>
     <string name="menu_rescan_fs">Rescan SD card</string>
     <string name="menu_share">Compartir con amigos</string>
@@ -27,9 +29,8 @@
     <string name="open_in_new_tab">¿Abrir enlace en una nueva pestaña?</string>
     <string name="remove_tab_confirm">¿Quieres cerrar esta pestaña?</string>
     <string name="remove_tab">Cerrar pestaña</string>
-    <string name="add_bookmark">Add bookmark</string>
-    <string name="remove_bookmark">Remove bookmark</string>
-    <string name="view_bookmarks">View all bookmarks</string>
+    <string name="add_bookmark">Marcar esta página</string>
+    <string name="remove_bookmark">Desmarcar seleccionados</string>
     <string name="info_share_title">¡Yo disfruto de Wikipedia sin conexión con Kiwix!</string>
     <string name="info_share_content">¡Disfruto de Wikipedia sin conexión con Kiwix! ¡Todo el conocimiento humano a la mano donde quiera que vayas! ¡Sin internet! http://goo.gl/h9Smkk</string>
     <string name="error_nozimfilesfound">No se encontró ningún archivo ZIM en tu dispositivo.\nEcha un vistazo a la Página de Ayuda para obtener instrucciones acerca de cómo cargar contenido en Kiwix.\nSi pusiste un archivo ZIM en tu dispositivo de almacenamiento externo, puedes intentar en un minuto o reiniciar el dispositivo.</string>
@@ -58,4 +59,5 @@
     <string name="pref_language_title">Idioma</string>
     <string name="pref_language_chooser">Elige un idioma</string>
     <string name="error_internet_connection_failed">Couldn\'t connect to the internet.</string>
+    <string name="tts_lang_not_supported">The language of this page is not supported, or appropriate language data was not installed. The article may not be properly read.</string>
 </resources>

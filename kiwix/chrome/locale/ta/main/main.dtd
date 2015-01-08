@@ -75,7 +75,7 @@
 <!ENTITY main.randomArticle.accesskey   "R">
 <!ENTITY main.checkIntegrity            "நேர்மை சரிபார்த்தல்">
 <!ENTITY main.checkIntegrity.accesskey  "k">
-<!ENTITY main.launchIndexing            "Launch indexing">
+<!ENTITY main.launchIndexing            "அகரவரிசை அட்டவணை உருவாக்கத்துவங்கு">
 <!ENTITY main.purgeHistory              "வரலாற்றை நீக்கவும்">
 <!ENTITY main.purgeHistory.accesskey    "P">
 
@@ -113,7 +113,7 @@
 <!ENTITY main.defaultset                "இயல்புநிலை அமை">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveMediaAs               "Save media as...">
+<!ENTITY main.saveMediaAs               "ஊடகப்பொருளை இவ்வாறு சேமித்து வை">
 <!ENTITY main.openLinkInNewTab          "புதிய தாவலில் இணைப்பை திற">
 <!ENTITY main.searchFor                 "இதை தேடு">
 <!ENTITY main.copyLinkAdress            "Copy link address">
@@ -132,7 +132,7 @@
 <!ENTITY preferences.browse             "உலவு">
 <!ENTITY preferences.tabs               "தாவல்களை நினைவில் கொள்">
 <!ENTITY preferences.downloadCatalogs   "தொலைதூர வரிசைப் பட்டியலை(பட்டியல்களை) தகவலிறக்கு">
-<!ENTITY preferences.neverAskToIndex    "Never ask to index">
+<!ENTITY preferences.neverAskToIndex    "அகரவரிசை அட்டவணைப்படுத்த இனி எப்பொழுதும் கேட்காதே">
 
 <!-- Server -->
 <!ENTITY server.load                    "ஏற்று">

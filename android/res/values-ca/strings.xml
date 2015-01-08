@@ -9,10 +9,12 @@
     <string name="menu_settings">Preferències</string>
     <string name="menu_search">Cerca</string>
     <string name="menu_searchintext">Cercar en el text</string>
-    <string name="menu_bookmarks">Bookmarks</string>
+    <string name="menu_bookmarks">Adreces d\'interès</string>
     <string name="menu_randomarticle">Article a l\'atzar</string>
     <string name="menu_fullscreen">Pantalla completa</string>
     <string name="menu_exitfullscreen">Surt del mode de pantalla completa</string>
+    <string name="menu_read_aloud">Read aloud</string>
+    <string name="menu_read_aloud_stop">Stop reading aloud</string>
     <string name="menu_exit">Surt</string>
     <string name="menu_rescan_fs">Rescan SD card</string>
     <string name="menu_share">Comparteix amb amics</string>
@@ -27,9 +29,8 @@
     <string name="open_in_new_tab">Obrir l\'enllaç en una pestanya nova?</string>
     <string name="remove_tab_confirm">Voleu suprimir aquesta pestanya?</string>
     <string name="remove_tab">Suprimir pestanya</string>
-    <string name="add_bookmark">Add bookmark</string>
-    <string name="remove_bookmark">Remove bookmark</string>
-    <string name="view_bookmarks">View all bookmarks</string>
+    <string name="add_bookmark">Afegeix als preferits</string>
+    <string name="remove_bookmark">Treu dels preferits</string>
     <string name="info_share_title">M\'agrada Wikipedia Offline amb Kiwix!</string>
     <string name="info_share_content">M\'agrada Wikipedia Offline amb Kiwix! Els coneixements humans sencers a la mà allà on vagis! Sense Internet! http://goo.gl/h9Smkk</string>
     <string name="error_nozimfilesfound">No s\'han trobat arxius ZIM en el vostre dispositiu. Visiteu la Pàgina d\'Ajuda per obtenir instruccions sobre com carregar contingut a Kiwix. Si realment vau col·locar un arxiu ZIM en el vostre dispositiu/emmagatzematge extern, podeu tornar a intentar-ho en uns moments, o reinicieu el vostre dispositiu.</string>
@@ -41,10 +42,10 @@
     <string name="pref_zoom_title">Nivell de zoom</string>
     <string name="pref_zoom_dialogtitle">Nivell de zoom</string>
     <string-array name="pref_zoom_entries">
-        <item name="pref_zoom_entry_automatic">Automatic</item>
-        <item name="pref_zoom_entry_small">Small</item>
-        <item name="pref_zoom_entry_medium">Medium</item>
-        <item name="pref_zoom_entry_large">Large</item>
+        <item name="pref_zoom_entry_automatic">Automàtic</item>
+        <item name="pref_zoom_entry_small">Petita</item>
+        <item name="pref_zoom_entry_medium">Mitjana</item>
+        <item name="pref_zoom_entry_large">Gran</item>
     </string-array>
     <string name="pref_info_title">Informació</string>
     <string name="pref_info_version">Versió</string>
@@ -56,6 +57,7 @@
     <string name="pref_backtotop_summary">Mostra un botó al final de la pàgina per desplaçar-se cap a la part superior</string>
     <string name="share_via">Compartir mitjançant...</string>
     <string name="pref_language_title">Idioma</string>
-    <string name="pref_language_chooser">Choose a language</string>
+    <string name="pref_language_chooser">Trieu un idioma</string>
     <string name="error_internet_connection_failed">Couldn\'t connect to the internet.</string>
+    <string name="tts_lang_not_supported">The language of this page is not supported, or appropriate language data was not installed. The article may not be properly read.</string>
 </resources>
