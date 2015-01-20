@@ -113,7 +113,7 @@
 <!ENTITY main.defaultset                "डिफ़ॉल्ट सेट">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveMediaAs               "Save media as...">
+<!ENTITY main.saveMediaAs               "मीडिया को इस तरह सहेजें...">
 <!ENTITY main.openLinkInNewTab          "लिंक खोलें नए टैब में">
 <!ENTITY main.searchFor                 "के लिए खोजें">
 <!ENTITY main.copyLinkAdress            "Copy link address">
