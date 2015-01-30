@@ -21,7 +21,7 @@
 <!ENTITY main.saveFile.accesskey        "S">
 <!ENTITY main.print                     "打印">
 <!ENTITY main.print.accesskey           "P">
-<!ENTITY main.printPdf                  "以PDF格式打印">
+<!ENTITY main.printPdf                  "打印为PDF">
 <!ENTITY main.printPdf.accesskey        "D">
 <!ENTITY main.quit                      "退出">
 <!ENTITY main.quit.accesskey            "Q">
@@ -89,14 +89,14 @@
 <!ENTITY main.about.accesskey           "A">
 
 <!-- Tool bar -->
-<!ENTITY main.back                      "返回">
+<!ENTITY main.back                      "后退">
 <!ENTITY main.forward                   "前进">
 <!ENTITY main.home                      "首页">
 <!ENTITY main.searchBar                 "搜索栏">
 <!ENTITY main.search                    "搜索">
-<!ENTITY main.searchPlaceholder         "在这里键入要搜索的文本...">
+<!ENTITY main.searchPlaceholder         "在这里输入要搜索的文本...">
 <!ENTITY main.findInText                " 文内查找">
-<!ENTITY main.noSearchBar               "需要已索引的ZIM文件进行搜索">
+<!ENTITY main.noSearchBar               "搜索需要已索引的ZIM文件">
 <!ENTITY main.bookmarks                 "书签">
 
 <!-- Results bar -->
@@ -108,7 +108,7 @@
 <!ENTITY main.loadbmk                   "导入书签集">
 <!ENTITY main.newbmk                    "创建新书签集">
 <!ENTITY main.mark                      "标记此页">
-<!ENTITY main.unmark                    "取消选中">
+<!ENTITY main.unmark                    "取消标记">
 <!ENTITY main.reload                    "重新加载书签集">
 <!ENTITY main.defaultset                "默认设置">
 

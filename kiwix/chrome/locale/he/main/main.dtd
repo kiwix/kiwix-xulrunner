@@ -31,7 +31,7 @@
 <!ENTITY main.edit.accesskey            "E">
 <!ENTITY main.find                      "חיפוש בדף...">
 <!ENTITY main.find.accesskey            "S">
-<!ENTITY main.selectall                 "בחר הכול">
+<!ENTITY main.selectall                 "לבחור הכול">
 <!ENTITY main.selectall.accesskey       "a">
 <!ENTITY main.copy                      "העתקה">
 <!ENTITY main.copy.accesskey            "p">

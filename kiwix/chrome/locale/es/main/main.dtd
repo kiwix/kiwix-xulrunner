@@ -19,7 +19,7 @@
 <!ENTITY main.lastOpen                  "Abiertos recientemente…">
 <!ENTITY main.saveFile                  "Guardar página como…">
 <!ENTITY main.saveFile.accesskey        "S">
-<!ENTITY main.print                     "Imprimir…">
+<!ENTITY main.print                     "Imprimir">
 <!ENTITY main.print.accesskey           "I">
 <!ENTITY main.printPdf                  "Imprimir en formato PDF">
 <!ENTITY main.printPdf.accesskey        "D">
