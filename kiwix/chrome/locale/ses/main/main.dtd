@@ -1,0 +1,162 @@
+<!-- Window -->
+<!ENTITY main.title                     "&brand.brandShortName;">
+<!ENTITY main.cssdirection              "ltr">
+
+<!-- Mac menu -->
+<!ENTITY main.osxservices               "goydogo">
+<!ENTITY main.osxhideapp                "&brand.brandShortName; tugu">
+<!ENTITY main.osxhideothers             "Jerey tugu">
+<!ENTITY main.osxshowall                "Ikul cebe">
+
+<!-- File menu -->
+<!ENTITY main.file                      "Tuku">
+<!ENTITY main.file.accesskey            "F">
+<!ENTITY main.openFile                  "Tuku feeri…">
+<!ENTITY main.browseLibrary.accesskey   "B">
+<!ENTITY main.browseLibrary             "Tiirahugoo guna">
+<!ENTITY main.hideLibrary               "Tiirahugoo tugu">
+<!ENTITY main.openFile.accesskey        "O">
+<!ENTITY main.lastOpen                  "Kaŋ kokor ka feera…">
+<!ENTITY main.saveFile                  "Moɲoo gaabu sanda…">
+<!ENTITY main.saveFile.accesskey        "S">
+<!ENTITY main.print                     "Kar">
+<!ENTITY main.print.accesskey           "P">
+<!ENTITY main.printPdf                  "Tee sanda PDF">
+<!ENTITY main.printPdf.accesskey        "D">
+<!ENTITY main.quit                      "Koy">
+<!ENTITY main.quit.accesskey            "Q">
+
+<!-- Edit menu -->
+<!ENTITY main.edit                      "Fasal">
+<!ENTITY main.edit.accesskey            "E">
+<!ENTITY main.find                      "Ceeci moɲoo ra…">
+<!ENTITY main.find.accesskey            "S">
+<!ENTITY main.selectall                 "Akul suuba">
+<!ENTITY main.selectall.accesskey       "a">
+<!ENTITY main.copy                      "Bere">
+<!ENTITY main.copy.accesskey            "p">
+<!ENTITY main.transliteration           "Maana žimam">
+<!ENTITY main.transliteration.accesskey "T">
+<!ENTITY main.preferences               "Ibaayey">
+<!ENTITY main.preferences.accesskey     "n">
+<!ENTITY main.server                    "Feršikaw">
+<!ENTITY main.server.accesskey          "s">
+
+<!-- Display menu -->
+<!ENTITY main.display                   "Cebe">
+<!ENTITY main.display.accesskey         "D">
+<!ENTITY main.zoom                      "Azzaati barmay">
+<!ENTITY main.zoom.accesskey            "Z">
+<!ENTITY main.zoomin                    "Beerandi">
+<!ENTITY main.zoomin.accesskey          "M">
+<!ENTITY main.zoomout                   "Kaccandi">
+<!ENTITY main.zoomout.accesskey         "R">
+<!ENTITY main.zoomorig                  "Aššil azzaati">
+<!ENTITY main.zoomorig.accesskey        "O">
+<!ENTITY main.language                  "Šenni">
+<!ENTITY main.language.accesskey        "L">
+<!ENTITY main.skin                      "Kuuru">
+<!ENTITY main.skin.accesskey            "S">
+<!ENTITY main.statusbar                 "Alhaali zuu">
+<!ENTITY main.statusbar.accesskey       "S">
+<!ENTITY main.resultsbar                "Haya hunantey zuwoo">
+<!ENTITY main.resultsbar.accesskey      "R">
+<!ENTITY main.tabs                      "Nor lokey">
+<!ENTITY main.tabs.accesskey            "T">
+<!ENTITY main.fullscreen                "Dijikul">
+<!ENTITY main.fullscreen.accesskey      "F">
+<!ENTITY main.invertedColors            "Noone berantey">
+<!ENTITY main.invertedColors.accesskey  "I">
+
+<!-- Tools menu -->
+<!ENTITY main.tools                     "Goyjinawey">
+<!ENTITY main.tools.accesskey           "T">
+<!ENTITY main.randomArticle             "Saaye-bande hantum">
+<!ENTITY main.randomArticle.accesskey   "R">
+<!ENTITY main.checkIntegrity            "Gundekuna timmaroo koroši">
+<!ENTITY main.checkIntegrity.accesskey  "k">
+<!ENTITY main.launchIndexing            "Šilbayyan tunandi">
+<!ENTITY main.purgeHistory              "Taarikoo tuusu">
+<!ENTITY main.purgeHistory.accesskey    "P">
+
+<!-- Help menu -->
+<!ENTITY main.help                      "gaa">
+<!ENTITY main.help.accesskey            "H">
+<!ENTITY main.feedback                  "Laasaabay">
+<!ENTITY main.reportabug                "Hasaraw mise bayrandi">
+<!ENTITY main.requestafeature           "Alhaali foo wiri">
+<!ENTITY main.about                     "&brand.brandShortName; ga">
+<!ENTITY main.about.accesskey           "A">
+
+<!-- Tool bar -->
+<!ENTITY main.back                      "Banda">
+<!ENTITY main.forward                   "Jine">
+<!ENTITY main.home                      "Šintin moo">
+<!ENTITY main.searchBar                 "Zuwoo ceeci">
+<!ENTITY main.search                    "Ceeci">
+<!ENTITY main.searchPlaceholder         "Hantum kaŋ war g'a ceeci hantum ne…">
+<!ENTITY main.findInText                "Guna hantumoo ra">
+<!ENTITY main.noSearchBar               "ZIM tuku šilbante ga waažibi ceeciyanoo se">
+<!ENTITY main.bookmarks                 "Doo-šilbawey">
+
+<!-- Results bar -->
+<!ENTITY main.results.title             "Ceeci hunyaney">
+
+<!-- Bookmarks Bar -->
+<!ENTITY main.bmkLabel                  "Doo-šilbawey">
+<!ENTITY main.notesLabel                "Doo-šilbay yaamareyː">
+<!ENTITY main.loadbmk                   "Doo-šilway margari zaa">
+<!ENTITY main.newbmk                    "Doo-šilbay margari taaga tee">
+<!ENTITY main.mark                      "Moɲoo woo šilbay">
+<!ENTITY main.unmark                    "Doo-šilbaa woo kaa">
+<!ENTITY main.reload                    "Doo-šilbay margari zumandi taaga">
+<!ENTITY main.defaultset                "Tilasu kayandiyaney">
+
+<!-- Contextual Menu -->
+<!ENTITY main.saveMediaAs               "Hẽenandijinaa gaabu sanda…">
+<!ENTITY main.openLinkInNewTab          "Doboo feeri nor loku taaga ra">
+<!ENTITY main.searchFor                 "Ceeci">
+<!ENTITY main.copyLinkAdress            "Copy link address">
+<!ENTITY main.mute                      "Jindoo buu">
+<!ENTITY main.audible                   "Goo nda jinde">
+
+<!-- About Window -->
+<!ENTITY main.close                     "Daabu">
+
+<!-- Preferences Window -->
+<!ENTITY preferences.preferences        "Ibaayey">
+<!ENTITY preferences.save               "Gaabu">
+<!ENTITY preferences.cancel             "Naŋ">
+<!ENTITY preferences.profileDirectory   "Alhaali fooloɲaa">
+<!ENTITY preferences.dataDirectory      "Data directory">
+<!ENTITY preferences.browse             "Ceeci">
+<!ENTITY preferences.tabs               "Hongu nor lokey">
+<!ENTITY preferences.downloadCatalogs   "Tiira margari mooraa(wey) zumandi">
+<!ENTITY preferences.neverAskToIndex    "Ma ši hãa abada ka šilbay">
+
+<!-- Server -->
+<!ENTITY server.load                    "Zumandi">
+<!ENTITY server.start                   "Šintin">
+<!ENTITY server.stop                    "Kay">
+<!ENTITY server.close                   "daabu">
+
+<!-- Library -->
+<!ENTITY main.library.myLibrary                 "Ay tiirahugoo">
+<!ENTITY main.library.getNewFiles               "Tuku taagayaŋ zaa">
+<!ENTITY main.library.searchZimFiles            "ZIM tukey ceeci">
+<!ENTITY main.library.sortBy                    "Fay nda">
+<!ENTITY main.library.sortBy.title              "Maa">
+<!ENTITY main.library.sortBy.size               "Azzaati">
+<!ENTITY main.library.sortBy.date               "Han">
+<!ENTITY main.library.sortBy.author             "Hantumkaw">
+<!ENTITY main.library.sortBy.publisher          "Wallafikaw">
+<!ENTITY main.library.filterBy                  "Fay nda">
+<!ENTITY main.library.filterBy.fileSize         "Tuku azzaati">
+<!ENTITY main.library.filterBy.language         "Šenni">
+<!ENTITY main.library.filterBy.language.all     "Akul">
+<!ENTITY main.library.filterBy.author           "Hantumkaw">
+<!ENTITY main.library.filterBy.author.all       "Akul">
+<!ENTITY main.library.filterBy.publisher        "Wallafikaw">
+<!ENTITY main.library.filterBy.publisher.all    "Akul">
+<!ENTITY main.library.filterBy.lessThan         "Ga kaccu nda">
+

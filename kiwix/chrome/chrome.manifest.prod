@@ -93,6 +93,7 @@ locale main ro             jar:locale.jar!/locale/ro/main/
 locale main ru             jar:locale.jar!/locale/ru/main/
 locale main rue            jar:locale.jar!/locale/rue/main/
 locale main sa             jar:locale.jar!/locale/sa/main/
+locale main ses            jar:locale.jar!/locale/ses/main/
 locale main sh             jar:locale.jar!/locale/sh/main/
 locale main si             jar:locale.jar!/locale/si/main/
 locale main sk             jar:locale.jar!/locale/sk/main/
@@ -214,6 +215,7 @@ locale branding ru         jar:locale.jar!/locale/branding/
 locale branding rue        jar:locale.jar!/locale/branding/
 locale branding sh         jar:locale.jar!/locale/branding/
 locale branding sa         jar:locale.jar!/locale/branding/
+locale branding ses        jar:locale.jar!/locale/branding/
 locale branding si         jar:locale.jar!/locale/branding/
 locale branding sk         jar:locale.jar!/locale/branding/
 locale branding sl         jar:locale.jar!/locale/branding/

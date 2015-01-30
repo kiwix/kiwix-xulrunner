@@ -106,6 +106,7 @@ _languagesHash['ron']          = _languagesHashOld['ro']          = 'Română';
 _languagesHash['rus']          = _languagesHashOld['ru']          = 'Русский';
 _languagesHash['rue']          = 'Русиньскый';
 _languagesHash['san']          = _languagesHashOld['sa']          = 'संस्कृतम्';
+_languagesHash['ses']          = 'Koyraboro Senni';
 _languagesHash['sh']           = 'Srpskohrvatski / Српскохрватски';
 _languagesHash['sin']          = _languagesHashOld['si']          = 'සිංහල';
 _languagesHash['slk']          = _languagesHashOld['sk']          = 'Slovenčina';
