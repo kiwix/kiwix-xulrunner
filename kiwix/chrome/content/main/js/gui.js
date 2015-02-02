@@ -716,13 +716,13 @@ function manageOpenFile(path, noSearchIndexCheck) {
 	    library.setCurrentId(currentBookId);
 	    var newLocalBookCount = library.getLocalBookCount();
 	    var localBookCountDiff = newLocalBookCount - oldLocalBookCount;
-	    if (displayConfirmDialog("Library XML file was loaded successfuly.\n" + localBookCountDiff + " local content is/are newly availablle in the library.\nDo you want to open your library now?")) {
+	    if (displayConfirmDialog("Library XML file was loaded successfuly.\n" + localBookCountDiff + " local content is/are newly available in the library.\nDo you want to open your library now?")) {
 		populateBookList();
 		showLocalBooks();
 		settings.addCustomLibraryPath(path);
 	    }
 	} else {
-	    displayErrorDialog("Kiwix failed to open the library XML file '" + path + "' library XML file. The file is maybe corrupted?");
+	    displayErrorDialog("Kiwix failed to open the library XML file '" + path + "'. The file is maybe corrupted?");
 	}
     }
 
