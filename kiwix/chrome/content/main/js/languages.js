@@ -6,232 +6,296 @@ var _languagesRegexHash     = Array();
 /* Initialize the languages arrays */
 /* Based in ISO 639-2 and 639-3 codes */
 /* Order alphabetically by _languagesHash key */
+_languagesHash = {
+  'aar'           : 'Afaraf',
+  'abk'           : 'аҧсуа бызшәа, аҧсшәа',
+  'abk'           : 'аҧсуа бызшәа, аҧсшәа',
+  'aeb'           : 'زَوُن',
+  'afr'           : 'Afrikaans',
+  'aka'           : 'Akan',
+  'amh'           : 'አማርኛ',
+  'ara'           : 'العربية',
+  'ara'           : 'العربية',
+  'arg'           : 'Aragonés',
+  'asm'           : 'অসমীয়া',
+  'ava'           : 'авар мацӀ, магӀарул мацӀ',
+  'ave'           : 'avesta',
+  'aym'           : 'aymar aru',
+  'ary'           : 'الدارجة',
+  'ast'           : 'Asturianu',
+  'aze'           : 'azərbaycanca',
+  'azb'           : 'South Azerbaijani',
+  'bak'           : 'Bašqort',
+  'bam'           : 'Bamanankan',
+  'bel'           : 'Беларуская',
+  'ben'           : 'বাংলা',
+  'bis'           : 'Bislama',
+  'bod'           : 'བོད་ཡིག',
+  'bos'           : 'bosanski jezik',
+  'bre'           : 'Brezhoneg',
+  'bul'           : 'Български',
+  'bcc'           : 'balojî Balójí',
+  'bel-tasrask'   : 'тарашкевіца, клясычны правапіс',
+  'bjn'           : 'Bahasa Banjar',
+  'cat'           : 'Català',
+  'ces'           : 'Česky',
+  'cha'           : 'Chamoru',
+  'che'           : 'нохчийн мотт',
+  'chu'           : 'ѩзыкъ словѣньскъ',
+  'chv'           : 'Чӑвашла',
+  'cor'           : 'Kernewek',
+  'cos'           : 'corsu, lingua corsa',
+  'cre'           : 'ᓀᐦᐃᔭᐍᐏᐣ',
+  'cym'           : 'Cymraeg',
+  'ckb'           : 'کوردیی ناوەندی',
+  'dan'           : 'Dansk',
+  'dsb'           : 'Dolnoserbski',
+  'deu'           : 'Deutsch',
+  'div'           : 'ދިވެހި',
+  'dzo'           : ' རྫོང་ཁ',
+  'ell'           : 'Ελληνικά',
+  'eng'           : 'English',
+  'epo'           : 'Esperanto',
+  'est'           : 'Eesti',
+  'eus'           : 'euskara',
+  'ewe'           : 'Eʋegbe',
+  'ebn'           :'বাংলা',
+  'fao'           : 'Føroyskt',
+  'fas'           : 'فارسی',
+  'fij'           : 'vosa Vakaviti',
+  'fin'           : 'Suomi',
+  'fra'           : 'Français',
+  'fry'           : 'Frysk',
+  'ful'           : 'Fulfulde',
+  'frp'           : 'Provençau',
+  'gla'           : 'Gàidhlig',
+  'gle'           : 'Gaeilge',
+  'glg'           : 'Galego',
+  'glv'           : 'Gaelg',
+  'grn'           : 'Avañe\'ẽ',
+  'guj'           : 'ગુજરાતી',
+  'gsw'           : 'Schwyzerdütsch',
+  'hat'           : 'Kreyol ayisyen',
+  'hau'           : 'Hausa',
+  'heb'           : 'עברית',
+  'her'           : 'Otjiherero',
+  'hin'           : 'हिन्दी',
+  'her'           : 'Otjiherero',
+  'hmo'           : 'Hiri Motu',
+  'hrv'           : 'Олык Марий',
+  'hun'           : 'Magyar',
+  'hye'           : 'Հայերեն',
+  'hif-latn'      : 'Fiji Baat',
+  'hrx'           : 'Riograndenser Hunsrückisch',
+  'hsb'           : 'Hornjoserbsce',
+  'ibo'           : 'Asụsụ Igbo',
+  'ido'           : 'Ido',
+  'iii'           : 'ꆈꌠ꒿ Nuosuhxop',
+  'iku'           : 'ᐃᓄᒃᑎᑐᑦ',
+  'ile'           : 'Interlingue',
+  'ina'           : 'Interlingua',
+  'ind'           : 'Bahasa Indonesia',
+  'ipk'           : 'Iñupiaq',
+  'isl'           : 'Íslenska',
+  'ita'           : 'Italiano',
+  'ilo'           : 'Ilokano',
+  'jav'           : 'Basa Jawa',
+  'jpn'           : '日本語',
+  'kal'           : 'Kalaallisut',
+  'kan'           : 'ಕನ್ನಡ',
+  'kas'           : 'कश्मीरी',
+  'kat'           : 'ქართული',
+  'kau'           : 'Kanuri',
+  'kaz'           : 'Қазақша',
+  'khm'           : 'ភាសាខ្មែរ',
+  'kik'           : 'Gĩkũyũ',
+  'kin'           : 'Ikinyarwanda',
+  'kir'           : 'قىرعىز تىلى',
+  'kom'           : 'коми кыв',
+  'kon'           : 'Kikongo',
+  'kor'           : '한국어',
+  'kor-kp'        : '조선어',
+  'kua'           : 'Kuanyama',
+  'kur'           : 'kurdî',
+  'ksh'           : 'Ripoarisch',
+  'lao'           : 'ພາສາລາວ',
+  'lat'           : 'Lingua Latīna',
+  'lav'           : 'Latviešu',
+  'lim'           : 'Limburgs',
+  'lin'           : 'Lingála',
+  'lit'           : 'Lietuvių',
+  'ltz'           : 'Lëtzebuergesch',
+  'lub'           : 'Tshiluba',
+  'lug'           : 'Luganda',
+  'mah'           : 'Kajin M̧ajeļ',
+  'mal'           : 'മലയാളം',
+  'mar'           : 'मराठी',
+  'map-bms'       : 'Basa Banyumasan',
+  'mkd'           : 'Македонски',
+  'mlg'           : 'Malagasy',
+  'mlt'           : 'Malti',
+  'mon'           : 'Монгол хэл',
+  'mri'           : 'Te reo Māori',
+  'msa'           : 'Bahasa Melayu',
+  'mul'           : 'multilingual',
+  'mya'           : 'မြန်မာဘာသာ',
+  'nau'           : 'Ekakairũ Naoero',
+  'nav'           : 'Diné bizaad',
+  'nbl'           : 'isiNdebele',
+  'nde'           : 'isiNdebele',
+  'ndo'           : 'Owambo',
+  'nep'           : 'नेपाली',
+  'nld'           : 'Nederlands',
+  'nno'           : 'Norsk (nynorsk)',
+  'nob'           : 'Norsk (bokmål)',
+  'nor'           : 'Norsk (bokmål)',
+  'nya'           : 'ChiCheŵa',
+  'new'           : 'नेपाल भाषा',
+  'oci'           : 'Occitan',
+  'oji'           : 'ᐊᓂᔑᓈᐯᒧᐎᓐ',
+  'ori'           : 'ଓଡ଼ିଆ',
+  'orm'           : 'Afaan Oromoo',
+  'oss'           : 'ирон æвзаг',
+  'pan'           : 'ਪੰਜਾਬੀ',
+  'pli'           : 'पाऴि',
+  'pol'           : 'Język polski',
+  'por'           : 'Português',
+  'por-pt'        : 'Português do Brasil',
+  'pus'           : 'پښتو',
+  'pdc'           : 'Pennsilfaanisch Deitsch',
+  'pms'           : 'Piemontèis',
+  'que'           : 'Runa Simi',
+  'roh'           : 'Rumantsch',
+  'ron'           : 'Română',
+  'run'           : 'Ikirundi',
+  'rus'           : 'Русский',
+  'rue'           : 'Русиньскый',
+  'sag'           : 'yângâ tî sängö',
+  'san'           : 'संस्कृतम्',
+  'sin'           : 'සිංහල',
+  'skr'           : 'सराइकी',
+  'slk'           : 'Slovenčina',
+  'slv'           : 'Slovenščina',
+  'sme'           : 'Davvisámegiella',
+  'smo'           : 'gagana fa\'a Samoa',
+  'sna'           : 'chiShona',
+  'snd'           : 'सिन्धी',
+  'som'           : 'Soomaaliga',
+  'sot'           : 'Sesotho',
+  'spa'           : 'Español',
 
-_languagesHash['aar']          = 'Afaraf';
-_languagesHash['abk']          = 'аҧсуа бызшәа, аҧсшәа';
-_languagesHash['abk']          = 'аҧсуа бызшәа, аҧсшәа';
-_languagesHash['aeb']          = 'زَوُن';
-_languagesHash['afr']          = _languagesHashOld['af']          = 'Afrikaans';
-_languagesHash['aka']          = 'Akan';
-_languagesHash['amh']          = 'አማርኛ';
-_languagesHash['ara']          = _languagesHashOld['ar']          = 'العربية';
-_languagesHash['ara']          = 'العربية';
-_languagesHash['arg']          = 'Aragonés';
-_languagesHash['asm']          = _languagesHashOld['as']          = 'অসমীয়া';
-_languagesHash['ava']          = 'авар мацӀ, магӀарул мацӀ';
-_languagesHash['ave']          = 'avesta';
-_languagesHash['aym']          = 'aymar aru';
-_languagesHash['ary']          = 'الدارجة';
-_languagesHash['ast']          = 'Asturianu';
-_languagesHash['aze']          = _languagesHashOld['az']          = 'azərbaycanca';
-_languagesHash['azb']          = 'South Azerbaijani';
-_languagesHash['bak']          = _languagesHashOld['ba']          = 'Bašqort';
-_languagesHash['bam']          = _languagesHashOld['bm']          = 'Bamanankan';
-_languagesHash['bel']          = _languagesHashOld['be']          = 'Беларуская';
-_languagesHash['ben']          = _languagesHashOld['bn']          = 'বাংলা';
-_languagesHash['bis']          = 'Bislama';
-_languagesHash['bod']          = 'བོད་ཡིག';
-_languagesHash['bos']          = 'bosanski jezik';
-_languagesHash['bre']          = _languagesHashOld['br']          = 'Brezhoneg';
-_languagesHash['bul']          = _languagesHashOld['bg']          = 'Български';
-_languagesHash['bcc']          = 'balojî Balójí';
-_languagesHash['bel-tasrask']  = _languagesHashOld['be-tarask']   = 'тарашкевіца, клясычны правапіс';
-_languagesHash['bjn']          = 'Bahasa Banjar';
-_languagesHash['cat']          = _languagesHashOld['ca']          = 'Català';
-_languagesHash['ces']          = _languagesHashOld['cs']          = 'Česky';
-_languagesHash['cha']          = 'Chamoru';
-_languagesHash['che']          = 'нохчийн мотт';
-_languagesHash['chu']          = 'ѩзыкъ словѣньскъ';
-_languagesHash['chv']          = _languagesHashOld['cv']          = 'Чӑвашла';
-_languagesHash['cor']          = 'Kernewek';
-_languagesHash['cos']          = 'corsu, lingua corsa';
-_languagesHash['cre']          = 'ᓀᐦᐃᔭᐍᐏᐣ';
-_languagesHash['cym']          = _languagesHashOld['cy']          = 'Cymraeg';
-_languagesHash['ckb']          = 'کوردیی ناوەندی';
-_languagesHash['dan']          = _languagesHashOld['da']          = 'Dansk';
-_languagesHash['dsb']          = 'Dolnoserbski';
-_languagesHash['deu']          = _languagesHashOld['de']          = 'Deutsch';
-_languagesHash['div']          = 'ދިވެހި';
-_languagesHash['dzo']          = ' རྫོང་ཁ';
-_languagesHash['ell']          = _languagesHashOld['el']          = 'Ελληνικά';
-_languagesHash['eng']          = _languagesHashOld['en']          = 'English';
-_languagesHash['epo']          = _languagesHashOld['eo']          = 'Esperanto';
-_languagesHash['est']          = _languagesHashOld['et']          = 'Eesti';
-_languagesHash['eus']          = 'euskara';
-_languagesHash['ewe']          = 'Eʋegbe';
-_languagesHash['ebn']          = _languagesHashOld['bn']          ='বাংলা';
-_languagesHash['fao']          = _languagesHashOld['fo']          = 'Føroyskt';
-_languagesHash['fas']          = _languagesHashOld['fa']          = 'فارسی';
-_languagesHash['fij']          = 'vosa Vakaviti';
-_languagesHash['fin']          = _languagesHashOld['fi']          = 'Suomi';
-_languagesHash['fra']          = _languagesHashOld['fr']          = 'Français';
-_languagesHash['fry']          = 'Frysk';
-_languagesHash['ful']          = _languagesHashOld['ff']          = 'Fulfulde';
-_languagesHash['frp']          = 'Provençau';
-_languagesHash['gla']          = 'Gàidhlig';
-_languagesHash['gle']          = 'Gaeilge';
-_languagesHash['glg']          = _languagesHashOld['gl']          = 'Galego';
-_languagesHash['glv']          = 'Gaelg';
-_languagesHash['grn']          = _languagesHashOld['gn']          = 'Avañe\'ẽ';
-_languagesHash['guj']          = _languagesHashOld['gu']          = 'ગુજરાતી';
-_languagesHash['gsw']          = 'Schwyzerdütsch';
-_languagesHash['hat']          = _languagesHashOld['ht']          = 'Kreyol ayisyen';
-_languagesHash['hau']          = _languagesHashOld['ha']          = 'Hausa';
-_languagesHash['heb']          = _languagesHashOld['he']          = 'עברית';
-_languagesHash['her']          = 'Otjiherero';
-_languagesHash['hin']          = _languagesHashOld['hi']          = 'हिन्दी';
-_languagesHash['her']          = 'Otjiherero';
-_languagesHash['hmo']          = 'Hiri Motu';
-_languagesHash['hrv']          = _languagesHashOld['hr']          = 'Олык Марий';
-_languagesHash['hun']          = _languagesHashOld['hu']          = 'Magyar';
-_languagesHash['hye']          = _languagesHashOld['hy']          = 'Հայերեն';
-_languagesHash['hif-latn']     = 'Fiji Baat';
-_languagesHash['hrx']          = 'Riograndenser Hunsrückisch';
-_languagesHash['hsb']          = 'Hornjoserbsce';
-_languagesHash['ibo']          = 'Asụsụ Igbo';
-_languagesHash['ido']          = 'Ido';
-_languagesHash['iii']          = 'ꆈꌠ꒿ Nuosuhxop';
-_languagesHash['iku']          = 'ᐃᓄᒃᑎᑐᑦ';
-_languagesHash['ile']          = _languagesHashOld['ie']          = 'Interlingue';
-_languagesHash['ina']          = _languagesHashOld['ia']          = 'Interlingua';
-_languagesHash['ind']          = _languagesHashOld['id']          = 'Bahasa Indonesia';
-_languagesHash['ipk']          = 'Iñupiaq';
-_languagesHash['isl']          = 'Íslenska';
-_languagesHash['ita']          = _languagesHashOld['it']          = 'Italiano';
-_languagesHash['ilo']          = 'Ilokano';
-_languagesHash['jav']          = _languagesHashOld['jv']          = 'Basa Jawa';
-_languagesHash['jpn']          = _languagesHashOld['ja']          = '日本語';
-_languagesHash['kal']          = 'Kalaallisut';
-_languagesHash['kan']          = _languagesHashOld['kn']          = 'ಕನ್ನಡ';
-_languagesHash['kas']          = 'कश्मीरी';
-_languagesHash['kat']          = _languagesHashOld['ka']          = 'ქართული';
-_languagesHash['kau']          = 'Kanuri';
-_languagesHash['kaz']          = _languagesHashOld['kk']          = 'Қазақша';
-_languagesHash['khm']          = _languagesHashOld['km']          = 'ភាសាខ្មែរ';
-_languagesHash['kik']          = 'Gĩkũyũ';
-_languagesHash['kin']          = 'Ikinyarwanda';
-_languagesHash['kir']          = _languagesHashOld['ky']          = 'قىرعىز تىلى';
-_languagesHash['kom']          = 'коми кыв';
-_languagesHash['kon']          = 'Kikongo';
-_languagesHash['kor']          = _languagesHashOld['ko']          = '한국어';
-_languagesHash['kor-kp']       = _languagesHashOld['ko-kp']       = '조선어';
-_languagesHash['kua']          = 'Kuanyama';
-_languagesHash['kur']          = _languagesHashOld['ku']          = 'kurdî';
-_languagesHash['ksh']          = 'Ripoarisch';
-_languagesHash['lao']          = 'ພາສາລາວ';
-_languagesHash['lat']          = _languagesHashOld['la']          = 'Lingua Latīna';
-_languagesHash['lav']          = _languagesHashOld['lv']          = 'Latviešu';
-_languagesHash['lim']          = _languagesHashOld['li']          = 'Limburgs';
-_languagesHash['lin']          = 'Lingála';
-_languagesHash['lit']          = _languagesHashOld['lt']          = 'Lietuvių';
-_languagesHash['ltz']          = _languagesHashOld['lb']          = 'Lëtzebuergesch';
-_languagesHash['lub']          = 'Tshiluba';
-_languagesHash['lug']          = 'Luganda';
-_languagesHash['mah']          = 'Kajin M̧ajeļ';
-_languagesHash['mal']          = _languagesHashOld['ml']          = 'മലയാളം';
-_languagesHash['mar']          = _languagesHashOld['mr']          = 'मराठी';
-_languagesHash['map-bms']      = 'Basa Banyumasan';
-_languagesHash['mkd']          = _languagesHashOld['mk']          = 'Македонски';
-_languagesHash['mlg']          = _languagesHashOld['mg']          = 'Malagasy';
-_languagesHash['mlt']          = _languagesHashOld['mt']          = 'Malti';
-_languagesHash['mon']          = _languagesHashOld['mn']          = 'Монгол хэл';
-_languagesHash['mri']          = 'Te reo Māori';
-_languagesHash['msa']          = _languagesHashOld['ms']          = 'Bahasa Melayu';
-_languagesHash['mul']          = 'multilingual';
-_languagesHash['mya']          = _languagesHashOld['my']          = 'မြန်မာဘာသာ';
-_languagesHash['nau']          = 'Ekakairũ Naoero';
-_languagesHash['nav']          = 'Diné bizaad';
-_languagesHash['nbl']          = 'isiNdebele';
-_languagesHash['nde']          = 'isiNdebele';
-_languagesHash['ndo']          = 'Owambo';
-_languagesHash['nep']          = _languagesHashOld['ne']          = 'नेपाली';
-_languagesHash['nld']          = _languagesHashOld['nl']          = 'Nederlands';
-_languagesHash['nno']          = _languagesHashOld['nn']          = 'Norsk (nynorsk)';
-_languagesHash['nob']          = _languagesHashOld['nb']          = 'Norsk (bokmål)';
-_languagesHash['nor']          = _languagesHashOld['no']          = 'Norsk (bokmål)';
-_languagesHash['nya']          = 'ChiCheŵa';
-_languagesHash['new']          = 'नेपाल भाषा';
-_languagesHash['oci']          = _languagesHashOld['oc']          = 'Occitan';
-_languagesHash['oji']          = 'ᐊᓂᔑᓈᐯᒧᐎᓐ';
-_languagesHash['ori']          = _languagesHashOld['or']          = 'ଓଡ଼ିଆ';
-_languagesHash['orm']          = 'Afaan Oromoo';
-_languagesHash['oss']          = 'ирон æвзаг';
-_languagesHash['pan']          = 'ਪੰਜਾਬੀ';
-_languagesHash['pli']          = 'पाऴि';
-_languagesHash['pol']          = _languagesHashOld['pl']          = 'Język polski';
-_languagesHash['por']          = _languagesHashOld['pt']          = 'Português';
-_languagesHash['por-pt']       = _languagesHashOld['pt-br']       = 'Português do Brasil';
-_languagesHash['pus']          = _languagesHashOld['ps']           = 'پښتو';
-_languagesHash['pdc']          = 'Pennsilfaanisch Deitsch';
-_languagesHash['pms']          = 'Piemontèis';
-_languagesHash['que']          = _languagesHashOld['qu']           = 'Runa Simi';
-_languagesHash['roh']          = _languagesHash['rm']              = 'Rumantsch';
-_languagesHash['ron']          = _languagesHashOld['ro']          = 'Română';
-_languagesHash['run']          = 'Ikirundi';
-_languagesHash['rus']          = _languagesHashOld['ru']          = 'Русский';
-_languagesHash['rue']          = 'Русиньскый';
-_languagesHash['sag']          = 'yângâ tî sängö';
-_languagesHash['san']          = _languagesHashOld['sa']          = 'संस्कृतम्';
-_languagesHash['sin']          = _languagesHashOld['si']          = 'සිංහල';
-_languagesHash['skr']          = 'सराइकी';
-_languagesHash['slk']          = _languagesHashOld['sk']          = 'Slovenčina';
-_languagesHash['slv']          = _languagesHashOld['sl']          = 'Slovenščina';
-_languagesHash['sme']          = 'Davvisámegiella';
-_languagesHash['smo']          = 'gagana fa\'a Samoa';
-_languagesHash['sna']          = 'chiShona';
-_languagesHash['snd']          = 'सिन्धी';
-_languagesHash['som']          = 'Soomaaliga';
-_languagesHash['sot']          = 'Sesotho';
-_languagesHash['spa']          = _languagesHashOld['es']          = 'Español';
-_languagesHash['sqi']          = _languagesHashOld['sq']          = 'Shqip';
-_languagesHash['srd']          = 'sardu';
-_languagesHash['srp']          = _languagesHashOld['sr']          = 'Српски';
-_languagesHash['srp-ec']       = _languagesHashOld['sr-ec']       = 'Српски (ћирилица)';
-_languagesHash['srp-el']       = _languagesHashOld['sr-el']       = 'Srpski (latinica)';
-_languagesHash['ssw']          = 'SiSwati';
-_languagesHash['sun']          = _languagesHashOld['su']          = 'Basa Sunda';
-_languagesHash['swa']          = _languagesHashOld['sw']          = 'Kiswahili';
-_languagesHash['swe']          = _languagesHashOld['sv']          = 'Svenska';
-_languagesHash['ses']          = 'Koyraboro Senni';
-_languagesHash['sh']           = 'Srpskohrvatski / Српскохрватски';
-_languagesHash['tah']          = 'Reo Tahiti';
-_languagesHash['tam']          = _languagesHashOld['ta']          = 'தமிழ்';
-_languagesHash['tat']          = 'татар теле';
-_languagesHash['tel']          = _languagesHashOld['te']          = 'తెలుగు';
-_languagesHash['tgk']          = 'тоҷикӣ';
-_languagesHash['tgl']          = _languagesHashOld['tl']          = 'Wikang Tagalog';
-_languagesHash['tha']          = _languagesHashOld['th']          = 'ไทย';
-_languagesHash['tir']          = 'ትግርኛ';
-_languagesHash['ton']          = 'faka Tonga';
-_languagesHash['tsn']          = 'Setswana';
-_languagesHash['tso']          = 'Xitsonga';
-_languagesHash['tuk']          = _languagesHashOld['tk']          = 'Türkmen dili';
-_languagesHash['tur']          = _languagesHashOld['tr']          = 'Türkçe';
-_languagesHash['twi']          = 'Twi';
-_languagesHash['tcy']          = 'ತುಳು';
-_languagesHash['tly']          = 'толышә зывон';
-_languagesHash['tt-cyrl']      = 'Татарча';
-_languagesHash['uig']          = 'ئۇيغۇرچە';
-_languagesHash['ug-arab']      = 'ئۇيغۇرچە';
-_languagesHash['ukr']          = _languagesHashOld['uk']          = 'Українська';
-_languagesHash['urd']          = _languagesHashOld['ur']          = 'اردو';
-_languagesHash['uzb']          = _languagesHashOld['uz']          = 'Oʻzbekcha';
-_languagesHash['ven']          = 'Tshivenḓa';
-_languagesHash['vec']          = 'Vèneto'
-_languagesHash['vie']          = _languagesHashOld['vi']          = 'Tiếng Việt';
-_languagesHash['vol']          = 'Volapük';
-_languagesHash['wln']          = 'walon';
-_languagesHash['wol']          = _languagesHashOld['yo']          = 'Wolof';
-_languagesHash['xho']          = 'isiXhosa';
-_languagesHash['yid']          = _languagesHashOld['yi']           = 'ייִדיש';
-_languagesHash['yor']          = 'Yorùbá';
-_languagesHash['zha']          = 'Saɯ cueŋƅ';
-_languagesHash['zho']          = _languagesHashOld['zh']          = '中文';
-_languagesHash['zho-hans']     = _languagesHashOld['zh-hans']     = '中文(简体)';
-_languagesHash['zho-hant']     = _languagesHashOld['zh-hant']     = '中文(繁體)';
-_languagesHash['zho-hk']       = _languagesHashOld['zh-hk']       = '中文(香港)';
-_languagesHash['zul']          = 'isiZulu';
-_languagesHash['zza']          = _languagesHashOld['diq']         = 'Zāzākī';
+};
+
+ _languagesHashOld = {
+  'af'          : _languagesHash['afr'],
+  'ar'          : _languagesHash['ara'],
+  'as'          : _languagesHash['asm'],
+  'az'          : _languagesHash['aze'],
+  'ba'          : _languagesHash['bak'],
+  'bm'          : _languagesHash['bam'],
+  'be'          : _languagesHash['bel'],
+  'bn'          : _languagesHash['ben'],
+  'br'          : _languagesHash['bre'],
+  'bg'          : _languagesHash['bul'],
+  'be-tarask'   : _languagesHash['bel-tasrask'],
+  'ca'          : _languagesHash['cat'],
+  'cs'          : _languagesHash['ces'],
+  'cv'          : _languagesHash['chv'],
+  'cy'          : _languagesHash['cym'],
+  'da'          : _languagesHash['dan'],
+  'de'          : _languagesHash['deu'],
+  'el'          : _languagesHash['ell'],
+  'en'          : _languagesHash['eng'],
+  'eo'          : _languagesHash['epo'],
+  'et'          : _languagesHash['est'],
+  'bn'          : _languagesHash['ebn'],
+  'fo'          : _languagesHash['fao'],
+  'fa'          : _languagesHash['fas'],
+  'fi'          : _languagesHash['fin'],
+  'fr'          : _languagesHash['fra'],
+  'ff'          : _languagesHash['ful'],
+  'gl'          : _languagesHash['glg'],
+  'gn'          : _languagesHash['grn'],
+  'gu'          : _languagesHash['guj'],
+  'ht'          : _languagesHash['hat'],
+  'ha'          : _languagesHash['hau'],
+  'he'          : _languagesHash['heb'],
+  'hi'          : _languagesHash['hin'],
+  'hr'          : _languagesHash['hrv'],
+  'hu'          : _languagesHash['hun'],
+  'hy'          : _languagesHash['hye'],
+  'ie'          : _languagesHash['ile'],
+  'ia'          : _languagesHash['ina'],
+  'id'          : _languagesHash['ind'],
+  'it'          : _languagesHash['ita'],
+  'jv'          : _languagesHash['jav'],
+  'ja'          : _languagesHash['jpn'],
+  'kn'          : _languagesHash['kan'],
+  'ka'          : _languagesHash['kat'],
+  'kk'          : _languagesHash['kaz'],
+  'km'          : _languagesHash['khm'],
+  'ky'          : _languagesHash['kir'],
+  'ko'          : _languagesHash['kor'],
+  'ko-kp'       : _languagesHash['kor-kp'],
+  'ku'          : _languagesHash['kur'],
+  'la'          : _languagesHash['lat'],
+  'lv'          : _languagesHash['lav'],
+  'li'          : _languagesHash['lim'],
+  'lt'          : _languagesHash['lit'],
+  'lb'          : _languagesHash['ltz'],
+  'ml'          : _languagesHash['mal'],
+  'mr'          : _languagesHash['mar'],
+  'mk'          : _languagesHash['mkd'],
+  'mg'          : _languagesHash['mlg'],
+  'mt'          : _languagesHash['mlt'],
+  'mn'          : _languagesHash['mon'],
+  'ms'          : _languagesHash['msa'],
+  'my'          : _languagesHash['mya'],
+  'ne'          : _languagesHash['nep'],
+  'nl'          : _languagesHash['nld'],
+  'nn'          : _languagesHash['nno'],
+  'nb'          : _languagesHash['nob'],
+  'no'          : _languagesHash['nor'],
+  'oc'          : _languagesHash['oci'],
+  'or'          : _languagesHash['ori'],
+  'pl'          : _languagesHash['pol'],
+  'pt'          : _languagesHash['por'],
+  'pt-br'       : _languagesHash['por-pt'],
+  'ps'          : _languagesHash['pus'],
+  'qu'          : _languagesHash['que'],
+  'rm'          : _languagesHash['roh'],
+  'ro'          : _languagesHash['ron'],
+  'ru'          : _languagesHash['rus'],
+  'sa'          : _languagesHash['san'],
+  'si'          : _languagesHash['sin'],
+  'sk'          : _languagesHash['slk'],
+  'sl'          : _languagesHash['slv'],
+  'es'          : _languagesHash['spa'],
+  'sq'          : _languagesHash['sqi'],
+  'sr'          : _languagesHash['srp'],
+  'sr-ec'       : _languagesHash['srp-ec'],
+  'sr-el'       : _languagesHash['srp-el'],
+  'su'          : _languagesHash['sun'],
+  'sw'          : _languagesHash['swa'],
+  'sv'          : _languagesHash['swe'],
+  'ta'          : _languagesHash['tam'],
+  'te'          : _languagesHash['tel'],
+  'tl'          : _languagesHash['tgl'],
+  'th'          : _languagesHash['tha'],
+  'tk'          : _languagesHash['tuk'],
+  'tr'          : _languagesHash['tur'],
+  'uk'          : _languagesHash['ukr'],
+  'ur'          : _languagesHash['urd'],
+  'uz'          : _languagesHash['uzb'],
+  'vi'          : _languagesHash['vie'],
+  'yo'          : _languagesHash['wol'],
+  'yi'          : _languagesHash['yid'],
+  'zh'          : _languagesHash['zho'],
+  'zh-hans'     : _languagesHash['zho-hans'],
+  'zh-hant'     : _languagesHash['zho-hant'],
+  'zh-hk'       : _languagesHash['zho-hk'],
+  'diq'         : _languagesHash['zza']   
+ };
 
 function getLanguageNameFromISO(code) {
     var language = _languagesHash[code] || _languagesHashOld[code] || '';
