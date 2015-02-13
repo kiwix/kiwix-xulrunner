@@ -1572,7 +1572,10 @@ const UIBrowserProgressListener = {
 /* Open the "print" dialog windows */
 function print() {
     try{
-	PrintUtils.print();
+	var webBrowserPrint = getHtmlRenderer().contentWindow
+	    .QueryInterface(Components.interfaces.nsIInterfaceRequestor)
+	    .getInterface(Components.interfaces.nsIWebBrowserPrint);
+	webBrowserPrint.print(PrintUtils.getPrintSettings(), null);
     } catch(exception) {
 	displayErrorDialog(exception);
 	return false;
