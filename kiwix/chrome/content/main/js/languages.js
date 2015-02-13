@@ -4,8 +4,8 @@ var _languagesHash          = Array();
 var _languagesRegexHash     = Array();
 
 /* Initialize the languages arrays */
-/* Based in ISO 639-2 and 639-3 codes */
 /* Order alphabetically by _languagesHash key */
+/* Based in ISO 639-3 codes */
 _languagesHash = {
   'aar'           : 'Afaraf',
   'abk'           : 'аҧсуа бызшәа, аҧсшәа',
@@ -186,6 +186,7 @@ _languagesHash = {
 
 };
 
+/* Based in ISO 639-1 and 639-2 codes */
  _languagesHashOld = {
   'af'          : _languagesHash['afr'],
   'ar'          : _languagesHash['ara'],
