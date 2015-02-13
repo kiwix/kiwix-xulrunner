@@ -182,7 +182,7 @@ _languagesHash = {
   'snd'           : 'सिन्धी',
   'som'           : 'Soomaaliga',
   'sot'           : 'Sesotho',
-  'spa'           : 'Español',
+  'spa'           : 'Español'
 
 };
 
