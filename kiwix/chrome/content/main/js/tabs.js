@@ -118,7 +118,7 @@ function openNewTab(focus) {
     /* If only one tab was displayed, then the tab close button was
      * masked. This code make it again visible */
     if (document.getElementsByTagName('tab').length == 2) {
-	document.getElementsByClassName('tabs-close-button')[0].setAttribute("style", "display: visible;");
+	document.getElementsByClassName('tabs-close-button')[0].setAttribute("style", "visibility: visible;");
     }
 
     if (focus)
