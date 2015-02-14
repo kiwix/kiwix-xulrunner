@@ -208,6 +208,7 @@ function switchTab(tabId, tab) {
     var tabHeader = document.getElementById("tab-header-" + tabId);
     var tabPanel = document.getElementById("tab-panel-" + tabId);
 
+    currentTabId = tabId;
     updateHistoryNavigationButtons();
     getFindBar().browser = getHtmlRenderer();
     var title = getTitle();
@@ -224,7 +225,6 @@ function switchTab(tabId, tab) {
 
     tabBox.selectedTab = tabHeader;
     tabBox.selectedPanel = tabPanel;
-    currentTabId = tabId;
 }
 
 function getTitle(tabId) {
