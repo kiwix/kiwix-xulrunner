@@ -207,9 +207,7 @@ function switchTab(tabId, tab) {
     var tabBox = document.getElementById("tab-box");
     var tabHeader = document.getElementById("tab-header-" + tabId);
     var tabPanel = document.getElementById("tab-panel-" + tabId);
-    tabBox.selectedTab = tabHeader;
-    tabBox.selectedPanel = tabPanel;
-    currentTabId = tabId;
+
     updateHistoryNavigationButtons();
     getFindBar().browser = getHtmlRenderer();
     var title = getTitle();
@@ -223,6 +221,10 @@ function switchTab(tabId, tab) {
 
     if (_winIsFullScreen)
         addFSEventToTab(tabId);
+
+    tabBox.selectedTab = tabHeader;
+    tabBox.selectedPanel = tabPanel;
+    currentTabId = tabId;
 }
 
 function getTitle(tabId) {
