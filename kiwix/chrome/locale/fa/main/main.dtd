@@ -17,7 +17,7 @@
 <!ENTITY main.hideLibrary               "پنهان کردن کتابخانه">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "اخیراً گشوده‌شده...">
-<!ENTITY main.saveFile                  "ذخیرهٔ صفحه به‌عنوان...">
+<!ENTITY main.saveFile                  "ذخیرهٔ صفحه به عنوان...">
 <!ENTITY main.saveFile.accesskey        "S">
 <!ENTITY main.print                     "چاپ">
 <!ENTITY main.print.accesskey           "P">
