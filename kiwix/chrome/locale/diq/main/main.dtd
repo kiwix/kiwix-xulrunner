@@ -151,7 +151,7 @@
 <!ENTITY main.library.sortBy.author             "Nuskar">
 <!ENTITY main.library.sortBy.publisher          "Hesrekar">
 <!ENTITY main.library.filterBy                  "Filtrey cı">
-<!ENTITY main.library.filterBy.fileSize         "Ebata dosya">
+<!ENTITY main.library.filterBy.fileSize         "Ebadê dosya">
 <!ENTITY main.library.filterBy.language         "Zıwan">
 <!ENTITY main.library.filterBy.language.all     "Pêro">
 <!ENTITY main.library.filterBy.author           "Nuskar">
