@@ -6,6 +6,7 @@ var _languagesRegexHash     = Array();
 /* Initialize the languages arrays */
 /* Order alphabetically by _languagesHash key */
 /* Based in ISO 639-3 codes */
+/* source: http://www-01.sil.org/iso639-3/iso-639-3.tab */
 _languagesHash = {
   'aar'           : 'Afaraf',
   'abk'           : 'аҧсуа бызшәа, аҧсшәа',
@@ -67,6 +68,7 @@ _languagesHash = {
   'fry'           : 'Frysk',
   'ful'           : 'Fulfulde',
   'frp'           : 'Provençau',
+  'frr'           : 'Nordfriisk',
   'gla'           : 'Gàidhlig',
   'gle'           : 'Gaeilge',
   'glg'           : 'Galego',
@@ -74,6 +76,7 @@ _languagesHash = {
   'grn'           : 'Avañe\'ẽ',
   'guj'           : 'ગુજરાતી',
   'gsw'           : 'Schwyzerdütsch',
+  'hak'           : '客家語/Hak-kâ-ngî',
   'hat'           : 'Kreyol ayisyen',
   'hau'           : 'Hausa',
   'heb'           : 'עברית',
@@ -156,6 +159,7 @@ _languagesHash = {
   'orm'           : 'Afaan Oromoo',
   'oss'           : 'ирон æвзаг',
   'pan'           : 'ਪੰਜਾਬੀ',
+  'pcd'           : 'Picard',
   'pli'           : 'पाऴि',
   'pol'           : 'Język polski',
   'por'           : 'Português',
