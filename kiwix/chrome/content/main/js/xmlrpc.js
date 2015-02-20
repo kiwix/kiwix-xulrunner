@@ -1,63 +1,63 @@
 /**
-* JS-XMLRPC: Yet Another XMLRPC Library, in Javascript!
-*
-* ...as if the world needed it...
-*
-* FOR COMPLETE API DOCS, READ PHP-XMLRPC API DOCS. THE SAME API (almost) IS IMPLEMENTED HERE!
-*
-* Many thanks to Jan-Klaas Kollhof for JSOLAIT, and to the Yahoo YUI team, for
-* providing the building blocks for all of this
-*
-* @version $Id: xmlrpc_lib.js,v 1.30 2008/07/23 19:28:36 ggiunta Exp $
-* @author Gaetano Giunta
-* @copyright (c) 2006-2009 G. Giunta
-* @license code licensed under the BSD License: http://phpxmlrpc.sourceforge.net/jsxmlrpc/license.txt
-*
-* KNOWN DIFFERENCES FROM PHP-XMLRPC:
-* + internal struct of xmlrpcval is slightly different
-* + xmlrpcresp.serialize() produces complete xml chunk, including xml prologue
-* + adding data to a struct val using colliding keys might produce different results
-* + xmlrpcresp has no private member 'content-type'
-* + values of global object 'xmlrpcTypes' differ (keys are the same)
-* + xmlrpcval::addScalar() does not coerce values when declaring them as boolean
-* + xmlrpcmsg::parseResponse() can take a string as second parameter (full response headers)
-* + objects have an init() constructor method (needed for subclassing)
-* + client by default has keepalive ON, uses HTTP 1.1 (if browser set to use HTTP 1.1)
-* + client by default will send to server any cookie received
-* + client does not support ssl certs, proxies, ntlm auth (?)
-* + client by default will support receiving compresssed content, many charsets, as per browser capabilities and settings
-* + client supports making async calls. send() timeouts are ignored in sync calls
-* + lib output is performed by two functions: xmlrpc_error_log and xmlrpc_debug_log
-* + method names ARE KEY SENSISTIVE IN JAVASCRIPT, and this lib respects camelCase convention
-*
-* MISSING FEATURES:
-* - xmlrpc_decode_xml
-* - handling of charset encoding (where explicitly requested)
-* - compression of requests
-* - handling of compression, chunked encoding in parseResponseHeaders
-* - JSLint, testsuite, speed tests, demo files
-* - htmlentities only encodes as much as php function htmlspecialchars
-* - encoding/decoding of anon js classes via an xml attribute (since it is hard to recover a class name, we could encode instead all methods code)
-* - complete parsing of: new xmlrpcclient('http://james:bond@a.complete/uri')
-* - using client credentials for https auth
-* - support for Rhino as host environment. Unluckily, it misses XHR (but see http://www.ibm.com/developerworks/webservices/library/ws-ajax1/ and http://jqueryjs.googlecode.com/svn/trunk/jquery/build/runtest/env.js for solutions)
-*
-* IMPROVEMENTS:
-* @todo do not add methods to js base objects for serialization (use instanceof instead?)
-* @todo optimize generation of strings using array and join('') instead of strings and + (nb: in Opera it's slower, in IE faster...)
-* @todo add charset support to xmlrpc_encode_entities
-*
-* @todo when creating date xmlrpc values, save date objects instead of strings?
-* @todo more in general, is it a good idea to save native js types inside xmlrpcvals
-*       instead of native js objects? test memory/speed differences
-* @todo when decoding xmlrpc int and double vals, check if we can skip regexp validation and be faster
-* @todo fix base64_encode of empty strings (now it returns '0' on all browsers but FF)
-* @todo find a way to add async+timeout msg send when running in WSH
-* @todo find a more elegant solution to the 'hacks' in xmlrpc_debug_log() and htmlentities() for WSH case
-*/
+ * JS-XMLRPC: Yet Another XMLRPC Library, in Javascript!
+ *
+ * ...as if the world needed it...
+ *
+ * FOR COMPLETE API DOCS, READ PHP-XMLRPC API DOCS. THE SAME API (almost) IS IMPLEMENTED HERE!
+ *
+ * Many thanks to Jan-Klaas Kollhof for JSOLAIT, and to the Yahoo YUI team, for
+ * providing the building blocks for all of this
+ *
+ * @version $Id: xmlrpc_lib.js,v 1.30 2008/07/23 19:28:36 ggiunta Exp $
+ * @author Gaetano Giunta
+ * @copyright (c) 2006-2009 G. Giunta
+ * @license code licensed under the BSD License: http://phpxmlrpc.sourceforge.net/jsxmlrpc/license.txt
+ *
+ * KNOWN DIFFERENCES FROM PHP-XMLRPC:
+ * + internal struct of xmlrpcval is slightly different
+ * + xmlrpcresp.serialize() produces complete xml chunk, including xml prologue
+ * + adding data to a struct val using colliding keys might produce different results
+ * + xmlrpcresp has no private member 'content-type'
+ * + values of global object 'xmlrpcTypes' differ (keys are the same)
+ * + xmlrpcval::addScalar() does not coerce values when declaring them as boolean
+ * + xmlrpcmsg::parseResponse() can take a string as second parameter (full response headers)
+ * + objects have an init() constructor method (needed for subclassing)
+ * + client by default has keepalive ON, uses HTTP 1.1 (if browser set to use HTTP 1.1)
+ * + client by default will send to server any cookie received
+ * + client does not support ssl certs, proxies, ntlm auth (?)
+ * + client by default will support receiving compresssed content, many charsets, as per browser capabilities and settings
+ * + client supports making async calls. send() timeouts are ignored in sync calls
+ * + lib output is performed by two functions: xmlrpc_error_log and xmlrpc_debug_log
+ * + method names ARE KEY SENSISTIVE IN JAVASCRIPT, and this lib respects camelCase convention
+ *
+ * MISSING FEATURES:
+ * - xmlrpc_decode_xml
+ * - handling of charset encoding (where explicitly requested)
+ * - compression of requests
+ * - handling of compression, chunked encoding in parseResponseHeaders
+ * - JSLint, testsuite, speed tests, demo files
+ * - htmlentities only encodes as much as php function htmlspecialchars
+ * - encoding/decoding of anon js classes via an xml attribute (since it is hard to recover a class name, we could encode instead all methods code)
+ * - complete parsing of: new xmlrpcclient('http://james:bond@a.complete/uri')
+ * - using client credentials for https auth
+ * - support for Rhino as host environment. Unluckily, it misses XHR (but see http://www.ibm.com/developerworks/webservices/library/ws-ajax1/ and http://jqueryjs.googlecode.com/svn/trunk/jquery/build/runtest/env.js for solutions)
+ *
+ * IMPROVEMENTS:
+ * @todo do not add methods to js base objects for serialization (use instanceof instead?)
+ * @todo optimize generation of strings using array and join('') instead of strings and + (nb: in Opera it's slower, in IE faster...)
+ * @todo add charset support to xmlrpc_encode_entities
+ *
+ * @todo when creating date xmlrpc values, save date objects instead of strings?
+ * @todo more in general, is it a good idea to save native js types inside xmlrpcvals
+ *       instead of native js objects? test memory/speed differences
+ * @todo when decoding xmlrpc int and double vals, check if we can skip regexp validation and be faster
+ * @todo fix base64_encode of empty strings (now it returns '0' on all browsers but FF)
+ * @todo find a way to add async+timeout msg send when running in WSH
+ * @todo find a more elegant solution to the 'hacks' in xmlrpc_debug_log() and htmlentities() for WSH case
+ */
 
 /******************************************************************************/
-// global variables
+//global variables
 
 var xmlrpcI4 = 'i4';
 var xmlrpcInt = 'int';
@@ -72,75 +72,75 @@ var xmlrpcValue = 'undefined';
 var xmlrpcNull = 'null';
 
 /**
-* @final
-*/
+ * @final
+ */
 var xmlrpcTypes = {
-	xmlrpcI4 : 4,
-	xmlrpcInt: 4,
-	xmlrpcBoolean: 6,
-	xmlrpcString: 1,
-	xmlrpcDouble: 5,
-	xmlrpcDateTime: 7,
-	xmlrpcBase64: 8,
-	xmlrpcArray: 2,
-	xmlrpcStruct: 3,
-	xmlrpcNull: 9
+		xmlrpcI4 : 4,
+		xmlrpcInt: 4,
+		xmlrpcBoolean: 6,
+		xmlrpcString: 1,
+		xmlrpcDouble: 5,
+		xmlrpcDateTime: 7,
+		xmlrpcBase64: 8,
+		xmlrpcArray: 2,
+		xmlrpcStruct: 3,
+		xmlrpcNull: 9
 }
 
 /**
-* Library name. Used in the client's httprequests to identify self to server
-* @type string
-*/
+ * Library name. Used in the client's httprequests to identify self to server
+ * @type string
+ */
 var xmlrpcName = 'XML-RPC for JAVASCRIPT';
 /**
-* Library version number. Used in the client's httprequests to identify self to server
-* @type string
-*/
+ * Library version number. Used in the client's httprequests to identify self to server
+ * @type string
+ */
 var xmlrpcVersion = '0.4';
 
-// let user errors start at 800
+//let user errors start at 800
 var xmlrpcerruser = 800;
-// let XML parse errors start at 100
+//let XML parse errors start at 100
 var xmlrpcerrxml = 100;
 
 var xmlrpcerr = {
-	invalid_return: 2,
-	http_error: 5,
-	no_data: 6,
-	no_curl: 16,
-	multicall_error: 18,
-	no_parser: 19
+		invalid_return: 2,
+		http_error: 5,
+		no_data: 6,
+		no_curl: 16,
+		multicall_error: 18,
+		no_parser: 19
 }
 
 var xmlrpcstr = {
-	invalid_return: 'Invalid return payload: enable debugging to examine incoming payload',
-	http_error: 'Didn\'t receive 200 OK from remote server.',
-	no_data: 'No data received from server.',
-	no_curl: 'no support for executing http requests compiled in',
-	multicall_error: 'Received from server invalid multicall response',
-	no_parser: 'no support for parsing xml compiled in'
+		invalid_return: 'Invalid return payload: enable debugging to examine incoming payload',
+		http_error: 'Didn\'t receive 200 OK from remote server.',
+		no_data: 'No data received from server.',
+		no_curl: 'no support for executing http requests compiled in',
+		multicall_error: 'Received from server invalid multicall response',
+		no_parser: 'no support for parsing xml compiled in'
 }
 
-// set to TRUE to enable correct decoding of <NIL/> and <EX:NIL/> values
+//set to TRUE to enable correct decoding of <NIL/> and <EX:NIL/> values
 var xmlrpc_null_extension = false;
-// set to TRUE to enable encoding of php NULL values to <EX:NIL/> instead of <NIL/>
+//set to TRUE to enable encoding of php NULL values to <EX:NIL/> instead of <NIL/>
 var xmlrpc_null_apache_encoding = false;
 
 var _xh = null;
 
-// Please note that MS says you should only use versions 6 and 3...
-// http://blogs.msdn.com/xmlteam/archive/2006/10/23/using-the-right-version-of-msxml-in-internet-explorer.aspx
+//Please note that MS says you should only use versions 6 and 3...
+//http://blogs.msdn.com/xmlteam/archive/2006/10/23/using-the-right-version-of-msxml-in-internet-explorer.aspx
 var _msxml_progid = ['MSXML2.XMLHTTP.6.0', 'MSXML2.XMLHTTP.3.0', 'MSXML2.XMLHTTP.4.0', 'MSXML2.XMLHTTP','Microsoft.XMLHTTP'];
 var _msxmldoc_progid = ['MSXML2.DOMDOCUMENT.6.0', 'MSXML2.DOMDOCUMENT.3.0', 'MSXML2.DOMDOCUMENT.4.0', 'MSXML2.DOMDOCUMENT','Microsoft.XMLDOM'];
 
 /******************************************************************************/
 /**
-* @param {string} path
-* @param {string} server
-* @param {integer} port optional. Defaults to 80 for http, 443 for https
-* @param {string} method not in use yet. Valid values: 'https', 'http'
-* @constructor
-* @todo verify support for:
+ * @param {string} path
+ * @param {string} server
+ * @param {integer} port optional. Defaults to 80 for http, 443 for https
+ * @param {string} method not in use yet. Valid values: 'https', 'http'
+ * @constructor
+ * @todo verify support for:
 		https,
 		proxies,
 		auth types,
@@ -148,7 +148,7 @@ var _msxmldoc_progid = ['MSXML2.DOMDOCUMENT.6.0', 'MSXML2.DOMDOCUMENT.3.0', 'MSX
 		response/request compression, ---> response = transparent by the browser, request === to do
 		charset transcoding, ---> done transparently (?) by the browser
 		...
-*/
+ */
 function xmlrpc_client (path, server, port, method)
 {
 	/** @private **/
@@ -184,9 +184,9 @@ function xmlrpc_client (path, server, port, method)
 }
 
 /**
-* @todo correctly split url into components if given as single parameter
-* @private
-*/
+ * @todo correctly split url into components if given as single parameter
+ * @private
+ */
 xmlrpc_client.prototype.init = function (path, server, port, method)
 {
 	if (method === undefined && port === undefined && server === undefined)
@@ -237,24 +237,24 @@ xmlrpc_client.prototype.init = function (path, server, port, method)
 }
 
 /**
-* Enables/disables the echoing to screen of the xmlrpc responses received
-* @param {integer} dbg values 0, 1 and 2 are supported (2 = echo sent msg too, before received response)
-* @public
-*/
+ * Enables/disables the echoing to screen of the xmlrpc responses received
+ * @param {integer} dbg values 0, 1 and 2 are supported (2 = echo sent msg too, before received response)
+ * @public
+ */
 xmlrpc_client.prototype.setDebug = function (dbg)
 {
 	this.debug = dbg;
 }
 
 /**
-* Enables/disables reception of compressed xmlrpc responses.
-* Note that enabling reception of compressed responses merely adds some standard
-* http headers to xmlrpc requests. It is up to the xmlrpc server to return
-* compressed responses when receiving such requests.
-* @param {string} compmethod either 'gzip', 'deflate', 'any', 'auto' or ''. 'auto' means the javascript host (eg. the browser) will decide what to do
-* @public
-* @bug on IE setting does not seem to have any effect?
-*/
+ * Enables/disables reception of compressed xmlrpc responses.
+ * Note that enabling reception of compressed responses merely adds some standard
+ * http headers to xmlrpc requests. It is up to the xmlrpc server to return
+ * compressed responses when receiving such requests.
+ * @param {string} compmethod either 'gzip', 'deflate', 'any', 'auto' or ''. 'auto' means the javascript host (eg. the browser) will decide what to do
+ * @public
+ * @bug on IE setting does not seem to have any effect?
+ */
 xmlrpc_client.prototype.setAcceptedCompression = function (compmethod)
 {
 	if (compmethod == 'auto')
@@ -266,12 +266,12 @@ xmlrpc_client.prototype.setAcceptedCompression = function (compmethod)
 }
 
 /**
-* Add some http BASIC AUTH credentials, used by the client to authenticate
-* @param {string} username
-* @param {string} password
-* @param {integer} authtype Not in use (yet). See curl_setopt man page for supported auth types. Defaults to CURLAUTH_BASIC (basic auth)
-* @public
-*/
+ * Add some http BASIC AUTH credentials, used by the client to authenticate
+ * @param {string} username
+ * @param {string} password
+ * @param {integer} authtype Not in use (yet). See curl_setopt man page for supported auth types. Defaults to CURLAUTH_BASIC (basic auth)
+ * @public
+ */
 xmlrpc_client.prototype.setCredentials = function (username, password, authtype)
 {
 	this.username = username;
@@ -286,25 +286,25 @@ xmlrpc_client.prototype.setCredentials = function (username, password, authtype)
 }
 
 /**
-* Set user-agent string that will be used by this client instance
-* in http headers sent to the server
-* @param {string} agentstring
-* @public
-*/
+ * Set user-agent string that will be used by this client instance
+ * in http headers sent to the server
+ * @param {string} agentstring
+ * @public
+ */
 xmlrpc_client.prototype.setUserAgent = function(agentstring)
 {
 	this.user_agent = agentstring;
 }
 /**
-* Send an xmlrpc request.
-*
-* @param {mixed} msg The message object, or an array of messages for using multicall, or the complete xml representation of a request
-* @param {integer} timeout Connection timeout, in seconds. If unspecified, or 0 a platform specific timeout will apply. Used only with async calls and callback faunctions.
-* @param {string|object} if string: 'method' - if left unspecified, the http protocol chosen during creation of the object will be used
-*                        if object: callback function that accepts an xmlrpcresp obj as parameter
-* @type xmlrpcresp
-* @public
-*/
+ * Send an xmlrpc request.
+ *
+ * @param {mixed} msg The message object, or an array of messages for using multicall, or the complete xml representation of a request
+ * @param {integer} timeout Connection timeout, in seconds. If unspecified, or 0 a platform specific timeout will apply. Used only with async calls and callback faunctions.
+ * @param {string|object} if string: 'method' - if left unspecified, the http protocol chosen during creation of the object will be used
+ *                        if object: callback function that accepts an xmlrpcresp obj as parameter
+ * @type xmlrpcresp
+ * @public
+ */
 xmlrpc_client.prototype.send = function (msg, timeout, method)
 {
 	var async = false;
@@ -417,35 +417,35 @@ xmlrpc_client.prototype.send = function (msg, timeout, method)
 	try
 	{
 
-	// optionally deny reception of deflated responses
-	if (this.accepted_compression != 'auto')
-	{
-	    httpconn.setRequestHeader('Accept-Encoding', this.accepted_compression.join(','));
-	}
+		// optionally deny reception of deflated responses
+		if (this.accepted_compression != 'auto')
+		{
+			httpconn.setRequestHeader('Accept-Encoding', this.accepted_compression.join(','));
+		}
 
-	/// @todo add support for setting cookies by hand
+		/// @todo add support for setting cookies by hand
 
-	httpconn.setRequestHeader('User-Agent', user_agent);
-	httpconn.setRequestHeader('Content-type', msg.content_type);
-	if (!this.keepalive)
-	{
-		httpconn.setRequestHeader('Connection', 'close');
-		httpconn.setRequestHeader('Keep-Alive', ''); // harmless on IE, removes header in FF
-	}
-	// clear http headers that browsers add on their own
+		httpconn.setRequestHeader('User-Agent', user_agent);
+		httpconn.setRequestHeader('Content-type', msg.content_type);
+		if (!this.keepalive)
+		{
+			httpconn.setRequestHeader('Connection', 'close');
+			httpconn.setRequestHeader('Keep-Alive', ''); // harmless on IE, removes header in FF
+		}
+		// clear http headers that browsers add on their own
 
-	// note: we assume that msg type is the same as type of expected response...
-	httpconn.setRequestHeader('Accept', msg.content_type);
-	//httpconn.setRequestHeader('Accept-lang', '');
+		// note: we assume that msg type is the same as type of expected response...
+		httpconn.setRequestHeader('Accept', msg.content_type);
+		//httpconn.setRequestHeader('Accept-lang', '');
 
-	// add http header for accepted charsets if user set them explicitly
-	if (this.accepted_charset_encodings != 'auto')
-	{
-		httpconn.setRequestHeader('Accept-Charset', this.accepted_charset_encodings.join(','));
-	}
+		// add http header for accepted charsets if user set them explicitly
+		if (this.accepted_charset_encodings != 'auto')
+		{
+			httpconn.setRequestHeader('Accept-Charset', this.accepted_charset_encodings.join(','));
+		}
 
-	// this one is set last, because Safari refuses to set it, and possibly raises an exception
-	httpconn.setRequestHeader('Content-length', payload.length);
+		// this one is set last, because Safari refuses to set it, and possibly raises an exception
+		httpconn.setRequestHeader('Content-length', payload.length);
 
 	}
 	catch(e) // exception on call of setRequestHeader(): do nothing
@@ -569,24 +569,24 @@ xmlrpc_client.prototype.handleTransaction = function(msg, httpconn, callback, is
 }
 
 /**
-* Send an array of request messages and return an array of responses.
-* Unless this.no_multicall has been set to true, it will try first
-* to use one single xmlrpc call to server method system.multicall, and
-* revert to sending many successive calls in case of failure.
-* This failure is also stored in this.no_multicall for subsequent calls.
-* Unfortunately, there is no server error code universally used to denote
-* the fact that multicall is unsupported, so there is no way to reliably
-* distinguish between that and a temporary failure.
-* If you are sure that server supports multicall and do not want to
-* fallback to using many single calls, set the fourth parameter to FALSE.
-*
-* @param {array} messages an array of xmlrpcmsg objects
-* @param {integer} timeout Not in use (yet). Connection timeout (in seconds) for every single request made
-* @param {string} method The http protocol variant to be used. If undefined, defaults to the variant used at obj creation time. Not in use (yet)
-* @param {boolean} fallback When true (the default value), upon receiveing an error during multicall, multiple single calls will be attempted
-* @type array
-* @public
-*/
+ * Send an array of request messages and return an array of responses.
+ * Unless this.no_multicall has been set to true, it will try first
+ * to use one single xmlrpc call to server method system.multicall, and
+ * revert to sending many successive calls in case of failure.
+ * This failure is also stored in this.no_multicall for subsequent calls.
+ * Unfortunately, there is no server error code universally used to denote
+ * the fact that multicall is unsupported, so there is no way to reliably
+ * distinguish between that and a temporary failure.
+ * If you are sure that server supports multicall and do not want to
+ * fallback to using many single calls, set the fourth parameter to FALSE.
+ *
+ * @param {array} messages an array of xmlrpcmsg objects
+ * @param {integer} timeout Not in use (yet). Connection timeout (in seconds) for every single request made
+ * @param {string} method The http protocol variant to be used. If undefined, defaults to the variant used at obj creation time. Not in use (yet)
+ * @param {boolean} fallback When true (the default value), upon receiveing an error during multicall, multiple single calls will be attempted
+ * @type array
+ * @public
+ */
 xmlrpc_client.prototype.multiCall = function (messages, timeout, method, fallback)
 {
 	// NB: trying to shoehorn extra functionality into existing syntax has resulted
@@ -663,11 +663,11 @@ xmlrpc_client.prototype.multiCall = function (messages, timeout, method, fallbac
 }
 
 /**
-* Attempt to boxcar msgs via system.multicall.
-* Returns either an array of xmlrpcreponses, an xmlrpc error response
-* or false (when received response does not respect valid multicall syntax)
-* @private
-*/
+ * Attempt to boxcar msgs via system.multicall.
+ * Returns either an array of xmlrpcreponses, an xmlrpc error response
+ * or false (when received response does not respect valid multicall syntax)
+ * @private
+ */
 xmlrpc_client.prototype._try_multicall = function (msgs, timeout, method)
 {
 	// Construct multicall message
@@ -733,36 +733,36 @@ xmlrpc_client.prototype._try_multicall = function (msgs, timeout, method)
 			//}
 			switch(val.length)
 			{
-				case 1:
-					if (val[0] === undefined)
-					{
-						return false;		// Bad value
-					}
-					// Normal return value
-					response[i] = new xmlrpcresp(val[0], 0, '', 'jsvals');
-					break;
-				case 2:
-					try
-					{
-						var code = val['faultCode'];
-						if (typeof(code) != 'number')
-						{
-							return false;
-						}
-						var str = val['faultString'];
-						if (typeof(str) != 'string')
-						{
-							return false;
-						}
-						response[i] = new xmlrpcresp(0, code, str);
-					}
-					catch (e)
+			case 1:
+				if (val[0] === undefined)
+				{
+					return false;		// Bad value
+				}
+				// Normal return value
+				response[i] = new xmlrpcresp(val[0], 0, '', 'jsvals');
+				break;
+			case 2:
+				try
+				{
+					var code = val['faultCode'];
+					if (typeof(code) != 'number')
 					{
 						return false;
 					}
-					break;
-				default:
+					var str = val['faultString'];
+					if (typeof(str) != 'string')
+					{
+						return false;
+					}
+					response[i] = new xmlrpcresp(0, code, str);
+				}
+				catch (e)
+				{
 					return false;
+				}
+				break;
+			default:
+				return false;
 			}
 		}
 		return response;
@@ -787,29 +787,29 @@ xmlrpc_client.prototype._try_multicall = function (msgs, timeout, method)
 			val = rets.arraymem(i);
 			switch(val.kindOf())
 			{
-				case 'array':
-					if (val.arraySize() != 1)
-					{
-						return false;		// Bad value
-					}
-					// Normal return value
-					response[i] = new xmlrpcresp(val.arrayMem(0));
-					break;
-				case 'struct':
-					var code = val.structmem('faultCode');
-					if (code.kindOf() != 'scalar' || code.scalarTyp() != 'int')
-					{
-						return false;
-					}
-					var str = val.structmem('faultString');
-					if (str.kindOf() != 'scalar' || str.scalarTyp() != 'string')
-					{
-						return false;
-					}
-					response[i] = new xmlrpcresp(0, code.scalarVal(), str.scalarVal());
-					break;
-				default:
+			case 'array':
+				if (val.arraySize() != 1)
+				{
+					return false;		// Bad value
+				}
+				// Normal return value
+				response[i] = new xmlrpcresp(val.arrayMem(0));
+				break;
+			case 'struct':
+				var code = val.structmem('faultCode');
+				if (code.kindOf() != 'scalar' || code.scalarTyp() != 'int')
+				{
 					return false;
+				}
+				var str = val.structmem('faultString');
+				if (str.kindOf() != 'scalar' || str.scalarTyp() != 'string')
+				{
+					return false;
+				}
+				response[i] = new xmlrpcresp(0, code.scalarVal(), str.scalarVal());
+				break;
+			default:
+				return false;
 			}
 		}
 		return response;
@@ -818,11 +818,11 @@ xmlrpc_client.prototype._try_multicall = function (msgs, timeout, method)
 
 /******************************************************************************/
 /**
-* Create an xmlrpcval object out of a plain javascript value
-* @param {mixed} val
-* @param {string} type Any valid xmlrpc type name (lowercase). If omitted, 'string' is assumed
-* @constructor
-*/
+ * Create an xmlrpcval object out of a plain javascript value
+ * @param {mixed} val
+ * @param {string} type Any valid xmlrpc type name (lowercase). If omitted, 'string' is assumed
+ * @constructor
+ */
 function xmlrpcval (val, type)
 {
 	/** @private **/
@@ -836,60 +836,60 @@ function xmlrpcval (val, type)
 }
 
 /**
-* @param {mixed} val
-* @param {string} type Any valid xmlrpc type name (lowercase). If null, 'string' is assumed
-* @private
-*/
+ * @param {mixed} val
+ * @param {string} type Any valid xmlrpc type name (lowercase). If null, 'string' is assumed
+ * @private
+ */
 xmlrpcval.prototype.init = function (val, type) {
 	if (val !== undefined)
 	{
 		this.me = val;
 		switch(type)
 		{
-			case 'string':
-			case undefined:
-			case '':
-				this.mytype = 1;
-				break;
-			case 'i4':
-			case 'int':
-				this.mytype = 4;
-				break;
-			case 'double':
-				this.mytype = 5;
-				break;
-			case 'boolean':
-				this.mytype = 6;
-				break;
-			case 'dateTime.iso8601':
-				this.mytype = 7;
-				break;
-			case 'base64':
-				this.mytype = 8;
-				break;
-			case 'null':
-				this.mytype = 9; // shall we be content with type 0?
-				break;
-			case 'array':
-				this.mytype = 2;
-				break;
-			case 'struct':
-				this.mytype = 3;
-				this.myidx = 0;
-				break;
-			default:
-				xmlrpc_error_log('XML-RPC: xmlrpcval::xmlrpcval: not a known type ('+type+')');
+		case 'string':
+		case undefined:
+		case '':
+			this.mytype = 1;
+			break;
+		case 'i4':
+		case 'int':
+			this.mytype = 4;
+			break;
+		case 'double':
+			this.mytype = 5;
+			break;
+		case 'boolean':
+			this.mytype = 6;
+			break;
+		case 'dateTime.iso8601':
+			this.mytype = 7;
+			break;
+		case 'base64':
+			this.mytype = 8;
+			break;
+		case 'null':
+			this.mytype = 9; // shall we be content with type 0?
+			break;
+		case 'array':
+			this.mytype = 2;
+			break;
+		case 'struct':
+			this.mytype = 3;
+			this.myidx = 0;
+			break;
+		default:
+			xmlrpc_error_log('XML-RPC: xmlrpcval::xmlrpcval: not a known type ('+type+')');
 		}
 	}
 }
 
 /**
-* Add a single javascript value to an (uninitialized) xmlrpcval
-* @param {mixed} val
-* @param {string} type
-* @return 1 or 0 on failure
-* @type integer
-*/
+ * Add a single javascript value to an (uninitialized) xmlrpcval
+ * @param {mixed} val
+ * @param {string} type
+ * @return 1 or 0 on failure
+ * @type integer
+ */
 xmlrpcval.prototype.addScalar = function (val, type) {
 	if (type === undefined)
 		type = 'string';
@@ -916,33 +916,33 @@ xmlrpcval.prototype.addScalar = function (val, type) {
 
 	switch(this.mytype)
 	{
-		case 0:
-			// a scalar, so set the value and remember we're scalar
-			this.me = val;
-			this.mytype = xmlrpcTypes[type];
-			return 1;
-		case 2:
-			// we're adding a scalar value to an array here
-			this.me[this.me.length] = new xmlrpcval(val, type);
-			return 1;
-		case 3:
-			xmlrpc_error_log('XML-RPC: xmlrpcval::addScalar: cannot add anonymous scalar to struct xmlrpcval');
-			return 0;
-		default:
-			xmlrpc_error_log('XML-RPC: xmlrpcval::addScalar: scalar xmlrpcval can have only one value');
-			return 0;
+	case 0:
+		// a scalar, so set the value and remember we're scalar
+		this.me = val;
+		this.mytype = xmlrpcTypes[type];
+		return 1;
+	case 2:
+		// we're adding a scalar value to an array here
+		this.me[this.me.length] = new xmlrpcval(val, type);
+		return 1;
+	case 3:
+		xmlrpc_error_log('XML-RPC: xmlrpcval::addScalar: cannot add anonymous scalar to struct xmlrpcval');
+		return 0;
+	default:
+		xmlrpc_error_log('XML-RPC: xmlrpcval::addScalar: scalar xmlrpcval can have only one value');
+	return 0;
 	}
 }
 
 /**
-* Add an array of xmlrpcval objects to an xmlrpcval (of type array or uninitialized)
-* @param {array} vals An array, whose members are xmlrpcvals
-* @return 1 or 0 on failure
-* @type integer
-* @public
-*
-* @todo add some checking for vals to be an array of xmlrpcvals?
-*/
+ * Add an array of xmlrpcval objects to an xmlrpcval (of type array or uninitialized)
+ * @param {array} vals An array, whose members are xmlrpcvals
+ * @return 1 or 0 on failure
+ * @type integer
+ * @public
+ *
+ * @todo add some checking for vals to be an array of xmlrpcvals?
+ */
 xmlrpcval.prototype.addArray = function (vals) {
 	if (this.mytype == 0) {
 		this.mytype = 2;
@@ -964,14 +964,14 @@ xmlrpcval.prototype.addArray = function (vals) {
 }
 
 /**
-* Add a list (anon obj) of named xmlrpcval objects to an xmlrpcval (of type struct or uninitialized)
-* @param {object} vals An anonymous object, whose members are xmlrpcvals
-* @return 1 or 0 on failure
-* @type integer
-* @public
-*
-* @todo add some checking for $vals to be an array?
-*/
+ * Add a list (anon obj) of named xmlrpcval objects to an xmlrpcval (of type struct or uninitialized)
+ * @param {object} vals An anonymous object, whose members are xmlrpcvals
+ * @return 1 or 0 on failure
+ * @type integer
+ * @public
+ *
+ * @todo add some checking for $vals to be an array?
+ */
 xmlrpcval.prototype.addStruct = function (vals)	{
 	if (this.mytype == 0)
 	{
@@ -995,115 +995,115 @@ xmlrpcval.prototype.addStruct = function (vals)	{
 }
 
 /**
-* Returns a string containing "struct", "array" or "scalar" describing the base type of the value
-* @type string
-* @public
-*/
+ * Returns a string containing "struct", "array" or "scalar" describing the base type of the value
+ * @type string
+ * @public
+ */
 xmlrpcval.prototype.kindOf = function () {
 	switch(this.mytype)
 	{
-		case 3:
-			return 'struct';
-		case 2:
-			return 'array';
-		case 0:
-			return 'undef';
-		default:
-			// note: this is hoping for nobody havingset this.me to, say, 666...
-			/// @todo make this more secure enumerating known scalar types: 1, 4-9
-			return 'scalar';
+	case 3:
+		return 'struct';
+	case 2:
+		return 'array';
+	case 0:
+		return 'undef';
+	default:
+		// note: this is hoping for nobody havingset this.me to, say, 666...
+		/// @todo make this more secure enumerating known scalar types: 1, 4-9
+		return 'scalar';
 	}
 }
 
 /**
-* Returns xml representation of the value. XML prologue not included
-* @param {string} charset_encoding the charset to be used for serialization. If null, US-ASCII is assumed
-* @type string
-* @public
-*/
+ * Returns xml representation of the value. XML prologue not included
+ * @param {string} charset_encoding the charset to be used for serialization. If null, US-ASCII is assumed
+ * @type string
+ * @public
+ */
 xmlrpcval.prototype.serialize = function (charset_encoding)
 {
 	/// @todo coerce scalar types when serializing...
 	switch(this.mytype)
 	{
-		case 1:
-			var result = '<string>'+xmlrpc_encode_entities(this.me)+'</string>';
-			break;
-		case 4:
-			if (isFinite(this.me) && this.me !== null)
-			{ /// @todo add true and false? looks like isFinite accepts them as valid...
-				var result = '<int>'+this.me.toFixed()+'</int>'; // as per Ecma-262, toFixed is better than toString...
-			}
-			else
-			{
-				var result = '<int>0</int>';
-			}
-			break;
-		case 5:
-			if (isFinite(this.me) && this.me !== null)
-			{ /// @todo add true and false? looks like isFinite accepts them as valid...
-				var result = '<double>'+this.me.toString()+'</double>';
-			}
-			else
-			{
-				var result = '<double>0</double>';
-			}
-			break;
-		case 6:
-			if (this.me)
-				var result = '<boolean>1</boolean>';
-			else
-				var result = '<boolean>0</boolean>';
-			break;
-		case 7:
-			// we are assuming we got a string, correctly formatted, here
-			/// @todo shall we add some xml-escaping here???
-			result = '<dateTime.iso8601>'+this.me+'</dateTime.iso8601>';
-			break;
-		case 8:
-			var result = '<base64>'+base64_encode(this.me)+'</base64>';
-			break;
-		case 9:
-		    if (xmlrpc_null_apache_encoding)
-		    {
-		        var result = '<ex:nil/>';
-		    }
-		    else
-		    {
-		        var result = '<nil/>';
-		    }
-			break;
-		case 2:
-			var result = '<array>\n<data>\n';
-			for(var i = 0; i < this.me.length; i++)
-			{
-				result = result+this.me[i].serialize(charset_encoding);
-				//alert(i+': '+this.me[i].kindof()+' - '+this.me[i].scalartyp());
-			}
-			result = result+'</data>\n</array>';
-			break;
-		case 3:
-			var result = '<struct>\n';
-			for(var attr in this.me)
-			{
-				result = result+'<member><name>'+xmlrpc_encode_entities(attr)+'</name>\n'+this.me[attr].serialize(charset_encoding)+'</member>\n';
-				//alert(attr+': '+this.me[attr].kindof()+' - '+this.me[attr].scalartyp());
-			}
-			result = result+'</struct>';
-			break;
-		default:
-			var result = '';
+	case 1:
+		var result = '<string>'+xmlrpc_encode_entities(this.me)+'</string>';
+		break;
+	case 4:
+		if (isFinite(this.me) && this.me !== null)
+		{ /// @todo add true and false? looks like isFinite accepts them as valid...
+			var result = '<int>'+this.me.toFixed()+'</int>'; // as per Ecma-262, toFixed is better than toString...
+		}
+		else
+		{
+			var result = '<int>0</int>';
+		}
+		break;
+	case 5:
+		if (isFinite(this.me) && this.me !== null)
+		{ /// @todo add true and false? looks like isFinite accepts them as valid...
+			var result = '<double>'+this.me.toString()+'</double>';
+		}
+		else
+		{
+			var result = '<double>0</double>';
+		}
+		break;
+	case 6:
+		if (this.me)
+			var result = '<boolean>1</boolean>';
+		else
+			var result = '<boolean>0</boolean>';
+		break;
+	case 7:
+		// we are assuming we got a string, correctly formatted, here
+		/// @todo shall we add some xml-escaping here???
+		result = '<dateTime.iso8601>'+this.me+'</dateTime.iso8601>';
+		break;
+	case 8:
+		var result = '<base64>'+base64_encode(this.me)+'</base64>';
+		break;
+	case 9:
+		if (xmlrpc_null_apache_encoding)
+		{
+			var result = '<ex:nil/>';
+		}
+		else
+		{
+			var result = '<nil/>';
+		}
+		break;
+	case 2:
+		var result = '<array>\n<data>\n';
+		for(var i = 0; i < this.me.length; i++)
+		{
+			result = result+this.me[i].serialize(charset_encoding);
+			//alert(i+': '+this.me[i].kindof()+' - '+this.me[i].scalartyp());
+		}
+		result = result+'</data>\n</array>';
+		break;
+	case 3:
+		var result = '<struct>\n';
+		for(var attr in this.me)
+		{
+			result = result+'<member><name>'+xmlrpc_encode_entities(attr)+'</name>\n'+this.me[attr].serialize(charset_encoding)+'</member>\n';
+			//alert(attr+': '+this.me[attr].kindof()+' - '+this.me[attr].scalartyp());
+		}
+		result = result+'</struct>';
+		break;
+	default:
+		var result = '';
 	}
 	return '<value>'+result+'</value>\n';
 }
 
 /**
-* Checks wheter a struct member with a given name is present.
-* Works only on xmlrpcvals of type struct.
-* @param {string} m the name of the struct member to be looked up
-* @type boolean
-* @public
-*/
+ * Checks wheter a struct member with a given name is present.
+ * Works only on xmlrpcvals of type struct.
+ * @param {string} m the name of the struct member to be looked up
+ * @type boolean
+ * @public
+ */
 xmlrpcval.prototype.structMemExists = function(m) {
 	for(var attr in this.me)
 		if (attr == m)
@@ -1112,30 +1112,30 @@ xmlrpcval.prototype.structMemExists = function(m) {
 }
 
 /**
-* Returns the value of a given struct member (an xmlrpcval object in itself).
-* @param {string} m the name of the struct member to be looked up
-* @return undefined if no such member exists
-* @type xmlrpcval
-* @public
-*/
+ * Returns the value of a given struct member (an xmlrpcval object in itself).
+ * @param {string} m the name of the struct member to be looked up
+ * @return undefined if no such member exists
+ * @type xmlrpcval
+ * @public
+ */
 xmlrpcval.prototype.structMem = function(m) {
 	return this.me[m];
 }
 
 /**
-* Reset internal pointer for xmlrpcvals of type struct.
-* @public
-*/
+ * Reset internal pointer for xmlrpcvals of type struct.
+ * @public
+ */
 xmlrpcval.prototype.structReset = function() {
 	this.myidx = 0;
 }
 
 /**
-* Returns next member element for xmlrpcvals of type struct.
-* @return An anon obj with members 0,key => element name, 1,value => element val, or false upon reaching end of struct
-* @type object
-* @public
-*/
+ * Returns next member element for xmlrpcvals of type struct.
+ * @return An anon obj with members 0,key => element name, 1,value => element val, or false upon reaching end of struct
+ * @type object
+ * @public
+ */
 xmlrpcval.prototype.structEach = function() {
 	++this.myidx;
 	var i = 0;
@@ -1149,73 +1149,73 @@ xmlrpcval.prototype.structEach = function() {
 }
 
 /**
-* Returns the value of a scalar xmlrpcval
-* @type mixed
-* @public
-*/
+ * Returns the value of a scalar xmlrpcval
+ * @type mixed
+ * @public
+ */
 xmlrpcval.prototype.scalarVal = function () {
 	return this.me;
 }
 
 /**
-* Returns the type of the xmlrpcval.
-* For integers, 'int' is always returned in place of 'i4'
-* @type string
-* @public
-*/
+ * Returns the type of the xmlrpcval.
+ * For integers, 'int' is always returned in place of 'i4'
+ * @type string
+ * @public
+ */
 xmlrpcval.prototype.scalarTyp = function () {
 	switch(this.mytype)
 	{
-		case 3:
-			return 'struct';
-		case 2:
-			return 'array';
-		case 1:
-			return 'string';
-		case 4:
-			return 'int';
-		case 5:
-			return 'double';
-		case 6:
-			return 'boolean';
-		case 7:
-			return 'dateTime.iso8601';
-		case 8:
-			return 'base64';
-		case 9:
-			return 'null';
-		case 0:
-			return 'undef';
-		default:
-			return 'undef: '+this.mytype; // on php version raises a warning instead
+	case 3:
+		return 'struct';
+	case 2:
+		return 'array';
+	case 1:
+		return 'string';
+	case 4:
+		return 'int';
+	case 5:
+		return 'double';
+	case 6:
+		return 'boolean';
+	case 7:
+		return 'dateTime.iso8601';
+	case 8:
+		return 'base64';
+	case 9:
+		return 'null';
+	case 0:
+		return 'undef';
+	default:
+		return 'undef: '+this.mytype; // on php version raises a warning instead
 	}
 }
 
 /**
-* Returns the m-th member of an xmlrpcval of array type
-* @param {integer} m the index of the value to be retrieved (zero based).
-* @return undefined if there is no such element
-* @type xmlrpcval
-* @public
-*/
+ * Returns the m-th member of an xmlrpcval of array type
+ * @param {integer} m the index of the value to be retrieved (zero based).
+ * @return undefined if there is no such element
+ * @type xmlrpcval
+ * @public
+ */
 xmlrpcval.prototype.arrayMem = function(m) {
 	return this.me[m];
 }
 
 /**
-* Returns the number of members in an xmlrpcval of array type
-* @type integer
-* @public
-*/
+ * Returns the number of members in an xmlrpcval of array type
+ * @type integer
+ * @public
+ */
 xmlrpcval.prototype.arraySize = function() {
 	return this.me.length;
 }
 
 /**
-* Returns the number of members in an xmlrpcval of struct type
-* @type integer
-* @public
-*/
+ * Returns the number of members in an xmlrpcval of struct type
+ * @type integer
+ * @public
+ */
 xmlrpcval.prototype.structSize = function() {
 	var i = 0;
 	for(var attr in this.me)
@@ -1224,19 +1224,19 @@ xmlrpcval.prototype.structSize = function() {
 }
 
 /**
-* @type xmlrpcval
-* @private
-*/
+ * @type xmlrpcval
+ * @private
+ */
 xmlrpcval.prototype.toXmlRpcVal = function() {
 	return this;
 }
 
 /******************************************************************************/
 /**
-* @param {string} meth Name of the method to be invoked
-* @param {array} pars list of parameters for method call (xmlrpcval objects)
-* @constructor
-*/
+ * @param {string} meth Name of the method to be invoked
+ * @param {array} pars list of parameters for method call (xmlrpcval objects)
+ * @constructor
+ */
 function xmlrpcmsg(meth, pars) {
 	/** @private **/
 	this.methodname = '';
@@ -1253,8 +1253,8 @@ function xmlrpcmsg(meth, pars) {
 }
 
 /**
-* @private
-*/
+ * @private
+ */
 xmlrpcmsg.prototype.init = function(meth, pars) {
 	this.methodname = meth;
 	if (pars != undefined)
@@ -1267,15 +1267,15 @@ xmlrpcmsg.prototype.init = function(meth, pars) {
 }
 
 /**
-* @private
-*/
+ * @private
+ */
 xmlrpcmsg.prototype.kindOf = function() {
 	return 'msg';
 }
 
 /**
-* @private
-*/
+ * @private
+ */
 xmlrpcmsg.prototype.xml_header = function (charset_encoding) {
 	if (charset_encoding != undefined && charset_encoding != '')
 	{
@@ -1288,15 +1288,15 @@ xmlrpcmsg.prototype.xml_header = function (charset_encoding) {
 }
 
 /**
-* @private
-*/
+ * @private
+ */
 xmlrpcmsg.prototype.xml_footer = function() {
 	return '</methodCall>';
 }
 
 /**
-* @private
-*/
+ * @private
+ */
 xmlrpcmsg.prototype.createPayload = function (charset_encoding) {
 	if (charset_encoding != undefined && charset_encoding != '')
 		this.content_type = 'text/xml; charset=' + charset_encoding;
@@ -1308,19 +1308,19 @@ xmlrpcmsg.prototype.createPayload = function (charset_encoding) {
 	for(var i = 0; i < this.params.length; i++)
 	{
 		this.payload = this.payload + '<param>\n' + this.params[i].serialize(charset_encoding) +
-			'</param>\n';
+		'</param>\n';
 	}
 	this.payload = this.payload + '</params>\n';
 	this.payload = this.payload + this.xml_footer();
 }
 
 /**
-* Gets/sets the xmlrpc method to be invoked
-* @param {string} meth the method to be set (leave empty not to set it)
-* @return the method that will be invoked
-* @type string
-* @public
-*/
+ * Gets/sets the xmlrpc method to be invoked
+ * @param {string} meth the method to be set (leave empty not to set it)
+ * @return the method that will be invoked
+ * @type string
+ * @public
+ */
 xmlrpcmsg.prototype.method = function (meth)
 {
 	if (meth != undefined && meth != '')
@@ -1331,12 +1331,12 @@ xmlrpcmsg.prototype.method = function (meth)
 }
 
 /**
-* Returns xml representation of the message. XML prologue included
-* @param {string} charset_encoding The charset to be used for serialization. If null, US-ASCII is assumed
-* @return the xml representation of the message, xml prologue included
-* @type string
-* @public
-*/
+ * Returns xml representation of the message. XML prologue included
+ * @param {string} charset_encoding The charset to be used for serialization. If null, US-ASCII is assumed
+ * @return the xml representation of the message, xml prologue included
+ * @type string
+ * @public
+ */
 xmlrpcmsg.prototype.serialize = function (charset_encoding)
 {
 	this.createPayload(charset_encoding);
@@ -1344,12 +1344,12 @@ xmlrpcmsg.prototype.serialize = function (charset_encoding)
 }
 
 /**
-* Add a parameter to the list of parameters to be used upon method invocation
-* @param {xmlrpcval} par
-* @return false on failure (when parameter par is not of correct type)
-* @type boolean
-* @public
-*/
+ * Add a parameter to the list of parameters to be used upon method invocation
+ * @param {xmlrpcval} par
+ * @return false on failure (when parameter par is not of correct type)
+ * @type boolean
+ * @public
+ */
 xmlrpcmsg.prototype.addParam = function (par) {
 	/// @todo: add check: do not add to self params which are not xmlrpcvals
 	if (typeof(par) == 'object') // && )
@@ -1364,26 +1364,26 @@ xmlrpcmsg.prototype.addParam = function (par) {
 }
 
 /**
-* Returns the nth parameter in the message. The index zero-based.
-* @param {integer} i the index of the parameter to fetch (zero based)
-* @return the i-th parameter (undefined if index i is bigger than current number of params)
-* @type xmlrpcval
-* @public
-*/
+ * Returns the nth parameter in the message. The index zero-based.
+ * @param {integer} i the index of the parameter to fetch (zero based)
+ * @return the i-th parameter (undefined if index i is bigger than current number of params)
+ * @type xmlrpcval
+ * @public
+ */
 xmlrpcmsg.prototype.getParam = function (i) { return this.params[i]; }
 
 /**
-* Returns the number of parameters in the messge.
-* @return the number of parameters currently set
-* @type integer
-* @public
-*/
+ * Returns the number of parameters in the messge.
+ * @return the number of parameters currently set
+ * @type integer
+ * @public
+ */
 xmlrpcmsg.prototype.getNumParams = function () { return this.params.length; }
 
 /**
-* Returns the response body (string) minus http headers, or an xmlrpcresp obj on error
-* @private
-*/
+ * Returns the response body (string) minus http headers, or an xmlrpcresp obj on error
+ * @private
+ */
 xmlrpcmsg.prototype.parseResponseHeaders = function (data, headers_processed) {
 	if (headers_processed === undefined)
 	{
@@ -1629,7 +1629,7 @@ xmlrpcmsg.prototype.parseResponseHeaders = function (data, headers_processed) {
 				}
 			}
 		}
-		**/
+		 **/
 	} // end of 'if needed, de-chunk, re-inflate response'
 
 	// Js misses cal-by-ref, so we pass back the string we received, minus http headers
@@ -1637,17 +1637,17 @@ xmlrpcmsg.prototype.parseResponseHeaders = function (data, headers_processed) {
 }
 
 /**
-* Parse the xmlrpc response contained in the string data and return an xmlrpcresp object.
-* @param {string} data the xmlrpc response, eventually including http headers
-* @param {boolean|string} headers_processed When true prevents parsing HTTP headers for interpretation of content-encoding and consequent decoding. If a string, it is assumed to be the complete set of http headers, separated from response body. Defaults to false
-* @param {string} return_type decides return type, i.e. content of response.value(). Either 'xmlrpcvals' (default), 'xml' or 'jsvals'
-* @type xmlrpcresp
-* @public
-*/
+ * Parse the xmlrpc response contained in the string data and return an xmlrpcresp object.
+ * @param {string} data the xmlrpc response, eventually including http headers
+ * @param {boolean|string} headers_processed When true prevents parsing HTTP headers for interpretation of content-encoding and consequent decoding. If a string, it is assumed to be the complete set of http headers, separated from response body. Defaults to false
+ * @param {string} return_type decides return type, i.e. content of response.value(). Either 'xmlrpcvals' (default), 'xml' or 'jsvals'
+ * @type xmlrpcresp
+ * @public
+ */
 xmlrpcmsg.prototype.parseResponse = function (data, headers_processed, return_type) {
 
-//alert(headers_processed);
-//alert(data);
+//	alert(headers_processed);
+//	alert(data);
 
 	var headers = '';
 	if (headers_processed === undefined)
@@ -1787,48 +1787,48 @@ xmlrpcmsg.prototype.parseResponse = function (data, headers_processed, return_ty
 		}
 		switch(node.tagName)
 		{
-			case 'methodResponse':
-				//return parseMethodResponse(node);
-				node = getSingleChild(node, ['params', 'fault']);
-				if (node.tagName == 'fault')
+		case 'methodResponse':
+			//return parseMethodResponse(node);
+			node = getSingleChild(node, ['params', 'fault']);
+			if (node.tagName == 'fault')
+			{
+				node = getSingleChild(node, ['value']);
+				var value = parseXmlrpcValue(node, true);
+				/// @todo validate more format of error response: check for extra members...
+				if (typeof(value) != 'object' || !value.hasOwnProperty('faultCode') || !value.hasOwnProperty('faultString'))
 				{
-					node = getSingleChild(node, ['value']);
-					var value = parseXmlrpcValue(node, true);
-					/// @todo validate more format of error response: check for extra members...
-					if (typeof(value) != 'object' || !value.hasOwnProperty('faultCode') || !value.hasOwnProperty('faultString'))
-					{
-						var r = new xmlrpcresp(0, xmlrpcerr['invalid_return'], xmlrpcstr['invalid_return']+ ' (malformed fault response)');
-					}
-					else
-					{
-						if (value['faultCode'] == 0)
-						{
-							value['faultCode'] = -1;
-						}
-						var r = new xmlrpcresp(0, value['faultCode'], value['faultString']);
-					}
+					var r = new xmlrpcresp(0, xmlrpcerr['invalid_return'], xmlrpcstr['invalid_return']+ ' (malformed fault response)');
 				}
 				else
 				{
-					node = getSingleChild(node, ['param']);
-					node = getSingleChild(node, ['value']);
-					var value = parseXmlrpcValue(node, return_type == 'jsval');
-					var r = new xmlrpcresp(value, 0, '', return_type);
+					if (value['faultCode'] == 0)
+					{
+						value['faultCode'] = -1;
+					}
+					var r = new xmlrpcresp(0, value['faultCode'], value['faultString']);
 				}
-				if (this.debug)
-				{
-					xmlrpc_debug_log('<PRE>---PARSED---');
-					xmlrpc_debug_log(htmlentities(var_export(value)));
-					xmlrpc_debug_log('\n---END---</PRE>');
-				}
-				r.hdrs = _xh['headers'];
-				r._cookies = _xh['cookies'];
-				r.raw_data = raw_data;
-				return r;
+			}
+			else
+			{
+				node = getSingleChild(node, ['param']);
+				node = getSingleChild(node, ['value']);
+				var value = parseXmlrpcValue(node, return_type == 'jsval');
+				var r = new xmlrpcresp(value, 0, '', return_type);
+			}
+			if (this.debug)
+			{
+				xmlrpc_debug_log('<PRE>---PARSED---');
+				xmlrpc_debug_log(htmlentities(var_export(value)));
+				xmlrpc_debug_log('\n---END---</PRE>');
+			}
+			r.hdrs = _xh['headers'];
+			r._cookies = _xh['cookies'];
+			r.raw_data = raw_data;
+			return r;
 			//case "methodCall":
 			//	return parseMethodCall(node);
-			default: //nothing useful returned by parseXML.
-				throw 'missing top level xmlrpc element';
+		default: //nothing useful returned by parseXML.
+			throw 'missing top level xmlrpc element';
 		}
 	}
 	catch (e)
@@ -1847,12 +1847,12 @@ xmlrpcmsg.prototype.parseResponse = function (data, headers_processed, return_ty
 
 /******************************************************************************/
 /**
-* @param {mixed} val either an xmlrpcval obj, a js value or the xml serialization of an xmlrpcval (a string)
-* @param {integer} fcode set it to anything but 0 to create an error response
-* @param {string} fstr the error string, in case of an error response
-* @param {string} valtyp either 'xmlrpcvals', 'jsvals' or 'xml'. When unspecified, the type of the val parameter is analyzed to best guess how to encode it (any js string will be assumed to be the xml representation of a response)
-* @constructor
-*/
+ * @param {mixed} val either an xmlrpcval obj, a js value or the xml serialization of an xmlrpcval (a string)
+ * @param {integer} fcode set it to anything but 0 to create an error response
+ * @param {string} fstr the error string, in case of an error response
+ * @param {string} valtyp either 'xmlrpcvals', 'jsvals' or 'xml'. When unspecified, the type of the val parameter is analyzed to best guess how to encode it (any js string will be assumed to be the xml representation of a response)
+ * @constructor
+ */
 function xmlrpcresp(val, fcode, fstr, valtyp) {
 	/** @private **/
 	this.val = 0;
@@ -1876,13 +1876,13 @@ function xmlrpcresp(val, fcode, fstr, valtyp) {
 }
 
 /**
-* Constructor for xmlrpcresp. Moved outside the xmlrpcresp() functions becuase we need subclasses to call it
-* @private
-*
-* @todo add check that val / fcode / fstr is of correct type???
-* NB: as of now we do not do it, since it might be either an xmlrpcval or a plain
-* js val, or a complete xml chunk, depending on usage of xmlrpc_client::send() inside which creator is called...
-*/
+ * Constructor for xmlrpcresp. Moved outside the xmlrpcresp() functions becuase we need subclasses to call it
+ * @private
+ *
+ * @todo add check that val / fcode / fstr is of correct type???
+ * NB: as of now we do not do it, since it might be either an xmlrpcval or a plain
+ * js val, or a complete xml chunk, depending on usage of xmlrpc_client::send() inside which creator is called...
+ */
 xmlrpcresp.prototype.init = function (val, fcode, fstr, valtyp) {
 	if (fcode != undefined && fcode != 0)
 	{
@@ -1921,54 +1921,54 @@ xmlrpcresp.prototype.init = function (val, fcode, fstr, valtyp) {
 }
 
 /**
-* Returns the error code of the response.
-* @return the error code of this response (0 for not-error responses)
-* @type integer
-* @public
-*/
+ * Returns the error code of the response.
+ * @return the error code of this response (0 for not-error responses)
+ * @type integer
+ * @public
+ */
 xmlrpcresp.prototype.faultCode = function () {
 	return this.errno;
 }
 
 /**
-* Returns the error string of the response.
-* @return the error string of this response ('' for not-error responses)
-* @type string
-* @public
-*/
+ * Returns the error string of the response.
+ * @return the error string of this response ('' for not-error responses)
+ * @type string
+ * @public
+ */
 xmlrpcresp.prototype.faultString = function () {
 	return this.errstr;
 }
 
 /**
-* Returns the value received by the server.
-* @return the xmlrpcval object returned by the server. Might be an xml string or js value if the response has been created by specially configured xmlrpc_client objects
-* @type mixed
-* @public
-*/
+ * Returns the value received by the server.
+ * @return the xmlrpcval object returned by the server. Might be an xml string or js value if the response has been created by specially configured xmlrpc_client objects
+ * @type mixed
+ * @public
+ */
 xmlrpcresp.prototype.value = function () {
 	return this.val;
 }
 
 /**
-* Returns an array with the cookies received from the server.
-* Array has the form: cookiename => array ('value' => val, attr1 => val1, attr2 = val2, ...)
-* with attributes being e.g. 'expires', 'path', domain'.
-* NB: cookies sent as 'expired' by the server (i.e. with an expiry date in the past)
-* are still present in the array. It is up to the user-defined code to decide
-* how to use the received cookies, and wheter they have to be sent back with the next
-* request to the server (using xmlrpc_client::setCookie) or not
-* @return array of cookies received from the server
-* @type object
-* @public
-*/
+ * Returns an array with the cookies received from the server.
+ * Array has the form: cookiename => array ('value' => val, attr1 => val1, attr2 = val2, ...)
+ * with attributes being e.g. 'expires', 'path', domain'.
+ * NB: cookies sent as 'expired' by the server (i.e. with an expiry date in the past)
+ * are still present in the array. It is up to the user-defined code to decide
+ * how to use the received cookies, and wheter they have to be sent back with the next
+ * request to the server (using xmlrpc_client::setCookie) or not
+ * @return array of cookies received from the server
+ * @type object
+ * @public
+ */
 xmlrpcresp.prototype.cookies = function () {
 	return this._cookies;
 }
 
 /**
-* @private
-*/
+ * @private
+ */
 xmlrpcresp.prototype.xml_header = function (charset_encoding) {
 	if (charset_encoding != undefined && charset_encoding != '')
 	{
@@ -1981,12 +1981,12 @@ xmlrpcresp.prototype.xml_header = function (charset_encoding) {
 }
 
 /**
-* Returns xml representation of the response. XML prologue not included
-* @param {string} charset_encoding the charset to be used for serialization. If null, US-ASCII is assumed
-* @return the xml representation of the response
-* @type string
-* @public
-*/
+ * Returns xml representation of the response. XML prologue not included
+ * @param {string} charset_encoding the charset to be used for serialization. If null, US-ASCII is assumed
+ * @return the xml representation of the response
+ * @type string
+ * @public
+ */
 xmlrpcresp.prototype.serialize = function (charset_encoding) {
 	//if (charset_encoding != undefined && charset_encoding != '')
 	//	this.content_type = 'text/xml; charset=' + charset_encoding;
@@ -1998,11 +1998,11 @@ xmlrpcresp.prototype.serialize = function (charset_encoding) {
 		// G. Giunta 2005/2/13: let non-ASCII response messages be tolerated by clients
 		// by xml-encoding non ascii chars
 		result += '<fault>\n' +
-'<value>\n<struct><member><name>faultCode</name>\n<value><int>' + this.errno +
-'</int></value>\n</member>\n<member>\n<name>faultString</name>\n<value><string>' +
-//xmlrpc_encode_entities(this.errstr, GLOBALS['xmlrpc_internalencoding'], charset_encoding) + "</string></value>\n</member>\n" +
-xmlrpc_encode_entities(this.errstr) + '</string></value>\n</member>\n' +
-'</struct>\n</value>\n</fault>';
+		'<value>\n<struct><member><name>faultCode</name>\n<value><int>' + this.errno +
+		'</int></value>\n</member>\n<member>\n<name>faultString</name>\n<value><string>' +
+//		xmlrpc_encode_entities(this.errstr, GLOBALS['xmlrpc_internalencoding'], charset_encoding) + "</string></value>\n</member>\n" +
+		xmlrpc_encode_entities(this.errstr) + '</string></value>\n</member>\n' +
+		'</struct>\n</value>\n</fault>';
 	}
 	else
 	{
@@ -2012,8 +2012,8 @@ xmlrpc_encode_entities(this.errstr) + '</string></value>\n</member>\n' +
 			if (typeof(this.val) == 'string' && this.valtyp == 'xml')
 			{
 				result += '<params>\n<param>\n' +
-					this.val +
-					'</param>\n</params>';
+				this.val +
+				'</param>\n</params>';
 			}
 			else
 			{
@@ -2024,8 +2024,8 @@ xmlrpc_encode_entities(this.errstr) + '</string></value>\n</member>\n' +
 		else
 		{
 			result += '<params>\n<param>\n' +
-				this.val.serialize(charset_encoding) +
-				'</param>\n</params>';
+			this.val.serialize(charset_encoding) +
+			'</param>\n</params>';
 		}
 	}
 	result += '\n</methodResponse>';
@@ -2036,186 +2036,186 @@ xmlrpc_encode_entities(this.errstr) + '</string></value>\n</member>\n' +
 /******************************************************************************/
 
 /**
-* Takes an xmlrpc value in xmlrpcval object format and translates it into native javascript types.
-* Works with xmlrpc message objects as input, too.
-* @param {xmlrpcval} xmlrpc_val
-* @param {object} not in use (yet)
-* @type mixed
-* @public
-*
-* @todo add support for rebuilding non-anon js objects
-*/
+ * Takes an xmlrpc value in xmlrpcval object format and translates it into native javascript types.
+ * Works with xmlrpc message objects as input, too.
+ * @param {xmlrpcval} xmlrpc_val
+ * @param {object} not in use (yet)
+ * @type mixed
+ * @public
+ *
+ * @todo add support for rebuilding non-anon js objects
+ */
 function xmlrpc_decode(xmlrpc_val, options) {
 	switch(xmlrpc_val.kindOf())
 	{
-		case 'scalar':
-			return xmlrpc_val.scalarVal();
-		case 'array':
-			var size = xmlrpc_val.arraySize();
-			var arr = [];
-			for(var i = 0; i < size; ++i)
-			{
-				arr[arr.length] = xmlrpc_decode(xmlrpc_val.arrayMem(i), options);
-			}
-			return arr;
-		case 'struct':
-			// If user said so, try to rebuild js objects for specific struct vals.
-			/// @todo should we raise a warning for class not found?
-			// shall we check for proper subclass of xmlrpcval instead of
-			// presence of _php_class to detect what we can do?
-			if ((options != undefined && options['decode_js_objs']) && xmlrpc_val._js_class != '')
-				//&& class_exists($xmlrpc_val->_php_class)) /// @todo check if a class exists with given name
-			{
-				var obj = new xmlrpc_val._js_class;
-			}
-			else
-			{
-				var obj = {};
-			}
-			for(var key in xmlrpc_val.me)
-			{
-				obj[key] = xmlrpc_decode(xmlrpc_val.me[key], options);
-			}
-			return obj;
-		case 'msg':
-			var paramcount = xmlrpc_val.getNumParams();
-			var arr = [];
-			for(var i = 0; i < paramcount; ++i)
-			{
-				arr[arr.length] = xmlrpc_decode(xmlrpc_val.getParam(i));
-			}
-			return arr;
+	case 'scalar':
+		return xmlrpc_val.scalarVal();
+	case 'array':
+		var size = xmlrpc_val.arraySize();
+		var arr = [];
+		for(var i = 0; i < size; ++i)
+		{
+			arr[arr.length] = xmlrpc_decode(xmlrpc_val.arrayMem(i), options);
 		}
+		return arr;
+	case 'struct':
+		// If user said so, try to rebuild js objects for specific struct vals.
+		/// @todo should we raise a warning for class not found?
+		// shall we check for proper subclass of xmlrpcval instead of
+		// presence of _php_class to detect what we can do?
+		if ((options != undefined && options['decode_js_objs']) && xmlrpc_val._js_class != '')
+			//&& class_exists($xmlrpc_val->_php_class)) /// @todo check if a class exists with given name
+		{
+			var obj = new xmlrpc_val._js_class;
+		}
+		else
+		{
+			var obj = {};
+		}
+		for(var key in xmlrpc_val.me)
+		{
+			obj[key] = xmlrpc_decode(xmlrpc_val.me[key], options);
+		}
+		return obj;
+	case 'msg':
+		var paramcount = xmlrpc_val.getNumParams();
+		var arr = [];
+		for(var i = 0; i < paramcount; ++i)
+		{
+			arr[arr.length] = xmlrpc_decode(xmlrpc_val.getParam(i));
+		}
+		return arr;
+	}
 }
 
 /**
-* Takes native javascript types and encodes them recursively into xmlrpcval object format.
-* It will not re-encode xmlrpcval objects (ie. they can be freely mixed with native js values).
-* @param {mixed} js_val The value to be converted into an xmlrpcval object
-* @param {array} options
-* @type xmlrpcval
-* @public
-*/
+ * Takes native javascript types and encodes them recursively into xmlrpcval object format.
+ * It will not re-encode xmlrpcval objects (ie. they can be freely mixed with native js values).
+ * @param {mixed} js_val The value to be converted into an xmlrpcval object
+ * @param {array} options
+ * @type xmlrpcval
+ * @public
+ */
 function xmlrpc_encode(js_val, options) {
 	var type = typeof js_val;
 	switch(type)
 	{
-		case 'string':
-			if ((options != undefined && options['auto_dates']) && js_val.search(/^[0-9]{8}T[0-9]{2}:[0-9]{2}:[0-9]{2}$/) != -1)
-				var xmlrpc_val = new xmlrpcval(js_val, 'dateTime.iso8601');
-			else
-				var xmlrpc_val = new xmlrpcval(js_val, 'string');
-			break;
-		case 'number':
-			/// @todo...
-			var num = new Number(js_val);
-			if (num == parseInt(num))
+	case 'string':
+		if ((options != undefined && options['auto_dates']) && js_val.search(/^[0-9]{8}T[0-9]{2}:[0-9]{2}:[0-9]{2}$/) != -1)
+			var xmlrpc_val = new xmlrpcval(js_val, 'dateTime.iso8601');
+		else
+			var xmlrpc_val = new xmlrpcval(js_val, 'string');
+		break;
+	case 'number':
+		/// @todo...
+		var num = new Number(js_val);
+		if (num == parseInt(num))
+		{
+			var xmlrpc_val = new xmlrpcval(js_val, 'int');
+		}
+		else //if (num == parseFloat(num))
+		{
+			var xmlrpc_val = new xmlrpcval(js_val, 'double');
+		}
+		//else
+		//{
+		// ??? only NaN and Infinity can get here. Encode them as zero (double)...
+		//	var xmlrpc_val = new xmlrpcval(0, 'double');
+		//}
+		break;
+	case 'boolean':
+		var xmlrpc_val = new xmlrpcval(js_val, 'boolean');
+		break;
+	case 'object':
+		// we should be able to use js_val instanceof Null, but FF refuses it...
+		// nb: check nulls first, since they have no attributes
+		if (js_val === null)
+		{
+			if (options != undefined && options['null_extension'])
 			{
-				var xmlrpc_val = new xmlrpcval(js_val, 'int');
-			}
-			else //if (num == parseFloat(num))
-			{
-				var xmlrpc_val = new xmlrpcval(js_val, 'double');
-			}
-			//else
-			//{
-				// ??? only NaN and Infinity can get here. Encode them as zero (double)...
-			//	var xmlrpc_val = new xmlrpcval(0, 'double');
-			//}
-			break;
-		case 'boolean':
-			var xmlrpc_val = new xmlrpcval(js_val, 'boolean');
-			break;
-		case 'object':
-			// we should be able to use js_val instanceof Null, but FF refuses it...
-			// nb: check nulls first, since they have no attributes
-			if (js_val === null)
-			{
-				if (options != undefined && options['null_extension'])
-				{
-					var xmlrpc_val = new xmlrpcval(null, 'null');
-				}
-				else
-				{
-					var xmlrpc_val = new xmlrpcval();
-				}
+				var xmlrpc_val = new xmlrpcval(null, 'null');
 			}
 			else
+			{
+				var xmlrpc_val = new xmlrpcval();
+			}
+		}
+		else
 			if (js_val.toXmlRpcVal)
 			{
 				var xmlrpc_val = js_val.toXmlRpcVal();
 			}
 			else
-			if (js_val instanceof Array)
-			{
-				var arr = [];
+				if (js_val instanceof Array)
+				{
+					var arr = [];
 					for(var i = 0; i < js_val.length; ++i)
 					{
 						arr[arr.length] = xmlrpc_encode(js_val[i], options);
 					}
 					var xmlrpc_val = new xmlrpcval(arr, 'array');
-			}
-			else
-			// xmlrpcval acquired capability to do this on its own, declaring toXmlRpcVal()
-			//if (js_val instanceof xmlrpcval)
-			//{
-			//	var xmlrpc_val = js_val;
-			//}
-			//else
-			{
-				// generic js object. encode all members except functions
-				var arr = {};
-				for(var attr in js_val)
-				{
-					if (typeof js_val[attr] != 'function')
-					{
-						arr[attr] = xmlrpc_encode(js_val[attr], options);
-					}
 				}
-				var xmlrpc_val = new xmlrpcval(arr, 'struct');
-				/*if (in_array('encode_php_objs', options))
+				else
+					// xmlrpcval acquired capability to do this on its own, declaring toXmlRpcVal()
+					//if (js_val instanceof xmlrpcval)
+					//{
+					//	var xmlrpc_val = js_val;
+					//}
+					//else
+				{
+					// generic js object. encode all members except functions
+					var arr = {};
+					for(var attr in js_val)
+					{
+						if (typeof js_val[attr] != 'function')
+						{
+							arr[attr] = xmlrpc_encode(js_val[attr], options);
+						}
+					}
+					var xmlrpc_val = new xmlrpcval(arr, 'struct');
+					/*if (in_array('encode_php_objs', options))
 				{
 					// let's save original class name into xmlrpcval:
 					// might be useful later on...
 					$xmlrpc_val._php_class = get_class($php_val);
 				}*/
-			}
-			break;
+				}
+		break;
 		// match 'function', 'undefined', ...
-		default:
-			// it has to return an empty object in case
-			var xmlrpc_val = new xmlrpcval();
-			break;
-		}
-		return xmlrpc_val;
+	default:
+		// it has to return an empty object in case
+		var xmlrpc_val = new xmlrpcval();
+	break;
+	}
+	return xmlrpc_val;
 }
 
 /**
-* !!! TO BE IMPLEMENTED !!!
-* Convert the xml representation of a method response, method request or single
-* xmlrpc value into the appropriate object (deserialize)
-* @param {string} xml_val
-* @param {array} options
-* @return false on error, or an instance of either xmlrpcval, xmlrpcmsg or xmlrpcresp
-* @type mixed
-* @public
-*/
+ * !!! TO BE IMPLEMENTED !!!
+ * Convert the xml representation of a method response, method request or single
+ * xmlrpc value into the appropriate object (deserialize)
+ * @param {string} xml_val
+ * @param {array} options
+ * @return false on error, or an instance of either xmlrpcval, xmlrpcmsg or xmlrpcresp
+ * @type mixed
+ * @public
+ */
 function xmlrpc_decode_xml(xml_val, options) {
 
 }
 
 /******************************************************************************/
-// helper functions (from phpxmlrpc)...
+//helper functions (from phpxmlrpc)...
 
 /**
-* Decodes a Base64 encoded string to a byte string.
-* @param {string} aString
-* @type string
-* @throws exception can be raised when decoding improperly coded data
-* @public
-*/
+ * Decodes a Base64 encoded string to a byte string.
+ * @param {string} aString
+ * @type string
+ * @throws exception can be raised when decoding improperly coded data
+ * @public
+ */
 function base64_decode (aString) {
-    aString = aString.replace(/^\s+|\s+$/g, "");
+	aString = aString.replace(/^\s+|\s+$/g, "");
 	if ((aString.length % 4) == 0)
 	{
 		if (typeof atob == 'function')
@@ -2233,9 +2233,9 @@ function base64_decode (aString) {
 			for(var i = 0; i < aString.length; i += 4)
 			{
 				nBits = (base64.indexOf(aString.charAt(i)) & 0xff) << 18 |
-					(base64.indexOf(aString.charAt(i+1)) & 0xff) << 12 |
-					(base64.indexOf(aString.charAt(i+2)) & 0xff) << 6 |
-					base64.indexOf(aString.charAt(i+3)) & 0xff;
+				(base64.indexOf(aString.charAt(i+1)) & 0xff) << 12 |
+				(base64.indexOf(aString.charAt(i+2)) & 0xff) << 6 |
+				base64.indexOf(aString.charAt(i+3)) & 0xff;
 				sDecoded[i] = String.fromCharCode((nBits & 0xff0000) >> 16, (nBits & 0xff00) >> 8, nBits & 0xff);
 			}
 			//make sure padding chars are left out.
@@ -2251,53 +2251,53 @@ function base64_decode (aString) {
 }
 
 /**
-* Encodes a string using Base64.
-* @param {string} aString
-* @type string
-* @public
-* @bug given an empty string, returns '0' in IE and Opera
-*/
+ * Encodes a string using Base64.
+ * @param {string} aString
+ * @type string
+ * @public
+ * @bug given an empty string, returns '0' in IE and Opera
+ */
 function base64_encode (aString) {
-    var base64 = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z',
-		  'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z',
-		  '0','1','2','3','4','5','6','7','8','9','+','/'];
-    var sbin;
-    var pad = 0;
-    var s = '' + aString;
-    if ((s.length % 3) == 1)
+	var base64 = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z',
+	              'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z',
+	              '0','1','2','3','4','5','6','7','8','9','+','/'];
+	var sbin;
+	var pad = 0;
+	var s = '' + aString;
+	if ((s.length % 3) == 1)
 	{
-	    s += String.fromCharCode(0);
-	    s += String.fromCharCode(0);
-	    pad = 2;
+		s += String.fromCharCode(0);
+		s += String.fromCharCode(0);
+		pad = 2;
 	}
-    else if ((s.length % 3) == 2)
+	else if ((s.length % 3) == 2)
 	{
-	    s += String.fromCharCode(0);
-	    pad = 1 ;
+		s += String.fromCharCode(0);
+		pad = 1 ;
 	}
-    //create a result buffer, this is much faster than having strings concatinated.
-    var rslt = [s.length / 3];
-    var ri = 0;
-    for(var i = 0; i < s.length; i += 3)
+	//create a result buffer, this is much faster than having strings concatinated.
+	var rslt = [s.length / 3];
+	var ri = 0;
+	for(var i = 0; i < s.length; i += 3)
 	{
-	    sbin = ((s.charCodeAt(i) & 0xff) << 16) | ((s.charCodeAt(i+1) & 0xff) << 8) | (s.charCodeAt(i+2) & 0xff);
-	    rslt[ri] = (base64[(sbin >> 18) & 0x3f] + base64[(sbin >> 12) & 0x3f] + base64[(sbin >>6) & 0x3f] + base64[sbin & 0x3f]);
-	    ri++;
+		sbin = ((s.charCodeAt(i) & 0xff) << 16) | ((s.charCodeAt(i+1) & 0xff) << 8) | (s.charCodeAt(i+2) & 0xff);
+		rslt[ri] = (base64[(sbin >> 18) & 0x3f] + base64[(sbin >> 12) & 0x3f] + base64[(sbin >>6) & 0x3f] + base64[sbin & 0x3f]);
+		ri++;
 	}
-    if (pad > 0)
+	if (pad > 0)
 	{
-	    rslt[rslt.length-1] = rslt[rslt.length-1].substr(0, 4-pad) +((pad==2) ? '==' : (pad==1) ? '=' : '');
+		rslt[rslt.length-1] = rslt[rslt.length-1].substr(0, 4-pad) +((pad==2) ? '==' : (pad==1) ? '=' : '');
 	}
-    return rslt.join('');
+	return rslt.join('');
 }
 
 /**
-* Given a Date object, returns its representation in the iso8601 format used by xmlrpc
-* @param {Date} time
-* @param {boolean} utc when True, the UTC timezone is assumed
-* @type string
-* @public
-*/
+ * Given a Date object, returns its representation in the iso8601 format used by xmlrpc
+ * @param {Date} time
+ * @param {boolean} utc when True, the UTC timezone is assumed
+ * @type string
+ * @public
+ */
 function iso8601_encode(time, utc) {
 	var padd = function(s, p)
 	{
@@ -2327,12 +2327,12 @@ function iso8601_encode(time, utc) {
 }
 
 /**
-* Given an ISO8601 date string, return a date obj in the localtime, or UTC
-* @param {string} time
-* @param {boolean} utc
-* @type Date
-* @public
-*/
+ * Given an ISO8601 date string, return a date obj in the localtime, or UTC
+ * @param {string} time
+ * @param {boolean} utc
+ * @type Date
+ * @public
+ */
 function iso8601_decode(time, utc) {
 	if (/^(\d{4})(\d{2})(\d{2})T(\d{2}):(\d{2}):(\d{2})$/.test(time))
 	{
@@ -2346,8 +2346,8 @@ function iso8601_decode(time, utc) {
 }
 
 /**
-* @private
-*/
+ * @private
+ */
 function xmlrpc_encode_entities(data, src_encoding, dest_encoding)
 {
 	return new String(data).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&apos;');
@@ -2357,18 +2357,18 @@ function xmlrpc_encode_entities(data, src_encoding, dest_encoding)
 /******************************************************************************/
 
 /**
-* @type xmlrpcval
-* @private
-*/
+ * @type xmlrpcval
+ * @private
+ */
 String.prototype.toXmlRpcVal = function(options) {
 	return new xmlrpcval(this.toString());
 }
 
 /**
-* @type xmlrpcval
-* @todo: see if there are faster checks than parseInt and parseFloat
-* @private
-*/
+ * @type xmlrpcval
+ * @todo: see if there are faster checks than parseInt and parseFloat
+ * @private
+ */
 Number.prototype.toXmlRpcVal = function(options) {
 	if (this == parseInt(this))
 	{
@@ -2380,23 +2380,23 @@ Number.prototype.toXmlRpcVal = function(options) {
 	}
 	//else
 	//{
-		// ??? only NaN and Infinity can get here. Encode them as zero (double)...
+	// ??? only NaN and Infinity can get here. Encode them as zero (double)...
 	//	return new xmlrpcval(0, 'double');
 	//}
 }
 
 /**
-* @type xmlrpcval
-* @private
-*/
+ * @type xmlrpcval
+ * @private
+ */
 Boolean.prototype.toXmlRpcVal = function(options){
 	return new xmlrpcval(this.valueOf(), 'boolean');
 }
 
 /**
-* @type xmlrpcval
-* @private
-*/
+ * @type xmlrpcval
+ * @private
+ */
 Date.prototype.toXmlRpcVal = function(options) {
 	return new xmlrpcval(iso8601_encode(this), 'dateTime.iso8601');
 }
@@ -2413,7 +2413,7 @@ function getSingleChild(node, expectedType)
 	var k;
 	var ret = null;
 	var child;
-//alert('Looking for ' + expectedType[0])
+//	alert('Looking for ' + expectedType[0])
 	for(var i = 0, j = 0; i < node.childNodes.length; i++)
 	{
 		child = node.childNodes.item(i);
@@ -2423,7 +2423,7 @@ function getSingleChild(node, expectedType)
 			{
 				if (child.tagName == expectedType[k])
 				{
-				//alert('Found correct element inside ' + node.tagName + ': ' + child.tagName)
+					//alert('Found correct element inside ' + node.tagName + ': ' + child.tagName)
 					ret = child;
 					break;
 				}
@@ -2492,136 +2492,136 @@ function parseXmlrpcValue(node, return_jsvals)
 			valtyp = child.tagName;
 			switch (child.tagName)
 			{
-				case 'string':
-//xmlrpc_debug_log('found a string');
-					ret = getChildText(child);
-					break;
-				case 'int':
-				case 'i4':
-					ret = getChildText(child);
-					// we have an I4/INT
-					// we must check that only 0123456789-<space> are characters here
-					/// @todo use a better regexp than this (or remove it altogether)
-					if (ret.search(/^[+-]?[0123456789 \t]+$/) == -1)
+			case 'string':
+//				xmlrpc_debug_log('found a string');
+				ret = getChildText(child);
+				break;
+			case 'int':
+			case 'i4':
+				ret = getChildText(child);
+				// we have an I4/INT
+				// we must check that only 0123456789-<space> are characters here
+				/// @todo use a better regexp than this (or remove it altogether)
+				if (ret.search(/^[+-]?[0123456789 \t]+$/) == -1)
+				{
+					/// @todo find a better way of throwing an error
+					// than this!
+					xmlrpc_error_log('XML-RPC: non numeric value received in INT: ' + ret);
+					ret = 'ERROR_NON_NUMERIC_FOUND';
+				}
+				else
+				{
+					// it's ok, add it on
+					ret = parseInt(ret);
+				}
+				break;
+			case 'double':
+				// we have a DOUBLE
+				// we must check that only 0123456789-.<space> are characters here
+				ret = getChildText(child);
+				/// @todo use a better regexp than this (or remove it altogether)
+				if (ret.search(/^[+-]?[eE0123456789 \t.]+$/) == -1)
+				{
+					/// @todo: find a better way of throwing an error
+					// than this!
+					xmlrpc_error_log('XML-RPC: non numeric value received in DOUBLE: ' + ret);
+					ret = 'ERROR_NON_NUMERIC_FOUND';
+				}
+				else
+				{
+					// it's ok, add it on
+					ret = parseFloat(ret);
+				}
+				break;
+			case 'boolean':
+				ret = getChildText(child);
+				if (ret == '1' || ret.search(/^true$/i) != -1)
+				{
+					ret = true;
+				}
+				else
+				{
+					// log if receiveing something strange, even though we set the value to false anyway
+					if (ret != '0' && ret.search(/^false$/i) == -1)
+						xmlrpc_error_log('XML-RPC: invalid value received in BOOLEAN: ' + ret);
+					ret = false;
+				}
+				break;
+			case 'base64':
+				/// @todo use a regexp to validate base64 encoded data?
+				ret = base64_decode(getChildText(child));
+				break;
+			case 'dateTime.iso8601':
+				ret = getChildText(child);
+				if (ret.search(/^[0-9]{8}T[0-9]{2}:[0-9]{2}:[0-9]{2}$/) == -1)
+				{
+					xmlrpc_error_log('XML-RPC: invalid value received in DATETIME: ' + ret);
+				}
+				break;
+			case 'array':
+//				xmlrpc_debug_log('found an array');
+				child = getSingleChild(child, ['data']);
+				ret = [];
+				for (var k =0; k < child.childNodes.length; k ++)
+				{
+					if (child.childNodes[k].nodeType == 1)
 					{
-						/// @todo find a better way of throwing an error
-						// than this!
-						xmlrpc_error_log('XML-RPC: non numeric value received in INT: ' + ret);
-						ret = 'ERROR_NON_NUMERIC_FOUND';
-					}
-					else
-					{
-						// it's ok, add it on
-						ret = parseInt(ret);
-					}
-					break;
-				case 'double':
-					// we have a DOUBLE
-					// we must check that only 0123456789-.<space> are characters here
-					ret = getChildText(child);
-					/// @todo use a better regexp than this (or remove it altogether)
-					if (ret.search(/^[+-]?[eE0123456789 \t.]+$/) == -1)
-					{
-						/// @todo: find a better way of throwing an error
-						// than this!
-						xmlrpc_error_log('XML-RPC: non numeric value received in DOUBLE: ' + ret);
-						ret = 'ERROR_NON_NUMERIC_FOUND';
-					}
-					else
-					{
-						// it's ok, add it on
-						ret = parseFloat(ret);
-					}
-					break;
-				case 'boolean':
-					ret = getChildText(child);
-					if (ret == '1' || ret.search(/^true$/i) != -1)
-					{
-						ret = true;
-					}
-					else
-					{
-						// log if receiveing something strange, even though we set the value to false anyway
-						if (ret != '0' && ret.search(/^false$/i) == -1)
-							xmlrpc_error_log('XML-RPC: invalid value received in BOOLEAN: ' + ret);
-						ret = false;
-					}
-					break;
-				case 'base64':
-					/// @todo use a regexp to validate base64 encoded data?
-					ret = base64_decode(getChildText(child));
-					break;
-				case 'dateTime.iso8601':
-					ret = getChildText(child);
-					if (ret.search(/^[0-9]{8}T[0-9]{2}:[0-9]{2}:[0-9]{2}$/) == -1)
-					{
-						xmlrpc_error_log('XML-RPC: invalid value received in DATETIME: ' + ret);
-					}
-					break;
-				case 'array':
-//xmlrpc_debug_log('found an array');
-					child = getSingleChild(child, ['data']);
-					ret = [];
-					for (var k =0; k < child.childNodes.length; k ++)
-					{
-						if (child.childNodes[k].nodeType == 1)
+						if (child.childNodes[k].tagName != 'value')
 						{
-							if (child.childNodes[k].tagName != 'value')
-							{
-								throw 'invalid element found inside array: '+ child.childNodes[k].tagName;
-							}
-							ret[ret.length] = parseXmlrpcValue(child.childNodes[k], return_jsvals);
+							throw 'invalid element found inside array: '+ child.childNodes[k].tagName;
 						}
+						ret[ret.length] = parseXmlrpcValue(child.childNodes[k], return_jsvals);
 					}
-					break;
-				case 'struct':
-//xmlrpc_debug_log('found a struct');
-					ret = {};
-					var membername, member, memberval;
-					for (var k =0; k < child.childNodes.length; ++k)
+				}
+				break;
+			case 'struct':
+//				xmlrpc_debug_log('found a struct');
+				ret = {};
+				var membername, member, memberval;
+				for (var k =0; k < child.childNodes.length; ++k)
+				{
+					if (child.childNodes[k].nodeType == 1)
 					{
-						if (child.childNodes[k].nodeType == 1)
+						if (child.childNodes[k].tagName != 'member')
 						{
-							if (child.childNodes[k].tagName != 'member')
+							throw 'invalid element found inside struct: '+ child.childNodes[k].tagName;
+						}
+						member = child.childNodes[k];
+						membername = ''; // struct members without a name will get named '' instead of rejected...
+						memberval = undefined;
+						for (var l =0; l < member.childNodes.length; ++l)
+						{
+							if (member.childNodes[l].nodeType == 1)
 							{
-								throw 'invalid element found inside struct: '+ child.childNodes[k].tagName;
-							}
-							member = child.childNodes[k];
-							membername = ''; // struct members without a name will get named '' instead of rejected...
-							memberval = undefined;
-							for (var l =0; l < member.childNodes.length; ++l)
-							{
-								if (member.childNodes[l].nodeType == 1)
+								switch(member.childNodes[l].tagName)
 								{
-									switch(member.childNodes[l].tagName)
-									{
-										case 'name':
-											membername = getChildText(member.childNodes[l]);
-											break;
-										case 'value':
-											memberval = parseXmlrpcValue(member.childNodes[l], return_jsvals);
-											break;
-										default:
-											throw 'invalid element found inside struct: '+ member.childNodes[l].tagName;
-									}
+								case 'name':
+									membername = getChildText(member.childNodes[l]);
+									break;
+								case 'value':
+									memberval = parseXmlrpcValue(member.childNodes[l], return_jsvals);
+									break;
+								default:
+									throw 'invalid element found inside struct: '+ member.childNodes[l].tagName;
 								}
 							}
-							if (memberval === undefined)
-								throw 'invalid member found inside struct: missing value';
-							ret[membername] = memberval;
 						}
+						if (memberval === undefined)
+							throw 'invalid member found inside struct: missing value';
+						ret[membername] = memberval;
 					}
+				}
+				break;
+			case 'nil':
+			case 'ex:nil':
+				if (xmlrpc_null_extension)
+				{
+					ret = null;
 					break;
-                case 'nil':
-                case 'ex:nil':
-                    if (xmlrpc_null_extension)
-                    {
-                        ret = null;
-                        break;
-                    }
-                    // fall through voluntarily
-				default:
-					throw 'Found incorrect element inside \'value\' :'+ child.tagName;
+				}
+				// fall through voluntarily
+			default:
+				throw 'Found incorrect element inside \'value\' :'+ child.tagName;
 
 			}
 
@@ -2661,22 +2661,22 @@ function parseXmlrpcValue(node, return_jsvals)
 }
 
 /**
-* Function used to send an error message to the log. To override the default
-* log handler, define the function 'xmlrpc_error_log_handler(string logmsg)'
-* @public
-* @type void
-*/
+ * Function used to send an error message to the log. To override the default
+ * log handler, define the function 'xmlrpc_error_log_handler(string logmsg)'
+ * @public
+ * @type void
+ */
 function xmlrpc_error_log(errormsg) {
 	if (typeof(xmlrpc_error_log_handler) != 'function')
 	{
 		if (typeof window == 'object')
 		{
 			// be smart with Firebug console
-// addbykiwix			if (window.console && typeof window.console.error == 'function')
-// addbykiwix				window.console.error(errormsg);
-// addbykiwix			else
-				//alert(errormsg);
-// addbykiwix				window.setTimeout(function(){throw new Error(errormsg);}, 0);
+//			addbykiwix			if (window.console && typeof window.console.error == 'function')
+//			addbykiwix				window.console.error(errormsg);
+//			addbykiwix			else
+			//alert(errormsg);
+//			addbykiwix				window.setTimeout(function(){throw new Error(errormsg);}, 0);
 		}
 		// MS Windows Scripting Host
 		else if (typeof WScript == 'object')
@@ -2696,12 +2696,12 @@ function xmlrpc_error_log(errormsg) {
 }
 
 /**
-* Function used to send a debug message to the log. To override the default
-* log handler, define the function 'xmlrpc_debug_log_handler(string logmsg)'
-* @param {string} logmsg
-* @type void
-* @public
-*/
+ * Function used to send a debug message to the log. To override the default
+ * log handler, define the function 'xmlrpc_debug_log_handler(string logmsg)'
+ * @param {string} logmsg
+ * @type void
+ * @public
+ */
 function xmlrpc_debug_log(logmsg) {
 	if (typeof(xmlrpc_debug_log_handler) != 'function')
 	{
@@ -2741,35 +2741,35 @@ function xmlrpc_debug_log(logmsg) {
 
 if (typeof window !== 'object') {
 
-/**
-* Debug helper. Should do the same as the PHP htmlentities function (well, htmlspecialchars rather...).
-* NB: since it is ONLY used for debugging purposes, it gets disabled in WSH environments for better readability...
-* @param {string} val
-* @type string
-* @todo encode all chars outside ASCII to html charset entity...
-*/
-function htmlentities(val, quote_style) {
-	var out = new String(val).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-	if (quote_style != 0)
-		out = out.replace(/"/g, '&quot;').replace(/'/g, '&apos;');
-	return out;
-}
+	/**
+	 * Debug helper. Should do the same as the PHP htmlentities function (well, htmlspecialchars rather...).
+	 * NB: since it is ONLY used for debugging purposes, it gets disabled in WSH environments for better readability...
+	 * @param {string} val
+	 * @type string
+	 * @todo encode all chars outside ASCII to html charset entity...
+	 */
+	function htmlentities(val, quote_style) {
+		var out = new String(val).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+		if (quote_style != 0)
+			out = out.replace(/"/g, '&quot;').replace(/'/g, '&apos;');
+		return out;
+	}
 
 } else {
 
-function htmlentities(val, quote_style) {
-	return val;
-}
+	function htmlentities(val, quote_style) {
+		return val;
+	}
 
 }
 
 /**
-* Debug helper. Mimics PHP var_export function
-* @param {mixed} val
-* @param {boolean} ret
-* @param {boolean} whitespaces
-* @type string
-*/
+ * Debug helper. Mimics PHP var_export function
+ * @param {mixed} val
+ * @param {boolean} ret
+ * @param {boolean} whitespaces
+ * @type string
+ */
 function var_export(val, ret, whitespaces) {
 	var type = typeof val;
 	var indent = '';
@@ -2784,44 +2784,44 @@ function var_export(val, ret, whitespaces) {
 	}
 	switch(type)
 	{
-		case 'string':
-			return '\'' + val.replace(/'/g, '\'\'') + '\'';
-		case 'number':
-		case 'boolean':
-			return val.toString();
-		case 'object':
-			// we should be able to use val instanceof Null, but FF refuses it...
-			// nb: check nulls first, since they have no attributes
-			if (val === null)
+	case 'string':
+		return '\'' + val.replace(/'/g, '\'\'') + '\'';
+	case 'number':
+	case 'boolean':
+		return val.toString();
+	case 'object':
+		// we should be able to use val instanceof Null, but FF refuses it...
+		// nb: check nulls first, since they have no attributes
+		if (val === null)
+		{
+			return 'null';
+		}
+		else if (val instanceof Array)
+		{
+			var arr = '[\n';
+			for(var i = 0; i < val.length; ++i)
 			{
-				return 'null';
+				arr += indent + '  ' + var_export(val[i], ret, whitespaces+1) + ',\n';
 			}
-			else if (val instanceof Array)
+			arr += indent + ']';
+			return arr;
+		}
+		else
+		{
+			// generic js object. encode all members except functions
+			var arr = '{\n';
+			for(var attr in val)
 			{
-				var arr = '[\n';
-				for(var i = 0; i < val.length; ++i)
+				if (typeof val[attr] != 'function')
 				{
-					arr += indent + '  ' + var_export(val[i], ret, whitespaces+1) + ',\n';
+					arr += indent + '  \'' + attr + '\' => ' + var_export(val[attr], ret, whitespaces+1) + ',\n';
 				}
-				arr += indent + ']';
-				return arr;
 			}
-			else
-			{
-				// generic js object. encode all members except functions
-				var arr = '{\n';
-				for(var attr in val)
-				{
-					if (typeof val[attr] != 'function')
-					{
-						arr += indent + '  \'' + attr + '\' => ' + var_export(val[attr], ret, whitespaces+1) + ',\n';
-					}
-				}
-				arr += indent + '}';
-				return arr;
-			}
+			arr += indent + '}';
+			return arr;
+		}
 		// match 'function', 'undefined', ...
-		default:
-			return indent + type;
+	default:
+		return indent + type;
 	}
 }

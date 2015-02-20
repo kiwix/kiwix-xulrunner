@@ -21,9 +21,9 @@
 function L () {};
 
 L.info = function (str) {
-    return false;
+	return false;
 }
 
 L.error = function (str) {
-    return false;
+	return false;
 }

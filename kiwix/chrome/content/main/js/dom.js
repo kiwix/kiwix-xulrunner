@@ -50,13 +50,13 @@ function getInvertedColorsMenuItem() { return document.getElementById("display-i
 
 /* Des/Activate a button */
 function activateToolbarButton(button) {
-    button.disabled = false; 
-    button.className = "";  
+	button.disabled = false; 
+	button.className = "";  
 }
 
 function desactivateToolbarButton(button) {
-    button.disabled = true; 
-    button.className = "disabled";  
+	button.disabled = true; 
+	button.className = "disabled";  
 }
 
 /* Des/Activate Specific buttons */
@@ -71,13 +71,13 @@ function desactivateNextButton() { desactivateToolbarButton(getNextButton()); }
 
 /* Des/Activate Zoom buttons */
 function activateZoomButtons() {
-    activateToolbarButton(getZoomInButton());
-    activateToolbarButton(getZoomOutButton());
+	activateToolbarButton(getZoomInButton());
+	activateToolbarButton(getZoomOutButton());
 }
 
 function desactivateZoomButtons() {
-    desactivateToolbarButton(getZoomInButton());
-    desactivateToolbarButton(getZoomOutButton());
+	desactivateToolbarButton(getZoomInButton());
+	desactivateToolbarButton(getZoomOutButton());
 }
 
 
