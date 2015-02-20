@@ -7,6 +7,7 @@ var _languagesRegexHash     = Array();
 /* Order alphabetically by _languagesHash key */
 /* Based in ISO 639-3 codes */
 /* source: http://www-01.sil.org/iso639-3/iso-639-3.tab */
+/* alt source: https://github.com/wikimedia/mediawiki/blob/7458dc32d99e6dd569b1629762443d074b6a3c52/languages/Names.php */
 _languagesHash = {
   'aar'           : 'Afaraf',
   'abk'           : 'аҧсуа бызшәа, аҧсшәа',
