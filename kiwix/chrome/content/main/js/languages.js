@@ -358,7 +358,13 @@ _languagesHashOld = {
 function getLanguageNameFromISO(code) {
 	var language = _languagesHash[code] || _languagesHashOld[code] || '';
 	if (!language && code) {
+	    
+	    /* This js code might be used js runtime engine where
+	     * the dump() method is not available */
+            try {
 		dump('"' + code + '" is not available in languages.js.\n');
+	    } catch (error) {
+	    }
 	}
 	return language;
 }
