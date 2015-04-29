@@ -43,25 +43,22 @@ src/zimlib/src/config.h
 !src/dependencies/patches
 
 # Android
-android/bin
-android/gen
-android/src/org_kiwix_kiwixmobile_JNIKiwix.h
-android/.classpath
-android/.project
-!android/libs
-!android/libs/*/*.so
-!android/libs/armeabi/*.so
-!android/libs/armeabi-v7a/*.so
-!android/libs/mips/*.so
-!android/libs/x86/*.so
-*.keystore
+android/*.apk
+android/*.ap_
+android/*.dex
+android/*.class
+android/bin/
+android/gen/
+android/.gradle/
+android/build/
+android//*/build/
 android/local.properties
-android/proguard-project.txt
-android/gradle*
-android/assets/icudt49l.dat
-android/libs/android-support-v4.jar
-android/platforms
-*.class
+android/proguard/
+android/*.log
+android//.idea/workspace.xml
+android/.settings
+android/*.iml
+*.keystore
 
 # OSX
 kiwix-0.9-i386.dmg
@@ -69,6 +66,7 @@ kiwix-0.9-x86_64.dmg
 kiwix-0.9.dmg
 kiwix-0.9s.dmg
 compile
+.DS_Store
 
 # OSXFuse
 .apdisk
