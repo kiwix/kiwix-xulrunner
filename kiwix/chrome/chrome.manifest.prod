@@ -248,6 +248,7 @@ locale branding zh-hk      jar:locale.jar!/locale/branding/
 #skin packagename skinname uri/to/files/ [flags]
 skin main default jar:skin.jar!/skin/default/
 skin main evolution jar:skin.jar!/skin/evolution/
+skin main minimal jar:skin.jar!/skin/minimal/
 skin main sugar jar:skin.jar!/skin/sugar/
 
 #resource aliasname uri/to/files/

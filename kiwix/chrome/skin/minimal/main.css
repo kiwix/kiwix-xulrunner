@@ -1,0 +1,218 @@
+/* Menuitems */
+#file-print {
+    list-style-image: url("chrome://main/skin/icon/print16.png");
+}
+
+#file-print-pdf {
+    list-style-image: url("chrome://main/skin/icon/printas-pdf16.png");
+}
+
+#edit-find {
+    list-style-image: url("chrome://main/skin/icon/find-article16.png");
+}
+
+#display-fullscreen, #display-fullscreen.normal {
+    list-style-image: url("chrome://main/skin/icon/fullscreen16.png");
+}
+
+#display-fullscreen.fullscreen {
+    list-style-image: url("chrome://main/skin/icon/leave-fullscreen16.png");
+}
+
+#tools-randomArticle {
+    list-style-image: url("chrome://main/skin/icon/jump-to16.png");
+}
+
+#tools-purgeHistory {
+    list-style-image: url("chrome://main/skin/icon/purge-history16.png");
+}
+
+#help-help {
+    list-style-image: url("chrome://main/skin/icon/help16.png");
+}
+
+#help-reportabug {
+    list-style-image: url("chrome://main/skin/icon/report-bug16.png");
+}
+
+#help-requestafeature {
+    list-style-image: url("chrome://main/skin/icon/request-feature16.png");
+}
+
+#help-about {
+    list-style-image: url("chrome://main/skin/icon/about16.png");
+}
+
+/* Buttons */
+#button-back {
+    list-style-image: url("chrome://main/skin/icon/go-back24.png");
+}
+window[langdir="rtl"] #button-back {
+    list-style-image: url("chrome://main/skin/icon/go-forward24.png");
+}
+
+#button-next {
+    list-style-image: url("chrome://main/skin/icon/go-forward24.png");
+}
+window[langdir="rtl"] #button-next {
+    list-style-image: url("chrome://main/skin/icon/go-back24.png");
+}
+
+#button-home {
+    list-style-image: url("chrome://main/skin/icon/home24.png");
+}
+
+#button-results {
+    list-style-image: url("chrome://main/skin/icon/find-wiki24.png");
+}
+
+#button-sizeup {
+    list-style-image: url("chrome://main/skin/icon/zoom-in24.png");
+}
+
+#button-sizedown {
+    list-style-image: url("chrome://main/skin/icon/zoom-out24.png");
+}
+
+#button-fullscreen, #button-fullscreen.normal {
+    list-style-image: url("chrome://main/skin/icon/fullscreen24.png");
+}
+
+#button-fullscreen.fullscreen {
+    list-style-image: url("chrome://main/skin/icon/leave-fullscreen24.png");
+}
+
+#button-print {
+    list-style-image: url("chrome://main/skin/icon/print24.png");
+}
+
+#button-bookmarks {
+    list-style-image: url("chrome://main/skin/icon/bookmarks24.png");
+}
+
+#button-results {
+    list-style-image: url("chrome://main/skin/icon/searchs24.png");
+}
+
+#button-library {
+    list-style-image: url("chrome://main/skin/icon/library24.png");
+}
+
+#button-search {
+    list-style-image: url("chrome://main/skin/icon/find-wiki24.png");
+}
+
+#button-search-article {
+    list-style-image: url("chrome://main/skin/icon/find-article24.png");
+}
+
+#button-search-article-up {
+    list-style-image: url("chrome://main/skin/icon/find-article-up24.png");
+    display:none; /* to remove after implementation */
+}
+
+#button-search-article-down {
+    list-style-image: url("chrome://main/skin/icon/find-article-down24.png");
+    display:none; /* to remove after implementation */
+}
+
+/* Textbox search */
+#textbox-search-go-button {
+    list-style-image: url("chrome://main/skin/icon/magnify16.png");
+    margin-right: 2px;
+    cursor: pointer;
+}
+
+/* Main window*/
+#main {
+    margin: 0;
+    padding: 0;
+}
+
+/* Results bar */
+#results-bar {
+    margin: 0px;
+    min-width: 150px;
+    max-width: 450px;
+    width: 200px;
+}
+
+#results-list {
+    margin: 0px;
+}
+
+#results-close-button {
+    list-style-image: url("chrome://main/skin/icon/close12.png");
+}
+
+.results-button {
+    margin: 0px;
+}
+
+#results-bar-header {
+    padding: 2px 0px 2px 0px; 
+}
+
+.results-title {
+    margin: 0px;
+    padding: 4px 0px 0px 2px;
+}
+
+/* Bookmarks bar */
+
+#bookmarks-close-button {
+    list-style-image: url("chrome://main/skin/icon/close12.png");
+}
+
+#bookmarks-bar-header {
+    padding: 2px 0px 2px 0px; 
+}
+
+#bookmarks-bar {
+    margin: 0px;
+    min-width: 150px;
+    max-width: 450px;
+    width: 200px;
+}
+
+#main.mac #bookmarks-bar {
+    width: 240px;
+}
+
+#bookmarks-toolbar {
+    -moz-appearance: none;
+}
+
+#bookmarks-load-button {
+    list-style-image: url("chrome://main/skin/icon/open24.png");
+}
+
+#bookmarks-new-button {
+    list-style-image: url("chrome://main/skin/icon/new24.png");
+}
+
+#bookmarks-mark-button {
+    list-style-image: url("chrome://main/skin/icon/add24.png");
+}
+
+#bookmarks-unmark-button {
+    list-style-image: url("chrome://main/skin/icon/remove24.png");
+}
+
+#bookmarks-reload-button {
+    list-style-image: url("chrome://main/skin/icon/reload24.png");
+}
+
+/* Status bar */
+#book-icon {
+    list-style-image: url("chrome://main/skin/icon/zim-file16.png");
+}
+
+/* Find bar */
+.findbar-find-previous {
+    list-style-image: url("chrome://main/skin/icon/find-article-up16.png");
+}
+
+.findbar-find-next {
+    list-style-image: url("chrome://main/skin/icon/find-article-down16.png");
+}
