@@ -101,6 +101,7 @@
 	<menupopup id="menu-skins">
 	  <menuitem type="checkbox" label="Default" id="skin-default" oncommand="selectSkin('default');"/>
           <menuitem type="checkbox" label="Evolution" id="skin-evolution" oncommand="selectSkin('evolution');"/>
+          <menuitem type="checkbox" label="Minimal" id="skin-minimal" oncommand="selectSkin('minimal');"/>
 	</menupopup>
       </menu>
       <menuitem id="display-inverted-colors" label="&main.invertedColors;" type="checkbox" checked="false"

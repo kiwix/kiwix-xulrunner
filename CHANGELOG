@@ -4,6 +4,7 @@ Kiwix 0.9.1
 * FIXED: Better language ISO codes recognition in library
 * FIXED: Wrong tab printed (#820)
 * FIXED: Select text by focusing the searchbox, instead of deleting it (#842)
+* FIXED: Better highlighting colors in the library
 * NEW: Minimal skin
 
 Kiwix 0.9

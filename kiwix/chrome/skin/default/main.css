@@ -602,6 +602,14 @@ window[langdir="ltr"] #tabs-add-button {
     background-color: Highlight;
 }
 
+.library-content-item[selected='true'] {
+   background-color: Highlight !important;
+}
+
+.library-content-item[selected='true'] textbox, .library-content-item[selected='true'] label {
+   color: HighlightText !important;
+}
+
 .library-filter {
     padding: 5px;
     font-size: 110%;

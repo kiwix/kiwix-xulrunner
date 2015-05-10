@@ -1029,12 +1029,6 @@ function selectLibraryContentItem(box) {
 	if (_selectedLibraryContentItem != undefined && box == _selectedLibraryContentItem) {
 		return;
 	} else {
-		if (_selectedLibraryContentItem != undefined) 
-			_selectedLibraryContentItem.setAttribute("style", 
-					_selectedLibraryContentItem.backGroundColorBackup);
-
-		box.backGroundColorBackup = box.getAttribute("style");
-		box.setAttribute("style", "background-color: Highlight;");
 		box.parentNode.selectedItem = box;
 		_selectedLibraryContentItem = box;
 		var libraryDeck = document.getElementById("library-deck");
