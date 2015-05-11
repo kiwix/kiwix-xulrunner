@@ -411,7 +411,7 @@ function hideFullScreenToolBar() {
 }
 
 function showFullScreenToolBar() {
-	document.getElementById('tool-bar').setAttribute("style", "display: block;");
+	document.getElementById('tool-bar').setAttribute("style", "display: inherit;");
 	if (_restore_tab)
 		changeTabsVisibilityStatus(true, false);
 
