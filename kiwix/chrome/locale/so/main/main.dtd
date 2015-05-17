@@ -1,0 +1,162 @@
+<!-- Window -->
+<!ENTITY main.title                     "&brand.brandShortName;">
+<!ENTITY main.cssdirection              "ltr">
+
+<!-- Mac menu -->
+<!ENTITY main.osxservices               "Adeegyo">
+<!ENTITY main.osxhideapp                "Hide &brand.brandShortName;Qarin">
+<!ENTITY main.osxhideothers             "Qarinta kuwa kale">
+<!ENTITY main.osxshowall                "Itus dhammaan">
+
+<!-- File menu -->
+<!ENTITY main.file                      "File">
+<!ENTITY main.file.accesskey            "F">
+<!ENTITY main.openFile                  "Fur galka">
+<!ENTITY main.browseLibrary.accesskey   "B">
+<!ENTITY main.browseLibrary             "Gal maktabadda">
+<!ENTITY main.hideLibrary               "Qari Maktabadda">
+<!ENTITY main.openFile.accesskey        "O">
+<!ENTITY main.lastOpen                  "Wali furan...">
+<!ENTITY main.saveFile                  "Kaydi bogga sida">
+<!ENTITY main.saveFile.accesskey        "S">
+<!ENTITY main.print                     "Daabac">
+<!ENTITY main.print.accesskey           "P">
+<!ENTITY main.printPdf                  "Udaabac si PDF">
+<!ENTITY main.printPdf.accesskey        "D">
+<!ENTITY main.quit                      "ka bax">
+<!ENTITY main.quit.accesskey            "Q">
+
+<!-- Edit menu -->
+<!ENTITY main.edit                      "Badal">
+<!ENTITY main.edit.accesskey            "E">
+<!ENTITY main.find                      "Ka raadi bogga">
+<!ENTITY main.find.accesskey            "S">
+<!ENTITY main.selectall                 "Dooro dhammaan">
+<!ENTITY main.selectall.accesskey       "a">
+<!ENTITY main.copy                      "Nuqul">
+<!ENTITY main.copy.accesskey            "p">
+<!ENTITY main.transliteration           "Bedelid luqadda qoraalka">
+<!ENTITY main.transliteration.accesskey "T">
+<!ENTITY main.preferences               "Dooqyada">
+<!ENTITY main.preferences.accesskey     "n">
+<!ENTITY main.server                    "Adeegga">
+<!ENTITY main.server.accesskey          "s">
+
+<!-- Display menu -->
+<!ENTITY main.display                   "Qaab aragga">
+<!ENTITY main.display.accesskey         "D">
+<!ENTITY main.zoom                      "Soo dhoweyn">
+<!ENTITY main.zoom.accesskey            "Z">
+<!ENTITY main.zoomin                    "Weyneyn">
+<!ENTITY main.zoomin.accesskey          "M">
+<!ENTITY main.zoomout                   "Yarayn">
+<!ENTITY main.zoomout.accesskey         "R">
+<!ENTITY main.zoomorig                  "Sidii caadiga">
+<!ENTITY main.zoomorig.accesskey        "O">
+<!ENTITY main.language                  "Luqad">
+<!ENTITY main.language.accesskey        "L">
+<!ENTITY main.skin                      "Muuqa">
+<!ENTITY main.skin.accesskey            "S">
+<!ENTITY main.statusbar                 "Marinka qalabka">
+<!ENTITY main.statusbar.accesskey       "S">
+<!ENTITY main.resultsbar                "Jawaabta marinka">
+<!ENTITY main.resultsbar.accesskey      "R">
+<!ENTITY main.tabs                      "Qasabdaha">
+<!ENTITY main.tabs.accesskey            "T">
+<!ENTITY main.fullscreen                "Dhammaan Shaashadda">
+<!ENTITY main.fullscreen.accesskey      "F">
+<!ENTITY main.invertedColors            "Midabbo la rogay">
+<!ENTITY main.invertedColors.accesskey  "I">
+
+<!-- Tools menu -->
+<!ENTITY main.tools                     "Qalabka">
+<!ENTITY main.tools.accesskey           "T">
+<!ENTITY main.randomArticle             "Bogag iskuraran ah">
+<!ENTITY main.randomArticle.accesskey   "R">
+<!ENTITY main.checkIntegrity            "Baar sugnaanta">
+<!ENTITY main.checkIntegrity.accesskey  "k">
+<!ENTITY main.launchIndexing            "Barta cutubyada">
+<!ENTITY main.purgeHistory              "Tirtir raadka galista">
+<!ENTITY main.purgeHistory.accesskey    "P">
+
+<!-- Help menu -->
+<!ENTITY main.help                      "Caawinaad">
+<!ENTITY main.help.accesskey            "H">
+<!ENTITY main.feedback                  "Ka dhiidhin">
+<!ENTITY main.reportabug                "Warbixib ka qor cillad jirta">
+<!ENTITY main.requestafeature           "Codso nuqul">
+<!ENTITY main.about                     "About &brand.brandShortName;ku saabsan">
+<!ENTITY main.about.accesskey           "A">
+
+<!-- Tool bar -->
+<!ENTITY main.back                      "Laabo">
+<!ENTITY main.forward                   "Horay">
+<!ENTITY main.home                      "Bogga Hore">
+<!ENTITY main.searchBar                 "Barta baarista">
+<!ENTITY main.search                    "Raadi">
+<!ENTITY main.searchPlaceholder         "Ku qor halkaan qoraalka si aad y raadiso">
+<!ENTITY main.findInText                "Ka dhex baar qoraalka">
+<!ENTITY main.noSearchBar               "Ka dhexraadi faylasha ZIM ee cutubyada">
+<!ENTITY main.bookmarks                 "Calaamadaha aqriska">
+
+<!-- Results bar -->
+<!ENTITY main.results.title             "Raadinta natiijooyinka">
+
+<!-- Bookmarks Bar -->
+<!ENTITY main.bmkLabel                  "Calaamadaha aqriska">
+<!ENTITY main.notesLabel                "Fiirooyinka gaarka ah ee calaamadaha aqriska">
+<!ENTITY main.loadbmk                   "Soo dhoofso koox calaamado aqris ah">
+<!ENTITY main.newbmk                    "Samee koox calaamado aqrin cusub">
+<!ENTITY main.mark                      "Boggaan ku samee calamad">
+<!ENTITY main.unmark                    "Ka saar calaamadda">
+<!ENTITY main.reload                    "Diyaari galinta koox cusub oo xul ah">
+<!ENTITY main.defaultset                "Dooqyada gaarka ah">
+
+<!-- Contextual Menu -->
+<!ENTITY main.saveMediaAs               "Kaydi galka muuqaalka ah si">
+<!ENTITY main.openLinkInNewTab          "Fur webka qaab cusub">
+<!ENTITY main.searchFor                 "Raadi">
+<!ENTITY main.copyLinkAdress            "Copy link address">
+<!ENTITY main.mute                      "Qarin cod">
+<!ENTITY main.audible                   "La maqli karo">
+
+<!-- About Window -->
+<!ENTITY main.close                     "Xidh">
+
+<!-- Preferences Window -->
+<!ENTITY preferences.preferences        "Dooqyada">
+<!ENTITY preferences.save               "Kaydi">
+<!ENTITY preferences.cancel             "Iska jooji">
+<!ENTITY preferences.profileDirectory   "Xulashada galka">
+<!ENTITY preferences.dataDirectory      "Data directory">
+<!ENTITY preferences.browse             "Webka">
+<!ENTITY preferences.tabs               "Xusuusta kaydka webka">
+<!ENTITY preferences.downloadCatalogs   "Soo degso buugaag fog fog">
+<!ENTITY preferences.neverAskToIndex    "Ha weydiinin cutubyada">
+
+<!-- Server -->
+<!ENTITY server.load                    "Gali">
+<!ENTITY server.start                   "Biloow">
+<!ENTITY server.stop                    "Jooji">
+<!ENTITY server.close                   "Xidh">
+
+<!-- Library -->
+<!ENTITY main.library.myLibrary                 "Maktabadayda">
+<!ENTITY main.library.getNewFiles               "Isii Galal cusub">
+<!ENTITY main.library.searchZimFiles            "Raadi Galalka ZIM">
+<!ENTITY main.library.sortBy                    "Kala hormari">
+<!ENTITY main.library.sortBy.title              "Ciwaan">
+<!ENTITY main.library.sortBy.size               "Qaadka">
+<!ENTITY main.library.sortBy.date               "Taariikh">
+<!ENTITY main.library.sortBy.author             "Qoraha">
+<!ENTITY main.library.sortBy.publisher          "Faafinta">
+<!ENTITY main.library.filterBy                  "Shaandho hadba">
+<!ENTITY main.library.filterBy.fileSize         "Qaadka galka">
+<!ENTITY main.library.filterBy.language         "Luqad">
+<!ENTITY main.library.filterBy.language.all     "Dhammaan">
+<!ENTITY main.library.filterBy.author           "Qoraha">
+<!ENTITY main.library.filterBy.author.all       "Dhammaan">
+<!ENTITY main.library.filterBy.publisher        "Faafinta">
+<!ENTITY main.library.filterBy.publisher.all    "Dhamaan">
+<!ENTITY main.library.filterBy.lessThan         "Ka yer">
+

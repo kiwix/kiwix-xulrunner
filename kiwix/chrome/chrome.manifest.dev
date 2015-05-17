@@ -100,6 +100,7 @@ locale main sh             locale/sh/main/
 locale main si             locale/si/main/
 locale main sk             locale/sk/main/
 locale main sl             locale/sl/main/
+locale main so             locale/so/main/
 locale main sr-ec          locale/sr-ec/main/
 locale main sr-el          locale/sr-el/main/
 locale main sq             locale/sq/main/
@@ -218,6 +219,7 @@ locale branding ro         locale/branding/
 locale branding ru         locale/branding/
 locale branding rue        locale/branding/
 locale branding sa         locale/branding/
+locale branding so         locale/branding/
 locale branding ses        locale/branding/
 locale branding sh         locale/branding/
 locale branding si         locale/branding/
