@@ -1,0 +1,162 @@
+<!-- Window -->
+<!ENTITY main.title                     "&brand.brandShortName;">
+<!ENTITY main.cssdirection              "ltr">
+
+<!-- Mac menu -->
+<!ENTITY main.osxservices               "አገልግሎቶች">
+<!ENTITY main.osxhideapp                "Hide &brand.brandShortName;">
+<!ENTITY main.osxhideothers             "ሌሎቹ ይደበቁ">
+<!ENTITY main.osxshowall                "ሁሉ ይታይ">
+
+<!-- File menu -->
+<!ENTITY main.file                      "ፋይል">
+<!ENTITY main.file.accesskey            "F">
+<!ENTITY main.openFile                  "ፋይልን ለመክፈት...">
+<!ENTITY main.browseLibrary.accesskey   "B">
+<!ENTITY main.browseLibrary             "Browse library">
+<!ENTITY main.hideLibrary               "Hide library">
+<!ENTITY main.openFile.accesskey        "O">
+<!ENTITY main.lastOpen                  "በቅርብ የተከፈቱ ገጾች">
+<!ENTITY main.saveFile                  "ገጹ እንደ... እንዲቆጠብ">
+<!ENTITY main.saveFile.accesskey        "S">
+<!ENTITY main.print                     "ይህን ገጽ ለማተም">
+<!ENTITY main.print.accesskey           "P">
+<!ENTITY main.printPdf                  "እንደ .PDF ለማተም">
+<!ENTITY main.printPdf.accesskey        "D">
+<!ENTITY main.quit                      "ለመተው">
+<!ENTITY main.quit.accesskey            "Q">
+
+<!-- Edit menu -->
+<!ENTITY main.edit                      "ማዘጋጀት">
+<!ENTITY main.edit.accesskey            "E">
+<!ENTITY main.find                      "ገጹ ውስጥ ለመፈልግ...">
+<!ENTITY main.find.accesskey            "S">
+<!ENTITY main.selectall                 "ሁሉንም ለመምረጥ">
+<!ENTITY main.selectall.accesskey       "a">
+<!ENTITY main.copy                      "ቅጂ ለማድረግ">
+<!ENTITY main.copy.accesskey            "p">
+<!ENTITY main.transliteration           "ኣጻጻፍ">
+<!ENTITY main.transliteration.accesskey "T">
+<!ENTITY main.preferences               "ምርጫዎች">
+<!ENTITY main.preferences.accesskey     "n">
+<!ENTITY main.server                    "ሰርቨር">
+<!ENTITY main.server.accesskey          "s">
+
+<!-- Display menu -->
+<!ENTITY main.display                   "Display">
+<!ENTITY main.display.accesskey         "D">
+<!ENTITY main.zoom                      "Zoom">
+<!ENTITY main.zoom.accesskey            "Z">
+<!ENTITY main.zoomin                    "ጽሑፉን ለማጉላት">
+<!ENTITY main.zoomin.accesskey          "M">
+<!ENTITY main.zoomout                   "ጽሑፉ ይቀነስ">
+<!ENTITY main.zoomout.accesskey         "R">
+<!ENTITY main.zoomorig                  "ኦሪጂናሉ መጠን ይመልስ">
+<!ENTITY main.zoomorig.accesskey        "O">
+<!ENTITY main.language                  "ቋንቋ">
+<!ENTITY main.language.accesskey        "L">
+<!ENTITY main.skin                      "መልክ">
+<!ENTITY main.skin.accesskey            "S">
+<!ENTITY main.statusbar                 "Status bar">
+<!ENTITY main.statusbar.accesskey       "S">
+<!ENTITY main.resultsbar                "Results bar">
+<!ENTITY main.resultsbar.accesskey      "R">
+<!ENTITY main.tabs                      "Tabs">
+<!ENTITY main.tabs.accesskey            "T">
+<!ENTITY main.fullscreen                "ሙሉ መጋረጃ">
+<!ENTITY main.fullscreen.accesskey      "F">
+<!ENTITY main.invertedColors            "ቀለማት ተገልብጠው">
+<!ENTITY main.invertedColors.accesskey  "I">
+
+<!-- Tools menu -->
+<!ENTITY main.tools                     "መሳርያዎች">
+<!ENTITY main.tools.accesskey           "T">
+<!ENTITY main.randomArticle             "መጣጥፍ በነሲብ">
+<!ENTITY main.randomArticle.accesskey   "R">
+<!ENTITY main.checkIntegrity            "Integrity check">
+<!ENTITY main.checkIntegrity.accesskey  "k">
+<!ENTITY main.launchIndexing            "Launch indexing">
+<!ENTITY main.purgeHistory              "Purge history">
+<!ENTITY main.purgeHistory.accesskey    "P">
+
+<!-- Help menu -->
+<!ENTITY main.help                      "እርዳታ">
+<!ENTITY main.help.accesskey            "H">
+<!ENTITY main.feedback                  "Feedback">
+<!ENTITY main.reportabug                "Report a bug">
+<!ENTITY main.requestafeature           "Request a feature">
+<!ENTITY main.about                     "About &brand.brandShortName;">
+<!ENTITY main.about.accesskey           "A">
+
+<!-- Tool bar -->
+<!ENTITY main.back                      "ወደ ኋላ ለመመልስ">
+<!ENTITY main.forward                   "ወደ ፊት ለመመልስ">
+<!ENTITY main.home                      "መኖርያ ገጽ">
+<!ENTITY main.searchBar                 "Search bar">
+<!ENTITY main.search                    "ፍለጋ">
+<!ENTITY main.searchPlaceholder         "የሚፈለገውን ጽሁፍ እዚህ ይጨምሩ...">
+<!ENTITY main.findInText                "Find in text">
+<!ENTITY main.noSearchBar               "Search requires an indexed ZIM file">
+<!ENTITY main.bookmarks                 "Bookmarks">
+
+<!-- Results bar -->
+<!ENTITY main.results.title             "የፍለጋ ውጤቶች">
+
+<!-- Bookmarks Bar -->
+<!ENTITY main.bmkLabel                  "Bookmarks:">
+<!ENTITY main.notesLabel                "Bookmark notes:">
+<!ENTITY main.loadbmk                   "Import Bookmark Set">
+<!ENTITY main.newbmk                    "Create new Bookmark Set">
+<!ENTITY main.mark                      "Mark this page">
+<!ENTITY main.unmark                    "Unmark selected">
+<!ENTITY main.reload                    "Reload Bookmark Set">
+<!ENTITY main.defaultset                "Default Set">
+
+<!-- Contextual Menu -->
+<!ENTITY main.saveMediaAs               "Save media as...">
+<!ENTITY main.openLinkInNewTab          "Open link in new tab">
+<!ENTITY main.searchFor                 "ለዚሁ ጽሕፈት ለመፈልግ፦">
+<!ENTITY main.copyLinkAdress            "Copy link address">
+<!ENTITY main.mute                      "ያለ ድምጽ">
+<!ENTITY main.audible                   "የሚሰማ">
+
+<!-- About Window -->
+<!ENTITY main.close                     "ይዘጋ">
+
+<!-- Preferences Window -->
+<!ENTITY preferences.preferences        "ምርጫዎች">
+<!ENTITY preferences.save               "ይቆጠብ">
+<!ENTITY preferences.cancel             "ይቅር">
+<!ENTITY preferences.profileDirectory   "Profile directory">
+<!ENTITY preferences.dataDirectory      "Data directory">
+<!ENTITY preferences.browse             "ቃኝ">
+<!ENTITY preferences.tabs               "Remember tabs">
+<!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">
+<!ENTITY preferences.neverAskToIndex    "Never ask to index">
+
+<!-- Server -->
+<!ENTITY server.load                    "Load">
+<!ENTITY server.start                   "Start">
+<!ENTITY server.stop                    "Stop">
+<!ENTITY server.close                   "ይዘጋ">
+
+<!-- Library -->
+<!ENTITY main.library.myLibrary                 "My library">
+<!ENTITY main.library.getNewFiles               "Get new files">
+<!ENTITY main.library.searchZimFiles            "ለZIM ፋይሎች ለመፈለግ">
+<!ENTITY main.library.sortBy                    "በዚህ ለማደርደር">
+<!ENTITY main.library.sortBy.title              "በየአርዕስቱ">
+<!ENTITY main.library.sortBy.size               "በየመጠኑ">
+<!ENTITY main.library.sortBy.date               "በሰዓቱ">
+<!ENTITY main.library.sortBy.author             "በየደራሲው">
+<!ENTITY main.library.sortBy.publisher          "በየአሳታሚው">
+<!ENTITY main.library.filterBy                  "በዚህ ለመጥራት">
+<!ENTITY main.library.filterBy.fileSize         "በመጠን">
+<!ENTITY main.library.filterBy.language         "በቋንቋ">
+<!ENTITY main.library.filterBy.language.all     "ሁሉም">
+<!ENTITY main.library.filterBy.author           "በደራሲ">
+<!ENTITY main.library.filterBy.author.all       "ሁሉም">
+<!ENTITY main.library.filterBy.publisher        "በአሳታሚ">
+<!ENTITY main.library.filterBy.publisher.all    "ሁሉም">
+<!ENTITY main.library.filterBy.lessThan         "Less than">
+

@@ -5,6 +5,7 @@ content branding jar:content.jar!/content/branding/
 #locale packagename localename uri/to/files/ [flags]
 locale main aeb            jar:locale.jar!/locale/aeb/main/
 locale main af             jar:locale.jar!/locale/af/main/
+locale main am             jar:locale.jar!/locale/am/main/
 locale main ar             jar:locale.jar!/locale/ar/main/
 locale main ary            jar:locale.jar!/locale/ary/main/
 locale main as             jar:locale.jar!/locale/as/main/
@@ -126,6 +127,7 @@ locale main zh-hk          jar:locale.jar!/locale/zh-hk/main/
 
 locale branding aeb        jar:locale.jar!/locale/branding/
 locale branding af         jar:locale.jar!/locale/branding/
+locale branding am         jar:locale.jar!/locale/branding/
 locale branding ar         jar:locale.jar!/locale/branding/
 locale branding ary        jar:locale.jar!/locale/branding/
 locale branding as         jar:locale.jar!/locale/branding/
