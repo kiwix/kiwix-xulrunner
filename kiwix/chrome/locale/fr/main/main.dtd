@@ -131,7 +131,7 @@
 <!ENTITY preferences.dataDirectory      "Data directory">
 <!ENTITY preferences.browse             "Parcourir">
 <!ENTITY preferences.tabs               "Se souvenir des onglets ouverts en quittant Kiwix">
-<!ENTITY preferences.downloadCatalogs   "Télécharger le(s) catalogue(s) distant(s)">
+<!ENTITY preferences.downloadCatalogs   "Télécharger les catalogues distants">
 <!ENTITY preferences.neverAskToIndex    "Ne jamais demander d'indexer">
 
 <!-- Server -->

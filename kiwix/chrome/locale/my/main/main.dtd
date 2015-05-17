@@ -4,24 +4,24 @@
 
 <!-- Mac menu -->
 <!ENTITY main.osxservices               "ဝန်ဆောင်မှုများ">
-<!ENTITY main.osxhideapp                "&brand.brandShortName; ဖယ်ပေးရန်">
-<!ENTITY main.osxhideothers             "အခြားအရာများ ဖယ်ပေးရန်။">
+<!ENTITY main.osxhideapp                "&brand.brandShortName ကို ဝှက်ရန် −">
+<!ENTITY main.osxhideothers             "အခြားအရာများ ဝှက်ရန်">
 <!ENTITY main.osxshowall                "အားလုံးပြရန်">
 
 <!-- File menu -->
 <!ENTITY main.file                      "ဖိုင်">
 <!ENTITY main.file.accesskey            "F">
-<!ENTITY main.openFile                  "ဖိုင်ဖွင့်">
+<!ENTITY main.openFile                  "ဖိုင်ဖွင့်...">
 <!ENTITY main.browseLibrary.accesskey   "B">
-<!ENTITY main.browseLibrary             "စာရင်းထဲတွင် ရှာရန်">
-<!ENTITY main.hideLibrary               "စာရင်းကို ဖယ်ပေးရန်">
+<!ENTITY main.browseLibrary             "စာရင်းထဲတွင် လှန်လှောကြည့်ရှုရန်">
+<!ENTITY main.hideLibrary               "စာရင်းကို ဝှက်ရန်">
 <!ENTITY main.openFile.accesskey        "O">
-<!ENTITY main.lastOpen                  "လတ်တစ်လောဖွင့်ထား...">
+<!ENTITY main.lastOpen                  "လတ်တလောဖွင့်ထားသည်များ...">
 <!ENTITY main.saveFile                  "စာမျက်နှာအသစ်အဖြစ်သိမ်း...">
 <!ENTITY main.saveFile.accesskey        "S">
-<!ENTITY main.print                     "စာထုတ်">
+<!ENTITY main.print                     "ပရင့်ထုတ်">
 <!ENTITY main.print.accesskey           "P">
-<!ENTITY main.printPdf                  "PDF အဖြစ်စာထုတ်">
+<!ENTITY main.printPdf                  "PDF အဖြစ်ပရင့်ထုတ်">
 <!ENTITY main.printPdf.accesskey        "D">
 <!ENTITY main.quit                      "ထွက်">
 <!ENTITY main.quit.accesskey            "Q">
@@ -29,15 +29,15 @@
 <!-- Edit menu -->
 <!ENTITY main.edit                      "ပြင်ဆင်">
 <!ENTITY main.edit.accesskey            "E">
-<!ENTITY main.find                      "စာမျက်နှာထဲတွင် ရှာဖွေ">
+<!ENTITY main.find                      "စာမျက်နှာထဲတွင် ရှာဖွေ...">
 <!ENTITY main.find.accesskey            "S">
 <!ENTITY main.selectall                 "အားလုံးကိုရွေးချယ်">
 <!ENTITY main.selectall.accesskey       "a">
 <!ENTITY main.copy                      "ကူးပွားရန်">
 <!ENTITY main.copy.accesskey            "p">
-<!ENTITY main.transliteration           "အမည်ပြောင်းခေါ်ခြင်း">
+<!ENTITY main.transliteration           "အသံဖလှယ်ခြင်း">
 <!ENTITY main.transliteration.accesskey "T">
-<!ENTITY main.preferences               "ကြိုတင်စီစဉ်မှုများ">
+<!ENTITY main.preferences               "​ရွေး​ချယ်​စ​ရာ​များ​">
 <!ENTITY main.preferences.accesskey     "n">
 <!ENTITY main.server                    "ဆာဗာ">
 <!ENTITY main.server.accesskey          "s">
@@ -45,7 +45,7 @@
 <!-- Display menu -->
 <!ENTITY main.display                   "မြင်ကွင်း">
 <!ENTITY main.display.accesskey         "D">
-<!ENTITY main.zoom                      "ချုံ/ချဲ့ကြည့်ရန်">
+<!ENTITY main.zoom                      "ချုံ့/ချဲ့ကြည့်ရန်">
 <!ENTITY main.zoom.accesskey            "Z">
 <!ENTITY main.zoomin                    "ချဲ့ကြည့်ရန်">
 <!ENTITY main.zoomin.accesskey          "M">
@@ -57,9 +57,9 @@
 <!ENTITY main.language.accesskey        "L">
 <!ENTITY main.skin                      "အသွင်အပြင်">
 <!ENTITY main.skin.accesskey            "S">
-<!ENTITY main.statusbar                 "အခြေပြနေရာ">
+<!ENTITY main.statusbar                 "အခြေအနေပြဘား">
 <!ENTITY main.statusbar.accesskey       "S">
-<!ENTITY main.resultsbar                "အခြေအနေပြနေရာ">
+<!ENTITY main.resultsbar                "ရလဒ်ပြဘား">
 <!ENTITY main.resultsbar.accesskey      "R">
 <!ENTITY main.tabs                      "ဖွင့်ပြနေရာ">
 <!ENTITY main.tabs.accesskey            "T">
@@ -75,7 +75,7 @@
 <!ENTITY main.randomArticle.accesskey   "R">
 <!ENTITY main.checkIntegrity            "စာစုံမှု စိစစ်ခြင်း">
 <!ENTITY main.checkIntegrity.accesskey  "k">
-<!ENTITY main.launchIndexing            "Launch indexing">
+<!ENTITY main.launchIndexing            "စာရင်းပြုစုခြင်း စတင်ပါ">
 <!ENTITY main.purgeHistory              "မှတ်တမ်းများ ဖယ်ရှားခြင်း">
 <!ENTITY main.purgeHistory.accesskey    "P">
 
@@ -113,12 +113,12 @@
 <!ENTITY main.defaultset                "ပုံမှန် အနေအထား">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveMediaAs               "Save media as...">
+<!ENTITY main.saveMediaAs               "မီဒီယာဖိုင်ကို ဤသို့သိမ်းရန်..">
 <!ENTITY main.openLinkInNewTab          "ဖွင့်ပြနေရာ အသစ်တွင်ဖွင့်ပါ">
 <!ENTITY main.searchFor                 "ရှာဖွေရန်">
 <!ENTITY main.copyLinkAdress            "Copy link address">
 <!ENTITY main.mute                      "အသံပိတ်ရန်">
-<!ENTITY main.audible                   "အသံပိုင်းဆိုင်ရာ">
+<!ENTITY main.audible                   "အသံပါ">
 
 <!-- About Window -->
 <!ENTITY main.close                     "ပိတ်ရန်">
@@ -132,7 +132,7 @@
 <!ENTITY preferences.browse             "ရှာဖွေလှန်လှောရန်">
 <!ENTITY preferences.tabs               "ဖွင့်ပြနေရာကို မှတ်ထားပေးရန်">
 <!ENTITY preferences.downloadCatalogs   "အခြားနေရာမှ စာမျက်နှာများကို ရယူရန်">
-<!ENTITY preferences.neverAskToIndex    "Never ask to index">
+<!ENTITY preferences.neverAskToIndex    "စာရင်းပြုစုရန် ဘယတော့မှ မမေးပါနှင့်">
 
 <!-- Server -->
 <!ENTITY server.load                    "ကူးယူ">

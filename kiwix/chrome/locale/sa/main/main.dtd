@@ -71,7 +71,7 @@
 <!-- Tools menu -->
 <!ENTITY main.tools                     "उपकरणानि">
 <!ENTITY main.tools.accesskey           "T">
-<!ENTITY main.randomArticle             "अशृङ्खलं (Random) पृष्ठम्">
+<!ENTITY main.randomArticle             "यादृच्छिकं (Random) पृष्ठम्">
 <!ENTITY main.randomArticle.accesskey   "R">
 <!ENTITY main.checkIntegrity            "अखण्डता-परीक्षणम्">
 <!ENTITY main.checkIntegrity.accesskey  "k">

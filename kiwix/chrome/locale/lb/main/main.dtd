@@ -13,8 +13,8 @@
 <!ENTITY main.file.accesskey            "F">
 <!ENTITY main.openFile                  "Fichier opmaachen...">
 <!ENTITY main.browseLibrary.accesskey   "B">
-<!ENTITY main.browseLibrary             "Browse library">
-<!ENTITY main.hideLibrary               "Hide library">
+<!ENTITY main.browseLibrary             "Bibliothéik duerchsichen">
+<!ENTITY main.hideLibrary               "Bibliothéik verstoppen">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "Rezent opgemaach...">
 <!ENTITY main.saveFile                  "Säit späicheren als ...">
@@ -43,7 +43,7 @@
 <!ENTITY main.server.accesskey          "s">
 
 <!-- Display menu -->
-<!ENTITY main.display                   "Weisen">
+<!ENTITY main.display                   "Ausgesinn">
 <!ENTITY main.display.accesskey         "D">
 <!ENTITY main.zoom                      "Zoom">
 <!ENTITY main.zoom.accesskey            "Z">
@@ -55,17 +55,17 @@
 <!ENTITY main.zoomorig.accesskey        "O">
 <!ENTITY main.language                  "Sprooch">
 <!ENTITY main.language.accesskey        "L">
-<!ENTITY main.skin                      "Ausgesinn">
+<!ENTITY main.skin                      "Design">
 <!ENTITY main.skin.accesskey            "S">
 <!ENTITY main.statusbar                 "Statusläischt">
 <!ENTITY main.statusbar.accesskey       "S">
 <!ENTITY main.resultsbar                "Läischt mat de Resultater">
 <!ENTITY main.resultsbar.accesskey      "R">
-<!ENTITY main.tabs                      "Tabs">
+<!ENTITY main.tabs                      "Tabben">
 <!ENTITY main.tabs.accesskey            "T">
 <!ENTITY main.fullscreen                "Ganzen Ecran">
 <!ENTITY main.fullscreen.accesskey      "F">
-<!ENTITY main.invertedColors            "Inverted colors">
+<!ENTITY main.invertedColors            "Faarwen ëmgedréint">
 <!ENTITY main.invertedColors.accesskey  "I">
 
 <!-- Tools menu -->
@@ -73,16 +73,16 @@
 <!ENTITY main.tools.accesskey           "T">
 <!ENTITY main.randomArticle             "Zoufällegen Artikel">
 <!ENTITY main.randomArticle.accesskey   "R">
-<!ENTITY main.checkIntegrity            "Integrity check">
+<!ENTITY main.checkIntegrity            "Integritéitstest">
 <!ENTITY main.checkIntegrity.accesskey  "k">
-<!ENTITY main.launchIndexing            "Launch indexing">
+<!ENTITY main.launchIndexing            "Indexéierung ufänken">
 <!ENTITY main.purgeHistory              "Historique eidel maachen">
 <!ENTITY main.purgeHistory.accesskey    "P">
 
 <!-- Help menu -->
 <!ENTITY main.help                      "Hëllef">
 <!ENTITY main.help.accesskey            "H">
-<!ENTITY main.feedback                  "Feedback:">
+<!ENTITY main.feedback                  "Feedback">
 <!ENTITY main.reportabug                "E Feeler mellen">
 <!ENTITY main.requestafeature           "Eng Funktionalitéit froen">
 <!ENTITY main.about                     "Iwwer &brand.brandShortName;">
@@ -96,29 +96,29 @@
 <!ENTITY main.search                    "Sichen">
 <!ENTITY main.searchPlaceholder         "Gitt den Text fir ze sichen hei an ...">
 <!ENTITY main.findInText                "Am Text sichen">
-<!ENTITY main.noSearchBar               "Search requires an indexed ZIM file">
-<!ENTITY main.bookmarks                 "Favoriten">
+<!ENTITY main.noSearchBar               "D'Sich funktionéiert nëmme mat indexéierten ZIM-Dateien.">
+<!ENTITY main.bookmarks                 "Lieszeechen">
 
 <!-- Results bar -->
-<!ENTITY main.results.title             "Resultater vum Sichen">
+<!ENTITY main.results.title             "Resultater vun der Sich">
 
 <!-- Bookmarks Bar -->
-<!ENTITY main.bmkLabel                  "Favoriten:">
-<!ENTITY main.notesLabel                "Bookmark notes:">
-<!ENTITY main.loadbmk                   "Import Bookmark Set">
-<!ENTITY main.newbmk                    "Create new Bookmark Set">
+<!ENTITY main.bmkLabel                  "Lieszeechen:">
+<!ENTITY main.notesLabel                "Notizen zu dësem Lieszeechen:">
+<!ENTITY main.loadbmk                   "Lieszeeche-Lëscht importéieren">
+<!ENTITY main.newbmk                    "Nei Lieszeeche-Lëscht uleeën">
 <!ENTITY main.mark                      "Dës Säit markéieren">
-<!ENTITY main.unmark                    "Unmark selected">
-<!ENTITY main.reload                    "Reload Bookmark Set">
+<!ENTITY main.unmark                    "Ausgewielt Markéierung läschen">
+<!ENTITY main.reload                    "Lieszeeche-Lëscht nei lueden">
 <!ENTITY main.defaultset                "Standard Astellung">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveMediaAs               "Save media as...">
+<!ENTITY main.saveMediaAs               "Medium späicheren als…">
 <!ENTITY main.openLinkInNewTab          "Link an engem neien Tab opmaachen">
 <!ENTITY main.searchFor                 "Sichen no:">
 <!ENTITY main.copyLinkAdress            "Copy link address">
 <!ENTITY main.mute                      "Toun aus">
-<!ENTITY main.audible                   "Audible">
+<!ENTITY main.audible                   "Toun un">
 
 <!-- About Window -->
 <!ENTITY main.close                     "Zoumaachen">
@@ -127,12 +127,12 @@
 <!ENTITY preferences.preferences        "Astellungen">
 <!ENTITY preferences.save               "Späicheren">
 <!ENTITY preferences.cancel             "Ofbriechen">
-<!ENTITY preferences.profileDirectory   "Profile directory">
+<!ENTITY preferences.profileDirectory   "Profilregëster">
 <!ENTITY preferences.dataDirectory      "Data directory">
 <!ENTITY preferences.browse             "Duerchsichen">
 <!ENTITY preferences.tabs               "Sech un d'Tabben erënneren">
 <!ENTITY preferences.downloadCatalogs   "Extern(e) Katalog(en) eroflueden">
-<!ENTITY preferences.neverAskToIndex    "Never ask to index">
+<!ENTITY preferences.neverAskToIndex    "Ni dono froe fir ze indexéieren">
 
 <!-- Server -->
 <!ENTITY server.load                    "Lueden">
@@ -142,8 +142,8 @@
 
 <!-- Library -->
 <!ENTITY main.library.myLibrary                 "Meng Bibliothéik">
-<!ENTITY main.library.getNewFiles               "Nei Fichiere kréien">
-<!ENTITY main.library.searchZimFiles            "An den ZM-Fichiere sichen">
+<!ENTITY main.library.getNewFiles               "Nei Fichieren eroflueden">
+<!ENTITY main.library.searchZimFiles            "No ZIM-Fichiere sichen">
 <!ENTITY main.library.sortBy                    "Zortéieren no">
 <!ENTITY main.library.sortBy.title              "Titel">
 <!ENTITY main.library.sortBy.size               "Gréisst">

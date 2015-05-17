@@ -132,7 +132,7 @@
 <!ENTITY preferences.browse             "පිරික්සන්න">
 <!ENTITY preferences.tabs               "මතක්කිරීම් ටැබයන්">
 <!ENTITY preferences.downloadCatalogs   "දුරස්ථ නාමාවලි(ය) බාගන්න">
-<!ENTITY preferences.neverAskToIndex    "Never ask to index">
+<!ENTITY preferences.neverAskToIndex    "පටුනක් සැකසීමට නොඅසන්න">
 
 <!-- Server -->
 <!ENTITY server.load                    "පූරණය">

@@ -97,23 +97,23 @@
 <!ENTITY main.searchPlaceholder         "వెతుకుటకు పాఠ్యాన్ని ఇక్కడ టైపుచేయు...">
 <!ENTITY main.findInText                "పాఠ్యంలో వెతుకు">
 <!ENTITY main.noSearchBar               "వెతుకుటకు క్రమబద్ధీకరించిన జిమ్(indexed ZIM) ఫైల్ అవసరము">
-<!ENTITY main.bookmarks                 "పుటీకలు">
+<!ENTITY main.bookmarks                 "మడతపేజీలు">
 
 <!-- Results bar -->
 <!ENTITY main.results.title             "అన్వేషణ ఫలితాలు">
 
 <!-- Bookmarks Bar -->
-<!ENTITY main.bmkLabel                  "పుటీకలు:">
+<!ENTITY main.bmkLabel                  "మడతపేజీలు:">
 <!ENTITY main.notesLabel                "మడతపేజీ వ్రాతలు:">
 <!ENTITY main.loadbmk                   "ఇష్టాంశాలసెట్ ను దిగుమతి చెయ్యి">
-<!ENTITY main.newbmk                    "కొత్త ఇష్టాంశాల సమితి సృష్టించు">
+<!ENTITY main.newbmk                    "కొత్త మడతపేజీల సమితి సృష్టించు">
 <!ENTITY main.mark                      "ఈ పుటను గుర్తించు">
 <!ENTITY main.unmark                    "ఎంపికచేసినవాటినితొలగించు">
 <!ENTITY main.reload                    "ఇష్టాంశాల సెట్ మరల ఎక్కించు">
 <!ENTITY main.defaultset                "అప్రమేయ సెట్">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveMediaAs               "Save media as...">
+<!ENTITY main.saveMediaAs               "మీడియాని ఇలా భద్రపరచండి...">
 <!ENTITY main.openLinkInNewTab          "లంకెను కొత్త ట్యాబులో తెరువు">
 <!ENTITY main.searchFor                 "దీనికై వెతుకు">
 <!ENTITY main.copyLinkAdress            "Copy link address">

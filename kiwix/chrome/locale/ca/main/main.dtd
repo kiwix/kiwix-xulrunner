@@ -4,36 +4,36 @@
 
 <!-- Mac menu -->
 <!ENTITY main.osxservices               "Serveis">
-<!ENTITY main.osxhideapp                "Amaga &brand.brandShortName;">
-<!ENTITY main.osxhideothers             "Amaga altres">
-<!ENTITY main.osxshowall                "Mostra-ho tot">
+<!ENTITY main.osxhideapp                "Amagar &brand.brandShortName;">
+<!ENTITY main.osxhideothers             "Amagar els altres">
+<!ENTITY main.osxshowall                "Mostrar-ho tot">
 
 <!-- File menu -->
 <!ENTITY main.file                      "Fitxer">
 <!ENTITY main.file.accesskey            "F">
-<!ENTITY main.openFile                  "Obre...">
+<!ENTITY main.openFile                  "Obrir el fitxer...">
 <!ENTITY main.browseLibrary.accesskey   "B">
-<!ENTITY main.browseLibrary             "Navegar Biblioteca">
-<!ENTITY main.hideLibrary               "Amaga la Biblioteca">
+<!ENTITY main.browseLibrary             "Navegar per la biblioteca">
+<!ENTITY main.hideLibrary               "Amagar la biblioteca">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "Oberts recentment...">
-<!ENTITY main.saveFile                  "Desa pàgina com a...">
+<!ENTITY main.saveFile                  "Desa la pàgina amb el nom...">
 <!ENTITY main.saveFile.accesskey        "D">
-<!ENTITY main.print                     "Imprimeix">
+<!ENTITY main.print                     "Imprimir">
 <!ENTITY main.print.accesskey           "p">
-<!ENTITY main.printPdf                  "Exporta com a PDF">
+<!ENTITY main.printPdf                  "Imprimir com a PDF">
 <!ENTITY main.printPdf.accesskey        "x">
 <!ENTITY main.quit                      "Surt">
 <!ENTITY main.quit.accesskey            "S">
 
 <!-- Edit menu -->
-<!ENTITY main.edit                      "Edita">
+<!ENTITY main.edit                      "Editar">
 <!ENTITY main.edit.accesskey            "E">
-<!ENTITY main.find                      "Cerca a la pàgina...">
+<!ENTITY main.find                      "Cercar a la pàgina...">
 <!ENTITY main.find.accesskey            "S">
-<!ENTITY main.selectall                 "Selecciona-ho tot">
+<!ENTITY main.selectall                 "Seleccionar-ho tot">
 <!ENTITY main.selectall.accesskey       "a">
-<!ENTITY main.copy                      "Copia">
+<!ENTITY main.copy                      "Copiar">
 <!ENTITY main.copy.accesskey            "p">
 <!ENTITY main.transliteration           "Transliteració">
 <!ENTITY main.transliteration.accesskey "T">
@@ -43,25 +43,25 @@
 <!ENTITY main.server.accesskey          "s">
 
 <!-- Display menu -->
-<!ENTITY main.display                   "Visualitza">
+<!ENTITY main.display                   "Visualitzar">
 <!ENTITY main.display.accesskey         "V">
 <!ENTITY main.zoom                      "Zoom">
 <!ENTITY main.zoom.accesskey            "Z">
-<!ENTITY main.zoomin                    "Augmenta">
+<!ENTITY main.zoomin                    "Augmentar">
 <!ENTITY main.zoomin.accesskey          "m">
-<!ENTITY main.zoomout                   "Redueix">
+<!ENTITY main.zoomout                   "Reduir">
 <!ENTITY main.zoomout.accesskey         "R">
 <!ENTITY main.zoomorig                  "Mida original">
 <!ENTITY main.zoomorig.accesskey        "o">
 <!ENTITY main.language                  "Idioma">
 <!ENTITY main.language.accesskey        "I">
-<!ENTITY main.skin                      "Skin">
+<!ENTITY main.skin                      "Aparença">
 <!ENTITY main.skin.accesskey            "S">
 <!ENTITY main.statusbar                 "Barra d'estat">
 <!ENTITY main.statusbar.accesskey       "e">
 <!ENTITY main.resultsbar                "Barra de resultats">
 <!ENTITY main.resultsbar.accesskey      "r">
-<!ENTITY main.tabs                      "Tabs">
+<!ENTITY main.tabs                      "Etiquetes">
 <!ENTITY main.tabs.accesskey            "T">
 <!ENTITY main.fullscreen                "Pantalla completa">
 <!ENTITY main.fullscreen.accesskey      "c">
@@ -73,78 +73,78 @@
 <!ENTITY main.tools.accesskey           "E">
 <!ENTITY main.randomArticle             "Article a l'atzar">
 <!ENTITY main.randomArticle.accesskey   "Z">
-<!ENTITY main.checkIntegrity            "Integrity check">
+<!ENTITY main.checkIntegrity            "Comprovació d'integritat">
 <!ENTITY main.checkIntegrity.accesskey  "k">
 <!ENTITY main.launchIndexing            "Iniciar la indexació">
-<!ENTITY main.purgeHistory              "Netejar historial">
+<!ENTITY main.purgeHistory              "Purgar l'historial">
 <!ENTITY main.purgeHistory.accesskey    "N">
 
 <!-- Help menu -->
 <!ENTITY main.help                      "Ajuda">
 <!ENTITY main.help.accesskey            "A">
 <!ENTITY main.feedback                  "Comentaris">
-<!ENTITY main.reportabug                "Informar un error">
-<!ENTITY main.requestafeature           "Demanar noves característiques">
-<!ENTITY main.about                     "Quant a &brand.brandShortName;">
+<!ENTITY main.reportabug                "Informar d'un error">
+<!ENTITY main.requestafeature           "Demanar una característica">
+<!ENTITY main.about                     "Sobre &brand.brandShortName;">
 <!ENTITY main.about.accesskey           "Q">
 
 <!-- Tool bar -->
-<!ENTITY main.back                      "Endarrere">
+<!ENTITY main.back                      "Enrere">
 <!ENTITY main.forward                   "Endavant">
 <!ENTITY main.home                      "Pàgina d'inici">
 <!ENTITY main.searchBar                 "Barra de cerca">
-<!ENTITY main.search                    "Cerca">
-<!ENTITY main.searchPlaceholder         "Escriviu el text que voleu cercar aquí...">
+<!ENTITY main.search                    "Cercar">
+<!ENTITY main.searchPlaceholder         "Escriviu aquí el text que voleu cercar...">
 <!ENTITY main.findInText                "Cercar en el text">
 <!ENTITY main.noSearchBar               "La cerca necessita un fitxer ZIM indexat">
-<!ENTITY main.bookmarks                 "Adreces d'interès">
+<!ENTITY main.bookmarks                 "Preferits">
 
 <!-- Results bar -->
 <!ENTITY main.results.title             "Resultats de la cerca">
 
 <!-- Bookmarks Bar -->
-<!ENTITY main.bmkLabel                  "Adreces d'interès:">
+<!ENTITY main.bmkLabel                  "Preferits">
 <!ENTITY main.notesLabel                "Notes dels preferits:">
 <!ENTITY main.loadbmk                   "Importar grup de preferits">
-<!ENTITY main.newbmk                    "Crea grup de preferits">
-<!ENTITY main.mark                      "Afegeix als preferits">
-<!ENTITY main.unmark                    "Treu dels preferits">
-<!ENTITY main.reload                    "Recarrega el grup de preferits">
-<!ENTITY main.defaultset                "Grup predeterminat">
+<!ENTITY main.newbmk                    "Crear un nou conjunt de preferits">
+<!ENTITY main.mark                      "Marcar aquesta pàgina">
+<!ENTITY main.unmark                    "Desmarcar la selecció">
+<!ENTITY main.reload                    "Recarregar el conjunt de preferits">
+<!ENTITY main.defaultset                "Conjunt predeterminat">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveMediaAs               "Desa medis com...">
+<!ENTITY main.saveMediaAs               "Desa el fitxer com...">
 <!ENTITY main.openLinkInNewTab          "Obre l'enllaç en una pestanya nova">
 <!ENTITY main.searchFor                 "Buscar">
 <!ENTITY main.copyLinkAdress            "Copy link address">
-<!ENTITY main.mute                      "Mut">
+<!ENTITY main.mute                      "En silenci">
 <!ENTITY main.audible                   "Perceptible">
 
 <!-- About Window -->
-<!ENTITY main.close                     "Tanca">
+<!ENTITY main.close                     "Tancar">
 
 <!-- Preferences Window -->
 <!ENTITY preferences.preferences        "Preferències">
-<!ENTITY preferences.save               "Desa">
-<!ENTITY preferences.cancel             "Canceŀla">
-<!ENTITY preferences.profileDirectory   "Profile directory">
+<!ENTITY preferences.save               "Desar">
+<!ENTITY preferences.cancel             "Canceŀlar">
+<!ENTITY preferences.profileDirectory   "Carpeta del perfil">
 <!ENTITY preferences.dataDirectory      "Data directory">
-<!ENTITY preferences.browse             "Navega">
-<!ENTITY preferences.tabs               "Recordeu tabs">
-<!ENTITY preferences.downloadCatalogs   "Descarregar catàlegs remots">
-<!ENTITY preferences.neverAskToIndex    "No preguntar mai per la indexació">
+<!ENTITY preferences.browse             "Examinar">
+<!ENTITY preferences.tabs               "Recordar les etiquetes">
+<!ENTITY preferences.downloadCatalogs   "Descarregar catàleg(s) remot(s)">
+<!ENTITY preferences.neverAskToIndex    "No demanar mai que s'indexi">
 
 <!-- Server -->
-<!ENTITY server.load                    "Carrega">
-<!ENTITY server.start                   "Inicia">
-<!ENTITY server.stop                    "Atura">
-<!ENTITY server.close                   "Tanca">
+<!ENTITY server.load                    "Carregar">
+<!ENTITY server.start                   "Iniciar">
+<!ENTITY server.stop                    "Aturar">
+<!ENTITY server.close                   "Tancar">
 
 <!-- Library -->
 <!ENTITY main.library.myLibrary                 "La meva biblioteca">
 <!ENTITY main.library.getNewFiles               "Obtenir nous fitxers">
-<!ENTITY main.library.searchZimFiles            "Cerca fitxers ZIM">
-<!ENTITY main.library.sortBy                    "Ordena per">
+<!ENTITY main.library.searchZimFiles            "Cercar fitxers ZIM">
+<!ENTITY main.library.sortBy                    "Ordenar per">
 <!ENTITY main.library.sortBy.title              "Títol">
 <!ENTITY main.library.sortBy.size               "Mida">
 <!ENTITY main.library.sortBy.date               "Data">
