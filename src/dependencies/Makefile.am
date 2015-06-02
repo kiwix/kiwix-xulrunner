@@ -537,11 +537,11 @@ android-ndk-r8e: android-ndk-r8e.tar.bz2
 $(ANDROIDAPIVERSIONFILE):
 	$(DOWNLOADER) $(ANDROIDAPIVERSIONFILE) $(ANDROIDAPIVERSIONURL)
 
-android-sdk-linux.zip:
-	$(DOWNLOADER) android-sdk-linux.zip $(ANDROIDLINUXSDKURL)
+android-sdk-linux.tar.bz2:
+	$(DOWNLOADER) android-sdk-linux.tar.bz2 $(ANDROIDLINUXSDKURL)
 
-android-sdk-linux: android-sdk-linux.zip
-	test -d android-sdk-linux || unzip android-sdk-linux.zip
+android-sdk-linux: android-sdk-linux.tar.bz2
+	test -d android-sdk-linux || tar xf android-sdk-linux.tar.bz2
 
 android-sdk-macosx.zip:
 	$(DOWNLOADER) android-sdk-macosx.zip $(ANDROIDOSXSDKURL)
