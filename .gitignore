@@ -58,6 +58,7 @@ android/*.log
 android//.idea/workspace.xml
 android/.settings
 android/*.iml
+android/assets/icudt49l.dat
 *.keystore
 
 # OSX
