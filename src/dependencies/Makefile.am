@@ -510,7 +510,7 @@ android-sdk.tar.xz:
 android-sdk: android-sdk.tar.xz
 	test -d android-sdk || tar xf android-sdk.tar.xz
 
-android-deps: android-ndk-r8e android-sdk xz icu zimlib-1.2 zimlib-1.2/build/lib/libzim.so
+android-deps: icudt49l.dat android-ndk-r8e android-sdk xz icu zimlib-1.2 zimlib-1.2/build/lib/libzim.so
 	true
 
 ####################################################
