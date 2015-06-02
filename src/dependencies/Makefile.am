@@ -67,13 +67,41 @@ endif
 ## 2 - With the UI remove/add the necessary (only API 21+ tools)
 ## 3 - Put the stuf in android-sdk directory
 ## 4 - Pack the directory in a tar.xz file an upload on download.kiwix.org
+
 if IS_LINUX
+ANDROIDPLATFORM=linux
 ANDROIDNDKURL=$(DEP_MIRROR)/android-ndk-r8e-linux-$(ARCH).tar.bz2
-ANDROIDSDKURL=$(DEP_MIRROR)/android-sdk-21-linux.tar.xz
 else
+ANDROIDPLATFORM=macosx
 ANDROIDNDKURL=$(DEP_MIRROR)/android-ndk-r8e-darwin-x86_64.tar.bz2
-ANDROIDSDKURL=$(DEP_MIRROR)/adt-bundle-mac-x86_64-20131030.zip
 endif
+
+# ANDROID CONFIGURATION
+ANDROIDSDKTOOLSVERSION=24 # SDK (not platform API) version
+ANDROIDAPIVERSION=21 # SDK/API (code API) version
+
+ANDROIDSDKPLATFORMTOOLSURL=$(DEP_MIRROR)/platform-tools-$(ANDROIDPLATFORM)-$(ANDROIDSDKTOOLSVERSION).tar.bz2
+ANDROIDLINUXSDKURL=$(DEP_MIRROR)/android-sdk_r24.2-linux.tgz
+ANDROIDOSXSDKURL=$(DEP_MIRROR)/android-sdk_r24.2-macosx.zip
+ANDROIDAPIVERSIONFOLDER=android-$(ANDROIDAPIVERSION)
+ANDROIDAPIVERSIONFILE=$(ANDROIDAPIVERSIONFOLDER).tar.bz2
+ANDROIDAPIVERSIONURL=$(DEP_MIRROR)/$(ANDROIDAPIVERSIONFILE)
+ANDROIDSDKSOURCE=android-sdk-$(ANDROIDPLATFORM)
+
+### ANDROID SDK AND API UPDATE INSTRUCTIONS  ###
+### SDK (tools)
+# 1. Download from https://developer.android.com/sdk/index.html#Other and put on dl.kiwix
+# 2. For each platform (linux, osx) ; do (on the platform !)
+#    1. Download and extract SDK
+#    2. ./tools/android list sdk # look to the IDs of SDK Platform and SDK Platform tools (usually number #1 and #2)
+#    3. ./tools/android update sdk 1,2 # reuse the numbers from previous step
+#    4. tar cjf platform-tools-linux|macosx-version.tar.bz2 platform-tools/ # replace platform and version
+#    5. copy that file to the repo.
+# 3. On any platform, download the desired API (get number from ./tools/android list sdk)
+# 4. cd platforms/ && tar cjf android-version.tar.bz2 android-version/ # replace version with API version
+# 5. copy that file to the repo.
+######
+
 
 ####################################################
 ############ GECKO-SDK
@@ -504,13 +532,34 @@ android-ndk-r8e: android-ndk-r8e.tar.bz2
 ####################################################
 ############ ANDROID-SDK
 ####################################################
-android-sdk.tar.xz:
-	$(DOWNLOADER) android-sdk.tar.xz $(ANDROIDSDKURL)
+$(ANDROIDAPIVERSIONFILE):
+	$(DOWNLOADER) $(ANDROIDAPIVERSIONFILE) $(ANDROIDAPIVERSIONURL)
 
-android-sdk: android-sdk.tar.xz
-	test -d android-sdk || tar xf android-sdk.tar.xz
+android-sdk-linux.zip:
+	$(DOWNLOADER) android-sdk-linux.zip $(ANDROIDLINUXSDKURL)
 
-android-deps: icudt49l.dat android-ndk-r8e android-sdk xz icu zimlib-1.2 zimlib-1.2/build/lib/libzim.so
+android-sdk-linux: android-sdk-linux.zip
+	test -d android-sdk-linux || unzip android-sdk-linux.zip
+
+android-sdk-macosx.zip:
+	$(DOWNLOADER) android-sdk-macosx.zip $(ANDROIDOSXSDKURL)
+
+android-sdk-macosx: android-sdk-macosx.zip
+	test -d android-sdk-macosx || unzip android-sdk-macosx.zip
+
+platform-tools.tar.bz2:
+	$(DOWNLOADER) platform-tools.tar.bz2 $(ANDROIDSDKPLATFORMTOOLSURL)
+
+android-sdk: $(ANDROIDAPIVERSIONFILE) platform-tools.tar.bz2 $(ANDROIDSDKSOURCE)
+	test -d android-sdk || rm -f android-sdk && ln -sf $(ANDROIDSDKSOURCE) android-sdk
+
+android-sdk/platforms/$(ANDROIDAPIVERSIONFOLDER): android-sdk
+	test -d android-sdk/platforms/$(ANDROIDAPIVERSIONFOLDER) || cd android-sdk/platforms && tar xf ../../$(ANDROIDAPIVERSIONFILE)
+	
+android-sdk/platform-tools: android-sdk android-sdk/platforms/$(ANDROIDAPIVERSIONFOLDER)
+	test -d android-sdk/platform-tools || cd android-sdk && tar xf ../platform-tools.tar.bz2
+
+android-deps: icudt49l.dat android-ndk-r8e android-sdk android-sdk/platform-tools xz icu zimlib-1.2 zimlib-1.2/build/lib/libzim.so
 	true
 
 ####################################################
