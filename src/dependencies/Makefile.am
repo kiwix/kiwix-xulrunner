@@ -553,13 +553,13 @@ platform-tools.tar.bz2:
 	$(DOWNLOADER) platform-tools.tar.bz2 $(ANDROIDSDKPLATFORMTOOLSURL)
 
 android-sdk: $(ANDROIDAPIVERSIONFILE) platform-tools.tar.bz2 $(ANDROIDSDKSOURCE)
-	test -d android-sdk || rm -f android-sdk && ln -sf $(ANDROIDSDKSOURCE) android-sdk
+	test -d android-sdk || `rm -f android-sdk && ln -sf $(ANDROIDSDKSOURCE) android-sdk`
 
 android-sdk/platforms/$(ANDROIDAPIVERSIONFOLDER): android-sdk
-	test -d android-sdk/platforms/$(ANDROIDAPIVERSIONFOLDER) || cd android-sdk/platforms && tar xf ../../$(ANDROIDAPIVERSIONFILE)
+	test -d android-sdk/platforms/$(ANDROIDAPIVERSIONFOLDER) || `cd android-sdk/platforms && tar xf ../../$(ANDROIDAPIVERSIONFILE)`
 	
 android-sdk/platform-tools: android-sdk android-sdk/platforms/$(ANDROIDAPIVERSIONFOLDER)
-	test -d android-sdk/platform-tools || cd android-sdk && tar xf ../platform-tools.tar.bz2
+	test -d android-sdk/platform-tools || `cd android-sdk && tar xf ../platform-tools.tar.bz2`
 
 android-deps: icudt49l.dat android-ndk-r8e android-sdk android-sdk/platform-tools xz icu zimlib-1.2 zimlib-1.2/build/lib/libzim.so
 	true
