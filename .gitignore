@@ -102,3 +102,8 @@ ftp_pass.py
 \#*\#
 .\#*
 kiwix/chrome/*.jar
+
+platforms
+pythonenv
+android-custom*
+android/assets/locales.txt
