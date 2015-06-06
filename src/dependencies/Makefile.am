@@ -62,12 +62,6 @@ XULRUNNERRUNTIMEURL=$(DEP_MIRROR)/xulrunner-29.0.en-US.linux-$(ARCH).tar.bz2
 endif
 endif
 
-## Android dev tools for OSX needs to be updated for OSX
-## 1 - Download Android studio
-## 2 - With the UI remove/add the necessary (only API 21+ tools)
-## 3 - Put the stuf in android-sdk directory
-## 4 - Pack the directory in a tar.xz file an upload on download.kiwix.org
-
 if IS_LINUX
 ANDROIDPLATFORM=linux
 ANDROIDNDKURL=$(DEP_MIRROR)/android-ndk-r8e-linux-$(ARCH).tar.bz2
@@ -78,11 +72,12 @@ endif
 
 # ANDROID CONFIGURATION
 # SDK (not platform API) version
-ANDROIDSDKTOOLSVERSION=24
+ANDROIDSDKTOOLSVERSION=20150606
 # SDK/API (code API) version
-ANDROIDAPIVERSION=21
+ANDROIDAPIVERSION=22
 
-ANDROIDSDKPLATFORMTOOLSURL=$(DEP_MIRROR)/platform-tools-$(ANDROIDPLATFORM)-$(ANDROIDSDKTOOLSVERSION).tar.bz2
+ANDROIDSDKPLATFORMTOOLSURL=$(DEP_MIRROR)/android-sdk-tools-$(ANDROIDPLATFORM)-$(ANDROIDSDKTOOLSVERSION).tar.bz2
+ANDROIDSDKEXTRASURL=$(DEP_MIRROR)/android-extras-$(ANDROIDSDKTOOLSVERSION).tar.bz2
 ANDROIDLINUXSDKURL=$(DEP_MIRROR)/android-sdk_r24.2-linux.tgz
 ANDROIDOSXSDKURL=$(DEP_MIRROR)/android-sdk_r24.2-macosx.zip
 ANDROIDAPIVERSIONFOLDER=android-$(ANDROIDAPIVERSION)
@@ -95,13 +90,17 @@ ANDROIDSDKSOURCE=android-sdk-$(ANDROIDPLATFORM)
 # 1. Download from https://developer.android.com/sdk/index.html#Other and put on dl.kiwix
 # 2. For each platform (linux, osx) ; do (on the platform !)
 #    1. Download and extract SDK
-#    2. ./tools/android list sdk # look to the IDs of SDK Platform and SDK Platform tools (usually number #1 and #2)
-#    3. ./tools/android update sdk 1,2 # reuse the numbers from previous step
-#    4. tar cjf platform-tools-linux|macosx-version.tar.bz2 platform-tools/ # replace platform and version
+#    2. ./tools/android list sdk -a # look to the IDs of SDK Platform and SDK Platform tools
+#		and SDK Build-tools (usually number #1, #2 and #3)
+#		As well as Android Support Repository and Android Support Library
+#    3. ./tools/android update sdk -a --filter 1,2,3,24,138,139 --no-ui # reuse the numbers from previous step
+#    4. tar cjf android-sdk-tools-linux|macosx-2015XXXX.tar.bz2 build-tools/ platform-tools/ # replace platform and date
 #    5. copy that file to the repo.
 # 3. On any platform, download the desired API (get number from ./tools/android list sdk)
 # 4. cd platforms/ && tar cjf android-version.tar.bz2 android-version/ # replace version with API version
 # 5. copy that file to the repo.
+# 6. tar cjf android-extras-2015XXXX.tar.bz2 extras/ # replace date
+# 7. copy that file to the repo.
 ######
 
 
@@ -549,19 +548,25 @@ android-sdk-macosx.zip:
 android-sdk-macosx: android-sdk-macosx.zip
 	test -d android-sdk-macosx || unzip android-sdk-macosx.zip
 
-platform-tools.tar.bz2:
-	$(DOWNLOADER) platform-tools.tar.bz2 $(ANDROIDSDKPLATFORMTOOLSURL)
+android-sdk-tools-tools.tar.bz2:
+	$(DOWNLOADER) android-sdk-tools-tools.tar.bz2 $(ANDROIDSDKPLATFORMTOOLSURL)
 
-android-sdk: $(ANDROIDAPIVERSIONFILE) platform-tools.tar.bz2 $(ANDROIDSDKSOURCE)
+android-extras.tar.bz2:
+	$(DOWNLOADER) android-extras.tar.bz2 $(ANDROIDSDKEXTRASURL)
+
+android-sdk: $(ANDROIDAPIVERSIONFILE) android-sdk-tools-tools.tar.bz2 $(ANDROIDSDKSOURCE)
 	test -d android-sdk || `rm -f android-sdk && ln -sf $(ANDROIDSDKSOURCE) android-sdk`
 
 android-sdk/platforms/$(ANDROIDAPIVERSIONFOLDER): android-sdk
 	test -d android-sdk/platforms/$(ANDROIDAPIVERSIONFOLDER) || `cd android-sdk/platforms && tar xf ../../$(ANDROIDAPIVERSIONFILE)`
 	
 android-sdk/platform-tools: android-sdk android-sdk/platforms/$(ANDROIDAPIVERSIONFOLDER)
-	test -d android-sdk/platform-tools || `cd android-sdk && tar xf ../platform-tools.tar.bz2`
+	test -f android-sdk/platform-tools/adb || `cd android-sdk && tar xf ../android-sdk-tools-tools.tar.bz2`
 
-android-deps: icudt49l.dat android-ndk-r8e android-sdk android-sdk/platform-tools xz icu zimlib-1.2 zimlib-1.2/build/lib/libzim.so
+android-sdk/extras: android-sdk android-extras.tar.bz2
+	test -d android-sdk/extras || `cd android-sdk && tar xf ../android-extras.tar.bz2`
+
+android-deps: icudt49l.dat android-ndk-r8e android-sdk/platform-tools android-sdk/extras xz icu zimlib-1.2 zimlib-1.2/build/lib/libzim.${SHARED_EXT} 
 	true
 
 ####################################################
@@ -581,11 +586,11 @@ zimlib-1.2: zimlib-1.2.tar.gz
 
 # OSX i386
 zimlib-1.2/build-i386/lib/libzim.dylib zimlib-1.2/build-i386/lib/libzim.a: zimlib-1.2 xz/build/lib/liblzma.dylib
-	test ! -f zimlib-1.2/build-i386/lib/libzim.dylib && cd zimlib-1.2 && mkdir -p build-i386 && CPPFLAGS="-I../xz/build-i386/include" CXXFLAGS=" -stdlib=libstdc++ -std=c++11 -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE" CC="$(CC32)" CXX="$(CXX32)" LDFLAGS=" -L$(DEP_PATH)/xz/build/lib " ./configure --enable-shared --disable-dependency-tracking --with-pic --prefix=$(DEP_PATH)/zimlib-1.2/build-i386 --enable-static --disable-libtool-lock && make clean && make && make install && install_name_tool -id libzim.dylib build-i386/lib/libzim.dylib || true
+	test ! -f zimlib-1.2/build-i386/lib/libzim.dylib && cd zimlib-1.2 && mkdir -p build-i386 && CPPFLAGS="-I${DEP_PATH}/xz/build-i386/include" CXXFLAGS=" -stdlib=libstdc++ -std=c++11 -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE" CC="$(CC32)" CXX="$(CXX32)" LDFLAGS=" -L$(DEP_PATH)/xz/build/lib " ./configure --enable-shared --disable-dependency-tracking --with-pic --prefix=$(DEP_PATH)/zimlib-1.2/build-i386 --enable-static --disable-libtool-lock && make clean && make && make install && install_name_tool -id libzim.dylib build-i386/lib/libzim.dylib || true
 
 # OSX x86_64
 zimlib-1.2/build-x86_64/lib/libzim.dylib zimlib-1.2/build-x86_64/lib/libzim.a: zimlib-1.2 xz/build/lib/liblzma.dylib
-	test ! -f zimlib-1.2/build-x86_64/lib/libzim.dylib && cd zimlib-1.2 && mkdir -p build-x86_64 && CPPFLAGS="-I../xz/build-x86_64/include" CXXFLAGS=" -stdlib=libstdc++ -std=c++11 -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE" CC="$(CC64)" CXX="$(CXX64)" LDFLAGS=" -L$(DEP_PATH)/xz/build/lib " ./configure --enable-shared --disable-dependency-tracking --with-pic --prefix=$(DEP_PATH)/zimlib-1.2/build-x86_64 --enable-static --disable-libtool-lock && make clean && make && make install && install_name_tool -id libzim.dylib build-x86_64/lib/libzim.dylib || true
+	test ! -f zimlib-1.2/build-x86_64/lib/libzim.dylib && cd zimlib-1.2 && mkdir -p build-x86_64 && CPPFLAGS="-I${DEP_PATH}/xz/build-x86_64/include" CXXFLAGS=" -stdlib=libstdc++ -std=c++11 -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE" CC="$(CC64)" CXX="$(CXX64)" LDFLAGS=" -L$(DEP_PATH)/xz/build/lib " ./configure --enable-shared --disable-dependency-tracking --with-pic --prefix=$(DEP_PATH)/zimlib-1.2/build-x86_64 --enable-static --disable-libtool-lock && make clean && make && make install && install_name_tool -id libzim.dylib build-x86_64/lib/libzim.dylib || true
 
 # OSX Join
 zimlib-1.2/build/lib/libzim.dylib zimlib-1.2/build/lib/libzim.a: zimlib-1.2/build-i386/lib/libzim.dylib zimlib-1.2/build-x86_64/lib/libzim.dylib zimlib-1.2/build-i386/lib/libzim.a zimlib-1.2/build-x86_64/lib/libzim.a
@@ -685,6 +690,11 @@ DISTCLEANFILES= xulrunner-sdk.tar.bz2 \
 	pthread-win32.zip \
 	android-ndk-r8e.tar.bz2 \
 	android-sdk.zip \
+	android-sdk-macosx.zip \
+	android-sdk-linux.tar.bz2 \
+	android-21.tar.bz2 \
+	android-22.tar.bz2 \
+	android-sdk-tools-tools.tar.bz2 \
 	android-14.tar.bz2 \
 	zimlib-1.2.tar.gz \
 	gettext-0.18.3.2.tar.gz \
@@ -693,6 +703,7 @@ DISTCLEANFILES= xulrunner-sdk.tar.bz2 \
 	icudt49l.dat \
 	zimlib-master.zip \
 	kiwix-osx-xulrunner-bin \
+	libiconv-1.13.1.tar.gz \
 	libiconv-1.13.1.tar.gz
 
 clean-local:
@@ -729,6 +740,8 @@ distclean-local:
 	-rm -rf android-sdk
 	-rm -rf android-14
 	-rm -rf openzim-master
+	-rm-rf android-sdk
+	-rm-rf android-sdk-*
 
 # list of targets is built in configure.ac
 all-local: deps
