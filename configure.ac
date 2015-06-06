@@ -145,6 +145,15 @@ AC_CHECK_TOOL(HAVE_JAVA_BIN, java)
 AC_CHECK_TOOL(HAVE_JAVAH_BIN, javah)
 AC_CHECK_TOOL(HAVE_JARSIGNER_BIN, jarsigner)
 
+# check if imagemagick's convert is present
+AC_CHECK_TOOL(HAVE_CONVERT_BIN, convert)
+
+# check if python-requests is installed
+HAVE_PYTHON_REQUESTS=`python -c 'import requests; print("python-requests")' 2> /dev/null`
+AC_MSG_RESULT(checking for python-requests... ${HAVE_PYTHON_REQUESTS})
+HAVE_PYTHON_BEAUTIFULSOUP=`python -c 'import bs4; print("python-beautifulsoup")' 2> /dev/null`
+AC_MSG_RESULT(checking for python-beautifulsoup... ${HAVE_PYTHON_BEAUTIFULSOUP})
+
 # Check the existence of stat64 (to handle file >2GB) in the libc
 AC_CHECK_FUNCS([stat64])
 
@@ -1532,6 +1541,18 @@ fi
 
 if test [ $WITH_ANDROID -eq 1 ]
 then
+	if test [ "$HAVE_CONVERT_BIN" = "" ]
+	then
+		AC_MSG_ERROR([Unable to find convert (imagemagick)])
+	fi
+	if test [ "$HAVE_PYTHON_REQUESTS" = "" ]
+	then
+		AC_MSG_WARN([[Unable to find python-requests (pip install requests)]])
+	fi
+	if test [ "$HAVE_PYTHON_BEAUTIFULSOUP" = "" ]
+	then
+		AC_MSG_WARN([[Unable to find python-beautifulsoup (pip install beautifulsoup)]])
+	fi
 	if test [ "$HAVE_JAVA_BIN" = "" ]
 	then
 		AC_MSG_ERROR([Unable to find java])
