@@ -21,7 +21,7 @@
 <!ENTITY main.saveFile.accesskey        "S">
 <!ENTITY main.print                     "Dröcke">
 <!ENTITY main.print.accesskey           "P">
-<!ENTITY main.printPdf                  "Als PDF-Datei dröcke">
+<!ENTITY main.printPdf                  "Print as PDF">
 <!ENTITY main.printPdf.accesskey        "D">
 <!ENTITY main.quit                      "Ophüüre!">
 <!ENTITY main.quit.accesskey            "Q">
@@ -55,7 +55,7 @@
 <!ENTITY main.zoomorig.accesskey        "O">
 <!ENTITY main.language                  "Schprohch">
 <!ENTITY main.language.accesskey        "L">
-<!ENTITY main.skin                      "Et Ussinn">
+<!ENTITY main.skin                      "Et Ußsinn">
 <!ENTITY main.skin.accesskey            "S">
 <!ENTITY main.statusbar                 "De Zohschtands-Reih">
 <!ENTITY main.statusbar.accesskey       "S">
@@ -94,7 +94,7 @@
 <!ENTITY main.home                      "Houpsigg">
 <!ENTITY main.searchBar                 "Söhk noh">
 <!ENTITY main.search                    "Söhke">
-<!ENTITY main.searchPlaceholder         "Jev heh ene Täx en, woh mer noh söke sulle&nbsp;&hellip;">
+<!ENTITY main.searchPlaceholder         "Jev heh ene Täx en, woh mer noh söke sulle&nbsp;…">
 <!ENTITY main.findInText                "En Täx fenge">
 <!ENTITY main.noSearchBar               "Öm söhke ze künne, bruch mer en ZIM-Dattei met enem Index.">
 <!ENTITY main.bookmarks                 "Leesezeische">
@@ -108,7 +108,7 @@
 <!ENTITY main.loadbmk                   "Ene Pöngel Lesezeiche us ene Dattei empoteere">
 <!ENTITY main.newbmk                    "Ene neue Pöngel Lesezeiche aanfange">
 <!ENTITY main.mark                      "Heh di Sigg makeere">
-<!ENTITY main.unmark                    "Makeerung fottnämme">
+<!ENTITY main.unmark                    "Makkehrong fottnämme">
 <!ENTITY main.reload                    "Donn dä Pöngel Lesezeiche norr_ens neu vun dä Dattei laade">
 <!ENTITY main.defaultset                "Der schtandatmääßeje Pöngel">
 
@@ -127,7 +127,7 @@
 <!ENTITY preferences.preferences        "Enschtellunge">
 <!ENTITY preferences.save               "Faßhalde">
 <!ENTITY preferences.cancel             "Ophüre">
-<!ENTITY preferences.profileDirectory   "Verzeischneß mem Profil">
+<!ENTITY preferences.profileDirectory   "Verzeijschneß mem Profihl">
 <!ENTITY preferences.dataDirectory      "Data directory">
 <!ENTITY preferences.browse             "Aanluure">
 <!ENTITY preferences.tabs               "Tabbulatoore behallde">
@@ -147,7 +147,7 @@
 <!ENTITY main.library.sortBy                    "Zoteer noh">
 <!ENTITY main.library.sortBy.title              "Övverschreff">
 <!ENTITY main.library.sortBy.size               "Ömfang">
-<!ENTITY main.library.sortBy.date               "Dattum un Zick">
+<!ENTITY main.library.sortBy.date               "Dattom un Zigg">
 <!ENTITY main.library.sortBy.author             "Fotojraf udder Maacher">
 <!ENTITY main.library.sortBy.publisher          "Verläjer udder Veröffentlescher">
 <!ENTITY main.library.filterBy                  "Ußsöhke noh">

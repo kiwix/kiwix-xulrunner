@@ -100,7 +100,7 @@
 <!ENTITY main.bookmarks                 "पुस्तक चिनोहरु">
 
 <!-- Results bar -->
-<!ENTITY main.results.title             "खोज नतिजाहरु">
+<!ENTITY main.results.title             "खोज नतिजाहरू">
 
 <!-- Bookmarks Bar -->
 <!ENTITY main.bmkLabel                  "पुस्तक चिनोहरु:">
@@ -124,7 +124,7 @@
 <!ENTITY main.close                     "बन्द गर्ने">
 
 <!-- Preferences Window -->
-<!ENTITY preferences.preferences        "प्राथमिकताहरु">
+<!ENTITY preferences.preferences        "प्राथमिकताहरू">
 <!ENTITY preferences.save               "संग्रह गर्ने">
 <!ENTITY preferences.cancel             "रद्द गर्ने">
 <!ENTITY preferences.profileDirectory   "प्रोफाइल डाइरेक्टरी">
@@ -142,8 +142,8 @@
 
 <!-- Library -->
 <!ENTITY main.library.myLibrary                 "मेरो पुस्तकालय">
-<!ENTITY main.library.getNewFiles               "नयाँ फाइलहरु लिनुहोस">
-<!ENTITY main.library.searchZimFiles            "ZIM फाइलहरु खोज्ने">
+<!ENTITY main.library.getNewFiles               "नयाँ फाइलहरू लिनुहोस्">
+<!ENTITY main.library.searchZimFiles            "ZIM फाइलहरू खोज्ने">
 <!ENTITY main.library.sortBy                    "क्रम मिलाउने">
 <!ENTITY main.library.sortBy.title              "शीर्षक">
 <!ENTITY main.library.sortBy.size               "आकार">
