@@ -40,11 +40,7 @@ function checkIfOnline() {
 	function onStateChange() {
 		if (xmlhttp.readyState == 4) {
 			try {
-				if (xmlhttp.status == 200) {
-					online = true;
-				} else {
-					oneline = false;
-				}
+			     online = (xmlhttp.status == 200);
 			} catch(err) {
 			}
 		}
