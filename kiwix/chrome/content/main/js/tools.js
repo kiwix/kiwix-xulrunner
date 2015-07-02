@@ -163,11 +163,11 @@ function restart(silent) {
 		.getService(Components.interfaces.nsIAppStartup);
 		applicationStartup.quit(Components.interfaces.nsIAppStartup.eRestart |
 				Components.interfaces.nsIAppStartup.eAttemptQuit);
-	} else {
-		return false;
-	}
+           return true;
+	} 
 
-	return true;
+	return false;
+		
 }
 
 /* Quit Kiwix */
@@ -192,18 +192,18 @@ function quit(silent) {
 		getService(Components.interfaces.nsIAppStartup);
 		applicationStartup.quit(Components.interfaces.nsIAppStartup.eForceQuit);
 		_alreadyHaveQuitOrRestart = true;
-	} else {
-		return false;
-	}
+		return true;
+	} 
 
-	return true;
+	return false;
+		
 }
 
 /* Return the properties object */
 function getProperties(brand) {
 	var pid = "properties";
-	if (brand == true) 
-		pid  = "brand" + pid;
+	if (brand) 
+	   pid  = "brand" + pid;
 	return document.getElementById(pid);
 }
 
@@ -514,8 +514,7 @@ function deleteFile(path) {
 		var fileService = Components.classes["@mozilla.org/file/local;1"].createInstance();
 		if (fileService instanceof Components.interfaces.nsILocalFile) {
 			fileService.initWithPath(path);
-			fileService.remove(true);
-			return true;
+			fileService.remove(true);			
 		}
 	} catch(error) {
 		L.error("Unable to delete " + path);
