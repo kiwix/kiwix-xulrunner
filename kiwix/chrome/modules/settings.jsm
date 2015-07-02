@@ -121,14 +121,7 @@ let settings = {
 	for(var i=0; i<downloadsArray.length; i++) {
 	    var download = downloadsArray[i];
 	    if (download.id == id) {
-	        if (name == "id" )
-	           download.id = value;
-		else if (name == "gid")
-	           download.gid = value;
-		else if (name == "completed")
-	           download.completed = value;
-		else if (name == "status")
-	           download.status = value;
+		download[name] = value;
 	    }
     	}
 	var downloadsString = this.serializeDownloads(downloadsArray);
@@ -141,14 +134,7 @@ let settings = {
 	for(var i=0; i<downloadsArray.length; i++) {
 	    var download = downloadsArray[i];
 	    if (download.id == id) {
-	        if (name == "id" )
-	           return download.id;
-		else if (name == "gid")
-	           return download.gid;
-		else if (name == "completed")
-	           return download.completed;
-		else if (name == "status")
-	           return download.status;
+               return download[name];
 	    }
     	}
     },
@@ -256,9 +242,9 @@ let settings = {
 	   if (value === undefined) {
 	       return this.boolSettingParameter("kiwix.neverAskToIndex." + id, value) || 
 	       	      this.boolSettingParameter("kiwix.neverAskToIndex", value);
-           } else {
+           } 
 	       return this.boolSettingParameter("kiwix.neverAskToIndex." + id, value)
-	   }
+	   
 	}
     },
     displayOnCloseCleanConfirmDialog: function(value) { 
