@@ -12,23 +12,16 @@ let env = {
     
       if (tmp.match(/^win/i)) {
         this.platform.type = "win";
-        this.platform.string = tmp;
-      }
-      
-      if (tmp.match(/^darwin/i)) {
+      } else if (tmp.match(/^darwin/i)) {
         this.platform.type = "mac";
-        this.platform.string = tmp;
-      }
-
-      if (tmp.match(/^linux/i)) {
+      } else if (tmp.match(/^linux/i)) {
         this.platform.type = "linux";
-        this.platform.string = tmp;
+      } else if (tmp.match(/^android/i)) {
+        this.platform.type = "android";
       }
 
-      if (tmp.match(/^android/i)) {
-        this.platform.type = "android";
-        this.platform.string = tmp;
-      }
+      this.platform.string = tmp;
+      
     },
     
     /* Destructor */
@@ -37,22 +30,22 @@ let env = {
 
     /* Return true if unix, otherwise false */
     isLinux: function() {
-      return this.platform.type == "linux" ? true : false;
+      return (this.platform.type == "linux");
     },
 
     /* Return true if windows, otherwise false */
     isWindows: function() {
-      return this.platform.type == "win" ? true : false;
+      return (this.platform.type == "win");
     },
 
     /* Return true if mac, otherwise false */
     isMac: function() {
-      return this.platform.type == "mac" ? true : false;
+      return (this.platform.type == "mac");
     },
 
     /* Return true if unix, otherwise false */
     isAndroid: function() {
-      return this.platform.type == "android" ? true : false;
+      return (this.platform.type == "android");
     },
 
     /* Return true if running on Sugar, false otherwise */
