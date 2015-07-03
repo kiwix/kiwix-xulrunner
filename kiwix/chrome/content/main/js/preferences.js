@@ -100,12 +100,13 @@ function manageChangeDataDirectory() {
 			document.getElementById("dataDirectory-textbox").value = newDataDirectory.path;
 			return true;
 		} else {
-			displayErrorDialog("The choosen directory is readonly. You need a writable directory.");
-			return false;
+			displayErrorDialog("The choosen directory is readonly. You need a writable directory.");		
 		}
-	} else {
-		return false;
-	}
+	  
+	} 
+  	return false;
+
+	
 }
 
 /* Choose new profile directory */
