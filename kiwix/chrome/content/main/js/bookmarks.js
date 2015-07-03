@@ -498,8 +498,8 @@ function UISaveCurrentNote () {
 	if (ind != -1) {
 		BookmarkNFO.currentSet.update(ind, {'notes': notes});
 		return true;
-	} else
-		return false;
+	} 
+	return false;
 }
 
 /*
