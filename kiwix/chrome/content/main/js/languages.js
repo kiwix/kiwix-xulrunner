@@ -10,8 +10,10 @@ var _languagesRegexHash     = Array();
 /* alt source: https://github.com/wikimedia/mediawiki/blob/7458dc32d99e6dd569b1629762443d074b6a3c52/languages/Names.php */
 _languagesHash = {
 		'aar'           : 'Afaraf',
+		'arz'           : 'اللغة المصرية العامية',
 		'abk'           : 'аҧсуа бызшәа, аҧсшәа',
 		'abk'           : 'аҧсуа бызшәа, аҧсшәа',
+	    'ace'           : 'بهسا اچيه',
 		'aeb'           : 'زَوُن',
 		'afr'           : 'Afrikaans',
 		'aka'           : 'Akan',
@@ -24,6 +26,7 @@ _languagesHash = {
 		'ave'           : 'avesta',
 		'aym'           : 'aymar aru',
 		'ary'           : 'الدارجة',
+		'arc'           : 'Imperial Aramaic',
 		'ast'           : 'Asturianu',
 		'aze'           : 'azərbaycanca',
 		'azb'           : 'South Azerbaijani',
@@ -31,7 +34,7 @@ _languagesHash = {
 		'bam'           : 'Bamanankan',
 		'bel'           : 'Беларуская',
 		'ben'           : 'বাংলা',
-    		'bho'           : 'भोजपुरी',
+    	'bho'           : 'भोजपुरी',
 		'bis'           : 'Bislama',
 		'bod'           : 'བོད་ཡིག',
 		'bos'           : 'bosanski jezik',
@@ -244,7 +247,13 @@ _languagesHash = {
 
 /* Based in ISO 639-1 and 639-2 codes */
 _languagesHashOld = {
+		'ay'          : _languagesHash['aym'],
+		'aa'          : _languagesHash['aar'],
+		'ab'          : _languagesHash['abk'],
 		'af'          : _languagesHash['afr'],
+		'ak'          : _languagesHash['aka'],
+		'am'          : _languagesHash['amh'],
+		'an'          : _languagesHash['arg'],
 		'ar'          : _languagesHash['ara'],
 		'as'          : _languagesHash['asm'],
 		'az'          : _languagesHash['aze'],
