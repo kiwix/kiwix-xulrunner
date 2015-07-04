@@ -1,26 +1,10 @@
-****************************************
-* Kiwix                                *
-****************************************
-
-== Presentation ==
 Kiwix is an offline reader for Web content. It's especially thought to
 make Wikipedia available offline.  This is done by reading the content
 of the project stored in a file format ZIM, a high compressed open
 format with additional meta-data.
 
-== Compilation ==
-Read 'COMPILE' file
-
-== Legal and disclaimer ==
-Read 'COPYING' file
-
-== Contact ==
-Email: kiwix-developer@lists.sourceforge.net or contact@kiwix.org
-Jabber: kelson@kiwix.org
-IRC: #kiwix on irc.freenode.net join or use web interface http://chat.kiwix.org/
-
 *********************************************************************
-************* COMPILATION INSTRUCTIONS FOR KIWIX ********************
+****************** COMPILATION INSTRUCTIONS *************************
 *********************************************************************
 
 Take care, the paragraphs are about the *target platforms*. If you
@@ -283,3 +267,22 @@ play-store script.
   make win
   make windist
   make wininstaller
+
+*********************************************************************
+*************************** CONTACT *********************************
+*********************************************************************
+
+Email: kiwix-developer@lists.sourceforge.net or contact@kiwix.org
+Jabber: kelson@kiwix.org
+IRC: #kiwix on irc.freenode.net join or 
+       use web interface http://chat.kiwix.org/
+
+More... http://www.kiwix.org/wiki/Communication
+
+*********************************************************************
+********************** LEGAL & DISCLAIMER ***************************
+*********************************************************************
+
+Read 'COPYING' file
+
+
