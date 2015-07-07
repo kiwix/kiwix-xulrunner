@@ -12,7 +12,7 @@ _languagesHash = {
 		'aar'           : 'Afaraf',
 		'arz'           : 'اللغة المصرية العامية',
 		'abk'           : 'аҧсуа бызшәа, аҧсшәа',
-   	    'ace'           : 'بهسا اچيه',
+	 	'ace'           : 'بهسا اچيه',
 		'aeb'           : 'زَوُن',
 		'afr'           : 'Afrikaans',
 		'aka'           : 'Akan',
@@ -32,18 +32,18 @@ _languagesHash = {
 		'bak'           : 'Bašqort',
 		'bar'           : 'Boarisch',
 		'bam'           : 'Bamanankan',
-        'bpy'           : 'বিষ্ণুপ্রিয়া মণিপুরী',
+	        'bpy'           : 'বিষ্ণুপ্রিয়া মণিপুরী',
 		'bcl'           : 'Bikol Sentral',
 		'bel'           : 'Беларуская',
 		'ben'           : 'বাংলা',
-    	'bho'           : 'भोजपुरी',
+	    	'bho'           : 'भोजपुरी',
 		'bis'           : 'Bislama',
 		'bod'           : 'བོད་ཡིག',
 		'bos'           : 'bosanski jezik',
 		'bre'           : 'Brezhoneg',
 		'bul'           : 'Български',
 		'bus'           : 'Bisã',
-	    'bxr'           : 'буряад хэлэн',
+		'bxr'           : 'буряад хэлэн',
 		'bcc'           : 'balojî Balójí',
 		'bel-tasrask'   : 'тарашкевіца, клясычны правапіс',
 		'bjn'           : 'Bahasa Banjar',
@@ -343,7 +343,7 @@ _languagesHashOld = {
 		'bo'          : _languagesHash.bod,
 		'bn'          : _languagesHash.ben,
 		'br'          : _languagesHash.bre,
-        'bs'          : _languagesHash.bos,
+	        'bs'          : _languagesHash.bos,
 		'bg'          : _languagesHash.bul,
 		'be-tarask'   : _languagesHash['bel-tasrask'],
 		'ca'          : _languagesHash.cat,
@@ -358,9 +358,9 @@ _languagesHashOld = {
 		'ch'          : _languagesHash.cha,
 		'da'          : _languagesHash.dan,
 		'de'          : _languagesHash.deu,
-        'dv'          : _languagesHash.div,
-        'dz'          : _languagesHash.dzo,
-        'ee'          : _languagesHash.ewe,
+	        'dv'          : _languagesHash.div,
+        	'dz'          : _languagesHash.dzo,
+	        'ee'          : _languagesHash.ewe,
 		'el'          : _languagesHash.ell,
 		'en'          : _languagesHash.eng,
 		'eo'          : _languagesHash.epo,
@@ -369,16 +369,16 @@ _languagesHashOld = {
 		'fo'          : _languagesHash.fao,
 		'fa'          : _languagesHash.fas,
 		'fi'          : _languagesHash.fin,
-        'fy'          : _languagesHash.fry,
-        'fj'          : _languagesHash.fij,
+        	'fy'          : _languagesHash.fry,
+	        'fj'          : _languagesHash.fij,
 		'fr'          : _languagesHash.fra,
 		'ff'          : _languagesHash.ful,
 		'gl'          : _languagesHash.glg,
 		'gd'          : _languagesHash.gla,
-	    'ga'          : _languagesHash.gle,
+		'ga'          : _languagesHash.gle,
 		'gn'          : _languagesHash.grn,
 		'gu'          : _languagesHash.guj,
-        'gv'          : _languagesHash.glv,
+	        'gv'          : _languagesHash.glv,
 		'ht'          : _languagesHash.hat,
 		'ha'          : _languagesHash.hau,
 		'he'          : _languagesHash.heb,
@@ -539,11 +539,12 @@ function isOldLanguageCode(code) {
 }
 
 function buildLanguagesRegexHash() {	
-	for (var code in _languagesHash) {
+	var code;
+	for (code in _languagesHash) {
 		_languagesRegexHash[_languagesHash[code]] = code;
 	}
 
-	for (var code in _languagesHashOld) {
+	for (code in _languagesHashOld) {
 		var regex = _languagesRegexHash[_languagesHashOld[code]];
 		_languagesRegexHash[_languagesHashOld[code]] = '^(' + (regex ? regex + '|' : '') + code + ')$';
 	}
@@ -552,4 +553,3 @@ function buildLanguagesRegexHash() {
 function getLanguageRegex(language) {
 	return _languagesRegexHash[language] || '';
 }
-
