@@ -85,7 +85,7 @@ var xmlrpcTypes = {
 		xmlrpcArray: 2,
 		xmlrpcStruct: 3,
 		xmlrpcNull: 9
-}
+};
 
 /**
  * Library name. Used in the client's httprequests to identify self to server
@@ -110,7 +110,7 @@ var xmlrpcerr = {
 		no_curl: 16,
 		multicall_error: 18,
 		no_parser: 19
-}
+};
 
 var xmlrpcstr = {
 		invalid_return: 'Invalid return payload: enable debugging to examine incoming payload',
@@ -119,7 +119,7 @@ var xmlrpcstr = {
 		no_curl: 'no support for executing http requests compiled in',
 		multicall_error: 'Received from server invalid multicall response',
 		no_parser: 'no support for parsing xml compiled in'
-}
+};
 
 //set to TRUE to enable correct decoding of <NIL/> and <EX:NIL/> values
 var xmlrpc_null_extension = false;
@@ -198,7 +198,7 @@ xmlrpc_client.prototype.init = function (path, server, port, method)
 			var matches = path.match(/(https?):\/\/([^\/:]+)(:\d+)?(.+)?/);
 			method = matches[1];
 			server = matches[2];
-			port = matches[3] == undefined ? matches[3] : matches[3].substr(1);
+			port = matches[3] === undefined ? matches[3] : matches[3].substr(1);
 			path = matches[4] !== undefined ? matches[4] : '';
 		}
 		else
@@ -217,7 +217,7 @@ xmlrpc_client.prototype.init = function (path, server, port, method)
 			}
 		}
 	}
-	if (path == '' || path.substr(0, 1) != '/')
+	if (path === '' || path.substr(0, 1) != '/')
 	{
 		this.path = '/' + path;
 	}
@@ -226,15 +226,15 @@ xmlrpc_client.prototype.init = function (path, server, port, method)
 		this.path = path;
 	}
 	this.server = server;
-	if (port != undefined && port != '')
+	if (port !== undefined && port !== '')
 	{
 		this.port = port;
 	}
-	if (method != undefined)
+	if (method !== undefined)
 	{
 		this.method = method;
 	}
-}
+};
 
 /**
  * Enables/disables the echoing to screen of the xmlrpc responses received
@@ -244,7 +244,7 @@ xmlrpc_client.prototype.init = function (path, server, port, method)
 xmlrpc_client.prototype.setDebug = function (dbg)
 {
 	this.debug = dbg;
-}
+};
 
 /**
  * Enables/disables reception of compressed xmlrpc responses.
@@ -263,7 +263,7 @@ xmlrpc_client.prototype.setAcceptedCompression = function (compmethod)
 		this.accepted_compression = ['gzip', 'deflate'];
 	else
 		this.accepted_compression = array[compmethod];
-}
+};
 
 /**
  * Add some http BASIC AUTH credentials, used by the client to authenticate
@@ -283,7 +283,7 @@ xmlrpc_client.prototype.setCredentials = function (username, password, authtype)
 	//else {
 	//	this.authtype = authtype;
 	//}
-}
+};
 
 /**
  * Set user-agent string that will be used by this client instance
@@ -294,7 +294,7 @@ xmlrpc_client.prototype.setCredentials = function (username, password, authtype)
 xmlrpc_client.prototype.setUserAgent = function(agentstring)
 {
 	this.user_agent = agentstring;
-}
+};
 /**
  * Send an xmlrpc request.
  *
@@ -307,7 +307,9 @@ xmlrpc_client.prototype.setUserAgent = function(agentstring)
  */
 xmlrpc_client.prototype.send = function (msg, timeout, method)
 {
+	
 	var async = false;
+	var port;
 	if (method === undefined || method === '') {
 		method = this.method;
 	}
@@ -317,22 +319,22 @@ xmlrpc_client.prototype.send = function (msg, timeout, method)
 		method = this.method;
 	}
 
-	if (this.port == 0)
+	if (this.port === 0)
 	{
-		if (typeof window == 'object' && window.location.port == '')
+		if (typeof window == 'object' && window.location.port === '')
 		{
 			// workaround for Safari BUG: if no port is given in current URL, it
 			// will deny xhr access to url:80...
-			var port = '';
+			port = '';
 		}
 		else
 		{
-			var port = ':80';
+			port = ':80';
 		}
 	}
 	else
 	{
-		var port = ':' + this.port;
+		port = ':' + this.port;
 	}
 	if (typeof(msg) == 'object' && msg instanceof Array) {
 		return this.multiCall(msg, timeout, method);
@@ -365,7 +367,7 @@ xmlrpc_client.prototype.send = function (msg, timeout, method)
 	}
 	if (httpconn === null)
 	{
-		var resp = new xmlrpcresp(0, xmlrpcerr['no_curl'], xmlrpcstr['no_curl']);
+		var resp = new xmlrpcresp(0, xmlrpcerr.no_curl, xmlrpcstr.no_curl);
 		if (async)
 		{
 			async(resp);
@@ -375,7 +377,7 @@ xmlrpc_client.prototype.send = function (msg, timeout, method)
 	}
 
 	// Only create the payload if it was not created previously
-	if (msg.payload == '')
+	if (msg.payload === '')
 	{
 		msg.createPayload();
 	}
@@ -391,7 +393,7 @@ xmlrpc_client.prototype.send = function (msg, timeout, method)
 
 	try
 	{
-		if (this.username != '')
+		if (this.username !== '')
 		{
 			httpconn.open('POST', method + '://' + this.server + port + this.path, Boolean(async), this.username, this.password);
 		}
@@ -404,7 +406,7 @@ xmlrpc_client.prototype.send = function (msg, timeout, method)
 	{
 		//alert('open failed of '+method + '://' + this.server + port + this.path);
 		httpconn = null;
-		var resp = new xmlrpcresp(0, xmlrpcerr['http_error'], xmlrpcstr['http_error']+' (open failed)');
+		var resp = new xmlrpcresp(0, xmlrpcerr.http_error, xmlrpcstr.http_error +' (open failed)');
 		if (async)
 		{
 			async(resp);
@@ -454,11 +456,11 @@ xmlrpc_client.prototype.send = function (msg, timeout, method)
 
 	if (async)
 	{
+		var client = this;
 		if (timeout > 0)
 		{
 			// instead of binding to onreadystatechange event, we set up a polling
-			// and abort callbacks after timeout secs
-			var client = this;
+			// and abort callbacks after timeout secs			
 			var tid = this.tid;
 			this.polling_queue[this.tid] = [];
 			// save pointers to timers, to make sure they later get deleted
@@ -483,7 +485,6 @@ xmlrpc_client.prototype.send = function (msg, timeout, method)
 		}
 		else
 		{
-			var client = this;
 			// no timeout defined, be quicker and just use events
 			httpconn.onreadystatechange = function(){
 				if (httpconn.readyState == 4)
@@ -491,7 +492,7 @@ xmlrpc_client.prototype.send = function (msg, timeout, method)
 					if (httpconn.status != 200)
 					{
 						/// @todo check if HTTP 1.1 100 Continue header will get us here or not...
-						var resp = new xmlrpcresp(0, xmlrpcerr['http_error'], xmlrpcstr['http_error']+' ( HTTP ' + httpconn.status + ' ' + httpconn.statusText +')');
+						var resp = new xmlrpcresp(0, xmlrpcerr.http_error, xmlrpcstr.http_error+' ( HTTP ' + httpconn.status + ' ' + httpconn.statusText +')');
 					}
 					else
 					{
@@ -513,7 +514,7 @@ xmlrpc_client.prototype.send = function (msg, timeout, method)
 	catch(e)
 	{
 		httpconn = null;
-		var resp = new xmlrpcresp(0, xmlrpcerr['http_error'], xmlrpcstr['http_error']+' (send failed)');
+		var resp = new xmlrpcresp(0, xmlrpcerr.http_error, xmlrpcstr.http_error+' (send failed)');
 		if (async)
 		{
 			async(resp);
@@ -527,7 +528,7 @@ xmlrpc_client.prototype.send = function (msg, timeout, method)
 		if (httpconn.status != 200)
 		{
 			/// @todo check if HTTP 1.1 100 Continue header will get us here or not...
-			var resp = new xmlrpcresp(0, xmlrpcerr['http_error'], xmlrpcstr['http_error']+' ( HTTP ' + httpconn.status + ' ' + httpconn.statusText + ')');
+			var resp = new xmlrpcresp(0, xmlrpcerr.http_error, xmlrpcstr.http_error+' ( HTTP ' + httpconn.status + ' ' + httpconn.statusText + ')');
 		}
 		else
 		{
@@ -592,11 +593,11 @@ xmlrpc_client.prototype.multiCall = function (messages, timeout, method, fallbac
 	// NB: trying to shoehorn extra functionality into existing syntax has resulted
 	// in pretty much convoluted code...
 
-	if (fallback == undefined)
+	if (fallback === undefined)
 	{
 		fallback = true;
 	}
-	if (method == undefined)
+	if (method === undefined)
 	{
 		method = this.method;
 	}
@@ -679,14 +680,14 @@ xmlrpc_client.prototype._try_multicall = function (msgs, timeout, method)
 	for(var i = 0; i < msgs.length; ++i)
 	{
 		msg = msgs[i];
-		call['methodName'] = new xmlrpcval(msgs.method(),'string');
+		call.methodName = new xmlrpcval(msgs.method(),'string');
 		numParams = msg.getNumParams();
 		params = [];
 		for(var j = 0; j < numParams; ++j)
 		{
 			params[j] = msg.getParam(j);
 		}
-		call['params'] = new xmlrpcval(params, 'array');
+		call.params = new xmlrpcval(params, 'array');
 		calls[i] = new xmlrpcval(call, 'struct');
 	}
 	var multicall = new xmlrpcmsg('system.multicall');
@@ -987,11 +988,11 @@ xmlrpcval.prototype.addStruct = function (vals)	{
 			this.me[i] = vals[i];
 		return 1;
 	}
-	else
-	{
-		//xmlrpc_error_log('XML-RPC: xmlrpcval::addStruct: already initialized as a [' . this.kindOf() . ']');
-		return 0;
-	}
+	
+	
+	//xmlrpc_error_log('XML-RPC: xmlrpcval::addStruct: already initialized as a [' . this.kindOf() . ']');
+	return 0;
+	
 }
 
 /**
@@ -1281,10 +1282,9 @@ xmlrpcmsg.prototype.xml_header = function (charset_encoding) {
 	{
 		return '<?xml version="1.0" encoding="'+charset_encoding+'" ?' + '>\n<methodCall>\n';
 	}
-	else
-	{
-		return '<?xml version="1.0"?' + '>\n<methodCall>\n';
-	}
+	
+	return '<?xml version="1.0"?' + '>\n<methodCall>\n';
+	
 }
 
 /**
@@ -1357,10 +1357,9 @@ xmlrpcmsg.prototype.addParam = function (par) {
 		this.params[this.params.length] = par;
 		return true;
 	}
-	else
-	{
-		return false;
-	}
+
+	return false;
+	
 }
 
 /**
