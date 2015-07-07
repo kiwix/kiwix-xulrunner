@@ -17,732 +17,751 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
  * MA 02110-1301, USA.
  */
-
 const nsIWebProgress = Components.interfaces.nsIWebProgress;
 const nsIWebProgressListener = Components.interfaces.nsIWebProgressListener;
 var _alreadyHaveQuitOrRestart = false;
 
 /* Preparation before quit or restart */
 function onQuit() {
-	try {
-		/* Stop downloader */
-		stopDownloaderObserver()
-		stopDownloader();
+    try {
+        /* Stop downloader */
+        stopDownloaderObserver()
+        stopDownloader();
 
-		/* If necessary stop indexing */
-		if (isIndexing()) {
-			_zimIndexer.stop();
-		}
+        /* If necessary stop indexing */
+        if (isIndexing()) {
+            _zimIndexer.stop();
+        }
 
-		var doClean = doOnCloseClean();
-		if (env.isLive()) {
+        var doClean = doOnCloseClean();
+        if (env.isLive()) {
 
-			/* Ask before removing */
-			if (displayOnCloseCleanConfirmDialog()) {
+            /* Ask before removing */
+            if (displayOnCloseCleanConfirmDialog()) {
 
-				/* Prepare the strings for the confirm dialog box */
-				var title = getProperty("confirm");
-				var message = getProperty("removeProfileConfirm");
-				var ok = getProperty("ok");
-				var cancel = getProperty("cancel");
-				var checkMessage = getProperty("dontDisplayAnymore");
+                /* Prepare the strings for the confirm dialog box */
+                var title = getProperty("confirm");
+                var message = getProperty("removeProfileConfirm");
+                var ok = getProperty("ok");
+                var cancel = getProperty("cancel");
+                var checkMessage = getProperty("dontDisplayAnymore");
 
-				/* Prepare the confirm dialog box */
-				var prompts = Components.classes["@mozilla.org/embedcomp/prompt-service;1"]
-				.getService(Components.interfaces.nsIPromptService);
+                /* Prepare the confirm dialog box */
+                var prompts = Components.classes["@mozilla.org/embedcomp/prompt-service;1"]
+                    .getService(Components.interfaces.nsIPromptService);
 
-				/* Prepare the buttons */
-				var flags = prompts.BUTTON_POS_0 * prompts.BUTTON_TITLE_IS_STRING +
-				prompts.BUTTON_POS_1 * prompts.BUTTON_TITLE_IS_STRING;
+                /* Prepare the buttons */
+                var flags = prompts.BUTTON_POS_0 * prompts.BUTTON_TITLE_IS_STRING +
+                    prompts.BUTTON_POS_1 * prompts.BUTTON_TITLE_IS_STRING;
 
-				/* Prepare the check box */
-				/* Default the checkbox to false */
-				var check = {value: false};
+                /* Prepare the check box */
+                /* Default the checkbox to false */
+                var check = {
+                    value: false
+                };
 
-				/* Display the confirm dialog and get the values back */
-				var doClean = (prompts.confirmEx(null, title, message, flags, ok, cancel, "", checkMessage, check) == 0);
-				var doDisplay = !check.value;
+                /* Display the confirm dialog and get the values back */
+                var doClean = (prompts.confirmEx(null, title, message, flags, ok, cancel, "", checkMessage, check) == 0);
+                var doDisplay = !check.value;
 
-				/* Save the values in the settings */
-				settings.displayOnCloseCleanConfirmDialog(doDisplay);
-				if (!doDisplay) {
-					settings.doOnCloseClean(doClean);
-				}
-			}
+                /* Save the values in the settings */
+                settings.displayOnCloseCleanConfirmDialog(doDisplay);
+                if (!doDisplay) {
+                    settings.doOnCloseClean(doClean);
+                }
+            }
 
-			/* Clean the profile if necessary */
-			if (doClean) {
-				/* Remove the library */
-				library.delete();
+            /* Clean the profile if necessary */
+            if (doClean) {
+                /* Remove the library */
+                library.delete();
 
-				/* Bookmarks */
-				try {
-					purgeBookmarks();
-				} catch (e) { L.error (e.toString ()); }
+                /* Bookmarks */
+                try {
+                    purgeBookmarks();
+                } catch (e) {
+                    L.error(e.toString());
+                }
 
-				/* History */
-				var browserHistory = Components.classes["@mozilla.org/browser/nav-history-service;1"]
-				.getService(Components.interfaces.nsIBrowserHistory);
-				browserHistory.removeAllPages();
+                /* History */
+                var browserHistory = Components.classes["@mozilla.org/browser/nav-history-service;1"]
+                    .getService(Components.interfaces.nsIBrowserHistory);
+                browserHistory.removeAllPages();
 
-				try {
-					var os = Components.classes["@mozilla.org/observer-service;1"]
-					.getService(Components.interfaces.nsIObserverService);
-					os.notifyObservers(null, "browser:purge-session-history", "");
-				}
-				catch (e) { L.info (e.toString ()); }
+                try {
+                    var os = Components.classes["@mozilla.org/observer-service;1"]
+                        .getService(Components.interfaces.nsIObserverService);
+                    os.notifyObservers(null, "browser:purge-session-history", "");
+                } catch (e) {
+                    L.info(e.toString());
+                }
 
-				/* Clear last URL of the Open Web Location dialog */
-				var prefs = Components.classes["@mozilla.org/preferences-service;1"]
-				.getService(Components.interfaces.nsIPrefBranch2);
-				try {
-					prefs.clearUserPref("general.open_location.last_url");
-				}
-				catch (e) { }
+                /* Clear last URL of the Open Web Location dialog */
+                var prefs = Components.classes["@mozilla.org/preferences-service;1"]
+                    .getService(Components.interfaces.nsIPrefBranch2);
+                try {
+                    prefs.clearUserPref("general.open_location.last_url");
+                } catch (e) {}
 
-				/* cache */
-				const cc = Components.classes;
-				const ci = Components.interfaces;
-				var cacheService = cc["@mozilla.org/network/cache-service;1"]
-				.getService(ci.nsICacheService);
-				try {
-					cacheService.evictEntries(ci.nsICache.STORE_ANYWHERE);
-				} catch(er) { L.info (e.toString ()); }
+                /* cache */
+                const cc = Components.classes;
+                const ci = Components.interfaces;
+                var cacheService = cc["@mozilla.org/network/cache-service;1"]
+                    .getService(ci.nsICacheService);
+                try {
+                    cacheService.evictEntries(ci.nsICache.STORE_ANYWHERE);
+                } catch (er) {
+                    L.info(e.toString());
+                }
 
-				/* cookies (shouldn't be any) */
-				L.info ('purging Cookies');
-				var cookieMgr = Components.classes["@mozilla.org/cookiemanager;1"]
-				.getService(Components.interfaces.nsICookieManager);
-				cookieMgr.removeAll();
+                /* cookies (shouldn't be any) */
+                L.info('purging Cookies');
+                var cookieMgr = Components.classes["@mozilla.org/cookiemanager;1"]
+                    .getService(Components.interfaces.nsICookieManager);
+                cookieMgr.removeAll();
 
-				/* delete settingsDirectoryRoot */
-				var directoryService = Components.classes["@mozilla.org/file/directory_service;1"].getService(Components.interfaces.nsIProperties);
-				var settingsDirectory = directoryService.get("DefProfRt", Components.interfaces.nsIFile);
-				var settingsDirectoryRoot = settingsDirectory.parent.clone();
-				dump("Removing whole kiwix profile " + settingsDirectoryRoot.path + "\n");
-				settingsDirectoryRoot.remove(true);
-			}
-		}
+                /* delete settingsDirectoryRoot */
+                var directoryService = Components.classes["@mozilla.org/file/directory_service;1"].getService(Components.interfaces.nsIProperties);
+                var settingsDirectory = directoryService.get("DefProfRt", Components.interfaces.nsIFile);
+                var settingsDirectoryRoot = settingsDirectory.parent.clone();
+                dump("Removing whole kiwix profile " + settingsDirectoryRoot.path + "\n");
+                settingsDirectoryRoot.remove(true);
+            }
+        }
 
-		/* Save Windows Geometry */
-		saveWindowGeometry(this.outerWidth, this.outerHeight, this.screenX, this.screenY, this.windowState);
+        /* Save Windows Geometry */
+        saveWindowGeometry(this.outerWidth, this.outerHeight, this.screenX, this.screenY, this.windowState);
 
-		/* Save inverted colors */
-		settings.invertedColors(areColorsInverted());
+        /* Save inverted colors */
+        settings.invertedColors(areColorsInverted());
 
-		/* Save tabs */
-		manageSaveTabs();
+        /* Save tabs */
+        manageSaveTabs();
 
-		/* Save settings */
-		settings.save();
-	} catch(e) { dump("prepareQuitOrRestart failed: " + e.toString() + "\n"); }
+        /* Save settings */
+        settings.save();
+    } catch (e) {
+        dump("prepareQuitOrRestart failed: " + e.toString() + "\n");
+    }
 }
 
 /* Restart Kiwix */
 function askPermissionToRestart(message) {
-	if (message === undefined) {
-		message = getProperty("restartConfirm", getProperty("brand.brandShortName"))
-	}
-	var ok = displayConfirmDialog(message);
+    if (message === undefined) {
+        message = getProperty("restartConfirm", getProperty("brand.brandShortName"))
+    }
+    var ok = displayConfirmDialog(message);
 
-	/* Check if an indexing process is currently running */
-	if (ok && isIndexing()) {
-		ok = displayConfirmDialog(getProperty("abortIndexingConfirm"));
-		if (ok) {
-			_zimIndexer.stop();
-		}
-	}
+    /* Check if an indexing process is currently running */
+    if (ok && isIndexing()) {
+        ok = displayConfirmDialog(getProperty("abortIndexingConfirm"));
+        if (ok) {
+            _zimIndexer.stop();
+        }
+    }
 
-	return ok;
+    return ok;
 }
 
 function restart(silent) {
-	if (silent == true || askPermissionToRestart()) {
-		/* Restart application */
-		var applicationStartup = Components.classes["@mozilla.org/toolkit/app-startup;1"]
-		.getService(Components.interfaces.nsIAppStartup);
-		applicationStartup.quit(Components.interfaces.nsIAppStartup.eRestart |
-				Components.interfaces.nsIAppStartup.eAttemptQuit);
-           return true;
-	} 
+    if (silent == true || askPermissionToRestart()) {
+        /* Restart application */
+        var applicationStartup = Components.classes["@mozilla.org/toolkit/app-startup;1"]
+            .getService(Components.interfaces.nsIAppStartup);
+        applicationStartup.quit(Components.interfaces.nsIAppStartup.eRestart |
+            Components.interfaces.nsIAppStartup.eAttemptQuit);
+        return true;
+    }
 
-	return false;
-		
+    return false;
+
 }
 
 /* Quit Kiwix */
 function askPermissionToQuit() {
-	var ok = true;
+    var ok = true;
 
-	/* Check if an indexing process is currently running */
-	if (isIndexing()) {
-		ok = displayConfirmDialog(getProperty("abortIndexingConfirm"));
-		if (ok) {
-			_zimIndexer.stop();
-		}
-	}
+    /* Check if an indexing process is currently running */
+    if (isIndexing()) {
+        ok = displayConfirmDialog(getProperty("abortIndexingConfirm"));
+        if (ok) {
+            _zimIndexer.stop();
+        }
+    }
 
-	return ok;
+    return ok;
 }
 
 function quit(silent) {
-	if (silent == true || askPermissionToQuit()) {
-		/* Quit the application */
-		var applicationStartup = Components.classes['@mozilla.org/toolkit/app-startup;1'].
-		getService(Components.interfaces.nsIAppStartup);
-		applicationStartup.quit(Components.interfaces.nsIAppStartup.eForceQuit);
-		_alreadyHaveQuitOrRestart = true;
-		return true;
-	} 
+    if (silent == true || askPermissionToQuit()) {
+        /* Quit the application */
+        var applicationStartup = Components.classes['@mozilla.org/toolkit/app-startup;1'].
+        getService(Components.interfaces.nsIAppStartup);
+        applicationStartup.quit(Components.interfaces.nsIAppStartup.eForceQuit);
+        _alreadyHaveQuitOrRestart = true;
+        return true;
+    }
 
-	return false;
-		
+    return false;
+
 }
 
 /* Return the properties object */
 function getProperties(brand) {
-	var pid = "properties";
-	if (brand) 
-	   pid  = "brand" + pid;
-	return document.getElementById(pid);
+    var pid = "properties";
+    if (brand)
+        pid = "brand" + pid;
+    return document.getElementById(pid);
 }
 
 /* Return the value of a specific property */
 function getProperty(name, parameter1, parameter2) {
-	var brand   = false;
-	if (name.indexOf("brand.", 0) == 0) {
-		name = name.substring("brand.".length);
-		brand = true;
-	}
-	var message = getProperties(brand).getString(name);
+    var brand = false;
+    if (name.indexOf("brand.", 0) == 0) {
+        name = name.substring("brand.".length);
+        brand = true;
+    }
+    var message = getProperties(brand).getString(name);
 
-	if (parameter1 != undefined) {
-		message = message.replace("%1", parameter1)
-	}
+    if (parameter1 != undefined) {
+        message = message.replace("%1", parameter1)
+    }
 
-	if (parameter2 != undefined) {
-		message = message.replace("%2", parameter2)
-	}
+    if (parameter2 != undefined) {
+        message = message.replace("%2", parameter2)
+    }
 
-	return message;
+    return message;
 }
 
 /* Return an application char preference */
 function getApplicationCharPreference(name) {
-	var prefs = Components.classes["@mozilla.org/preferences-service;1"]
-	.getService(Components.interfaces.nsIPrefBranch);
-	return prefs.getCharPref(name);
+    var prefs = Components.classes["@mozilla.org/preferences-service;1"]
+        .getService(Components.interfaces.nsIPrefBranch);
+    return prefs.getCharPref(name);
 }
 
 /* Return an application bool preference */
 function getApplicationBoolPreference(name) {
-	var prefs = Components.classes["@mozilla.org/preferences-service;1"]
-	.getService(Components.interfaces.nsIPrefBranch);
-	return prefs.getBoolPref(name);
+    var prefs = Components.classes["@mozilla.org/preferences-service;1"]
+        .getService(Components.interfaces.nsIPrefBranch);
+    return prefs.getBoolPref(name);
 }
 
 /* Return true if the profile should be clean by closing Kiwix */
 function doOnCloseClean() {
-	return (settings.doOnCloseClean() != undefined ? 
-			settings.doOnCloseClean() : getApplicationBoolPreference("kiwix.removeprofileonclose"));
+    return (settings.doOnCloseClean() != undefined ?
+        settings.doOnCloseClean() : getApplicationBoolPreference("kiwix.removeprofileonclose"));
 }
 
 /* Return true if the confirm dialogbox to remove profile should be displayed */
 function displayOnCloseCleanConfirmDialog() {
-	return (settings.displayOnCloseCleanConfirmDialog() != undefined ?
-			settings.displayOnCloseCleanConfirmDialog() : getApplicationBoolPreference("kiwix.removeprofileonclose.confirm"));
+    return (settings.displayOnCloseCleanConfirmDialog() != undefined ?
+        settings.displayOnCloseCleanConfirmDialog() : getApplicationBoolPreference("kiwix.removeprofileonclose.confirm"));
 }
 
 /* Return the installation prefix */
 function getInstallationPrefix() {
-	return getApplicationCharPreference("kiwix.install.prefix");
+    return getApplicationCharPreference("kiwix.install.prefix");
 }
 
 /* Include the necessary modules and components */
 function initModulesAndComponents() {
 
-	/* Include jsm modules*/
-	try {
-		Components.utils.import("resource://modules/env.jsm");
-	} catch (e) { dump("Unable to import env.jsm. " + e.toString() + "\n"); }
-	try {
-		Components.utils.import("resource://modules/library.jsm");
-	} catch (e) { dump("Unable to import library.jsm. " + e.toString() + "\n"); }
-	try {
-		Components.utils.import("resource://modules/settings.jsm");
-	} catch (e) { dump("Unable to import settings.jsm. " + e.toString() + "\n"); }
+    /* Include jsm modules*/
+    try {
+        Components.utils.import("resource://modules/env.jsm");
+    } catch (e) {
+        dump("Unable to import env.jsm. " + e.toString() + "\n");
+    }
+    try {
+        Components.utils.import("resource://modules/library.jsm");
+    } catch (e) {
+        dump("Unable to import library.jsm. " + e.toString() + "\n");
+    }
+    try {
+        Components.utils.import("resource://modules/settings.jsm");
+    } catch (e) {
+        dump("Unable to import settings.jsm. " + e.toString() + "\n");
+    }
 
-	/* Check the XPCOM registration */
-	if (Components.classes["@kiwix.org/zimAccessor"] == undefined)
-		dump("Unable to register the zimAccessor XPCOM, Kiwix will be unable to read ZIM files.\n");
-	if (Components.classes["@kiwix.org/xapianAccessor"] == undefined)
-		dump("Unable to register the xapianAccessor XPCOM, Kiwix will be unable to provide the search engine.\n");
-	if (Components.classes["@kiwix.org/zimXapianIndexer"] == undefined)
-		dump("Unable to register the zimXapianIndexer XPCOM, Kiwix will be unable to index ZIM files.\n");
-	if (Components.classes["@kiwix.org/contentManager"] == undefined)
-		dump("Unable to register the contentManager XPCOM, Kiwix will be unable to deal with content.\n");
-	if (Components.classes["@kiwix.org/serverManager"] == undefined)
-		dump("Unable to register the serverManager XPCOM.\n");
+    /* Check the XPCOM registration */
+    if (Components.classes["@kiwix.org/zimAccessor"] == undefined)
+        dump("Unable to register the zimAccessor XPCOM, Kiwix will be unable to read ZIM files.\n");
+    if (Components.classes["@kiwix.org/xapianAccessor"] == undefined)
+        dump("Unable to register the xapianAccessor XPCOM, Kiwix will be unable to provide the search engine.\n");
+    if (Components.classes["@kiwix.org/zimXapianIndexer"] == undefined)
+        dump("Unable to register the zimXapianIndexer XPCOM, Kiwix will be unable to index ZIM files.\n");
+    if (Components.classes["@kiwix.org/contentManager"] == undefined)
+        dump("Unable to register the contentManager XPCOM, Kiwix will be unable to deal with content.\n");
+    if (Components.classes["@kiwix.org/serverManager"] == undefined)
+        dump("Unable to register the serverManager XPCOM.\n");
 }
 
 function loadCustomLibraries() {
-	var currentBookId = library.getCurrentId();
-	settings.customLibraryPaths().split(";").map(function(path) {
-		if (path) {
-			if (!library.readFromFile(path, true)) {
-				settings.removeCustomLibraryPath(path);
-			}
-		}
-	});
-	library.setCurrentId(currentBookId);
+    var currentBookId = library.getCurrentId();
+    settings.customLibraryPaths().split(";").map(function(path) {
+        if (path) {
+            if (!library.readFromFile(path, true)) {
+                settings.removeCustomLibraryPath(path);
+            }
+        }
+    });
+    library.setCurrentId(currentBookId);
 
-	populateBookList();
+    populateBookList();
 }
 
 /* Load the necessary ZIM file at Kiwix startup */
 function loadContentFromCommandLine(commandLine) {
 
-	/* If no command line specified, catch the one of the window */
-	if (commandLine === undefined && window.arguments != undefined) {
-		commandLine = window.arguments[0];
-	}
+    /* If no command line specified, catch the one of the window */
+    if (commandLine === undefined && window.arguments != undefined) {
+        commandLine = window.arguments[0];
+    }
 
-	/* Read the command line arguments */
-	if (commandLine != undefined) {
-		commandLine = commandLine.QueryInterface(Components.interfaces.nsICommandLine);
-		var argumentCount = commandLine.length;
-		var managedToOpenFile = false;
-		for (var argumentIndex=0; argumentIndex<argumentCount; argumentIndex++) {
-			var argument = commandLine.getArgument(argumentIndex);
-			if (argument.match(/^.*\.(zim|zimaa)$/i)) {
-				argument = pathFromURL(argument);
-				argument = argument.replace('%20', ' ');
-				managedToOpenFile = manageOpenFile(getAbsolutePath(argument), true);
-			}
-		}
+    /* Read the command line arguments */
+    if (commandLine != undefined) {
+        commandLine = commandLine.QueryInterface(Components.interfaces.nsICommandLine);
+        var argumentCount = commandLine.length;
+        var managedToOpenFile = false;
+        for (var argumentIndex = 0; argumentIndex < argumentCount; argumentIndex++) {
+            var argument = commandLine.getArgument(argumentIndex);
+            if (argument.match(/^.*\.(zim|zimaa)$/i)) {
+                argument = pathFromURL(argument);
+                argument = argument.replace('%20', ' ');
+                managedToOpenFile = manageOpenFile(getAbsolutePath(argument), true);
+            }
+        }
 
-		/* Try to open specific articles */
-		if (managedToOpenFile) {
-			var argument;
-			var firstLoad = true;
+        /* Try to open specific articles */
+        if (managedToOpenFile) {
+            var argument;
+            var firstLoad = true;
 
-			while ((argument = commandLine.handleFlagWithParam("articleByUrl", false)) != undefined) {
-				if (!argument.match(/^zim:\/\/.*$/)) {
-					argument = "zim://" + argument;
-				}
+            while ((argument = commandLine.handleFlagWithParam("articleByUrl", false)) != undefined) {
+                if (!argument.match(/^zim:\/\/.*$/)) {
+                    argument = "zim://" + argument;
+                }
 
-				if (firstLoad) {
-					manageOpenUrl(argument);
-					firstLoad = false;
-				} else {
-					manageOpenUrlInNewTab(argument);
-				}
-			}
+                if (firstLoad) {
+                    manageOpenUrl(argument);
+                    firstLoad = false;
+                } else {
+                    manageOpenUrlInNewTab(argument);
+                }
+            }
 
-			while ((argument = commandLine.handleFlagWithParam("articleByTitle", false)) != undefined) {
-				var url = "zim://" + getArticleUrlFromTitle(argument);
-				if (firstLoad) {
-					manageOpenUrl(url);
-					firstLoad = false;
-				} else {
-					manageOpenUrlInNewTab(url);
-				}
-			}
+            while ((argument = commandLine.handleFlagWithParam("articleByTitle", false)) != undefined) {
+                var url = "zim://" + getArticleUrlFromTitle(argument);
+                if (firstLoad) {
+                    manageOpenUrl(url);
+                    firstLoad = false;
+                } else {
+                    manageOpenUrlInNewTab(url);
+                }
+            }
 
-			while ((argument = commandLine.handleFlagWithParam("search", false)) != undefined) {
-				searchFor(argument + " ");
-			}
+            while ((argument = commandLine.handleFlagWithParam("search", false)) != undefined) {
+                searchFor(argument + " ");
+            }
 
-		}
-	}	
+        }
+    }
 
-	/* If there is no file open with the commandline try to open last open book */
-	if (currentZimAccessor == undefined) {
-		try {
-			if (openCurrentBook()) {
-				restoreTabs();
-			} else {
-				library.deleteCurrentBook();
-			}
-		} catch(e) { dump("Unable to check current book: " + e.toString() + "\n"); }
-	}
+    /* If there is no file open with the commandline try to open last open book */
+    if (currentZimAccessor == undefined) {
+        try {
+            if (openCurrentBook()) {
+                restoreTabs();
+            } else {
+                library.deleteCurrentBook();
+            }
+        } catch (e) {
+            dump("Unable to check current book: " + e.toString() + "\n");
+        }
+    }
 
-	/* Adapt the UI depending of a book is open or not */
-	if (currentZimAccessor == undefined) {
-		showHelp();
+    /* Adapt the UI depending of a book is open or not */
+    if (currentZimAccessor == undefined) {
+        showHelp();
 
-		/* Re-arrange the last open files - no file was open - was not done in the manageOpenFile() */
-		populateLastOpenMenu();
-	}
+        /* Re-arrange the last open files - no file was open - was not done in the manageOpenFile() */
+        populateLastOpenMenu();
+    }
 }
 
 /* Check an create if necessary the data directory */
 function initDirectories(path) {
-	var dir;
+    var dir;
 
-	if (!path) {
-		var directoryService = Components.classes["@mozilla.org/file/directory_service;1"].
-		getService(Components.interfaces.nsIProperties); 
-		var dir = directoryService.get("PrefD", Components.interfaces.nsIFile);
-		dir.append("data");
-		createDirectory(dir.path);
-	} else {
-		var dir = Components.classes["@mozilla.org/file/local;1"]
-		.createInstance(Components.interfaces.nsILocalFile);
-		dir.initWithPath(path);
-	}
+    if (!path) {
+        var directoryService = Components.classes["@mozilla.org/file/directory_service;1"].
+        getService(Components.interfaces.nsIProperties);
+        var dir = directoryService.get("PrefD", Components.interfaces.nsIFile);
+        dir.append("data");
+        createDirectory(dir.path);
+    } else {
+        var dir = Components.classes["@mozilla.org/file/local;1"]
+            .createInstance(Components.interfaces.nsILocalFile);
+        dir.initWithPath(path);
+    }
 
-	dir.append("content");
-	createDirectory(dir.path);
-	dir = dir.parent;
-	dir.append("library");
-	createDirectory(dir.path);
-	dir = dir.parent;
-	dir.append("index");
-	createDirectory(dir.path);
+    dir.append("content");
+    createDirectory(dir.path);
+    dir = dir.parent;
+    dir.append("library");
+    createDirectory(dir.path);
+    dir = dir.parent;
+    dir.append("index");
+    createDirectory(dir.path);
 }
 
 /* Everything what should be done at the start */
 function onStart() {
-	initDirectories();
-	initModulesAndComponents();
-	initEventListeners();
-	initUserInterface();
-	initBookmarks();
-	loadCustomLibraries();
-	initLibrary();
-	loadContentFromCommandLine();
-	initDownloader();
-	focusOnSearchBox();
+    initDirectories();
+    initModulesAndComponents();
+    initEventListeners();
+    initUserInterface();
+    initBookmarks();
+    loadCustomLibraries();
+    initLibrary();
+    loadContentFromCommandLine();
+    initDownloader();
+    focusOnSearchBox();
 
-	/* Remove old profile if necessary - experimental */
-	var profileToRemove = settings.profileToRemove();
-	if (profileToRemove != undefined && profileToRemove != "") {
-		try {
-			var profileService = Components.classes["@mozilla.org/toolkit/profile-service;1"]
-			.createInstance(Components.interfaces.nsIToolkitProfileService);
-			var oldProfile = profileService.getProfileByName(settings.profileToRemove());
-			oldProfile.remove(true);
-			profileService.flush();
-			settings.profileToRemove("");
-		} catch(error) {
-		}
-	}
+    /* Remove old profile if necessary - experimental */
+    var profileToRemove = settings.profileToRemove();
+    if (profileToRemove != undefined && profileToRemove != "") {
+        try {
+            var profileService = Components.classes["@mozilla.org/toolkit/profile-service;1"]
+                .createInstance(Components.interfaces.nsIToolkitProfileService);
+            var oldProfile = profileService.getProfileByName(settings.profileToRemove());
+            oldProfile.remove(true);
+            profileService.flush();
+            settings.profileToRemove("");
+        } catch (error) {}
+    }
 }
 
 /* Clear the history and the cache */
 function managePurgeHistory() {
-	/* cache */
-	const cc = Components.classes;
-	const ci = Components.interfaces;
-	var cacheService = cc["@mozilla.org/network/cache-service;1"]
-	.getService(ci.nsICacheService);
-	try {
-		cacheService.evictEntries(ci.nsICache.STORE_ANYWHERE);
-	} catch(er) { L.info (e.toString ()); }
+    /* cache */
+    const cc = Components.classes;
+    const ci = Components.interfaces;
+    var cacheService = cc["@mozilla.org/network/cache-service;1"]
+        .getService(ci.nsICacheService);
+    try {
+        cacheService.evictEntries(ci.nsICache.STORE_ANYWHERE);
+    } catch (er) {
+        L.info(e.toString());
+    }
 
-	/* History */
-	var browserHistory = Components.classes["@mozilla.org/browser/nav-history-service;1"]
-	.getService(Components.interfaces.nsIBrowserHistory);
-	browserHistory.removeAllPages();
+    /* History */
+    var browserHistory = Components.classes["@mozilla.org/browser/nav-history-service;1"]
+        .getService(Components.interfaces.nsIBrowserHistory);
+    browserHistory.removeAllPages();
 
-	try {
-		var os = Components.classes["@mozilla.org/observer-service;1"]
-		.getService(Components.interfaces.nsIObserverService);
-		os.notifyObservers(null, "browser:purge-session-history", "");
-	}
-	catch (e) { L.info (e.toString ()); }
+    try {
+        var os = Components.classes["@mozilla.org/observer-service;1"]
+            .getService(Components.interfaces.nsIObserverService);
+        os.notifyObservers(null, "browser:purge-session-history", "");
+    } catch (e) {
+        L.info(e.toString());
+    }
 
-	/* Update the htmlrenderers */
-	var tabPanels = document.getElementById("tab-panels");
-	for (var tabPanelIndex = 0; tabPanelIndex<tabPanels.children.length; tabPanelIndex++) {
-		var htmlRenderer = tabPanels.children[tabPanelIndex].firstChild;
-		htmlRenderer.reload();
-	}
+    /* Update the htmlrenderers */
+    var tabPanels = document.getElementById("tab-panels");
+    for (var tabPanelIndex = 0; tabPanelIndex < tabPanels.children.length; tabPanelIndex++) {
+        var htmlRenderer = tabPanels.children[tabPanelIndex].firstChild;
+        htmlRenderer.reload();
+    }
 
-	/* Update the UI */
-	updateGuiHistoryComponents();
+    /* Update the UI */
+    updateGuiHistoryComponents();
 }
 
 /* Load the page with the external browser */
 function openUrlWithExternalBrowser(url) {
-	var ioService = Components.classes["@mozilla.org/network/io-service;1"].
-	getService(Components.interfaces.nsIIOService);
-	var resolvedUrl = ioService.newURI(url, null, null);
-	var externalProtocolService = Components.
-	classes["@mozilla.org/uriloader/external-protocol-service;1"].
-	getService(Components.interfaces.nsIExternalProtocolService);
-	externalProtocolService.loadURI(resolvedUrl, null);
+    var ioService = Components.classes["@mozilla.org/network/io-service;1"].
+    getService(Components.interfaces.nsIIOService);
+    var resolvedUrl = ioService.newURI(url, null, null);
+    var externalProtocolService = Components.
+    classes["@mozilla.org/uriloader/external-protocol-service;1"].
+    getService(Components.interfaces.nsIExternalProtocolService);
+    externalProtocolService.loadURI(resolvedUrl, null);
 }
 
 /* Check if a directory exists */
 function isDirectory(path) {
-	var file = Components.classes['@mozilla.org/file/local;1'].
-	createInstance(Components.interfaces.nsILocalFile);
-	file.initWithPath(path);
-	return (file.exists() && file.isDirectory());
+    var file = Components.classes['@mozilla.org/file/local;1'].
+    createInstance(Components.interfaces.nsILocalFile);
+    file.initWithPath(path);
+    return (file.exists() && file.isDirectory());
 }
 
 function createDirectory(path) {
-	var dir = Components.classes["@mozilla.org/file/local;1"]
-	.createInstance(Components.interfaces.nsILocalFile);
-	dir.initWithPath(path);
-	if (!dir.exists() || !dir.isDirectory()) {
-		try {
-			dir.create(Components.interfaces.nsIFile.DIRECTORY_TYPE, parseInt("0775", 8))
-		} catch(error) {
-			L.error("Unable to create directory " + path);
-			return false;
-		}
-	}
-	return true;
+    var dir = Components.classes["@mozilla.org/file/local;1"]
+        .createInstance(Components.interfaces.nsILocalFile);
+    dir.initWithPath(path);
+    if (!dir.exists() || !dir.isDirectory()) {
+        try {
+            dir.create(Components.interfaces.nsIFile.DIRECTORY_TYPE, parseInt("0775", 8))
+        } catch (error) {
+            L.error("Unable to create directory " + path);
+            return false;
+        }
+    }
+    return true;
 }
 
 /* Return the size of a file */
 /* TODO: Buggy with large files and 32 bits */
 function getFileSize(path) {
-	var fileService = Components.classes["@mozilla.org/file/local;1"].createInstance();
-	if (fileService instanceof Components.interfaces.nsILocalFile) {
-		fileService.initWithPath(path);
-		return fileService.fileSize;
-	}
+    var fileService = Components.classes["@mozilla.org/file/local;1"].createInstance();
+    if (fileService instanceof Components.interfaces.nsILocalFile) {
+        fileService.initWithPath(path);
+        return fileService.fileSize;
+    }
 }
 
 /* Delete a file or a directory */
 function deleteFile(path) {
-	try {
-		var fileService = Components.classes["@mozilla.org/file/local;1"].createInstance();
-		if (fileService instanceof Components.interfaces.nsILocalFile) {
-			fileService.initWithPath(path);
-			fileService.remove(true);			
-		}
-	} catch(error) {
-		L.error("Unable to delete " + path);
-		return false;
-	}
-	return true;
+    try {
+        var fileService = Components.classes["@mozilla.org/file/local;1"].createInstance();
+        if (fileService instanceof Components.interfaces.nsILocalFile) {
+            fileService.initWithPath(path);
+            fileService.remove(true);
+        }
+    } catch (error) {
+        L.error("Unable to delete " + path);
+        return false;
+    }
+    return true;
 }
 
 /* Move a file or a directory */
 function moveFile(filePath, newDirectory, newName) {
-	var fileService = Components.classes["@mozilla.org/file/local;1"].createInstance();
-	var directoryService = Components.classes["@mozilla.org/file/local;1"].createInstance();
+    var fileService = Components.classes["@mozilla.org/file/local;1"].createInstance();
+    var directoryService = Components.classes["@mozilla.org/file/local;1"].createInstance();
 
-	if (fileService instanceof Components.interfaces.nsILocalFile &&
-			directoryService instanceof Components.interfaces.nsILocalFile) {
-		fileService.initWithPath(filePath);
-		directoryService.initWithPath(newDirectory);
-		return fileService.moveTo(directoryService, newName);
-	}
+    if (fileService instanceof Components.interfaces.nsILocalFile &&
+        directoryService instanceof Components.interfaces.nsILocalFile) {
+        fileService.initWithPath(filePath);
+        directoryService.initWithPath(newDirectory);
+        return fileService.moveTo(directoryService, newName);
+    }
 }
 
 /* Check if a file exists */
 function isFile(filePath) {
-	var fileService = Components.classes["@mozilla.org/file/local;1"].createInstance();
-	if (fileService instanceof Components.interfaces.nsILocalFile) {
-		fileService.initWithPath(filePath);
-		return fileService.exists();
-	}
+    var fileService = Components.classes["@mozilla.org/file/local;1"].createInstance();
+    if (fileService instanceof Components.interfaces.nsILocalFile) {
+        fileService.initWithPath(filePath);
+        return fileService.exists();
+    }
 }
 
 /* Write content to a file */
 function writeFile(path, content) {
-	Components.utils.import("resource://gre/modules/NetUtil.jsm");
-	Components.utils.import("resource://gre/modules/FileUtils.jsm");
+    Components.utils.import("resource://gre/modules/NetUtil.jsm");
+    Components.utils.import("resource://gre/modules/FileUtils.jsm");
 
-	var file = Components.classes["@mozilla.org/file/local;1"].createInstance(Components.interfaces.nsILocalFile);
-	file.initWithPath(path);
-	var ostream = FileUtils.openSafeFileOutputStream(file)
-	var converter = Components.classes["@mozilla.org/intl/scriptableunicodeconverter"].
-	createInstance(Components.interfaces.nsIScriptableUnicodeConverter);
-	converter.charset = "UTF-8";
-	var istream = converter.convertToInputStream(content);
-	NetUtil.asyncCopy(istream, ostream);
+    var file = Components.classes["@mozilla.org/file/local;1"].createInstance(Components.interfaces.nsILocalFile);
+    file.initWithPath(path);
+    var ostream = FileUtils.openSafeFileOutputStream(file)
+    var converter = Components.classes["@mozilla.org/intl/scriptableunicodeconverter"].
+    createInstance(Components.interfaces.nsIScriptableUnicodeConverter);
+    converter.charset = "UTF-8";
+    var istream = converter.convertToInputStream(content);
+    NetUtil.asyncCopy(istream, ostream);
 }
 
 /* Read content from a file */
 function readFile(path) {
-	var file = Components.classes["@mozilla.org/file/local;1"].createInstance(Components.interfaces.nsILocalFile);
-	file.initWithPath(path);
-	var ios = Components.classes["@mozilla.org/network/io-service;1"].
-	getService(Components.interfaces.nsIIOService);
-	var istream = Components.classes["@mozilla.org/network/file-input-stream;1"].
-	createInstance(Components.interfaces.nsIFileInputStream);
-	istream.init(file, -1, -1, false);
-	var bstream = Components.classes["@mozilla.org/binaryinputstream;1"].
-	createInstance(Components.interfaces.nsIBinaryInputStream);
-	bstream.setInputStream(istream);
+    var file = Components.classes["@mozilla.org/file/local;1"].createInstance(Components.interfaces.nsILocalFile);
+    file.initWithPath(path);
+    var ios = Components.classes["@mozilla.org/network/io-service;1"].
+    getService(Components.interfaces.nsIIOService);
+    var istream = Components.classes["@mozilla.org/network/file-input-stream;1"].
+    createInstance(Components.interfaces.nsIFileInputStream);
+    istream.init(file, -1, -1, false);
+    var bstream = Components.classes["@mozilla.org/binaryinputstream;1"].
+    createInstance(Components.interfaces.nsIBinaryInputStream);
+    bstream.setInputStream(istream);
 
-	return bstream.readBytes(bstream.available());
+    return bstream.readBytes(bstream.available());
 }
 
 /* Decode URL */
-function decodeUrl (text) {
-	var string = "";
-	var i = 0;
-	var c = 0;
-	var c1 = 0;
-	var c2 = 0;
-	var c3 = 0;
-	var utftext = unescape(text);
+function decodeUrl(text) {
+    var string = "";
+    var i = 0;
+    var c = 0;
+    var c1 = 0;
+    var c2 = 0;
+    var c3 = 0;
+    var utftext = unescape(text);
 
-	while ( i < utftext.length ) {
+    while (i < utftext.length) {
 
-		c = utftext.charCodeAt(i);
+        c = utftext.charCodeAt(i);
 
-		if (c < 128) {
-			string += String.fromCharCode(c);
-			i++;
-		} else if((c > 191) && (c < 224)) {
-			c2 = utftext.charCodeAt(i+1);
-			string += String.fromCharCode(((c & 31) << 6) | (c2 & 63));
-			i += 2;
-		} else {
-			c2 = utftext.charCodeAt(i+1);
-			c3 = utftext.charCodeAt(i+2);
-			string += String.fromCharCode(((c & 15) << 12) | ((c2 & 63) << 6) | (c3 & 63));
-			i += 3;
-		}	
-	}    
-	return string;
+        if (c < 128) {
+            string += String.fromCharCode(c);
+            i++;
+        } else if ((c > 191) && (c < 224)) {
+            c2 = utftext.charCodeAt(i + 1);
+            string += String.fromCharCode(((c & 31) << 6) | (c2 & 63));
+            i += 2;
+        } else {
+            c2 = utftext.charCodeAt(i + 1);
+            c3 = utftext.charCodeAt(i + 2);
+            string += String.fromCharCode(((c & 15) << 12) | ((c2 & 63) << 6) | (c3 & 63));
+            i += 3;
+        }
+    }
+    return string;
 }
 
 /* Merge two path, this is essential for the compatibility between nix & win */
 function appendToPath(path, file) {
-	var dir = Components.classes["@mozilla.org/file/local;1"] 
-	.createInstance(Components.interfaces.nsILocalFile);
-	dir.initWithPath(path);
-	dir.append(file);
-	return dir.path;
+    var dir = Components.classes["@mozilla.org/file/local;1"]
+        .createInstance(Components.interfaces.nsILocalFile);
+    dir.initWithPath(path);
+    dir.append(file);
+    return dir.path;
 }
 
-function WarnOnSideBar () {
+function WarnOnSideBar() {
 
-	if (env.isLive() && _firstSideBar) {
-		_firstSideBar = false;
+    if (env.isLive() && _firstSideBar) {
+        _firstSideBar = false;
 
-		var strbundle			= document.getElementById ("strings");
-		var welcomeAlertTitle	= strbundle.getString ("welcomeAlertTitle");	
-		var welcomeAlert		= strbundle.getString ("welcomeAlert");	
+        var strbundle = document.getElementById("strings");
+        var welcomeAlertTitle = strbundle.getString("welcomeAlertTitle");
+        var welcomeAlert = strbundle.getString("welcomeAlert");
 
-		var prompt = Components.classes["@mozilla.org/network/default-prompt;1"].createInstance(Components.interfaces.nsIPrompt);
-		prompt.alert (welcomeAlertTitle, welcomeAlert);
-	}
+        var prompt = Components.classes["@mozilla.org/network/default-prompt;1"].createInstance(Components.interfaces.nsIPrompt);
+        prompt.alert(welcomeAlertTitle, welcomeAlert);
+    }
 }
 
 /* Return a random string */
 function randomString() {
-	var chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz";
-	var string_length = 8;
-	var randomstring = '';
-	for (var i=0; i<string_length; i++) {
-		var rnum = Math.floor(Math.random() * chars.length);
-		randomstring += chars.substring(rnum,rnum+1);
-	}
-	return randomstring;
+    var chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz";
+    var string_length = 8;
+    var randomstring = '';
+    for (var i = 0; i < string_length; i++) {
+        var rnum = Math.floor(Math.random() * chars.length);
+        randomstring += chars.substring(rnum, rnum + 1);
+    }
+    return randomstring;
 }
 
 /* Returns the root path of the binary if found, undefined otherwise */
 function whereis(binary) {
-	var sep = env.isWindows() ? ";" : ":";
-	var path = env.getPath();
+    var sep = env.isWindows() ? ";" : ":";
+    var path = env.getPath();
 
-	/* Add the kiwix binary directory */
-	var directory = Components.classes["@mozilla.org/file/local;1"].
-	createInstance(Components.interfaces.nsILocalFile);
-	var file = Components.classes["@mozilla.org/file/directory_service;1"].  
-	getService(Components.interfaces.nsIProperties).  
-	get("CurProcD", Components.interfaces.nsIFile);
-	var path = file.path + sep + path;
+    /* Add the kiwix binary directory */
+    var directory = Components.classes["@mozilla.org/file/local;1"].
+    createInstance(Components.interfaces.nsILocalFile);
+    var file = Components.classes["@mozilla.org/file/directory_service;1"].
+    getService(Components.interfaces.nsIProperties).
+    get("CurProcD", Components.interfaces.nsIFile);
+    var path = file.path + sep + path;
 
-	/* Append ./bin */
-	var binFile = file.clone();
-	binFile.append("bin");
-	path = binFile.path + sep + path;
+    /* Append ./bin */
+    var binFile = file.clone();
+    binFile.append("bin");
+    path = binFile.path + sep + path;
 
-	/* Append ./xulrunner for Windows only */
-	if (env.isWindows()) {
-		var xrFile = file.clone();
-		xrFile.append("xulrunner");
-		path = xrFile.path + sep + path;
-	}
+    /* Append ./xulrunner for Windows only */
+    if (env.isWindows()) {
+        var xrFile = file.clone();
+        xrFile.append("xulrunner");
+        path = xrFile.path + sep + path;
+    }
 
-	/* Append ../src/server for Linux only */
-	if (env.isLinux()) {
-		var serverCodeDirectory = file.clone().parent;
-		serverCodeDirectory.append("src");
-		serverCodeDirectory.append("server");
-		path = serverCodeDirectory.path + sep + path;
-	}
+    /* Append ../src/server for Linux only */
+    if (env.isLinux()) {
+        var serverCodeDirectory = file.clone().parent;
+        serverCodeDirectory.append("src");
+        serverCodeDirectory.append("server");
+        path = serverCodeDirectory.path + sep + path;
+    }
 
-	/* Go trough each path of the $PATH */
-	var pathArray = path.split(sep);
-	for (var i in pathArray) {
-		try {
-			directory.initWithPath(pathArray[i]);
-			directory.append(binary);
-			if (directory.exists()) {
-				return directory.path;
-			}
-		} catch (error) {
-		}
-	}
+    /* Go trough each path of the $PATH */
+    var pathArray = path.split(sep);
+    for (var i in pathArray) {
+        try {
+            directory.initWithPath(pathArray[i]);
+            directory.append(binary);
+            if (directory.exists()) {
+                return directory.path;
+            }
+        } catch (error) {}
+    }
 }
 
 /* This function allows to execute only one time a callback associated
  * to an event */
 function addOneShotEventListener(node, eventName, func, captureMode) {
-	var listener = function() { oneShotEventhandler() };
-	function oneShotEventhandler() {
-		node.removeEventListener(eventName, listener, captureMode);
-		func();
-	}
-	node.addEventListener(eventName, listener, captureMode);
+    var listener = function() {
+        oneShotEventhandler()
+    };
+
+    function oneShotEventhandler() {
+        node.removeEventListener(eventName, listener, captureMode);
+        func();
+    }
+    node.addEventListener(eventName, listener, captureMode);
 }
 
 function delay(f, t) {
-	setTimeout(f, t || 0);
+    setTimeout(f, t || 0);
 }
 
 function sleep(milliseconds) {
-	setTimeout(function() {
-		var start = new Date().getTime();
-		while ((new Date().getTime() - start) < milliseconds){
-			// Do nothing
-		}
-	},0);
+    setTimeout(function() {
+        var start = new Date().getTime();
+        while ((new Date().getTime() - start) < milliseconds) {
+            // Do nothing
+        }
+    }, 0);
 }
 
 function pathFromURL(aURL) {
-	if (!aURL.match(/^file\:\/\//)) {
-		return aURL;
-	}
-	var ioService = Components.classes["@mozilla.org/network/io-service;1"]
-	.getService(Components.interfaces.nsIIOService);
-	var baseURI = ioService.newURI(aURL, null, null);
-	return baseURI.path;
+    if (!aURL.match(/^file\:\/\//)) {
+        return aURL;
+    }
+    var ioService = Components.classes["@mozilla.org/network/io-service;1"]
+        .getService(Components.interfaces.nsIIOService);
+    var baseURI = ioService.newURI(aURL, null, null);
+    return baseURI.path;
 }
 
 function copyTextToClipboard(text) {
-	const gClipboardHelper = Components.classes["@mozilla.org/widget/clipboardhelper;1"].
-	getService(Components.interfaces.nsIClipboardHelper);
-	gClipboardHelper.copyString(text);
+    const gClipboardHelper = Components.classes["@mozilla.org/widget/clipboardhelper;1"].
+    getService(Components.interfaces.nsIClipboardHelper);
+    gClipboardHelper.copyString(text);
 }
 
 function getAbsolutePath(path) {
-	var result = path;
+    var result = path;
 
-	var file = Components.classes["@mozilla.org/file/local;1"]
-	.createInstance(Components.interfaces.nsILocalFile);
-	try {
-		file.initWithPath(path);
-	} catch (e) {
-		var directory = Components.classes["@mozilla.org/file/directory_service;1"]
-		.getService(Components.interfaces.nsIDirectoryServiceProvider)
-		.getFile("CurWorkD",{});
-		directory.appendRelativePath(path);
-		result = directory.path;
-	}
+    var file = Components.classes["@mozilla.org/file/local;1"]
+        .createInstance(Components.interfaces.nsILocalFile);
+    try {
+        file.initWithPath(path);
+    } catch (e) {
+        var directory = Components.classes["@mozilla.org/file/directory_service;1"]
+            .getService(Components.interfaces.nsIDirectoryServiceProvider)
+            .getFile("CurWorkD", {});
+        directory.appendRelativePath(path);
+        result = directory.path;
+    }
 
-	return result;
+    return result;
 }
