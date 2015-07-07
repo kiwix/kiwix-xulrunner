@@ -49,6 +49,7 @@ var articleLoadingListener = {
 			if(aFlag & STATE_STOP){
 				window.setCursor('auto');
 			}
+			
 			return 0;
 		},
 
@@ -248,9 +249,9 @@ function htmlRendererMouseScroll(aEvent) {
 				stopEventPropagation(aEvent);
 				return;
 			}
-		}
+		} else
 
-		if (!env.isMac()) {
+		{
 			stopEventPropagation(aEvent);
 			return;
 		}
@@ -358,12 +359,11 @@ function manageOpenUrl(url, id, scrollY) {
 	/* Open with extern browser if not an internal link */
 	if (!isInternalUrl(url)) {
 		openUrlWithExternalBrowser(url);
-	} else { /* If the a ZIM or chrome url */
-		if (loadContent(url, id, scrollY)) {
+	 /* If the a ZIM or chrome url */
+	} else 	if (loadContent(url, id, scrollY)) {
 			updateGuiHistoryComponents();
-		}
 	}
-
+	
 	return true;
 }
 
@@ -524,7 +524,7 @@ function changeProgressBarVisibilityStatus(visible) {
 		getProgressBar().collapsed = true;
 		getProgressBarLabel().collapsed = true;
 		if (env.isSugar())
-			sb.style.display = 'none';
+		   sb.style.display = 'none';
 	}
 	return;
 }
