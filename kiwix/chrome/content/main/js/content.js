@@ -17,7 +17,7 @@
  * MA 02110-1301, USA.
  */
 
-var _selectedLibraryContentItem = undefined;
+//var _selectedLibraryContentItem = undefined;
 var aria2Client = new xmlrpc_client ("rpc", "localhost", "42042", "http");
 var jobTimer = null;
 var downloader = new Worker("js/downloader.js");
@@ -26,7 +26,7 @@ var _oldWindowTitle = "";
 var _libraryKeyCursorOnMenu = false;
 var _isDownloaderRunningTimestamp = Number(new Date());
 var _isDownloaderRunning = false;
-var _isOnline = undefined;
+//var _isOnline = undefined;
 var checkDownloaderId;
 var checkDownloadStatusId;
 var updateOnlineStatusId;
@@ -39,7 +39,7 @@ downloader.onmessage = function(event) {
 		addMetalink(message.parameters[0], message.parameters[1]);
 	} else if (message.id == "downloadedBookList") {
 		var xml = message.parameters[0];
-		if (xml == undefined || xml == "") {
+		if (xml === undefined || xml === "") {
 			dump("Unable to download the Metalink...\n");
 		} else {
 			/* Backup the 'old' number of available books */
@@ -60,8 +60,8 @@ downloader.onmessage = function(event) {
 		}
 
 		/* If no local content but remote, change the default view */
-		if (localBookCount == 0 && remoteBookCount > 0)
-			selectLibraryMenu("library-menuitem-remote")
+		if (localBookCount === 0 && remoteBookCount > 0)
+			selectLibraryMenu("library-menuitem-remote");
 
 			/* New content are available online */
 			if (oldRemoteBookCount < remoteBookCount) {
@@ -70,7 +70,7 @@ downloader.onmessage = function(event) {
 				library.writeToFile();
 
 				/* First start - online */
-				if (oldRemoteBookCount == 0) {
+				if (oldRemoteBookCount === 0) {
 					if (displayConfirmDialog(getProperty("newContentAvailableInvitation"))) {
 						showRemoteBooks();
 					}
@@ -143,7 +143,7 @@ function checkDownloader() {
 function startDownloader() {
 	/* Get the aria2c binary whole path */
 	var binaryPath = whereis(env.isWindows() ? "aria2c.exe" : "aria2c");
-	if (binaryPath == undefined) {
+	if (binaryPath === undefined) {
 		dump("Unable to find the aria2c binary.\n");
 		return;
 	}
@@ -285,7 +285,7 @@ function getDownloadStatus() {
 						}
 			}
 
-			if (ariaDownload != undefined) {
+			if (ariaDownload !== undefined) {
 				/* Retrieve infos */
 				var ariaDownloadSpeed = ariaDownload.structMem('downloadSpeed').scalarVal();
 				var ariaDownloadCompleted = ariaDownload.structMem('completedLength').scalarVal();
@@ -308,7 +308,7 @@ function getDownloadStatus() {
 					remaining = parseInt(remaining - (remainingMinutes * 60));
 
 					/* Update the download status string */
-					downloadStatusLabelString = (remainingHours > 0 || remainingMinutes > 0 || remaining > 0 ? "Time remaining: " : "") + (remainingHours > 0 ? remainingHours + " hours" : "") + (remainingHours > 0 && remainingMinutes > 0 ? ", " : "") + (remainingMinutes > 0 ? remainingMinutes + " minutes" : "") + (remainingHours == 0 && remainingMinutes > 0 && remaining > 0 ? ", " : "") + (remainingHours == 0 && remaining > 0 ? remaining + " seconds" : "") + (remainingHours > 0 || remainingMinutes > 0 || remaining > 0 ? " – " : "") + formatFileSize(ariaDownloadCompleted) + " of " + formatFileSize(book.size * 1024) + (ariaDownloadSpeed != undefined && ariaDownloadSpeed > 0 ? " (" + formatFileSize(ariaDownloadSpeed) + "/s)" : ""); 
+					downloadStatusLabelString = (remainingHours > 0 || remainingMinutes > 0 || remaining > 0 ? "Time remaining: " : "") + (remainingHours > 0 ? remainingHours + " hours" : "") + (remainingHours > 0 && remainingMinutes > 0 ? ", " : "") + (remainingMinutes > 0 ? remainingMinutes + " minutes" : "") + (remainingHours == 0 && remainingMinutes > 0 && remaining > 0 ? ", " : "") + (remainingHours == 0 && remaining > 0 ? remaining + " seconds" : "") + (remainingHours > 0 || remainingMinutes > 0 || remaining > 0 ? " – " : "") + formatFileSize(ariaDownloadCompleted) + " of " + formatFileSize(book.size * 1024) + (ariaDownloadSpeed !== undefined && ariaDownloadSpeed > 0 ? " (" + formatFileSize(ariaDownloadSpeed) + "/s)" : ""); 
 				}
 				downloadStatusLabel.setAttribute("value", downloadStatusLabelString);
 			} else {
@@ -346,7 +346,7 @@ function getDownloadStatus() {
 		var downloadStatusLabel = document.getElementById("download-status-label-" + kiwixDownload.id);
 		var playButton = document.getElementById("play-button-" + kiwixDownload.id);
 		var pauseButton = document.getElementById("pause-button-" + kiwixDownload.id);
-		if (downloadStatusLabel != undefined && kiwixDownload.status == 0 && kiwixDownload.completed > 1) { 
+		if (downloadStatusLabel !== undefined && kiwixDownload.status == 0 && kiwixDownload.completed > 1) { 
 			downloadStatusLabel.setAttribute("value", "Paused – " + formatFileSize(kiwixDownload.completed) + " of " + formatFileSize(book.size * 1024));
 			playButton.setAttribute("style", "display: block;");
 			pauseButton.setAttribute("style", "display: none;");
@@ -357,9 +357,9 @@ function getDownloadStatus() {
 
 		/* Set the progressbar */
 		var progressbar = document.getElementById("progressbar-" + book.id);
-		if (progressbar != undefined) {
+		if (progressbar !== undefined) {
 			var progressbarValue = 0;
-			if (kiwixDownload.completed != undefined && kiwixDownload.completed != "0" && kiwixDownload.completed != "")
+			if (kiwixDownload.completed !== undefined && kiwixDownload.completed != "0" && kiwixDownload.completed != "")
 				progressbarValue = kiwixDownload.completed / (book.size * 1024) * 100;
 			progressbar.setAttribute("value", progressbarValue);
 		}
@@ -378,27 +378,23 @@ function getDownloadPath() {
 
 function formatNumber( number, decimals, dec_point, thousands_sep ) {
 	var n = number, c = isNaN(decimals = Math.abs(decimals)) ? 2 : decimals;
-	var d = dec_point == undefined ? "," : dec_point;
-	var t = thousands_sep == undefined ? "." : thousands_sep, s = n < 0 ? "-" : "";
+	var d = dec_point === undefined ? "," : dec_point;
+	var t = thousands_sep === undefined ? "." : thousands_sep, s = n < 0 ? "-" : "";
 	var i = parseInt(n = Math.abs(+n || 0).toFixed(c)) + "", j = (j = i.length) > 3 ? j % 3 : 0;
 	return s + (j ? i.substr(0, j) + t : "") + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + t) + (c ? d + Math.abs(n - i).toFixed(c).slice(2) : "");
 }
 
 function formatFileSize(filesize) {
 	if (filesize >= 1073741824) {
-		filesize = formatNumber(filesize / 1073741824, 2, '.', '') + ' GB';
-	} else {
-		if (filesize >= 1048576) {
+			filesize = formatNumber(filesize / 1073741824, 2, '.', '') + ' GB';
+	} else if (filesize >= 1048576) {
 			filesize = formatNumber(filesize / 1048576, 2, '.', '') + ' MB';
-		} else {
-			if (filesize >= 1024) {
-				filesize = formatNumber(filesize / 1024, 0) + ' KB';
-			} else {
-				filesize = formatNumber(filesize, 0) + ' bytes';
-			};
-		};
-	};
-
+	} else if (filesize >= 1024) {
+			filesize = formatNumber(filesize / 1024, 0) + ' KB';
+	} else {
+			filesize = formatNumber(filesize, 0) + ' bytes';
+	}
+		
 	return filesize;
 };
 
@@ -413,7 +409,7 @@ function manageRemoveContent(id) {
 			manageUnload(true, true);
 		}
 
-		if (book != undefined) {
+		if (book !== undefined) {
 
 			/* Delete content (zim/epub) file */
 			if (!keepContent)
@@ -510,7 +506,7 @@ function manageStartDownload(id, completed) {
 
 	var book = library.getBookById(id);
 	var progressbar = document.getElementById("progressbar-" + id);
-	if (completed != undefined && completed != "0" && completed != "") {
+	if (completed !== undefined && completed != "0" && completed != "") {
 		var percent = completed / (book.size * 1024) * 100;
 		progressbar.setAttribute("value", percent);
 	} else {
@@ -532,7 +528,7 @@ function manageResumeDownload(id) {
 	var gid = settings.getDownloadProperty(id, "gid");
 
 	/* Resume the download */
-	if (gid != undefined) {
+	if (gid !== undefined) {
 		var downloadStatusLabel = document.getElementById("download-status-label-" + id);
 		downloadStatusLabel.setAttribute("value", "Resuming download...");
 
@@ -747,7 +743,7 @@ function populateBookList(container) {
 	var backgroundColor = "#FFFFFF";
 
 	/* Autotection of the container if necessary */
-	if (container == undefined) {
+	if (container === undefined) {
 		container = getCurrentBookListContainer()
 	}
 
@@ -769,7 +765,7 @@ function populateBookList(container) {
 
 	/* Go through all books */
 	book = library.getNextBookInList();
-	while (book != undefined) {
+	while (book !== undefined) {
 
 		var box = createLibraryItem(book);
 		box.setAttribute("style", "background-color: " + backgroundColor + ";");
@@ -777,15 +773,13 @@ function populateBookList(container) {
 		/* Add the new item to the UI */
 		container.appendChild(box);
 
-		if (book.path != "") {
+		if (book.path !== "") {
 			configureLibraryContentItemVisuals(book.id, "offline");
+		} else if (downloadStatus !== undefined) {
+				var downloadStatus = settings.getDownloadProperty(book.id, "status");			 
+				configureLibraryContentItemVisuals(book.id, "download");	
 		} else {
-			var downloadStatus = settings.getDownloadProperty(book.id, "status");
-			if (downloadStatus != undefined) {
-				configureLibraryContentItemVisuals(book.id, "download");
-			} else {
 				configureLibraryContentItemVisuals(book.id, "online");
-			}
 		}
 
 		/* Compute new item background color */
@@ -927,7 +921,7 @@ function toggleLibrary(visible) {
 	var hideLibraryMenuItem = document.getElementById("file-hide-library");
 	var libraryPage = document.getElementById("library-page");
 
-	if (visible == undefined) {
+	if (visible === undefined) {
 		visible = isLibraryVisible() ? false : true;
 	} else if (visible == isLibraryVisible()) {
 		return;
@@ -1023,17 +1017,16 @@ function selectLibraryMenu(menuItemId) {
 }
 
 function selectLibraryContentItem(box) {
-	if (box == undefined)
+	if (box === undefined)
 		return;
 
-	if (_selectedLibraryContentItem != undefined && box == _selectedLibraryContentItem) {
+	if (_selectedLibraryContentItem !== undefined && box == _selectedLibraryContentItem)
 		return;
-	} else {
-		box.parentNode.selectedItem = box;
-		_selectedLibraryContentItem = box;
-		var libraryDeck = document.getElementById("library-deck");
-		libraryDeck.selectedPanel.ensureIndexIsVisible(libraryDeck.selectedPanel.selectedIndex); 
-	}
+
+	box.parentNode.selectedItem = box;
+	_selectedLibraryContentItem = box;
+	var libraryDeck = document.getElementById("library-deck");
+	libraryDeck.selectedPanel.ensureIndexIsVisible(libraryDeck.selectedPanel.selectedIndex); 
 }
 
 function startDownloadObserver() {
