@@ -145,7 +145,10 @@ function saveWindowGeometry(width, height, x, y, windowState) {
 /* Compute position and size of the window */
 function configureWindowGeometry(window) {
 	if (settings.windowMaximized()) {
-		setTimeout('window.maximize();', 1);
+		setTimeout(function () {
+			"use strict";
+			window.maximize();
+		},1);
 	} else {
 		var margin = 50;
 		var width = (settings.windowWidth() != undefined && 
