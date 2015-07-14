@@ -12,7 +12,7 @@ want to build Kiwix for Android on a GNU/Linux system, you should
 follow the instructions of the "Android" paragraph.
 
 == GNU/Linux ==
-Install pre-requisties
+Install pre-requisties in your distro, eg, in Debian based:
 
 sudo apt-get install zip pkg-config aptitude
 sudo apt-get install libmagic-dev
@@ -56,6 +56,7 @@ GNU/Linux build uses shared libraries by default. You will need the
 following dependencies (also -dev packages) to compile Kiwix for Linux
 (this list can vary a little bit depending of the GNU/Linux
 distribution):
+
 * g++
 * gcc
 * autoconf
@@ -114,8 +115,8 @@ You will also need to build on an Apple Mac computer.
 * Configure Macports
 
 * Install the following tools and libraries
-sudo port install autogen +universal pkgconfig +universal wget +universal gmake +universal coreutils +universal libidl +universal autoconf213 +universal icu +universal
 
+sudo port install autogen +universal pkgconfig +universal wget +universal gmake +universal coreutils +universal libidl +universal autoconf213 +universal icu +universal
 ./autogen.sh alt && ./configure --enable-compileall
 cd src/dependencies && make
 make clean
@@ -128,7 +129,7 @@ make
 make distmac
 make universal
 
-* Debugging tips:
+;;Debugging tips:
 
 - components file type can be either Mach-O dynamically linked shared library
   or Mach-O bundle but above instructions will create dynamic libraries.
@@ -165,6 +166,7 @@ App have specific branding.
 
 Custom App are either compiled as embed (ZIM file is included in APK)
 or are accompanied by a ZIM file.
+
 * Embedded versions can be very large (while Play Store have a 50MB
   limit)
 * Non-embedded versions are small (6MB) but require a companion ZIM file
@@ -274,8 +276,9 @@ play-store script.
 
 Email: kiwix-developer@lists.sourceforge.net or contact@kiwix.org
 Jabber: kelson@kiwix.org
-IRC: #kiwix on irc.freenode.net join or 
-       use web interface http://chat.kiwix.org/
+IRC: #kiwix on irc.freenode.net
+
+You can use IRC web interface on http://chat.kiwix.org/
 
 More... http://www.kiwix.org/wiki/Communication
 
@@ -284,5 +287,3 @@ More... http://www.kiwix.org/wiki/Communication
 *********************************************************************
 
 Read 'COPYING' file
-
-
