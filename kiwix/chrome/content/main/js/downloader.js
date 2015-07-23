@@ -16,69 +16,62 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
  * MA 02110-1301, USA.
  */
-
 importScripts('workerMessage.js');
 
 function loadBinaryResource(url) {
-	var req = new XMLHttpRequest();
-	if (url != undefined && url != "")  { 
-		try {
-			req.open('GET', url, false);
-			req.overrideMimeType('text/plain; charset=x-user-defined');
-			req.send(null);
-		} catch (error)  {
-		}
-	}
-	return (req.status == 200 ? req.responseText : '');
+    var req = new XMLHttpRequest();
+    if (url != undefined && url != "") {
+        try {
+            req.open('GET', url, false);
+            req.overrideMimeType('text/plain; charset=x-user-defined');
+            req.send(null);
+        } catch (error) {}
+    }
+    return (req.status == 200 ? req.responseText : '');
 }
 
 function checkIfOnline() {
-	var url = 'http://www.kiwix.org/robots.txt';
-	var xmlhttp = new XMLHttpRequest();
-	var online = false;
+    var url = 'http://www.kiwix.org/robots.txt';
+    var xmlhttp = new XMLHttpRequest();
+    var online = false;
 
-	function onStateChange() {
-		if (xmlhttp.readyState == 4) {
-			try {
-				if (xmlhttp.status == 200) {
-					online = true;
-				} else {
-					oneline = false;
-				}
-			} catch(err) {
-			}
-		}
-	}
+    function onStateChange() {
+        if (xmlhttp.readyState == 4) {
+            try {
+                online = (xmlhttp.status == 200);
+            } catch (err) {}
+        }
+    }
 
-	if (xmlhttp != null) {
-		xmlhttp.onreadystatechange = onStateChange;
-		xmlhttp.open("GET", url, false);
-		xmlhttp.send(null);
-	} else {
-		online = false;
-	}
+    if (xmlhttp != null) {
+        xmlhttp.onreadystatechange = onStateChange;
+        xmlhttp.open("GET", url, false);
+        xmlhttp.send(null);
+    } else {
+        online = false;
+    }
 
-	return online;
+    return online;
 }
 
 onmessage = function(event) {
-	var message = event.data;
-	if (message.id == "downloadBookList") {
-		var url = message.parameters[0];
-		var populateRemoteBookList = message.callbackParameters[0];
-		var resumeDownloads = message.callbackParameters[1];
-		var content = loadBinaryResource(url);
-		message = new WorkerMessage("downloadedBookList", [ content, populateRemoteBookList, resumeDownloads ]);
-		postMessage(message);
-	} else if (message.id == "downloadMetalink") {
-		var url = message.parameters[0];
-		var id = message.callbackParameters[0];
-		var content = loadBinaryResource(url);
-		message = new WorkerMessage("downloadedMetalink", [ id, content ]);
-		postMessage(message);
-	} else if (message.id == "updateOnlineStatus") {
-		var isOnline = checkIfOnline();
-		message = new WorkerMessage("updateOnlineStatus", [ isOnline ]);
-		postMessage(message);
-	}
+    var message = event.data;
+    if (message.id == "downloadBookList") {
+        var url = message.parameters[0];
+        var populateRemoteBookList = message.callbackParameters[0];
+        var resumeDownloads = message.callbackParameters[1];
+        var content = loadBinaryResource(url);
+        message = new WorkerMessage("downloadedBookList", [content, populateRemoteBookList, resumeDownloads]);
+        postMessage(message);
+    } else if (message.id == "downloadMetalink") {
+        var url = message.parameters[0];
+        var id = message.callbackParameters[0];
+        var content = loadBinaryResource(url);
+        message = new WorkerMessage("downloadedMetalink", [id, content]);
+        postMessage(message);
+    } else if (message.id == "updateOnlineStatus") {
+        var isOnline = checkIfOnline();
+        message = new WorkerMessage("updateOnlineStatus", [isOnline]);
+        postMessage(message);
+    }
 };

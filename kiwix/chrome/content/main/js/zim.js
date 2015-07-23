@@ -16,23 +16,22 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
  * MA 02110-1301, USA.
  */
-
 var currentZimAccessor;
 
 /* try a ZIM file */
 function openZimFile(path) {
-	/* Create the ZIM accessor */
-	var zimAccessorService = Components.classes["@kiwix.org/zimAccessor"].getService();
-	var zimAccessor = zimAccessorService.QueryInterface(Components.interfaces.IZimAccessor);
+    /* Create the ZIM accessor */
+    var zimAccessorService = Components.classes["@kiwix.org/zimAccessor"].getService();
+    var zimAccessor = zimAccessorService.QueryInterface(Components.interfaces.IZimAccessor);
 
-	/* Warning: here we should not test if the file exist, because the
-	 * file could be splitted */
-	if (zimAccessor.loadFile(path)) {
-		currentZimAccessor = zimAccessor;
-		return currentZimAccessor;
-	}
+    /* Warning: here we should not test if the file exist, because the
+     * file could be splitted */
+    if (zimAccessor.loadFile(path)) {
+        currentZimAccessor = zimAccessor;
+        return currentZimAccessor;
+    }
 
-	return undefined;
+    return undefined;
 }
 
 /* 
@@ -45,105 +44,105 @@ function openZimFile(path) {
  * content.
  */
 function openCurrentBook() {
-	var currentBook;
-	var currentBookId;
-	var noSearchIndexCheck;
-	var successfullyLoaded;
-	do {
-		if (currentBookId != undefined && currentBookId != "")
-			library.setCurrentId("");
-		currentBook = library.getCurrentBook();
-		currentBookId = library.getCurrentId();
-		noSearchIndexCheck = currentBook;
-		successfullyLoaded = 
-			currentBook != undefined ? manageOpenFile(currentBook.path, noSearchIndexCheck) : false;
-	} while (currentBookId != undefined && currentBookId != "" && !successfullyLoaded);
-	return (currentBook != undefined);
+    var currentBook;
+    var currentBookId;
+    var noSearchIndexCheck;
+    var successfullyLoaded;
+    do {
+        if (currentBookId != undefined && currentBookId != "")
+            library.setCurrentId("");
+        currentBook = library.getCurrentBook();
+        currentBookId = library.getCurrentId();
+        noSearchIndexCheck = currentBook;
+        successfullyLoaded =
+            currentBook != undefined ? manageOpenFile(currentBook.path, noSearchIndexCheck) : false;
+    } while (currentBookId != undefined && currentBookId != "" && !successfullyLoaded);
+    return (currentBook != undefined);
 }
 
 /* Return the homepage of a ZIM file */
 function getCurrentZimFileHomePageUrl() {
-	var homePageUrl;
+    var homePageUrl;
 
-	if (currentZimAccessor) {
-		var url = new Object();
+    if (currentZimAccessor) {
+        var url = new Object();
 
-		/* Return the welcome path if exists */
-		currentZimAccessor.getMainPageUrl(url);
-		if (url.value != undefined && url.value != '') {
-			homePageUrl = "zim://" + url.value;	
-		}
-	}
+        /* Return the welcome path if exists */
+        currentZimAccessor.getMainPageUrl(url);
+        if (url.value != undefined && url.value != '') {
+            homePageUrl = "zim://" + url.value;
+        }
+    }
 
-	return homePageUrl;
+    return homePageUrl;
 }
 
 /* Load a ramdom page */
 function loadRandomArticle() {
-	if (currentZimAccessor != undefined) {
-		var url = new Object();
+    if (currentZimAccessor != undefined) {
+        var url = new Object();
 
-		currentZimAccessor.getRandomPageUrl(url);
-		if (url.value != undefined && url.value != '')
-			url.value = "zim://" + url.value;	
+        currentZimAccessor.getRandomPageUrl(url);
+        if (url.value != undefined && url.value != '')
+            url.value = "zim://" + url.value;
 
-		toggleLibrary(false);
-		loadContent(url.value);
-		activateBackButton();
-	}
+        toggleLibrary(false);
+        loadContent(url.value);
+        activateBackButton();
+    }
 }
 
 /* Get URL from title */
 function getArticleUrlFromTitle(title) {
-	var url = new Object();
-	if (currentZimAccessor != undefined) {
-		currentZimAccessor.getPageUrlFromTitle(title, url);
-	}
-	return url.value;
+    var url = new Object();
+    if (currentZimAccessor != undefined) {
+        currentZimAccessor.getPageUrlFromTitle(title, url);
+    }
+    return url.value;
 }
 
 /* Load article from title */
 function loadArticleFromTitle(title) {
-	var url = getArticleUrlFromTitle(title);
+    var url = getArticleUrlFromTitle(title);
 
-	if (url != undefined && url != '') {
+    if (url != undefined && url != '') {
 
-		/* Need to replace the '+' by the escaping value, otherwise
-		 * will be interpreted as ' ' (see with "C++") */
-		var urlValue = url.replace( /\+/g, "%2B");
+        /* Need to replace the '+' by the escaping value, otherwise
+         * will be interpreted as ' ' (see with "C++") */
+        var urlValue = url.replace(/\+/g, "%2B");
 
-		url = "zim://" + urlValue;
-		loadContent(url);
-		activateBackButton();
-		return true;
-	}
+        url = "zim://" + urlValue;
+        loadContent(url);
+        activateBackButton();
+        return true;
+    }
 
-	return false;
+    return false;
 }
 
 /* Check the integrity (with a checksum) of the ZIM file */
 function checkIntegrity() {
-	if (currentZimAccessor != undefined) {
-		if (canCheckIntegrity()) {
-			return !(currentZimAccessor.isCorrupted());
-		} else {
-			dump("Unable to check the integrity of the current ZIMf file.\n");
-		}
-	}
+    if (currentZimAccessor != undefined) {
+        if (canCheckIntegrity()) {
+            return !(currentZimAccessor.isCorrupted());
+        } else {
+            dump("Unable to check the integrity of the current ZIMf file.\n");
+        }
+    }
 
-	return undefined;
+    return undefined;
 }
 
 /* Verify if the file has a checksum */
 function canCheckIntegrity() {
-	if (currentZimAccessor != undefined) {
-		return currentZimAccessor.canCheckIntegrity();
-	}
+    if (currentZimAccessor != undefined) {
+        return currentZimAccessor.canCheckIntegrity();
+    }
 
-	return undefined;
+    return undefined;
 }
 
 /* Check if a zim file is open */
 function isBookOpen() {
-	return (currentZimAccessor != undefined);
+    return (currentZimAccessor != undefined);
 }

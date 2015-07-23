@@ -1,26 +1,10 @@
-****************************************
-* Kiwix                                *
-****************************************
-
-== Presentation ==
 Kiwix is an offline reader for Web content. It's especially thought to
 make Wikipedia available offline.  This is done by reading the content
 of the project stored in a file format ZIM, a high compressed open
 format with additional meta-data.
 
-== Compilation ==
-Read 'COMPILE' file
-
-== Legal and disclaimer ==
-Read 'COPYING' file
-
-== Contact ==
-Email: kiwix-developer@lists.sourceforge.net or contact@kiwix.org
-Jabber: kelson@kiwix.org
-IRC: #kiwix on irc.freenode.net join or use web interface http://chat.kiwix.org/
-
 *********************************************************************
-************* COMPILATION INSTRUCTIONS FOR KIWIX ********************
+****************** COMPILATION INSTRUCTIONS *************************
 *********************************************************************
 
 Take care, the paragraphs are about the *target platforms*. If you
@@ -28,7 +12,7 @@ want to build Kiwix for Android on a GNU/Linux system, you should
 follow the instructions of the "Android" paragraph.
 
 == GNU/Linux ==
-Install pre-requisties
+Install pre-requisties in your distro, eg, in Debian based:
 
 sudo apt-get install zip pkg-config aptitude
 sudo apt-get install libmagic-dev
@@ -72,6 +56,7 @@ GNU/Linux build uses shared libraries by default. You will need the
 following dependencies (also -dev packages) to compile Kiwix for Linux
 (this list can vary a little bit depending of the GNU/Linux
 distribution):
+
 * g++
 * gcc
 * autoconf
@@ -130,8 +115,8 @@ You will also need to build on an Apple Mac computer.
 * Configure Macports
 
 * Install the following tools and libraries
-sudo port install autogen +universal pkgconfig +universal wget +universal gmake +universal coreutils +universal libidl +universal autoconf213 +universal icu +universal
 
+sudo port install autogen +universal pkgconfig +universal wget +universal gmake +universal coreutils +universal libidl +universal autoconf213 +universal icu +universal
 ./autogen.sh alt && ./configure --enable-compileall
 cd src/dependencies && make
 make clean
@@ -144,7 +129,7 @@ make
 make distmac
 make universal
 
-* Debugging tips:
+;;Debugging tips:
 
 - components file type can be either Mach-O dynamically linked shared library
   or Mach-O bundle but above instructions will create dynamic libraries.
@@ -155,7 +140,6 @@ make universal
 - otool -L libzim.dylib
 - install_name_tool -change @executable_path/../libicuuc.dylib libicuuc.dylib kiwix-serve
 - lldb
-
 
 == Android ==
 
@@ -173,80 +157,85 @@ from a Linux or Mac (it cross-compiles).
 To install the newly created APK on your device, use the following script:
 ./android/install-kiwix-on-device.sh
 
-
 == Android Custom App ==
 
-Android Custom App are single-content Kiwix-android clones.
-Those app are tied to a single content and CAN NOT open other zim file.
-As well, bundled zim files are not readable by the regular Kiwix app.
-Custom App have specific branding.
+Android Custom App are single-content Kiwix-android clones. Those app
+are tied to a single content and CAN NOT open other zim file. As well,
+bundled zim files are not readable by the regular Kiwix app. Custom
+App have specific branding.
 
-Custom App are either compiled as embed (ZIM file is included in APK) or are
-accompanied by a ZIM file.
-	Embedded version can be very large (while Play Store have 50MB limit)
-	Non-embedded version are small (6MB) but require a companion file which
-	can be up to 2GB.
-	Companion file is a feature of the Play store.
+Custom App are either compiled as embed (ZIM file is included in APK)
+or are accompanied by a ZIM file.
 
-Steps to build a Custom App
+* Embedded versions can be very large (while Play Store have a 50MB
+  limit)
+* Non-embedded versions are small (6MB) but require a companion ZIM file
+  which can be up to 2GB.
+* Companion file is a feature of the Play store.
 
-0. Build your first APK
-	- Generate your icon using `gen-std-icon.py logo-file.png lang_code`
-	- Prepare your JSON file using the sample in the script
-		- choose your package name wisely.
-			org.kiwix.kiwixcustomXXXXXX
-			Do not add levels. Do not use dash or underscores !
-		- Use version_code: 1 at first
-	- Build your APK with `gen-custom-android-build.py my-file.json`
+Steps to build a Custom App:
 
-1. Go to the Developer Page on https://play.google.com/apps/publish
+0. Install following requirements
 
-2. Create a new Application and give it a name.
+1. Build your first APK
+
+* Generate your icon using `gen-std-icon.py logo-file.png lang_code`
+* Prepare your JSON file using the sample in the script
+* Choose your package name wisely.
+** org.kiwix.kiwixcustomXXXXXX
+** o not add levels. Do not use dash or underscores !
+** Use version_code: 1 at first
+* Build your APK with `gen-custom-android-build.py my-file.json`
+
+2. Go to the Developer Page on https://play.google.com/apps/publish
+and create a new Application and give it a name.
 
 3. Fill the Store listing section with decent information
-	- App Title (30 chars)
-	- App Short Description (80 chars)
-	- App Description (4,000 chars)
+* App Title (30 chars)
+* App Short Description (80 chars)
+* App Description (4,000 chars)
 
-	- Add 2 screenshots
-	- Add the 512px icon
-	- Add feature graphic (1024x500)
+* Add 2 screenshots
+* Add the 512px icon
+* Add feature graphic (1024x500)
 
-	- Select Application Type (Applications)
-	- Select Category (Education|Books & Reference|Health & Fitness|...)
-	- Select Content Rating (High Maturity|Medium Maturity|Low Maturity|Everyone)
-	- Add an email Address
-	- Check the "Not submitting a privacy policy URL" box
+* Select Application Type (Applications)
+* Select Category (Education|Books & Reference|Health & Fitness|...)
+* Select Content Rating (High Maturity|Medium Maturity|Low
+  Maturity|Everyone)
+* Add an email Address
+* Check the "Not submitting a privacy policy URL" box
 
 4. Go to Content Rating Tab
-	- Fill the Questionnaire
-		- Email address
-		- Select category
-		- Check "No" for each question
-	- Hit Calculate rating
-	- Hit Apply rating
+* Fill the Questionnaire
+** Email address
+** Select category
+** Check "No" for each question
+* Hit Calculate rating
+* Hit Apply rating
 
 5. Go to Pricing & Distribution
-	- Check "SELECT ALL COUNTRIES" box
-	- Check "Content guidelines"
-	- Check "US Export laws"
+* Check "SELECT ALL COUNTRIES" box
+* Check "Content guidelines"
+* Check "US Export laws"
 
 6. Go to APK 
-	- Go to Alpha Testing
-		- Manage list of testers
-			- Add https://plus.google.com/communities/106410746144853739922
-		- Upload an APK
-			*** use a proper APK (version 1 usually) with correct package name ***
+* Go to Alpha Testing
+* Manage list of testers (Add
+  https://plus.google.com/communities/106410746144853739922)
+* Upload an APK (Use a proper APK (version 1 usually) with correct
+  package name)
 
 7. Build a second APK
-	- Change version_code in JSON file
-	- rebuild
+* Change version_code in JSON file
+* Rebuild
 
-8. Upload your second APK using the upload script
-	`GOOGLE_API_KEY=/home/xxx/google-api.p12 python3 ./upload-apk.py my-file.json` 
-	*** repeat this step for each new version
+8. Upload your second APK using the upload script:
+$GOOGLE_API_KEY=/home/xxx/google-api.p12
+$python3 ./upload-apk.py my-file.json`
 
-9. [whenever you feel the need to] Update Play Store listing using play-store script.
+9. [whenever you feel the need to] Update Play Store listing using
+play-store script.
 
 == Windows ==
 
@@ -280,3 +269,21 @@ Steps to build a Custom App
   make win
   make windist
   make wininstaller
+
+*********************************************************************
+*************************** CONTACT *********************************
+*********************************************************************
+
+Email: kiwix-developer@lists.sourceforge.net or contact@kiwix.org
+Jabber: kelson@kiwix.org
+IRC: #kiwix on irc.freenode.net
+
+You can use IRC web interface on http://chat.kiwix.org/
+
+More... http://www.kiwix.org/wiki/Communication
+
+*********************************************************************
+********************** LEGAL & DISCLAIMER ***************************
+*********************************************************************
+
+Read 'COPYING' file

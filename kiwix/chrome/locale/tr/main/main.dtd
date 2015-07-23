@@ -3,9 +3,9 @@
 <!ENTITY main.cssdirection              "ltr">
 
 <!-- Mac menu -->
-<!ENTITY main.osxservices               "Hizmetler">
+<!ENTITY main.osxservices               "Services">
 <!ENTITY main.osxhideapp                "&brand.brandShortName;' gizle">
-<!ENTITY main.osxhideothers             "Diğerlerini gizle">
+<!ENTITY main.osxhideothers             "Diğerlerini Gizle">
 <!ENTITY main.osxshowall                "Hepsini Göster">
 
 <!-- File menu -->
@@ -75,7 +75,7 @@
 <!ENTITY main.randomArticle.accesskey   "R">
 <!ENTITY main.checkIntegrity            "Bütünlük denetimi">
 <!ENTITY main.checkIntegrity.accesskey  "k">
-<!ENTITY main.launchIndexing            "Dizin oluşturmayı başlatmak">
+<!ENTITY main.launchIndexing            "Dizin oluşturmayı başlat">
 <!ENTITY main.purgeHistory              "Geçmişi temizle">
 <!ENTITY main.purgeHistory.accesskey    "P">
 

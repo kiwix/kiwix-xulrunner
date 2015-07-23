@@ -4,7 +4,7 @@
 
 <!-- Mac menu -->
 <!ENTITY main.osxservices               "Szolgáltatások">
-<!ENTITY main.osxhideapp                "Elrejt &brand.brandShortName;">
+<!ENTITY main.osxhideapp                "&brand.brandShortName; elrejtése">
 <!ENTITY main.osxhideothers             "Egyebek elrejtése">
 <!ENTITY main.osxshowall                "Összes megjelenítése">
 
@@ -59,7 +59,7 @@
 <!ENTITY main.skin.accesskey            "S">
 <!ENTITY main.statusbar                 "Állapotsor">
 <!ENTITY main.statusbar.accesskey       "S">
-<!ENTITY main.resultsbar                "Eredmény sáv">
+<!ENTITY main.resultsbar                "Eredménysáv">
 <!ENTITY main.resultsbar.accesskey      "R">
 <!ENTITY main.tabs                      "Fülek">
 <!ENTITY main.tabs.accesskey            "T">

@@ -6,7 +6,7 @@
 <!ENTITY main.osxservices               "सेवाः">
 <!ENTITY main.osxhideapp                "&brand.brandShortName; इत्येतत् गोप्यताम्">
 <!ENTITY main.osxhideothers             "अन्ये गोप्यन्ताम्">
-<!ENTITY main.osxshowall                "सर्वे दर्श्यन्ताम्">
+<!ENTITY main.osxshowall                "सर्वं दर्श्यन्ताम्">
 
 <!-- File menu -->
 <!ENTITY main.file                      "सञ्चिका">
@@ -61,7 +61,7 @@
 <!ENTITY main.statusbar.accesskey       "S">
 <!ENTITY main.resultsbar                "परिणामशलाका (Results bar)">
 <!ENTITY main.resultsbar.accesskey      "R">
-<!ENTITY main.tabs                      "शालाकाः">
+<!ENTITY main.tabs                      "अङ्कनानि">
 <!ENTITY main.tabs.accesskey            "T">
 <!ENTITY main.fullscreen                "सम्पूर्णपटलम्">
 <!ENTITY main.fullscreen.accesskey      "F">
@@ -109,11 +109,11 @@
 <!ENTITY main.newbmk                    "नूतनपुस्तकचिह्नसमुच्चयः निर्मीयताम्">
 <!ENTITY main.mark                      "एतत् पृष्ठम् अङ्क्यताम्">
 <!ENTITY main.unmark                    "अङ्कितम् अनङ्कितं करोतु">
-<!ENTITY main.reload                    "पुस्तकचिह्नसमुच्चयः पुनः उद्भार्यताम्">
+<!ENTITY main.reload                    "पृष्ठस्मारकसमूहं पुनरारोप्यताम्">
 <!ENTITY main.defaultset                "मूलसमुच्चयः">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveMediaAs               "Save media as...">
+<!ENTITY main.saveMediaAs               "सञ्चिकाम् अमुकनाम्ना रक्ष">
 <!ENTITY main.openLinkInNewTab          "एतत् परिसन्धिं नवीन-टेब्-मध्ये उद्घाटयतु">
 <!ENTITY main.searchFor                 "इत्यस्मै अन्विष्यताम्">
 <!ENTITY main.copyLinkAdress            "Copy link address">
@@ -126,7 +126,7 @@
 <!-- Preferences Window -->
 <!ENTITY preferences.preferences        "इष्टतमानि">
 <!ENTITY preferences.save               "संरक्ष्यताम्">
-<!ENTITY preferences.cancel             "निवर्तयते">
+<!ENTITY preferences.cancel             "निरस्यताम्">
 <!ENTITY preferences.profileDirectory   "व्यक्तिविवरणनिर्देशिका">
 <!ENTITY preferences.dataDirectory      "Data directory">
 <!ENTITY preferences.browse             "अन्विष्यताम्">
@@ -135,7 +135,7 @@
 <!ENTITY preferences.neverAskToIndex    "अनुक्रमणिकायै न कदापि पृच्छतु">
 
 <!-- Server -->
-<!ENTITY server.load                    "आरोप्यताम्">
+<!ENTITY server.load                    "आरोपणम्">
 <!ENTITY server.start                   "प्रारभ्यताम्">
 <!ENTITY server.stop                    "विरम्यताम्">
 <!ENTITY server.close                   "पिदधातु">
