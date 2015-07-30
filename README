@@ -237,6 +237,12 @@ $python3 ./upload-apk.py my-file.json`
 9. [whenever you feel the need to] Update Play Store listing using
 play-store script.
 
+To make an APK which embeds a ZIM file:
+* In the json file, add:
+    "embed_zim": true,
+* You might need to set up following env. variable:
+    _JAVA_OPTIONS="\"-Xmx4096m\" \"-Xms4096m\" \"-XX:MaxPermSize=4096m\""
+
 == Windows ==
 
 * Install Windows XP SP2+
