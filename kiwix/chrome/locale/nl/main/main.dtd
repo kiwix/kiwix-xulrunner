@@ -21,7 +21,7 @@
 <!ENTITY main.saveFile.accesskey        "S">
 <!ENTITY main.print                     "Afdrukken">
 <!ENTITY main.print.accesskey           "P">
-<!ENTITY main.printPdf                  "Afdrukken als pdf">
+<!ENTITY main.printPdf                  "Afdrukken als PDF">
 <!ENTITY main.printPdf.accesskey        "D">
 <!ENTITY main.quit                      "Stoppen">
 <!ENTITY main.quit.accesskey            "Q">
@@ -55,7 +55,7 @@
 <!ENTITY main.zoomorig.accesskey        "O">
 <!ENTITY main.language                  "Taal">
 <!ENTITY main.language.accesskey        "L">
-<!ENTITY main.skin                      "Vormgeving">
+<!ENTITY main.skin                      "Thema">
 <!ENTITY main.skin.accesskey            "S">
 <!ENTITY main.statusbar                 "Statusbalk">
 <!ENTITY main.statusbar.accesskey       "S">

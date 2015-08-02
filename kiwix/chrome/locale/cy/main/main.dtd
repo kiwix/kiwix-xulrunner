@@ -131,7 +131,7 @@
 <!ENTITY preferences.dataDirectory      "Data directory">
 <!ENTITY preferences.browse             "Pori">
 <!ENTITY preferences.tabs               "Cofier tabiau">
-<!ENTITY preferences.downloadCatalogs   "Islwytho catalog(au) allanol">
+<!ENTITY preferences.downloadCatalogs   "Lawrlwytho catalog(au) allanol">
 <!ENTITY preferences.neverAskToIndex    "Peidio byth a gofyn cael mynegeio">
 
 <!-- Server -->

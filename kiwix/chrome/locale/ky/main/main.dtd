@@ -61,7 +61,7 @@
 <!ENTITY main.statusbar.accesskey       "S">
 <!ENTITY main.resultsbar                "Жыйынтыктар көрсөткүчү">
 <!ENTITY main.resultsbar.accesskey      "R">
-<!ENTITY main.tabs                      "Белгилер">
+<!ENTITY main.tabs                      "Кыстырмалар">
 <!ENTITY main.tabs.accesskey            "T">
 <!ENTITY main.fullscreen                "Толук көрүнүшү">
 <!ENTITY main.fullscreen.accesskey      "F">
@@ -91,8 +91,8 @@
 <!-- Tool bar -->
 <!ENTITY main.back                      "Артка">
 <!ENTITY main.forward                   "Алдыга">
-<!ENTITY main.home                      "Башына">
-<!ENTITY main.searchBar                 "Издөө панели">
+<!ENTITY main.home                      "Башкы">
+<!ENTITY main.searchBar                 "Издөө сабы">
 <!ENTITY main.search                    "Издөө">
 <!ENTITY main.searchPlaceholder         "Издөө текстти териңиз...">
 <!ENTITY main.findInText                "Тексттен табуу">
@@ -107,13 +107,13 @@
 <!ENTITY main.notesLabel                "Жазуулар:">
 <!ENTITY main.loadbmk                   "Кыстырмалар аспабын импорттоо">
 <!ENTITY main.newbmk                    "Кыстырмалардын жаңы аспабын түзүү">
-<!ENTITY main.mark                      "Бул барактын белгилөө">
+<!ENTITY main.mark                      "Бул баракты белгилөө">
 <!ENTITY main.unmark                    "Тандалгандардан белгисин алып салуу">
 <!ENTITY main.reload                    "Кыстырмалардын аспабын жаңылоо">
 <!ENTITY main.defaultset                "Автоматтык түрдө кошуу">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveMediaAs               "Медианы бул катары сактоо">
+<!ENTITY main.saveMediaAs               "Медиафайлды мындай түрдө сактоо...">
 <!ENTITY main.openLinkInNewTab          "Шилтемени жаңы кыстырмада ачуу">
 <!ENTITY main.searchFor                 "Издөө">
 <!ENTITY main.copyLinkAdress            "Copy link address">
@@ -153,7 +153,7 @@
 <!ENTITY main.library.filterBy                  "Чыпкалоо">
 <!ENTITY main.library.filterBy.fileSize         "Файл өлчөмү">
 <!ENTITY main.library.filterBy.language         "Тил">
-<!ENTITY main.library.filterBy.language.all     "Баары">
+<!ENTITY main.library.filterBy.language.all     "Баардыгы">
 <!ENTITY main.library.filterBy.author           "Автор">
 <!ENTITY main.library.filterBy.author.all       "Баары">
 <!ENTITY main.library.filterBy.publisher        "Бастыруучу">
