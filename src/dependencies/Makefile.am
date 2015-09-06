@@ -64,10 +64,10 @@ endif
 
 if IS_LINUX
 ANDROIDPLATFORM=linux
-ANDROIDNDKURL=$(DEP_MIRROR)/android-ndk-r8e-linux-$(ARCH).tar.bz2
+ANDROIDNDKURL=$(DEP_MIRROR)/android-ndk-r10e-linux-$(ARCH).bin
 else
 ANDROIDPLATFORM=macosx
-ANDROIDNDKURL=$(DEP_MIRROR)/android-ndk-r8e-darwin-x86_64.tar.bz2
+ANDROIDNDKURL=$(DEP_MIRROR)/android-ndk-r10e-darwin-x86_64.bin
 endif
 
 # ANDROID CONFIGURATION
@@ -524,11 +524,11 @@ msvc90/msvcr90.dll msvcp90.dll msvcm90.dll Microsoft.VC90.CRT.manifest: msvc90.z
 ####################################################
 ############ ANDROID-NDK
 ####################################################
-android-ndk-r8e.tar.bz2:
-	$(DOWNLOADER) android-ndk-r8e.tar.bz2 $(ANDROIDNDKURL)
+android-ndk-r10e.bin:
+	$(DOWNLOADER) android-ndk-r10e.bin $(ANDROIDNDKURL)
 
-android-ndk-r8e: android-ndk-r8e.tar.bz2
-	test -d android-ndk-r8e || tar xf android-ndk-r8e.tar.bz2
+android-ndk-r10e: android-ndk-r10e.bin
+	test -d android-ndk-r10e || ! chmod -f a+x android-ndk-r10e.bin || ./android-ndk-r10e.bin
 
 ####################################################
 ############ ANDROID-SDK
@@ -559,14 +559,14 @@ android-sdk: $(ANDROIDAPIVERSIONFILE) android-sdk-tools-tools.tar.bz2 $(ANDROIDS
 
 android-sdk/platforms/$(ANDROIDAPIVERSIONFOLDER): android-sdk
 	test -d android-sdk/platforms/$(ANDROIDAPIVERSIONFOLDER) || `cd android-sdk/platforms && tar xf ../../$(ANDROIDAPIVERSIONFILE)`
-	
+
 android-sdk/platform-tools: android-sdk android-sdk/platforms/$(ANDROIDAPIVERSIONFOLDER)
 	test -f android-sdk/platform-tools/adb || `cd android-sdk && tar xf ../android-sdk-tools-tools.tar.bz2`
 
 android-sdk/extras: android-sdk android-extras.tar.bz2
 	test -d android-sdk/extras || `cd android-sdk && tar xf ../android-extras.tar.bz2`
 
-android-deps: icudt49l.dat android-ndk-r8e android-sdk/platform-tools android-sdk/extras xz icu zimlib-1.2 zimlib-1.2/build/lib/libzim.${SHARED_EXT} 
+android-deps: icudt49l.dat android-ndk-r10e android-sdk/platform-tools android-sdk/extras xz icu zimlib-1.2 zimlib-1.2/build/lib/libzim.${SHARED_EXT}
 	true
 
 ####################################################
@@ -688,7 +688,7 @@ DISTCLEANFILES= xulrunner-sdk.tar.bz2 \
 	e2fsprogs-1.42.tar.gz \
 	argtable2-13.tar.gz \
 	pthread-win32.zip \
-	android-ndk-r8e.tar.bz2 \
+	android-ndk-r10e.bin \
 	android-sdk.zip \
 	android-sdk-macosx.zip \
 	android-sdk-linux.tar.bz2 \
@@ -736,7 +736,7 @@ distclean-local:
 	-rm -rf xr_target
 	-rm -rf android-ndk-mac
 	-rm -rf android-ndk-linux
-	-rm -rf android-ndk-r8e
+	-rm -rf android-ndk-r10e
 	-rm -rf android-sdk
 	-rm -rf android-14
 	-rm -rf openzim-master
