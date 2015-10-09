@@ -75,7 +75,7 @@
 <!ENTITY main.randomArticle.accesskey   "R">
 <!ENTITY main.checkIntegrity            "Provjera valjanosti">
 <!ENTITY main.checkIntegrity.accesskey  "k">
-<!ENTITY main.launchIndexing            "Launch indexing">
+<!ENTITY main.launchIndexing            "Pokreni indeksiranje">
 <!ENTITY main.purgeHistory              "Očisti povijest">
 <!ENTITY main.purgeHistory.accesskey    "P">
 
@@ -132,7 +132,7 @@
 <!ENTITY preferences.browse             "Pregledaj">
 <!ENTITY preferences.tabs               "Zapamti kartice">
 <!ENTITY preferences.downloadCatalogs   "Preuzmi udaljeni(e) katalog(e)">
-<!ENTITY preferences.neverAskToIndex    "Never ask to index">
+<!ENTITY preferences.neverAskToIndex    "Nikada ne pitaj za indeksiranje">
 
 <!-- Server -->
 <!ENTITY server.load                    "Učitaj">

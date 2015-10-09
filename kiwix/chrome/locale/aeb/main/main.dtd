@@ -3,18 +3,18 @@
 <!ENTITY main.cssdirection              "ltr">
 
 <!-- Mac menu -->
-<!ENTITY main.osxservices               "Khedmèt">
-<!ENTITY main.osxhideapp                "Khabbi &brand.brandShortName;">
-<!ENTITY main.osxhideothers             "Khabbi l'okhrina">
-<!ENTITY main.osxshowall                "Warri el Koll">
+<!ENTITY main.osxservices               "Services">
+<!ENTITY main.osxhideapp                "Hide &brand.brandShortName;">
+<!ENTITY main.osxhideothers             "Hide Others">
+<!ENTITY main.osxshowall                "Show All">
 
 <!-- File menu -->
-<!ENTITY main.file                      "Fichié">
+<!ENTITY main.file                      "File">
 <!ENTITY main.file.accesskey            "F">
 <!ENTITY main.openFile                  "Ħell el fichié">
 <!ENTITY main.browseLibrary.accesskey   "B">
-<!ENTITY main.browseLibrary             "Ħawwes fel maktba">
-<!ENTITY main.hideLibrary               "Khabbi el maktba">
+<!ENTITY main.browseLibrary             "Browse library">
+<!ENTITY main.hideLibrary               "Hide library">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "Elli mezzelt ki ħallitou...">
 <!ENTITY main.saveFile                  "Onrejistri el pàj taħt...">
@@ -23,47 +23,47 @@
 <!ENTITY main.print.accesskey           "P">
 <!ENTITY main.printPdf                  "itthb3ou PDF">
 <!ENTITY main.printPdf.accesskey        "D">
-<!ENTITY main.quit                      "okhroj">
+<!ENTITY main.quit                      "Quit">
 <!ENTITY main.quit.accesskey            "Q">
 
 <!-- Edit menu -->
 <!ENTITY main.edit                      "modifi el page (baddelha)">
 <!ENTITY main.edit.accesskey            "E">
-<!ENTITY main.find                      "lawwej fi essafħa">
+<!ENTITY main.find                      "Search in page...">
 <!ENTITY main.find.accesskey            "S">
 <!ENTITY main.selectall                 "sélectionni kol chay">
 <!ENTITY main.selectall.accesskey       "a">
-<!ENTITY main.copy                      "copier">
+<!ENTITY main.copy                      "Copy">
 <!ENTITY main.copy.accesskey            "p">
-<!ENTITY main.transliteration           "baddel el logha elli inti fiha">
+<!ENTITY main.transliteration           "Transliteration">
 <!ENTITY main.transliteration.accesskey "T">
-<!ENTITY main.preferences               "Préferences'">
+<!ENTITY main.preferences               "Preferences">
 <!ENTITY main.preferences.accesskey     "n">
-<!ENTITY main.server                    "esserveur">
+<!ENTITY main.server                    "Server">
 <!ENTITY main.server.accesskey          "s">
 
 <!-- Display menu -->
-<!ENTITY main.display                   "khaddemha">
+<!ENTITY main.display                   "Display">
 <!ENTITY main.display.accesskey         "D">
 <!ENTITY main.zoom                      "kabber">
 <!ENTITY main.zoom.accesskey            "Z">
-<!ENTITY main.zoomin                    "kabber detail">
+<!ENTITY main.zoomin                    "Magnify">
 <!ENTITY main.zoomin.accesskey          "M">
 <!ENTITY main.zoomout                   "sagher">
 <!ENTITY main.zoomout.accesskey         "R">
-<!ENTITY main.zoomorig                  "khat el ass'li (Taille mte3 el texte el 3adi)">
+<!ENTITY main.zoomorig                  "Original size">
 <!ENTITY main.zoomorig.accesskey        "O">
 <!ENTITY main.language                  "Logha">
 <!ENTITY main.language.accesskey        "L">
-<!ENTITY main.skin                      "el wejha">
+<!ENTITY main.skin                      "Skin">
 <!ENTITY main.skin.accesskey            "S">
-<!ENTITY main.statusbar                 "barre elli twarrik el 7ala illi inti fiha taw">
+<!ENTITY main.statusbar                 "Status bar">
 <!ENTITY main.statusbar.accesskey       "S">
-<!ENTITY main.resultsbar                "Barre mte3 irresultats">
+<!ENTITY main.resultsbar                "Results bar">
 <!ENTITY main.resultsbar.accesskey      "R">
 <!ENTITY main.tabs                      "Taget">
 <!ENTITY main.tabs.accesskey            "T">
-<!ENTITY main.fullscreen                "plein' écran'">
+<!ENTITY main.fullscreen                "Full screen">
 <!ENTITY main.fullscreen.accesskey      "F">
 <!ENTITY main.invertedColors            "couleret me3kousa">
 <!ENTITY main.invertedColors.accesskey  "I">
@@ -71,92 +71,92 @@
 <!-- Tools menu -->
 <!ENTITY main.tools                     "wasa'el">
 <!ENTITY main.tools.accesskey           "T">
-<!ENTITY main.randomArticle             "a5ttharli articlo na9rah">
+<!ENTITY main.randomArticle             "Random article">
 <!ENTITY main.randomArticle.accesskey   "R">
-<!ENTITY main.checkIntegrity            "taħaqqaq mina essalama">
+<!ENTITY main.checkIntegrity            "Integrity check">
 <!ENTITY main.checkIntegrity.accesskey  "k">
 <!ENTITY main.launchIndexing            "Launch indexing">
 <!ENTITY main.purgeHistory              "efsakh el historique">
 <!ENTITY main.purgeHistory.accesskey    "P">
 
 <!-- Help menu -->
-<!ENTITY main.help                      "3awenni ya3chek">
+<!ENTITY main.help                      "Help">
 <!ENTITY main.help.accesskey            "H">
-<!ENTITY main.feedback                  "moleħadhat">
+<!ENTITY main.feedback                  "Feedback">
 <!ENTITY main.reportabug                "qoullelna għala mochkel ilqaytou fi hal wiki">
 <!ENTITY main.requestafeature           "otthlob miza">
-<!ENTITY main.about                     "hawwel &brand.brandShortName;">
+<!ENTITY main.about                     "About &brand.brandShortName;">
 <!ENTITY main.about.accesskey           "A">
 
 <!-- Tool bar -->
 <!ENTITY main.back                      "el article illi qablou">
-<!ENTITY main.forward                   "ittali">
+<!ENTITY main.forward                   "Forward">
 <!ENTITY main.home                      "el accueil">
-<!ENTITY main.searchBar                 "barre mtegħ ettelwij">
-<!ENTITY main.search                    "lawwej">
+<!ENTITY main.searchBar                 "Search bar">
+<!ENTITY main.search                    "Search">
 <!ENTITY main.searchPlaceholder         "ekteb el nass illi bech tlawwej għalih ehna...">
-<!ENTITY main.findInText                "lawwej fil nass">
-<!ENTITY main.noSearchBar               "el recherche lezemha un' fichier' ZIM indexé'">
+<!ENTITY main.findInText                "Find in text">
+<!ENTITY main.noSearchBar               "Search requires an indexed ZIM file">
 <!ENTITY main.bookmarks                 "el mofadhala">
 
 <!-- Results bar -->
-<!ENTITY main.results.title             "el resultats">
+<!ENTITY main.results.title             "Search results">
 
 <!-- Bookmarks Bar -->
 <!ENTITY main.bmkLabel                  "el khiyarat el mofadhala:">
-<!ENTITY main.notesLabel                "moleħadhat mofadhdhala">
-<!ENTITY main.loadbmk                   "إستيراد مجموعة مفضلة">
-<!ENTITY main.newbmk                    "إنشاء مجموعة مفضلة جديدة">
-<!ENTITY main.mark                      "علم هذه الصفحة">
+<!ENTITY main.notesLabel                "Bookmark notes:">
+<!ENTITY main.loadbmk                   "Import Bookmark Set">
+<!ENTITY main.newbmk                    "Create new Bookmark Set">
+<!ENTITY main.mark                      "Mark this page">
 <!ENTITY main.unmark                    "أزل تعليم المحدد">
 <!ENTITY main.reload                    "أعد تحميل مجموعة المفضلة">
-<!ENTITY main.defaultset                "الخيارات المبدئية">
+<!ENTITY main.defaultset                "Default Set">
 
 <!-- Contextual Menu -->
 <!ENTITY main.saveMediaAs               "Save media as...">
 <!ENTITY main.openLinkInNewTab          "افتح الوصلة في لسان جديد">
-<!ENTITY main.searchFor                 "lawwej għala">
+<!ENTITY main.searchFor                 "Search for">
 <!ENTITY main.copyLinkAdress            "Copy link address">
-<!ENTITY main.mute                      "sakketha">
-<!ENTITY main.audible                   "Yetsemagħ">
+<!ENTITY main.mute                      "Mute">
+<!ENTITY main.audible                   "Audible">
 
 <!-- About Window -->
 <!ENTITY main.close                     "sakkar">
 
 <!-- Preferences Window -->
-<!ENTITY preferences.preferences        "tafdhilat">
+<!ENTITY preferences.preferences        "Preferences">
 <!ENTITY preferences.save               "sajjel">
-<!ENTITY preferences.cancel             "ifsakh">
+<!ENTITY preferences.cancel             "Cancel">
 <!ENTITY preferences.profileDirectory   "dalil el milaf echakhss'i">
 <!ENTITY preferences.dataDirectory      "Data directory">
-<!ENTITY preferences.browse             "ara">
-<!ENTITY preferences.tabs               "تذكّر الألسنة">
+<!ENTITY preferences.browse             "Browse">
+<!ENTITY preferences.tabs               "Remember tabs">
 <!ENTITY preferences.downloadCatalogs   "قم بتحميل فهرس (اث) عن بعد">
 <!ENTITY preferences.neverAskToIndex    "Never ask to index">
 
 <!-- Server -->
 <!ENTITY server.load                    "Load">
 <!ENTITY server.start                   "ebda">
-<!ENTITY server.stop                    "waqqef">
+<!ENTITY server.stop                    "Stop">
 <!ENTITY server.close                   "sakkar">
 
 <!-- Library -->
 <!ENTITY main.library.myLibrary                 "maktabti">
 <!ENTITY main.library.getNewFiles               "khodħ fichieyet ejdod">
-<!ENTITY main.library.searchZimFiles            "lawwej għala fichieyet ZIM">
+<!ENTITY main.library.searchZimFiles            "Search ZIM files">
 <!ENTITY main.library.sortBy                    "Rat'teb ħasb">
-<!ENTITY main.library.sortBy.title              "el għonwen">
-<!ENTITY main.library.sortBy.size               "9iyas">
-<!ENTITY main.library.sortBy.date               "et'terikh">
-<!ENTITY main.library.sortBy.author             "elmo'alef">
-<!ENTITY main.library.sortBy.publisher          "annecher">
-<!ENTITY main.library.filterBy                  "gharbilhom għala ħasb">
-<!ENTITY main.library.filterBy.fileSize         "hajm el milaf">
+<!ENTITY main.library.sortBy.title              "Title">
+<!ENTITY main.library.sortBy.size               "Size">
+<!ENTITY main.library.sortBy.date               "Date">
+<!ENTITY main.library.sortBy.author             "Author">
+<!ENTITY main.library.sortBy.publisher          "Publisher">
+<!ENTITY main.library.filterBy                  "Filter by">
+<!ENTITY main.library.filterBy.fileSize         "File size">
 <!ENTITY main.library.filterBy.language         "Logha">
 <!ENTITY main.library.filterBy.language.all     "el koll">
-<!ENTITY main.library.filterBy.author           "elmo'alef">
+<!ENTITY main.library.filterBy.author           "Author">
 <!ENTITY main.library.filterBy.author.all       "el koll">
-<!ENTITY main.library.filterBy.publisher        "annecher">
+<!ENTITY main.library.filterBy.publisher        "Publisher">
 <!ENTITY main.library.filterBy.publisher.all    "el koll">
-<!ENTITY main.library.filterBy.lessThan         "a9al min">
+<!ENTITY main.library.filterBy.lessThan         "Less than">
 

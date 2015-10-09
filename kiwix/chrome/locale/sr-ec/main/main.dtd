@@ -75,7 +75,7 @@
 <!ENTITY main.randomArticle.accesskey   "R">
 <!ENTITY main.checkIntegrity            "Провера исправности">
 <!ENTITY main.checkIntegrity.accesskey  "k">
-<!ENTITY main.launchIndexing            "Launch indexing">
+<!ENTITY main.launchIndexing            "Покрени индексовање">
 <!ENTITY main.purgeHistory              "Очисти историју">
 <!ENTITY main.purgeHistory.accesskey    "P">
 
@@ -113,7 +113,7 @@
 <!ENTITY main.defaultset                "Подразумевани скуп">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveMediaAs               "Save media as...">
+<!ENTITY main.saveMediaAs               "Сачувај мултимедију као...">
 <!ENTITY main.openLinkInNewTab          "Отвори везу у новом језичку">
 <!ENTITY main.searchFor                 "Тражи">
 <!ENTITY main.copyLinkAdress            "Copy link address">
@@ -132,7 +132,7 @@
 <!ENTITY preferences.browse             "Потражи">
 <!ENTITY preferences.tabs               "Запамти језичке">
 <!ENTITY preferences.downloadCatalogs   "Преузми удаљене каталоге">
-<!ENTITY preferences.neverAskToIndex    "Never ask to index">
+<!ENTITY preferences.neverAskToIndex    "Никад не питај да индексираш">
 
 <!-- Server -->
 <!ENTITY server.load                    "Учитај">

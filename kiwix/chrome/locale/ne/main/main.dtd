@@ -104,7 +104,7 @@
 
 <!-- Bookmarks Bar -->
 <!ENTITY main.bmkLabel                  "पुस्तक चिनोहरु:">
-<!ENTITY main.notesLabel                "पुस्तक चिनो टिप्पणीहरु:">
+<!ENTITY main.notesLabel                "पुस्तक चिनो टिप्पणीहरू:">
 <!ENTITY main.loadbmk                   "पुस्तक चिनो समुह आयात गर्ने">
 <!ENTITY main.newbmk                    "नयाँ पुस्तक चिनो सेट सृजना गर्ने">
 <!ENTITY main.mark                      "यो पृष्ठ चिनो लगाउने">
