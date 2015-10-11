@@ -606,7 +606,7 @@ window[langdir="ltr"] #tabs-add-button {
    background-color: Highlight !important;
 }
 
-.library-content-item[selected='true'] textbox, .library-content-item[selected='true'] label {
+.library-content-item[selected='true'] textbox, .library-content-item[selected='true'] grid label {
    color: HighlightText !important;
 }
 
