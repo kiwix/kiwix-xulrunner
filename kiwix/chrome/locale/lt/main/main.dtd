@@ -5,8 +5,8 @@
 <!-- Mac menu -->
 <!ENTITY main.osxservices               "Paslaugos">
 <!ENTITY main.osxhideapp                "Slėpti &brand.brandShortName;">
-<!ENTITY main.osxhideothers             "Slėpti Kitus">
-<!ENTITY main.osxshowall                "Rodyti Viską">
+<!ENTITY main.osxhideothers             "Slėpti kitus">
+<!ENTITY main.osxshowall                "Rodyti viską">
 
 <!-- File menu -->
 <!ENTITY main.file                      "Failas">
@@ -14,7 +14,7 @@
 <!ENTITY main.openFile                  "Atidaryti failą...">
 <!ENTITY main.browseLibrary.accesskey   "B">
 <!ENTITY main.browseLibrary             "Naršyti biblioteką">
-<!ENTITY main.hideLibrary               "Slėpti biblioteka">
+<!ENTITY main.hideLibrary               "Slėpti biblioteką">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "Neseniai atidaryti...">
 <!ENTITY main.saveFile                  "Įrašyti puslapį kaip...">
@@ -23,13 +23,13 @@
 <!ENTITY main.print.accesskey           "P">
 <!ENTITY main.printPdf                  "Spausdinti kaip PDF">
 <!ENTITY main.printPdf.accesskey        "D">
-<!ENTITY main.quit                      "Išėiti">
+<!ENTITY main.quit                      "Išeiti">
 <!ENTITY main.quit.accesskey            "Q">
 
 <!-- Edit menu -->
 <!ENTITY main.edit                      "Redaguoti">
 <!ENTITY main.edit.accesskey            "E">
-<!ENTITY main.find                      "Paieškos puslapyje...">
+<!ENTITY main.find                      "Ieškoti puslapyje...">
 <!ENTITY main.find.accesskey            "S">
 <!ENTITY main.selectall                 "Pasirinkti visus">
 <!ENTITY main.selectall.accesskey       "a">
@@ -55,9 +55,9 @@
 <!ENTITY main.zoomorig.accesskey        "O">
 <!ENTITY main.language                  "Kalba">
 <!ENTITY main.language.accesskey        "L">
-<!ENTITY main.skin                      "Oda">
+<!ENTITY main.skin                      "Išvaizda">
 <!ENTITY main.skin.accesskey            "S">
-<!ENTITY main.statusbar                 "Būsenos juostoje">
+<!ENTITY main.statusbar                 "Būsenos juosta">
 <!ENTITY main.statusbar.accesskey       "S">
 <!ENTITY main.resultsbar                "Rezultatų juosta">
 <!ENTITY main.resultsbar.accesskey      "R">
@@ -69,7 +69,7 @@
 <!ENTITY main.invertedColors.accesskey  "I">
 
 <!-- Tools menu -->
-<!ENTITY main.tools                     "Priemonės">
+<!ENTITY main.tools                     "Įrankiai">
 <!ENTITY main.tools.accesskey           "T">
 <!ENTITY main.randomArticle             "Atsitiktinis straipsnis">
 <!ENTITY main.randomArticle.accesskey   "R">
@@ -92,7 +92,7 @@
 <!ENTITY main.back                      "Atgal">
 <!ENTITY main.forward                   "Pirmyn">
 <!ENTITY main.home                      "Pradžia">
-<!ENTITY main.searchBar                 "Paieškos juostą">
+<!ENTITY main.searchBar                 "Paieškos juosta">
 <!ENTITY main.search                    "Paieška">
 <!ENTITY main.searchPlaceholder         "Įveskite tekstą, kurio norite ieškoti čia...">
 <!ENTITY main.findInText                "Rasti tekste">
@@ -127,7 +127,7 @@
 <!ENTITY preferences.preferences        "Nustatymai">
 <!ENTITY preferences.save               "Išsaugoti">
 <!ENTITY preferences.cancel             "Atšaukti">
-<!ENTITY preferences.profileDirectory   "Profilis katalogas">
+<!ENTITY preferences.profileDirectory   "Profilio katalogas">
 <!ENTITY preferences.dataDirectory      "Data directory">
 <!ENTITY preferences.browse             "Naršyti">
 <!ENTITY preferences.tabs               "Prisiminti skirtukus">
@@ -135,7 +135,7 @@
 <!ENTITY preferences.neverAskToIndex    "Niekada neprašyti indekso">
 
 <!-- Server -->
-<!ENTITY server.load                    "Įkrauti">
+<!ENTITY server.load                    "Įkelti">
 <!ENTITY server.start                   "Pradėti">
 <!ENTITY server.stop                    "Sustabdyti">
 <!ENTITY server.close                   "Uždaryti">

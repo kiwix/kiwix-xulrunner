@@ -35,7 +35,7 @@
 <!ENTITY main.selectall.accesskey       "a">
 <!ENTITY main.copy                      "નકલ">
 <!ENTITY main.copy.accesskey            "p">
-<!ENTITY main.transliteration           "લીપી બદલાવ">
+<!ENTITY main.transliteration           "લિપ્યંતરણ">
 <!ENTITY main.transliteration.accesskey "T">
 <!ENTITY main.preferences               "પસંદગીઓ">
 <!ENTITY main.preferences.accesskey     "n">

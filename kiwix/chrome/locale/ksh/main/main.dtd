@@ -109,7 +109,7 @@
 <!ENTITY main.newbmk                    "Ene neue Pöngel Lesezeiche aanfange">
 <!ENTITY main.mark                      "Heh di Sigg makeere">
 <!ENTITY main.unmark                    "Makkehrong fottnämme">
-<!ENTITY main.reload                    "Donn dä Pöngel Lesezeiche norr_ens neu vun dä Dattei laade">
+<!ENTITY main.reload                    "Donn dä Pöngel Lesezeiche norr_ens neu vun dä Dattei lahde">
 <!ENTITY main.defaultset                "Der schtandatmääßeje Pöngel">
 
 <!-- Contextual Menu -->
@@ -131,7 +131,7 @@
 <!ENTITY preferences.dataDirectory      "Data directory">
 <!ENTITY preferences.browse             "Aanluure">
 <!ENTITY preferences.tabs               "Tabbulatoore behallde">
-<!ENTITY preferences.downloadCatalogs   "Donn dä Kattalooch udder de Kattaloore vun ußerhallfe eronger laade">
+<!ENTITY preferences.downloadCatalogs   "Donn dä Kattalohch udder di Kattalohre vun ußerhallfe eronger lahde">
 <!ENTITY preferences.neverAskToIndex    "Frooch nie dernoh, der Endäx neu opzeboue">
 
 <!-- Server -->
