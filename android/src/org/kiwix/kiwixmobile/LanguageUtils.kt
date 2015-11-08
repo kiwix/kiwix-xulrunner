@@ -87,7 +87,7 @@ class LanguageUtils(private val mContext: Context) {
 
     Collections.sort(mLanguageList, object : Comparator<LanguageContainer> {
       override fun compare(a: LanguageContainer, b: LanguageContainer): Int {
-        return a.languageName.compareTo(b.languageName, ignoreCase = true)
+        return a.languageName!!.compareTo(b.languageName!!, ignoreCase = true)
       }
     })
   }
@@ -152,7 +152,7 @@ class LanguageUtils(private val mContext: Context) {
       val values = ArrayList<String>()
 
       for (value in mLanguageList) {
-        values.add(value.languageName)
+        values.add(value.languageName!!)
       }
 
       return values
@@ -228,13 +228,13 @@ class LanguageUtils(private val mContext: Context) {
         // Return the default font
     val typeface: String
       get() {
-        val exceptions = HashMap<String, String>()
+        val exceptions = HashMap<String, String?>()
         exceptions.put("km", "fonts/KhmerOS.ttf")
         exceptions.put("gu", "fonts/Lohit-Gujarati.ttf")
         exceptions.put("my", "fonts/Parabaik.ttf")
         exceptions.put("or", "fonts/Lohit-Odia.ttf")
         if (exceptions.containsKey(Locale.getDefault().language)) {
-          return exceptions[Locale.getDefault().language]
+          return exceptions[Locale.getDefault().language]!!
         }
         return "fonts/DejaVuSansCondensed.ttf"
       }
@@ -313,7 +313,7 @@ class LanguageUtils(private val mContext: Context) {
 
         }
       }
-      return mLocaleMap!![iso3.toUpperCase()]
+      return mLocaleMap!![iso3.toUpperCase()]!!
     }
   }
 }

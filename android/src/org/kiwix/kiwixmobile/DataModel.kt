@@ -43,15 +43,13 @@ class DataModel : Parcelable {
       return super.hashCode()
     }
 
-    override fun newArray(size: Int): Array<DataModel> {
+    override fun newArray(size: Int): Array<DataModel?> {
       return arrayOfNulls(size)
     }
   }
 
   var title: String? = null
-    private set
-
-  val path: String
+  var path: String? = null
 
   constructor(title: String, path: String) {
     this.title = title
@@ -74,7 +72,7 @@ class DataModel : Parcelable {
   override fun writeToParcel(dest: Parcel, flags: Int) {
     // Write the data to the Parcel, so we can restore this Data later on.
     // It will be restored by the DataModel(Parcel parcel) constructor.
-    dest.writeArray(arrayOf<String>(title, path))
+    dest.writeArray(arrayOf<String>(title!!, path!!))
   }
 
   // Override equals(Object) so we can compare objects. Specifically, so List#contains() works.
@@ -82,7 +80,7 @@ class DataModel : Parcelable {
     var isEqual = false
 
     if (`object` != null && `object` is DataModel) {
-      isEqual = (this.path == (`object` as DataModel?).path)
+      isEqual = (this.path == (`object` as DataModel?)!!.path)
     }
 
     return isEqual

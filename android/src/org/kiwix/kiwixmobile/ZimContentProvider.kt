@@ -28,13 +28,7 @@ import android.os.ParcelFileDescriptor
 import android.os.ParcelFileDescriptor.AutoCloseOutputStream
 import android.util.Log
 import android.webkit.MimeTypeMap
-
-import java.io.File
-import java.io.FileNotFoundException
-import java.io.FileOutputStream
-import java.io.IOException
-import java.io.InputStream
-import java.io.OutputStream
+import java.io.*
 import java.util.regex.Matcher
 import java.util.regex.Pattern
 
@@ -100,7 +94,7 @@ class ZimContentProvider : ContentProvider() {
     val pipe: Array<ParcelFileDescriptor>
     try {
       pipe = ParcelFileDescriptor.createPipe()
-      TransferThread(jniKiwix, uri, AutoCloseOutputStream(pipe[1])).start()
+      TransferThread(jniKiwix!!, uri, AutoCloseOutputStream(pipe[1])).start()
     } catch (e: IOException) {
       Log.e(TAG_KIWIX, "Exception opening pipe", e)
       throw FileNotFoundException("Could not open pipe for: " + uri.toString())
@@ -335,9 +329,10 @@ class ZimContentProvider : ContentProvider() {
           val `in` = context.assets.open(icuFileName)
           val out = FileOutputStream(icuDataFile)
           val buf = ByteArray(1024)
-          var len: Int
-          while ((len = `in`.read(buf)) > 0) {
+          var len = `in`.read(buf)
+          while (len > 0) {
             out.write(buf, 0, len)
+            len = `in`.read(buf)
           }
           `in`.close()
           out.flush()

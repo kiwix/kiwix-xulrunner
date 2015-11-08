@@ -9,9 +9,7 @@ import android.util.Log
 import android.webkit.JavascriptInterface
 import android.webkit.WebView
 import android.widget.Toast
-
-import java.util.HashMap
-import java.util.Locale
+import java.util.*
 
 class KiwixTextToSpeech
 /**
@@ -94,10 +92,12 @@ class KiwixTextToSpeech
         onSpeakingListener.onSpeakingEnded()
       }
     } else {
-      val locale = LanguageUtils.ISO3ToLocale(ZimContentProvider.language)
-      val result: Int
-      if (locale == null || (result = tts!!.isLanguageAvailable(locale)) == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED) {
-        Log.d(TAG_KIWIX, "TextToSpeech: language not supported: " + ZimContentProvider.language + " (" + locale!!.language + ")")
+      val locale = LanguageUtils.ISO3ToLocale(ZimContentProvider.language!!)
+      val result = tts!!.isLanguageAvailable(locale)
+      if (locale == null ||
+          result == TextToSpeech.LANG_MISSING_DATA ||
+          result == TextToSpeech.LANG_NOT_SUPPORTED) {
+        Log.d(TAG_KIWIX, "TextToSpeech: language not supported: " + ZimContentProvider.language + " (" + locale.language + ")")
         Toast.makeText(context,
             context.resources.getString(R.string.tts_lang_not_supported),
             Toast.LENGTH_LONG).show()
@@ -158,7 +158,7 @@ class KiwixTextToSpeech
       val params = HashMap<String, String>()
       // The utterance ID isn't actually used anywhere, the param is passed only to force
       // the utterance listener to be notified
-      params.put(TextToSpeech.Engine.KEY_PARAM_UTTERANCE_ID, "kiwixLastMessage")
+      params.put("utteranceId", "kiwixLastMessage")
       tts!!.speak(lines[lines.size() - 1], TextToSpeech.QUEUE_ADD, params)
 
       if (lines.size() > 0) {

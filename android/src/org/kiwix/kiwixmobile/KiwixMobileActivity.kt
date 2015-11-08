@@ -55,7 +55,7 @@ class KiwixMobileActivity : AppCompatActivity(), BookmarkDialog.BookmarkDialogLi
 
   var isFullscreenOpened: Boolean = false
 
-  var exitFullscreenButton: ImageButton
+  var exitFullscreenButton: ImageButton? = null
 
   protected var requestClearHistoryAfterLoad: Boolean = false
 
@@ -253,13 +253,13 @@ class KiwixMobileActivity : AppCompatActivity(), BookmarkDialog.BookmarkDialogLi
   }
 
   private fun newTab(): KiwixWebView {
-    val mainPage = Uri.parse(ZimContentProvider.CONTENT_URI + ZimContentProvider.mainPage!!).toString()
+    val mainPage = Uri.parse(ZimContentProvider.CONTENT_URI.toString() + ZimContentProvider.mainPage!!).toString()
     return newTab(mainPage)
   }
 
   private fun newTab(url: String): KiwixWebView {
     val webView = KiwixWebView(this@KiwixMobileActivity)
-    webView.setWebViewClient(KiwixWebViewClient(this@KiwixMobileActivity, mDrawerAdapter))
+    webView.setWebViewClient(KiwixWebViewClient(this@KiwixMobileActivity, mDrawerAdapter!!))
     webView.setWebChromeClient(KiwixWebChromeClient())
     webView.loadUrl(url)
     webView.loadPrefs()
@@ -320,26 +320,18 @@ class KiwixMobileActivity : AppCompatActivity(), BookmarkDialog.BookmarkDialogLi
     when (item.itemId) {
 
       R.id.menu_home, android.R.id.home -> openMainPage()
-
       R.id.menu_searchintext -> {
         mCompatCallback!!.setActive()
         mCompatCallback!!.setWebView(webView)
         mCompatCallback!!.showSoftInput()
         startSupportActionMode(mCompatCallback)
       }
-
       R.id.menu_bookmarks -> viewBookmarks()
-
       R.id.menu_randomarticle -> openRandomArticle()
-
       R.id.menu_help -> showHelp()
-
       R.id.menu_openfile -> selectZimFile()
-
       R.id.menu_settings -> selectSettings()
-
       R.id.menu_read_aloud -> readAloud()
-
       R.id.menu_fullscreen -> if (mIsFullscreenOpened) {
         closeFullScreen()
       } else {
@@ -353,7 +345,7 @@ class KiwixMobileActivity : AppCompatActivity(), BookmarkDialog.BookmarkDialogLi
   private fun openFullScreen() {
 
     mToolbarContainer!!.visibility = View.GONE
-    exitFullscreenButton.visibility = View.VISIBLE
+    exitFullscreenButton!!.visibility = View.VISIBLE
     menu!!.findItem(R.id.menu_fullscreen).setTitle(resources.getString(R.string.menu_exitfullscreen))
     val fullScreenFlag = WindowManager.LayoutParams.FLAG_FULLSCREEN
     val classicScreenFlag = WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN
@@ -366,7 +358,7 @@ class KiwixMobileActivity : AppCompatActivity(), BookmarkDialog.BookmarkDialogLi
 
     mToolbarContainer!!.visibility = View.VISIBLE
     menu!!.findItem(R.id.menu_fullscreen).setTitle(resources.getString(R.string.menu_fullscreen))
-    exitFullscreenButton.visibility = View.INVISIBLE
+    exitFullscreenButton!!.visibility = View.INVISIBLE
     val fullScreenFlag = WindowManager.LayoutParams.FLAG_FULLSCREEN
     val classicScreenFlag = WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN
     window.clearFlags(fullScreenFlag)
@@ -568,11 +560,12 @@ class KiwixMobileActivity : AppCompatActivity(), BookmarkDialog.BookmarkDialogLi
     if (ZimContentProvider.id != null) {
       try {
         val stream = openFileInput(ZimContentProvider.id!! + ".txt")
-        var `in`: String
         if (stream != null) {
           val read = BufferedReader(InputStreamReader(stream))
-          while ((`in` = read.readLine()) != null) {
+          var `in` = read.readLine()
+          while (`in` != null) {
             bookmarks!!.add(`in`)
+            `in` = read.readLine()
           }
           Log.d(TAG_KIWIX, "Switched to bookmarkfile " + ZimContentProvider.id!!)
         }
@@ -609,7 +602,7 @@ class KiwixMobileActivity : AppCompatActivity(), BookmarkDialog.BookmarkDialogLi
 
   private fun openArticle(articleUrl: String?): Boolean {
     if (articleUrl != null) {
-      currentWebView.loadUrl(Uri.parse(ZimContentProvider.CONTENT_URI + articleUrl).toString())
+      currentWebView.loadUrl(Uri.parse(ZimContentProvider.CONTENT_URI.toString() + articleUrl).toString())
     }
     return true
   }
@@ -717,7 +710,7 @@ class KiwixMobileActivity : AppCompatActivity(), BookmarkDialog.BookmarkDialogLi
 
   private fun setUpExitFullscreenButton() {
 
-    exitFullscreenButton.setOnClickListener(object : View.OnClickListener {
+    exitFullscreenButton!!.setOnClickListener(object : View.OnClickListener {
       override fun onClick(v: View) {
         closeFullScreen()
       }
@@ -776,9 +769,9 @@ class KiwixMobileActivity : AppCompatActivity(), BookmarkDialog.BookmarkDialogLi
         }
 
         loadPrefs()
-        for (state in KiwixMobileActivity.mPrefState) {
+        for (state in KiwixMobileActivity.mPrefState!!) {
           state.setHasToBeRefreshed(true)
-          Log.e(TAG_KIWIX, KiwixMobileActivity.mPrefState[0].hasToBeRefreshed() + "")
+          Log.e(TAG_KIWIX, KiwixMobileActivity.mPrefState!![0].hasToBeRefreshed().toString())
         }
       }
     }
@@ -989,7 +982,7 @@ class KiwixMobileActivity : AppCompatActivity(), BookmarkDialog.BookmarkDialogLi
     }
   }
 
-  private inner class KiwixWebViewClient(private val mActivity: KiwixMobileActivity, private val mAdapter: ArrayAdapter<Any>) : WebViewClient() {
+  private inner class KiwixWebViewClient(private val mActivity: KiwixMobileActivity, private val mAdapter: ArrayAdapter<KiwixWebView>) : WebViewClient() {
 
     internal var documentTypes: HashMap<String, String> = object : HashMap<String, String>() {
       init {
@@ -1109,13 +1102,13 @@ class KiwixMobileActivity : AppCompatActivity(), BookmarkDialog.BookmarkDialogLi
         holder = ViewHolder()
         holder.txtTitle = row!!.findViewById(R.id.textTab) as TextView
         holder.exit = row.findViewById(R.id.deleteButton) as ImageView
-        holder.exit.tag = position
+        holder.exit!!.tag = position
         row.tag = holder
       } else {
         holder = row.tag as ViewHolder
       }
 
-      holder.exit.setOnClickListener(object : View.OnClickListener {
+      holder.exit!!.setOnClickListener(object : View.OnClickListener {
 
         override fun onClick(view: View) {
           closeTab(position)
@@ -1124,16 +1117,16 @@ class KiwixMobileActivity : AppCompatActivity(), BookmarkDialog.BookmarkDialogLi
       })
 
       val webView = mWebViews[position]
-      holder.txtTitle.text = webView.title
+      holder.txtTitle!!.text = webView.title
 
       return row
     }
 
     internal inner class ViewHolder {
 
-      var txtTitle: TextView
+      var txtTitle: TextView? = null
 
-      var exit: ImageView
+      var exit: ImageView? = null
     }
   }
 
@@ -1164,7 +1157,7 @@ class KiwixMobileActivity : AppCompatActivity(), BookmarkDialog.BookmarkDialogLi
 
     private val REQUEST_PREFERENCES = 1235
 
-    var mPrefState: ArrayList<State>
+    var mPrefState: ArrayList<State>? = null
 
     var mIsFullscreenOpened: Boolean = false
   }

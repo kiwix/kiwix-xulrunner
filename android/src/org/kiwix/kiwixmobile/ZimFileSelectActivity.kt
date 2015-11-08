@@ -197,7 +197,7 @@ class ZimFileSelectActivity : AppCompatActivity(), LoaderManager.LoaderCallbacks
     if (mZimFileList!!.getItemAtPosition(position) is DataModel) {
 
       val data = mZimFileList!!.getItemAtPosition(position) as DataModel
-      file = data.path
+      file = data.path!!
 
     } else {
       val cursor = mZimFileList!!.getItemAtPosition(position) as Cursor

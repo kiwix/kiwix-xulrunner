@@ -33,7 +33,7 @@ class FileWriter {
 
   private var mContext: Context? = null
 
-  private val mDataList: ArrayList<DataModel>
+  private var mDataList: ArrayList<DataModel>? = null
 
   constructor(context: Context) {
     mContext = context
@@ -50,7 +50,7 @@ class FileWriter {
     val list = ArrayList<String>()
 
     for (file in files) {
-      list.add(file.path)
+      list.add(file.path!!)
     }
 
     val sb = StringBuilder()
@@ -91,13 +91,13 @@ class FileWriter {
     get() {
 
       for (file in readCsv()) {
-        if (!mDataList.contains(DataModel(getTitleFromFilePath(file), file))) {
+        if (!mDataList!!.contains(DataModel(getTitleFromFilePath(file), file))) {
           Log.i(TAG_KIWIX, "Added file: " + file)
-          mDataList.add(DataModel(getTitleFromFilePath(file), file))
+          mDataList!!.add(DataModel(getTitleFromFilePath(file), file))
         }
       }
 
-      return mDataList
+      return mDataList!!
     }
 
   // Split the CSV by the comma and return an ArrayList with the file paths
