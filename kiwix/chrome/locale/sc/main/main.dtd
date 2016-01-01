@@ -1,0 +1,162 @@
+<!-- Window -->
+<!ENTITY main.title                     "&brand.brandShortName;">
+<!ENTITY main.cssdirection              "ltr">
+
+<!-- Mac menu -->
+<!ENTITY main.osxservices               "Servìtzios">
+<!ENTITY main.osxhideapp                "Cua &brand.brandShortName;">
+<!ENTITY main.osxhideothers             "Cua sos àteros">
+<!ENTITY main.osxshowall                "Ammustra totu">
+
+<!-- File menu -->
+<!ENTITY main.file                      "Documentu">
+<!ENTITY main.file.accesskey            "F">
+<!ENTITY main.openFile                  "Aberi documentu...">
+<!ENTITY main.browseLibrary.accesskey   "B">
+<!ENTITY main.browseLibrary             "Esplora sa biblioteca">
+<!ENTITY main.hideLibrary               "Cua sa biblioteca">
+<!ENTITY main.openFile.accesskey        "O">
+<!ENTITY main.lastOpen                  "Abertos dae pagu">
+<!ENTITY main.saveFile                  "Sarba pàgina comente...">
+<!ENTITY main.saveFile.accesskey        "S">
+<!ENTITY main.print                     "Imprenta">
+<!ENTITY main.print.accesskey           "P">
+<!ENTITY main.printPdf                  "Imprenta comente PDF">
+<!ENTITY main.printPdf.accesskey        "D">
+<!ENTITY main.quit                      "Essi">
+<!ENTITY main.quit.accesskey            "Q">
+
+<!-- Edit menu -->
+<!ENTITY main.edit                      "Modìfica">
+<!ENTITY main.edit.accesskey            "E">
+<!ENTITY main.find                      "Chirca in sa pàgina...">
+<!ENTITY main.find.accesskey            "S">
+<!ENTITY main.selectall                 "Ischerta totu">
+<!ENTITY main.selectall.accesskey       "a">
+<!ENTITY main.copy                      "Còpia">
+<!ENTITY main.copy.accesskey            "p">
+<!ENTITY main.transliteration           "Trasliteratzione">
+<!ENTITY main.transliteration.accesskey "T">
+<!ENTITY main.preferences               "Preferèntzias">
+<!ENTITY main.preferences.accesskey     "n">
+<!ENTITY main.server                    "Server">
+<!ENTITY main.server.accesskey          "s">
+
+<!-- Display menu -->
+<!ENTITY main.display                   "Ischermu">
+<!ENTITY main.display.accesskey         "D">
+<!ENTITY main.zoom                      "Zoom">
+<!ENTITY main.zoom.accesskey            "Z">
+<!ENTITY main.zoomin                    "Ismànnia">
+<!ENTITY main.zoomin.accesskey          "M">
+<!ENTITY main.zoomout                   "Mìnima">
+<!ENTITY main.zoomout.accesskey         "R">
+<!ENTITY main.zoomorig                  "Mannària originale">
+<!ENTITY main.zoomorig.accesskey        "O">
+<!ENTITY main.language                  "Limba">
+<!ENTITY main.language.accesskey        "L">
+<!ENTITY main.skin                      "Bisura">
+<!ENTITY main.skin.accesskey            "S">
+<!ENTITY main.statusbar                 "Barra de istadu">
+<!ENTITY main.statusbar.accesskey       "S">
+<!ENTITY main.resultsbar                "Barra de sos resurtados">
+<!ENTITY main.resultsbar.accesskey      "R">
+<!ENTITY main.tabs                      "Ischedas">
+<!ENTITY main.tabs.accesskey            "T">
+<!ENTITY main.fullscreen                "Ischermu intreu">
+<!ENTITY main.fullscreen.accesskey      "F">
+<!ENTITY main.invertedColors            "Colores furriados">
+<!ENTITY main.invertedColors.accesskey  "I">
+
+<!-- Tools menu -->
+<!ENTITY main.tools                     "Ainas">
+<!ENTITY main.tools.accesskey           "T">
+<!ENTITY main.randomArticle             "Artìculu a sa tzurpa">
+<!ENTITY main.randomArticle.accesskey   "R">
+<!ENTITY main.checkIntegrity            "Verìfica de integridade">
+<!ENTITY main.checkIntegrity.accesskey  "k">
+<!ENTITY main.launchIndexing            "Incumintza s'inditzizatzione">
+<!ENTITY main.purgeHistory              "Burra s'istòria">
+<!ENTITY main.purgeHistory.accesskey    "P">
+
+<!-- Help menu -->
+<!ENTITY main.help                      "Agiudu">
+<!ENTITY main.help.accesskey            "H">
+<!ENTITY main.feedback                  "Cummentos">
+<!ENTITY main.reportabug                "Sinnala un'errore">
+<!ENTITY main.requestafeature           "Pedi una funtzionalidade">
+<!ENTITY main.about                     "Informatziones pro &brand.brandShortName;">
+<!ENTITY main.about.accesskey           "A">
+
+<!-- Tool bar -->
+<!ENTITY main.back                      "In segus">
+<!ENTITY main.forward                   "In antis">
+<!ENTITY main.home                      "Pàgina printzipale">
+<!ENTITY main.searchBar                 "Barra de chirca">
+<!ENTITY main.search                    "Chirca">
+<!ENTITY main.searchPlaceholder         "Iscrie inoghe pro chircare...">
+<!ENTITY main.findInText                "Agata in su testu">
+<!ENTITY main.noSearchBar               "Sa chirca tenet bisòngiu de unu documentu ZIM inditzitzadu">
+<!ENTITY main.bookmarks                 "Preferidos">
+
+<!-- Results bar -->
+<!ENTITY main.results.title             "Resurtados de sa chirca">
+
+<!-- Bookmarks Bar -->
+<!ENTITY main.bmkLabel                  "Preferidos:">
+<!ENTITY main.notesLabel                "Notas de sos preferidos:">
+<!ENTITY main.loadbmk                   "Importa una regorta de preferidos">
+<!ENTITY main.newbmk                    "Crea una regorta de preferidos noa">
+<!ENTITY main.mark                      "Annanghe custa pàgina a sos preferidos">
+<!ENTITY main.unmark                    "Boga custa pàgina dae sos preferidos">
+<!ENTITY main.reload                    "Torra a carrigare sa regorta de preferidos">
+<!ENTITY main.defaultset                "Regorta predefinida">
+
+<!-- Contextual Menu -->
+<!ENTITY main.saveMediaAs               "Sarba mèdia comente...">
+<!ENTITY main.openLinkInNewTab          "Aberi su ligòngiu in un'ischeda noa">
+<!ENTITY main.searchFor                 "Chirca pro">
+<!ENTITY main.copyLinkAdress            "Copy link address">
+<!ENTITY main.mute                      "Mudu">
+<!ENTITY main.audible                   "Ascurta">
+
+<!-- About Window -->
+<!ENTITY main.close                     "Serra">
+
+<!-- Preferences Window -->
+<!ENTITY preferences.preferences        "Preferèntzias">
+<!ENTITY preferences.save               "Sarba">
+<!ENTITY preferences.cancel             "Annudda">
+<!ENTITY preferences.profileDirectory   "Cartella de su profilu">
+<!ENTITY preferences.dataDirectory      "Data directory">
+<!ENTITY preferences.browse             "Esplora">
+<!ENTITY preferences.tabs               "Ammenta sas ischedas">
+<!ENTITY preferences.downloadCatalogs   "Iscàrriga catàlogu/os in lìnia">
+<!ENTITY preferences.neverAskToIndex    "Non pedire mai de inditzitzare">
+
+<!-- Server -->
+<!ENTITY server.load                    "Càrriga">
+<!ENTITY server.start                   "Cumintza">
+<!ENTITY server.stop                    "Firma">
+<!ENTITY server.close                   "Serra">
+
+<!-- Library -->
+<!ENTITY main.library.myLibrary                 "Biblioteca mea">
+<!ENTITY main.library.getNewFiles               "Iscàrriga documentos noos">
+<!ENTITY main.library.searchZimFiles            "Chirca documentos ZIM">
+<!ENTITY main.library.sortBy                    "Òrdina pro">
+<!ENTITY main.library.sortBy.title              "Tìtulu">
+<!ENTITY main.library.sortBy.size               "Mannària">
+<!ENTITY main.library.sortBy.date               "Data">
+<!ENTITY main.library.sortBy.author             "Autore">
+<!ENTITY main.library.sortBy.publisher          "Editore">
+<!ENTITY main.library.filterBy                  "Filtra pro">
+<!ENTITY main.library.filterBy.fileSize         "Mannària de su documentu">
+<!ENTITY main.library.filterBy.language         "Limba">
+<!ENTITY main.library.filterBy.language.all     "Totu">
+<!ENTITY main.library.filterBy.author           "Autore">
+<!ENTITY main.library.filterBy.author.all       "Totu">
+<!ENTITY main.library.filterBy.publisher        "Editore">
+<!ENTITY main.library.filterBy.publisher.all    "Totu">
+<!ENTITY main.library.filterBy.lessThan         "De mancu de">
+
