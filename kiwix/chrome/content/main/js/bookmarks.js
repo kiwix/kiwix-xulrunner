@@ -29,15 +29,16 @@ function XMLStringToBookmarks(xmls) {
 
     var items = new Array();
 
-    var len = root.childNodes.length;
+    var bookmarks = doc.getElementsByTagName('bookmark');
+    var len = bookmarks.length;
 
     for (var i = 0; i < len; i++) {
-        var title = root.childNodes[i].getAttribute('title');
-        var uri = root.childNodes[i].getAttribute('uri');
-        var book = root.childNodes[i].getAttribute('book');
+        var title = bookmarks[i].getAttribute('title');
+        var uri = bookmarks[i].getAttribute('uri');
+        var book = bookmarks[i].getAttribute('book');
         var notes;
-        if (root.childNodes[i].firstChild != null)
-            notes = root.childNodes[i].firstChild.nodeValue;
+        if (bookmarks[i].firstChild != null)
+            notes = bookmarks[i].firstChild.nodeValue;
         else
             notes = new String();
 
@@ -69,6 +70,10 @@ function XMLStringFromBookmarks(object) {
 
     var serializer = new XMLSerializer();
     var xml = serializer.serializeToString(doc);
+    xml = xml.replace(/<bookmarks>/gm, '<bookmarks>\n');
+    xml = xml.replace(/<bookmark /gm, '  <bookmark ');
+    xml = xml.replace(/<\/bookmark>/gm, '</bookmark>\n');
+    xml = xml.replace(/<\/bookmarks>/gm, '</bookmarks>\n');
     return xml;
 }
 

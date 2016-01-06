@@ -23,7 +23,7 @@
 <!ENTITY main.print.accesskey           "P">
 <!ENTITY main.printPdf                  "Afdrukken als PDF">
 <!ENTITY main.printPdf.accesskey        "D">
-<!ENTITY main.quit                      "Stoppen">
+<!ENTITY main.quit                      "Afsluiten">
 <!ENTITY main.quit.accesskey            "Q">
 
 <!-- Edit menu -->
@@ -113,7 +113,7 @@
 <!ENTITY main.defaultset                "Standaardgroep">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveMediaAs               "Sla media op als...">
+<!ENTITY main.saveMediaAs               "Media opslaan als...">
 <!ENTITY main.openLinkInNewTab          "Koppeling openen in nieuw tabblad">
 <!ENTITY main.searchFor                 "Zoeken naar">
 <!ENTITY main.copyLinkAdress            "Copy link address">

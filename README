@@ -117,6 +117,11 @@ You will also need to build on an Apple Mac computer.
 * Install the following tools and libraries
 
 sudo port install autogen +universal pkgconfig +universal wget +universal gmake +universal coreutils +universal libidl +universal autoconf213 +universal icu +universal
+
+Note: the following commands seem to work better on OS X Yosemite, apparently 'universal' is less relevant and various packages are no longer available as universal options. 
+sudo port  install autogen pkgconfig  wget  gmake  coreutils  libidl  autoconf213  icu
+sudo port -v install aclocal automake libtool autoconf cmake imagemagick
+
 ./autogen.sh alt && ./configure --enable-compileall
 cd src/dependencies && make
 make clean

@@ -155,6 +155,7 @@ _languagesHash = {
     'lbe': 'лакку маз',
     'lez': 'Лезги чӏал Lezgi č’al',
     'lij': 'Lìgure, Zenéize',
+    'lki': 'لوری',
     'lmo': 'Lumbaart',
     'ltg': 'latgalīšu volūda',
     'lzh': '古文',

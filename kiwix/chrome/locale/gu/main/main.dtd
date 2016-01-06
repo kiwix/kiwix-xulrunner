@@ -23,7 +23,7 @@
 <!ENTITY main.print.accesskey           "P">
 <!ENTITY main.printPdf                  "પીડીએફની રીતે સાચવો">
 <!ENTITY main.printPdf.accesskey        "D">
-<!ENTITY main.quit                      "બહાર નીકળો">
+<!ENTITY main.quit                      "પ્રસ્થાન">
 <!ENTITY main.quit.accesskey            "Q">
 
 <!-- Edit menu -->
@@ -35,7 +35,7 @@
 <!ENTITY main.selectall.accesskey       "a">
 <!ENTITY main.copy                      "નકલ">
 <!ENTITY main.copy.accesskey            "p">
-<!ENTITY main.transliteration           "લીપી બદલાવ">
+<!ENTITY main.transliteration           "લિપ્યંતરણ">
 <!ENTITY main.transliteration.accesskey "T">
 <!ENTITY main.preferences               "પસંદગીઓ">
 <!ENTITY main.preferences.accesskey     "n">

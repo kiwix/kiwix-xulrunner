@@ -1,6 +1,6 @@
 <!-- Window -->
 <!ENTITY main.title                     "&brand.brandShortName;">
-<!ENTITY main.cssdirection              "ltr">
+<!ENTITY main.cssdirection              "ltr : скрипт от ляво на дясно">
 
 <!-- Mac menu -->
 <!ENTITY main.osxservices               "Услуги">
@@ -10,35 +10,35 @@
 
 <!-- File menu -->
 <!ENTITY main.file                      "Файл">
-<!ENTITY main.file.accesskey            "F">
+<!ENTITY main.file.accesskey            "Ф">
 <!ENTITY main.openFile                  "Отваряне на файл...">
-<!ENTITY main.browseLibrary.accesskey   "B">
+<!ENTITY main.browseLibrary.accesskey   "Б">
 <!ENTITY main.browseLibrary             "Разглеждане на библиотеката">
 <!ENTITY main.hideLibrary               "Скриване на библиотеката">
-<!ENTITY main.openFile.accesskey        "O">
+<!ENTITY main.openFile.accesskey        "О">
 <!ENTITY main.lastOpen                  "Последно отваряни...">
 <!ENTITY main.saveFile                  "Съхраняване на страницата като...">
-<!ENTITY main.saveFile.accesskey        "S">
+<!ENTITY main.saveFile.accesskey        "С">
 <!ENTITY main.print                     "Отпечатване">
-<!ENTITY main.print.accesskey           "P">
+<!ENTITY main.print.accesskey           "П">
 <!ENTITY main.printPdf                  "Отпечатване като PDF">
-<!ENTITY main.printPdf.accesskey        "D">
+<!ENTITY main.printPdf.accesskey        "Д">
 <!ENTITY main.quit                      "Излизане">
-<!ENTITY main.quit.accesskey            "Q">
+<!ENTITY main.quit.accesskey            "кю">
 
 <!-- Edit menu -->
 <!ENTITY main.edit                      "Редактиране">
-<!ENTITY main.edit.accesskey            "E">
+<!ENTITY main.edit.accesskey            "Е">
 <!ENTITY main.find                      "Търсене в страницата...">
-<!ENTITY main.find.accesskey            "S">
+<!ENTITY main.find.accesskey            "С">
 <!ENTITY main.selectall                 "Избиране на всички">
-<!ENTITY main.selectall.accesskey       "a">
+<!ENTITY main.selectall.accesskey       "а">
 <!ENTITY main.copy                      "Копиране">
-<!ENTITY main.copy.accesskey            "p">
+<!ENTITY main.copy.accesskey            "п">
 <!ENTITY main.transliteration           "Транслитерация">
-<!ENTITY main.transliteration.accesskey "T">
+<!ENTITY main.transliteration.accesskey "Т">
 <!ENTITY main.preferences               "Предпочитания">
-<!ENTITY main.preferences.accesskey     "n">
+<!ENTITY main.preferences.accesskey     "н">
 <!ENTITY main.server                    "Сървър">
 <!ENTITY main.server.accesskey          "s">
 
@@ -46,19 +46,19 @@
 <!ENTITY main.display                   "Показване">
 <!ENTITY main.display.accesskey         "D">
 <!ENTITY main.zoom                      "Мащабиране">
-<!ENTITY main.zoom.accesskey            "Z">
+<!ENTITY main.zoom.accesskey            "З">
 <!ENTITY main.zoomin                    "Увеличаване">
-<!ENTITY main.zoomin.accesskey          "M">
+<!ENTITY main.zoomin.accesskey          "М">
 <!ENTITY main.zoomout                   "Намаляване">
-<!ENTITY main.zoomout.accesskey         "R">
+<!ENTITY main.zoomout.accesskey         "Р">
 <!ENTITY main.zoomorig                  "Оригинален размер">
-<!ENTITY main.zoomorig.accesskey        "O">
+<!ENTITY main.zoomorig.accesskey        "О">
 <!ENTITY main.language                  "Език">
-<!ENTITY main.language.accesskey        "L">
+<!ENTITY main.language.accesskey        "Л">
 <!ENTITY main.skin                      "Облик">
-<!ENTITY main.skin.accesskey            "S">
+<!ENTITY main.skin.accesskey            "С">
 <!ENTITY main.statusbar                 "Лента на състоянието">
-<!ENTITY main.statusbar.accesskey       "S">
+<!ENTITY main.statusbar.accesskey       "С">
 <!ENTITY main.resultsbar                "Лента с резултатите">
 <!ENTITY main.resultsbar.accesskey      "R">
 <!ENTITY main.tabs                      "Табове">
@@ -66,7 +66,7 @@
 <!ENTITY main.fullscreen                "Цял екран">
 <!ENTITY main.fullscreen.accesskey      "F">
 <!ENTITY main.invertedColors            "Обърнати цветове">
-<!ENTITY main.invertedColors.accesskey  "I">
+<!ENTITY main.invertedColors.accesskey  "И">
 
 <!-- Tools menu -->
 <!ENTITY main.tools                     "Инструменти">
@@ -74,19 +74,19 @@
 <!ENTITY main.randomArticle             "Случайна статия">
 <!ENTITY main.randomArticle.accesskey   "R">
 <!ENTITY main.checkIntegrity            "Проверка за цялост">
-<!ENTITY main.checkIntegrity.accesskey  "k">
+<!ENTITY main.checkIntegrity.accesskey  "к">
 <!ENTITY main.launchIndexing            "Стартиране на индексиране">
 <!ENTITY main.purgeHistory              "Изчистване на историята">
-<!ENTITY main.purgeHistory.accesskey    "P">
+<!ENTITY main.purgeHistory.accesskey    "П">
 
 <!-- Help menu -->
 <!ENTITY main.help                      "Помощ">
-<!ENTITY main.help.accesskey            "H">
+<!ENTITY main.help.accesskey            "Н">
 <!ENTITY main.feedback                  "Обратна връзка">
 <!ENTITY main.reportabug                "Съобщаване за грешка">
 <!ENTITY main.requestafeature           "Искане за нова функционалност">
 <!ENTITY main.about                     "Относно &brand.brandShortName;">
-<!ENTITY main.about.accesskey           "A">
+<!ENTITY main.about.accesskey           "А">
 
 <!-- Tool bar -->
 <!ENTITY main.back                      "Назад">
