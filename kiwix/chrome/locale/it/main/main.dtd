@@ -55,7 +55,7 @@
 <!ENTITY main.zoomorig.accesskey        "O">
 <!ENTITY main.language                  "Lingua">
 <!ENTITY main.language.accesskey        "L">
-<!ENTITY main.skin                      "Aspetto">
+<!ENTITY main.skin                      "Tema">
 <!ENTITY main.skin.accesskey            "S">
 <!ENTITY main.statusbar                 "Barra di stato">
 <!ENTITY main.statusbar.accesskey       "s">

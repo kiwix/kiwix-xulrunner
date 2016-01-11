@@ -6,8 +6,8 @@ Kiwix 0.9.1
 * FIXED: Select text by focusing the searchbox, instead of deleting it (#842)
 * FIXED: Better highlighting colors in the library
 * FIXED: Beautiry bookmark XML file (#942)
-* NEW: New supported user interface languages: Amharic (am), Aramaic (arc) and
-Somali (so)
+* NEW: New supported user interface languages: Amharic (am), Aramaic (arc),
+	Luri (lki), Sardinian (sc) and Somali (so)
 * NEW: Minimal skin
 
 Kiwix 0.9
