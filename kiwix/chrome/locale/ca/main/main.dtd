@@ -21,7 +21,7 @@
 <!ENTITY main.saveFile.accesskey        "D">
 <!ENTITY main.print                     "Imprimir">
 <!ENTITY main.print.accesskey           "p">
-<!ENTITY main.printPdf                  "Imprimir com a PDF">
+<!ENTITY main.printPdf                  "Imprimeix com a PDF">
 <!ENTITY main.printPdf.accesskey        "x">
 <!ENTITY main.quit                      "Surt">
 <!ENTITY main.quit.accesskey            "S">
@@ -126,7 +126,7 @@
 <!-- Preferences Window -->
 <!ENTITY preferences.preferences        "Preferències">
 <!ENTITY preferences.save               "Desar">
-<!ENTITY preferences.cancel             "Canceŀlar">
+<!ENTITY preferences.cancel             "Cancel·la">
 <!ENTITY preferences.profileDirectory   "Carpeta del perfil">
 <!ENTITY preferences.dataDirectory      "Data directory">
 <!ENTITY preferences.browse             "Examinar">

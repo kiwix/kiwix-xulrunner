@@ -83,7 +83,7 @@
 <!ENTITY main.help                      "Trợ giúp">
 <!ENTITY main.help.accesskey            "p">
 <!ENTITY main.feedback                  "Phản hồi">
-<!ENTITY main.reportabug                "Báo cáo Lỗi">
+<!ENTITY main.reportabug                "Báo Lỗi">
 <!ENTITY main.requestafeature           "Yêu cầu Tính năng">
 <!ENTITY main.about                     "Giới thiệu &brand.brandShortName;">
 <!ENTITY main.about.accesskey           "G">
@@ -117,7 +117,7 @@
 <!ENTITY main.openLinkInNewTab          "Mở liên kết trong thẻ mới">
 <!ENTITY main.searchFor                 "Tìm kiếm">
 <!ENTITY main.copyLinkAdress            "Copy link address">
-<!ENTITY main.mute                      "Tắt tiếng">
+<!ENTITY main.mute                      "Im lặng">
 <!ENTITY main.audible                   "Bật tiếng">
 
 <!-- About Window -->

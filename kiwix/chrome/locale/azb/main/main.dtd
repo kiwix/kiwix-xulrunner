@@ -69,7 +69,7 @@
 <!ENTITY main.invertedColors.accesskey  "I">
 
 <!-- Tools menu -->
-<!ENTITY main.tools                     "آراجلار">
+<!ENTITY main.tools                     "آلتلر">
 <!ENTITY main.tools.accesskey           "T">
 <!ENTITY main.randomArticle             "تصادفی مقاله">
 <!ENTITY main.randomArticle.accesskey   "R">
@@ -80,7 +80,7 @@
 <!ENTITY main.purgeHistory.accesskey    "P">
 
 <!-- Help menu -->
-<!ENTITY main.help                      "یاردیم">
+<!ENTITY main.help                      "کؤمک">
 <!ENTITY main.help.accesskey            "H">
 <!ENTITY main.feedback                  "گئری‌بسلمه">
 <!ENTITY main.reportabug                "ایشکالی بیلدیر و ساو وئر">

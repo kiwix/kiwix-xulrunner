@@ -94,7 +94,7 @@
 <!ENTITY main.home                      "کور">
 <!ENTITY main.searchBar                 "د پلټلو پټه">
 <!ENTITY main.search                    "پلټل">
-<!ENTITY main.searchPlaceholder         "د پلټلو لپاره مو متن دلته وټاپۍ...">
+<!ENTITY main.searchPlaceholder         "د پلټلو لپاره مو متن دلته وټاپئ ...">
 <!ENTITY main.findInText                "په متن کې موندل">
 <!ENTITY main.noSearchBar               "پلټنه د يوې ZIM دوتنې ليکلړ شوې بڼې ته اړتيا لري">
 <!ENTITY main.bookmarks                 "کتاب نخښې">
@@ -149,14 +149,14 @@
 <!ENTITY main.library.sortBy.size               "کچه">
 <!ENTITY main.library.sortBy.date               "نېټه">
 <!ENTITY main.library.sortBy.author             "ليکوال">
-<!ENTITY main.library.sortBy.publisher          "خپرونکی">
+<!ENTITY main.library.sortBy.publisher          "خپروونکی">
 <!ENTITY main.library.filterBy                  "چاڼ له مخې د">
 <!ENTITY main.library.filterBy.fileSize         "د دوتنې کچه">
 <!ENTITY main.library.filterBy.language         "ژبه">
 <!ENTITY main.library.filterBy.language.all     "ټول">
 <!ENTITY main.library.filterBy.author           "ليکوال">
 <!ENTITY main.library.filterBy.author.all       "ټول">
-<!ENTITY main.library.filterBy.publisher        "خپرونکی">
+<!ENTITY main.library.filterBy.publisher        "خپروونکی">
 <!ENTITY main.library.filterBy.publisher.all    "ټول">
 <!ENTITY main.library.filterBy.lessThan         "لږ له">
 
