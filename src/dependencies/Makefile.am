@@ -402,7 +402,7 @@ e2fsprogs-1.42: e2fsprogs-1.42.tar.gz
 	test -d e2fsprogs-1.42 || tar xf e2fsprogs-1.42.tar.gz
 
 e2fsprogs-1.42/lib/libuuid.a: e2fsprogs-1.42
-	test ! -f e2fsprogs-1.42/lib/libuuid.a && mkdir -p e2fsprogs-1.42/build && cd e2fsprogs-1.42/ && CC="$(COMPC)" CXX="$(COMPCXX)" CXXFLAGS=" -fPIC " ./configure --enable-libuuid --prefix=$(DEP_PATH)/e2fsprogs-1.42/build && make clean && make && make install || true
+	test ! -f e2fsprogs-1.42/lib/libuuid.a && mkdir -p e2fsprogs-1.42/build && cd e2fsprogs-1.42/ && CC="$(COMPC)" CXX="$(COMPCXX)" CXXFLAGS=" -fPIC " ./configure --enable-libuuid --prefix=$(DEP_PATH)/e2fsprogs-1.42/build && make clean && make libs && make install-libs || true
 
 ####################################################
 ############ PUGIXML
