@@ -566,7 +566,7 @@ android-sdk/platform-tools: android-sdk android-sdk/platforms/$(ANDROIDAPIVERSIO
 android-sdk/extras: android-sdk android-extras.tar.bz2
 	test -d android-sdk/extras || `cd android-sdk && tar xf ../android-extras.tar.bz2`
 
-android-deps: icudt49l.dat android-ndk-r10e android-sdk/platform-tools android-sdk/extras xz icu zimlib-1.2 zimlib-1.2/build/lib/libzim.${SHARED_EXT}
+android-deps: icudt49l.dat android-ndk-r10e android-sdk/platform-tools android-sdk/extras xz icu xapian-core-1.2.3 zimlib-1.2 zimlib-1.2/build/lib/libzim.${SHARED_EXT}
 	true
 
 ####################################################
