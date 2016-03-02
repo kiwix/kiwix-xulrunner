@@ -402,7 +402,7 @@ e2fsprogs-1.42: e2fsprogs-1.42.tar.gz
 	test -d e2fsprogs-1.42 || tar xf e2fsprogs-1.42.tar.gz
 
 e2fsprogs-1.42/lib/libuuid.a: e2fsprogs-1.42
-	test ! -f e2fsprogs-1.42/lib/libuuid.a && mkdir -p e2fsprogs-1.42/build && cd e2fsprogs-1.42/ && CC="$(COMPC)" CXX="$(COMPCXX)" CXXFLAGS=" -fPIC " ./configure --enable-libuuid --prefix=$(DEP_PATH)/e2fsprogs-1.42/build && make clean && make && make install || true
+	test ! -f e2fsprogs-1.42/lib/libuuid.a && mkdir -p e2fsprogs-1.42/build && cd e2fsprogs-1.42/ && CC="$(COMPC)" CXX="$(COMPCXX)" CXXFLAGS=" -fPIC " ./configure --enable-libuuid --prefix=$(DEP_PATH)/e2fsprogs-1.42/build && make clean && make libs && make install-libs || true
 
 ####################################################
 ############ PUGIXML
@@ -566,7 +566,7 @@ android-sdk/platform-tools: android-sdk android-sdk/platforms/$(ANDROIDAPIVERSIO
 android-sdk/extras: android-sdk android-extras.tar.bz2
 	test -d android-sdk/extras || `cd android-sdk && tar xf ../android-extras.tar.bz2`
 
-android-deps: icudt49l.dat android-ndk-r10e android-sdk/platform-tools android-sdk/extras xz icu zimlib-1.2 zimlib-1.2/build/lib/libzim.${SHARED_EXT}
+android-deps: icudt49l.dat android-ndk-r10e android-sdk/platform-tools android-sdk/extras xz icu xapian-core-1.2.3 zimlib-1.2 zimlib-1.2/build/lib/libzim.${SHARED_EXT}
 	true
 
 ####################################################
