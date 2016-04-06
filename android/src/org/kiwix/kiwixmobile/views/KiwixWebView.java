@@ -35,12 +35,14 @@ import android.view.MenuItem;
 import android.view.View;
 import android.webkit.WebView;
 import android.widget.Toast;
+
+import org.kiwix.kiwixmobile.R;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import org.kiwix.kiwixmobile.R;
 
 public class KiwixWebView extends WebView {
 
@@ -73,15 +75,16 @@ public class KiwixWebView extends WebView {
         url = url.substring(url.indexOf("%3A") + 3, url.length());
         int dotIndex = url.lastIndexOf('.');
 
-        File storageDir = new File(Environment.getExternalStoragePublicDirectory(
-            Environment.DIRECTORY_PICTURES), url);
+        File storageDir =
+            new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES),
+                url);
 
         String newUrl = url;
         for (int i = 2; storageDir.exists(); i++) {
-          newUrl = url.substring(0, dotIndex) + "_" + i
-              + url.substring(dotIndex, url.length());
-          storageDir = new File(Environment.getExternalStoragePublicDirectory(
-              Environment.DIRECTORY_PICTURES), newUrl);
+          newUrl = url.substring(0, dotIndex) + "_" + i + url.substring(dotIndex, url.length());
+          storageDir = new File(
+              Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES),
+              newUrl);
         }
 
         Uri source = Uri.parse(src);
@@ -126,8 +129,8 @@ public class KiwixWebView extends WebView {
   public void loadPrefs() {
     disableZoomControls();
 
-    SharedPreferences sharedPreferences = PreferenceManager
-        .getDefaultSharedPreferences(getContext());
+    SharedPreferences sharedPreferences =
+        PreferenceManager.getDefaultSharedPreferences(getContext());
     boolean zoomEnabled = sharedPreferences.getBoolean(PREF_ZOOM_ENABLED, false);
 
     if (zoomEnabled) {
@@ -197,7 +200,6 @@ public class KiwixWebView extends WebView {
   }
 
   public void disableZoomControls() {
-
     getSettings().setBuiltInZoomControls(true);
     getSettings().setDisplayZoomControls(false);
   }
