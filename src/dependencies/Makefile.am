@@ -62,47 +62,29 @@ XULRUNNERRUNTIMEURL=$(DEP_MIRROR)/xulrunner-29.0.en-US.linux-$(ARCH).tar.bz2
 endif
 endif
 
-if IS_LINUX
-ANDROIDPLATFORM=linux
-ANDROIDNDKURL=$(DEP_MIRROR)/android-ndk-r10e-linux-$(ARCH).bin
-else
-ANDROIDPLATFORM=macosx
-ANDROIDNDKURL=$(DEP_MIRROR)/android-ndk-r10e-darwin-x86_64.bin
-endif
-
-# ANDROID CONFIGURATION
-# SDK (not platform API) version
-ANDROIDSDKTOOLSVERSION=20150606
-# SDK/API (code API) version
-ANDROIDAPIVERSION=22
-
-ANDROIDSDKPLATFORMTOOLSURL=$(DEP_MIRROR)/android-sdk-tools-$(ANDROIDPLATFORM)-$(ANDROIDSDKTOOLSVERSION).tar.bz2
-ANDROIDSDKEXTRASURL=$(DEP_MIRROR)/android-extras-$(ANDROIDSDKTOOLSVERSION).tar.bz2
-ANDROIDLINUXSDKURL=$(DEP_MIRROR)/android-sdk_r24.2-linux.tgz
-ANDROIDOSXSDKURL=$(DEP_MIRROR)/android-sdk_r24.2-macosx.zip
-ANDROIDAPIVERSIONFOLDER=android-$(ANDROIDAPIVERSION)
-ANDROIDAPIVERSIONFILE=$(ANDROIDAPIVERSIONFOLDER).tar.bz2
-ANDROIDAPIVERSIONURL=$(DEP_MIRROR)/$(ANDROIDAPIVERSIONFILE)
-ANDROIDSDKSOURCE=android-sdk-$(ANDROIDPLATFORM)
-
 ### ANDROID SDK AND API UPDATE INSTRUCTIONS  ###
 ### SDK (tools)
-# 1. Download from https://developer.android.com/sdk/index.html#Other and put on dl.kiwix
-# 2. For each platform (linux, osx) ; do (on the platform !)
-#    1. Download and extract SDK
+# For each platform (linux, osx) ; do (on the platform !)
+#    1. Download and extract SDK from https://developer.android.com/sdk/index.html#Other
 #    2. ./tools/android list sdk -a # look to the IDs of SDK Platform and SDK Platform tools
 #		and SDK Build-tools (usually number #1, #2 and #3)
 #		As well as Android Support Repository and Android Support Library
-#    3. ./tools/android update sdk -a --filter 1,2,3,24,138,139 --no-ui # reuse the numbers from previous step
-#    4. tar cjf android-sdk-tools-linux|macosx-2015XXXX.tar.bz2 build-tools/ platform-tools/ # replace platform and date
-#    5. copy that file to the repo.
-# 3. On any platform, download the desired API (get number from ./tools/android list sdk)
-# 4. cd platforms/ && tar cjf android-version.tar.bz2 android-version/ # replace version with API version
-# 5. copy that file to the repo.
-# 6. tar cjf android-extras-2015XXXX.tar.bz2 extras/ # replace date
-# 7. copy that file to the repo.
-######
+#    3. ./tools/android update sdk -a --filter 2,28,101,9,136 --no-ui # reuse the numbers from previous step
+#    4. Rename the SDK directory to "android-sdk" and create a tarball of it
+#    5. Copy that file to the repo download.kiwix.org/dev.
 
+ANDROID_NDK_DIR=android-ndk-r10e
+
+if IS_LINUX
+ANDROID_NDK_FILE=$(ANDROID_NDK_DIR)-linux-$(ARCH).bin
+ANDROID_SDK_FILE=android-sdk-23-linux.tar.bz2
+else
+ANDROID_NDK_FILE=$(ANDROID_NDK_DIR)-darwin-x86_64.bin
+ANDROID_SDK_FILE=android-sdk-23-osx.tar.bz
+endif
+
+ANDROID_NDK_URL=$(DEP_MIRROR)/$(ANDROID_NDK_FILE)
+ANDROID_SDK_URL=$(DEP_MIRROR)/$(ANDROID_SDK_FILE)
 
 ####################################################
 ############ GECKO-SDK
@@ -522,51 +504,21 @@ msvc90/msvcr90.dll msvcp90.dll msvcm90.dll Microsoft.VC90.CRT.manifest: msvc90.z
 	mkdir -p msvc90 && unzip -o -d msvc90 msvc90.zip
 
 ####################################################
-############ ANDROID-NDK
+############ ANDROID
 ####################################################
-android-ndk-r10e.bin:
-	$(DOWNLOADER) android-ndk-r10e.bin $(ANDROIDNDKURL)
+$(ANDROID_NDK_FILE):
+	$(DOWNLOADER) $(ANDROID_NDK_FILE) $(ANDROID_NDK_URL)
 
-android-ndk-r10e: android-ndk-r10e.bin
-	test -d android-ndk-r10e || ! chmod -f a+x android-ndk-r10e.bin || ./android-ndk-r10e.bin
+android-ndk: $(ANDROID_NDK_FILE)
+	test -d android-ndk || ! chmod -f a+x $(ANDROID_NDK_FILE) || ! ./$(ANDROID_NDK_FILE) || ln -s $(ANDROID_NDK_DIR) android-ndk
 
-####################################################
-############ ANDROID-SDK
-####################################################
-$(ANDROIDAPIVERSIONFILE):
-	$(DOWNLOADER) $(ANDROIDAPIVERSIONFILE) $(ANDROIDAPIVERSIONURL)
+$(ANDROID_SDK_FILE):
+	$(DOWNLOADER) $(ANDROID_SDK_FILE) $(ANDROID_SDK_URL)
 
-android-sdk-linux.tar.bz2:
-	$(DOWNLOADER) android-sdk-linux.tar.bz2 $(ANDROIDLINUXSDKURL)
+android-sdk: $(ANDROID_SDK_FILE)
+	tar -xvf $(ANDROID_SDK_FILE)
 
-android-sdk-linux: android-sdk-linux.tar.bz2
-	test -d android-sdk-linux || tar xf android-sdk-linux.tar.bz2
-
-android-sdk-macosx.zip:
-	$(DOWNLOADER) android-sdk-macosx.zip $(ANDROIDOSXSDKURL)
-
-android-sdk-macosx: android-sdk-macosx.zip
-	test -d android-sdk-macosx || unzip android-sdk-macosx.zip
-
-android-sdk-tools-tools.tar.bz2:
-	$(DOWNLOADER) android-sdk-tools-tools.tar.bz2 $(ANDROIDSDKPLATFORMTOOLSURL)
-
-android-extras.tar.bz2:
-	$(DOWNLOADER) android-extras.tar.bz2 $(ANDROIDSDKEXTRASURL)
-
-android-sdk: $(ANDROIDAPIVERSIONFILE) android-sdk-tools-tools.tar.bz2 $(ANDROIDSDKSOURCE)
-	test -d android-sdk || `rm -f android-sdk && ln -sf $(ANDROIDSDKSOURCE) android-sdk`
-
-android-sdk/platforms/$(ANDROIDAPIVERSIONFOLDER): android-sdk
-	test -d android-sdk/platforms/$(ANDROIDAPIVERSIONFOLDER) || `cd android-sdk/platforms && tar xf ../../$(ANDROIDAPIVERSIONFILE)`
-
-android-sdk/platform-tools: android-sdk android-sdk/platforms/$(ANDROIDAPIVERSIONFOLDER)
-	test -f android-sdk/platform-tools/adb || `cd android-sdk && tar xf ../android-sdk-tools-tools.tar.bz2`
-
-android-sdk/extras: android-sdk android-extras.tar.bz2
-	test -d android-sdk/extras || `cd android-sdk && tar xf ../android-extras.tar.bz2`
-
-android-deps: icudt49l.dat android-ndk-r10e android-sdk/platform-tools android-sdk/extras xz icu xapian-core-1.2.3 zimlib-1.2 zimlib-1.2/build/lib/libzim.${SHARED_EXT}
+android-deps: android-ndk android-sdk icudt49l.dat xz icu xapian-core-1.2.3 zimlib-1.2 zimlib-1.2/build/lib/libzim.${SHARED_EXT}
 	true
 
 ####################################################
@@ -661,7 +613,6 @@ kiwix-osx-xulrunner-bin:
 ############ CLEANUP (ALL)
 ####################################################
 
-
 CLEANFILES=
 
 DISTCLEANFILES= xulrunner-sdk.tar.bz2 \
@@ -688,18 +639,9 @@ DISTCLEANFILES= xulrunner-sdk.tar.bz2 \
 	e2fsprogs-1.42.tar.gz \
 	argtable2-13.tar.gz \
 	pthread-win32.zip \
-	android-ndk-r10e.bin \
-	android-sdk.zip \
-	android-sdk-macosx.zip \
-	android-sdk-linux.tar.bz2 \
-	android-21.tar.bz2 \
-	android-22.tar.bz2 \
-	android-sdk-tools-tools.tar.bz2 \
-	android-14.tar.bz2 \
 	zimlib-1.2.tar.gz \
 	gettext-0.18.3.2.tar.gz \
 	ctpp2-2.8.3.tar.gz \
-	android-m2repository.zip \
 	icudt49l.dat \
 	zimlib-master.zip \
 	kiwix-osx-xulrunner-bin \
@@ -734,13 +676,8 @@ distclean-local:
 	-rm -rf xulrunner-sdk
 	-rm -rf xulrunner
 	-rm -rf xr_target
-	-rm -rf android-ndk-mac
-	-rm -rf android-ndk-linux
-	-rm -rf android-ndk-r10e
-	-rm -rf android-sdk
-	-rm -rf android-14
 	-rm -rf openzim-master
-	-rm-rf android-sdk
+	-rm-rf android-ndk-*
 	-rm-rf android-sdk-*
 
 # list of targets is built in configure.ac
