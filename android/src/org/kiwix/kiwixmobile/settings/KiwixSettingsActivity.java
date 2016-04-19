@@ -19,26 +19,36 @@
 
 package org.kiwix.kiwixmobile.settings;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.preference.EditTextPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
+import android.preference.PreferenceScreen;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.BaseAdapter;
-import java.util.Locale;
+import android.widget.Toast;
+
 import org.kiwix.kiwixmobile.R;
+import org.kiwix.kiwixmobile.utils.DatabaseHelper;
 import org.kiwix.kiwixmobile.utils.LanguageUtils;
 import org.kiwix.kiwixmobile.views.SliderPreference;
+
+import java.util.Locale;
 
 public class KiwixSettingsActivity extends AppCompatActivity {
 
   public static final int RESULT_RESTART = 1236;
+
+  public static final int RESULT_HISTORY_CLEARED = 1239;
 
   public static final String PREF_LANG = "pref_language_chooser";
 
@@ -48,10 +58,21 @@ public class KiwixSettingsActivity extends AppCompatActivity {
 
   public static final String PREF_ZOOM = "pref_zoom_slider";
 
+  public static final String PREF_RECENT_SEARCH = "pref_clear_recent_searches";
+
+  public static final String PREF_CLEAR_ALL_HISTORY = "pref_clear_all_history";
+
+  public static String zimFile;
+
+  public static boolean allHistoryCleared = false;
+
   @Override
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.settings);
+
+    allHistoryCleared = false;
+    zimFile = getIntent().getStringExtra("zim_file");
 
     getFragmentManager()
         .beginTransaction().
@@ -59,6 +80,17 @@ public class KiwixSettingsActivity extends AppCompatActivity {
         .commit();
 
     setUpToolbar();
+  }
+
+
+  @Override
+  public void onBackPressed() {
+    if (allHistoryCleared) {
+      Intent data = new Intent();
+      data.putExtra("webviewsList", allHistoryCleared);
+      setResult(this.RESULT_HISTORY_CLEARED, data);
+    }
+    super.onBackPressed();
   }
 
   private void setUpToolbar() {
@@ -71,7 +103,7 @@ public class KiwixSettingsActivity extends AppCompatActivity {
     toolbar.setNavigationOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View v) {
-        finish();
+        onBackPressed();
       }
     });
   }
@@ -91,11 +123,37 @@ public class KiwixSettingsActivity extends AppCompatActivity {
       } else {
         getPreferenceScreen().removePreference(getPrefrence("pref_language"));
       }
-
       mSlider = (SliderPreference) getPrefrence(PREF_ZOOM);
       setSliderState();
       setUpSettings();
       new LanguageUtils(getActivity()).changeFont(getActivity().getLayoutInflater());
+    }
+
+
+    private void recentSearchConfirmDialog() {
+      new AlertDialog.Builder(getActivity())
+          .setTitle(getResources().getString(R.string.recent_search_dialog_title))
+          .setMessage(getResources().getString(R.string.clear_recent_history_dialog))
+          .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+              deleteSearchHistoryFromDb();
+              Toast.makeText(getActivity(), getResources().getString(R.string.recent_search_removed_toast), Toast.LENGTH_SHORT).show();
+            }
+          })
+          .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+              // do nothing
+            }
+          })
+          .setIcon(android.R.drawable.ic_dialog_alert)
+          .show();
+    }
+
+    private void deleteSearchHistoryFromDb() {
+      DatabaseHelper mDatabaseHelper = new DatabaseHelper(getActivity(), zimFile);
+      SQLiteDatabase db = mDatabaseHelper.getWritableDatabase();
+
+      mDatabaseHelper.deleteSearchTable(db);
     }
 
     private void setSliderState() {
@@ -184,6 +242,39 @@ public class KiwixSettingsActivity extends AppCompatActivity {
         mSlider.setSummary(mSlider.getSummary());
         ((BaseAdapter) getPreferenceScreen().getRootAdapter()).notifyDataSetChanged();
       }
+
+    }
+
+    private void clearAllHistoryDialog() {
+      new AlertDialog.Builder(getActivity())
+          .setTitle(getResources().getString(R.string.clear_all_history_dialog_title))
+          .setMessage(getResources().getString(R.string.clear_recent_and_tabs_history_dialog))
+          .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+              deleteSearchHistoryFromDb();
+              allHistoryCleared = true;
+              Toast.makeText(getActivity(), getResources().getString(R.string.all_history_cleared_toast), Toast.LENGTH_SHORT).show();
+            }
+          })
+          .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+              // do nothing
+            }
+          })
+          .setIcon(android.R.drawable.ic_dialog_alert)
+          .show();
+    }
+
+    @Override
+    public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen,
+                                         Preference preference) {
+
+      if (preference.getKey().equalsIgnoreCase(PREF_RECENT_SEARCH)) {
+        recentSearchConfirmDialog();
+      } else if (preference.getKey().equalsIgnoreCase(PREF_CLEAR_ALL_HISTORY))
+        clearAllHistoryDialog();
+
+      return true;
     }
   }
 }

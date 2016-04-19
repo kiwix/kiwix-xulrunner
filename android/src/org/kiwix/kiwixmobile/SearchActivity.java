@@ -1,9 +1,11 @@
 package org.kiwix.kiwixmobile;
 
-import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v4.view.MenuItemCompat;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
@@ -14,13 +16,14 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.kiwix.kiwixmobile.utils.DatabaseHelper;
 import org.kiwix.kiwixmobile.views.AutoCompleteAdapter;
 
 import java.util.ArrayList;
 
-public class SearchActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
+public class SearchActivity extends AppCompatActivity implements AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener {
 
   private ListView mListView;
 
@@ -44,14 +47,17 @@ public class SearchActivity extends AppCompatActivity implements AdapterView.OnI
     String zimFile = getIntent().getStringExtra("zimFile");
     mListView = (ListView) findViewById(R.id.search_list);
     mDatabaseHelper = new DatabaseHelper(this, zimFile);
+    SQLiteDatabase db = mDatabaseHelper.getWritableDatabase();
+    mDatabaseHelper.onCreate(db);
     ArrayList<String> a = mDatabaseHelper.getRecentSearches();
-    mDefaultAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1);
+    mDefaultAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1);
     mListView.setAdapter(mDefaultAdapter);
     mDefaultAdapter.addAll(a);
     mDefaultAdapter.notifyDataSetChanged();
     context = this;
     mAutoAdapter = new AutoCompleteAdapter(context);
     mListView.setOnItemClickListener(context);
+    mListView.setOnItemLongClickListener(context);
   }
 
   @Override
@@ -89,16 +95,16 @@ public class SearchActivity extends AppCompatActivity implements AdapterView.OnI
     });
 
     MenuItemCompat.setOnActionExpandListener(searchMenuItem,
-            new MenuItemCompat.OnActionExpandListener() {
-              @Override
-              public boolean onMenuItemActionExpand(MenuItem item) {
-                return false;
-              }
+        new MenuItemCompat.OnActionExpandListener() {
+          @Override
+          public boolean onMenuItemActionExpand(MenuItem item) {
+            return false;
+          }
 
-              @Override
-              public boolean onMenuItemActionCollapse(MenuItem item) {
-                finish();
-                return true;
+          @Override
+          public boolean onMenuItemActionCollapse(MenuItem item) {
+            finish();
+            return true;
           }
         });
     return true;
@@ -117,4 +123,58 @@ public class SearchActivity extends AppCompatActivity implements AdapterView.OnI
     setResult(RESULT_OK, i);
     finish();
   }
+
+  @Override
+  public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+    if (parent.getAdapter() == mDefaultAdapter) {
+      String searched = mListView.getItemAtPosition(position).toString();
+      deleteSpecificSearchDialog(searched);
+    }
+    return true;
+  }
+
+  private void deleteSpecificSearchDialog(final String search) {
+    new AlertDialog.Builder(this)
+        .setMessage(getResources().getString(R.string.deleteRecentSearchItem))
+        .setPositiveButton(getResources().getString(R.string.delete), new DialogInterface.OnClickListener() {
+          public void onClick(DialogInterface dialog, int which) {
+            deleteSpecificSearchItem(search);
+            Toast.makeText(getBaseContext(), getResources().getString(R.string.delete_specific_search_toast), Toast.LENGTH_SHORT).show();
+          }
+        })
+        .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+          public void onClick(DialogInterface dialog, int which) {
+            // do nothing
+          }
+        })
+        .show();
+  }
+
+  private void deleteSpecificSearchItem(String search) {
+    SQLiteDatabase db = mDatabaseHelper.getWritableDatabase();
+    mDatabaseHelper.deleteSpecificSearch(db, escapeSqlSyntax(search));
+    resetAdapter();
+  }
+
+  private String escapeSqlSyntax(String search) { //Escapes sql ' if exists
+    String tempStr = "";
+    char[] charArray = search.toCharArray();
+    for (char a : charArray) {
+      if (a != '\'')
+        tempStr += a;
+      else
+        tempStr += "''";
+    }
+    return tempStr;
+  }
+
+  private void resetAdapter() {
+    ArrayList<String> a = mDatabaseHelper.getRecentSearches();
+    mDefaultAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1);
+    mListView.setAdapter(mDefaultAdapter);
+    mDefaultAdapter.addAll(a);
+    mDefaultAdapter.notifyDataSetChanged();
+  }
+
+
 }
