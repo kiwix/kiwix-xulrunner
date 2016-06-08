@@ -18,6 +18,7 @@
   <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
   <application
+      android:name=".KiwixApplication"
       android:allowBackup="true"
       android:hardwareAccelerated="true"
       android:icon="@mipmap/kiwix_icon"
@@ -101,7 +102,6 @@
     <activity android:name=".SearchActivity" />
     <activity android:name=".BookmarksActivity" />
 
-
     <provider
         android:name=".ZimContentProvider"
         android:authorities="org.kiwix.zim.base"
@@ -120,6 +120,8 @@
                  android:resource="@xml/kiwix_widget_provider_info" />
     </receiver>
 
+    <activity android:name=".LibraryActivity" />
+    <service android:name=".downloader.DownloadService" />
   </application>
 
 </manifest>
