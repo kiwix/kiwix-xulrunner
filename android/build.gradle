@@ -4,7 +4,7 @@ buildscript {
   }
 
   dependencies {
-    classpath 'com.android.tools.build:gradle:2.0.0'
+    classpath 'com.android.tools.build:gradle:2.1.0'
     classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
     classpath 'me.tatarka:gradle-retrolambda:3.2.5'
   }
@@ -45,6 +45,7 @@ dependencies {
   apt 'com.jakewharton:butterknife-compiler:8.0.1'
 
   compile files("$buildDir/native-libs/native-libs.jar")
+  compile group: 'com.google.guava', name: 'guava', version: '19.0'
 
   // compile fileTree(dir: '.', include: 'content-libs.jar') // DO NOT REMOVE !!
 }
