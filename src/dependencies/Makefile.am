@@ -195,15 +195,20 @@ zlib-1.2.8/zlib.lib: zlib-1.2.8
 ############ XAPIAN
 ####################################################
 
-xapian-core-1.2.3.tar.gz:
-	$(DOWNLOADER) xapian-core-1.2.3.tar.gz $(DEP_MIRROR)/xapian-core-1.2.3.tar.gz
+xapian-core-1.3.7.tar.xz:
+	$(DOWNLOADER) xapian-core-1.3.7.tar.xz $(DEP_MIRROR)/xapian-core-1.3.7.tar.xz
 
-xapian-core-1.2.3: xapian-core-1.2.3.tar.gz
-	test -d xapian-core-1.2.3 || tar -xf xapian-core-1.2.3.tar.gz && cd xapian-core-1.2.3 && patch -p1 -i ../patches/xapian-core-1.2.3-cpp11.patch
+xapian-core-1.3.7: xapian-core-1.3.7.tar.xz
+	test -d xapian-core-1.3.7 || tar -xvf xapian-core-1.3.7.tar.xz
 
 # Linux
-xapian-core-1.2.3/build/lib/libxapian.so: xapian-core-1.2.3
-	test ! -f xapian-core-1.2.3/build/lib/libxapian.so && cd xapian-core-1.2.3 mkdir -p build && EXTERN_PATH=`pwd` CPPFLAGS="-I${CURRENT_PATH}/src/dependencies/zlib-1.2.8/" CXXFLAGS=" -fPIC -L${CURRENT_PATH}/src/dependencies/zlib-1.2.8" ./configure --enable-shared --enable-static --disable-sse --disable-backend-inmemory --prefix=$(DEP_PATH)/xapian-core-1.2.3/build && make clean && make clean && make && make install || true
+xapian-core-1.3.7/.libs/libxapian.so: xapian-core-1.3.7
+	CPPFLAGS="-I${CURRENT_PATH}/src/dependencies/zlib-1.2.8/"
+	CXXFLAGS=" -fPIC -L${CURRENT_PATH}/src/dependencies/zlib-1.2.8"
+	cd xapian-core-1.3.7 && ./configure --enable-shared --enable-static --disable-sse --disable-backend-inmemory
+	cd xapian-core-1.3.7 && make
+	cp xapian-core-1.3.7/.libs/libxapian-1.3.so xapian-core-1.3.7/.libs/libxapian.so
+	cp xapian-core-1.3.7/.libs/libxapian-1.3.a xapian-core-1.3.7/.libs/libxapian.a
 
 # OSX Join
 xapian-core-1.2.3/build/lib/libxapian.dylib xapian-core-1.2.3/build/bin/xapian-compact: xapian-core-1.2.3/build-i386/lib/libxapian.dylib xapian-core-1.2.3/build-x86_64/lib/libxapian.dylib xapian-core-1.2.3/build-i386/bin/xapian-compact xapian-core-1.2.3/build-x86_64/bin/xapian-compact
@@ -518,7 +523,7 @@ $(ANDROID_SDK_FILE):
 android-sdk: $(ANDROID_SDK_FILE)
 	tar -xvf $(ANDROID_SDK_FILE)
 
-android-deps: android-ndk android-sdk icudt49l.dat xz icu xapian-core-1.2.3 zimlib-1.2 zimlib-1.2/build/lib/libzim.${SHARED_EXT}
+android-deps: android-ndk android-sdk icudt49l.dat xz icu xapian-core-1.3.7 zimlib-1.2 zimlib-1.2/build/lib/libzim.${SHARED_EXT}
 	true
 
 ####################################################
@@ -623,7 +628,6 @@ DISTCLEANFILES= xulrunner-sdk.tar.bz2 \
 	xulrunner-29.0.en-US.mac.tar.bz2 \
 	xulrunner-win.zip \
 	zlib.tar.gz \
-	xapian-core.tar.gz \
 	xapian-win32.zip \
 	icu4c-4_4_2-src.tgz \
 	icu4c-49_1_1-Win32-msvc10.zip \
@@ -650,7 +654,7 @@ DISTCLEANFILES= xulrunner-sdk.tar.bz2 \
 
 clean-local:
 	-rm -rf zlib-1.2.8
-	-rm -rf xapian-core-1.2.3
+	-rm -rf xapian-core-1.3.7
 	-rm -rf icu
 	-rm -rf pugixml-1.2
 	-rm -rf libmicrohttpd-0.9.19
