@@ -37,9 +37,8 @@ namespace kiwix {
     if (!this->stopWords.empty()) {
       std::vector<std::string>::iterator it = this->stopWords.begin();
       for( ; it != this->stopWords.end(); ++it) {
-	this->stopper.add(*it);
+        this->stopper.add(*it);
       }
-
       this->indexer.set_stopper(&(this->stopper));
     }
   }
@@ -51,7 +50,8 @@ namespace kiwix {
 			    const string &content,
 			    const string &snippet,
 			    const string &size,
-			    const string &wordCount) {
+			    const string &wordCount,
+          const string &zimID) {
     
     /* Put the data in the document */
     Xapian::Document currentDocument; 
@@ -60,8 +60,17 @@ namespace kiwix {
     currentDocument.add_value(1, snippet);
     currentDocument.add_value(2, size);
     currentDocument.add_value(3, wordCount);
+    currentDocument.add_value(4, zimID);
     currentDocument.set_data(url);
     indexer.set_document(currentDocument);
+    
+    if (this->verboseFlag) {
+      std::cout << "Title:" << title << std::endl;
+      std::cout << "Keywords:" << keywords << std::endl;
+      std::cout << "Snippet:" << snippet << std::endl;
+      std::cout << "Content:" << content << std::endl;
+      std::cout << "" << std::endl;
+    }
 
     /* Index the title */
     if (!unaccentedTitle.empty()) {
