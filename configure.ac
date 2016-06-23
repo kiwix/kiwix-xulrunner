@@ -1551,7 +1551,7 @@ then
 	fi
 	if test [ "$HAVE_PYTHON_BEAUTIFULSOUP" = "" ]
 	then
-		AC_MSG_WARN([[Unable to find python-beautifulsoup (pip install beautifulsoup)]])
+		AC_MSG_WARN([[Unable to find python beautifulsoup v4 (pip install python-bs4)]])
 	fi
 	if test [ "$HAVE_JAVA_BIN" = "" ]
 	then
