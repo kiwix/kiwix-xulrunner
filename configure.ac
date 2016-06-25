@@ -319,19 +319,19 @@ then
 fi
 
 XAPIAN_CFLAGS=""
-XAPIAN_LDFLAGS="-lxapian"
+XAPIAN_LDFLAGS="-lxapian -lrt"
 XAPIAN_STATIC_LDFLAGS=""
 COMPILE_XAPIAN=0
-COMPILED_XAPIAN_CFLAGS="-I${DEP_PATH}/xapian-core-1.2.3/include"
+COMPILED_XAPIAN_CFLAGS="-I${DEP_PATH}/xapian-core-1.3.7/include/"
 if test [ $IS_WIN -eq 1 ] ; then
-    COMPILED_XAPIAN_FILES="${DEP_PATH}/xapian-core-1.2.3/win32/Release/libs/libunicode.lib"
+    COMPILED_XAPIAN_FILES="${DEP_PATH}/xapian-core-1.3.7/win32/Release/libs/libunicode.lib"
 else
-    COMPILED_XAPIAN_LDFLAGS="-L${DEP_PATH}/xapian-core-1.2.3/build/lib -lxapian"
-    COMPILED_XAPIAN_FILES="${DEP_PATH}/xapian-core-1.2.3/build/lib/libxapian.${SHARED_EXT}"
-    COMPILED_XAPIAN_STATIC_LDFLAGS="${DEP_PATH}/xapian-core-1.2.3/build/lib/libxapian.a"
+    COMPILED_XAPIAN_LDFLAGS="-L${DEP_PATH}/xapian-core-1.3.7/.libs -lxapian -lrt"
+    COMPILED_XAPIAN_FILES="${DEP_PATH}/xapian-core-1.3.7/.libs/libxapian.${SHARED_EXT}"
+    COMPILED_XAPIAN_STATIC_LDFLAGS="${DEP_PATH}/xapian-core-1.3.7/.libs/libxapian.a"
 fi
 XAPIAN_COMPACT=""
-COMPILED_XAPIAN_COMPACT="${DEP_PATH}/xapian-core-1.2.3/build/bin/xapian-compact"
+COMPILED_XAPIAN_COMPACT="${DEP_PATH}/xapian-core-1.3.7/build/bin/xapian-compact"
 
 ICU_CFLAGS=""
 ICU_LDFLAGS="-licui18n -licuuc -licudata" # replaced by icu-config
@@ -976,7 +976,7 @@ else
 			# can't stat files. force compile
   			COMPILE_XAPIAN=1
 			XAPIAN_CFLAGS=$COMPILED_XAPIAN_CFLAGS
-		    XAPIAN_LDFLAGS=$COMPILED_XAPIAN_LDFLAGS
+			XAPIAN_LDFLAGS=$COMPILED_XAPIAN_LDFLAGS
 			XAPIAN_FILES=$COMPILED_XAPIAN_FILES
 			XAPIAN_STATIC_LDFLAGS=$COMPILED_XAPIAN_STATIC_LDFLAGS
 			XAPIAN_COMPACT=$COMPILED_XAPIAN_COMPACT
@@ -1551,7 +1551,7 @@ then
 	fi
 	if test [ "$HAVE_PYTHON_BEAUTIFULSOUP" = "" ]
 	then
-		AC_MSG_WARN([[Unable to find python-beautifulsoup (pip install beautifulsoup)]])
+		AC_MSG_WARN([[Unable to find python beautifulsoup v4 (pip install python-bs4)]])
 	fi
 	if test [ "$HAVE_JAVA_BIN" = "" ]
 	then

@@ -59,6 +59,7 @@ android//.idea/workspace.xml
 android/.settings
 android/*.iml
 android/assets/icudt49l.dat
+android/customapp/*/*.zim
 *.keystore
 
 # OSX
@@ -102,6 +103,7 @@ ftp_pass.py
 \#*\#
 .\#*
 kiwix/chrome/*.jar
+.gitignore
 
 platforms
 pythonenv
