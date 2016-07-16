@@ -69,7 +69,7 @@ endif
 #    2. ./tools/android list sdk -a # look to the IDs of SDK Platform and SDK Platform tools
 #		and SDK Build-tools (usually number #1, #2 and #3)
 #		As well as Android Support Repository and Android Support Library
-#    3. ./tools/android update sdk -a --filter 2,28,101,9,136 --no-ui # reuse the numbers from previous step
+#    3. ./tools/android update sdk -a --filter 2,5,28,101,9,136 --no-ui # reuse the numbers from previous step
 #    4. Rename the SDK directory to "android-sdk" and create a tarball of it
 #    5. Copy that file to the repo download.kiwix.org/dev.
 
@@ -516,12 +516,14 @@ $(ANDROID_NDK_FILE):
 
 android-ndk: $(ANDROID_NDK_FILE)
 	test -d android-ndk || ! chmod -f a+x $(ANDROID_NDK_FILE) || ! ./$(ANDROID_NDK_FILE) || ln -s $(ANDROID_NDK_DIR) android-ndk
+	touch android-ndk
 
 $(ANDROID_SDK_FILE):
 	$(DOWNLOADER) $(ANDROID_SDK_FILE) $(ANDROID_SDK_URL)
 
 android-sdk: $(ANDROID_SDK_FILE)
 	tar -xvf $(ANDROID_SDK_FILE)
+	touch android-sdk
 
 android-deps: android-ndk android-sdk icudt49l.dat xz icu xapian-core-1.3.7 zimlib-1.2 zimlib-1.2/build/lib/libzim.${SHARED_EXT}
 	true
