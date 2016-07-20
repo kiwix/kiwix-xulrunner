@@ -69,7 +69,7 @@ endif
 #    2. ./tools/android list sdk -a # look to the IDs of SDK Platform and SDK Platform tools
 #		and SDK Build-tools (usually number #1, #2 and #3)
 #		As well as Android Support Repository and Android Support Library
-#    3. ./tools/android update sdk -a --filter 2,5,28,101,9,136 --no-ui # reuse the numbers from previous step
+#    3. ./tools/android update sdk -a --filter 1,3,4,29,142,150 --no-ui # reuse the numbers from previous step
 #    4. Rename the SDK directory to "android-sdk" and create a tarball of it
 #    5. Copy that file to the repo download.kiwix.org/dev.
 
@@ -77,10 +77,10 @@ ANDROID_NDK_DIR=android-ndk-r10e
 
 if IS_LINUX
 ANDROID_NDK_FILE=$(ANDROID_NDK_DIR)-linux-$(ARCH).bin
-ANDROID_SDK_FILE=android-sdk-23-linux.tar.bz2
+ANDROID_SDK_FILE=android-sdk-24-linux.tar.bz2
 else
 ANDROID_NDK_FILE=$(ANDROID_NDK_DIR)-darwin-x86_64.bin
-ANDROID_SDK_FILE=android-sdk-23-osx.tar.bz
+ANDROID_SDK_FILE=android-sdk-24-osx.tar.bz
 endif
 
 ANDROID_NDK_URL=$(DEP_MIRROR)/$(ANDROID_NDK_FILE)
