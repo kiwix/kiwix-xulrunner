@@ -100,7 +100,7 @@
 <!ENTITY main.bookmarks                 "Обележани">
 
 <!-- Results bar -->
-<!ENTITY main.results.title             "Резултати од пребарувањето">
+<!ENTITY main.results.title             "Исход од пребарувањето">
 
 <!-- Bookmarks Bar -->
 <!ENTITY main.bmkLabel                  "Обележувачи:">

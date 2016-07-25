@@ -16,8 +16,8 @@
 <!ENTITY main.browseLibrary             "مرور کتابخانه">
 <!ENTITY main.hideLibrary               "پنهان کردن/آشاردن کتابخانه">
 <!ENTITY main.openFile.accesskey        "O">
-<!ENTITY main.lastOpen                  "اخیراً/ایسة باز بیة...">
-<!ENTITY main.saveFile                  "ذخیرهٔ صفحه به عنوان...">
+<!ENTITY main.lastOpen                  "تازە واز بیە...">
+<!ENTITY main.saveFile                  "وەڵگە بِیل(ذخیره کە) وە عنوان ...">
 <!ENTITY main.saveFile.accesskey        "S">
 <!ENTITY main.print                     "چاپ">
 <!ENTITY main.print.accesskey           "P">
@@ -27,7 +27,7 @@
 <!ENTITY main.quit.accesskey            "Q">
 
 <!-- Edit menu -->
-<!ENTITY main.edit                      "دةسکاری">
+<!ENTITY main.edit                      "دەسکاری">
 <!ENTITY main.edit.accesskey            "E">
 <!ENTITY main.find                      "مِنِی کردن/جستجو وة وةڵگة...">
 <!ENTITY main.find.accesskey            "S">
@@ -37,7 +37,7 @@
 <!ENTITY main.copy.accesskey            "p">
 <!ENTITY main.transliteration           "نويسه‌گردانى">
 <!ENTITY main.transliteration.accesskey "T">
-<!ENTITY main.preferences               "تمارزوةل/ترجیحات">
+<!ENTITY main.preferences               "تمارزووەل(ترجیحات)">
 <!ENTITY main.preferences.accesskey     "n">
 <!ENTITY main.server                    "سرور">
 <!ENTITY main.server.accesskey          "s">
@@ -69,7 +69,7 @@
 <!ENTITY main.invertedColors.accesskey  "I">
 
 <!-- Tools menu -->
-<!ENTITY main.tools                     "ابزارۀل">
+<!ENTITY main.tools                     "ابزارەل">
 <!ENTITY main.tools.accesskey           "T">
 <!ENTITY main.randomArticle             "مةقاڵة بةختةکی">
 <!ENTITY main.randomArticle.accesskey   "R">
@@ -93,7 +93,7 @@
 <!ENTITY main.forward                   "جلو/نووا">
 <!ENTITY main.home                      "سةر وةڵگ/صفحه اصلی">
 <!ENTITY main.searchBar                 "نوار جستجو">
-<!ENTITY main.search                    "گئردین/مهِ نی">
+<!ENTITY main.search                    "مِنِی کِردِن(گێردین)">
 <!ENTITY main.searchPlaceholder         "متن مورد نظر را جهت جستجو وارد کنید ...">
 <!ENTITY main.findInText                "جستجو در متن">
 <!ENTITY main.noSearchBar               "برای جستجو نیاز به یک پروندهٔ ZIM فهرست شده‌است">
@@ -113,9 +113,9 @@
 <!ENTITY main.defaultset                "تنظیمات نشانک">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveMediaAs               "ذخیره رسانه با نام ....">
+<!ENTITY main.saveMediaAs               "بِیل(ذخیره کە)رسانە وە عنوان ...">
 <!ENTITY main.openLinkInNewTab          "بازکردن پیوند در زبانهٔ جدید">
-<!ENTITY main.searchFor                 ":مِه نِی کردن ئةرا-جستجوبرای">
+<!ENTITY main.searchFor                 ":مِنِی کردن أڕا">
 <!ENTITY main.copyLinkAdress            "Copy link address">
 <!ENTITY main.mute                      "بی دنگ/بی صدا كردن">
 <!ENTITY main.audible                   "قابل شنیدن">
@@ -124,13 +124,13 @@
 <!ENTITY main.close                     "ئآنیائن-بستِن">
 
 <!-- Preferences Window -->
-<!ENTITY preferences.preferences        "تمارزوةل/ترجیحات">
-<!ENTITY preferences.save               "ذخیرۀ">
+<!ENTITY preferences.preferences        "تمارزووەل(ترجیحات)">
+<!ENTITY preferences.save               "هیشتن(ذخیره)">
 <!ENTITY preferences.cancel             "ئآهووسانن/لغو">
 <!ENTITY preferences.profileDirectory   "شاخهٔ نمایه">
 <!ENTITY preferences.dataDirectory      "Data directory">
 <!ENTITY preferences.browse             "مِنِی -گۀشتن">
-<!ENTITY preferences.tabs               "به‌خاطرسپردن/أ ویر بین زبانه‌ها">
+<!ENTITY preferences.tabs               "أویر بین(به‌خاطرسپردن)زبانه‌ها">
 <!ENTITY preferences.downloadCatalogs   "دانلود کالانما(ها) از راه دور">
 <!ENTITY preferences.neverAskToIndex    "هرگز از شاخه نپرسید">
 
@@ -145,7 +145,7 @@
 <!ENTITY main.library.getNewFiles               "دریافت پرونده‌های تازه">
 <!ENTITY main.library.searchZimFiles            "جستجو برای پرونده‌های ZIM">
 <!ENTITY main.library.sortBy                    "مرتب‌سازی/گِلۀچِن کردن بر اساس">
-<!ENTITY main.library.sortBy.title              "نؤم سروڵگ">
+<!ENTITY main.library.sortBy.title              "عنوان">
 <!ENTITY main.library.sortBy.size               "اندازۀ">
 <!ENTITY main.library.sortBy.date               "تاریخ">
 <!ENTITY main.library.sortBy.author             "نویسنده">
@@ -153,10 +153,10 @@
 <!ENTITY main.library.filterBy                  "پالایش با">
 <!ENTITY main.library.filterBy.fileSize         "قاووارۀ-اندازۀ پرؤندۀ">
 <!ENTITY main.library.filterBy.language         "زوون">
-<!ENTITY main.library.filterBy.language.all     "کۆل">
+<!ENTITY main.library.filterBy.language.all     "کؤل(گشت)">
 <!ENTITY main.library.filterBy.author           "نویسنده">
-<!ENTITY main.library.filterBy.author.all       "کۆل">
+<!ENTITY main.library.filterBy.author.all       "کؤل(گشت)">
 <!ENTITY main.library.filterBy.publisher        "بۀشا کۀر-ناشر">
-<!ENTITY main.library.filterBy.publisher.all    "کۆل">
+<!ENTITY main.library.filterBy.publisher.all    "کؤل(گشت)">
 <!ENTITY main.library.filterBy.lessThan         "کةمتر إژ">
 

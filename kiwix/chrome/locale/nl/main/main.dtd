@@ -71,7 +71,7 @@
 <!-- Tools menu -->
 <!ENTITY main.tools                     "Extra">
 <!ENTITY main.tools.accesskey           "T">
-<!ENTITY main.randomArticle             "Willekeurig artikel">
+<!ENTITY main.randomArticle             "Willekeurige pagina">
 <!ENTITY main.randomArticle.accesskey   "R">
 <!ENTITY main.checkIntegrity            "Integriteitscontrole">
 <!ENTITY main.checkIntegrity.accesskey  "k">

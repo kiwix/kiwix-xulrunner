@@ -113,7 +113,7 @@
 <!ENTITY main.defaultset                "Иминә кукон огәтеј">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveMediaAs               "Save media as...">
+<!ENTITY main.saveMediaAs               "Медијә фајли огәтеј бәнә...">
 <!ENTITY main.openLinkInNewTab          "Тожә зијодә вәрәғәдә сәбони окардеј">
 <!ENTITY main.searchFor                 "Нәве">
 <!ENTITY main.copyLinkAdress            "Copy link address">
@@ -132,7 +132,7 @@
 <!ENTITY preferences.browse             "Чәшонку дәвоније">
 <!ENTITY preferences.tabs               "Әлфәҹинон јодәдә огәтеј">
 <!ENTITY preferences.downloadCatalogs   "Дијәроәдә быә сијоһи(јон) окырније">
-<!ENTITY preferences.neverAskToIndex    "Never ask to index">
+<!ENTITY preferences.neverAskToIndex    "Индексасијә һичвахт хәбә нысәј">
 
 <!-- Server -->
 <!ENTITY server.load                    "Бо жәј">

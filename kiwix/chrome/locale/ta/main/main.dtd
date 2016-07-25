@@ -148,7 +148,7 @@
 <!ENTITY main.library.sortBy.title              "தலைப்பு">
 <!ENTITY main.library.sortBy.size               "அளவு">
 <!ENTITY main.library.sortBy.date               "தேதி">
-<!ENTITY main.library.sortBy.author             "பங்களிப்பாளர்">
+<!ENTITY main.library.sortBy.author             "ஆசிரியர்">
 <!ENTITY main.library.sortBy.publisher          "வெளியீட்டாளர்">
 <!ENTITY main.library.filterBy                  "இதன்படி வடிகட்டு">
 <!ENTITY main.library.filterBy.fileSize         "கோப்பின் அளவு">

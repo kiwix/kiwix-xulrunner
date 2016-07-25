@@ -59,7 +59,7 @@
 <!ENTITY main.skin.accesskey            "S">
 <!ENTITY main.statusbar                 "Barra d'estat">
 <!ENTITY main.statusbar.accesskey       "S">
-<!ENTITY main.resultsbar                "Barra de resultas">
+<!ENTITY main.resultsbar                "Barra de resultats">
 <!ENTITY main.resultsbar.accesskey      "R">
 <!ENTITY main.tabs                      "Onglets">
 <!ENTITY main.tabs.accesskey            "T">
@@ -92,15 +92,15 @@
 <!ENTITY main.back                      "Enrè">
 <!ENTITY main.forward                   "Endavant">
 <!ENTITY main.home                      "Acuèlh">
-<!ENTITY main.searchBar                 "Barra de cèrca">
-<!ENTITY main.search                    "Cèrca">
+<!ENTITY main.searchBar                 "Barra de recèrca">
+<!ENTITY main.search                    "Recèrca">
 <!ENTITY main.searchPlaceholder         "Entrar lo tèxte de recercar aicí...">
 <!ENTITY main.findInText                "Trobar dins lo tèxte">
 <!ENTITY main.noSearchBar               "Per cercar cal un fichièr ZIM indexat">
 <!ENTITY main.bookmarks                 "Onglets">
 
 <!-- Results bar -->
-<!ENTITY main.results.title             "Resulta de la cèrca">
+<!ENTITY main.results.title             "Resultat de la recèrca">
 
 <!-- Bookmarks Bar -->
 <!ENTITY main.bmkLabel                  "Onglets:">

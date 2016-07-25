@@ -148,15 +148,15 @@
 <!ENTITY main.library.sortBy.title              "Názvu">
 <!ENTITY main.library.sortBy.size               "Velikosti">
 <!ENTITY main.library.sortBy.date               "Data">
-<!ENTITY main.library.sortBy.author             "Autora">
+<!ENTITY main.library.sortBy.author             "Autor">
 <!ENTITY main.library.sortBy.publisher          "Vydavatele">
 <!ENTITY main.library.filterBy                  "Filtrovat podle">
 <!ENTITY main.library.filterBy.fileSize         "Velikosti souboru">
-<!ENTITY main.library.filterBy.language         "Jazyka">
+<!ENTITY main.library.filterBy.language         "Jazyk">
 <!ENTITY main.library.filterBy.language.all     "Všechny">
 <!ENTITY main.library.filterBy.author           "Autor">
 <!ENTITY main.library.filterBy.author.all       "Všichni">
-<!ENTITY main.library.filterBy.publisher        "Vydavatele">
+<!ENTITY main.library.filterBy.publisher        "Vydavatel">
 <!ENTITY main.library.filterBy.publisher.all    "Všechny">
 <!ENTITY main.library.filterBy.lessThan         "Méně než">
 

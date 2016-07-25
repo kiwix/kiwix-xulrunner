@@ -83,7 +83,7 @@
 <!ENTITY main.help                      "Aiuto">
 <!ENTITY main.help.accesskey            "i">
 <!ENTITY main.feedback                  "Feedback">
-<!ENTITY main.reportabug                "Segnala un malfunzionamento">
+<!ENTITY main.reportabug                "Segnala un errore">
 <!ENTITY main.requestafeature           "Richiedi una funzionalità">
 <!ENTITY main.about                     "Informazioni su &brand.brandShortName;">
 <!ENTITY main.about.accesskey           "n">

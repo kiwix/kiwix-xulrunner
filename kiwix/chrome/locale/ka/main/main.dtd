@@ -91,7 +91,7 @@
 <!-- Tool bar -->
 <!ENTITY main.back                      "უკან">
 <!ENTITY main.forward                   "გაგზავნა">
-<!ENTITY main.home                      "შინ">
+<!ENTITY main.home                      "მთავარი">
 <!ENTITY main.searchBar                 "საძიებო ველი">
 <!ENTITY main.search                    "ძიება">
 <!ENTITY main.searchPlaceholder         "შეიყვანეთ საძიებო ტექსტი...">

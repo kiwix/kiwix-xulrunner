@@ -21,13 +21,13 @@
 <!ENTITY main.saveFile.accesskey        "S">
 <!ENTITY main.print                     "ପ୍ରିଣ୍ଟ କରିବେ">
 <!ENTITY main.print.accesskey           "P">
-<!ENTITY main.printPdf                  "PDF ଆକାରରେ ପ୍ରିଣ୍ଟ କରିବେ">
+<!ENTITY main.printPdf                  "ପିଡିଏଫ ଆକାରରେ ପ୍ରିଣ୍ଟ କରିବେ">
 <!ENTITY main.printPdf.accesskey        "D">
 <!ENTITY main.quit                      "ଛାଡ଼ିବେ">
 <!ENTITY main.quit.accesskey            "Q">
 
 <!-- Edit menu -->
-<!ENTITY main.edit                      "ଏହାକୁ ବଦଳାନ୍ତୁ">
+<!ENTITY main.edit                      "ବଦଳାଇବେ">
 <!ENTITY main.edit.accesskey            "E">
 <!ENTITY main.find                      "ପୃଷ୍ଠା ଅନୁସାରେ ଖୋଜିବେ...">
 <!ENTITY main.find.accesskey            "S">
@@ -83,7 +83,7 @@
 <!ENTITY main.help                      "ସହଯୋଗ">
 <!ENTITY main.help.accesskey            "H">
 <!ENTITY main.feedback                  "ମତାମତ">
-<!ENTITY main.reportabug                "Bug ଟିଏ ଦାଖଲ କରିବେ">
+<!ENTITY main.reportabug                "ବଗ ଦାଖଲ କରିବେ">
 <!ENTITY main.requestafeature           "ଏକ ସୁବିଧା ନିମନ୍ତେ ଅନୁରୋଧ କରିବେ">
 <!ENTITY main.about                     "&brand.brandShortName; ବାବଦରେ">
 <!ENTITY main.about.accesskey           "A">
@@ -96,24 +96,24 @@
 <!ENTITY main.search                    "ଖୋଜିବେ">
 <!ENTITY main.searchPlaceholder         "ଖୋଜିବା ପାଇଁ ଚାହୁଁଥିବା ଶବ୍ଦଟିକୁ ଏଠାରେ ଲେଖନ୍ତୁ">
 <!ENTITY main.findInText                "ଲେଖାରେ ଖୋଜିବେ">
-<!ENTITY main.noSearchBar               "ଖୋଜିବା ନିମନ୍ତେ ଏକ ସୂଚି କରାହୋଇଥିବା ZIM ଫାଇଲ ଲୋଡ଼ା">
-<!ENTITY main.bookmarks                 "ବହିଚିହ୍ନକ">
+<!ENTITY main.noSearchBar               "ଖୋଜିବା ନିମନ୍ତେ ଏକ ସୂଚି କରାହୋଇଥିବା ଜିମ ଫାଇଲ ଲୋଡ଼ା">
+<!ENTITY main.bookmarks                 "ବୁକମାର୍କ">
 
 <!-- Results bar -->
 <!ENTITY main.results.title             "ଖୋଜା ଫଳାଫଳ">
 
 <!-- Bookmarks Bar -->
-<!ENTITY main.bmkLabel                  "ବହିଚିହ୍ନକ:">
-<!ENTITY main.notesLabel                "ବହିଚିହ୍ନକ ଟୀକା:">
-<!ENTITY main.loadbmk                   "ବହିଚିହ୍ନକ ଗୋଠ ଆମଦାନୀ କରିବେ">
-<!ENTITY main.newbmk                    "ନୂଆ ବହିଚିହ୍ନକ ଗୋଠ ତିଆରିବେ">
+<!ENTITY main.bmkLabel                  "ବୁକମାର୍କ">
+<!ENTITY main.notesLabel                "ବୁକମାର୍କ ଟୀକା:">
+<!ENTITY main.loadbmk                   "ବୁକମାର୍କ ଗୋଠ ଆମଦାନି କରିବେ">
+<!ENTITY main.newbmk                    "ନୂଆ ବୁକମାର୍କ ଗୋଠ ତିଆରିବେ">
 <!ENTITY main.mark                      "ଏଇ ପୃଷ୍ଠାଟିକୁ ଚିହ୍ନିତ କରିବେ">
 <!ENTITY main.unmark                    "ବଛାଯାଇଥିବା ବସ୍ତୁ ସବୁକୁ ବାଛିବେ ନାହିଁ">
-<!ENTITY main.reload                    "ବହିଚିହ୍ନକ ଗୋଠକୁ ଆଉଥରେ ଧାରଣ କରିବେ">
+<!ENTITY main.reload                    "ବୁକମାର୍କ ଗୋଠକୁ ଆଉଥରେ ଲୋଡ କରିବେ">
 <!ENTITY main.defaultset                "ଆପେଆପେ ଥିବା ଗୋଠ">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveMediaAs               "Save media as...">
+<!ENTITY main.saveMediaAs               "ମେଡ଼ିଅକୁ ସାଇତିବେ">
 <!ENTITY main.openLinkInNewTab          "ନୂଆ ଟ୍ୟାବରେ ଲିଙ୍କ ଖୋଲନ୍ତୁ">
 <!ENTITY main.searchFor                 "ଖୋଜନ୍ତୁ">
 <!ENTITY main.copyLinkAdress            "Copy link address">
@@ -143,7 +143,7 @@
 <!-- Library -->
 <!ENTITY main.library.myLibrary                 "ମୋ ପାଠାଗାର">
 <!ENTITY main.library.getNewFiles               "ନୂଆ ଫାଇଲ ପାଆନ୍ତୁ">
-<!ENTITY main.library.searchZimFiles            "ZIM ଫାଇଲ ସବୁ ପାଇଁ ଖୋଜିବେ">
+<!ENTITY main.library.searchZimFiles            "ଜିମ ଫାଇଲ ସବୁ ପାଇଁ ଖୋଜିବେ">
 <!ENTITY main.library.sortBy                    "ସଜାଡ଼ିବେ">
 <!ENTITY main.library.sortBy.title              "ଶିରୋନାମା">
 <!ENTITY main.library.sortBy.size               "ଆକାର">

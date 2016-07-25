@@ -3,10 +3,10 @@
 <!ENTITY main.cssdirection              "ltr">
 
 <!-- Mac menu -->
-<!ENTITY main.osxservices               "Services">
-<!ENTITY main.osxhideapp                "Hide &brand.brandShortName;">
-<!ENTITY main.osxhideothers             "Hide Others">
-<!ENTITY main.osxshowall                "Show All">
+<!ENTITY main.osxservices               "ಸೇವೆಲು">
+<!ENTITY main.osxhideapp                "ಅಡೆಂಗಲೆ ಬುಕ್ಕೊ ಮುದ್ರೆ ಪಾಡ್ಲೆ.ಮುದ್ರೆದ ಎಲ್ಯ ಪುದರ್">
+<!ENTITY main.osxhideothers             "ಬೇತೆನ್ ಅಡೆಂಗಲೆ">
+<!ENTITY main.osxshowall                "ಮಾಂತ ತೋಜಾವು">
 
 <!-- File menu -->
 <!ENTITY main.file                      "ಕಡತ">
@@ -14,7 +14,7 @@
 <!ENTITY main.openFile                  "ಕಡತ ಬಿಚ್ಚಾಲೆ">
 <!ENTITY main.browseLibrary.accesskey   "B">
 <!ENTITY main.browseLibrary             "ಗ್ರಂಥಾಲಯಡ್ ನಾಡ್‘ಲೆ">
-<!ENTITY main.hideLibrary               "Hide library">
+<!ENTITY main.hideLibrary               "ಗ್ರಂಥಾಲಯೊನು ಅಡೆಂಗಲೆ">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "ಇಂಚಿಪ ಬಿಚ್ಚಾಯಿನ">
 <!ENTITY main.saveFile                  "ಇಂಚ ಪುಟನ್ ಒರಿಪಾಲೆ">
@@ -35,11 +35,11 @@
 <!ENTITY main.selectall.accesskey       "a">
 <!ENTITY main.copy                      "ನಕಲ್ ಮಲ್ಪುಲೆ">
 <!ENTITY main.copy.accesskey            "p">
-<!ENTITY main.transliteration           "Transliteration">
+<!ENTITY main.transliteration           "ಲಿಪ್ಯಂತರೊ">
 <!ENTITY main.transliteration.accesskey "T">
-<!ENTITY main.preferences               "ಪ್ರಾಶಸ್ತ್ಯೊಲು">
+<!ENTITY main.preferences               "ಪ್ರಾಸಸ್ತ್ಯೊಲು">
 <!ENTITY main.preferences.accesskey     "n">
-<!ENTITY main.server                    "Server">
+<!ENTITY main.server                    "ಸರ್ವರ್">
 <!ENTITY main.server.accesskey          "s">
 
 <!-- Display menu -->
@@ -65,7 +65,7 @@
 <!ENTITY main.tabs.accesskey            "T">
 <!ENTITY main.fullscreen                "ಪೂರ್ಣ ಪರದೆ">
 <!ENTITY main.fullscreen.accesskey      "F">
-<!ENTITY main.invertedColors            "Inverted colors">
+<!ENTITY main.invertedColors            "ಅಡಿಮೇಲಾಯಿನ ಬಣ್ಣೊಲು">
 <!ENTITY main.invertedColors.accesskey  "I">
 
 <!-- Tools menu -->
@@ -75,7 +75,7 @@
 <!ENTITY main.randomArticle.accesskey   "R">
 <!ENTITY main.checkIntegrity            "ಸಮಗ್ರತೆದ ಪರೀಕ್ಶೆ">
 <!ENTITY main.checkIntegrity.accesskey  "k">
-<!ENTITY main.launchIndexing            "Launch indexing">
+<!ENTITY main.launchIndexing            "ಅನುಕ್ರಮಣಿಕೆನ್ ಕೊರ್ಲೆ">
 <!ENTITY main.purgeHistory              "ಚರಿತ್ರೆನ್ ಪಿದಾಯಿ ಪಾಡ್">
 <!ENTITY main.purgeHistory.accesskey    "P">
 
@@ -85,7 +85,7 @@
 <!ENTITY main.feedback                  "ಮರು ಮಾಹಿತಿ">
 <!ENTITY main.reportabug                "ತೊಂದರೆನ್ ತೆರಿಪಾಲೆ">
 <!ENTITY main.requestafeature           "ಒಂಜಿ ವಿಶೇಷ ಬರಹನ್ ಕೇನ್ಲೆ">
-<!ENTITY main.about                     "About &brand.brandShortName;">
+<!ENTITY main.about                     "ಬಗೆಟ್ ಬುಕ್ಕೊ ಮುದ್ರೆಡ್.ಮುದ್ರೆದ ಎಲ್ಯ ಪುದರ್">
 <!ENTITY main.about.accesskey           "A">
 
 <!-- Tool bar -->
@@ -94,7 +94,7 @@
 <!ENTITY main.home                      "ನಿಲೆ">
 <!ENTITY main.searchBar                 "ನಾಡ್‘ನ ಪಟ್ಟಿ">
 <!ENTITY main.search                    "ನಾಡ್‘ಲೆ">
-<!ENTITY main.searchPlaceholder         "Type the text to search here...">
+<!ENTITY main.searchPlaceholder         "ನಾಡ್‍ಯರ ಪದೊಕುಲೆನ್ ಸೇರಲೆ">
 <!ENTITY main.findInText                "ಪಠ್ಯಡ್ ತೂಲೆ">
 <!ENTITY main.noSearchBar               "ನಾಡ್ಯೆರ ಇಂಡೆಕ್ಸ್ ಮಲ್ಪ್ತಿನ ZIM ಕಡತ ಬೋಡು">
 <!ENTITY main.bookmarks                 "ಪುಟತ ಗುರುತು">
@@ -103,8 +103,8 @@
 <!ENTITY main.results.title             "ನಾಡಾಟದ ಪಲಿತಾಂಶೊಲು">
 
 <!-- Bookmarks Bar -->
-<!ENTITY main.bmkLabel                  "ಪುಟತ ಗುರುತು">
-<!ENTITY main.notesLabel                "ಪುಟೊತ ಗುರುತ್‘ದ ಟಿಪ್ಪಣಿ">
+<!ENTITY main.bmkLabel                  "ಪುಟತ ಗುರ್ತು">
+<!ENTITY main.notesLabel                "ಪುಟೊತ ಗುರ್ತುದ ಟಿಪ್ಪಣಿ">
 <!ENTITY main.loadbmk                   "ಪುಟೊತ ಗುರುತ್‘ಲೆನ್ ಆಮದು ಮಲ್ಪುಲೆ">
 <!ENTITY main.newbmk                    "ಪೊಸ ಪುಟೊತ ಗುರುತುಲೆನ್ ಸೃಷ್ಠಿ ಮಲ್ಪುಲೆ">
 <!ENTITY main.mark                      "ಈ ಪುಟೊನ್ ಗುರುತು ಮಲ್ಪುಲೆ">
@@ -113,12 +113,12 @@
 <!ENTITY main.defaultset                "ಇತ್ತೆ ಉಪ್ಪುನ ವ್ಯವಸ್ಥೆಲೆನ ಗುಂಪು">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveMediaAs               "Save media as...">
+<!ENTITY main.saveMediaAs               "ಪ್ರಚಾರೊದಂಚ ಒರಿಪಾಲೆ">
 <!ENTITY main.openLinkInNewTab          "ಪೊಸ ಪಟ್ಟಿಡ್ ಕೊಂಡಿ ಬಿಚ್ಚಾಲೆ">
 <!ENTITY main.searchFor                 "ನಾಡ್ಲೆ...">
 <!ENTITY main.copyLinkAdress            "Copy link address">
-<!ENTITY main.mute                      "Mute">
-<!ENTITY main.audible                   "Audible">
+<!ENTITY main.mute                      "ಮನಿಪ್ಪೊಡ್ಚಿ">
+<!ENTITY main.audible                   "ಕೇನಲೆ">
 
 <!-- About Window -->
 <!ENTITY main.close                     "ಮುಚ್ಚಿಲೆ">
@@ -131,21 +131,21 @@
 <!ENTITY preferences.dataDirectory      "Data directory">
 <!ENTITY preferences.browse             "ಕಣ್ಣಾಡಿಸಾಲೆ">
 <!ENTITY preferences.tabs               "ಸೂಚಿಕೆ ಪಟ್ಟಿನ್ ನೆನಪು ದೀಲೆ">
-<!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">
-<!ENTITY preferences.neverAskToIndex    "Never ask to index">
+<!ENTITY preferences.downloadCatalogs   "ದೂರೊದ ಪುಸ್ತಕೊದ ಪಟ್ಟಿಲೆನ್ ಕನಲೆ">
+<!ENTITY preferences.neverAskToIndex    "ಸೂಚ್ಯಂಕೊನು ಕೇನುಜಿ">
 
 <!-- Server -->
-<!ENTITY server.load                    "Load">
-<!ENTITY server.start                   "Start">
-<!ENTITY server.stop                    "Stop">
-<!ENTITY server.close                   "Close">
+<!ENTITY server.load                    "ದಿಂಜಾಲೆ">
+<!ENTITY server.start                   "ಸುರು">
+<!ENTITY server.stop                    "ಉಂತು">
+<!ENTITY server.close                   "ಮುಚ್ಚ್">
 
 <!-- Library -->
 <!ENTITY main.library.myLibrary                 "ಎನ್ನ ಗ್ರಂಥಾಲಯ">
 <!ENTITY main.library.getNewFiles               "ಪೊಸ ಕಡತನ್ ಪಡೆಲೆ">
 <!ENTITY main.library.searchZimFiles            "ZIM ಕಡತನ್ ನಾಡ್ಲೆ">
 <!ENTITY main.library.sortBy                    "ಪ್ರಕಾರ  ವಿಂಗಡಣೆ ಮಲ್ಪುಲೆ">
-<!ENTITY main.library.sortBy.title              "ಶೀರ್ಷಿಕೆ">
+<!ENTITY main.library.sortBy.title              "ತರೆಬರವು">
 <!ENTITY main.library.sortBy.size               "ಗಾತ್ರೊ">
 <!ENTITY main.library.sortBy.date               "ದಿನಾಂಕ">
 <!ENTITY main.library.sortBy.author             "ಬರೆನಾರ್">
@@ -158,5 +158,5 @@
 <!ENTITY main.library.filterBy.author.all       "ಮಾತಾ">
 <!ENTITY main.library.filterBy.publisher        "ಪ್ರಕಾಶಕೆ">
 <!ENTITY main.library.filterBy.publisher.all    "ಮಾತಾ">
-<!ENTITY main.library.filterBy.lessThan         "Less than">
+<!ENTITY main.library.filterBy.lessThan         "ಇಂದೆಡ್ದ್ ಕಡಮೆ">
 

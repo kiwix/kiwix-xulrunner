@@ -55,11 +55,11 @@
 <!ENTITY main.zoomorig.accesskey        "O">
 <!ENTITY main.language                  "ভাষা">
 <!ENTITY main.language.accesskey        "L">
-<!ENTITY main.skin                      "আবরণ (Skin)">
+<!ENTITY main.skin                      "আবরণ">
 <!ENTITY main.skin.accesskey            "S">
-<!ENTITY main.statusbar                 "অবস্থান বার">
+<!ENTITY main.statusbar                 "অবস্থা দণ্ড">
 <!ENTITY main.statusbar.accesskey       "S">
-<!ENTITY main.resultsbar                "ফলাফল বার">
+<!ENTITY main.resultsbar                "ফলাফল দণ্ড">
 <!ENTITY main.resultsbar.accesskey      "R">
 <!ENTITY main.tabs                      "ট্যাব">
 <!ENTITY main.tabs.accesskey            "T">
@@ -75,7 +75,7 @@
 <!ENTITY main.randomArticle.accesskey   "R">
 <!ENTITY main.checkIntegrity            "সম্পূর্ণতা পরীক্ষা">
 <!ENTITY main.checkIntegrity.accesskey  "k">
-<!ENTITY main.launchIndexing            "নির্ঘন্ট প্রকাশ করা হচ্ছে">
+<!ENTITY main.launchIndexing            "নির্ঘণ্ট প্রকাশ করা হচ্ছে">
 <!ENTITY main.purgeHistory              "পার্জ ইতিহাস">
 <!ENTITY main.purgeHistory.accesskey    "P">
 
@@ -132,7 +132,7 @@
 <!ENTITY preferences.browse             "ব্রাউজ">
 <!ENTITY preferences.tabs               "ট্যাব মনে রাখুন">
 <!ENTITY preferences.downloadCatalogs   "ক্যাটালগ ডাউনলোড করুন">
-<!ENTITY preferences.neverAskToIndex    "কখনই নির্ঘন্ট করা না হোক">
+<!ENTITY preferences.neverAskToIndex    "নির্ঘণ্ট করার জন্য কখনো জিজ্ঞেস করবেন না">
 
 <!-- Server -->
 <!ENTITY server.load                    "লোড">
