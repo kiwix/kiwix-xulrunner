@@ -20,9 +20,9 @@ libXapianAccessor_la_SOURCES= \
 	../../common/kiwix/ctpp2/CTPP2VMStringLoader.hpp \
 	../../common/kiwix/searcher.h \
 	../../common/kiwix/xapianSearcher.h
-libXapianAccessor_la_CXXFLAGS=$(LIBCTPP2_CFLAGS) $(LIBXUL_CFLAGS) $(XAPIAN_CFLAGS) $(ICU_CFLAGS) $(XPCOM_CFLAGS) -I/$(top_srcdir)/src/common/ -D GECKO_VERSION=$(GECKO_VERSION)
+libXapianAccessor_la_CXXFLAGS=$(LIBZIM_CFLAGS) $(LIBCTPP2_CFLAGS) $(LIBXUL_CFLAGS) $(XAPIAN_CFLAGS) $(ICU_CFLAGS) $(XPCOM_CFLAGS) -I/$(top_srcdir)/src/common/ -D GECKO_VERSION=$(GECKO_VERSION)
 
-libXapianAccessor_la_LDFLAGS=$(LIBCTPP2_LDFLAGS) $(LIBXUL_LDFLAGS) $(XAPIAN_LDFLAGS) $(ICU_LDFLAGS) $(XPCOM_LDFLAGS)
+libXapianAccessor_la_LDFLAGS=$(LIBZIM_LDFLAGS) $(LIBCTPP2_LDFLAGS) $(LIBXUL_LDFLAGS) $(XAPIAN_LDFLAGS) $(ICU_LDFLAGS) $(XPCOM_LDFLAGS)
 
 EXTRA_DIST=*.idl
 BUILT_SOURCES=xapianAccessor.xpt IXapianAccessor.h
