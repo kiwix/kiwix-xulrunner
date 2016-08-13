@@ -322,16 +322,16 @@ XAPIAN_CFLAGS=""
 XAPIAN_LDFLAGS="-lxapian -lrt"
 XAPIAN_STATIC_LDFLAGS=""
 COMPILE_XAPIAN=0
-COMPILED_XAPIAN_CFLAGS="-I${DEP_PATH}/xapian-core-1.3.7/include/"
+COMPILED_XAPIAN_CFLAGS="-I${DEP_PATH}/xapian-core-1.4.0/include/"
 if test [ $IS_WIN -eq 1 ] ; then
-    COMPILED_XAPIAN_FILES="${DEP_PATH}/xapian-core-1.3.7/win32/Release/libs/libunicode.lib"
+    COMPILED_XAPIAN_FILES="${DEP_PATH}/xapian-core-1.4.0/win32/Release/libs/libunicode.lib"
 else
-    COMPILED_XAPIAN_LDFLAGS="-L${DEP_PATH}/xapian-core-1.3.7/.libs -lxapian -lrt"
-    COMPILED_XAPIAN_FILES="${DEP_PATH}/xapian-core-1.3.7/.libs/libxapian.${SHARED_EXT}"
-    COMPILED_XAPIAN_STATIC_LDFLAGS="${DEP_PATH}/xapian-core-1.3.7/.libs/libxapian.a"
+    COMPILED_XAPIAN_LDFLAGS="-L${DEP_PATH}/xapian-core-1.4.0/.libs -lxapian -lrt"
+    COMPILED_XAPIAN_FILES="${DEP_PATH}/xapian-core-1.4.0/.libs/libxapian.${SHARED_EXT}"
+    COMPILED_XAPIAN_STATIC_LDFLAGS="${DEP_PATH}/xapian-core-1.4.0/.libs/libxapian.a"
 fi
 XAPIAN_COMPACT=""
-COMPILED_XAPIAN_COMPACT="${DEP_PATH}/xapian-core-1.3.7/build/bin/xapian-compact"
+COMPILED_XAPIAN_COMPACT="${DEP_PATH}/xapian-core-1.4.0/build/bin/xapian-compact"
 
 ICU_CFLAGS=""
 ICU_LDFLAGS="-licui18n -licuuc -licudata" # replaced by icu-config
@@ -384,12 +384,12 @@ LIBZIM_LDFLAGS=" -lzim"
 LIBZIM_STATIC_LDFLAGS=""
 COMPILE_LIBZIM=0
 if test [ $IS_WIN -eq 1 ] ; then
-	COMPILED_LIBZIM_FILES="${DEP_PATH}/zimlib-1.2/src/zim.lib"
+	COMPILED_LIBZIM_FILES="${DEP_PATH}/zimlib-1.3/src/zim.lib"
 else
-	COMPILED_LIBZIM_CFLAGS="-I${DEP_PATH}/zimlib-1.2/include"
-	COMPILED_LIBZIM_LDFLAGS="-L${DEP_PATH}/zimlib-1.2/build/lib -lzim"
-	COMPILED_LIBZIM_STATIC_LDFLAGS="${DEP_PATH}/zimlib-1.2/build/lib/libzim.a"
-	COMPILED_LIBZIM_FILES="${DEP_PATH}/zimlib-1.2/build/lib/libzim.${SHARED_EXT}"
+	COMPILED_LIBZIM_CFLAGS="-I${DEP_PATH}/zimlib-1.3/include"
+	COMPILED_LIBZIM_LDFLAGS="-L${DEP_PATH}/zimlib-1.3/build/lib -lzim"
+	COMPILED_LIBZIM_STATIC_LDFLAGS="${DEP_PATH}/zimlib-1.3/build/lib/libzim.a"
+	COMPILED_LIBZIM_FILES="${DEP_PATH}/zimlib-1.3/build/lib/libzim.${SHARED_EXT}"
 fi
 
 LIBPUGIXML_CFLAGS=" -I${prefix}/include"
