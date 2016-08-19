@@ -207,7 +207,10 @@ xapian-core-1.4.0/.libs/libxapian.so: xapian-core-1.4.0
 	CXXFLAGS=" -fPIC -L${CURRENT_PATH}/src/dependencies/zlib-1.2.8"
 	cd xapian-core-1.4.0 && ./configure --enable-shared --enable-static --disable-sse --disable-backend-inmemory
 	cd xapian-core-1.4.0 && make
+	cp xapian-core-1.4.0/.libs/libxapian-1.4.so xapian-core-1.4.0/.libs/libxapian.so
+	cp xapian-core-1.4.0/.libs/libxapian-1.4.a xapian-core-1.4.0/.libs/libxapian.a
 	touch xapian-core-1.4.0/.libs/libxapian.so
+	touch xapian-core-1.4.0/.libs/libxapian.a
 
 # OSX Join
 xapian-core-1.2.3/build/lib/libxapian.dylib xapian-core-1.2.3/build/bin/xapian-compact: xapian-core-1.2.3/build-i386/lib/libxapian.dylib xapian-core-1.2.3/build-x86_64/lib/libxapian.dylib xapian-core-1.2.3/build-i386/bin/xapian-compact xapian-core-1.2.3/build-x86_64/bin/xapian-compact
