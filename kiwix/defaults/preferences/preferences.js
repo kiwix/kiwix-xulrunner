@@ -91,7 +91,7 @@ pref("accessibility.typeaheadfind.flashBar", 1);
 pref("dom.allow_scripts_to_close_windows", true);
 
 /* Online library */
-pref("kiwix.libraryUrls", "http://www.kiwix.org/library.xml");
+pref("kiwix.libraryUrls", "https://download.kiwix.org/library/library.xml");
 
 /* Enable High DPI Sugar UI tweaks */
 pref("kiwix.isHighDPI", false);
