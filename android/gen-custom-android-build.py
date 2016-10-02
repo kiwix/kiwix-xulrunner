@@ -84,7 +84,7 @@ REQUIRED_FIELDS = ('app_name', 'package', 'version_name', 'version_code',
                    'zim_file')
 
 USELESS_PERMISSIONS = ['WRITE_EXTERNAL_STORAGE',
-                       'INTERNET', 'ACCESS_NETWORK_STATE']
+                       'INTERNET']
 
 # the directory of this file for relative referencing
 CURRENT_PATH = os.path.dirname(os.path.abspath(__file__))
@@ -247,7 +247,7 @@ def step_prepare_launcher_icons(jsdata, **options):
                         p=256,
                         outf=os.path.join(ANDROID_PATH, 'res',
                                           'drawable',
-                                          'splash_screen.png')))
+                                          'kiwix_icon_with_title.png')))
 
 def step_update_branding_xml(jsdata, **options):
     ''' change app_name value in branding.xml '''
@@ -331,6 +331,15 @@ def step_update_xml_nodes(jsdata, **options):
                                 'xml', from_encoding='utf-8')
     item = soup.find('org.kiwix.kiwixmobile.views.SliderPreference')
     item.name = '{}.views.SliderPreference'.format(jsdata.get('package'))
+    flushxml(soup, 'PreferenceScreen', preferences_xml, head=False)
+    
+    # rename settings.CustomSwitchPreference node in res/xml/preferences.xml
+    preferences_xml = os.path.join(ANDROID_PATH, 'res', 'xml',
+                                   'preferences.xml')
+    soup = soup = BeautifulSoup(open(preferences_xml, 'r'),
+                                'xml', from_encoding='utf-8')
+    for item in soup.findAll('org.kiwix.kiwixmobile.settings.CustomSwitchPreference'):
+        item.name = '{}.settings.CustomSwitchPreference'.format(jsdata.get('package'))
     flushxml(soup, 'PreferenceScreen', preferences_xml, head=False)
 
     # rename AnimatedProgressBar node in res/layout/toolbar.xml

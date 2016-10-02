@@ -226,7 +226,9 @@ public class KiwixSettingsActivity extends AppCompatActivity {
 
       try {
         version = getActivity().getPackageManager()
-            .getPackageInfo("org.kiwix.kiwixmobile", 0).versionName;
+            .getPackageInfo("org.kiwix.kiwixmobile", 0).versionName + " Build: " +
+            getActivity().getPackageManager()
+            .getPackageInfo("org.kiwix.kiwixmobile", 0).versionCode;
       } catch (PackageManager.NameNotFoundException e) {
         return;
       }
@@ -299,25 +301,6 @@ public class KiwixSettingsActivity extends AppCompatActivity {
       dialogFragment.setOnSelectListener(this);
       dialogFragment.show(fm, getResources().getString(R.string.pref_storage));
 
-    }
-    @Override
-    public void onActivityResult(int requestCode, int resultCode,
-                                 Intent resultData) {
-
-      // The ACTION_OPEN_DOCUMENT intent was sent with the request code
-      // READ_REQUEST_CODE. If the request code seen here doesn't match, it's the
-      // response to some other intent, and the code below shouldn't run at all.
-
-      if (requestCode == 1 && resultCode == Activity.RESULT_OK) {
-        // The document selected by the user won't be returned in the intent.
-        // Instead, a URI to that document will be contained in the return intent
-        // provided to this method as a parameter.
-        // Pull that URI using resultData.getData().
-        Uri uri = null;
-        if (resultData != null) {
-          uri = resultData.getData();
-        }
-      }
     }
 
     @Override

@@ -109,7 +109,7 @@
   <string name="no_files_here">No Files Here</string>
   <string name="download_complete_snackbar">Download complete</string>
   <string name="download_over_network">Are you sure you want to start the download without WiFi?</string>
-  <string name="download_no_space">Insufficient space to download this file</string>
+  <string name="download_no_space">Insufficient space to download this file (You can change the default storage device in settings)</string>
   <string name="space_available">Space Available:</string>
   <string name="zim_simple">Simple</string>
   <string name="zim_nopic">No Pictures</string>
@@ -141,4 +141,7 @@
   <string name="help_21">We are glad to have you on board and would appreciate any feedback or suggestions.</string>
   <string name="pref_storage">Storage</string>
   <string name="pref_current_folder">Current Folder</string>
+  <string name="path_not_writable">Can not access desired directory, using default. To fix this reselect the desired directory in app settings.</string>
+  <string name="pref_full_text_search_title">Fulltext Search</string>
+  <string name="pref_full_text_search_summary">Allow app to search the text within articles. Caution this can slow search down considerably.</string>
 </resources>

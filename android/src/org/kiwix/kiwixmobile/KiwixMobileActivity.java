@@ -146,6 +146,8 @@ public class KiwixMobileActivity extends AppCompatActivity {
 
   private static final String PREF_NEWTAB_BACKGROUND = "pref_newtab_background";
 
+  public static final String PREF_FULL_TEXT_SEARCH = "pref_full_text_search";
+
   private static final int REQUEST_FILE_SELECT = 1234;
 
   private static final int REQUEST_PREFERENCES = 1235;
@@ -291,6 +293,8 @@ public class KiwixMobileActivity extends AppCompatActivity {
     getWindow().setFeatureInt(Window.FEATURE_PROGRESS, Window.PROGRESS_VISIBILITY_ON);
 
     toolbar = (Toolbar) findViewById(R.id.toolbar);
+    toolbar.setPadding(0,0,0,0);
+    toolbar.setContentInsetsAbsolute(0,0);
     setSupportActionBar(toolbar);
 
     settings = PreferenceManager.getDefaultSharedPreferences(this);
@@ -922,7 +926,7 @@ public class KiwixMobileActivity extends AppCompatActivity {
   public boolean openZimFile(File file, boolean clearHistory) {
     if (ContextCompat.checkSelfPermission(this,
         Manifest.permission.READ_EXTERNAL_STORAGE)
-        == PackageManager.PERMISSION_GRANTED || Build.VERSION.SDK_INT < 19) {
+        == PackageManager.PERMISSION_GRANTED || Build.VERSION.SDK_INT < 19 || (Constants.IS_CUSTOM_APP && Build.VERSION.SDK_INT != 23)) {
       if (file.exists()) {
         if (ZimContentProvider.setZimFile(file.getAbsolutePath()) != null) {
 
