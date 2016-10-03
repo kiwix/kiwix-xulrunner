@@ -350,6 +350,18 @@ function computeLevenshteinDistance(s1, s2) {
 /* Check if we have a current search index */
 function checkSearchIndex() {
     var currentBook = library.getCurrentBook();
-    return (currentBook && currentBook.indexPath.length > 0 &&
-        openSearchIndex(currentBook.indexPath, true));
+    if (!currentBook)
+        return false;
+
+    if (currentBook.indexPath.length > 0)
+        return openSearchIndex(currentBook.indexPath, true);
+
+    if (currentBook.path.length > 0 &&
+        openSearchIndex(currentBook.path, true))
+    {
+        library.setBookIndex(currentBook.id, currentBook.path);
+        return true;
+    }
+
+    return false;
 }
