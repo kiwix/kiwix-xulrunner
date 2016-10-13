@@ -384,12 +384,12 @@ LIBZIM_LDFLAGS=" -lzim"
 LIBZIM_STATIC_LDFLAGS=""
 COMPILE_LIBZIM=0
 if test [ $IS_WIN -eq 1 ] ; then
-	COMPILED_LIBZIM_FILES="${DEP_PATH}/zimlib-1.3/src/zim.lib"
+	COMPILED_LIBZIM_FILES="${DEP_PATH}/zimlib-1.4/src/zim.lib"
 else
-	COMPILED_LIBZIM_CFLAGS="-I${DEP_PATH}/zimlib-1.3/include"
-	COMPILED_LIBZIM_LDFLAGS="-L${DEP_PATH}/zimlib-1.3/build/lib -lzim"
-	COMPILED_LIBZIM_STATIC_LDFLAGS="${DEP_PATH}/zimlib-1.3/build/lib/libzim.a"
-	COMPILED_LIBZIM_FILES="${DEP_PATH}/zimlib-1.3/build/lib/libzim.${SHARED_EXT}"
+	COMPILED_LIBZIM_CFLAGS="-I${DEP_PATH}/zimlib-1.4/include"
+	COMPILED_LIBZIM_LDFLAGS="-L${DEP_PATH}/zimlib-1.4/build/lib -lzim"
+	COMPILED_LIBZIM_STATIC_LDFLAGS="${DEP_PATH}/zimlib-1.4/build/lib/libzim.a"
+	COMPILED_LIBZIM_FILES="${DEP_PATH}/zimlib-1.4/build/lib/libzim.${SHARED_EXT}"
 fi
 
 LIBPUGIXML_CFLAGS=" -I${prefix}/include"

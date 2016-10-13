@@ -524,40 +524,40 @@ android-sdk: $(ANDROID_SDK_FILE)
 	tar -xvf $(ANDROID_SDK_FILE)
 	touch android-sdk
 
-android-deps: android-ndk android-sdk icudt49l.dat xz icu xapian-core-1.4.0 zimlib-1.3 zimlib-1.3/build/lib/libzim.${SHARED_EXT}
+android-deps: android-ndk android-sdk icudt49l.dat xz icu xapian-core-1.4.0 zimlib-1.4 zimlib-1.4/build/lib/libzim.${SHARED_EXT}
 	true
 
 ####################################################
 ############ ZIMLIB
 ####################################################
-zimlib-1.3.tar.gz:
-	$(DOWNLOADER) zimlib-1.3.tar.gz $(DEP_MIRROR)/zimlib-1.3.tar.gz
+zimlib-1.4.tar.gz:
+	$(DOWNLOADER) zimlib-1.4.tar.gz $(DEP_MIRROR)/zimlib-1.4.tar.gz
 
-zimlib-1.3: zimlib-1.3.tar.gz
-	tar xf zimlib-1.3.tar.gz
+zimlib-1.4: zimlib-1.4.tar.gz
+	tar xf zimlib-1.4.tar.gz
 
 # OSX i386
-zimlib-1.3/build-i386/lib/libzim.dylib zimlib-1.3/build-i386/lib/libzim.a: zimlib-1.3 xz/build/lib/liblzma.dylib
-	test ! -f zimlib-1.3/build-i386/lib/libzim.dylib && cd zimlib-1.3 && mkdir -p build-i386 && CPPFLAGS="-I${DEP_PATH}/xz/build-i386/include" CXXFLAGS=" -stdlib=libstdc++ -std=c++11 -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE" CC="$(CC32)" CXX="$(CXX32)" LDFLAGS=" -L$(DEP_PATH)/xz/build/lib " ./configure --enable-shared --disable-dependency-tracking --with-pic --prefix=$(DEP_PATH)/zimlib-1.3/build-i386 --enable-static --disable-libtool-lock && make clean && make && make install && install_name_tool -id libzim.dylib build-i386/lib/libzim.dylib || true
+zimlib-1.4/build-i386/lib/libzim.dylib zimlib-1.4/build-i386/lib/libzim.a: zimlib-1.4 xz/build/lib/liblzma.dylib
+	test ! -f zimlib-1.4/build-i386/lib/libzim.dylib && cd zimlib-1.4 && mkdir -p build-i386 && CPPFLAGS="-I${DEP_PATH}/xz/build-i386/include" CXXFLAGS=" -stdlib=libstdc++ -std=c++11 -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE" CC="$(CC32)" CXX="$(CXX32)" LDFLAGS=" -L$(DEP_PATH)/xz/build/lib " ./configure --enable-shared --disable-dependency-tracking --with-pic --prefix=$(DEP_PATH)/zimlib-1.4/build-i386 --enable-static --disable-libtool-lock && make clean && make && make install && install_name_tool -id libzim.dylib build-i386/lib/libzim.dylib || true
 
 # OSX x86_64
-zimlib-1.3/build-x86_64/lib/libzim.dylib zimlib-1.3/build-x86_64/lib/libzim.a: zimlib-1.3 xz/build/lib/liblzma.dylib
-	test ! -f zimlib-1.3/build-x86_64/lib/libzim.dylib && cd zimlib-1.3 && mkdir -p build-x86_64 && CPPFLAGS="-I${DEP_PATH}/xz/build-x86_64/include" CXXFLAGS=" -stdlib=libstdc++ -std=c++11 -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE" CC="$(CC64)" CXX="$(CXX64)" LDFLAGS=" -L$(DEP_PATH)/xz/build/lib " ./configure --enable-shared --disable-dependency-tracking --with-pic --prefix=$(DEP_PATH)/zimlib-1.3/build-x86_64 --enable-static --disable-libtool-lock && make clean && make && make install && install_name_tool -id libzim.dylib build-x86_64/lib/libzim.dylib || true
+zimlib-1.4/build-x86_64/lib/libzim.dylib zimlib-1.4/build-x86_64/lib/libzim.a: zimlib-1.4 xz/build/lib/liblzma.dylib
+	test ! -f zimlib-1.4/build-x86_64/lib/libzim.dylib && cd zimlib-1.4 && mkdir -p build-x86_64 && CPPFLAGS="-I${DEP_PATH}/xz/build-x86_64/include" CXXFLAGS=" -stdlib=libstdc++ -std=c++11 -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE" CC="$(CC64)" CXX="$(CXX64)" LDFLAGS=" -L$(DEP_PATH)/xz/build/lib " ./configure --enable-shared --disable-dependency-tracking --with-pic --prefix=$(DEP_PATH)/zimlib-1.4/build-x86_64 --enable-static --disable-libtool-lock && make clean && make && make install && install_name_tool -id libzim.dylib build-x86_64/lib/libzim.dylib || true
 
 # OSX Join
-zimlib-1.3/build/lib/libzim.dylib zimlib-1.3/build/lib/libzim.a: zimlib-1.3/build-i386/lib/libzim.dylib zimlib-1.3/build-x86_64/lib/libzim.dylib zimlib-1.3/build-i386/lib/libzim.a zimlib-1.3/build-x86_64/lib/libzim.a
-	test ! -f zimlib-1.3/build/lib/libzim.dylib && mkdir -p zimlib-1.3/build/lib && cd zimlib-1.3/build/lib && lipo ../../build-x86_64/lib/libzim.dylib ../../build-i386/lib/libzim.dylib -create -output libzim.dylib && lipo ../../build-x86_64/lib/libzim.a ../../build-i386/lib/libzim.a -create -output libzim.a && install_name_tool -id libzim.dylib libzim.dylib && install_name_tool -change /usr/lib/libc++.1.dylib /usr/lib/libstdc++.6.dylib libzim.dylib || true
+zimlib-1.4/build/lib/libzim.dylib zimlib-1.4/build/lib/libzim.a: zimlib-1.4/build-i386/lib/libzim.dylib zimlib-1.4/build-x86_64/lib/libzim.dylib zimlib-1.4/build-i386/lib/libzim.a zimlib-1.4/build-x86_64/lib/libzim.a
+	test ! -f zimlib-1.4/build/lib/libzim.dylib && mkdir -p zimlib-1.4/build/lib && cd zimlib-1.4/build/lib && lipo ../../build-x86_64/lib/libzim.dylib ../../build-i386/lib/libzim.dylib -create -output libzim.dylib && lipo ../../build-x86_64/lib/libzim.a ../../build-i386/lib/libzim.a -create -output libzim.a && install_name_tool -id libzim.dylib libzim.dylib && install_name_tool -change /usr/lib/libc++.1.dylib /usr/lib/libstdc++.6.dylib libzim.dylib || true
 
 # Linux
-zimlib-1.3/build/lib/libzim.so: zimlib-1.3 xz/build/lib/liblzma.so
-	test ! -f zimlib-1.3/build/lib/libzim.so && cd zimlib-1.3 && mkdir -p build && CC="$(COMPC)" CXX="$(COMPCXX)" CFLAGS="-I$(DEP_PATH)/xz/build/include" CXXFLAGS=" -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -I$(DEP_PATH)/xz/build/include" LDFLAGS="-L$(DEP_PATH)/xz/build/lib" ./configure --enable-shared --with-pic --prefix=$(DEP_PATH)/zimlib-1.3/build --enable-static --disable-libtool-lock && make clean && echo "#undef HAVE_STAT64" >> src/config.h && echo "#undef HAVE_OPEN64" >> src/config.h && make && make install || true
+zimlib-1.4/build/lib/libzim.so: zimlib-1.4 xz/build/lib/liblzma.so
+	test ! -f zimlib-1.4/build/lib/libzim.so && cd zimlib-1.4 && mkdir -p build && CC="$(COMPC)" CXX="$(COMPCXX)" CFLAGS="-I$(DEP_PATH)/xz/build/include" CXXFLAGS=" -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -I$(DEP_PATH)/xz/build/include" LDFLAGS="-L$(DEP_PATH)/xz/build/lib" ./configure --enable-shared --with-pic --prefix=$(DEP_PATH)/zimlib-1.4/build --enable-static --disable-libtool-lock && make clean && echo "#undef HAVE_STAT64" >> src/config.h && echo "#undef HAVE_OPEN64" >> src/config.h && make && make install || true
 
 # Win32
-zimlib-1.3/src/config.h: zimlib-1.3
-	test ! -f zimlib-1.3/src/config.h && cp patches/zimlib_config.h zimlib-1.3/src/config.h && cd zimlib-1.3 || true
+zimlib-1.4/src/config.h: zimlib-1.4
+	test ! -f zimlib-1.4/src/config.h && cp patches/zimlib_config.h zimlib-1.4/src/config.h && cd zimlib-1.4 || true
 
-zimlib-1.3/src/zim.lib: zimlib-1.3 zimlib-1.3/src/config.h xz-win/bin_i486/liblzma.lib zlib-1.2.8/zlib.lib
-	test ! -f zimlib-1.3/src/zim.lib && cd zimlib-1.3/src && cp ../../patches/Makefile.zimlib.msvc Makefile.msvc && cat dirent.cpp | grep -v "const uint16_t Dirent::" > tmp && cp tmp dirent.cpp && make -f Makefile.msvc || true
+zimlib-1.4/src/zim.lib: zimlib-1.4 zimlib-1.4/src/config.h xz-win/bin_i486/liblzma.lib zlib-1.2.8/zlib.lib
+	test ! -f zimlib-1.4/src/zim.lib && cd zimlib-1.4/src && cp ../../patches/Makefile.zimlib.msvc Makefile.msvc && cat dirent.cpp | grep -v "const uint16_t Dirent::" > tmp && cp tmp dirent.cpp && make -f Makefile.msvc || true
 
 
 ####################################################
@@ -637,7 +637,7 @@ DISTCLEANFILES= xulrunner-sdk.tar.bz2 \
 	e2fsprogs-1.42.tar.gz \
 	argtable2-13.tar.gz \
 	pthread-win32.zip \
-	zimlib-1.3.tar.gz \
+	zimlib-1.4.tar.gz \
 	gettext-0.18.3.2.tar.gz \
 	ctpp2-2.8.3.tar.gz \
 	icudt49l.dat \
@@ -659,7 +659,7 @@ clean-local:
 	-rm -rf e2fsprogs-1.42
 	-rm -rf argtable2-13
 	-rm -rf pthread-win32
-	-rm -rf zimlib-1.3
+	-rm -rf zimlib-1.4
 	-rm -rf aria2c-1.18.5-universal
 	-rm -rf XUL.framework
 	-rm -rf gettext-0.18.3.2
