@@ -245,25 +245,17 @@ xapian-core-1.2.3/win32/Release/libs/libunicode.lib: xapian-core-1.2.3 xapian-co
 ####################################################
 
 # This files gathers ICU related data. It's a custom one generated
-# with http://apps.icu-project.org/datacustom/ICUData49.html. It
+# with http://apps.icu-project.org/datacustom/ICUData56.html. It
 # contains Break iterators, Collators and Transliterators.
-icudt49l.dat:
-	$(DOWNLOADER) icudt49l.dat $(DEP_MIRROR)/icudt49l.dat
+icudt56l.dat:
+	$(DOWNLOADER) icudt56l.dat $(DEP_MIRROR)/icudt56l.dat
 
-icu4c-4_4_2-src.tgz:
-	$(DOWNLOADER) icu4c-4_4_2-src.tgz $(DEP_MIRROR)/icu4c-4_4_2-src.tgz
+icu4c-56_1-src.tgz: icudt56l.dat
+	$(DOWNLOADER) icu4c-56_1-src.tgz $(DEP_MIRROR)/icu4c-56_1-src.tgz
 
-icu4c-49_1_1-src.tgz: icudt49l.dat
-	$(DOWNLOADER) icu4c-49_1_1-src.tgz $(DEP_MIRROR)/icu4c-49_1_1-src.tgz
-
-if IS_OLD_ICU
-icu: icu4c-4_4_2-src.tgz
-	test -d icu || tar xf icu4c-4_4_2-src.tgz
-else
-icu: icu4c-49_1_1-src.tgz
-	test -d icu || tar xf icu4c-49_1_1-src.tgz
-	cp icudt49l.dat icu/source/data/in/icudt49l.dat
-endif
+icu: icu4c-56_1_1-src.tgz
+	test -d icu || tar xf icu4c-56_1-src.tgz
+	cp icudt56l.dat icu/source/data/in/icudt56l.dat
 
 # Linux
 icu/source/build/lib/libicudata.so icu/source/lib/libicuuc.so icu/source/build/lib/libicui18n.so: icu
@@ -274,17 +266,17 @@ icu/source/build/lib/libicudata.dylib icu/source/build/lib/libicuuc.dylib icu/so
 	test ! -f icu/source/build/lib/libicudata.dylib && mkdir -p icu/source/build/{bin,lib} && cd icu/source/build/lib && lipo $(DEP_PATH)/icu-x86_64/icu/source/build/lib/libicudata.dylib $(DEP_PATH)/icu-i386/icu/source/build/lib/libicudata.dylib -create -output libicudata.dylib && lipo $(DEP_PATH)/icu-x86_64/icu/source/build/lib/libicuuc.dylib $(DEP_PATH)/icu-i386/icu/source/build/lib/libicuuc.dylib -create -output libicuuc.dylib && lipo $(DEP_PATH)/icu-x86_64/icu/source/build/lib/libicui18n.dylib $(DEP_PATH)/icu-i386/icu/source/build/lib/libicui18n.dylib -create -output libicui18n.dylib && lipo $(DEP_PATH)/icu-x86_64/icu/source/build/lib/libicudata.a $(DEP_PATH)/icu-i386/icu/source/build/lib/libicudata.a -create -output libicudata.a && lipo $(DEP_PATH)/icu-x86_64/icu/source/build/lib/libicuuc.a $(DEP_PATH)/icu-i386/icu/source/build/lib/libicuuc.a -create -output libicuuc.a && lipo $(DEP_PATH)/icu-x86_64/icu/source/build/lib/libicui18n.a $(DEP_PATH)/icu-i386/icu/source/build/lib/libicui18n.a -create -output libicui18n.a && cp -r $(DEP_PATH)/icu-i386/icu/source/build/include ../  && install_name_tool -id libicudata.dylib libicudata.dylib && install_name_tool -id libicuuc.dylib libicuuc.dylib && install_name_tool -id libicui18n.dylib libicui18n.dylib || true
 
 # OSX i386
-icu-i386/icu: icu4c-49_1_1-src.tgz
-	test -d icu-i386/icu || mkdir -p icu-i386 && tar -C icu-i386 -xf icu4c-49_1_1-src.tgz
-	cp icudt49l.dat icu-i386/icu/source/data/in/icudt49l.dat
+icu-i386/icu: icu4c-56_1_1-src.tgz
+	test -d icu-i386/icu || mkdir -p icu-i386 && tar -C icu-i386 -xf icu4c-56_1_1-src.tgz
+	cp icudt56l.dat icu-i386/icu/source/data/in/icudt56l.dat
 
 icu-i386/icu/source/build/lib/libicudata.dylib icu-i386/icu/source/build/lib/libicuuc.dylib icu-i386/icu/source/build/lib/libicui18n.dylib: icu-i386/icu
 	test ! -f icu-i386/icu/source/build/lib/libicudata.dylib && cd icu-i386/icu/source && mkdir -p build && CC="$(CCU)" CFLAGS=" -fPIC " ./runConfigureICU MacOSX --prefix=`pwd`/build --with-library-bits=32 --disable-samples --disable-tests --disable-extras --enable-static --disable-dyload --with-data-packaging=archive && make clean && make && make install && install_name_tool -id libicudata.dylib build/lib/libicudata.dylib && install_name_tool -id libicuuc.dylib build/lib/libicuuc.dylib && install_name_tool -id libicui18n.dylib build/lib/libicui18n.dylib || true
 
 # OSX x86_64
-icu-x86_64/icu: icu4c-49_1_1-src.tgz
-	test -d icu-x86_64/icu || mkdir -p icu-x86_64 && tar -C icu-x86_64 -xf icu4c-49_1_1-src.tgz
-	cp icudt49l.dat icu-x86_64/icu/source/data/in/icudt49l.dat
+icu-x86_64/icu: icu4c-56_1_1-src.tgz
+	test -d icu-x86_64/icu || mkdir -p icu-x86_64 && tar -C icu-x86_64 -xf icu4c-56_1_1-src.tgz
+	cp icudt56l.dat icu-x86_64/icu/source/data/in/icudt56l.dat
 
 icu-x86_64/icu/source/build/lib/libicudata.dylib icu-x86_64/icu/source/build/lib/libicuuc.dylib icu-x86_64/icu/source/build/lib/libicui18n.dylib: icu-x86_64/icu
 	test ! -f icu-x86_64/icu/source/build/lib/libicudata.dylib && cd icu-x86_64/icu/source && mkdir -p build && CC="$(CCU) -m64" CFLAGS=" -fPIC " ./runConfigureICU MacOSX --prefix=`pwd`/build --with-library-bits=64 --disable-samples --disable-tests --disable-extras --enable-static --disable-dyload --with-data-packaging=archive && make clean && make && make install && install_name_tool -id libicudata.dylib build/lib/libicudata.dylib && install_name_tool -id libicuuc.dylib build/lib/libicuuc.dylib && install_name_tool -id libicui18n.dylib build/lib/libicui18n.dylib || true
@@ -524,7 +516,7 @@ android-sdk: $(ANDROID_SDK_FILE)
 	tar -xvf $(ANDROID_SDK_FILE)
 	touch android-sdk
 
-android-deps: android-ndk android-sdk icudt49l.dat xz icu xapian-core-1.4.0 zimlib-1.4 zimlib-1.4/build/lib/libzim.${SHARED_EXT}
+android-deps: android-ndk android-sdk icudt56l.dat xz icu xapian-core-1.4.0 zimlib-1.4 zimlib-1.4/build/lib/libzim.${SHARED_EXT}
 	true
 
 ####################################################
@@ -623,9 +615,9 @@ DISTCLEANFILES= xulrunner-sdk.tar.bz2 \
 	xulrunner-win.zip \
 	zlib.tar.gz \
 	xapian-win32.zip \
-	icu4c-4_4_2-src.tgz \
 	icu4c-49_1_1-Win32-msvc10.zip \
-	icu4c-49_1_1-src.tgz \
+        icu4c-56_1_1-src.tgz \
+	icudt56l.dat \
 	icu.zip \
 	pugixml*.tar.gz \
 	libmicrohttpd-0.9.19.tar.gz \
@@ -640,7 +632,6 @@ DISTCLEANFILES= xulrunner-sdk.tar.bz2 \
 	zimlib-1.4.tar.gz \
 	gettext-0.18.3.2.tar.gz \
 	ctpp2-2.8.3.tar.gz \
-	icudt49l.dat \
 	zimlib-master.zip \
 	kiwix-osx-xulrunner-bin \
 	libiconv-1.13.1.tar.gz \
