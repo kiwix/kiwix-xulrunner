@@ -346,7 +346,7 @@ else
 	COMPILED_ICU_CFLAGS="-I${DEP_PATH}/icu/source/build/include"
 	COMPILED_ICU_FILES="${DEP_PATH}/icu/source/build/lib/libicui18n.${SHARED_EXT} ${DEP_PATH}/icu/source/build/lib/libicuuc.${SHARED_EXT} ${DEP_PATH}/icu/source/build/lib/libicudata.${SHARED_EXT}"
 fi
-COMPILED_ICUDATA_DAT="${DEP_PATH}/icudt49l.dat"
+COMPILED_ICUDATA_DAT="${DEP_PATH}/icudt56l.dat"
 
 # used only for building kiwix-serve.
 MICROHTTPD_CFLAGS=""
@@ -384,12 +384,12 @@ LIBZIM_LDFLAGS=" -lzim"
 LIBZIM_STATIC_LDFLAGS=""
 COMPILE_LIBZIM=0
 if test [ $IS_WIN -eq 1 ] ; then
-	COMPILED_LIBZIM_FILES="${DEP_PATH}/zimlib-1.3/src/zim.lib"
+	COMPILED_LIBZIM_FILES="${DEP_PATH}/zimlib-1.4/src/zim.lib"
 else
-	COMPILED_LIBZIM_CFLAGS="-I${DEP_PATH}/zimlib-1.3/include"
-	COMPILED_LIBZIM_LDFLAGS="-L${DEP_PATH}/zimlib-1.3/build/lib -lzim"
-	COMPILED_LIBZIM_STATIC_LDFLAGS="${DEP_PATH}/zimlib-1.3/build/lib/libzim.a"
-	COMPILED_LIBZIM_FILES="${DEP_PATH}/zimlib-1.3/build/lib/libzim.${SHARED_EXT}"
+	COMPILED_LIBZIM_CFLAGS="-I${DEP_PATH}/zimlib-1.4/include"
+	COMPILED_LIBZIM_LDFLAGS="-L${DEP_PATH}/zimlib-1.4/build/lib -lzim"
+	COMPILED_LIBZIM_STATIC_LDFLAGS="${DEP_PATH}/zimlib-1.4/build/lib/libzim.a"
+	COMPILED_LIBZIM_FILES="${DEP_PATH}/zimlib-1.4/build/lib/libzim.${SHARED_EXT}"
 fi
 
 LIBPUGIXML_CFLAGS=" -I${prefix}/include"
@@ -655,13 +655,6 @@ AC_ARG_ENABLE(all,
 			  				 [compile all optionnal tools (default is no)]),
 			  [], [enable_all=no])
 AS_IF([test "x$enable_all" = "xyes"], [WITH_LAUNCHER=1;WITH_INDEXER=1;WITH_INSTALLER=1;WITH_SEARCHER=1;WITH_READER=1;WITH_MANAGER=1;WITH_SERVER=1;WITH_COMPONENTS=1], [])
-
-# --enable-oldicu
-AC_ARG_ENABLE(oldicu,
-			  AC_HELP_STRING([--enable-oldicu],
-			  				 [download and use ICU 4.4 of latest (default is no)]),
-			  [], [enable_oldicu=$IS_OLD_ICU])
-AS_IF([test "x$enable_oldicu" = "xyes" -o "x$enable_oldicu" = "x1" ], [IS_OLD_ICU=1], [IS_OLD_ICU=0])
 
 # --enable-oldgcc for GCC < 3.4 without char16_t (fedora9 for sugar)
 AC_ARG_ENABLE(oldgcc,
@@ -1032,7 +1025,7 @@ else
 	    PATH=$OLDPATH
 	    if [[ $ICU_VER \< "4.2" ]]
 		then
-		     AC_MSG_ERROR([[You need a version of libicu >= 4.2]])
+		     AC_MSG_ERROR([[You need a version of libicu >= 4.9]])
 		fi
 	fi
 
@@ -1720,7 +1713,6 @@ AC_SUBST(IS_ARM)
 AC_SUBST(ARCH)
 AC_SUBST(DEP_PATH)
 AC_SUBST(IS_OLD_GECKO)
-AC_SUBST(IS_OLD_ICU)
 AC_SUBST(SERVER_BIN)
 AC_SUBST(STATIC_BINS)
 AC_SUBST(DEP_MIRROR)
@@ -1751,7 +1743,6 @@ AM_CONDITIONAL([WITH_SEARCHER], [test $WITH_SEARCHER -eq 1])
 AM_CONDITIONAL([WITH_READER], [test $WITH_READER -eq 1])
 AM_CONDITIONAL([WITH_ANDROID], [test $WITH_ANDROID -eq 1])
 AM_CONDITIONAL([IS_OLD_GECKO], [test $IS_OLD_GECKO -eq 1])
-AM_CONDITIONAL([IS_OLD_ICU], [test $IS_OLD_ICU -eq 1])
 AM_CONDITIONAL([STATIC_BINS], [test $STATIC_BINS -eq 1])
 AM_CONDITIONAL([JAR_CONTENT], [test $JAR_CONTENT -eq 1])
 AM_CONDITIONAL([DEBIAN_RULES], [test $DEBIAN_RULES -eq 1])
@@ -1917,7 +1908,6 @@ $BINECHO -n "IS_LINUX			" ; yesno $IS_LINUX
 $BINECHO -n "IS_OSX				" ; yesno $IS_OSX
 $BINECHO -n "IS_WIN				" ; yesno $IS_WIN
 $BINECHO -n "IS_OLD_GECKO			" ; yesno $IS_OLD_GECKO
-$BINECHO -n "IS_OLD_ICU			" ; yesno $IS_OLD_ICU
 $BINECHO -n "IS_OLD_GCC			" ; yesno $IS_OLD_GCC
 $BINECHO -n "COMPIL_DEPS			" ; yesno $COMPIL_DEPS
 $BINECHO -n "WITH_COMPONENTS			" ; yesno $WITH_COMPONENTS
