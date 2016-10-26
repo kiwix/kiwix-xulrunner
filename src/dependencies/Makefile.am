@@ -258,7 +258,7 @@ icu: icu4c-56_1-src.tgz
 	cp icudt56l.dat icu/source/data/in/icudt56l.dat
 
 # Linux
-icu/source/build/lib/libicudata.so icu/source/lib/libicuuc.so icu/source/build/lib/libicui18n.so: icu
+icu/source/build/lib/libicudata.so icu/source/build/lib/libicuuc.so icu/source/build/lib/libicui18n.so: icu
 	test ! -f icu/source/build/lib/libicudata.so && cd icu/source && mkdir -p build && CFLAGS=" -fPIC " ./runConfigureICU Linux --prefix=$(DEP_PATH)/icu/source/build --disable-samples --disable-tests --disable-extras --enable-static --disable-dyload && make clean && make && make install || true
 
 # OSX FAT join
