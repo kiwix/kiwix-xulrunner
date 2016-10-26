@@ -132,18 +132,12 @@ diststatic:
 	cp -Lv $(EMBED_LIBS) $(STATIC_TMP)/kiwix/xulrunner/
 	chmod +x $(STATIC_TMP)/kiwix/xulrunner/*.so
 
-	ln -s ./liblzma.so $(STATIC_TMP)/kiwix/xulrunner/liblzma.so.5
-
 	ln -s ./libz.so $(STATIC_TMP)/kiwix/xulrunner/libz.so.1
-	ln -s ./libxapian.so $(STATIC_TMP)/kiwix/xulrunner/libxapian.so.22
-	ln -s ./libicuuc.so $(STATIC_TMP)/kiwix/xulrunner/libicuuc.so.44
-	ln -s ./libicudata.so $(STATIC_TMP)/kiwix/xulrunner/libicudata.so.44
-	ln -s ./libicui18n.so $(STATIC_TMP)/kiwix/xulrunner/libicui18n.so.44
-	ln -s ./libicuuc.so $(STATIC_TMP)/kiwix/xulrunner/libicuuc.so.49
-	ln -s ./libicudata.so $(STATIC_TMP)/kiwix/xulrunner/libicudata.so.49
-	ln -s ./libicui18n.so $(STATIC_TMP)/kiwix/xulrunner/libicui18n.so.49
-	ln -s ./libsqlite3.so $(STATIC_TMP)/kiwix/xulrunner/libsqlite3.so.0
-	ln -s ./liblzma.so $(STATIC_TMP)/kiwix/xulrunner/liblzma.so.2
+	ln -s ./libxapian.so $(STATIC_TMP)/kiwix/xulrunner/libxapian.so.30
+	ln -s ./libicuuc.so $(STATIC_TMP)/kiwix/xulrunner/libicuuc.so.56
+	ln -s ./libicudata.so $(STATIC_TMP)/kiwix/xulrunner/libicudata.so.56
+	ln -s ./libicui18n.so $(STATIC_TMP)/kiwix/xulrunner/libicui18n.so.56
+	ln -s ./liblzma.so $(STATIC_TMP)/kiwix/xulrunner/liblzma.so.5
 	ln -s ./libzim.so $(STATIC_TMP)/kiwix/xulrunner/libzim.so.0
 	ln -s ./libctpp2.so $(STATIC_TMP)/kiwix/xulrunner/libctpp2.so.2
 
