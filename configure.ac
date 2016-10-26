@@ -331,7 +331,7 @@ else
     COMPILED_XAPIAN_STATIC_LDFLAGS="${DEP_PATH}/xapian-core-1.4.0/.libs/libxapian.a"
 fi
 XAPIAN_COMPACT=""
-COMPILED_XAPIAN_COMPACT="${DEP_PATH}/xapian-core-1.4.0/build/bin/xapian-compact"
+COMPILED_XAPIAN_COMPACT="${DEP_PATH}/xapian-core-1.4.0/bin/xapian-compact"
 
 ICU_CFLAGS=""
 ICU_LDFLAGS="-licui18n -licuuc -licudata" # replaced by icu-config
