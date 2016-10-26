@@ -26,7 +26,7 @@
 ##################
 
 # Autotools initializations
-AC_INIT([kiwix], [0.9])
+AC_INIT([kiwix], [0.10])
 IS_WIN=0
 IS_OSX=0
 IS_POSIX=0
