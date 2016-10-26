@@ -16,7 +16,7 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
  * MA 02110-1301, USA.
  */
-//var _selectedLibraryContentItem = undefined;
+var _selectedLibraryContentItem = undefined;
 var aria2Client = new xmlrpc_client("rpc", "localhost", "42042", "http");
 var jobTimer = null;
 var downloader = new Worker("js/downloader.js");
@@ -25,7 +25,7 @@ var _oldWindowTitle = "";
 var _libraryKeyCursorOnMenu = false;
 var _isDownloaderRunningTimestamp = Number(new Date());
 var _isDownloaderRunning = false;
-//var _isOnline = undefined;
+var _isOnline = undefined;
 var checkDownloaderId;
 var checkDownloadStatusId;
 var updateOnlineStatusId;
@@ -1019,7 +1019,7 @@ function selectLibraryMenu(menuItemId) {
 }
 
 function selectLibraryContentItem(box) {
-    if (box === undefined)
+    if (box == undefined)
         return;
 
     if (_selectedLibraryContentItem !== undefined && box == _selectedLibraryContentItem)
