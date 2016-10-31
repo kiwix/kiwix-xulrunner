@@ -1,3 +1,25 @@
+Kiwix 0.10
+ - [SERVER] Improve kiwix-serve performance on binary content (068118c)
+ - [COMMON] Xapian 1.4 & Zimlib 1.3
+ - [SERVER] Be able to run kiwix-serve with several zim as arguments. (b3df67b)
+ - [SERVER] Add support of embedded ft-index in zim for kiwix-serve and kiwix-search. (6d5748b)
+ - [COMMOM] optional progress callback + progress calculation fix (36ae380)
+ - [COMMON] Deal with new glass/single_file Xapian indexes (266cbda)
+ - [COMMON] Upgrade to Xapian 1.3.7 (still need to port win&osx) (129dc3e)
+ - [SERVER] Linux implementation to select interface to bind to (5738462)
+ - [SERVER] Add VAR HTTP-HEADER if necessary (16e1267)
+ - [COMMON] Better suggestion search (4bc2b2b)
+ - [SERVER] More aggresive caching (00a9c65)
+ - [COMMON] Catch errors with the dump() method (24e36cb)
+ - [SERVER] URLEncode random urls (9107b04)
+ - [SERVER] Fix css style of taskbar. (72344c1, 5c8f6c7, 4c67555, 59cd412, 4dab534)
+ - [COMMON] Add functions Reader::getMimeTypeByUrl (68f8191),
+                          Reader::getTags()/Reader::getName() (04491be),
+                          Reader::urlExists (9da208a) and
+ - [DESKTOP] Small UI fixes
+ - Translation updates
+ - Documentation updates
+
 Kiwix 0.9.1
 * FIXED: Buggy pagination in fulltext result page
 * FIXED: kiwix-serve XSS attack vulnerability (#763)
