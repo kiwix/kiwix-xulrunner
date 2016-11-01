@@ -1934,7 +1934,7 @@ public class KiwixMobileActivity extends AppCompatActivity {
       }
 
       // no need to add feedback form on to index page
-      if(!url.contains("index.html")){
+      if(!url.contains("index.htm")){
         // load feedback form html into the webviews HTML
         getCurrentWebView().loadUrl(
                 "javascript:(function(){ document.getElementsByTagName('body')[0].innerHTML = document.getElementsByTagName('body')[0].innerHTML + " +
