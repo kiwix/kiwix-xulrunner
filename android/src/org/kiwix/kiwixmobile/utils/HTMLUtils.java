@@ -1,5 +1,6 @@
 package org.kiwix.kiwixmobile.utils;
 
+import android.content.Context;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Handler;
@@ -9,10 +10,17 @@ import android.widget.ArrayAdapter;
 import android.widget.HeaderViewListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-import java.util.List;
-import org.kiwix.kiwixmobile.KiwixMobileActivity;
+import android.widget.Toast;
 
-public class HTMLUtils {
+import java.io.UnsupportedEncodingException;
+import java.util.List;
+
+import org.json.JSONObject;
+import org.kiwix.kiwixmobile.KiwixMobileActivity;
+import org.kiwix.kiwixmobile.feedback.RemoteConnection;
+import org.kiwix.kiwixmobile.feedback.RemoteConnectionComplete;
+
+public class HTMLUtils implements RemoteConnectionComplete{
 
   private List<KiwixMobileActivity.SectionProperties> sectionProperties;
   private List<TextView> textViews;
@@ -30,6 +38,11 @@ public class HTMLUtils {
 
   public void initInterface(WebView webView) {
     webView.addJavascriptInterface(new HTMLinterface(), "HTMLUtils");
+  }
+
+  @Override
+  public void remoteConnectionComplete(JSONObject data) {
+    System.out.println("testing success");
   }
 
 
@@ -95,6 +108,31 @@ public class HTMLUtils {
         @Override
         public void run() {
           arrayAdapter.notifyDataSetChanged();
+        }
+      });
+    }
+
+    @JavascriptInterface
+    @SuppressWarnings("unused")
+    public void postFeedbackFormData(final String data) {
+      mHandler.post(new Runnable() {
+        @Override
+        public void run() {
+          if(NetworkUtils.isNetworkAvailable(context)) {
+            if(data.length() != 0) {
+              try {
+                Toast.makeText(context, ""+data, Toast.LENGTH_SHORT).show();
+                new RemoteConnection("edit", "User_talk:Zaeemsiddiq", "From Kiwix", data, HTMLUtils.this).execute();
+              } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+              }
+            } else {
+              Toast.makeText(context, "Please enter your feedback", Toast.LENGTH_SHORT).show();
+            }
+          } else {  // network is offline, feedback needs to be saved locally. On start of application, check if there are any feedbacks with id = 0, if yes then post all
+            Toast.makeText(context, "You must connect to internet in order to post feedbacks", Toast.LENGTH_SHORT).show();
+          }
+
         }
       });
     }

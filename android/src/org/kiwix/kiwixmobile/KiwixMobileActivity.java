@@ -168,6 +168,8 @@ public class KiwixMobileActivity extends AppCompatActivity {
 
   private static String jsContent;
 
+  private static String feedbackHtml; // stores string content loaded from feedback.html
+
   public Menu menu;
 
   public Toolbar toolbar;
@@ -342,6 +344,8 @@ public class KiwixMobileActivity extends AppCompatActivity {
 
     FileReader fileReader = new FileReader();
     jsContent = fileReader.readFile("www/js/jsfile.js", this);
+
+    feedbackHtml = fileReader.readFile("www/feedback.html", this);
 
     RelativeLayout newTabButton = (RelativeLayout) findViewById(R.id.new_tab_button);
     newTabButton.setOnClickListener(new View.OnClickListener() {
@@ -646,6 +650,9 @@ public class KiwixMobileActivity extends AppCompatActivity {
   private void updateTableOfContents() {
     mRightDrawerList.clearChoices();
     getCurrentWebView().loadUrl("javascript:(" + jsContent + ")()");
+    getCurrentWebView().loadUrl("javascript:"
+            +" var showAndroidToast = function(){ window.HTMLUtils.postFeedbackFormData(document.getElementById('feedbackText').value); " +
+            "};");
   }
 
   private KiwixWebView newTab() {
@@ -1883,6 +1890,17 @@ public class KiwixMobileActivity extends AppCompatActivity {
         help.findViewById(R.id.get_content_card).setOnClickListener(card -> manageZimFiles(1));
         view.addView(help);
       }
+
+      // no need to add feedback form on to index page
+      if(!url.contains("index.html")){
+        // load feedback form html into the webviews HTML
+        getCurrentWebView().loadUrl(
+                "javascript:(function(){ document.getElementsByTagName('body')[0].innerHTML = document.getElementsByTagName('body')[0].innerHTML + " +
+                        "'"+feedbackHtml+"'" +
+                        "})()"
+        );
+      }
+
       // Workaround for #643
       if (requestWebReloadOnFinished > 0) {
         requestWebReloadOnFinished = requestWebReloadOnFinished - 1;
