@@ -119,20 +119,22 @@ public class HTMLUtils implements RemoteConnectionComplete{
         @Override
         public void run() {
           if(NetworkUtils.isNetworkAvailable(context)) {
-            if(data.length() != 0) {
-              try {
-                Toast.makeText(context, ""+data, Toast.LENGTH_SHORT).show();
-                new RemoteConnection("edit", "User_talk:Zaeemsiddiq", "From Kiwix", data, HTMLUtils.this).execute();
-              } catch (UnsupportedEncodingException e) {
-                e.printStackTrace();
+              String[] tokens = data.split(",");
+              if(tokens.length == 2) {
+                try {
+                String articleTitle = tokens[0];
+                String feedbackText = tokens[1];
+                System.out.println(articleTitle+" "+feedbackText);
+                new RemoteConnection("edit", "User_talk:Zaeemsiddiq", articleTitle, feedbackText, HTMLUtils.this).execute();
+                } catch (UnsupportedEncodingException e) {
+                    e.printStackTrace();
+                }
+              } else {
+                Toast.makeText(context, "Please enter your feedback", Toast.LENGTH_SHORT).show();
               }
-            } else {
-              Toast.makeText(context, "Please enter your feedback", Toast.LENGTH_SHORT).show();
-            }
           } else {  // network is offline, feedback needs to be saved locally. On start of application, check if there are any feedbacks with id = 0, if yes then post all
             Toast.makeText(context, "You must connect to internet in order to post feedbacks", Toast.LENGTH_SHORT).show();
           }
-
         }
       });
     }

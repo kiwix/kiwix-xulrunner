@@ -655,8 +655,8 @@ public class KiwixMobileActivity extends AppCompatActivity {
     mRightDrawerList.clearChoices();
     getCurrentWebView().loadUrl("javascript:(" + jsContent + ")()");
     getCurrentWebView().loadUrl("javascript:"
-            +" var showAndroidToast = function(){ window.HTMLUtils.postFeedbackFormData(document.getElementById('feedbackText').value); " +
-            "};");
+           +" var postFeedback = function(){ window.HTMLUtils.postFeedbackFormData(document.getElementsByTagName('h1')[0].innerHTML+','+document.getElementById('feedbackText').value); " +
+            "};"); // when the user presses save button, send (title,feedbackText) to HTMLUtils class
   }
 
   private KiwixWebView newTab() {
@@ -1936,6 +1936,7 @@ public class KiwixMobileActivity extends AppCompatActivity {
       // no need to add feedback form on to index page
       if(!url.contains("index.htm")){
         // load feedback form html into the webviews HTML
+        //getCurrentWebView().loadDataWithBaseURL("file:///android_asset/www/bootstrap/css/bootstrap.css",);
         getCurrentWebView().loadUrl(
                 "javascript:(function(){ document.getElementsByTagName('body')[0].innerHTML = document.getElementsByTagName('body')[0].innerHTML + " +
                         "'"+feedbackHtml+"'" +

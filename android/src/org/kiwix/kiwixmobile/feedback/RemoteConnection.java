@@ -3,7 +3,6 @@ package org.kiwix.kiwixmobile.feedback;
 import android.os.AsyncTask;
 
 import org.json.JSONObject;
-import org.kiwix.kiwixmobile.library.entity.MetaLinkNetworkEntity;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
@@ -32,30 +31,27 @@ import java.net.URLEncoder;
  */
 public class RemoteConnection extends AsyncTask<Void,Void,JSONObject> {
 
-    static int TIMEOUT = 10000;
     static String domain = "https://en.wikipedia.org";
     static String CHARSET = "UTF-8";
     static String token = "%2B%5C"; // URL equivalent to +\ (wikimedia edit API token for non registered user)
     String action;
+    String postTo;
     String title;
-    String sectiontitle;
     String text;
-    JSONObject data;
-    JSONObject result;
     RemoteConnectionComplete listener;
 
 
-    public RemoteConnection(final String action, String title, String sectiontitle, String text, RemoteConnectionComplete listener ) throws UnsupportedEncodingException {
+    public RemoteConnection(final String action, String postTo, String title, String text, RemoteConnectionComplete listener ) throws UnsupportedEncodingException {
         this.action = action; //edit
-        this.title = URLEncoder.encode(title, CHARSET); //User_talk%3AZaeemsiddiq
-        this.sectiontitle = URLEncoder.encode(sectiontitle, CHARSET);   //Postman(Title)
+        this.postTo = URLEncoder.encode(postTo, CHARSET); //User_talk%3AZaeemsiddiq
+        this.title = URLEncoder.encode(title, CHARSET);   //Postman(Title)
         this.text = URLEncoder.encode(text, CHARSET);
         this.listener = listener;
     }
 
     @Override
     protected JSONObject doInBackground(Void... params) {
-        String urlString = ""+domain+"/w/api.php?action="+action+"&format=json&title="+title+"&section=new&sectiontitle="+sectiontitle+"&text="+text+"&basetimestamp=2006-08-24T12%3A34%3A54.000Z"; // URL to call
+        String urlString = ""+domain+"/w/api.php?action="+action+"&format=json&title="+postTo+"&section=new&sectiontitle=[["+title+"]]&text="+text+"&basetimestamp=2006-08-24T12%3A34%3A54.000Z"; // URL to call
         String responseString = "";
 
         InputStream in = null;
@@ -108,6 +104,7 @@ public class RemoteConnection extends AsyncTask<Void,Void,JSONObject> {
 
     @Override
     protected void onPostExecute(JSONObject result){
+        System.out.println("the result is:"+ result);
         this.listener.remoteConnectionComplete( result );
     }
 }
