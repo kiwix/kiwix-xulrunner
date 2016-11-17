@@ -19,7 +19,7 @@
 
 #include <getopt.h>
 #include <unistd.h>
-#include <kiwix/xapianSearcher.h>
+#include <kiwixlib/xapianSearcher.h>
 
 enum supportedBackend { XAPIAN };
 

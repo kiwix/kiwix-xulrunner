@@ -35,7 +35,7 @@
 #endif
 
 #include <vector>
-#include "pathTools.h"
+#include <kiwixlib/common/pathTools.h>
 
 using namespace std;
 

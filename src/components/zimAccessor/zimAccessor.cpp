@@ -56,10 +56,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include <kiwix/reader.h>
-#include <pathTools.h>
-#include <regexTools.h>
-#include <componentTools.h>
+#include <kiwixlib/reader.h>
+#include <kiwixlib/common/pathTools.h>
+#include <kiwixlib/common/regexTools.h>
+#include "../../common/componentTools.h"
 
 #include "IZimAccessor.h"
 

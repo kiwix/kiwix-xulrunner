@@ -22,7 +22,7 @@
 #include <string>
 #include <map>
 #include <tree.h>
-#include <kiwix/reader.h>
+#include <kiwixlib/reader.h>
 
 void usage() {
     cout << "Usage: kiwix-read --suggest=<PATTERN> ZIM_FILE_PATH" << endl;

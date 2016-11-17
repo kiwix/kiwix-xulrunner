@@ -17,7 +17,7 @@
  * MA 02110-1301, USA.
  */
 
-#include <kiwix/xapianIndexer.h>
+#include <kiwixlib/xapianIndexer.h>
 #include <getopt.h>
 
 #ifdef _WIN32

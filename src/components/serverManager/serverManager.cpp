@@ -63,8 +63,8 @@
 #include <string>
 #include <iostream>
 
-#include <componentTools.h>
-#include <networkTools.h>
+#include "../../common/componentTools.h"
+#include <kiwixlib/common/networkTools.h>
 
 #include "IServerManager.h"
 

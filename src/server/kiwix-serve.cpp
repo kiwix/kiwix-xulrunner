@@ -59,14 +59,14 @@ extern "C" {
 #include <zim/fileiterator.h>
 #include <pthread.h>
 #include <zlib.h>
-#include <kiwix/reader.h>
-#include <kiwix/manager.h>
-#include <kiwix/xapianSearcher.h>
-#include <pathTools.h>
-#include <regexTools.h>
-#include <stringTools.h>
-#include <otherTools.h>
-#include <resourceTools.h>
+#include <kiwixlib/reader.h>
+#include <kiwixlib/manager.h>
+#include <kiwixlib/xapianSearcher.h>
+#include <kiwixlib/common/pathTools.h>
+#include <kiwixlib/common/regexTools.h>
+#include <kiwixlib/common/stringTools.h>
+#include <kiwixlib/common/otherTools.h>
+#include <kiwixlib/common/resourceTools.h>
 
 #ifndef _WIN32
 #include <stdint.h>

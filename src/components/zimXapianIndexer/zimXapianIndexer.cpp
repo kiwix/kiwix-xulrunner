@@ -53,8 +53,8 @@
   #define mozuint32 PRUint32
 #endif
 
-#include <componentTools.h>
-#include <kiwix/xapianIndexer.h>
+#include "../../common/componentTools.h"
+#include <kiwixlib/xapianIndexer.h>
 
 #include "IZimXapianIndexer.h"
 

@@ -18,10 +18,10 @@
  */
 
 #include <getopt.h>
-#include <pathTools.h>
-#include <kiwix/xapianIndexer.h>
-#include <kiwix/reader.h>
-#include <kiwix/manager.h>
+#include <kiwixlib/common/pathTools.h>
+#include <kiwixlib/xapianIndexer.h>
+#include <kiwixlib/reader.h>
+#include <kiwixlib/manager.h>
 
 enum supportedAction { NONE, ADDCONTENT };
 

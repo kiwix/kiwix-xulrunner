@@ -72,10 +72,10 @@
 #define MIBSIZE 4
 #endif
 
-#include <componentTools.h>
-#include <kiwix/manager.h>
-#include <pathTools.h>
-#include <regexTools.h>
+#include "../../common/componentTools.h"
+#include <kiwixlib/manager.h>
+#include <kiwixlib/common/pathTools.h>
+#include <kiwixlib/common/regexTools.h>
 
 #include "IContentManager.h"
 

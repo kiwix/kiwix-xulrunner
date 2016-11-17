@@ -6,20 +6,11 @@ xpt_DATA=zimAccessor.xpt
 AM_CPPFLAGS=-I$(top_srcdir)/src/common
 libZimAccessor_la_SOURCES= \
 	IZimAccessor.h \
-	zimAccessor.cpp \
-	../../common/kiwix/reader.h \
-	../../common/kiwix/reader.cpp \
-	../../common/pathTools.h \
-	../../common/pathTools.cpp \
-	../../common/stringTools.h \
-	../../common/stringTools.cpp \
-	../../common/componentTools.h \
-	../../common/componentTools.cpp \
-	../../common/regexTools.h \
-	../../common/regexTools.cpp
-libZimAccessor_la_CXXFLAGS=$(LIBZIM_CFLAGS) $(LIBXUL_CFLAGS) $(LZMA_CFLAGS) $(ICU_CFLAGS) $(XPCOM_CFLAGS) -D GECKO_VERSION=$(GECKO_VERSION) -I../../common/
+	zimAccessor.cpp
+	../../common/componentTools.cpp
+libZimAccessor_la_CXXFLAGS=$(KIWIXLIB_CFLAGS) $(LIBZIM_CFLAGS) $(LIBXUL_CFLAGS) $(LZMA_CFLAGS) $(ICU_CFLAGS) $(XPCOM_CFLAGS) -D GECKO_VERSION=$(GECKO_VERSION) -I../../common/
 
-libZimAccessor_la_LDFLAGS=$(LIBZIM_LDFLAGS) $(LIBXUL_LDFLAGS) $(ICU_LDFLAGS) $(LZMA_LDFLAGS) $(XPCOM_LDFLAGS)
+libZimAccessor_la_LDFLAGS=$(LIBKIWIX_LIBS) $(LIBZIM_LDFLAGS) $(LIBXUL_LDFLAGS) $(ICU_LDFLAGS) $(LZMA_LDFLAGS) $(XPCOM_LDFLAGS)
 #-stdlib=libstdc++
 # libZimAccessor_la_PKG_CXXFLAGS= -stdlib=libstdc++
 

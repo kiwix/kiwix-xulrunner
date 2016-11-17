@@ -2,18 +2,14 @@ bin_PROGRAMS=kiwix-launcher
 bindir=$(pkglibdir)
 AM_CPPFLAGS=-I$(top_srcdir)/src/common
 AUTOMAKE_OPTIONS=subdir-objects
-kiwix_launcher_SOURCES= kiwix-launcher.cpp \
-			../common/pathTools.cpp \
-			../common/stringTools.cpp \
-			../common/pathTools.h \
-			../common/stringTools.h
-kiwix_launcher_CXXFLAGS= $(ICU_CFLAGS) -I../common/ -DGECKO_VERSION=\"$(GECKO_VERSION)\" -DMAJOR_GECKO_VERSION=\"$(MAJOR_GECKO_VERSION)\" -DMINOR_GECKO_VERSION=\"$(MINOR_GECKO_VERSION)\"
+kiwix_launcher_SOURCES= kiwix-launcher.cpp
+kiwix_launcher_CXXFLAGS= $(KIWIXLIB_CFLAGS) $(ICU_CFLAGS) -I../common/ -DGECKO_VERSION=\"$(GECKO_VERSION)\" -DMAJOR_GECKO_VERSION=\"$(MAJOR_GECKO_VERSION)\" -DMINOR_GECKO_VERSION=\"$(MINOR_GECKO_VERSION)\"
 kiwix_launcher_LDFLAGS=$(CHECK_LDFLAGS)
 
 if STATIC_BINS
-kiwix_launcher_LDFLAGS+= $(STATIC_LIBM_ARCHIVE) $(ICU_STATIC_LDFLAGS) $(STATIC_LIBSTDCPP_ARCHIVE) $(STATIC_LIBDL_ARCHIVE) $(STATIC_LIBGCC_ARCHIVE) $(STATIC_LIBPTHREAD_ARCHIVE) --static
+kiwix_launcher_LDFLAGS+= $(KIWIXLIB_STATIC_LIBS) $(STATIC_LIBM_ARCHIVE) $(ICU_STATIC_LDFLAGS) $(STATIC_LIBSTDCPP_ARCHIVE) $(STATIC_LIBDL_ARCHIVE) $(STATIC_LIBGCC_ARCHIVE) $(STATIC_LIBPTHREAD_ARCHIVE) --static
 else
-kiwix_launcher_LDFLAGS+= $(ICU_LDFLAGS) -ldl $(UUID_LDFLAGS) -lpthread
+kiwix_launcher_LDFLAGS+= $(KIWIXLIB_LIBS) $(ICU_LDFLAGS) -ldl $(UUID_LDFLAGS) -lpthread
 endif
 
 if IS_OSX

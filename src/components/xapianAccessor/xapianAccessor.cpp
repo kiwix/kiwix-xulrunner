@@ -55,8 +55,8 @@
 
 #include <string>
 
-#include <componentTools.h>
-#include "kiwix/xapianSearcher.h"
+#include "../../common/componentTools.h"
+#include <kiwixlib/xapianSearcher.h>
 
 #include "IXapianAccessor.h"
 

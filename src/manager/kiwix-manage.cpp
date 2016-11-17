@@ -23,8 +23,8 @@
 #include <getopt.h>
 #include <iostream>
 #include <cstdlib>
-#include <pathTools.h>
-#include <kiwix/manager.h>
+#include <kiwixlib/common/pathTools.h>
+#include <kiwixlib/manager.h>
 
 using namespace std;
 

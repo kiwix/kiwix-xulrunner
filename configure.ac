@@ -865,6 +865,47 @@ XPCOM_CFLAGS="-fno-rtti -fPIC"
 fi
 
 ####################################################
+############ KIWIX LIB
+####################################################
+
+
+# if --with-kiwixlib, add path to LIBRARY_PATH
+AC_ARG_WITH(kiwixlib,
+			AC_HELP_STRING([--with-kiwixlib=DIR], [alternate location for kiwixlib$]),
+			  	export LIBRARY_PATH="${withval}:${LIBRARY_PATH}";KIWIXLIB_PATH=${withval})
+
+# if --with-static-kiwixlib, set path as X_ARCHIVE
+AC_ARG_WITH(static-kiwixlib,
+            AC_HELP_STRING([--with-static-kiwixlib=DIR/libkiwix.a],
+            			   [Path to static archive]),
+            KIWIXLIB_ARCHIVE=${withval})
+
+# compilation required
+if test [ $COMPILE_KIWIXLIB -eq 1 -o "$KIWIXLIB_PATH" = "$SELF" -o "$KIWIX_ARCHIVE" = "$SELF" ]
+then
+	COMPILE_KIWIXLIB=1
+	KIWIXLIB_CFLAGS=$COMPILED_KIWIXLIB_CFLAGS
+	KIWIXLIB_LDFLAGS=$COMPILED_KIWIXLIB_LDFLAGS
+	KIWIXLIB_STATIC_LDFLAGS=$COMPILED_KIWIXLIB_STATIC_LDFLAGS
+else
+        if test [ "x$KIWIXLIB_PATH" != "x" ]
+        then
+            old_PKG_CONFIG_PATH=$PKG_CONFIG_PATH
+            export PKG_CONFIG_PATH=$KIWIXLIB_PATH/lib/pkgconfig
+        fi
+        PKG_CHECK_MODULES(KIWIXLIB, [kiwixlib])
+        echo $KIWIXLIB_CFLAGS
+        echo $KIWIXLIB_LDFLAGS
+        echo $KIWIXLIB_STATIC_LDFLAGS
+        if test [ "x$KIWIXLIB_PATH" != "x" ]
+        then
+            old_PKG_CONFIG_PATH=$PKG_CONFIG_PATH
+            PKG_CONFIG_PATH=$old_PKG_CONFIG_PATH
+            export PKG_CONFIG_PATH
+        fi
+fi
+
+####################################################
 ############ ZLIB
 ####################################################
 
@@ -940,21 +981,18 @@ then
 	XAPIAN_COMPACT=$COMPILED_XAPIAN_COMPACT
 else
 	# look for shared library.
-	AC_CHECK_TOOL(HAVE_XAPIAN_CONFIG, xapian-config,, "${XAPIAN_PATH}:${PATH}")
+	AC_PATH_TOOL(HAVE_XAPIAN_CONFIG, xapian-config,, "${XAPIAN_PATH}:${PATH}")
 	if test [ ! "$HAVE_XAPIAN_CONFIG" ]
 	then
 		AC_MSG_ERROR([[cannot find xapian-config]])
 	else
-		OLDPATH=$PATH
-		PATH="${XAPIAN_PATH}:${PATH}"
-		XAPIAN_CFLAGS=`xapian-config --cxxflags`;
-		XAPIAN_LDFLAGS=`xapian-config --ltlibs`;
+		XAPIAN_CFLAGS=`$HAVE_XAPIAN_CONFIG --cxxflags`;
+		XAPIAN_LDFLAGS=`$HAVE_XAPIAN_CONFIG --ltlibs`;
 		XAPIAN_FILES=`findLibrary "libxapian.${SHARED_EXT}"`
-		PATH=$OLDPATH
+		echo "******* $XAPIAN_FILES"
 	fi
 
-	AC_CHECK_TOOL([XAPIAN_COMPACT],[xapian-compact],[])
-	XAPIAN_COMPACT=`which $XAPIAN_COMPACT`
+	AC_PATH_TOOL([XAPIAN_COMPACT],[xapian-compact],, "${XAPIAN_PATH}:${PATH}")
 	if test [ ! "$XAPIAN_COMPACT" ]
 	then
 	     AC_MSG_ERROR([[cannot find xapian-compact]])
