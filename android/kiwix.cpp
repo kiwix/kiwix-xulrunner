@@ -24,6 +24,7 @@
 /* global variables */
 kiwix::Reader *reader = NULL;
 kiwix::XapianSearcher *searcher = NULL;
+vector<kiwix::Reader> readers;
 
 static pthread_mutex_t readerLock = PTHREAD_MUTEX_INITIALIZER;
 static pthread_mutex_t searcherLock = PTHREAD_MUTEX_INITIALIZER;
@@ -243,6 +244,7 @@ JNIEXPORT jboolean JNICALL Java_org_kiwix_kiwixmobile_JNIKiwix_loadZIM(JNIEnv *e
   try {
     if (reader != NULL) delete reader;
     reader = new kiwix::Reader(cPath);
+    readers.push_back(reader);
   } catch (exception &e) {
     std::cerr << e.what() << std::endl;
     reader = NULL;
@@ -293,9 +295,11 @@ JNIEXPORT jboolean JNICALL Java_org_kiwix_kiwixmobile_JNIKiwix_searchSuggestions
 
   pthread_mutex_lock(&readerLock);
   try {
-    if (reader != NULL) {
-      if (reader->searchSuggestionsSmart(cPrefix, cCount)) {
-        retVal = JNI_TRUE;
+    if (readers.size() != 0) {
+      for (unsigned int i = 0; i < readers.size(); i++) {
+        if (readers[i]->searchSuggestionsSmart(cPrefix, cCount)) {
+          retVal = JNI_TRUE;
+        }
       }
     }
   } catch (exception &e) {
@@ -313,10 +317,13 @@ JNIEXPORT jboolean JNICALL Java_org_kiwix_kiwixmobile_JNIKiwix_getNextSuggestion
 
   pthread_mutex_lock(&readerLock);
   try {
-    if (reader != NULL) {
-      if (reader->getNextSuggestion(cTitle)) {
-        setStringObjValue(cTitle, titleObj, env);
-        retVal = JNI_TRUE;
+    if (readers.size() != 0) {
+      for (unsigned int i = 0; i < readers.size(); i++) {
+        if (readers[i]->getNextSuggestion(cTitle)) {
+          setStringObjValue(cTitle, titleObj, env);
+          retVal = JNI_TRUE;
+          break;
+        }
       }
     }
   } catch (exception &e) {
