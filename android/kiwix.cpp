@@ -247,7 +247,8 @@ JNIEXPORT jboolean JNICALL Java_org_kiwix_kiwixmobile_JNIKiwix_loadZIM(JNIEnv *e
     string id = reader->getId();
     for (auto r : readers) {
       if (r->getId() == id) {
-        break label;
+        pthread_mutex_unlock(&readerLock);
+        return retVal;
       }
     }
     kiwix::Reader *readerA = new kiwix::Reader(cPath);
