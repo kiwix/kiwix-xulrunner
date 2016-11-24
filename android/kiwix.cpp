@@ -241,10 +241,16 @@ JNIEXPORT jboolean JNICALL Java_org_kiwix_kiwixmobile_JNIKiwix_loadZIM(JNIEnv *e
   std::string cPath = jni2c(path, env);
 
   pthread_mutex_lock(&readerLock);
-  try {
+  label : try {
     if (reader != NULL) delete reader;
-    kiwix::Reader *readerA = new kiwix::Reader(cPath);
     reader = new kiwix::Reader(cPath);
+    string id = reader->getId();
+    for (auto r : readers) {
+      if (r->getId() == id) {
+        break label;
+      }
+    }
+    kiwix::Reader *readerA = new kiwix::Reader(cPath);
     readers.push_back(readerA);
   } catch (exception &e) {
     std::cerr << e.what() << std::endl;
@@ -277,6 +283,16 @@ JNIEXPORT jbyteArray JNICALL Java_org_kiwix_kiwixmobile_JNIKiwix_getContent(JNIE
         env->SetByteArrayRegion(data, 0, cSize, reinterpret_cast<const jbyte*>(cData.c_str()));
         setStringObjValue(cMimeType, mimeTypeObj, env);
         setIntObjValue(cSize, sizeObj, env);
+      } else {
+        for (auto r : readers) {
+          if (r->getContentByUrl(cUrl, cData, cSize, cMimeType)) {
+                  data = env->NewByteArray(cSize);
+                  env->SetByteArrayRegion(data, 0, cSize, reinterpret_cast<const jbyte*>(cData.c_str()));
+                  setStringObjValue(cMimeType, mimeTypeObj, env);
+                  setIntObjValue(cSize, sizeObj, env);
+                  break;
+          }
+        }
       }
     } catch (exception &e) {
       LOGI(e.what());
@@ -352,6 +368,14 @@ JNIEXPORT jboolean JNICALL Java_org_kiwix_kiwixmobile_JNIKiwix_getPageUrlFromTit
       if (reader->getPageUrlFromTitle(cTitle, cUrl)) {
         setStringObjValue(cUrl, urlObj, env);
         retVal = JNI_TRUE;
+      } else {
+        for (auto r : readers) {
+           if (r->getPageUrlFromTitle(cTitle, cUrl)) {
+                  setStringObjValue(cUrl, urlObj, env);
+                  retVal = JNI_TRUE;
+                  break;
+            }
+        }
       }
     }
   } catch (exception &e) {
