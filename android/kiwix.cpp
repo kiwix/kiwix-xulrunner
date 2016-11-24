@@ -24,7 +24,7 @@
 /* global variables */
 kiwix::Reader *reader = NULL;
 kiwix::XapianSearcher *searcher = NULL;
-vector<kiwix::Reader> readers;
+vector<kiwix::Reader*> readers;
 
 static pthread_mutex_t readerLock = PTHREAD_MUTEX_INITIALIZER;
 static pthread_mutex_t searcherLock = PTHREAD_MUTEX_INITIALIZER;
@@ -243,8 +243,9 @@ JNIEXPORT jboolean JNICALL Java_org_kiwix_kiwixmobile_JNIKiwix_loadZIM(JNIEnv *e
   pthread_mutex_lock(&readerLock);
   try {
     if (reader != NULL) delete reader;
+    kiwix::Reader *readerA = new kiwix::Reader(cPath);
     reader = new kiwix::Reader(cPath);
-    readers.push_back(reader);
+    readers.push_back(readerA);
   } catch (exception &e) {
     std::cerr << e.what() << std::endl;
     reader = NULL;
@@ -296,8 +297,9 @@ JNIEXPORT jboolean JNICALL Java_org_kiwix_kiwixmobile_JNIKiwix_searchSuggestions
   pthread_mutex_lock(&readerLock);
   try {
     if (readers.size() != 0) {
-      for (unsigned int i = 0; i < readers.size(); i++) {
-        if (readers[i]->searchSuggestionsSmart(cPrefix, cCount)) {
+      for (auto reader : readers) {
+        if (reader->searchSuggestionsSmart(cPrefix, 100)) {
+          __android_log_print(ANDROID_LOG_INFO, "sometag", "debug = %s", reader->getTitle().c_str());
           retVal = JNI_TRUE;
         }
       }
@@ -318,11 +320,15 @@ JNIEXPORT jboolean JNICALL Java_org_kiwix_kiwixmobile_JNIKiwix_getNextSuggestion
   pthread_mutex_lock(&readerLock);
   try {
     if (readers.size() != 0) {
-      for (unsigned int i = 0; i < readers.size(); i++) {
-        if (readers[i]->getNextSuggestion(cTitle)) {
-          setStringObjValue(cTitle, titleObj, env);
-          retVal = JNI_TRUE;
-          break;
+      for (auto reader : readers) {
+        if (reader->getNextSuggestion(cTitle)) {
+          __android_log_print(ANDROID_LOG_INFO, "sometag", "debug = %s", cTitle.c_str());
+          __android_log_print(ANDROID_LOG_INFO, "sometag", "debug = %s", reader->getTitle().c_str());
+          if (cTitle != NULL) {
+            setStringObjValue(cTitle, titleObj, env);
+            retVal = JNI_TRUE;
+            break;
+          }
         }
       }
     }
