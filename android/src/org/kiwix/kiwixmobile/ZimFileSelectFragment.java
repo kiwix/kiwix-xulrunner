@@ -67,7 +67,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.kiwix.kiwixmobile.database.BookDao;
 import org.kiwix.kiwixmobile.database.KiwixDatabase;
@@ -238,8 +240,11 @@ public class ZimFileSelectFragment extends Fragment
         .setMessage(ShortcutUtils.stringsGetter(R.string.delete_specific_zim, context))
         .setPositiveButton(getResources().getString(R.string.delete), new DialogInterface.OnClickListener() {
           public void onClick(DialogInterface dialog, int which) {
-            deleteSpecificZimFile(position);
-            Toast.makeText(context, getResources().getString(R.string.delete_specific_zim_toast), Toast.LENGTH_SHORT).show();
+            if (deleteSpecificZimFile(position)) {
+              Toast.makeText(context, getResources().getString(R.string.delete_specific_zim_toast), Toast.LENGTH_SHORT).show();
+            } else {
+              Toast.makeText(context, getResources().getString(R.string.delete_zim_failed), Toast.LENGTH_SHORT).show();
+            }
           }
         })
         .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
@@ -250,13 +255,19 @@ public class ZimFileSelectFragment extends Fragment
         .show();
   }
 
-  public void deleteSpecificZimFile(int position) {
-    FileUtils.deleteZimFile(mFiles.get(position).file.getPath());
+  public boolean deleteSpecificZimFile(int position) {
+    File file = mFiles.get(position).file;
+    FileUtils.deleteZimFile(file.getPath());
+    if (file.exists()) {
+      return false;
+    }
     mFiles.remove(position);
     mRescanAdapter.notifyDataSetChanged();
     checkEmpty();
-    LibraryFragment.libraryAdapter.getFilter().filter(context.searchView.getQuery());
-
+    if (LibraryFragment.libraryAdapter != null) {
+      LibraryFragment.libraryAdapter.getFilter().filter(context.searchView.getQuery());
+    }
+    return true;
   }
 
   public void checkEmpty(){
@@ -382,9 +393,19 @@ public class ZimFileSelectFragment extends Fragment
 
     @Override
     protected Void doInBackground(Void... params) {
-
+      // Search file system for files
       mFiles = new FileSearch().findFiles(context);
+
+      // Remove duplicate files
+      HashSet<LibraryNetworkEntity.Book> singularBooks = new HashSet<>();
+      singularBooks.addAll(mFiles);
+      mFiles.clear();
+      mFiles.addAll(singularBooks);
+
+      // Sort files
       Collections.sort(mFiles, new fileComparator());
+
+      // Save files for quick access later
       bookDao.saveBooks(mFiles);
       return null;
     }

@@ -942,9 +942,7 @@ public class KiwixMobileActivity extends AppCompatActivity {
   }
 
   public boolean openZimFile(File file, boolean clearHistory) {
-    if (ContextCompat.checkSelfPermission(this,
-        Manifest.permission.READ_EXTERNAL_STORAGE)
-        == PackageManager.PERMISSION_GRANTED || Build.VERSION.SDK_INT < 19 || (Constants.IS_CUSTOM_APP && Build.VERSION.SDK_INT != 23)) {
+    if (file.canRead() || Build.VERSION.SDK_INT < 19 || (Constants.IS_CUSTOM_APP && Build.VERSION.SDK_INT != 23)) {
       if (file.exists()) {
         if (ZimContentProvider.setZimFile(file.getAbsolutePath()) != null) {
 
@@ -992,8 +990,13 @@ public class KiwixMobileActivity extends AppCompatActivity {
       ActivityCompat.requestPermissions(this,
           new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
           KiwixMobileActivity.REQUEST_STORAGE_PERMISSION);
-      Toast.makeText(this, getResources().getString(R.string.request_storage), Toast.LENGTH_LONG)
-          .show();
+      if (Constants.IS_CUSTOM_APP && Build.VERSION.SDK_INT == Build.VERSION_CODES.M) {
+        Toast.makeText(this, getResources().getString(R.string.request_storage_custom), Toast.LENGTH_LONG)
+            .show();
+      } else {
+        Toast.makeText(this, getResources().getString(R.string.request_storage), Toast.LENGTH_LONG)
+            .show();
+      }
       return false;
     }
   }
@@ -1010,6 +1013,10 @@ public class KiwixMobileActivity extends AppCompatActivity {
           newZimFile.setData(Uri.fromFile(mFile));
           startActivity(newZimFile);
         } else {
+          AlertDialog.Builder builder = new AlertDialog.Builder(this);
+          builder.setMessage(getResources().getString(R.string.reboot_message));
+          AlertDialog dialog = builder.create();
+          dialog.show();
           finish();
         }
         return;
