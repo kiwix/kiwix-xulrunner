@@ -1,6 +1,5 @@
 package org.kiwix.kiwixmobile.utils;
 
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.os.Build;
 import android.speech.tts.TextToSpeech;
@@ -10,15 +9,14 @@ import android.webkit.JavascriptInterface;
 import android.webkit.WebView;
 import android.widget.Toast;
 
+import org.kiwix.kiwixmobile.R;
+import org.kiwix.kiwixmobile.ZimContentProvider;
+
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.concurrent.atomic.AtomicInteger;
-
-import org.kiwix.kiwixmobile.R;
-import org.kiwix.kiwixmobile.ZimContentProvider;
 
 public class KiwixTextToSpeech {
 
@@ -117,6 +115,7 @@ public class KiwixTextToSpeech {
 
   public void stop() {
     if (tts.stop() == TextToSpeech.SUCCESS) {
+      currentTTSTask = null;
       onSpeakingListener.onSpeakingEnded();
     }
   }
@@ -233,7 +232,6 @@ public class KiwixTextToSpeech {
           @Override
           public void onError(String s) {
             Log.e(TAG_KIWIX, "TextToSpeech: " + s);
-            stop();
           }
         });
       }
@@ -249,7 +247,13 @@ public class KiwixTextToSpeech {
     @JavascriptInterface
     @SuppressWarnings("unused")
     public void speakAloud(String content) {
-      List<String> pieces = Arrays.asList(content.split("[\\n\\.;]"));
+      String[] splitted = content.split("[\\n\\.;]");
+      List<String> pieces = new ArrayList<>();
+
+      for (String s : splitted) {
+        if (!s.trim().isEmpty())
+          pieces.add(s.trim());
+      }
 
       if (!pieces.isEmpty()) {
         onSpeakingListener.onSpeakingStarted();
