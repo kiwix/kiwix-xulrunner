@@ -322,16 +322,16 @@ XAPIAN_CFLAGS=""
 XAPIAN_LDFLAGS="-lxapian -lrt"
 XAPIAN_STATIC_LDFLAGS=""
 COMPILE_XAPIAN=0
-COMPILED_XAPIAN_CFLAGS="-I${DEP_PATH}/xapian-core-1.4.0/include/"
+COMPILED_XAPIAN_CFLAGS="-I${DEP_PATH}/xapian-core-1.4.1/include/"
 if test [ $IS_WIN -eq 1 ] ; then
-    COMPILED_XAPIAN_FILES="${DEP_PATH}/xapian-core-1.4.0/win32/Release/libs/libunicode.lib"
+    COMPILED_XAPIAN_FILES="${DEP_PATH}/xapian-core-1.4.1/win32/Release/libs/libunicode.lib"
 else
-    COMPILED_XAPIAN_LDFLAGS="-L${DEP_PATH}/xapian-core-1.4.0/.libs -lxapian -lrt"
-    COMPILED_XAPIAN_FILES="${DEP_PATH}/xapian-core-1.4.0/.libs/libxapian.${SHARED_EXT}"
-    COMPILED_XAPIAN_STATIC_LDFLAGS="${DEP_PATH}/xapian-core-1.4.0/.libs/libxapian.a"
+    COMPILED_XAPIAN_LDFLAGS="-L${DEP_PATH}/xapian-core-1.4.1/.libs -lxapian -lrt"
+    COMPILED_XAPIAN_FILES="${DEP_PATH}/xapian-core-1.4.1/.libs/libxapian.${SHARED_EXT}"
+    COMPILED_XAPIAN_STATIC_LDFLAGS="${DEP_PATH}/xapian-core-1.4.1/.libs/libxapian.a"
 fi
 XAPIAN_COMPACT=""
-COMPILED_XAPIAN_COMPACT="${DEP_PATH}/xapian-core-1.4.0/bin/xapian-compact"
+COMPILED_XAPIAN_COMPACT="${DEP_PATH}/xapian-core-1.4.1/bin/xapian-compact"
 
 ICU_CFLAGS=""
 ICU_LDFLAGS="-licui18n -licuuc -licudata" # replaced by icu-config
