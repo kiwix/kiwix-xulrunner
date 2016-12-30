@@ -652,7 +652,7 @@ AS_IF([test "x$enable_android" = "xyes" -o "x$enable_android" = "x1" ], [WITH_AN
 # all enables all optional tools
 AC_ARG_ENABLE(all,
 			  AC_HELP_STRING([--enable-all],
-			  				 [compile all optionnal tools (default is no)]),
+			  				 [compile all optional tools (default is no)]),
 			  [], [enable_all=no])
 AS_IF([test "x$enable_all" = "xyes"], [WITH_LAUNCHER=1;WITH_INDEXER=1;WITH_INSTALLER=1;WITH_SEARCHER=1;WITH_READER=1;WITH_MANAGER=1;WITH_SERVER=1;WITH_COMPONENTS=1], [])
 
