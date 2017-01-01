@@ -195,19 +195,19 @@ zlib-1.2.8/zlib.lib: zlib-1.2.8
 ############ XAPIAN
 ####################################################
 
-xapian-core-1.4.1.tar.xz:
-	$(DOWNLOADER) xapian-core-1.4.1.tar.xz $(DEP_MIRROR)/xapian-core-1.4.1.tar.xz
+xapian-core-1.4.2.tar.xz:
+	$(DOWNLOADER) xapian-core-1.4.2.tar.xz $(DEP_MIRROR)/xapian-core-1.4.2.tar.xz
 
-xapian-core-1.4.1: xapian-core-1.4.1.tar.xz
-	test -d xapian-core-1.4.1 || tar -xvf xapian-core-1.4.1.tar.xz
+xapian-core-1.4.2: xapian-core-1.4.2.tar.xz
+	test -d xapian-core-1.4.2 || tar -xvf xapian-core-1.4.2.tar.xz
 
 # Linux
-xapian-core-1.4.1/.libs/libxapian.so: xapian-core-1.4.1
+xapian-core-1.4.2/.libs/libxapian.so: xapian-core-1.4.2
 	CPPFLAGS="-I${CURRENT_PATH}/src/dependencies/zlib-1.2.8/"
 	CXXFLAGS=" -fPIC -L${CURRENT_PATH}/src/dependencies/zlib-1.2.8"
-	cd xapian-core-1.4.1 && ./configure --enable-shared --enable-static --disable-sse --disable-backend-inmemory
-	cd xapian-core-1.4.1 && make
-	touch xapian-core-1.4.1/.libs/libxapian.so
+	cd xapian-core-1.4.2 && ./configure --enable-shared --enable-static --disable-sse --disable-backend-inmemory
+	cd xapian-core-1.4.2 && make
+	touch xapian-core-1.4.2/.libs/libxapian.so
 
 # OSX Join
 xapian-core-1.2.3/build/lib/libxapian.dylib xapian-core-1.2.3/build/bin/xapian-compact: xapian-core-1.2.3/build-i386/lib/libxapian.dylib xapian-core-1.2.3/build-x86_64/lib/libxapian.dylib xapian-core-1.2.3/build-i386/bin/xapian-compact xapian-core-1.2.3/build-x86_64/bin/xapian-compact
@@ -516,7 +516,7 @@ android-sdk: $(ANDROID_SDK_FILE)
 	tar -xvf $(ANDROID_SDK_FILE)
 	touch android-sdk
 
-android-deps: android-ndk android-sdk icudt56l.dat xz icu xapian-core-1.4.1 zimlib-1.4 zimlib-1.4/build/lib/libzim.${SHARED_EXT}
+android-deps: android-ndk android-sdk icudt56l.dat xz icu xapian-core-1.4.2 zimlib-1.4 zimlib-1.4/build/lib/libzim.${SHARED_EXT}
 	true
 
 ####################################################
@@ -639,7 +639,7 @@ DISTCLEANFILES= xulrunner-sdk.tar.bz2 \
 
 clean-local:
 	-rm -rf zlib-1.2.8
-	-rm -rf xapian-core-1.4.1
+	-rm -rf xapian-core-1.4.2
 	-rm -rf icu
 	-rm -rf pugixml-1.2
 	-rm -rf libmicrohttpd-0.9.19
