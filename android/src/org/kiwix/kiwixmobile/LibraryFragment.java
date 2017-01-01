@@ -1,9 +1,11 @@
 package org.kiwix.kiwixmobile;
 
+import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.ServiceConnection;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -103,6 +105,21 @@ public class LibraryFragment extends Fragment implements AdapterView.OnItemClick
         noNetworkConnection();
       }
 
+      this.getContext().registerReceiver(new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+          NetworkInfo network = conMan.getActiveNetworkInfo();
+
+          if (books == null && network != null && network.isConnected()) {
+              if (isWiFi()) {
+                getLibraryData();
+              } else {
+                displayNetworkConfirmation();
+              }
+          }
+        }
+      }, new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION));
+
       BookDao bookDao = new BookDao(KiwixDatabase.getInstance(getActivity()));
       for (LibraryNetworkEntity.Book book : bookDao.getDownloadingBooks()) {
         book.url = book.remoteUrl;
@@ -119,6 +136,7 @@ public class LibraryFragment extends Fragment implements AdapterView.OnItemClick
     progressBar.setVisibility(View.VISIBLE);
     progressBarMessage.setVisibility(View.VISIBLE);
     progressBarLayout.setVisibility(View.VISIBLE);
+    progressBarMessage.setText(R.string.rescan_fs_warning);
     libraryList.setVisibility(View.GONE);
     kiwixService.getLibrary()
         .observeOn(AndroidSchedulers.mainThread())
@@ -139,6 +157,8 @@ public class LibraryFragment extends Fragment implements AdapterView.OnItemClick
   }
 
   public void displayNetworkConfirmation(){
+    progressBar.setVisibility(View.GONE);
+    progressBarMessage.setVisibility(View.GONE);
     permissionText.setVisibility(View.VISIBLE);
     permissionButton.setVisibility(View.VISIBLE);
     permissionButton.setOnClickListener(new View.OnClickListener() {
@@ -182,6 +202,13 @@ public class LibraryFragment extends Fragment implements AdapterView.OnItemClick
             .containsValue(KIWIX_ROOT + StorageUtils.getFileNameFromUrl(((LibraryNetworkEntity.Book) parent.getAdapter().getItem(position)).getUrl()))) {
       Toast.makeText(super.getActivity(), getString(R.string.zim_already_downloading), Toast.LENGTH_LONG).show();
     } else {
+
+      NetworkInfo network = conMan.getActiveNetworkInfo();
+      if (network == null || !network.isConnected()) {
+        Toast.makeText(super.getActivity(), getString(R.string.no_network_connection), Toast.LENGTH_LONG).show();
+        return;
+      }
+
       if (isWiFi()) {
         downloadFile((LibraryNetworkEntity.Book) parent.getAdapter().getItem(position));
         libraryAdapter.getFilter().filter(((ZimManageActivity) super.getActivity()).searchView.getQuery());
