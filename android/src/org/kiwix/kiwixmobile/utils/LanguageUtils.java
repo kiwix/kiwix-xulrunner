@@ -19,7 +19,6 @@
 
 package org.kiwix.kiwixmobile.utils;
 
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
@@ -35,6 +34,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
 import java.lang.reflect.Field;
+import java.text.Collator;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -42,8 +42,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.MissingResourceException;
-import java.text.Collator;
-import org.kiwix.kiwixmobile.utils.files.FileWriter;
+import org.kiwix.kiwixmobile.utils.files.FileUtils;
 
 public class LanguageUtils {
 
@@ -74,14 +73,15 @@ public class LanguageUtils {
     handleLocaleChange(context, language);
   }
 
-  @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
   public static void handleLocaleChange(Context context, String language) {
 
     Locale locale = new Locale(language);
     Locale.setDefault(locale);
     Configuration config = new Configuration();
     config.locale = locale;
-    config.setLayoutDirection(locale);
+    if (Build.VERSION.SDK_INT >= 17) {
+      config.setLayoutDirection(locale);
+    }
     context.getResources()
         .updateConfiguration(config, context.getResources().getDisplayMetrics());
   }
@@ -110,7 +110,7 @@ public class LanguageUtils {
   // Read the language codes, that are supported in this app from the locales.txt file
   private void getLanguageCodesFromAssets() {
 
-    List<String> locales = new ArrayList<>(new FileWriter(mContext).readFileFromAssets());
+    List<String> locales = new ArrayList<>(FileUtils.readLocalesFromAssets(mContext));
 
     for (String locale : locales) {
 

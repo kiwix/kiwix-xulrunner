@@ -36,20 +36,17 @@ namespace kiwix {
 
   /* Open Xapian readable database */
   void XapianSearcher::openIndex(const string &directoryPath) {
-    bool indexInZim = false;
     try
     {
       zim::File zimFile = zim::File(directoryPath);
-      zim::Article xapianArticle = zimFile.getArticle('Z', "/Z/fulltextIndex/xapian");
-      if (xapianArticle.good())
-      {
-        zim::offset_type dbOffset = xapianArticle.getOffset();
-        int databasefd = open(directoryPath.c_str(), O_RDONLY);
-        lseek(databasefd, dbOffset, SEEK_SET);
-        this->readableDatabase = Xapian::Database(databasefd);
-      }
-    } catch (zim::ZimFileFormatError)
-    {
+      zim::Article xapianArticle = zimFile.getArticle('Z', "/fulltextIndex/xapian");
+      if (!xapianArticle.good())
+	throw NoXapianIndexInZim();
+      zim::offset_type dbOffset = xapianArticle.getOffset();
+      int databasefd = open(directoryPath.c_str(), O_RDONLY);
+      lseek(databasefd, dbOffset, SEEK_SET);
+      this->readableDatabase = Xapian::Database(databasefd);
+    } catch (...) {
       this->readableDatabase = Xapian::Database(directoryPath);
     }
   }

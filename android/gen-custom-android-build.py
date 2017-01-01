@@ -2,13 +2,13 @@
 # -*- coding: utf-8 -*-
 # vim: ai ts=4 sts=4 et sw=4 nu
 
-''' Generate a custom build of Kiwix for Android working with a single content
+""" Generate a custom build of Kiwix for Android working with a single content
 
     The generated App either embed the ZIM file inside (creating large APKs)
-    or is prepared to make use of a Play Store comapnion file.
+    or is prepared to make use of a Play Store companion file.
 
     APKs uploaded to Play Store are limited to 50MB in size and can have
-    up to 2 comapnion files of 2GB each.
+    up to 2 companion files of 2GB each.
     Note: multiple companion files is not supported currently
         ~~ needs update to the libzim.
     The companion file is stored (by the Play Store) on the SD card.
@@ -16,12 +16,12 @@
     Large APKs can be distributed outside the Play Store.
     Note that the larger the APK, the longer it takes to install.
     Also, APKs are downloaded then extracted to the *internal* storage
-    of the device unless the user specificaly change its settings to
+    of the device unless the user specifically change its settings to
     install to SD card.
 
     Standard usage is to launch the script with a single JSON file as argument.
     Take a look at JSDATA sample in this script's source code for
-    required and optional values to include. '''
+    required and optional values to include. """
 
 from __future__ import (unicode_literals, absolute_import,
                         division, print_function)
@@ -37,6 +37,7 @@ import tempfile
 import urllib2
 from collections import OrderedDict
 from subprocess import call
+
 PY3 = sys.version_info.major >= 3
 
 logging.basicConfig(level=logging.DEBUG)
@@ -52,10 +53,11 @@ DEFAULT_JSDATA = {
     # 'zim_file': "wikipedia_bm.zim",
     'enforced_lang': None,
     'embed_zim': False,
+    'content_version_code': 0,
 
     # main icon source & store icon
-    'ic_launcher': os.path.join('android',
-                                'Kiwix_icon_transparent_512x512.png'),
+    'ic_launcher': os.path.abspath(os.path.join('android',
+                                                'Kiwix_icon_transparent_512x512.png')),
 
     # store listing
     'feature_image': None,
@@ -64,11 +66,11 @@ DEFAULT_JSDATA = {
     'tablet10_screenshot': None,
     'category': '',
     'rating': 'everyone',
-    'website': "http://kiwix.org",
-    'email': "kelson@kiwix.org",
+    'website': "http://www.kiwix.org",
+    'email': "contact+android@kiwix.org",
 
     # help page content
-    'support_email': "kelson@kiwix.org",
+    'support_email': "contact+android@kiwix.org",
 }
 
 SIZE_MATRIX = {
@@ -83,8 +85,7 @@ SIZE_MATRIX = {
 REQUIRED_FIELDS = ('app_name', 'package', 'version_name', 'version_code',
                    'zim_file')
 
-USELESS_PERMISSIONS = ['WRITE_EXTERNAL_STORAGE',
-                       'INTERNET']
+USELESS_PERMISSIONS = ['INTERNET']
 
 # the directory of this file for relative referencing
 CURRENT_PATH = os.path.dirname(os.path.abspath(__file__))
@@ -108,7 +109,7 @@ except ImportError:
 
 
 def syscall(args, shell=False, with_print=True):
-    ''' execute an external command. Use shell=True if using bash specifics '''
+    """ execute an external command. Use shell=True if using bash specifics """
     args = args.split()
     if with_print:
         print(u"-----------\n" + u" ".join(args) + u"\n-----------")
@@ -119,7 +120,7 @@ def syscall(args, shell=False, with_print=True):
 
 
 def get_remote_content(url):
-    ''' file descriptor from remote file using GET '''
+    """ file descriptor from remote file using GET """
     req = requests.get(url)
     try:
         req.raise_for_status()
@@ -131,7 +132,7 @@ def get_remote_content(url):
 
 
 def get_local_content(path):
-    ''' file descriptor from local file '''
+    """ file descriptor from local file """
     if not os.path.exists(path) or not os.path.isfile(path):
         logger.error("Unable to find JSON file `{}`".format(path))
         sys.exit(1)
@@ -150,7 +151,7 @@ def is_remote_path(path):
 
 
 def get_local_remote_fd(path):
-    ''' file descriptor for a path (either local or remote) '''
+    """ file descriptor for a path (either local or remote) """
     if is_remote_path(path):
         return get_remote_content(path)
     else:
@@ -158,7 +159,7 @@ def get_local_remote_fd(path):
 
 
 def copy_to(src, dst):
-    ''' copy source content (local or remote) to local file '''
+    """ copy source content (local or remote) to local file """
     local = None
     if is_remote_path(src):
         local = tempfile.NamedTemporaryFile(delete=False)
@@ -170,7 +171,7 @@ def copy_to(src, dst):
 
 
 def download_remote_file(url, path):
-    ''' download url to path '''
+    """ download url to path """
     syscall('wget -c -O {path} {url}'.format(path=path, url=url))
 
 
@@ -181,8 +182,13 @@ def get_remote_url_size(url):
         return None
 
 
+def get_remote_file_name(url):
+    """ returns remote filename of final redirect """
+    return urllib2.urlopen(url).geturl().split('/')[-1]
+
+
 def get_file_size(path):
-    ''' file size in bytes of a path (either remote or local) '''
+    """ file size in bytes of a path (either remote or local) """
     if is_remote_path(path):
         url = path
         size = get_remote_url_size(url)
@@ -193,14 +199,14 @@ def get_file_size(path):
     return os.stat(path).st_size
 
 
-def flushxml(dom, rootNodeName, fpath, head=True):
-    ''' write back XML from a BeautifulSoup DOM and root element '''
+def flushxml(dom, root_node_name, fpath, head=True):
+    """ write back XML from a BeautifulSoup DOM and root element """
     head = '<?xml version="1.0" encoding="utf-8"?>\n' if head else ''
     with open(fpath, 'w') as f:
         f.write("{head}{content}"
                 .format(head=head,
-                        content=dom.find(rootNodeName).encode()
-                                                      .decode('utf-8'))
+                        content=dom.find(root_node_name).encode()
+                        .decode('utf-8'))
                 .encode('utf-8'))
 
 
@@ -213,7 +219,7 @@ def move_to_current_folder():
 
 
 def step_create_android_placeholder(jsdata, **options):
-    ''' copy the android source tree in a different place (yet level equiv.)'''
+    """ copy the android source tree in a different place (yet level equiv.)"""
 
     # move to PARENT_PATH (Kiwix main root) to avoid relative remove hell
     os.chdir(PARENT_PATH)
@@ -227,7 +233,7 @@ def step_create_android_placeholder(jsdata, **options):
 
 
 def step_prepare_launcher_icons(jsdata, **options):
-    ''' generate all-sizes icons from the 512 provided one '''
+    """ generate all-sizes icons from the 512 provided one """
 
     move_to_android_placeholder()
 
@@ -241,7 +247,14 @@ def step_prepare_launcher_icons(jsdata, **options):
                         outf=os.path.join(ANDROID_PATH, 'res',
                                           'mipmap-{}'.format(density),
                                           'kiwix_icon.png')))
-    
+
+        syscall("convert {inf} -resize {p}x{p} {outf}"
+                .format(inf=os.path.join(ANDROID_PATH, 'ic_launcher_512.png'),
+                        p=pixels,
+                        outf=os.path.join(ANDROID_PATH, 'res',
+                                          'drawable-{}'.format(density),
+                                          'ic_kiwix_widget.png')))
+
         syscall("convert {inf} -resize {p}x{p} {outf}"
                 .format(inf=os.path.join(ANDROID_PATH, 'ic_launcher_512.png'),
                         p=256,
@@ -249,8 +262,9 @@ def step_prepare_launcher_icons(jsdata, **options):
                                           'drawable',
                                           'kiwix_icon_with_title.png')))
 
+
 def step_update_branding_xml(jsdata, **options):
-    ''' change app_name value in branding.xml '''
+    """ change app_name value in branding.xml """
 
     move_to_android_placeholder()
 
@@ -272,7 +286,7 @@ def step_update_branding_xml(jsdata, **options):
 
 
 def step_gen_constants_java(jsdata, **options):
-    ''' gen Java Source class (final constants) with all JSON values '''
+    """ gen Java Source class (final constants) with all JSON values """
 
     move_to_android_placeholder()
 
@@ -304,7 +318,7 @@ def step_gen_constants_java(jsdata, **options):
 
 
 def step_update_main_menu_xml(jsdata, **options):
-    ''' remove Open File menu item from main menu '''
+    """ remove Open File menu item from main menu """
 
     move_to_android_placeholder()
 
@@ -320,7 +334,7 @@ def step_update_main_menu_xml(jsdata, **options):
 
 
 def step_update_xml_nodes(jsdata, **options):
-    ''' change package-named item reference in preference UI xml '''
+    """ change package-named item reference in preference UI xml """
 
     move_to_android_placeholder()
 
@@ -332,7 +346,7 @@ def step_update_xml_nodes(jsdata, **options):
     item = soup.find('org.kiwix.kiwixmobile.views.SliderPreference')
     item.name = '{}.views.SliderPreference'.format(jsdata.get('package'))
     flushxml(soup, 'PreferenceScreen', preferences_xml, head=False)
-    
+
     # rename settings.CustomSwitchPreference node in res/xml/preferences.xml
     preferences_xml = os.path.join(ANDROID_PATH, 'res', 'xml',
                                    'preferences.xml')
@@ -352,7 +366,7 @@ def step_update_xml_nodes(jsdata, **options):
 
 
 def step_update_gradle(jsdata, **options):
-    ''' uncomment compiling the content-libs.jar file into the APK '''
+    """ uncomment compiling the content-libs.jar file into the APK """
 
     if not jsdata.get('embed_zim'):
         return
@@ -371,9 +385,9 @@ def step_update_gradle(jsdata, **options):
 
 
 def step_update_android_manifest(jsdata, **options):
-    ''' update AndroidManifest.xml to set package, name, version
+    """ update AndroidManifest.xml to set package, name, version
 
-        and remove intents (so that it's not a ZIM file reader) '''
+        and remove intents (so that it's not a ZIM file reader) """
 
     move_to_android_placeholder()
 
@@ -410,11 +424,11 @@ def step_update_android_manifest(jsdata, **options):
     shutil.move(
         os.path.join(ANDROID_PATH, 'src', 'org', 'kiwix', 'kiwixmobile'),
         os.path.join(ANDROID_PATH, 'src', *package_path))
-    
+
     shutil.move(
         os.path.join(ANDROID_PATH, 'src', 'test', 'java', 'org', 'kiwix', 'kiwixmobile'),
         os.path.join(ANDROID_PATH, 'src', 'test', 'java', *package_path))
-        
+
     shutil.move(
         os.path.join(ANDROID_PATH, 'src', 'androidTest', 'java', 'org', 'kiwix', 'kiwixmobile'),
         os.path.join(ANDROID_PATH, 'src', 'androidTest', 'java', *package_path))
@@ -423,25 +437,25 @@ def step_update_android_manifest(jsdata, **options):
     for dirpath, dirnames, filenames in os.walk(ANDROID_PATH):
         for filename in filenames:
             if filename.endswith('.java') or \
-                    filename in ('AndroidManifest.xml', 'main.xml'):
+                            filename in ('AndroidManifest.xml', 'main.xml'):
                 fpath = os.path.join(dirpath, filename)
                 content = open(fpath, 'r').read()
                 with open(fpath, 'w') as f:
                     f.write(
                         content.replace('org.kiwix.kiwixmobile',
                                         jsdata.get('package'))
-                               .replace('org.kiwix.zim.base',
-                                        'org.kiwix.zim.{}'
-                                        .format(package_tail[10:])))
+                            .replace('org.kiwix.zim.base',
+                                     'org.kiwix.zim.{}'
+                                     .format(package_tail[10:])))
 
 
-def step_update_kiwix_c(jsdata, **options):
-    ''' rewrite imports in JNI/C to match new package '''
+def step_update_kiwix_cpp(jsdata, **options):
+    """ rewrite imports in JNI/C to match new package """
 
     move_to_android_placeholder()
 
-    # rewrite kiwix.c for JNI
-    fpath = os.path.join(ANDROID_PATH, 'kiwix.c')
+    # rewrite kiwix.cpp for JNI
+    fpath = os.path.join(ANDROID_PATH, 'kiwix.cpp')
     content = open(fpath, 'r').read()
     with open(fpath, 'w') as f:
         f.write(content.replace('org_kiwix_kiwixmobile',
@@ -449,10 +463,10 @@ def step_update_kiwix_c(jsdata, **options):
 
 
 def step_compile_libkiwix(jsdata, **options):
-    ''' launch the native libkiwix script without building an APK '''
+    """ launch the native libkiwix script without building an APK """
 
     move_to_android_placeholder()
-    
+
     if not architectures:
         # compile libkiwix and all dependencies
         syscall('./build-android-with-native.py '
@@ -465,14 +479,15 @@ def step_compile_libkiwix(jsdata, **options):
                 '--locales ')
     else:
         command = './build-android-with-native.py --toolchain --lzma --icu --zim --kiwix --strip --locales '
-                
+
         for arch in architectures:
             command += "--on=" + arch
-            
+
         syscall(command)
 
+
 def step_embed_zimfile(jsdata, **options):
-    ''' prepare a content-libs.jar file with ZIM file for inclusion in APK '''
+    """ prepare a content-libs.jar file with ZIM file for inclusion in APK """
 
     if not jsdata.get('embed_zim'):
         return
@@ -490,24 +505,26 @@ def step_embed_zimfile(jsdata, **options):
     for arch in archs[1:]:
         os.chdir(os.path.join(tmpd, 'lib', arch))
         os.link('../{}/{}'.format(archs[0], jsdata.get('zim_name')),
-                   jsdata.get('zim_name'))
+                jsdata.get('zim_name'))
     os.chdir(tmpd)
     syscall('zip -r -0 -y {} lib'
             .format(os.path.join(ANDROID_PATH, 'content-libs.jar')))
     shutil.rmtree(tmpd)
 
+
 def step_build_apk(jsdata, **options):
-    ''' build the actual APK '''
+    """ build the actual APK """
 
     move_to_android_placeholder()
-    
+
     # compile KiwixAndroid
     syscall('./build-android-with-native.py '
             '--apk '
             '--clean ')
 
+
 def step_move_apk_to_destination(jsdata, **options):
-    ''' place and rename built APKs to main output directory '''
+    """ place and rename built APKs to main output directory """
 
     move_to_current_folder()
 
@@ -527,7 +544,7 @@ def step_move_apk_to_destination(jsdata, **options):
 
 
 def step_remove_android_placeholder(jsdata, **options):
-    ''' remove created (temp) android placeholder (useless is success) '''
+    """ remove created (temp) android placeholder (useless is success) """
 
     move_to_current_folder()
 
@@ -536,7 +553,7 @@ def step_remove_android_placeholder(jsdata, **options):
 
 
 def step_list_output_apk(jsdata, **options):
-    ''' ls on the expected APK to check presence and size '''
+    """ ls on the expected APK to check presence and size """
 
     move_to_current_folder()
 
@@ -552,7 +569,7 @@ ARGS_MATRIX = OrderedDict([
     ('menu', step_update_main_menu_xml),
     ('xmlnodes', step_update_xml_nodes),
     ('manifest', step_update_android_manifest),
-    ('jni', step_update_kiwix_c),
+    ('jni', step_update_kiwix_cpp),
     ('libkiwix', step_compile_libkiwix),
     ('embed', step_embed_zimfile),
     ('gradle', step_update_gradle),
@@ -569,19 +586,26 @@ def usage(arg0, exit=None):
         if idx > 0 and idx % 3 == 0:
             usage_txt += "\n\t\t\t\t\t\t"
         usage_txt += " [--{}]".format(step)
-    print(usage_txt)
-    print("\tjson_file:\t\tmandatory parameter holder (cf. source for sample)")
-    print("\t--step:\t\t\trun this step. if none specified, all are run.")
+    usage_txt += "\n\t\t\t\t\t\t [--override-<field>=<value>]"
+    print(usage_txt, '\n')
+    print("\t<json_file>:\t\t\tjson_file path with custom app properties (mandatory)")
+    print("\t--<step>:\t\t\tRun this step. if none specified, all are run")
+    print("\t--override-<field>=<value>:\tOverride json_file values (can be use multiple times)\n")
     if exit is not None:
         sys.exit(exit)
 
 
-def main(jspath, **options):
+def json_override_usage():
+    logger.error('not valid use of \'override\'. Exiting.\n')
+    usage(sys.argv[0], 1)
 
+
+def main(jspath, **options):
     fd = get_local_remote_fd(jspath)
 
     # parse the json file
     jsdata = copy.copy(DEFAULT_JSDATA)
+
     try:
         jsdata.update(json.load(fd))
     except Exception as e:
@@ -590,6 +614,19 @@ def main(jspath, **options):
         logger.exception(e)
         sys.exit(1)
 
+    # update json if necessary
+    json_fields_updates = options.get('json_fields_update')
+    if json_fields_updates:
+        print('updating info.json ...\nupdated fields:')
+        for index, key in enumerate(json_fields_updates):
+            if jsdata.get(key):
+                jsdata.update({key: json_fields_updates[key]})
+                if index == (len(json_fields_updates) - 1):
+                    print(key, ' = ', jsdata.get(key), '\n\n')
+                else:
+                    print(key, ' = ', jsdata.get(key), ',', end="")
+
+        print()
     # ensure required properties are present
     for key in REQUIRED_FIELDS:
         if key not in jsdata.keys():
@@ -598,6 +635,22 @@ def main(jspath, **options):
             logger.error("Required fields are: {}"
                          .format(", ".join(REQUIRED_FIELDS)))
             sys.exit(1)
+
+    json_file_dir = os.path.abspath(os.path.dirname(jspath))
+
+    # download remote zim file
+    if is_remote_path(jsdata.get('zim_file')):
+        zimfile_url = jsdata.get('zim_file')
+        remote_filename = get_remote_file_name(zimfile_url)
+        local_file_path = os.path.join(json_file_dir, remote_filename)
+        download_remote_file(zimfile_url, local_file_path)
+        jsdata.update({'zim_file': local_file_path})
+
+    # update relative paths to absolute
+    os.chdir(json_file_dir)
+    jsdata.update({'zim_file': os.path.abspath(jsdata.get('zim_file'))})
+    jsdata.update({'ic_launcher': os.path.abspath(jsdata.get('ic_launcher'))})
+    move_to_current_folder()
 
     def zim_name_from_path(path):
         fname = path.rsplit('/', 1)[-1]
@@ -608,6 +661,10 @@ def main(jspath, **options):
     jsdata.update({'zim_name': zim_name_from_path(jsdata.get('zim_file'))})
     if jsdata.get('embed_zim'):
         jsdata.update({'zim_name': 'libcontent.so'})
+
+    # Update Content Version Code
+    if jsdata.get('content_version_code') == 0:
+        jsdata.update({'content_version_code': jsdata.get('version_code')})
 
     # greetings
     logger.info("Your are now building {app_name} version {version_name} "
@@ -624,6 +681,7 @@ def main(jspath, **options):
             step_func(jsdata, **options)
     move_to_current_folder()
 
+
 if __name__ == '__main__':
 
     # ensure we were provided a JSON file as first argument
@@ -638,16 +696,38 @@ if __name__ == '__main__':
         step_name = re.sub(r'^\-\-', '', arg)
         if step_name in ARGS_MATRIX.keys():
             full = False
-    if (len(args) == 0) or (full):
+    if (len(args) == 0) or full:
         options = OrderedDict([('do_{}'.format(step), True)
                                for step in ARGS_MATRIX.keys()])
-    if (len(args) != 0):
+
+    if len(args) != 0:
+        for arg in args:
+            opt_name = re.sub(r'^\-\-', '', arg)
+            if opt_name not in ARGS_MATRIX.keys() and opt_name.startswith('override-'):
+                opt_name = opt_name.replace('override-', '')
+                fields_to_change = opt_name.split('-')
+                field_value_dict = {}
+                if len(fields_to_change) > 0:
+                    for field in fields_to_change:
+                        field_value = field.split('=')
+                        if len(field_value) == 2 and len(field_value[0]) > 0 and len(field_value[1]) > 0:
+                            field_value_dict[field_value[0]] = field_value[1]
+                        else:
+                            json_override_usage()
+                    options.update({'json_fields_update': field_value_dict})
+                else:
+                    json_override_usage()
+
+    if len(args) != 0:
         for arg in args:
             step_name = re.sub(r'^\-\-', '', arg)
             if step_name not in ARGS_MATRIX.keys():
                 if step_name.startswith('on='):
                     rarch = step_name.split('=', 1)[1]
                     architectures.append(rarch)
+                elif step_name.startswith('override'):
+                    # do nothing just ignore
+                    continue
                 else:
                     logger.error("{} not a valid step. Exiting.".format(step_name))
                     usage(sys.argv[0], 1)

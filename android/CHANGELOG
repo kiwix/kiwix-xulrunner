@@ -1,4 +1,18 @@
-2.0:
+2.2
+FIX: Text To Speech issues on earlier Android versions
+FIX: Download reslience
+
+2.1
+FIX: Display of storage devices
+FIX: External SD cards detection
+FIX: ZIM file detection speed
+FIX: Core errors handling
+FIX: Save image
+FIX: ZIM file deletion
+FIX: Transparent action menu
+NEW: Pause/Resume TTS
+
+2.0
 NEW: Clean history button
 NEW: Open new tab in background - settings option
 NEW: Kiwix search home screen widget

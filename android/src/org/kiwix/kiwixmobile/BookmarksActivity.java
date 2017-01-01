@@ -37,11 +37,9 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import org.kiwix.kiwixmobile.database.BookmarksDao;
 import org.kiwix.kiwixmobile.database.KiwixDatabase;
-import org.kiwix.kiwixmobile.utils.ShortcutUtils;
 
 import java.util.ArrayList;
 
@@ -71,7 +69,7 @@ public class BookmarksActivity extends AppCompatActivity
     noBookmarksLayout = (LinearLayout) findViewById(R.id.bookmarks_none_linlayout);
 
 
-    bookmarksDao = new BookmarksDao(new KiwixDatabase(this));
+    bookmarksDao = new BookmarksDao(KiwixDatabase.getInstance(this));
     bookmarks = bookmarksDao.getBookmarkTitles(ZimContentProvider.getId());
     bookmarkUrls = bookmarksDao.getBookmarks(ZimContentProvider.getId());
 
@@ -144,7 +142,7 @@ public class BookmarksActivity extends AppCompatActivity
 
   private void popDeleteBookmarksSnackbar() {
     Snackbar bookmarkDeleteSnackbar =
-        Snackbar.make(snackbarLayout, numOfSelected + " " + ShortcutUtils.stringsGetter(R.string.deleted_message, this), Snackbar.LENGTH_LONG);
+        Snackbar.make(snackbarLayout, numOfSelected + " " + getString(R.string.deleted_message), Snackbar.LENGTH_LONG);
 //            .setAction(ShortcutUtils.stringsGetter(R.string.undo, this), v -> {
 //              restoreBookmarks();
 //              setNoBookmarksState();
@@ -189,13 +187,11 @@ public class BookmarksActivity extends AppCompatActivity
 
   private void setUpToolbar() {
     Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-    toolbar.setTitle(ShortcutUtils.stringsGetter(R.string.menu_bookmarks_list, this));
+    toolbar.setTitle(getString(R.string.menu_bookmarks_list));
     setSupportActionBar(toolbar);
     getSupportActionBar().setHomeButtonEnabled(true);
     getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-    toolbar.setNavigationOnClickListener(v -> {
-      onBackPressed();
-    });
+    toolbar.setNavigationOnClickListener(v -> onBackPressed());
   }
 
   @Override
@@ -220,11 +216,15 @@ public class BookmarksActivity extends AppCompatActivity
   @Override
   public void onBackPressed() {
     int value = Settings.System.getInt(getContentResolver(), Settings.System.ALWAYS_FINISH_ACTIVITIES, 0);
-    if (value == 1) {
-      Intent startIntent = new Intent(this, KiwixMobileActivity.class);
+    Intent startIntent = new Intent(this, KiwixMobileActivity.class);
+    startIntent.putExtra("bookmarkClicked", false);
+
+    if (value == 1) { // means there's only 1 activity in stack so start new
       startActivity(startIntent);
-    } else {
-      super.onBackPressed();
+
+    } else { // we have a parent activity waiting...
+      setResult(RESULT_OK,startIntent );
+      finish();
     }
   }
 

@@ -3,12 +3,8 @@ package org.kiwix.kiwixmobile.database;
 
 import com.yahoo.squidb.data.SquidCursor;
 import com.yahoo.squidb.sql.Query;
-
-import org.kiwix.kiwixmobile.database.entity.Bookmarks;
-import org.kiwix.kiwixmobile.database.entity.RecentSearch;
-
 import java.util.ArrayList;
-import java.util.List;
+import org.kiwix.kiwixmobile.database.entity.Bookmarks;
 
 /**
  * Dao class for bookmarks.
@@ -21,7 +17,6 @@ public class BookmarksDao {
   public BookmarksDao(KiwixDatabase kiwikDatabase) {
     this.mDb = kiwikDatabase;
   }
-
 
   public ArrayList<String> getBookmarks(String ZimId) {
     SquidCursor<Bookmarks> bookmarkCursor = mDb.query(
@@ -52,12 +47,17 @@ public class BookmarksDao {
     } finally {
       bookmarkCursor.close();
     }
+
+
     return result;
   }
 
   /**
-   * Save {@code searchString} as the most recent search.
-   */
+   * Save bookmark by:
+   * @param articleUrl
+   * @param articleTitle
+   * @param ZimId
+     */
   public void saveBookmark(String articleUrl, String articleTitle, String ZimId) {
     if (articleUrl != null) {
       mDb.persist(new Bookmarks().setBookmarkUrl(articleUrl).setBookmarkTitle(articleTitle).setZimId(ZimId));
@@ -67,11 +67,14 @@ public class BookmarksDao {
   }
 
   /**
-   * Delete all entries that exactly matches {@code searchString}
-   */
+   * Delete bookmark satisfying:
+   * @param favArticle - the article url
+   * @param ZimId - zim containing article
+     */
   public void deleteBookmark(String favArticle, String ZimId) {
     mDb.deleteWhere(Bookmarks.class, Bookmarks.BOOKMARK_URL.eq(favArticle).and(Bookmarks.ZIM_ID.eq(ZimId)) );
   }
+
 
   public void deleteAll(){
     mDb.clear();

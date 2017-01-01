@@ -1,6 +1,5 @@
 package org.kiwix.kiwixmobile.utils;
 
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.os.Build;
 import android.speech.tts.TextToSpeech;
@@ -9,10 +8,15 @@ import android.util.Log;
 import android.webkit.JavascriptInterface;
 import android.webkit.WebView;
 import android.widget.Toast;
-import java.util.HashMap;
-import java.util.Locale;
+
 import org.kiwix.kiwixmobile.R;
 import org.kiwix.kiwixmobile.ZimContentProvider;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Locale;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class KiwixTextToSpeech {
 
@@ -25,6 +29,8 @@ public class KiwixTextToSpeech {
   private TextToSpeech tts;
 
   private boolean initialized = false;
+
+  public TTSTask currentTTSTask = null;
 
   /**
    * Constructor.
@@ -44,36 +50,14 @@ public class KiwixTextToSpeech {
     initTTS(onInitSucceedListener);
   }
 
-  @TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH_MR1)
   private void initTTS(final OnInitSucceedListener onInitSucceedListener) {
-    tts = new TextToSpeech(context, new TextToSpeech.OnInitListener() {
-      @Override
-      public void onInit(int status) {
-        if (status == TextToSpeech.SUCCESS) {
-          Log.d(TAG_KIWIX, "TextToSpeech was initialized successfully.");
-          initialized = true;
-          onInitSucceedListener.onInitSucceed();
-        } else {
-          Log.e(TAG_KIWIX, "Initilization of TextToSpeech Failed!");
-        }
-      }
-    });
-
-    tts.setOnUtteranceProgressListener(new UtteranceProgressListener() {
-      @Override
-      public void onStart(String utteranceId) {
-      }
-
-      @Override
-      public void onDone(String utteranceId) {
-        Log.e(TAG_KIWIX, "TextToSpeech: " + utteranceId);
-        onSpeakingListener.onSpeakingEnded();
-      }
-
-      @Override
-      public void onError(String utteranceId) {
-        Log.e(TAG_KIWIX, "TextToSpeech: " + utteranceId);
-        onSpeakingListener.onSpeakingEnded();
+    tts = new TextToSpeech(context, status -> {
+      if (status == TextToSpeech.SUCCESS) {
+        Log.d(TAG_KIWIX, "TextToSpeech was initialized successfully.");
+        initialized = true;
+        onInitSucceedListener.onInitSucceed();
+      } else {
+        Log.e(TAG_KIWIX, "Initilization of TextToSpeech Failed!");
       }
     });
   }
@@ -89,8 +73,12 @@ public class KiwixTextToSpeech {
    * Starts speaking the WebView content aloud (or stops it if TTS is speaking now).
    */
   public void readAloud(WebView webView) {
-    if (tts.isSpeaking()) {
+    if (currentTTSTask != null && currentTTSTask.paused) {
+      onSpeakingListener.onSpeakingEnded();
+      currentTTSTask = null;
+    } else if (tts.isSpeaking()) {
       if (tts.stop() == TextToSpeech.SUCCESS) {
+        tts.setOnUtteranceProgressListener(null);
         onSpeakingListener.onSpeakingEnded();
       }
     } else {
@@ -123,7 +111,25 @@ public class KiwixTextToSpeech {
     }
   }
 
-  public void initWebView(WebView webView){
+  public void stop() {
+    if (tts.stop() == TextToSpeech.SUCCESS) {
+      currentTTSTask = null;
+      tts.setOnUtteranceProgressListener(null);
+      onSpeakingListener.onSpeakingEnded();
+    }
+  }
+
+  public void pauseOrResume() {
+    if (currentTTSTask == null)
+      return;
+
+    if (currentTTSTask.paused)
+      currentTTSTask.start();
+    else
+      currentTTSTask.pause();
+  }
+
+  public void initWebView(WebView webView) {
     webView.addJavascriptInterface(new TTSJavaScriptInterface(), "tts");
   }
 
@@ -167,26 +173,95 @@ public class KiwixTextToSpeech {
     public void onSpeakingEnded();
   }
 
-  private class TTSJavaScriptInterface {
+  public class TTSTask {
+    private final List<String> pieces;
+    private AtomicInteger currentPiece = new AtomicInteger(0);
 
-    @JavascriptInterface
-    @SuppressWarnings("unused")
-    public void speakAloud(String content) {
-      String[] lines = content.split("\n");
-      for (int i = 0; i < lines.length - 1; i++) {
-        String line = lines[i];
-        tts.speak(line, TextToSpeech.QUEUE_ADD, null);
-      }
+    public boolean paused = true;
+
+
+    private TTSTask(List<String> pieces) {
+      this.pieces = pieces;
+      //start();
+    }
+
+    public void pause() {
+      paused = true;
+      currentPiece.decrementAndGet();
+      tts.setOnUtteranceProgressListener(null);
+      tts.stop();
+    }
+
+    public void start() {
+      if (!paused)
+        return;
+      else
+        paused = false;
 
       HashMap<String, String> params = new HashMap<>();
       // The utterance ID isn't actually used anywhere, the param is passed only to force
       // the utterance listener to be notified
       params.put(TextToSpeech.Engine.KEY_PARAM_UTTERANCE_ID, "kiwixLastMessage");
-      tts.speak(lines[lines.length - 1], TextToSpeech.QUEUE_ADD, params);
 
-      if (lines.length > 0) {
-        onSpeakingListener.onSpeakingStarted();
+
+      if (currentPiece.get() < pieces.size())
+        tts.speak(pieces.get(currentPiece.getAndIncrement()), TextToSpeech.QUEUE_ADD, params);
+      else
+        stop();
+
+      if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH_MR1) {
+        tts.setOnUtteranceProgressListener(new UtteranceProgressListener() {
+          @Override
+          public void onStart(String s) {
+
+          }
+
+          @Override
+          public void onDone(String s) {
+            int line = currentPiece.intValue();
+
+            if (line >= pieces.size() && !paused) {
+              stop();
+              return;
+            }
+
+            tts.speak(pieces.get(line), TextToSpeech.QUEUE_ADD, params);
+            currentPiece.getAndIncrement();
+          }
+
+          @Override
+          public void onError(String s) {
+            Log.e(TAG_KIWIX, "TextToSpeech: " + s);
+          }
+        });
       }
+    }
+
+    public void stop() {
+      currentTTSTask = null;
+      onSpeakingListener.onSpeakingEnded();
+    }
+  }
+
+  private class TTSJavaScriptInterface {
+    @JavascriptInterface
+    @SuppressWarnings("unused")
+    public void speakAloud(String content) {
+      String[] splitted = content.split("[\\n\\.;]");
+      List<String> pieces = new ArrayList<>();
+
+      for (String s : splitted) {
+        if (!s.trim().isEmpty())
+          pieces.add(s.trim());
+      }
+
+      if (!pieces.isEmpty()) {
+        onSpeakingListener.onSpeakingStarted();
+      } else
+        return;
+
+      currentTTSTask = new TTSTask(pieces);
+      currentTTSTask.start();
     }
   }
 }

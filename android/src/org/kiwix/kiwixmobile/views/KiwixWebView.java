@@ -28,21 +28,22 @@ import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
 import android.preference.PreferenceManager;
-import android.util.AttributeSet;
 import android.util.Log;
 import android.view.ContextMenu;
 import android.view.MenuItem;
 import android.view.View;
 import android.webkit.WebView;
 import android.widget.Toast;
-
-import org.kiwix.kiwixmobile.R;
-
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import org.kiwix.kiwixmobile.KiwixMobileActivity;
+import org.kiwix.kiwixmobile.KiwixWebChromeClient;
+import org.kiwix.kiwixmobile.KiwixWebViewClient;
+import org.kiwix.kiwixmobile.R;
+import org.kiwix.kiwixmobile.WebViewCallback;
 
 public class KiwixWebView extends WebView {
 
@@ -56,13 +57,10 @@ public class KiwixWebView extends WebView {
       0, 0, -1.0f, 0, 255, // blue
       0, 0, 0, 1.0f, 0 // alpha
   };
-
-  private OnPageChangeListener mChangeListener;
-
-  private OnLongClickListener mOnLongClickListener;
+  private WebViewCallback callback;
 
   @Override
-  public void loadUrl(String url){
+  public void loadUrl(String url) {
     super.loadUrl(url);
   }
 
@@ -70,7 +68,7 @@ public class KiwixWebView extends WebView {
 
     @Override
     public void handleMessage(Message msg) {
-
+      KiwixMobileActivity kiwixMobileActivity = (KiwixMobileActivity) getContext();
       String url = (String) msg.getData().get("url");
       String src = (String) msg.getData().get("src");
 
@@ -80,16 +78,18 @@ public class KiwixWebView extends WebView {
         url = url.substring(url.indexOf("%3A") + 1, url.length());
         int dotIndex = url.lastIndexOf('.');
 
-        File storageDir =
-            new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES),
-                url);
+        File root = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
 
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP
+            && kiwixMobileActivity.getExternalMediaDirs().length > 0) {
+          root = kiwixMobileActivity.getExternalMediaDirs()[0];
+        }
+
+        File storageDir = new File(root, url);
         String newUrl = url;
         for (int i = 2; storageDir.exists(); i++) {
           newUrl = url.substring(0, dotIndex) + "_" + i + url.substring(dotIndex, url.length());
-          storageDir = new File(
-              Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES),
-              newUrl);
+          storageDir = new File(root, newUrl);
         }
 
         Uri source = Uri.parse(src);
@@ -119,16 +119,11 @@ public class KiwixWebView extends WebView {
     }
   };
 
-  public KiwixWebView(Context context) {
+  public KiwixWebView(Context context, WebViewCallback callback) {
     super(context);
-  }
-
-  public KiwixWebView(Context context, AttributeSet attrs) {
-    super(context, attrs);
-  }
-
-  public KiwixWebView(Context context, AttributeSet attrs, int defStyle) {
-    super(context, attrs, defStyle);
+    this.callback = callback;
+    setWebViewClient(new KiwixWebViewClient(callback));
+    setWebChromeClient(new KiwixWebChromeClient(callback));
   }
 
   public void loadPrefs() {
@@ -162,7 +157,7 @@ public class KiwixWebView extends WebView {
     HitTestResult result = getHitTestResult();
 
     if (result.getType() == HitTestResult.SRC_ANCHOR_TYPE) {
-      mOnLongClickListener.onLongClick(result.getExtra());
+      callback.webViewLongClick(result.getExtra());
       return true;
     }
     return super.performLongClick();
@@ -198,33 +193,12 @@ public class KiwixWebView extends WebView {
     int pages = getContentHeight() / windowHeight;
     int page = t / windowHeight;
 
-    // Alert the listener
-    if (mChangeListener != null) {
-      mChangeListener.onPageChanged(page, pages);
-    }
+    callback.webViewPageChanged(page, pages);
   }
 
   public void disableZoomControls() {
     getSettings().setBuiltInZoomControls(true);
     getSettings().setDisplayZoomControls(false);
-  }
-
-  public void setOnPageChangedListener(OnPageChangeListener listener) {
-    mChangeListener = listener;
-  }
-
-  public void setOnLongClickListener(OnLongClickListener listener) {
-    mOnLongClickListener = listener;
-  }
-
-  public interface OnPageChangeListener {
-
-    void onPageChanged(int page, int maxPages);
-  }
-
-  public interface OnLongClickListener {
-
-    void onLongClick(String url);
   }
 }
 

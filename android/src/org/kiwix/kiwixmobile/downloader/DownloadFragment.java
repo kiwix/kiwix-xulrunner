@@ -19,34 +19,30 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-
-import org.kiwix.kiwixmobile.KiwixMobileActivity;
+import java.util.Arrays;
+import java.util.LinkedHashMap;
 import org.kiwix.kiwixmobile.LibraryFragment;
 import org.kiwix.kiwixmobile.R;
-import org.kiwix.kiwixmobile.ZimContentProvider;
 import org.kiwix.kiwixmobile.ZimFileSelectFragment;
 import org.kiwix.kiwixmobile.ZimManageActivity;
 import org.kiwix.kiwixmobile.library.entity.LibraryNetworkEntity;
-import org.w3c.dom.Text;
-
-import java.util.Arrays;
-import java.util.LinkedHashMap;
+import org.kiwix.kiwixmobile.utils.files.FileUtils;
 
 
 public class DownloadFragment extends Fragment {
 
-  public static LinkedHashMap<Integer, LibraryNetworkEntity.Book> mDownloads = new LinkedHashMap<Integer, LibraryNetworkEntity.Book>();
-  public static LinkedHashMap<Integer, String> mDownloadFiles = new LinkedHashMap<Integer, String>();
+  public static LinkedHashMap<Integer, LibraryNetworkEntity.Book> mDownloads = new LinkedHashMap<>();
+  public static LinkedHashMap<Integer, String> mDownloadFiles = new LinkedHashMap<>();
   public RelativeLayout relLayout;
-  public static ListView listView;
+  public  ListView listView;
   public static DownloadAdapter downloadAdapter;
   private ZimManageActivity zimManageActivity;
   CoordinatorLayout mainLayout;
-  private static FragmentActivity faActivity;
+  private FragmentActivity faActivity;
 
   @Override
   public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-    faActivity = (FragmentActivity) super.getActivity();
+    faActivity = super.getActivity();
     relLayout = (RelativeLayout) inflater.inflate(R.layout.download_management, container, false);
 
     zimManageActivity = (ZimManageActivity) super.getActivity();
@@ -60,22 +56,17 @@ public class DownloadFragment extends Fragment {
   @Override
   public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
     super.onViewCreated(view, savedInstanceState);
-
     updateNoDownloads();
-
   }
 
-  private static void updateNoDownloads() {
+  private void updateNoDownloads() {
     TextView noDownloadsText = (TextView) faActivity.findViewById(R.id.download_management_no_downloads);
-    if (noDownloadsText == null) {
-      return;
-    }
+    if (noDownloadsText == null) return;
     if (listView.getCount() == 0) {
       noDownloadsText.setVisibility(View.VISIBLE);
     } else if (listView.getCount() > 0) {
       noDownloadsText.setVisibility(View.GONE);
     }
-
   }
 
   public class DownloadAdapter extends BaseAdapter {
@@ -121,9 +112,9 @@ public class DownloadFragment extends Fragment {
         if (progress == 100) {
           ImageView pause = (ImageView) viewGroup.findViewById(R.id.pause);
           pause.setEnabled(false);
+          String fileName = FileUtils.getFileName(mDownloadFiles.get(mKeys[position]));
           {
             Snackbar completeSnack = Snackbar.make(mainLayout, getResources().getString(R.string.download_complete_snackbar), Snackbar.LENGTH_LONG);
-            String fileName = mDownloadFiles.get(mKeys[position]);
             completeSnack.setAction(getResources().getString(R.string.open), new View.OnClickListener() {
               @Override
               public void onClick(View v) {
@@ -131,6 +122,8 @@ public class DownloadFragment extends Fragment {
               }
             }).setActionTextColor(getResources().getColor(R.color.white)).show();
           }
+          ZimFileSelectFragment zimFileSelectFragment = (ZimFileSelectFragment) zimManageActivity.mSectionsPagerAdapter.getItem(0);
+          zimFileSelectFragment.addBook(fileName);
           mDownloads.remove(mKeys[position]);
           mDownloadFiles.remove(mKeys[position]);
           downloadAdapter.notifyDataSetChanged();
@@ -160,7 +153,7 @@ public class DownloadFragment extends Fragment {
       ProgressBar downloadProgress = (ProgressBar) convertView.findViewById(R.id.downloadProgress);
       ImageView pause = (ImageView) convertView.findViewById(R.id.pause);
 
-      if (LibraryFragment.mService.downloadProgress.get(mKeys[position]) != null) {
+      if (LibraryFragment.mService.downloadProgress.get(mKeys[position]) != -1) {
         downloadProgress.setProgress(LibraryFragment.mService.downloadProgress.get(mKeys[position]));
         if (LibraryFragment.mService.downloadStatus.get(mKeys[position]) == 1) {
           LibraryFragment.mService.pauseDownload(mKeys[position]);
@@ -212,7 +205,7 @@ public class DownloadFragment extends Fragment {
 
   }
 
-  public static void addDownload(int position, LibraryNetworkEntity.Book book, String fileName) {
+  public void addDownload(int position, LibraryNetworkEntity.Book book, String fileName) {
     mDownloads.put(position, book);
     mDownloadFiles.put(position, fileName);
     downloadAdapter.notifyDataSetChanged();
@@ -222,8 +215,7 @@ public class DownloadFragment extends Fragment {
   public Bitmap StringToBitMap(String encodedString) {
     try {
       byte[] encodeByte = Base64.decode(encodedString, Base64.DEFAULT);
-      Bitmap bitmap = BitmapFactory.decodeByteArray(encodeByte, 0, encodeByte.length);
-      return bitmap;
+      return BitmapFactory.decodeByteArray(encodeByte, 0, encodeByte.length);
     } catch (Exception e) {
       e.getMessage();
       return null;

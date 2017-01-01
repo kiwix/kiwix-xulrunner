@@ -24,61 +24,37 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.database.Cursor;
-import android.graphics.Color;
-import android.net.ConnectivityManager;
 import android.net.Uri;
-import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
-import android.provider.MediaStore;
-import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.LoaderManager;
 import android.support.v4.content.ContextCompat;
-import android.support.v4.content.CursorLoader;
-import android.support.v4.content.Loader;
-import android.support.v4.widget.SimpleCursorAdapter;
 import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.AlphaAnimation;
-import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import java.io.File;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-
 import org.kiwix.kiwixmobile.database.BookDao;
 import org.kiwix.kiwixmobile.database.KiwixDatabase;
 import org.kiwix.kiwixmobile.library.LibraryAdapter;
 import org.kiwix.kiwixmobile.library.entity.LibraryNetworkEntity;
 import org.kiwix.kiwixmobile.utils.LanguageUtils;
-import org.kiwix.kiwixmobile.utils.ShortcutUtils;
 import org.kiwix.kiwixmobile.utils.files.FileSearch;
 import org.kiwix.kiwixmobile.utils.files.FileUtils;
-import org.kiwix.kiwixmobile.utils.files.FileWriter;
-import org.w3c.dom.Text;
 
 public class ZimFileSelectFragment extends Fragment
     implements OnItemClickListener, AdapterView.OnItemLongClickListener {
@@ -99,7 +75,7 @@ public class ZimFileSelectFragment extends Fragment
 
 
   public static void finishResult(String path) {
-    ZimManageActivity zimManageActivity = (ZimManageActivity) context;
+    ZimManageActivity zimManageActivity = context;
     if (path != null) {
       File file = new File(path);
       Uri uri = Uri.fromFile(file);
@@ -112,31 +88,43 @@ public class ZimFileSelectFragment extends Fragment
     }
   }
 
+  @Override
+  public void onResume() {
+    refreshFragment();
+    super.onResume();
+  }
+
   public void refreshFragment(){
     // Of course you will want to faActivity and llLayout in the class and not this method to access them in the rest of
     // the class, just initialize them here
     if (mZimFileList == null)
       return;
 
-    mZimFileList.addFooterView(progressBar);
     mZimFileList.setOnItemClickListener(this);
     mZimFileList.setOnItemLongClickListener(this);
 
-    bookDao = new BookDao(new KiwixDatabase(context));
+    bookDao = new BookDao(KiwixDatabase.getInstance(context));
+    ArrayList<LibraryNetworkEntity.Book> books = bookDao.getBooks();
+    Collections.sort(books, new fileComparator());
 
-    mFiles = bookDao.getBooks();
-    Collections.sort(mFiles, new fileComparator());
+    mFiles.clear();
 
-    mRescanAdapter = new RescanDataAdapter(ZimFileSelectFragment.context, 0, mFiles);
+    mFiles.addAll(books);
 
     mZimFileList.setAdapter(mRescanAdapter);
     mRescanAdapter.notifyDataSetChanged();
+    checkEmpty();
     checkPermissions();
+  }
+
+  public void addBook(String path) {
+    mFiles.add(FileSearch.fileToBook(path));
+    mRescanAdapter.notifyDataSetChanged();
+    bookDao.saveBooks(mFiles);
   }
 
   @Override
   public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-    FragmentActivity faActivity  = (FragmentActivity)    super.getActivity();
     context = (ZimManageActivity) super.getActivity();
     // Replace LinearLayout by the type of the root element of the layout you're trying to load
     llLayout = (RelativeLayout) inflater.inflate(R.layout.zim_list, container, false);
@@ -145,8 +133,14 @@ public class ZimFileSelectFragment extends Fragment
     mFileMessage = (TextView) llLayout.findViewById(R.id.file_management_no_files);
     mZimFileList = (ListView)  llLayout.findViewById(R.id.zimfilelist);
 
-    mFiles = new ArrayList<LibraryNetworkEntity.Book>();
+    mFiles = new ArrayList<>();
     progressBar = (RelativeLayout) super.getActivity().getLayoutInflater().inflate(R.layout.progress_bar, null);
+
+    mRescanAdapter = new RescanDataAdapter(ZimFileSelectFragment.context, 0, mFiles);
+
+    // Allow temporary use of ZimContentProvider to query books
+    ZimContentProvider.canIterate = true;
+
     refreshFragment();
 
     return llLayout; // We must return the loaded Layout
@@ -174,7 +168,54 @@ public class ZimFileSelectFragment extends Fragment
   }
 
   public void getFiles(){
-      new RescanFileSystem().execute();
+    if (mZimFileList.getFooterViewsCount() != 0)
+      return;
+
+    mZimFileList.addFooterView(progressBar);
+    checkEmpty();
+
+    new FileSearch(context, new FileSearch.ResultListener() {
+      @Override
+      public void onBookFound(LibraryNetworkEntity.Book book) {
+        if (!mFiles.contains(book)) {
+          context.runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+              Log.i("Scanner", "Found "+book.title);
+              mFiles.add(book);
+              mRescanAdapter.notifyDataSetChanged();
+              checkEmpty();
+            }
+          });
+        }
+      }
+
+      @Override
+      public void onScanCompleted() {
+        //filter deleted files
+        ArrayList<LibraryNetworkEntity.Book> books = new ArrayList<>(mFiles);
+        for (LibraryNetworkEntity.Book book : books) {
+          if (book.file == null || !book.file.canRead()) {
+            mFiles.remove(book);
+          }
+        }
+
+        if (LibraryFragment.libraryAdapter != null && context.searchView != null) {
+          LibraryFragment.libraryAdapter.getFilter().filter(context.searchView.getQuery());
+        }
+
+        context.runOnUiThread(new Runnable() {
+          @Override
+          public void run() {
+            mRescanAdapter.notifyDataSetChanged();
+
+            bookDao.saveBooks(mFiles);
+            mZimFileList.removeFooterView(progressBar);
+            checkEmpty();
+          }
+        });
+      }
+    }).scan();
   }
 
   @Override
@@ -185,7 +226,7 @@ public class ZimFileSelectFragment extends Fragment
         if (grantResults.length > 0
             && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
             getFiles();
-        } else {
+        } else if (grantResults.length != 0) {
           super.getActivity().finish();
         }
         return;
@@ -200,7 +241,7 @@ public class ZimFileSelectFragment extends Fragment
     switch (item.getItemId()) {
       case R.id.menu_rescan_fs:
         // Execute our AsyncTask, that scans the file system for the actual data
-        new RescanFileSystem().execute();
+       getFiles();
 
         // Make sure, that we set mNeedsUpdate to true and to false, after the MediaStore has been
         // updated. Otherwise it will result in a endless loop.
@@ -213,11 +254,18 @@ public class ZimFileSelectFragment extends Fragment
   public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
     Log.d(TAG_KIWIX, " mZimFileList.onItemClick");
+    // Stop file search from accessing content provider potentially opening wrong file
+    ZimContentProvider.canIterate = false;
 
     String file;
-
     LibraryNetworkEntity.Book data = (LibraryNetworkEntity.Book) mZimFileList.getItemAtPosition(position);
     file = data.file.getPath();
+
+    if (!data.file.canRead()) {
+      Toast.makeText(context, getString(R.string.error_filenotfound), Toast.LENGTH_LONG).show();
+      return;
+    }
+
     finishResult(file);
   }
 
@@ -230,11 +278,14 @@ public class ZimFileSelectFragment extends Fragment
 
   public void deleteSpecificZimDialog(int position) {
     new AlertDialog.Builder(super.getActivity())
-        .setMessage(ShortcutUtils.stringsGetter(R.string.delete_specific_zim, context))
+        .setMessage(getString(R.string.delete_specific_zim))
         .setPositiveButton(getResources().getString(R.string.delete), new DialogInterface.OnClickListener() {
           public void onClick(DialogInterface dialog, int which) {
-            deleteSpecificZimFile(position);
-            Toast.makeText(context, getResources().getString(R.string.delete_specific_zim_toast), Toast.LENGTH_SHORT).show();
+            if (deleteSpecificZimFile(position)) {
+              Toast.makeText(context, getResources().getString(R.string.delete_specific_zim_toast), Toast.LENGTH_SHORT).show();
+            } else {
+              Toast.makeText(context, getResources().getString(R.string.delete_zim_failed), Toast.LENGTH_SHORT).show();
+            }
           }
         })
         .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
@@ -245,19 +296,26 @@ public class ZimFileSelectFragment extends Fragment
         .show();
   }
 
-  public void deleteSpecificZimFile(int position) {
-    FileUtils.deleteZimFile(mFiles.get(position).file.getPath());
+  public boolean deleteSpecificZimFile(int position) {
+    File file = mFiles.get(position).file;
+    FileUtils.deleteZimFile(file.getPath());
+    if (file.exists()) {
+      return false;
+    }
     mFiles.remove(position);
     mRescanAdapter.notifyDataSetChanged();
     checkEmpty();
-    LibraryFragment.libraryAdapter.getFilter().filter(context.searchView.getQuery());
-
+    if (LibraryFragment.libraryAdapter != null) {
+      LibraryFragment.libraryAdapter.getFilter().filter(context.searchView.getQuery());
+    }
+    return true;
   }
 
   public void checkEmpty(){
     if (mZimFileList.getCount() == 0){
       mFileMessage.setVisibility(View.VISIBLE);
-    }
+    } else
+      mFileMessage.setVisibility(View.GONE);
   }
 
   // The Adapter for the ListView for when the ListView is populated with the rescanned files
@@ -363,39 +421,6 @@ public class ZimFileSelectFragment extends Fragment
       TextView fileName;
 
       ImageView favicon;
-    }
-  }
-
-  // This AsyncTask will scan the file system for files with the Extension ".zim" or ".zimaa"
-  private class RescanFileSystem extends AsyncTask<Void, Void, Void> {
-
-    @Override
-    protected void onPreExecute() {
-
-      super.onPreExecute();
-    }
-
-    @Override
-    protected Void doInBackground(Void... params) {
-
-      mFiles = new FileSearch().findFiles(context);
-      Collections.sort(mFiles, new fileComparator());
-      bookDao.saveBooks(mFiles);
-      return null;
-    }
-    @Override
-    protected void onPostExecute(Void result) {
-      mRescanAdapter = new RescanDataAdapter(ZimFileSelectFragment.context, 0, mFiles);
-
-      mZimFileList.setAdapter(mRescanAdapter);
-
-      mZimFileList.removeFooterView(progressBar);
-      //mZimFileList.addFooterView(emptyView);
-
-      checkEmpty();
-
-
-      super.onPostExecute(result);
     }
   }
 }

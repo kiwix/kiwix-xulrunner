@@ -22,11 +22,13 @@ import java.io.File;
 import java.io.Serializable;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Objects;
+
 import org.simpleframework.xml.Attribute;
 import org.simpleframework.xml.ElementList;
 import org.simpleframework.xml.Root;
 
-@Root(name = "library")
+@Root(name = "library", strict = false)
 public class LibraryNetworkEntity {
 
   @ElementList(name = "book", inline = true, required = false)
@@ -43,6 +45,7 @@ public class LibraryNetworkEntity {
     return this.version;
   }
 
+  @Root(name = "book", strict = false)
   public static class Book implements Serializable{
 
     @Attribute(name = "id", required = false)
@@ -91,6 +94,8 @@ public class LibraryNetworkEntity {
     public String tags;
 
     public boolean downloaded =  false;
+
+    public String remoteUrl;
 
     public int searchMatches = 0;
 
@@ -146,6 +151,23 @@ public class LibraryNetworkEntity {
 
     public String getSize() {
       return this.size;
+    }
+
+    // Two books are equal if their ids match
+    @Override
+    public boolean equals (Object obj) {
+      if (obj instanceof Book) {
+        if (((Book) obj).getId().equals(getId()) ) {
+          return true;
+        }
+      }
+      return false;
+    }
+
+    // Only use the book's id to generate a hash code
+    @Override
+    public int hashCode() {
+      return getId().hashCode();
     }
   }
 }

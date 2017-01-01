@@ -216,7 +216,7 @@ LIBICU_INCLUDES = [os.path.join(LIBICU_SRC, 'i18n'),
 
 # root folder for libzim
 LIBZIM_SRC = os.path.join(os.path.dirname(CURRENT_PATH),
-                          'src', 'dependencies', 'zimlib-1.3')
+                          'src', 'dependencies', 'zimlib-1.4')
 
 # headers for libzim
 LIBZIM_INCLUDES = [os.path.join(LIBZIM_SRC, 'include')]
@@ -438,8 +438,8 @@ for arch in ARCHS:
         shutil.copy('libz.a', os.path.join(platform, 'lib', 'gcc', arch_full, COMPILER_VERSION, 'libz.a'))
         os.chdir('../e2fsprogs-1.42')
         print("Fetching latest compile.sub...")
-        shutil.copy(os.path.join("..", "xapian-core-1.4.0", "config.guess"), os.path.join("config", "config.guess"))
-        shutil.copy(os.path.join("..", "xapian-core-1.4.0", "config.sub"), os.path.join("config", "config.sub"))
+        shutil.copy(os.path.join("..", "xapian-core-1.4.2", "config.guess"), os.path.join("config", "config.guess"))
+        shutil.copy(os.path.join("..", "xapian-core-1.4.2", "config.sub"), os.path.join("config", "config.sub"))
         if os.path.exists("Makefile"):
             syscall('make clean')
         syscall('./configure --host=%s --prefix=%s' % (arch_full, platform))
@@ -460,7 +460,7 @@ for arch in ARCHS:
         shutil.copy('uuid.h', os.path.join(platform, 'include', 'c++', COMPILER_VERSION, 'uuid', 'uuid.h'))
         shutil.copy('libuuid.a', os.path.join(platform, 'lib', 'gcc', arch_full, COMPILER_VERSION, 'libuuid.a'))
         shutil.copy('libuuid.a', os.path.join(platform, 'lib', 'libuuid.a'))
-        os.chdir('../../../xapian-core-1.4.0')
+        os.chdir('../../../xapian-core-1.4.2')
         if os.path.exists("Makefile"):
             syscall('make clean')
 
@@ -502,7 +502,7 @@ for arch in ARCHS:
             pass
 
         syscall('make')
-        shutil.copy(os.path.join(curdir, '..', 'src', 'dependencies', 'xapian-core-1.4.0', '.libs', 'libxapian.a'), os.path.join(platform, 'lib', 'libxapian.a'))
+        shutil.copy(os.path.join(curdir, '..', 'src', 'dependencies', 'xapian-core-1.4.2', '.libs', 'libxapian.a'), os.path.join(platform, 'lib', 'libxapian.a'))
         os.chdir(curdir)
 
     # check that the step went well
@@ -578,8 +578,12 @@ for arch in ARCHS:
                    '-D_FILE_OFFSET_BITS=64 '
                    '-D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE '
                    '-DANDROID_NDK '
-                   'kiwix.c %(kwsrc)s/kiwix/reader.cpp '
+                   'kiwix.cpp '
+                   '%(kwsrc)s/kiwix/reader.cpp '
+                   '%(kwsrc)s/kiwix/xapianSearcher.cpp '
+                   '%(kwsrc)s/kiwix/searcher.cpp '
                    '%(kwsrc)s/stringTools.cpp '
+                   '%(kwsrc)s/resourceTools.cpp '
                    '%(kwsrc)s/pathTools.cpp '
                    '%(kwsrc)s/base64.cpp '
                    '-I%(include_paths)s '
@@ -587,7 +591,7 @@ for arch in ARCHS:
                       'arch_full': arch_full,
                       'gccver': COMPILER_VERSION,
                       'kwsrc': LIBKIWIX_SRC,
-                      'include_paths': ' -I'.join(LIBLZMA_INCLUDES
+                      'include_paths': ' -I'.join(  LIBLZMA_INCLUDES
                                                   + LIBICU_INCLUDES
                                                   + LIBZIM_INCLUDES
                                                   + platform_includes
@@ -601,16 +605,19 @@ for arch in ARCHS:
     link_cmd = ('g++ -fPIC -shared -B%(platform)s/sysroot '
                 '--sysroot %(platform)s/sysroot '
                 '-nostdlib '
-                'kiwix.o reader.o stringTools.o pathTools.o base64.o '
+                'kiwix.o searcher.o xapianSearcher.o reader.o '
+                'resourceTools.o stringTools.o pathTools.o base64.o '
                 '%(platform)s/lib/gcc/%(arch_full)s/%(gccver)s/crtbegin.o '
                 '%(platform)s/lib/gcc/%(arch_full)s/%(gccver)s/crtend.o '
                 '%(platform)s/lib/libzim.a %(platform)s/lib/liblzma.a '
-                # '%(platform)s/lib/libicutu.a '
-                # '%(platform)s/lib/libicuio.a '
+#                '%(platform)s/lib/libicule.a '
+#                '%(platform)s/lib/libicutest.a '
+#                '%(platform)s/lib/libicutu.a '
+#                '%(platform)s/lib/libicuio.a '
+#                '%(platform)s/lib/libicule.a '
+#                '%(platform)s/lib/libiculx.a '
+                '%(platform)s/lib/libicui18n.a '
                 '%(platform)s/lib/libicuuc.a '
-                # '%(platform)s/lib/libicule.a '
-                # '%(platform)s/lib/libiculx.a '
-                # '%(platform)s/lib/libicui18n.a '
                 '%(platform)s/lib/libicudata.a '
                 '%(platform)s/lib/libxapian.a '
                 '%(platform)s/lib/gcc/%(arch_full)s/%(gccver)s/libuuid.a '
@@ -641,7 +648,8 @@ for arch in ARCHS:
         syscall(compile_cmd)
         syscall(link_cmd)
 
-        for obj in ('kiwix.o', 'reader.o', 'stringTools.o', 'pathTools.o', 'base64.o',
+        for obj in ('kiwix.o', 'reader.o', 'searcher.o', 'xapianSearcher.o',
+                    'resourceTools.o', 'stringTools.o', 'pathTools.o', 'base64.o',
                     'src/{}_JNIKiwix.h'.format("_".join(PACKAGE.split('.')))):
             os.remove(obj)
 

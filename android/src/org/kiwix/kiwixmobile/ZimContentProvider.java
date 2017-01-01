@@ -28,18 +28,16 @@ import android.os.ParcelFileDescriptor;
 import android.os.ParcelFileDescriptor.AutoCloseOutputStream;
 import android.util.Log;
 import android.webkit.MimeTypeMap;
-
-import org.kiwix.kiwixmobile.settings.Constants;
-import org.kiwix.kiwixmobile.utils.files.FileUtils;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.nio.charset.Charset;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import org.kiwix.kiwixmobile.utils.files.FileUtils;
 
 public class ZimContentProvider extends ContentProvider {
 
@@ -49,22 +47,53 @@ public class ZimContentProvider extends ContentProvider {
 
   public static final Uri UI_URI = Uri.parse("content://org.kiwix.ui/");
 
+  public static String originalFileName = "";
+
+  public static Boolean canIterate = true;
+
   private static final String VIDEO_PATTERN = "([^\\s]+(\\.(?i)(3gp|mp4|m4a|webm|mkv|ogg|ogv))$)";
 
   private static final Pattern PATTERN = Pattern.compile(VIDEO_PATTERN, Pattern.CASE_INSENSITIVE);
 
-  private static String zimFileName;
+  public static String zimFileName;
 
   private static JNIKiwix jniKiwix;
 
-  private Matcher matcher;
+  private static String getFulltextIndexPath(String file){
+    String[] names = {file, file};
 
+    /* File might be a ZIM chunk like foobar.zimaa */
+    if (!names[0].substring(names[0].length() - 3).equals("zim")){
+      names[0] = names[0].substring(0, names[0].length() - 2);
+    }
+
+    /* Try to find a *.idx fulltext file/directory beside the ZIM
+     * file. Returns <zimfile>.zim.idx or <zimfile>.zimaa.idx. */
+    for (String name : names) {
+      File f = new File(name + ".idx");
+      if (f.exists() && f.isDirectory()) {
+        return f.getPath();
+      }
+    }
+
+    /* If no separate fulltext index file found then returns the ZIM
+     * file path itself (embedded fulltext index) */
+    return file;
+  }
+    
   public synchronized static String setZimFile(String fileName) {
     if (!jniKiwix.loadZIM(fileName)) {
-      Log.e(TAG_KIWIX, "Unable to open the file " + fileName);
+      Log.e(TAG_KIWIX, "Unable to open the ZIM file " + fileName);
       zimFileName = null;
     } else {
+      Log.d(TAG_KIWIX, "Opening ZIM file " + fileName);
       zimFileName = fileName;
+
+      /* Try to open the corresponding fulltext index */
+      String fullText = getFulltextIndexPath(fileName);
+      if (!jniKiwix.loadFulltextIndex(fullText)) {
+	  Log.e(TAG_KIWIX, "Unable to open the ZIM fulltext index " + fullText);
+      }
     }
     return zimFileName;
   }
@@ -227,7 +256,7 @@ public class ZimContentProvider extends ContentProvider {
   }
 
   private static String loadICUData(Context context, File workingDir) {
-    String icuFileName = "icudt49l.dat";
+    String icuFileName = "icudt56l.dat";
     try {
       File icuDir = new File(workingDir, "icu");
       if (!icuDir.exists()) {
@@ -311,10 +340,9 @@ public class ZimContentProvider extends ContentProvider {
   }
 
   @Override
-  public ParcelFileDescriptor openFile(Uri uri, String mode)
-      throws FileNotFoundException {
+  public ParcelFileDescriptor openFile(Uri uri, String mode) throws FileNotFoundException {
 
-    matcher = PATTERN.matcher(uri.toString());
+    Matcher matcher = PATTERN.matcher(uri.toString());
     if (matcher.matches()) {
       try {
         return saveVideoToCache(uri);
@@ -335,7 +363,6 @@ public class ZimContentProvider extends ContentProvider {
       throw new FileNotFoundException("Could not open pipe for: "
           + uri.toString());
     }
-
     return (pipe[0]);
   }
 
@@ -418,6 +445,12 @@ public class ZimContentProvider extends ContentProvider {
         JNIKiwixString mime = new JNIKiwixString();
         JNIKiwixInt size = new JNIKiwixInt();
         byte[] data = jniKiwix.getContent(articleZimUrl, mime, size);
+        if (mime.value.equals("text/css") && KiwixMobileActivity.nightMode) {
+          out.write(("img { \n" +
+              " -webkit-filter: invert(1); \n" +
+              " filter: invert(1); \n" +
+              "} \n").getBytes(Charset.forName("UTF-8")));
+        }
         out.write(data, 0, data.length);
         out.flush();
 
