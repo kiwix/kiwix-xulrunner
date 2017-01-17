@@ -73,12 +73,18 @@ import android.widget.Toast;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import java.io.File;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import org.json.JSONArray;
+import org.json.JSONObject;
 import org.kiwix.kiwixmobile.database.BookmarksDao;
+import org.kiwix.kiwixmobile.database.FeedbackDao;
 import org.kiwix.kiwixmobile.database.KiwixDatabase;
+import org.kiwix.kiwixmobile.database.entity.Feedback;
+import org.kiwix.kiwixmobile.feedback.RemoteConnection;
+import org.kiwix.kiwixmobile.feedback.RemoteConnectionComplete;
 import org.kiwix.kiwixmobile.settings.Constants;
 import org.kiwix.kiwixmobile.settings.KiwixSettingsActivity;
 import org.kiwix.kiwixmobile.utils.DocumentParser;
@@ -97,7 +103,7 @@ import static android.content.res.Configuration.ORIENTATION_LANDSCAPE;
 import static org.kiwix.kiwixmobile.TableDrawerAdapter.DocumentSection;
 import static org.kiwix.kiwixmobile.TableDrawerAdapter.TableClickListener;
 
-public class KiwixMobileActivity extends AppCompatActivity implements WebViewCallback {
+public class KiwixMobileActivity extends AppCompatActivity implements WebViewCallback, RemoteConnectionComplete {
 
   public static final int REQUEST_FILE_SEARCH = 1236;
 
@@ -169,6 +175,8 @@ public class KiwixMobileActivity extends AppCompatActivity implements WebViewCal
 
   public Menu menu;
 
+  private static String feedbackHtml; // stores string content loaded from feedback.html
+
   private ArrayList<String> bookmarks;
 
   private List<KiwixWebView> mWebViews = new ArrayList<>();
@@ -196,6 +204,8 @@ public class KiwixMobileActivity extends AppCompatActivity implements WebViewCal
   private SharedPreferences settings;
 
   private BookmarksDao bookmarksDao;
+
+  private FeedbackDao feedbackDao;
 
   @BindView(R.id.toolbar) Toolbar toolbar;
 
@@ -285,6 +295,8 @@ public class KiwixMobileActivity extends AppCompatActivity implements WebViewCal
     FileReader fileReader = new FileReader();
     documentParserJs = fileReader.readFile("js/documentParser.js", this);
 
+    feedbackHtml = fileReader.readFile("www/feedback.html", this);
+
     newTabButton.setOnClickListener((View view) -> newTab());
     tabForwardButtonContainer.setOnClickListener((View view) -> {
       if (getCurrentWebView().canGoForward()) {
@@ -354,6 +366,45 @@ public class KiwixMobileActivity extends AppCompatActivity implements WebViewCal
         documentSections.clear();
         tableDrawerAdapter.notifyDataSetChanged();
       }
+
+      @Override
+      public void postFeedback(String data) {
+        KiwixMobileActivity.this.runOnUiThread(new Runnable() {
+          public void run() {
+            String articleTitle = "";
+            String feedbackText = "";
+            String[] tokens = data.split(",");
+            if(tokens.length == 2) {
+              if(NetworkUtils.isNetworkAvailable(getApplicationContext())) {
+                try {
+                  articleTitle = tokens[0];
+                  feedbackText = tokens[1];
+                  System.out.println(articleTitle+" "+feedbackText);
+                  new RemoteConnection(RemoteConnection.ACTION_EDIT, Constants.FEEDBACK_POST_TO, articleTitle, feedbackText, KiwixMobileActivity.this).execute();
+                } catch (UnsupportedEncodingException e) {
+                  e.printStackTrace();
+                }
+              }
+              else {  // network is offline, feedback needs to be saved locally. On start of application, check if there are any feedbacks with id = 0, if yes then post all
+                Feedback feedback = new Feedback();
+                feedback.setFeedbackId(0);
+                feedback.setPostTo(Constants.FEEDBACK_POST_TO);
+                feedback.setTitle(articleTitle);
+                feedback.setText(feedbackText);
+
+                feedbackDao = new FeedbackDao(KiwixDatabase.getInstance(KiwixMobileActivity.this));
+                //feedbackDao.saveFeedback(feedback);
+                ArrayList<Feedback> feedbacks = feedbackDao.getOfflineFeedbacks();
+
+                Toast.makeText(KiwixMobileActivity.this, "You must"+feedbacks.get(0).getTitle()+feedbacks.get(0).getText()+feedbacks.get(0).getPostTo()+feedbacks.get(0).getTitle(), Toast.LENGTH_SHORT).show();
+              }
+
+            } else {
+              Toast.makeText(KiwixMobileActivity.this, "Please enter your feedback", Toast.LENGTH_SHORT).show();
+            }
+          }
+        });
+      }
     });
 
     manageExternalLaunchAndRestoringViewState();
@@ -387,6 +438,10 @@ public class KiwixMobileActivity extends AppCompatActivity implements WebViewCal
       zimFile.setData(uri);
       startActivity(zimFile);
     }
+  }
+
+  private void postFeedback() {
+
   }
 
   private void initPlayStoreUri() {
@@ -547,6 +602,9 @@ public class KiwixMobileActivity extends AppCompatActivity implements WebViewCal
 
   private void updateTableOfContents() {
     getCurrentWebView().loadUrl("javascript:(" + documentParserJs + ")()");
+    getCurrentWebView().loadUrl("javascript:"
+            +" var postFeedback = function(){ window.DocumentParser.postFeedbackFormData(document.getElementsByTagName('h1')[0].innerHTML+','+document.getElementById('feedbackText').value); " +
+            "};"); // when the user presses save button, send (title,feedbackText) to HTMLUtils class
   }
 
   private KiwixWebView newTab() {
@@ -1656,5 +1714,22 @@ public class KiwixMobileActivity extends AppCompatActivity implements WebViewCal
       AlertDialog dialog = builder.create();
       dialog.show();
     }
+  }
+
+  @Override public void loadFeedbackForm( String url ) {
+    // no need to add feedback form on to index page
+    if(!url.contains("index.htm")){
+      // load feedback form html into the webviews HTML
+      getCurrentWebView().loadUrl(
+              "javascript:(function(){ document.getElementsByTagName('body')[0].innerHTML = document.getElementsByTagName('body')[0].innerHTML + " +
+                      "'"+feedbackHtml+"'" +
+                      "})()"
+      );
+    }
+  }
+
+  @Override
+  public void remoteConnectionComplete(JSONObject data) {
+    Toast.makeText(this, "Feedback posted", Toast.LENGTH_SHORT).show();
   }
 }

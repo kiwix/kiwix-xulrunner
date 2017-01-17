@@ -25,4 +25,8 @@ public class Constants {
   public static final String CUSTOM_APP_SUPPORT_EMAIL = "~support_email~";
 
   public static final String CUSTOM_APP_ENFORCED_LANG = "";
+
+  public static final String FEEDBACK_POST_TO = "User_talk:Zaeemsiddiq";
+
+  public static final String DOMAIN = "https://en.wikipedia.org";
 }

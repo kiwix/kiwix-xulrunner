@@ -76,6 +76,7 @@ public class KiwixWebViewClient extends WebViewClient {
           .setOnClickListener(card -> callback.manageZimFiles(1));
       view.addView(help);
     }
+    callback.loadFeedbackForm( url );
     callback.webViewUrlFinishedLoading();
   }
 }

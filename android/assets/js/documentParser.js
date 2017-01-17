@@ -10,6 +10,7 @@ function() {
       }
       window.DocumentParser.parse(headerObject.textContent, headerObject.tagName, headerObject.id);
     }
+    window.DocumentParser.parse("Feedback", "feedbackTag", "feedbackForm");
     window.DocumentParser.stop();
   }
 }

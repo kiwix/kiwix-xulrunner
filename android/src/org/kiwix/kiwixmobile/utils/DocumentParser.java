@@ -4,6 +4,9 @@ import android.os.Handler;
 import android.os.Looper;
 import android.webkit.JavascriptInterface;
 import android.webkit.WebView;
+import android.widget.Toast;
+
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 import org.kiwix.kiwixmobile.TableDrawerAdapter;
@@ -59,12 +62,22 @@ public class DocumentParser {
     public void stop() {
       new Handler(Looper.getMainLooper()).post(() -> listener.sectionsLoaded(title, sections));
     }
+
+
+      @JavascriptInterface
+      @SuppressWarnings("unused")
+      public void postFeedbackFormData(final String data) {
+          new Handler(Looper.getMainLooper()).post(() -> listener.postFeedback(data));
+      }
+
   }
 
   public interface SectionsListener {
     void sectionsLoaded(String title, List<DocumentSection> sections);
 
     void clearSections();
+
+    void postFeedback(String data);
   }
 }
 

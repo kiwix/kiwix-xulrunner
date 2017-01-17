@@ -21,15 +21,15 @@ package org.kiwix.kiwixmobile.database.entity;
 
 import com.yahoo.squidb.annotations.TableModelSpec;
 
-@TableModelSpec(className = "FeedbackDatabaseEntity", tableName = "feedback")
-public class Feedback {
+@TableModelSpec(className = "Feedback", tableName = "feedback")
+public class FeedbackSpec {
 
-  public String feedbackId;
+  public int feedbackId;
+
+  public String postTo;
 
   public String title;
 
-  public String description;
-
-  public String date;
+  public String text;
 
 }
