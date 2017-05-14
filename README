@@ -16,7 +16,7 @@ Install pre-requisties in your distro, eg, in Debian based:
 
 sudo apt-get install zip pkg-config aptitude
 sudo apt-get install libmagic-dev
-sudo aptitude install libtool
+sudo aptitude install libtool automake
 
 === Static (Probably what you need to do if you don't know) ===
 
