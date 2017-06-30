@@ -105,7 +105,7 @@
 <!-- Bookmarks Bar -->
 <!ENTITY main.bmkLabel                  "書籤">
 <!ENTITY main.notesLabel                "書籤註記：">
-<!ENTITY main.loadbmk                   "導入書籤集">
+<!ENTITY main.loadbmk                   "匯入書籤集">
 <!ENTITY main.newbmk                    "創建新書籤集">
 <!ENTITY main.mark                      "標記此頁">
 <!ENTITY main.unmark                    "取消標記">

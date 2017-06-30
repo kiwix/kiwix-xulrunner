@@ -113,7 +113,7 @@
 <!ENTITY main.defaultset                "Conjunt predeterminat">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveMediaAs               "Desa el fitxer com...">
+<!ENTITY main.saveMediaAs               "Anomena i desa el fitxer…">
 <!ENTITY main.openLinkInNewTab          "Obre l'enllaç en una pestanya nova">
 <!ENTITY main.searchFor                 "Buscar">
 <!ENTITY main.copyLinkAdress            "Copy link address">

@@ -33,7 +33,7 @@
 <!ENTITY main.find.accesskey            "S">
 <!ENTITY main.selectall                 "Pilih kabéh">
 <!ENTITY main.selectall.accesskey       "a">
-<!ENTITY main.copy                      "Salin">
+<!ENTITY main.copy                      "Téplak">
 <!ENTITY main.copy.accesskey            "p">
 <!ENTITY main.transliteration           "Transliterasi">
 <!ENTITY main.transliteration.accesskey "T">
@@ -55,7 +55,7 @@
 <!ENTITY main.zoomorig.accesskey        "O">
 <!ENTITY main.language                  "Basa">
 <!ENTITY main.language.accesskey        "L">
-<!ENTITY main.skin                      "Kulit">
+<!ENTITY main.skin                      "Kalakop">
 <!ENTITY main.skin.accesskey            "S">
 <!ENTITY main.statusbar                 "Bar status">
 <!ENTITY main.statusbar.accesskey       "S">
@@ -143,7 +143,7 @@
 <!-- Library -->
 <!ENTITY main.library.myLibrary                 "Pabukon kuring">
 <!ENTITY main.library.getNewFiles               "Papay berkas aranyar">
-<!ENTITY main.library.searchZimFiles            "Sungsi berkas ZIM">
+<!ENTITY main.library.searchZimFiles            "Paluruh berkas ZIM">
 <!ENTITY main.library.sortBy                    "Runtuykeun dumasar">
 <!ENTITY main.library.sortBy.title              "Judul">
 <!ENTITY main.library.sortBy.size               "Ukuran">

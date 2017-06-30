@@ -100,7 +100,7 @@
 <!ENTITY main.bookmarks                 "Segnalibri">
 
 <!-- Results bar -->
-<!ENTITY main.results.title             "Risultati">
+<!ENTITY main.results.title             "Risultati della ricerca">
 
 <!-- Bookmarks Bar -->
 <!ENTITY main.bmkLabel                  "Segnalibri:">

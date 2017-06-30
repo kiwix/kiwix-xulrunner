@@ -91,7 +91,7 @@
 <!-- Tool bar -->
 <!ENTITY main.back                      "Geri">
 <!ENTITY main.forward                   "İleri">
-<!ENTITY main.home                      "Ana Sayfa">
+<!ENTITY main.home                      "Anasayfa">
 <!ENTITY main.searchBar                 "Arama çubuğu">
 <!ENTITY main.search                    "Ara">
 <!ENTITY main.searchPlaceholder         "Aramak için metni buraya girin...">

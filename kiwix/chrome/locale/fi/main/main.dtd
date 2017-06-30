@@ -75,7 +75,7 @@
 <!ENTITY main.randomArticle.accesskey   "S">
 <!ENTITY main.checkIntegrity            "Eheydentarkistus">
 <!ENTITY main.checkIntegrity.accesskey  "y">
-<!ENTITY main.launchIndexing            "Launch indexing">
+<!ENTITY main.launchIndexing            "Käynnistä indeksointi">
 <!ENTITY main.purgeHistory              "Tyhjennä historia">
 <!ENTITY main.purgeHistory.accesskey    "j">
 
@@ -113,7 +113,7 @@
 <!ENTITY main.defaultset                "Oletuskokoelma">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveMediaAs               "Save media as...">
+<!ENTITY main.saveMediaAs               "Tallenna media nimellä...">
 <!ENTITY main.openLinkInNewTab          "Avaa linkki uudessa välilehdessä">
 <!ENTITY main.searchFor                 "Etsi">
 <!ENTITY main.copyLinkAdress            "Copy link address">
@@ -132,7 +132,7 @@
 <!ENTITY preferences.browse             "Selaa">
 <!ENTITY preferences.tabs               "Muista välilehdet">
 <!ENTITY preferences.downloadCatalogs   "Lataa etäkatalogi(t)">
-<!ENTITY preferences.neverAskToIndex    "Never ask to index">
+<!ENTITY preferences.neverAskToIndex    "Älä koskaan kysy indeksointia">
 
 <!-- Server -->
 <!ENTITY server.load                    "Lataa">

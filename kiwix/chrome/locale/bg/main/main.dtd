@@ -61,7 +61,7 @@
 <!ENTITY main.statusbar.accesskey       "С">
 <!ENTITY main.resultsbar                "Лента с резултатите">
 <!ENTITY main.resultsbar.accesskey      "R">
-<!ENTITY main.tabs                      "Табове">
+<!ENTITY main.tabs                      "Подпрозорци">
 <!ENTITY main.tabs.accesskey            "T">
 <!ENTITY main.fullscreen                "Цял екран">
 <!ENTITY main.fullscreen.accesskey      "F">

@@ -92,8 +92,8 @@
 <!ENTITY main.back                      "Voltar">
 <!ENTITY main.forward                   "Avançar">
 <!ENTITY main.home                      "Início">
-<!ENTITY main.searchBar                 "Barra de busca">
-<!ENTITY main.search                    "Buscar">
+<!ENTITY main.searchBar                 "Barra de pesquisa">
+<!ENTITY main.search                    "Pesquisar">
 <!ENTITY main.searchPlaceholder         "Digite o texto a pesquisar aqui...">
 <!ENTITY main.findInText                "Buscar no texto">
 <!ENTITY main.noSearchBar               "A busca requer um arquivo ZIM indexado">

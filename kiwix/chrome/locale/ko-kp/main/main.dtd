@@ -9,7 +9,7 @@
 <!ENTITY main.osxshowall                "모두 보기">
 
 <!-- File menu -->
-<!ENTITY main.file                      "기록철">
+<!ENTITY main.file                      "서류">
 <!ENTITY main.file.accesskey            "F">
 <!ENTITY main.openFile                  "자료 열람">
 <!ENTITY main.browseLibrary.accesskey   "B">
@@ -125,7 +125,7 @@
 
 <!-- Preferences Window -->
 <!ENTITY preferences.preferences        "좋아하는 것">
-<!ENTITY preferences.save               "저장">
+<!ENTITY preferences.save               "보관">
 <!ENTITY preferences.cancel             "취소">
 <!ENTITY preferences.profileDirectory   "개인략력 보판장소">
 <!ENTITY preferences.dataDirectory      "Data directory">

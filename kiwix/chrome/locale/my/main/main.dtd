@@ -93,7 +93,7 @@
 <!ENTITY main.forward                   "ရှေ့ပြန်သွားရန်">
 <!ENTITY main.home                      "ပင်မ">
 <!ENTITY main.searchBar                 "ရှာဖွေရန် နေရာ">
-<!ENTITY main.search                    "ရှာ​ဖွေ​ရန်​">
+<!ENTITY main.search                    "ရှာဖွေရန်">
 <!ENTITY main.searchPlaceholder         "ရှာဖွေလို့သော စာသားကို ဒီမှာ ရိုက်ပါ...">
 <!ENTITY main.findInText                "စာပိုဒ်ထဲတွင် ရှာရန်">
 <!ENTITY main.noSearchBar               "ရှာဖွေမှုပြုလုပ်ရန်အတွက် ကြိုတင်ပြင်ဆင်ထားသော ZIM ဖိုင်တစ်ခု လိုအပ်ပါသည်။">

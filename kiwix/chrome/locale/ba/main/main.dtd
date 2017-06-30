@@ -113,7 +113,7 @@
 <!ENTITY main.defaultset                "Ғәҙәттәге йыйылма">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveMediaAs               "Save media as...">
+<!ENTITY main.saveMediaAs               "Медиа файлды һаҡлау форматы">
 <!ENTITY main.openLinkInNewTab          "Битте яңы һалынмала асырға">
 <!ENTITY main.searchFor                 "Эҙләү">
 <!ENTITY main.copyLinkAdress            "Copy link address">
@@ -132,7 +132,7 @@
 <!ENTITY preferences.browse             "Байҡарға">
 <!ENTITY preferences.tabs               "Һалынмаларҙы хәтерҙә тоторға">
 <!ENTITY preferences.downloadCatalogs   "Юйылған каталогты (-тарҙы) күсереп алың">
-<!ENTITY preferences.neverAskToIndex    "Never ask to index">
+<!ENTITY preferences.neverAskToIndex    "Индексацияны бер ҡасан да һорамаҫҡа">
 
 <!-- Server -->
 <!ENTITY server.load                    "Тейәргә">

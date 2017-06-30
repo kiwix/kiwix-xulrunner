@@ -16,7 +16,7 @@
 <!ENTITY main.browseLibrary             "Percórrer la bibliotèca">
 <!ENTITY main.hideLibrary               "Amagar la bibliotèca">
 <!ENTITY main.openFile.accesskey        "O">
-<!ENTITY main.lastOpen                  "Fichièrs recents...">
+<!ENTITY main.lastOpen                  "Dobèrts recentament...">
 <!ENTITY main.saveFile                  "Enregistrar coma...">
 <!ENTITY main.saveFile.accesskey        "S">
 <!ENTITY main.print                     "Imprimir">

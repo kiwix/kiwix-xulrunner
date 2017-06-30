@@ -117,7 +117,7 @@
 <!ENTITY main.openLinkInNewTab          "Адкрыць спасылку ў новай закладцы">
 <!ENTITY main.searchFor                 "Шукаць">
 <!ENTITY main.copyLinkAdress            "Copy link address">
-<!ENTITY main.mute                      "Бяз гучны">
+<!ENTITY main.mute                      "Бязгучны">
 <!ENTITY main.audible                   "З гукам">
 
 <!-- About Window -->
@@ -145,13 +145,13 @@
 <!ENTITY main.library.getNewFiles               "Атрымаць новыя файлы">
 <!ENTITY main.library.searchZimFiles            "Пошук ZIM-файлаў">
 <!ENTITY main.library.sortBy                    "Сартаваць па">
-<!ENTITY main.library.sortBy.title              "Назве">
+<!ENTITY main.library.sortBy.title              "Назьве">
 <!ENTITY main.library.sortBy.size               "Памеру">
 <!ENTITY main.library.sortBy.date               "Даце">
 <!ENTITY main.library.sortBy.author             "Аўтару">
 <!ENTITY main.library.sortBy.publisher          "Выдавецтву">
 <!ENTITY main.library.filterBy                  "Фільтраваць па">
-<!ENTITY main.library.filterBy.fileSize         "Памеру файла">
+<!ENTITY main.library.filterBy.fileSize         "Памеры файла">
 <!ENTITY main.library.filterBy.language         "Мове">
 <!ENTITY main.library.filterBy.language.all     "Усе">
 <!ENTITY main.library.filterBy.author           "Аўтару">

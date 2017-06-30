@@ -93,8 +93,8 @@
 <!ENTITY main.forward                   "Agpakauna">
 <!ENTITY main.home                      "Balay">
 <!ENTITY main.searchBar                 "Panagbiruk a baras">
-<!ENTITY main.search                    "Biruken">
-<!ENTITY main.searchPlaceholder         "Imakinilya ti testo ti agbiruk ditoy...">
+<!ENTITY main.search                    "Agbiruk">
+<!ENTITY main.searchPlaceholder         "Imakinilya ti biruken a teksto ditoy...">
 <!ENTITY main.findInText                "Sapulen idiay teksto">
 <!ENTITY main.noSearchBar               "Ti pinagbiruk ket masapul ti pagsurotan a ZIM a papeles">
 <!ENTITY main.bookmarks                 "Marmarka ti libro">
@@ -115,7 +115,7 @@
 <!-- Contextual Menu -->
 <!ENTITY main.saveMediaAs               "Save media as...">
 <!ENTITY main.openLinkInNewTab          "Lukatan ti panilpo iti baro nga etiketa">
-<!ENTITY main.searchFor                 "Biruken iti">
+<!ENTITY main.searchFor                 "Agbiruk iti">
 <!ENTITY main.copyLinkAdress            "Copy link address">
 <!ENTITY main.mute                      "Ipaumel">
 <!ENTITY main.audible                   "Mangeg">

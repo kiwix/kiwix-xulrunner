@@ -138,25 +138,25 @@
 <!ENTITY server.load                    "Load">
 <!ENTITY server.start                   "Start">
 <!ENTITY server.stop                    "Stop">
-<!ENTITY server.close                   "Close">
+<!ENTITY server.close                   "Zatvori">
 
 <!-- Library -->
 <!ENTITY main.library.myLibrary                 "My library">
 <!ENTITY main.library.getNewFiles               "Get new files">
 <!ENTITY main.library.searchZimFiles            "Search ZIM files">
 <!ENTITY main.library.sortBy                    "Sort by">
-<!ENTITY main.library.sortBy.title              "Title">
-<!ENTITY main.library.sortBy.size               "Size">
-<!ENTITY main.library.sortBy.date               "Date">
+<!ENTITY main.library.sortBy.title              "Naslov">
+<!ENTITY main.library.sortBy.size               "Veličina">
+<!ENTITY main.library.sortBy.date               "Datum">
 <!ENTITY main.library.sortBy.author             "Author">
-<!ENTITY main.library.sortBy.publisher          "Publisher">
+<!ENTITY main.library.sortBy.publisher          "Izdavač">
 <!ENTITY main.library.filterBy                  "Filter by">
-<!ENTITY main.library.filterBy.fileSize         "File size">
-<!ENTITY main.library.filterBy.language         "Language">
-<!ENTITY main.library.filterBy.language.all     "All">
+<!ENTITY main.library.filterBy.fileSize         "Veličina datoteke">
+<!ENTITY main.library.filterBy.language         "Jezik">
+<!ENTITY main.library.filterBy.language.all     "Sve">
 <!ENTITY main.library.filterBy.author           "Author">
-<!ENTITY main.library.filterBy.author.all       "All">
-<!ENTITY main.library.filterBy.publisher        "Publisher">
-<!ENTITY main.library.filterBy.publisher.all    "All">
+<!ENTITY main.library.filterBy.author.all       "Sve">
+<!ENTITY main.library.filterBy.publisher        "Izdavač">
+<!ENTITY main.library.filterBy.publisher.all    "Sve">
 <!ENTITY main.library.filterBy.lessThan         "Less than">
 

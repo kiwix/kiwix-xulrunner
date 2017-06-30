@@ -135,7 +135,7 @@
 <!ENTITY preferences.neverAskToIndex    "Never ask to index">
 
 <!-- Server -->
-<!ENTITY server.load                    "Ngemot">
+<!ENTITY server.load                    "Ngamot">
 <!ENTITY server.start                   "Lekas">
 <!ENTITY server.stop                    "Mandheg">
 <!ENTITY server.close                   "Tutup">

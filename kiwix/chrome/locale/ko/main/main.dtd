@@ -13,7 +13,7 @@
 <!ENTITY main.file.accesskey            "F">
 <!ENTITY main.openFile                  "파일 열기...">
 <!ENTITY main.browseLibrary.accesskey   "B">
-<!ENTITY main.browseLibrary             "라이브러리 보기">
+<!ENTITY main.browseLibrary             "라이브러리 찾아보기">
 <!ENTITY main.hideLibrary               "라이브러리 숨기기">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "최근에 사용한 항목...">
@@ -43,7 +43,7 @@
 <!ENTITY main.server.accesskey          "s">
 
 <!-- Display menu -->
-<!ENTITY main.display                   "보기">
+<!ENTITY main.display                   "표시">
 <!ENTITY main.display.accesskey         "D">
 <!ENTITY main.zoom                      "확대/축소">
 <!ENTITY main.zoom.accesskey            "Z">
@@ -83,7 +83,7 @@
 <!ENTITY main.help                      "도움말">
 <!ENTITY main.help.accesskey            "H">
 <!ENTITY main.feedback                  "반응">
-<!ENTITY main.reportabug                "오류 보고하기">
+<!ENTITY main.reportabug                "버그 보고">
 <!ENTITY main.requestafeature           "특징 요청하기">
 <!ENTITY main.about                     "&brand.brandShortName;에 대하여">
 <!ENTITY main.about.accesskey           "A">
@@ -156,7 +156,7 @@
 <!ENTITY main.library.filterBy.language.all     "모두">
 <!ENTITY main.library.filterBy.author           "저자">
 <!ENTITY main.library.filterBy.author.all       "모두">
-<!ENTITY main.library.filterBy.publisher        "발표자">
+<!ENTITY main.library.filterBy.publisher        "게시자">
 <!ENTITY main.library.filterBy.publisher.all    "모두">
 <!ENTITY main.library.filterBy.lessThan         "이내">
 

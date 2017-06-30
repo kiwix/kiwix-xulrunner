@@ -21,7 +21,7 @@
 <!ENTITY main.saveFile.accesskey        "S">
 <!ENTITY main.print                     "Бастыру">
 <!ENTITY main.print.accesskey           "P">
-<!ENTITY main.printPdf                  "PDF'та бастыру">
+<!ENTITY main.printPdf                  "PDF иттереп бастыру">
 <!ENTITY main.printPdf.accesskey        "D">
 <!ENTITY main.quit                      "Чыгу">
 <!ENTITY main.quit.accesskey            "Q">

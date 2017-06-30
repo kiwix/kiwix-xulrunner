@@ -39,7 +39,7 @@
 <!ENTITY main.transliteration.accesskey "T">
 <!ENTITY main.preferences               "تفضيلات">
 <!ENTITY main.preferences.accesskey     "n">
-<!ENTITY main.server                    "الخادوم">
+<!ENTITY main.server                    "الخادم">
 <!ENTITY main.server.accesskey          "s">
 
 <!-- Display menu -->
@@ -63,7 +63,7 @@
 <!ENTITY main.resultsbar.accesskey      "R">
 <!ENTITY main.tabs                      "ألسنة">
 <!ENTITY main.tabs.accesskey            "T">
-<!ENTITY main.fullscreen                "ملئ الشاشة">
+<!ENTITY main.fullscreen                "ملء الشاشة">
 <!ENTITY main.fullscreen.accesskey      "F">
 <!ENTITY main.invertedColors            "ألوان معكوسة">
 <!ENTITY main.invertedColors.accesskey  "I">
@@ -73,7 +73,7 @@
 <!ENTITY main.tools.accesskey           "T">
 <!ENTITY main.randomArticle             "مقالة عشوائية">
 <!ENTITY main.randomArticle.accesskey   "R">
-<!ENTITY main.checkIntegrity            "إفحص الإستقامة">
+<!ENTITY main.checkIntegrity            "التحقق من التكامل">
 <!ENTITY main.checkIntegrity.accesskey  "k">
 <!ENTITY main.launchIndexing            "بدء الفهرسة">
 <!ENTITY main.purgeHistory              "مسح تاريخ التصفح">
@@ -93,9 +93,9 @@
 <!ENTITY main.forward                   "التالي">
 <!ENTITY main.home                      "الصفحة الرئيسية">
 <!ENTITY main.searchBar                 "شريط البحث">
-<!ENTITY main.search                    "إبحث">
+<!ENTITY main.search                    "ابحث">
 <!ENTITY main.searchPlaceholder         "أدخل النص للبحث هنا...">
-<!ENTITY main.findInText                "إبحث في النص">
+<!ENTITY main.findInText                "ابحث في النص">
 <!ENTITY main.noSearchBar               "ابحث عن ملفات ZIM المفهرسة">
 <!ENTITY main.bookmarks                 "علامات القراءة">
 
@@ -107,15 +107,15 @@
 <!ENTITY main.notesLabel                "ملاحظات علامات القراءة:">
 <!ENTITY main.loadbmk                   "استورد مجموعة علامات قراءة">
 <!ENTITY main.newbmk                    "أنشئ مجموعة علامات قراءة جديدة">
-<!ENTITY main.mark                      "علّم هذه الصفحة">
+<!ENTITY main.mark                      "علِّم هذه الصفحة">
 <!ENTITY main.unmark                    "أزل تعليم المحدد">
 <!ENTITY main.reload                    "أعد تحميل مجموعة المفضلة">
-<!ENTITY main.defaultset                "تفضيلات أصليّة">
+<!ENTITY main.defaultset                "تعيين الافتراضي">
 
 <!-- Contextual Menu -->
 <!ENTITY main.saveMediaAs               "حفظ وسائط باسم...">
 <!ENTITY main.openLinkInNewTab          "افتح الوصلة في علامة تبويب جديدة">
-<!ENTITY main.searchFor                 "إبحث عن">
+<!ENTITY main.searchFor                 "ابحث عن">
 <!ENTITY main.copyLinkAdress            "Copy link address">
 <!ENTITY main.mute                      "كتم الصوت">
 <!ENTITY main.audible                   "مسموعة">
@@ -125,18 +125,18 @@
 
 <!-- Preferences Window -->
 <!ENTITY preferences.preferences        "التفضيلات">
-<!ENTITY preferences.save               "إحفظ">
+<!ENTITY preferences.save               "احفظ">
 <!ENTITY preferences.cancel             "ألغِ">
 <!ENTITY preferences.profileDirectory   "ملف الاختيارات">
 <!ENTITY preferences.dataDirectory      "Data directory">
-<!ENTITY preferences.browse             "تصفّح">
+<!ENTITY preferences.browse             "تصفح">
 <!ENTITY preferences.tabs               "تذكر علامات التبويب">
-<!ENTITY preferences.downloadCatalogs   "نزّل دفتر/دفاتر مصور/ة بعيد/ة">
+<!ENTITY preferences.downloadCatalogs   "تنزيل دفتر/دفاتر مصور/ة بعيد/ة">
 <!ENTITY preferences.neverAskToIndex    "لا تطلب أبدًا إلى الفهرس">
 
 <!-- Server -->
-<!ENTITY server.load                    "حمّل">
-<!ENTITY server.start                   "إبدأ">
+<!ENTITY server.load                    "حمِّل">
+<!ENTITY server.start                   "ابدأ">
 <!ENTITY server.stop                    "قف">
 <!ENTITY server.close                   "أغلق">
 
@@ -150,7 +150,7 @@
 <!ENTITY main.library.sortBy.date               "التاريخ">
 <!ENTITY main.library.sortBy.author             "المؤلف">
 <!ENTITY main.library.sortBy.publisher          "الناشر">
-<!ENTITY main.library.filterBy                  "رشّح حسب">
+<!ENTITY main.library.filterBy                  "رشح حسب">
 <!ENTITY main.library.filterBy.fileSize         "حجم الملف">
 <!ENTITY main.library.filterBy.language         "اللغة">
 <!ENTITY main.library.filterBy.language.all     "الكل">

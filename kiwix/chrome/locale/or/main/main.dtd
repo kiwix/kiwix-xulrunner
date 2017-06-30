@@ -76,7 +76,7 @@
 <!ENTITY main.checkIntegrity            "ଅଖଣ୍ଡତା ପରଖ">
 <!ENTITY main.checkIntegrity.accesskey  "k">
 <!ENTITY main.launchIndexing            "ସୂଚୀ ଆରମ୍ଭ କରନ୍ତୁ">
-<!ENTITY main.purgeHistory              "ଇତିହାସ ସତେଜ କରିବେ">
+<!ENTITY main.purgeHistory              "ଇତିହାସ ଶୁଦ୍ଧ କରିବେ">
 <!ENTITY main.purgeHistory.accesskey    "P">
 
 <!-- Help menu -->
@@ -108,7 +108,7 @@
 <!ENTITY main.loadbmk                   "ବୁକମାର୍କ ଗୋଠ ଆମଦାନି କରିବେ">
 <!ENTITY main.newbmk                    "ନୂଆ ବୁକମାର୍କ ଗୋଠ ତିଆରିବେ">
 <!ENTITY main.mark                      "ଏଇ ପୃଷ୍ଠାଟିକୁ ଚିହ୍ନିତ କରିବେ">
-<!ENTITY main.unmark                    "ବଛାଯାଇଥିବା ବସ୍ତୁ ସବୁକୁ ବାଛିବେ ନାହିଁ">
+<!ENTITY main.unmark                    "ବଛାଯାଇଥିବା ବସ୍ତୁ ସବୁକୁ ଅଣଚିହ୍ନିତ କରିବେ">
 <!ENTITY main.reload                    "ବୁକମାର୍କ ଗୋଠକୁ ଆଉଥରେ ଲୋଡ କରିବେ">
 <!ENTITY main.defaultset                "ଆପେଆପେ ଥିବା ଗୋଠ">
 

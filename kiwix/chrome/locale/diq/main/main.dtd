@@ -71,7 +71,7 @@
 <!-- Tools menu -->
 <!ENTITY main.tools                     "Xecetî">
 <!ENTITY main.tools.accesskey           "T">
-<!ENTITY main.randomArticle             "Wesiqaya raştami">
+<!ENTITY main.randomArticle             "Nuşteyo raştamey">
 <!ENTITY main.randomArticle.accesskey   "R">
 <!ENTITY main.checkIntegrity            "Cerbiya pêroneyin">
 <!ENTITY main.checkIntegrity.accesskey  "k">
@@ -100,7 +100,7 @@
 <!ENTITY main.bookmarks                 "Nışan">
 
 <!-- Results bar -->
-<!ENTITY main.results.title             "Neticeyê geyrayışi">
+<!ENTITY main.results.title             "Peyniyê cıgeyrayışi">
 
 <!-- Bookmarks Bar -->
 <!ENTITY main.bmkLabel                  "Nışani:">
@@ -136,7 +136,7 @@
 
 <!-- Server -->
 <!ENTITY server.load                    "Bar ke">
-<!ENTITY server.start                   "Serokne">
+<!ENTITY server.start                   "Sergend">
 <!ENTITY server.stop                    "Vınd">
 <!ENTITY server.close                   "Racnê">
 

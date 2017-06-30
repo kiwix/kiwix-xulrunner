@@ -3,18 +3,18 @@
 <!ENTITY main.cssdirection              "ltr">
 
 <!-- Mac menu -->
-<!ENTITY main.osxservices               "Services">
-<!ENTITY main.osxhideapp                "Hide &brand.brandShortName;">
-<!ENTITY main.osxhideothers             "Hide Others">
-<!ENTITY main.osxshowall                "Show All">
+<!ENTITY main.osxservices               "Сэрвісы">
+<!ENTITY main.osxhideapp                "Схаваць &brand.brandShortName;">
+<!ENTITY main.osxhideothers             "Схаваць іншыя">
+<!ENTITY main.osxshowall                "Паказаць усе">
 
 <!-- File menu -->
 <!ENTITY main.file                      "Файл">
 <!ENTITY main.file.accesskey            "F">
 <!ENTITY main.openFile                  "Адкрыць файл ...">
 <!ENTITY main.browseLibrary.accesskey   "B">
-<!ENTITY main.browseLibrary             "Browse library">
-<!ENTITY main.hideLibrary               "Hide library">
+<!ENTITY main.browseLibrary             "Праглядзець бібліятэку">
+<!ENTITY main.hideLibrary               "Схаваць бібліятэку">
 <!ENTITY main.openFile.accesskey        "O">
 <!ENTITY main.lastOpen                  "Нядаўна адкрытыя ...">
 <!ENTITY main.saveFile                  "Захаваць старонку як ...">
@@ -39,7 +39,7 @@
 <!ENTITY main.transliteration.accesskey "T">
 <!ENTITY main.preferences               "Настройкі">
 <!ENTITY main.preferences.accesskey     "n">
-<!ENTITY main.server                    "Server">
+<!ENTITY main.server                    "Сервер">
 <!ENTITY main.server.accesskey          "s">
 
 <!-- Display menu -->
@@ -65,7 +65,7 @@
 <!ENTITY main.tabs.accesskey            "T">
 <!ENTITY main.fullscreen                "Поўны экран">
 <!ENTITY main.fullscreen.accesskey      "F">
-<!ENTITY main.invertedColors            "Inverted colors">
+<!ENTITY main.invertedColors            "Інвертаваць колеры">
 <!ENTITY main.invertedColors.accesskey  "I">
 
 <!-- Tools menu -->
@@ -75,14 +75,14 @@
 <!ENTITY main.randomArticle.accesskey   "R">
 <!ENTITY main.checkIntegrity            "Праверка цэласнасці">
 <!ENTITY main.checkIntegrity.accesskey  "k">
-<!ENTITY main.launchIndexing            "Launch indexing">
+<!ENTITY main.launchIndexing            "Пачаць індэксаванне">
 <!ENTITY main.purgeHistory              "Ачысціць гісторыю">
 <!ENTITY main.purgeHistory.accesskey    "P">
 
 <!-- Help menu -->
 <!ENTITY main.help                      "Даведка">
 <!ENTITY main.help.accesskey            "H">
-<!ENTITY main.feedback                  "Feedback">
+<!ENTITY main.feedback                  "Водгукі">
 <!ENTITY main.reportabug                "Паведаміць пра памылку">
 <!ENTITY main.requestafeature           "Запыт функцыі">
 <!ENTITY main.about                     "Аб &brand.brandShortName;">
@@ -94,7 +94,7 @@
 <!ENTITY main.home                      "Дадому">
 <!ENTITY main.searchBar                 "Панэль пошуку">
 <!ENTITY main.search                    "Пошук">
-<!ENTITY main.searchPlaceholder         "Type the text to search here...">
+<!ENTITY main.searchPlaceholder         "Увядзіце тэкст для пошуку...">
 <!ENTITY main.findInText                "Знайсці ў тэксце">
 <!ENTITY main.noSearchBar               "Пошук патрабуе індэксаванага файлу ZIM">
 <!ENTITY main.bookmarks                 "Закладкі">
@@ -109,16 +109,16 @@
 <!ENTITY main.newbmk                    "Стварыць новы набор закладак">
 <!ENTITY main.mark                      "Адзначыць гэтую старонку">
 <!ENTITY main.unmark                    "Зняць адметку з выбранага">
-<!ENTITY main.reload                    "Скінуць набор закладак">
+<!ENTITY main.reload                    "Перагрузіць набор закладак">
 <!ENTITY main.defaultset                "Усталяваць па змаўчанні">
 
 <!-- Contextual Menu -->
-<!ENTITY main.saveMediaAs               "Save media as...">
-<!ENTITY main.openLinkInNewTab          "Open link in new tab">
-<!ENTITY main.searchFor                 "Search for">
+<!ENTITY main.saveMediaAs               "Захаваць медыя як…">
+<!ENTITY main.openLinkInNewTab          "Адкрыць спасылку ў новым вакенцы">
+<!ENTITY main.searchFor                 "Шукаць">
 <!ENTITY main.copyLinkAdress            "Copy link address">
-<!ENTITY main.mute                      "Mute">
-<!ENTITY main.audible                   "Audible">
+<!ENTITY main.mute                      "Без гуку">
+<!ENTITY main.audible                   "З гукам">
 
 <!-- About Window -->
 <!ENTITY main.close                     "Закрыць">
@@ -130,33 +130,33 @@
 <!ENTITY preferences.profileDirectory   "Каталог профіля">
 <!ENTITY preferences.dataDirectory      "Data directory">
 <!ENTITY preferences.browse             "Праглядаць">
-<!ENTITY preferences.tabs               "Remember tabs">
-<!ENTITY preferences.downloadCatalogs   "Download remote catalog(s)">
-<!ENTITY preferences.neverAskToIndex    "Never ask to index">
+<!ENTITY preferences.tabs               "Памятаць вакенцы">
+<!ENTITY preferences.downloadCatalogs   "Спампаваць аддалены(я) каталог(і)">
+<!ENTITY preferences.neverAskToIndex    "Ніколі не пытаць пра індэксаванне">
 
 <!-- Server -->
-<!ENTITY server.load                    "Load">
-<!ENTITY server.start                   "Start">
-<!ENTITY server.stop                    "Stop">
-<!ENTITY server.close                   "Close">
+<!ENTITY server.load                    "Загрузіць">
+<!ENTITY server.start                   "Пачаць">
+<!ENTITY server.stop                    "Спыніць">
+<!ENTITY server.close                   "Закрыць">
 
 <!-- Library -->
-<!ENTITY main.library.myLibrary                 "My library">
-<!ENTITY main.library.getNewFiles               "Get new files">
-<!ENTITY main.library.searchZimFiles            "Search ZIM files">
-<!ENTITY main.library.sortBy                    "Sort by">
-<!ENTITY main.library.sortBy.title              "Title">
-<!ENTITY main.library.sortBy.size               "Size">
-<!ENTITY main.library.sortBy.date               "Date">
-<!ENTITY main.library.sortBy.author             "Author">
-<!ENTITY main.library.sortBy.publisher          "Publisher">
-<!ENTITY main.library.filterBy                  "Filter by">
-<!ENTITY main.library.filterBy.fileSize         "File size">
-<!ENTITY main.library.filterBy.language         "Language">
-<!ENTITY main.library.filterBy.language.all     "All">
-<!ENTITY main.library.filterBy.author           "Author">
-<!ENTITY main.library.filterBy.author.all       "All">
-<!ENTITY main.library.filterBy.publisher        "Publisher">
-<!ENTITY main.library.filterBy.publisher.all    "All">
-<!ENTITY main.library.filterBy.lessThan         "Less than">
+<!ENTITY main.library.myLibrary                 "Мая бібліятэка">
+<!ENTITY main.library.getNewFiles               "Атрымаць новыя файлы">
+<!ENTITY main.library.searchZimFiles            "Пошук ZIM-файлаў">
+<!ENTITY main.library.sortBy                    "Сартаваць паводле">
+<!ENTITY main.library.sortBy.title              "назвы">
+<!ENTITY main.library.sortBy.size               "памеру">
+<!ENTITY main.library.sortBy.date               "даты">
+<!ENTITY main.library.sortBy.author             "аўтара">
+<!ENTITY main.library.sortBy.publisher          "выдавецтва">
+<!ENTITY main.library.filterBy                  "Фільтраваць па">
+<!ENTITY main.library.filterBy.fileSize         "Памер файла">
+<!ENTITY main.library.filterBy.language         "Мова">
+<!ENTITY main.library.filterBy.language.all     "Усе">
+<!ENTITY main.library.filterBy.author           "Аўтар">
+<!ENTITY main.library.filterBy.author.all       "Усе">
+<!ENTITY main.library.filterBy.publisher        "Выдавецтва">
+<!ENTITY main.library.filterBy.publisher.all    "Усе">
+<!ENTITY main.library.filterBy.lessThan         "Менш чым">
 
