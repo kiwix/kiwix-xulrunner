@@ -1,56 +1,72 @@
+# Kiwix
+
 Kiwix is an offline reader for Web content. It's especially thought to
 make Wikipedia available offline.  This is done by reading the content
 of the project stored in a file format ZIM, a high compressed open
 format with additional meta-data.
 
-*********************************************************************
-****************** COMPILATION INSTRUCTIONS *************************
-*********************************************************************
+## COMPILATION INSTRUCTIONS 
 
 Take care, the paragraphs are about the *target platforms*. If you
 want to build Kiwix for Android on a GNU/Linux system, you should
 follow the instructions of the "Android" paragraph.
 
-== GNU/Linux ==
+## GNU/Linux
 Install pre-requisties in your distro, eg, in Debian based:
 
+```
 sudo apt-get install zip pkg-config aptitude
 sudo apt-get install libmagic-dev
 sudo aptitude install libtool automake
+```
 
-=== Static (Probably what you need to do if you don't know) ===
+### Static (Probably what you need to do if you don't know)
 
 Kiwix uses shared libraries only. A static build of Kiwix is a build
 which packages the dependencies. Command line tools (indexer, server,
 etc) are compiled statically.
 
-# Run automake
+#### Run automake
+```
 ./autogen.sh
+```
 
-# Run autoconf
-./configure --enable-compileall --enable-staticbins --disable-android
+#### Run autoconf
+```
+./configure --enable-compileall --enable-staticbins --disable-android;
+```
 
-# Download all dependencies
-cd src/dependencies; make ; cd ../..
+#### Download all dependencies
+```
+cd src/dependencies;
+make;
+cd ../..;
+```
 
-# Reconfigure with dependencies (Gecko version)
-./configure --enable-compileall --enable-staticbins --disable-android
+#### Reconfigure with dependencies (Gecko version)
+```
+./configure --enable-compileall --enable-staticbins --disable-android;
+```
 
-# Compile
-make
+#### Compile
+```
+make;
+```
 
-# Creates tarbal suitable for distribution (no deps)
+#### Creates tarbal suitable for distribution (no deps)
+```
 make diststatic
+```
 
-# If you want to be able to run directly from your dev repository copy
-# the "xulrunner" directory in the distributation tarball to the
-# "kiwix" sub-directory of your developement tree.
+* If you want to be able to run directly from your dev repository copy
+ the "xulrunner" directory in the distributation tarball to the
+ "kiwix" sub-directory of your developement tree.
 
-# Don't try to install with "make install", if you want to have kiwix
-# install on your system just copy the directory in a /usr/local/bin
-# directory.
+* Don't try to install with "make install", if you want to have kiwix
+ install on your system just copy the directory in a /usr/local/bin
+ directory.
 
-== Dynamic ==
+### Dynamic
 
 GNU/Linux build uses shared libraries by default. You will need the
 following dependencies (also -dev packages) to compile Kiwix for Linux
@@ -83,27 +99,29 @@ packages. Ubuntu provides most of them, excluding xulrunner and
 zimlib. You will have to download and install them separatly or run
 configure --with-static-dep=SELF. Then run the following commands:
 
-# Run automake
-./autogen.sh
+#### Run automake
+```
+./autogen.sh;
+```
 
-# Configure the compilation
-# check --help for options. Most dependencies accept --with-dep=XX and
-# with-static-dep=XX.a. Static version of libraries are used for building
-# static binaries (server, indexer, etc) Use --with-dep=SELF or
-# --with-static-dep=SELF to trigger fetch and build for the dependency.
-./configure
+Configure the compilation check --help for options. Most dependencies accept --with-dep=XX and with-static-dep=XX.a. Static version of libraries are used for building static binaries (server, indexer, etc) Use --with-dep=SELF or --with-static-dep=SELF to trigger fetch and build for the dependency.
+```
+./configure;
+```
 
-# Compile
-make
+#### Compile
+```
+make;
+````
 
-# Optionaly install on the filesystem
-sudo make install
+#### Optionaly install on the filesystem
+```
+sudo make install;
+```
 
-== Mac OSX Universal ==
+## Mac OSX Universal
 
-[warning] To build the Mac OS version you will have to install
-proprietary software which are free of charge.
-You will also need to build on an Apple Mac computer.
+**WARNING:** To build the Mac OS version you will have to install proprietary software which are free of charge. You will also need to build on an Apple Mac computer.
 
 * Install OSX 10.6.5+ (proprietary)
 * Install XCode 3.2.5+ (proprietary) -
@@ -112,29 +130,32 @@ You will also need to build on an Apple Mac computer.
 * Install Java
 * Install MacPorts - http://www.macports.org/install.php
 
-* Configure Macports
+##### Configure Macports
 
-* Install the following tools and libraries
+Install the following tools and libraries
 
-sudo port install autogen +universal pkgconfig +universal wget +universal gmake +universal coreutils +universal libidl +universal autoconf213 +universal icu +universal
+```
+sudo port install autogen +universal pkgconfig +universal wget +universal gmake +universal coreutils +universal libidl +universal autoconf213 +universal icu +universal;
+```
 
-Note: the following commands seem to work better on OS X Yosemite, apparently 'universal' is less relevant and various packages are no longer available as universal options. 
-sudo port  install autogen pkgconfig  wget  gmake  coreutils  libidl  autoconf213  icu
+**NOTE:** the following commands seem to work better on OS X Yosemite, apparently 'universal' is less relevant and various packages are no longer available as universal options. 
+```
+sudo port  install autogen pkgconfig  wget  gmake  coreutils  libidl  autoconf213  icu;
 sudo port -v install aclocal automake libtool autoconf cmake imagemagick
+./autogen.sh alt && ./configure --enable-compileall;
+cd src/dependencies && make;
+make clean;
+./autogen.sh alt && ./configure --enable-compileall --enable-compileall --disable-dependency-tracking --with-target-arch=i386;
+make;
+make distmac;
+make clean;
+./autogen.sh alt && ./configure --enable-compileall --enable-compileall --disable-dependency-tracking --with-target-arch=x86_64;
+make;
+make distmac;
+make universal;
+```
 
-./autogen.sh alt && ./configure --enable-compileall
-cd src/dependencies && make
-make clean
-./autogen.sh alt && ./configure --enable-compileall --enable-compileall --disable-dependency-tracking --with-target-arch=i386
-make
-make distmac
-make clean
-./autogen.sh alt && ./configure --enable-compileall --enable-compileall --disable-dependency-tracking --with-target-arch=x86_64
-make
-make distmac
-make universal
-
-;;Debugging tips:
+##### Debugging tips:
 
 - components file type can be either Mach-O dynamically linked shared library
   or Mach-O bundle but above instructions will create dynamic libraries.
@@ -146,11 +167,11 @@ make universal
 - install_name_tool -change @executable_path/../libicuuc.dylib libicuuc.dylib kiwix-serve
 - lldb
 
-== Android ==
+## Android
 
 Look at android/README
 
-== Windows ==
+## Windows
 
 * Install Windows XP SP2+
 * Install Visual Studio Express 2010
@@ -174,29 +195,29 @@ Look at android/README
 
 * Get shell from c:\mozilla-build\start-msvc10.bat
 
-* mkdir -p /c/slave/windows-32b
-  git clone git://git.code.sf.net/p/kiwix/kiwix kiwix
-  cd kiwix
-  ./autogen.sh alt
-  ./configure --disable-indexer --enable-jar
-  make win
-  make windist
-  make wininstaller
+```
+mkdir -p /c/slave/windows-32b
+git clone git://git.code.sf.net/p/kiwix/kiwix kiwix
+cd kiwix
+./autogen.sh alt
+./configure --disable-indexer --enable-jar
+make win
+make windist
+make wininstaller
+```
 
-*********************************************************************
-*************************** CONTACT *********************************
-*********************************************************************
+## Contact
 
 Email: kiwix-developer@lists.sourceforge.net or contact@kiwix.org
+
 Jabber: kelson@kiwix.org
+
 IRC: #kiwix on irc.freenode.net
 
 You can use IRC web interface on http://chat.kiwix.org/
 
 More... http://www.kiwix.org/wiki/Communication
 
-*********************************************************************
-********************** LEGAL & DISCLAIMER ***************************
-*********************************************************************
+## LEGAL & DISCLAIMER
 
 Read 'COPYING' file
